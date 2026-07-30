@@ -179,14 +179,22 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     잡아야만 했다(0.03) — 그래도 여전히 위험한 여지가 있다. gemini_illust.py의
     STYLE_PROMPT를 초록 배경(#00FF00)으로 바꿔뒀으니, 그 프롬프트로 새로 만든
     캐릭터는 bg_color="0x00FF00"로 넉넉한 threshold(0.15 정도)를 써도 안전하다.
-    기존 흰 배경 캐릭터(예: 돼지감자)는 기본값 그대로 좁은 threshold 유지."""
+    기존 흰 배경 캐릭터(예: 돼지감자)는 기본값 그대로 좁은 threshold 유지.
+
+    WHY alpha 이분법 처리(2026-07-30): colorkey가 threshold 안쪽 픽셀도 완전
+    불투명이 아니라 부분투명(반쯤 섞인 alpha)으로 만드는 경우가 있는데, 이게
+    280px로 축소되는 코너 장면에서 배경(초록 잎)이 캐릭터 얼굴에 얼룩덜룩
+    비쳐 보이는 원인이었다(세션 내내 "눈 왜곡"으로 오인했던 문제의 진짜 정체 —
+    Kling 생성 결과가 아니라 이 로컬 합성 단계의 버그였음). lut=a로 alpha를
+    16 기준 완전 불투명(255) 아니면 완전 투명(0)으로 강제해서 부분투명을 없앤다."""
     similarity = "0.03" if bg_color.upper() == "0xFFFFFF" else "0.15"
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},format=yuva420p",
+             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},format=yuva420p,"
+                    "lut=a='if(gt(val\\,16)\\,255\\,0)'",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
         )
