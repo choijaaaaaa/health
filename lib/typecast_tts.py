@@ -6,6 +6,7 @@ from __future__ import annotations
 import base64
 import json
 import os
+import random
 import re
 import subprocess
 import sys
@@ -30,6 +31,14 @@ def _voice_id(name: str) -> str:
         if v["name"] == name:
             return v["actor_id"]
     raise ValueError(f"등록되지 않은 보이스 이름: {name}")
+
+
+def _random_voice_name() -> str:
+    """WHY 랜덤 보이스(2026-07-31): 매번 "상현"으로 고정하면 채널 전체가 목소리
+    단조로워진다는 피드백 — topic마다 등록된 보이스 중 하나를 난수로 골라
+    다양성을 준다."""
+    voices = json.loads((ROOT / "data" / "typecast_voices.json").read_text())
+    return random.choice(voices)["name"]
 
 
 def _format_srt_time(seconds: float) -> str:
@@ -124,8 +133,11 @@ def _insert_sentence_pauses(audio_bytes: bytes, audio_format: str, words: list[d
         return out_path.read_bytes(), new_words
 
 
-def synthesize(topic: str, text: str, voice_name: str = "상현", audio_format: str = "mp3") -> dict:
+def synthesize(topic: str, text: str, voice_name: str | None = None, audio_format: str = "mp3") -> dict:
     api_key = os.environ["TYPECAST_API_KEY"]
+    if voice_name is None:
+        voice_name = _random_voice_name()
+        print(f"[typecast] 보이스 랜덤 선택: {voice_name}")
 
     body = {
         "voice_id": _voice_id(voice_name),
@@ -170,6 +182,6 @@ def synthesize(topic: str, text: str, voice_name: str = "상현", audio_format: 
 if __name__ == "__main__":
     topic = sys.argv[1]
     text = sys.argv[2]
-    voice_name = sys.argv[3] if len(sys.argv) > 3 else "상현"
+    voice_name = sys.argv[3] if len(sys.argv) > 3 else None
     result = synthesize(topic, text, voice_name)
     print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
