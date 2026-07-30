@@ -42,22 +42,58 @@ def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     return entries
 
 
-def _make_title_png(text: str, out_path: Path, font_size=38):
-    """영상 상단에 계속 떠 있는 주제 라벨. WHY: 훅 문장만으로는 스크롤하는 사람이
-    무슨 주제인지 바로 못 읽고 3초컷으로 넘기는 문제가 있어서, 첫 프레임부터
-    주제를 텍스트로 바로 보여준다."""
+def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
+    """공정위 표시광고 지침 대응 — 실제 쿠팡/네이버 제휴 링크를 쓰기로 확정한
+    영상에만 assemble(..., ad_tag=True)로 켠다. "처음부터 끝까지 노출" 요건 때문에
+    약하게(반투명)라도 전체 구간에 계속 떠 있어야 하고, 후반부에만 넣는 건 안 됨
+    (shopping-shorts-video에서 확인된 규칙과 동일)."""
     font = ImageFont.truetype(FONT_PATH, font_size)
+    text = "광고"
+    dummy = Image.new("RGBA", (1, 1))
+    bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    box_w, box_h = tw + padding * 2, th + padding * 2
+    img = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 100))
+    draw = ImageDraw.Draw(img)
+    draw.text((padding - bbox[0], padding - bbox[1]), text, font=font, fill=(255, 255, 255, 210))
+    img.save(out_path)
+
+
+def _make_title_png(text: str, out_path: Path, font_size=46) -> int:
+    """영상 상단을 가로로 꽉 채우는 후킹 배너. WHY: 작은 알약 모양 라벨은 존재감이
+    약해서 스크롤 중 3초컷으로 넘어가는 문제를 못 막는다(2026-07-30 피드백) —
+    화면 가로 전체를 덮는 굵은 배너로 바꾸고, 텍스트도 카테고리 라벨이 아니라
+    후킹 문구(공감/호기심 유발)를 넣는다. 반환값(배너 높이)은 다른 오버레이가
+    이 배너와 겹치지 않게 배치할 때 쓴다."""
+    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
-    bbox = d.textbbox((0, 0), text, font=font)
-    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    pad_x, pad_y = 30, 16
-    box_w, box_h = tw + pad_x * 2, th + pad_y * 2
-    img = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
+    max_text_w = W - 140
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        bbox = d.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_text_w and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+
+    line_h = font_size + 16
+    pad_y = 30
+    box_h = pad_y * 2 + line_h * len(lines)
+    img = Image.new("RGBA", (W, box_h), (200, 74, 98, 240))
     draw = ImageDraw.Draw(img)
-    draw.rounded_rectangle([0, 0, box_w, box_h], radius=box_h // 2, fill=(200, 74, 98, 235))
-    draw.text((pad_x - bbox[0], pad_y - bbox[1]), text, font=font, fill=(255, 255, 255, 255))
+    y = pad_y
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255, 255))
+        y += line_h
     img.save(out_path)
+    return box_h
 
 
 def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
@@ -135,9 +171,14 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
         )
 
 
-def _build_background(images: list[str], total_duration: float, out_path: Path):
+def _build_background(images: list[str], total_duration: float, out_path: Path, xfade_dur: float = 0.7):
+    """실사진 슬라이드쇼 배경. WHY 크로스페이드: 이전엔 concat demuxer로 하드컷만
+    이어붙여서 사진이 바뀔 때마다 뚝뚝 끊기는 느낌이었다(2026-07-30 피드백: "좀더
+    끊김없이 계속 움직일 수 있도록") — xfade로 디졸브 전환을 넣어 계속 움직이는
+    느낌을 유지한다. 이미지가 4장 정도로 적어서 xfade 체인이 성능 문제는 없음
+    (수백 개 세그먼트를 잇는 것과는 다른 케이스 — cat-fight 교훈은 여기 해당 안 됨)."""
     n = len(images)
-    seg_dur = total_duration / n
+    seg_dur = (total_duration + (n - 1) * xfade_dur) / n if n > 1 else total_duration
     frames = max(int(seg_dur * FPS), 1)
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
@@ -154,11 +195,24 @@ def _build_background(images: list[str], total_duration: float, out_path: Path):
                 check=True, capture_output=True,
             )
             seg_paths.append(seg)
-        list_path = tmp_path / "list.txt"
-        list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
+
+        if n == 1:
+            subprocess.run(["ffmpeg", "-y", "-i", str(seg_paths[0]), "-c", "copy", str(out_path)],
+                            check=True, capture_output=True)
+            return
+
+        inputs = []
+        for p in seg_paths:
+            inputs += ["-i", str(p)]
+        filters, prev = [], "0:v"
+        for i in range(1, n):
+            offset = i * (seg_dur - xfade_dur)
+            out_label = f"vx{i}" if i < n - 1 else "vout"
+            filters.append(f"[{prev}][{i}:v]xfade=transition=fade:duration={xfade_dur}:offset={offset}[{out_label}]")
+            prev = out_label
         subprocess.run(
-            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
-             "-c", "copy", str(out_path)],
+            ["ffmpeg", "-y", *inputs, "-filter_complex", ";".join(filters),
+             "-map", "[vout]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
             check=True, capture_output=True,
         )
 
@@ -171,6 +225,7 @@ def assemble(
     out_path: str,
     title: str,
     intro_duration: float = 5.3,
+    ad_tag: bool = False,
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -220,19 +275,35 @@ def assemble(
             check=True, capture_output=True,
         )
 
-        # 3) 상단 주제 라벨 — 전체 길이에 한 번만 overlay(세그먼트 아님, 성능 안전)
-        # WHY -t를 이미지 입력과 출력 양쪽에 명시: -loop 1 이미지 + -shortest 조합만으로는
-        # 종료를 못 잡고 무한정 도는 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이
-        # 계속 커지는 걸 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다.
+        # 3) 상단 후킹 배너(+ 필요시 광고 태그) — 전체 길이에 한 번만 overlay
+        # (세그먼트 아님, 성능 안전). WHY -t를 이미지 입력과 출력 양쪽에 명시:
+        # -loop 1 이미지 + -shortest 조합만으로는 종료를 못 잡고 무한정 도는
+        # 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이 계속 커지는 걸
+        # 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다.
         title_png = tmp_path / "title.png"
-        _make_title_png(title, title_png)
+        title_h = _make_title_png(title, title_png)
         titled = tmp_path / "titled.mp4"
-        subprocess.run(
-            ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
-             "-filter_complex", "[0:v][1:v]overlay=x=(main_w-overlay_w)/2:y=64[v]",
-             "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
-            check=True, capture_output=True,
-        )
+
+        if ad_tag:
+            ad_png = tmp_path / "ad_tag.png"
+            _make_ad_tag_png(ad_png)
+            subprocess.run(
+                ["ffmpeg", "-y",
+                 "-i", str(combined),
+                 "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
+                 "-loop", "1", "-t", f"{total_duration}", "-i", str(ad_png),
+                 "-filter_complex",
+                 f"[0:v][1:v]overlay=x=0:y=0[t];[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}[v]",
+                 "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                check=True, capture_output=True,
+            )
+        else:
+            subprocess.run(
+                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
+                 "-filter_complex", "[0:v][1:v]overlay=x=0:y=0[v]",
+                 "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                check=True, capture_output=True,
+            )
         combined = titled
 
         # 4) 자막 굽기 (문장 구간별로 짧게 잘라 처리 — 안전한 세그먼트 방식)
@@ -300,6 +371,7 @@ if __name__ == "__main__":
     p.add_argument("--out", required=True)
     p.add_argument("--title", required=True, help="영상 상단에 계속 표시할 주제 라벨")
     p.add_argument("--intro-duration", type=float, default=5.3)
+    p.add_argument("--ad-tag", action="store_true", help="실제 제휴 링크를 쓰기로 확정한 경우에만 켠다")
     args = p.parse_args()
 
     assemble(
@@ -310,4 +382,5 @@ if __name__ == "__main__":
         out_path=args.out,
         title=args.title,
         intro_duration=args.intro_duration,
+        ad_tag=args.ad_tag,
     )

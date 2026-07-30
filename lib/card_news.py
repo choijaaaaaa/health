@@ -122,15 +122,16 @@ def _make_cover_flat(title_lines, char_paths, out_path):
     draw = ImageDraw.Draw(img)
     _top_chip(img, draw, "건강 카드뉴스", ACCENT)
 
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
     size, gap = 200, 24
-    n = len(char_paths)
+    n = len(unique_paths)
     cols = min(n, 3)
     med_size = size + (10 + 18) * 2
     total_w = med_size * cols + gap * (cols - 1)
     start_x = (W - total_w) // 2
     y0 = 250
     row_h = med_size + gap
-    for idx, path in enumerate(char_paths):
+    for idx, path in enumerate(unique_paths):
         row, col = divmod(idx, cols)
         remainder = n - cols * (n // cols)
         row_items = cols if row < n // cols else remainder
@@ -178,14 +179,18 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
     _top_chip(img, draw, "건강 카드뉴스", ACCENT)
 
     # 3) 캐릭터(들) — 사진 위에 큼직하게, 그림자 있는 메달리온
-    n = len(char_paths)
+    # 단일 캐릭터 주제는 char_paths에 같은 이미지가 아이템 수만큼(예: 5번) 들어있을 수
+    # 있어서(아이템마다 char_file 지정 구조) 중복 제거 후 표시 — 안 그러면 같은 캐릭터가
+    # 줄지어 나열되는 버그가 생긴다.
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    n = len(unique_paths)
     size = 260 if n == 1 else 170
     gap = 20
     med_size = size + (10 + 18) * 2
     total_w = med_size * n + gap * (n - 1)
     start_x = (W - total_w) // 2
     y0 = int(H * 0.30)
-    for idx, path in enumerate(char_paths):
+    for idx, path in enumerate(unique_paths):
         m = _char_medallion(path, size, ring_color=(255, 255, 255))
         img.paste(m, (start_x + idx * (med_size + gap), y0), m)
 
@@ -207,13 +212,10 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     img = _rounded_panel(img, panel_box, radius=40, fill=PANEL)
     draw = ImageDraw.Draw(img)
 
-    # 상단 "TIP 0N" 라벨
-    label_f = _font(26, "semibold")
-    draw.text((MARGIN, 74), eyebrow, font=label_f, fill=GOLD)
-    num_f = _font(96, "bold")
-    ntxt = f"{num:02d}"
-    draw.text((MARGIN - 4, 100), ntxt, font=num_f, fill=ACCENT_SOFT)
-    draw.text((MARGIN - 4, 100), ntxt, font=num_f, fill=None, stroke_width=3, stroke_fill=ACCENT)
+    # 상단 라벨 — 페이지 번호는 큼직한 숫자 대신 하단 바에서 "N / total"로
+    # 작게만 보여준다(2026-07-30, 큰 숫자가 정보량 대비 공간을 너무 차지한다는 피드백)
+    label_f = _font(28, "semibold")
+    draw.text((MARGIN, 84), eyebrow, font=label_f, fill=GOLD)
 
     # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
     # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
@@ -223,9 +225,9 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
 
     draw = ImageDraw.Draw(img)
     y = panel_box[1] + m.height + 40
-    y = _draw_centered(draw, [name], y, 0, 52, INK, "bold")
-    _diamond_divider(draw, y + 58)
-    _draw_centered(draw, body_lines, y + 100, 54, 33, INK, "regular")
+    y = _draw_centered(draw, [name], y, 0, 60, INK, "bold")
+    _diamond_divider(draw, y + 62)
+    _draw_centered(draw, body_lines, y + 104, 62, 39, INK, "medium")
 
     draw.rectangle([0, H - 70, W, H], fill=ACCENT)
     _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 28, (255, 255, 255), "medium")

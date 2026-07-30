@@ -68,10 +68,6 @@
   }
   .dock-head { display: flex; align-items: center; justify-content: space-between; }
   .dock-head span { font-size: 13px; font-weight: 700; color: var(--ink); }
-  .dock-toggle {
-    background: var(--accent); color: #fff; border: none; font-size: 11px; font-weight: 700;
-    padding: 6px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap;
-  }
   .dock-section h4 {
     margin: 0 0 8px; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase;
     color: var(--ink-soft);
@@ -85,13 +81,21 @@
   .dock-links a:hover { background: var(--gold-soft); color: var(--gold); }
   .dock-product-row {
     border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 6px;
+    transition: background 0.2s, border-color 0.2s;
   }
+  .dock-product-row.linked { background: var(--gold-soft); border-color: var(--gold); }
   .dock-product-head { display: flex; align-items: center; gap: 6px; }
   .dock-product-name { flex: 1; font-size: 12px; font-weight: 700; }
+  .row-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 6px; border: none; font-size: 11px; cursor: pointer;
+    background: var(--rule); color: var(--ink-soft); flex: 0 0 auto;
+  }
+  .dock-product-row.linked .row-toggle { background: var(--gold); color: #fff; }
   .dock-product-head a {
     display: inline-flex; align-items: center; justify-content: center;
     width: 22px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 800;
-    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none; flex: 0 0 auto;
   }
   .dock-product-head a:hover { background: var(--gold-soft); color: var(--gold); }
   .product-link-input {
@@ -99,9 +103,7 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
-  .quick-dock.expanded .product-link-input { display: block; }
-  .dock-hint { font-size: 11px; color: var(--ink-soft); line-height: 1.5; display: none; }
-  .quick-dock.expanded .dock-hint { display: block; }
+  .dock-product-row.row-expanded .product-link-input { display: block; }
   @media (max-width: 860px) {
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
@@ -177,7 +179,6 @@
 <div class="quick-dock" id="quickDock">
   <div class="dock-head">
     <span>빠른 도구</span>
-    <button class="dock-toggle" id="dockToggle">펼치기 ▾</button>
   </div>
   <div class="dock-section">
     <h4>실사진 소싱</h4>
@@ -195,22 +196,24 @@
     </div>
   </div>
   <div class="dock-section"><h4>상품 링크</h4>
-<div class="dock-product-row">
+<div class="dock-product-row" id="dock-row-0">
   <div class="dock-product-head">
+    <button class="row-toggle" data-row="dock-row-0" title="링크 넣기">🔗</button>
     <span class="dock-product-name">돼지감자</span>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&tab=product" target="_blank" rel="noopener" title="브랜드커넥트에서 검색">N</a>
     <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&channel=user" target="_blank" rel="noopener" title="쿠팡에서 검색">C</a>
   </div>
-  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90" placeholder="찾은 링크 붙여넣기">
+  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90" placeholder="링크 붙여넣고 Enter">
 </div>
 
-<div class="dock-product-row">
+<div class="dock-product-row" id="dock-row-1">
   <div class="dock-product-head">
+    <button class="row-toggle" data-row="dock-row-1" title="링크 넣기">🔗</button>
     <span class="dock-product-name">돼지감자차</span>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&tab=product" target="_blank" rel="noopener" title="브랜드커넥트에서 검색">N</a>
     <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&channel=user" target="_blank" rel="noopener" title="쿠팡에서 검색">C</a>
   </div>
-  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" placeholder="찾은 링크 붙여넣기">
+  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" placeholder="링크 붙여넣고 Enter">
 </div>
 <p class="dock-hint">링크를 붙여넣으면 모든 캡션 하단에 고지 문구와 함께 자동 반영돼요.</p></div>
 </div>
@@ -257,7 +260,7 @@
 
 #돼지감자차 #혈당관리 #이눌린 #건강정보 #당뇨정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -285,7 +288,7 @@
 
 #Shorts #돼지감자차 #혈당관리 #건강정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-1" data-cover="">캡션 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -312,7 +315,7 @@
 
 #돼지감자차 #혈당관리 #이눌린 #건강정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-2">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-2" data-cover="">캡션 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -337,7 +340,7 @@
 
 #돼지감자차 #혈당관리 #건강정보 #이눌린</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-3">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-3" data-cover="">캡션 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -369,7 +372,7 @@
 
 #돼지감자차 #혈당관리 #건강카드뉴스 #이눌린</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-4" data-cover="">캡션 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -411,7 +414,7 @@
 
 #돼지감자차 #혈당관리 #이눌린 #건강정보 #혈당관리음식</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-5">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-5" data-cover="https://choijaaaaaa.github.io/health/output/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1/card_news/00_%ED%91%9C%EC%A7%80.jpg">캡션+이미지 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -434,7 +437,7 @@
   <a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-6" spellcheck="false">(네이버 블로그와 동일한 본문 사용 — 티스토리는 서식이 살아있어 그대로 붙여넣기 가능)</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-6">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-6" data-cover="https://choijaaaaaa.github.io/health/output/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1/card_news/00_%ED%91%9C%EC%A7%80.jpg">캡션+이미지 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -459,7 +462,7 @@
 
 이눌린이라는 수용성 식이섬유가 식후 혈당 관리에 도움될 가능성이 연구되고 있대요. 근데 이 차 하나로 치료되는 건 아니라는 것도 꼭 알아두면 좋을 것 같아요.</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-7">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-7" data-cover="https://choijaaaaaa.github.io/health/output/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1/card_news/00_%ED%91%9C%EC%A7%80.jpg">캡션+이미지 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -486,7 +489,7 @@
 
 #돼지감자차 #혈당관리 #건강정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-8">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-8" data-cover="https://choijaaaaaa.github.io/health/output/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1/card_news/00_%ED%91%9C%EC%A7%80.jpg">캡션+이미지 복사</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -497,27 +500,40 @@
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const quickDock = document.getElementById("quickDock");
-const dockToggle = document.getElementById("dockToggle");
-const DOCK_STATE_KEY = "hs_dock_expanded";
-if (localStorage.getItem(DOCK_STATE_KEY) === "1") {
-  quickDock.classList.add("expanded");
-  dockToggle.textContent = "접기 ▴";
-}
-dockToggle.addEventListener("click", () => {
-  const open = quickDock.classList.toggle("expanded");
-  dockToggle.textContent = open ? "접기 ▴" : "펼치기 ▾";
-  localStorage.setItem(DOCK_STATE_KEY, open ? "1" : "0");
+document.querySelectorAll(".row-toggle").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const row = document.getElementById(btn.dataset.row);
+    const open = row.classList.toggle("row-expanded");
+    if (open) row.querySelector(".product-link-input").focus();
+  });
 });
 
+function _escapeHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+
 document.querySelectorAll(".btn-copy").forEach(btn => {
+  const originalLabel = btn.textContent;
+  const onCopied = () => {
+    btn.textContent = "복사됨 ✓";
+    btn.classList.add("copied");
+    setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+  };
   btn.addEventListener("click", () => {
     const text = document.getElementById(btn.dataset.target).value;
-    navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = "복사됨 ✓";
-      btn.classList.add("copied");
-      setTimeout(() => { btn.textContent = "캡션 복사"; btn.classList.remove("copied"); }, 1500);
-    });
+    const cover = btn.dataset.cover;
+    if (cover && window.ClipboardItem) {
+      const bodyHtml = text.split("
+").map(line => line.trim() ? `<p>${_escapeHtml(line)}</p>` : "<br>").join("");
+      const html = `<p><img src="${cover}" style="max-width:100%;"></p>` + bodyHtml;
+      const item = new ClipboardItem({
+        "text/plain": new Blob([text], {type: "text/plain"}),
+        "text/html": new Blob([html], {type: "text/html"}),
+      });
+      navigator.clipboard.write([item]).then(onCopied).catch(() => navigator.clipboard.writeText(text).then(onCopied));
+    } else {
+      navigator.clipboard.writeText(text).then(onCopied);
+    }
   });
 });
 const lightbox = document.getElementById("lightbox");
@@ -560,16 +576,25 @@ function applyProductLinks() {
 }
 
 document.querySelectorAll(".product-link-input").forEach(inp => {
+  const row = inp.closest(".dock-product-row");
   const storageKey = LINK_STORAGE_PREFIX + inp.dataset.product;
   const saved = localStorage.getItem(storageKey);
-  if (saved) inp.value = saved;
+  if (saved) {
+    inp.value = saved;
+    row.classList.add("linked");
+  }
   inp.addEventListener("input", () => {
     if (inp.value.trim()) {
       localStorage.setItem(storageKey, inp.value.trim());
+      row.classList.add("linked");
     } else {
       localStorage.removeItem(storageKey);
+      row.classList.remove("linked");
     }
     applyProductLinks();
+  });
+  inp.addEventListener("keydown", e => {
+    if (e.key === "Enter") { row.classList.remove("row-expanded"); inp.blur(); }
   });
 });
 applyProductLinks();

@@ -30,13 +30,14 @@ TYPE_SECTION_TITLE = {
 TYPE_ORDER = ["video", "cards", "text"]
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
-<div class="dock-product-row">
+<div class="dock-product-row" id="dock-row-{idx}">
   <div class="dock-product-head">
+    <button class="row-toggle" data-row="dock-row-{idx}" title="링크 넣기">🔗</button>
     <span class="dock-product-name">{name}</span>
     <a href="{naver_url}" target="_blank" rel="noopener" title="브랜드커넥트에서 검색">N</a>
     <a href="{coupang_url}" target="_blank" rel="noopener" title="쿠팡에서 검색">C</a>
   </div>
-  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="찾은 링크 붙여넣기">
+  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="링크 붙여넣고 Enter">
 </div>
 """
 
@@ -59,7 +60,7 @@ CARD_TEMPLATE = """
   {asset_link}
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-{idx}">캡션 복사</button>
+    <button class="btn-copy" data-target="cap-{idx}" data-cover="{cover_attr}">{copy_label}</button>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -135,10 +136,6 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .dock-head {{ display: flex; align-items: center; justify-content: space-between; }}
   .dock-head span {{ font-size: 13px; font-weight: 700; color: var(--ink); }}
-  .dock-toggle {{
-    background: var(--accent); color: #fff; border: none; font-size: 11px; font-weight: 700;
-    padding: 6px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap;
-  }}
   .dock-section h4 {{
     margin: 0 0 8px; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase;
     color: var(--ink-soft);
@@ -152,13 +149,21 @@ PAGE_TEMPLATE = """<!doctype html>
   .dock-links a:hover {{ background: var(--gold-soft); color: var(--gold); }}
   .dock-product-row {{
     border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 6px;
+    transition: background 0.2s, border-color 0.2s;
   }}
+  .dock-product-row.linked {{ background: var(--gold-soft); border-color: var(--gold); }}
   .dock-product-head {{ display: flex; align-items: center; gap: 6px; }}
   .dock-product-name {{ flex: 1; font-size: 12px; font-weight: 700; }}
+  .row-toggle {{
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 6px; border: none; font-size: 11px; cursor: pointer;
+    background: var(--rule); color: var(--ink-soft); flex: 0 0 auto;
+  }}
+  .dock-product-row.linked .row-toggle {{ background: var(--gold); color: #fff; }}
   .dock-product-head a {{
     display: inline-flex; align-items: center; justify-content: center;
     width: 22px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 800;
-    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none; flex: 0 0 auto;
   }}
   .dock-product-head a:hover {{ background: var(--gold-soft); color: var(--gold); }}
   .product-link-input {{
@@ -166,9 +171,7 @@ PAGE_TEMPLATE = """<!doctype html>
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }}
   .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
-  .quick-dock.expanded .product-link-input {{ display: block; }}
-  .dock-hint {{ font-size: 11px; color: var(--ink-soft); line-height: 1.5; display: none; }}
-  .quick-dock.expanded .dock-hint {{ display: block; }}
+  .dock-product-row.row-expanded .product-link-input {{ display: block; }}
   @media (max-width: 860px) {{
     .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
   }}
@@ -244,7 +247,6 @@ PAGE_TEMPLATE = """<!doctype html>
 <div class="quick-dock" id="quickDock">
   <div class="dock-head">
     <span>빠른 도구</span>
-    <button class="dock-toggle" id="dockToggle">펼치기 ▾</button>
   </div>
   <div class="dock-section">
     <h4>실사진 소싱</h4>
@@ -281,27 +283,39 @@ PAGE_TEMPLATE = """<!doctype html>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const quickDock = document.getElementById("quickDock");
-const dockToggle = document.getElementById("dockToggle");
-const DOCK_STATE_KEY = "hs_dock_expanded";
-if (localStorage.getItem(DOCK_STATE_KEY) === "1") {{
-  quickDock.classList.add("expanded");
-  dockToggle.textContent = "접기 ▴";
-}}
-dockToggle.addEventListener("click", () => {{
-  const open = quickDock.classList.toggle("expanded");
-  dockToggle.textContent = open ? "접기 ▴" : "펼치기 ▾";
-  localStorage.setItem(DOCK_STATE_KEY, open ? "1" : "0");
+document.querySelectorAll(".row-toggle").forEach(btn => {{
+  btn.addEventListener("click", () => {{
+    const row = document.getElementById(btn.dataset.row);
+    const open = row.classList.toggle("row-expanded");
+    if (open) row.querySelector(".product-link-input").focus();
+  }});
 }});
 
+function _escapeHtml(s) {{
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}}
+
 document.querySelectorAll(".btn-copy").forEach(btn => {{
+  const originalLabel = btn.textContent;
+  const onCopied = () => {{
+    btn.textContent = "복사됨 ✓";
+    btn.classList.add("copied");
+    setTimeout(() => {{ btn.textContent = originalLabel; btn.classList.remove("copied"); }}, 1500);
+  }};
   btn.addEventListener("click", () => {{
     const text = document.getElementById(btn.dataset.target).value;
-    navigator.clipboard.writeText(text).then(() => {{
-      btn.textContent = "복사됨 ✓";
-      btn.classList.add("copied");
-      setTimeout(() => {{ btn.textContent = "캡션 복사"; btn.classList.remove("copied"); }}, 1500);
-    }});
+    const cover = btn.dataset.cover;
+    if (cover && window.ClipboardItem) {{
+      const bodyHtml = text.split("\n").map(line => line.trim() ? `<p>${{_escapeHtml(line)}}</p>` : "<br>").join("");
+      const html = `<p><img src="${{cover}}" style="max-width:100%;"></p>` + bodyHtml;
+      const item = new ClipboardItem({{
+        "text/plain": new Blob([text], {{type: "text/plain"}}),
+        "text/html": new Blob([html], {{type: "text/html"}}),
+      }});
+      navigator.clipboard.write([item]).then(onCopied).catch(() => navigator.clipboard.writeText(text).then(onCopied));
+    }} else {{
+      navigator.clipboard.writeText(text).then(onCopied);
+    }}
   }});
 }});
 const lightbox = document.getElementById("lightbox");
@@ -342,16 +356,25 @@ function applyProductLinks() {{
 }}
 
 document.querySelectorAll(".product-link-input").forEach(inp => {{
+  const row = inp.closest(".dock-product-row");
   const storageKey = LINK_STORAGE_PREFIX + inp.dataset.product;
   const saved = localStorage.getItem(storageKey);
-  if (saved) inp.value = saved;
+  if (saved) {{
+    inp.value = saved;
+    row.classList.add("linked");
+  }}
   inp.addEventListener("input", () => {{
     if (inp.value.trim()) {{
       localStorage.setItem(storageKey, inp.value.trim());
+      row.classList.add("linked");
     }} else {{
       localStorage.removeItem(storageKey);
+      row.classList.remove("linked");
     }}
     applyProductLinks();
+  }});
+  inp.addEventListener("keydown", e => {{
+    if (e.key === "Enter") {{ row.classList.remove("row-expanded"); inp.blur(); }}
   }});
 }});
 applyProductLinks();
@@ -403,11 +426,11 @@ def _dock_products(products: list[str], affiliate_path: Path) -> str:
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     creator_id = affiliate.get("naver_brandconnect_id", "")
     rows = ""
-    for name in products:
+    for idx, name in enumerate(products):
         naver_url = f"https://brandconnect.naver.com/{creator_id}/affiliate/products/search?query={quote(name)}&tab=product"
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
-            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=quote(name),
+            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=quote(name), idx=idx,
         )
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
@@ -439,6 +462,12 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     else:
         video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
 
+    # WHY: 텍스트형 플랫폼(블로그 등)은 리치에디터라 클립보드에 text/html을 같이 써주면
+    # 표지 이미지까지 붙여넣기 된다 — GitHub Pages에 푸시된 절대경로가 있어야 브라우저가
+    # 붙여넣을 때 이미지를 실제로 불러올 수 있음(로컬에서만 테스트하면 깨져 보일 수 있음).
+    has_cover = (Path(card_news_dir) / "00_표지.jpg").exists()
+    cover_url = f"https://choijaaaaaa.github.io/health/output/{quote(topic)}/card_news/{quote('00_표지.jpg')}"
+
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
         platforms_by_type.setdefault(p.get("type", "text"), []).append(p)
@@ -451,6 +480,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             continue
         cards_html = ""
         for p in group:
+            cover_attr = cover_url if (t == "text" and has_cover) else ""
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -461,6 +491,8 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 action=_esc(p.get("action", "")),
                 asset_link=_asset_link(t, has_video, video_name),
                 done_key=quote(p["name"]),
+                cover_attr=cover_attr,
+                copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
