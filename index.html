@@ -203,9 +203,11 @@
   <div class="panel" id="formPanel">
     <h2>표지</h2>
     <label>제목 (줄바꿈으로 여러 줄)</label>
-    <textarea id="titleInput">내과전문의가 매일 챙겨먹는다는
-나쁜 콜레스테롤 낮추는
-음식 5가지</textarea>
+    <textarea id="titleInput">병원에서 혈당 조절에
+좋다고 하는
+돼지감자차 이야기</textarea>
+    <label>상단 라벨 (영문 대문자 권장, 예: HEALTH TIP)</label>
+    <input type="text" id="eyebrowInput" value="혈당관리 TIP">
 
     <h2 style="margin-top:24px;">항목 카드</h2>
     <div id="itemsContainer"></div>
@@ -213,14 +215,14 @@
 
     <h2 style="margin-top:24px;">마무리</h2>
     <label>헤드라인 블록 1 (줄바꿈으로 여러 줄)</label>
-    <textarea id="headline1">특정 음식 하나가
-기적처럼 해결해주진 않아요</textarea>
+    <textarea id="headline1">특정 차 한 가지가
+혈당을 크게 낮추진 않아요</textarea>
     <label>헤드라인 블록 2 (강조색, 줄바꿈으로 여러 줄)</label>
-    <textarea id="headline2">매일 조금씩, 꾸준히 챙기는 게
-가장 중요해요</textarea>
+    <textarea id="headline2">단 음료 대신 마시면
+당류 섭취를 줄이는 데 도움될 수 있어요</textarea>
     <label>실천 팁 (줄바꿈으로 여러 줄)</label>
-    <textarea id="tipInput">오늘부터 양파 조금 더 넣고,
-간식은 사과로, 샐러드엔 아보카도!</textarea>
+    <textarea id="tipInput">규칙적인 운동, 균형 잡힌 식사,
+꾸준한 습관이 훨씬 중요해요</textarea>
     <label>CTA 문구</label>
     <input type="text" id="ctaInput" value="더 유용한 건강정보가 궁금하다면 팔로우">
 
@@ -238,20 +240,20 @@
       <pre id="jsonOut"></pre>
       <div class="hint">
         내려받은 JSON은 <code>data/&lt;주제&gt;/card_news_spec.json</code>에 저장하고,
-        캐릭터 이미지는 <code>health/&lt;주제&gt;/</code>에 넣은 뒤<br>
-        로컬에서 <code>python3 lib/card_news.py data/&lt;주제&gt;/card_news_spec.json health/&lt;주제&gt; output/&lt;주제&gt;/card_news</code> 실행하면 실제 이미지가 만들어집니다.
+        캐릭터 이미지는 <code>assets_library/illust/</code>에서 재사용하거나 새로 추가한 뒤<br>
+        로컬에서 <code>python3 lib/card_news.py data/&lt;주제&gt;/card_news_spec.json assets_library/illust output/&lt;주제&gt;/card_news</code> 실행하면 실제 이미지가 만들어집니다.
       </div>
     </div>
   </div>
 </div>
 
 <script>
-const PRESET_CHARS = ["양파", "사과", "가지", "아보카도", "다크초콜릿"];
-const CHAR_BASE = "health/콜레스테롤_1/";
+const PRESET_CHARS = ["돼지감자", "양파", "사과", "가지", "아보카도", "다크초콜릿"];
+const CHAR_BASE = "assets_library/illust/";
 
 let items = [
-  { name: "양파", charFile: "양파_캐릭터_final.jpg", body: "기름진 음식만 줄이면 되는 줄 알았지만,\n퀘르세틴이라는 성분이 나쁜 콜레스테롤이\n산화되는 걸 줄이는 데 도움될 수 있어요.\n\n생으로 먹어도, 볶아도, 국에 넣어도 좋아요." },
-  { name: "사과", charFile: "사과_캐릭터_final.jpg", body: "펙틴이라는 수용성 식이섬유가\n콜레스테롤 배출을 도와줘요.\n\n폴리페놀도 풍부하니까\n가능하면 껍질째 먹는 게 좋아요." },
+  { name: "돼지감자란?", charFile: "돼지감자_illust.jpg", body: "일반 감자와 다르게\n이눌린이라는 성분이 풍부해서\n차로 우려 마시거나\n말려서 먹어온 식재료예요" },
+  { name: "혈당 관리와의 관계", charFile: "돼지감자_illust.jpg", body: "이눌린은 수용성 식이섬유의 일종으로,\n식후 혈당 관리에 도움될 가능성이\n계속 연구되고 있어요\n\n단, 차 하나로 치료되는 건 아니에요" },
 ];
 
 function el(tag, cls, html) {
@@ -276,7 +278,7 @@ function renderForm() {
       <label>캐릭터</label>
       <select data-field="charFile" data-idx="${idx}">
         ${PRESET_CHARS.map(c => {
-          const file = c + "_캐릭터_final.jpg";
+          const file = c + "_illust.jpg";
           return `<option value="${file}" ${item.charFile === file ? "selected" : ""}>${c}</option>`;
         }).join("")}
       </select>
@@ -303,7 +305,7 @@ function renderForm() {
 }
 
 document.getElementById("addItemBtn").addEventListener("click", () => {
-  items.push({ name: "새 항목", charFile: PRESET_CHARS[0] + "_캐릭터_final.jpg", body: "" });
+  items.push({ name: "새 항목", charFile: PRESET_CHARS[0] + "_illust.jpg", body: "" });
   renderForm();
   renderPreview();
 });
@@ -339,7 +341,7 @@ function renderPreview() {
     card.innerHTML = `
       <img class="medallion" src="${CHAR_BASE}${item.charFile}" onerror="this.style.opacity=0.15">
       <div class="fact-panel">
-        <div class="tip-label">CHOLESTEROL TIP</div>
+        <div class="tip-label">${document.getElementById("eyebrowInput").value}</div>
         <div class="tip-num">${String(idx + 1).padStart(2, "0")}</div>
         <div class="card-title">${item.name}</div>
         ${divider()}
@@ -380,6 +382,7 @@ function buildSpec() {
 
   return {
     title: titleLines,
+    eyebrow: document.getElementById("eyebrowInput").value,
     items: items.map(it => ({
       name: it.name,
       char_file: it.charFile,
@@ -406,7 +409,7 @@ document.getElementById("exportBtn").addEventListener("click", () => {
   a.click();
 });
 
-["titleInput", "headline1", "headline2", "tipInput", "ctaInput"].forEach(id => {
+["titleInput", "eyebrowInput", "headline1", "headline2", "tipInput", "ctaInput"].forEach(id => {
   document.getElementById(id).addEventListener("input", renderPreview);
 });
 

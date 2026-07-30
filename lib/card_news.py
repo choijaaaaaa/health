@@ -199,7 +199,7 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
     img.convert("RGB").save(out_path, quality=95)
 
 
-def make_fact_card(num, name, char_path, body_lines, total, out_path):
+def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP"):
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     img = img.convert("RGB")
 
@@ -209,7 +209,7 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path):
 
     # 상단 "TIP 0N" 라벨
     label_f = _font(26, "semibold")
-    draw.text((MARGIN, 74), "CHOLESTEROL TIP", font=label_f, fill=GOLD)
+    draw.text((MARGIN, 74), eyebrow, font=label_f, fill=GOLD)
     num_f = _font(96, "bold")
     ntxt = f"{num:02d}"
     draw.text((MARGIN - 4, 100), ntxt, font=num_f, fill=ACCENT_SOFT)
@@ -265,12 +265,13 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     out_dir.mkdir(parents=True, exist_ok=True)
 
     char_paths = [str(char_dir / item["char_file"]) for item in spec["items"]]
+    eyebrow = spec.get("eyebrow", "HEALTH TIP")
 
     make_cover(spec["title"], char_paths, out_dir / "00_표지.jpg")
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
-        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n, out_dir / f"{i:02d}_{item['name']}.jpg")
+        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n, out_dir / f"{i:02d}_{item['name']}.jpg", eyebrow=eyebrow)
 
     closing = spec["closing"]
     make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"], out_dir / f"{n+1:02d}_마무리.jpg")
