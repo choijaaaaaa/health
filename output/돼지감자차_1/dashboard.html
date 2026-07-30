@@ -73,12 +73,13 @@
     color: var(--ink-soft);
   }
   .dock-links { display: flex; flex-direction: column; gap: 6px; }
-  .dock-links a {
-    display: flex; align-items: center; gap: 6px;
+  .dock-links a, .dock-links-btn {
+    display: flex; align-items: center; gap: 6px; width: 100%; box-sizing: border-box;
     background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
     font-size: 12px; font-weight: 700; padding: 8px 10px; border-radius: 8px;
+    border: none; cursor: pointer; font-family: inherit; text-align: left;
   }
-  .dock-links a:hover { background: var(--gold-soft); color: var(--gold); }
+  .dock-links a:hover, .dock-links-btn:hover { background: var(--gold-soft); color: var(--gold); }
   .dock-product-row {
     border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 6px;
     transition: background 0.2s, border-color 0.2s;
@@ -189,6 +190,13 @@
     <span>빠른 도구</span>
   </div>
   <div class="dock-section">
+    <h4>다운로드</h4>
+    <div class="dock-links">
+      <a href="shorts.mp4" download>🎬 영상 다운로드</a>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+    </div>
+  </div>
+  <div class="dock-section">
     <h4>실사진 소싱</h4>
     <div class="dock-links">
       <a href="https://unsplash.com/s/photos/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" target="_blank" rel="noopener">🔍 Unsplash</a>
@@ -211,11 +219,11 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <input type="text" class="product-link-input" data-market="coupang" data-product="돼지감자" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
-    <input type="text" class="product-link-input" data-market="naver" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90" placeholder="네이버 링크 붙여넣고 Enter">
+    <input type="text" class="product-link-input" data-market="naver" data-product="돼지감자" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
 
@@ -226,11 +234,11 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <input type="text" class="product-link-input" data-market="coupang" data-product="돼지감자차" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
-    <input type="text" class="product-link-input" data-market="naver" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" placeholder="네이버 링크 붙여넣고 Enter">
+    <input type="text" class="product-link-input" data-market="naver" data-product="돼지감자차" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
 <p class="dock-hint">쿠팡/네이버 링크를 각각 붙여넣으면, 아래 각 플랫폼 카드에서 고른 쪽(쿠팡/네이버)에 맞춰 고지 문구와 함께 자동 반영돼요.</p></div>
@@ -581,6 +589,28 @@
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
+const CARD_IMAGE_NAMES = ["00_%ED%91%9C%EC%A7%80.jpg", "01_%ED%98%88%EB%8B%B9%20%EA%B4%80%EB%A6%AC%EC%99%80%EC%9D%98%20%EA%B4%80%EA%B3%84.jpg", "02_%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EB%9E%80%3F.jpg", "03_%ED%95%A8%EA%BB%98%20%EB%93%A4%EC%96%B4%EC%9E%88%EB%8A%94%20%EC%98%81%EC%96%91%EC%84%B1%EB%B6%84.jpg", "04_%EC%A3%BC%EC%9D%98%ED%95%A0%20%EC%A0%90.jpg", "05_%EB%81%93%EC%9D%B4%EB%8A%94%20%EB%B2%95.jpg", "06_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg"];
+const downloadAllBtn = document.getElementById("downloadAllCards");
+if (downloadAllBtn) {
+  downloadAllBtn.addEventListener("click", () => {
+    const originalLabel = downloadAllBtn.textContent;
+    downloadAllBtn.textContent = "다운로드 중…";
+    CARD_IMAGE_NAMES.forEach((name, i) => {
+      setTimeout(() => {
+        const a = document.createElement("a");
+        a.href = "card_news/" + name;
+        a.download = "";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        if (i === CARD_IMAGE_NAMES.length - 1) {
+          setTimeout(() => { downloadAllBtn.textContent = originalLabel; }, 500);
+        }
+      }, i * 350);
+    });
+  });
+}
+
 document.querySelectorAll(".row-toggle").forEach(btn => {
   btn.addEventListener("click", () => {
     const row = document.getElementById(btn.dataset.row);
@@ -601,7 +631,9 @@ document.querySelectorAll(".btn-copy").forEach(btn => {
     setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
   };
   btn.addEventListener("click", () => {
-    const text = document.getElementById(btn.dataset.target).value;
+    // WHY replace: 링크 구간 안내 줄은 실제 게시물에 들어가면 안 되는 내부 표시일
+    // 뿐이라 복사할 때만 그 줄을 지우고 링크·고지문구 내용은 그대로 남긴다.
+    const text = document.getElementById(btn.dataset.target).value.replace(AUTO_LINKS_MARKER_LINE + "\n", "");
     const cover = btn.dataset.cover;
     if (cover && window.ClipboardItem) {
       const bodyHtml = text.split("\n").map(line => line.trim() ? `<p>${_escapeHtml(line)}</p>` : "<br>").join("");
@@ -629,7 +661,17 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const LINK_STORAGE_PREFIX = "hs_link_%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1_";
-const AUTO_LINKS_RE = /\n\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
+// WHY 사람이 읽을 수 있는 안내 줄: 대시보드에서 캡션을 볼 때 이게 뭔지 바로 알 수 있게
+// (2026-07-30 "이건 뭐야" 피드백) — 복사 버튼을 누르면 이 줄만 자동으로 빠지고
+// 그 아래 링크·고지문구는 그대로 남는다. 정규식 대신 indexOf/slice만 써서
+// 이스케이프 실수 위험을 없앤다(2026-07-30 \n 이스케이프 버그 재발 방지).
+const AUTO_LINKS_MARKER_LINE = "▼ 자동 추가된 상품 링크 (복사하면 이 줄만 자동으로 빠져요) ▼";
+
+function _stripAutoLinks(text) {
+  const idx = text.indexOf(AUTO_LINKS_MARKER_LINE);
+  if (idx === -1) return text;
+  return text.slice(0, idx).replace(/\n\n$/, "");
+}
 
 function _buildMarketBlock(market) {
   const lines = [];
@@ -639,7 +681,7 @@ function _buildMarketBlock(market) {
   });
   if (lines.length === 0) return "";
   const disclosure = market === "coupang" ? COUPANG_DISCLOSURE : NAVER_DISCLOSURE;
-  return "\n\n[[AUTO-LINKS-START]]\n" + lines.join("\n") + "\n\n" + disclosure + "\n[[AUTO-LINKS-END]]";
+  return "\n\n" + AUTO_LINKS_MARKER_LINE + "\n" + lines.join("\n") + "\n\n" + disclosure;
 }
 
 function applyProductLinks() {
@@ -650,7 +692,7 @@ function applyProductLinks() {
     const activeBtn = card.querySelector(".market-toggle .market-btn.active");
     const market = activeBtn ? activeBtn.dataset.market : null;
     const block = market === "naver" ? naverBlock : market === "coupang" ? coupangBlock : "";
-    const stripped = box.value.replace(AUTO_LINKS_RE, "");
+    const stripped = _stripAutoLinks(box.value);
     box.value = block ? stripped + block : stripped;
   });
 }

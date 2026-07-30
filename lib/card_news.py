@@ -223,7 +223,18 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
     char_size = 130
     m = _char_medallion(char_path, char_size, ring_w=8)
-    img.paste(m, (panel_box[2] - m.width - 20, panel_box[1] + 20), m)
+    badge_x = panel_box[2] - m.width - 20
+    badge_y = panel_box[1] + 20
+    img.paste(m, (badge_x, badge_y), m)
+
+    # 캐릭터 이름 라벨 — 배지만 보고는 어떤 품목인지 못 알아볼 수 있어서
+    # (표지에만 이름이 있고 이후 페이지는 넘겨서 못 봄, 2026-07-30 피드백) 매 카드에 표시
+    char_label = Path(char_path).stem.replace("_illust", "")
+    label_f2 = _font(20, "semibold")
+    lb = draw.textbbox((0, 0), char_label, font=label_f2)
+    lw = lb[2] - lb[0]
+    badge_cx = badge_x + m.width / 2
+    draw.text((badge_cx - lw / 2 - lb[0], badge_y + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
 
     # 글자 크게 — 반복 지적된 부분(2026-07-30), 제목/본문 모두 한 단계 더 키움
     draw = ImageDraw.Draw(img)
@@ -250,12 +261,18 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
     med_size = size + (8 + 18) * 2
     total_w = med_size * len(unique_paths) + gap * (len(unique_paths) - 1)
     start_x = (W - total_w) // 2
+    label_f2 = _font(20, "semibold")
     for j, path in enumerate(unique_paths):
         m = _char_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
-        img.paste(m, (start_x + j * (med_size + gap), 190), m)
+        bx = start_x + j * (med_size + gap)
+        img.paste(m, (bx, 190), m)
+        char_label = Path(path).stem.replace("_illust", "")
+        lb = draw.textbbox((0, 0), char_label, font=label_f2)
+        lw = lb[2] - lb[0]
+        draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
 
     draw = ImageDraw.Draw(img)
-    y = 190 + med_size + 50
+    y = 190 + med_size + 76
     for i, block in enumerate(headline_blocks):
         weight = "bold" if i == 0 else "semibold"
         color = INK if i == 0 else ACCENT_DEEP

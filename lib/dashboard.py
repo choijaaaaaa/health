@@ -156,12 +156,13 @@ PAGE_TEMPLATE = """<!doctype html>
     color: var(--ink-soft);
   }}
   .dock-links {{ display: flex; flex-direction: column; gap: 6px; }}
-  .dock-links a {{
-    display: flex; align-items: center; gap: 6px;
+  .dock-links a, .dock-links-btn {{
+    display: flex; align-items: center; gap: 6px; width: 100%; box-sizing: border-box;
     background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
     font-size: 12px; font-weight: 700; padding: 8px 10px; border-radius: 8px;
+    border: none; cursor: pointer; font-family: inherit; text-align: left;
   }}
-  .dock-links a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+  .dock-links a:hover, .dock-links-btn:hover {{ background: var(--gold-soft); color: var(--gold); }}
   .dock-product-row {{
     border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 6px;
     transition: background 0.2s, border-color 0.2s;
@@ -272,6 +273,13 @@ PAGE_TEMPLATE = """<!doctype html>
     <span>빠른 도구</span>
   </div>
   <div class="dock-section">
+    <h4>다운로드</h4>
+    <div class="dock-links">
+      {video_download_link}
+      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+    </div>
+  </div>
+  <div class="dock-section">
     <h4>실사진 소싱</h4>
     <div class="dock-links">
       <a href="{unsplash_url}" target="_blank" rel="noopener">🔍 Unsplash</a>
@@ -306,6 +314,28 @@ PAGE_TEMPLATE = """<!doctype html>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
+const CARD_IMAGE_NAMES = {card_image_names_js};
+const downloadAllBtn = document.getElementById("downloadAllCards");
+if (downloadAllBtn) {{
+  downloadAllBtn.addEventListener("click", () => {{
+    const originalLabel = downloadAllBtn.textContent;
+    downloadAllBtn.textContent = "다운로드 중…";
+    CARD_IMAGE_NAMES.forEach((name, i) => {{
+      setTimeout(() => {{
+        const a = document.createElement("a");
+        a.href = "card_news/" + name;
+        a.download = "";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        if (i === CARD_IMAGE_NAMES.length - 1) {{
+          setTimeout(() => {{ downloadAllBtn.textContent = originalLabel; }}, 500);
+        }}
+      }}, i * 350);
+    }});
+  }});
+}}
+
 document.querySelectorAll(".row-toggle").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const row = document.getElementById(btn.dataset.row);
@@ -326,7 +356,9 @@ document.querySelectorAll(".btn-copy").forEach(btn => {{
     setTimeout(() => {{ btn.textContent = originalLabel; btn.classList.remove("copied"); }}, 1500);
   }};
   btn.addEventListener("click", () => {{
-    const text = document.getElementById(btn.dataset.target).value;
+    // WHY replace: 링크 구간 안내 줄은 실제 게시물에 들어가면 안 되는 내부 표시일
+    // 뿐이라 복사할 때만 그 줄을 지우고 링크·고지문구 내용은 그대로 남긴다.
+    const text = document.getElementById(btn.dataset.target).value.replace(AUTO_LINKS_MARKER_LINE + "\\n", "");
     const cover = btn.dataset.cover;
     if (cover && window.ClipboardItem) {{
       const bodyHtml = text.split("\\n").map(line => line.trim() ? `<p>${{_escapeHtml(line)}}</p>` : "<br>").join("");
@@ -354,7 +386,17 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = {coupang_disclosure_js};
 const NAVER_DISCLOSURE = {naver_disclosure_js};
 const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
-const AUTO_LINKS_RE = /\\n\\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
+// WHY 사람이 읽을 수 있는 안내 줄: 대시보드에서 캡션을 볼 때 이게 뭔지 바로 알 수 있게
+// (2026-07-30 "이건 뭐야" 피드백) — 복사 버튼을 누르면 이 줄만 자동으로 빠지고
+// 그 아래 링크·고지문구는 그대로 남는다. 정규식 대신 indexOf/slice만 써서
+// 이스케이프 실수 위험을 없앤다(2026-07-30 \\n 이스케이프 버그 재발 방지).
+const AUTO_LINKS_MARKER_LINE = "▼ 자동 추가된 상품 링크 (복사하면 이 줄만 자동으로 빠져요) ▼";
+
+function _stripAutoLinks(text) {{
+  const idx = text.indexOf(AUTO_LINKS_MARKER_LINE);
+  if (idx === -1) return text;
+  return text.slice(0, idx).replace(/\\n\\n$/, "");
+}}
 
 function _buildMarketBlock(market) {{
   const lines = [];
@@ -364,7 +406,7 @@ function _buildMarketBlock(market) {{
   }});
   if (lines.length === 0) return "";
   const disclosure = market === "coupang" ? COUPANG_DISCLOSURE : NAVER_DISCLOSURE;
-  return "\\n\\n[[AUTO-LINKS-START]]\\n" + lines.join("\\n") + "\\n\\n" + disclosure + "\\n[[AUTO-LINKS-END]]";
+  return "\\n\\n" + AUTO_LINKS_MARKER_LINE + "\\n" + lines.join("\\n") + "\\n\\n" + disclosure;
 }}
 
 function applyProductLinks() {{
@@ -375,7 +417,7 @@ function applyProductLinks() {{
     const activeBtn = card.querySelector(".market-toggle .market-btn.active");
     const market = activeBtn ? activeBtn.dataset.market : null;
     const block = market === "naver" ? naverBlock : market === "coupang" ? coupangBlock : "";
-    const stripped = box.value.replace(AUTO_LINKS_RE, "");
+    const stripped = _stripAutoLinks(box.value);
     box.value = block ? stripped + block : stripped;
   }});
 }}
@@ -473,7 +515,7 @@ def _dock_products(products: list[str], affiliate_path: Path) -> str:
         naver_url = f"https://brandconnect.naver.com/{creator_id}/affiliate/products/search?query={quote(name)}&tab=product"
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
-            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=quote(name), idx=idx,
+            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
         )
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
@@ -505,8 +547,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     video_name = Path(video_path).name if video_path else "shorts.mp4"
     if has_video:
         video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download>영상 다운로드 ↓</a>'
+        video_download_link = f'<a href="{video_name}" download>🎬 영상 다운로드</a>'
     else:
         video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
+        video_download_link = '<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>'
 
     # WHY base64로 직접 embed: 원격 URL(src="https://...")은 네이버/티스토리 에디터가
     # 붙여넣기 시 외부 이미지를 거부하거나 못 불러오는 경우가 있었다(2026-07-30 확인) —
@@ -559,10 +603,13 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
 
+    card_image_names_js = json.dumps([quote(p.name) for p in asset_imgs])
+
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
         platform_sections=sections_html, unsplash_url=unsplash_url, pexels_url=pexels_url,
-        topic=quote(topic), dock_products=dock_products,
+        topic=quote(topic), dock_products=dock_products, video_download_link=video_download_link,
+        card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
     )

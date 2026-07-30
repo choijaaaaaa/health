@@ -141,13 +141,19 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     끝 포즈가 같다는 보장이 없어서, 그냥 -stream_loop로 반복하면 루프 지점마다
     포즈가 툭 끊기는 느낌이 난다(2026-07-30 확인). 정방향 재생 뒤 바로 역방향
     재생을 이어붙이면 마지막 프레임이 항상 첫 프레임으로 대칭 복귀하므로,
-    프롬프트가 끝-시작을 맞춰주길 기대하지 않아도 구조적으로 끊김이 없다."""
+    프롬프트가 끝-시작을 맞춰주길 기대하지 않아도 구조적으로 끊김이 없다.
+
+    WHY colorkey similarity를 0.12→0.03으로 낮췄는지: 0.12는 흰 배경뿐 아니라
+    캐릭터 얼굴의 밝은 하이라이트(이마·볼)까지 "흰색에 가깝다"고 판단해서
+    투명 구멍을 뚫어버렸다(2026-07-30 확인 — 실사진과 합성했을 때 눈코 부분이
+    배경에 맞춰 이상하게 움직이는 것처럼 보인 원인). 0.03은 진짜 순백색
+    배경만 제거하고 얼굴 하이라이트는 건드리지 않는다."""
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", "colorkey=0xFFFFFF:0.12:0.08,format=yuva420p",
+             "-vf", "colorkey=0xFFFFFF:0.03:0.03,format=yuva420p",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
         )
