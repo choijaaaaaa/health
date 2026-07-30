@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>건강 카드뉴스 스펙 에디터</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5;
+    --bg-bottom: #f6ede6;
+    --ink: #2b231f;
+    --ink-soft: #8b7c6e;
+    --accent: #c84a62;
+    --accent-deep: #a3344a;
+    --accent-soft: #fadee3;
+    --gold: #b27a26;
+    --gold-soft: #f1e3c6;
+    --panel: #fffdfa;
+    --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+    min-height: 100vh;
+  }
+  header {
+    padding: 28px 24px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 14px; }
+
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(320px, 460px) 1fr;
+    gap: 24px;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  @media (max-width: 900px) {
+    .layout { grid-template-columns: 1fr; }
+  }
+
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 20px;
+  }
+  .panel h2 {
+    font-size: 15px;
+    letter-spacing: 0.03em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin: 0 0 14px;
+  }
+  label { display: block; font-size: 13px; color: var(--ink-soft); margin: 14px 0 6px; }
+  label:first-of-type { margin-top: 0; }
+  textarea, input[type=text], select {
+    width: 100%;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--rule);
+    background: #fff;
+    color: var(--ink);
+    resize: vertical;
+  }
+  textarea { min-height: 64px; line-height: 1.5; }
+
+  .item-card {
+    border: 1px solid var(--rule);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 14px;
+    background: #fffefc;
+  }
+  .item-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .item-card-head b { font-size: 14px; }
+  .btn {
+    border: none;
+    border-radius: 999px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+  }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-ghost { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-remove { background: transparent; color: var(--ink-soft); font-size: 12px; }
+  .btn-row { display: flex; gap: 10px; margin-top: 16px; }
+  .btn-block { width: 100%; margin-top: 20px; padding: 14px; font-size: 15px; }
+
+  .char-thumb {
+    width: 56px; height: 56px; border-radius: 50%;
+    object-fit: cover; border: 3px solid var(--accent-soft);
+    margin-right: 10px; vertical-align: middle;
+  }
+
+  /* --- 프리뷰 --- */
+  .preview-scroll {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 10px 4px 20px;
+  }
+  .card-mock {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 375px;
+    border-radius: 22px;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    border: 1px solid var(--rule);
+    box-shadow: 0 12px 30px rgba(60,45,35,0.12);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 18px;
+  }
+  .chip {
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+  .chip.gold { background: var(--gold); }
+  .medallion {
+    width: 110px; height: 110px; border-radius: 50%;
+    object-fit: cover;
+    border: 6px solid var(--accent-soft);
+    box-shadow: 0 8px 16px rgba(60,45,35,0.18);
+    background: #eee;
+  }
+  .medallion.small { width: 60px; height: 60px; border: 4px solid var(--gold-soft); }
+  .cover-medallions { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 14px; }
+  .card-title { font-size: 15px; font-weight: 800; text-align: center; margin: 10px 0 4px; line-height: 1.35; }
+  .card-title.small { font-size: 13px; font-weight: 600; color: var(--ink-soft); }
+  .divider {
+    display: flex; align-items: center; gap: 6px;
+    width: 80%; margin: 8px 0;
+  }
+  .divider .line { flex: 1; height: 2px; background: var(--gold); }
+  .divider .dot { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+  .card-body { font-size: 11.5px; text-align: center; line-height: 1.6; color: var(--ink); white-space: pre-line; }
+  .fact-panel {
+    background: var(--panel);
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(60,45,35,0.10);
+    padding: 14px;
+    margin-top: -30px;
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tip-label { font-size: 10px; font-weight: 700; color: var(--gold); letter-spacing: 0.06em; align-self: flex-start; }
+  .tip-num {
+    font-size: 34px; font-weight: 800; color: var(--accent-soft);
+    -webkit-text-stroke: 1.5px var(--accent);
+    align-self: flex-start; margin-top: -4px;
+  }
+  .bottom-bar {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    background: var(--accent); color: #fff;
+    font-size: 12px; font-weight: 600;
+    text-align: center; padding: 10px 0;
+  }
+
+  #jsonOut {
+    width: 100%; min-height: 220px; font-family: ui-monospace, monospace;
+    font-size: 12px; background: #fbf6f1; border-radius: 10px; border: 1px solid var(--rule);
+    padding: 12px; white-space: pre; overflow: auto;
+  }
+  .hint { font-size: 12px; color: var(--ink-soft); margin-top: 10px; line-height: 1.6; }
+  .hint code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>건강 카드뉴스 스펙 에디터</h1>
+  <p>여기서 내용을 채우고 미리보기를 확인한 뒤, JSON을 내려받아 로컬에서 <code>lib/card_news.py</code>로 실제 이미지를 생성하세요.</p>
+</header>
+
+<div class="layout">
+  <!-- 입력 폼 -->
+  <div class="panel" id="formPanel">
+    <h2>표지</h2>
+    <label>제목 (줄바꿈으로 여러 줄)</label>
+    <textarea id="titleInput">내과전문의가 매일 챙겨먹는다는
+나쁜 콜레스테롤 낮추는
+음식 5가지</textarea>
+
+    <h2 style="margin-top:24px;">항목 카드</h2>
+    <div id="itemsContainer"></div>
+    <button class="btn btn-ghost" id="addItemBtn">+ 항목 추가</button>
+
+    <h2 style="margin-top:24px;">마무리</h2>
+    <label>헤드라인 블록 1 (줄바꿈으로 여러 줄)</label>
+    <textarea id="headline1">특정 음식 하나가
+기적처럼 해결해주진 않아요</textarea>
+    <label>헤드라인 블록 2 (강조색, 줄바꿈으로 여러 줄)</label>
+    <textarea id="headline2">매일 조금씩, 꾸준히 챙기는 게
+가장 중요해요</textarea>
+    <label>실천 팁 (줄바꿈으로 여러 줄)</label>
+    <textarea id="tipInput">오늘부터 양파 조금 더 넣고,
+간식은 사과로, 샐러드엔 아보카도!</textarea>
+    <label>CTA 문구</label>
+    <input type="text" id="ctaInput" value="더 유용한 건강정보가 궁금하다면 팔로우">
+
+    <button class="btn btn-accent btn-block" id="exportBtn">JSON 내보내기 ↓</button>
+  </div>
+
+  <!-- 미리보기 -->
+  <div>
+    <div class="panel">
+      <h2>실시간 미리보기</h2>
+      <div class="preview-scroll" id="previewScroll"></div>
+    </div>
+    <div class="panel" style="margin-top:20px;">
+      <h2>card_news_spec.json</h2>
+      <pre id="jsonOut"></pre>
+      <div class="hint">
+        내려받은 JSON은 <code>data/&lt;주제&gt;/card_news_spec.json</code>에 저장하고,
+        캐릭터 이미지는 <code>health/&lt;주제&gt;/</code>에 넣은 뒤<br>
+        로컬에서 <code>python3 lib/card_news.py data/&lt;주제&gt;/card_news_spec.json health/&lt;주제&gt; output/&lt;주제&gt;/card_news</code> 실행하면 실제 이미지가 만들어집니다.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const PRESET_CHARS = ["양파", "사과", "가지", "아보카도", "다크초콜릿"];
+const CHAR_BASE = "health/콜레스테롤_1/";
+
+let items = [
+  { name: "양파", charFile: "양파_캐릭터_final.jpg", body: "기름진 음식만 줄이면 되는 줄 알았지만,\n퀘르세틴이라는 성분이 나쁜 콜레스테롤이\n산화되는 걸 줄이는 데 도움될 수 있어요.\n\n생으로 먹어도, 볶아도, 국에 넣어도 좋아요." },
+  { name: "사과", charFile: "사과_캐릭터_final.jpg", body: "펙틴이라는 수용성 식이섬유가\n콜레스테롤 배출을 도와줘요.\n\n폴리페놀도 풍부하니까\n가능하면 껍질째 먹는 게 좋아요." },
+];
+
+function el(tag, cls, html) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  if (html !== undefined) e.innerHTML = html;
+  return e;
+}
+
+function renderForm() {
+  const container = document.getElementById("itemsContainer");
+  container.innerHTML = "";
+  items.forEach((item, idx) => {
+    const card = el("div", "item-card");
+    card.innerHTML = `
+      <div class="item-card-head">
+        <b>항목 ${idx + 1}</b>
+        <button class="btn btn-remove" data-remove="${idx}">삭제</button>
+      </div>
+      <label>이름</label>
+      <input type="text" data-field="name" data-idx="${idx}" value="${item.name}">
+      <label>캐릭터</label>
+      <select data-field="charFile" data-idx="${idx}">
+        ${PRESET_CHARS.map(c => {
+          const file = c + "_캐릭터_final.jpg";
+          return `<option value="${file}" ${item.charFile === file ? "selected" : ""}>${c}</option>`;
+        }).join("")}
+      </select>
+      <label>본문 (줄바꿈으로 여러 줄, 빈 줄로 문단 구분)</label>
+      <textarea data-field="body" data-idx="${idx}">${item.body}</textarea>
+    `;
+    container.appendChild(card);
+  });
+
+  container.querySelectorAll("[data-field]").forEach(input => {
+    input.addEventListener("input", e => {
+      const idx = +e.target.dataset.idx;
+      items[idx][e.target.dataset.field] = e.target.value;
+      renderPreview();
+    });
+  });
+  container.querySelectorAll("[data-remove]").forEach(btn => {
+    btn.addEventListener("click", e => {
+      items.splice(+e.target.dataset.remove, 1);
+      renderForm();
+      renderPreview();
+    });
+  });
+}
+
+document.getElementById("addItemBtn").addEventListener("click", () => {
+  items.push({ name: "새 항목", charFile: PRESET_CHARS[0] + "_캐릭터_final.jpg", body: "" });
+  renderForm();
+  renderPreview();
+});
+
+function divider() {
+  return `<div class="divider"><div class="line"></div><div class="dot"></div><div class="line"></div></div>`;
+}
+
+function renderPreview() {
+  renderJson();
+  const scroll = document.getElementById("previewScroll");
+  scroll.innerHTML = "";
+
+  const titleLines = document.getElementById("titleInput").value.split("\n").filter(Boolean);
+
+  // 표지
+  const cover = el("div", "card-mock");
+  cover.innerHTML = `
+    <div class="chip">건강 카드뉴스</div>
+    <div class="cover-medallions">
+      ${items.map(it => `<img class="medallion small" src="${CHAR_BASE}${it.charFile}" onerror="this.style.opacity=0.15">`).join("")}
+    </div>
+    <div class="card-title">${titleLines.slice(0, -1).join("<br>")}</div>
+    <div class="card-title" style="font-size:19px;">${titleLines.slice(-1)[0] || ""}</div>
+    ${divider()}
+    <div class="card-body" style="color:var(--accent);font-weight:700;">넘겨서 확인하기 →</div>
+  `;
+  scroll.appendChild(cover);
+
+  // 항목 카드
+  items.forEach((item, idx) => {
+    const card = el("div", "card-mock");
+    card.innerHTML = `
+      <img class="medallion" src="${CHAR_BASE}${item.charFile}" onerror="this.style.opacity=0.15">
+      <div class="fact-panel">
+        <div class="tip-label">CHOLESTEROL TIP</div>
+        <div class="tip-num">${String(idx + 1).padStart(2, "0")}</div>
+        <div class="card-title">${item.name}</div>
+        ${divider()}
+        <div class="card-body">${item.body}</div>
+      </div>
+      <div class="bottom-bar">${idx + 1} / ${items.length}</div>
+    `;
+    scroll.appendChild(card);
+  });
+
+  // 마무리
+  const h1 = document.getElementById("headline1").value.split("\n").filter(Boolean);
+  const h2 = document.getElementById("headline2").value.split("\n").filter(Boolean);
+  const tip = document.getElementById("tipInput").value.split("\n").filter(Boolean);
+  const cta = document.getElementById("ctaInput").value;
+
+  const closing = el("div", "card-mock");
+  closing.innerHTML = `
+    <div class="chip gold">마무리</div>
+    <div class="cover-medallions">
+      ${items.map(it => `<img class="medallion small" src="${CHAR_BASE}${it.charFile}" onerror="this.style.opacity=0.15">`).join("")}
+    </div>
+    <div class="card-title">${h1.join("<br>")}</div>
+    <div class="card-title" style="color:var(--accent-deep);">${h2.join("<br>")}</div>
+    ${divider()}
+    <div class="card-body" style="color:var(--ink-soft);">${tip.join("<br>")}</div>
+    <div class="bottom-bar">${cta}</div>
+  `;
+  scroll.appendChild(closing);
+}
+
+function buildSpec() {
+  const titleLines = document.getElementById("titleInput").value.split("\n").filter(Boolean);
+  const h1 = document.getElementById("headline1").value.split("\n").filter(Boolean);
+  const h2 = document.getElementById("headline2").value.split("\n").filter(Boolean);
+  const tip = document.getElementById("tipInput").value.split("\n").filter(Boolean);
+  const cta = document.getElementById("ctaInput").value;
+
+  return {
+    title: titleLines,
+    items: items.map(it => ({
+      name: it.name,
+      char_file: it.charFile,
+      body: it.body.split("\n"),
+    })),
+    closing: {
+      headline: [h1, h2],
+      tip: tip,
+      cta: cta,
+    },
+  };
+}
+
+function renderJson() {
+  document.getElementById("jsonOut").textContent = JSON.stringify(buildSpec(), null, 2);
+}
+
+document.getElementById("exportBtn").addEventListener("click", () => {
+  const spec = buildSpec();
+  const blob = new Blob([JSON.stringify(spec, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "card_news_spec.json";
+  a.click();
+});
+
+["titleInput", "headline1", "headline2", "tipInput", "ctaInput"].forEach(id => {
+  document.getElementById(id).addEventListener("input", renderPreview);
+});
+
+renderForm();
+renderPreview();
+</script>
+
+</body>
+</html>
