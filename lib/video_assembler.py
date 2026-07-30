@@ -186,14 +186,37 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     280px로 축소되는 코너 장면에서 배경(초록 잎)이 캐릭터 얼굴에 얼룩덜룩
     비쳐 보이는 원인이었다(세션 내내 "눈 왜곡"으로 오인했던 문제의 진짜 정체 —
     Kling 생성 결과가 아니라 이 로컬 합성 단계의 버그였음). lut=a로 alpha를
-    16 기준 완전 불투명(255) 아니면 완전 투명(0)으로 강제해서 부분투명을 없앤다."""
-    similarity = "0.03" if bg_color.upper() == "0xFFFFFF" else "0.15"
+    16 기준 완전 불투명(255) 아니면 완전 투명(0)으로 강제해서 부분투명을 없앤다.
+
+    WHY despill(2026-07-31): alpha 이분법 처리는 "안/밖"만 정하지, 안쪽으로 판정된
+    가장자리 픽셀 자체의 색(그린 스크린 촬영/렌더링에서 늘 발생하는 초록 스필)은
+    그대로 남는다 — 그 결과 캐릭터 테두리에 초록 형광 라인이 둘러진 것처럼 보였다
+    (0x00FF00 배경으로 처음 실사용한 v8 클립에서 확인). despill로 가장자리의 잔여
+    초록기를 억제한다. despill 필터는 초록/파랑만 지원해서 그 두 색일 때만 적용.
+
+    WHY format=argb (yuva420p 아님, 2026-07-31): qtrle 인코더는 rgb24/rgb555be/argb/
+    gray만 지원한다(yuva420p 미지원) — yuva420p로 지정해도 qtrle 인코딩 시 결국 argb로
+    재변환되므로, 처음부터 qtrle가 실제로 쓰는 argb를 직접 지정해 불필요한 왕복 변환을
+    없앤다.
+
+    ⚠️ WHY .upper() 비교를 대문자 리터럴과 하는지: `bg_color.upper()`는 "0x00FF00"의
+    "x"까지 "X"로 바꿔버려서 "0x00FF00"(소문자 x) 리터럴과 절대 같아질 수 없다 —
+    이 버그 때문에 despill 분기가 조용히 한 번도 실행된 적이 없었다(2026-07-31,
+    초록 배경 v8 클립에서 형광 초록 테두리가 안 없어지던 진짜 원인 — despill을
+    mix=1.0까지 올려도 전혀 효과가 없었던 이유). 비교 대상 리터럴도 항상 .upper()로
+    맞춰서 이 클래스의 버그가 재발하지 않게 한다."""
+    similarity = "0.03" if bg_color.upper() == "0XFFFFFF" else "0.15"
+    despill = ""
+    if bg_color.upper() == "0X00FF00":
+        despill = "despill=type=green:mix=1.0:expand=0,"
+    elif bg_color.upper() == "0X0000FF":
+        despill = "despill=type=blue:mix=1.0:expand=0,"
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},format=yuva420p,"
+             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
                     "lut=a='if(gt(val\\,16)\\,255\\,0)'",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
@@ -275,6 +298,7 @@ def assemble(
     ad_tag: bool = False,
     bg_color: str = "0xFFFFFF",
     title_card_duration: float = 1.3,
+    title_card_text: str | None = None,
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -318,7 +342,7 @@ def assemble(
         # 0) 맨 앞 제목 카드 — 단색 배경 + 큼직한 글자, 플랫폼이 영상 첫 프레임을
         # 썸네일로 자동 지정하는 경우가 많아서 이 카드 자체가 썸네일 역할도 한다.
         title_card_png = tmp_path / "title_card.png"
-        _make_title_card_png(title, title_card_png)
+        _make_title_card_png(title_card_text or title, title_card_png)
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-i", str(title_card_png),
@@ -351,6 +375,10 @@ def assemble(
         title_h = _make_title_png(title, title_png)
         titled = tmp_path / "titled.mp4"
 
+        # WHY enable='gte(t,title_card_duration)': 제목 카드 구간에는 이미 큼직한 훅
+        # 카피가 화면 중앙에 떠 있어서, 상단 배너까지 같이 뜨면 같은 문구가 위아래로
+        # 겹쳐 보인다(2026-07-31 지적) — 배너는 제목 카드가 끝난 뒤부터만 노출한다.
+        enable_expr = f"gte(t\\,{title_card_duration})"
         if ad_tag:
             ad_png = tmp_path / "ad_tag.png"
             _make_ad_tag_png(ad_png)
@@ -360,14 +388,15 @@ def assemble(
                  "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
                  "-loop", "1", "-t", f"{video_total}", "-i", str(ad_png),
                  "-filter_complex",
-                 f"[0:v][1:v]overlay=x=0:y=0[t];[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}[v]",
+                 f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[t];"
+                 f"[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[v]",
                  "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
         else:
             subprocess.run(
                 ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
-                 "-filter_complex", "[0:v][1:v]overlay=x=0:y=0[v]",
+                 "-filter_complex", f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[v]",
                  "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
@@ -451,6 +480,9 @@ if __name__ == "__main__":
                     help="캐릭터 모션 클립의 배경색(colorkey 대상) — 새 캐릭터는 0x00FF00 권장")
     p.add_argument("--title-card-duration", type=float, default=1.3,
                     help="영상 맨 앞 단색 제목 카드(썸네일용) 길이(초)")
+    p.add_argument("--title-card-text", default=None,
+                    help="제목 카드에만 쓸 별도 문구(안 주면 --title 그대로 사용) — "
+                         "썸네일은 문제 제기 훅만, 상단 배너는 훅+주제 전체를 보여주고 싶을 때 분리")
     args = p.parse_args()
 
     assemble(
@@ -464,4 +496,5 @@ if __name__ == "__main__":
         ad_tag=args.ad_tag,
         bg_color=args.bg_color,
         title_card_duration=args.title_card_duration,
+        title_card_text=args.title_card_text,
     )

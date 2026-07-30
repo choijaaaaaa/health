@@ -117,6 +117,41 @@ def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
         _make_cover_flat(title_lines, char_paths, out_path)
 
 
+def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92):
+    """WHY 숏폼 영상 제목 카드와 완전히 동일한 스타일(2026-07-31, "카드뉴스 첫장도
+    숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터·주제 태그 다 빼고,
+    단색 배경 + 문제 제기 훅 한 줄/두 줄만 크게 — 영상 쪽 `_make_title_card_png`와
+    같은 로직(ACCENT 단색 배경, 굵은 흰 글자, 단어 단위 줄바꿈)을 카드뉴스 캔버스
+    (1080x1350)에 맞게 그대로 재사용한다."""
+    font = _font(font_size, "bold")
+    img = Image.new("RGB", (W, H), ACCENT)
+    draw = ImageDraw.Draw(img)
+    max_text_w = W - 160
+    words, lines, cur = hook_text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_text_w and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+
+    line_h = font_size + 28
+    total_h = line_h * len(lines)
+    y = (H - total_h) / 2 - 30
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255))
+        y += line_h
+
+    _draw_centered(draw, ["넘겨서 확인하기  →"], H - 110, 0, 34, (255, 214, 224), "semibold")
+    img.save(out_path, quality=95)
+
+
 def _make_cover_flat(title_lines, char_paths, out_path):
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     draw = ImageDraw.Draw(img)

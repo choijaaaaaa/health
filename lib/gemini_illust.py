@@ -22,16 +22,22 @@ LIBRARY_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "illus
 # 2026-07-30 검증 완료: 이 프롬프트(눈코입 큼직하게)로 만든 돼지감자 캐릭터가
 # Kling 모션 생성에서 입 위치 오류·눈 왜곡 없이 안정적으로 나온 첫 케이스(v7) —
 # 이후 새 캐릭터도 이 기본 프롬프트 그대로 쓸 것, 임의로 수정하지 말 것.
-# WHY 초록 배경(흰색 아님): 흰 배경 + colorkey 조합은 캐릭터 얼굴의 밝은 하이라이트
-# (이마·볼)까지 "흰색에 가깝다"고 오인해서 구멍이 뚫리는 문제가 있었다(2026-07-30
-# 돼지감자차_1에서 실사진 합성 시 확인). 캐릭터가 보통 갈색/베이지/살구색 계열이라
-# 그 색상과 절대 안 겹치는 크로마키 초록을 쓰면 threshold를 널널하게 잡아도 안전하다.
+# WHY 배경색을 흰색 대신 크로마키로: 흰 배경 + colorkey 조합은 캐릭터 얼굴의 밝은
+# 하이라이트(이마·볼)까지 "흰색에 가깝다"고 오인해서 구멍이 뚫리는 문제가 있었다
+# (2026-07-30 돼지감자차_1에서 실사진 합성 시 확인).
+# ⚠️ 크로마키 색은 초록 고정이 아니라 캐릭터 색상 보고 매번 판단할 것(2026-07-31,
+# 사용자 지적: "항상 초록색이면 안된다, 오이같은거면 초록으로하면 씹창난다") —
+# 돼지감자처럼 갈색/베이지/살구색 캐릭터는 초록(#00FF00)이 안전하지만, 오이·상추·
+# 브로콜리·시금치처럼 캐릭터 자체가 초록 계열이면 초록 배경과 겹쳐서 colorkey가
+# 캐릭터 몸통까지 지워버린다 — 이런 경우는 파란색(#0000FF) 또는 마젠타(#FF00FF)
+# 등 캐릭터 색과 절대 안 겹치는 색으로 bg_color_name/bg_color_hex를 바꿔서 호출한다.
 STYLE_PROMPT = (
     "귀여운 3D 카툰 스타일 캐릭터 일러스트. 대상: {item}. "
     "눈, 코, 입은 얼굴 크기 대비 큼직하고 뚜렷하게 그려서(특히 입은 벌렸을 때 표정이 확실히 "
     "구분되도록 큼직하게) 표정이 잘 읽히게 한다. 팔다리는 그리지 않는다(뿌리/줄기 형태의 몸통만). "
-    "배경은 크로마키 합성용 순수 초록색(#00FF00) 단색으로만 — 캐릭터 자체 색상과 겹치지 않는 "
-    "선명한 초록이어야 하고, 배경에 다른 사물이나 그라디언트, 그림자 무늬를 넣지 않는다. "
+    "배경은 크로마키 합성용 순수 {bg_color_name}색({bg_color_hex}) 단색으로만 — 캐릭터 자체 "
+    "색상과 절대 겹치지 않는 선명한 {bg_color_name}이어야 하고, 배경에 다른 사물이나 그라디언트, "
+    "그림자 무늬를 넣지 않는다. "
     "정사각형 구도, 텍스트나 글자는 절대 넣지 않음, 로고나 워터마크 없음."
 )
 
@@ -43,8 +49,16 @@ def _headers():
     }
 
 
-def generate_illustration(item_name: str, out_path: str | None = None) -> str:
-    prompt = STYLE_PROMPT.format(item=item_name)
+def generate_illustration(
+    item_name: str,
+    out_path: str | None = None,
+    bg_color_name: str = "초록",
+    bg_color_hex: str = "#00FF00",
+) -> str:
+    """bg_color_name/bg_color_hex: 캐릭터 자체 색상과 겹치지 않는 크로마키 배경색을
+    호출자가 판단해서 넘긴다 — 캐릭터가 초록 계열(오이·상추 등)이면 파란색이나
+    마젠타로 바꿔서 호출할 것(기본값 초록은 갈색/베이지 계열 채소·과일 기준)."""
+    prompt = STYLE_PROMPT.format(item=item_name, bg_color_name=bg_color_name, bg_color_hex=bg_color_hex)
     resp = requests.post(
         f"{BASE_URL}/models/{MODEL}:generateContent",
         headers=_headers(),
