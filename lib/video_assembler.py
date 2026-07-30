@@ -17,7 +17,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -96,12 +96,25 @@ def _make_title_png(text: str, out_path: Path, font_size=64) -> int:
     return box_h
 
 
-def _make_title_card_png(text: str, out_path: Path, font_size=88):
+def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None):
     """영상 맨 앞에 붙는 단색 배경 + 큰 제목 카드. WHY: 플랫폼이 썸네일을 영상
     첫 프레임으로 자동 지정하는 경우가 많아서, 이 카드 자체를 그대로 썸네일로
-    쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다."""
-    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
+    쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다.
+
+    WHY char_path(2026-07-31, "캐릭터를 큼직하고 흐리게 글자의 배경으로"): 순수
+    단색 배경 대신, 캐릭터 이미지를 캔버스보다 훨씬 크게 확대·크롭해서 흐리게 깐
+    뒤 ACCENT 톤 스크림을 얹는다 — 브랜드 컬러는 유지하면서 캐릭터가 은은하게
+    느껴지는 배경 무드를 만든다."""
     img = Image.new("RGB", (W, H), (200, 74, 98))
+    if char_path:
+        target = int(H * 1.15)
+        char = Image.open(char_path).convert("RGB").resize((target, target))
+        char = char.filter(ImageFilter.GaussianBlur(25))
+        left, top = (target - W) // 2, (target - H) // 2
+        char = char.crop((left, top, left + W, top + H))
+        scrim = Image.new("RGBA", (W, H), (200, 74, 98, 150))
+        img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
+    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
     words, lines, cur = text.split(), [], ""
@@ -299,6 +312,7 @@ def assemble(
     bg_color: str = "0xFFFFFF",
     title_card_duration: float = 1.3,
     title_card_text: str | None = None,
+    title_card_char_path: str | None = None,
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -316,16 +330,20 @@ def assemble(
         bg = tmp_path / "bg.mp4"
         _build_background(images, total_duration, bg)
 
-        # 1) 인트로 구간: 캐릭터 크게, 중앙
-        intro_out = tmp_path / "intro.mp4"
-        subprocess.run(
-            ["ffmpeg", "-y", "-t", f"{intro_duration}", "-i", str(bg),
-             "-t", f"{intro_duration}", "-i", str(char_track),
-             "-filter_complex",
-             f"[1:v]scale=760:-1[char];[0:v][char]overlay=x=(main_w-overlay_w)/2:y=(main_h-overlay_h)/2-80[v]",
-             "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(intro_out)],
-            check=True, capture_output=True,
-        )
+        # 1) 인트로 구간: 캐릭터 크게, 중앙. WHY intro_duration<=0이면 통째로 스킵
+        # (2026-07-31, "5초 뒤에 우하단으로 옮기지 말고 처음부터 우하단에 있게"):
+        # 인트로 자체를 안 만들고 처음부터 코너(작게) 구간으로 시작한다.
+        intro_out = None
+        if intro_duration > 0:
+            intro_out = tmp_path / "intro.mp4"
+            subprocess.run(
+                ["ffmpeg", "-y", "-t", f"{intro_duration}", "-i", str(bg),
+                 "-t", f"{intro_duration}", "-i", str(char_track),
+                 "-filter_complex",
+                 f"[1:v]scale=760:-1[char];[0:v][char]overlay=x=(main_w-overlay_w)/2:y=(main_h-overlay_h)/2-80[v]",
+                 "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(intro_out)],
+                check=True, capture_output=True,
+            )
 
         # 2) 이후 구간: 캐릭터 작게, 우측 하단
         main_dur = total_duration - intro_duration
@@ -342,7 +360,7 @@ def assemble(
         # 0) 맨 앞 제목 카드 — 단색 배경 + 큼직한 글자, 플랫폼이 영상 첫 프레임을
         # 썸네일로 자동 지정하는 경우가 많아서 이 카드 자체가 썸네일 역할도 한다.
         title_card_png = tmp_path / "title_card.png"
-        _make_title_card_png(title_card_text or title, title_card_png)
+        _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path)
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-i", str(title_card_png),
@@ -352,9 +370,8 @@ def assemble(
 
         combined = tmp_path / "combined.mp4"
         list_path = tmp_path / "scenes.txt"
-        list_path.write_text(
-            f"file '{title_card_out.resolve()}'\nfile '{intro_out.resolve()}'\nfile '{main_out.resolve()}'"
-        )
+        scene_files = [title_card_out] + ([intro_out] if intro_out else []) + [main_out]
+        list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in scene_files))
         subprocess.run(
             ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
              "-c", "copy", str(combined)],
@@ -483,6 +500,8 @@ if __name__ == "__main__":
     p.add_argument("--title-card-text", default=None,
                     help="제목 카드에만 쓸 별도 문구(안 주면 --title 그대로 사용) — "
                          "썸네일은 문제 제기 훅만, 상단 배너는 훅+주제 전체를 보여주고 싶을 때 분리")
+    p.add_argument("--title-card-char", default=None,
+                    help="제목 카드 배경에 크게 흐리게 깔 캐릭터 이미지 경로(안 주면 단색 배경만)")
     args = p.parse_args()
 
     assemble(
@@ -497,4 +516,5 @@ if __name__ == "__main__":
         bg_color=args.bg_color,
         title_card_duration=args.title_card_duration,
         title_card_text=args.title_card_text,
+        title_card_char_path=args.title_card_char,
     )

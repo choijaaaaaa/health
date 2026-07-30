@@ -402,6 +402,13 @@ function _stripAutoLinks(text) {{
 }}
 
 function _buildMarketBlock(market) {{
+  // WHY 마커를 블록 맨 앞(내용보다 먼저)에 두는지(2026-07-31 버그 수정): 마커가
+  // 블록 맨 끝에 있으면 _stripAutoLinks가 "마커 위치부터 끝까지"를 잘라낼 때
+  // 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
+  // 안 지워진다 — 그 결과 토글을 누를 때마다 이전 블록 위에 새 블록이 계속
+  // 쌓였다(다른 카드 토글을 눌러도 모든 caption-box를 순회하며 재적용하다보니
+  // 전혀 상관없는 카드까지 같이 누적되는 것처럼 보였음). 마커를 블록 시작
+  // 지점에 둬야 "마커부터 끝까지 전체"가 실제로 지워진다.
   if (market === "naver") {{
     // WHY 안내 문구 없이 고지문구만: 네이버 쇼핑 커넥트는 URL을 본문에 붙여넣는 방식이
     // 아니라 에디터의 "상품" 버튼으로 직접 추가해야 하지만(2026-07-30 확인), 그 안내
@@ -410,7 +417,7 @@ function _buildMarketBlock(market) {{
     const hasNaverLink = Array.from(document.querySelectorAll('.product-link-input[data-market="naver"]'))
       .some(inp => inp.value.trim());
     if (!hasNaverLink) return "";
-    return "\\n\\n" + NAVER_DISCLOSURE + AUTO_LINKS_MARKER;
+    return "\\n\\n" + AUTO_LINKS_MARKER + NAVER_DISCLOSURE;
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -418,7 +425,7 @@ function _buildMarketBlock(market) {{
     if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   }});
   if (lines.length === 0) return "";
-  return "\\n\\n" + lines.join("\\n") + "\\n\\n" + COUPANG_DISCLOSURE + AUTO_LINKS_MARKER;
+  return "\\n\\n" + AUTO_LINKS_MARKER + lines.join("\\n") + "\\n\\n" + COUPANG_DISCLOSURE;
 }}
 
 function applyProductLinks() {{

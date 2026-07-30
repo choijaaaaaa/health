@@ -117,14 +117,26 @@ def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
         _make_cover_flat(title_lines, char_paths, out_path)
 
 
-def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92):
+def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_path: str | None = None):
     """WHY 숏폼 영상 제목 카드와 완전히 동일한 스타일(2026-07-31, "카드뉴스 첫장도
-    숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터·주제 태그 다 빼고,
+    숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터 배지·주제 태그 다 빼고,
     단색 배경 + 문제 제기 훅 한 줄/두 줄만 크게 — 영상 쪽 `_make_title_card_png`와
     같은 로직(ACCENT 단색 배경, 굵은 흰 글자, 단어 단위 줄바꿈)을 카드뉴스 캔버스
-    (1080x1350)에 맞게 그대로 재사용한다."""
-    font = _font(font_size, "bold")
+    (1080x1350)에 맞게 그대로 재사용한다.
+
+    WHY char_path(2026-07-31, "캐릭터를 큼직하고 흐리게 글자의 배경으로"): 캐릭터
+    이미지를 캔버스보다 크게 확대·크롭해서 흐리게 깐 뒤 ACCENT 스크림을 얹는다 —
+    영상 제목 카드와 동일한 처리."""
     img = Image.new("RGB", (W, H), ACCENT)
+    if char_path:
+        target = int(H * 1.15)
+        char = Image.open(char_path).convert("RGB").resize((target, target))
+        char = char.filter(ImageFilter.GaussianBlur(25))
+        left, top = (target - W) // 2, (target - H) // 2
+        char = char.crop((left, top, left + W, top + H))
+        scrim = Image.new("RGBA", (W, H), (*ACCENT, 150))
+        img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
+    font = _font(font_size, "bold")
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
     words, lines, cur = hook_text.split(), [], ""
@@ -278,19 +290,32 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     img.paste(m, (badge_x, badge_y), m)
 
     # 캐릭터 이름 라벨 — 배지만 보고는 어떤 품목인지 못 알아볼 수 있어서
-    # (표지에만 이름이 있고 이후 페이지는 넘겨서 못 봄, 2026-07-30 피드백) 매 카드에 표시
+    # (표지에만 이름이 있고 이후 페이지는 넘겨서 못 봄, 2026-07-30 피드백) 매 카드에 표시.
+    # WHY 알약형 배지로 강화(2026-07-31 재지적: "명칭 언급이 필요할듯" — 기존 22px
+    # 연회색 텍스트는 너무 눈에 안 띄어서 사실상 없는 것과 마찬가지였다): 액센트
+    # 색 배경 + 굵은 글자로 배지 형태를 줘서 확실히 읽히게 한다.
     char_label = Path(char_path).stem.replace("_illust", "")
-    label_f2 = _font(22, "semibold")
+    label_f2 = _font(28, "bold")
     lb = draw.textbbox((0, 0), char_label, font=label_f2)
-    lw = lb[2] - lb[0]
+    lw, lh = lb[2] - lb[0], lb[3] - lb[1]
+    lpad_x, lpad_y = 18, 8
+    lchip_w, lchip_h = lw + lpad_x * 2, lh + lpad_y * 2
     badge_cx = badge_x + m.width / 2
-    draw.text((badge_cx - lw / 2 - lb[0], badge_y + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
+    lchip_y = badge_y + m.height + 8
+    lchip_x0 = badge_cx - lchip_w / 2
+    draw.rounded_rectangle(
+        [lchip_x0, lchip_y, lchip_x0 + lchip_w, lchip_y + lchip_h],
+        radius=lchip_h // 2, fill=ACCENT_SOFT,
+    )
+    draw.text((lchip_x0 + lpad_x - lb[0], lchip_y + lpad_y - lb[1]), char_label, font=label_f2, fill=ACCENT_DEEP)
 
     # 글자 크게 — 계속 반복 지적된 부분(2026-07-30 여러 차례) — 이번엔 이전보다
     # 한 단계가 아니라 확실히 크게: 제목 76→92, 본문 46→58. 간격도 커진 폰트
     # 크기에 맞게 같이 늘려서 겹치지 않게 조정.
+    # WHY +50이 아니라 +80: 이름 배지가 알약형(2026-07-31)으로 커지면서 제목 첫 줄
+    # 우측 상단과 살짝 겹치던 문제 — 여유를 더 준다.
     draw = ImageDraw.Draw(img)
-    y = panel_box[1] + m.height + 50
+    y = panel_box[1] + m.height + 80
     y = _draw_centered(draw, [name], y, 0, 92, INK, "bold")
     _diamond_divider(draw, y + 132)
     _draw_centered(draw, body_lines, y + 182, 86, 58, INK, "medium")
