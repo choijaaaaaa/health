@@ -153,7 +153,10 @@ def _make_cover_flat(title_lines, char_paths, out_path):
 
 
 def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
-    # 1) 실사진 풀블리드 배경 (선명하게, 블러 없음 — 썸네일은 임팩트가 우선)
+    # WHY 사진을 크게 블러 + 전체 스크림으로 배경화(2026-07-30, 재지적): 이전엔 선명한
+    # 사진 위에 캐릭터를 큼직하게 얹고 그 아래 작은 글자를 깔아서 "감자 위에 글자
+    # 쳐박아놓은" 느낌이었다 — 후킹은 글자가 해야 하므로, 사진은 흐린 배경 무드로만
+    # 쓰고 캔버스 중앙 전체를 훅 카피가 차지하도록 레이아웃을 뒤집는다.
     photo = Image.open(bg_photo_path).convert("RGB")
     ratio = W / H
     pw, ph = photo.size
@@ -163,45 +166,55 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
     else:
         new_h = int(pw / ratio)
         photo = photo.crop((0, (ph - new_h) // 2, pw, (ph - new_h) // 2 + new_h))
-    img = photo.resize((W, H)).convert("RGBA")
+    photo = photo.resize((W, H)).filter(ImageFilter.GaussianBlur(38))
+    img = photo.convert("RGBA")
 
-    # 2) 하단 텍스트 가독성용 어두운 그라디언트 스크림
-    scrim = Image.new("RGBA", (W, H), (0, 0, 0, 0))
-    sdraw = ImageDraw.Draw(scrim)
-    scrim_top = int(H * 0.42)
-    for y in range(scrim_top, H):
-        t = (y - scrim_top) / (H - scrim_top)
-        alpha = int(215 * t)
-        sdraw.line([(0, y), (W, y)], fill=(20, 14, 10, alpha))
+    # 전체 캔버스에 고른 어두운 스크림 — 사진의 어느 부분에 글자가 와도 대비 확보
+    scrim = Image.new("RGBA", (W, H), (18, 13, 10, 158))
     img = Image.alpha_composite(img, scrim)
 
     draw = ImageDraw.Draw(img)
     _top_chip(img, draw, "건강 카드뉴스", ACCENT)
 
-    # 3) 캐릭터(들) — 사진 위에 큼직하게, 그림자 있는 메달리온
-    # 단일 캐릭터 주제는 char_paths에 같은 이미지가 아이템 수만큼(예: 5번) 들어있을 수
-    # 있어서(아이템마다 char_file 지정 구조) 중복 제거 후 표시 — 안 그러면 같은 캐릭터가
-    # 줄지어 나열되는 버그가 생긴다.
-    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
-    n = len(unique_paths)
-    size = 260 if n == 1 else 170
-    gap = 20
-    med_size = size + (10 + 18) * 2
-    total_w = med_size * n + gap * (n - 1)
-    start_x = (W - total_w) // 2
-    y0 = int(H * 0.30)
-    for idx, path in enumerate(unique_paths):
-        m = _char_medallion(path, size, ring_color=(255, 255, 255))
-        img.paste(m, (start_x + idx * (med_size + gap), y0), m)
+    # 훅 카피(마지막 줄 제외) — 캔버스 중앙을 지배하는 메인 카피, 흰색 굵게
+    hook_lines = title_lines[:-1]
+    topic_line = title_lines[-1]
+    hook_line_h = 110
+    hook_h = hook_line_h * len(hook_lines)
+    pill_h = 78
+    med_size = 92
+    med_canvas = med_size + (6 + 14) * 2
+    gap_hook_pill, gap_pill_med, gap_med_hint = 44, 40, 26
+    hint_h = 50
+    block_h = hook_h + gap_hook_pill + pill_h + gap_pill_med + med_canvas + gap_med_hint + hint_h
+    region_top, region_bottom = 150, H - 40
+    y = region_top + (region_bottom - region_top - block_h) // 2
 
-    # 4) 하단 제목 — 흰색, 굵게, 스크림 위라 가독성 확보
-    # 글자 크게 — 표지는 첫인상이라 특히 더 크게 키움(2026-07-30, 반복 지적:
-    # "카드뉴스 처음꺼 글을 좀더 잘 읽을 수 있게 폰트 엄청 큼직하게")
+    y = _draw_centered(draw, hook_lines, y, hook_line_h, 84, (255, 255, 255), "bold")
+    y += gap_hook_pill
+
+    # 주제 태그 — 알약형 캡슐, 액센트 컬러(작은 상단 칩과 짝을 이루는 톤)
+    pf = _font(40, "bold")
+    pbbox = draw.textbbox((0, 0), topic_line, font=pf)
+    ptw, pth = pbbox[2] - pbbox[0], pbbox[3] - pbbox[1]
+    ppad_x, ppad_y = 32, 15
+    pchip_w, pchip_h = ptw + ppad_x * 2, pth + ppad_y * 2
+    px0 = (W - pchip_w) // 2
+    draw.rounded_rectangle([px0, y, px0 + pchip_w, y + pchip_h], radius=pchip_h // 2, fill=ACCENT)
+    draw.text((px0 + ppad_x - pbbox[0], y + ppad_y - pbbox[1]), topic_line, font=pf, fill=(255, 255, 255))
+    y += pchip_h + gap_pill_med
+
+    # 캐릭터 — 중앙 공간을 글자에 내주기 위해 작은 배지로만
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    if unique_paths:
+        m = _char_medallion(unique_paths[0], med_size, ring_color=(255, 255, 255), ring_w=6)
+        img.paste(m, ((W - m.width) // 2, y), m)
+        y += m.height + gap_med_hint
+    else:
+        y += gap_med_hint
+
     draw = ImageDraw.Draw(img)
-    y = int(H * 0.63)
-    y = _draw_centered(draw, title_lines[:-1], y, 80, 58, (240, 232, 224), "medium")
-    y = _draw_centered(draw, [title_lines[-1]], y + 10, 96, 84, (255, 255, 255), "bold")
-    _draw_centered(draw, ["넘겨서 확인하기  →"], y + 74, 46, 38, (255, 214, 224), "semibold")
+    _draw_centered(draw, ["넘겨서 확인하기  →"], y, 0, 34, (255, 214, 224), "semibold")
 
     img.convert("RGB").save(out_path, quality=95)
 
@@ -218,8 +231,8 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
 
     # 상단 라벨 — 페이지 번호는 큼직한 숫자 대신 하단 바에서 "N / total"로
     # 작게만 보여준다(2026-07-30, 큰 숫자가 정보량 대비 공간을 너무 차지한다는 피드백)
-    label_f = _font(28, "semibold")
-    draw.text((MARGIN, 60), eyebrow, font=label_f, fill=GOLD)
+    label_f = _font(32, "semibold")
+    draw.text((MARGIN, 56), eyebrow, font=label_f, fill=GOLD)
 
     # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
     # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
@@ -232,21 +245,23 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     # 캐릭터 이름 라벨 — 배지만 보고는 어떤 품목인지 못 알아볼 수 있어서
     # (표지에만 이름이 있고 이후 페이지는 넘겨서 못 봄, 2026-07-30 피드백) 매 카드에 표시
     char_label = Path(char_path).stem.replace("_illust", "")
-    label_f2 = _font(20, "semibold")
+    label_f2 = _font(22, "semibold")
     lb = draw.textbbox((0, 0), char_label, font=label_f2)
     lw = lb[2] - lb[0]
     badge_cx = badge_x + m.width / 2
     draw.text((badge_cx - lw / 2 - lb[0], badge_y + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
 
-    # 글자 크게 — 반복 지적된 부분(2026-07-30), 제목/본문 모두 한 단계 더 키움
+    # 글자 크게 — 계속 반복 지적된 부분(2026-07-30 여러 차례) — 이번엔 이전보다
+    # 한 단계가 아니라 확실히 크게: 제목 76→92, 본문 46→58. 간격도 커진 폰트
+    # 크기에 맞게 같이 늘려서 겹치지 않게 조정.
     draw = ImageDraw.Draw(img)
     y = panel_box[1] + m.height + 50
-    y = _draw_centered(draw, [name], y, 0, 76, INK, "bold")
-    _diamond_divider(draw, y + 98)
-    _draw_centered(draw, body_lines, y + 144, 72, 46, INK, "medium")
+    y = _draw_centered(draw, [name], y, 0, 92, INK, "bold")
+    _diamond_divider(draw, y + 132)
+    _draw_centered(draw, body_lines, y + 182, 86, 58, INK, "medium")
 
     draw.rectangle([0, H - 70, W, H], fill=ACCENT)
-    _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 28, (255, 255, 255), "medium")
+    _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 30, (255, 255, 255), "medium")
     img.save(out_path, quality=95)
 
 
@@ -273,17 +288,18 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
         lw = lb[2] - lb[0]
         draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
 
+    # 글자 크게 — 팩트카드와 동일하게 마무리 카드도 확실히 키움(2026-07-30)
     draw = ImageDraw.Draw(img)
     y = 190 + med_size + 76
     for i, block in enumerate(headline_blocks):
         weight = "bold" if i == 0 else "semibold"
         color = INK if i == 0 else ACCENT_DEEP
-        y = _draw_centered(draw, block, y, 60, 44, color, weight) + 34
+        y = _draw_centered(draw, block, y, 76, 56, color, weight) + 34
     _diamond_divider(draw, y + 6)
-    _draw_centered(draw, tip_lines, y + 46, 50, 32, INK_SOFT, "regular")
+    _draw_centered(draw, tip_lines, y + 58, 64, 42, INK_SOFT, "regular")
 
     draw.rectangle([0, H - 96, W, H], fill=ACCENT)
-    _draw_centered(draw, [cta_text], H - 68, 0, 32, (255, 255, 255), "semibold")
+    _draw_centered(draw, [cta_text], H - 68, 0, 34, (255, 255, 255), "semibold")
     img.save(out_path, quality=95)
 
 
