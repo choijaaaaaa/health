@@ -108,7 +108,16 @@ def _top_chip(canvas, draw, text, fill):
     return y0 + chip_h
 
 
-def make_cover(title_lines, char_paths, out_path):
+def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
+    """bg_photo_path 주면 실사진을 풀블리드 배경으로 쓰는 임팩트있는 썸네일형 표지로,
+    안 주면 기존 플랫 그라디언트 배경 표지로 만든다."""
+    if bg_photo_path:
+        _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path)
+    else:
+        _make_cover_flat(title_lines, char_paths, out_path)
+
+
+def _make_cover_flat(title_lines, char_paths, out_path):
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     draw = ImageDraw.Draw(img)
     _top_chip(img, draw, "건강 카드뉴스", ACCENT)
@@ -140,6 +149,54 @@ def make_cover(title_lines, char_paths, out_path):
     _diamond_divider(draw, y + 50)
     _draw_centered(draw, ["넘겨서 확인하기  →"], y + 90, 40, 32, ACCENT, "semibold")
     img.save(out_path, quality=95)
+
+
+def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
+    # 1) 실사진 풀블리드 배경 (선명하게, 블러 없음 — 썸네일은 임팩트가 우선)
+    photo = Image.open(bg_photo_path).convert("RGB")
+    ratio = W / H
+    pw, ph = photo.size
+    if pw / ph > ratio:
+        new_w = int(ph * ratio)
+        photo = photo.crop(((pw - new_w) // 2, 0, (pw - new_w) // 2 + new_w, ph))
+    else:
+        new_h = int(pw / ratio)
+        photo = photo.crop((0, (ph - new_h) // 2, pw, (ph - new_h) // 2 + new_h))
+    img = photo.resize((W, H)).convert("RGBA")
+
+    # 2) 하단 텍스트 가독성용 어두운 그라디언트 스크림
+    scrim = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sdraw = ImageDraw.Draw(scrim)
+    scrim_top = int(H * 0.42)
+    for y in range(scrim_top, H):
+        t = (y - scrim_top) / (H - scrim_top)
+        alpha = int(215 * t)
+        sdraw.line([(0, y), (W, y)], fill=(20, 14, 10, alpha))
+    img = Image.alpha_composite(img, scrim)
+
+    draw = ImageDraw.Draw(img)
+    _top_chip(img, draw, "건강 카드뉴스", ACCENT)
+
+    # 3) 캐릭터(들) — 사진 위에 큼직하게, 그림자 있는 메달리온
+    n = len(char_paths)
+    size = 260 if n == 1 else 170
+    gap = 20
+    med_size = size + (10 + 18) * 2
+    total_w = med_size * n + gap * (n - 1)
+    start_x = (W - total_w) // 2
+    y0 = int(H * 0.30)
+    for idx, path in enumerate(char_paths):
+        m = _char_medallion(path, size, ring_color=(255, 255, 255))
+        img.paste(m, (start_x + idx * (med_size + gap), y0), m)
+
+    # 4) 하단 제목 — 흰색, 굵게, 스크림 위라 가독성 확보
+    draw = ImageDraw.Draw(img)
+    y = int(H * 0.68)
+    y = _draw_centered(draw, title_lines[:-1], y, 58, 40, (240, 232, 224), "medium")
+    y = _draw_centered(draw, [title_lines[-1]], y + 6, 62, 54, (255, 255, 255), "bold")
+    _draw_centered(draw, ["넘겨서 확인하기  →"], y + 60, 36, 30, (255, 214, 224), "semibold")
+
+    img.convert("RGB").save(out_path, quality=95)
 
 
 def make_fact_card(num, name, char_path, body_lines, total, out_path):

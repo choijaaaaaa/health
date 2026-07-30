@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>병원에서 혈당 조절에 좋다고 하는 돼지감자차 이야기 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --gold: #b27a26; --gold-soft: #f1e3c6; --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 36px 24px 24px; text-align: center; }
+  header .eyebrow {
+    display: inline-block; background: var(--accent); color: #fff; font-size: 12px; font-weight: 700;
+    padding: 5px 16px; border-radius: 999px; margin-bottom: 12px;
+  }
+  header h1 { margin: 0; font-size: 24px; line-height: 1.4; }
+
+  section { max-width: 1040px; margin: 0 auto; padding: 0 24px 28px; }
+  section h2 {
+    font-size: 14px; letter-spacing: 0.04em; color: var(--ink-soft); text-transform: uppercase;
+    margin: 0 0 14px; display: flex; align-items: center; gap: 8px;
+  }
+  section h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  .preview-row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .video-panel {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
+    flex: 0 0 auto;
+  }
+  .video-panel video {
+    width: 260px; aspect-ratio: 9/16; border-radius: 12px; background: #000; display: block;
+  }
+  .video-panel .dl {
+    display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700;
+    color: var(--accent-deep); text-decoration: none;
+  }
+
+  .card-gallery {
+    flex: 1; min-width: 280px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
+  }
+  .card-scroll { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }
+  .card-scroll img {
+    height: 220px; border-radius: 10px; box-shadow: 0 6px 14px rgba(60,45,35,0.15);
+    cursor: pointer; flex: 0 0 auto;
+  }
+  .card-scroll img:hover { outline: 3px solid var(--accent-soft); }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
+  }
+  .platform-card {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 16px; padding: 16px;
+    display: flex; flex-direction: column;
+  }
+  .platform-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .platform-head h3 { margin: 0; font-size: 16px; }
+  .btn-go {
+    background: var(--accent); color: #fff; text-decoration: none; font-size: 12px; font-weight: 700;
+    padding: 7px 14px; border-radius: 999px; white-space: nowrap;
+  }
+  .caption-box {
+    background: #fbf6f1; border: 1px solid var(--rule); border-radius: 10px; padding: 12px;
+    font-family: inherit; font-size: 13px; line-height: 1.6;
+    height: 200px; resize: vertical; margin: 0 0 10px; color: var(--ink);
+  }
+  .caption-box:focus { outline: 2px solid var(--accent-soft); }
+  .card-actions { display: flex; align-items: center; gap: 10px; }
+  .btn-copy {
+    background: var(--accent-soft); color: var(--accent-deep); border: none;
+    font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .btn-copy.copied { background: var(--gold); color: #fff; }
+  .edit-hint { font-size: 11px; color: var(--ink-soft); }
+
+  .lightbox {
+    display: none; position: fixed; inset: 0; background: rgba(20,14,10,0.85);
+    align-items: center; justify-content: center; z-index: 100; padding: 24px;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">업로드 대시보드</div>
+  <h1>병원에서 혈당 조절에 좋다고 하는 돼지감자차 이야기</h1>
+</header>
+
+<section>
+  <h2>미리보기</h2>
+  <div class="preview-row">
+    <div class="video-panel">
+      <video src="shorts.mp4" controls playsinline></video><a class="dl" href="shorts.mp4" download>영상 다운로드 ↓</a>
+    </div>
+    <div class="card-gallery">
+      <div class="card-scroll"><img src="card_news/00_표지.jpg" alt="00_표지"><img src="card_news/01_돼지감자란?.jpg" alt="01_돼지감자란?"><img src="card_news/02_혈당 관리와의 관계.jpg" alt="02_혈당 관리와의 관계"><img src="card_news/03_함께 들어있는 영양성분.jpg" alt="03_함께 들어있는 영양성분"><img src="card_news/04_끓이는 법.jpg" alt="04_끓이는 법"><img src="card_news/05_주의할 점.jpg" alt="05_주의할 점"><img src="card_news/06_마무리.jpg" alt="06_마무리"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>플랫폼별 캡션</h2>
+  <div class="grid">
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>네이버 블로그</h3>
+    <a class="btn-go" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-0" spellcheck="false">병원에서 혈당 조절에 좋다고 하는 돼지감자차 이야기
+
+돼지감자는 일반 감자와 다르게 이눌린이라는 성분이 풍부해서, 차로 우려 마시거나 말려서 오래전부터 먹어온 식재료예요.
+
+이눌린은 수용성 식이섬유의 일종인데, 식후 혈당 관리에 도움이 될 가능성이 계속 연구되고 있어요. 장에서는 프리바이오틱스 역할도 한다고 해요. 다만 이 차 하나로 혈당을 조절하거나 치료할 수 있는 건 아니라는 점은 꼭 알아둬야 해요.
+
+이눌린 외에도 식이섬유, 칼륨, 다양한 폴리페놀 성분이 들어있어서, 균형 잡힌 식단의 일부로 챙기면 건강한 식생활에 도움이 될 수 있어요.
+
+끓이는 법은 간단해요. 말린 돼지감자를 깨끗이 헹군 다음 물에 넣고 약한 불에서 충분히 우려내면 구수한 맛을 즐길 수 있어요.
+
+주의할 점도 있어요. 이눌린을 너무 많이 섭취하면 배에 가스가 차거나 팽만감이 생길 수 있고, 혈당강하제를 복용 중이라면 의료진과 먼저 상담하는 게 좋아요.
+
+단 음료 대신 마시면 당류 섭취를 줄이는 데 도움이 될 수 있지만, 결국 특정 차 한 가지가 혈당을 크게 낮추거나 치료해주는 건 아니에요. 규칙적인 운동, 균형 잡힌 식사, 꾸준한 습관이 훨씬 중요해요.
+
+#돼지감자차 #혈당관리 #이눌린 #건강정보 #혈당관리음식</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>티스토리</h3>
+    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-1" spellcheck="false">(네이버 블로그와 동일한 본문 사용 — 티스토리는 서식이 살아있어 그대로 붙여넣기 가능)</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>인스타그램 릴스</h3>
+    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-2" spellcheck="false">병원에서 혈당 조절에 좋다는 돼지감자차 🍵
+
+이눌린이라는 성분이 식후 혈당 관리에 도움될 가능성이 연구되고 있대요.
+
+근데 이 차 하나로 치료되는 건 아니라는 것도 꼭 알아두세요!
+
+더 유용한 건강정보 궁금하면 팔로우 👆
+
+#돼지감자차 #혈당관리 #이눌린 #건강정보 #당뇨정보</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-2">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>인스타그램 카드뉴스</h3>
+    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-3" spellcheck="false">병원에서 혈당 조절에 좋다고 하는 돼지감자차 이야기 (넘겨보세요 →)
+
+이눌린, 끓이는 법, 주의할 점까지 한번에 정리했어요
+
+#돼지감자차 #혈당관리 #건강카드뉴스 #이눌린</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-3">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>유튜브 쇼츠</h3>
+    <a class="btn-go" href="https://studio.youtube.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-4" spellcheck="false">제목: 병원에서 혈당 조절에 좋다는 돼지감자차, 제대로 알아보기
+
+설명란:
+돼지감자에 풍부한 이눌린 성분이 식후 혈당 관리에 도움될 가능성이 연구되고 있어요. 끓이는 법부터 주의할 점까지 정리했습니다.
+
+#Shorts #돼지감자차 #혈당관리 #건강정보</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>네이버 클립</h3>
+    <a class="btn-go" href="https://creator-studio.naver.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-5" spellcheck="false">혈당 관리에 좋다는 돼지감자차, 제대로 알고 마시고 계신가요?
+
+이눌린 성분부터 끓이는 법, 주의할 점까지 정리했어요.
+
+#돼지감자차 #혈당관리 #이눌린 #건강정보</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-5">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>쓰레드</h3>
+    <a class="btn-go" href="https://www.threads.net/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-6" spellcheck="false">돼지감자차가 혈당 관리에 좋다는 얘기 많이 들어보셨죠?
+
+이눌린이라는 수용성 식이섬유가 식후 혈당 관리에 도움될 가능성이 연구되고 있대요. 근데 이 차 하나로 치료되는 건 아니라는 것도 꼭 알아두면 좋을 것 같아요.</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-6">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>틱톡</h3>
+    <a class="btn-go" href="https://www.tiktok.com/upload" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-7" spellcheck="false">혈당 조절에 좋다는 돼지감자차 🍵 이눌린 성분부터 주의할 점까지
+
+#돼지감자차 #혈당관리 #건강정보 #이눌린</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-7">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>페이스북</h3>
+    <a class="btn-go" href="https://www.facebook.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-8" spellcheck="false">병원에서 혈당 조절에 좋다고 하는 돼지감자차 이야기
+
+돼지감자에 풍부한 이눌린이라는 성분이 식후 혈당 관리에 도움될 가능성이 계속 연구되고 있어요. 다만 이 차 하나로 치료되는 건 아니라는 점, 꼭 기억해주세요.
+
+#돼지감자차 #혈당관리 #건강정보</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-8">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+
+<div class="platform-card">
+  <div class="platform-head">
+    <h3>핀터레스트</h3>
+    <a class="btn-go" href="https://www.pinterest.com/" target="_blank" rel="noopener">이동 →</a>
+  </div>
+  <textarea class="caption-box" id="cap-9" spellcheck="false">핀 제목: 돼지감자차 효능과 끓이는 법 | 혈당 관리 차 추천
+
+설명: 이눌린 성분이 풍부한 돼지감자차, 혈당 관리에 도움될 수 있는 이유와 제대로 끓이는 법, 주의할 점까지 정리했어요.
+
+#돼지감자차 #혈당관리 #이눌린 #건강정보 #힐링차</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-9">캡션 복사</button>
+    <span class="edit-hint">직접 수정 가능</span>
+  </div>
+</div>
+</div>
+</section>
+
+<div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
+
+<script>
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const text = document.getElementById(btn.dataset.target).value;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = "캡션 복사"; btn.classList.remove("copied"); }, 1500);
+    });
+  });
+});
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+document.querySelectorAll(".card-scroll img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.classList.add("open");
+  });
+});
+lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
+</script>
+</body>
+</html>
