@@ -29,23 +29,15 @@ TYPE_SECTION_TITLE = {
 }
 TYPE_ORDER = ["video", "cards", "text"]
 
-PRODUCT_ROW_TEMPLATE = """
-<div class="product-row">
-  <div class="product-name">{name}</div>
-  <div class="product-search">
-    <a href="{naver_url}" target="_blank" rel="noopener">🔍 브랜드커넥트</a>
-    <a href="{coupang_url}" target="_blank" rel="noopener">🔍 쿠팡</a>
+DOCK_PRODUCT_ROW_TEMPLATE = """
+<div class="dock-product-row">
+  <div class="dock-product-head">
+    <span class="dock-product-name">{name}</span>
+    <a href="{naver_url}" target="_blank" rel="noopener" title="브랜드커넥트에서 검색">N</a>
+    <a href="{coupang_url}" target="_blank" rel="noopener" title="쿠팡에서 검색">C</a>
   </div>
-  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="찾은 링크 붙여넣기 → 모든 캡션에 자동 반영">
+  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="찾은 링크 붙여넣기">
 </div>
-"""
-
-PRODUCTS_SECTION_TEMPLATE = """
-<section>
-  <h2>상품 링크 연결</h2>
-  <div class="product-list">{rows}</div>
-  <p class="products-hint">링크를 붙여넣으면 아래 모든 캡션 하단에 고지 문구와 함께 자동으로 반영돼요(중복 반영 안 됨, 다시 지우면 캡션에서도 빠짐).</p>
-</section>
 """
 
 CARD_TEMPLATE = """
@@ -134,18 +126,52 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .card-scroll img:hover {{ outline: 3px solid var(--accent-soft); }}
 
-  .sourcing-widget {{
-    flex: 0 0 auto; width: 200px;
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    display: flex; flex-direction: column; gap: 10px;
+  .quick-dock {{
+    position: fixed; top: 50%; right: 14px; transform: translateY(-50%); z-index: 9999;
+    width: 208px; max-height: 82vh; overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(60,45,35,0.25); padding: 14px;
+    display: flex; flex-direction: column; gap: 14px;
   }}
-  .sourcing-widget h3 {{ margin: 0; font-size: 13px; color: var(--ink-soft); }}
-  .sourcing-widget a {{
-    display: flex; align-items: center; justify-content: center; gap: 6px;
+  .dock-head {{ display: flex; align-items: center; justify-content: space-between; }}
+  .dock-head span {{ font-size: 13px; font-weight: 700; color: var(--ink); }}
+  .dock-toggle {{
+    background: var(--accent); color: #fff; border: none; font-size: 11px; font-weight: 700;
+    padding: 6px 10px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+  }}
+  .dock-section h4 {{
+    margin: 0 0 8px; font-size: 11px; letter-spacing: 0.03em; text-transform: uppercase;
+    color: var(--ink-soft);
+  }}
+  .dock-links {{ display: flex; flex-direction: column; gap: 6px; }}
+  .dock-links a {{
+    display: flex; align-items: center; gap: 6px;
     background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
-    font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px;
+    font-size: 12px; font-weight: 700; padding: 8px 10px; border-radius: 8px;
   }}
-  .sourcing-widget a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+  .dock-links a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+  .dock-product-row {{
+    border: 1px solid var(--rule); border-radius: 10px; padding: 8px; margin-bottom: 6px;
+  }}
+  .dock-product-head {{ display: flex; align-items: center; gap: 6px; }}
+  .dock-product-name {{ flex: 1; font-size: 12px; font-weight: 700; }}
+  .dock-product-head a {{
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 22px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 800;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+  }}
+  .dock-product-head a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+  .product-link-input {{
+    display: none; width: 100%; margin-top: 6px; border: 1px solid var(--rule); border-radius: 6px;
+    padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
+  }}
+  .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
+  .quick-dock.expanded .product-link-input {{ display: block; }}
+  .dock-hint {{ font-size: 11px; color: var(--ink-soft); line-height: 1.5; display: none; }}
+  .quick-dock.expanded .dock-hint {{ display: block; }}
+  @media (max-width: 860px) {{
+    .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
+  }}
 
   .platform-section + .platform-section {{ margin-top: 6px; }}
 
@@ -207,24 +233,6 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .lightbox.open {{ display: flex; }}
   .lightbox img {{ max-width: 100%; max-height: 90vh; border-radius: 12px; }}
-
-  .product-list {{ display: flex; flex-direction: column; gap: 10px; }}
-  .product-row {{
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
-    padding: 12px 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
-  }}
-  .product-name {{ font-weight: 700; min-width: 90px; }}
-  .product-search {{ display: flex; gap: 8px; }}
-  .product-search a {{
-    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
-    font-size: 12px; font-weight: 700; padding: 7px 12px; border-radius: 999px; white-space: nowrap;
-  }}
-  .product-link-input {{
-    flex: 1; min-width: 220px; border: 1px solid var(--rule); border-radius: 8px;
-    padding: 9px 12px; font-size: 13px; font-family: inherit; color: var(--ink);
-  }}
-  .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
-  .products-hint {{ font-size: 12px; color: var(--ink-soft); margin: 10px 2px 0; }}
 </style>
 </head>
 <body>
@@ -232,6 +240,29 @@ PAGE_TEMPLATE = """<!doctype html>
   <div class="eyebrow">업로드 대시보드</div>
   <h1>{title}</h1>
 </header>
+
+<div class="quick-dock" id="quickDock">
+  <div class="dock-head">
+    <span>빠른 도구</span>
+    <button class="dock-toggle" id="dockToggle">펼치기 ▾</button>
+  </div>
+  <div class="dock-section">
+    <h4>실사진 소싱</h4>
+    <div class="dock-links">
+      <a href="{unsplash_url}" target="_blank" rel="noopener">🔍 Unsplash</a>
+      <a href="{pexels_url}" target="_blank" rel="noopener">🔍 Pexels</a>
+    </div>
+  </div>
+  <div class="dock-section">
+    <h4>제작 도구</h4>
+    <div class="dock-links">
+      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
+      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
+      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
+    </div>
+  </div>
+  {dock_products}
+</div>
 
 <section>
   <h2>미리보기</h2>
@@ -242,27 +273,27 @@ PAGE_TEMPLATE = """<!doctype html>
     <div class="card-gallery" id="card-gallery">
       <div class="card-scroll">{card_thumbs}</div>
     </div>
-    <div class="sourcing-widget">
-      <h3>실사진 소싱</h3>
-      <a href="{unsplash_url}" target="_blank" rel="noopener">🔍 Unsplash</a>
-      <a href="{pexels_url}" target="_blank" rel="noopener">🔍 Pexels</a>
-    </div>
-    <div class="sourcing-widget">
-      <h3>제작 도구</h3>
-      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
-      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
-      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
-    </div>
   </div>
 </section>
-
-{products_section}
 
 {platform_sections}
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
+const quickDock = document.getElementById("quickDock");
+const dockToggle = document.getElementById("dockToggle");
+const DOCK_STATE_KEY = "hs_dock_expanded";
+if (localStorage.getItem(DOCK_STATE_KEY) === "1") {{
+  quickDock.classList.add("expanded");
+  dockToggle.textContent = "접기 ▴";
+}}
+dockToggle.addEventListener("click", () => {{
+  const open = quickDock.classList.toggle("expanded");
+  dockToggle.textContent = open ? "접기 ▴" : "펼치기 ▾";
+  localStorage.setItem(DOCK_STATE_KEY, open ? "1" : "0");
+}});
+
 document.querySelectorAll(".btn-copy").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const text = document.getElementById(btn.dataset.target).value;
@@ -366,7 +397,7 @@ def _asset_link(platform_type: str, has_video: bool, video_name: str) -> str:
     return '<a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>'
 
 
-def _products_section(products: list[str], affiliate_path: Path) -> str:
+def _dock_products(products: list[str], affiliate_path: Path) -> str:
     if not products:
         return ""
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
@@ -375,10 +406,15 @@ def _products_section(products: list[str], affiliate_path: Path) -> str:
     for name in products:
         naver_url = f"https://brandconnect.naver.com/{creator_id}/affiliate/products/search?query={quote(name)}&tab=product"
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
-        rows += PRODUCT_ROW_TEMPLATE.format(
+        rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
             name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=quote(name),
         )
-    return PRODUCTS_SECTION_TEMPLATE.format(rows=rows)
+    return (
+        '<div class="dock-section"><h4>상품 링크</h4>'
+        f'{rows}'
+        '<p class="dock-hint">링크를 붙여넣으면 모든 캡션 하단에 고지 문구와 함께 자동 반영돼요.</p>'
+        '</div>'
+    )
 
 
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
@@ -387,7 +423,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
-    products_section = _products_section(spec.get("products", []), affiliate_path)
+    dock_products = _dock_products(spec.get("products", []), affiliate_path)
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     card_thumbs = "".join(f'<img src="card_news/{p.name}" alt="{p.stem}">' for p in asset_imgs)
@@ -432,7 +468,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
         platform_sections=sections_html, unsplash_url=unsplash_url, pexels_url=pexels_url,
-        topic=quote(topic), products_section=products_section,
+        topic=quote(topic), dock_products=dock_products,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
     )
