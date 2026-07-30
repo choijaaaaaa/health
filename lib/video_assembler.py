@@ -1,12 +1,16 @@
-# 캐릭터(입모양 립싱크) + 실사진 배경 + 자막을 합쳐 숏츠 영상으로 조립.
+# 캐릭터(Kling 모션 루프) + 실사진 배경 + 자막을 합쳐 숏츠 영상으로 조립.
 # WHY: 이 ffmpeg 빌드엔 drawtext/subtitles(libass) 필터가 없어서 PIL로 자막 PNG를 그려
-# overlay로 합성한다. WHY 캐릭터를 별도 알파 트랙으로 먼저 만드는 이유: Rhubarb 입모양
-# 큐가 200개 넘게 나오는데, 이걸 배경 합성이랑 한 번에 처리하면 세그먼트가 너무 많아져서
-# (2026-07-29 cat-fight 작업에서 체감한 전체-길이 overlay 체인 성능 문제 재발 방지)
-# 캐릭터 트랙만 먼저 만들고, 배경 합성은 "인트로/코너" 딱 2구간으로만 나눠서 처리한다.
+# overlay로 합성한다.
+# 2026-07-30: 캐릭터 움직임을 Rhubarb 립싱크(입모양 3장 스위칭)에서 Kling AI
+# image2video로 전환 — 입모양만 바뀌는 정지 이미지 스위칭은 "위치만 옮겨졌지 그림
+# 자체는 그대로"라 밋밋하다는 피드백. 이제 Kling으로 뽑은 5초 자연스러운 움직임
+# 영상(고개 갸웃 등) 하나를 대사 길이에 맞춰 반복 재생 — 대사 내용과 입모양이
+# 정확히 맞을 필요는 없는 캐릭터 디자인(비인간 사물)이라 이 방식으로 충분하다.
+# 캐릭터를 별도 알파 트랙으로 먼저 만드는 이유는 여전히 유효: 배경 합성은
+# "인트로/코너" 딱 2구간으로만 나눠서 처리해야 전체-길이 overlay 체인 성능 문제를
+# 피할 수 있다(2026-07-29 cat-fight 작업에서 확인).
 from __future__ import annotations
 
-import json
 import re
 import subprocess
 import sys
@@ -18,7 +22,6 @@ from PIL import Image, ImageDraw, ImageFont
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 FPS = 30
-VISEME_MAP = {"X": "X", "A": "X", "B": "B", "C": "B", "F": "B", "G": "B", "H": "B", "D": "D", "E": "D"}
 
 
 def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
@@ -37,18 +40,6 @@ def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
         end = h2 * 3600 + m2 * 60 + s2 + ms2 / 1000
         entries.append((start, end, " ".join(lines[2:])))
     return entries
-
-
-def _merged_mouth_cues(mouthcues_path: str) -> list[tuple[float, float, str]]:
-    data = json.loads(Path(mouthcues_path).read_text())
-    merged = []
-    for c in data["mouthCues"]:
-        shape = VISEME_MAP[c["value"]]
-        if merged and merged[-1][2] == shape:
-            merged[-1] = (merged[-1][0], c["end"], shape)
-        else:
-            merged.append((c["start"], c["end"], shape))
-    return merged
 
 
 def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
@@ -88,25 +79,20 @@ def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
     img.save(out_path)
 
 
-def _build_character_track(mouth_pngs: dict, cues: list[tuple[float, float, str]], out_path: Path):
-    """입모양 큐 타이밍에 맞춰 캐릭터 컷아웃을 스위칭하는 알파 채널 영상(qtrle mov) 생성."""
+def _build_character_loop(motion_path: str, total_duration: float, out_path: Path):
+    """Kling 모션 클립(흰 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
+    알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복."""
     with tempfile.TemporaryDirectory() as tmp:
-        tmp_path = Path(tmp)
-        seg_paths = []
-        for i, (start, end, shape) in enumerate(cues):
-            dur = max(end - start, 0.02)
-            seg = tmp_path / f"seg_{i:04d}.mov"
-            subprocess.run(
-                ["ffmpeg", "-y", "-loop", "1", "-i", mouth_pngs[shape], "-t", f"{dur}",
-                 "-r", str(FPS), "-c:v", "qtrle", str(seg)],
-                check=True, capture_output=True,
-            )
-            seg_paths.append(seg)
-        list_path = tmp_path / "list.txt"
-        list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
+        keyed = Path(tmp) / "keyed.mov"
         subprocess.run(
-            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
-             "-c", "copy", str(out_path)],
+            ["ffmpeg", "-y", "-i", motion_path,
+             "-vf", "colorkey=0xFFFFFF:0.12:0.08,format=yuva420p",
+             "-c:v", "qtrle", str(keyed)],
+            check=True, capture_output=True,
+        )
+        subprocess.run(
+            ["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(keyed),
+             "-t", f"{total_duration}", "-c:v", "qtrle", str(out_path)],
             check=True, capture_output=True,
         )
 
@@ -141,12 +127,11 @@ def _build_background(images: list[str], total_duration: float, out_path: Path):
 
 def assemble(
     images: list[str],
-    mouth_pngs: dict,
-    mouthcues_path: str,
+    motion_path: str,
     audio_path: str,
     srt_path: str,
     out_path: str,
-    intro_duration: float = 8.7,
+    intro_duration: float = 5.3,
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -154,13 +139,12 @@ def assemble(
         capture_output=True, text=True, check=True,
     )
     total_duration = float(duration_probe.stdout.strip())
-    cues = _merged_mouth_cues(mouthcues_path)
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
 
         char_track = tmp_path / "char.mov"
-        _build_character_track(mouth_pngs, cues, char_track)
+        _build_character_loop(motion_path, total_duration, char_track)
 
         bg = tmp_path / "bg.mp4"
         _build_background(images, total_duration, bg)
@@ -256,20 +240,16 @@ if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser()
     p.add_argument("--images", required=True, help="쉼표로 구분된 배경용 실사진 경로들")
-    p.add_argument("--mouth-x", required=True)
-    p.add_argument("--mouth-b", required=True)
-    p.add_argument("--mouth-d", required=True)
-    p.add_argument("--mouthcues", required=True)
+    p.add_argument("--motion", required=True, help="Kling으로 생성한 캐릭터 모션 루프 클립(흰 배경)")
     p.add_argument("--audio", required=True)
     p.add_argument("--srt", required=True)
     p.add_argument("--out", required=True)
-    p.add_argument("--intro-duration", type=float, default=8.7)
+    p.add_argument("--intro-duration", type=float, default=5.3)
     args = p.parse_args()
 
     assemble(
         images=args.images.split(","),
-        mouth_pngs={"X": args.mouth_x, "B": args.mouth_b, "D": args.mouth_d},
-        mouthcues_path=args.mouthcues,
+        motion_path=args.motion,
         audio_path=args.audio,
         srt_path=args.srt,
         out_path=args.out,
