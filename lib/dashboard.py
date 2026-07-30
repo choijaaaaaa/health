@@ -7,6 +7,7 @@
 # 콘텐츠 유형별로 섹션을 나눠 스캔하기 쉽게 재구성.
 from __future__ import annotations
 
+import base64
 import json
 import re
 import sys
@@ -34,15 +35,28 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-{idx}" title="링크 넣기">🔗</button>
     <span class="dock-product-name">{name}</span>
-    <a href="{naver_url}" target="_blank" rel="noopener" title="브랜드커넥트에서 검색">N</a>
-    <a href="{coupang_url}" target="_blank" rel="noopener" title="쿠팡에서 검색">C</a>
   </div>
-  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="링크 붙여넣고 Enter">
+  <div class="dock-product-market">
+    <a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" placeholder="쿠팡 링크 붙여넣고 Enter">
+  </div>
+  <div class="dock-product-market">
+    <a href="{naver_url}" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <input type="text" class="product-link-input" data-market="naver" data-product="{name_attr}" placeholder="네이버 링크 붙여넣고 Enter">
+  </div>
+</div>
+"""
+
+MARKET_TOGGLE_TEMPLATE = """
+<div class="market-toggle" data-market-key="{market_key}" data-default-market="{default_market}">
+  <span class="market-label">상품 링크</span>
+  <button class="market-btn{coupang_active}" data-market="coupang">🛒 쿠팡</button>
+  <button class="market-btn{naver_active}" data-market="naver">🔵 네이버</button>
 </div>
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -56,6 +70,7 @@ CARD_TEMPLATE = """
       <a class="btn-go" href="{url}" target="_blank" rel="noopener">열기 →</a>
     </div>
   </div>
+  {market_toggle}
   <div class="action-line">{action}</div>
   {asset_link}
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
@@ -160,18 +175,26 @@ PAGE_TEMPLATE = """<!doctype html>
     background: var(--rule); color: var(--ink-soft); flex: 0 0 auto;
   }}
   .dock-product-row.linked .row-toggle {{ background: var(--gold); color: #fff; }}
-  .dock-product-head a {{
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 22px; height: 22px; border-radius: 6px; font-size: 11px; font-weight: 800;
-    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none; flex: 0 0 auto;
+  .dock-product-market {{ display: none; margin-top: 8px; }}
+  .dock-product-row.row-expanded .dock-product-market {{ display: block; }}
+  .dock-product-market a {{
+    display: inline-block; font-size: 11px; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    padding: 5px 10px; border-radius: 999px; margin-bottom: 4px;
   }}
-  .dock-product-head a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+  .dock-product-market a:hover {{ background: var(--gold-soft); color: var(--gold); }}
   .product-link-input {{
-    display: none; width: 100%; margin-top: 6px; border: 1px solid var(--rule); border-radius: 6px;
+    display: block; width: 100%; border: 1px solid var(--rule); border-radius: 6px;
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }}
   .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
-  .dock-product-row.row-expanded .product-link-input {{ display: block; }}
+  .market-toggle {{ display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }}
+  .market-label {{ font-size: 11px; color: var(--ink-soft); font-weight: 700; }}
+  .market-btn {{
+    border: 1px solid var(--rule); background: var(--panel); color: var(--ink-soft);
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  }}
+  .market-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
   @media (max-width: 860px) {{
     .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
   }}
@@ -333,23 +356,25 @@ const NAVER_DISCLOSURE = {naver_disclosure_js};
 const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
 const AUTO_LINKS_RE = /\\n\\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
 
-function applyProductLinks() {{
+function _buildMarketBlock(market) {{
   const lines = [];
-  const disclosures = [];
-  document.querySelectorAll(".product-link-input").forEach(inp => {{
+  document.querySelectorAll(`.product-link-input[data-market="${{market}}"]`).forEach(inp => {{
     const url = inp.value.trim();
-    if (!url) return;
-    lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
-    if (url.includes("coupang.com") && !disclosures.includes(COUPANG_DISCLOSURE)) disclosures.push(COUPANG_DISCLOSURE);
-    if (url.includes("naver.com") && !disclosures.includes(NAVER_DISCLOSURE)) disclosures.push(NAVER_DISCLOSURE);
+    if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   }});
-  let block = "";
-  if (lines.length > 0) {{
-    block = "\\n\\n[[AUTO-LINKS-START]]\\n" + lines.join("\\n");
-    disclosures.forEach(d => {{ block += "\\n\\n" + d; }});
-    block += "\\n[[AUTO-LINKS-END]]";
-  }}
+  if (lines.length === 0) return "";
+  const disclosure = market === "coupang" ? COUPANG_DISCLOSURE : NAVER_DISCLOSURE;
+  return "\\n\\n[[AUTO-LINKS-START]]\\n" + lines.join("\\n") + "\\n\\n" + disclosure + "\\n[[AUTO-LINKS-END]]";
+}}
+
+function applyProductLinks() {{
+  const coupangBlock = _buildMarketBlock("coupang");
+  const naverBlock = _buildMarketBlock("naver");
   document.querySelectorAll(".caption-box").forEach(box => {{
+    const card = box.closest(".platform-card");
+    const activeBtn = card.querySelector(".market-toggle .market-btn.active");
+    const market = activeBtn ? activeBtn.dataset.market : null;
+    const block = market === "naver" ? naverBlock : market === "coupang" ? coupangBlock : "";
     const stripped = box.value.replace(AUTO_LINKS_RE, "");
     box.value = block ? stripped + block : stripped;
   }});
@@ -357,7 +382,7 @@ function applyProductLinks() {{
 
 document.querySelectorAll(".product-link-input").forEach(inp => {{
   const row = inp.closest(".dock-product-row");
-  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.product;
+  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.market + "_" + inp.dataset.product;
   const saved = localStorage.getItem(storageKey);
   if (saved) {{
     inp.value = saved;
@@ -377,6 +402,24 @@ document.querySelectorAll(".product-link-input").forEach(inp => {{
     if (e.key === "Enter") {{ row.classList.remove("row-expanded"); inp.blur(); }}
   }});
 }});
+
+const MARKET_STATE_PREFIX = "hs_market_{topic}_";
+document.querySelectorAll(".market-toggle").forEach(toggle => {{
+  const storageKey = MARKET_STATE_PREFIX + toggle.dataset.marketKey;
+  const saved = localStorage.getItem(storageKey);
+  if (saved) {{
+    toggle.querySelectorAll(".market-btn").forEach(b => b.classList.toggle("active", b.dataset.market === saved));
+  }}
+  toggle.querySelectorAll(".market-btn").forEach(btn => {{
+    btn.addEventListener("click", () => {{
+      toggle.querySelectorAll(".market-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      localStorage.setItem(storageKey, btn.dataset.market);
+      applyProductLinks();
+    }});
+  }});
+}});
+
 applyProductLinks();
 
 const STORAGE_PREFIX = "hs_done_{topic}_";
@@ -435,7 +478,7 @@ def _dock_products(products: list[str], affiliate_path: Path) -> str:
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
         f'{rows}'
-        '<p class="dock-hint">링크를 붙여넣으면 모든 캡션 하단에 고지 문구와 함께 자동 반영돼요.</p>'
+        '<p class="dock-hint">쿠팡/네이버 링크를 각각 붙여넣으면, 아래 각 플랫폼 카드에서 고른 쪽(쿠팡/네이버)에 맞춰 고지 문구와 함께 자동 반영돼요.</p>'
         '</div>'
     )
 
@@ -446,6 +489,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
+    has_products = bool(spec.get("products"))
     dock_products = _dock_products(spec.get("products", []), affiliate_path)
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
@@ -464,11 +508,15 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     else:
         video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
 
-    # WHY: 텍스트형 플랫폼(블로그 등)은 리치에디터라 클립보드에 text/html을 같이 써주면
-    # 표지 이미지까지 붙여넣기 된다 — GitHub Pages에 푸시된 절대경로가 있어야 브라우저가
-    # 붙여넣을 때 이미지를 실제로 불러올 수 있음(로컬에서만 테스트하면 깨져 보일 수 있음).
-    has_cover = (Path(card_news_dir) / "00_표지.jpg").exists()
-    cover_url = f"https://choijaaaaaa.github.io/health/output/{quote(topic)}/card_news/{quote('00_표지.jpg')}"
+    # WHY base64로 직접 embed: 원격 URL(src="https://...")은 네이버/티스토리 에디터가
+    # 붙여넣기 시 외부 이미지를 거부하거나 못 불러오는 경우가 있었다(2026-07-30 확인) —
+    # 이미지 바이트를 클립보드 HTML에 직접 박아넣으면 어느 사이트에 붙여도 안정적으로 뜬다.
+    cover_path = Path(card_news_dir) / "00_표지.jpg"
+    has_cover = cover_path.exists()
+    cover_url = ""
+    if has_cover:
+        cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
+        cover_url = f"data:image/jpeg;base64,{cover_b64}"
 
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
@@ -483,6 +531,16 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         cards_html = ""
         for p in group:
             cover_attr = cover_url if (t == "text" and has_cover) else ""
+            market_key = quote(p["name"])
+            default_market = "naver" if p.get("network") == "naver" else "coupang"
+            market_toggle = ""
+            if has_products:
+                market_toggle = MARKET_TOGGLE_TEMPLATE.format(
+                    market_key=market_key,
+                    default_market=default_market,
+                    coupang_active=" active" if default_market == "coupang" else "",
+                    naver_active=" active" if default_market == "naver" else "",
+                )
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -495,6 +553,8 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
+                market_key=market_key,
+                market_toggle=market_toggle,
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)

@@ -19,6 +19,9 @@ BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
 MODEL = "gemini-3.1-flash-lite-image"  # ~$0.0336/장
 LIBRARY_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "illust"
 
+# 2026-07-30 검증 완료: 이 프롬프트(눈코입 큼직하게)로 만든 돼지감자 캐릭터가
+# Kling 모션 생성에서 입 위치 오류·눈 왜곡 없이 안정적으로 나온 첫 케이스(v7) —
+# 이후 새 캐릭터도 이 기본 프롬프트 그대로 쓸 것, 임의로 수정하지 말 것.
 STYLE_PROMPT = (
     "귀여운 3D 카툰 스타일 캐릭터 일러스트. 대상: {item}. "
     "눈, 코, 입은 얼굴 크기 대비 큼직하고 뚜렷하게 그려서(특히 입은 벌렸을 때 표정이 확실히 "

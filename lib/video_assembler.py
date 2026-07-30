@@ -261,7 +261,7 @@ def assemble(
             ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
              "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(char_track),
              "-filter_complex",
-             f"[1:v]scale=190:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-260[v]",
+             f"[1:v]scale=280:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-320[v]",
              "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
             check=True, capture_output=True,
         )
