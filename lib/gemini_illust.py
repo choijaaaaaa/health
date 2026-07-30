@@ -60,6 +60,37 @@ def generate_illustration(item_name: str, out_path: str | None = None) -> str:
     return out_path
 
 
+def edit_illustration(base_image_path: str, instruction: str, out_path: str) -> str:
+    """기존 이미지를 조건으로 넣어 특정 부분만 바꾼다. WHY: 텍스트만으로 새로 생성하면
+    캐릭터 정체성(몸 형태·색감)이 매번 달라질 수 있다(2026-07-30 확인 — 눈코입만 키우려
+    했는데 몸 전체 디자인이 바뀐 사례) — 원본 이미지를 같이 보내서 "이 부분만" 바꾸도록
+    조건을 걸면 나머지가 훨씬 안정적으로 유지된다(입모양 변형 세트 만들 때 썼던 것과 동일한 기법)."""
+    with open(base_image_path, "rb") as f:
+        image_b64 = base64.b64encode(f.read()).decode("utf-8")
+    resp = requests.post(
+        f"{BASE_URL}/models/{MODEL}:generateContent",
+        headers=_headers(),
+        json={"contents": [{"parts": [
+            {"inline_data": {"mime_type": "image/jpeg", "data": image_b64}},
+            {"text": instruction},
+        ]}]},
+    )
+    resp.raise_for_status()
+    data = resp.json()
+
+    parts = data["candidates"][0]["content"]["parts"]
+    image_part = next((p for p in parts if "inlineData" in p), None)
+    if image_part is None:
+        raise RuntimeError(f"[gemini] 이미지가 응답에 없음: {data}")
+
+    image_bytes = base64.b64decode(image_part["inlineData"]["data"])
+    Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+    with open(out_path, "wb") as f:
+        f.write(image_bytes)
+    print(f"[gemini] 이미지 편집 완료: {out_path}")
+    return out_path
+
+
 if __name__ == "__main__":
     item_name = sys.argv[1]
     generate_illustration(item_name)

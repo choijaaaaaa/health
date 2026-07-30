@@ -59,7 +59,7 @@ def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
     img.save(out_path)
 
 
-def _make_title_png(text: str, out_path: Path, font_size=46) -> int:
+def _make_title_png(text: str, out_path: Path, font_size=64) -> int:
     """영상 상단을 가로로 꽉 채우는 후킹 배너. WHY: 작은 알약 모양 라벨은 존재감이
     약해서 스크롤 중 3초컷으로 넘어가는 문제를 못 막는다(2026-07-30 피드백) —
     화면 가로 전체를 덮는 굵은 배너로 바꾸고, 텍스트도 카테고리 라벨이 아니라
@@ -96,8 +96,8 @@ def _make_title_png(text: str, out_path: Path, font_size=46) -> int:
     return box_h
 
 
-def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
-    font = ImageFont.truetype(FONT_PATH, font_size)
+def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
+    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     words, lines, cur = text.split(), [], ""

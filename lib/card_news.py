@@ -208,14 +208,16 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     img = img.convert("RGB")
 
-    panel_box = [MARGIN - 24, 300, W - MARGIN + 24, H - 140]
+    # 패널을 화면 상단 가까이까지 크게 — 이전엔 위쪽에 빈 배경이 너무 많이 남아서
+    # "짜친다"는 피드백(2026-07-30, 반복 지적)
+    panel_box = [MARGIN - 24, 130, W - MARGIN + 24, H - 140]
     img = _rounded_panel(img, panel_box, radius=40, fill=PANEL)
     draw = ImageDraw.Draw(img)
 
     # 상단 라벨 — 페이지 번호는 큼직한 숫자 대신 하단 바에서 "N / total"로
     # 작게만 보여준다(2026-07-30, 큰 숫자가 정보량 대비 공간을 너무 차지한다는 피드백)
     label_f = _font(28, "semibold")
-    draw.text((MARGIN, 84), eyebrow, font=label_f, fill=GOLD)
+    draw.text((MARGIN, 60), eyebrow, font=label_f, fill=GOLD)
 
     # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
     # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
@@ -223,11 +225,12 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     m = _char_medallion(char_path, char_size, ring_w=8)
     img.paste(m, (panel_box[2] - m.width - 20, panel_box[1] + 20), m)
 
+    # 글자 크게 — 반복 지적된 부분(2026-07-30), 제목/본문 모두 한 단계 더 키움
     draw = ImageDraw.Draw(img)
-    y = panel_box[1] + m.height + 40
-    y = _draw_centered(draw, [name], y, 0, 60, INK, "bold")
-    _diamond_divider(draw, y + 62)
-    _draw_centered(draw, body_lines, y + 104, 62, 39, INK, "medium")
+    y = panel_box[1] + m.height + 50
+    y = _draw_centered(draw, [name], y, 0, 76, INK, "bold")
+    _diamond_divider(draw, y + 98)
+    _draw_centered(draw, body_lines, y + 144, 72, 46, INK, "medium")
 
     draw.rectangle([0, H - 70, W, H], fill=ACCENT)
     _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 28, (255, 255, 255), "medium")
