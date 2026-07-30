@@ -594,7 +594,11 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             market_key = quote(p["name"])
             default_market = "naver" if p.get("network") == "naver" else "coupang"
             market_toggle = ""
-            if has_products:
+            # WHY no_caption_link 플랫폼엔 마켓 토글 자체를 안 만듦: 인스타(릴스·카드뉴스)·
+            # 틱톡은 캡션 속 URL이 클릭되지 않는다(2026-07-30 확인) — 자동 링크 삽입은
+            # 클릭 가능한 플랫폼에서만 의미가 있고, 이 셋은 캡션에 이미 정적으로 박아둔
+            # "댓글/프로필 링크" 안내 문구로 대신한다.
+            if has_products and not p.get("no_caption_link"):
                 market_toggle = MARKET_TOGGLE_TEMPLATE.format(
                     market_key=market_key,
                     default_market=default_market,

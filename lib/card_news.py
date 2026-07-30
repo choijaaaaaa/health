@@ -195,11 +195,13 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
         img.paste(m, (start_x + idx * (med_size + gap), y0), m)
 
     # 4) 하단 제목 — 흰색, 굵게, 스크림 위라 가독성 확보
+    # 글자 크게 — 표지는 첫인상이라 특히 더 크게 키움(2026-07-30, 반복 지적:
+    # "카드뉴스 처음꺼 글을 좀더 잘 읽을 수 있게 폰트 엄청 큼직하게")
     draw = ImageDraw.Draw(img)
-    y = int(H * 0.68)
-    y = _draw_centered(draw, title_lines[:-1], y, 58, 40, (240, 232, 224), "medium")
-    y = _draw_centered(draw, [title_lines[-1]], y + 6, 62, 54, (255, 255, 255), "bold")
-    _draw_centered(draw, ["넘겨서 확인하기  →"], y + 60, 36, 30, (255, 214, 224), "semibold")
+    y = int(H * 0.63)
+    y = _draw_centered(draw, title_lines[:-1], y, 80, 58, (240, 232, 224), "medium")
+    y = _draw_centered(draw, [title_lines[-1]], y + 10, 96, 84, (255, 255, 255), "bold")
+    _draw_centered(draw, ["넘겨서 확인하기  →"], y + 74, 46, 38, (255, 214, 224), "semibold")
 
     img.convert("RGB").save(out_path, quality=95)
 
