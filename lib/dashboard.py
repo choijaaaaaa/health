@@ -8,8 +8,10 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
+from urllib.parse import quote
 
 
 def _esc(text: str) -> str:
@@ -27,14 +29,39 @@ TYPE_SECTION_TITLE = {
 }
 TYPE_ORDER = ["video", "cards", "text"]
 
+PRODUCT_ROW_TEMPLATE = """
+<div class="product-row">
+  <div class="product-name">{name}</div>
+  <div class="product-search">
+    <a href="{naver_url}" target="_blank" rel="noopener">🔍 브랜드커넥트</a>
+    <a href="{coupang_url}" target="_blank" rel="noopener">🔍 쿠팡</a>
+  </div>
+  <input type="text" class="product-link-input" data-product="{name_attr}" placeholder="찾은 링크 붙여넣기 → 모든 캡션에 자동 반영">
+</div>
+"""
+
+PRODUCTS_SECTION_TEMPLATE = """
+<section>
+  <h2>상품 링크 연결</h2>
+  <div class="product-list">{rows}</div>
+  <p class="products-hint">링크를 붙여넣으면 아래 모든 캡션 하단에 고지 문구와 함께 자동으로 반영돼요(중복 반영 안 됨, 다시 지우면 캡션에서도 빠짐).</p>
+</section>
+"""
+
 CARD_TEMPLATE = """
-<div class="platform-card">
+<div class="platform-card" data-done-key="{done_key}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
       <h3>{name}</h3>
     </div>
-    <a class="btn-go" href="{url}" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="{done_key}">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="{url}" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">{action}</div>
   {asset_link}
@@ -107,6 +134,19 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .card-scroll img:hover {{ outline: 3px solid var(--accent-soft); }}
 
+  .sourcing-widget {{
+    flex: 0 0 auto; width: 200px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
+    display: flex; flex-direction: column; gap: 10px;
+  }}
+  .sourcing-widget h3 {{ margin: 0; font-size: 13px; color: var(--ink-soft); }}
+  .sourcing-widget a {{
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px;
+  }}
+  .sourcing-widget a:hover {{ background: var(--gold-soft); color: var(--gold); }}
+
   .platform-section + .platform-section {{ margin-top: 6px; }}
 
   .grid {{
@@ -126,10 +166,18 @@ PAGE_TEMPLATE = """<!doctype html>
   .badge-video {{ background: var(--video-soft); color: var(--video); }}
   .badge-cards {{ background: var(--cards-soft); color: var(--cards); }}
   .badge-text {{ background: var(--text-soft); color: var(--text); }}
+  .head-actions {{ display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }}
+  .done-check {{
+    display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+    color: var(--ink-soft); cursor: pointer; user-select: none;
+  }}
+  .done-check input {{ width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }}
   .btn-go {{
     background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; font-weight: 700;
     padding: 9px 16px; border-radius: 999px; white-space: nowrap;
   }}
+  .platform-card.is-done {{ opacity: 0.55; border-color: var(--gold); background: var(--gold-soft); }}
+  .platform-card.is-done .done-check {{ color: var(--gold); }}
   .action-line {{
     font-size: 13px; color: var(--ink); background: var(--gold-soft); border-radius: 8px;
     padding: 8px 12px; margin-bottom: 8px; line-height: 1.5;
@@ -159,6 +207,24 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .lightbox.open {{ display: flex; }}
   .lightbox img {{ max-width: 100%; max-height: 90vh; border-radius: 12px; }}
+
+  .product-list {{ display: flex; flex-direction: column; gap: 10px; }}
+  .product-row {{
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 12px 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }}
+  .product-name {{ font-weight: 700; min-width: 90px; }}
+  .product-search {{ display: flex; gap: 8px; }}
+  .product-search a {{
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    font-size: 12px; font-weight: 700; padding: 7px 12px; border-radius: 999px; white-space: nowrap;
+  }}
+  .product-link-input {{
+    flex: 1; min-width: 220px; border: 1px solid var(--rule); border-radius: 8px;
+    padding: 9px 12px; font-size: 13px; font-family: inherit; color: var(--ink);
+  }}
+  .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
+  .products-hint {{ font-size: 12px; color: var(--ink-soft); margin: 10px 2px 0; }}
 </style>
 </head>
 <body>
@@ -176,8 +242,21 @@ PAGE_TEMPLATE = """<!doctype html>
     <div class="card-gallery" id="card-gallery">
       <div class="card-scroll">{card_thumbs}</div>
     </div>
+    <div class="sourcing-widget">
+      <h3>실사진 소싱</h3>
+      <a href="{unsplash_url}" target="_blank" rel="noopener">🔍 Unsplash</a>
+      <a href="{pexels_url}" target="_blank" rel="noopener">🔍 Pexels</a>
+    </div>
+    <div class="sourcing-widget">
+      <h3>제작 도구</h3>
+      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
+      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
+      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
+    </div>
   </div>
 </section>
+
+{products_section}
 
 {platform_sections}
 
@@ -203,6 +282,67 @@ document.querySelectorAll(".card-scroll img").forEach(img => {{
   }});
 }});
 lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
+
+const COUPANG_DISCLOSURE = {coupang_disclosure_js};
+const NAVER_DISCLOSURE = {naver_disclosure_js};
+const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
+const AUTO_LINKS_RE = /\n\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
+
+function applyProductLinks() {{
+  const lines = [];
+  const disclosures = [];
+  document.querySelectorAll(".product-link-input").forEach(inp => {{
+    const url = inp.value.trim();
+    if (!url) return;
+    lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
+    if (url.includes("coupang.com") && !disclosures.includes(COUPANG_DISCLOSURE)) disclosures.push(COUPANG_DISCLOSURE);
+    if (url.includes("naver.com") && !disclosures.includes(NAVER_DISCLOSURE)) disclosures.push(NAVER_DISCLOSURE);
+  }});
+  let block = "";
+  if (lines.length > 0) {{
+    block = "\\n\\n[[AUTO-LINKS-START]]\\n" + lines.join("\\n");
+    disclosures.forEach(d => {{ block += "\\n\\n" + d; }});
+    block += "\\n[[AUTO-LINKS-END]]";
+  }}
+  document.querySelectorAll(".caption-box").forEach(box => {{
+    const stripped = box.value.replace(AUTO_LINKS_RE, "");
+    box.value = block ? stripped + block : stripped;
+  }});
+}}
+
+document.querySelectorAll(".product-link-input").forEach(inp => {{
+  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.product;
+  const saved = localStorage.getItem(storageKey);
+  if (saved) inp.value = saved;
+  inp.addEventListener("input", () => {{
+    if (inp.value.trim()) {{
+      localStorage.setItem(storageKey, inp.value.trim());
+    }} else {{
+      localStorage.removeItem(storageKey);
+    }}
+    applyProductLinks();
+  }});
+}});
+applyProductLinks();
+
+const STORAGE_PREFIX = "hs_done_{topic}_";
+document.querySelectorAll(".done-toggle").forEach(cb => {{
+  const storageKey = STORAGE_PREFIX + cb.dataset.key;
+  const card = cb.closest(".platform-card");
+  if (localStorage.getItem(storageKey) === "1") {{
+    cb.checked = true;
+    card.classList.add("is-done");
+  }}
+  cb.addEventListener("change", () => {{
+    if (cb.checked) {{
+      localStorage.setItem(storageKey, "1");
+      card.classList.add("is-done");
+    }} else {{
+      localStorage.removeItem(storageKey);
+      card.classList.remove("is-done");
+    }}
+  }});
+}});
 </script>
 </body>
 </html>
@@ -226,11 +366,35 @@ def _asset_link(platform_type: str, has_video: bool, video_name: str) -> str:
     return '<a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>'
 
 
+def _products_section(products: list[str], affiliate_path: Path) -> str:
+    if not products:
+        return ""
+    affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
+    creator_id = affiliate.get("naver_brandconnect_id", "")
+    rows = ""
+    for name in products:
+        naver_url = f"https://brandconnect.naver.com/{creator_id}/affiliate/products/search?query={quote(name)}&tab=product"
+        coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
+        rows += PRODUCT_ROW_TEMPLATE.format(
+            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=quote(name),
+        )
+    return PRODUCTS_SECTION_TEMPLATE.format(rows=rows)
+
+
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
+    topic = spec.get("topic", spec["title"])
+    affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
+    affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
+    disclosure = affiliate.get("disclosure", {})
+    products_section = _products_section(spec.get("products", []), affiliate_path)
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     card_thumbs = "".join(f'<img src="card_news/{p.name}" alt="{p.stem}">' for p in asset_imgs)
+
+    keyword = re.sub(r"_\d+$", "", topic).replace("_", " ")
+    unsplash_url = f"https://unsplash.com/s/photos/{quote(keyword)}"
+    pexels_url = f"https://www.pexels.com/search/{quote(keyword)}/"
 
     has_video = bool(video_path and Path(video_path).exists())
     video_name = Path(video_path).name if video_path else "shorts.mp4"
@@ -260,13 +424,17 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
                 asset_link=_asset_link(t, has_video, video_name),
+                done_key=quote(p["name"]),
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
 
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
-        platform_sections=sections_html,
+        platform_sections=sections_html, unsplash_url=unsplash_url, pexels_url=pexels_url,
+        topic=quote(topic), products_section=products_section,
+        coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
+        naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
     )
     Path(out_path).write_text(html)
     print(f"대시보드 생성 완료: {out_path}")

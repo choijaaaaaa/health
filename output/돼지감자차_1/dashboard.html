@@ -59,6 +59,19 @@
   }
   .card-scroll img:hover { outline: 3px solid var(--accent-soft); }
 
+  .sourcing-widget {
+    flex: 0 0 auto; width: 200px;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .sourcing-widget h3 { margin: 0; font-size: 13px; color: var(--ink-soft); }
+  .sourcing-widget a {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    font-size: 13px; font-weight: 700; padding: 10px 12px; border-radius: 10px;
+  }
+  .sourcing-widget a:hover { background: var(--gold-soft); color: var(--gold); }
+
   .platform-section + .platform-section { margin-top: 6px; }
 
   .grid {
@@ -78,10 +91,18 @@
   .badge-video { background: var(--video-soft); color: var(--video); }
   .badge-cards { background: var(--cards-soft); color: var(--cards); }
   .badge-text { background: var(--text-soft); color: var(--text); }
+  .head-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+  .done-check {
+    display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+    color: var(--ink-soft); cursor: pointer; user-select: none;
+  }
+  .done-check input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
   .btn-go {
     background: var(--accent); color: #fff; text-decoration: none; font-size: 13px; font-weight: 700;
     padding: 9px 16px; border-radius: 999px; white-space: nowrap;
   }
+  .platform-card.is-done { opacity: 0.55; border-color: var(--gold); background: var(--gold-soft); }
+  .platform-card.is-done .done-check { color: var(--gold); }
   .action-line {
     font-size: 13px; color: var(--ink); background: var(--gold-soft); border-radius: 8px;
     padding: 8px 12px; margin-bottom: 8px; line-height: 1.5;
@@ -111,6 +132,24 @@
   }
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
+
+  .product-list { display: flex; flex-direction: column; gap: 10px; }
+  .product-row {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 12px 16px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  }
+  .product-name { font-weight: 700; min-width: 90px; }
+  .product-search { display: flex; gap: 8px; }
+  .product-search a {
+    background: var(--accent-soft); color: var(--accent-deep); text-decoration: none;
+    font-size: 12px; font-weight: 700; padding: 7px 12px; border-radius: 999px; white-space: nowrap;
+  }
+  .product-link-input {
+    flex: 1; min-width: 220px; border: 1px solid var(--rule); border-radius: 8px;
+    padding: 9px 12px; font-size: 13px; font-family: inherit; color: var(--ink);
+  }
+  .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .products-hint { font-size: 12px; color: var(--ink-soft); margin: 10px 2px 0; }
 </style>
 </head>
 <body>
@@ -128,20 +167,63 @@
     <div class="card-gallery" id="card-gallery">
       <div class="card-scroll"><img src="card_news/00_표지.jpg" alt="00_표지"><img src="card_news/01_혈당 관리와의 관계.jpg" alt="01_혈당 관리와의 관계"><img src="card_news/02_돼지감자란?.jpg" alt="02_돼지감자란?"><img src="card_news/03_함께 들어있는 영양성분.jpg" alt="03_함께 들어있는 영양성분"><img src="card_news/04_주의할 점.jpg" alt="04_주의할 점"><img src="card_news/05_끓이는 법.jpg" alt="05_끓이는 법"><img src="card_news/06_마무리.jpg" alt="06_마무리"></div>
     </div>
+    <div class="sourcing-widget">
+      <h3>실사진 소싱</h3>
+      <a href="https://unsplash.com/s/photos/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" target="_blank" rel="noopener">🔍 Unsplash</a>
+      <a href="https://www.pexels.com/search/%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8/" target="_blank" rel="noopener">🔍 Pexels</a>
+    </div>
+    <div class="sourcing-widget">
+      <h3>제작 도구</h3>
+      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
+      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
+      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
+    </div>
   </div>
 </section>
+
+
+<section>
+  <h2>상품 링크 연결</h2>
+  <div class="product-list">
+<div class="product-row">
+  <div class="product-name">돼지감자</div>
+  <div class="product-search">
+    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&tab=product" target="_blank" rel="noopener">🔍 브랜드커넥트</a>
+    <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&channel=user" target="_blank" rel="noopener">🔍 쿠팡</a>
+  </div>
+  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90" placeholder="찾은 링크 붙여넣기 → 모든 캡션에 자동 반영">
+</div>
+
+<div class="product-row">
+  <div class="product-name">돼지감자차</div>
+  <div class="product-search">
+    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&tab=product" target="_blank" rel="noopener">🔍 브랜드커넥트</a>
+    <a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&channel=user" target="_blank" rel="noopener">🔍 쿠팡</a>
+  </div>
+  <input type="text" class="product-link-input" data-product="%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8" placeholder="찾은 링크 붙여넣기 → 모든 캡션에 자동 반영">
+</div>
+</div>
+  <p class="products-hint">링크를 붙여넣으면 아래 모든 캡션 하단에 고지 문구와 함께 자동으로 반영돼요(중복 반영 안 됨, 다시 지우면 캡션에서도 빠짐).</p>
+</section>
+
 
 
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
       <h3>인스타그램 릴스</h3>
     </div>
-    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
   <a class="asset-link" href="shorts.mp4" download>🎬 영상 다운로드</a>
@@ -160,13 +242,19 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EC%9C%A0%ED%8A%9C%EB%B8%8C%20%EC%87%BC%EC%B8%A0">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
       <h3>유튜브 쇼츠</h3>
     </div>
-    <a class="btn-go" href="https://studio.youtube.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EC%9C%A0%ED%8A%9C%EB%B8%8C%20%EC%87%BC%EC%B8%A0">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.youtube.com/@worthitshopping" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기</div>
   <a class="asset-link" href="shorts.mp4" download>🎬 영상 다운로드</a>
@@ -182,15 +270,21 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
       <h3>네이버 클립</h3>
     </div>
-    <a class="btn-go" href="https://creator-studio.naver.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://creator-studio.naver.com/" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
-  <div class="action-line">영상 다운로드 → 클립으로 업로드 → 캡션 복사해서 붙여넣기</div>
+  <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기</div>
   <a class="asset-link" href="shorts.mp4" download>🎬 영상 다운로드</a>
   <textarea class="caption-box" id="cap-2" spellcheck="false">혈당 관리에 좋다는 돼지감자차, 제대로 알고 마시고 계신가요?
 
@@ -203,13 +297,19 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%ED%8B%B1%ED%86%A1">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
       <h3>틱톡</h3>
     </div>
-    <a class="btn-go" href="https://www.tiktok.com/upload" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B1%ED%86%A1">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.tiktok.com/@worthitshopping2" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기</div>
   <a class="asset-link" href="shorts.mp4" download>🎬 영상 다운로드</a>
@@ -227,13 +327,19 @@
 <section class="platform-section">
   <h2>카드뉴스(캐러셀) 플랫폼</h2>
   <div class="grid">
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-cards">카드뉴스</span>
       <h3>인스타그램 카드뉴스</h3>
     </div>
-    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">카드뉴스 이미지 전체 다운로드 → 여러장 게시물로 업로드 → 캡션 복사해서 붙여넣기</div>
   <a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>
@@ -253,13 +359,19 @@
 <section class="platform-section">
   <h2>텍스트 게시 플랫폼</h2>
   <div class="grid">
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-text">텍스트</span>
       <h3>네이버 블로그</h3>
     </div>
-    <a class="btn-go" href="https://blog.naver.com/GoBlogWrite.naver" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">캡션 복사 → 네이버 블로그 에디터에 그대로 붙여넣기</div>
   <a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>
@@ -284,13 +396,19 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-text">텍스트</span>
       <h3>티스토리</h3>
     </div>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://chlwjddms.tistory.com/" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">캡션 복사 → 티스토리 에디터에 그대로 붙여넣기</div>
   <a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>
@@ -301,13 +419,19 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%EC%93%B0%EB%A0%88%EB%93%9C">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-text">텍스트</span>
       <h3>쓰레드</h3>
     </div>
-    <a class="btn-go" href="https://www.threads.net/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%EC%93%B0%EB%A0%88%EB%93%9C">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.threads.com/@worthitshopping" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">캡션 복사 → 새 글 작성 → 붙여넣기 (표지 이미지 첨부 권장)</div>
   <a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>
@@ -320,13 +444,19 @@
   </div>
 </div>
 
-<div class="platform-card">
+<div class="platform-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-text">텍스트</span>
       <h3>페이스북</h3>
     </div>
-    <a class="btn-go" href="https://www.facebook.com/" target="_blank" rel="noopener">열기 →</a>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.facebook.com/worthitshop/" target="_blank" rel="noopener">열기 →</a>
+    </div>
   </div>
   <div class="action-line">캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장)</div>
   <a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>
@@ -366,6 +496,69 @@ document.querySelectorAll(".card-scroll img").forEach(img => {
   });
 });
 lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
+
+const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
+const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
+const LINK_STORAGE_PREFIX = "hs_link_%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1_";
+const AUTO_LINKS_RE = /
+
+\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
+
+function applyProductLinks() {
+  const lines = [];
+  const disclosures = [];
+  document.querySelectorAll(".product-link-input").forEach(inp => {
+    const url = inp.value.trim();
+    if (!url) return;
+    lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
+    if (url.includes("coupang.com") && !disclosures.includes(COUPANG_DISCLOSURE)) disclosures.push(COUPANG_DISCLOSURE);
+    if (url.includes("naver.com") && !disclosures.includes(NAVER_DISCLOSURE)) disclosures.push(NAVER_DISCLOSURE);
+  });
+  let block = "";
+  if (lines.length > 0) {
+    block = "\n\n[[AUTO-LINKS-START]]\n" + lines.join("\n");
+    disclosures.forEach(d => { block += "\n\n" + d; });
+    block += "\n[[AUTO-LINKS-END]]";
+  }
+  document.querySelectorAll(".caption-box").forEach(box => {
+    const stripped = box.value.replace(AUTO_LINKS_RE, "");
+    box.value = block ? stripped + block : stripped;
+  });
+}
+
+document.querySelectorAll(".product-link-input").forEach(inp => {
+  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.product;
+  const saved = localStorage.getItem(storageKey);
+  if (saved) inp.value = saved;
+  inp.addEventListener("input", () => {
+    if (inp.value.trim()) {
+      localStorage.setItem(storageKey, inp.value.trim());
+    } else {
+      localStorage.removeItem(storageKey);
+    }
+    applyProductLinks();
+  });
+});
+applyProductLinks();
+
+const STORAGE_PREFIX = "hs_done_%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8_1_";
+document.querySelectorAll(".done-toggle").forEach(cb => {
+  const storageKey = STORAGE_PREFIX + cb.dataset.key;
+  const card = cb.closest(".platform-card");
+  if (localStorage.getItem(storageKey) === "1") {
+    cb.checked = true;
+    card.classList.add("is-done");
+  }
+  cb.addEventListener("change", () => {
+    if (cb.checked) {
+      localStorage.setItem(storageKey, "1");
+      card.classList.add("is-done");
+    } else {
+      localStorage.removeItem(storageKey);
+      card.classList.remove("is-done");
+    }
+  });
+});
 </script>
 </body>
 </html>

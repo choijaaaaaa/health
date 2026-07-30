@@ -215,12 +215,14 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     draw.text((MARGIN - 4, 100), ntxt, font=num_f, fill=ACCENT_SOFT)
     draw.text((MARGIN - 4, 100), ntxt, font=num_f, fill=None, stroke_width=3, stroke_fill=ACCENT)
 
-    char_size = 340
-    m = _char_medallion(char_path, char_size)
-    img.paste(m, ((W - m.width) // 2, panel_box[1] - m.height // 2 + 10), m)
+    # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
+    # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
+    char_size = 130
+    m = _char_medallion(char_path, char_size, ring_w=8)
+    img.paste(m, (panel_box[2] - m.width - 20, panel_box[1] + 20), m)
 
     draw = ImageDraw.Draw(img)
-    y = panel_box[1] + m.height // 2 + 30
+    y = panel_box[1] + m.height + 40
     y = _draw_centered(draw, [name], y, 0, 52, INK, "bold")
     _diamond_divider(draw, y + 58)
     _draw_centered(draw, body_lines, y + 100, 54, 33, INK, "regular")
@@ -235,16 +237,20 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
     draw = ImageDraw.Draw(img)
     _top_chip(img, draw, "마무리", GOLD)
 
-    size, gap = 156, 20
-    med_size = size + (8 + 14) * 2
-    total_w = med_size * len(char_paths) + gap * (len(char_paths) - 1)
+    # 단일 캐릭터 주제면 char_paths에 같은 이미지가 여러 번 들어있을 수 있어
+    # (아이템마다 char_file 지정 구조라) — 중복 제거하고, 첫 화면(표지)만큼
+    # 크게 안 보여줘도 되니 작게 표시.
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    size, gap = 130, 16
+    med_size = size + (8 + 18) * 2
+    total_w = med_size * len(unique_paths) + gap * (len(unique_paths) - 1)
     start_x = (W - total_w) // 2
-    for j, path in enumerate(char_paths):
+    for j, path in enumerate(unique_paths):
         m = _char_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
-        img.paste(m, (start_x + j * (med_size + gap), 210), m)
+        img.paste(m, (start_x + j * (med_size + gap), 190), m)
 
     draw = ImageDraw.Draw(img)
-    y = 210 + med_size + 60
+    y = 190 + med_size + 50
     for i, block in enumerate(headline_blocks):
         weight = "bold" if i == 0 else "semibold"
         color = INK if i == 0 else ACCENT_DEEP

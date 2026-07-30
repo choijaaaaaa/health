@@ -42,6 +42,24 @@ def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     return entries
 
 
+def _make_title_png(text: str, out_path: Path, font_size=38):
+    """영상 상단에 계속 떠 있는 주제 라벨. WHY: 훅 문장만으로는 스크롤하는 사람이
+    무슨 주제인지 바로 못 읽고 3초컷으로 넘기는 문제가 있어서, 첫 프레임부터
+    주제를 텍스트로 바로 보여준다."""
+    font = ImageFont.truetype(FONT_PATH, font_size)
+    dummy = Image.new("RGBA", (1, 1))
+    d = ImageDraw.Draw(dummy)
+    bbox = d.textbbox((0, 0), text, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    pad_x, pad_y = 30, 16
+    box_w, box_h = tw + pad_x * 2, th + pad_y * 2
+    img = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    draw.rounded_rectangle([0, 0, box_w, box_h], radius=box_h // 2, fill=(200, 74, 98, 235))
+    draw.text((pad_x - bbox[0], pad_y - bbox[1]), text, font=font, fill=(255, 255, 255, 255))
+    img.save(out_path)
+
+
 def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
     font = ImageFont.truetype(FONT_PATH, font_size)
     dummy = Image.new("RGBA", (1, 1))
@@ -81,17 +99,37 @@ def _make_caption_png(text: str, out_path: Path, font_size=48, max_width=880):
 
 def _build_character_loop(motion_path: str, total_duration: float, out_path: Path):
     """Kling 모션 클립(흰 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
-    알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복."""
+    알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복.
+
+    WHY 정방향+역방향(ping-pong) 이어붙이기: Kling이 생성한 클립은 시작 포즈와
+    끝 포즈가 같다는 보장이 없어서, 그냥 -stream_loop로 반복하면 루프 지점마다
+    포즈가 툭 끊기는 느낌이 난다(2026-07-30 확인). 정방향 재생 뒤 바로 역방향
+    재생을 이어붙이면 마지막 프레임이 항상 첫 프레임으로 대칭 복귀하므로,
+    프롬프트가 끝-시작을 맞춰주길 기대하지 않아도 구조적으로 끊김이 없다."""
     with tempfile.TemporaryDirectory() as tmp:
-        keyed = Path(tmp) / "keyed.mov"
+        tmp_path = Path(tmp)
+        keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
              "-vf", "colorkey=0xFFFFFF:0.12:0.08,format=yuva420p",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
         )
+        reversed_ = tmp_path / "reversed.mov"
         subprocess.run(
-            ["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(keyed),
+            ["ffmpeg", "-y", "-i", str(keyed), "-vf", "reverse", "-c:v", "qtrle", str(reversed_)],
+            check=True, capture_output=True,
+        )
+        pingpong = tmp_path / "pingpong.mov"
+        list_path = tmp_path / "pp_list.txt"
+        list_path.write_text(f"file '{keyed.resolve()}'\nfile '{reversed_.resolve()}'")
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
+             "-c", "copy", str(pingpong)],
+            check=True, capture_output=True,
+        )
+        subprocess.run(
+            ["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(pingpong),
              "-t", f"{total_duration}", "-c:v", "qtrle", str(out_path)],
             check=True, capture_output=True,
         )
@@ -131,6 +169,7 @@ def assemble(
     audio_path: str,
     srt_path: str,
     out_path: str,
+    title: str,
     intro_duration: float = 5.3,
 ):
     duration_probe = subprocess.run(
@@ -167,7 +206,7 @@ def assemble(
             ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
              "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(char_track),
              "-filter_complex",
-             f"[1:v]scale=320:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-260[v]",
+             f"[1:v]scale=190:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-260[v]",
              "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
             check=True, capture_output=True,
         )
@@ -181,7 +220,22 @@ def assemble(
             check=True, capture_output=True,
         )
 
-        # 3) 자막 굽기 (문장 구간별로 짧게 잘라 처리 — 안전한 세그먼트 방식)
+        # 3) 상단 주제 라벨 — 전체 길이에 한 번만 overlay(세그먼트 아님, 성능 안전)
+        # WHY -t를 이미지 입력과 출력 양쪽에 명시: -loop 1 이미지 + -shortest 조합만으로는
+        # 종료를 못 잡고 무한정 도는 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이
+        # 계속 커지는 걸 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다.
+        title_png = tmp_path / "title.png"
+        _make_title_png(title, title_png)
+        titled = tmp_path / "titled.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
+             "-filter_complex", "[0:v][1:v]overlay=x=(main_w-overlay_w)/2:y=64[v]",
+             "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+            check=True, capture_output=True,
+        )
+        combined = titled
+
+        # 4) 자막 굽기 (문장 구간별로 짧게 잘라 처리 — 안전한 세그먼트 방식)
         srt_entries = _parse_srt(srt_path)
         cap_dir = tmp_path / "caps"
         cap_dir.mkdir()
@@ -244,6 +298,7 @@ if __name__ == "__main__":
     p.add_argument("--audio", required=True)
     p.add_argument("--srt", required=True)
     p.add_argument("--out", required=True)
+    p.add_argument("--title", required=True, help="영상 상단에 계속 표시할 주제 라벨")
     p.add_argument("--intro-duration", type=float, default=5.3)
     args = p.parse_args()
 
@@ -253,5 +308,6 @@ if __name__ == "__main__":
         audio_path=args.audio,
         srt_path=args.srt,
         out_path=args.out,
+        title=args.title,
         intro_duration=args.intro_duration,
     )
