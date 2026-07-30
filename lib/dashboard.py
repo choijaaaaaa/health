@@ -356,12 +356,15 @@ document.querySelectorAll(".btn-copy").forEach(btn => {{
     setTimeout(() => {{ btn.textContent = originalLabel; btn.classList.remove("copied"); }}, 1500);
   }};
   btn.addEventListener("click", () => {{
-    // WHY replace: 링크 구간 안내 줄은 실제 게시물에 들어가면 안 되는 내부 표시일
-    // 뿐이라 복사할 때만 그 줄을 지우고 링크·고지문구 내용은 그대로 남긴다.
-    const text = document.getElementById(btn.dataset.target).value.replace(AUTO_LINKS_MARKER_LINE + "\\n", "");
+    // WHY replace: 자동추가 구간 경계 표시는 보이지 않는 문자라 원래도 화면엔 안 보이지만,
+    // 혹시 몰라 복사 시점에 한 번 더 확실히 제거한다.
+    const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_MARKER).join("");
     const cover = btn.dataset.cover;
     if (cover && window.ClipboardItem) {{
-      const bodyHtml = text.split("\\n").map(line => line.trim() ? `<p>${{_escapeHtml(line)}}</p>` : "<br>").join("");
+      // WHY font-size를 인라인으로: 붙여넣기 대상 에디터(네이버 블로그·티스토리)가
+      // 기본 폰트 크기를 작게 잡는 경우가 많아서, 처음부터 읽기 편한 크기로 넣어준다
+      // (리치에디터는 대개 인라인 스타일까지 그대로 붙여넣음).
+      const bodyHtml = text.split("\\n").map(line => line.trim() ? `<p style="font-size:17px;line-height:1.7;">${{_escapeHtml(line)}}</p>` : "<br>").join("");
       const html = `<p><img src="${{cover}}" style="max-width:100%;"></p>` + bodyHtml;
       const item = new ClipboardItem({{
         "text/plain": new Blob([text], {{type: "text/plain"}}),
@@ -386,27 +389,35 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = {coupang_disclosure_js};
 const NAVER_DISCLOSURE = {naver_disclosure_js};
 const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
-// WHY 사람이 읽을 수 있는 안내 줄: 대시보드에서 캡션을 볼 때 이게 뭔지 바로 알 수 있게
-// (2026-07-30 "이건 뭐야" 피드백) — 복사 버튼을 누르면 이 줄만 자동으로 빠지고
-// 그 아래 링크·고지문구는 그대로 남는다. 정규식 대신 indexOf/slice만 써서
-// 이스케이프 실수 위험을 없앤다(2026-07-30 \\n 이스케이프 버그 재발 방지).
-const AUTO_LINKS_MARKER_LINE = "▼ 자동 추가된 상품 링크 (복사하면 이 줄만 자동으로 빠져요) ▼";
+// WHY 눈에 안 보이는 문자(zero-width space)로 경계 표시: 이전엔 사람이 읽을 수 있는
+// 안내 줄을 넣었는데 그게 오히려 "이게 뭐야?" 혼란을 줬다(2026-07-30) — 화면에
+// 아예 안 보이면서도 자동추가 구간의 시작점을 찾을 수 있는 문자를 쓴다.
+// 정규식 대신 indexOf/slice만 써서 이스케이프 실수 위험도 없앤다.
+const AUTO_LINKS_MARKER = "\\u200b";
 
 function _stripAutoLinks(text) {{
-  const idx = text.indexOf(AUTO_LINKS_MARKER_LINE);
+  const idx = text.indexOf(AUTO_LINKS_MARKER);
   if (idx === -1) return text;
   return text.slice(0, idx).replace(/\\n\\n$/, "");
 }}
 
 function _buildMarketBlock(market) {{
+  if (market === "naver") {{
+    // WHY 링크를 텍스트로 안 넣는지: 네이버 쇼핑 커넥트는 URL을 본문에 붙여넣는 방식이
+    // 아니라 에디터의 "상품" 버튼으로 직접 추가해야 실제로 연동된다(2026-07-30 확인)
+    // — 링크 텍스트를 넣어봤자 작동하지 않으니 버튼 사용 안내만 넣는다.
+    const hasNaverLink = Array.from(document.querySelectorAll('.product-link-input[data-market="naver"]'))
+      .some(inp => inp.value.trim());
+    if (!hasNaverLink) return "";
+    return "\\n\\n📌 상품은 네이버 블로그/클립 에디터의 '상품' 버튼으로 직접 추가하세요 (링크를 텍스트로 붙여넣는 방식으로는 연동 안 됨)\\n\\n" + NAVER_DISCLOSURE + AUTO_LINKS_MARKER;
+  }}
   const lines = [];
-  document.querySelectorAll(`.product-link-input[data-market="${{market}}"]`).forEach(inp => {{
+  document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
     const url = inp.value.trim();
     if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   }});
   if (lines.length === 0) return "";
-  const disclosure = market === "coupang" ? COUPANG_DISCLOSURE : NAVER_DISCLOSURE;
-  return "\\n\\n" + AUTO_LINKS_MARKER_LINE + "\\n" + lines.join("\\n") + "\\n\\n" + disclosure;
+  return "\\n\\n" + lines.join("\\n") + "\\n\\n" + COUPANG_DISCLOSURE + AUTO_LINKS_MARKER;
 }}
 
 function applyProductLinks() {{
