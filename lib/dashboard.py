@@ -403,13 +403,14 @@ function _stripAutoLinks(text) {{
 
 function _buildMarketBlock(market) {{
   if (market === "naver") {{
-    // WHY 링크를 텍스트로 안 넣는지: 네이버 쇼핑 커넥트는 URL을 본문에 붙여넣는 방식이
-    // 아니라 에디터의 "상품" 버튼으로 직접 추가해야 실제로 연동된다(2026-07-30 확인)
-    // — 링크 텍스트를 넣어봤자 작동하지 않으니 버튼 사용 안내만 넣는다.
+    // WHY 안내 문구 없이 고지문구만: 네이버 쇼핑 커넥트는 URL을 본문에 붙여넣는 방식이
+    // 아니라 에디터의 "상품" 버튼으로 직접 추가해야 하지만(2026-07-30 확인), 그 안내
+    // 문구를 캡션에 자동으로 넣는 건 원치 않는다는 피드백(2026-07-30) — 링크 텍스트는
+    // 여전히 안 넣지만 안내문 없이 법적 고지문구만 남긴다.
     const hasNaverLink = Array.from(document.querySelectorAll('.product-link-input[data-market="naver"]'))
       .some(inp => inp.value.trim());
     if (!hasNaverLink) return "";
-    return "\\n\\n📌 상품은 네이버 블로그/클립 에디터의 '상품' 버튼으로 직접 추가하세요 (링크를 텍스트로 붙여넣는 방식으로는 연동 안 됨)\\n\\n" + NAVER_DISCLOSURE + AUTO_LINKS_MARKER;
+    return "\\n\\n" + NAVER_DISCLOSURE + AUTO_LINKS_MARKER;
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -585,7 +586,11 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             continue
         cards_html = ""
         for p in group:
-            cover_attr = cover_url if (t == "text" and has_cover) else ""
+            # WHY p.get("rich_paste") 대신 t=="text" 전체를 안 쓰는지: 쓰레드·페이스북은
+            # 리치에디터가 아니라 단순 텍스트 입력창이라 HTML 붙여넣기로 이미지가 안 들어감
+            # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
+            # rich_paste: true로 표시해서 이 기능을 켠다.
+            cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
             market_key = quote(p["name"])
             default_market = "naver" if p.get("network") == "naver" else "coupang"
             market_toggle = ""

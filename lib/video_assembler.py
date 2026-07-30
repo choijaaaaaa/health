@@ -96,6 +96,37 @@ def _make_title_png(text: str, out_path: Path, font_size=64) -> int:
     return box_h
 
 
+def _make_title_card_png(text: str, out_path: Path, font_size=88):
+    """영상 맨 앞에 붙는 단색 배경 + 큰 제목 카드. WHY: 플랫폼이 썸네일을 영상
+    첫 프레임으로 자동 지정하는 경우가 많아서, 이 카드 자체를 그대로 썸네일로
+    쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다."""
+    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
+    img = Image.new("RGB", (W, H), (200, 74, 98))
+    draw = ImageDraw.Draw(img)
+    max_text_w = W - 160
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_text_w and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+
+    line_h = font_size + 26
+    total_h = line_h * len(lines)
+    y = (H - total_h) / 2
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255))
+        y += line_h
+    img.save(out_path)
+
+
 def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
     font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     dummy = Image.new("RGBA", (1, 1))
@@ -235,6 +266,7 @@ def assemble(
     intro_duration: float = 5.3,
     ad_tag: bool = False,
     bg_color: str = "0xFFFFFF",
+    title_card_duration: float = 1.3,
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -275,14 +307,32 @@ def assemble(
             check=True, capture_output=True,
         )
 
+        # 0) 맨 앞 제목 카드 — 단색 배경 + 큼직한 글자, 플랫폼이 영상 첫 프레임을
+        # 썸네일로 자동 지정하는 경우가 많아서 이 카드 자체가 썸네일 역할도 한다.
+        title_card_png = tmp_path / "title_card.png"
+        _make_title_card_png(title, title_card_png)
+        title_card_out = tmp_path / "title_card.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-i", str(title_card_png),
+             "-c:v", "libx264", "-pix_fmt", "yuv420p", str(title_card_out)],
+            check=True, capture_output=True,
+        )
+
         combined = tmp_path / "combined.mp4"
         list_path = tmp_path / "scenes.txt"
-        list_path.write_text(f"file '{intro_out.resolve()}'\nfile '{main_out.resolve()}'")
+        list_path.write_text(
+            f"file '{title_card_out.resolve()}'\nfile '{intro_out.resolve()}'\nfile '{main_out.resolve()}'"
+        )
         subprocess.run(
             ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
              "-c", "copy", str(combined)],
             check=True, capture_output=True,
         )
+
+        # WHY video_total: 맨 앞에 제목 카드(title_card_duration)가 붙어서 영상 전체
+        # 길이가 나레이션 길이(total_duration)보다 길어졌다 — 이후 배너/자막 단계는
+        # 전부 이 늘어난 길이 기준으로 처리해야 한다.
+        video_total = title_card_duration + total_duration
 
         # 3) 상단 후킹 배너(+ 필요시 광고 태그) — 전체 길이에 한 번만 overlay
         # (세그먼트 아님, 성능 안전). WHY -t를 이미지 입력과 출력 양쪽에 명시:
@@ -299,34 +349,37 @@ def assemble(
             subprocess.run(
                 ["ffmpeg", "-y",
                  "-i", str(combined),
-                 "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
-                 "-loop", "1", "-t", f"{total_duration}", "-i", str(ad_png),
+                 "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
+                 "-loop", "1", "-t", f"{video_total}", "-i", str(ad_png),
                  "-filter_complex",
                  f"[0:v][1:v]overlay=x=0:y=0[t];[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}[v]",
-                 "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                 "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
         else:
             subprocess.run(
-                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{total_duration}", "-i", str(title_png),
+                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
                  "-filter_complex", "[0:v][1:v]overlay=x=0:y=0[v]",
-                 "-map", "[v]", "-t", f"{total_duration}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                 "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
         combined = titled
 
         # 4) 자막 굽기 (문장 구간별로 짧게 잘라 처리 — 안전한 세그먼트 방식)
+        # WHY offset: 자막 타이밍은 오디오(나레이션) 기준 0초부터라, 제목 카드만큼
+        # (title_card_duration) 밀어서 실제 영상 타임라인에 맞춰야 한다.
+        offset = title_card_duration
         srt_entries = _parse_srt(srt_path)
         cap_dir = tmp_path / "caps"
         cap_dir.mkdir()
-        timeline, cursor = [], 0.0
+        timeline, cursor = [(0.0, offset, None)], 0.0
         for start, end, text in srt_entries:
             if start > cursor + 0.05:
-                timeline.append((cursor, start, None))
-            timeline.append((start, end, text))
+                timeline.append((cursor + offset, start + offset, None))
+            timeline.append((start + offset, end + offset, text))
             cursor = end
         if cursor < total_duration - 0.05:
-            timeline.append((cursor, total_duration, None))
+            timeline.append((cursor + offset, total_duration + offset, None))
 
         seg_paths = []
         for i, (start, end, text) in enumerate(timeline):
@@ -361,10 +414,15 @@ def assemble(
             check=True, capture_output=True,
         )
 
+        # WHY adelay 대신 -shortest 안 씀: 제목 카드 구간은 무음이어야 하므로 오디오를
+        # title_card_duration만큼 뒤로 민다 — 그러면 오디오 길이가 정확히 영상 길이와
+        # 같아져서 -shortest로 잘라낼 필요가 없다(제목 카드가 잘려나가는 사고 방지).
+        offset_ms = int(title_card_duration * 1000)
         subprocess.run(
             ["ffmpeg", "-y", "-i", str(captioned), "-i", audio_path,
-             "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
-             "-shortest", out_path],
+             "-filter_complex", f"[1:a]adelay={offset_ms}|{offset_ms}[a]",
+             "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+             out_path],
             check=True, capture_output=True,
         )
     print(f"영상 조립 완료: {out_path}")
@@ -383,6 +441,8 @@ if __name__ == "__main__":
     p.add_argument("--ad-tag", action="store_true", help="실제 제휴 링크를 쓰기로 확정한 경우에만 켠다")
     p.add_argument("--bg-color", default="0xFFFFFF",
                     help="캐릭터 모션 클립의 배경색(colorkey 대상) — 새 캐릭터는 0x00FF00 권장")
+    p.add_argument("--title-card-duration", type=float, default=1.3,
+                    help="영상 맨 앞 단색 제목 카드(썸네일용) 길이(초)")
     args = p.parse_args()
 
     assemble(
@@ -395,4 +455,5 @@ if __name__ == "__main__":
         intro_duration=args.intro_duration,
         ad_tag=args.ad_tag,
         bg_color=args.bg_color,
+        title_card_duration=args.title_card_duration,
     )
