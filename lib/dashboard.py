@@ -306,7 +306,7 @@ document.querySelectorAll(".btn-copy").forEach(btn => {{
     const text = document.getElementById(btn.dataset.target).value;
     const cover = btn.dataset.cover;
     if (cover && window.ClipboardItem) {{
-      const bodyHtml = text.split("\n").map(line => line.trim() ? `<p>${{_escapeHtml(line)}}</p>` : "<br>").join("");
+      const bodyHtml = text.split("\\n").map(line => line.trim() ? `<p>${{_escapeHtml(line)}}</p>` : "<br>").join("");
       const html = `<p><img src="${{cover}}" style="max-width:100%;"></p>` + bodyHtml;
       const item = new ClipboardItem({{
         "text/plain": new Blob([text], {{type: "text/plain"}}),
@@ -331,7 +331,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = {coupang_disclosure_js};
 const NAVER_DISCLOSURE = {naver_disclosure_js};
 const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
-const AUTO_LINKS_RE = /\n\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
+const AUTO_LINKS_RE = /\\n\\n\[\[AUTO-LINKS-START\]\][\s\S]*?\[\[AUTO-LINKS-END\]\]/;
 
 function applyProductLinks() {{
   const lines = [];
@@ -449,7 +449,9 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     dock_products = _dock_products(spec.get("products", []), affiliate_path)
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
-    card_thumbs = "".join(f'<img src="card_news/{p.name}" alt="{p.stem}">' for p in asset_imgs)
+    # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")
+    # 브라우저가 쿼리스트링으로 오해해서 이미지가 깨진다(2026-07-30 확인).
+    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in asset_imgs)
 
     keyword = re.sub(r"_\d+$", "", topic).replace("_", " ")
     unsplash_url = f"https://unsplash.com/s/photos/{quote(keyword)}"
