@@ -133,8 +133,8 @@ def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
     img.save(out_path)
 
 
-def _build_character_loop(motion_path: str, total_duration: float, out_path: Path):
-    """Kling 모션 클립(흰 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
+def _build_character_loop(motion_path: str, total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
+    """Kling 모션 클립(단색 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
     알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복.
 
     WHY 정방향+역방향(ping-pong) 이어붙이기: Kling이 생성한 클립은 시작 포즈와
@@ -143,17 +143,19 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     재생을 이어붙이면 마지막 프레임이 항상 첫 프레임으로 대칭 복귀하므로,
     프롬프트가 끝-시작을 맞춰주길 기대하지 않아도 구조적으로 끊김이 없다.
 
-    WHY colorkey similarity를 0.12→0.03으로 낮췄는지: 0.12는 흰 배경뿐 아니라
-    캐릭터 얼굴의 밝은 하이라이트(이마·볼)까지 "흰색에 가깝다"고 판단해서
-    투명 구멍을 뚫어버렸다(2026-07-30 확인 — 실사진과 합성했을 때 눈코 부분이
-    배경에 맞춰 이상하게 움직이는 것처럼 보인 원인). 0.03은 진짜 순백색
-    배경만 제거하고 얼굴 하이라이트는 건드리지 않는다."""
+    WHY bg_color 파라미터화 + 초록 배경 권장(2026-07-30): 흰 배경은 캐릭터 얼굴의
+    밝은 하이라이트(이마·볼)까지 "흰색에 가깝다"고 오인해서 threshold를 아주 좁게
+    잡아야만 했다(0.03) — 그래도 여전히 위험한 여지가 있다. gemini_illust.py의
+    STYLE_PROMPT를 초록 배경(#00FF00)으로 바꿔뒀으니, 그 프롬프트로 새로 만든
+    캐릭터는 bg_color="0x00FF00"로 넉넉한 threshold(0.15 정도)를 써도 안전하다.
+    기존 흰 배경 캐릭터(예: 돼지감자)는 기본값 그대로 좁은 threshold 유지."""
+    similarity = "0.03" if bg_color.upper() == "0xFFFFFF" else "0.15"
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", "colorkey=0xFFFFFF:0.03:0.03,format=yuva420p",
+             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},format=yuva420p",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
         )
@@ -232,6 +234,7 @@ def assemble(
     title: str,
     intro_duration: float = 5.3,
     ad_tag: bool = False,
+    bg_color: str = "0xFFFFFF",
 ):
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -244,7 +247,7 @@ def assemble(
         tmp_path = Path(tmp)
 
         char_track = tmp_path / "char.mov"
-        _build_character_loop(motion_path, total_duration, char_track)
+        _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
         bg = tmp_path / "bg.mp4"
         _build_background(images, total_duration, bg)
@@ -378,6 +381,8 @@ if __name__ == "__main__":
     p.add_argument("--title", required=True, help="영상 상단에 계속 표시할 주제 라벨")
     p.add_argument("--intro-duration", type=float, default=5.3)
     p.add_argument("--ad-tag", action="store_true", help="실제 제휴 링크를 쓰기로 확정한 경우에만 켠다")
+    p.add_argument("--bg-color", default="0xFFFFFF",
+                    help="캐릭터 모션 클립의 배경색(colorkey 대상) — 새 캐릭터는 0x00FF00 권장")
     args = p.parse_args()
 
     assemble(
@@ -389,4 +394,5 @@ if __name__ == "__main__":
         title=args.title,
         intro_duration=args.intro_duration,
         ad_tag=args.ad_tag,
+        bg_color=args.bg_color,
     )
