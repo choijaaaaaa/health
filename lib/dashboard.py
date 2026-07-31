@@ -56,7 +56,7 @@ MARKET_TOGGLE_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -388,6 +388,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 
 const COUPANG_DISCLOSURE = {coupang_disclosure_js};
 const NAVER_DISCLOSURE = {naver_disclosure_js};
+const COMMENT_KEYWORD = {comment_keyword_js};
 const LINK_STORAGE_PREFIX = "hs_link_{topic}_";
 // WHY 눈에 안 보이는 문자(zero-width space)로 경계 표시: 이전엔 사람이 읽을 수 있는
 // 안내 줄을 넣었는데 그게 오히려 "이게 뭐야?" 혼란을 줬다(2026-07-30) — 화면에
@@ -401,23 +402,30 @@ function _stripAutoLinks(text) {{
   return text.slice(0, idx).replace(/\\n\\n$/, "");
 }}
 
-function _buildMarketBlock(market) {{
-  // WHY 마커를 블록 맨 앞(내용보다 먼저)에 두는지(2026-07-31 버그 수정): 마커가
-  // 블록 맨 끝에 있으면 _stripAutoLinks가 "마커 위치부터 끝까지"를 잘라낼 때
-  // 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
-  // 안 지워진다 — 그 결과 토글을 누를 때마다 이전 블록 위에 새 블록이 계속
-  // 쌓였다(다른 카드 토글을 눌러도 모든 caption-box를 순회하며 재적용하다보니
-  // 전혀 상관없는 카드까지 같이 누적되는 것처럼 보였음). 마커를 블록 시작
-  // 지점에 둬야 "마커부터 끝까지 전체"가 실제로 지워진다.
+function _hasMarketLink(market) {{
+  return Array.from(document.querySelectorAll(`.product-link-input[data-market="${{market}}"]`))
+    .some(inp => inp.value.trim());
+}}
+
+// WHY 마커를 블록 맨 앞(내용보다 먼저)에 두는지(2026-07-31 버그 수정): 마커가
+// 블록 맨 끝에 있으면 _stripAutoLinks가 "마커 위치부터 끝까지"를 잘라낼 때
+// 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
+// 안 지워진다 — 그 결과 토글을 누를 때마다 이전 블록 위에 새 블록이 계속
+// 쌓였다. 마커를 블록 시작 지점에 둬야 "마커부터 끝까지 전체"가 지워진다.
+function _buildLinkBlock(market) {{
   if (market === "naver") {{
-    // WHY 안내 문구 없이 고지문구만: 네이버 쇼핑 커넥트는 URL을 본문에 붙여넣는 방식이
-    // 아니라 에디터의 "상품" 버튼으로 직접 추가해야 하지만(2026-07-30 확인), 그 안내
-    // 문구를 캡션에 자동으로 넣는 건 원치 않는다는 피드백(2026-07-30) — 링크 텍스트는
-    // 여전히 안 넣지만 안내문 없이 법적 고지문구만 남긴다.
-    const hasNaverLink = Array.from(document.querySelectorAll('.product-link-input[data-market="naver"]'))
-      .some(inp => inp.value.trim());
-    if (!hasNaverLink) return "";
-    return "\\n\\n" + AUTO_LINKS_MARKER + NAVER_DISCLOSURE;
+    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정): 네이버 쇼핑 커넥트는
+    // URL을 본문에 붙여넣는 방식이 아니라 에디터의 "상품" 버튼으로 직접 추가해야
+    // 하고(2026-07-30 확인), 그 버튼 사용법 안내 문구는 원치 않는다는 피드백이라
+    // 안내문은 계속 안 넣는다(2026-07-30) — 하지만 "어떤 품목 링크인지는 알아야
+    // 한다"는 피드백(2026-07-31)이 있어서 상품명 목록은 넣는다. URL 없이 상품명만
+    // 있으면 안내문 없이도 뭘 링크해야 하는지 알 수 있다.
+    const products = [];
+    document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
+      if (inp.value.trim()) products.push(inp.dataset.product);
+    }});
+    if (products.length === 0) return "";
+    return "\\n\\n" + AUTO_LINKS_MARKER + "🔵 상품: " + products.join(", ") + "\\n\\n" + NAVER_DISCLOSURE;
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -428,14 +436,25 @@ function _buildMarketBlock(market) {{
   return "\\n\\n" + AUTO_LINKS_MARKER + lines.join("\\n") + "\\n\\n" + COUPANG_DISCLOSURE;
 }}
 
+// WHY 원본 URL 대신 CTA 문장(2026-07-30/31): 인스타·틱톡은 캡션 속 URL이 클릭이
+// 안 되고(2026-07-30 확인), "네이버 혹은 쿠팡"처럼 양쪽을 다 정적으로 언급하는 게
+// 아니라 실제 고른 쪽 이름이 문장에 들어가야 한다는 피드백(2026-07-31) — 마켓
+// 토글 선택에 맞춰 문장 자체를 그때그때 다시 만든다.
+function _buildCtaBlock(market) {{
+  if (!_hasMarketLink(market)) return "";
+  const marketLabel = market === "naver" ? "네이버" : "쿠팡";
+  const disclosure = market === "naver" ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE;
+  const cta = `💬 댓글에 "${{COMMENT_KEYWORD}}"라고 남겨주시면 ${{marketLabel}} 최다 리뷰 상품 링크 보내드릴게요!`;
+  return "\\n\\n" + AUTO_LINKS_MARKER + cta + "\\n\\n" + disclosure;
+}}
+
 function applyProductLinks() {{
-  const coupangBlock = _buildMarketBlock("coupang");
-  const naverBlock = _buildMarketBlock("naver");
   document.querySelectorAll(".caption-box").forEach(box => {{
     const card = box.closest(".platform-card");
     const activeBtn = card.querySelector(".market-toggle .market-btn.active");
     const market = activeBtn ? activeBtn.dataset.market : null;
-    const block = market === "naver" ? naverBlock : market === "coupang" ? coupangBlock : "";
+    const noCaptionLink = card.dataset.noCaptionLink === "1";
+    const block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market)) : "";
     const stripped = _stripAutoLinks(box.value);
     box.value = block ? stripped + block : stripped;
   }});
@@ -601,11 +620,12 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             market_key = quote(p["name"])
             default_market = "naver" if p.get("network") == "naver" else "coupang"
             market_toggle = ""
-            # WHY no_caption_link 플랫폼엔 마켓 토글 자체를 안 만듦: 인스타(릴스·카드뉴스)·
-            # 틱톡은 캡션 속 URL이 클릭되지 않는다(2026-07-30 확인) — 자동 링크 삽입은
-            # 클릭 가능한 플랫폼에서만 의미가 있고, 이 셋은 캡션에 이미 정적으로 박아둔
-            # "댓글/프로필 링크" 안내 문구로 대신한다.
-            if has_products and not p.get("no_caption_link"):
+            # WHY no_caption_link 플랫폼도 마켓 토글은 만듦(2026-07-31 정정): 인스타·틱톡은
+            # 캡션 속 URL이 클릭되지 않아 원본 링크 텍스트는 안 넣지만(2026-07-30 확인),
+            # "네이버 혹은 쿠팡" 식으로 양쪽 다 정적으로 언급하지 말고 실제 고른 쪽 이름이
+            # CTA 문장에 들어가야 한다는 피드백(2026-07-31) — 토글 자체는 계속 필요하고,
+            # _buildMarketBlock 쪽에서 no_caption_link일 때 다른 문구를 만든다.
+            if has_products:
                 market_toggle = MARKET_TOGGLE_TEMPLATE.format(
                     market_key=market_key,
                     default_market=default_market,
@@ -626,6 +646,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
                 market_key=market_key,
                 market_toggle=market_toggle,
+                no_caption_link_attr="1" if p.get("no_caption_link") else "",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
@@ -639,6 +660,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
+        comment_keyword_js=json.dumps(spec.get("products", [""])[0]),
     )
     Path(out_path).write_text(html)
     print(f"대시보드 생성 완료: {out_path}")
