@@ -315,6 +315,10 @@ PAGE_TEMPLATE = """<!doctype html>
 
 <script>
 const CARD_IMAGE_NAMES = {card_image_names_js};
+// WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
+// 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
+// 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
+const TOPIC_NAME = {topic_name_js};
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
   downloadAllBtn.addEventListener("click", () => {{
@@ -324,7 +328,7 @@ if (downloadAllBtn) {{
       setTimeout(() => {{
         const a = document.createElement("a");
         a.href = "card_news/" + name;
-        a.download = "";
+        a.download = TOPIC_NAME + "_" + decodeURIComponent(name);
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -569,14 +573,15 @@ SECTION_TEMPLATE = """
 """
 
 
-def _asset_link(platform_type: str, has_video: bool, video_name: str) -> str:
+def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str) -> str:
+    topic_attr = _esc(topic)
     if platform_type == "video":
         if has_video:
-            return f'<a class="asset-link" href="{video_name}" download>🎬 영상 다운로드</a>'
+            return f'<a class="asset-link" href="{video_name}" download="{topic_attr}_{video_name}">🎬 영상 다운로드</a>'
         return '<span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>'
     if platform_type == "cards":
         return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
-    return '<a class="asset-link" href="card_news/00_표지.jpg" download>🖼 표지 이미지 다운로드 (선택)</a>'
+    return f'<a class="asset-link" href="card_news/00_표지.jpg" download="{topic_attr}_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>'
 
 
 def _dock_products(products: list[str], affiliate_path: Path) -> str:
@@ -648,9 +653,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
 
     has_video = bool(video_path and Path(video_path).exists())
     video_name = Path(video_path).name if video_path else "shorts.mp4"
+    video_download_attr = _esc(topic) + "_" + video_name
     if has_video:
-        video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download>영상 다운로드 ↓</a>'
-        video_download_link = f'<a href="{video_name}" download>🎬 영상 다운로드</a>'
+        video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download="{video_download_attr}">영상 다운로드 ↓</a>'
+        video_download_link = f'<a href="{video_name}" download="{video_download_attr}">🎬 영상 다운로드</a>'
     else:
         video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
         video_download_link = '<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>'
@@ -705,7 +711,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, has_video, video_name),
+                asset_link=_asset_link(t, has_video, video_name, topic),
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
@@ -730,6 +736,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
         comment_keyword_js=json.dumps((spec.get("products") or [""])[0]),
+        topic_name_js=json.dumps(topic),
     )
     Path(out_path).write_text(html)
     _update_topics_index(out_path)
