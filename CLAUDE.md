@@ -168,6 +168,7 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 | 주제별 작업 데이터 (대본·스펙·캡션) | `data/<주제>/` |
 | 주제별 산출물 (카드뉴스·영상·대시보드) | `output/<주제>/` |
 | 라이브러리 코드 | `lib/*.py` |
+| 채널별 URL(정답 소스) | `data/social_accounts.json` — 새 topic 캡션은 여기서 복사할 것, 예전 topic JSON 복사 금지(오래된 URL 남아있을 수 있음) |
 | 비밀키 | `.env` (커밋 안 함), `.env.example` 항상 최신 유지 |
 
 ## 콘텐츠 톤 — 훅 중심, 효능 우선 (2026-07-30)
