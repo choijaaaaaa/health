@@ -198,6 +198,14 @@
   <p>여기서 내용을 채우고 미리보기를 확인한 뒤, JSON을 내려받아 로컬에서 <code>lib/card_news.py</code>로 실제 이미지를 생성하세요.</p>
 </header>
 
+<!-- WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
+     했다는 피드백 — output/topics.json(dashboard.py가 생성할 때마다 자동 갱신)을
+     읽어서 완성된 콘텐츠 목록을 루트에서 바로 보여준다. -->
+<div id="topicsSection" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:none;">
+  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 12px;">완성된 콘텐츠</h2>
+  <div id="topicsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+</div>
+
 <div class="layout">
   <!-- 입력 폼 -->
   <div class="panel" id="formPanel">
@@ -248,6 +256,22 @@
 </div>
 
 <script>
+fetch("output/topics.json")
+  .then(r => r.ok ? r.json() : [])
+  .then(topics => {
+    if (!topics.length) return;
+    const list = document.getElementById("topicsList");
+    topics.forEach(t => {
+      const a = document.createElement("a");
+      a.href = t.url;
+      a.textContent = t.title;
+      a.style.cssText = "display:block;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;color:var(--ink);text-decoration:none;font-size:14px;";
+      list.appendChild(a);
+    });
+    document.getElementById("topicsSection").style.display = "block";
+  })
+  .catch(() => {});
+
 const PRESET_CHARS = ["돼지감자", "양파", "사과", "가지", "아보카도", "다크초콜릿"];
 const CHAR_BASE = "assets_library/illust/";
 

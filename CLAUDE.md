@@ -114,6 +114,12 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 실제 이미지 생성(PIL)·TTS·ffmpeg는 전부 로컬 Claude Code 세션에서 실행. Pages 자체에서 서버
 로직을 돌릴 수 없다는 제약을 항상 전제로 설계할 것.
 
+- 루트에서 각 topic 대시보드로 바로 갈 수 있게, `lib/dashboard.py`의 `generate()`가 매번
+  `output/topics.json`(모든 `output/*/dashboard.html`을 스캔한 목록)을 자동 갱신하고,
+  `index.html`이 페이지 로드 시 이 JSON을 fetch해서 상단에 링크 목록을 보여준다
+  (2026-07-31, "매번 긴 URL 안 외우고 루트로 들어가면 안되나" 피드백) — 정적 fetch라
+  Pages 제약 안에서 동작. 새 topic 추가 시 별도 작업 없이 dashboard 재생성만 하면 자동 반영됨.
+
 ## 카드뉴스 — 썸네일 품질
 
 표지는 `lib/card_news.py`의 `make_cover(..., bg_photo_path=...)`로 실물 사진 풀블리드 배경 +

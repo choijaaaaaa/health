@@ -563,6 +563,27 @@ def _dock_products(products: list[str], affiliate_path: Path) -> str:
     )
 
 
+def _update_topics_index(out_path: str):
+    """WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
+    했다("루트로 들어가면 안되나?") — output/ 밑의 모든 대시보드를 스캔해서
+    output/topics.json을 갱신하면, 루트 index.html이 이걸 읽어 목록을 보여줄 수 있다."""
+    out_dir = Path(out_path).resolve().parent
+    output_root = out_dir.parent
+    topics = []
+    for dash in sorted(output_root.glob("*/dashboard.html")):
+        topic = dash.parent.name
+        title = topic
+        caption_path = output_root.parent / "data" / topic / "platform_captions.json"
+        if caption_path.exists():
+            try:
+                title = json.loads(caption_path.read_text()).get("title", topic)
+            except (json.JSONDecodeError, OSError):
+                pass
+        topics.append({"topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html"})
+    topics.sort(key=lambda t: t["topic"], reverse=True)
+    (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
+
+
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
     topic = spec.get("topic", spec["title"])
@@ -663,6 +684,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         comment_keyword_js=json.dumps(spec.get("products", [""])[0]),
     )
     Path(out_path).write_text(html)
+    _update_topics_index(out_path)
     print(f"대시보드 생성 완료: {out_path}")
 
 
