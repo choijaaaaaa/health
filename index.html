@@ -256,17 +256,46 @@
 </div>
 
 <script>
+const TOPIC_DONE_PREFIX = "hs_topic_done_";
+
 fetch("output/topics.json")
   .then(r => r.ok ? r.json() : [])
   .then(topics => {
     if (!topics.length) return;
     const list = document.getElementById("topicsList");
     topics.forEach(t => {
+      const row = document.createElement("div");
+      row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.style.cssText = "width:18px;height:18px;flex:0 0 auto;cursor:pointer;accent-color:var(--accent);";
+      checkbox.checked = localStorage.getItem(TOPIC_DONE_PREFIX + t.topic) === "1";
+
       const a = document.createElement("a");
       a.href = t.url;
       a.textContent = t.title;
-      a.style.cssText = "display:block;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:14px 18px;color:var(--ink);text-decoration:none;font-size:14px;";
-      list.appendChild(a);
+      a.style.cssText = "flex:1;color:var(--ink);text-decoration:none;font-size:14px;";
+
+      function applyDoneStyle(done) {
+        row.style.opacity = done ? "0.45" : "1";
+        row.style.background = done ? "var(--bg-bottom)" : "var(--panel)";
+        a.style.textDecoration = done ? "line-through" : "none";
+      }
+      applyDoneStyle(checkbox.checked);
+
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          localStorage.setItem(TOPIC_DONE_PREFIX + t.topic, "1");
+        } else {
+          localStorage.removeItem(TOPIC_DONE_PREFIX + t.topic);
+        }
+        applyDoneStyle(checkbox.checked);
+      });
+
+      row.appendChild(checkbox);
+      row.appendChild(a);
+      list.appendChild(row);
     });
     document.getElementById("topicsSection").style.display = "block";
   })
