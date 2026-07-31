@@ -56,7 +56,7 @@ MARKET_TOGGLE_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -454,10 +454,19 @@ function _buildLinkBlock(market, hasNaverButton) {{
 // 안 되고(2026-07-30 확인), "네이버 혹은 쿠팡"처럼 양쪽을 다 정적으로 언급하는 게
 // 아니라 실제 고른 쪽 이름이 문장에 들어가야 한다는 피드백(2026-07-31) — 마켓
 // 토글 선택에 맞춰 문장 자체를 그때그때 다시 만든다.
-function _buildCtaBlock(market) {{
+// ⚠️ WHY hasCommentDm 분기가 필요한지(2026-07-31 버그 수정): "댓글에 남기면 보내드려요"는
+// 인포크 댓글→DM 자동화가 실제로 연동된 인스타그램에만 맞는 말이다 — 이 자동화가 없는
+// 틱톡까지 no_caption_link라는 이유만으로 똑같은 CTA를 붙였더니, 틱톡 캡션에 이미 있는
+// "🔗 상품 링크는 프로필에!"와 정반대로 모순되는 두 안내가 나란히 붙는 버그가 났다
+// ("틱톡에는 인포크 구조가 안 되는데 왜 댓글 달면 보내준다는 문구가 있냐" 지적). 자동화가
+// 없는 플랫폼은 CTA 문장 없이 고지문구만 붙인다 — 프로필 안내는 이미 정적 캡션에 있음.
+function _buildCtaBlock(market, hasCommentDm) {{
   if (!_hasMarketLink(market)) return "";
-  const marketLabel = market === "naver" ? "네이버" : "쿠팡";
   const disclosure = market === "naver" ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE;
+  if (!hasCommentDm) {{
+    return "\\n\\n" + AUTO_LINKS_MARKER + disclosure;
+  }}
+  const marketLabel = market === "naver" ? "네이버" : "쿠팡";
   const cta = `💬 댓글에 "${{COMMENT_KEYWORD}}"라고 남겨주시면 ${{marketLabel}} 최다 리뷰 상품 링크 보내드릴게요!`;
   return "\\n\\n" + AUTO_LINKS_MARKER + cta + "\\n\\n" + disclosure;
 }}
@@ -469,7 +478,8 @@ function applyProductLinks() {{
     const market = activeBtn ? activeBtn.dataset.market : null;
     const noCaptionLink = card.dataset.noCaptionLink === "1";
     const hasNaverButton = card.dataset.naverButton === "1";
-    let block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market, hasNaverButton)) : "";
+    const hasCommentDm = card.dataset.commentDm === "1";
+    let block = market ? (noCaptionLink ? _buildCtaBlock(market, hasCommentDm) : _buildLinkBlock(market, hasNaverButton)) : "";
     // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
     // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
     // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
@@ -699,6 +709,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
                 profile_note_attr="1" if p.get("add_profile_note") else "",
+                comment_dm_attr="1" if p.get("comment_dm_automation") else "",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
