@@ -56,7 +56,7 @@ MARKET_TOGGLE_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}" data-suppress-product-block="{suppress_product_block_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -479,7 +479,12 @@ function applyProductLinks() {{
     const noCaptionLink = card.dataset.noCaptionLink === "1";
     const hasNaverButton = card.dataset.naverButton === "1";
     const hasCommentDm = card.dataset.commentDm === "1";
-    let block = market ? (noCaptionLink ? _buildCtaBlock(market, hasCommentDm) : _buildLinkBlock(market, hasNaverButton)) : "";
+    // WHY suppressProductBlock(2026-07-31): 유튜브 쇼츠는 구독자 500명 조건을 채우기
+    // 전까지 설명란 링크가 아예 클릭이 안 돼서 판매 관련 문구를 넣어봤자 반감만 산다는
+    // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
+    // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
+    const suppressBlock = card.dataset.suppressProductBlock === "1";
+    let block = (!suppressBlock && market) ? (noCaptionLink ? _buildCtaBlock(market, hasCommentDm) : _buildLinkBlock(market, hasNaverButton)) : "";
     // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
     // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
     // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
@@ -709,6 +714,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
                 profile_note_attr="1" if p.get("add_profile_note") else "",
+                suppress_product_block_attr="1" if p.get("suppress_product_block") else "",
                 comment_dm_attr="1" if p.get("comment_dm_automation") else "",
             )
             idx += 1

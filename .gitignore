@@ -5,3 +5,4 @@ __pycache__/
 .venv/
 bin/
 .claude/settings.local.json
+.claude-locks/
