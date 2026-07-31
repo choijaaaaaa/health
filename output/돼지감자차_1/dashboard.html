@@ -475,7 +475,7 @@
 </div>
 
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 자동 포함, 나머지는 📷 주석 위치에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/00_표지.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
+  <a class="asset-link" href="card_news/00_%ED%91%9C%EC%A7%80.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-5" spellcheck="false">혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기
 
 📷 [00_표지.jpg 삽입]
@@ -533,7 +533,7 @@
 </div>
 
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 자동 포함, 나머지는 📷 주석 위치에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/00_표지.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
+  <a class="asset-link" href="card_news/00_%ED%91%9C%EC%A7%80.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-6" spellcheck="false">혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기
 
 📷 [00_표지.jpg 삽입]
@@ -591,7 +591,7 @@
 </div>
 
   <div class="action-line">캡션 복사 → 새 글 작성 → 붙여넣기 (표지 이미지 첨부 권장)</div>
-  <a class="asset-link" href="card_news/00_표지.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
+  <a class="asset-link" href="card_news/00_%ED%91%9C%EC%A7%80.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-7" spellcheck="false">혈당 관리에 어려움이 있는 분들 주목!
 
 돼지감자에 풍부한 수용성 식이섬유인데, 식후 혈당 관리에 도움될 가능성이 계속 연구되고 있대요. 장 유익균 먹이가 되는 프리바이오틱스 역할도 하고, 칼륨·폴리페놀도 같이 챙길 수 있대요.
@@ -625,7 +625,7 @@
 </div>
 
   <div class="action-line">캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장)</div>
-  <a class="asset-link" href="card_news/00_표지.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
+  <a class="asset-link" href="card_news/00_%ED%91%9C%EC%A7%80.jpg" download="돼지감자차_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-8" spellcheck="false">혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기
 
 돼지감자에 풍부한 이눌린이라는 성분이 식후 혈당 관리에 도움될 가능성이 계속 연구되고 있어요. 장 유익균의 먹이가 되는 프리바이오틱스 역할도 하고, 칼륨·폴리페놀 성분까지 함께 챙길 수 있어요.
@@ -648,6 +648,11 @@ const CARD_IMAGE_NAMES = ["00_%ED%91%9C%EC%A7%80.jpg", "01_%ED%98%88%EB%8B%B9%20
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
 const TOPIC_NAME = "\ub3fc\uc9c0\uac10\uc790\ucc28_1";
+// WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
+// topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
+function _withTopicPrefix(name) {
+  return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
+}
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {
   downloadAllBtn.addEventListener("click", () => {
@@ -657,7 +662,7 @@ if (downloadAllBtn) {
       setTimeout(() => {
         const a = document.createElement("a");
         a.href = "card_news/" + name;
-        a.download = TOPIC_NAME + "_" + decodeURIComponent(name);
+        a.download = _withTopicPrefix(decodeURIComponent(name));
         document.body.appendChild(a);
         a.click();
         a.remove();

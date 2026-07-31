@@ -319,6 +319,11 @@ const CARD_IMAGE_NAMES = {card_image_names_js};
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
 const TOPIC_NAME = {topic_name_js};
+// WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
+// topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
+function _withTopicPrefix(name) {{
+  return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
+}}
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
   downloadAllBtn.addEventListener("click", () => {{
@@ -328,7 +333,7 @@ if (downloadAllBtn) {{
       setTimeout(() => {{
         const a = document.createElement("a");
         a.href = "card_news/" + name;
-        a.download = TOPIC_NAME + "_" + decodeURIComponent(name);
+        a.download = _withTopicPrefix(decodeURIComponent(name));
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -573,15 +578,26 @@ SECTION_TEMPLATE = """
 """
 
 
-def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str) -> str:
+def _prefixed(name: str, topic: str) -> str:
+    """WHY(2026-07-31): card_news.py가 이제 파일명에 topic 접두어를 직접 붙이므로,
+    다운로드 파일명을 만들 때 이미 붙어있는 접두어를 또 붙이면 중복된다
+    (예: "60대주의음식_1_60대주의음식_1_00_표지.jpg") — 이미 있으면 그대로 두고,
+    없는(접두어 없는 예전 topic) 경우에만 붙인다."""
+    return name if name.startswith(topic + "_") else f"{topic}_{name}"
+
+
+def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str, cover_name: str | None) -> str:
     topic_attr = _esc(topic)
     if platform_type == "video":
         if has_video:
-            return f'<a class="asset-link" href="{video_name}" download="{topic_attr}_{video_name}">🎬 영상 다운로드</a>'
+            return f'<a class="asset-link" href="{video_name}" download="{_prefixed(video_name, topic_attr)}">🎬 영상 다운로드</a>'
         return '<span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>'
     if platform_type == "cards":
         return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
-    return f'<a class="asset-link" href="card_news/00_표지.jpg" download="{topic_attr}_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>'
+    if not cover_name:
+        return ""
+    return (f'<a class="asset-link" href="card_news/{quote(cover_name)}" '
+            f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
 
 
 def _dock_products(products: list[str], affiliate_path: Path) -> str:
@@ -653,7 +669,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
 
     has_video = bool(video_path and Path(video_path).exists())
     video_name = Path(video_path).name if video_path else "shorts.mp4"
-    video_download_attr = _esc(topic) + "_" + video_name
+    video_download_attr = _prefixed(video_name, _esc(topic))
     if has_video:
         video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download="{video_download_attr}">영상 다운로드 ↓</a>'
         video_download_link = f'<a href="{video_name}" download="{video_download_attr}">🎬 영상 다운로드</a>'
@@ -664,8 +680,11 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # WHY base64로 직접 embed: 원격 URL(src="https://...")은 네이버/티스토리 에디터가
     # 붙여넣기 시 외부 이미지를 거부하거나 못 불러오는 경우가 있었다(2026-07-30 확인) —
     # 이미지 바이트를 클립보드 HTML에 직접 박아넣으면 어느 사이트에 붙여도 안정적으로 뜬다.
-    cover_path = Path(card_news_dir) / "00_표지.jpg"
-    has_cover = cover_path.exists()
+    # WHY glob(2026-07-31): card_news.py가 이제 파일명 앞에 topic 접두어를 붙이므로
+    # ("<topic>_00_표지.jpg") 정확한 이름을 하드코딩하지 않고 패턴으로 찾는다 — 접두어
+    # 없는 예전 topic("00_표지.jpg")과도 둘 다 호환.
+    cover_path = next(Path(card_news_dir).glob("*00_표지.jpg"), None)
+    has_cover = cover_path is not None
     cover_url = ""
     if has_cover:
         cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
@@ -711,7 +730,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, has_video, video_name, topic),
+                asset_link=_asset_link(t, has_video, video_name, topic, cover_path.name if cover_path else None),
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",

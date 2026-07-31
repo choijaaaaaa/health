@@ -391,6 +391,11 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     char_paths = [str(char_dir / item["char_file"]) for item in spec["items"]]
     eyebrow = spec.get("eyebrow", "HEALTH TIP")
 
+    # WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하면서
+    # output 폴더 안 파일명("00_표지.jpg" 등)이 topic마다 겹쳐서 구분이 안 됐다 — out_dir이
+    # 관례상 output/<topic>/card_news라서 out_dir.parent.name이 topic 이름이 된다.
+    topic_prefix = out_dir.parent.name + "_"
+
     # WHY make_cover_titlecard가 기본(2026-07-31): "카드뉴스 첫장도 숏폼 영상
     # 썸네일이랑 똑같이 그냥 가져가자" 피드백 이후 이 스타일이 표준이 됐다 —
     # spec["title"]는 마지막 줄이 주제명(예: "돼지감자차 이야기")이고 나머지가
@@ -398,14 +403,14 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     # 뺌, 영상 제목 카드와 동일한 처리). CLI로 바로 generate() 호출해도 예전
     # 그라디언트 표지(make_cover)로 되돌아가지 않도록 여기서 기본값을 바꿔둔다.
     hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
-    make_cover_titlecard(hook_text, out_dir / "00_표지.jpg", char_path=char_paths[0] if char_paths else None)
+    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=char_paths[0] if char_paths else None)
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
-        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n, out_dir / f"{i:02d}_{item['name']}.jpg", eyebrow=eyebrow)
+        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n, out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow)
 
     closing = spec["closing"]
-    make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"], out_dir / f"{n+1:02d}_마무리.jpg")
+    make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"], out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg")
     print(f"카드뉴스 {n+2}장 생성 완료: {out_dir}")
 
 

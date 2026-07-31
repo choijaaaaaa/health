@@ -123,14 +123,30 @@ topic(`수면음식_1`)을 동시에 작업해서 캐릭터 일러스트·카드
 python3 lib/video_assembler.py \
   --images "assets_library/real/<사진1>,assets_library/real/<사진2>" \
   --motion "assets_library/motion/<캐릭터>_motion.mp4" \
-  --audio "output/<topic>/narration.mp3" \
-  --srt "output/<topic>/narration.srt" \
-  --out "output/<topic>/shorts.mp4" \
+  --audio "output/<topic>/<topic>_narration.mp3" \
+  --srt "output/<topic>/<topic>_narration.srt" \
+  --out "output/<topic>/<topic>_shorts.mp4" \
   --title "<훅> <주제명>" \
   --title-card-text "<훅만, 주제명 빼고>" \
   --title-card-char "assets_library/illust/<캐릭터>_illust.jpg" \
   --bg-color 0x00FF00
 ```
+
+⚠️ **output 폴더 안 파일명에도 topic 접두어를 붙일 것**(2026-07-31, "output 폴더 안에 있는
+파일들도 토픽이 추가될 수 있도록" 요청): 여러 세션이 동시에 여러 topic을 작업하다보니
+`shorts.mp4`, `00_표지.jpg`, `narration.mp3` 같은 이름이 topic마다 겹쳐서 구분이 안 됐다.
+
+- `card_news.py`의 `generate()`는 이미 자동으로 접두어를 붙인다(`out_dir.parent.name`에서
+  topic을 추론) — 별도 조치 불필요
+- `typecast_tts.py`의 `synthesize()`가 만드는 `narration.mp3`/`narration.srt`는 아직
+  접두어가 안 붙으므로, 영상 조립 전에 `output/<topic>/narration.mp3` →
+  `output/<topic>/<topic>_narration.mp3`로 이름을 바꿔주거나, `synthesize()` 결과를 받은
+  뒤 바로 rename할 것
+- `video_assembler.py`의 `--out`도 위 예시처럼 `<topic>_shorts.mp4`로 직접 지정할 것
+  (함수 자체는 파일명을 신경 안 쓰고 호출자가 준 경로 그대로 씀)
+- `dashboard.py`는 접두어 있는/없는 파일 둘 다 glob으로 찾아서 호환되지만
+  (`_prefixed()` 헬퍼가 중복 접두어도 방지함), 새 topic은 처음부터 접두어를 붙여서
+  시작할 것 — 예전 topic까지 굳이 소급해서 리네임할 필요는 없음
 
 ### 캐릭터 여러 명(품목 3개 이상 topic) — motion_schedule (2026-07-31)
 
