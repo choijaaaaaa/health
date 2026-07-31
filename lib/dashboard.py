@@ -56,7 +56,7 @@ MARKET_TOGGLE_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -469,7 +469,13 @@ function applyProductLinks() {{
     const market = activeBtn ? activeBtn.dataset.market : null;
     const noCaptionLink = card.dataset.noCaptionLink === "1";
     const hasNaverButton = card.dataset.naverButton === "1";
-    const block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market, hasNaverButton)) : "";
+    let block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market, hasNaverButton)) : "";
+    // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
+    // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
+    // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
+    if (block && card.dataset.profileNote === "1") {{
+      block += "\\n\\n🔗 링크가 눌리지 않으면 채널 프로필에서 확인해주세요";
+    }}
     const stripped = _stripAutoLinks(box.value);
     box.value = block ? stripped + block : stripped;
   }});
@@ -692,6 +698,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 market_toggle=market_toggle,
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
+                profile_note_attr="1" if p.get("add_profile_note") else "",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
