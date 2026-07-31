@@ -729,11 +729,6 @@ function _stripAutoLinks(text) {
   return text.slice(0, idx).replace(/\n\n$/, "");
 }
 
-function _hasMarketLink(market) {
-  return Array.from(document.querySelectorAll(`.product-link-input[data-market="${market}"]`))
-    .some(inp => inp.value.trim());
-}
-
 // WHY 마커를 블록 맨 앞(내용보다 먼저)에 두는지(2026-07-31 버그 수정): 마커가
 // 블록 맨 끝에 있으면 _stripAutoLinks가 "마커 위치부터 끝까지"를 잘라낼 때
 // 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
@@ -793,8 +788,13 @@ function _buildLinkBlock(market, hasNaverButton) {
 // 사고가 났다("쿠팡 파트너스 관련된 무엇도 있는게 없는데 프로필로라도 가서 확인하라고
 // 해야되는거 아니냐" 지적) — 정적 캡션에 의존하지 않도록 이 블록 자체가 항상 안내를
 // 포함하게 만든다(중복되더라도 안내가 아예 없는 것보다 낫다).
+// ⚠️ WHY _hasMarketLink 체크를 제거했는지(2026-07-31 버그 수정): no_caption_link
+// 플랫폼(인스타·틱톡)은 URL을 애초에 캡션에 안 넣으므로 "상품 링크 입력창에 URL을
+// 타이핑해놨는지"는 이 CTA 문구랑 아무 상관이 없다 — 근데 이 체크가 걸려있어서
+// 대시보드 열 때마다(링크를 안 넣어놓은 상태) 인스타 캡션에 댓글 CTA가 통째로
+// 사라져 보였다("인스타쪽 왜 댓글달면 링크 준다는거 없어졌어?" 반복 지적). CTA는
+// hasCommentDm이 켜진 플랫폼이면 링크 입력 여부와 무관하게 항상 붙는다.
 function _buildCtaBlock(market, hasCommentDm) {
-  if (!_hasMarketLink(market)) return "";
   const disclosure = market === "naver" ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE;
   if (!hasCommentDm) {
     return "\n\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\n\n" + disclosure;
