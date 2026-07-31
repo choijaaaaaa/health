@@ -56,7 +56,7 @@ MARKET_TOGGLE_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -412,20 +412,34 @@ function _hasMarketLink(market) {{
 // 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
 // 안 지워진다 — 그 결과 토글을 누를 때마다 이전 블록 위에 새 블록이 계속
 // 쌓였다. 마커를 블록 시작 지점에 둬야 "마커부터 끝까지 전체"가 지워진다.
-function _buildLinkBlock(market) {{
-  if (market === "naver") {{
-    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정): 네이버 쇼핑 커넥트는
-    // URL을 본문에 붙여넣는 방식이 아니라 에디터의 "상품" 버튼으로 직접 추가해야
-    // 하고(2026-07-30 확인), 그 버튼 사용법 안내 문구는 원치 않는다는 피드백이라
-    // 안내문은 계속 안 넣는다(2026-07-30) — 하지만 "어떤 품목 링크인지는 알아야
-    // 한다"는 피드백(2026-07-31)이 있어서 상품명 목록은 넣는다. URL 없이 상품명만
-    // 있으면 안내문 없이도 뭘 링크해야 하는지 알 수 있다.
+function _buildLinkBlock(market, hasNaverButton) {{
+  if (market === "naver" && hasNaverButton) {{
+    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정): 네이버 블로그·클립처럼
+    // 에디터에 진짜 "상품" 버튼이 있는 곳(data-naver-button="1")은 URL을 본문에
+    // 붙여넣는 방식이 아니라 그 버튼으로 직접 추가해야 하고(2026-07-30 확인), 버튼
+    // 사용법 안내 문구는 원치 않는다는 피드백이라 안내문은 안 넣는다(2026-07-30) —
+    // 하지만 "어떤 품목 링크인지는 알아야 한다"는 피드백(2026-07-31)이 있어서
+    // 상품명 목록은 넣는다.
     const products = [];
     document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
       if (inp.value.trim()) products.push(inp.dataset.product);
     }});
     if (products.length === 0) return "";
     return "\\n\\n" + AUTO_LINKS_MARKER + "🔵 상품: " + products.join(", ") + "\\n\\n" + NAVER_DISCLOSURE;
+  }}
+  if (market === "naver") {{
+    // WHY 여기서는 URL을 그대로 넣는지(2026-07-31 버그 수정): "네이버 URL은 버튼으로만
+    // 추가"라는 규칙은 네이버 자체 에디터(블로그·클립)에만 해당하는 얘기인데, 쓰레드·
+    // 페이스북·유튜브처럼 그런 버튼이 아예 없는 플랫폼까지 URL을 통째로 빼버렸었다
+    // ("쓰레드 이런거까지 왜 없애놨냐" 지적) — 버튼이 없는 곳은 쿠팡과 똑같이 URL을
+    // 텍스트로 넣는 게 유일한 방법이라 그대로 넣는다.
+    const lines = [];
+    document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
+      const url = inp.value.trim();
+      if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
+    }});
+    if (lines.length === 0) return "";
+    return "\\n\\n" + AUTO_LINKS_MARKER + lines.join("\\n") + "\\n\\n" + NAVER_DISCLOSURE;
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -454,7 +468,8 @@ function applyProductLinks() {{
     const activeBtn = card.querySelector(".market-toggle .market-btn.active");
     const market = activeBtn ? activeBtn.dataset.market : null;
     const noCaptionLink = card.dataset.noCaptionLink === "1";
-    const block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market)) : "";
+    const hasNaverButton = card.dataset.naverButton === "1";
+    const block = market ? (noCaptionLink ? _buildCtaBlock(market) : _buildLinkBlock(market, hasNaverButton)) : "";
     const stripped = _stripAutoLinks(box.value);
     box.value = block ? stripped + block : stripped;
   }});
@@ -668,6 +683,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 market_key=market_key,
                 market_toggle=market_toggle,
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
+                naver_button_attr="1" if p.get("network") == "naver" else "",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
