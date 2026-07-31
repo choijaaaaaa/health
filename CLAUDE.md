@@ -149,6 +149,22 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 - 카드뉴스도 같은 원칙 — 효능/핵심 정보 카드를 앞쪽에, 사용법(끓이는 법 등) 같은 부차적 정보는
   뒤로 배치
 
+### 해시태그 — 플랫폼별로 빠짐없이 (2026-07-31)
+
+`platform_captions.json`의 각 플랫폼 캡션에는 전부 해시태그가 들어가야 한다 — 한 곳이라도
+빠지면 발견하기 전까지 그 플랫폼만 계속 해시태그 없이 나간다(2026-07-31, 쓰레드 캡션에서
+실제로 누락된 채 지나간 사례 발견). 새 topic 캡션 작성 후에는 매번 아래로 전체 플랫폼에
+해시태그가 있는지 확인할 것:
+
+```
+python3 -c "
+import json
+spec = json.loads(open('data/<topic>/platform_captions.json').read())
+for p in spec['platforms']:
+    print(p['name'], '->', '#' in p['caption'])
+"
+```
+
 ### 제목/훅 카피 — "정보 서술형" 금지, "문제 겪는 사람 호출형"으로 (2026-07-31)
 
 "이눌린 하나로 식후 혈당까지 잡을 수 있을까?" 같은 궁금증 유발형 질문 제목은 그저 그런
