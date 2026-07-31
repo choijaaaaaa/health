@@ -786,12 +786,18 @@ function _buildLinkBlock(market, hasNaverButton) {
 // 틱톡까지 no_caption_link라는 이유만으로 똑같은 CTA를 붙였더니, 틱톡 캡션에 이미 있는
 // "🔗 상품 링크는 프로필에!"와 정반대로 모순되는 두 안내가 나란히 붙는 버그가 났다
 // ("틱톡에는 인포크 구조가 안 되는데 왜 댓글 달면 보내준다는 문구가 있냐" 지적). 자동화가
-// 없는 플랫폼은 CTA 문장 없이 고지문구만 붙인다 — 프로필 안내는 이미 정적 캡션에 있음.
+// 없는 플랫폼은 CTA 문장 없이 고지문구만 붙인다.
+// ⚠️ WHY 프로필 안내를 여기서 직접 넣는지(2026-07-31 재수정): 처음엔 "정적 캡션에 이미
+// 프로필 안내가 있다"고 가정하고 여기선 고지문구만 붙였는데, 다른 topic이 그 정적 문구를
+// 안 써놓으면 고지문구만 덩그러니 붙고 링크를 어디서 찾으라는 안내가 아예 없어지는
+// 사고가 났다("쿠팡 파트너스 관련된 무엇도 있는게 없는데 프로필로라도 가서 확인하라고
+// 해야되는거 아니냐" 지적) — 정적 캡션에 의존하지 않도록 이 블록 자체가 항상 안내를
+// 포함하게 만든다(중복되더라도 안내가 아예 없는 것보다 낫다).
 function _buildCtaBlock(market, hasCommentDm) {
   if (!_hasMarketLink(market)) return "";
   const disclosure = market === "naver" ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE;
   if (!hasCommentDm) {
-    return "\n\n" + AUTO_LINKS_MARKER + disclosure;
+    return "\n\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\n\n" + disclosure;
   }
   const marketLabel = market === "naver" ? "네이버" : "쿠팡";
   const cta = `💬 댓글에 "${COMMENT_KEYWORD}"라고 남겨주시면 ${marketLabel} 최다 리뷰 상품 링크 보내드릴게요!`;
