@@ -754,7 +754,13 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
-        comment_keyword_js=json.dumps((spec.get("products") or [""])[0]),
+        # WHY comment_keyword 우선(2026-07-31): 상품이 없는 topic(products: [])은
+        # products[0] 방식으로는 빈 문자열이 되어 "댓글에 ''라고 남겨주세요" 같은
+        # 깨진 문장이 나온다 — 명시적 comment_keyword 필드를 최우선으로 쓰고,
+        # 없으면 기존처럼 products[0]로 폴백. 새 키워드는 반드시
+        # ~/.claude/comment-keywords.md에서 중복 확인 후 등록할 것(인포크 등
+        # 댓글→DM 자동화가 다른 프로젝트/채널과 전역으로 키워드를 공유하므로).
+        comment_keyword_js=json.dumps(spec.get("comment_keyword") or (spec.get("products") or [""])[0]),
         topic_name_js=json.dumps(topic),
     )
     Path(out_path).write_text(html)
