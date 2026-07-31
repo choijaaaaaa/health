@@ -132,6 +132,47 @@ python3 lib/video_assembler.py \
   --bg-color 0x00FF00
 ```
 
+### 캐릭터 여러 명(품목 3개 이상 topic) — motion_schedule (2026-07-31)
+
+`--motion`은 캐릭터 1명짜리 topic용이다(돼지감자차_1처럼 소재가 하나). **품목이 여러 개라
+캐릭터가 대사 구간마다 바뀌어야 하면(수면음식_1: 대추/체리/호두) `--motion` 대신
+`--motion-schedule`을 쓴다**:
+
+```
+--motion-schedule "0-9.444:assets_library/motion/대추_motion.mp4,9.444-15.287:assets_library/motion/체리_motion.mp4,15.287-26.25:assets_library/motion/호두_motion.mp4"
+```
+
+- 형식: `시작-끝:경로` 를 쉼표로 나열, 시간은 나레이션(오디오) 기준 0초부터 — `narration.srt`에서
+  각 캐릭터가 언급되는 문장의 시작 시각을 구간 경계로 잡으면 된다.
+- 구간은 반드시 0초부터 나레이션 전체 길이까지 빈틈없이 이어져야 한다(마지막 구간의 끝은
+  오디오 전체 길이).
+- Python에서 직접 `assemble()` 호출할 때는 `motion_schedule=[(start, end, path), ...]`
+  튜플 리스트로 넘긴다(`motion_path=None`으로).
+
+### 실사진 없는 topic — 배경은 캐릭터 일러스트가 아니라 그라디언트로 (2026-07-31)
+
+`--images`는 **실사진** 배경 슬라이드쇼용이다. 실사진이 없다고 캐릭터 일러스트(크로마키
+초록 배경 포함) 파일을 `--images`에 그대로 넣으면 초록 배경이 화면 전체에 노출되는
+사고가 난다(수면음식_1에서 실제 발생 — `_build_background`는 사진용이라 colorkey를
+안 함). 실사진이 없으면 `lib/video_assembler.py`의 `make_gradient_bg()`로 카드뉴스와
+같은 톤의 단색 그라디언트를 만들어 쓴다 — 이미 `assets_library/backgrounds/soft_gradient.jpg`
+로 하나 생성해뒀으니 재사용 가능:
+
+```python
+from lib.video_assembler import make_gradient_bg
+make_gradient_bg(Path("assets_library/backgrounds/soft_gradient.jpg"))  # 필요시 재생성
+```
+
+### ⚠️ 타이틀 카드 프레임레이트 — 반드시 30fps로 (2026-07-31 버그, 수정 완료)
+
+`_make_title_card_png`로 만든 이미지를 영상으로 만들 때 `-r {FPS}`(30)를 명시하지 않으면
+ffmpeg가 기본 25fps를 붙이는데, 뒤에서 본편(30fps)과 `-c copy`로 concat할 때 두 세그먼트의
+프레임레이트가 달라 타임스탬프가 어긋난다(30/25=1.2배로 영상 길이가 실제보다 길게 나옴).
+캐릭터 여러 명이 번갈아 나오는 영상에서는 캐릭터 전환 타이밍이 한 구간씩 밀리는 형태로
+드러났다 — 이미 코드에 `-r 30` 반영해서 고쳐뒀지만, 향후 `-f concat -c copy`로 영상
+세그먼트를 이어붙이는 코드를 새로 추가할 때는 **모든 세그먼트의 프레임레이트가 같은지
+항상 확인**할 것(`ffprobe -select_streams v -show_entries stream=r_frame_rate`).
+
 ## TTS — 보이스 랜덤 선택 (2026-07-31)
 
 `lib/typecast_tts.py`의 `synthesize()`는 `voice_name`을 안 넘기면(기본값 `None`)

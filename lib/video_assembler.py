@@ -177,6 +177,74 @@ def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
     img.save(out_path)
 
 
+def _build_character_segment(motion_path: str, duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
+    """_build_character_loop의 단일 세그먼트 버전 — 캐릭터 여러 명이 구간별로
+    번갈아 나오는 _build_character_schedule에서 재사용한다."""
+    similarity = "0.03" if bg_color.upper() == "0XFFFFFF" else "0.15"
+    despill = ""
+    if bg_color.upper() == "0X00FF00":
+        despill = "despill=type=green:mix=1.0:expand=0,"
+    elif bg_color.upper() == "0X0000FF":
+        despill = "despill=type=blue:mix=1.0:expand=0,"
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        keyed = tmp_path / "keyed.mov"
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", motion_path,
+             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
+                    "lut=a='if(gt(val\\,16)\\,255\\,0)'",
+             "-c:v", "qtrle", str(keyed)],
+            check=True, capture_output=True,
+        )
+        reversed_ = tmp_path / "reversed.mov"
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", str(keyed), "-vf", "reverse", "-c:v", "qtrle", str(reversed_)],
+            check=True, capture_output=True,
+        )
+        pingpong = tmp_path / "pingpong.mov"
+        list_path = tmp_path / "pp_list.txt"
+        list_path.write_text(f"file '{keyed.resolve()}'\nfile '{reversed_.resolve()}'")
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
+             "-c", "copy", str(pingpong)],
+            check=True, capture_output=True,
+        )
+        subprocess.run(
+            ["ffmpeg", "-y", "-stream_loop", "-1", "-i", str(pingpong),
+             "-t", f"{duration}", "-c:v", "qtrle", str(out_path)],
+            check=True, capture_output=True,
+        )
+
+
+def _build_character_schedule(
+    schedule: list[tuple[float, float, str]], total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
+):
+    """캐릭터 여러 명이 구간별로 번갈아 나오는 캐릭터 트랙. WHY(2026-07-31, 수면음식_1
+    — 대추/체리/호두 세 캐릭터가 각자 자기 대사 구간에만 나와야 하는데
+    _build_character_loop은 캐릭터 1개를 전체 길이에 반복하는 구조라 못 씀):
+    schedule의 각 구간마다 _build_character_segment로 개별 캐릭터 트랙을 만들고
+    concat으로 이어붙인다. 각 세그먼트는 독립적으로 ping-pong 처리되므로 세그먼트
+    경계에서도 포즈가 끊기지 않는다."""
+    schedule = sorted(schedule, key=lambda x: x[0])
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        seg_paths = []
+        for i, (start, end, motion_path) in enumerate(schedule):
+            dur = min(end, total_duration) - start
+            if dur <= 0.02:
+                continue
+            seg = tmp_path / f"char_seg_{i:03d}.mov"
+            _build_character_segment(motion_path, dur, seg, bg_color=bg_color)
+            seg_paths.append(seg)
+        list_path = tmp_path / "char_list.txt"
+        list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
+             "-c", "copy", str(out_path)],
+            check=True, capture_output=True,
+        )
+
+
 def _build_character_loop(motion_path: str, total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
     """Kling 모션 클립(단색 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
     알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복.
@@ -254,6 +322,19 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
         )
 
 
+def make_gradient_bg(out_path: Path, top=(253, 249, 245), bottom=(246, 237, 230)):
+    """실사진이 없는 topic용 배경. WHY(2026-07-31, 수면음식_1): 캐릭터 일러스트(크로마키
+    배경 포함)를 실수로 --images 자리에 넣으면 초록 배경이 그대로 노출되는 사고가 났다
+    — 실사진이 없을 땐 카드뉴스와 같은 톤의 단색 그라디언트를 배경으로 쓴다."""
+    img = Image.new("RGB", (W, H), top)
+    draw = ImageDraw.Draw(img)
+    for y in range(H):
+        t = y / H
+        color = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
+        draw.line([(0, y), (W, y)], fill=color)
+    img.save(out_path, quality=95)
+
+
 def _build_background(images: list[str], total_duration: float, out_path: Path, xfade_dur: float = 0.7):
     """실사진 슬라이드쇼 배경. WHY 크로스페이드: 이전엔 concat demuxer로 하드컷만
     이어붙여서 사진이 바뀔 때마다 뚝뚝 끊기는 느낌이었다(2026-07-30 피드백: "좀더
@@ -302,7 +383,7 @@ def _build_background(images: list[str], total_duration: float, out_path: Path, 
 
 def assemble(
     images: list[str],
-    motion_path: str,
+    motion_path: str | None,
     audio_path: str,
     srt_path: str,
     out_path: str,
@@ -315,7 +396,15 @@ def assemble(
     title_card_duration: float = 1.3,
     title_card_text: str | None = None,
     title_card_char_path: str | None = None,
+    # WHY motion_schedule(2026-07-31, 수면음식_1 — 대추/체리/호두 세 캐릭터가 각자
+    # 대사 구간에만 나와야 함): [(start, end, motion_path), ...] 형태로 주면
+    # motion_path 대신 이 스케줄로 캐릭터 트랙을 만든다. 시간은 나레이션(오디오) 기준
+    # 0초부터 — assemble 내부에서 제목 카드만큼 알아서 밀어준다. motion_path와
+    # motion_schedule 둘 다 없으면 에러, 둘 다 있으면 motion_schedule 우선.
+    motion_schedule: list[tuple[float, float, str]] | None = None,
 ):
+    if not motion_path and not motion_schedule:
+        raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
          "-of", "default=noprint_wrappers=1:nokey=1", audio_path],
@@ -327,7 +416,10 @@ def assemble(
         tmp_path = Path(tmp)
 
         char_track = tmp_path / "char.mov"
-        _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
+        if motion_schedule:
+            _build_character_schedule(motion_schedule, total_duration, char_track, bg_color=bg_color)
+        else:
+            _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
         bg = tmp_path / "bg.mp4"
         _build_background(images, total_duration, bg)
@@ -361,11 +453,18 @@ def assemble(
 
         # 0) 맨 앞 제목 카드 — 단색 배경 + 큼직한 글자, 플랫폼이 영상 첫 프레임을
         # 썸네일로 자동 지정하는 경우가 많아서 이 카드 자체가 썸네일 역할도 한다.
+        # WHY -r FPS(2026-07-31 버그 수정): 이 명령에 프레임레이트를 안 주면 ffmpeg가
+        # image2 loop 입력에 기본 25fps를 붙이는데, main_out(bg/char 체인)은 30fps라
+        # 뒤에서 -c copy로 concat할 때 두 세그먼트의 프레임레이트가 달라 타임스탬프가
+        # 어긋난다. 겉보기엔 영상 길이가 실제보다 늘어나 보이고(30/25=1.2배), 캐릭터가
+        # 여러 명 번갈아 나오는 영상에서는 캐릭터 전환 타이밍이 한 구간씩 밀려 보이는
+        # 형태로 드러났다(수면음식_1에서 실제로 발견) — 캐릭터 1명짜리 영상에서도
+        # 전체적인 자막/오디오 싱크가 미세하게 어긋나는 형태로 존재했을 가능성이 있다.
         title_card_png = tmp_path / "title_card.png"
         _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path)
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
-            ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-i", str(title_card_png),
+            ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-r", str(FPS), "-i", str(title_card_png),
              "-c:v", "libx264", "-pix_fmt", "yuv420p", str(title_card_out)],
             check=True, capture_output=True,
         )
@@ -488,7 +587,11 @@ if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser()
     p.add_argument("--images", required=True, help="쉼표로 구분된 배경용 실사진 경로들")
-    p.add_argument("--motion", required=True, help="Kling으로 생성한 캐릭터 모션 루프 클립(흰 배경)")
+    p.add_argument("--motion", default=None, help="Kling으로 생성한 캐릭터 모션 루프 클립(흰 배경) — 캐릭터 1명짜리 topic용")
+    p.add_argument("--motion-schedule", default=None,
+                    help="캐릭터 여러 명이 구간별로 번갈아 나올 때 사용. "
+                         "형식: 'start-end:경로,start-end:경로,...' (초 단위, 나레이션 기준 0초부터). "
+                         "--motion 대신 이걸 쓰면 이 스케줄이 우선한다.")
     p.add_argument("--audio", required=True)
     p.add_argument("--srt", required=True)
     p.add_argument("--out", required=True)
@@ -506,6 +609,14 @@ if __name__ == "__main__":
                     help="제목 카드 배경에 크게 흐리게 깔 캐릭터 이미지 경로(안 주면 단색 배경만)")
     args = p.parse_args()
 
+    motion_schedule = None
+    if args.motion_schedule:
+        motion_schedule = []
+        for chunk in args.motion_schedule.split(","):
+            span, path = chunk.split(":", 1)
+            start_s, end_s = span.split("-")
+            motion_schedule.append((float(start_s), float(end_s), path))
+
     assemble(
         images=args.images.split(","),
         motion_path=args.motion,
@@ -519,4 +630,5 @@ if __name__ == "__main__":
         title_card_duration=args.title_card_duration,
         title_card_text=args.title_card_text,
         title_card_char_path=args.title_card_char,
+        motion_schedule=motion_schedule,
     )
