@@ -729,7 +729,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
-        comment_keyword_js=json.dumps(spec.get("products", [""])[0]),
+        comment_keyword_js=json.dumps((spec.get("products") or [""])[0]),
     )
     Path(out_path).write_text(html)
     _update_topics_index(out_path)

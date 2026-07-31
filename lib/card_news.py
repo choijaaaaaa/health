@@ -5,7 +5,7 @@ import json
 import sys
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 # ttc 내부 인덱스: 0=Regular 2=Medium 4=SemiBold 6=Bold 8=Light
@@ -66,12 +66,30 @@ def _rounded_panel(canvas, box, radius, fill, shadow_offset=14, shadow_blur=28, 
     return canvas
 
 
+def _remove_chroma_bg(img: Image.Image, key=(0, 255, 0), thresh=160) -> Image.Image:
+    """WHY(2026-07-31): Kling 모션용으로 캐릭터를 초록 크로마키 배경으로 생성하기
+    시작하면서, 카드뉴스 원형 배지에 그 초록이 그대로 보이는 문제가 생겼다(원형
+    마스크는 배경색을 안 가리고 그냥 사각형 이미지를 동그랗게 자르기만 하므로) —
+    원형으로 자르기 전에 배경색에 가까운 픽셀을 먼저 투명 처리한다."""
+    img = img.convert("RGBA")
+    kr, kg, kb = key
+    pixels = img.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            r, g, b, a = pixels[x, y]
+            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
+                pixels[x, y] = (r, g, b, 0)
+    return img
+
+
 def _char_medallion(path, size, ring_color=ACCENT_SOFT, ring_w=10):
     raw = Image.open(path).convert("RGB").resize((size, size))
+    raw = _remove_chroma_bg(raw)
     mask = Image.new("L", (size, size), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
+    combined_mask = ImageChops.multiply(raw.split()[3], mask)
     photo = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    photo.paste(raw, (0, 0), mask)
+    photo.paste(raw, (0, 0), combined_mask)
 
     pad = ring_w + 18
     canvas = Image.new("RGBA", (size + pad * 2, size + pad * 2), (0, 0, 0, 0))
