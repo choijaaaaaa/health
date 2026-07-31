@@ -602,6 +602,14 @@ def _update_topics_index(out_path: str):
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
     topic = spec.get("topic", spec["title"])
+
+    # WHY 자동 경고(2026-07-31): 해시태그가 한 플랫폼만 빠진 채로 넘어간 적이 있었다
+    # ("전반적으로 해시태그 있어야하는건 자동으로 넣어줘야하지않을까" 지적) — 매번
+    # 수동으로 체크 스크립트를 돌리는 것보다, 대시보드 생성 시 자동으로 걸러서
+    # 빠뜨렸으면 바로 눈에 띄게 한다.
+    for p in spec.get("platforms", []):
+        if "#" not in p.get("caption", ""):
+            print(f"⚠️  경고: '{p['name']}' 캡션에 해시태그가 없습니다")
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})

@@ -373,7 +373,14 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     char_paths = [str(char_dir / item["char_file"]) for item in spec["items"]]
     eyebrow = spec.get("eyebrow", "HEALTH TIP")
 
-    make_cover(spec["title"], char_paths, out_dir / "00_표지.jpg")
+    # WHY make_cover_titlecard가 기본(2026-07-31): "카드뉴스 첫장도 숏폼 영상
+    # 썸네일이랑 똑같이 그냥 가져가자" 피드백 이후 이 스타일이 표준이 됐다 —
+    # spec["title"]는 마지막 줄이 주제명(예: "돼지감자차 이야기")이고 나머지가
+    # 문제 제기 훅이라는 기존 관례를 그대로 따라 훅만 뽑아 쓴다(주제명은 표지에서
+    # 뺌, 영상 제목 카드와 동일한 처리). CLI로 바로 generate() 호출해도 예전
+    # 그라디언트 표지(make_cover)로 되돌아가지 않도록 여기서 기본값을 바꿔둔다.
+    hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
+    make_cover_titlecard(hook_text, out_dir / "00_표지.jpg", char_path=char_paths[0] if char_paths else None)
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):

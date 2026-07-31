@@ -307,7 +307,9 @@ def assemble(
     srt_path: str,
     out_path: str,
     title: str,
-    intro_duration: float = 5.3,
+    # WHY 기본값 0(2026-07-31): "5초 뒤에 옮기지 말고 처음부터 우하단에" 피드백 이후
+    # 이게 표준이 됐다 — 풀스크린 인트로가 필요한 특수한 경우에만 명시적으로 넘길 것.
+    intro_duration: float = 0,
     ad_tag: bool = False,
     bg_color: str = "0xFFFFFF",
     title_card_duration: float = 1.3,
@@ -491,7 +493,7 @@ if __name__ == "__main__":
     p.add_argument("--srt", required=True)
     p.add_argument("--out", required=True)
     p.add_argument("--title", required=True, help="영상 상단에 계속 표시할 주제 라벨")
-    p.add_argument("--intro-duration", type=float, default=5.3)
+    p.add_argument("--intro-duration", type=float, default=0)
     p.add_argument("--ad-tag", action="store_true", help="실제 제휴 링크를 쓰기로 확정한 경우에만 켠다")
     p.add_argument("--bg-color", default="0xFFFFFF",
                     help="캐릭터 모션 클립의 배경색(colorkey 대상) — 새 캐릭터는 0x00FF00 권장")

@@ -94,6 +94,26 @@
 - Rhubarb(`bin/rhubarb`)는 당장 안 쓰지만 코드는 남겨둠 — 입모양 정밀 동기화가 실제로 필요한
   캐릭터(예: 사람처럼 대사를 정확히 말해야 하는 디자인)가 나오면 대안 경로로 재검토
 
+### 표준 호출 예시 (2026-07-31)
+
+새 topic 영상 조립 시 기본으로 이 형태를 쓸 것 — `intro_duration`/`bg_color` 기본값은
+이미 코드에도 반영돼 있지만(0, 0x00FF00 캐릭터 기준), `--title-card-char`는 선택 파라미터라
+빠뜨리기 쉽다. 빠뜨려도 에러는 안 나고 그냥 단색 배경 제목 카드가 되니(덜 완성도 있는
+정도), 매번 의식적으로 챙길 것:
+
+```
+python3 lib/video_assembler.py \
+  --images "assets_library/real/<사진1>,assets_library/real/<사진2>" \
+  --motion "assets_library/motion/<캐릭터>_motion.mp4" \
+  --audio "output/<topic>/narration.mp3" \
+  --srt "output/<topic>/narration.srt" \
+  --out "output/<topic>/shorts.mp4" \
+  --title "<훅> <주제명>" \
+  --title-card-text "<훅만, 주제명 빼고>" \
+  --title-card-char "assets_library/illust/<캐릭터>_illust.jpg" \
+  --bg-color 0x00FF00
+```
+
 ## TTS — 보이스 랜덤 선택 (2026-07-31)
 
 `lib/typecast_tts.py`의 `synthesize()`는 `voice_name`을 안 넘기면(기본값 `None`)
@@ -107,6 +127,19 @@
 브런치·핀터레스트는 항상 제외(승인장벽/콘텐츠 결/신규계정 노출 구조 문제로 확정) — 상세 이유는
 Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic마다 이 둘 빼고 캡션
 작성 시작.
+
+### 플랫폼별 필수 플래그 (2026-07-31)
+
+`platform_captions.json`의 각 플랫폼 항목에 아래 플래그를 빠짐없이 넣을 것 — 새 topic을
+이전 topic 파일 복사로 시작한다면 자동으로 따라오지만, 처음부터 새로 쓸 때는 까먹기 쉽다:
+
+- `"no_caption_link": true` — 인스타그램(릴스·카드뉴스)·틱톡. 캡션 속 URL이 클릭되지 않는
+  플랫폼이라 원본 링크 대신 마켓 동적 CTA 문장이 들어간다(`lib/dashboard.py` 참조)
+- `"network": "naver"` — 네이버 블로그·네이버 클립처럼 에디터에 실제 "상품" 버튼이 있는
+  곳만. 이 플래그가 있어야 네이버 선택 시 URL 없이 상품명만 넣는 처리가 된다 — 다른
+  플랫폼에 잘못 붙이면 네이버 URL이 안 들어가는 버그가 재발한다(2026-07-31 실제 발생)
+- `"rich_paste": true` — 네이버 블로그·티스토리처럼 클립보드 HTML 붙여넣기로 이미지까지
+  같이 들어가는 리치 에디터만. 쓰레드·페이스북처럼 단순 텍스트 입력창에는 붙이지 말 것
 
 ## GitHub Pages — 정적 전용
 
