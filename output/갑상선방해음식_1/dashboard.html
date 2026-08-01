@@ -101,6 +101,14 @@
     padding: 5px 10px; border-radius: 999px; margin-bottom: 4px;
   }
   .dock-product-market a:hover { background: var(--gold-soft); color: var(--gold); }
+  .copy-market-link {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent-deep); border: none;
+    padding: 5px 10px; border-radius: 999px; margin-bottom: 4px; margin-left: 4px; cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-market-link:hover { background: var(--gold-soft); color: var(--gold); }
+  .copy-market-link.copied { background: var(--gold); color: #fff; }
   .product-link-input {
     display: block; width: 100%; border: 1px solid var(--rule); border-radius: 6px;
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
@@ -219,10 +227,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C%20%EC%8B%9D%ED%92%88&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="저요오드 식품" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C%20%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C%20%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="저요오드 식품" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -230,30 +240,34 @@
 <div class="dock-product-row" id="dock-row-1">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-1" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">찐 케일·브로콜리</span>
+    <span class="dock-product-name">케일·브로콜리</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%B0%90%20%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="찐 케일·브로콜리" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <a href="https://www.coupang.com/np/search?component=&q=%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
+    <input type="text" class="product-link-input" data-market="coupang" data-product="케일·브로콜리" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%B0%90%20%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
-    <input type="text" class="product-link-input" data-market="naver" data-product="찐 케일·브로콜리" placeholder="네이버 링크 붙여넣고 Enter">
+    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BC%80%EC%9D%BC%C2%B7%EB%B8%8C%EB%A1%9C%EC%BD%9C%EB%A6%AC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
+    <input type="text" class="product-link-input" data-market="naver" data-product="케일·브로콜리" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
 
 <div class="dock-product-row" id="dock-row-2">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-2" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">두유 시간차 섭취</span>
+    <span class="dock-product-name">두유</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0%20%EC%8B%9C%EA%B0%84%EC%B0%A8%20%EC%84%AD%EC%B7%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="두유 시간차 섭취" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
+    <input type="text" class="product-link-input" data-market="coupang" data-product="두유" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0%20%EC%8B%9C%EA%B0%84%EC%B0%A8%20%EC%84%AD%EC%B7%A8&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
-    <input type="text" class="product-link-input" data-market="naver" data-product="두유 시간차 섭취" placeholder="네이버 링크 붙여넣고 Enter">
+    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
+    <input type="text" class="product-link-input" data-market="naver" data-product="두유" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
 <p class="dock-hint">쿠팡/네이버 링크를 각각 붙여넣으면, 아래 각 플랫폼 카드에서 고른 쪽(쿠팡/네이버)에 맞춰 고지 문구와 함께 자동 반영돼요.</p></div>
@@ -726,6 +740,20 @@ document.querySelectorAll(".row-toggle").forEach(btn => {
     const row = document.getElementById(btn.dataset.row);
     const open = row.classList.toggle("row-expanded");
     if (open) row.querySelector(".product-link-input").focus();
+  });
+});
+
+// WHY: 파트너스/브랜드커넥트 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은
+// 새 탭으로 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접
+// 복사하지 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
+document.querySelectorAll(".copy-market-link").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    navigator.clipboard.writeText(btn.dataset.url).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+    });
   });
 });
 

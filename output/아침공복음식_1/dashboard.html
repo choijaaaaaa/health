@@ -101,6 +101,14 @@
     padding: 5px 10px; border-radius: 999px; margin-bottom: 4px;
   }
   .dock-product-market a:hover { background: var(--gold-soft); color: var(--gold); }
+  .copy-market-link {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent-deep); border: none;
+    padding: 5px 10px; border-radius: 999px; margin-bottom: 4px; margin-left: 4px; cursor: pointer;
+    font-family: inherit;
+  }
+  .copy-market-link:hover { background: var(--gold-soft); color: var(--gold); }
+  .copy-market-link.copied { background: var(--gold); color: #fff; }
   .product-link-input {
     display: block; width: 100%; border: 1px solid var(--rule); border-radius: 6px;
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
@@ -192,7 +200,7 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <a href="shorts.mp4" download="아침공복음식_1_shorts.mp4">🎬 영상 다운로드</a>
+      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>
       <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
     </div>
   </div>
@@ -219,10 +227,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%B2%84%EC%A7%84%20%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%B2%84%EC%A7%84%20%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="엑스트라버진 올리브오일" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%B2%84%EC%A7%84%20%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%B2%84%EC%A7%84%20%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="엑스트라버진 올리브오일" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -234,10 +244,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EC%83%9D%EA%B0%95%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%83%9D%EA%B0%95%EC%B0%A8&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="생강차" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%83%9D%EA%B0%95%EC%B0%A8&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%83%9D%EA%B0%95%EC%B0%A8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="생강차" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -249,10 +261,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EA%B0%80%EB%8B%B9%20%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EA%B0%80%EB%8B%B9%20%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="무가당 그릭요거트" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EA%B0%80%EB%8B%B9%20%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EA%B0%80%EB%8B%B9%20%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="무가당 그릭요거트" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -264,10 +278,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EB%A0%88%EB%AA%AC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%A0%88%EB%AA%AC&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="레몬" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A0%88%EB%AA%AC&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A0%88%EB%AA%AC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="레몬" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -279,10 +295,12 @@
   </div>
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EB%B3%91%EC%95%84%EB%A6%AC%EC%BD%A9&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%B3%91%EC%95%84%EB%A6%AC%EC%BD%A9&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="병아리콩" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
   <div class="dock-product-market">
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B3%91%EC%95%84%EB%A6%AC%EC%BD%A9&tab=product" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
+    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B3%91%EC%95%84%EB%A6%AC%EC%BD%A9&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="naver" data-product="병아리콩" placeholder="네이버 링크 붙여넣고 Enter">
   </div>
 </div>
@@ -293,7 +311,7 @@
   <h2>미리보기</h2>
   <div class="preview-row">
     <div class="video-panel">
-      <video src="shorts.mp4" controls playsinline></video><a class="dl" href="shorts.mp4" download="아침공복음식_1_shorts.mp4">영상 다운로드 ↓</a>
+      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>
     </div>
     <div class="card-gallery" id="card-gallery">
       <div class="card-scroll"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_00_%ED%91%9C%EC%A7%80.jpg" alt="아침공복음식_1_00_표지"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_01_%EC%99%9C%20%EC%B2%B4%EC%A7%80%EB%B0%A9%EC%9D%B4%20%EC%95%88%20%EB%B9%A0%EC%A7%88%EA%B9%8C%EC%9A%94.jpg" alt="아침공복음식_1_01_왜 체지방이 안 빠질까요"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_02_%EC%97%91%EC%8A%A4%ED%8A%B8%EB%9D%BC%EB%B2%84%EC%A7%84%20%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC.jpg" alt="아침공복음식_1_02_엑스트라버진 올리브오일"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_03_%EB%94%B0%EB%9C%BB%ED%95%9C%20%EC%83%9D%EA%B0%95%EC%B0%A8.jpg" alt="아침공복음식_1_03_따뜻한 생강차"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_04_%EB%AC%B4%EA%B0%80%EB%8B%B9%20%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8%2B%EC%8B%9C%EB%82%98%EB%AA%AC.jpg" alt="아침공복음식_1_04_무가당 그릭요거트+시나몬"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_05_%EB%A0%88%EB%AA%AC%EC%9D%84%20%EB%84%A3%EC%9D%80%20%EB%AC%BC.jpg" alt="아침공복음식_1_05_레몬을 넣은 물"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_06_%EB%B3%91%EC%95%84%EB%A6%AC%EC%BD%A9%20%EC%83%90%EB%9F%AC%EB%93%9C.jpg" alt="아침공복음식_1_06_병아리콩 샐러드"><img src="card_news/%EC%95%84%EC%B9%A8%EA%B3%B5%EB%B3%B5%EC%9D%8C%EC%8B%9D_1_07_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg" alt="아침공복음식_1_07_마무리"></div>
@@ -327,7 +345,7 @@
 </div>
 
   <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="shorts.mp4" download="아침공복음식_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
   <textarea class="caption-box" id="cap-0" spellcheck="false">다이어트해도 체지방이 안 빠지는 분들 주목! 🥑
 
 아침을 거르거나 정제 탄수화물 위주로 먹으면 혈당이 급하게 튀어 오르고, 인슐린이 지방을 저장하는 쪽으로 반응해서 체지방이 잘 안 빠질 수 있어요.
@@ -366,7 +384,7 @@
 </div>
 
   <div class="action-line">영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기</div>
-  <a class="asset-link" href="shorts.mp4" download="아침공복음식_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
   <textarea class="caption-box" id="cap-1" spellcheck="false">제목: 다이어트해도 체지방이 안 빠지는 분들 주목! 아침 공복에 먹으면 좋은 음식 5가지
 
 설명란:
@@ -403,7 +421,7 @@
 </div>
 
   <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기 (설명 300자 제한 기준으로 작성함)</div>
-  <a class="asset-link" href="shorts.mp4" download="아침공복음식_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
   <textarea class="caption-box" id="cap-2" spellcheck="false">다이어트해도 체지방이 안 빠지는 분들 주목!
 
 혈당이 급하게 튀면 지방이 잘 안 빠질 수 있어요. 올리브오일·생강차·그릭요거트+시나몬·레몬물·병아리콩 샐러드, 아침 공복에 하나씩 챙겨보세요!
@@ -437,7 +455,7 @@
 </div>
 
   <div class="action-line">영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="shorts.mp4" download="아침공복음식_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
   <textarea class="caption-box" id="cap-3" spellcheck="false">다이어트해도 체지방이 안 빠지는 분들 주목! 🥑
 
 혈당이 급하게 튀면 인슐린이 지방을 저장하는 쪽으로 반응할 수 있어요. 아침 공복에 올리브오일·생강차·그릭요거트+시나몬·레몬물·병아리콩 샐러드 중 하나만 챙겨도 도움이 돼요!
@@ -736,6 +754,20 @@ document.querySelectorAll(".row-toggle").forEach(btn => {
     const row = document.getElementById(btn.dataset.row);
     const open = row.classList.toggle("row-expanded");
     if (open) row.querySelector(".product-link-input").focus();
+  });
+});
+
+// WHY: 파트너스/브랜드커넥트 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은
+// 새 탭으로 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접
+// 복사하지 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
+document.querySelectorAll(".copy-market-link").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    navigator.clipboard.writeText(btn.dataset.url).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+    });
   });
 });
 
