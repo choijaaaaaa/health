@@ -151,7 +151,8 @@ def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
         _make_cover_flat(title_lines, char_paths, out_path)
 
 
-def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_path: str | None = None):
+def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_path: str | None = None,
+                          scrim_color: tuple[int, int, int] = ACCENT):
     """WHY 숏폼 영상 제목 카드와 완전히 동일한 스타일(2026-07-31, "카드뉴스 첫장도
     숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터 배지·주제 태그 다 빼고,
     단색 배경 + 문제 제기 훅 한 줄/두 줄만 크게 — 영상 쪽 `_make_title_card_png`와
@@ -160,15 +161,21 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
 
     WHY char_path(2026-07-31, "캐릭터를 큼직하고 흐리게 글자의 배경으로"): 캐릭터
     이미지를 캔버스보다 크게 확대·크롭해서 흐리게 깐 뒤 ACCENT 스크림을 얹는다 —
-    영상 제목 카드와 동일한 처리."""
-    img = Image.new("RGB", (W, H), ACCENT)
+    영상 제목 카드와 동일한 처리.
+
+    WHY scrim_color 오버라이드(2026-08-01, "그렇게 하더라도 언젠가 겹치게 될 확률이
+    높은데 그 때는 배경 색상 변경도 고려해줘"): cover_char_file로도 캐릭터 중복을
+    못 피하는 경우(그 topic이 쓸 수 있는 다른 아이템도 이미 다 다른 곳에 쓰이고
+    있을 때)의 2차 대안 — 같은 캐릭터라도 스크림 색을 바꾸면 표지 톤 자체가
+    달라진다. 기본값은 브랜드 ACCENT(로즈핑크) 그대로 유지, 필요할 때만 넘긴다."""
+    img = Image.new("RGB", (W, H), scrim_color)
     if char_path:
         target = int(H * 1.15)
         char = Image.open(char_path).convert("RGB").resize((target, target))
         char = char.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
         char = char.crop((left, top, left + W, top + H))
-        scrim = Image.new("RGBA", (W, H), (*ACCENT, 150))
+        scrim = Image.new("RGBA", (W, H), (*scrim_color, 150))
         img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
     font = _font(font_size, "bold")
     draw = ImageDraw.Draw(img)
@@ -435,8 +442,17 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     cover_char_file = spec.get("cover_char_file")
     cover_char_path = str(char_dir / cover_char_file) if cover_char_file else (char_paths[0] if char_paths else None)
 
+    # WHY cover_scrim_color(2026-08-01, "cover_char_file로도 못 피하면 배경 색상
+    # 변경도 고려해줘"): 그 topic이 쓸 수 있는 캐릭터가 이미 다 다른 topic에 쓰이고
+    # 있어서 cover_char_file만으로 중복을 못 피할 때의 2차 대안 — spec에
+    # "cover_scrim_color": "#RRGGBB"를 넣으면 같은 캐릭터라도 스크림 톤이 달라진다.
+    # 없으면 기존처럼 브랜드 ACCENT(로즈핑크) 그대로.
+    cover_scrim_hex = spec.get("cover_scrim_color")
+    cover_scrim_color = tuple(int(cover_scrim_hex[i:i + 2], 16) for i in (1, 3, 5)) if cover_scrim_hex else ACCENT
+
     hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
-    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path)
+    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path,
+                          scrim_color=cover_scrim_color)
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
