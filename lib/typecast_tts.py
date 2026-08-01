@@ -133,12 +133,8 @@ def _insert_sentence_pauses(audio_bytes: bytes, audio_format: str, words: list[d
         return out_path.read_bytes(), new_words
 
 
-def synthesize(topic: str, text: str, voice_name: str | None = None, audio_format: str = "mp3") -> dict:
+def _call_tts(text: str, voice_name: str, audio_format: str) -> tuple[bytes, list[dict], str]:
     api_key = os.environ["TYPECAST_API_KEY"]
-    if voice_name is None:
-        voice_name = _random_voice_name()
-        print(f"[typecast] 보이스 랜덤 선택: {voice_name}")
-
     body = {
         "voice_id": _voice_id(voice_name),
         "text": text,
@@ -155,11 +151,18 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
     )
     resp.raise_for_status()
     data = resp.json()
-
     ext = data.get("audio_format", audio_format)
     audio_bytes = base64.b64decode(data["audio"])
     words = data.get("words") or []
+    return audio_bytes, words, ext
 
+
+def synthesize(topic: str, text: str, voice_name: str | None = None, audio_format: str = "mp3") -> dict:
+    if voice_name is None:
+        voice_name = _random_voice_name()
+        print(f"[typecast] 보이스 랜덤 선택: {voice_name}")
+
+    audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
     audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
 
     out_dir = ROOT / "output" / topic
@@ -173,15 +176,117 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
     return {
         "audio_path": str(audio_path),
         "srt_path": str(srt_path),
-        "duration": words[-1]["end"] if words else data.get("audio_duration"),
+        "duration": words[-1]["end"] if words else None,
         "word_count": len(words),
         "words": words,
     }
 
 
+# WHY 세그먼트별 다른 보이스(2026-08-01): 캐릭터 여러 명이 번갈아 나오는 topic(예:
+# 60대주의음식_1의 사골국/믹스커피/과일즙)이 지금까지는 나레이션 목소리가 하나로 고정돼서
+# "캐릭터는 바뀌는데 말하는 사람은 안 바뀌는" 어색함이 있었다 — 캐릭터 화면 전환에 맞춰
+# 문단(=narration.txt의 빈 줄 구분 단락, card_news_spec.json items 순서와 1:1 대응하는
+# 기존 관례)마다 다른 보이스로 TTS를 따로 호출하고 이어붙인다.
+SEGMENT_GAP_MS = 400  # 문장 사이 간격(SENTENCE_GAP_MS)보다 살짝 길게 — 화자 전환 체감용
+
+
+def _pick_segment_voices(n: int) -> list[str]:
+    """n개 세그먼트에 서로 겹치지 않는 보이스를 배정(보이스 개수보다 세그먼트가 많으면
+    그 다음부터는 랜덤 재사용하되 바로 직전과는 겹치지 않게 한다)."""
+    names = [v["name"] for v in json.loads((ROOT / "data" / "typecast_voices.json").read_text())]
+    if n <= len(names):
+        return random.sample(names, n)
+    picked = random.sample(names, len(names))
+    while len(picked) < n:
+        choices = [v for v in names if v != picked[-1]]
+        picked.append(random.choice(choices))
+    return picked
+
+
+def synthesize_segments(
+    topic: str, segments: list[str], voice_names: list[str] | None = None, audio_format: str = "mp3"
+) -> dict:
+    """narration.txt를 문단(항목)별로 나눠 각각 다른 보이스로 TTS를 생성한 뒤 이어붙인다.
+    voice_names를 안 주면 문단 개수만큼 서로 겹치지 않는 보이스를 랜덤 배정한다.
+    출력 경로는 synthesize()와 동일(output/<topic>/narration.mp3, narration.srt)이라
+    video_assembler.py 등 이후 단계는 단일/멀티 보이스 여부와 무관하게 그대로 쓰면 된다."""
+    if voice_names is None:
+        voice_names = _pick_segment_voices(len(segments))
+    elif len(voice_names) != len(segments):
+        raise ValueError("voice_names 개수가 segments 개수와 다름")
+
+    ext = audio_format
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        concat_list = tmp_path / "concat.txt"
+        lines: list[str] = []
+        merged_words: list[dict] = []
+        cursor = 0.0
+
+        for i, (text, voice_name) in enumerate(zip(segments, voice_names)):
+            print(f"[typecast] 세그먼트 {i + 1}/{len(segments)} 보이스: {voice_name}")
+            audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
+            audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
+
+            seg_path = tmp_path / f"seg_{i:03d}.{ext}"
+            seg_path.write_bytes(audio_bytes)
+            lines.append(f"file '{seg_path}'")
+
+            for w in words:
+                merged_words.append({"text": w["text"], "start": cursor + w["start"], "end": cursor + w["end"]})
+            seg_duration = words[-1]["end"] if words else 0.0
+            cursor += seg_duration
+
+            if i < len(segments) - 1:
+                silence = tmp_path / f"gap_{i:03d}.wav"
+                probe = subprocess.run(
+                    ["ffprobe", "-v", "error", "-select_streams", "a:0",
+                     "-show_entries", "stream=sample_rate,channels", "-of", "csv=p=0", str(seg_path)],
+                    capture_output=True, text=True, check=True,
+                )
+                sample_rate, channels = probe.stdout.strip().split(",")
+                subprocess.run(
+                    ["ffmpeg", "-y", "-f", "lavfi",
+                     "-i", f"anullsrc=r={sample_rate}:cl={'mono' if channels == '1' else 'stereo'}",
+                     "-t", str(SEGMENT_GAP_MS / 1000), str(silence)],
+                    check=True, capture_output=True,
+                )
+                lines.append(f"file '{silence}'")
+                cursor += SEGMENT_GAP_MS / 1000
+
+        concat_list.write_text("\n".join(lines))
+        out_dir = ROOT / "output" / topic
+        out_dir.mkdir(parents=True, exist_ok=True)
+        audio_path = out_dir / f"narration.{ext}"
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list), str(audio_path)],
+            check=True, capture_output=True,
+        )
+
+    srt_path = out_dir / "narration.srt"
+    srt_path.write_text(_build_srt(merged_words))
+
+    return {
+        "audio_path": str(audio_path),
+        "srt_path": str(srt_path),
+        "duration": merged_words[-1]["end"] if merged_words else None,
+        "word_count": len(merged_words),
+        "voice_names": voice_names,
+        "words": merged_words,
+    }
+
+
 if __name__ == "__main__":
-    topic = sys.argv[1]
-    text = sys.argv[2]
-    voice_name = sys.argv[3] if len(sys.argv) > 3 else None
-    result = synthesize(topic, text, voice_name)
-    print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
+    if "--multi-voice" in sys.argv:
+        # 사용법: python3 lib/typecast_tts.py <topic> --multi-voice <narration.txt 경로>
+        topic = sys.argv[1]
+        narration_path = sys.argv[sys.argv.index("--multi-voice") + 1]
+        segments = [p.strip() for p in Path(narration_path).read_text().split("\n\n") if p.strip()]
+        result = synthesize_segments(topic, segments)
+        print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
+    else:
+        topic = sys.argv[1]
+        text = sys.argv[2]
+        voice_name = sys.argv[3] if len(sys.argv) > 3 else None
+        result = synthesize(topic, text, voice_name)
+        print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
