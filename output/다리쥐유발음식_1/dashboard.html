@@ -822,7 +822,10 @@ function _buildCtaBlock(hasCommentDm) {
   if (!hasCommentDm) {
     return "\n\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\n\n" + COUPANG_DISCLOSURE;
   }
-  const cta = `💬 댓글에 "${COMMENT_KEYWORD}"라고 치시면 제품 목록으로 이동할 수 있는 링크 바로 전송해드릴게요!`;
+  // WHY "이라고"(받침 있는 조사) 고정(2026-08-01 오타 수정): COMMENT_KEYWORD가
+  // 항상 "쿠팡"(받침 ㅇ으로 끝남)으로 고정된 이후로 "라고"를 쓰면 "쿠팡라고"처럼
+  // 문법이 틀린다 — 키워드가 이 정책 밖에서 바뀔 일이 없으므로 조사를 하드코딩한다.
+  const cta = `💬 댓글에 "${COMMENT_KEYWORD}"이라고 치시면 제품 목록으로 이동할 수 있는 링크 바로 전송해드릴게요!`;
   return "\n\n" + AUTO_LINKS_MARKER + cta + "\n\n" + COUPANG_DISCLOSURE;
 }
 
