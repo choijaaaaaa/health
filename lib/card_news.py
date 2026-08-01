@@ -50,6 +50,22 @@ def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
     return y
 
 
+def _fit_single_line_size(draw, text, max_width, size, weight, min_size=52, step=4):
+    """WHY(2026-08-01): 카드 title(item['name'])은 title/closing headline과 달리
+    작성자가 미리 줄바꿈해서 넘기는 게 아니라 한 줄 문자열 그대로 렌더링된다 —
+    "왜 이런 문제가 생길까요"류 짧은 문구 기준으로 92px 고정값을 썼는데, 그보다
+    긴 문장(예: "왜 가슴이 쓰리고 신물이 올라올까요")이 들어오면 패널 밖으로
+    잘려나갔다(가슴쓰림유발음식_1 실제 발생). 기준 크기부터 시작해 폭이 맞을
+    때까지만 줄이므로 기존 카드들(전부 기준 크기 안에 들어감)은 그대로 92px 유지된다."""
+    f = _font(size, weight)
+    bbox = draw.textbbox((0, 0), text, font=f)
+    while bbox[2] - bbox[0] > max_width and size > min_size:
+        size -= step
+        f = _font(size, weight)
+        bbox = draw.textbbox((0, 0), text, font=f)
+    return size
+
+
 def _rounded_panel(canvas, box, radius, fill, shadow_offset=14, shadow_blur=28, shadow_opacity=55):
     x0, y0, x1, y1 = box
     # 그림자 레이어
@@ -334,7 +350,9 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     # 우측 상단과 살짝 겹치던 문제 — 여유를 더 준다.
     draw = ImageDraw.Draw(img)
     y = panel_box[1] + m.height + 80
-    y = _draw_centered(draw, [name], y, 0, 92, INK, "bold")
+    title_max_width = (panel_box[2] - panel_box[0]) - 80
+    title_size = _fit_single_line_size(draw, name, title_max_width, 92, "bold")
+    y = _draw_centered(draw, [name], y, 0, title_size, INK, "bold")
     _diamond_divider(draw, y + 132)
     _draw_centered(draw, body_lines, y + 182, 86, 58, INK, "medium")
 
