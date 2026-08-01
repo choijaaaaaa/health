@@ -109,11 +109,19 @@
   }
   .copy-market-link:hover { background: var(--gold-soft); color: var(--gold); }
   .copy-market-link.copied { background: var(--gold); color: #fff; }
+  .product-link-row { display: flex; gap: 6px; align-items: center; }
   .product-link-input {
-    display: block; width: 100%; border: 1px solid var(--rule); border-radius: 6px;
+    display: block; flex: 1; min-width: 0; border: 1px solid var(--rule); border-radius: 6px;
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .copy-product-link {
+    flex: 0 0 auto; font-size: 11px; font-weight: 700;
+    background: var(--accent-soft); color: var(--accent-deep); border: none;
+    padding: 7px 10px; border-radius: 999px; cursor: pointer; font-family: inherit;
+  }
+  .copy-product-link:hover { background: var(--gold-soft); color: var(--gold); }
+  .copy-product-link.copied { background: var(--gold); color: #fff; }
   @media (max-width: 860px) {
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
@@ -221,7 +229,10 @@
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EC%A0%9C%EB%A1%9C%EC%8A%88%EA%B1%B0%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
     <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%A0%9C%EB%A1%9C%EC%8A%88%EA%B1%B0%20%EC%8B%9D%ED%92%88&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="제로슈거 식품" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <div class="product-link-row">
+      <input type="text" class="product-link-input" data-market="coupang" data-product="제로슈거 식품" placeholder="쿠팡 링크 붙여넣고 Enter">
+      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">🔗 복사</button>
+    </div>
   </div>
 </div>
 
@@ -233,7 +244,10 @@
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%ED%86%B5%EA%B3%A1%EB%AC%BC%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
     <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%ED%86%B5%EA%B3%A1%EB%AC%BC%20%EC%8B%9D%ED%92%88&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="통곡물 식품" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <div class="product-link-row">
+      <input type="text" class="product-link-input" data-market="coupang" data-product="통곡물 식품" placeholder="쿠팡 링크 붙여넣고 Enter">
+      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">🔗 복사</button>
+    </div>
   </div>
 </div>
 
@@ -245,7 +259,10 @@
   <div class="dock-product-market">
     <a href="https://www.coupang.com/np/search?component=&q=%EC%86%8C%EB%B6%84%20%EB%B0%80%ED%8F%90%EC%9A%A9%EA%B8%B0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
     <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%86%8C%EB%B6%84%20%EB%B0%80%ED%8F%90%EC%9A%A9%EA%B8%B0&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
-    <input type="text" class="product-link-input" data-market="coupang" data-product="소분 밀폐용기" placeholder="쿠팡 링크 붙여넣고 Enter">
+    <div class="product-link-row">
+      <input type="text" class="product-link-input" data-market="coupang" data-product="소분 밀폐용기" placeholder="쿠팡 링크 붙여넣고 Enter">
+      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">🔗 복사</button>
+    </div>
   </div>
 </div>
 <p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
@@ -683,6 +700,21 @@ document.querySelectorAll(".copy-market-link").forEach(btn => {
   const originalLabel = btn.textContent;
   btn.addEventListener("click", () => {
     navigator.clipboard.writeText(btn.dataset.url).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+    });
+  });
+});
+
+// WHY: 파트너스에서 발급받은 실제 링크를 이 칸에 붙여넣어두는 건 캡션 자동
+// 반영용인데, 그 링크를 다른 곳(예: 다른 플랫폼 캡션에 수동으로)에도 써야 할 때
+// 입력창에서 직접 드래그 선택해 복사하지 않아도 되게 옆에 복사 버튼을 둔다.
+document.querySelectorAll(".copy-product-link").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    const input = btn.previousElementSibling;
+    navigator.clipboard.writeText(input.value.trim()).then(() => {
       btn.textContent = "복사됨 ✓";
       btn.classList.add("copied");
       setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);

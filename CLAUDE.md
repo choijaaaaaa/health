@@ -154,6 +154,23 @@ Pexels·Unsplash를 같이 검색해 후보를 `assets_library/real/_candidates/
 "완전히 똑같진 않아도 톤이 맞는" 사진을 쓰기로 스스로 판단하고 진행한다 — 이 판단 기준을 코드에
 고정하지 않고 매번 상황 보고 유연하게 정할 것.
 
+#### ⚠️ 영상 배경 사진 — 최소 4장, 최대 10장 (2026-08-01)
+
+품목당 `_real_01.jpg` 딱 1장만 소싱하고 그 1~2장만 `--images`에 넣는 관행이 굳어져서,
+20~30초 영상에 배경 사진이 2장뿐이면 한 장이 10초 넘게 떠 있어 밋밋하다는 지적이 나왔다
+("생성하는 영상들에 이미지가 좀 적은것 같은 느낌... 두개정도밖에없구나"). 아래 아래
+"표준 호출 예시"의 `--images "assets_library/real/<사진1>,assets_library/real/<사진2>"`는
+어디까지나 자리표시자 2개였을 뿐인데, 세션들이 그대로 따라 하면서 실제 소싱량까지 2장으로
+굳어진 게 원인으로 보인다.
+
+- **`--images`에 넣는 사진 수는 최소 4장, 최대 10장**으로 잡는다(항목 수가 그 사이면 항목
+  수만큼, 항목이 10개를 넘어도 10장까지만, 항목이 4개 미만이면 겹치는 톤의 사진을 더
+  소싱해서 4장을 채운다)
+- 품목 하나에 여러 장(`_real_02.jpg` 등)을 소싱해서 채워도 되고, 여러 품목에서 한 장씩
+  가져와도 된다 — 반드시 "품목 1개당 1장"일 필요는 없음
+- 위 상하한선은 고정 상수이니 나중에 다시 지적받지 않도록 새 topic 작업 시작할 때부터
+  적용할 것
+
 ### ⚠️ 새 캐릭터 만들기 전 필수 확인 — "품목명이 다르다"≠"새로 만들어야 한다" (2026-08-01)
 
 `설렁탕곰탕_illust.jpg`와 `하얀국_illust.jpg`가 실제로 발견된 사고 사례다 — 일러스트는
@@ -240,11 +257,12 @@ Pexels·Unsplash를 같이 검색해 후보를 `assets_library/real/_candidates/
 새 topic 영상 조립 시 기본으로 이 형태를 쓸 것 — `intro_duration`/`bg_color` 기본값은
 이미 코드에도 반영돼 있지만(0, 0x00FF00 캐릭터 기준), `--title-card-char`는 선택 파라미터라
 빠뜨리기 쉽다. 빠뜨려도 에러는 안 나고 그냥 단색 배경 제목 카드가 되니(덜 완성도 있는
-정도), 매번 의식적으로 챙길 것:
+정도), 매번 의식적으로 챙길 것. **`--images` 장수는 위 "영상 배경 사진 — 최소 4장, 최대
+10장" 절 참고 — 아래 예시의 4장은 최소치일 뿐 그대로 4장만 쓰라는 뜻이 아님**:
 
 ```
 python3 lib/video_assembler.py \
-  --images "assets_library/real/<사진1>,assets_library/real/<사진2>" \
+  --images "assets_library/real/<사진1>,assets_library/real/<사진2>,assets_library/real/<사진3>,assets_library/real/<사진4>" \
   --motion "assets_library/motion/<캐릭터>_motion.mp4" \
   --audio "output/<topic>/<topic>_narration.mp3" \
   --srt "output/<topic>/<topic>_narration.srt" \
