@@ -11,6 +11,7 @@ from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
+from PIL import Image
 
 load_dotenv()
 
@@ -75,6 +76,30 @@ def pick_bg_color(avoid: list[str] | None = None) -> tuple[str, str]:
     if not candidates:
         raise ValueError(f"모든 기본 배경색 후보가 avoid에 걸림: {avoid} — 직접 색을 정해서 호출할 것")
     return random.choice(candidates)
+
+
+def recolor_background(image_path, avoid: list[str] | None = None, out_path=None) -> tuple[str, str]:
+    """이미 생성된 캐릭터 일러스트의 배경색만 다른 색으로 바꾼다 — 캐릭터 자체
+    (Gemini로 그린 픽셀)는 건드리지 않으니 재생성 비용이 안 든다.
+    WHY(2026-08-01, "만들어진 아이템 기준으로 배경 색상 씌우는거면 지금 만들어진
+    것들도 수정 가능한거 아닌가" 요청): 배경은 크로마키용 단색 한 장이라, 영상
+    합성 때 colorkey로 제거되는 것과 동일한 방식으로 배경만 골라내서 다른 단색
+    으로 다시 칠하면 된다. 배경 판정은 `card_news.py`의 `_remove_chroma_bg`
+    자동감지와 같은 방식(좌상단 모서리 픽셀을 키 색으로 채택 + 거리 임계값)."""
+    img = Image.open(image_path).convert("RGB")
+    px = img.load()
+    w, h = img.size
+    bg_key = px[2, 2]
+    name, hex_ = pick_bg_color(avoid)
+    new_rgb = tuple(int(hex_[i:i + 2], 16) for i in (1, 3, 5))
+    thresh = 160
+    for y in range(h):
+        for x in range(w):
+            r, g, b = px[x, y]
+            if abs(r - bg_key[0]) + abs(g - bg_key[1]) + abs(b - bg_key[2]) < thresh:
+                px[x, y] = new_rgb
+    img.save(out_path or image_path, quality=95)
+    return name, hex_
 
 
 def _headers():
