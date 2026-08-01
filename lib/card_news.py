@@ -425,8 +425,18 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     # 문제 제기 훅이라는 기존 관례를 그대로 따라 훅만 뽑아 쓴다(주제명은 표지에서
     # 뺌, 영상 제목 카드와 동일한 처리). CLI로 바로 generate() 호출해도 예전
     # 그라디언트 표지(make_cover)로 되돌아가지 않도록 여기서 기본값을 바꿔둔다.
+    # WHY cover_char_file 옵션(2026-08-01, "썸네일 자체가 아예 똑같은 애들도 좀
+    # 있잖아" 지적): 표지는 캐릭터 원본을 흐리게 깐 배경이라, item[0] 캐릭터가
+    # 같은 topic끼리(예: 카페인 관련 topic 여러 개가 전부 "커피"로 시작) 표지
+    # 이미지가 통째로 동일해 보이는 문제가 있었다 — items 중 어느 캐릭터를 표지에
+    # 쓸지 spec에서 "cover_char_file"로 명시할 수 있게 하고, 없으면 기존처럼
+    # items[0]으로 폴백(하위호환). 여러 topic에 걸쳐 캐릭터가 안 겹치게 고르는
+    # 판단은 세션이 topic들을 비교해서 직접 정하고 이 필드에 적어둘 것.
+    cover_char_file = spec.get("cover_char_file")
+    cover_char_path = str(char_dir / cover_char_file) if cover_char_file else (char_paths[0] if char_paths else None)
+
     hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
-    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=char_paths[0] if char_paths else None)
+    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path)
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
