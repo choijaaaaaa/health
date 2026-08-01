@@ -312,7 +312,11 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
 
     # 상단 라벨 — 페이지 번호는 큼직한 숫자 대신 하단 바에서 "N / total"로
     # 작게만 보여준다(2026-07-30, 큰 숫자가 정보량 대비 공간을 너무 차지한다는 피드백)
-    label_f = _font(32, "semibold")
+    # WHY 자동 축소(2026-08-01): eyebrow도 item name과 같은 "작성자가 매 topic마다
+    # 새로 쓰는 단일 문자열, 줄바꿈 없음" 유형이라 같은 클래스의 잘림 위험이 있다.
+    eyebrow_max_width = (panel_box[2] - panel_box[0]) - 80
+    eyebrow_size = _fit_single_line_size(draw, eyebrow, eyebrow_max_width, 32, "semibold", min_size=20)
+    label_f = _font(eyebrow_size, "semibold")
     draw.text((MARGIN, 56), eyebrow, font=label_f, fill=GOLD)
 
     # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
@@ -395,7 +399,8 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
     _draw_centered(draw, tip_lines, y + 58, 64, 42, INK_SOFT, "regular")
 
     draw.rectangle([0, H - 96, W, H], fill=ACCENT)
-    _draw_centered(draw, [cta_text], H - 68, 0, 34, (255, 255, 255), "semibold")
+    cta_size = _fit_single_line_size(draw, cta_text, W - 160, 34, "semibold", min_size=22)
+    _draw_centered(draw, [cta_text], H - 68, 0, cta_size, (255, 255, 255), "semibold")
     img.save(out_path, quality=95)
 
 
