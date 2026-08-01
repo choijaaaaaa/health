@@ -38,10 +38,10 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
   </div>
   <div class="dock-product-market">
     <a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="{coupang_url}" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
+    <button type="button" class="copy-market-link" data-url="{coupang_url}" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
     <div class="product-link-row">
       <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">🔗 복사</button>
+      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
   </div>
 </div>
@@ -191,7 +191,7 @@ PAGE_TEMPLATE = """<!doctype html>
   .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
   .copy-product-link {{
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
-    background: var(--accent-soft); color: var(--accent-deep); border: none;
+    background: var(--cards-soft); color: var(--cards); border: none;
     padding: 7px 10px; border-radius: 999px; cursor: pointer; font-family: inherit;
   }}
   .copy-product-link:hover {{ background: var(--gold-soft); color: var(--gold); }}
