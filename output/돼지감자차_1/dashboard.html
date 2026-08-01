@@ -271,7 +271,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -307,7 +307,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EC%9C%A0%ED%8A%9C%EB%B8%8C%20%EC%87%BC%EC%B8%A0">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.youtube.com/@worthitshopping" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.youtube.com/@worthitshopping" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -344,7 +344,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://creator-studio.naver.com/" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://creator-studio.naver.com/" target="_blank" rel="noopener" data-copy-target="cap-2">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -378,7 +378,7 @@
         <input type="checkbox" class="done-toggle" data-key="%ED%8B%B1%ED%86%A1">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.tiktok.com/@worthitshopping2" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.tiktok.com/@worthitshopping2" target="_blank" rel="noopener" data-copy-target="cap-3">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -417,7 +417,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EC%B9%B4%EB%93%9C%EB%89%B4%EC%8A%A4">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -464,7 +464,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-5">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -526,7 +526,7 @@
         <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-6">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -588,7 +588,7 @@
         <input type="checkbox" class="done-toggle" data-key="%EC%93%B0%EB%A0%88%EB%93%9C">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.threads.com/@worthitshopping" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.threads.com/@worthitshopping" target="_blank" rel="noopener" data-copy-target="cap-7">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -622,7 +622,7 @@
         <input type="checkbox" class="done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="cap-8">열기(캡션 자동복사) →</a>
     </div>
   </div>
   
@@ -720,6 +720,24 @@ document.querySelectorAll(".btn-copy").forEach(btn => {
     } else {
       navigator.clipboard.writeText(text).then(onCopied);
     }
+  });
+});
+// WHY 열기 버튼도 자동 복사(2026-08-01, "버튼 누르면 그 플랫폼으로 넘어가서 글까지
+// 전부 들어가있는 상태로" 요청): 대부분 플랫폼은 URL 쿼리로 캡션을 미리 채우는 게
+// 막혀 있어서(스팸 방지 목적, 페이스북도 예전엔 됐지만 지금은 링크 공유만 가능) 직접
+// prefill은 불가능 — 대신 "열기" 클릭 시점에 캡션을 클립보드에 같이 복사해서, 플랫폼
+// 페이지로 넘어간 뒤 붙여넣기 한 번만 하면 되게 한다. target="_blank"라 새 탭에서
+// 열리므로 현재 페이지는 그대로 남아 있어 클립보드 복사 후 라벨 피드백도 보여줄 수 있다.
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    const target = document.getElementById(btn.dataset.copyTarget);
+    if (!target) return;
+    const text = target.value.split(AUTO_LINKS_MARKER).join("");
+    navigator.clipboard.writeText(text).then(() => {
+      btn.textContent = "캡션 복사됨 ✓ 붙여넣기만 하면 돼요";
+      setTimeout(() => { btn.textContent = originalLabel; }, 2000);
+    });
   });
 });
 const lightbox = document.getElementById("lightbox");

@@ -67,7 +67,7 @@ CARD_TEMPLATE = """
         <input type="checkbox" class="done-toggle" data-key="{done_key}">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="{url}" target="_blank" rel="noopener">열기 →</a>
+      <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     </div>
   </div>
   {market_toggle}
@@ -383,6 +383,24 @@ document.querySelectorAll(".btn-copy").forEach(btn => {{
     }} else {{
       navigator.clipboard.writeText(text).then(onCopied);
     }}
+  }});
+}});
+// WHY 열기 버튼도 자동 복사(2026-08-01, "버튼 누르면 그 플랫폼으로 넘어가서 글까지
+// 전부 들어가있는 상태로" 요청): 대부분 플랫폼은 URL 쿼리로 캡션을 미리 채우는 게
+// 막혀 있어서(스팸 방지 목적, 페이스북도 예전엔 됐지만 지금은 링크 공유만 가능) 직접
+// prefill은 불가능 — 대신 "열기" 클릭 시점에 캡션을 클립보드에 같이 복사해서, 플랫폼
+// 페이지로 넘어간 뒤 붙여넣기 한 번만 하면 되게 한다. target="_blank"라 새 탭에서
+// 열리므로 현재 페이지는 그대로 남아 있어 클립보드 복사 후 라벨 피드백도 보여줄 수 있다.
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {{
+    const target = document.getElementById(btn.dataset.copyTarget);
+    if (!target) return;
+    const text = target.value.split(AUTO_LINKS_MARKER).join("");
+    navigator.clipboard.writeText(text).then(() => {{
+      btn.textContent = "캡션 복사됨 ✓ 붙여넣기만 하면 돼요";
+      setTimeout(() => {{ btn.textContent = originalLabel; }}, 2000);
+    }});
   }});
 }});
 const lightbox = document.getElementById("lightbox");
