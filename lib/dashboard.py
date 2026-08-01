@@ -684,7 +684,14 @@ def _update_topics_index(out_path: str):
                 title = json.loads(caption_path.read_text()).get("title", topic)
             except (json.JSONDecodeError, OSError):
                 pass
-        topics.append({"topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html"})
+        # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
+        # 피드백 — 표지 카드(항상 "<topic>_00_표지.jpg")가 있으면 썸네일로 같이 보여준다.
+        cover_path = dash.parent / "card_news" / f"{topic}_00_표지.jpg"
+        thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path.exists() else None
+        topics.append({
+            "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
+            "thumbnail": thumbnail,
+        })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
 
