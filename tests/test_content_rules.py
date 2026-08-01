@@ -260,7 +260,16 @@ def test_no_weak_organ_worry_hook(topic):
 #   - ~/.claude/comment-keywords.md "키워드 레지스트리" 테이블에 이미 다른
 #     프로젝트/topic 이름으로 등록된 키워드를 지금 data가 재사용하고 있으면
 #     역시 fail(등록 안 된 새 키워드는 경고 대상이지 fail 아님)
+#
+# WHY UNIVERSAL_COMMENT_KEYWORD 예외(2026-08-01): topic마다 고유 키워드를 쓰던
+# 방식에서 전체 topic 공용 "쿠팡"으로 정책이 바뀌었다 — 인포크 댓글→DM 자동화가
+# 게시물(릴스/카드뉴스) 단위로 룰이 걸리는 구조라, 트리거 단어가 모든 topic에서
+# 똑같아도 게시물마다 다른 링크를 매핑하면 되기 때문(topic마다 다른 단어를 짜내고
+# 레지스트리에서 중복을 확인하던 절차가 더 이상 필요 없어짐). 그래서 이 키워드만은
+# 여러 topic에서 겹치는 게 사고가 아니라 의도된 정상 상태다.
 # ---------------------------------------------------------------------------
+
+UNIVERSAL_COMMENT_KEYWORD = "쿠팡"
 
 def _parse_registry_table(md_text: str) -> dict[str, str]:
     """"## 키워드 레지스트리" 헤딩 아래 표만 파싱한다(그 아래 "### 참고" 절은
@@ -315,7 +324,11 @@ def _collect_current_keyword_usage() -> dict[str, list[str]]:
 
 def test_comment_keyword_no_cross_topic_duplicates():
     usage = _collect_current_keyword_usage()
-    conflicts = {kw: topics for kw, topics in usage.items() if len(set(topics)) > 1}
+    conflicts = {
+        kw: topics
+        for kw, topics in usage.items()
+        if kw != UNIVERSAL_COMMENT_KEYWORD and len(set(topics)) > 1
+    }
     assert not conflicts, (
         f"comment_keyword가 서로 다른 topic 2곳 이상에서 중복 사용됨(인포크 댓글→DM "
         f"자동화가 엉뚱한 topic으로 갈 수 있음): {conflicts}"
@@ -334,11 +347,16 @@ def test_comment_keyword_not_registered_to_other_project():
         if keyword not in registry:
             continue  # 미등록 키워드는 경고 대상이지 fail 대상이 아님
         registered_project = registry[keyword]
-        # "health-shorts / <topic>" 형태로 지금 쓰는 topic과 정확히 일치하면 문제 없음.
         owning_topics = set(topics)
-        matches_current_topic = any(
-            f"health-shorts / {t}" in registered_project for t in owning_topics
-        )
+        if keyword == UNIVERSAL_COMMENT_KEYWORD:
+            # 전체 topic 공용 키워드는 "health-shorts / <특정 topic>"이 아니라
+            # 프로젝트 전체 소속으로 등록돼 있어야 한다 — 어떤 topic이 쓰든 정상.
+            matches_current_topic = "health-shorts" in registered_project
+        else:
+            # "health-shorts / <topic>" 형태로 지금 쓰는 topic과 정확히 일치하면 문제 없음.
+            matches_current_topic = any(
+                f"health-shorts / {t}" in registered_project for t in owning_topics
+            )
         if not matches_current_topic:
             conflicts.append(
                 f"'{keyword}'는 레지스트리에 '{registered_project}' 소속으로 이미 등록돼 "

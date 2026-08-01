@@ -500,6 +500,13 @@ function _buildLinkBlock(market, hasNaverButton) {{
 // 안 되고(2026-07-30 확인), "네이버 혹은 쿠팡"처럼 양쪽을 다 정적으로 언급하는 게
 // 아니라 실제 고른 쪽 이름이 문장에 들어가야 한다는 피드백(2026-07-31) — 마켓
 // 토글 선택에 맞춰 문장 자체를 그때그때 다시 만든다.
+// ⚠️ WHY CTA 문장에서 마켓 이름(marketLabel)을 뺐는지(2026-08-01): comment_keyword를
+// topic마다 다르게 등록하던 방식에서 전체 topic 공용 "쿠팡"으로 통일했다 — 인포크
+// 자동화가 게시물 단위로 걸리는 구조라 트리거 단어가 겹쳐도 게시물마다 다른 링크를
+// 매핑하면 되기 때문(topic별 고유 키워드로 인포크/레지스트리 중복을 막던 절차가
+// 필요 없어짐). 문구도 "제품 목록으로 이동할 수 있는 링크"로 통일해서 마켓별로
+// 문장을 다시 만들 필요가 없다 — disclosure(하단 고지문구)만 여전히 market에 따라
+// 달라진다.
 // ⚠️ WHY hasCommentDm 분기가 필요한지(2026-07-31 버그 수정): "댓글에 남기면 보내드려요"는
 // 인포크 댓글→DM 자동화가 실제로 연동된 인스타그램에만 맞는 말이다 — 이 자동화가 없는
 // 틱톡까지 no_caption_link라는 이유만으로 똑같은 CTA를 붙였더니, 틱톡 캡션에 이미 있는
@@ -523,8 +530,7 @@ function _buildCtaBlock(market, hasCommentDm) {{
   if (!hasCommentDm) {{
     return "\\n\\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\\n\\n" + disclosure;
   }}
-  const marketLabel = market === "naver" ? "네이버" : "쿠팡";
-  const cta = `💬 댓글에 "${{COMMENT_KEYWORD}}"라고 남겨주시면 ${{marketLabel}} 최다 리뷰 상품 링크 보내드릴게요!`;
+  const cta = `💬 댓글에 "${{COMMENT_KEYWORD}}"라고 치시면 제품 목록으로 이동할 수 있는 링크 바로 전송해드릴게요!`;
   return "\\n\\n" + AUTO_LINKS_MARKER + cta + "\\n\\n" + disclosure;
 }}
 
