@@ -41,24 +41,11 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
     <button type="button" class="copy-market-link" data-url="{coupang_url}" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔗 복사</button>
     <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" placeholder="쿠팡 링크 붙여넣고 Enter">
   </div>
-  <div class="dock-product-market">
-    <a href="{naver_url}" target="_blank" rel="noopener">🔵 브랜드커넥트 검색</a>
-    <button type="button" class="copy-market-link" data-url="{naver_url}" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔗 복사</button>
-    <input type="text" class="product-link-input" data-market="naver" data-product="{name_attr}" placeholder="네이버 링크 붙여넣고 Enter">
-  </div>
-</div>
-"""
-
-MARKET_TOGGLE_TEMPLATE = """
-<div class="market-toggle" data-market-key="{market_key}" data-default-market="{default_market}">
-  <span class="market-label">상품 링크</span>
-  <button class="market-btn{coupang_active}" data-market="coupang">🛒 쿠팡</button>
-  <button class="market-btn{naver_active}" data-market="naver">🔵 네이버</button>
 </div>
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-market-key="{market_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}" data-suppress-product-block="{suppress_product_block_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}" data-suppress-product-block="{suppress_product_block_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -72,7 +59,6 @@ CARD_TEMPLATE = """
       <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     </div>
   </div>
-  {market_toggle}
   <div class="action-line">{action}</div>
   {asset_link}
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
@@ -199,13 +185,6 @@ PAGE_TEMPLATE = """<!doctype html>
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }}
   .product-link-input:focus {{ outline: 2px solid var(--accent-soft); }}
-  .market-toggle {{ display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }}
-  .market-label {{ font-size: 11px; color: var(--ink-soft); font-weight: 700; }}
-  .market-btn {{
-    border: 1px solid var(--rule); background: var(--panel); color: var(--ink-soft);
-    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 999px; cursor: pointer;
-  }}
-  .market-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
   @media (max-width: 860px) {{
     .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
   }}
@@ -363,9 +342,9 @@ document.querySelectorAll(".row-toggle").forEach(btn => {{
   }});
 }});
 
-// WHY: 파트너스/브랜드커넥트 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은
-// 새 탭으로 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접
-// 복사하지 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
+// WHY: 쿠팡파트너스 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은 새 탭으로
+// 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접 복사하지
+// 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
 document.querySelectorAll(".copy-market-link").forEach(btn => {{
   const originalLabel = btn.textContent;
   btn.addEventListener("click", () => {{
@@ -458,34 +437,18 @@ function _stripAutoLinks(text) {{
 // 마커 자기 자신(보이지 않는 문자 1개)만 지워지고 그 앞의 실제 내용은 하나도
 // 안 지워진다 — 그 결과 토글을 누를 때마다 이전 블록 위에 새 블록이 계속
 // 쌓였다. 마커를 블록 시작 지점에 둬야 "마커부터 끝까지 전체"가 지워진다.
-function _buildLinkBlock(market, hasNaverButton) {{
-  if (market === "naver" && hasNaverButton) {{
-    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정): 네이버 블로그·클립처럼
-    // 에디터에 진짜 "상품" 버튼이 있는 곳(data-naver-button="1")은 URL을 본문에
-    // 붙여넣는 방식이 아니라 그 버튼으로 직접 추가해야 하고(2026-07-30 확인), 버튼
-    // 사용법 안내 문구는 원치 않는다는 피드백이라 안내문은 안 넣는다(2026-07-30) —
-    // 하지만 "어떤 품목 링크인지는 알아야 한다"는 피드백(2026-07-31)이 있어서
-    // 상품명 목록은 넣는다.
+function _buildLinkBlock(hasNaverButton) {{
+  if (hasNaverButton) {{
+    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정, 2026-08-01 단순화): 네이버
+    // 클립처럼 에디터에 진짜 "상품" 버튼이 있는 곳(data-naver-button="1")은 URL을
+    // 본문에 붙여넣는 방식이 아니라 그 버튼으로 직접 추가해야 한다(2026-07-30 확인).
+    // 예전엔 "네이버 링크 입력창에 뭐라도 입력해야" 그 상품이 목록에 포함됐는데,
+    // 그 입력창 자체가 성가시기만 하고 실제로 쓰는 링크도 아니었다는 피드백(2026-08-01)
+    // 으로 입력창을 없애고 이 topic의 전체 상품을 조건 없이 나열한다.
     const products = [];
-    document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
-      if (inp.value.trim()) products.push(inp.dataset.product);
-    }});
+    document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => products.push(inp.dataset.product));
     if (products.length === 0) return "";
     return "\\n\\n" + AUTO_LINKS_MARKER + "🔵 상품: " + products.join(", ") + "\\n\\n" + NAVER_DISCLOSURE;
-  }}
-  if (market === "naver") {{
-    // WHY 여기서는 URL을 그대로 넣는지(2026-07-31 버그 수정): "네이버 URL은 버튼으로만
-    // 추가"라는 규칙은 네이버 자체 에디터(블로그·클립)에만 해당하는 얘기인데, 쓰레드·
-    // 페이스북·유튜브처럼 그런 버튼이 아예 없는 플랫폼까지 URL을 통째로 빼버렸었다
-    // ("쓰레드 이런거까지 왜 없애놨냐" 지적) — 버튼이 없는 곳은 쿠팡과 똑같이 URL을
-    // 텍스트로 넣는 게 유일한 방법이라 그대로 넣는다.
-    const lines = [];
-    document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
-      const url = inp.value.trim();
-      if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
-    }});
-    if (lines.length === 0) return "";
-    return "\\n\\n" + AUTO_LINKS_MARKER + lines.join("\\n") + "\\n\\n" + NAVER_DISCLOSURE;
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -497,16 +460,14 @@ function _buildLinkBlock(market, hasNaverButton) {{
 }}
 
 // WHY 원본 URL 대신 CTA 문장(2026-07-30/31): 인스타·틱톡은 캡션 속 URL이 클릭이
-// 안 되고(2026-07-30 확인), "네이버 혹은 쿠팡"처럼 양쪽을 다 정적으로 언급하는 게
-// 아니라 실제 고른 쪽 이름이 문장에 들어가야 한다는 피드백(2026-07-31) — 마켓
-// 토글 선택에 맞춰 문장 자체를 그때그때 다시 만든다.
-// ⚠️ WHY CTA 문장에서 마켓 이름(marketLabel)을 뺐는지(2026-08-01): comment_keyword를
-// topic마다 다르게 등록하던 방식에서 전체 topic 공용 "쿠팡"으로 통일했다 — 인포크
-// 자동화가 게시물 단위로 걸리는 구조라 트리거 단어가 겹쳐도 게시물마다 다른 링크를
-// 매핑하면 되기 때문(topic별 고유 키워드로 인포크/레지스트리 중복을 막던 절차가
-// 필요 없어짐). 문구도 "제품 목록으로 이동할 수 있는 링크"로 통일해서 마켓별로
-// 문장을 다시 만들 필요가 없다 — disclosure(하단 고지문구)만 여전히 market에 따라
-// 달라진다.
+// 안 된다(2026-07-30 확인) — 링크 텍스트 대신 안내 문장을 넣는다.
+// ⚠️ WHY comment_keyword가 항상 "쿠팡" 고정인지(2026-08-01): topic마다 다르게 등록하던
+// 방식에서 전체 topic 공용 "쿠팡"으로 통일했다 — 인포크 자동화가 게시물 단위로 걸리는
+// 구조라 트리거 단어가 겹쳐도 게시물마다 다른 링크를 매핑하면 되기 때문(topic별 고유
+// 키워드로 인포크/레지스트리 중복을 막던 절차가 필요 없어짐).
+// ⚠️ WHY disclosure가 항상 쿠팡 고정인지(2026-08-01): 마켓 토글 자체가 없어져서 이
+// CTA를 쓰는 플랫폼(인스타·틱톡)은 애초에 네이버 쪽 CTA가 나올 일이 없다 — no_caption_link
+// 플랫폼과 network:"naver" 플랫폼(네이버 클립)은 서로 겹치지 않는 집합이라 안전하다.
 // ⚠️ WHY hasCommentDm 분기가 필요한지(2026-07-31 버그 수정): "댓글에 남기면 보내드려요"는
 // 인포크 댓글→DM 자동화가 실제로 연동된 인스타그램에만 맞는 말이다 — 이 자동화가 없는
 // 틱톡까지 no_caption_link라는 이유만으로 똑같은 CTA를 붙였더니, 틱톡 캡션에 이미 있는
@@ -525,20 +486,17 @@ function _buildLinkBlock(market, hasNaverButton) {{
 // 대시보드 열 때마다(링크를 안 넣어놓은 상태) 인스타 캡션에 댓글 CTA가 통째로
 // 사라져 보였다("인스타쪽 왜 댓글달면 링크 준다는거 없어졌어?" 반복 지적). CTA는
 // hasCommentDm이 켜진 플랫폼이면 링크 입력 여부와 무관하게 항상 붙는다.
-function _buildCtaBlock(market, hasCommentDm) {{
-  const disclosure = market === "naver" ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE;
+function _buildCtaBlock(hasCommentDm) {{
   if (!hasCommentDm) {{
-    return "\\n\\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\\n\\n" + disclosure;
+    return "\\n\\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\\n\\n" + COUPANG_DISCLOSURE;
   }}
   const cta = `💬 댓글에 "${{COMMENT_KEYWORD}}"라고 치시면 제품 목록으로 이동할 수 있는 링크 바로 전송해드릴게요!`;
-  return "\\n\\n" + AUTO_LINKS_MARKER + cta + "\\n\\n" + disclosure;
+  return "\\n\\n" + AUTO_LINKS_MARKER + cta + "\\n\\n" + COUPANG_DISCLOSURE;
 }}
 
 function applyProductLinks() {{
   document.querySelectorAll(".caption-box").forEach(box => {{
     const card = box.closest(".platform-card");
-    const activeBtn = card.querySelector(".market-toggle .market-btn.active");
-    const market = activeBtn ? activeBtn.dataset.market : null;
     const noCaptionLink = card.dataset.noCaptionLink === "1";
     const hasNaverButton = card.dataset.naverButton === "1";
     const hasCommentDm = card.dataset.commentDm === "1";
@@ -547,7 +505,7 @@ function applyProductLinks() {{
     // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
     // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
     const suppressBlock = card.dataset.suppressProductBlock === "1";
-    let block = (!suppressBlock && market) ? (noCaptionLink ? _buildCtaBlock(market, hasCommentDm) : _buildLinkBlock(market, hasNaverButton)) : "";
+    let block = suppressBlock ? "" : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton));
     // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
     // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
     // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
@@ -579,23 +537,6 @@ document.querySelectorAll(".product-link-input").forEach(inp => {{
   }});
   inp.addEventListener("keydown", e => {{
     if (e.key === "Enter") {{ row.classList.remove("row-expanded"); inp.blur(); }}
-  }});
-}});
-
-const MARKET_STATE_PREFIX = "hs_market_{topic}_";
-document.querySelectorAll(".market-toggle").forEach(toggle => {{
-  const storageKey = MARKET_STATE_PREFIX + toggle.dataset.marketKey;
-  const saved = localStorage.getItem(storageKey);
-  if (saved) {{
-    toggle.querySelectorAll(".market-btn").forEach(b => b.classList.toggle("active", b.dataset.market === saved));
-  }}
-  toggle.querySelectorAll(".market-btn").forEach(btn => {{
-    btn.addEventListener("click", () => {{
-      toggle.querySelectorAll(".market-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      localStorage.setItem(storageKey, btn.dataset.market);
-      applyProductLinks();
-    }});
   }});
 }});
 
@@ -654,22 +595,22 @@ def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str
             f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
 
 
-def _dock_products(products: list[str], affiliate_path: Path) -> str:
+def _dock_products(products: list[str]) -> str:
     if not products:
         return ""
-    affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
-    creator_id = affiliate.get("naver_brandconnect_id", "")
     rows = ""
     for idx, name in enumerate(products):
-        naver_url = f"https://brandconnect.naver.com/{creator_id}/affiliate/products/search?query={quote(name)}&tab=product"
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
-            name=_esc(name), naver_url=naver_url, coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
+            name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
         )
+    # WHY 네이버 언급 없음(2026-08-01): 네이버 블로그도 브랜드커넥트 대신 쿠팡 링크를
+    # 쓰기로 바뀌면서 상품 링크는 쿠팡 하나만 필요해졌다 — 네이버 클립은 이 링크값과
+    # 무관하게 상품명이 자동으로 들어가므로 별도 안내가 필요 없다.
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
         f'{rows}'
-        '<p class="dock-hint">쿠팡/네이버 링크를 각각 붙여넣으면, 아래 각 플랫폼 카드에서 고른 쪽(쿠팡/네이버)에 맞춰 고지 문구와 함께 자동 반영돼요.</p>'
+        '<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
         '</div>'
     )
 
@@ -716,8 +657,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
-    has_products = bool(spec.get("products"))
-    dock_products = _dock_products(spec.get("products", []), affiliate_path)
+    dock_products = _dock_products(spec.get("products", []))
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")
@@ -768,21 +708,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
             # rich_paste: true로 표시해서 이 기능을 켠다.
             cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
-            market_key = quote(p["name"])
-            default_market = "naver" if p.get("network") == "naver" else "coupang"
-            market_toggle = ""
-            # WHY no_caption_link 플랫폼도 마켓 토글은 만듦(2026-07-31 정정): 인스타·틱톡은
-            # 캡션 속 URL이 클릭되지 않아 원본 링크 텍스트는 안 넣지만(2026-07-30 확인),
-            # "네이버 혹은 쿠팡" 식으로 양쪽 다 정적으로 언급하지 말고 실제 고른 쪽 이름이
-            # CTA 문장에 들어가야 한다는 피드백(2026-07-31) — 토글 자체는 계속 필요하고,
-            # _buildMarketBlock 쪽에서 no_caption_link일 때 다른 문구를 만든다.
-            if has_products:
-                market_toggle = MARKET_TOGGLE_TEMPLATE.format(
-                    market_key=market_key,
-                    default_market=default_market,
-                    coupang_active=" active" if default_market == "coupang" else "",
-                    naver_active=" active" if default_market == "naver" else "",
-                )
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -795,8 +720,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
-                market_key=market_key,
-                market_toggle=market_toggle,
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
                 profile_note_attr="1" if p.get("add_profile_note") else "",

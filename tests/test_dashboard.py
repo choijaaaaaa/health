@@ -100,9 +100,6 @@ def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_pat
 
     assert 'data-naver-button="1"' in naver_card
     assert 'data-naver-button=""' in youtube_card
-    # market-toggle의 기본 선택도 naver 플래그가 있는 카드만 네이버가 active여야 한다
-    assert 'data-default-market="naver"' in naver_card
-    assert 'data-default-market="coupang"' in youtube_card
 
 
 def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path):

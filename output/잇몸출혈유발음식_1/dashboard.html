@@ -660,9 +660,9 @@ document.querySelectorAll(".row-toggle").forEach(btn => {
   });
 });
 
-// WHY: 파트너스/브랜드커넥트 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은
-// 새 탭으로 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접
-// 복사하지 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
+// WHY: 쿠팡파트너스 링크 생성기는 URL을 붙여넣어야 하는데, 검색 버튼은 새 탭으로
+// 페이지를 열 뿐 URL을 손에 쥐여주지 않는다 — 주소창에서 매번 직접 복사하지
+// 않아도 되게 검색 링크 자체를 바로 클립보드에 담아준다.
 document.querySelectorAll(".copy-market-link").forEach(btn => {
   const originalLabel = btn.textContent;
   btn.addEventListener("click", () => {
