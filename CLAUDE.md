@@ -377,6 +377,30 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 | 채널별 URL(정답 소스) | `data/social_accounts.json` — 새 topic 캡션은 여기서 복사할 것, 예전 topic JSON 복사 금지(오래된 URL 남아있을 수 있음) |
 | 비밀키 | `.env` (커밋 안 함), `.env.example` 항상 최신 유지 |
 
+## 테스트 (2026-08-01)
+
+`tests/`에 pytest 스위트가 있다 — `pip install -r requirements.txt`로 pytest까지 같이 깔린다.
+
+```bash
+source .venv/bin/activate
+python3 -m pytest tests/ -v
+```
+
+- `test_session_lock.py`, `test_card_news.py`, `test_dashboard.py`, `test_video_assembler.py` —
+  각 `lib/*.py` 모듈 단위 테스트. `tests/conftest.py`의 `make_solid_jpg`/`make_tiny_clip`/
+  `make_silent_audio` 픽스처로 가벼운 합성 소스를 만들어 쓴다 — **Gemini/Kling/Typecast 같은
+  실제 유료 API는 테스트에서 절대 호출하지 않는다.**
+- `test_video_assembler.py`에 타이틀카드 fps 불일치(2026-07-31 실제 버그) 회귀 테스트 있음 —
+  이 클래스의 버그가 재발하면 바로 잡힘.
+- `test_content_rules.py`는 `data/*/`에 있는 **실제 topic 전체**를 매 실행마다 다시 스캔해서
+  이 문서에 쌓인 규칙(해시태그 필수, "~대요" 금지, `network`/`rich_paste`/`comment_keyword`
+  플래그, 장기명 걱정형 훅 금지, `char_file` 실존, comment_keyword 레지스트리 중복)을 위반하는
+  topic이 있으면 그 topic명과 함께 바로 잡아낸다 — topic 이름을 하드코딩하지 않으므로 새 topic이
+  추가돼도 그대로 커버된다. **새 topic 만들거나 기존 topic 수정한 뒤에는 이 테스트부터 돌려서
+  확인하는 습관을 들일 것.**
+- 세션 락과 마찬가지로 `session_lock` 테스트는 진짜 `.claude-locks/`를 절대 안 건드리게
+  `monkeypatch`로 격리돼있다 — 새 테스트를 추가할 때도 이 원칙 유지할 것.
+
 ## 자료수집 — 원본 기사만으로 끝내지 않는다 (2026-07-31)
 
 새 topic을 사용자가 준 기사 URL 하나로만 만들면 내용이 얕아진다("정보가 좀 더 디테일하게
