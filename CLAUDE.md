@@ -237,14 +237,22 @@ Pexels·Unsplash를 같이 검색해 후보를 `assets_library/real/_candidates/
   초록색이니까 인스타에서 보기가 좀 그렇네" 피드백 — 지금까지 만든 건 이미 과금
   완료라 재작업 안 하고, 새 캐릭터부터 적용): `lib/gemini_illust.py`의
   `pick_bg_color(avoid=[...])`를 호출해서 캐릭터 색과 겹치는 것만 `avoid`로 빼고
-  나머지(초록/파란/마젠타) 중 무작위로 고른다 — 타입캐스트 보이스 랜덤 선택과 같은
-  패턴. 캐릭터 색이 뭐랑 겹치는지 판단하는 건 여전히 세션 몫(자동 인식 아님), 예:
+  나머지 중 무작위로 고른다 — 타입캐스트 보이스 랜덤 선택과 같은 패턴. 캐릭터 색이
+  뭐랑 겹치는지 판단하는 건 여전히 세션 몫(자동 인식 아님), 예:
   ```python
   from lib.gemini_illust import pick_bg_color, generate_illustration
   name, hex_ = pick_bg_color(avoid=["초록"])  # 오이·상추처럼 초록 계열 캐릭터
   generate_illustration(item_name, bg_color_name=name, bg_color_hex=hex_)
   ```
   고른 색은 `video_assembler.py`의 `--bg-color`에도 그대로 맞춰야 하는 것은 동일.
+
+  ⚠️ **후보 5색(2026-08-01, "3색? 좀더 다양화좀 안되나" 요청으로 확장)**: 초록·파란·
+  마젠타·시안·보라. 노랑·주황·빨강처럼 흔한 식재료 색은 캐릭터와 겹칠 확률이 높아서
+  일부러 뺐다 — 이 5색 전부 음식 캐릭터와 잘 안 겹치는 축. 단, `video_assembler.py`의
+  despill 필터(가장자리 잔여 색 억제)는 ffmpeg 자체 제약으로 **green/blue 타입만
+  있다** — 마젠타·시안·보라는 despill 없이 colorkey만 적용되므로(마젠타는 이미 이
+  상태로 실사용 중) 가장자리에 아주 약한 색 번짐이 남을 수 있다. 완성 영상에서 캐릭터
+  테두리가 이상하면 이 3색 중 하나였는지 먼저 확인할 것.
 - ⚠️ **hex 색상 문자열을 `.upper()`로 비교할 땐 비교 대상 리터럴도 반드시 대문자로**
   (2026-07-31 실제로 터진 버그): `"0x00FF00".upper()`는 `"0X00FF00"`이 되어(x까지
   대문자화) 소문자 x가 섞인 리터럴 `"0x00FF00"`과 영원히 같아질 수 없다 —

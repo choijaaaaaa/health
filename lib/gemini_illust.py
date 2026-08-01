@@ -49,16 +49,28 @@ STYLE_PROMPT = (
 # 비슷해 보인다는 피드백 — 안전한 색이 여러 개면 그중 하나로 고정하지 말고 매번
 # 랜덤으로 고른다(타입캐스트 보이스 랜덤 선택과 같은 패턴). 지금까지 만든 캐릭터는
 # 이미 과금 완료된 상태라 재작업 안 함, 새 캐릭터부터 적용.
-BG_COLOR_CANDIDATES = [("초록", "#00FF00"), ("파란", "#0000FF"), ("마젠타", "#FF00FF")]
+# WHY 5색으로 확장(2026-08-01, "3색? 좀더 다양화좀 안되나"): colorkey 자체는 어떤
+# 색이든 잘 빠지지만, `video_assembler.py`의 despill 필터(가장자리 잔여 색 억제)는
+# ffmpeg 자체 제약으로 green/blue 타입만 있다 — 마젠타는 이미 despill 없이도
+# 실사용 중이라(가장자리에 아주 약한 색 번짐 감수), 같은 조건인 시안·보라도
+# 추가함. 노랑·주황·빨강처럼 흔한 식재료 색은 캐릭터와 겹칠 확률이 너무 높아서
+# 후보에서 뺐다 — 이 5색은 전부 음식 캐릭터 색과 잘 안 겹치는 축에 속한다.
+BG_COLOR_CANDIDATES = [
+    ("초록", "#00FF00"),   # despill 지원
+    ("파란", "#0000FF"),   # despill 지원
+    ("마젠타", "#FF00FF"),  # despill 없음(기존부터 이 상태로 실사용 중)
+    ("시안", "#00FFFF"),    # despill 없음
+    ("보라", "#AA00FF"),    # despill 없음
+]
 
 
 def pick_bg_color(avoid: list[str] | None = None) -> tuple[str, str]:
     """캐릭터 색상과 겹치는 후보를 avoid(색 이름, 예: ["초록"])로 빼고 나머지 중
     무작위로 (bg_color_name, bg_color_hex)를 고른다. 캐릭터 색을 판단하는 건 이
     함수가 아니라 호출하는 쪽(세션)의 몫 — 예: 오이·상추·브로콜리처럼 초록 계열
-    캐릭터면 avoid=["초록"]으로 호출. 후보가 다 제외되면(캐릭터가 초록·파랑·
-    마젠타 다 겹치는 특이 케이스) ValueError를 내니, 그런 경우엔 이 3색 밖의
-    색을 직접 정해서 generate_illustration()에 명시로 넘길 것."""
+    캐릭터면 avoid=["초록"]으로 호출. 후보가 다 제외되면(캐릭터 색이 5색 다
+    겹치는 특이 케이스) ValueError를 내니, 그런 경우엔 이 후보 밖의 색을 직접
+    정해서 generate_illustration()에 명시로 넘길 것."""
     candidates = [c for c in BG_COLOR_CANDIDATES if c[0] not in (avoid or [])]
     if not candidates:
         raise ValueError(f"모든 기본 배경색 후보가 avoid에 걸림: {avoid} — 직접 색을 정해서 호출할 것")
