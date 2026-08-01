@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 lib/session_lock.py *)",
+      "Bash(python3 lib/gemini_illust.py *)",
+      "Bash(python3 lib/typecast_tts.py *)",
+      "Bash(python3 lib/card_news.py *)",
+      "Bash(python3 lib/video_assembler.py *)",
+      "Bash(python3 lib/dashboard.py *)",
+      "Bash(source .venv/bin/activate *)",
+      "Bash(ffmpeg *)",
+      "Bash(ffprobe *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)",
+      "Bash(git status)",
+      "Bash(git status *)",
+      "Bash(git log)",
+      "Bash(git log *)",
+      "Bash(git diff)",
+      "Bash(git diff *)",
+      "Bash(git fetch)",
+      "Bash(git fetch *)"
+    ]
+  }
+}
