@@ -20,9 +20,11 @@ DATA_DIR = ROOT / "data"
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 COMMENT_KEYWORDS_PATH = Path.home() / ".claude" / "comment-keywords.md"
 
-# CLAUDE.md "플랫폼별 필수 플래그" 절 기준 — 이름에 "네이버"가 들어간 플랫폼만
-# network: "naver"를 가져야 한다(네이버 에디터에만 있는 "상품" 버튼 처리용).
-NAVER_NAME_MARKER = "네이버"
+# CLAUDE.md "플랫폼별 필수 플래그" 절 기준 — "네이버 클립"만 network: "naver"를
+# 가져야 한다(네이버 에디터에만 있는 "상품" 버튼 처리용). "네이버 블로그"는
+# 2026-08-01부로 브랜드커넥트 대신 쿠팡 링크를 쓰기로 바뀌어서 이 플래그가 없어야
+# 한다 — 이름에 "네이버"가 들어간다고 전부 이 플래그를 갖는 게 아님에 주의.
+NAVER_NETWORK_PLATFORMS = {"네이버 클립"}
 
 # CLAUDE.md 기준 — 클립보드 HTML 붙여넣기(이미지까지 같이 들어가는) 리치 에디터는
 # 네이버 블로그·티스토리뿐. 그 외 전 플랫폼은 rich_paste를 갖지 않아야 한다.
@@ -175,12 +177,12 @@ def test_naver_network_flag(topic):
     problems = []
     for p in spec.get("platforms", []):
         name = p["name"]
-        is_naver = NAVER_NAME_MARKER in name
+        should_have_flag = name in NAVER_NETWORK_PLATFORMS
         has_flag = p.get("network") == "naver"
-        if is_naver and not has_flag:
-            problems.append(f"{name}: 네이버 플랫폼인데 network=naver 없음")
-        if not is_naver and "network" in p:
-            problems.append(f"{name}: 네이버가 아닌데 network 플래그 존재({p.get('network')!r})")
+        if should_have_flag and not has_flag:
+            problems.append(f"{name}: network=naver가 있어야 하는 플랫폼인데 없음")
+        if not should_have_flag and "network" in p:
+            problems.append(f"{name}: network 플래그가 없어야 하는데 존재({p.get('network')!r})")
     assert not problems, f"{topic}: {problems}"
 
 
