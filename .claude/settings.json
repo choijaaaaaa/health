@@ -1,7 +1,7 @@
 {
   "permissions": {
     "allow": [
-      "Bash"
+      "Bash(*)"
     ]
   },
   "hooks": {
@@ -10,7 +10,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"health-shorts는 여러 Claude Code 세션이 동시에 작업할 수 있는 프로젝트다. 이 세션의 역할(신규 topic 생성인지, 기존 topic 수정인지 등)을 사용자가 아직 말하지 않았다면 먼저 확인할 것. 작업 시작 전 python3 lib/session_lock.py list로 활성 락 확인, CLAUDE.md의 동시 세션 규칙을 반드시 따를 것.\"}}'"
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"SessionStart\",\"additionalContext\":\"health-shorts는 여러 Claude Code 세션이 동시에 작업할 수 있는 프로젝트다. 세션 역할은 고정돼 있지 않다(2026-08-02부로 역할 구분 폐지) — 신규 topic 생성/기존 topic 수정/설정 변경 등 요청받은 작업을 구분 없이 바로 진행하면 된다. 작업 시작 전 python3 lib/session_lock.py list로 활성 락 확인, CLAUDE.md의 동시 세션 규칙을 반드시 따를 것.\"}}'"
           }
         ]
       }
@@ -20,7 +20,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostCompact\",\"additionalContext\":\"컨텍스트가 압축됐다 — 이 세션이 맡은 역할과 지금까지 진행 상황(어떤 topic을 왜 작업 중이었는지)을 다시 점검할 것. python3 lib/session_lock.py list로 활성 락 재확인하고 CLAUDE.md 규칙 계속 지킬 것.\"}}'"
+            "command": "echo '{\"hookSpecificOutput\":{\"hookEventName\":\"PostCompact\",\"additionalContext\":\"컨텍스트가 압축됐다 — 지금까지 진행 상황(어떤 topic을 왜 작업 중이었는지)을 다시 점검할 것. 세션 역할은 고정돼 있지 않으니 요청받은 작업을 바로 이어가면 된다. python3 lib/session_lock.py list로 활성 락 재확인하고 CLAUDE.md 규칙 계속 지킬 것.\"}}'"
           }
         ]
       }
