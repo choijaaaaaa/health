@@ -1,5 +1,25 @@
 [
   {
+    "topic": "혈압올리는음식_1",
+    "title": "심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거린다면 주목! - 혈압 확 올리는 의외의 음식들",
+    "url": "output/%ED%98%88%EC%95%95%EC%98%AC%EB%A6%AC%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "피부노화음식_1",
+    "title": "피부가 푸석하고 칙칙해지고 잔주름까지 늘었다면 주목! - 콜라겐 무너뜨리는 의외의 음식",
+    "url": "output/%ED%94%BC%EB%B6%80%EB%85%B8%ED%99%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "편두통유발음식_1",
+    "title": "관자놀이가 지끈지끈 맥박처럼 뛰고 빛만 봐도 눈이 시리다면 주목! - 편두통 부르는 의외의 음식들",
+    "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5%EC%9C%A0%EB%B0%9C%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "탈모부르는음식_1",
+    "title": "머리 감을 때마다 한 움큼씩 빠지고 정수리 가르마가 유독 휑해 보인다면 주목! - 탈모 부르는 식탁 위 습관",
+    "url": "output/%ED%83%88%EB%AA%A8%EB%B6%80%EB%A5%B4%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
     "topic": "콩팥국물음식_1",
     "title": "얼굴·발이 붓고 소변에 거품이 보인다면 주목! - 국물음식 똑똑하게 고르는 법",
     "url": "output/%EC%BD%A9%ED%8C%A5%EA%B5%AD%EB%AC%BC%EC%9D%8C%EC%8B%9D_1/dashboard.html"
@@ -8,6 +28,16 @@
     "topic": "췌장굳는음식_1",
     "title": "명치에서 등까지 통증이 뻗치고 대변이 물에 뜬다면 주목! - 췌장 굳게 만드는 냉장고 음식",
     "url": "output/%EC%B7%8C%EC%9E%A5%EA%B5%B3%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "지방간부르는음식_1",
+    "title": "쉬어도 피곤하고 오른쪽 윗배가 묵직하게 뻐근하다면 주목! - 지방간 부르는 냉장고 음식",
+    "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84%EB%B6%80%EB%A5%B4%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "위장더부룩음식_1",
+    "title": "밥 먹고 배가 빵빵하게 부풀고 트림·방귀가 잦다면 주목! - 더부룩함 부르는 의외의 습관",
+    "url": "output/%EC%9C%84%EC%9E%A5%EB%8D%94%EB%B6%80%EB%A3%A9%EC%9D%8C%EC%8B%9D_1/dashboard.html"
   },
   {
     "topic": "아침공복음식_1",
@@ -20,8 +50,13 @@
     "url": "output/%EC%88%98%EB%A9%B4%EC%9D%8C%EC%8B%9D_1/dashboard.html"
   },
   {
+    "topic": "빈혈부르는음식_1",
+    "title": "이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! - 빈혈 부르는 의외의 음식 습관",
+    "url": "output/%EB%B9%88%ED%98%88%EB%B6%80%EB%A5%B4%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
     "topic": "블루베리_1",
-    "title": "혈당·혈관 건강이 걱정되는 분들 주목! 블루베리 이야기",
+    "title": "밥 먹고 금방 또 배고프고 단 게 자꾸 당긴다면 주목! 블루베리 이야기",
     "url": "output/%EB%B8%94%EB%A3%A8%EB%B2%A0%EB%A6%AC_1/dashboard.html"
   },
   {
@@ -33,6 +68,21 @@
     "topic": "당뇨유발음식_1",
     "title": "간식이나 밥 먹고 나면 유독 졸리고 나른하다면 주목! - 당뇨 부르는 음식 4가지",
     "url": "output/%EB%8B%B9%EB%87%A8%EC%9C%A0%EB%B0%9C%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "눈건강해치는음식_1",
+    "title": "눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하다면 주목! - 눈 건강 해치는 의외의 음식·습관",
+    "url": "output/%EB%88%88%EA%B1%B4%EA%B0%95%ED%95%B4%EC%B9%98%EB%8A%94%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "관절통증음식_1",
+    "title": "계단 내려올 때 무릎이 시큰거리고 아침에 뻣뻣하다면 주목! - 관절 염증 키우는 음식들",
+    "url": "output/%EA%B4%80%EC%A0%88%ED%86%B5%EC%A6%9D%EC%9D%8C%EC%8B%9D_1/dashboard.html"
+  },
+  {
+    "topic": "갑상선방해음식_1",
+    "title": "이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! - 갑상선 기능 방해하는 뜻밖의 음식",
+    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0%EB%B0%A9%ED%95%B4%EC%9D%8C%EC%8B%9D_1/dashboard.html"
   },
   {
     "topic": "60대주의음식_1",

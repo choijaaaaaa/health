@@ -217,24 +217,34 @@ def _build_character_segment(motion_path: str, duration: float, out_path: Path, 
 
 
 def _build_character_schedule(
-    schedule: list[tuple[float, float, str]], total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
+    schedule: list[tuple[float, float, str]] | list[tuple[float, float, str, str]],
+    total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
 ):
     """캐릭터 여러 명이 구간별로 번갈아 나오는 캐릭터 트랙. WHY(2026-07-31, 수면음식_1
     — 대추/체리/호두 세 캐릭터가 각자 자기 대사 구간에만 나와야 하는데
     _build_character_loop은 캐릭터 1개를 전체 길이에 반복하는 구조라 못 씀):
     schedule의 각 구간마다 _build_character_segment로 개별 캐릭터 트랙을 만들고
     concat으로 이어붙인다. 각 세그먼트는 독립적으로 ping-pong 처리되므로 세그먼트
-    경계에서도 포즈가 끊기지 않는다."""
+    경계에서도 포즈가 끊기지 않는다.
+
+    WHY 세그먼트별 bg_color(2026-08-01, 갑상선방해음식_1/위장더부룩음식_1에서 실제
+    발생 — 초록 계열 캐릭터라 파란 배경으로 생성한 일러스트(케일·페퍼민트차 등)가
+    섞인 topic에서 전체에 초록 colorkey를 쓰면 파란 배경이 그대로 남는 사고): 튜플이
+    (start, end, path) 3개면 전역 bg_color를, (start, end, path, bg_color) 4개면
+    그 세그먼트 전용 색을 쓴다 — 캐릭터마다 크로마키 색이 다른 topic(초록/파랑 섞임)을
+    지원하기 위함."""
     schedule = sorted(schedule, key=lambda x: x[0])
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         seg_paths = []
-        for i, (start, end, motion_path) in enumerate(schedule):
+        for i, entry in enumerate(schedule):
+            start, end, motion_path = entry[0], entry[1], entry[2]
+            seg_bg_color = entry[3] if len(entry) > 3 else bg_color
             dur = min(end, total_duration) - start
             if dur <= 0.02:
                 continue
             seg = tmp_path / f"char_seg_{i:03d}.mov"
-            _build_character_segment(motion_path, dur, seg, bg_color=bg_color)
+            _build_character_segment(motion_path, dur, seg, bg_color=seg_bg_color)
             seg_paths.append(seg)
         list_path = tmp_path / "char_list.txt"
         list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
@@ -650,9 +660,14 @@ if __name__ == "__main__":
     if args.motion_schedule:
         motion_schedule = []
         for chunk in args.motion_schedule.split(","):
-            span, path = chunk.split(":", 1)
+            # "start-end:path" 또는 "start-end:path:bg_color"(세그먼트별 크로마키 색 override)
+            parts = chunk.split(":")
+            span, path = parts[0], parts[1]
             start_s, end_s = span.split("-")
-            motion_schedule.append((float(start_s), float(end_s), path))
+            if len(parts) > 2:
+                motion_schedule.append((float(start_s), float(end_s), path, parts[2]))
+            else:
+                motion_schedule.append((float(start_s), float(end_s), path))
 
     assemble(
         images=args.images.split(","),
