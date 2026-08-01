@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import base64
 import os
+import random
 import sys
 from pathlib import Path
 
@@ -27,10 +28,12 @@ LIBRARY_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "illus
 # (2026-07-30 돼지감자차_1에서 실사진 합성 시 확인).
 # ⚠️ 크로마키 색은 초록 고정이 아니라 캐릭터 색상 보고 매번 판단할 것(2026-07-31,
 # 사용자 지적: "항상 초록색이면 안된다, 오이같은거면 초록으로하면 씹창난다") —
-# 돼지감자처럼 갈색/베이지/살구색 캐릭터는 초록(#00FF00)이 안전하지만, 오이·상추·
-# 브로콜리·시금치처럼 캐릭터 자체가 초록 계열이면 초록 배경과 겹쳐서 colorkey가
-# 캐릭터 몸통까지 지워버린다 — 이런 경우는 파란색(#0000FF) 또는 마젠타(#FF00FF)
-# 등 캐릭터 색과 절대 안 겹치는 색으로 bg_color_name/bg_color_hex를 바꿔서 호출한다.
+# 오이·상추·브로콜리·시금치처럼 캐릭터 자체가 초록 계열이면 초록 배경과 겹쳐서
+# colorkey가 캐릭터 몸통까지 지워버리니 그 색은 후보에서 뺀다.
+# ⚠️ 안전한 색이 여럿이어도 항상 초록만 쓰지 말 것(2026-08-01, "죄다 초록색이니까
+# 인스타에서 보기가 좀 그렇네" 피드백) — 아래 pick_bg_color()로 안 겹치는 후보
+# 중에서 매번 무작위로 고른다. 캐릭터 색이 뭐랑 겹치는지 판단하는 것 자체는
+# 여전히 세션이 직접 해서 avoid에 넘겨야 한다(자동 색상 인식 아님).
 STYLE_PROMPT = (
     "귀여운 3D 카툰 스타일 캐릭터 일러스트. 대상: {item}. "
     "눈, 코, 입은 얼굴 크기 대비 큼직하고 뚜렷하게 그려서(특히 입은 벌렸을 때 표정이 확실히 "
@@ -40,6 +43,26 @@ STYLE_PROMPT = (
     "그림자 무늬를 넣지 않는다. "
     "정사각형 구도, 텍스트나 글자는 절대 넣지 않음, 로고나 워터마크 없음."
 )
+
+# WHY 랜덤 배경색(2026-08-01): 여태 안전한 캐릭터(갈색/베이지 등)엔 매번 기본값 초록을
+# 그대로 썼더니, 캐릭터 배지가 인스타 피드에 연달아 올라올 때 죄다 초록빛 톤으로
+# 비슷해 보인다는 피드백 — 안전한 색이 여러 개면 그중 하나로 고정하지 말고 매번
+# 랜덤으로 고른다(타입캐스트 보이스 랜덤 선택과 같은 패턴). 지금까지 만든 캐릭터는
+# 이미 과금 완료된 상태라 재작업 안 함, 새 캐릭터부터 적용.
+BG_COLOR_CANDIDATES = [("초록", "#00FF00"), ("파란", "#0000FF"), ("마젠타", "#FF00FF")]
+
+
+def pick_bg_color(avoid: list[str] | None = None) -> tuple[str, str]:
+    """캐릭터 색상과 겹치는 후보를 avoid(색 이름, 예: ["초록"])로 빼고 나머지 중
+    무작위로 (bg_color_name, bg_color_hex)를 고른다. 캐릭터 색을 판단하는 건 이
+    함수가 아니라 호출하는 쪽(세션)의 몫 — 예: 오이·상추·브로콜리처럼 초록 계열
+    캐릭터면 avoid=["초록"]으로 호출. 후보가 다 제외되면(캐릭터가 초록·파랑·
+    마젠타 다 겹치는 특이 케이스) ValueError를 내니, 그런 경우엔 이 3색 밖의
+    색을 직접 정해서 generate_illustration()에 명시로 넘길 것."""
+    candidates = [c for c in BG_COLOR_CANDIDATES if c[0] not in (avoid or [])]
+    if not candidates:
+        raise ValueError(f"모든 기본 배경색 후보가 avoid에 걸림: {avoid} — 직접 색을 정해서 호출할 것")
+    return random.choice(candidates)
 
 
 def _headers():

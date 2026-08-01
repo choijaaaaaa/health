@@ -231,7 +231,20 @@ Pexels·Unsplash를 같이 검색해 후보를 `assets_library/real/_candidates/
   `bg_color_name="마젠타"/bg_color_hex="#FF00FF"`처럼 캐릭터 색과 절대 안 겹치는 색으로
   바꿔서 `generate_illustration()`을 호출하고, `video_assembler.py`의 `--bg-color`도 반드시
   같은 값으로 맞춘다. 새 캐릭터 만들기 전에 "이 채소/과일이 크로마키 배경색과 겹치는 색인가?"
-  를 항상 먼저 판단할 것 — 갈색/베이지/빨강/노랑 계열이면 초록 기본값 그대로 안전.
+  를 항상 먼저 판단할 것.
+
+  ⚠️ **겹치는 색이 없어도 초록을 기본값으로 고정해서 쓰지 말 것**(2026-08-01, "죄다
+  초록색이니까 인스타에서 보기가 좀 그렇네" 피드백 — 지금까지 만든 건 이미 과금
+  완료라 재작업 안 하고, 새 캐릭터부터 적용): `lib/gemini_illust.py`의
+  `pick_bg_color(avoid=[...])`를 호출해서 캐릭터 색과 겹치는 것만 `avoid`로 빼고
+  나머지(초록/파란/마젠타) 중 무작위로 고른다 — 타입캐스트 보이스 랜덤 선택과 같은
+  패턴. 캐릭터 색이 뭐랑 겹치는지 판단하는 건 여전히 세션 몫(자동 인식 아님), 예:
+  ```python
+  from lib.gemini_illust import pick_bg_color, generate_illustration
+  name, hex_ = pick_bg_color(avoid=["초록"])  # 오이·상추처럼 초록 계열 캐릭터
+  generate_illustration(item_name, bg_color_name=name, bg_color_hex=hex_)
+  ```
+  고른 색은 `video_assembler.py`의 `--bg-color`에도 그대로 맞춰야 하는 것은 동일.
 - ⚠️ **hex 색상 문자열을 `.upper()`로 비교할 땐 비교 대상 리터럴도 반드시 대문자로**
   (2026-07-31 실제로 터진 버그): `"0x00FF00".upper()`는 `"0X00FF00"`이 되어(x까지
   대문자화) 소문자 x가 섞인 리터럴 `"0x00FF00"`과 영원히 같아질 수 없다 —
