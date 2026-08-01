@@ -203,7 +203,10 @@
      읽어서 완성된 콘텐츠 목록을 루트에서 바로 보여준다. -->
 <div id="topicsSection" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:none;">
   <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 12px;">완성된 콘텐츠</h2>
+  <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
+    style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:10px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
   <div id="topicsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+  <div id="topicsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
 </div>
 
 <div class="layout">
@@ -258,24 +261,42 @@
 <script>
 const TOPIC_DONE_PREFIX = "hs_topic_done_";
 
+// WHY(2026-08-01): 폴더명(가슴쓰림유발음식_1 등)을 보고 목록에서 찾아 들어가는
+// 습관인데 기존엔 훅 제목만 보여서 어떤 폴더인지 확인이 어려웠다 — 폴더명을
+// 따로 보이게 하고, 목록 자체도 폴더명 ㄱ~ㅎ 오름차순(topics.json 정렬 기준)으로
+// 오게 한 뒤, 폴더명 검색까지 추가한다. 19개 수준에선 스크롤로 충분해서 페이징은
+// 넣지 않음 — 나중에 topic이 많이 늘어나면 그때 추가 검토.
 fetch("output/topics.json")
   .then(r => r.ok ? r.json() : [])
   .then(topics => {
     if (!topics.length) return;
     const list = document.getElementById("topicsList");
+    const empty = document.getElementById("topicsEmpty");
+    const rows = [];
     topics.forEach(t => {
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
 
       const checkbox = document.createElement("input");
       checkbox.type = "checkbox";
+      checkbox.setAttribute("aria-label", t.topic + " 완료 표시");
       checkbox.style.cssText = "width:18px;height:18px;flex:0 0 auto;cursor:pointer;accent-color:var(--accent);";
       checkbox.checked = localStorage.getItem(TOPIC_DONE_PREFIX + t.topic) === "1";
 
+      const textWrap = document.createElement("div");
+      textWrap.style.cssText = "flex:1;min-width:0;";
+
       const a = document.createElement("a");
       a.href = t.url;
-      a.textContent = t.title;
-      a.style.cssText = "flex:1;color:var(--ink);text-decoration:none;font-size:14px;";
+      a.textContent = t.topic;
+      a.style.cssText = "display:block;color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;";
+
+      const titleLine = document.createElement("div");
+      titleLine.textContent = t.title;
+      titleLine.style.cssText = "font-size:12px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
+
+      textWrap.appendChild(a);
+      textWrap.appendChild(titleLine);
 
       function applyDoneStyle(done) {
         row.style.opacity = done ? "0.45" : "1";
@@ -294,10 +315,23 @@ fetch("output/topics.json")
       });
 
       row.appendChild(checkbox);
-      row.appendChild(a);
+      row.appendChild(textWrap);
       list.appendChild(row);
+      rows.push({ row, topic: t.topic });
     });
     document.getElementById("topicsSection").style.display = "block";
+
+    const searchInput = document.getElementById("topicSearch");
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      let visibleCount = 0;
+      rows.forEach(({ row, topic }) => {
+        const match = topic.toLowerCase().includes(q);
+        row.style.display = match ? "flex" : "none";
+        if (match) visibleCount++;
+      });
+      empty.style.display = visibleCount === 0 ? "block" : "none";
+    });
   })
   .catch(() => {});
 

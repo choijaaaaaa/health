@@ -685,7 +685,7 @@ def _update_topics_index(out_path: str):
             except (json.JSONDecodeError, OSError):
                 pass
         topics.append({"topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html"})
-    topics.sort(key=lambda t: t["topic"], reverse=True)
+    topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
 
 
