@@ -381,6 +381,35 @@ def _build_background(images: list[str], total_duration: float, out_path: Path, 
         )
 
 
+def _build_background_schedule(
+    schedule: list[tuple[float, float, list[str]]], total_duration: float, out_path: Path,
+):
+    """배경 사진도 캐릭터처럼 구간별로 맞춰야 하는 경우(품목별 실사진이 있는 topic).
+    WHY(2026-07-31, 당뇨유발음식_1 — 단팥빵 나레이션 구간에 찹쌀떡 사진이 나오는 문제
+    발견): 기존 _build_background는 이미지 개수만큼 전체 길이를 균등 분할해서
+    나레이션 타이밍과 무관하게 순서대로 보여줬다 — _build_character_schedule과
+    동일한 패턴으로, 구간마다 그 구간에 맞는 사진(들)만 골라 별도로 배경을 만들고
+    이어붙인다. 각 구간 안에 사진이 여러 장이면 그 구간 안에서만 크로스페이드된다."""
+    schedule = sorted(schedule, key=lambda x: x[0])
+    with tempfile.TemporaryDirectory() as tmp:
+        tmp_path = Path(tmp)
+        seg_paths = []
+        for i, (start, end, imgs) in enumerate(schedule):
+            dur = min(end, total_duration) - start
+            if dur <= 0.02:
+                continue
+            seg = tmp_path / f"bg_seg_{i:03d}.mp4"
+            _build_background(imgs, dur, seg)
+            seg_paths.append(seg)
+        list_path = tmp_path / "bg_list.txt"
+        list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
+             "-c", "copy", str(out_path)],
+            check=True, capture_output=True,
+        )
+
+
 def assemble(
     images: list[str],
     motion_path: str | None,
@@ -402,6 +431,11 @@ def assemble(
     # 0초부터 — assemble 내부에서 제목 카드만큼 알아서 밀어준다. motion_path와
     # motion_schedule 둘 다 없으면 에러, 둘 다 있으면 motion_schedule 우선.
     motion_schedule: list[tuple[float, float, str]] | None = None,
+    # WHY image_schedule(2026-07-31, 당뇨유발음식_1 — 단팥빵 나레이션 구간에 찹쌀떡
+    # 사진이 나오는 문제 발견): motion_schedule과 동일한 패턴. [(start, end,
+    # [이미지경로,...]), ...]로 주면 images 대신 이 스케줄로 배경을 만든다 — 품목별
+    # 실사진이 있는 topic(여러 캐릭터가 번갈아 나오는 topic)은 배경도 같이 맞출 것.
+    image_schedule: list[tuple[float, float, list[str]]] | None = None,
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
@@ -422,7 +456,10 @@ def assemble(
             _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
         bg = tmp_path / "bg.mp4"
-        _build_background(images, total_duration, bg)
+        if image_schedule:
+            _build_background_schedule(image_schedule, total_duration, bg)
+        else:
+            _build_background(images, total_duration, bg)
 
         # 1) 인트로 구간: 캐릭터 크게, 중앙. WHY intro_duration<=0이면 통째로 스킵
         # (2026-07-31, "5초 뒤에 우하단으로 옮기지 말고 처음부터 우하단에 있게"):
