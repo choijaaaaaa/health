@@ -14,11 +14,14 @@ from PIL import Image
 
 from lib.video_assembler import (
     FPS,
+    H,
+    W,
     _build_background_schedule,
     _build_chalkboard_bg,
     _build_character_schedule,
     _make_chalk_caption_png,
     _parse_srt,
+    _place_chalk_doodle,
     assemble,
     make_gradient_bg,
 )
@@ -183,6 +186,33 @@ class TestChalkboardBackground:
         # 최소 확인 — 폰트 로드 실패 등으로 빈 캔버스만 저장되는 회귀를 잡는다.
         alpha = img.getchannel("A")
         assert alpha.getextrema()[1] > 0, "캡션 PNG에 불투명 픽셀이 없음 — 텍스트가 안 그려진 것으로 보임"
+
+    def test_build_chalkboard_bg_with_doodle_seed_still_produces_valid_video(self, tmp_path):
+        """WHY(2026-08-02, "파츠같은거 귀여운거 랜덤으로 칠판 모서리쪽에 추가"):
+        doodle_seed를 줘도 기존 배경 생성 자체가 깨지지 않는지 확인 — 낙서
+        합성이 canvas 모드 변환(RGB<->RGBA)을 잘못 건드리면 ffmpeg 인코딩
+        단계에서 바로 실패한다."""
+        out_path = tmp_path / "chalk_bg_doodle.mp4"
+        duration = 1.5
+        _build_chalkboard_bg(duration, out_path, doodle_seed="테스트토픽_1")
+
+        assert out_path.exists()
+        dur = _ffprobe_duration(out_path)
+        assert dur == pytest.approx(duration, abs=0.2)
+
+    def test_place_chalk_doodle_is_deterministic_per_seed(self):
+        """같은 topic을 재조립해도 매번 낙서가 안 바뀌어야 재현 가능하다."""
+        canvas1 = Image.new("RGBA", (W, H), (32, 66, 48, 255))
+        canvas2 = Image.new("RGBA", (W, H), (32, 66, 48, 255))
+        result1 = _place_chalk_doodle(canvas1, "동일토픽_1", top_pad=220)
+        result2 = _place_chalk_doodle(canvas2, "동일토픽_1", top_pad=220)
+        assert result1.tobytes() == result2.tobytes()
+
+    def test_place_chalk_doodle_stays_within_canvas(self):
+        """낙서가 캔버스 밖으로 나가서 조용히 잘리거나 예외를 내지 않는지 확인."""
+        canvas = Image.new("RGBA", (W, H), (32, 66, 48, 255))
+        result = _place_chalk_doodle(canvas, "다른토픽_1", top_pad=220)
+        assert result.size == (W, H)
 
 
 class TestAssembleFpsRegression:

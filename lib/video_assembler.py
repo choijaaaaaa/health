@@ -11,6 +11,8 @@
 # 피할 수 있다(2026-07-29 cat-fight 작업에서 확인).
 from __future__ import annotations
 
+import math
+import random
 import re
 import subprocess
 import sys
@@ -168,7 +170,7 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
         lines.append(cur)
 
     line_h = font_size + 16
-    pad_y = 30
+    pad_y = 50
     box_h = pad_y * 2 + line_h * len(lines)
 
     has_photo = photo_img is not None or photo_path
@@ -319,6 +321,124 @@ def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=9
         draw.text((x, y - bbox[1]), line, font=font, fill=(255, 255, 255, 255))
         y += lh + gap
     img.save(out_path)
+
+
+# WHY 칠판 모서리 낙서(2026-08-02, "파츠같은거 귀여운거 랜덤으로 칠판 모서리쪽에
+# 추가하는게 어떨까 싶어 너무 휑하고 별로야"): 칠판 배경이 실사진 그대로라 텍스트가
+# 없는 구간이 휑하다는 지적 — 실제 이미지 생성 없이 PIL 도형만으로 그린 작은
+# 분필 낙서(별·하트·반짝임·음표·스마일리)를 캡션과 같은 흰색+옅은 그림자 톤으로
+# 그려서 칠판 모서리에 하나씩 얹는다. `_stroke_shape`가 캡션과 동일한 그림자 기법
+# (오프셋 +3,+3, 검정 alpha 110)을 재사용해서 톤을 맞춘다.
+_DOODLE_SIZE = 130
+
+
+def _doodle_canvas() -> Image.Image:
+    return Image.new("RGBA", (_DOODLE_SIZE, _DOODLE_SIZE), (0, 0, 0, 0))
+
+
+def _stroke_shape(draw_fn) -> Image.Image:
+    shadow = _doodle_canvas()
+    draw_fn(ImageDraw.Draw(shadow), (3, 3), (0, 0, 0, 110))
+    img = _doodle_canvas()
+    draw_fn(ImageDraw.Draw(img), (0, 0), (255, 255, 255, 255))
+    return Image.alpha_composite(shadow, img)
+
+
+def _doodle_star() -> Image.Image:
+    cx, cy, r_outer, r_inner = _DOODLE_SIZE / 2, _DOODLE_SIZE / 2, 46, 19
+    pts = []
+    for i in range(10):
+        ang = math.pi / 2 + i * math.pi / 5
+        r = r_outer if i % 2 == 0 else r_inner
+        pts.append((cx + r * math.cos(ang), cy - r * math.sin(ang)))
+
+    def draw(d, off, color):
+        p = [(x + off[0], y + off[1]) for x, y in pts]
+        d.line(p + [p[0]], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_heart() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([20 + ox, 15 + oy, 68 + ox, 63 + oy], 130, 360, fill=color, width=5)
+        d.arc([62 + ox, 15 + oy, 110 + ox, 63 + oy], 180, 50, fill=color, width=5)
+        d.line([(21 + ox, 40 + oy), (65 + ox, 105 + oy)], fill=color, width=5, joint="curve")
+        d.line([(109 + ox, 40 + oy), (65 + ox, 105 + oy)], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_sparkle() -> Image.Image:
+    def draw(d, off, color):
+        cx, cy = _DOODLE_SIZE / 2 + off[0], _DOODLE_SIZE / 2 + off[1]
+        for ang in (0, 90, 180, 270):
+            rad = math.radians(ang)
+            x2, y2 = cx + 42 * math.cos(rad), cy + 42 * math.sin(rad)
+            d.line([(cx, cy), (x2, y2)], fill=color, width=5)
+        for ang in (45, 135, 225, 315):
+            rad = math.radians(ang)
+            x2, y2 = cx + 20 * math.cos(rad), cy + 20 * math.sin(rad)
+            d.line([(cx, cy), (x2, y2)], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_note() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([20 + ox, 78 + oy, 46 + ox, 100 + oy], outline=color, width=5)
+        d.line([(44 + ox, 89 + oy), (44 + ox, 25 + oy)], fill=color, width=5)
+        d.line([(44 + ox, 25 + oy), (78 + ox, 35 + oy)], fill=color, width=5, joint="curve")
+        d.line([(78 + ox, 35 + oy), (78 + ox, 55 + oy)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_smiley() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 15 + oy, 115 + ox, 115 + oy], outline=color, width=5)
+        d.ellipse([42 + ox, 48 + oy, 52 + ox, 58 + oy], fill=color)
+        d.ellipse([78 + ox, 48 + oy, 88 + ox, 58 + oy], fill=color)
+        d.arc([40 + ox, 55 + oy, 90 + ox, 90 + oy], 20, 160, fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+_DOODLES = [_doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley]
+
+# WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작하는
+# y좌표를 픽셀 스캔으로 구함(위/아래 흰 여백·나무 프레임을 제외한 순수 판서면 시작점).
+# 이 사진 자체를 바꾸지 않는 한 다시 잴 필요 없음 — CHALKBOARD_CROP_LEFT/RIGHT와
+# 같은 성격의 상수.
+_CHALKBOARD_GREEN_TOP_ORIG = 142
+
+
+def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int) -> Image.Image:
+    """칠판 판서면의 위쪽 모서리(왼쪽 또는 오른쪽) 한 곳에 낙서를 하나 얹는다.
+    WHY 위쪽 모서리로만 제한하는지: 자막은 판서면 세로 중앙에, 캐릭터는 항상
+    오른쪽 아래 모서리에 나온다 — 왼쪽/오른쪽 위 모서리는 이 topic이 몇 초짜리든,
+    자막이 몇 줄이든 겹칠 일이 없는 유일한 안전 지대다. WHY seed로 topic을 쓰는지:
+    같은 topic을 재조립해도 매번 낙서가 안 바뀌게(재현 가능) — card_news.py의
+    _photo_backdrop과 같은 패턴."""
+    rng = random.Random(seed)
+    doodle = rng.choice(_DOODLES)()
+    size = rng.randint(85, 115)
+    doodle = doodle.resize((size, size))
+    angle = rng.uniform(-12, 12)
+    doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
+
+    cropped_w = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
+    scale = (W / cropped_w) * CHALKBOARD_ZOOM
+    green_top_canvas = round(top_pad + _CHALKBOARD_GREEN_TOP_ORIG * scale)
+
+    margin, top_gap = 30, 25
+    x = margin if rng.random() < 0.5 else W - doodle.width - margin
+    y = green_top_canvas + top_gap
+    canvas.alpha_composite(doodle, (x, y))
+    return canvas
 
 
 def _build_character_segment(motion_path: str, duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
@@ -528,7 +648,8 @@ def _chalkboard_display_height() -> int:
 
 
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
-                          photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None):
+                          photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
+                          doodle_seed: str | None = None):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -559,7 +680,12 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
     서로 다른 배율/영역이 잘려서 이어지는 사진처럼 안 보인다 — assemble()이 캔버스
     전체(W x H) 크기로 미리 한 번만 만든 이미지를 photo_bg_img로 넘기면, 배너와
     여기 둘 다 같은 이미지의 위/아래 조각을 잘라 쓰게 되어 하나로 이어져 보인다.
-    photo_bg_img가 있으면 photo_bg_path는 무시한다."""
+    photo_bg_img가 있으면 photo_bg_path는 무시한다.
+
+    WHY doodle_seed(2026-08-02, "파츠같은거 귀여운거 랜덤으로 칠판 모서리쪽에
+    추가하는게 어떨까 싶어 너무 휑하고 별로야"): 판서면 위쪽 모서리에 작은 분필
+    낙서를 하나 얹어서 빈 배경이 휑해 보이는 걸 덜어낸다 — `_place_chalk_doodle`
+    참고. 안 주면(기존 호출부·테스트 호환) 낙서 없이 그대로."""
     with tempfile.TemporaryDirectory() as tmp:
         photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
         cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
@@ -590,6 +716,9 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
         else:
             canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
             canvas.paste(resized, (0, effective_top_pad))
+
+        if doodle_seed:
+            canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad).convert("RGB")
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -770,7 +899,8 @@ def assemble(
 
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
-            _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo)
+            _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
+                                  doodle_seed=Path(out_path).stem)
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
@@ -876,22 +1006,39 @@ def assemble(
             subprocess.run(
                 ["ffmpeg", "-y",
                  "-i", str(combined),
-                 "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
-                 "-loop", "1", "-t", f"{video_total}", "-i", str(ad_png),
+                 "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(title_png),
+                 "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(ad_png),
                  "-filter_complex",
                  f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[t];"
                  f"[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[v]",
-                 "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                 "-map", "[v]", "-r", str(FPS), "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
         else:
             subprocess.run(
-                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-t", f"{video_total}", "-i", str(title_png),
+                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(title_png),
                  "-filter_complex", f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[v]",
-                 "-map", "[v]", "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+                 "-map", "[v]", "-r", str(FPS), "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
                 check=True, capture_output=True,
             )
         combined = titled
+
+        # WHY 자막 합성 전 CFR 재인코딩(2026-08-02 버그 수정): combined는 title_card_out+
+        # main_out+end_card_out을 "-f concat -c copy"(스트림 복사)로 이어붙인 뒤 배너를
+        # 얹은 결과라, 이어붙인 지점의 PTS/GOP 구조가 살짝 불규칙해질 수 있다 — 특히 정적인
+        # 칠판 배경처럼 장면 변화가 거의 없는 구간에서 x264가 비정상적으로 긴 B-프레임
+        # 체인을 잡으면, 바로 다음 자막 오버레이 단계에서 overlay 필터가 PTS를 맞추는 동안
+        # 자막이 최대 1~2초 안 보이는 사고로 이어졌다(사용자가 "목소리가 자막보다 먼저
+        # 나간다"로 실제 발견 — 골다공증_1의 8초 넘는 긴 자막 구간에서 재현). 자막을 얹기
+        # 직전에 한 번 깨끗하게 고정 프레임레이트로 재인코딩해서 이후 모든 세그먼트 오버레이가
+        # 규칙적인 프레임 구조 위에서 이뤄지게 한다.
+        normalized = tmp_path / "normalized.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", str(combined), "-r", str(FPS), "-vsync", "cfr",
+             "-c:v", "libx264", "-pix_fmt", "yuv420p", str(normalized)],
+            check=True, capture_output=True,
+        )
+        combined = normalized
 
         # 4) 자막 굽기 (문장 구간별로 짧게 잘라 처리 — 안전한 세그먼트 방식)
         # WHY offset: 자막 타이밍은 오디오(나레이션) 기준 0초부터라, 제목 카드만큼
@@ -947,17 +1094,31 @@ def assemble(
                     f"{caption_center_y}-overlay_h/2" if caption_center_y is not None
                     else "main_h-overlay_h-620"
                 )
+                # WHY -r 명시 + trim 필터로 전환(2026-08-02 버그 수정): 원래
+                # "-ss {start} -t {dur} -i combined"(입력 단 seek)로 잘랐는데, 이 방식은
+                # combined처럼 키프레임이 드문(정적인 칠판 배경이라 대부분 장면이 안 바뀜)
+                # 영상에서 seek 지점 근처 프레임을 정확히 못 낼 때가 있었다 — 캐릭터/배경은
+                # 이미 맞는 시점으로 나오는데 overlay되는 자막 PNG만 최대 1~2초 가까이
+                # 안 보이는 사고로 이어졌다(사용자가 "목소리가 자막보다 먼저 나간다"로 실제
+                # 발견, 재현 테스트로 combined 입력을 거칠 때만 재현되고 단독 오버레이는
+                # 문제없음을 확인). "-i combined" 통째로 열고 trim 필터로 정확히 잘라내는
+                # 방식(디코드 기반이라 느리지만 항상 정확함)으로 바꿔서 해결. 자막 PNG 루프
+                # 입력에도 -r을 명시해 두 입력의 프레임레이트를 맞춘다(overlay 프레임 동기화
+                # 안전장치, 위 trim 수정과는 별개 원인이었지만 같이 방어).
                 subprocess.run(
-                    ["ffmpeg", "-y", "-ss", f"{start}", "-t", f"{dur}", "-i", str(combined),
-                     "-loop", "1", "-t", f"{dur}", "-i", str(cap_png),
-                     "-filter_complex", f"[0:v][1:v]overlay=x=(main_w-overlay_w)/2:y={cap_y_expr}[v]",
-                     "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
+                    ["ffmpeg", "-y", "-i", str(combined),
+                     "-loop", "1", "-r", str(FPS), "-t", f"{dur}", "-i", str(cap_png),
+                     "-filter_complex",
+                     f"[0:v]trim=start={start}:duration={dur},setpts=PTS-STARTPTS[bg];"
+                     f"[bg][1:v]overlay=x=(main_w-overlay_w)/2:y={cap_y_expr}[v]",
+                     "-map", "[v]", "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
                     check=True, capture_output=True,
                 )
             else:
                 subprocess.run(
-                    ["ffmpeg", "-y", "-ss", f"{start}", "-t", f"{dur}", "-i", str(combined),
-                     "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
+                    ["ffmpeg", "-y", "-i", str(combined),
+                     "-filter_complex", f"[0:v]trim=start={start}:duration={dur},setpts=PTS-STARTPTS[v]",
+                     "-map", "[v]", "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
                     check=True, capture_output=True,
                 )
             seg_paths.append(seg)
