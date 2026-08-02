@@ -479,7 +479,79 @@ def _doodle_smiley() -> Image.Image:
     return _stroke_shape(draw)
 
 
-_DOODLES = [_doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley]
+def _doodle_cloud() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 55 + oy, 55 + ox, 90 + oy], outline=color, width=5)
+        d.ellipse([40 + ox, 38 + oy, 85 + ox, 82 + oy], outline=color, width=5)
+        d.ellipse([70 + ox, 55 + oy, 112 + ox, 92 + oy], outline=color, width=5)
+        d.line([(20 + ox, 88 + oy), (108 + ox, 88 + oy)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_rainbow() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        for i, r in enumerate((48, 36, 24)):
+            d.arc([15 + ox + i * 12, 15 + oy + i * 12, 115 + ox - i * 12, 130 + oy - i * 12],
+                  180, 360, fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_clover() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 65 + ox, 65 + oy
+        for dx, dy in ((-18, -18), (18, -18), (-18, 18), (18, 18)):
+            d.ellipse([cx + dx - 20, cy + dy - 20, cx + dx + 20, cy + dy + 20], outline=color, width=5)
+        d.line([(cx, cy), (cx + 6, cy + 40)], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_speech_bubble() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([15 + ox, 20 + oy, 115 + ox, 88 + oy], radius=16, outline=color, width=5)
+        d.line([(35 + ox, 87 + oy), (30 + ox, 108 + oy), (55 + ox, 88 + oy)], fill=color, width=5, joint="curve")
+        font = ImageFont.truetype(CHALK_FONT_PATH, 40)
+        d.text((65 + ox, 34 + oy), "?", font=font, fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_ribbon() -> Image.Image:
+    """리본/보우 매듭 — 처음엔 아래로 늘어지는 꼬리까지 그렸는데 작게 축소·회전되면
+    꼬리 선이 뭉개져서 나비 모양처럼 안 보이는 문제가 있었다(2026-08-02 실제 렌더
+    확인) — 매듭 두 날개 + 중앙 원만 남겨서 작은 크기에서도 리본으로 읽히게 단순화."""
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 65 + ox, 65 + oy
+        d.polygon([(cx, cy), (cx - 44, cy - 30), (cx - 44, cy + 30)], outline=color, width=5)
+        d.polygon([(cx, cy), (cx + 44, cy - 30), (cx + 44, cy + 30)], outline=color, width=5)
+        d.ellipse([cx - 13, cy - 13, cx + 13, cy + 13], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_paw() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([35 + ox, 55 + oy, 95 + ox, 105 + oy], outline=color, width=5)
+        d.ellipse([25 + ox, 25 + oy, 47 + ox, 50 + oy], outline=color, width=4)
+        d.ellipse([53 + ox, 15 + oy, 75 + ox, 40 + oy], outline=color, width=4)
+        d.ellipse([83 + ox, 25 + oy, 105 + ox, 50 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+_DOODLES = [
+    _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
+    _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
+    _doodle_ribbon, _doodle_paw,
+]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
 # y좌표를 픽셀 스캔으로 구함(위/아래 흰 여백·나무 프레임을 제외한 순수 판서면 범위).
@@ -488,27 +560,37 @@ _DOODLES = [_doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_
 _CHALKBOARD_GREEN_TOP_ORIG = 142
 _CHALKBOARD_GREEN_BOTTOM_ORIG = 866
 
-# WHY 옛날 교실 감성 문구(2026-08-02, "옛날 감성나는 칠판 주번... 그런것들 들어가면
-# 딱 좋을거같아서"): 실존 인물을 가리키지 않는 흔한 조합 이름(가상의 "홍길동"류)만
-# 골라서, 실제 학급 게시물처럼 보이는 작은 명패를 왼쪽 아래 모서리에 하나 얹는다.
-_JUBAN_NAMES = ["김민지", "이준서", "박서연", "최도윤", "정하은", "강지호", "윤서아", "임하준"]
+# WHY 익명 느낌 성+OO(2026-08-02, "주번에 이름이 뜨는데 이XX 김XX 이런식으로
+# 들어가게 해... 익명느낌으로 귀엽게"): 처음엔 "김민지"처럼 완성된 가상 이름을
+# 썼는데, 실제 인물처럼 보일 수 있으니 실제 신상 정보를 가리는 흔한 관행대로
+# 성만 밝히고 이름 자리는 "OO"로 채운다("김OO", "이OO" 등) — 실존 인물 지칭
+# 없이도 옛날 교실 게시물 감성은 그대로 유지된다.
+_SURNAMES = ["김", "이", "박", "최", "정", "강", "윤", "임", "조", "장", "한", "오"]
 
 
-def _doodle_juban_box(name: str) -> Image.Image:
-    """분필체로 "주번 OOO" 글자를 얇은 사각 테두리로 감싼 작은 명패 — 실제 교실
-    칠판 모서리에 붙던 주번 표시판을 흉내낸다."""
-    text = f"주번 {name}"
-    font = ImageFont.truetype(CHALK_FONT_PATH, 30)
+def _anon_name(rng: random.Random) -> str:
+    return f"{rng.choice(_SURNAMES)}OO"
+
+
+def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False) -> Image.Image:
+    """분필체 글자를 사각 테두리로 감싼 작은 명패 — 주번/떠든 사람/급훈 액자가
+    전부 이 틀을 재사용하고 테두리 스타일(단선/이중선)만 다르게 쓴다."""
+    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
     pad_x, pad_y = 16, 10
     dummy = Image.new("RGBA", (1, 1))
     bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    box_w, box_h = tw + pad_x * 2, th + pad_y * 2
+    inner_pad = 6 if double_border else 0
+    box_w, box_h = tw + pad_x * 2 + inner_pad * 2, th + pad_y * 2 + inner_pad * 2
 
     def draw(d, off, color):
         ox, oy = off
         d.rectangle([2 + ox, 2 + oy, box_w - 2 + ox, box_h - 2 + oy], outline=color, width=3)
-        d.text((pad_x - bbox[0] + ox, pad_y - bbox[1] + oy), text, font=font, fill=color)
+        if double_border:
+            d.rectangle([2 + inner_pad + ox, 2 + inner_pad + oy,
+                         box_w - 2 - inner_pad + ox, box_h - 2 - inner_pad + oy], outline=color, width=2)
+        d.text((pad_x + inner_pad - bbox[0] + ox, pad_y + inner_pad - bbox[1] + oy),
+               text, font=font, fill=color)
 
     shadow = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
     draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 100))
@@ -517,32 +599,106 @@ def _doodle_juban_box(name: str) -> Image.Image:
     return Image.alpha_composite(shadow, img)
 
 
-def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 2) -> Image.Image:
-    """칠판 판서면 위쪽 양쪽 모서리에 낙서를 여러 개(기본 한쪽당 2개) 흩뿌리고,
-    왼쪽 아래 모서리엔 "주번 OOO" 명패를 하나 얹는다.
+def _topic_word_from_seed(seed: str) -> str:
+    """doodle_seed(예: "손발저림_1_shorts")에서 topic 폴더명의 카테고리 단어만
+    뽑아낸다("손발저림") — "급훈" 액자에 넣을 한 단어 요약으로 쓴다. topic
+    폴더명 자체가 이미 "카테고리_번호" 규칙이라(위 "topic 폴더명" 절 참고)
+    번호만 떼면 바로 쓸 수 있는 단어가 나온다."""
+    word = seed[: -len("_shorts")] if seed.endswith("_shorts") else seed
+    return re.sub(r"_\d+$", "", word)
 
-    WHY 위쪽 모서리로만 도형을 흩뿌리는지: 자막은 판서면 세로 중앙에, 캐릭터는
-    항상 오른쪽 아래 모서리에 나온다 — 왼쪽/오른쪽 위 모서리는 이 topic이 몇
-    초짜리든, 자막이 몇 줄이든 겹칠 일이 없는 유일한 안전 지대다.
-    WHY 처음엔 한쪽에 하나였다가 늘렸는지(2026-08-02, "좀 많았으면 하는데...
-    너무 적은데 오히려 좀 더 화려하게 갔으면 싶어"): 실제 영상으로 보니 낙서
-    하나로는 휑함이 거의 안 가려졌다 — 양쪽 모서리에 서로 다른 도형을 2개씩
-    묶어서(겹침 방지 로직 포함) 훨씬 장식적으로 만들었다.
-    WHY 왼쪽 아래에 "주번" 명패를 추가로 얹는지(2026-08-02, "옛날 감성나는 칠판
-    주번... 그런것들 들어가면 딱 좋을거같아서"): 실제 교실 칠판 느낌을 살리는
-    포인트 — 캐릭터가 항상 오른쪽 아래에 있어서 왼쪽 아래는 비어있는 유일한
-    하단 모서리다. 판서면 세로 중앙의 자막과 겹치지 않게 판서면 맨 아래쪽 끝에
-    바짝 붙여서 배치한다.
-    WHY seed로 topic을 쓰는지: 같은 topic을 재조립해도 매번 낙서·명패 이름이
-    안 바뀌게(재현 가능) — card_news.py의 _photo_backdrop과 같은 패턴."""
-    rng = random.Random(seed)
+
+# WHY 칠판 좌표 변환 헬퍼(2026-08-02, 분필통·급훈 액자 추가하며 정리): 원본
+# 칠판.png 픽셀 좌표를 최종 캔버스 좌표로 바꾸는 계산이 낙서 배치에 이미 있었는데,
+# 분필통 트레이 위치도 같은 변환이 필요해서 공용 함수로 뽑았다 — 크롭/줌 상수가
+# 바뀌면 이 함수 한 곳만 고치면 모든 모서리 장식이 같이 맞아떨어진다.
+def _chalkboard_orig_to_canvas(x_orig: float, y_orig: float, top_pad: int) -> tuple[float, float]:
     cropped_w = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
     scale = (W / cropped_w) * CHALKBOARD_ZOOM
-    green_top_canvas = round(top_pad + _CHALKBOARD_GREEN_TOP_ORIG * scale)
-    green_bottom_canvas = round(top_pad + _CHALKBOARD_GREEN_BOTTOM_ORIG * scale)
+    left_offset = (cropped_w * scale - W) / 2
+    x = (x_orig - CHALKBOARD_CROP_LEFT) * scale - left_offset
+    y = y_orig * scale + top_pad
+    return x, y
+
+
+# WHY 실측 상수 — 분필 받침대(2026-08-02, "나무받침대랑 분필조각, 지우개까지 다
+# 추가하고"): 칠판.png에서 판서면 아래로 튀어나온 나무 받침대(칠판이 서있는
+# 스탠드)의 픽셀 범위를 스캔해서 구함 — 이 사진을 바꾸지 않는 한 다시 잴 필요
+# 없음. 오른쪽은 코너 캐릭터 자리와 겹치니 왼쪽 절반만 쓴다.
+_CHALKBOARD_TRAY_LEFT_ORIG = 310
+_CHALKBOARD_TRAY_RIGHT_ORIG = 713
+_CHALKBOARD_TRAY_TOP_ORIG = 869
+_CHALKBOARD_TRAY_BOTTOM_ORIG = 923
+
+
+def _doodle_chalk_stick() -> Image.Image:
+    w, h = 46, 16
+    img = Image.new("RGBA", (w + 6, h + 6), (0, 0, 0, 0))
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([3 + ox, 3 + oy, w + 3 + ox, h + 3 + oy], radius=6, outline=color, width=3)
+
+    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
+    base = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
+    return Image.alpha_composite(shadow, base)
+
+
+def _doodle_eraser() -> Image.Image:
+    w, h = 64, 28
+    img = Image.new("RGBA", (w + 6, h + 6), (0, 0, 0, 0))
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([3 + ox, 3 + oy, w + 3 + ox, h + 3 + oy], radius=5, outline=color, width=3)
+        d.line([(3 + ox, 3 + oy + h * 0.55), (w + 3 + ox, 3 + oy + h * 0.55)], fill=color, width=3)
+
+    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
+    base = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
+    return Image.alpha_composite(shadow, base)
+
+
+def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 2,
+                         skip_right: bool = False) -> Image.Image:
+    """칠판을 옛날 교실 감성으로 장식한다(2026-08-02, "좀 많았으면 하는데...
+    화려하게 갔으면 싶어" + "나무받침대랑 분필조각, 지우개까지 다 추가하고
+    급훈 문구가... 도형도 이것저것 엄청 넣어보자"):
+
+    - **양쪽 위 모서리**: `_DOODLES` 중 서로 다른 도형을 한쪽당 `per_corner`개씩
+      흩뿌린다(겹침 방지 재시도 포함). 자막은 판서면 세로 중앙, 캐릭터는 항상
+      오른쪽 아래에 나오므로 위쪽 양 모서리는 topic 길이·자막 줄 수와 무관하게
+      절대 안 겹치는 유일한 안전 지대다.
+    - **위쪽 중앙**: "급훈" 액자 — topic 폴더명에서 뽑은 한 단어 요약
+      (`_topic_word_from_seed`)을 이중 테두리 액자에 넣는다. 양쪽 모서리
+      낙서 사이 빈 공간이라 여기도 자막·캐릭터와 안 겹친다.
+    - **왼쪽 아래**: "주번 OOO" 명패 + 그 위에 "떠든 사람: OOO, OOO" 명단을
+      쌓아 올린다 — 캐릭터가 항상 오른쪽 아래를 차지해서 왼쪽 아래가 유일하게
+      비어있는 하단 모서리다. 판서면 맨 아래쪽 끝에 붙여서 세로 중앙의 자막과는
+      안 겹치게 한다.
+    - **분필 받침대**: 판서면 아래 나무 받침대 위에 분필 조각 2~3개 + 지우개를
+      얹는다 — 받침대의 왼쪽 절반만 쓴다(오른쪽은 코너 캐릭터 자리라 어차피
+      캐릭터에 가려짐).
+
+    WHY seed로 topic을 쓰는지: 같은 topic을 재조립해도 매번 낙서·명패·급훈
+    단어가 안 바뀌게(재현 가능) — card_news.py의 _photo_backdrop과 같은 패턴.
+
+    WHY skip_right(2026-08-02, 다른 세션과의 git race 커밋 메시지에서 직접
+    경고됨: "그 아이템 라벨도 칠판 우상단에 들어가는 것으로 보여서... 배치가
+    겹칠 가능성이 있음"): motion_schedule로 캐릭터가 여러 명 번갈아 나오는
+    topic은 assemble()이 칠판 우상단에 현재 아이템 아이콘+이름 라벨을 이미
+    그리므로, 오른쪽 낙서 클러스터를 얹으면 같은 자리에서 겹친다 — 이 경우
+    오른쪽은 스킵하고 왼쪽 낙서만 남긴다(휑함 방지 역할은 라벨이 대신함)."""
+    rng = random.Random(seed)
+    green_top_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, top_pad)[1])
+    green_bottom_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_BOTTOM_ORIG, top_pad)[1])
 
     zone_w, zone_h, top_gap = 260, 220, 20
-    for side in ("left", "right"):
+    sides = ("left",) if skip_right else ("left", "right")
+    for side in sides:
         shapes = rng.sample(_DOODLES, min(per_corner, len(_DOODLES)))
         placed: list[tuple[float, float]] = []
         for fn in shapes:
@@ -563,9 +719,34 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
             y = green_top_canvas + top_gap + ly
             canvas.alpha_composite(doodle, (x, y))
 
-    juban = _doodle_juban_box(rng.choice(_JUBAN_NAMES))
+    motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=32, double_border=True)
+    canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
+
+    talked_names = ", ".join(_anon_name(rng) for _ in range(2))
+    talked = _doodle_text_box(f"떠든 사람: {talked_names}", font_size=26)
+    juban = _doodle_text_box(f"주번 {_anon_name(rng)}", font_size=30)
     juban_x, juban_y = 30, green_bottom_canvas - juban.height - 30
+    talked_x, talked_y = 30, juban_y - talked.height - 12
+    canvas.alpha_composite(talked, (talked_x, talked_y))
     canvas.alpha_composite(juban, (juban_x, juban_y))
+
+    tray_top_x, tray_top_y = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_LEFT_ORIG, _CHALKBOARD_TRAY_TOP_ORIG, top_pad)
+    tray_bottom_x, _ = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_RIGHT_ORIG, _CHALKBOARD_TRAY_BOTTOM_ORIG, top_pad)
+    tray_mid_x = (tray_top_x + tray_bottom_x) / 2  # 오른쪽 절반은 코너 캐릭터 자리라 왼쪽 절반만 사용
+    tray_y = round(tray_top_y) + 6
+
+    eraser = _doodle_eraser()
+    eraser_x = round(tray_top_x) + 20
+    canvas.alpha_composite(eraser, (eraser_x, tray_y))
+    chalk_x = eraser_x + eraser.width + 14
+    for i in range(rng.randint(2, 3)):
+        chalk = _doodle_chalk_stick()
+        angle = rng.uniform(-15, 15)
+        chalk = chalk.rotate(angle, expand=True, resample=Image.BICUBIC)
+        cx = chalk_x + i * (chalk.width - 6)
+        if cx + chalk.width > tray_mid_x:
+            break
+        canvas.alpha_composite(chalk, (cx, tray_y + rng.randint(-4, 4)))
     return canvas
 
 
@@ -786,7 +967,7 @@ def _chalkboard_display_height() -> int:
 
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
                           photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
-                          doodle_seed: str | None = None):
+                          doodle_seed: str | None = None, doodle_skip_right: bool = False):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -864,7 +1045,8 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
             canvas.paste(resized, (0, effective_top_pad))
 
         if doodle_seed:
-            canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad).convert("RGB")
+            canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad,
+                                          skip_right=doodle_skip_right).convert("RGB")
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -1082,7 +1264,7 @@ def assemble(
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
             _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
-                                  doodle_seed=Path(out_path).stem)
+                                  doodle_seed=Path(out_path).stem, doodle_skip_right=bool(item_schedule))
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
