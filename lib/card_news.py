@@ -2,6 +2,7 @@
 # 순수 PIL 스크립트로 자동화해서 Claude 세션 없이 반복 생산 가능하게 분리함.
 # 폰트 웨이트(Apple SD Gothic Neo ttc index)로 타이포 위계, 그림자/패널로 입체감을 준다.
 import json
+import random
 import sys
 from pathlib import Path
 
@@ -38,6 +39,40 @@ def _vertical_gradient(top, bottom):
         color = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
         draw.line([(0, y), (W, y)], fill=color)
     return img
+
+
+def _photo_backdrop(photo_path, seed, blur=32):
+    """실사진을 블러 처리해 카드 배경(패널 바깥 테두리 영역)으로 쓴다.
+    WHY(2026-08-02, "카드뉴스에 real 폴더 실사진도 흐림 처리한 배경으로 활용하자"):
+    지금까지는 매 카드가 고정 그라디언트(BG_TOP~BG_BOTTOM) 배경이라 30개 topic
+    수백 장이 전부 똑같은 틀로 보였다 — 네이버 저품질(C-Rank/D.I.A.) 판정이 이런
+    "찍어낸 듯한" 이미지 세트를 신호로 잡는다는 우려(사용자 확인)에 대응.
+
+    WHY seed로 크롭을 결정적으로 바꾸는지: 같은 실사진이 다른 topic에서도 배경으로
+    재사용될 수 있는데, "한 게시물 안에서 같은 사진 반복은 무관하지만 게시물 간
+    유사 이미지는 저품질 신호가 된다"고 확인됨 — topic+파일명 조합을 시드로 삼아
+    확대율·크롭 위치·좌우반전을 결정적으로 바꿔서, 같은 원본이라도 topic마다 실제
+    픽셀이 달라지게 한다(같은 topic을 재생성하면 항상 같은 결과 — 재현 가능)."""
+    rng = random.Random(seed)
+    photo = Image.open(photo_path).convert("RGB")
+    pw, ph = photo.size
+    ratio = W / H
+    if pw / ph > ratio:
+        base_h = ph
+        base_w = int(ph * ratio)
+    else:
+        base_w = pw
+        base_h = int(pw / ratio)
+    zoom = rng.uniform(1.0, 1.35)
+    crop_w = max(1, int(base_w / zoom))
+    crop_h = max(1, int(base_h / zoom))
+    max_x, max_y = pw - crop_w, ph - crop_h
+    x0 = rng.randint(0, max_x) if max_x > 0 else 0
+    y0 = rng.randint(0, max_y) if max_y > 0 else 0
+    photo = photo.crop((x0, y0, x0 + crop_w, y0 + crop_h)).resize((W, H))
+    if rng.random() < 0.5:
+        photo = photo.transpose(Image.FLIP_LEFT_RIGHT)
+    return photo.filter(ImageFilter.GaussianBlur(blur))
 
 
 def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
@@ -307,8 +342,12 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
     img.convert("RGB").save(out_path, quality=95)
 
 
-def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP"):
-    img = _vertical_gradient(BG_TOP, BG_BOTTOM)
+def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP",
+                    photo_path=None, photo_seed=None):
+    """photo_path 주면 그 실사진을 블러 배경으로 쓰고(_photo_backdrop), 없으면
+    기존 그라디언트 배경 그대로. 캐릭터 배지·제목·본문 위치는 항상 동일 —
+    바뀌는 건 배경뿐이다."""
+    img = _photo_backdrop(photo_path, photo_seed or out_path) if photo_path else _vertical_gradient(BG_TOP, BG_BOTTOM)
     img = img.convert("RGB")
 
     # 패널을 화면 상단 가까이까지 크게 — 이전엔 위쪽에 빈 배경이 너무 많이 남아서
@@ -421,6 +460,24 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     char_paths = [str(char_dir / item["char_file"]) for item in spec["items"]]
     eyebrow = spec.get("eyebrow", "HEALTH TIP")
 
+    # WHY 실사진 배경 자동 매칭(2026-08-02, "카드뉴스에 real 폴더 실사진도 흐림
+    # 처리한 배경으로 활용하자"): item의 char_file(예: "커피_illust.jpg")에서
+    # 품목명을 뽑아 assets_library/real/에서 같은 품목 실사진(예: "커피_real_01.jpg"
+    # 또는 예전 명명 규칙인 "커피.jpg")을 찾아 자동으로 그 카드의 배경으로 쓴다.
+    # 없는 품목은 기존처럼 그라디언트 배경으로 자연스럽게 폴백.
+    real_dir = char_dir.parent / "real"
+
+    def _find_real_photo(char_file: str) -> str | None:
+        # WHY 정확히 두 패턴만(2026-08-02 버그 수정): "{품목}*.jpg" 와일드카드는
+        # "돼지감자"를 찾을 때 "돼지감자차_real_01.jpg"(다른 품목)까지 접두어로
+        # 걸려서 잘못 매칭됐다 — "{품목}.jpg"(옛 명명) 또는
+        # "{품목}_real_NN.jpg"(현재 명명)로 경계를 명확히 한다.
+        item_name = char_file.removesuffix("_illust.jpg")
+        if not real_dir.exists():
+            return None
+        matches = sorted(real_dir.glob(f"{item_name}.jpg")) + sorted(real_dir.glob(f"{item_name}_real_*.jpg"))
+        return str(matches[0]) if matches else None
+
     # WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하면서
     # output 폴더 안 파일명("00_표지.jpg" 등)이 topic마다 겹쳐서 구분이 안 됐다 — out_dir이
     # 관례상 output/<topic>/card_news라서 out_dir.parent.name이 topic 이름이 된다.
@@ -456,7 +513,10 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
-        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n, out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow)
+        real_photo = _find_real_photo(item["char_file"])
+        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n,
+                       out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow,
+                       photo_path=real_photo, photo_seed=f"{topic_prefix}{item['char_file']}")
 
     closing = spec["closing"]
     make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"], out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg")
