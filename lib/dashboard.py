@@ -198,9 +198,9 @@ PAGE_TEMPLATE = """<!doctype html>
   .copy-product-link:hover {{ background: var(--gold-soft); color: var(--gold); }}
   .copy-product-link.copied {{ background: var(--gold); color: #fff; }}
   .copy-comment-links {{
-    display: inline-block; font-size: 12px; font-weight: 700; font-family: inherit;
+    display: block; width: 100%; font-size: 12px; font-weight: 700; font-family: inherit;
     background: var(--accent); color: #fff; border: none; cursor: pointer;
-    padding: 8px 14px; border-radius: 999px; margin-top: 8px;
+    padding: 9px 14px; border-radius: 999px; margin-bottom: 10px; box-sizing: border-box;
   }}
   .copy-comment-links:hover {{ opacity: 0.9; }}
   .copy-comment-links.copied {{ background: var(--gold); color: #fff; }}
@@ -397,11 +397,18 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {{
 // 링크+고지문구)을 한 번에 복사할 수 있는 버튼을 상품 링크 위젯에 추가한다. 상품
 // 링크가 topic 전체에 하나뿐이라 플랫폼 카드마다 반복 안 넣고 여기 한 곳에만 둔다
 // — 쓰레드·페이스북뿐 아니라 인스타그램 등 어느 플랫폼 댓글에 붙여넣어도 된다.
+// WHY 안내 문장을 앞에 붙이는지(2026-08-02, "띡 링크만 전달하면 안될거같지않아?
+// 어느정도 설명이 필요할것으로 보이는데"): _buildLinkBlock(false)만 그대로 복사하면
+// 링크 목록만 툭 던지는 스팸성 댓글처럼 보인다 — 캡션에서 이미 "댓글에 남겨둘게요!"라고
+// 예고했으니, 그 예고를 그대로 받는 안내 문장을 링크 앞에 붙여서 자연스러운 댓글
+// 형태로 만든다.
+const COMMENT_LINK_INTRO = "📌 오늘 소개한 상품 링크 남겨드려요!";
 const copyCommentLinksBtn = document.getElementById("copyCommentLinksBtn");
 if (copyCommentLinksBtn) {{
   const originalLabel = copyCommentLinksBtn.textContent;
   copyCommentLinksBtn.addEventListener("click", () => {{
-    const text = _buildLinkBlock(false);
+    const linkBlock = _buildLinkBlock(false);
+    const text = linkBlock ? COMMENT_LINK_INTRO + "\\n\\n" + linkBlock : "";
     if (!text) {{
       copyCommentLinksBtn.textContent = "먼저 상품 링크를 입력해주세요";
       setTimeout(() => {{ copyCommentLinksBtn.textContent = originalLabel; }}, 1500);
@@ -725,10 +732,10 @@ def _dock_products(products: list[str], product_links: dict[str, str] | None = N
     # 무관하게 상품명이 자동으로 들어가므로 별도 안내가 필요 없다.
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
-        f'{rows}'
-        '<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
         '<button type="button" id="copyCommentLinksBtn" class="copy-comment-links">'
         '💬 댓글용 링크 텍스트 복사</button>'
+        f'{rows}'
+        '<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
         '</div>'
     )
 
