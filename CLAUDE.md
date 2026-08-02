@@ -602,6 +602,27 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 | 라이브러리 코드 | `lib/*.py` |
 | 채널별 URL(정답 소스) | `data/social_accounts.json` — 새 topic 캡션은 여기서 복사할 것, 예전 topic JSON 복사 금지(오래된 URL 남아있을 수 있음) |
 | 비밀키 | `.env` (커밋 안 함), `.env.example` 항상 최신 유지 |
+| 실제 SNS 포스팅 기록 | `output/posting_log.csv` — 아래 "포스팅 기록" 절 참고 |
+
+## 포스팅 기록 — CSV로 브라우저 ↔ git 왕복 (2026-08-02)
+
+각 topic 대시보드의 플랫폼별 "완료" 체크는 브라우저 `localStorage`에만 저장돼서
+Claude Code(파일시스템 기반)는 전혀 읽을 수 없고, 기기·브라우저가 바뀌면 동기화도
+안 된다("브라우저에 기록되는걸 너가 알수가있어?" — 2026-08-02 확인된 한계). 이걸
+git으로 추적되는 파일과 왕복시키는 구조를 추가했다:
+
+- 체크할 때마다 `{topic, platform, postedAt}` 형태로 localStorage에 저장됨(예전엔
+  단순히 `"1"`만 저장했음 — 그러면 topic/platform 정보가 없어서 못 내보냄)
+- 루트 `index.html`의 **"📥 CSV 내보내기"** 버튼 — 브라우저에 쌓인 모든 완료 기록을
+  `posting_log.csv`로 다운로드. **다운로드된 파일은 사용자가 직접 `output/posting_log.csv`
+  경로로 옮겨서 git에 커밋해야 진짜 기록이 된다** — 정적 사이트라 브라우저가 파일
+  시스템에 직접 못 씀
+- **"📤 CSV 가져오기"** 버튼 — `posting_log.csv`를 다시 읽어서 브라우저 체크 상태로
+  복원. 나중에 SNS API 연동이 되면 이 파일을 Claude가 직접 갱신하고, 사용자가
+  가져오기로 브라우저에 반영하는 왕복도 가능해짐
+- 새 topic 만들거나 `lib/dashboard.py`의 done-toggle 관련 로직을 고칠 땐 이
+  `{topic, platform, postedAt}` JSON 저장 형식을 유지할 것 — CSV 내보내기가
+  이 형식에 의존함
 
 ## 테스트 (2026-08-01)
 

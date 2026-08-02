@@ -212,6 +212,20 @@
     <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">완료된 콘텐츠 (<span id="topicsDoneCount">0</span>)</summary>
     <div id="topicsDoneList" style="display:flex;flex-direction:column;gap:8px;margin-top:8px;"></div>
   </details>
+
+  <!-- WHY(2026-08-02): 각 topic 대시보드의 "완료" 체크는 브라우저 localStorage에만
+       남아서 Claude Code(파일시스템)는 전혀 볼 수 없고, 기기·브라우저 바뀌면 동기화도
+       안 된다 — CSV로 내보내서 프로젝트 폴더(output/posting_log.csv)에 저장해두면
+       git으로 추적되는 진짜 기록이 되고, 나중에 SNS API 연동되면 그쪽에서 이 파일을
+       직접 갱신 → 가져오기로 브라우저 체크 상태에 다시 반영하는 왕복도 가능해진다. -->
+  <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap;">
+    <button type="button" id="exportLogBtn" class="btn btn-ghost" style="width:auto;">📥 포스팅 기록 CSV 내보내기</button>
+    <label class="btn btn-ghost" style="width:auto;cursor:pointer;">
+      📤 CSV 가져오기
+      <input type="file" id="importLogInput" accept=".csv" style="display:none;">
+    </label>
+    <span id="logSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
+  </div>
 </div>
 
 <div class="layout">
@@ -265,6 +279,86 @@
 
 <script>
 const TOPIC_DONE_PREFIX = "hs_topic_done_";
+
+// WHY(2026-08-02): 각 topic 대시보드의 "완료" 체크는 브라우저 localStorage에만
+// 저장돼서 Claude Code(파일시스템 기반)는 전혀 읽을 수 없고 기기·브라우저가
+// 바뀌면 동기화도 안 된다("브라우저에 기록되는걸 너가 알수가있어?" 지적) — CSV로
+// 내보내서 git으로 추적되는 output/posting_log.csv에 저장해두면 실제 기록이
+// 되고, 나중에 SNS API 연동되면 그 파일을 직접 갱신 → 여기서 다시 가져오기로
+// 브라우저 체크 상태에 반영하는 왕복도 가능해진다.
+const DONE_KEY_PREFIX = "hs_done_";
+
+function _collectPostingLog() {
+  const rows = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith(DONE_KEY_PREFIX)) continue;
+    try {
+      const record = JSON.parse(localStorage.getItem(key));
+      if (record && record.topic && record.platform && record.postedAt) rows.push(record);
+    } catch (e) {
+      // WHY 무시: 이 코드 이전에 "1"로만 저장된 옛날 체크 항목은 topic/platform
+      // 정보가 없어서 CSV로 못 내보낸다 — 다시 체크 해제 후 체크하면 새 형식으로 바뀜.
+    }
+  }
+  rows.sort((a, b) => a.postedAt.localeCompare(b.postedAt));
+  return rows;
+}
+
+function _csvEscape(s) {
+  return '"' + String(s).replace(/"/g, '""') + '"';
+}
+
+document.getElementById("exportLogBtn").addEventListener("click", () => {
+  const rows = _collectPostingLog();
+  const lines = ["topic,platform,postedAt", ...rows.map(r =>
+    [r.topic, r.platform, r.postedAt].map(_csvEscape).join(","))];
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "posting_log.csv";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  document.getElementById("logSyncMsg").textContent =
+    `${rows.length}건 내보냄 — 다운로드된 파일을 output/posting_log.csv로 옮겨주세요`;
+});
+
+// WHY 정규식 기반 간단 파서(2026-08-02): 내보내기가 항상 모든 필드를 따옴표로
+// 감싸고 값 안에 줄바꿈이 없는 형태로만 만들기 때문에, 범용 CSV 파서 없이도
+// 이 정도면 충분하다.
+function _parseCsvLine(line) {
+  const out = [];
+  const re = /"((?:[^"]|"")*)"\s*,?/g;
+  let m;
+  while ((m = re.exec(line)) !== null) out.push(m[1].replace(/""/g, '"'));
+  return out;
+}
+
+document.getElementById("importLogInput").addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => {
+    const lines = reader.result.replace(/^﻿/, "").split(/\r?\n/).filter(l => l.trim());
+    let count = 0;
+    for (const line of lines.slice(1)) {
+      const [topic, platform, postedAt] = _parseCsvLine(line);
+      if (!topic || !platform || !postedAt) continue;
+      // WHY encodeURIComponent로 키 재구성: dashboard.py 쪽 체크박스가
+      // Python의 quote(topic)/quote(platform명)으로 키를 만들어서, 가져오기도
+      // 똑같은 인코딩으로 키를 맞춰야 해당 topic 대시보드가 체크 상태를 인식한다.
+      const key = DONE_KEY_PREFIX + encodeURIComponent(topic) + "_" + encodeURIComponent(platform);
+      localStorage.setItem(key, JSON.stringify({ topic, platform, postedAt }));
+      count++;
+    }
+    document.getElementById("logSyncMsg").textContent =
+      `${count}건 가져옴 — 각 topic 대시보드를 새로고침하면 체크 표시에 반영돼요`;
+    e.target.value = "";
+  };
+  reader.readAsText(file, "utf-8");
+});
 
 // WHY(2026-08-01): 폴더명(가슴쓰림유발음식_1 등)을 보고 목록에서 찾아 들어가는
 // 습관인데 기존엔 훅 제목만 보여서 어떤 폴더인지 확인이 어려웠다 — 폴더명을

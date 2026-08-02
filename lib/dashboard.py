@@ -56,7 +56,7 @@ CARD_TEMPLATE = """
     </div>
     <div class="head-actions">
       <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="{done_key}">
+        <input type="checkbox" class="done-toggle" data-key="{done_key}" data-name="{name}">
         <span>완료</span>
       </label>
       <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
@@ -571,17 +571,23 @@ document.querySelectorAll(".product-link-input").forEach(inp => {{
 
 applyProductLinks();
 
+// WHY JSON으로 저장(2026-08-02): 예전엔 이 키에 그냥 "1"만 넣었는데, 이러면
+// 나중에 CSV로 내보낼 때 topic/플랫폼명을 키 문자열에서 역으로 파싱해야 하고
+// topic 이름 자체에 "_"가 들어있어서(예: 눈_1) 안전하게 쪼갤 방법이 없다 — 값
+// 안에 topic/platform/게시시각을 자체적으로 담아서 내보내기가 파싱 없이 바로
+// 되게 한다(포스팅 스케줄 로그 — index.html의 CSV 내보내기/가져오기 참고).
 const STORAGE_PREFIX = "hs_done_{topic}_";
 document.querySelectorAll(".done-toggle").forEach(cb => {{
   const storageKey = STORAGE_PREFIX + cb.dataset.key;
   const card = cb.closest(".platform-card");
-  if (localStorage.getItem(storageKey) === "1") {{
+  if (localStorage.getItem(storageKey)) {{
     cb.checked = true;
     card.classList.add("is-done");
   }}
   cb.addEventListener("change", () => {{
     if (cb.checked) {{
-      localStorage.setItem(storageKey, "1");
+      const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() }};
+      localStorage.setItem(storageKey, JSON.stringify(record));
       card.classList.add("is-done");
     }} else {{
       localStorage.removeItem(storageKey);
