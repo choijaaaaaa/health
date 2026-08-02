@@ -31,7 +31,7 @@ TYPE_SECTION_TITLE = {
 TYPE_ORDER = ["video", "cards", "text"]
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
-<div class="dock-product-row" id="dock-row-{idx}">
+<div class="dock-product-row{row_class}" id="dock-row-{idx}">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-{idx}" title="링크 넣기">🔗</button>
     <span class="dock-product-name">{name}</span>
@@ -40,7 +40,7 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
     <a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
     <button type="button" class="copy-market-link" data-url="{coupang_url}" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
     <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" placeholder="쿠팡 링크 붙여넣고 Enter">
+      <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" value="{link_value}" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
   </div>
@@ -659,14 +659,30 @@ def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str
             f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
 
 
-def _dock_products(products: list[str]) -> str:
+def _load_product_links() -> dict[str, str]:
+    """WHY(2026-08-02, "상품도 너한테 던져야겠다 이거 로컬스토리지 불안해서"):
+    상품별 쿠팡 파트너스 링크를 브라우저 localStorage 대신 git 추적되는
+    output/product_links.json(상품명 → 링크)에서 관리한다 — completed_topics.json/
+    youtube_uploaded.json과 같은 패턴. 사용자가 채팅으로 상품+링크를 알려주면
+    Claude Code가 이 파일에 직접 추가한다. 같은 상품이 여러 topic에서 반복
+    등장해도 한 번만 등록해두면 이후 생성되는 모든 대시보드에 자동으로 채워진다."""
+    path = Path(__file__).resolve().parent.parent / "output" / "product_links.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _dock_products(products: list[str], product_links: dict[str, str] | None = None) -> str:
     if not products:
         return ""
+    product_links = product_links or {}
     rows = ""
     for idx, name in enumerate(products):
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
+        link = product_links.get(name, "")
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
             name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
+            link_value=_esc(link), row_class=" linked" if link else "",
         )
     # WHY 네이버 언급 없음(2026-08-01): 네이버 블로그도 브랜드커넥트 대신 쿠팡 링크를
     # 쓰기로 바뀌면서 상품 링크는 쿠팡 하나만 필요해졌다 — 네이버 클립은 이 링크값과
@@ -721,7 +737,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
-    dock_products = _dock_products(spec.get("products", []))
+    dock_products = _dock_products(spec.get("products", []), _load_product_links())
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")

@@ -7,7 +7,7 @@ from __future__ import annotations
 import json
 import re
 
-from lib.dashboard import generate
+from lib.dashboard import _dock_products, generate
 
 
 def _write_spec(path, platforms, title="테스트 주제", topic="테스트주제_1", products=None):
@@ -223,3 +223,19 @@ def test_no_caption_link_and_comment_dm_attrs_reflected(tmp_path):
     assert 'data-comment-dm="1"' in insta_card
     assert 'data-no-caption-link=""' in naver_card
     assert 'data-comment-dm=""' in naver_card
+
+
+# WHY(2026-08-02, "상품도 너한테 던져야겠다 이거 로컬스토리지 불안해서"): 상품 링크를
+# output/product_links.json(상품명 → 쿠팡 링크)에서 미리 채워 넣는 기능 테스트.
+# _dock_products는 순수 함수라 generate() 전체를 안 돌리고 직접 호출해서 검증한다.
+
+def test_dock_products_prefills_known_link():
+    html = _dock_products(["현미"], {"현미": "https://link.coupang.com/a/fSP6lbm8Ki"})
+    assert 'value="https://link.coupang.com/a/fSP6lbm8Ki"' in html
+    assert 'class="dock-product-row linked"' in html
+
+
+def test_dock_products_leaves_unknown_product_blank():
+    html = _dock_products(["처음 보는 상품"], {"현미": "https://link.coupang.com/a/fSP6lbm8Ki"})
+    assert 'value=""' in html
+    assert 'class="dock-product-row linked"' not in html
