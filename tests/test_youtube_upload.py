@@ -13,14 +13,20 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from datetime import datetime  # noqa: E402
+
 import lib.youtube_upload as youtube_upload  # noqa: E402
 from lib.youtube_upload import (  # noqa: E402
+    KST,
     _build_status_body,
     _category_from_topic,
     _extract_first_frame,
     _mark_youtube_uploaded,
+    _next_daily_schedule,
     _parse_title_description,
     _playlist_title_for_category,
+    _topics_posted_elsewhere,
+    select_daily_topics,
 )
 
 
@@ -100,3 +106,74 @@ def test_mark_youtube_uploaded_is_idempotent(tmp_path, monkeypatch):
     _mark_youtube_uploaded("다리쥐_1")
     data = json.loads((out_dir / "youtube_uploaded.json").read_text(encoding="utf-8"))
     assert data == ["다리쥐_1"]
+
+
+# WHY(2026-08-02, "10시, 11시, 14시, 17시 이렇게 네 개 토픽에 대해 영상 네 개
+# 넣는거야... 이미 올려놓은 것들이 있다면 그걸 우선순위로 유튜브 올리고 아닌
+# 경우에는 너가 randomly하게 선택해서"): 하루 배치 업로드의 topic 선택·스케줄
+# 로직 테스트. 실제 posting_log.csv/topics.json은 안 건드리고 tmp_path로 격리.
+
+def test_topics_posted_elsewhere_excludes_youtube_platform(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir()
+    (out_dir / "posting_log.csv").write_text(
+        'topic,platform,postedAt\n'
+        '"눈_1","인스타그램","2026-08-01T10:00:00Z"\n'
+        '"눈_1","유튜브 쇼츠","2026-08-01T11:00:00Z"\n'
+        '"다리쥐_1","유튜브 쇼츠","2026-08-01T12:00:00Z"\n',
+        encoding="utf-8",
+    )
+    assert _topics_posted_elsewhere() == {"눈_1"}
+
+
+def test_topics_posted_elsewhere_missing_file_returns_empty(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    (tmp_path / "output").mkdir()
+    assert _topics_posted_elsewhere() == set()
+
+
+def _write_topics_json(out_dir, topic_names):
+    out_dir.joinpath("topics.json").write_text(
+        json.dumps([{"topic": t, "title": t, "url": "", "thumbnail": None} for t in topic_names],
+                   ensure_ascii=False),
+        encoding="utf-8",
+    )
+
+
+def test_select_daily_topics_prioritizes_posted_elsewhere(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir()
+    _write_topics_json(out_dir, ["눈_1", "다리쥐_1", "장_1", "장_2"])
+    (out_dir / "youtube_uploaded.json").write_text("[]", encoding="utf-8")
+    (out_dir / "posting_log.csv").write_text(
+        'topic,platform,postedAt\n"장_2","인스타그램","2026-08-01T10:00:00Z"\n',
+        encoding="utf-8",
+    )
+    selected = select_daily_topics(n=4)
+    assert selected[0] == "장_2"
+    assert set(selected) == {"눈_1", "다리쥐_1", "장_1", "장_2"}
+
+
+def test_select_daily_topics_excludes_already_uploaded(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir()
+    _write_topics_json(out_dir, ["눈_1", "다리쥐_1"])
+    (out_dir / "youtube_uploaded.json").write_text(json.dumps(["눈_1"]), encoding="utf-8")
+    selected = select_daily_topics(n=4)
+    assert selected == ["다리쥐_1"]
+
+
+def test_next_daily_schedule_uses_today_when_before_first_slot():
+    now = datetime(2026, 8, 2, 9, 0, tzinfo=KST)
+    schedule = _next_daily_schedule(4, now=now)
+    assert schedule[0] == "2026-08-02T01:00:00Z"  # 10시 KST = 01시 UTC
+    assert schedule[-1] == "2026-08-02T08:00:00Z"  # 17시 KST = 08시 UTC
+
+
+def test_next_daily_schedule_rolls_to_tomorrow_when_past_first_slot():
+    now = datetime(2026, 8, 2, 12, 0, tzinfo=KST)
+    schedule = _next_daily_schedule(4, now=now)
+    assert schedule[0] == "2026-08-03T01:00:00Z"

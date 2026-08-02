@@ -104,12 +104,33 @@ UI에서 보는 리스트는 카테고리가 뭐인지만 알면 됨" — 2026-0
    YouTube Data API를 직접 호출하는 코드를 새로 짤 땐 `_mark_youtube_uploaded(topic)`
    호출을 빼먹지 말 것.
 
-**사용법**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]` —
+**사용법(단일 topic)**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]` —
 privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어려운 작업이라 안전하게
 비공개로 먼저 올리고 확인 후 다시 `public`으로 호출하는 걸 권장). 예약시각(ISO 8601 UTC,
 예: `2026-08-03T09:00:00Z`)을 주면 그때 자동 공개로 전환되는 예약 게시 — YouTube API
 제약상 예약 게시 영상은 privacyStatus가 강제로 `private`이 된다(두 번째 인자로 뭘
 줘도 무시됨).
+
+### 하루 배치 업로드 — `--daily-batch` (2026-08-02)
+
+사용자가 "업로드해" 하고 지시하면(직접 트리거해야 함, 알아서 먼저 실행하지 말 것)
+`python3 lib/youtube_upload.py --daily-batch [private|unlisted|public]`로 **하루치
+4개를 10/11/14/17시(KST) 예약 게시로 한 번에** 올린다("10시, 11시, 14시, 17시 이렇게
+네 개 토픽에 대해 영상 네 개 넣는거야" 2026-08-02 확정).
+
+- **topic 선택**(`select_daily_topics`): 아직 유튜브에 안 올라간 topic
+  (`output/youtube_uploaded.json` 기준) 중에서, `output/posting_log.csv`에 유튜브
+  쇼츠가 아닌 다른 플랫폼 포스팅 기록이 이미 있는 topic을 **우선** 고른다("이미
+  올려놓은 것들이 있다면 그걸 우선순위로 유튜브 올리고") — 이런 topic은 유튜브만
+  마치면 그 topic 전체가 끝나기 때문. 우선순위 topic이 4개보다 적으면 나머지는
+  무작위로 채운다("아닌 경우에는 너가 randomly하게 선택해서").
+- **스케줄**(`_next_daily_schedule`): 오늘 10시(KST)가 아직 안 지났으면 오늘
+  10/11/14/17시, 이미 지났으면 **통째로 다음날** 10/11/14/17시로 예약한다(일부만
+  오늘·나머지 내일로 흩어지지 않게).
+- `posting_log.csv`가 아직 커밋 안 된 상태(빈 파일)면 우선순위 topic이 없어서
+  전부 무작위 선택으로 자연스럽게 폴백한다 — 별도 처리 불필요.
+- 업로드마다 기존과 동일하게 썸네일·재생목록·`youtube_uploaded.json` 기록까지
+  자동 진행된다(`upload_short()`를 그대로 재사용).
 
 ⚠️ **OAuth 앱이 "테스트" 상태로 남아있으면 refresh token이 7일 뒤 만료될 수 있음**(구글
 정책, youtube 스코프가 민감 스코프라 그렇다) — 만료되면 `youtube_auth_setup.py`를
@@ -118,8 +139,9 @@ privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어�
 
 ⚠️ **업로드 자체는 자동화됐지만 배포 페이스는 사람이 정한 대로**(위 "세션 운영 방식"
 절 참고 — 플랫폼당 하루 4개 수준으로 늦추기로 확정함, "부업 정도로만 지속하는게
-낫겠구먼" 2026-08-02) — 밀려 있는 topic을 한 번에 전부 업로드하지 말고, 요청받은
-topic만 하나씩 올릴 것.
+낫겠구먼" 2026-08-02) — **하루 배치 업로드는 위 `--daily-batch`(하루 4개, 10/11/14/17시)
+형태로만 진행하고, 그 이상 밀려 있는 topic을 한 번에 몰아 올리지 말 것.** 단일
+topic만 필요한 특수한 경우(재업로드 등)엔 기존 단일-topic 사용법을 그대로 쓸 것.
 
 **승인만 생략하는 것이지 안전장치는 생략 아님** — 아래는 그대로 다 지킨다:
 세션 락 확인/생성/해제, `git show --stat HEAD`로 커밋 내용 검증, 브런치·핀터레스트

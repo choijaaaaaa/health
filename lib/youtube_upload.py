@@ -5,13 +5,17 @@
 # "26"(Howto & Style)을 기본값으로 쓴다.
 from __future__ import annotations
 
+import csv
 import json
 import os
+import random
 import re
 import subprocess
 import sys
 import tempfile
+from datetime import datetime, timedelta
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
@@ -28,6 +32,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # 스코프를 미리 등록해둬야 한다(Google Cloud Console > 데이터 액세스).
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 HOWTO_AND_STYLE_CATEGORY = "26"
+# WHY 하루 4개, 10/11/14/17시(2026-08-02, "10시, 11시, 14시, 17시 이렇게 네 개
+# 토픽에 대해 영상 네 개 넣는거야"): 사용자가 확정한 하루 업로드 페이스 —
+# --daily-batch가 이 시각들(KST)에 맞춰 예약 게시로 올린다.
+KST = ZoneInfo("Asia/Seoul")
+DAILY_UPLOAD_HOURS = (10, 11, 14, 17)
 
 
 def _get_credentials() -> Credentials:
@@ -184,6 +193,85 @@ def _mark_youtube_uploaded(topic: str) -> None:
         path.write_text(json.dumps(uploaded, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
+def _topics_posted_elsewhere() -> set[str]:
+    """output/posting_log.csv(위 "포스팅 기록" 절 — 사용자가 다른 플랫폼에 올린
+    기록을 CSV로 내보내서 git에 커밋해두는 파일)에서 유튜브 쇼츠가 아닌 다른
+    플랫폼에 이미 포스팅된 topic 집합을 구한다. WHY(2026-08-02, "아직 올리지
+    않은 토픽 중에 내가 이미 올려놓은 것들이 있다면 그걸 우선순위로 유튜브
+    올리고"): 사용자가 다른 플랫폼에 먼저 올려둔 topic은 유튜브만 마치면 그
+    topic 전체가 끝나니 우선 처리한다. 파일이 없으면(아직 CSV를 커밋 안 함)
+    빈 집합 — 이 경우 select_daily_topics는 전부 무작위 선택으로 폴백한다."""
+    log_path = ROOT / "output" / "posting_log.csv"
+    if not log_path.exists():
+        return set()
+    posted = set()
+    with log_path.open(encoding="utf-8-sig", newline="") as f:
+        for row in csv.DictReader(f):
+            if row.get("topic") and row.get("platform") != "유튜브 쇼츠":
+                posted.add(row["topic"])
+    return posted
+
+
+def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
+    """유튜브에 아직 안 올라간 topic 중 n개를 고른다. WHY 선택 순서(2026-08-02,
+    "아닌 경우에는 너가 randomly하게 선택해서 올리는"): 다른 플랫폼에 이미
+    포스팅된 topic을 우선하고, 부족하면 나머지 중에서 무작위로 채운다 —
+    "이미 진행 중인 topic부터 끝내고, 아니면 아무거나 순서 상관없이" 라는
+    사용자 의도를 그대로 반영."""
+    topics_path = ROOT / "output" / "topics.json"
+    all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
+    uploaded_path = ROOT / "output" / "youtube_uploaded.json"
+    uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
+    candidates = [t for t in all_topics if t not in uploaded]
+
+    posted_elsewhere = _topics_posted_elsewhere()
+    priority = [t for t in candidates if t in posted_elsewhere]
+    rest = [t for t in candidates if t not in posted_elsewhere]
+    random.shuffle(rest)
+
+    selected = priority[:n]
+    if len(selected) < n:
+        selected += rest[: n - len(selected)]
+    return selected
+
+
+def _next_daily_schedule(n: int, hours: tuple[int, ...] = DAILY_UPLOAD_HOURS,
+                          now: datetime | None = None) -> list[str]:
+    """오늘 첫 슬롯(hours[0], 기본 10시 KST)이 아직 안 지났으면 오늘, 이미 지났으면
+    내일 기준으로 예약 게시 시각(UTC ISO 8601, publishAt용) 리스트를 만든다. WHY
+    통째로 다음날로 미루는지(부분적으로 오늘/내일 안 섞는 이유): 하루 배치(10/11/
+    14/17시)가 절반은 오늘 절반은 내일로 흩어지면 "하루 4개" 페이스 개념이
+    깨진다 — 첫 슬롯이 지났으면 그날 배치는 통째로 다음날로 넘긴다. now는
+    테스트에서 현재 시각을 주입하기 위한 파라미터(안 주면 실제 현재 시각)."""
+    now = now or datetime.now(KST)
+    base_date = now.date()
+    if now.hour >= hours[0]:
+        base_date += timedelta(days=1)
+    utc = ZoneInfo("UTC")
+    return [
+        datetime(base_date.year, base_date.month, base_date.day, h, 0, tzinfo=KST)
+        .astimezone(utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        for h in hours[:n]
+    ]
+
+
+def upload_daily_batch(privacy_status: str = "private") -> list[dict]:
+    """`python3 lib/youtube_upload.py --daily-batch` 진입점(2026-08-02, "유튜브
+    업로드는 내가 업로드 하라고 하면 API 찔러서 10시, 11시, 14시, 17시 이렇게
+    네 개 토픽에 대해 영상 네 개 넣는거야"). select_daily_topics로 고른 topic들을
+    _next_daily_schedule 시각에 맞춰 순서대로 예약 게시 업로드한다."""
+    topics = select_daily_topics(len(DAILY_UPLOAD_HOURS))
+    if not topics:
+        print("[youtube_upload] 업로드할 topic이 없음 — 전부 이미 유튜브에 올라감")
+        return []
+    schedule = _next_daily_schedule(len(topics))
+    results = []
+    for topic, publish_at in zip(topics, schedule):
+        print(f"[youtube_upload] {topic} → {publish_at} 예약 게시로 업로드")
+        results.append(upload_short(topic, privacy_status=privacy_status, publish_at=publish_at))
+    return results
+
+
 def upload_short(
     topic: str,
     video_path: str | None = None,
@@ -250,7 +338,11 @@ def upload_short(
 
 
 if __name__ == "__main__":
-    topic_arg = sys.argv[1]
-    privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
-    publish_at_arg = sys.argv[3] if len(sys.argv) > 3 else None
-    upload_short(topic_arg, privacy_status=privacy_arg, publish_at=publish_at_arg)
+    if sys.argv[1:2] == ["--daily-batch"]:
+        privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
+        upload_daily_batch(privacy_status=privacy_arg)
+    else:
+        topic_arg = sys.argv[1]
+        privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
+        publish_at_arg = sys.argv[3] if len(sys.argv) > 3 else None
+        upload_short(topic_arg, privacy_status=privacy_arg, publish_at=publish_at_arg)
