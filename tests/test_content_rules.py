@@ -128,6 +128,24 @@ def test_all_captions_have_hashtags(topic):
 
 
 # ---------------------------------------------------------------------------
+# 규칙 1-1: 네이버 블로그 캡션 최소 1000자 (2026-08-02, 저품질 방지 — 사용자 확정)
+# ---------------------------------------------------------------------------
+
+NAVER_BLOG_MIN_LENGTH = 1000
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_naver_blog_min_length(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    for p in spec.get("platforms", []):
+        if p["name"] == "네이버 블로그":
+            length = len(p.get("caption", ""))
+            assert length >= NAVER_BLOG_MIN_LENGTH, (
+                f"{topic}: 네이버 블로그 caption이 {length}자 — 최소 {NAVER_BLOG_MIN_LENGTH}자 필요"
+            )
+
+
+# ---------------------------------------------------------------------------
 # 규칙 2: "~대요"(전언체) 금지
 # ---------------------------------------------------------------------------
 
