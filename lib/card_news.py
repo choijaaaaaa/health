@@ -117,12 +117,18 @@ def _rounded_panel(canvas, box, radius, fill, shadow_offset=14, shadow_blur=28, 
     return canvas
 
 
-def _remove_chroma_bg(img: Image.Image, key=(0, 255, 0), thresh=160) -> Image.Image:
+def _remove_chroma_bg(img: Image.Image, key=None, thresh=160) -> Image.Image:
     """WHY(2026-07-31): Kling 모션용으로 캐릭터를 초록 크로마키 배경으로 생성하기
     시작하면서, 카드뉴스 원형 배지에 그 초록이 그대로 보이는 문제가 생겼다(원형
     마스크는 배경색을 안 가리고 그냥 사각형 이미지를 동그랗게 자르기만 하므로) —
-    원형으로 자르기 전에 배경색에 가까운 픽셀을 먼저 투명 처리한다."""
+    원형으로 자르기 전에 배경색에 가까운 픽셀을 먼저 투명 처리한다.
+    WHY key=None 자동 감지(2026-08-01): 캐릭터 자체가 초록 계열(브로콜리·미역 등)이면
+    크로마키를 파란/마젠타로 바꿔서 생성하므로(gemini_illust.py bg_color_hex 참고)
+    green 하드코딩 키로는 배경이 안 지워진다 — 이미지 모서리 픽셀(항상 배경색)을
+    실제 키 색상으로 자동 채택해 어떤 배경색이든 동일하게 처리한다."""
     img = img.convert("RGBA")
+    if key is None:
+        key = img.getpixel((2, 2))[:3]
     kr, kg, kb = key
     pixels = img.load()
     for y in range(img.height):
