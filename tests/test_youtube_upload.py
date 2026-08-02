@@ -75,4 +75,4 @@ def test_category_from_topic(topic, expected):
 
 
 def test_playlist_title_for_category_is_descriptive():
-    assert _playlist_title_for_category("눈") == "눈 관련 건강정보"
+    assert _playlist_title_for_category("눈") == "건강정보 - 눈"
