@@ -204,6 +204,18 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .copy-comment-links:hover {{ opacity: 0.9; }}
   .copy-comment-links.copied {{ background: var(--gold); color: #fff; }}
+
+  .bottom-product-links {{
+    margin: 40px 24px; padding: 20px; border-radius: 16px; background: var(--panel);
+    border: 1px solid var(--rule);
+  }}
+  .bottom-product-links h2 {{ margin: 0 0 12px; font-size: 18px; }}
+  .bottom-product-row {{
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 0; border-top: 1px solid var(--rule); font-size: 13px;
+  }}
+  .bottom-product-name {{ font-weight: 700; min-width: 120px; }}
+  .bottom-product-nolink {{ color: var(--ink-soft); }}
   @media (max-width: 860px) {{
     .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
   }}
@@ -319,6 +331,8 @@ PAGE_TEMPLATE = """<!doctype html>
 
 {platform_sections}
 
+{dock_products_bottom}
+
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
@@ -406,8 +420,11 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {{
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
-const copyCommentLinksBtn = document.getElementById("copyCommentLinksBtn");
-if (copyCommentLinksBtn) {{
+// WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
+// 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
+// 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
+// class 기준 querySelectorAll로 바꿨다(위 row-toggle 등 다른 버튼들과 동일 패턴).
+document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => {{
   const originalLabel = copyCommentLinksBtn.textContent;
   copyCommentLinksBtn.addEventListener("click", () => {{
     const linkBlock = _buildLinkBlock(false);
@@ -426,7 +443,7 @@ if (copyCommentLinksBtn) {{
       }}, 1500);
     }});
   }});
-}}
+}});
 
 function _escapeHtml(s) {{
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
@@ -733,13 +750,58 @@ def _dock_products(products: list[str], product_links: dict[str, str] | None = N
     # WHY 네이버 언급 없음(2026-08-01): 네이버 블로그도 브랜드커넥트 대신 쿠팡 링크를
     # 쓰기로 바뀌면서 상품 링크는 쿠팡 하나만 필요해졌다 — 네이버 클립은 이 링크값과
     # 무관하게 상품명이 자동으로 들어가므로 별도 안내가 필요 없다.
+    # WHY id 없이 class만 쓰는지(2026-08-02): 이 버튼을 페이지 맨 아래에도 복제해서
+    # 넣으면서(`_product_links_bottom_section`) id가 중복되면 안 돼 — class 기준
+    # querySelectorAll로 바인딩하도록 JS를 바꿔서 이제 id가 필요 없다.
     return (
         '<div class="dock-section"><h4>상품 링크</h4>'
-        '<button type="button" id="copyCommentLinksBtn" class="copy-comment-links">'
+        '<button type="button" class="copy-comment-links">'
         '💬 댓글용 링크 텍스트 복사</button>'
         f'{rows}'
         '<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
         '</div>'
+    )
+
+
+def _product_links_bottom_section(products: list[str], product_links: dict[str, str] | None = None) -> str:
+    """WHY(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데 언제까지
+    안해줄거냐?"): 상품 링크는 원래 화면 오른쪽에 `position: fixed`로 항상 떠
+    있는 덕 패널(`_dock_products`)에만 있었다 — 위 "열기" 버튼처럼 페이지
+    맨 아래에도 눈에 보이는 사본을 하나 더 둔다.
+
+    ⚠️ 입력창(`<input class="product-link-input">`)까지 통째로 복제하지는
+    않는다 — 링크 편집 상태의 유일한 원본(source of truth)은 상단 덕 패널
+    뿐이어야 한다. 입력창을 두 벌 만들면 위에서 수정한 값이 아래엔 안
+    반영되는 등 두 입력이 서로 안 맞는 상태가 생길 수 있어서, 여기는 읽기
+    전용(검색 링크 + 이미 등록된 링크가 있으면 그 링크)만 보여주고 편집은
+    항상 위쪽 패널에서 하게 한다. "댓글용 링크 텍스트 복사" 버튼은 상태가
+    없는(클릭하면 그 순간 상단 입력값을 읽어서 복사하는) 동작이라 그대로
+    복제해도 안전하다."""
+    if not products:
+        return ""
+    product_links = product_links or {}
+    rows = ""
+    for name in products:
+        coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
+        link = product_links.get(name, "")
+        link_html = (
+            f'<a href="{_esc(link)}" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a>'
+            if link else '<span class="bottom-product-nolink">등록된 링크 없음</span>'
+        )
+        rows += (
+            '<div class="bottom-product-row">'
+            f'<span class="bottom-product-name">{_esc(name)}</span>'
+            f'<a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>'
+            f'{link_html}'
+            '</div>'
+        )
+    return (
+        '<section class="bottom-product-links">'
+        '<h2>상품 링크</h2>'
+        '<button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>'
+        f'{rows}'
+        '<p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p>'
+        '</section>'
     )
 
 
@@ -785,7 +847,9 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
-    dock_products = _dock_products(spec.get("products", []), _load_product_links())
+    _product_links_loaded = _load_product_links()
+    dock_products = _dock_products(spec.get("products", []), _product_links_loaded)
+    dock_products_bottom = _product_links_bottom_section(spec.get("products", []), _product_links_loaded)
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")
@@ -863,7 +927,8 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
         platform_sections=sections_html, unsplash_url=unsplash_url, pexels_url=pexels_url,
-        topic=quote(topic), dock_products=dock_products, video_download_link=video_download_link,
+        topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
+        video_download_link=video_download_link,
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),

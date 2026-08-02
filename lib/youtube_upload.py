@@ -156,12 +156,33 @@ def _get_or_create_playlist(youtube, category: str) -> str:
     return response["id"]
 
 
+def _playlist_has_video(youtube, playlist_id: str, video_id: str) -> bool:
+    request = youtube.playlistItems().list(part="snippet", playlistId=playlist_id, maxResults=50)
+    while request is not None:
+        response = request.execute()
+        if any(i["snippet"]["resourceId"]["videoId"] == video_id for i in response.get("items", [])):
+            return True
+        request = youtube.playlistItems().list_next(request, response)
+    return False
+
+
 def _add_to_category_playlist(youtube, topic: str, video_id: str) -> None:
     """실패해도 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다(썸네일
-    설정과 동일한 정책)."""
+    설정과 동일한 정책).
+
+    WHY _playlist_has_video로 먼저 확인하는지(2026-08-02, "버그있었나본데 그래서
+    한도 이미 엄청빨리소진된듯? 네개씩 너어놨네"): 원래는 이미 그 영상이
+    재생목록에 있는지 확인 없이 매번 무조건 insert했다 — organize()나
+    daily-batch를 여러 번 돌리면 같은 영상이 같은 재생목록에 중복으로 쌓이는
+    잠재적 버그였다(이번엔 실제 계정을 API로 직접 조회해서 확인한 결과 우연히
+    중복은 없었지만, 재발 방지 차원에서 먼저 확인 후 없을 때만 추가하도록
+    고침 — 불필요한 insert 호출을 줄여 quota 절약에도 도움됨)."""
     category = _category_from_topic(topic)
     try:
         playlist_id = _get_or_create_playlist(youtube, category)
+        if _playlist_has_video(youtube, playlist_id, video_id):
+            print(f"[youtube_upload] 재생목록 '{category}'에 이미 있음 — 건너뜀")
+            return
         youtube.playlistItems().insert(
             part="snippet",
             body={

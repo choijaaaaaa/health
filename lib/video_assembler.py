@@ -793,11 +793,25 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     topic은 assemble()이 칠판 우상단에 현재 아이템 아이콘+이름 라벨을 이미
     그리므로, 오른쪽 낙서 클러스터를 얹으면 같은 자리에서 겹친다 — 이 경우
     오른쪽은 스킵하고 왼쪽 낙서만 남긴다(휑함 방지 역할은 라벨이 대신함).
-    양옆 여백 띠는 라벨보다 한참 아래에서 시작해서 skip_right와 무관하게 항상
-    양쪽 다 그린다."""
+
+    ⚠️ **유튜브 쇼츠 플레이어 자체 UI와도 안 겹쳐야 함**(2026-08-02, 실제
+    모바일 스크린샷으로 확인: "모바일에서 보니까 전체적으로 화면이 작아져서
+    양옆에 아이콘들이 잘리네?"): 캡션 안전 여백(위 `_SIDE_MARGIN_W` 계산)은
+    "우리 자막과 안 겹치는지"만 따진 거라 유튜브 자체 좋아요/댓글/공유 아이콘
+    열(오른쪽 가장자리)이나 채널명·설명 캡션 띠(맨 아래)와는 무관했다 —
+    실제로 그 자리에 플랫폼 UI가 항상 떠 있어서 오른쪽 끝·맨 아래 배치는
+    작품 안에서는 안전해도 실제 재생 화면에서는 가려지거나 겹쳐 보인다.
+    `_YT_SAFE_RIGHT`(오른쪽 150px)/`_YT_SAFE_BOTTOM`(아래쪽 320px, 화면
+    비율 기준 대략적 추정치 — 기기·버전마다 UI 위치가 조금씩 다르므로 여유
+    있게 잡음) 밖으로 모든 배치를 밀어낸다. 오른쪽 끝 얇은 띠(캡션 안전 45px)
+    는 계산해보면 플랫폼 안전 영역(오른쪽 150px)과 아예 안 겹치는 지점이
+    없어서(캡션이 비는 자리 자체가 플랫폼 아이콘 열 안쪽이라) 오른쪽 양옆
+    여백 띠 낙서는 포기하고 왼쪽만 그린다."""
     rng = random.Random(seed)
     green_top_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, top_pad)[1])
     green_bottom_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_BOTTOM_ORIG, top_pad)[1])
+    _YT_SAFE_RIGHT = 150
+    _YT_SAFE_BOTTOM = 320
 
     zone_w, zone_h, top_gap = 260, 300, 20
     sides = ("left",) if skip_right else ("left", "right")
@@ -818,35 +832,35 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
                 if all(((cx - px) ** 2 + (cy - py) ** 2) ** 0.5 > 48 for px, py in placed):
                     placed.append((cx, cy))
                     break
-            x = 25 + lx if side == "left" else W - zone_w - 25 + lx
+            x = 25 + lx if side == "left" else W - _YT_SAFE_RIGHT - zone_w + lx
             y = green_top_canvas + top_gap + ly
             canvas.alpha_composite(doodle, (x, y))
 
-    # 양옆 여백 띠 — WHY 별도 로직인지: 위 모서리 클러스터(zone_w=260)보다 훨씬
-    # 얇은 폭(가장자리 45px)이라 같은 겹침 방지 로직을 재사용하면 큰 도형이
-    # 자꾸 재시도 실패한다 — 여기 전용으로 작은 사이즈(28~42px)만 쓴다.
+    # 양옆 여백 띠 — WHY 왼쪽만 그리는지: 위 클래스 docstring 참고(오른쪽은
+    # 캡션 안전 지점과 플랫폼 UI 안전 지점이 아예 안 겹쳐서 그릴 자리가 없음).
+    # WHY 별도 로직인지: 위 모서리 클러스터(zone_w=260)보다 훨씬 얇은 폭
+    # (가장자리 45px)이라 같은 겹침 방지 로직을 재사용하면 큰 도형이 자꾸
+    # 재시도 실패한다 — 여기 전용으로 작은 사이즈(28~42px)만 쓴다.
     _SIDE_MARGIN_W = 45
     _SIDE_MARGIN_BAND_H = 260
     margin_top = green_top_canvas + top_gap + zone_h + 60
-    for side in ("left", "right"):
-        count = rng.randint(2, 3)
-        placed_y: list[float] = []
-        for _ in range(count):
-            size = rng.randint(28, 42)
-            doodle = rng.choice(_DOODLES)().resize((size, size))
-            angle = rng.uniform(-20, 20)
-            doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
-            for _attempt in range(10):
-                ly = rng.randint(0, max(_SIDE_MARGIN_BAND_H - doodle.height, 0))
-                if all(abs(ly - py) > 45 for py in placed_y):
-                    placed_y.append(ly)
-                    break
-            else:
-                continue
-            lx = rng.randint(0, max(_SIDE_MARGIN_W - doodle.width, 4))
-            x = lx if side == "left" else W - lx - doodle.width
-            y = margin_top + ly
-            canvas.alpha_composite(doodle, (x, y))
+    count = rng.randint(2, 3)
+    placed_y: list[float] = []
+    for _ in range(count):
+        size = rng.randint(28, 42)
+        doodle = rng.choice(_DOODLES)().resize((size, size))
+        angle = rng.uniform(-20, 20)
+        doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
+        for _attempt in range(10):
+            ly = rng.randint(0, max(_SIDE_MARGIN_BAND_H - doodle.height, 0))
+            if all(abs(ly - py) > 45 for py in placed_y):
+                placed_y.append(ly)
+                break
+        else:
+            continue
+        lx = rng.randint(0, max(_SIDE_MARGIN_W - doodle.width, 4))
+        y = margin_top + ly
+        canvas.alpha_composite(doodle, (lx, y))
 
     motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
     canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
@@ -854,7 +868,12 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     talked_names = ", ".join(_anon_name(rng) for _ in range(2))
     talked = _doodle_text_box(f"떠든 사람: {talked_names}", font_size=26)
     juban = _doodle_text_box(f"주번 {_anon_name(rng)}", font_size=30)
-    juban_x, juban_y = 30, green_bottom_canvas - juban.height - 30
+    # WHY min(...)인지: 원래는 green_bottom_canvas(판서면 실측 하단) 기준으로만
+    # 붙였는데, 유튜브 쇼츠 플레이어의 채널명·설명 캡션 띠가 화면 맨 아래
+    # _YT_SAFE_BOTTOM(320px)만큼을 항상 가려서 실기기에서는 이 명패 글자가
+    # 그 띠와 겹쳐 읽기 힘들었다 — 두 기준 중 더 위쪽(작은 y)을 쓴다.
+    stack_bottom = min(green_bottom_canvas - 30, H - _YT_SAFE_BOTTOM)
+    juban_x, juban_y = 30, stack_bottom - juban.height
     talked_x, talked_y = 30, juban_y - talked.height - 12
     canvas.alpha_composite(talked, (talked_x, talked_y))
     canvas.alpha_composite(juban, (juban_x, juban_y))
