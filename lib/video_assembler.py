@@ -170,8 +170,14 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
         lines.append(cur)
 
     line_h = font_size + 16
-    pad_y = 50
-    box_h = pad_y * 2 + line_h * len(lines)
+    # WHY 위쪽 여백만 한 줄 높이(2026-08-02, "맨 위에있는 글자 한 줄만큼은 여백이
+    # 생겨야 해"): 대칭 패딩(pad_y*2)이었을 땐 텍스트가 배너 상단에 너무 붙어 보였다
+    # — 위쪽만 line_h만큼 비우고 아래쪽은 기존 여백을 유지한다. 배경 사진(box_h 전체)은
+    # 그대로 화면 맨 위(y=0)부터 꽉 채우므로 이 여백은 사진 안쪽의 빈 공간일 뿐,
+    # 사진 자체가 아래로 밀리는 게 아니다.
+    pad_top = line_h
+    pad_bottom = 30
+    box_h = pad_top + line_h * len(lines) + pad_bottom
 
     has_photo = photo_img is not None or photo_path
     if has_photo:
@@ -186,7 +192,7 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     else:
         img = Image.new("RGBA", (W, box_h), (200, 74, 98, 240))
     draw = ImageDraw.Draw(img)
-    y = pad_y
+    y = pad_top
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
@@ -323,6 +329,72 @@ def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=9
     img.save(out_path)
 
 
+# WHY 칠판 우상단 아이템 라벨(2026-08-02, "칠판 우상단에 멈춰있는 일러스트와 그
+# 아래에 그 아이템의 이름을 함께 넣어줘야해" — 코너의 움직이는 캐릭터만으로는
+# "이게 뭔지 사람들이 인지 잘 못할듯"하다는 지적): 카드뉴스의 원형 배지(카드뉴스
+# `_char_medallion`)와 톤을 맞춘 정지 아이콘(흰 링 + 그림자) + 그 아래 분필체
+# 이름 라벨을 만든다 — 카드뉴스는 자체 함수가 따로 있어(캔버스 크기·색상 상수가
+# 다름) 그대로 import하지 않고 이 모듈 안에서 동일한 스타일을 재구현했다.
+def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
+                          icon_size: int = 108, font_size: int = 40) -> None:
+    ring_w = 6
+    pad = ring_w + 10
+    icon_canvas = icon_size + pad * 2
+
+    if illust_path and Path(illust_path).exists():
+        raw = Image.open(illust_path).convert("RGB").resize((icon_size, icon_size))
+        raw = raw.convert("RGBA")
+        # WHY 자동 키 색 감지(2026-08-01 card_news.py 동일 이유): 캐릭터 배경
+        # 크로마키가 초록/파랑/마젠타 등 topic마다 다를 수 있어 모서리 픽셀을
+        # 실제 배경색으로 채택한다.
+        key = raw.getpixel((2, 2))[:3]
+        kr, kg, kb = key
+        px = raw.load()
+        for yy in range(raw.height):
+            for xx in range(raw.width):
+                r, g, b, a = px[xx, yy]
+                if abs(r - kr) + abs(g - kg) + abs(b - kb) < 160:
+                    px[xx, yy] = (r, g, b, 0)
+        mask = Image.new("L", (icon_size, icon_size), 0)
+        ImageDraw.Draw(mask).ellipse((0, 0, icon_size, icon_size), fill=255)
+        combined_mask = ImageChops.multiply(raw.split()[3], mask)
+        icon = Image.new("RGBA", (icon_size, icon_size), (0, 0, 0, 0))
+        icon.paste(raw, (0, 0), combined_mask)
+    else:
+        icon = None
+
+    icon_img = Image.new("RGBA", (icon_canvas, icon_canvas), (0, 0, 0, 0))
+    shadow = Image.new("RGBA", icon_img.size, (0, 0, 0, 0))
+    ImageDraw.Draw(shadow).ellipse(
+        [pad - 3, pad + 6, pad + icon_size + 3, pad + icon_size + 12], fill=(0, 0, 0, 90))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(10))
+    icon_img = Image.alpha_composite(icon_img, shadow)
+    idraw = ImageDraw.Draw(icon_img)
+    idraw.ellipse([pad - ring_w, pad - ring_w, pad + icon_size + ring_w, pad + icon_size + ring_w],
+                  fill=(255, 255, 255, 255))
+    if icon is not None:
+        icon_img.paste(icon, (pad, pad), icon)
+
+    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
+    dummy = Image.new("RGBA", (1, 1))
+    d = ImageDraw.Draw(dummy)
+    bbox = d.textbbox((0, 0), name, font=font)
+    text_w = bbox[2] - bbox[0]
+    text_h = bbox[3] - bbox[1]
+
+    canvas_w = max(icon_canvas, text_w + 20)
+    gap = 8
+    canvas_h = icon_canvas + gap + text_h + 10
+    canvas = Image.new("RGBA", (canvas_w, canvas_h), (0, 0, 0, 0))
+    canvas.alpha_composite(icon_img, ((canvas_w - icon_canvas) // 2, 0))
+    draw = ImageDraw.Draw(canvas)
+    tx = (canvas_w - text_w) / 2 - bbox[0]
+    ty = icon_canvas + gap - bbox[1]
+    draw.text((tx + 2, ty + 2), name, font=font, fill=(0, 0, 0, 130))
+    draw.text((tx, ty), name, font=font, fill=(255, 255, 255, 255))
+    canvas.save(out_path)
+
+
 # WHY 칠판 모서리 낙서(2026-08-02, "파츠같은거 귀여운거 랜덤으로 칠판 모서리쪽에
 # 추가하는게 어떨까 싶어 너무 휑하고 별로야"): 칠판 배경이 실사진 그대로라 텍스트가
 # 없는 구간이 휑하다는 지적 — 실제 이미지 생성 없이 PIL 도형만으로 그린 작은
@@ -409,35 +481,91 @@ def _doodle_smiley() -> Image.Image:
 
 _DOODLES = [_doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley]
 
-# WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작하는
-# y좌표를 픽셀 스캔으로 구함(위/아래 흰 여백·나무 프레임을 제외한 순수 판서면 시작점).
+# WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
+# y좌표를 픽셀 스캔으로 구함(위/아래 흰 여백·나무 프레임을 제외한 순수 판서면 범위).
 # 이 사진 자체를 바꾸지 않는 한 다시 잴 필요 없음 — CHALKBOARD_CROP_LEFT/RIGHT와
 # 같은 성격의 상수.
 _CHALKBOARD_GREEN_TOP_ORIG = 142
+_CHALKBOARD_GREEN_BOTTOM_ORIG = 866
+
+# WHY 옛날 교실 감성 문구(2026-08-02, "옛날 감성나는 칠판 주번... 그런것들 들어가면
+# 딱 좋을거같아서"): 실존 인물을 가리키지 않는 흔한 조합 이름(가상의 "홍길동"류)만
+# 골라서, 실제 학급 게시물처럼 보이는 작은 명패를 왼쪽 아래 모서리에 하나 얹는다.
+_JUBAN_NAMES = ["김민지", "이준서", "박서연", "최도윤", "정하은", "강지호", "윤서아", "임하준"]
 
 
-def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int) -> Image.Image:
-    """칠판 판서면의 위쪽 모서리(왼쪽 또는 오른쪽) 한 곳에 낙서를 하나 얹는다.
-    WHY 위쪽 모서리로만 제한하는지: 자막은 판서면 세로 중앙에, 캐릭터는 항상
-    오른쪽 아래 모서리에 나온다 — 왼쪽/오른쪽 위 모서리는 이 topic이 몇 초짜리든,
-    자막이 몇 줄이든 겹칠 일이 없는 유일한 안전 지대다. WHY seed로 topic을 쓰는지:
-    같은 topic을 재조립해도 매번 낙서가 안 바뀌게(재현 가능) — card_news.py의
-    _photo_backdrop과 같은 패턴."""
+def _doodle_juban_box(name: str) -> Image.Image:
+    """분필체로 "주번 OOO" 글자를 얇은 사각 테두리로 감싼 작은 명패 — 실제 교실
+    칠판 모서리에 붙던 주번 표시판을 흉내낸다."""
+    text = f"주번 {name}"
+    font = ImageFont.truetype(CHALK_FONT_PATH, 30)
+    pad_x, pad_y = 16, 10
+    dummy = Image.new("RGBA", (1, 1))
+    bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    box_w, box_h = tw + pad_x * 2, th + pad_y * 2
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.rectangle([2 + ox, 2 + oy, box_w - 2 + ox, box_h - 2 + oy], outline=color, width=3)
+        d.text((pad_x - bbox[0] + ox, pad_y - bbox[1] + oy), text, font=font, fill=color)
+
+    shadow = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
+    draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 100))
+    img = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
+    draw(ImageDraw.Draw(img), (0, 0), (255, 255, 255, 255))
+    return Image.alpha_composite(shadow, img)
+
+
+def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 2) -> Image.Image:
+    """칠판 판서면 위쪽 양쪽 모서리에 낙서를 여러 개(기본 한쪽당 2개) 흩뿌리고,
+    왼쪽 아래 모서리엔 "주번 OOO" 명패를 하나 얹는다.
+
+    WHY 위쪽 모서리로만 도형을 흩뿌리는지: 자막은 판서면 세로 중앙에, 캐릭터는
+    항상 오른쪽 아래 모서리에 나온다 — 왼쪽/오른쪽 위 모서리는 이 topic이 몇
+    초짜리든, 자막이 몇 줄이든 겹칠 일이 없는 유일한 안전 지대다.
+    WHY 처음엔 한쪽에 하나였다가 늘렸는지(2026-08-02, "좀 많았으면 하는데...
+    너무 적은데 오히려 좀 더 화려하게 갔으면 싶어"): 실제 영상으로 보니 낙서
+    하나로는 휑함이 거의 안 가려졌다 — 양쪽 모서리에 서로 다른 도형을 2개씩
+    묶어서(겹침 방지 로직 포함) 훨씬 장식적으로 만들었다.
+    WHY 왼쪽 아래에 "주번" 명패를 추가로 얹는지(2026-08-02, "옛날 감성나는 칠판
+    주번... 그런것들 들어가면 딱 좋을거같아서"): 실제 교실 칠판 느낌을 살리는
+    포인트 — 캐릭터가 항상 오른쪽 아래에 있어서 왼쪽 아래는 비어있는 유일한
+    하단 모서리다. 판서면 세로 중앙의 자막과 겹치지 않게 판서면 맨 아래쪽 끝에
+    바짝 붙여서 배치한다.
+    WHY seed로 topic을 쓰는지: 같은 topic을 재조립해도 매번 낙서·명패 이름이
+    안 바뀌게(재현 가능) — card_news.py의 _photo_backdrop과 같은 패턴."""
     rng = random.Random(seed)
-    doodle = rng.choice(_DOODLES)()
-    size = rng.randint(85, 115)
-    doodle = doodle.resize((size, size))
-    angle = rng.uniform(-12, 12)
-    doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
-
     cropped_w = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
     scale = (W / cropped_w) * CHALKBOARD_ZOOM
     green_top_canvas = round(top_pad + _CHALKBOARD_GREEN_TOP_ORIG * scale)
+    green_bottom_canvas = round(top_pad + _CHALKBOARD_GREEN_BOTTOM_ORIG * scale)
 
-    margin, top_gap = 30, 25
-    x = margin if rng.random() < 0.5 else W - doodle.width - margin
-    y = green_top_canvas + top_gap
-    canvas.alpha_composite(doodle, (x, y))
+    zone_w, zone_h, top_gap = 260, 220, 20
+    for side in ("left", "right"):
+        shapes = rng.sample(_DOODLES, min(per_corner, len(_DOODLES)))
+        placed: list[tuple[float, float]] = []
+        for fn in shapes:
+            lx = ly = 0
+            doodle = None
+            for _attempt in range(12):
+                size = rng.randint(55, 85)
+                doodle = fn().resize((size, size))
+                angle = rng.uniform(-18, 18)
+                doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
+                lx = rng.randint(0, max(zone_w - doodle.width, 0))
+                ly = rng.randint(0, max(zone_h - doodle.height, 0))
+                cx, cy = lx + doodle.width / 2, ly + doodle.height / 2
+                if all(((cx - px) ** 2 + (cy - py) ** 2) ** 0.5 > 55 for px, py in placed):
+                    placed.append((cx, cy))
+                    break
+            x = 25 + lx if side == "left" else W - zone_w - 25 + lx
+            y = green_top_canvas + top_gap + ly
+            canvas.alpha_composite(doodle, (x, y))
+
+    juban = _doodle_juban_box(rng.choice(_JUBAN_NAMES))
+    juban_x, juban_y = 30, green_bottom_canvas - juban.height - 30
+    canvas.alpha_composite(juban, (juban_x, juban_y))
     return canvas
 
 
@@ -627,6 +755,15 @@ CHALKBOARD_ZOOM = 1.35
 # 늘려서 캔버스(1920)를 다 채우면 위아래 여백이 부족해서, 늘리는 대신 같은 톤의
 # 흰색으로 캔버스 크기까지 패딩한다.
 CHALKBOARD_BG_FILL = (248, 248, 248)
+# WHY CHALKBOARD_CONTENT_BOTTOM(2026-08-02, "칠판을 아예 맨 아래까지 내리고... 그
+# 어떤 필요로 하는 아이템을... 넣는게"): 칠판 사진 원본(1024 세로)은 나무 받침대
+# 아래로 흰 촬영 배경이 ~924px까지 이어지는데, photo_bg_img 합성 시 이 흰 여백이
+# 투명 처리되면서 실사진이 그대로 비쳐 보였다 — "도움이 되는 항목이 화면에 안
+# 뜬다"는 지적대로, 이 틈이 정보 없이 방해만 됐다. 실측(픽셀 스캔)으로 프레임+
+# 받침대가 끝나는 지점을 찾은 값 — 이 지점 아래는 칠판 톤 단색으로 채워서 판서면이
+# 화면 맨 아래까지 이어지는 것처럼 보이게 한다(이 배경 이미지를 바꾸지 않는 한
+# 다시 측정할 필요 없음).
+CHALKBOARD_CONTENT_BOTTOM = 924
 # WHY 폴백값으로만 남김(2026-08-02): 원래는 고정 상수로 썼지만, 상단 배너 높이가
 # 제목 줄 수에 따라 달라져서(1줄 vs 2줄) 고정값이면 배너 아래로 흰 틈이 남거나
 # 배너와 겹치는 경우가 생겼다 — assemble()이 실제 배너 높이(title_h)를
@@ -713,6 +850,15 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
             resized_rgba.putalpha(board_alpha)
             canvas.alpha_composite(resized_rgba, (0, effective_top_pad))
             canvas = canvas.convert("RGB")
+
+            # WHY 받침대 아래를 칠판 톤으로 채우는지: 위 board_alpha가 원본 사진의
+            # 흰 촬영 배경(나무 받침대 아래 CHALKBOARD_CONTENT_BOTTOM~1024px 구간)을
+            # 투명 처리해서 실사진이 그대로 비쳤다 — 그 자리를 칠판 하단색으로 덮어서
+            # 판서면이 화면 끝까지 이어지는 것처럼 보이게 한다.
+            board_bottom_y = effective_top_pad + round(CHALKBOARD_CONTENT_BOTTOM * scale)
+            if board_bottom_y < H:
+                fill = Image.new("RGB", (W, H - board_bottom_y), CHALKBOARD_BOTTOM)
+                canvas.paste(fill, (0, board_bottom_y))
         else:
             canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
             canvas.paste(resized, (0, effective_top_pad))
@@ -871,6 +1017,42 @@ def assemble(
         else:
             _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
+        # WHY item_schedule(2026-08-02, "그 아이템에 따라 뒤에 배경이 바꼈으면
+        # 좋겠고" + "칠판 우상단에 멈춰있는 일러스트와... 이름을 함께 넣어줘야해"):
+        # motion_schedule의 각 구간(캐릭터 파일 경로)에서 품목명을 추출해서, 그
+        # 품목의 일러스트(assets_library/illust/<품목>_illust.jpg)와 실사진
+        # (assets_library/real/<품목>_real_*.jpg)을 자동으로 찾는다. 이 스케줄을
+        # 그대로 재사용해서 상단 배너 사진과 칠판 우상단 라벨 둘 다 구간마다 바꾼다
+        # — 캐릭터가 이미 이 파일명 규칙(<품목>_motion.mp4)을 따르고 있어서 별도
+        # 인자 없이 기존 motion_schedule만으로 유도 가능하다. 못 찾으면(예: 파일명이
+        # 규칙과 다른 경우) None으로 두고 title_banner_photo_path/아이콘 없음으로
+        # 자연 폴백한다.
+        item_schedule: list[dict] = []
+        if motion_schedule:
+            for entry in motion_schedule:
+                seg_start, seg_end, motion_p = entry[0], entry[1], entry[2]
+                motion_p = Path(motion_p)
+                base = motion_p.stem
+                if base.endswith("_motion"):
+                    base = base[: -len("_motion")]
+                assets_root = motion_p.parent.parent
+                illust_p = assets_root / "illust" / f"{base}_illust.jpg"
+                real_dir = assets_root / "real"
+                real_candidates = sorted(real_dir.glob(f"{base}_real_*.jpg"))
+                if real_candidates:
+                    real_p = real_candidates[0]
+                elif (real_dir / f"{base}.jpg").exists():
+                    real_p = real_dir / f"{base}.jpg"
+                else:
+                    real_p = None
+                item_schedule.append({
+                    "start": seg_start,
+                    "end": seg_end,
+                    "name": base,
+                    "illust": str(illust_p) if illust_p.exists() else None,
+                    "real_photo": str(real_p) if real_p else title_banner_photo_path,
+                })
+
         # WHY shared_bg_photo를 여기서 한 번만 만드는지(2026-08-02, "배경으로 넣는
         # real 사진을... 한 사진으로 해서... 따로따로 짤려보이잖아"): 배너와 칠판
         # 배경이 각자 photo_path로 독립적인 cover-crop을 하면 서로 다른 배율/영역이
@@ -984,12 +1166,12 @@ def assemble(
         # 전부 이 늘어난 길이 기준으로 처리해야 한다.
         video_total = title_card_duration + total_duration + end_card_duration
 
-        # 3) 상단 후킹 배너(+ 필요시 광고 태그) — 전체 길이에 한 번만 overlay
-        # (세그먼트 아님, 성능 안전). WHY -t를 이미지 입력과 출력 양쪽에 명시:
+        # 3) 상단 후킹 배너(+ 우상단 아이템 라벨, + 필요시 광고 태그) — 전체 길이에
+        # 한 번만 overlay하는 대신, item_schedule이 있으면(motion_schedule로 캐릭터
+        # 여러 명이 번갈아 나오는 topic) 구간마다 다른 배너 사진 + 아이템 라벨을
+        # enable=between()으로 스위칭한다. WHY -t를 이미지 입력과 출력 양쪽에 명시:
         # -loop 1 이미지 + -shortest 조합만으로는 종료를 못 잡고 무한정 도는
-        # 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이 계속 커지는 걸
-        # 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다. title_png/title_h는
-        # 위에서 칠판 배경 top_pad 계산용으로 이미 만들어뒀으니 여기서 재사용만 한다.
+        # 경우가 있었다(2026-07-30) — 길이를 직접 못박아서 확실히 끝나게 한다.
         titled = tmp_path / "titled.mp4"
 
         # WHY enable='between(...)': 제목 카드 구간엔 이미 큼직한 훅 카피가 화면
@@ -999,28 +1181,66 @@ def assemble(
         # gte로 열어두면 배너가 엔딩 카드 구간까지 계속 떠서 겹친다 — 나레이션
         # 구간(title_card_duration ~ title_card_duration+total_duration)에서만 뜨게
         # 상한을 추가했다.
-        enable_expr = f"between(t\\,{title_card_duration}\\,{title_card_duration + total_duration})"
-        if ad_tag:
-            ad_png = tmp_path / "ad_tag.png"
-            _make_ad_tag_png(ad_png)
-            subprocess.run(
-                ["ffmpeg", "-y",
-                 "-i", str(combined),
-                 "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(title_png),
-                 "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(ad_png),
-                 "-filter_complex",
-                 f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[t];"
-                 f"[t][2:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[v]",
-                 "-map", "[v]", "-r", str(FPS), "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
-                check=True, capture_output=True,
-            )
+        cmd_inputs = ["-i", str(combined)]
+        filter_parts = []
+        current = "0:v"
+        next_input_idx = 1
+
+        def _add_input(path: Path) -> int:
+            nonlocal next_input_idx
+            cmd_inputs.extend(["-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(path)])
+            idx = next_input_idx
+            next_input_idx += 1
+            return idx
+
+        if item_schedule:
+            # WHY 세그먼트별 배너+라벨(2026-08-02, "그 아이템에 따라 뒤에 배경이
+            # 바꼈으면 좋겠고" + "칠판 우상단에... 이름을 함께 넣어줘야해"): 문단이
+            # 아니라 캐릭터 전환 구간(item_schedule) 단위로 배너 사진과 우상단
+            # 아이콘+이름을 같이 바꾼다 — 자막 세그먼트 오버레이(아래 4번)와 같은
+            # enable=between() 패턴이라 별도 concat 없이 한 번의 필터그래프로 끝난다.
+            for i, item in enumerate(item_schedule):
+                seg_start_abs = item["start"] + title_card_duration
+                seg_end_abs = item["end"] + title_card_duration
+                win = f"between(t\\,{seg_start_abs}\\,{seg_end_abs})"
+
+                banner_png = tmp_path / f"title_seg_{i:03d}.png"
+                _make_title_png(title, banner_png, photo_path=item["real_photo"])
+                banner_idx = _add_input(banner_png)
+                nxt = f"vb{i}"
+                filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{win}'[{nxt}]")
+                current = nxt
+
+                label_png = tmp_path / f"label_seg_{i:03d}.png"
+                _make_item_label_png(item["illust"], item["name"], label_png)
+                label_idx = _add_input(label_png)
+                nxt = f"vl{i}"
+                filter_parts.append(
+                    f"[{current}][{label_idx}:v]overlay=x=main_w-overlay_w-24:y={title_h + 20}:enable='{win}'[{nxt}]")
+                current = nxt
         else:
-            subprocess.run(
-                ["ffmpeg", "-y", "-i", str(combined), "-loop", "1", "-r", str(FPS), "-t", f"{video_total}", "-i", str(title_png),
-                 "-filter_complex", f"[0:v][1:v]overlay=x=0:y=0:enable='{enable_expr}'[v]",
-                 "-map", "[v]", "-r", str(FPS), "-t", f"{video_total}", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
-                check=True, capture_output=True,
-            )
+            banner_idx = _add_input(title_png)
+            enable_expr = f"between(t\\,{title_card_duration}\\,{title_card_duration + total_duration})"
+            nxt = "vb"
+            filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
+            current = nxt
+            if ad_tag:
+                ad_png = tmp_path / "ad_tag.png"
+                _make_ad_tag_png(ad_png)
+                ad_idx = _add_input(ad_png)
+                nxt = "vad"
+                filter_parts.append(
+                    f"[{current}][{ad_idx}:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[{nxt}]")
+                current = nxt
+
+        filter_complex = ";".join(filter_parts)
+        subprocess.run(
+            ["ffmpeg", "-y", *cmd_inputs,
+             "-filter_complex", filter_complex,
+             "-map", f"[{current}]", "-r", str(FPS), "-t", f"{video_total}",
+             "-c:v", "libx264", "-pix_fmt", "yuv420p", str(titled)],
+            check=True, capture_output=True,
+        )
         combined = titled
 
         # WHY 자막 합성 전 CFR 재인코딩(2026-08-02 버그 수정): combined는 title_card_out+
