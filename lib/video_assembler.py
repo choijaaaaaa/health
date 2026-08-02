@@ -23,6 +23,15 @@ W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 FPS = 30
 
+# WHY 칠판 스타일 기본 배경 전환(2026-08-02): 실사진을 그대로 배경에 깔면 밋밋하고
+# 눈에 확 안 들어온다는 피드백("real 이미지 그대로 배경으로 넣고 있는데... 확 보이지가
+# 않는다") — 카드뉴스처럼 칠판 같은 배경에 감각적인 폰트로 나레이션을 써주는 쪽으로
+# 새 topic 기본값을 바꾼다. 폰트는 무료 상업적 이용 가능한 구글 폰트 "Gaegu"(SIL OFL
+# 1.1, assets_library/fonts/OFL-Gaegu.txt 참고) — 손글씨/마카체 느낌의 한글 지원 폰트.
+CHALK_FONT_PATH = str(Path(__file__).resolve().parent.parent / "assets_library" / "fonts" / "Gaegu-Bold.ttf")
+CHALKBOARD_TOP = (32, 66, 48)
+CHALKBOARD_BOTTOM = (20, 42, 31)
+
 
 def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     text = Path(srt_path).read_text()
@@ -173,6 +182,47 @@ def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
         w = bbox[2] - bbox[0]
         x = (box_w - w) / 2 - bbox[0]
         draw.text((x, y - bbox[1]), line, font=font, fill=(255, 255, 255, 255), stroke_width=2, stroke_fill=(0, 0, 0, 255))
+        y += lh + gap
+    img.save(out_path)
+
+
+def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=940):
+    """칠판 배경용 자막(2026-08-02). _make_caption_png와 달리 반투명 박스가 없다 —
+    배경 자체가 이미 짙은 칠판색이라 박스를 얹으면 이중으로 어두워지고 사진 위에
+    붙인 스티커 같은 느낌만 준다. 대신 Gaegu(분필/마카 느낌 폰트)로 흰 글자를
+    직접 쓰고, 옅은 그림자만 살짝 깔아서 배경 톤이 조금 밝은 부분에서도 읽히게 한다."""
+    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
+    dummy = Image.new("RGBA", (1, 1))
+    d = ImageDraw.Draw(dummy)
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        bbox = d.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_width and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+
+    line_heights, max_w = [], 0
+    for line in lines:
+        bbox = d.textbbox((0, 0), line, font=font)
+        line_heights.append(bbox[3] - bbox[1])
+        max_w = max(max_w, bbox[2] - bbox[0])
+
+    pad, gap = 20, 14
+    img_w, img_h = max_w + pad * 2, sum(line_heights) + gap * (len(lines) - 1) + pad * 2
+    img = Image.new("RGBA", (img_w, img_h), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(img)
+    y = pad
+    for line, lh in zip(lines, line_heights):
+        bbox = draw.textbbox((0, 0), line, font=font)
+        w = bbox[2] - bbox[0]
+        x = (img_w - w) / 2 - bbox[0]
+        draw.text((x + 3, y - bbox[1] + 3), line, font=font, fill=(0, 0, 0, 110))  # 옅은 그림자
+        draw.text((x, y - bbox[1]), line, font=font, fill=(255, 255, 255, 255))
         y += lh + gap
     img.save(out_path)
 
@@ -345,6 +395,25 @@ def make_gradient_bg(out_path: Path, top=(253, 249, 245), bottom=(246, 237, 230)
     img.save(out_path, quality=95)
 
 
+def _build_chalkboard_bg(total_duration: float, out_path: Path):
+    """칠판 스타일 기본 배경(2026-08-02). 실사진 슬라이드쇼 대신 카드뉴스 톤과 맞춘
+    짙은 초록 그라디언트를 배경으로 쓰고, 자막은 _make_chalk_caption_png로 칠판에
+    분필로 쓴 것처럼 렌더링한다. 완전히 정적이면 밋밋해서 실사진 배경과 같은 미세
+    zoompan(서서히 확대)만 적용해 계속 살아있는 느낌을 유지한다."""
+    with tempfile.TemporaryDirectory() as tmp:
+        still = Path(tmp) / "chalkboard.jpg"
+        make_gradient_bg(still, top=CHALKBOARD_TOP, bottom=CHALKBOARD_BOTTOM)
+        frames = max(int(total_duration * FPS), 1)
+        vf = (
+            f"scale={W}:{H},zoompan=z='min(zoom+0.0006,1.06)':d={frames}:s={W}x{H}:fps={FPS}"
+        )
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-i", str(still), "-t", f"{total_duration}",
+             "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
+            check=True, capture_output=True,
+        )
+
+
 def _build_background(images: list[str], total_duration: float, out_path: Path, xfade_dur: float = 0.7):
     """실사진 슬라이드쇼 배경. WHY 크로스페이드: 이전엔 concat demuxer로 하드컷만
     이어붙여서 사진이 바뀔 때마다 뚝뚝 끊기는 느낌이었다(2026-07-30 피드백: "좀더
@@ -421,7 +490,7 @@ def _build_background_schedule(
 
 
 def assemble(
-    images: list[str],
+    images: list[str] | None,
     motion_path: str | None,
     audio_path: str,
     srt_path: str,
@@ -446,9 +515,19 @@ def assemble(
     # [이미지경로,...]), ...]로 주면 images 대신 이 스케줄로 배경을 만든다 — 품목별
     # 실사진이 있는 topic(여러 캐릭터가 번갈아 나오는 topic)은 배경도 같이 맞출 것.
     image_schedule: list[tuple[float, float, list[str]]] | None = None,
+    # WHY bg_style 기본값 "chalkboard"(2026-08-02): 실사진 배경이 밋밋하고 눈에 안
+    # 띈다는 피드백으로 새 topic 기본값을 카드뉴스 톤 칠판 배경+분필체 자막으로
+    # 바꿨다. "photo"를 명시하면 기존 실사진 슬라이드쇼 방식(images/image_schedule
+    # 필요)을 그대로 쓸 수 있다 — 과거 topic 재조립이나 특별히 실사진이 필요한
+    # 경우를 위해 남겨둠.
+    bg_style: str = "chalkboard",
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
+    if bg_style not in ("chalkboard", "photo"):
+        raise ValueError(f"알 수 없는 bg_style: {bg_style!r} (chalkboard 또는 photo만 가능)")
+    if bg_style == "photo" and not images and not image_schedule:
+        raise ValueError("bg_style='photo'면 images 또는 image_schedule 중 하나는 필요합니다")
     duration_probe = subprocess.run(
         ["ffprobe", "-v", "error", "-show_entries", "format=duration",
          "-of", "default=noprint_wrappers=1:nokey=1", audio_path],
@@ -466,7 +545,9 @@ def assemble(
             _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
         bg = tmp_path / "bg.mp4"
-        if image_schedule:
+        if bg_style == "chalkboard":
+            _build_chalkboard_bg(total_duration, bg)
+        elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
             _build_background(images, total_duration, bg)
@@ -591,7 +672,10 @@ def assemble(
             seg = tmp_path / f"cap_{i:04d}.mp4"
             if text:
                 cap_png = cap_dir / f"cap_{i:04d}.png"
-                _make_caption_png(text, cap_png)
+                if bg_style == "chalkboard":
+                    _make_chalk_caption_png(text, cap_png)
+                else:
+                    _make_caption_png(text, cap_png)
                 subprocess.run(
                     ["ffmpeg", "-y", "-ss", f"{start}", "-t", f"{dur}", "-i", str(combined),
                      "-loop", "1", "-t", f"{dur}", "-i", str(cap_png),
@@ -633,7 +717,12 @@ def assemble(
 if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser()
-    p.add_argument("--images", required=True, help="쉼표로 구분된 배경용 실사진 경로들")
+    p.add_argument("--images", default=None,
+                    help="쉼표로 구분된 배경용 실사진 경로들 — --bg-style photo일 때만 필요")
+    p.add_argument("--bg-style", default="chalkboard", choices=["chalkboard", "photo"],
+                    help="배경 스타일(2026-08-02 기본값 chalkboard로 전환) — "
+                         "chalkboard: 짙은 초록 그라디언트+분필체 자막(images 불필요), "
+                         "photo: 기존 실사진 슬라이드쇼(images 또는 image_schedule 필요)")
     p.add_argument("--motion", default=None, help="Kling으로 생성한 캐릭터 모션 루프 클립(흰 배경) — 캐릭터 1명짜리 topic용")
     p.add_argument("--motion-schedule", default=None,
                     help="캐릭터 여러 명이 구간별로 번갈아 나올 때 사용. "
@@ -670,7 +759,7 @@ if __name__ == "__main__":
                 motion_schedule.append((float(start_s), float(end_s), path))
 
     assemble(
-        images=args.images.split(","),
+        images=args.images.split(",") if args.images else None,
         motion_path=args.motion,
         audio_path=args.audio,
         srt_path=args.srt,
@@ -683,4 +772,5 @@ if __name__ == "__main__":
         title_card_text=args.title_card_text,
         title_card_char_path=args.title_card_char,
         motion_schedule=motion_schedule,
+        bg_style=args.bg_style,
     )

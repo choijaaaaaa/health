@@ -15,7 +15,9 @@ from PIL import Image
 from lib.video_assembler import (
     FPS,
     _build_background_schedule,
+    _build_chalkboard_bg,
     _build_character_schedule,
+    _make_chalk_caption_png,
     _parse_srt,
     assemble,
     make_gradient_bg,
@@ -156,6 +158,31 @@ class TestMakeGradientBg:
             assert abs(c_actual - c_expected) < 20
         for c_actual, c_expected in zip(bottom_pixel, bottom):
             assert abs(c_actual - c_expected) < 20
+
+
+class TestChalkboardBackground:
+    """2026-08-02 — 실사진 대신 칠판 스타일이 기본이 된 배경/자막 렌더링 검증."""
+
+    def test_build_chalkboard_bg_duration_matches(self, tmp_path):
+        out_path = tmp_path / "chalk_bg.mp4"
+        duration = 2.0
+        _build_chalkboard_bg(duration, out_path)
+
+        assert out_path.exists()
+        dur = _ffprobe_duration(out_path)
+        assert dur == pytest.approx(duration, abs=0.2)
+
+    def test_make_chalk_caption_png_renders_nonempty_text(self, tmp_path):
+        out_path = tmp_path / "chalk_cap.png"
+        _make_chalk_caption_png("칠판 자막 테스트", out_path)
+
+        assert out_path.exists()
+        img = Image.open(out_path)
+        assert img.mode == "RGBA"
+        # WHY 완전 투명(전부 alpha=0)이 아닌지 확인: 글자가 실제로 그려졌는지의
+        # 최소 확인 — 폰트 로드 실패 등으로 빈 캔버스만 저장되는 회귀를 잡는다.
+        alpha = img.getchannel("A")
+        assert alpha.getextrema()[1] > 0, "캡션 PNG에 불투명 픽셀이 없음 — 텍스트가 안 그려진 것으로 보임"
 
 
 class TestAssembleFpsRegression:
