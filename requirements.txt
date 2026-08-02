@@ -2,3 +2,6 @@ Pillow
 requests
 python-dotenv
 pytest
+google-api-python-client
+google-auth-oauthlib
+google-auth-httplib2
