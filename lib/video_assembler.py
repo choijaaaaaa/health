@@ -17,7 +17,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -74,7 +74,64 @@ def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
     img.save(out_path)
 
 
-def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | None = None) -> int:
+def _cover_crop_subject(photo_path: str, out_w: int, out_h: int) -> Image.Image:
+    """real 사진을 (out_w x out_h) 프레임에 꽉 차게 cover 크롭 — 정사각형 강제
+    리사이즈로 피사체가 밀려나는 문제, 그리고 흰 스튜디오 배경 사진에서 피사체가
+    일부만 차지해서 크롭 후에도 흰 여백만 남는 문제, 둘 다 대응한다(2026-08-02,
+    "정사각형으로 리사이즈해서 크롭하면 안 됨" / "어떤 물건인지 알 수 있는게
+    훨씬 나을거같네"). 원본 비율을 유지한 채 목표 프레임을 완전히 덮을 때까지
+    확대하고 중앙을 잘라낸다.
+
+    WHY 픽셀 단위 threshold 대신 행/열 밀도 프로파일(2026-08-02, "real 이미지의
+    opacity를 없애라고 아직도 흐려" — 실제로는 블러가 아니라 크롭이 너무 헐거워서
+    피사체가 작고 멀게 나온 문제): 흰 스튜디오컷은 배경에 미세한 그림자/비네팅이
+    깔려서 "흰색이 아닌 픽셀 하나라도 있으면 subject"식 bounding box는 그림자
+    번짐까지 다 잡아버려 사실상 전체 사진 크기로 뻥튀기된다(실측: 단순 bbox가
+    전체 프레임의 90%+ 를 차지) — 그러면 확대 배율이 거의 없어서 피사체가 작고
+    멀리 보인다. 대신 각 행/열에서 "피사체 픽셀 비율"이 일정 밀도 이상인 범위만
+    골라내면, 그림자 번짐 같은 옅은 잡음은 걸러지고 실제로 피사체가 뭉쳐있는
+    영역만 남는다 — 촘촘한(0.30) 기준부터 시작해서 전체 면적의 8% 이상을
+    커버하는 첫 기준을 채택, 사진마다 피사체 밀도가 달라도 적당히 타이트한
+    크롭을 자동으로 찾는다."""
+    photo = Image.open(photo_path).convert("RGB")
+    gray = photo.convert("L")
+    subject_mask = gray.point(lambda x: 255 if x < 235 else 0)
+    row_profile = subject_mask.resize((1, photo.height), Image.BOX)
+    col_profile = subject_mask.resize((photo.width, 1), Image.BOX)
+    rows = list(row_profile.getdata())
+    cols = list(col_profile.getdata())
+    total_area = photo.width * photo.height
+    bbox = None
+    for density in (0.30, 0.25, 0.20, 0.15, 0.10, 0.05, 0.02):
+        row_thresh = 255 * density
+        idx_rows = [i for i, v in enumerate(rows) if v > row_thresh]
+        idx_cols = [i for i, v in enumerate(cols) if v > row_thresh]
+        if not idx_rows or not idx_cols:
+            continue
+        candidate = (min(idx_cols), min(idx_rows), max(idx_cols), max(idx_rows))
+        area = (candidate[2] - candidate[0]) * (candidate[3] - candidate[1])
+        if area >= total_area * 0.08:
+            bbox = candidate
+            break
+
+    if bbox:
+        bw, bh = bbox[2] - bbox[0], bbox[3] - bbox[1]
+        pad_x, pad_y = round(bw * 0.15), round(bh * 0.15)
+        crop_box = (
+            max(bbox[0] - pad_x, 0), max(bbox[1] - pad_y, 0),
+            min(bbox[2] + pad_x, photo.width), min(bbox[3] + pad_y, photo.height),
+        )
+        photo = photo.crop(crop_box)
+
+    scale = max(out_w / photo.width, out_h / photo.height)
+    resized = photo.resize((round(photo.width * scale), round(photo.height * scale)))
+    left = (resized.width - out_w) // 2
+    top = (resized.height - out_h) // 2
+    return resized.crop((left, top, left + out_w, top + out_h))
+
+
+def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | None = None,
+                     photo_img: Image.Image | None = None) -> int:
     """영상 상단을 가로로 꽉 채우는 후킹 배너. WHY: 작은 알약 모양 라벨은 존재감이
     약해서 스크롤 중 3초컷으로 넘어가는 문제를 못 막는다(2026-07-30 피드백) —
     화면 가로 전체를 덮는 굵은 배너로 바꾸고, 텍스트도 카테고리 라벨이 아니라
@@ -83,8 +140,17 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
 
     WHY photo_path(2026-08-02, "분홍색 바탕 없애도 되고 바탕으로는 그 항목에 대한
     real 이미지를 흐린 색으로"): 단색 배경 대신 topic 대표 실사진을 배너 폭에 맞게
-    확대·크롭해서 흐리게 깐 뒤 ACCENT 톤 스크림을 얹는다 — _make_title_card_png의
-    블러+스크림 패턴과 동일. photo_path가 없으면 기존 단색 배경으로 폴백한다."""
+    확대·크롭해서 깐 뒤 반투명 스크림을 얹는다. photo_path가 없으면 기존 단색 배경으로
+    폴백한다.
+
+    WHY photo_img(2026-08-02, "배경으로 넣는 real 사진을 글자 뒤에있는거랑 칠판
+    이미지 아래위랑 따로따로 넣어놨나보네?? 한 사진으로 해서... 지금은 뭔가 따로따로
+    짤려보이잖아"): 배너와 칠판 배경(_build_chalkboard_bg)이 각자 photo_path로
+    독립적으로 cover-crop을 하면 서로 다른 배율/영역으로 잘려서 이어지는 사진처럼
+    안 보이는 문제가 있었다 — assemble()이 캔버스 전체(W x H) 크기로 미리 한 번만
+    만든 배경 이미지를 photo_img로 넘기면, 배너는 그 이미지의 위쪽 box_h만큼만
+    잘라 쓴다(같은 사진·같은 배율의 연속된 한 조각). photo_img가 있으면 photo_path는
+    무시한다."""
     font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
@@ -105,21 +171,15 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     pad_y = 30
     box_h = pad_y * 2 + line_h * len(lines)
 
-    if photo_path:
-        # WHY object-fit:cover 방식으로 리사이즈(정사각형으로 찌그러뜨리지 않고):
-        # 배너는 가로로 매우 넓고 얇은 띠 모양(W=1080 x box_h≈228)이라, 사진을
-        # 정사각형으로 강제 리사이즈한 뒤 중앙을 자르면 실제 피사체(예: 커피
-        # 알갱이)가 크롭 밖으로 밀려나 배경이 거의 흰 여백만 남는 문제가 있었다.
-        # 원본 비율을 유지한 채 배너 크기를 완전히 덮을 때까지 확대한 뒤 중앙을
-        # 잘라야 피사체가 안정적으로 프레임 안에 들어온다.
-        photo = Image.open(photo_path).convert("RGB")
-        scale = max(W / photo.width, box_h / photo.height)
-        resized = photo.resize((round(photo.width * scale), round(photo.height * scale)))
-        left = (resized.width - W) // 2
-        top = (resized.height - box_h) // 2
-        photo = resized.crop((left, top, left + W, top + box_h))
-        photo = photo.filter(ImageFilter.GaussianBlur(20))
-        scrim = Image.new("RGBA", (W, box_h), (200, 74, 98, 130))
+    has_photo = photo_img is not None or photo_path
+    if has_photo:
+        photo = photo_img.crop((0, 0, W, box_h)) if photo_img is not None else _cover_crop_subject(photo_path, W, box_h)
+        # WHY 스크림 유지(2026-08-02): "opacity 없애라"는 지적은 칠판 뒤 전체화면
+        # 배경(_build_chalkboard_bg)을 가리킨 것이었는데, 그때 배너의 텍스트
+        # 가독성용 검은 저알파 스크림까지 같이 빼버렸다가 "위쪽 글자 배경 색상을
+        # 왜 지웠냐, 그건 필요하다"는 지적을 받고 되돌렸다 — 배너는 스크림 유지,
+        # 칠판 뒤 전체화면 배경만 스크림/블러 없이 원본 그대로 쓴다.
+        scrim = Image.new("RGBA", (W, box_h), (0, 0, 0, 90))
         img = Image.alpha_composite(photo.convert("RGBA"), scrim)
     else:
         img = Image.new("RGBA", (W, box_h), (200, 74, 98, 240))
@@ -128,7 +188,12 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
-        draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255, 255))
+        x = (W - tw) / 2 - bbox[0]
+        if has_photo:
+            draw.text((x, y - bbox[1]), line, font=font, fill=(255, 255, 255, 255),
+                       stroke_width=3, stroke_fill=(0, 0, 0, 255))
+        else:
+            draw.text((x, y - bbox[1]), line, font=font, fill=(255, 255, 255, 255))
         y += line_h
     img.save(out_path)
     return box_h
@@ -431,15 +496,39 @@ CHALKBOARD_PHOTO_PATH = str(Path(__file__).resolve().parent.parent / "assets_lib
 # 이 배경 이미지 자체를 바꾸지 않는 한 다시 측정할 필요 없음.
 CHALKBOARD_CROP_LEFT = 65
 CHALKBOARD_CROP_RIGHT = 962
+# WHY CHALKBOARD_ZOOM(2026-08-02, "가로는 완전 꽉차게 더 크게... 위아래로 더 키워서
+# 아래 일러스트랑 위 글자 직전까지"): 위 CROP_LEFT/RIGHT만으로 너비를 캔버스에 맞추면
+# 좌우에 흰 여백이 살짝 남고 세로도 다 못 채운다 — 크롭 폭보다 더 확대한 뒤 가로만
+# 캔버스 폭(W)으로 중앙 크롭하면, 같은 배율로 세로도 함께 커져서 두 요청을 동시에
+# 만족한다(가로는 여백 없이 꽉 참, 세로는 비례해서 더 커짐).
+CHALKBOARD_ZOOM = 1.35
 # WHY 위/아래 여백은 안 자르는지: 사진 원본의 흰 위쪽 여백엔 제목 배너가,
 # 아래쪽 여백엔 캐릭터가 들어갈 자리라 그대로 살려둔다(사용자 요청) — 다만 세로로
 # 늘려서 캔버스(1920)를 다 채우면 위아래 여백이 부족해서, 늘리는 대신 같은 톤의
 # 흰색으로 캔버스 크기까지 패딩한다.
 CHALKBOARD_BG_FILL = (248, 248, 248)
+# WHY 폴백값으로만 남김(2026-08-02): 원래는 고정 상수로 썼지만, 상단 배너 높이가
+# 제목 줄 수에 따라 달라져서(1줄 vs 2줄) 고정값이면 배너 아래로 흰 틈이 남거나
+# 배너와 겹치는 경우가 생겼다 — assemble()이 실제 배너 높이(title_h)를
+# _build_chalkboard_bg(top_pad=title_h)로 넘겨서 항상 배너 바로 아래부터 칠판이
+# 시작하게 한다. top_pad를 명시하지 않고 이 함수를 단독 호출할 때만 이 기본값을 쓴다.
 CHALKBOARD_TOP_PAD = 220
 
 
-def _build_chalkboard_bg(total_duration: float, out_path: Path):
+def _chalkboard_display_height() -> int:
+    """실제 렌더링되는 칠판 사진의 세로 픽셀 높이(캔버스 폭 W, CHALKBOARD_ZOOM
+    배율 적용 후) — _build_chalkboard_bg와 동일한 크롭/스케일 계산을 반복해서
+    구한다. WHY 필요한지(2026-08-02, "글이 너무 아래로 쏠려있잖아 칠판 기준으로
+    중앙으로"): 자막을 칠판 영역 안에서 세로 중앙 정렬하려면 칠판이 화면에서 실제로
+    차지하는 세로 범위를 알아야 한다."""
+    photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
+    cropped_width = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
+    scale = (W / cropped_width) * CHALKBOARD_ZOOM
+    return round(photo.height * scale)
+
+
+def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
+                          photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -449,16 +538,58 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path):
     들어가면 되는거지"): 처음엔 실사진 배경과 통일감을 주려고 미세 zoompan을
     넣었는데, 칠판은 자막을 얹는 고정 판서면이라 배경 자체가 계속 확대되면
     산만하다는 피드백 — zoompan을 빼고 완전히 고정된 한 프레임을 총 길이만큼
-    그대로 유지한다."""
+    그대로 유지한다.
+
+    WHY photo_bg_path + 흰색 키잉(2026-08-02, "칠판 뒤에 배경에 전체 화면을
+    가득채우게 real에서 해당 아이템을 넣어... 흰색 공간이랑 글자같은거 뒤에서
+    보일수 있게"): topic 대표 실사진을 캔버스 전체에 깔고, 칠판 사진 자체의 촬영
+    배경(흰 벽/바닥 — 초록 판서면·나무 프레임 밖 여백)만 투명 처리해서 그 위에
+    얹는다. 초록 판서면·나무 프레임은 흰색과 색이 뚜렷이 달라서 그대로 남고, 흰
+    여백 자리에만 실사진이 비친다.
+
+    ⚠️ **흰색 블렌드도, 블러도 뺌**(2026-08-02, "흰색 저게 그림을 가리고있는거같잖아
+    ... opacity 안줘도 되겠다" → 블러 32도 여전히 "opacity 계속 넣네"로 재지적 →
+    "opacity 아예 없애"): 처음엔 흰 배경과 80:20 블렌드를 넣었다가 뺐는데, 그 다음
+    단계였던 강한 블러(card_news.py `_photo_backdrop`과 동일한 32)조차 사진을 흐릿하게
+    만들어서 마치 opacity가 낮은 것처럼 보인다는 지적을 받았다 — 블러를 완전히 빼고
+    실사진을 그대로(선명하게) 쓴다. 흐림 효과 자체를 이 배경에는 아예 쓰지 않는다.
+
+    WHY photo_bg_img(2026-08-02, "배너랑 칠판 아래위 사진이 따로따로 짤려보이잖아"):
+    배너(_make_title_png)와 여기가 각자 photo_bg_path로 독립적인 cover-crop을 하면
+    서로 다른 배율/영역이 잘려서 이어지는 사진처럼 안 보인다 — assemble()이 캔버스
+    전체(W x H) 크기로 미리 한 번만 만든 이미지를 photo_bg_img로 넘기면, 배너와
+    여기 둘 다 같은 이미지의 위/아래 조각을 잘라 쓰게 되어 하나로 이어져 보인다.
+    photo_bg_img가 있으면 photo_bg_path는 무시한다."""
     with tempfile.TemporaryDirectory() as tmp:
         photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
         cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
-        scale = W / cropped.width
-        resized = cropped.resize((W, round(cropped.height * scale)))
+        scale = (W / cropped.width) * CHALKBOARD_ZOOM
+        resized = cropped.resize((round(cropped.width * scale), round(cropped.height * scale)))
+        left = (resized.width - W) // 2
+        resized = resized.crop((left, 0, left + W, resized.height))
 
-        canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
-        top_pad = min(CHALKBOARD_TOP_PAD, max(H - resized.height, 0))
-        canvas.paste(resized, (0, top_pad))
+        effective_top_pad = CHALKBOARD_TOP_PAD if top_pad is None else top_pad
+        effective_top_pad = min(effective_top_pad, max(H - resized.height, 0))
+
+        if photo_bg_img is not None or photo_bg_path:
+            photo_full = photo_bg_img if photo_bg_img is not None else _cover_crop_subject(photo_bg_path, W, H)
+            canvas = photo_full.convert("RGBA")
+
+            r, g, b = resized.split()
+            thresh = 225
+
+            def _white_band(band):
+                return band.point(lambda x: 255 if x >= thresh else 0)
+
+            white_mask = ImageChops.multiply(ImageChops.multiply(_white_band(r), _white_band(g)), _white_band(b))
+            board_alpha = ImageChops.invert(white_mask)
+            resized_rgba = resized.convert("RGBA")
+            resized_rgba.putalpha(board_alpha)
+            canvas.alpha_composite(resized_rgba, (0, effective_top_pad))
+            canvas = canvas.convert("RGB")
+        else:
+            canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
+            canvas.paste(resized, (0, effective_top_pad))
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -611,9 +742,35 @@ def assemble(
         else:
             _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
+        # WHY shared_bg_photo를 여기서 한 번만 만드는지(2026-08-02, "배경으로 넣는
+        # real 사진을... 한 사진으로 해서... 따로따로 짤려보이잖아"): 배너와 칠판
+        # 배경이 각자 photo_path로 독립적인 cover-crop을 하면 서로 다른 배율/영역이
+        # 잘려서 이어지는 사진처럼 안 보인다 — 캔버스 전체(W x H) 크기로 딱 한 번만
+        # cover-crop한 뒤, 배너는 이 이미지의 위쪽 조각을, 칠판 배경은 흰 부분만
+        # 투명 처리해서 전체를 재사용한다(같은 사진, 같은 배율).
+        shared_bg_photo = _cover_crop_subject(title_banner_photo_path, W, H) if title_banner_photo_path else None
+
+        # WHY 배너를 배경보다 먼저 만드는지(2026-08-02, "위아래로 더 키워서... 위
+        # 글자 직전까지"): 칠판 배경의 상단 흰 패딩이 배너 높이와 정확히 맞아떨어져야
+        # 배너 바로 아래부터 칠판이 시작한다(틈도 안 남고 겹치지도 않고). 배너 높이는
+        # 제목 줄 수에 따라 달라지므로(1줄/2줄) 고정값 대신 실제 배너를 먼저 만들어서
+        # 그 높이(title_h)를 칠판 배경 생성에 넘긴다.
+        title_png = tmp_path / "title.png"
+        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path, photo_img=shared_bg_photo)
+
+        # WHY caption_center_y(2026-08-02, "글이 너무 아래로 쏠려있잖아 칠판 기준으로
+        # 중앙으로 들어가게"): 기존엔 화면 하단 기준 고정 오프셋(-620)으로 자막을
+        # 앉혔는데, 칠판이 훨씬 커진 뒤로는 그 위치가 칠판 영역의 중앙이 아니라
+        # 아래쪽에 치우쳐 보였다 — 칠판이 실제로 화면에서 차지하는 세로 범위
+        # (title_h ~ title_h+칠판높이)의 중앙에 자막을 놓는다.
+        caption_center_y = None
+        if bg_style == "chalkboard":
+            board_bottom = min(title_h + _chalkboard_display_height(), H)
+            caption_center_y = (title_h + board_bottom) / 2
+
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
-            _build_chalkboard_bg(total_duration, bg)
+            _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo)
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
@@ -634,14 +791,17 @@ def assemble(
                 check=True, capture_output=True,
             )
 
-        # 2) 이후 구간: 캐릭터 작게, 우측 하단
+        # 2) 이후 구간: 캐릭터 작게, 우측 하단. WHY -140(2026-08-02, "그 일러스트는
+        # 아래로 더 빼서 나무 틀에 걸치고"): 기존 -320은 캐릭터가 칠판 초록 판서면
+        # 안쪽에 붕 떠 보였다 — 칠판 나무 프레임/받침대 쪽으로 더 내려서 걸쳐
+        # 앉은 것처럼 보이게 오프셋을 줄였다.
         main_dur = total_duration - intro_duration
         main_out = tmp_path / "main.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
              "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(char_track),
              "-filter_complex",
-             f"[1:v]scale=280:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-320[v]",
+             f"[1:v]scale=280:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-140[v]",
              "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
             check=True, capture_output=True,
         )
@@ -698,9 +858,8 @@ def assemble(
         # (세그먼트 아님, 성능 안전). WHY -t를 이미지 입력과 출력 양쪽에 명시:
         # -loop 1 이미지 + -shortest 조합만으로는 종료를 못 잡고 무한정 도는
         # 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이 계속 커지는 걸
-        # 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다.
-        title_png = tmp_path / "title.png"
-        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path)
+        # 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다. title_png/title_h는
+        # 위에서 칠판 배경 top_pad 계산용으로 이미 만들어뒀으니 여기서 재사용만 한다.
         titled = tmp_path / "titled.mp4"
 
         # WHY enable='between(...)': 제목 카드 구간엔 이미 큼직한 훅 카피가 화면
@@ -770,10 +929,14 @@ def assemble(
                     _make_chalk_caption_png(text, cap_png)
                 else:
                     _make_caption_png(text, cap_png)
+                cap_y_expr = (
+                    f"{caption_center_y}-overlay_h/2" if caption_center_y is not None
+                    else "main_h-overlay_h-620"
+                )
                 subprocess.run(
                     ["ffmpeg", "-y", "-ss", f"{start}", "-t", f"{dur}", "-i", str(combined),
                      "-loop", "1", "-t", f"{dur}", "-i", str(cap_png),
-                     "-filter_complex", "[0:v][1:v]overlay=x=(main_w-overlay_w)/2:y=main_h-overlay_h-620[v]",
+                     "-filter_complex", f"[0:v][1:v]overlay=x=(main_w-overlay_w)/2:y={cap_y_expr}[v]",
                      "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
                     check=True, capture_output=True,
                 )
