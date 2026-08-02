@@ -12,7 +12,7 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from lib.youtube_upload import _parse_title_description  # noqa: E402
+from lib.youtube_upload import _build_status_body, _parse_title_description  # noqa: E402
 
 
 def test_parse_title_description_happy_path():
@@ -31,3 +31,15 @@ def test_parse_title_description_happy_path():
 def test_parse_title_description_missing_marker_raises():
     with pytest.raises(ValueError):
         _parse_title_description("제목만 있고 구분자가 없는 캡션")
+
+
+def test_build_status_body_without_publish_at_uses_given_privacy():
+    body = _build_status_body("public", None)
+    assert body["privacyStatus"] == "public"
+    assert "publishAt" not in body
+
+
+def test_build_status_body_with_publish_at_forces_private():
+    body = _build_status_body("public", "2026-08-03T09:00:00Z")
+    assert body["privacyStatus"] == "private"
+    assert body["publishAt"] == "2026-08-03T09:00:00Z"

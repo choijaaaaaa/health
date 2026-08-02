@@ -47,15 +47,34 @@ def _parse_title_description(caption: str) -> tuple[str, str]:
     return title, description.strip()
 
 
+def _build_status_body(privacy_status: str, publish_at: str | None) -> dict:
+    """publishAt이 있으면 YouTube API 제약대로 privacyStatus를 강제로 private으로
+    바꾼다(public/unlisted 상태에서 publishAt을 주면 API가 거부함)."""
+    body = {"selfDeclaredMadeForKids": False}
+    if publish_at:
+        body["privacyStatus"] = "private"
+        body["publishAt"] = publish_at
+    else:
+        body["privacyStatus"] = privacy_status
+    return body
+
+
 def upload_short(
     topic: str,
     video_path: str | None = None,
     privacy_status: str = "private",
     category_id: str = HOWTO_AND_STYLE_CATEGORY,
+    publish_at: str | None = None,
 ) -> dict:
     """privacy_status는 기본 "private" — 처음 몇 번은 비공개로 올려서 결과 확인 후
     "public"으로 바꿔 부를 것을 권장(공개 업로드는 되돌리기 어려운 작업이라 기본값을
-    안전한 쪽으로 잡는다)."""
+    안전한 쪽으로 잡는다).
+
+    publish_at: 예약 게시 시각(ISO 8601 UTC, 예: "2026-08-03T09:00:00Z")을 주면 그
+    시각에 유튜브가 자동으로 공개 전환한다. WHY privacy_status를 강제로 "private"로
+    덮어쓰는지: YouTube API 자체 제약으로, publishAt이 설정된 영상은 업로드 시점의
+    privacyStatus가 반드시 "private"여야 한다(그래야 예약 개념이 성립) — public이나
+    unlisted로 두면 API가 아예 거부한다."""
     captions_path = ROOT / "data" / topic / "platform_captions.json"
     spec = json.loads(captions_path.read_text(encoding="utf-8"))
     platform = next((p for p in spec["platforms"] if p["name"] == "유튜브 쇼츠"), None)
@@ -71,6 +90,8 @@ def upload_short(
 
     tags = [w[1:] for w in description.split() if w.startswith("#")]
 
+    status_body = _build_status_body(privacy_status, publish_at)
+
     youtube = build("youtube", "v3", credentials=_get_credentials())
     request = youtube.videos().insert(
         part="snippet,status",
@@ -81,7 +102,7 @@ def upload_short(
                 "tags": tags,
                 "categoryId": category_id,
             },
-            "status": {"privacyStatus": privacy_status, "selfDeclaredMadeForKids": False},
+            "status": status_body,
         },
         media_body=MediaFileUpload(video_path, chunksize=-1, resumable=True, mimetype="video/mp4"),
     )
@@ -93,11 +114,15 @@ def upload_short(
             print(f"[youtube_upload] 업로드 중... {int(status.progress() * 100)}%")
 
     video_id = response["id"]
-    print(f"[youtube_upload] 업로드 완료: https://youtube.com/shorts/{video_id} (privacy={privacy_status})")
+    if publish_at:
+        print(f"[youtube_upload] 업로드 완료(예약 게시 {publish_at}): https://youtube.com/shorts/{video_id}")
+    else:
+        print(f"[youtube_upload] 업로드 완료: https://youtube.com/shorts/{video_id} (privacy={privacy_status})")
     return response
 
 
 if __name__ == "__main__":
     topic_arg = sys.argv[1]
     privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
-    upload_short(topic_arg, privacy_status=privacy_arg)
+    publish_at_arg = sys.argv[3] if len(sys.argv) > 3 else None
+    upload_short(topic_arg, privacy_status=privacy_arg, publish_at=publish_at_arg)

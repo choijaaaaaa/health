@@ -84,9 +84,12 @@ UI에서 보는 리스트는 카테고리가 뭐인지만 알면 됨" — 2026-0
    쓸 유튜브 계정으로 로그인·동의 → 출력된 refresh token을 `.env`의
    `YOUTUBE_REFRESH_TOKEN`에 저장
 
-**사용법**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public]` —
+**사용법**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]` —
 privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어려운 작업이라 안전하게
-비공개로 먼저 올리고 확인 후 다시 `public`으로 호출하는 걸 권장).
+비공개로 먼저 올리고 확인 후 다시 `public`으로 호출하는 걸 권장). 예약시각(ISO 8601 UTC,
+예: `2026-08-03T09:00:00Z`)을 주면 그때 자동 공개로 전환되는 예약 게시 — YouTube API
+제약상 예약 게시 영상은 privacyStatus가 강제로 `private`이 된다(두 번째 인자로 뭘
+줘도 무시됨).
 
 ⚠️ **OAuth 앱이 "테스트" 상태로 남아있으면 refresh token이 7일 뒤 만료될 수 있음**(구글
 정책, `youtube.upload`가 민감 스코프라 그렇다) — 만료되면 `youtube_auth_setup.py`를
