@@ -4,6 +4,7 @@
 # lib/dashboard.py가 만드는 "유튜브 쇼츠" 캡션과 동일해야 한다.
 from __future__ import annotations
 
+import json
 import sys
 from pathlib import Path
 
@@ -12,10 +13,12 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+import lib.youtube_upload as youtube_upload  # noqa: E402
 from lib.youtube_upload import (  # noqa: E402
     _build_status_body,
     _category_from_topic,
     _extract_first_frame,
+    _mark_youtube_uploaded,
     _parse_title_description,
     _playlist_title_for_category,
 )
@@ -76,3 +79,24 @@ def test_category_from_topic(topic, expected):
 
 def test_playlist_title_for_category_is_descriptive():
     assert _playlist_title_for_category("눈") == "건강정보 - 눈"
+
+
+# WHY(2026-08-02): "완성된 콘텐츠 목록에서 유튜브 숏츠"만" 완료되었는지를 해당
+# 라인에서 확인할 수 있게" — 실제 output/youtube_uploaded.json을 건드리면 안 되니
+# youtube_upload.ROOT를 tmp_path로 monkeypatch해서 격리한다.
+def test_mark_youtube_uploaded_creates_file_when_missing(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    (tmp_path / "output").mkdir()
+    _mark_youtube_uploaded("눈_1")
+    data = json.loads((tmp_path / "output" / "youtube_uploaded.json").read_text(encoding="utf-8"))
+    assert data == ["눈_1"]
+
+
+def test_mark_youtube_uploaded_is_idempotent(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    out_dir = tmp_path / "output"
+    out_dir.mkdir()
+    (out_dir / "youtube_uploaded.json").write_text(json.dumps(["다리쥐_1"]), encoding="utf-8")
+    _mark_youtube_uploaded("다리쥐_1")
+    data = json.loads((out_dir / "youtube_uploaded.json").read_text(encoding="utf-8"))
+    assert data == ["다리쥐_1"]

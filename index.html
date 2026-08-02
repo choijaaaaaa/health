@@ -376,10 +376,17 @@ document.getElementById("importLogInput").addEventListener("change", (e) => {
 Promise.all([
   fetch("output/topics.json").then(r => r.ok ? r.json() : []),
   fetch("output/completed_topics.json").then(r => r.ok ? r.json() : []),
+  // WHY youtube_uploaded.json 별도 fetch(2026-08-02, "유튜브 숏츠"만" 완료되었는지를
+  // 해당 라인에서 확인할 수 있게"): completed_topics.json(콘텐츠 전체 완료)과는
+  // 독립적인 기준 — 유튜브 업로드+썸네일+재생목록 등록까지 끝나면(예약 게시여도
+  // 실제 공개 전환 시각을 기다리지 않고) lib/youtube_upload.py가 이 파일에 자동
+  // 기록한다(_mark_youtube_uploaded).
+  fetch("output/youtube_uploaded.json").then(r => r.ok ? r.json() : []),
 ])
-  .then(([topics, completedList]) => {
+  .then(([topics, completedList, youtubeList]) => {
     if (!topics.length) return;
     const completed = new Set(completedList);
+    const youtubeDone = new Set(youtubeList);
     const list = document.getElementById("topicsList");
     const doneList = document.getElementById("topicsDoneList");
     const doneWrap = document.getElementById("topicsDoneWrap");
@@ -402,6 +409,16 @@ Promise.all([
       badge.textContent = done ? "✅" : "⬜";
       badge.setAttribute("aria-label", t.topic + (done ? " 완료" : " 미완료"));
       badge.style.cssText = "width:18px;flex:0 0 auto;font-size:14px;line-height:1;";
+
+      const ytDone = youtubeDone.has(t.topic);
+      const ytBadge = document.createElement("span");
+      ytBadge.textContent = ytDone ? "YT ✓" : "YT";
+      ytBadge.style.cssText = "flex:0 0 auto;font-size:12px;font-weight:700;padding:2px 7px;border-radius:20px;"
+        + (ytDone
+          ? "background:#e53935;color:#fff;"
+          : "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;");
+      ytBadge.setAttribute("aria-label", t.topic + (ytDone ? " 유튜브 숏츠 업로드 완료" : " 유튜브 숏츠 미업로드"));
+      ytBadge.title = ytDone ? "유튜브 숏츠 업로드 완료(예약 게시 포함)" : "유튜브 숏츠 아직 업로드 안 됨";
 
       const thumb = document.createElement("div");
       thumb.style.cssText = "flex:0 0 auto;width:42px;height:52px;border-radius:6px;overflow:hidden;background:var(--bg-bottom);";
@@ -436,6 +453,7 @@ Promise.all([
       }
 
       row.appendChild(badge);
+      row.appendChild(ytBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
       (done ? doneList : list).appendChild(row);

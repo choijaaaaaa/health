@@ -167,6 +167,23 @@ def _add_to_category_playlist(youtube, topic: str, video_id: str) -> None:
         print(f"[youtube_upload] ⚠️ 재생목록 추가 실패(영상 업로드 자체는 성공함): {e}")
 
 
+def _mark_youtube_uploaded(topic: str) -> None:
+    """WHY(2026-08-02, "완성된 콘텐츠 목록에서 유튜브 숏츠"만" 완료되었는지를 해당
+    라인에서 확인할 수 있게"): output/completed_topics.json(콘텐츠 제작 전체 완료)과
+    별개로, 유튜브 업로드가 끝난 topic만 index.html에서 따로 표시할 수 있게
+    output/youtube_uploaded.json에 기록한다. WHY 예약 게시(publish_at)여도 여기서
+    바로 기록하는지: "완전히 업로드가 완료되는게 기준이 아니라 예약 설정해서
+    업로드를 완료한 경우에 확인할 수 있게 해주면 된다" — 실제 공개 전환 시각까지
+    기다리지 않고, 업로드+썸네일+재생목록 등록까지 끝나면(이 함수가 호출되는
+    시점) 완료로 본다."""
+    path = ROOT / "output" / "youtube_uploaded.json"
+    uploaded = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
+    if topic not in uploaded:
+        uploaded.append(topic)
+        uploaded.sort()
+        path.write_text(json.dumps(uploaded, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
 def upload_short(
     topic: str,
     video_path: str | None = None,
@@ -224,6 +241,7 @@ def upload_short(
     video_id = response["id"]
     _set_thumbnail(youtube, video_id, video_path)
     _add_to_category_playlist(youtube, topic, video_id)
+    _mark_youtube_uploaded(topic)
     if publish_at:
         print(f"[youtube_upload] 업로드 완료(예약 게시 {publish_at}): https://youtube.com/shorts/{video_id}")
     else:
