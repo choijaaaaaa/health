@@ -170,7 +170,7 @@ def test_next_daily_schedule_uses_today_when_before_first_slot():
     now = datetime(2026, 8, 2, 9, 0, tzinfo=KST)
     schedule = _next_daily_schedule(4, now=now)
     assert schedule[0] == "2026-08-02T01:00:00Z"  # 10시 KST = 01시 UTC
-    assert schedule[-1] == "2026-08-02T08:00:00Z"  # 17시 KST = 08시 UTC
+    assert schedule[-1] == "2026-08-02T10:00:00Z"  # 19시 KST = 10시 UTC
 
 
 def test_next_daily_schedule_rolls_to_tomorrow_when_past_first_slot():

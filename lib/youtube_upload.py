@@ -32,11 +32,11 @@ ROOT = Path(__file__).resolve().parent.parent
 # 스코프를 미리 등록해둬야 한다(Google Cloud Console > 데이터 액세스).
 SCOPES = ["https://www.googleapis.com/auth/youtube"]
 HOWTO_AND_STYLE_CATEGORY = "26"
-# WHY 하루 4개, 10/11/14/17시(2026-08-02, "10시, 11시, 14시, 17시 이렇게 네 개
-# 토픽에 대해 영상 네 개 넣는거야"): 사용자가 확정한 하루 업로드 페이스 —
+# WHY 하루 4개, 10/13/16/19시(2026-08-02, 처음엔 "10시, 11시, 14시, 17시"였다가
+# "10 13 16 19로 해"로 최종 확정): 사용자가 확정한 하루 업로드 페이스 —
 # --daily-batch가 이 시각들(KST)에 맞춰 예약 게시로 올린다.
 KST = ZoneInfo("Asia/Seoul")
-DAILY_UPLOAD_HOURS = (10, 11, 14, 17)
+DAILY_UPLOAD_HOURS = (10, 13, 16, 19)
 
 
 def _get_credentials() -> Credentials:
