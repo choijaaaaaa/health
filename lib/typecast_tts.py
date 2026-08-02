@@ -227,9 +227,11 @@ def synthesize_segments(
         concat_list = tmp_path / "concat.txt"
         lines: list[str] = []
         merged_words: list[dict] = []
+        segment_starts: list[float] = []
         cursor = 0.0
 
         for i, (text, voice_name) in enumerate(zip(segments, voice_names)):
+            segment_starts.append(cursor)
             print(f"[typecast] 세그먼트 {i + 1}/{len(segments)} 보이스: {voice_name}")
             audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
             audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
@@ -292,6 +294,7 @@ def synthesize_segments(
         "duration": merged_words[-1]["end"] if merged_words else None,
         "word_count": len(merged_words),
         "voice_names": voice_names,
+        "segment_starts": segment_starts,
         "words": merged_words,
     }
 
