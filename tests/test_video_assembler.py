@@ -273,3 +273,37 @@ class TestAssembleEndCard:
         expected = 1.0 + 2.0  # title_card_duration + audio_duration만, 엔딩 카드 없음
         actual = _ffprobe_duration(out_path)
         assert actual == pytest.approx(expected, abs=0.5)
+
+    def test_srt_overrunning_audio_does_not_leak_into_end_card(
+        self, make_solid_jpg, make_tiny_clip, make_silent_audio, tmp_path,
+    ):
+        """2026-08-02 실제 버그 재현: 멀티보이스 TTS가 만든 SRT의 마지막 자막
+        end 타임스탬프가 실제 오디오 길이보다 길면(구내염_1 등에서 실측 — 문단 사이
+        무음 간격이 누적돼 최대 2초 가까이 어긋남), 마지막 자막 구간이 엔딩 카드
+        영역까지 침범해서 자막 텍스트와 엔딩 카드 CTA 문구가 한 프레임에 겹쳐
+        보였다. SRT가 오디오보다 길어도 최종 영상 길이가 (title+audio+end_card)를
+        넘지 않아야 한다(넘으면 자막이 뒤로 밀리며 엔딩 카드를 침범했다는 뜻)."""
+        img = make_solid_jpg("bg.jpg", color=(120, 90, 60))
+        motion = make_tiny_clip("char.mp4", duration=1.0, color="0x00FF00")
+        audio_duration = 2.0
+        audio = make_silent_audio("narration.mp3", duration=audio_duration)
+        # SRT 마지막 자막이 실제 오디오(2.0초)보다 1초 더 긴 3.0초까지 찍혀있음 —
+        # 멀티보이스 gap 누적 오차를 흉내낸 것.
+        srt = _write_srt(tmp_path, [
+            ("00:00:00,200", "00:00:03,000", "실제 오디오보다 긴 자막")
+        ])
+        out_path = tmp_path / "out.mp4"
+        title_card_duration = 1.0
+        end_card_duration = 1.5
+        assemble(
+            images=[str(img)], motion_path=str(motion), audio_path=str(audio),
+            srt_path=str(srt), out_path=str(out_path), title="테스트 제목",
+            bg_color="0x00FF00", title_card_duration=title_card_duration,
+            end_card_duration=end_card_duration,
+        )
+        expected = title_card_duration + audio_duration + end_card_duration
+        actual = _ffprobe_duration(out_path)
+        assert actual == pytest.approx(expected, abs=0.5), (
+            f"expected ~{expected}s, got {actual}s — SRT가 오디오보다 길 때 "
+            "엔딩 카드 영역까지 침범해서 영상이 늘어난 것으로 보임(클램프 회귀)"
+        )

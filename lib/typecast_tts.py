@@ -240,7 +240,21 @@ def synthesize_segments(
 
             for w in words:
                 merged_words.append({"text": w["text"], "start": cursor + w["start"], "end": cursor + w["end"]})
-            seg_duration = words[-1]["end"] if words else 0.0
+            # WHY 단어 타임스탬프 대신 실제 파일 길이로 커서를 미는지(2026-08-02 버그
+            # 수정): words[-1]["end"]를 그대로 썼더니 실제 합쳐진 오디오 길이보다 SRT가
+            # 최대 2초 가까이 더 길게 찍히는 사고가 났다(구내염_1 등에서 확인) —
+            # `_insert_sentence_pauses`가 마지막 문장 구간은 자연스러운 여운을 위해
+            # `-to`로 안 자르고 원본 끝까지 살리기 때문에(위 WHY 주석 참고), 실제 세그먼트
+            # 오디오 길이가 마지막 단어의 API 타임스탬프와 정확히 일치한다는 보장이 없다.
+            # ffprobe로 이 세그먼트 파일의 실제 길이를 재서 커서를 미는 게 훨씬 신뢰할
+            # 수 있다 — 단어별 개별 타임스탬프(merged_words)는 그대로 두고, 다음 세그먼트가
+            # 시작하는 절대 위치(cursor)만 실측값 기준으로 고정한다.
+            seg_probe = subprocess.run(
+                ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                 "-of", "default=noprint_wrappers=1:nokey=1", str(seg_path)],
+                capture_output=True, text=True, check=True,
+            )
+            seg_duration = float(seg_probe.stdout.strip())
             cursor += seg_duration
 
             if i < len(segments) - 1:

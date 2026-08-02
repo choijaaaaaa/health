@@ -898,6 +898,20 @@ def assemble(
         # (title_card_duration) 밀어서 실제 영상 타임라인에 맞춰야 한다.
         offset = title_card_duration
         srt_entries = _parse_srt(srt_path)
+        # WHY 클램프(2026-08-02 버그 수정): 멀티보이스 TTS(synthesize_segments)로 만든
+        # SRT는 문단 사이 무음 간격(SEGMENT_GAP_MS)을 누적한 타임스탬프를 쓰는데, 실제
+        # 합쳐진 오디오 길이와 최대 2초 가까이 어긋나는 경우가 실제로 있었다(구내염_1
+        # 등에서 확인 — SRT 마지막 자막이 63.1초인데 실제 오디오는 61.1초, 문단 6개
+        # =간격 5개×0.4초=2.0초와 거의 정확히 일치). 이 어긋남 때문에 마지막 자막
+        # 구간이 total_duration을 넘어 엔딩 카드 영역까지 침범해서, 마지막 자막과
+        # 엔딩 카드 CTA 문구가 겹쳐 보이는 사고가 났다. SRT를 신뢰하지 않고 오디오
+        # 실측 길이(total_duration, ffprobe로 직접 잰 값)를 항상 상한으로 강제한다 —
+        # 어긋남이 어디서 오든(멀티보이스 gap 누적, 반올림 등) 여기서 한 번에 방어한다.
+        srt_entries = [
+            (start, min(end, total_duration), text)
+            for start, end, text in srt_entries
+            if start < total_duration
+        ]
         cap_dir = tmp_path / "caps"
         cap_dir.mkdir()
         timeline, cursor = [(0.0, offset, None)], 0.0
