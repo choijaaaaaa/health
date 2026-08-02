@@ -122,6 +122,13 @@
   }
   .copy-product-link:hover { background: var(--gold-soft); color: var(--gold); }
   .copy-product-link.copied { background: var(--gold); color: #fff; }
+  .copy-comment-links {
+    display: inline-block; font-size: 12px; font-weight: 700; font-family: inherit;
+    background: var(--accent); color: #fff; border: none; cursor: pointer;
+    padding: 8px 14px; border-radius: 999px; margin-top: 8px;
+  }
+  .copy-comment-links:hover { opacity: 0.9; }
+  .copy-comment-links.copied { background: var(--gold); color: #fff; }
   @media (max-width: 860px) {
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
@@ -250,7 +257,7 @@
     </div>
   </div>
 </div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p><button type="button" id="copyCommentLinksBtn" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button></div>
 </div>
 
 <section>
@@ -711,6 +718,34 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {
     });
   });
 });
+
+// WHY(2026-08-02, "쓰레드랑 페이스북같은거 인스타도 그렇게 댓글 달 때 복사해서 바로
+// 붙여넣을 수 있는 그런 버튼도"): link_in_comment 플랫폼(쓰레드·페이스북)은 캡션
+// 본문에 링크를 안 넣고 "댓글에 남겨둘게요"로만 안내해서, 실제로 댓글에 붙여넣을
+// 링크 텍스트를 어디서도 바로 못 가져왔다 — 게시 직후 댓글로 남길 링크 목록(상품명+
+// 링크+고지문구)을 한 번에 복사할 수 있는 버튼을 상품 링크 위젯에 추가한다. 상품
+// 링크가 topic 전체에 하나뿐이라 플랫폼 카드마다 반복 안 넣고 여기 한 곳에만 둔다
+// — 쓰레드·페이스북뿐 아니라 인스타그램 등 어느 플랫폼 댓글에 붙여넣어도 된다.
+const copyCommentLinksBtn = document.getElementById("copyCommentLinksBtn");
+if (copyCommentLinksBtn) {
+  const originalLabel = copyCommentLinksBtn.textContent;
+  copyCommentLinksBtn.addEventListener("click", () => {
+    const text = _buildLinkBlock(false);
+    if (!text) {
+      copyCommentLinksBtn.textContent = "먼저 상품 링크를 입력해주세요";
+      setTimeout(() => { copyCommentLinksBtn.textContent = originalLabel; }, 1500);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(() => {
+      copyCommentLinksBtn.textContent = "복사됨 ✓";
+      copyCommentLinksBtn.classList.add("copied");
+      setTimeout(() => {
+        copyCommentLinksBtn.textContent = originalLabel;
+        copyCommentLinksBtn.classList.remove("copied");
+      }, 1500);
+    });
+  });
+}
 
 function _escapeHtml(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
