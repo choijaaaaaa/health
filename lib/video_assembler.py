@@ -574,9 +574,12 @@ def _anon_name(rng: random.Random) -> str:
 
 def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False) -> Image.Image:
     """분필체 글자를 사각 테두리로 감싼 작은 명패 — 주번/떠든 사람/급훈 액자가
-    전부 이 틀을 재사용하고 테두리 스타일(단선/이중선)만 다르게 쓴다."""
+    전부 이 틀을 재사용하고 테두리 스타일(단선/이중선)만 다르게 쓴다. WHY 여백을
+    font_size에 비례하게 뒀는지(2026-08-02, "급훈처럼 넣어놓은거 크기도 좀 키우고
+    글자 폰트도 키워야지"): 여백이 고정값이면 폰트만 키웠을 때 액자가 글자에
+    비해 옹색해 보인다 — 폰트 크기에 비례한 여백으로 액자 전체가 같이 커지게 한다."""
     font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
-    pad_x, pad_y = 16, 10
+    pad_x, pad_y = round(font_size * 0.5), round(font_size * 0.32)
     dummy = Image.new("RGBA", (1, 1))
     bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
@@ -641,19 +644,27 @@ def _doodle_chalk_stick() -> Image.Image:
     전부 라이프스타일 사진(사람 손 포함)이라 깨끗한 제품샷이 없었고, 배경 제거용
     ML 라이브러리(rembg)를 새로 설치해야 하는 데다 다른 낙서들의 손그림 선화
     톤과도 안 맞을 위험이 있어 — 사용자가 "선화 스타일은 괜찮을거같긴해"로
-    확인해준 대로 PIL 도형 디테일만 보강하는 쪽으로 정리."""
-    w, h = 50, 15
-    size = (w + 10, h + 14)
+    확인해준 대로 PIL 도형 디테일만 보강하는 쪽으로 정리.
+
+    ⚠️ v2(디테일만 보강, 크기는 그대로)로도 "너무 애매하다"는 지적이 이어져
+    (2026-08-02, "그 지우개랑 분필 너무 애매한데 좀더 고도화못하니?") — 실제
+    영상 스케일(휴대폰 화면 기준 이 낙서는 가로 50~60px 안팎)에서는 디테일을
+    더해도 선이 가늘면 뭉개져 안 보이는 게 근본 원인이었다. 그래서 v3에서는
+    몸체 크기를 40% 키우고(50x15 → 70x21) 선 두께도 3→4로 올려 다른 낙서들
+      (`_stroke_shape` 계열, width=5)과 비슷한 굵기로 맞췄다 — 디테일보다
+    "작은 화면에서도 형태가 바로 읽히는지"가 우선."""
+    w, h = 70, 21
+    size = (w + 12, h + 16)
 
     def draw(d, off, color):
         ox, oy = off
-        x0, y0 = 5 + ox, 5 + oy
+        x0, y0 = 6 + ox, 6 + oy
         x1, y1 = x0 + w, y0 + h
-        d.rounded_rectangle([x0, y0, x1, y1], radius=h / 2, outline=color, width=3)
-        d.line([(x0 + h * 0.6, y0 + 4), (x1 - h * 0.6, y0 + 4)], fill=color, width=2)
+        d.rounded_rectangle([x0, y0, x1, y1], radius=h / 2, outline=color, width=4)
+        d.line([(x0 + h * 0.6, y0 + 5), (x1 - h * 0.6, y0 + 5)], fill=color, width=3)
 
     shadow = Image.new("RGBA", size, (0, 0, 0, 0))
-    draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
+    draw(ImageDraw.Draw(shadow), (3, 3), (0, 0, 0, 90))
     base = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
     return Image.alpha_composite(shadow, base)
@@ -662,26 +673,29 @@ def _doodle_chalk_stick() -> Image.Image:
 def _doodle_eraser() -> Image.Image:
     """나무받침+펠트 패드 지우개 — 위쪽은 둥근 나무 블록(호 모양), 아래쪽은 펠트
     질감을 암시하는 짧은 세로선 4~5개로 표현해 단순 사각형보다 훨씬 그것답게
-    읽힌다(위 `_doodle_chalk_stick` docstring과 같은 이유로 선화 스타일 유지)."""
-    w, h = 60, 30
-    size = (w + 10, h + 10)
+    읽힌다(위 `_doodle_chalk_stick` docstring과 같은 이유로 선화 스타일 유지).
+
+    ⚠️ v3에서 분필과 같은 이유로 40% 확대(60x30 → 84x42) + 선 두께 3→4로
+    보강 — 작은 화면에서 나무받침/펠트 구분이 더 또렷하게 보인다."""
+    w, h = 84, 42
+    size = (w + 12, h + 12)
 
     def draw(d, off, color):
         ox, oy = off
-        x0, y0 = 5 + ox, 5 + oy
+        x0, y0 = 6 + ox, 6 + oy
         x1, y1 = x0 + w, y0 + h
         felt_y = y0 + h * 0.62
-        d.arc([x0, y0, x1, y0 + h * 0.5], 180, 360, fill=color, width=3)
-        d.line([(x0, y0 + h * 0.25), (x0, felt_y)], fill=color, width=3)
-        d.line([(x1, y0 + h * 0.25), (x1, felt_y)], fill=color, width=3)
-        d.line([(x0, felt_y), (x1, felt_y)], fill=color, width=3)
-        d.arc([x0, felt_y - h * 0.15, x1, y1 + h * 0.15], 10, 170, fill=color, width=3)
+        d.arc([x0, y0, x1, y0 + h * 0.5], 180, 360, fill=color, width=4)
+        d.line([(x0, y0 + h * 0.25), (x0, felt_y)], fill=color, width=4)
+        d.line([(x1, y0 + h * 0.25), (x1, felt_y)], fill=color, width=4)
+        d.line([(x0, felt_y), (x1, felt_y)], fill=color, width=4)
+        d.arc([x0, felt_y - h * 0.15, x1, y1 + h * 0.15], 10, 170, fill=color, width=4)
         for i in range(5):
-            fx = x0 + 8 + i * (w - 16) / 4
-            d.line([(fx, felt_y + 2), (fx, y1 - 3)], fill=color, width=2)
+            fx = x0 + 10 + i * (w - 20) / 4
+            d.line([(fx, felt_y + 3), (fx, y1 - 4)], fill=color, width=3)
 
     shadow = Image.new("RGBA", size, (0, 0, 0, 0))
-    draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
+    draw(ImageDraw.Draw(shadow), (3, 3), (0, 0, 0, 90))
     base = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
     return Image.alpha_composite(shadow, base)
@@ -744,7 +758,7 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
             y = green_top_canvas + top_gap + ly
             canvas.alpha_composite(doodle, (x, y))
 
-    motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=32, double_border=True)
+    motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
     canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
 
     talked_names = ", ".join(_anon_name(rng) for _ in range(2))
@@ -1057,14 +1071,14 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
             canvas.alpha_composite(resized_rgba, (0, effective_top_pad))
             canvas = canvas.convert("RGB")
 
-            # WHY 받침대 아래를 칠판 톤으로 채우는지: 위 board_alpha가 원본 사진의
-            # 흰 촬영 배경(나무 받침대 아래 CHALKBOARD_CONTENT_BOTTOM~1024px 구간)을
-            # 투명 처리해서 실사진이 그대로 비쳤다 — 그 자리를 칠판 하단색으로 덮어서
-            # 판서면이 화면 끝까지 이어지는 것처럼 보이게 한다.
-            board_bottom_y = effective_top_pad + round(CHALKBOARD_CONTENT_BOTTOM * scale)
-            if board_bottom_y < H:
-                fill = Image.new("RGB", (W, H - board_bottom_y), CHALKBOARD_BOTTOM)
-                canvas.paste(fill, (0, board_bottom_y))
+            # ⚠️ WHY 받침대 아래를 칠판 톤 단색으로 덮지 않는지(2026-08-02 되돌림):
+            # 다른 세션이 "판서면이 화면 끝까지 이어지는 것처럼" 보이게 하려고 이
+            # 구간을 CHALKBOARD_BOTTOM 단색으로 덮었었는데, 그러면서 "real 배경
+            # 이미지는 칠판 외 영역에 전체로(끊기지 않고) 나와야 한다"는 요구사항과
+            # 정면으로 충돌했다 — "칠판 아래위로 공간이... 왜 계속 다른거로
+            # 채워지는지 모르겠네" 지적으로 실제 버그(단색 채움)가 확인됨. 이 구간도
+            # board_alpha가 이미 투명 처리해뒀으므로 그대로 두면 실사진이 이어져서
+            # 보인다 — 의도한 동작.
         else:
             canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
             canvas.paste(resized, (0, effective_top_pad))
