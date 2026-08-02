@@ -814,6 +814,43 @@ TTS를 다시 돌려서 새 `output/<topic>/narration.mp3`/`.srt`를 만들어�
 `python3 lib/typecast_tts.py <topic> --multi-voice data/<topic>/narration.txt`**부터
 다시 실행**해서 audio/srt를 새로 만들고, 그다음 영상을 재조립할 것.
 
+#### ⚠️ 멀티보이스 기능 자체를 캐릭터 여러 명 topic에 기본으로 쓰지 않는다 (2026-08-02, 최종 결정)
+
+위 커서 드리프트 버그를 고친 뒤에도(ffprobe 실측 기반) 실사용에서 또 다른 증상이
+나왔다 — "왜 또 아이템이 바뀌지도 않았는데 목소리가 달라지며... 자막이랑 소리가
+매칭이 안되며" (같은 캐릭터가 화면에 떠 있는 도중에 목소리가 바뀌거나, 세그먼트
+경계가 실제 음성과 미묘하게 어긋나는 현상이 반복됨). 세그먼트를 여러 개 이어붙이는
+구조 자체(개별 TTS 호출 → 문장 단위 무음 삽입 → 세그먼트 간 무음 삽입 → 최종 병합)가
+근본적으로 오차가 낄 지점이 많아서, 고칠 때마다 다른 증상으로 재발했다. 결국
+"어이가없긴하네 다른 사람들은 잘하던데" — 사용자가 **"이제부터 단일목소리로
+가게하자"**로 확정.
+
+**지금부터 캐릭터 여러 명(motion_schedule) topic도 `synthesize_segments()`(멀티보이스)
+대신 `synthesize()`(단일 보이스, 나레이션 전체를 이어붙이지 않고 한 번의 TTS 호출로
+생성)를 기본으로 쓴다** — 화면 속 캐릭터가 바뀌어도 목소리는 그대로 유지된다(과거
+"화면은 바뀌는데 목소리가 안 바뀌는 어색함" 피드백보다, 반복되는 싱크 버그가 훨씬
+더 큰 문제라는 우선순위 판단). `synthesize_segments()`/`--multi-voice` 코드 자체는
+지우지 않고 남겨둔다(나중에 근본적으로 더 견고하게 재설계할 여지를 위해) — 다만
+**새 topic이든 기존 topic 재작업이든, 특별한 이유 없이는 먼저 시도하지 말 것.**
+
+**단일 보이스로 캐릭터 여러 명 topic을 만드는 절차**:
+```python
+import json
+from lib.typecast_tts import synthesize
+from pathlib import Path
+paras = [p.strip() for p in Path("data/<topic>/narration.txt").read_text().split("\n\n") if p.strip()]
+full_text = " ".join(paras)  # 문단 구분 없이 전체를 한 번에 합성
+result = synthesize("<topic>", full_text)
+```
+그 다음 결과 SRT에서 아이템2·아이템3 문단의 **첫 문장이 시작하는 타임스탬프**를
+찾아서(`grep -B1 "<아이템2 문단 첫 문장>" output/<topic>/narration.srt` 등) 그 값을
+그대로 `--motion-schedule` 구간 경계로 쓴다 — 멀티보이스처럼 `segment_starts`가
+자동으로 나오지 않으니 이 방식으로 손으로 경계를 잡아야 한다(2026-07-31 이전
+방식으로 회귀). item_schedule(칠판 우상단 아이콘+이름 라벨, 위 "item_schedule" 절
+참고)은 motion_schedule만 있으면 자동으로 파생되므로 단일 보이스 여부와 무관하게
+그대로 동작한다 — 목소리와 화면 전환이 분리된 것이지, 화면 전환 관련 기능들이
+없어진 게 아니다.
+
 ## 플랫폼 로테이션
 
 브런치·핀터레스트는 항상 제외(승인장벽/콘텐츠 결/신규계정 노출 구조 문제로 확정) — 상세 이유는
