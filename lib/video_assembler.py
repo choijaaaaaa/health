@@ -74,12 +74,17 @@ def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
     img.save(out_path)
 
 
-def _make_title_png(text: str, out_path: Path, font_size=64) -> int:
+def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | None = None) -> int:
     """영상 상단을 가로로 꽉 채우는 후킹 배너. WHY: 작은 알약 모양 라벨은 존재감이
     약해서 스크롤 중 3초컷으로 넘어가는 문제를 못 막는다(2026-07-30 피드백) —
     화면 가로 전체를 덮는 굵은 배너로 바꾸고, 텍스트도 카테고리 라벨이 아니라
     후킹 문구(공감/호기심 유발)를 넣는다. 반환값(배너 높이)은 다른 오버레이가
-    이 배너와 겹치지 않게 배치할 때 쓴다."""
+    이 배너와 겹치지 않게 배치할 때 쓴다.
+
+    WHY photo_path(2026-08-02, "분홍색 바탕 없애도 되고 바탕으로는 그 항목에 대한
+    real 이미지를 흐린 색으로"): 단색 배경 대신 topic 대표 실사진을 배너 폭에 맞게
+    확대·크롭해서 흐리게 깐 뒤 ACCENT 톤 스크림을 얹는다 — _make_title_card_png의
+    블러+스크림 패턴과 동일. photo_path가 없으면 기존 단색 배경으로 폴백한다."""
     font = ImageFont.truetype(FONT_PATH, font_size, index=6)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
@@ -99,7 +104,25 @@ def _make_title_png(text: str, out_path: Path, font_size=64) -> int:
     line_h = font_size + 16
     pad_y = 30
     box_h = pad_y * 2 + line_h * len(lines)
-    img = Image.new("RGBA", (W, box_h), (200, 74, 98, 240))
+
+    if photo_path:
+        # WHY object-fit:cover 방식으로 리사이즈(정사각형으로 찌그러뜨리지 않고):
+        # 배너는 가로로 매우 넓고 얇은 띠 모양(W=1080 x box_h≈228)이라, 사진을
+        # 정사각형으로 강제 리사이즈한 뒤 중앙을 자르면 실제 피사체(예: 커피
+        # 알갱이)가 크롭 밖으로 밀려나 배경이 거의 흰 여백만 남는 문제가 있었다.
+        # 원본 비율을 유지한 채 배너 크기를 완전히 덮을 때까지 확대한 뒤 중앙을
+        # 잘라야 피사체가 안정적으로 프레임 안에 들어온다.
+        photo = Image.open(photo_path).convert("RGB")
+        scale = max(W / photo.width, box_h / photo.height)
+        resized = photo.resize((round(photo.width * scale), round(photo.height * scale)))
+        left = (resized.width - W) // 2
+        top = (resized.height - box_h) // 2
+        photo = resized.crop((left, top, left + W, top + box_h))
+        photo = photo.filter(ImageFilter.GaussianBlur(20))
+        scrim = Image.new("RGBA", (W, box_h), (200, 74, 98, 130))
+        img = Image.alpha_composite(photo.convert("RGBA"), scrim)
+    else:
+        img = Image.new("RGBA", (W, box_h), (200, 74, 98, 240))
     draw = ImageDraw.Draw(img)
     y = pad_y
     for line in lines:
@@ -420,8 +443,13 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
-    채운다 — 위쪽 흰 여백엔 제목 배너, 아래쪽 흰 여백엔 캐릭터가 들어간다. 완전히
-    정적이면 밋밋해서 실사진 배경과 같은 미세 zoompan(서서히 확대)만 적용한다."""
+    채운다 — 위쪽 흰 여백엔 제목 배너, 아래쪽 흰 여백엔 캐릭터가 들어간다.
+
+    WHY 완전 정적(2026-08-02, "왜 칠판이 움직여 ;; 이제 칠판은 가만있고 자막만
+    들어가면 되는거지"): 처음엔 실사진 배경과 통일감을 주려고 미세 zoompan을
+    넣었는데, 칠판은 자막을 얹는 고정 판서면이라 배경 자체가 계속 확대되면
+    산만하다는 피드백 — zoompan을 빼고 완전히 고정된 한 프레임을 총 길이만큼
+    그대로 유지한다."""
     with tempfile.TemporaryDirectory() as tmp:
         photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
         cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
@@ -435,11 +463,9 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path):
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
 
-        frames = max(int(total_duration * FPS), 1)
-        vf = f"zoompan=z='min(zoom+0.0006,1.06)':d={frames}:s={W}x{H}:fps={FPS}"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-i", str(still), "-t", f"{total_duration}",
-             "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
+             "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
             check=True, capture_output=True,
         )
 
@@ -558,6 +584,10 @@ def assemble(
     end_card_duration: float = 2.0,
     end_card_text: str | None = None,
     end_card_char_path: str | None = None,
+    # WHY title_banner_photo_path(2026-08-02, "분홍색 바탕 없애도 되고 바탕으로는
+    # 그 항목에 대한 real 이미지를 흐린 색으로"): 상단 배너의 단색 배경을 topic
+    # 대표 실사진 블러로 바꾼다. 안 주면 기존 단색 배경 그대로 폴백.
+    title_banner_photo_path: str | None = None,
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
@@ -670,7 +700,7 @@ def assemble(
         # 경우가 있었다(2026-07-30, 15분 넘게 안 끝나고 파일이 계속 커지는 걸
         # 확인 후 kill) — 길이를 직접 못박아서 확실히 끝나게 한다.
         title_png = tmp_path / "title.png"
-        title_h = _make_title_png(title, title_png)
+        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path)
         titled = tmp_path / "titled.mp4"
 
         # WHY enable='between(...)': 제목 카드 구간엔 이미 큼직한 훅 카피가 화면
@@ -813,6 +843,8 @@ if __name__ == "__main__":
                     help="엔딩 카드에 쓸 문구(안 주면 기본 CTA 문구 사용)")
     p.add_argument("--end-card-char", default=None,
                     help="엔딩 카드 배경에 흐리게 깔 캐릭터 이미지 경로(안 주면 --title-card-char 재사용)")
+    p.add_argument("--title-banner-photo", default=None,
+                    help="상단 후킹 배너 배경에 흐리게 깔 topic 대표 real 이미지 경로(안 주면 단색 배경)")
     args = p.parse_args()
 
     motion_schedule = None
@@ -846,4 +878,5 @@ if __name__ == "__main__":
         end_card_duration=args.end_card_duration,
         end_card_text=args.end_card_text,
         end_card_char_path=args.end_card_char,
+        title_banner_photo_path=args.title_banner_photo,
     )
