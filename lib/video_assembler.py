@@ -632,32 +632,57 @@ _CHALKBOARD_TRAY_BOTTOM_ORIG = 923
 
 
 def _doodle_chalk_stick() -> Image.Image:
-    w, h = 46, 16
-    img = Image.new("RGBA", (w + 6, h + 6), (0, 0, 0, 0))
+    """둥근 필통형 분필 — 양끝을 둥글려서 사용감 있는 뭉툭한 느낌 + 몸통 위쪽
+    하이라이트 선으로 원통 입체감을 준다.
+
+    ⚠️ 처음엔 단순 `rounded_rectangle` 하나뿐이라 "너무 네모반듯"하다는 지적을
+    받았다(2026-08-02, "분필이랑 지우개는 왜 그냥 흰색 네모로만 한거야?") — 실물
+    사진을 API로 찾아서 배경 제거하는 것도 검토했지만 Pexels/Unsplash 후보가
+    전부 라이프스타일 사진(사람 손 포함)이라 깨끗한 제품샷이 없었고, 배경 제거용
+    ML 라이브러리(rembg)를 새로 설치해야 하는 데다 다른 낙서들의 손그림 선화
+    톤과도 안 맞을 위험이 있어 — 사용자가 "선화 스타일은 괜찮을거같긴해"로
+    확인해준 대로 PIL 도형 디테일만 보강하는 쪽으로 정리."""
+    w, h = 50, 15
+    size = (w + 10, h + 14)
 
     def draw(d, off, color):
         ox, oy = off
-        d.rounded_rectangle([3 + ox, 3 + oy, w + 3 + ox, h + 3 + oy], radius=6, outline=color, width=3)
+        x0, y0 = 5 + ox, 5 + oy
+        x1, y1 = x0 + w, y0 + h
+        d.rounded_rectangle([x0, y0, x1, y1], radius=h / 2, outline=color, width=3)
+        d.line([(x0 + h * 0.6, y0 + 4), (x1 - h * 0.6, y0 + 4)], fill=color, width=2)
 
-    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    shadow = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
-    base = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    base = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
     return Image.alpha_composite(shadow, base)
 
 
 def _doodle_eraser() -> Image.Image:
-    w, h = 64, 28
-    img = Image.new("RGBA", (w + 6, h + 6), (0, 0, 0, 0))
+    """나무받침+펠트 패드 지우개 — 위쪽은 둥근 나무 블록(호 모양), 아래쪽은 펠트
+    질감을 암시하는 짧은 세로선 4~5개로 표현해 단순 사각형보다 훨씬 그것답게
+    읽힌다(위 `_doodle_chalk_stick` docstring과 같은 이유로 선화 스타일 유지)."""
+    w, h = 60, 30
+    size = (w + 10, h + 10)
 
     def draw(d, off, color):
         ox, oy = off
-        d.rounded_rectangle([3 + ox, 3 + oy, w + 3 + ox, h + 3 + oy], radius=5, outline=color, width=3)
-        d.line([(3 + ox, 3 + oy + h * 0.55), (w + 3 + ox, 3 + oy + h * 0.55)], fill=color, width=3)
+        x0, y0 = 5 + ox, 5 + oy
+        x1, y1 = x0 + w, y0 + h
+        felt_y = y0 + h * 0.62
+        d.arc([x0, y0, x1, y0 + h * 0.5], 180, 360, fill=color, width=3)
+        d.line([(x0, y0 + h * 0.25), (x0, felt_y)], fill=color, width=3)
+        d.line([(x1, y0 + h * 0.25), (x1, felt_y)], fill=color, width=3)
+        d.line([(x0, felt_y), (x1, felt_y)], fill=color, width=3)
+        d.arc([x0, felt_y - h * 0.15, x1, y1 + h * 0.15], 10, 170, fill=color, width=3)
+        for i in range(5):
+            fx = x0 + 8 + i * (w - 16) / 4
+            d.line([(fx, felt_y + 2), (fx, y1 - 3)], fill=color, width=2)
 
-    shadow = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    shadow = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(shadow), (2, 2), (0, 0, 0, 90))
-    base = Image.new("RGBA", img.size, (0, 0, 0, 0))
+    base = Image.new("RGBA", size, (0, 0, 0, 0))
     draw(ImageDraw.Draw(base), (0, 0), (255, 255, 255, 255))
     return Image.alpha_composite(shadow, base)
 
@@ -1538,9 +1563,23 @@ def assemble(
         # title_card_duration만큼 뒤로 민다 — 그러면 오디오 길이가 정확히 영상 길이와
         # 같아져서 -shortest로 잘라낼 필요가 없다(제목 카드가 잘려나가는 사고 방지).
         offset_ms = int(title_card_duration * 1000)
+        # WHY apad(2026-08-02, "툭툭 끊기는게 너무 듣기싫은데"): 나레이션 오디오가
+        # total_duration 끝나는 순간 바로 무음이 되는데, 마지막 단어의 자연스러운
+        # 여운(잔향)이 다 가시기 전에 엔딩 카드로 넘어가면서 뚝 끊기는 느낌을 줬다.
+        # 텍스트를 늘리는 대신(부자연스러운 발음 위험 — "있어어어" 같은 반복은 TTS가
+        # 오히려 이상하게 읽을 수 있음) 오디오 신호 자체에 무음을 패딩한다.
+        # WHY 0.7초로(2026-08-02, 0.4초 적용 후 "확실히 좋아졌는데 조금더늘릴수있나"):
+        # 0.4초가 방향은 맞다는 게 확인돼서 좀 더 늘렸다. end_card_duration(기본
+        # 2.0초)의 절반을 넘지 않게 캡을 씌워서 — 패딩 후 오디오 총 길이
+        # (title_card_duration+total_duration+pad)가 영상 전체 길이(video_total =
+        # title_card_duration+total_duration+end_card_duration)를 절대 넘지 않는다.
+        # 이러면 모션 스케줄·자막·엔딩 카드 등장 시점 등 기존 타이밍 계산은 전혀
+        # 안 건드리고, 엔딩 카드가 이미 갖고 있던 무음 구간 앞부분만 나레이션
+        # 여운으로 채우는 것뿐이라 안전하다.
+        end_pad = min(0.7, end_card_duration * 0.5)
         subprocess.run(
             ["ffmpeg", "-y", "-i", str(captioned), "-i", audio_path,
-             "-filter_complex", f"[1:a]adelay={offset_ms}|{offset_ms}[a]",
+             "-filter_complex", f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[a]",
              "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
              out_path],
             check=True, capture_output=True,
