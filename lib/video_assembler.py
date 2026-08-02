@@ -23,6 +23,12 @@ W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 FPS = 30
 
+# WHY 기본 엔딩 CTA(2026-08-02, "카드뉴스랑 숏폼 영상 마지막에 구독, 좋아요, 팔로우
+# 요청하는 글도 추가하자"): 매번 topic마다 문구를 새로 넘길 필요 없이 항상 같은
+# 표준 문구로 나가게 모듈 상수로 고정 — end_card_text를 명시로 넘기면 그걸 쓰고,
+# 안 넘기면(기본) 이 문구를 쓴다. 완전히 끄고 싶으면 end_card_duration=0.
+DEFAULT_END_CARD_TEXT = "더 많은 건강정보가 궁금하다면 구독·좋아요·팔로우 해주세요"
+
 # WHY 칠판 스타일 기본 배경 전환(2026-08-02): 실사진을 그대로 배경에 깔면 밋밋하고
 # 눈에 확 안 들어온다는 피드백("real 이미지 그대로 배경으로 넣고 있는데... 확 보이지가
 # 않는다") — 카드뉴스처럼 칠판 같은 배경에 감각적인 폰트로 나레이션을 써주는 쪽으로
@@ -521,6 +527,13 @@ def assemble(
     # 필요)을 그대로 쓸 수 있다 — 과거 topic 재조립이나 특별히 실사진이 필요한
     # 경우를 위해 남겨둠.
     bg_style: str = "chalkboard",
+    # WHY 기본 켜짐(2026-08-02, "숏폼 영상 마지막에 구독, 좋아요, 팔로우 요청하는
+    # 글도 추가하자"): 제목 카드와 대칭으로 영상 맨 끝에 CTA 카드를 붙인다 —
+    # end_card_duration=0으로 주면 완전히 끌 수 있다(기존 영상 재조립 시 굳이
+    # 필요 없는 경우 등).
+    end_card_duration: float = 2.0,
+    end_card_text: str | None = None,
+    end_card_char_path: str | None = None,
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
@@ -597,9 +610,24 @@ def assemble(
             check=True, capture_output=True,
         )
 
+        # 0-2) 맨 끝 엔딩 카드 — 제목 카드와 같은 스타일(단색+큰 글자)로 구독/좋아요/
+        # 팔로우 CTA. end_card_duration=0이면 통째로 스킵(기존 인트로 스킵 패턴과 동일).
+        end_card_out = None
+        if end_card_duration > 0:
+            end_card_png = tmp_path / "end_card.png"
+            _make_title_card_png(end_card_text or DEFAULT_END_CARD_TEXT, end_card_png,
+                                  char_path=end_card_char_path or title_card_char_path)
+            end_card_out = tmp_path / "end_card.mp4"
+            subprocess.run(
+                ["ffmpeg", "-y", "-loop", "1", "-t", f"{end_card_duration}", "-r", str(FPS), "-i", str(end_card_png),
+                 "-c:v", "libx264", "-pix_fmt", "yuv420p", str(end_card_out)],
+                check=True, capture_output=True,
+            )
+
         combined = tmp_path / "combined.mp4"
         list_path = tmp_path / "scenes.txt"
-        scene_files = [title_card_out] + ([intro_out] if intro_out else []) + [main_out]
+        scene_files = ([title_card_out] + ([intro_out] if intro_out else []) + [main_out]
+                       + ([end_card_out] if end_card_out else []))
         list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in scene_files))
         subprocess.run(
             ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(list_path),
@@ -607,10 +635,10 @@ def assemble(
             check=True, capture_output=True,
         )
 
-        # WHY video_total: 맨 앞에 제목 카드(title_card_duration)가 붙어서 영상 전체
+        # WHY video_total: 맨 앞 제목 카드 + 맨 끝 엔딩 카드가 붙어서 영상 전체
         # 길이가 나레이션 길이(total_duration)보다 길어졌다 — 이후 배너/자막 단계는
         # 전부 이 늘어난 길이 기준으로 처리해야 한다.
-        video_total = title_card_duration + total_duration
+        video_total = title_card_duration + total_duration + end_card_duration
 
         # 3) 상단 후킹 배너(+ 필요시 광고 태그) — 전체 길이에 한 번만 overlay
         # (세그먼트 아님, 성능 안전). WHY -t를 이미지 입력과 출력 양쪽에 명시:
@@ -621,10 +649,14 @@ def assemble(
         title_h = _make_title_png(title, title_png)
         titled = tmp_path / "titled.mp4"
 
-        # WHY enable='gte(t,title_card_duration)': 제목 카드 구간에는 이미 큼직한 훅
-        # 카피가 화면 중앙에 떠 있어서, 상단 배너까지 같이 뜨면 같은 문구가 위아래로
-        # 겹쳐 보인다(2026-07-31 지적) — 배너는 제목 카드가 끝난 뒤부터만 노출한다.
-        enable_expr = f"gte(t\\,{title_card_duration})"
+        # WHY enable='between(...)': 제목 카드 구간엔 이미 큼직한 훅 카피가 화면
+        # 중앙에 떠 있어서 상단 배너까지 같이 뜨면 겹쳐 보인다(2026-07-31 지적) —
+        # 배너는 제목 카드가 끝난 뒤부터 나온다. WHY 상한도 뒀는지(2026-08-02, 엔딩
+        # 카드 추가): 엔딩 카드도 마찬가지로 CTA 문구가 중앙에 크게 뜨는데, 예전처럼
+        # gte로 열어두면 배너가 엔딩 카드 구간까지 계속 떠서 겹친다 — 나레이션
+        # 구간(title_card_duration ~ title_card_duration+total_duration)에서만 뜨게
+        # 상한을 추가했다.
+        enable_expr = f"between(t\\,{title_card_duration}\\,{title_card_duration + total_duration})"
         if ad_tag:
             ad_png = tmp_path / "ad_tag.png"
             _make_ad_tag_png(ad_png)
@@ -663,6 +695,14 @@ def assemble(
             cursor = end
         if cursor < total_duration - 0.05:
             timeline.append((cursor + offset, total_duration + offset, None))
+        # WHY 엔딩 카드 구간도 세그먼트로 명시(2026-08-02): 위 세그먼트들은 전부
+        # total_duration+offset(=title_card_duration+total_duration)까지만 커버한다 —
+        # 엔딩 카드를 붙이면서 video_total이 그보다 길어졌는데(end_card_duration만큼)
+        # 여기서 세그먼트를 안 만들면 밑에서 concat한 captioned 영상이 combined보다
+        # 짧아져서 엔딩 카드 부분이 통째로 잘려나간다. 자막 없는 구간으로 명시해서
+        # video_total까지 확실히 채운다.
+        if end_card_duration > 0:
+            timeline.append((total_duration + offset, video_total, None))
 
         seg_paths = []
         for i, (start, end, text) in enumerate(timeline):
@@ -743,6 +783,12 @@ if __name__ == "__main__":
                          "썸네일은 문제 제기 훅만, 상단 배너는 훅+주제 전체를 보여주고 싶을 때 분리")
     p.add_argument("--title-card-char", default=None,
                     help="제목 카드 배경에 크게 흐리게 깔 캐릭터 이미지 경로(안 주면 단색 배경만)")
+    p.add_argument("--end-card-duration", type=float, default=2.0,
+                    help="영상 맨 끝 구독/좋아요/팔로우 CTA 카드 길이(초) — 0이면 엔딩 카드 생략")
+    p.add_argument("--end-card-text", default=None,
+                    help="엔딩 카드에 쓸 문구(안 주면 기본 CTA 문구 사용)")
+    p.add_argument("--end-card-char", default=None,
+                    help="엔딩 카드 배경에 흐리게 깔 캐릭터 이미지 경로(안 주면 --title-card-char 재사용)")
     args = p.parse_args()
 
     motion_schedule = None
@@ -773,4 +819,7 @@ if __name__ == "__main__":
         title_card_char_path=args.title_card_char,
         motion_schedule=motion_schedule,
         bg_style=args.bg_style,
+        end_card_duration=args.end_card_duration,
+        end_card_text=args.end_card_text,
+        end_card_char_path=args.end_card_char,
     )

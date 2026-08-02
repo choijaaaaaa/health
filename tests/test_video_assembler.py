@@ -215,6 +215,11 @@ class TestAssembleFpsRegression:
             title="테스트 제목",
             bg_color="0x00FF00",
             title_card_duration=title_card_duration,
+            # WHY end_card_duration=0(2026-08-02): 이 테스트는 title 카드/본편 fps
+            # 불일치 버그 재발만 좁게 검증하는 테스트라, 엔딩 카드(기본 켜짐, 2026-08-02
+            # 추가)까지 길이에 섞이면 이 테스트의 관심사가 아닌 변수가 늘어난다 —
+            # 엔딩 카드 자체는 별도 테스트(TestAssembleEndCard)에서 검증한다.
+            end_card_duration=0,
         )
 
         assert out_path.exists()
@@ -227,3 +232,44 @@ class TestAssembleFpsRegression:
 
         frame_rate = _ffprobe_frame_rate(out_path)
         assert frame_rate == pytest.approx(FPS, abs=0.1)
+
+
+class TestAssembleEndCard:
+    """2026-08-02 추가: 영상 맨 끝 구독/좋아요/팔로우 CTA 카드(end_card_duration,
+    기본 2.0초 켜짐). 길이가 정확히 그만큼 늘어나는지, 0으로 주면 완전히
+    꺼지는지(기존 동작과 동일해지는지) 검증."""
+
+    def _assemble(self, tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio, **kwargs):
+        img = make_solid_jpg("bg.jpg", color=(120, 90, 60))
+        motion = make_tiny_clip("char.mp4", duration=1.0, color="0x00FF00")
+        audio = make_silent_audio("narration.mp3", duration=2.0)
+        srt = _write_srt(tmp_path, [("00:00:00,200", "00:00:01,500", "테스트 문장")])
+        out_path = tmp_path / "out.mp4"
+        assemble(
+            images=[str(img)], motion_path=str(motion), audio_path=str(audio),
+            srt_path=str(srt), out_path=str(out_path), title="테스트 제목",
+            bg_color="0x00FF00", title_card_duration=1.0, **kwargs,
+        )
+        return out_path
+
+    def test_end_card_extends_duration_by_exact_amount(
+        self, make_solid_jpg, make_tiny_clip, make_silent_audio, tmp_path,
+    ):
+        out_path = self._assemble(
+            tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio,
+            end_card_duration=1.5,
+        )
+        expected = 1.0 + 2.0 + 1.5  # title_card_duration + audio_duration + end_card_duration
+        actual = _ffprobe_duration(out_path)
+        assert actual == pytest.approx(expected, abs=0.5)
+
+    def test_end_card_duration_zero_disables_it(
+        self, make_solid_jpg, make_tiny_clip, make_silent_audio, tmp_path,
+    ):
+        out_path = self._assemble(
+            tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio,
+            end_card_duration=0,
+        )
+        expected = 1.0 + 2.0  # title_card_duration + audio_duration만, 엔딩 카드 없음
+        actual = _ffprobe_duration(out_path)
+        assert actual == pytest.approx(expected, abs=0.5)
