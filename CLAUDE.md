@@ -616,13 +616,32 @@ topic은 `synthesize_segments()`를 대신 쓸 것:
 python3 lib/typecast_tts.py <topic> --multi-voice data/<topic>/narration.txt
 ```
 
-narration.txt를 빈 줄 기준 문단으로 나눠서 문단마다 다른 보이스로 각각 TTS 호출한 뒤
-이어붙인다(보이스는 안 겹치게 자동 배정, `voice_names` 인자로 직접 지정도 가능). 출력
-경로(`output/<topic>/narration.mp3`/`.srt`)는 단일 보이스 버전과 동일해서 이후
-`video_assembler.py` 단계는 그대로 쓰면 된다.
+narration.txt를 빈 줄 기준 문단으로 나눈 뒤, **화면 속 캐릭터(모션) 전환 지점 기준으로
+문단을 묶어서** `synthesize_segments()`에 넘긴다 — 각 그룹이 TTS 세그먼트 하나가 되고,
+세그먼트마다 다른 보이스가 배정된다(보이스는 안 겹치게 자동 배정, `voice_names` 인자로
+직접 지정도 가능). 출력 경로(`output/<topic>/narration.mp3`/`.srt`)는 단일 보이스 버전과
+동일해서 이후 `video_assembler.py` 단계는 그대로 쓰면 된다.
 
-narration.txt 문단은 이미 원인 설명 1문단 + 항목별 1문단씩 + 마무리 1문단 순서로 쓰는
-관례라(위 "훅 다음엔 원인 먼저" 규칙) 문단 = 화자 전환 지점과 자연스럽게 맞아떨어진다.
+```python
+paras = [p.strip() for p in Path("data/<topic>/narration.txt").read_text().split("\n\n") if p.strip()]
+# 6문단(훅+원인+아이템1, 아이템2, 아이템3+마무리) → 캐릭터 3명 기준으로 묶기
+groups = [" ".join(paras[0:3]), paras[3], " ".join(paras[4:6])]
+result = synthesize_segments(topic, groups)
+# result["segment_starts"]가 곧 --motion-schedule 구간 경계 시각
+```
+
+⚠️ **"문단 = 화자 전환 지점"이라고 그냥 가정하고 문단 6개를 그대로 6개 세그먼트로 넘기면
+안 됨(2026-08-02 실제 버그, 사용자가 직접 발견)** — "훅 다음엔 원인 먼저" 규칙(2026-08-01)
+이후 narration.txt는 훅+원인+아이템1+아이템2+아이템3+마무리 6문단인데, **화면 캐릭터는
+3명뿐**이다(훅+원인+아이템1 문단 전부 아이템1의 캐릭터, 아이템3+마무리 문단 전부 아이템3의
+캐릭터 — `card_news_spec.json`의 `items[].char_file`로 어느 문단이 어느 캐릭터인지 확인
+가능). 문단 6개를 그대로 6개 세그먼트로 넘기면 **같은 캐릭터가 화면에 계속 떠 있는 도중에
+목소리가 2~3번 바뀌는 사고**가 난다 — 정작 이 기능을 만든 이유(화면 캐릭터 전환에 맞춰
+목소리도 바뀌게)와 정반대 결과. **항상 위 예시처럼 문단을 먼저 캐릭터 개수만큼(보통 3개)
+묶은 뒤에 `synthesize_segments()`를 호출할 것** — 이렇게 하면 목소리 전환이 캐릭터 전환과
+정확히 일치하고, `segment_starts`가 바로 `--motion-schedule` 구간 경계가 되어 손으로
+SRT를 읽고 경계를 추정할 필요도 없다.
+
 **단일 캐릭터 topic(블루베리_1, 돼지감자차_1처럼 문단이 여러 개여도 화자가 한 명인 경우)은
 계속 `synthesize()`(단일 보이스)를 쓸 것** — 문단이 여러 개라고 무조건 멀티보이스로 가는
 게 아니라, "이 문단이 실제로 다른 캐릭터가 말하는 구간인가"를 판단해서 고를 것.
