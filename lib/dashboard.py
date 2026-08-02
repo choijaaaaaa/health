@@ -67,6 +67,7 @@ CARD_TEMPLATE = """
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-{idx}" data-cover="{cover_attr}">{copy_label}</button>
+    <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>

@@ -850,6 +850,17 @@ Claude의 메모리(`project_health_shorts_platform_rotation`) 참조. 새 topic
 새 topic 작성 시에도 이 기준으로 `products` 항목을 잡을 것 — session 01(신규 생성)·02(기존
 수정) 둘 다 적용.
 
+## 대시보드 카드 — "열기" 버튼은 위/아래 둘 다 (2026-08-02)
+
+각 플랫폼 카드의 "열기(캡션 자동복사) →" 버튼(`.btn-go`)이 원래 카드 상단(`head-actions`)
+에만 있었는데, 캡션이 길면 다 읽고 수정한 뒤 다시 위로 스크롤해서 눌러야 했다("이거
+링크는 하단에도 추가해도 되지않냐? 시작에 하나 마지막에 하나") — `CARD_TEMPLATE`의
+`card-actions`(캡션 textarea 바로 아래, 복사 버튼 옆)에 똑같은 버튼을 하나 더 추가했다.
+JS는 `document.querySelectorAll(".btn-go[data-copy-target]")`로 이미 전부 바인딩하므로
+버튼을 추가만 하면 되고 별도 JS 수정은 필요 없음. **이후 카드 안에 "위에서만 하고
+아래선 못 하는" 액션을 새로 발견하면 같은 패턴(HTML에 하나 더 추가, JS는 querySelectorAll이라
+자동으로 바인딩됨)으로 처리할 것.**
+
 ## GitHub Pages — 정적 전용
 
 `index.html`(GitHub Pages 루트)은 카드뉴스 스펙을 채우고 미리보기하는 정적 에디터일 뿐 —
