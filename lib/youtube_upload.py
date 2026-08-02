@@ -7,19 +7,25 @@ from __future__ import annotations
 
 import json
 import os
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+# WHY youtube.upload 대신 전체 관리 스코프(2026-08-02): 재생목록 생성·채널 조회 등을
+# 쓰려면 youtube.upload만으로는 부족해서 범위를 넓혔다 — OAuth 동의 화면에도 이
+# 스코프를 미리 등록해둬야 한다(Google Cloud Console > 데이터 액세스).
+SCOPES = ["https://www.googleapis.com/auth/youtube"]
 HOWTO_AND_STYLE_CATEGORY = "26"
 
 
@@ -57,6 +63,45 @@ def _build_status_body(privacy_status: str, publish_at: str | None) -> dict:
     else:
         body["privacyStatus"] = privacy_status
     return body
+
+
+def _extract_first_frame(video_path: str) -> Path:
+    """영상 첫 프레임을 임시 jpg로 뽑는다. WHY: 유튜브가 자동으로 제안하는 썸네일
+    후보는 영상 중간 지점 위주라, 이 파이프라인의 타이틀 카드(영상 맨 앞, 훅 문구가
+    큼직하게 박힌 프레임)를 썸네일로 쓰려면 명시적으로 0초 프레임을 추출해서 올려야
+    한다."""
+    tmp_path = Path(tempfile.mkstemp(suffix=".jpg")[1])
+    subprocess.run(
+        ["ffmpeg", "-y", "-ss", "0", "-i", video_path, "-frames:v", "1", str(tmp_path)],
+        check=True, capture_output=True,
+    )
+    return tmp_path
+
+
+def _set_thumbnail(youtube, video_id: str, video_path: str) -> None:
+    """실패해도 영상 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다.
+
+    ⚠️ WHY 실패 원인을 코드에 단정적으로 안 적어두는지(2026-08-02): 테스트 중
+    404 "videoNotFound"를 봤는데, 원인은 채널 미인증도 쇼츠 제약도 아니고 단순히
+    그 영상을 테스트 후 지워서였다(`videos.list`로 확인 — 실제로 존재하지 않는
+    영상이었음). 즉 이 에러의 진짜 흔한 원인은 잘못된 videoId(삭제됐거나 오타)다 —
+    채널 인증(`channels().list().status.longUploadsStatus == "allowed"`로 확인
+    가능)이나 쇼츠 제약 쪽으로 성급하게 결론 내리지 말고, 먼저 videoId가 실제로
+    존재하는 영상인지부터 의심할 것."""
+    thumb_path = _extract_first_frame(video_path)
+    try:
+        youtube.thumbnails().set(
+            videoId=video_id,
+            media_body=MediaFileUpload(str(thumb_path), mimetype="image/jpeg"),
+        ).execute()
+        print("[youtube_upload] 썸네일을 영상 첫 프레임으로 설정 완료")
+    except HttpError as e:
+        print(
+            f"[youtube_upload] ⚠️ 썸네일 설정 실패(영상 업로드 자체는 성공함): {e}\n"
+            "  videoId가 실제로 존재하는지(삭제되지 않았는지) 먼저 확인하세요."
+        )
+    finally:
+        thumb_path.unlink(missing_ok=True)
 
 
 def upload_short(
@@ -114,6 +159,7 @@ def upload_short(
             print(f"[youtube_upload] 업로드 중... {int(status.progress() * 100)}%")
 
     video_id = response["id"]
+    _set_thumbnail(youtube, video_id, video_path)
     if publish_at:
         print(f"[youtube_upload] 업로드 완료(예약 게시 {publish_at}): https://youtube.com/shorts/{video_id}")
     else:

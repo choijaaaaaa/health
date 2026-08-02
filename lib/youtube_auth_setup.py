@@ -1,6 +1,7 @@
-# 유튜브 업로드용 OAuth refresh token 1회 발급 스크립트. WHY: youtube.upload 스코프는
-# Google이 "민감 스코프"로 취급해서 access token이 1시간마다 만료되는데, refresh_token을
-# 한 번 받아두면 lib/youtube_upload.py가 매번 재로그인 없이 자동 갱신해서 쓸 수 있다.
+# 유튜브 업로드용 OAuth refresh token 1회 발급 스크립트. WHY: lib/youtube_upload.py의
+# SCOPES(youtube 전체 관리)는 Google이 "민감 스코프"로 취급해서 access token이
+# 1시간마다 만료되는데, refresh_token을 한 번 받아두면 매번 재로그인 없이 자동
+# 갱신해서 쓸 수 있다.
 # ⚠️ 앱이 OAuth 동의 화면에서 "테스트" 상태로 남아있으면(구글 앱 인증을 안 받으면)
 # Google 정책상 refresh_token이 발급 후 7일 뒤 만료될 수 있다 — 그러면 이 스크립트를
 # 다시 실행해서 새 토큰을 받아야 한다. 완전 무인 자동화를 원하면 나중에 OAuth 앱
@@ -8,13 +9,16 @@
 from __future__ import annotations
 
 import os
+import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 from google_auth_oauthlib.flow import InstalledAppFlow
 
-load_dotenv()
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from lib.youtube_upload import SCOPES  # noqa: E402 — WHY: 스코프를 한 곳(youtube_upload.py)에서만 관리해 둘이 어긋나는 걸 방지
 
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload"]
+load_dotenv()
 
 
 def main() -> None:

@@ -77,12 +77,17 @@ UI에서 보는 리스트는 카테고리가 뭐인지만 알면 됨" — 2026-0
 **1회성 사전 설정(사용자가 직접 해야 함 — 대신 못 해줌)**:
 1. [Google Cloud Console](https://console.cloud.google.com)에서 프로젝트 생성 →
    "YouTube Data API v3" 활성화
-2. OAuth 동의 화면 구성(외부, 테스트 상태로 충분 — 본인 계정을 테스트 사용자로 추가)
+2. OAuth 동의 화면 구성(외부, 테스트 상태로 충분 — 본인 계정을 테스트 사용자로 추가),
+   "데이터 액세스"에서 `.../auth/youtube`(YouTube 계정 관리) 스코프를 미리 추가해둘 것
 3. OAuth 클라이언트 ID 발급 — 애플리케이션 유형은 **"데스크톱 앱"**
 4. 발급된 클라이언트 ID/보안 비밀을 `.env`의 `YOUTUBE_CLIENT_ID`/`YOUTUBE_CLIENT_SECRET`에 저장
 5. `python3 lib/youtube_auth_setup.py` 1회 실행 — 브라우저 로그인 창이 뜨면 업로드에
    쓸 유튜브 계정으로 로그인·동의 → 출력된 refresh token을 `.env`의
    `YOUTUBE_REFRESH_TOKEN`에 저장
+
+`lib/youtube_upload.py`의 `SCOPES`는 `youtube.upload`가 아니라 **`https://www.googleapis.com/auth/youtube`**(전체 관리)를 쓴다(2026-08-02 확장) — 재생목록 생성·채널 조회 등도 이 스코프로 커버하려는 목적. 두 스크립트가 스코프를 각자 들고 있으면 어긋나기 쉬워서 `youtube_auth_setup.py`가 `youtube_upload.py`의 `SCOPES`를 그대로 import해서 쓴다 — 스코프를 또 바꿀 일이 있으면 `youtube_upload.py` 한 곳만 고칠 것.
+
+업로드 성공 후 영상 첫 프레임을 썸네일로 자동 설정한다(`_set_thumbnail`) — 실패해도 업로드 자체는 막지 않고 경고만 남긴다. ⚠️ 이 단계에서 404 "videoNotFound"가 나면 채널 미인증이나 쇼츠 제약이 아니라 **그 videoId가 실제로 존재하는지부터 의심할 것**(2026-08-02 실제 사례 — 테스트 후 지운 영상 ID로 계속 재시도해서 난 에러였음, `channels().list().status.longUploadsStatus`가 `"allowed"`로 나와 채널 인증은 이미 확인된 상태였는데도 계속 404가 났었음).
 
 **사용법**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]` —
 privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어려운 작업이라 안전하게
@@ -92,7 +97,7 @@ privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어�
 줘도 무시됨).
 
 ⚠️ **OAuth 앱이 "테스트" 상태로 남아있으면 refresh token이 7일 뒤 만료될 수 있음**(구글
-정책, `youtube.upload`가 민감 스코프라 그렇다) — 만료되면 `youtube_auth_setup.py`를
+정책, youtube 스코프가 민감 스코프라 그렇다) — 만료되면 `youtube_auth_setup.py`를
 다시 실행해서 새 토큰을 받을 것. 완전 무인 자동화까지 가려면 나중에 OAuth 앱 인증
 (verification)을 받는 걸 고려.
 
