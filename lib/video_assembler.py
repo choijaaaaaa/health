@@ -547,10 +547,64 @@ def _doodle_paw() -> Image.Image:
     return _stroke_shape(draw)
 
 
+def _doodle_flower() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy, r = 65 + ox, 65 + oy, 24
+        for i in range(6):
+            ang = i * math.pi / 3
+            px, py = cx + r * math.cos(ang), cy + r * math.sin(ang)
+            d.ellipse([px - 17, py - 17, px + 17, py + 17], outline=color, width=4)
+        d.ellipse([cx - 11, cy - 11, cx + 11, cy + 11], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_balloon() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 62 + ox, 48 + oy
+        d.ellipse([cx - 28, cy - 33, cx + 28, cy + 28], outline=color, width=5)
+        d.polygon([(cx - 7, cy + 26), (cx + 7, cy + 26), (cx, cy + 38)], fill=color)
+        d.line([(cx, cy + 38), (cx - 7, cy + 62), (cx + 6, cy + 82)], fill=color, width=3, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_umbrella() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, top = 65 + ox, 30 + oy
+        d.arc([cx - 42, top, cx + 42, top + 60], 180, 360, fill=color, width=5)
+        d.line([(cx - 42, top + 30), (cx + 42, top + 30)], fill=color, width=3)
+        d.line([(cx, top + 30), (cx, top + 92)], fill=color, width=4)
+        d.arc([cx - 9, top + 82, cx + 11, top + 102], 0, 170, fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_lightning() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [(78 + ox, 14 + oy), (52 + ox, 58 + oy), (68 + ox, 58 + oy),
+               (48 + ox, 112 + oy), (82 + ox, 62 + oy), (64 + ox, 62 + oy), (78 + ox, 14 + oy)]
+        d.polygon(pts, outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+# WHY 도형 종류를 11개→15개로 늘렸는지(2026-08-02, "이빠이넣어 귀여운 것들
+# 제발좀... 나중에 중복 이미지가 아니게 보이게 할때도 좋을 것 같단말이야"):
+# topic마다 seed로 랜덤 추출하는 구조라(_place_chalk_doodle) 종류 풀이 클수록
+# 여러 topic 영상을 연달아 볼 때 매번 다른 조합으로 보여서 "같은 배경 우려먹기"
+# 느낌이 준다 — 새 도형은 전부 회전/축소된 실제 렌더로 먼저 확인 후 추가함
+# (리본 도형이 작게 축소되면 뭉개지던 전례 때문에 신규 도형은 항상 이 확인을
+# 거친다).
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
-    _doodle_ribbon, _doodle_paw,
+    _doodle_ribbon, _doodle_paw, _doodle_flower, _doodle_balloon, _doodle_umbrella,
+    _doodle_lightning,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
@@ -701,16 +755,24 @@ def _doodle_eraser() -> Image.Image:
     return Image.alpha_composite(shadow, base)
 
 
-def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 2,
+def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 4,
                          skip_right: bool = False) -> Image.Image:
     """칠판을 옛날 교실 감성으로 장식한다(2026-08-02, "좀 많았으면 하는데...
     화려하게 갔으면 싶어" + "나무받침대랑 분필조각, 지우개까지 다 추가하고
-    급훈 문구가... 도형도 이것저것 엄청 넣어보자"):
+    급훈 문구가... 도형도 이것저것 엄청 넣어보자" → "이빠이넣어 귀여운 것들
+    제발좀... 나중에 중복 이미지가 아니게 보이게 할때도 좋을 것 같단말이야"):
 
     - **양쪽 위 모서리**: `_DOODLES` 중 서로 다른 도형을 한쪽당 `per_corner`개씩
       흩뿌린다(겹침 방지 재시도 포함). 자막은 판서면 세로 중앙, 캐릭터는 항상
       오른쪽 아래에 나오므로 위쪽 양 모서리는 topic 길이·자막 줄 수와 무관하게
       절대 안 겹치는 유일한 안전 지대다.
+    - **양옆 여백(중간 높이)**: 자막(`_make_chalk_caption_png`, `max_width=940`,
+      캔버스 W=1080 기준 중앙 정렬)은 아무리 길어도 좌우로 최소 ~50px는 항상
+      비워둔다 — 그 얇은 띠(가장자리에서 45px 폭)에 작은 낙서를 몇 개 더
+      흩뿌린다(2026-08-02, "모서리나 양옆에 여백 구간에 귀여운거 좀더 만들어
+      넣자"). 위쪽 모서리 클러스터보다 한참 아래(위 클러스터 바닥 + 60px)부터
+      시작해서 우상단 아이템 라벨(있을 때)과도, 하단 캐릭터(오른쪽 아래)와도
+      절대 안 겹치게 세로 범위를 짧게(`_SIDE_MARGIN_BAND_H`) 제한한다.
     - **위쪽 중앙**: "급훈" 액자 — topic 폴더명에서 뽑은 한 단어 요약
       (`_topic_word_from_seed`)을 이중 테두리 액자에 넣는다. 양쪽 모서리
       낙서 사이 빈 공간이라 여기도 자막·캐릭터와 안 겹친다.
@@ -730,12 +792,14 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     겹칠 가능성이 있음"): motion_schedule로 캐릭터가 여러 명 번갈아 나오는
     topic은 assemble()이 칠판 우상단에 현재 아이템 아이콘+이름 라벨을 이미
     그리므로, 오른쪽 낙서 클러스터를 얹으면 같은 자리에서 겹친다 — 이 경우
-    오른쪽은 스킵하고 왼쪽 낙서만 남긴다(휑함 방지 역할은 라벨이 대신함)."""
+    오른쪽은 스킵하고 왼쪽 낙서만 남긴다(휑함 방지 역할은 라벨이 대신함).
+    양옆 여백 띠는 라벨보다 한참 아래에서 시작해서 skip_right와 무관하게 항상
+    양쪽 다 그린다."""
     rng = random.Random(seed)
     green_top_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, top_pad)[1])
     green_bottom_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_BOTTOM_ORIG, top_pad)[1])
 
-    zone_w, zone_h, top_gap = 260, 220, 20
+    zone_w, zone_h, top_gap = 260, 300, 20
     sides = ("left",) if skip_right else ("left", "right")
     for side in sides:
         shapes = rng.sample(_DOODLES, min(per_corner, len(_DOODLES)))
@@ -744,18 +808,44 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
             lx = ly = 0
             doodle = None
             for _attempt in range(12):
-                size = rng.randint(55, 85)
+                size = rng.randint(50, 85)
                 doodle = fn().resize((size, size))
                 angle = rng.uniform(-18, 18)
                 doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
                 lx = rng.randint(0, max(zone_w - doodle.width, 0))
                 ly = rng.randint(0, max(zone_h - doodle.height, 0))
                 cx, cy = lx + doodle.width / 2, ly + doodle.height / 2
-                if all(((cx - px) ** 2 + (cy - py) ** 2) ** 0.5 > 55 for px, py in placed):
+                if all(((cx - px) ** 2 + (cy - py) ** 2) ** 0.5 > 48 for px, py in placed):
                     placed.append((cx, cy))
                     break
             x = 25 + lx if side == "left" else W - zone_w - 25 + lx
             y = green_top_canvas + top_gap + ly
+            canvas.alpha_composite(doodle, (x, y))
+
+    # 양옆 여백 띠 — WHY 별도 로직인지: 위 모서리 클러스터(zone_w=260)보다 훨씬
+    # 얇은 폭(가장자리 45px)이라 같은 겹침 방지 로직을 재사용하면 큰 도형이
+    # 자꾸 재시도 실패한다 — 여기 전용으로 작은 사이즈(28~42px)만 쓴다.
+    _SIDE_MARGIN_W = 45
+    _SIDE_MARGIN_BAND_H = 260
+    margin_top = green_top_canvas + top_gap + zone_h + 60
+    for side in ("left", "right"):
+        count = rng.randint(2, 3)
+        placed_y: list[float] = []
+        for _ in range(count):
+            size = rng.randint(28, 42)
+            doodle = rng.choice(_DOODLES)().resize((size, size))
+            angle = rng.uniform(-20, 20)
+            doodle = doodle.rotate(angle, expand=True, resample=Image.BICUBIC)
+            for _attempt in range(10):
+                ly = rng.randint(0, max(_SIDE_MARGIN_BAND_H - doodle.height, 0))
+                if all(abs(ly - py) > 45 for py in placed_y):
+                    placed_y.append(ly)
+                    break
+            else:
+                continue
+            lx = rng.randint(0, max(_SIDE_MARGIN_W - doodle.width, 4))
+            x = lx if side == "left" else W - lx - doodle.width
+            y = margin_top + ly
             canvas.alpha_composite(doodle, (x, y))
 
     motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
@@ -1238,16 +1328,19 @@ def assemble(
         else:
             _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
 
-        # WHY item_schedule(2026-08-02, "그 아이템에 따라 뒤에 배경이 바꼈으면
-        # 좋겠고" + "칠판 우상단에 멈춰있는 일러스트와... 이름을 함께 넣어줘야해"):
-        # motion_schedule의 각 구간(캐릭터 파일 경로)에서 품목명을 추출해서, 그
-        # 품목의 일러스트(assets_library/illust/<품목>_illust.jpg)와 실사진
-        # (assets_library/real/<품목>_real_*.jpg)을 자동으로 찾는다. 이 스케줄을
-        # 그대로 재사용해서 상단 배너 사진과 칠판 우상단 라벨 둘 다 구간마다 바꾼다
-        # — 캐릭터가 이미 이 파일명 규칙(<품목>_motion.mp4)을 따르고 있어서 별도
-        # 인자 없이 기존 motion_schedule만으로 유도 가능하다. 못 찾으면(예: 파일명이
-        # 규칙과 다른 경우) None으로 두고 title_banner_photo_path/아이콘 없음으로
-        # 자연 폴백한다.
+        # WHY item_schedule(2026-08-02, "칠판 우상단에 멈춰있는 일러스트와...
+        # 이름을 함께 넣어줘야해"): motion_schedule의 각 구간(캐릭터 파일 경로)에서
+        # 품목명을 추출해서, 그 품목의 일러스트(assets_library/illust/<품목>_illust.jpg)를
+        # 자동으로 찾아 칠판 우상단 아이콘+이름 라벨을 구간마다 바꾼다 — 캐릭터가
+        # 이미 이 파일명 규칙(<품목>_motion.mp4)을 따르고 있어서 별도 인자 없이
+        # 기존 motion_schedule만으로 유도 가능하다. 못 찾으면 아이콘 없이 이름만
+        # 나온다.
+        #
+        # ⚠️ 상단 배너 사진은 여기서 구간별로 따로 찾지 않는다(2026-08-02
+        # 되돌림) — 원래 여기서 품목별 real_photo도 같이 찾아서 배너 사진 자체를
+        # 구간마다 바꿨었는데, "상단 글자의 배경으로 들어가는 이미지가 전 영역에
+        # 들어가야된다니까"라는 반복 지적대로 배너는 항상 shared_bg_photo 하나만
+        # 써야 칠판 배경과 이어져 보인다(아래 title_png 오버레이 부분 참고).
         item_schedule: list[dict] = []
         if motion_schedule:
             for entry in motion_schedule:
@@ -1258,20 +1351,11 @@ def assemble(
                     base = base[: -len("_motion")]
                 assets_root = motion_p.parent.parent
                 illust_p = assets_root / "illust" / f"{base}_illust.jpg"
-                real_dir = assets_root / "real"
-                real_candidates = sorted(real_dir.glob(f"{base}_real_*.jpg"))
-                if real_candidates:
-                    real_p = real_candidates[0]
-                elif (real_dir / f"{base}.jpg").exists():
-                    real_p = real_dir / f"{base}.jpg"
-                else:
-                    real_p = None
                 item_schedule.append({
                     "start": seg_start,
                     "end": seg_end,
                     "name": base,
                     "illust": str(illust_p) if illust_p.exists() else None,
-                    "real_photo": str(real_p) if real_p else title_banner_photo_path,
                 })
 
         # WHY shared_bg_photo를 여기서 한 번만 만드는지(2026-08-02, "배경으로 넣는
@@ -1414,23 +1498,27 @@ def assemble(
             next_input_idx += 1
             return idx
 
+        # WHY 배너는 item_schedule 여부와 무관하게 항상 title_png(shared_bg_photo)
+        # 하나만 전체 나레이션 구간에 쓰는지(2026-08-02, "상단 글자의 배경으로
+        # 들어가는 이미지가 전 영역에 들어가야된다니까" — 반복 지적): 예전엔
+        # item_schedule이 있으면 구간마다 item["real_photo"]를 따로 cover-crop해서
+        # 배너 사진 자체를 바꿨는데, 그러면 배너 바로 아래 칠판 배경(항상
+        # shared_bg_photo 하나로 고정)과 서로 다른 사진이 되어 이어붙인 자리가
+        # "층져서 이상한 사진"처럼 보였다 — 배너와 칠판 배경은 항상 같은 사진
+        # 하나(shared_bg_photo)를 써야 하나로 이어져 보인다는 원칙(위 _build_chalkboard_bg
+        # WHY photo_bg_img 참고)이 item_schedule에서만 깨져 있었던 것. 구간별로
+        # 바뀌어야 하는 건 우상단의 작은 아이템 아이콘+이름 라벨뿐이다.
+        banner_idx = _add_input(title_png)
+        enable_expr = f"between(t\\,{title_card_duration}\\,{title_card_duration + total_duration})"
+        nxt = "vb"
+        filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
+        current = nxt
+
         if item_schedule:
-            # WHY 세그먼트별 배너+라벨(2026-08-02, "그 아이템에 따라 뒤에 배경이
-            # 바꼈으면 좋겠고" + "칠판 우상단에... 이름을 함께 넣어줘야해"): 문단이
-            # 아니라 캐릭터 전환 구간(item_schedule) 단위로 배너 사진과 우상단
-            # 아이콘+이름을 같이 바꾼다 — 자막 세그먼트 오버레이(아래 4번)와 같은
-            # enable=between() 패턴이라 별도 concat 없이 한 번의 필터그래프로 끝난다.
             for i, item in enumerate(item_schedule):
                 seg_start_abs = item["start"] + title_card_duration
                 seg_end_abs = item["end"] + title_card_duration
                 win = f"between(t\\,{seg_start_abs}\\,{seg_end_abs})"
-
-                banner_png = tmp_path / f"title_seg_{i:03d}.png"
-                _make_title_png(title, banner_png, photo_path=item["real_photo"])
-                banner_idx = _add_input(banner_png)
-                nxt = f"vb{i}"
-                filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{win}'[{nxt}]")
-                current = nxt
 
                 label_png = tmp_path / f"label_seg_{i:03d}.png"
                 _make_item_label_png(item["illust"], item["name"], label_png)
@@ -1440,11 +1528,6 @@ def assemble(
                     f"[{current}][{label_idx}:v]overlay=x=main_w-overlay_w-24:y={title_h + 20}:enable='{win}'[{nxt}]")
                 current = nxt
         else:
-            banner_idx = _add_input(title_png)
-            enable_expr = f"between(t\\,{title_card_duration}\\,{title_card_duration + total_duration})"
-            nxt = "vb"
-            filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
-            current = nxt
             if ad_tag:
                 ad_png = tmp_path / "ad_tag.png"
                 _make_ad_tag_png(ad_png)
