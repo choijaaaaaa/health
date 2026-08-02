@@ -48,7 +48,7 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
 """
 
 CARD_TEMPLATE = """
-<div class="platform-card" data-done-key="{done_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}" data-suppress-product-block="{suppress_product_block_attr}">
+<div class="platform-card" data-done-key="{done_key}" data-no-caption-link="{no_caption_link_attr}" data-naver-button="{naver_button_attr}" data-profile-note="{profile_note_attr}" data-comment-dm="{comment_dm_attr}" data-suppress-product-block="{suppress_product_block_attr}" data-link-in-comment="{link_in_comment_attr}">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-{type}">{type_label}</span>
@@ -512,7 +512,15 @@ function _buildLinkBlock(hasNaverButton) {{
 // 대시보드 열 때마다(링크를 안 넣어놓은 상태) 인스타 캡션에 댓글 CTA가 통째로
 // 사라져 보였다("인스타쪽 왜 댓글달면 링크 준다는거 없어졌어?" 반복 지적). CTA는
 // hasCommentDm이 켜진 플랫폼이면 링크 입력 여부와 무관하게 항상 붙는다.
-function _buildCtaBlock(hasCommentDm) {{
+function _buildCtaBlock(hasCommentDm, linkInComment) {{
+  // WHY linkInComment(2026-08-02, "댓글에는 링크 넣어도 돼?"): 쓰레드·페이스북처럼
+  // 인포크 자동화도 없고 프로필 링크 도달 문제도 있는 플랫폼은, 캡션 본문엔 링크를
+  // 안 넣고(메타 계열이 아웃바운드 링크 있는 게시물 도달을 낮춘다고 알려져 있음)
+  // "댓글에 남겨둘게요"로 안내한다 — 실제 링크는 게시자가 게시 직후 댓글로 직접
+  // 추가하는 수동 흐름(이 파이프라인은 원래 전부 수동 게시라 흐름이 자연스럽게 이어짐).
+  if (linkInComment) {{
+    return "\\n\\n" + AUTO_LINKS_MARKER + "🔗 구매 링크는 댓글에 남겨둘게요!\\n\\n" + COUPANG_DISCLOSURE;
+  }}
   if (!hasCommentDm) {{
     return "\\n\\n" + AUTO_LINKS_MARKER + "🔗 상품 링크는 프로필에서 확인해주세요!\\n\\n" + COUPANG_DISCLOSURE;
   }}
@@ -529,12 +537,13 @@ function applyProductLinks() {{
     const noCaptionLink = card.dataset.noCaptionLink === "1";
     const hasNaverButton = card.dataset.naverButton === "1";
     const hasCommentDm = card.dataset.commentDm === "1";
+    const linkInComment = card.dataset.linkInComment === "1";
     // WHY suppressProductBlock(2026-07-31): 유튜브 쇼츠는 구독자 500명 조건을 채우기
     // 전까지 설명란 링크가 아예 클릭이 안 돼서 판매 관련 문구를 넣어봤자 반감만 산다는
     // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
     // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
     const suppressBlock = card.dataset.suppressProductBlock === "1";
-    let block = suppressBlock ? "" : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton));
+    let block = suppressBlock ? "" : (noCaptionLink ? _buildCtaBlock(hasCommentDm, linkInComment) : _buildLinkBlock(hasNaverButton));
     // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
     // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
     // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
@@ -760,6 +769,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 profile_note_attr="1" if p.get("add_profile_note") else "",
                 suppress_product_block_attr="1" if p.get("suppress_product_block") else "",
                 comment_dm_attr="1" if p.get("comment_dm_automation") else "",
+                link_in_comment_attr="1" if p.get("link_in_comment") else "",
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
