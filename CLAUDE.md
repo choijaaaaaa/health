@@ -352,8 +352,18 @@ topic에는 더 이상 기본 적용되지 않는다** — 아래 "영상 배경
 칠판 스타일로 바꿨다**.
 
 - `lib/video_assembler.py`의 `assemble()`/CLI `--bg-style` 기본값이 `chalkboard`다 —
-  짙은 초록 그라디언트 배경(`_build_chalkboard_bg`) + 분필/마카체 자막(`_make_chalk_caption_png`,
-  반투명 박스 없이 흰 글자+옅은 그림자만) 조합. **`--images`를 아예 안 줘도 된다.**
+  실물 칠판 사진(`assets_library/backgrounds/칠판.png`) 배경 + 분필/마카체 자막
+  (`_make_chalk_caption_png`, 반투명 박스 없이 흰 글자+옅은 그림자만) 조합.
+  **`--images`를 아예 안 줘도 된다.**
+- ⚠️ **처음엔 그라디언트 단색이었다가 실물 사진으로 교체**(2026-08-02, "assets의
+  background 폴더에 칠판 넣어놨거든 그 이미지로 대체해" 요청): `_build_chalkboard_bg`가
+  `칠판.png`(1024x1024, 나무 프레임 칠판이 흰 배경 위에 서있는 사진)의 좌우 흰 여백을
+  나무 프레임 가장자리(실측 픽셀 `CHALKBOARD_CROP_LEFT=65`~`CHALKBOARD_CROP_RIGHT=962`)
+  까지만 잘라서 프레임이 캔버스 가로 폭(1080)에 꽉 차게 만든다. 위·아래는 원본 비율
+  그대로 살리고, 세로 1920을 다 못 채우는 만큼(약 467px)은 같은 톤의 흰색
+  (`CHALKBOARD_BG_FILL`)으로 패딩한다 — **위쪽 흰 여백엔 제목 배너, 아래쪽 흰
+  여백엔 캐릭터가 자연스럽게 올라간다**(기존 오버레이 로직 그대로, 배경만 바뀜).
+  이 사진 자체를 다른 걸로 바꾸지 않는 한 크롭 좌표를 다시 잴 필요는 없음.
 - 폰트는 무료 상업적 이용 가능한 구글 폰트 **Gaegu-Bold**(SIL OFL 1.1 라이선스,
   `assets_library/fonts/Gaegu-Bold.ttf` + 라이선스 원문 `OFL-Gaegu.txt`) — 손글씨/마카
   느낌의 한글 지원 폰트. 카드뉴스 등 다른 곳에 폰트를 새로 쓸 일이 생기면 이 폰트를

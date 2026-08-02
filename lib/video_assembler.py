@@ -401,18 +401,42 @@ def make_gradient_bg(out_path: Path, top=(253, 249, 245), bottom=(246, 237, 230)
     img.save(out_path, quality=95)
 
 
+CHALKBOARD_PHOTO_PATH = str(Path(__file__).resolve().parent.parent / "assets_library" / "backgrounds" / "칠판.png")
+# WHY 실측 좌표를 상수로 고정(2026-08-02): 실물 칠판 사진(assets_library/backgrounds/
+# 칠판.png, 1024x1024)의 좌우 흰 여백을 나무 프레임 가장자리까지 잘라내기 위해
+# 픽셀을 직접 스캔해서 찾은 값 — "나무 프레임이 가로 폭에 딱맞게" 요청 반영.
+# 이 배경 이미지 자체를 바꾸지 않는 한 다시 측정할 필요 없음.
+CHALKBOARD_CROP_LEFT = 65
+CHALKBOARD_CROP_RIGHT = 962
+# WHY 위/아래 여백은 안 자르는지: 사진 원본의 흰 위쪽 여백엔 제목 배너가,
+# 아래쪽 여백엔 캐릭터가 들어갈 자리라 그대로 살려둔다(사용자 요청) — 다만 세로로
+# 늘려서 캔버스(1920)를 다 채우면 위아래 여백이 부족해서, 늘리는 대신 같은 톤의
+# 흰색으로 캔버스 크기까지 패딩한다.
+CHALKBOARD_BG_FILL = (248, 248, 248)
+CHALKBOARD_TOP_PAD = 220
+
+
 def _build_chalkboard_bg(total_duration: float, out_path: Path):
-    """칠판 스타일 기본 배경(2026-08-02). 실사진 슬라이드쇼 대신 카드뉴스 톤과 맞춘
-    짙은 초록 그라디언트를 배경으로 쓰고, 자막은 _make_chalk_caption_png로 칠판에
-    분필로 쓴 것처럼 렌더링한다. 완전히 정적이면 밋밋해서 실사진 배경과 같은 미세
-    zoompan(서서히 확대)만 적용해 계속 살아있는 느낌을 유지한다."""
+    """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
+    나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
+    원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
+    채운다 — 위쪽 흰 여백엔 제목 배너, 아래쪽 흰 여백엔 캐릭터가 들어간다. 완전히
+    정적이면 밋밋해서 실사진 배경과 같은 미세 zoompan(서서히 확대)만 적용한다."""
     with tempfile.TemporaryDirectory() as tmp:
+        photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
+        cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
+        scale = W / cropped.width
+        resized = cropped.resize((W, round(cropped.height * scale)))
+
+        canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
+        top_pad = min(CHALKBOARD_TOP_PAD, max(H - resized.height, 0))
+        canvas.paste(resized, (0, top_pad))
+
         still = Path(tmp) / "chalkboard.jpg"
-        make_gradient_bg(still, top=CHALKBOARD_TOP, bottom=CHALKBOARD_BOTTOM)
+        canvas.save(still, quality=95)
+
         frames = max(int(total_duration * FPS), 1)
-        vf = (
-            f"scale={W}:{H},zoompan=z='min(zoom+0.0006,1.06)':d={frames}:s={W}x{H}:fps={FPS}"
-        )
+        vf = f"zoompan=z='min(zoom+0.0006,1.06)':d={frames}:s={W}x{H}:fps={FPS}"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-i", str(still), "-t", f"{total_duration}",
              "-vf", vf, "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
