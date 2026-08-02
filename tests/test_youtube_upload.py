@@ -17,6 +17,7 @@ from lib.youtube_upload import (  # noqa: E402
     _category_from_topic,
     _extract_first_frame,
     _parse_title_description,
+    _playlist_title_for_category,
 )
 
 
@@ -71,3 +72,7 @@ def test_extract_first_frame_produces_readable_image(make_tiny_clip):
 )
 def test_category_from_topic(topic, expected):
     assert _category_from_topic(topic) == expected
+
+
+def test_playlist_title_for_category_is_descriptive():
+    assert _playlist_title_for_category("눈") == "눈 관련 건강정보"

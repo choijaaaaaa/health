@@ -113,26 +113,36 @@ def _category_from_topic(topic: str) -> str:
     return re.sub(r"_\d+$", "", topic)
 
 
+def _playlist_title_for_category(category: str) -> str:
+    """WHY 카테고리 단어 그대로 안 쓰는지(2026-08-02): "눈", "다리쥐"처럼 topic
+    폴더명용 짧은 카테고리 단어는 사람이나 유튜브 검색·추천 시스템이 봤을 때
+    무슨 주제인지 알아보기 어렵다("이거만 하면 사람들이랑 유튜브 검사 시스템에서
+    이게 눈 건강과 관련된거라고 인지 못함" — 사용자 지적) — 재생목록 제목에는
+    "관련 건강정보"를 붙여 명확하게 만든다."""
+    return f"{category} 관련 건강정보"
+
+
 def _get_or_create_playlist(youtube, category: str) -> str:
-    """카테고리 이름과 제목이 정확히 같은 재생목록이 이미 있으면 그 ID를 재사용하고,
-    없으면 새로 만든다 — topic마다 재생목록이 늘어나지 않고 같은 카테고리는 계속
-    한 재생목록에 쌓이게 하기 위함."""
+    """카테고리에 대응하는 재생목록 제목(`_playlist_title_for_category`)과 정확히
+    같은 재생목록이 이미 있으면 그 ID를 재사용하고, 없으면 새로 만든다 — topic마다
+    재생목록이 늘어나지 않고 같은 카테고리는 계속 한 재생목록에 쌓이게 하기 위함."""
+    title = _playlist_title_for_category(category)
     request = youtube.playlists().list(part="snippet", mine=True, maxResults=50)
     while request is not None:
         response = request.execute()
         for item in response.get("items", []):
-            if item["snippet"]["title"] == category:
+            if item["snippet"]["title"] == title:
                 return item["id"]
         request = youtube.playlists().list_next(request, response)
 
     response = youtube.playlists().insert(
         part="snippet,status",
         body={
-            "snippet": {"title": category, "description": f"{category} 관련 건강 정보 모음"},
+            "snippet": {"title": title, "description": f"{category} 관련 건강 정보 모음"},
             "status": {"privacyStatus": "public"},
         },
     ).execute()
-    print(f"[youtube_upload] 재생목록 신규 생성: {category}")
+    print(f"[youtube_upload] 재생목록 신규 생성: {title}")
     return response["id"]
 
 
