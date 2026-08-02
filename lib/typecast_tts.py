@@ -105,11 +105,17 @@ def _insert_sentence_pauses(audio_bytes: bytes, audio_format: str, words: list[d
         for i, entry in enumerate(entries):
             seg_start, seg_end = entry[0]["start"], entry[-1]["end"]
             seg_path = tmp_path / f"seg_{i:03d}.wav"
-            subprocess.run(
-                ["ffmpeg", "-y", "-i", str(src), "-ss", str(seg_start), "-to", str(seg_end),
-                 "-c:a", "pcm_s16le", str(seg_path)],
-                check=True, capture_output=True,
-            )
+            # WHY 마지막 구간만 -to를 안 주는지(2026-08-02, "마지막에 뚝뚝 끊기는" 버그
+            # 수정): 타입캐스트 단어 타임스탬프의 end가 그 단어의 자연스러운 여운(끝소리
+            # decay)까지 포함 안 할 수 있는데, 지금까지는 모든 구간을 "-to seg_end"로
+            # 정확히 잘랐다 — 중간 문장은 바로 뒤에 무음이 붙어서 덜 티 나지만, 맨 마지막
+            # 문장은 그 뒤에 아무것도 안 붙어서 잘린 꼬리가 그대로 들린다. 마지막 구간만
+            # 원본 끝까지 살려서 여운이 잘리지 않게 한다.
+            cmd = ["ffmpeg", "-y", "-i", str(src), "-ss", str(seg_start)]
+            if i < len(entries) - 1:
+                cmd += ["-to", str(seg_end)]
+            cmd += ["-c:a", "pcm_s16le", str(seg_path)]
+            subprocess.run(cmd, check=True, capture_output=True)
             lines.append(f"file '{seg_path}'")
 
             for w in entry:
