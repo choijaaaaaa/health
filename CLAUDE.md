@@ -87,7 +87,10 @@ UI에서 보는 리스트는 카테고리가 뭐인지만 알면 됨" — 2026-0
 
 `lib/youtube_upload.py`의 `SCOPES`는 `youtube.upload`가 아니라 **`https://www.googleapis.com/auth/youtube`**(전체 관리)를 쓴다(2026-08-02 확장) — 재생목록 생성·채널 조회 등도 이 스코프로 커버하려는 목적. 두 스크립트가 스코프를 각자 들고 있으면 어긋나기 쉬워서 `youtube_auth_setup.py`가 `youtube_upload.py`의 `SCOPES`를 그대로 import해서 쓴다 — 스코프를 또 바꿀 일이 있으면 `youtube_upload.py` 한 곳만 고칠 것.
 
-업로드 성공 후 영상 첫 프레임을 썸네일로 자동 설정한다(`_set_thumbnail`) — 실패해도 업로드 자체는 막지 않고 경고만 남긴다. ⚠️ 이 단계에서 404 "videoNotFound"가 나면 채널 미인증이나 쇼츠 제약이 아니라 **그 videoId가 실제로 존재하는지부터 의심할 것**(2026-08-02 실제 사례 — 테스트 후 지운 영상 ID로 계속 재시도해서 난 에러였음, `channels().list().status.longUploadsStatus`가 `"allowed"`로 나와 채널 인증은 이미 확인된 상태였는데도 계속 404가 났었음).
+업로드 성공 후 아래 2단계를 이어서 자동 진행한다(`upload_short()` 안에서 순서대로 호출) — 둘 다 실패해도 업로드 자체는 막지 않고 경고만 남긴다:
+
+1. **썸네일**(`_set_thumbnail`) — 영상 첫 프레임을 뽑아 커스텀 썸네일로 설정. ⚠️ 이 단계에서 404 "videoNotFound"가 나면 채널 미인증이나 쇼츠 제약이 아니라 **그 videoId가 실제로 존재하는지부터 의심할 것**(2026-08-02 실제 사례 — 테스트 후 지운 영상 ID로 계속 재시도해서 난 에러였음, `channels().list().status.longUploadsStatus`가 `"allowed"`로 나와 채널 인증은 이미 확인된 상태였는데도 계속 404가 났었음).
+2. **재생목록**(`_add_to_category_playlist`) — topic 폴더명("카테고리_N")에서 카테고리만 뽑아(`_category_from_topic`, 위 "topic 폴더명" 절의 명명 규칙과 동일 기준) 같은 이름의 재생목록이 있으면 재사용, 없으면 새로 만들어 그 영상을 추가한다. 예: `눈_1`·`눈_2`·`눈_3`은 전부 "눈" 재생목록 하나에 모인다. 재생목록 자체는 항상 `public`으로 만든다(안에 담긴 영상이 private이어도 그 영상은 어차피 안 보이므로 재생목록 자체의 공개 여부와 무관).
 
 **사용법**: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]` —
 privacy_status 기본값은 **"private"**(공개 업로드는 되돌리기 어려운 작업이라 안전하게

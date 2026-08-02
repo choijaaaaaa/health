@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -104,6 +105,57 @@ def _set_thumbnail(youtube, video_id: str, video_path: str) -> None:
         thumb_path.unlink(missing_ok=True)
 
 
+def _category_from_topic(topic: str) -> str:
+    """topic 폴더명("카테고리_N", 2026-08-02 신규 명명 규칙)에서 카테고리만 뽑는다.
+    예: "눈_1" -> "눈", "다리쥐_3" -> "다리쥐". 접미사 번호가 없는 옛날 topic명
+    ("가슴쓰림유발음식_1"처럼 원래도 "_숫자"로 끝남)도 마지막 "_숫자"만 떼어내는
+    방식이라 그대로 호환된다."""
+    return re.sub(r"_\d+$", "", topic)
+
+
+def _get_or_create_playlist(youtube, category: str) -> str:
+    """카테고리 이름과 제목이 정확히 같은 재생목록이 이미 있으면 그 ID를 재사용하고,
+    없으면 새로 만든다 — topic마다 재생목록이 늘어나지 않고 같은 카테고리는 계속
+    한 재생목록에 쌓이게 하기 위함."""
+    request = youtube.playlists().list(part="snippet", mine=True, maxResults=50)
+    while request is not None:
+        response = request.execute()
+        for item in response.get("items", []):
+            if item["snippet"]["title"] == category:
+                return item["id"]
+        request = youtube.playlists().list_next(request, response)
+
+    response = youtube.playlists().insert(
+        part="snippet,status",
+        body={
+            "snippet": {"title": category, "description": f"{category} 관련 건강 정보 모음"},
+            "status": {"privacyStatus": "public"},
+        },
+    ).execute()
+    print(f"[youtube_upload] 재생목록 신규 생성: {category}")
+    return response["id"]
+
+
+def _add_to_category_playlist(youtube, topic: str, video_id: str) -> None:
+    """실패해도 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다(썸네일
+    설정과 동일한 정책)."""
+    category = _category_from_topic(topic)
+    try:
+        playlist_id = _get_or_create_playlist(youtube, category)
+        youtube.playlistItems().insert(
+            part="snippet",
+            body={
+                "snippet": {
+                    "playlistId": playlist_id,
+                    "resourceId": {"kind": "youtube#video", "videoId": video_id},
+                }
+            },
+        ).execute()
+        print(f"[youtube_upload] 재생목록 '{category}'에 추가 완료")
+    except HttpError as e:
+        print(f"[youtube_upload] ⚠️ 재생목록 추가 실패(영상 업로드 자체는 성공함): {e}")
+
+
 def upload_short(
     topic: str,
     video_path: str | None = None,
@@ -160,6 +212,7 @@ def upload_short(
 
     video_id = response["id"]
     _set_thumbnail(youtube, video_id, video_path)
+    _add_to_category_playlist(youtube, topic, video_id)
     if publish_at:
         print(f"[youtube_upload] 업로드 완료(예약 게시 {publish_at}): https://youtube.com/shorts/{video_id}")
     else:

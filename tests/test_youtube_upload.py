@@ -12,7 +12,12 @@ import pytest
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from lib.youtube_upload import _build_status_body, _extract_first_frame, _parse_title_description  # noqa: E402
+from lib.youtube_upload import (  # noqa: E402
+    _build_status_body,
+    _category_from_topic,
+    _extract_first_frame,
+    _parse_title_description,
+)
 
 
 def test_parse_title_description_happy_path():
@@ -53,3 +58,16 @@ def test_extract_first_frame_produces_readable_image(make_tiny_clip):
         assert frame_path.stat().st_size > 0
     finally:
         frame_path.unlink(missing_ok=True)
+
+
+@pytest.mark.parametrize(
+    "topic, expected",
+    [
+        ("눈_1", "눈"),
+        ("다리쥐_3", "다리쥐"),
+        ("60대_1", "60대"),
+        ("가슴쓰림유발음식_1", "가슴쓰림유발음식"),
+    ],
+)
+def test_category_from_topic(topic, expected):
+    assert _category_from_topic(topic) == expected
