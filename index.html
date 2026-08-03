@@ -473,13 +473,20 @@ Promise.all([
       // 언어들 모아보기" 두 갈래뿐이다. 한국 버튼은 기존 ko 대시보드로 그대로
       // 가고, Global 버튼은 이 topic의 언어별 유튜브·인스타 캡션을 모아둔
       // 새 global.html(lib/dashboard.py의 _generate_global_page가 생성)로 간다.
+      // WHY 버튼에도 업로드 완료 여부를 표시하는지(2026-08-03, "업로드 했다는걸
+      // 다른애들이나 나도 알수있도록 UI에서 표시될수있게"): 언어별 배지(KO/EN/JA
+      // ✓)를 버튼 2개로 합치면서 업로드 완료 표시가 같이 사라졌었다 — 버튼
+      // 자체에 체크 표시를 되살린다. 한국은 ko 하나뿐이라 단순 ✓, Global은
+      // 언어가 여러 개라 "몇 개 중 몇 개 완료"를 보여준다.
       const koVariant = variants.find(v => v.langSeg === "ko" || v.langSeg === null);
       const buttonWrap = document.createElement("div");
       buttonWrap.style.cssText = "display:flex;gap:8px;flex:0 0 auto;";
 
       const koBtn = document.createElement("a");
-      koBtn.textContent = "한국";
-      koBtn.setAttribute("aria-label", baseTopic + " 한국 플랫폼 페이지 열기");
+      const koDone = koVariant && (youtubeDone.has(koVariant.topic) || youtubeDone.has(baseTopic));
+      koBtn.textContent = "한국" + (koDone ? " ✓" : "");
+      koBtn.setAttribute("aria-label", baseTopic + " 한국 플랫폼 페이지 열기"
+        + (koDone ? " (유튜브 업로드 완료)" : ""));
       const koBtnBase = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;";
       if (koVariant) {
         koBtn.href = koVariant.url;
@@ -488,10 +495,15 @@ Promise.all([
         koBtn.style.cssText = koBtnBase + "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;pointer-events:none;";
       }
 
+      const globalVariants = variants.filter(v => v.langSeg && v.langSeg !== "ko");
+      const globalDoneCount = globalVariants.filter(v => youtubeDone.has(v.topic)).length;
       const globalBtn = document.createElement("a");
-      globalBtn.textContent = "Global";
+      globalBtn.textContent = globalVariants.length
+        ? `Global ${globalDoneCount}/${globalVariants.length}`
+        : "Global";
       globalBtn.href = `output/${encodeURIComponent(baseTopic)}/global.html`;
-      globalBtn.setAttribute("aria-label", baseTopic + " Global(언어별 유튜브·인스타) 페이지 열기");
+      globalBtn.setAttribute("aria-label", baseTopic + " Global(언어별 유튜브·인스타) 페이지 열기"
+        + (globalVariants.length ? ` — 유튜브 업로드 ${globalDoneCount}/${globalVariants.length}개 완료` : ""));
       globalBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--gold);color:#fff;";
 
       buttonWrap.appendChild(koBtn);
