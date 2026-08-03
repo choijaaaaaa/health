@@ -451,50 +451,62 @@ Promise.all([
       const textWrap = document.createElement("div");
       textWrap.style.cssText = "flex:1;min-width:0;";
 
-      const a = document.createElement("a");
-      a.href = primary.url;
-      a.textContent = baseTopic;
-      a.style.cssText = "display:block;color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;";
+      // WHY <a>가 아니라 <span>인지(2026-08-03, "행 클릭할 때 들어가는 건
+      // 없애고"): 행 전체(제목 텍스트)를 눌러서 이동하던 걸 없애고, 아래 두
+      // 버튼(한국/Global)으로만 이동하게 한다 — 어느 언어로 갈지 행 텍스트
+      // 클릭만으로는 애매했던 것도 같이 해결됨.
+      const titleSpan = document.createElement("span");
+      titleSpan.textContent = baseTopic;
+      titleSpan.style.cssText = "display:block;color:var(--ink);font-size:14px;font-weight:700;";
 
       const titleLine = document.createElement("div");
       titleLine.textContent = primary.title;
       titleLine.style.cssText = "font-size:12px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
 
-      textWrap.appendChild(a);
+      textWrap.appendChild(titleSpan);
       textWrap.appendChild(titleLine);
 
-      // WHY 언어별 배지를 링크로도 겸하는지: 행 하나에 여러 언어가 묶여 있어서,
-      // 특정 언어 대시보드로 바로 가려면 그 언어 배지 자체가 이동 수단이어야
-      // 한다(대표 링크 하나만 있으면 다른 언어는 열 방법이 없어짐).
-      const langBadges = document.createElement("div");
-      langBadges.style.cssText = "display:flex;gap:4px;flex-wrap:wrap;flex:0 0 auto;";
-      variants.forEach(v => {
-        const langSeg = v.langSeg;
-        const legacyFallbackOk = langSeg === null || langSeg === "ko";
-        const ytDone = youtubeDone.has(v.topic) || (legacyFallbackOk && youtubeDone.has(baseTopic));
-        const pill = document.createElement("a");
-        pill.href = v.url;
-        pill.textContent = (langSeg ? langSeg.toUpperCase() : "KO") + (ytDone ? " ✓" : "");
-        pill.title = (langSeg ? `[${langSeg.toUpperCase()}] ` : "") + v.title
-          + (ytDone ? " — 유튜브 숏츠 업로드 완료(예약 게시 포함)" : " — 유튜브 숏츠 아직 업로드 안 됨");
-        pill.setAttribute("aria-label", v.topic + (ytDone ? " 유튜브 숏츠 업로드 완료" : " 유튜브 숏츠 미업로드"));
-        pill.style.cssText = "text-decoration:none;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;"
-          + (ytDone
-            ? "background:#e53935;color:#fff;"
-            : "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.6;");
-        langBadges.appendChild(pill);
-      });
+      // WHY 버튼 2개(한국/Global)로 바꿨는지(2026-08-03, "완성된 콘텐츠 목록에
+      // 한국 버튼만 있잖아? 그 옆에 Global 해서 버튼 하나 더 추가하고 버튼
+      // 두개는 크기를 좀 키우자"): 언어별 배지(KO/EN/JA...)가 많아지면 행이
+      // 산만해지고, 실제로 필요한 건 "한국 플랫폼 페이지로" vs "글로벌
+      // 언어들 모아보기" 두 갈래뿐이다. 한국 버튼은 기존 ko 대시보드로 그대로
+      // 가고, Global 버튼은 이 topic의 언어별 유튜브·인스타 캡션을 모아둔
+      // 새 global.html(lib/dashboard.py의 _generate_global_page가 생성)로 간다.
+      const koVariant = variants.find(v => v.langSeg === "ko" || v.langSeg === null);
+      const buttonWrap = document.createElement("div");
+      buttonWrap.style.cssText = "display:flex;gap:8px;flex:0 0 auto;";
+
+      const koBtn = document.createElement("a");
+      koBtn.textContent = "한국";
+      koBtn.setAttribute("aria-label", baseTopic + " 한국 플랫폼 페이지 열기");
+      const koBtnBase = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;";
+      if (koVariant) {
+        koBtn.href = koVariant.url;
+        koBtn.style.cssText = koBtnBase + "background:var(--accent);color:#fff;";
+      } else {
+        koBtn.style.cssText = koBtnBase + "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;pointer-events:none;";
+      }
+
+      const globalBtn = document.createElement("a");
+      globalBtn.textContent = "Global";
+      globalBtn.href = `output/${encodeURIComponent(baseTopic)}/global.html`;
+      globalBtn.setAttribute("aria-label", baseTopic + " Global(언어별 유튜브·인스타) 페이지 열기");
+      globalBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--gold);color:#fff;";
+
+      buttonWrap.appendChild(koBtn);
+      buttonWrap.appendChild(globalBtn);
 
       if (done) {
         row.style.opacity = "0.45";
         row.style.background = "var(--bg-bottom)";
-        a.style.textDecoration = "line-through";
+        titleSpan.style.textDecoration = "line-through";
       }
 
       row.appendChild(badge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
-      row.appendChild(langBadges);
+      row.appendChild(buttonWrap);
       (done ? doneList : list).appendChild(row);
       rows.push({ row, topic: baseTopic });
     });

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거리는 거, 사실 이 음식 때문일 수 있어요 - 혈압 확 올리는 의외의 음식들 — Global 업로드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  main { max-width: 900px; margin: 0 auto; padding: 16px 20px 40px; }
+  .lang-group {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 16px;
+    margin-bottom: 14px; overflow: hidden;
+  }
+  .lang-group > summary {
+    cursor: pointer; padding: 16px 20px; font-size: 16px; font-weight: 700;
+    list-style: none; display: flex; align-items: center; gap: 10px;
+  }
+  .lang-group > summary::-webkit-details-marker { display: none; }
+  .lang-group > summary::before { content: "▶"; font-size: 11px; color: var(--accent); transition: transform .15s; flex: 0 0 auto; }
+  .lang-group[open] > summary::before { transform: rotate(90deg); }
+  .lang-body { padding: 4px 20px 20px; display: flex; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--rule); }
+  .plat-card {
+    flex: 1 1 280px; background: var(--bg-bottom); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px; margin-top: 16px;
+  }
+  .plat-card h3 { margin: 0 0 8px; font-size: 14px; }
+  .plat-card video { width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }
+  .g-video-ph {
+    width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
+  }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거리는 거, 사실 이 음식 때문일 수 있어요 - 혈압 확 올리는 의외의 음식들</h1>
+  <p>언어(국가)별로 펼쳐서 유튜브·인스타그램 캡션을 확인·업로드하세요</p>
+</header>
+<main>
+<div class="empty">아직 준비된 글로벌 언어 콘텐츠가 없어요</div>
+</main>
+<script>
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+</script>
+</body>
+</html>

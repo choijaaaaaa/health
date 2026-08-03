@@ -891,6 +891,197 @@ def _update_topics_index(out_path: str):
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
 
+    # WHY 여기서 global.html도 같이 만드는지(2026-08-03, "완성된 콘텐츠 목록에 한국
+    # 버튼만 있잖아? Global 버튼 추가하고... 국가 목록이 있고 접고 펼 수 있게"):
+    # 이 함수는 이미 output/ 전체를 스캔해서 base-topic별 언어 목록을 알고 있으므로,
+    # topics.json 갱신 시점에 같이 재생성하면 별도 호출 지점을 안 늘려도 된다.
+    base_topics = sorted({t["topic"].split("/", 1)[0] for t in topics})
+    for base in base_topics:
+        _generate_global_page(base, output_root, data_root)
+
+
+GLOBAL_PLATFORMS = ("YouTube Shorts", "Instagram Reels")
+
+# WHY 이 딕셔너리를 여기 두는지: data/global_channels.json과 값 형식이 다르다(그
+# 파일은 code->메타 정보 dict이고 여기는 순서가 있는 표시용 라벨) — 이 페이지
+# 전용이라 별도로 관리해도 두 파일이 어긋날 위험이 없다(코드만 겹치면 됨, 코드
+# 자체의 출처는 typecast_voices_global.json이 정본).
+GLOBAL_LANG_LABELS = {
+    "en": "영어 English", "ja": "일본어 日本語", "zh-TW": "대만어 繁體中文",
+    "es": "스페인어 Español", "pt": "포르투갈어 Português", "fr": "프랑스어 Français",
+    "de": "독일어 Deutsch", "ru": "러시아어 Русский", "vi": "베트남어 Tiếng Việt",
+    "ar": "아랍어 العربية", "bn": "벵골어 বাংলা", "tr": "터키어 Türkçe",
+    "th": "태국어 ไทย", "id": "인도네시아어 Indonesia", "hi": "힌디어 हिन्दी",
+}
+
+GLOBAL_PAGE_TEMPLATE = """<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{title} — Global 업로드</title>
+<style>
+  :root {{
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }}
+  * {{ box-sizing: border-box; }}
+  body {{
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }}
+  header {{ padding: 32px 24px 8px; text-align: center; }}
+  header h1 {{ margin: 0 0 6px; font-size: 22px; }}
+  header p {{ margin: 0; color: var(--ink-soft); font-size: 13px; }}
+  .back {{ display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }}
+  main {{ max-width: 900px; margin: 0 auto; padding: 16px 20px 40px; }}
+  .lang-group {{
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 16px;
+    margin-bottom: 14px; overflow: hidden;
+  }}
+  .lang-group > summary {{
+    cursor: pointer; padding: 16px 20px; font-size: 16px; font-weight: 700;
+    list-style: none; display: flex; align-items: center; gap: 10px;
+  }}
+  .lang-group > summary::-webkit-details-marker {{ display: none; }}
+  .lang-group > summary::before {{ content: "▶"; font-size: 11px; color: var(--accent); transition: transform .15s; flex: 0 0 auto; }}
+  .lang-group[open] > summary::before {{ transform: rotate(90deg); }}
+  .lang-body {{ padding: 4px 20px 20px; display: flex; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--rule); }}
+  .plat-card {{
+    flex: 1 1 280px; background: var(--bg-bottom); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px; margin-top: 16px;
+  }}
+  .plat-card h3 {{ margin: 0 0 8px; font-size: 14px; }}
+  .plat-card video {{ width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }}
+  .g-video-ph {{
+    width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
+  }}
+  .plat-card textarea {{
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }}
+  .plat-actions {{ display: flex; gap: 8px; margin-top: 8px; }}
+  .plat-actions button, .plat-actions a {{
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }}
+  .btn-copy {{ background: var(--accent-soft); color: var(--accent-deep); }}
+  .btn-go {{ background: var(--accent); color: #fff; }}
+  .empty {{ text-align: center; padding: 60px 20px; color: var(--ink-soft); }}
+</style>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>{title}</h1>
+  <p>언어(국가)별로 펼쳐서 유튜브·인스타그램 캡션을 확인·업로드하세요</p>
+</header>
+<main>
+{lang_sections}
+</main>
+<script>
+document.querySelectorAll(".btn-copy").forEach(btn => {{
+  btn.addEventListener("click", () => {{
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {{
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    }});
+  }});
+}});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
+  btn.addEventListener("click", () => {{
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  }});
+}});
+</script>
+</body>
+</html>
+"""
+
+
+def _global_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str:
+    """YouTube Shorts/Instagram Reels 카드 하나 — 기존 CARD_TEMPLATE과 달리 disclosure/
+    product-link 동적 삽입 로직(_buildLinkBlock 등)을 아예 안 쓴다. WHY: 그 로직은
+    `data/affiliate_accounts.json`의 한국어 고지문구를 코드에서 그대로 끌어오는데,
+    글로벌 topic은 아직 활성화된 제휴 프로그램이 없어서(2026-08-03 "아마존/알리는
+    시간 좀 두고" 결정) 한국어 고지문이 영어/일본어 캡션에 섞여 붙는 사고를 막으려면
+    이 카드는 그냥 저장된 캡션 텍스트를 그대로 보여주는 게 맞다."""
+    video_dir = Path(__file__).resolve().parent.parent / "output" / topic / lang
+    # WHY 두 글롭 다 시도하는지: 대부분 "<topic>_shorts.mp4"(topic 접두어) 규칙을
+    # 따르지만, 일부 언어 topic은 접두어 없이 그냥 "shorts.mp4"로도 만들어져 있었다
+    # (실측: 갑상선_1/en) — 폴더 자체가 이미 topic+언어를 구분해주므로 둘 다 허용.
+    candidates = sorted(video_dir.glob("*shorts.mp4")) if video_dir.exists() else []
+    if candidates:
+        video_html = f'<video src="{lang}/{quote(candidates[0].name)}" controls playsinline></video>'
+    else:
+        video_html = '<div class="g-video-ph">영상 준비 중</div>'
+    ta_id = f"g-cap-{lang}-{idx}"
+    return f"""
+<div class="plat-card">
+  <h3>{_esc(platform['name'])}</h3>
+  {video_html}
+  <textarea id="{ta_id}" spellcheck="false">{_esc(platform['caption'])}</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="{ta_id}">캡션 복사</button>
+    <a class="btn-go" href="{platform['url']}" target="_blank" rel="noopener" data-copy-target="{ta_id}">열기 →</a>
+  </div>
+</div>
+"""
+
+
+def _generate_global_page(base_topic: str, output_root: Path, data_root: Path) -> None:
+    """topic 하나(예: "관절_1")의 언어별(ko 제외) YouTube Shorts/Instagram Reels
+    캡션을 한 페이지에 접이식(<details>)으로 모은다 — 개별 언어마다 dashboard.html을
+    따로 열어야 했던 것을 topic당 페이지 하나로 통합."""
+    topic_data_root = data_root / base_topic
+    lang_dirs = (
+        sorted(p.name for p in topic_data_root.iterdir() if p.is_dir() and p.name != "ko")
+        if topic_data_root.exists() else []
+    )
+
+    lang_sections = ""
+    idx = 0
+    for lang in lang_dirs:
+        captions_path = topic_data_root / lang / "platform_captions.json"
+        if not captions_path.exists():
+            continue
+        try:
+            spec = json.loads(captions_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        cards = ""
+        for p in spec.get("platforms", []):
+            if p["name"] in GLOBAL_PLATFORMS:
+                cards += _global_platform_card(base_topic, lang, p, idx)
+                idx += 1
+        if not cards:
+            continue
+        label = GLOBAL_LANG_LABELS.get(lang, lang.upper())
+        lang_sections += f'<details class="lang-group">\n  <summary>{_esc(label)}</summary>\n  <div class="lang-body">{cards}</div>\n</details>\n'
+
+    if not lang_sections:
+        lang_sections = '<div class="empty">아직 준비된 글로벌 언어 콘텐츠가 없어요</div>'
+
+    ko_captions = topic_data_root / "ko" / "platform_captions.json"
+    title = base_topic
+    if ko_captions.exists():
+        try:
+            title = json.loads(ko_captions.read_text(encoding="utf-8")).get("title", base_topic)
+        except json.JSONDecodeError:
+            pass
+
+    html = GLOBAL_PAGE_TEMPLATE.format(title=_esc(title), lang_sections=lang_sections)
+    out_dir = output_root / base_topic
+    out_dir.mkdir(parents=True, exist_ok=True)
+    (out_dir / "global.html").write_text(html, encoding="utf-8")
+
 
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
