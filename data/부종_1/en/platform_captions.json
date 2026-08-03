@@ -1,0 +1,51 @@
+{
+  "topic": "부종_1_en",
+  "title": "Rings tight by lunch, ankles thicker by evening? - Foods Behind Your Everyday Swelling",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: 3 Everyday Foods Behind Your Swelling (Sodium Alert)\n\nDescription:\nRings feeling tight by lunch and ankles looking thicker by evening, with nothing about your day to explain it?\n\nExtra sodium traps water around your cells, and deli meat, canned soup, and beer are three of the most common everyday culprits - a few slices of deli ham alone can carry over 1,000mg of sodium.\n\nWatch to find out why, and easy swaps that help.\n\n#swelling #waterretention #edema #sodium #healthtips #wellness"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Rings tight by lunch, ankles thicker by evening? 💧\n\nExtra sodium traps water around your cells - and deli meat, canned soup, and beer are three of the most common everyday culprits. A few slices of deli ham alone can carry over 1,000mg of sodium.\n\nHere's why, and simple swaps that actually help.\n\n🔗 Link in profile for more health tips!\n\n#swelling #waterretention #edema #sodium #healthtips #wellness"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "Rings tight, ankles puffy, and nothing about your day explains it?? 💧 These 3 everyday foods could be why.\n\n🔗 Link in bio for more!\n\n#swelling #waterretention #edema #sodium #healthtips #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Rings tight by lunch, ankles thicker by evening, and nothing about your day explains it?\n\nExtra sodium traps water around your cells - deli meat, canned soup, and beer are three of the most common everyday culprits. A few slices of deli ham alone can carry over 1,000mg of sodium.\n\nWatch the video to find out why, and what to swap in instead.\n\n#swelling #waterretention #edema #sodium #healthtips"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "Rings tight by lunch, ankles thicker by evening?\n\nExtra sodium traps water around your cells - deli meat, canned soup, and beer are 3 of the biggest everyday culprits, and each one adds up fast.\n\n#swelling #waterretention #edema #sodium"
+    }
+  ]
+}
