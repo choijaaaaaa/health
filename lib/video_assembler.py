@@ -2816,20 +2816,40 @@ def assemble(
                 check=True, capture_output=True,
             )
 
-        # 2) 이후 구간: 캐릭터 작게, 우측 하단. WHY -140(2026-08-02, "그 일러스트는
-        # 아래로 더 빼서 나무 틀에 걸치고"): 기존 -320은 캐릭터가 칠판 초록 판서면
-        # 안쪽에 붕 떠 보였다 — 칠판 나무 프레임/받침대 쪽으로 더 내려서 걸쳐
-        # 앉은 것처럼 보이게 오프셋을 줄였다.
+        # 2) 이후 구간: 캐릭터 작게, 우측 하단(기본). WHY -140(2026-08-02, "그
+        # 일러스트는 아래로 더 빼서 나무 틀에 걸치고"): 기존 -320은 캐릭터가
+        # 칠판 초록 판서면 안쪽에 붕 떠 보였다 — 칠판 나무 프레임/받침대 쪽으로
+        # 더 내려서 걸쳐 앉은 것처럼 보이게 오프셋을 줄였다.
+        #
+        # WHY 좌/우 코너 + 가끔 생략(2026-08-03, "캐릭터를 다른 위치로 옮기던지...
+        # 무조건 위치를 옮기게 해버리는거지" — 유튜브 대량생산 스팸 정책 리스크
+        # 완화, Gemini/Kling 재생성 비용 없이 코드만으로): 상단(우측)은 이미
+        # 아이템 라벨·광고 태그·낙서가 차지하고 있어서 캐릭터를 거기로 옮기면
+        # 겹친다 — 안전한 건 하단 좌/우뿐이라 그 둘만 topic별로 결정적으로
+        # 바꾼다. 대략 6개 topic 중 1개는 캐릭터 자체를 아예 안 띄워서(배경+
+        # 자막만) 매번 "캐릭터 박힌 코너 영상"이라는 시각적 패턴 자체를 깬다 —
+        # 브랜드 정체성이 흐려지지 않게 완전히 랜덤이 아니라 낮은 비율로만.
         main_dur = total_duration - intro_duration
         main_out = tmp_path / "main.mp4"
-        subprocess.run(
-            ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
-             "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(char_track),
-             "-filter_complex",
-             f"[1:v]scale=280:-1[char];[0:v][char]overlay=x=main_w-overlay_w-30:y=main_h-overlay_h-140[v]",
-             "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
-            check=True, capture_output=True,
-        )
+        char_seed_val = sum(ord(c) * (i * 5 + 2) for i, c in enumerate(title))
+        char_shown = char_seed_val % 6 != 0
+        char_on_left = (char_seed_val // 6) % 2 == 0
+        char_x = "30" if char_on_left else "main_w-overlay_w-30"
+        if char_shown:
+            subprocess.run(
+                ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
+                 "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(char_track),
+                 "-filter_complex",
+                 f"[1:v]scale=280:-1[char];[0:v][char]overlay=x={char_x}:y=main_h-overlay_h-140[v]",
+                 "-map", "[v]", "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
+                check=True, capture_output=True,
+            )
+        else:
+            subprocess.run(
+                ["ffmpeg", "-y", "-ss", f"{intro_duration}", "-t", f"{main_dur}", "-i", str(bg),
+                 "-c:v", "libx264", "-pix_fmt", "yuv420p", str(main_out)],
+                check=True, capture_output=True,
+            )
 
         # 0) 맨 앞 제목 카드 — 단색 배경 + 큼직한 글자, 플랫폼이 영상 첫 프레임을
         # 썸네일로 자동 지정하는 경우가 많아서 이 카드 자체가 썸네일 역할도 한다.
