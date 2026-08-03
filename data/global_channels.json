@@ -1,11 +1,11 @@
 {
   "한국어": {
     "code": "ko",
-    "gcp_project_id": "worthitshopping-ko",
+    "gcp_project_id": "concise-emblem-496201-f0",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
+    "oauth_consent_configured": true,
     "oauth_production": false,
-    "refresh_token_issued": false,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping"
   },
   "영어": {
