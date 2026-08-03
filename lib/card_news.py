@@ -193,7 +193,8 @@ def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
 
 
 def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_path: str | None = None,
-                          scrim_color: tuple[int, int, int] = ACCENT):
+                          scrim_color: tuple[int, int, int] = ACCENT,
+                          swipe_label: str = "넘겨서 확인하기  →"):
     """WHY 숏폼 영상 제목 카드와 완전히 동일한 스타일(2026-07-31, "카드뉴스 첫장도
     숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터 배지·주제 태그 다 빼고,
     단색 배경 + 문제 제기 훅 한 줄/두 줄만 크게 — 영상 쪽 `_make_title_card_png`와
@@ -242,7 +243,7 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
         draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255))
         y += line_h
 
-    _draw_centered(draw, ["넘겨서 확인하기  →"], H - 110, 0, 34, (255, 214, 224), "semibold")
+    _draw_centered(draw, [swipe_label], H - 110, 0, 34, (255, 214, 224), "semibold")
     img.save(out_path, quality=95)
 
 
@@ -349,7 +350,7 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
 
 
 def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP",
-                    photo_path=None, photo_seed=None):
+                    photo_path=None, photo_seed=None, char_label_overrides: dict[str, str] | None = None):
     """photo_path 주면 그 실사진을 블러 배경으로 쓰고(_photo_backdrop), 없으면
     기존 그라디언트 배경 그대로. 캐릭터 배지·제목·본문 위치는 항상 동일 —
     바뀌는 건 배경뿐이다."""
@@ -384,7 +385,12 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     # WHY 알약형 배지로 강화(2026-07-31 재지적: "명칭 언급이 필요할듯" — 기존 22px
     # 연회색 텍스트는 너무 눈에 안 띄어서 사실상 없는 것과 마찬가지였다): 액센트
     # 색 배경 + 굵은 글자로 배지 형태를 줘서 확실히 읽히게 한다.
-    char_label = Path(char_path).stem.replace("_illust", "")
+    # WHY char_label_overrides(2026-08-03, 글로벌 확장): 파일명 stem은 항상
+    # 한국어(예: "고추")라 비한국어 topic에서 그대로 쓰면 영어 카드에 한글
+    # 라벨이 박힌다 — spec에 char_display_names가 있으면 그 값으로 덮어쓰고,
+    # 없으면(기존 한국어 topic 전부) 기존처럼 파일명 그대로 쓴다.
+    char_key = Path(char_path).name
+    char_label = (char_label_overrides or {}).get(char_key, Path(char_path).stem.replace("_illust", ""))
     label_f2 = _font(28, "bold")
     lb = draw.textbbox((0, 0), char_label, font=label_f2)
     lw, lh = lb[2] - lb[0], lb[3] - lb[1]
@@ -417,10 +423,11 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     img.save(out_path, quality=95)
 
 
-def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
+def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
+                  top_chip_label: str = "마무리", char_label_overrides: dict[str, str] | None = None):
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     draw = ImageDraw.Draw(img)
-    _top_chip(img, draw, "마무리", GOLD)
+    _top_chip(img, draw, top_chip_label, GOLD)
 
     # 단일 캐릭터 주제면 char_paths에 같은 이미지가 여러 번 들어있을 수 있어
     # (아이템마다 char_file 지정 구조라) — 중복 제거하고, 첫 화면(표지)만큼
@@ -435,7 +442,8 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path):
         m = _char_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
         bx = start_x + j * (med_size + gap)
         img.paste(m, (bx, 190), m)
-        char_label = Path(path).stem.replace("_illust", "")
+        char_key = Path(path).name
+        char_label = (char_label_overrides or {}).get(char_key, Path(path).stem.replace("_illust", ""))
         lb = draw.textbbox((0, 0), char_label, font=label_f2)
         lw = lb[2] - lb[0]
         draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
@@ -513,19 +521,30 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     cover_scrim_hex = spec.get("cover_scrim_color")
     cover_scrim_color = tuple(int(cover_scrim_hex[i:i + 2], 16) for i in (1, 3, 5)) if cover_scrim_hex else ACCENT
 
+    # WHY swipe_label/char_display_names/closing_label(2026-08-03, 글로벌 확장):
+    # "넘겨서 확인하기", 캐릭터 파일명(예: "고추"), "마무리" 칩까지 전부 한국어
+    # 하드코딩이었다 — 비한국어 topic은 spec에 이 필드들을 넣어서 오버라이드하고,
+    # 없으면(기존 한국어 topic 전부) 기존 문구 그대로 나간다(하위호환).
+    swipe_label = spec.get("swipe_label", "넘겨서 확인하기  →")
+    char_display_names = spec.get("char_display_names", {})
+    closing_label = spec.get("closing_label", "마무리")
+
     hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
     make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path,
-                          scrim_color=cover_scrim_color)
+                          scrim_color=cover_scrim_color, swipe_label=swipe_label)
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
         real_photo = _find_real_photo(item["char_file"])
         make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n,
                        out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow,
-                       photo_path=real_photo, photo_seed=f"{topic_prefix}{item['char_file']}")
+                       photo_path=real_photo, photo_seed=f"{topic_prefix}{item['char_file']}",
+                       char_label_overrides=char_display_names)
 
     closing = spec["closing"]
-    make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"], out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg")
+    make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"],
+                 out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg",
+                 top_chip_label=closing_label, char_label_overrides=char_display_names)
     print(f"카드뉴스 {n+2}장 생성 완료: {out_dir}")
 
 
