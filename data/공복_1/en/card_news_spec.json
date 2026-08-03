@@ -1,0 +1,82 @@
+{
+  "title": [
+    "Still not losing fat",
+    "even though you're eating less?",
+    "4 Foods To Try On An Empty Stomach"
+  ],
+  "eyebrow": "Fat Loss Stalling",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Refined carbs and sugar",
+        "spike your blood sugar fast",
+        "",
+        "That triggers an insulin surge",
+        "that tells your body",
+        "to store fat, not burn it"
+      ]
+    },
+    {
+      "name": "Eggs",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "One of the most filling",
+        "breakfasts you can eat",
+        "",
+        "Study: people who ate eggs",
+        "instead of a bagel ate less",
+        "for the next 36 hours"
+      ]
+    },
+    {
+      "name": "Chia Seed Water",
+      "char_file": "치아씨드_illust.jpg",
+      "body": [
+        "Absorbs up to 12x its weight",
+        "in water, forms a gel in your stomach",
+        "",
+        "1 tbsp in water first thing",
+        "curbed hunger before lunch"
+      ]
+    },
+    {
+      "name": "Apple Cider Vinegar",
+      "char_file": "사과식초_illust.jpg",
+      "body": [
+        "Diluted in water,",
+        "a popular morning habit",
+        "",
+        "Meta-analysis of 10 trials:",
+        "linked to lower weight, BMI,",
+        "and waist size over 12 weeks"
+      ]
+    },
+    {
+      "name": "Green Tea",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Catechins + natural caffeine",
+        "may support fat burning",
+        "",
+        "12-week trial: exercisers who",
+        "also drank it lost more",
+        "abdominal fat than exercise alone"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["You don't need", "all four at once"],
+      ["Pick whichever one", "is easiest for you"]
+    ],
+    "tip": [
+      "Pay attention to how",
+      "your body actually responds"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

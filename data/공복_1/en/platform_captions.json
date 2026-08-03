@@ -1,0 +1,51 @@
+{
+  "topic": "공복_1_en",
+  "title": "Still not losing fat even though you're eating less? - 4 Foods To Try On An Empty Stomach",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Still not losing fat even though you're eating less? 4 foods to try on an empty stomach\n\nDescription:\nIt might not be about how little you eat — it's about what you put in your stomach first. Starting the day with refined carbs sends blood sugar way up, which triggers an insulin surge that tells your body to store fat instead of burning it.\n\nEggs, chia seed water, apple cider vinegar, and green tea — four things worth trying on an empty stomach, backed by real research. Watch to find out why each one helps.\n\n#fatloss #weightloss #emptystomach #healthtips #nutrition #metabolism"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Still not losing fat even though you're eating less? 🥚\n\nIt's probably not about how little you eat — it's what hits your stomach first. Refined carbs spike blood sugar, and that insulin surge tells your body to store fat instead of burning it.\n\nEggs, chia seed water, apple cider vinegar, and green tea — 4 things worth trying on an empty stomach.\n\n🔗 Link in profile for more health tips!\n\n#fatloss #weightloss #emptystomach #healthtips #nutrition #metabolism #wellness"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "Still not losing fat even though you're eating less?? 🥚 It's probably what you eat FIRST, not how much.\n\n🔗 Link in bio for more!\n\n#fatloss #weightloss #emptystomach #healthtips #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Still not losing fat even though you're eating less?\n\nIt's probably not about how little you eat — refined carbs spike blood sugar, and the insulin surge that follows tells your body to store fat instead of burning it. Eggs, chia seed water, apple cider vinegar, and green tea are four things worth trying on an empty stomach.\n\nWatch the video to find out why each one helps.\n\n#fatloss #weightloss #emptystomach #healthtips #nutrition"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "Still not losing fat even though you're eating less?\n\nProbably not about how little you eat — it's what hits your stomach first. Eggs, chia seed water, apple cider vinegar, and green tea are 4 things worth trying on an empty stomach.\n\n#fatloss #weightloss #emptystomach"
+    }
+  ]
+}
