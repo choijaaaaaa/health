@@ -395,16 +395,25 @@ def derive(topic: str) -> dict:
     # WHY 참고 — assemble() 쪽 파라미터는 이미 있었지만 이 함수가 안 넘겨서 실제
     # 재생성 결과물엔 한 번도 반영된 적이 없었다.
     lang = _detect_lang(topic)
-    # WHY 최단 이름을 고르는지: 같은 char_file(캐릭터 그림)을 "원인" 항목과 "대안"
-    # 항목이 같이 재사용하는 경우(예: "Coffee"/"Coffee — try this instead")가 흔해서,
-    # 그냥 마지막 값으로 덮어쓰면 우상단 라벨에 "Coffee — try this instead"처럼 긴
-    # 문장이 그대로 뜬다 — 화면 라벨은 짧은 식별용 이름이어야 하므로 후보 중 가장
-    # 짧은 걸 쓴다(대개 수식어 없는 원재료명 하나만 남은 케이스).
+    # WHY char_display_names 우선(2026-08-03 버그 수정, "가슴쓰림_1/en 표지에
+    # 'Spicy food — try this instead'가 그대로 뜬 걸 발견해서 수동으로 고침" —
+    # 그 수동 수정이 derive()엔 반영 안 돼서 이 함수로 재생성하면 되돌아갈 뻔함):
+    # 최단 이름 휴리스틱은 같은 char_file을 여러 항목이 공유할 때만 통한다 —
+    # 그 char_file을 쓰는 항목이 "대안" 하나뿐이면(예: 바질_illust.jpg가
+    # "Spicy food — try this instead"에만 쓰이는 경우) 비교할 더 짧은 후보 자체가
+    # 없어서 그 긴 문장이 그대로 남는다. card_news_spec.json에 이미 카드뉴스
+    # 배지용 짧은 이름(char_display_names, 예: "바질_illust.jpg": "Herbs")이
+    # 있으면 그걸 최우선으로 쓰고, 없는 캐릭터만 기존 최단-이름 휴리스틱으로
+    # 폴백한다 — 두 라벨이 같은 캐릭터에 서로 다른 문구로 나오는 것도 방지됨.
+    char_display_names = spec.get("char_display_names", {})
     item_label_overrides = None
     if lang != "kor":
         item_label_overrides = {}
         for it in items:
             key = _char_name(it["char_file"])
+            if it["char_file"] in char_display_names:
+                item_label_overrides[key] = char_display_names[it["char_file"]]
+                continue
             if key not in item_label_overrides or len(it["name"]) < len(item_label_overrides[key]):
                 item_label_overrides[key] = it["name"]
     # WHY base_name 기준으로 뽑는지(2026-08-03, 중첩 구조 대응): 중첩 topic
@@ -413,6 +422,14 @@ def derive(topic: str) -> dict:
     # "en_heartburn_1")에만 있으므로 거기서 뽑는다. 플랫 구조("en_heartburn_1")
     # 에서도 topic==base_name이라 기존 동작 그대로 유지됨.
     topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", base_name), lang) if lang != "kor" else None
+
+    # WHY closing.cta 우선(2026-08-03 버그 수정): DEFAULT_END_CARD_TEXT는 한국어
+    # 고정 문구라, 언어 감지가 됐어도 엔드카드만 한국어로 나오는 사고가 날 뻔했다
+    # (가슴쓰림_1/en 수동 조립 때는 English CTA를 직접 넘겨서 피했지만 derive()엔
+    # 반영 안 됨) — spec["closing"]["cta"]가 이미 그 언어로 작성된 동일한 문구이니
+    # 비한국어 topic은 이걸 그대로 쓰고, 없으면(옛 flat topic) 기존 기본값 유지.
+    end_card_text = spec.get("closing", {}).get("cta") if lang != "kor" else None
+    end_card_text = end_card_text or DEFAULT_END_CARD_TEXT
 
     distinct_chars = {it["char_file"] for it in items}
     kwargs = dict(
@@ -424,7 +441,7 @@ def derive(topic: str) -> dict:
         title_card_text=hook,
         title_card_char_path=str(ILLUST_DIR / cover_char_file),
         title_banner_photo_path=banner_photo,
-        end_card_text=DEFAULT_END_CARD_TEXT,
+        end_card_text=end_card_text,
         end_card_char_path=str(ILLUST_DIR / cover_char_file),
         lang=lang,
         item_label_overrides=item_label_overrides,
