@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Reaching for chips",
+    "at your desk again?",
+    "The Habit That Might Be Backing You Up"
+  ],
+  "eyebrow": "Gut Health Alert",
+  "topic_word": "Constipation",
+  "char_display_names": {
+    "감자칩_illust.jpg": "Chips",
+    "치즈_illust.jpg": "Cheese",
+    "키위_illust.jpg": "Kiwi"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "About 1 in 5 US adults",
+        "deals with chronic constipation",
+        "",
+        "Skipping breakfast, eating out often,",
+        "and low fiber & water intake",
+        "all slow your gut down"
+      ]
+    },
+    {
+      "name": "Chips & Processed Snacks",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Stripped of fiber,",
+        "loaded with sodium",
+        "",
+        "Less bulk moves through",
+        "your gut, and it dries out faster"
+      ]
+    },
+    {
+      "name": "Try this instead",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Swap chips for air-popped",
+        "popcorn or roasted chickpeas",
+        "",
+        "Both give you fiber",
+        "without the sodium overload"
+      ]
+    },
+    {
+      "name": "Cheese & Dairy",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Casein protein in dairy digests",
+        "slowly and can sit in your gut longer",
+        "",
+        "In one study, kids who cut dairy",
+        "completely went on to go more regularly"
+      ]
+    },
+    {
+      "name": "Try this instead",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "If dairy seems to be a trigger,",
+        "cut back for 2 weeks and see",
+        "",
+        "Pair any dairy you eat with",
+        "extra water and fiber"
+      ]
+    },
+    {
+      "name": "Kiwi",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "2-3 kiwis a day matched",
+        "fiber supplements in trials",
+        "",
+        "With less bloating and",
+        "straining than psyllium"
+      ]
+    },
+    {
+      "name": "How to eat it",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Eat the skin on for",
+        "extra fiber",
+        "",
+        "Stick with it for",
+        "4+ weeks for best results"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "you need to quit everything"
+      ],
+      [
+        "Small swaps make",
+        "a real difference"
+      ]
+    ],
+    "tip": [
+      "Add fiber to your snacks, ease up on dairy,",
+      "and try 2-3 kiwis a day"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
