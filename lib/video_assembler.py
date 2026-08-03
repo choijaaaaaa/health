@@ -1448,10 +1448,17 @@ _CHALKBOARD_GREEN_BOTTOM_ORIG = 866
 # 성만 밝히고 이름 자리는 "OO"로 채운다("김OO", "이OO" 등) — 실존 인물 지칭
 # 없이도 옛날 교실 게시물 감성은 그대로 유지된다.
 _SURNAMES = ["김", "이", "박", "최", "정", "강", "윤", "임", "조", "장", "한", "오"]
+# WHY 영어권은 성+OO 대신 흔한 이름 그 자체(2026-08-03, 글로벌 확장): 한국식
+# "성+OO" 익명화 관행이 영어권엔 없다 — 미국 교실 담당표(job chart)는 보통 이름만
+# 적어두므로("Helper: Alex"), 그 관례를 따라 흔한 영어 이름 풀에서 그대로 뽑는다.
+_FIRST_NAMES_EN = ["Alex", "Jordan", "Sam", "Riley", "Casey", "Morgan", "Taylor",
+                   "Jamie", "Avery", "Quinn", "Charlie", "Drew"]
 
 
-def _anon_name(rng: random.Random) -> str:
-    return f"{rng.choice(_SURNAMES)}OO"
+def _anon_name(rng: random.Random, lang: str = "kor") -> str:
+    if lang == "kor":
+        return f"{rng.choice(_SURNAMES)}OO"
+    return rng.choice(_FIRST_NAMES_EN)
 
 
 # WHY 명패 종류를 2종→6종→18종으로 늘리고 풀에서 랜덤 선택하게 했는지
@@ -1484,6 +1491,30 @@ _NAMEPLATE_POOL = [
     ("생일자 {}", 1, 30),
     ("이달의 칭찬왕 {}", 1, 24),
     ("우산 당번 {}", 1, 30),
+]
+
+# WHY 한국 교실 당번 문화를 그대로 번역하지 않는지(2026-08-03, 글로벌 확장):
+# "우유 당번"·"분리수거 당번" 같은 개념은 한국 교실 특유의 관행이라 그대로
+# 번역하면 어색하다 — 미국 교실에서 실제로 흔히 쓰는 job chart 항목(줄 서기
+# 리더, 칠판 지우개 담당, 화분 관리 등)으로 같은 톤(귀엽고 옛날 교실 감성)을
+# 유지하면서 새로 구성했다.
+_NAMEPLATE_POOL_EN = [
+    ("Whisper Alert: {}", 2, 22),
+    ("Late Today: {}", 2, 22),
+    ("Line Leader: {}", 1, 26),
+    ("Board Cleaner: {}", 1, 24),
+    ("Class President: {}", 1, 22),
+    ("Vice President: {}", 1, 22),
+    ("Plant Helper: {}", 1, 26),
+    ("Door Holder: {}", 1, 26),
+    ("Paper Passer: {}", 1, 24),
+    ("Recycling Helper: {}", 1, 20),
+    ("Today's Speaker: {}", 1, 22),
+    ("Reading Star: {}", 1, 24),
+    ("Star of the Week: {}", 1, 20),
+    ("Birthday: {}", 1, 28),
+    ("Window Helper: {}", 1, 24),
+    ("Lunch Helper: {}", 1, 24),
 ]
 
 
@@ -1617,7 +1648,8 @@ def _doodle_eraser() -> Image.Image:
 
 
 def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 4,
-                         skip_right: bool = False) -> Image.Image:
+                         skip_right: bool = False, lang: str = "kor",
+                         topic_word: str | None = None) -> Image.Image:
     """칠판을 옛날 교실 감성으로 장식한다(2026-08-02, "좀 많았으면 하는데...
     화려하게 갔으면 싶어" + "나무받침대랑 분필조각, 지우개까지 다 추가하고
     급훈 문구가... 도형도 이것저것 엄청 넣어보자" → "이빠이넣어 귀여운 것들
@@ -1743,16 +1775,22 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     # 급훈은 항상 나오는 고정 파츠였다 — 가끔 빠지는 topic도 있어야 매번 같은
     # 골격으로 안 보인다.
     if rng.random() < 0.7:
-        motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
+        motto_word = topic_word if topic_word is not None else _topic_word_from_seed(seed)
+        motto = _doodle_text_box(motto_word, font_size=48, double_border=True)
         canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
 
     # WHY 풀에서 0~2개를 뽑는지: 위 _NAMEPLATE_POOL 정의부 WHY 참고 — "떠든
     # 사람"+"주번" 고정 조합 대신 topic마다 다른 종류·개수의 명패가 뜨게 한다.
+    # WHY lang으로 풀을 통째로 바꾸는지(2026-08-03, 글로벌 확장): 한국 교실
+    # 당번 문화를 그대로 번역하면 어색해서, 언어별로 아예 다른 문화적으로
+    # 자연스러운 풀(_NAMEPLATE_POOL_EN 등)을 쓴다 — 위 _NAMEPLATE_POOL_EN
+    # 정의부 WHY 참고.
+    nameplate_pool = _NAMEPLATE_POOL if lang == "kor" else _NAMEPLATE_POOL_EN
     n_plates = rng.randint(0, 2)
-    chosen = rng.sample(_NAMEPLATE_POOL, min(n_plates, len(_NAMEPLATE_POOL)))
+    chosen = rng.sample(nameplate_pool, min(n_plates, len(nameplate_pool)))
     plates = []
     for fmt, name_count, font_size in chosen:
-        names = ", ".join(_anon_name(rng) for _ in range(name_count))
+        names = ", ".join(_anon_name(rng, lang) for _ in range(name_count))
         plates.append(_doodle_text_box(fmt.format(names), font_size=font_size))
     # WHY min(...)인지: 원래는 green_bottom_canvas(판서면 실측 하단) 기준으로만
     # 붙였는데, 유튜브 쇼츠 플레이어의 채널명·설명 캡션 띠가 화면 맨 아래
@@ -2036,7 +2074,7 @@ def _chalkboard_display_height() -> int:
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
                           photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
                           doodle_seed: str | None = None, doodle_skip_right: bool = False,
-                          board_photo_path: str | None = None):
+                          board_photo_path: str | None = None, lang: str = "kor"):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -2115,7 +2153,7 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
 
         if doodle_seed:
             canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad,
-                                          skip_right=doodle_skip_right).convert("RGB")
+                                          skip_right=doodle_skip_right, lang=lang).convert("RGB")
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -2245,6 +2283,14 @@ def assemble(
     # 그 항목에 대한 real 이미지를 흐린 색으로"): 상단 배너의 단색 배경을 topic
     # 대표 실사진 블러로 바꾼다. 안 주면 기존 단색 배경 그대로 폴백.
     title_banner_photo_path: str | None = None,
+    # WHY lang(2026-08-03, 글로벌 확장): 칠판 낙서의 급훈/명패 문구 풀을 언어별로
+    # 바꾸기 위함(_place_chalk_doodle 참고) — 기본값 "kor"면 기존 동작 그대로.
+    lang: str = "kor",
+    # WHY item_label_overrides(2026-08-03, 글로벌 확장): 우상단 아이템 라벨이
+    # motion 파일명 stem(예: "고추")을 그대로 쓰는데 이건 항상 한국어라 영어
+    # topic에도 한글이 그대로 노출된다 — {파일명_stem: 표시할 라벨} 매핑을
+    # 주면 오버라이드, 없으면(기존 한국어 topic 전부) 기존처럼 파일명 그대로.
+    item_label_overrides: dict[str, str] | None = None,
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
@@ -2294,7 +2340,7 @@ def assemble(
                 item_schedule.append({
                     "start": seg_start,
                     "end": seg_end,
-                    "name": base,
+                    "name": (item_label_overrides or {}).get(base, base),
                     "illust": str(illust_p) if illust_p.exists() else None,
                 })
 
@@ -2329,7 +2375,7 @@ def assemble(
             board_seed = Path(out_path).stem
             _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
                                   doodle_seed=board_seed, doodle_skip_right=bool(item_schedule),
-                                  board_photo_path=pick_chalkboard_variant(board_seed))
+                                  board_photo_path=pick_chalkboard_variant(board_seed), lang=lang)
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
