@@ -1,0 +1,108 @@
+{
+  "title": [
+    "That same sting on the same spot,",
+    "every time you eat?",
+    "3 Foods That Make Canker Sores Worse"
+  ],
+  "eyebrow": "Canker Sore Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "레몬_illust.jpg": "Citrus",
+    "다크초콜릿_illust.jpg": "Chocolate",
+    "커피_illust.jpg": "Coffee"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Zinc, B-vitamins, and iron",
+        "keep your mouth's lining strong",
+        "",
+        "Zinc deficiency shows up in 28%",
+        "of people with recurring sores"
+      ]
+    },
+    {
+      "name": "Citrus Fruits",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Highly acidic, and stings",
+        "right on an open sore"
+      ]
+    },
+    {
+      "name": "Citrus Fruits — try this instead",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Try a milder fruit",
+        "like banana while it heals",
+        "",
+        "Gentle on the sore,",
+        "still full of vitamins"
+      ]
+    },
+    {
+      "name": "Chocolate",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Can trigger an",
+        "allergic-type reaction",
+        "",
+        "in some sensitive mouths"
+      ]
+    },
+    {
+      "name": "Chocolate — try this instead",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Want something sweet?",
+        "Reach for honey instead",
+        "",
+        "Studies show it can even",
+        "help the sore heal faster"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Acidic, and irritates",
+        "the same sore tissue",
+        "",
+        "Heavy intake is linked",
+        "to more frequent flare-ups"
+      ]
+    },
+    {
+      "name": "Coffee — try this instead",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Swap your morning cup",
+        "for herbal tea instead",
+        "",
+        "Gentler on the sore,",
+        "same cozy routine"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Most canker sores heal",
+        "on their own in a week or two"
+      ],
+      [
+        "If one sticks around longer,",
+        "get it checked out"
+      ]
+    ],
+    "tip": [
+      "Small swaps like these",
+      "can ease the sting while you heal"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Ulcers"
+}
