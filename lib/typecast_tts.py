@@ -20,7 +20,17 @@ ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
 API_URL = "https://api.typecast.ai/v1/text-to-speech/with-timestamps"
-SENTENCE_END = re.compile(r"[.!?]$")
+# WHY 전각 문장부호 포함(2026-08-03 버그 수정, "가슴쓰림_1/ja 나레이션 만들었더니
+# SRT가 문장 하나로 통째로 묶임" 실제 발견): ASCII ".!?"만 보는 원래 정규식은
+# 한국어는 마침표/느낌표/물음표를 전부 반각으로 쓰기 때문에 지금까지 문제가
+# 없었지만, 일본어(・중국어)는 전각 문장부호(。！？)를 쓰고 힌디어·벵골어는
+# 단다(।)를 문장 종결부호로 쓴다 — 이 문자들이 하나도 안 걸려서 나레이션
+# 전체가 문장 하나로 취급됐고, 그 결과 _insert_sentence_pauses가 문장 사이
+# 무음을 하나도 못 넣고 SRT도 전체 구간을 자막 한 줄로 통째로 찍었다(캡션이
+# 문장 단위로 안 끊기고, motion_schedule 등 SRT 문장 경계에 의존하는 다른
+# 기능도 같이 깨짐). 아랍어 물음표(؟)도 함께 추가 — 아직 실사용 검증은
+# 안 했지만 같은 유형의 문제가 확실히 재발할 위치라 미리 반영.
+SENTENCE_END = re.compile(r"[.!?。！？।؟]$")
 AUDIO_TEMPO = 1.15  # 건강정보 콘텐츠는 차분한 톤이 맞아서 쇼핑숏츠(1.2)보다 살짝 느리게
 SENTENCE_GAP_MS = 320  # 정보 전달용이라 숏폼 광고보다 살짝 여유있게
 

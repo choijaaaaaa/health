@@ -96,6 +96,46 @@ def _title_font_for_lang(lang: str) -> tuple[str, int]:
     return _TITLE_FONT_BY_LANG.get(lang, _TITLE_FONT_LATIN_CYRILLIC)
 
 
+# WHY 언어별 줄바꿈 단위(2026-08-03 버그 수정, "가슴쓰림_1/ja 제목 카드 글자가
+# 화면 양옆으로 잘려나감" 실제 발견): 이 파일의 모든 줄바꿈 로직(_make_title_png/
+# _make_title_card_png/_make_caption_png/_make_chalk_caption_png)이 전부
+# `text.split()`으로 "단어" 단위를 나눈 뒤 폭이 넘치면 다음 줄로 넘겼다 — 한국어·
+# 영어처럼 공백으로 단어가 구분되는 언어는 문제없지만, 일본어·중국어(간체·번체)·
+# 태국어는 애초에 띄어쓰기를 안 쓰는 언어(scriptio continua)라 문장 전체가 공백
+# 하나 없는 "단어 하나"로 인식돼서 줄바꿈 자체가 아예 안 되고 캔버스 폭을 넘겨
+# 그대로 잘려나갔다. 이 언어들만 글자 단위로 폭을 재서 넘치기 직전에 줄을 끊는다.
+_NO_SPACE_WRAP_LANGS = {"ja", "zh-TW", "th"}
+
+
+def _wrap_text_for_lang(draw, text: str, font, max_width: int, lang: str) -> list[str]:
+    if lang in _NO_SPACE_WRAP_LANGS:
+        lines, cur = [], ""
+        for ch in text:
+            test = cur + ch
+            bbox = draw.textbbox((0, 0), test, font=font)
+            if bbox[2] - bbox[0] > max_width and cur:
+                lines.append(cur)
+                cur = ch
+            else:
+                cur = test
+        if cur:
+            lines.append(cur)
+        return lines
+
+    words, lines, cur = text.split(), [], ""
+    for w in words:
+        test = (cur + " " + w).strip()
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_width and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+    return lines
+
+
 def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     text = Path(srt_path).read_text()
     time_re = re.compile(r"(\d\d):(\d\d):(\d\d),(\d\d\d) --> (\d\d):(\d\d):(\d\d),(\d\d\d)")
@@ -213,17 +253,7 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     max_text_w = W - 140
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        bbox = d.textbbox((0, 0), test, font=font)
-        if bbox[2] - bbox[0] > max_text_w and cur:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = test
-    if cur:
-        lines.append(cur)
+    lines = _wrap_text_for_lang(d, text, font, max_text_w, lang)
 
     line_h = font_size + 16
     # WHY 위쪽 여백만 한 줄 높이(2026-08-02, "맨 위에있는 글자 한 줄만큼은 여백이
@@ -286,17 +316,7 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     font = ImageFont.truetype(_fpath, font_size, index=_findex)
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        bbox = draw.textbbox((0, 0), test, font=font)
-        if bbox[2] - bbox[0] > max_text_w and cur:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = test
-    if cur:
-        lines.append(cur)
+    lines = _wrap_text_for_lang(draw, text, font, max_text_w, lang)
 
     line_h = font_size + 26
     total_h = line_h * len(lines)
@@ -314,17 +334,7 @@ def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940, la
     font = ImageFont.truetype(_fpath, font_size, index=_findex)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        bbox = d.textbbox((0, 0), test, font=font)
-        if bbox[2] - bbox[0] > max_width and cur:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = test
-    if cur:
-        lines.append(cur)
+    lines = _wrap_text_for_lang(d, text, font, max_width, lang)
 
     line_heights, max_w = [], 0
     for line in lines:
@@ -360,17 +370,7 @@ def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=9
     font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
-    words, lines, cur = text.split(), [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        bbox = d.textbbox((0, 0), test, font=font)
-        if bbox[2] - bbox[0] > max_width and cur:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = test
-    if cur:
-        lines.append(cur)
+    lines = _wrap_text_for_lang(d, text, font, max_width, lang)
 
     line_heights, max_w = [], 0
     for line in lines:

@@ -1,0 +1,107 @@
+{
+  "title": [
+    "A few everyday foods could be",
+    "behind that numb, cold, swollen feeling",
+    "3 Foods Hurting Your Circulation"
+  ],
+  "eyebrow": "Circulation Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "가공육_illust.jpg": "Deli Meat",
+    "가라아게_illust.jpg": "Fried Food",
+    "탄산음료_illust.jpg": "Soda"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "High sodium makes your body",
+        "hold onto extra fluid",
+        "",
+        "Saturated and trans fat",
+        "build up along vessel walls",
+        "and slow blood flow"
+      ]
+    },
+    {
+      "name": "Deli Meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "2 oz of deli turkey has",
+        "about 570mg of sodium",
+        "",
+        "That's over a third of the",
+        "AHA's 1,500mg daily goal"
+      ]
+    },
+    {
+      "name": "Deli Meat — try this instead",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Ask for freshly roasted",
+        "chicken breast at the counter",
+        "",
+        "Buying packaged? Check for",
+        "\"low-sodium\" or \"no-salt-added\""
+      ]
+    },
+    {
+      "name": "Fried Food",
+      "char_file": "가라아게_illust.jpg",
+      "body": [
+        "A study of over a million people",
+        "linked fried food to more heart",
+        "disease, stroke, and heart failure",
+        "",
+        "Trans fat raises LDL and",
+        "damages artery walls"
+      ]
+    },
+    {
+      "name": "Fried Food — try this instead",
+      "char_file": "가라아게_illust.jpg",
+      "body": [
+        "Air-fry or bake at home",
+        "instead of deep frying",
+        "",
+        "Eating out? Go grilled",
+        "or roasted instead"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "1 sugary drink a day is linked",
+        "to ~20% higher heart disease risk",
+        "",
+        "Over 12oz a day nearly doubles",
+        "the odds of low \"good\" cholesterol"
+      ]
+    },
+    {
+      "name": "Soda — try this instead",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Swap for sparkling water with",
+        "real fruit juice, or unsweetened tea",
+        "",
+        "AHA caps added sugar at",
+        "~25g (women) / 36g (men) a day"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["None of these need to", "disappear completely"],
+      ["Just swap what you can,", "when you can"]
+    ],
+    "tip": [
+      "Your circulation will thank you",
+      "one small change at a time"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
