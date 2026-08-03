@@ -466,7 +466,7 @@
 <section class="platform-section">
   <h2>텍스트 게시 플랫폼</h2>
   <div class="grid">
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
+<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-text">텍스트</span>
@@ -885,7 +885,7 @@ function _buildLinkBlock(hasNaverButton) {
     const products = [];
     document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => products.push(inp.dataset.product));
     if (products.length === 0) return "";
-    return "🔵 상품: " + products.join(", ") + "\n\n" + NAVER_DISCLOSURE;
+    return _withDisclosure("🔵 상품: " + products.join(", "), NAVER_DISCLOSURE);
   }
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {
@@ -893,7 +893,17 @@ function _buildLinkBlock(hasNaverButton) {
     if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   });
   if (lines.length === 0) return "";
-  return lines.join("\n") + "\n\n" + COUPANG_DISCLOSURE;
+  return _withDisclosure(lines.join("\n"), COUPANG_DISCLOSURE);
+}
+
+// WHY 고지문구를 위·아래 둘 다 붙이는지(2026-08-03, "링크랑 수수료 받는다는 문구
+// 상단으로 올렸는데... 상단뿐만아니라 하단에도 같이넣어줘 여러번 말했었는데 아직
+// 대응이안된듯"): 표시광고 고지는 사람이 스크롤 안 해도 바로 보이게 글 맨 위에
+// 있어야 한다는 요구가 있었는데, 실제로는 이 함수들이 매번 고지문구를 맨 아래에만
+// 붙이고 있었다(요청은 있었지만 코드에 반영이 안 된 채로 남아있던 gap) — 위·아래
+// 둘 다 넣어서 어느 쪽에서 봐도 고지가 바로 보이게 한다.
+function _withDisclosure(text, disclosure) {
+  return disclosure + "\n\n" + text + "\n\n" + disclosure;
 }
 
 // WHY 원본 URL 대신 CTA 문장(2026-07-30/31): 인스타·틱톡은 캡션 속 URL이 클릭이
@@ -930,16 +940,16 @@ function _buildCtaBlock(hasCommentDm, linkInComment) {
   // "댓글에 남겨둘게요"로 안내한다 — 실제 링크는 게시자가 게시 직후 댓글로 직접
   // 추가하는 수동 흐름(이 파이프라인은 원래 전부 수동 게시라 흐름이 자연스럽게 이어짐).
   if (linkInComment) {
-    return "🔗 구매 링크는 댓글에 남겨둘게요!\n\n" + COUPANG_DISCLOSURE;
+    return _withDisclosure("🔗 구매 링크는 댓글에 남겨둘게요!", COUPANG_DISCLOSURE);
   }
   if (!hasCommentDm) {
-    return "🔗 상품 링크는 프로필에서 확인해주세요!\n\n" + COUPANG_DISCLOSURE;
+    return _withDisclosure("🔗 상품 링크는 프로필에서 확인해주세요!", COUPANG_DISCLOSURE);
   }
   // WHY "이라고"(받침 있는 조사) 고정(2026-08-01 오타 수정): COMMENT_KEYWORD가
   // 항상 "쿠팡"(받침 ㅇ으로 끝남)으로 고정된 이후로 "라고"를 쓰면 "쿠팡라고"처럼
   // 문법이 틀린다 — 키워드가 이 정책 밖에서 바뀔 일이 없으므로 조사를 하드코딩한다.
   const cta = `💬 댓글에 "${COMMENT_KEYWORD}"이라고 치시면 제품 목록으로 이동할 수 있는 링크 바로 전송해드릴게요!`;
-  return cta + "\n\n" + COUPANG_DISCLOSURE;
+  return _withDisclosure(cta, COUPANG_DISCLOSURE);
 }
 
 function applyProductLinks() {
