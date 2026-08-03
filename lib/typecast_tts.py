@@ -25,19 +25,36 @@ AUDIO_TEMPO = 1.15  # 건강정보 콘텐츠는 차분한 톤이 맞아서 쇼�
 SENTENCE_GAP_MS = 320  # 정보 전달용이라 숏폼 광고보다 살짝 여유있게
 
 
-def _voice_id(name: str) -> str:
-    voices = json.loads((ROOT / "data" / "typecast_voices.json").read_text())
+# WHY lang 파라미터(2026-08-03, 글로벌 확장 — data/typecast_voices_global.json
+# 참고): 기존엔 한국어 보이스(data/typecast_voices.json) 하나만 있었지만, 언어별
+# 보이스 풀이 생기면서 어느 풀에서 찾을지 알아야 한다. lang="kor"(기본값)이면
+# 기존 파일·기존 동작 그대로 — 기존 30여 개 topic 호출부는 전혀 안 바뀜.
+def _voice_pool(lang: str) -> tuple[list[dict], str]:
+    """(voices, api_language) 반환. lang="kor"면 기존 한국어 전용 파일, 아니면
+    typecast_voices_global.json에서 해당 언어(예: "영어") 키를 찾는다."""
+    if lang == "kor":
+        voices = json.loads((ROOT / "data" / "typecast_voices.json").read_text())
+        return voices, "kor"
+    global_data = json.loads((ROOT / "data" / "typecast_voices_global.json").read_text(encoding="utf-8"))
+    if lang not in global_data:
+        raise ValueError(f"typecast_voices_global.json에 등록되지 않은 언어: {lang}")
+    entry = global_data[lang]
+    return entry["voices"], entry["api_language"]
+
+
+def _voice_id(name: str, lang: str = "kor") -> str:
+    voices, _ = _voice_pool(lang)
     for v in voices:
         if v["name"] == name:
             return v["actor_id"]
-    raise ValueError(f"등록되지 않은 보이스 이름: {name}")
+    raise ValueError(f"등록되지 않은 보이스 이름({lang}): {name}")
 
 
-def _random_voice_name() -> str:
+def _random_voice_name(lang: str = "kor") -> str:
     """WHY 랜덤 보이스(2026-07-31): 매번 "상현"으로 고정하면 채널 전체가 목소리
     단조로워진다는 피드백 — topic마다 등록된 보이스 중 하나를 난수로 골라
     다양성을 준다."""
-    voices = json.loads((ROOT / "data" / "typecast_voices.json").read_text())
+    voices, _ = _voice_pool(lang)
     return random.choice(voices)["name"]
 
 
@@ -139,13 +156,14 @@ def _insert_sentence_pauses(audio_bytes: bytes, audio_format: str, words: list[d
         return out_path.read_bytes(), new_words
 
 
-def _call_tts(text: str, voice_name: str, audio_format: str) -> tuple[bytes, list[dict], str]:
+def _call_tts(text: str, voice_name: str, audio_format: str, lang: str = "kor") -> tuple[bytes, list[dict], str]:
     api_key = os.environ["TYPECAST_API_KEY"]
+    _, api_language = _voice_pool(lang)
     body = {
-        "voice_id": _voice_id(voice_name),
+        "voice_id": _voice_id(voice_name, lang),
         "text": text,
         "model": "ssfm-v30",
-        "language": "kor",
+        "language": api_language,
         "granularity": "word",
         "output": {"audio_format": audio_format, "audio_tempo": AUDIO_TEMPO},
     }
@@ -163,12 +181,13 @@ def _call_tts(text: str, voice_name: str, audio_format: str) -> tuple[bytes, lis
     return audio_bytes, words, ext
 
 
-def synthesize(topic: str, text: str, voice_name: str | None = None, audio_format: str = "mp3") -> dict:
+def synthesize(topic: str, text: str, voice_name: str | None = None, audio_format: str = "mp3",
+                lang: str = "kor") -> dict:
     if voice_name is None:
-        voice_name = _random_voice_name()
-        print(f"[typecast] 보이스 랜덤 선택: {voice_name}")
+        voice_name = _random_voice_name(lang)
+        print(f"[typecast] 보이스 랜덤 선택({lang}): {voice_name}")
 
-    audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
+    audio_bytes, words, ext = _call_tts(text, voice_name, audio_format, lang)
     audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
 
     out_dir = ROOT / "output" / topic
