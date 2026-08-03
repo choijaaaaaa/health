@@ -834,13 +834,586 @@ def _doodle_target() -> Image.Image:
     return _stroke_shape(draw)
 
 
-# WHY 도형 종류를 15개→35개로 늘렸는지(2026-08-03, "파츠 더 늘렸어? 지금
-# 갯수의 2-3배는 늘리고싶네"): topic마다 seed로 랜덤 추출하는 구조라
-# (_place_chalk_doodle) 종류 풀이 클수록 여러 topic 영상을 연달아 볼 때 매번
-# 다른 조합으로 보여서 "같은 배경 우려먹기" 느낌이 준다 — 새 도형은 전부
-# 회전/축소된 실제 렌더로 먼저 확인 후 추가함(리본 도형이 작게 축소되면
-# 뭉개지던 전례 때문에 신규 도형은 항상 이 확인을 거친다). 이번 신규분(sun~
-# target 20종)도 같은 방식으로 50~85px 회전 렌더 확인 후 추가.
+# WHY 도형 풀을 35개→69개로 늘렸는지(2026-08-03, 글로벌 확장 대비 "파츠같은거
+# 엄청 만들고 싶다" — 서브에이전트 3개 병렬로 테마별 설계): 언어권 채널이
+# 늘어날수록 "같은 배경 우려먹기" 느낌이 더 잘 드러나서 풀을 한 번 더 크게
+# 늘렸다. 세 테마로 나눠 병렬 설계함 — 귀여운 미니 캐릭터(눈코입 있는 구름·
+# 별·해 등), 문화색 없는 보편 심볼(지구본·나침반·톱니바퀴 등, 특정 문화·
+# 종교·국가 상징 배제), 추상 장식 도형(지그재그·소용돌이·체크마크 등). 기존
+# 규칙대로 전부 40px+70px 회전 렌더로 실제 축소 크기에서 읽히는지 확인 후
+# 추가함(1개는 40px에서 얼룩져 보여서 탈락 — 발자국 도형).
+def _quad_bezier(p0, p1, p2, n=14):
+    pts = []
+    for i in range(n + 1):
+        t = i / n
+        x = (1 - t) ** 2 * p0[0] + 2 * (1 - t) * t * p1[0] + t ** 2 * p2[0]
+        y = (1 - t) ** 2 * p0[1] + 2 * (1 - t) * t * p1[1] + t ** 2 * p2[1]
+        pts.append((x, y))
+    return pts
+
+
+def _off_pts(pts, off):
+    return [(x + off[0], y + off[1]) for x, y in pts]
+
+
+# --- 귀여운 미니 캐릭터(눈·입 있는 버전) ---
+
+def _doodle_cute_cloud_face():
+    cx, cy = 65, 68
+
+    def draw(d, off, color):
+        ox, oy = off
+        bumps = [(-34, 6, 20), (-14, -14, 24), (12, -16, 24), (32, 2, 20)]
+        for bx, by, r in bumps:
+            bbox = [cx + bx - r + ox, cy + by - r + oy, cx + bx + r + ox, cy + by + r + oy]
+            d.arc(bbox, start=180, end=360, fill=color, width=5)
+        d.line([(cx - 40 + ox, cy + 10 + oy), (cx - 34 + ox, cy + 26 + oy),
+                (cx + 34 + ox, cy + 26 + oy), (cx + 40 + ox, cy + 10 + oy)],
+               fill=color, width=5, joint="curve")
+        eye_r = 3
+        d.ellipse([cx - 14 + ox - eye_r, cy + 6 + oy - eye_r, cx - 14 + ox + eye_r, cy + 6 + oy + eye_r], fill=color)
+        d.ellipse([cx + 6 + ox - eye_r, cy + 6 + oy - eye_r, cx + 6 + ox + eye_r, cy + 6 + oy + eye_r], fill=color)
+        d.arc([cx - 10 + ox, cy + 6 + oy, cx + 2 + ox, cy + 16 + oy], start=20, end=160, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_star_face():
+    cx, cy, r_outer, r_inner = 65, 65, 42, 18
+    pts = []
+    for i in range(10):
+        ang = math.pi / 2 + i * math.pi / 5
+        r = r_outer if i % 2 == 0 else r_inner
+        pts.append((cx + r * math.cos(ang), cy - r * math.sin(ang)))
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p + [p[0]], fill=color, width=5, joint="curve")
+        ox, oy = off
+        eye_r = 3
+        d.ellipse([cx - 10 + ox - eye_r, cy - 2 + oy - eye_r, cx - 10 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.ellipse([cx + 10 + ox - eye_r, cy - 2 + oy - eye_r, cx + 10 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.arc([cx - 8 + ox, cy + 2 + oy, cx + 8 + ox, cy + 14 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_sun_face():
+    cx, cy, r = 65, 65, 26
+    ray_len = 14
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        for i in range(8):
+            ang = i * math.pi / 4
+            x1 = cx + (r + 4) * math.cos(ang)
+            y1 = cy + (r + 4) * math.sin(ang)
+            x2 = cx + (r + 4 + ray_len) * math.cos(ang)
+            y2 = cy + (r + 4 + ray_len) * math.sin(ang)
+            d.line([(x1 + ox, y1 + oy), (x2 + ox, y2 + oy)], fill=color, width=5)
+        eye_r = 3
+        d.ellipse([cx - 9 + ox - eye_r, cy - 4 + oy - eye_r, cx - 9 + ox + eye_r, cy - 4 + oy + eye_r], fill=color)
+        d.ellipse([cx + 9 + ox - eye_r, cy - 4 + oy - eye_r, cx + 9 + ox + eye_r, cy - 4 + oy + eye_r], fill=color)
+        d.arc([cx - 8 + ox, cy + oy, cx + 8 + ox, cy + 10 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_teardrop_face():
+    cx, cy = 65, 68
+
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [
+            (cx, cy - 40), (cx + 22, cy + 10), (cx + 22, cy + 28), (cx + 8, cy + 40),
+            (cx - 8, cy + 40), (cx - 22, cy + 28), (cx - 22, cy + 10), (cx, cy - 40),
+        ]
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=5, joint="curve")
+        eye_r = 3
+        d.ellipse([cx - 9 + ox - eye_r, cy + 14 + oy - eye_r, cx - 9 + ox + eye_r, cy + 14 + oy + eye_r], fill=color)
+        d.ellipse([cx + 9 + ox - eye_r, cy + 14 + oy - eye_r, cx + 9 + ox + eye_r, cy + 14 + oy + eye_r], fill=color)
+        d.arc([cx - 8 + ox, cy + 18 + oy, cx + 8 + ox, cy + 28 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_mug_face():
+    cx, cy = 60, 65
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([cx - 24 + ox, cy - 24 + oy, cx + 18 + ox, cy + 30 + oy], radius=6, outline=color, width=5)
+        d.arc([cx + 8 + ox, cy - 8 + oy, cx + 38 + ox, cy + 22 + oy], start=280, end=90, fill=color, width=5)
+        eye_r = 3
+        d.ellipse([cx - 13 + ox - eye_r, cy - 2 + oy - eye_r, cx - 13 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.ellipse([cx + 1 + ox - eye_r, cy - 2 + oy - eye_r, cx + 1 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.arc([cx - 12 + ox, cy + 2 + oy, cx + 2 + ox, cy + 12 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_moon_face():
+    cx, cy, r = 65, 65, 30
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], start=60, end=310, fill=color, width=5)
+        d.arc([cx - r + 18 + ox, cy - r + 6 + oy, cx + r + 10 + ox, cy + r - 6 + oy], start=100, end=280, fill=color, width=5)
+        eye_r = 3
+        d.ellipse([cx - 14 + ox - eye_r, cy - 2 + oy - eye_r, cx - 14 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.arc([cx - 18 + ox, cy + 2 + oy, cx - 6 + ox, cy + 12 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_flower_face():
+    cx, cy, pr = 65, 65, 15
+    petal_r = 13
+
+    def draw(d, off, color):
+        ox, oy = off
+        for i in range(5):
+            ang = i * (2 * math.pi / 5) - math.pi / 2
+            px = cx + (pr + petal_r * 0.7) * math.cos(ang)
+            py = cy + (pr + petal_r * 0.7) * math.sin(ang)
+            d.ellipse([px - petal_r + ox, py - petal_r + oy, px + petal_r + ox, py + petal_r + oy], outline=color, width=5)
+        eye_r = 3
+        d.ellipse([cx - 6 + ox - eye_r, cy - 2 + oy - eye_r, cx - 6 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.ellipse([cx + 6 + ox - eye_r, cy - 2 + oy - eye_r, cx + 6 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.arc([cx - 6 + ox, cy + oy, cx + 6 + ox, cy + 8 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_droplet_wink():
+    cx, cy = 65, 68
+
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [
+            (cx, cy - 38), (cx + 20, cy + 8), (cx + 20, cy + 26), (cx + 6, cy + 38),
+            (cx - 6, cy + 38), (cx - 20, cy + 26), (cx - 20, cy + 8), (cx, cy - 38),
+        ]
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=5, joint="curve")
+        eye_r = 3
+        d.ellipse([cx - 9 + ox - eye_r, cy + 12 + oy - eye_r, cx - 9 + ox + eye_r, cy + 12 + oy + eye_r], fill=color)
+        d.arc([cx + 5 + ox, cy + 10 + oy, cx + 13 + ox, cy + 16 + oy], start=180, end=360, fill=color, width=3)
+        d.arc([cx - 7 + ox, cy + 18 + oy, cx + 7 + ox, cy + 26 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_apple_face():
+    cx, cy, r = 63, 70, 26
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        d.line([(cx + ox, cy - r + oy), (cx + 4 + ox, cy - r - 12 + oy)], fill=color, width=4)
+        d.arc([cx + 2 + ox, cy - r - 14 + oy, cx + 22 + ox, cy - r + 2 + oy], start=200, end=20, fill=color, width=4)
+        eye_r = 3
+        d.ellipse([cx - 10 + ox - eye_r, cy - 4 + oy - eye_r, cx - 10 + ox + eye_r, cy - 4 + oy + eye_r], fill=color)
+        d.ellipse([cx + 10 + ox - eye_r, cy - 4 + oy - eye_r, cx + 10 + ox + eye_r, cy - 4 + oy + eye_r], fill=color)
+        d.arc([cx - 9 + ox, cy + oy, cx + 9 + ox, cy + 12 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_egg_face():
+    cx, cy = 65, 68
+
+    def draw(d, off, color):
+        ox, oy = off
+        bbox_top = [cx - 24 + ox, cy - 38 + oy, cx + 24 + ox, cy + 10 + oy]
+        bbox_bot = [cx - 30 + ox, cy - 8 + oy, cx + 30 + ox, cy + 38 + oy]
+        d.arc(bbox_top, start=180, end=360, fill=color, width=5)
+        d.arc(bbox_bot, start=0, end=180, fill=color, width=5)
+        d.line([(cx - 24 + ox, cy - 14 + oy), (cx - 30 + ox, cy + 16 + oy)], fill=color, width=5)
+        d.line([(cx + 24 + ox, cy - 14 + oy), (cx + 30 + ox, cy + 16 + oy)], fill=color, width=5)
+        eye_r = 3
+        d.ellipse([cx - 9 + ox - eye_r, cy + oy - eye_r, cx - 9 + ox + eye_r, cy + oy + eye_r], fill=color)
+        d.ellipse([cx + 9 + ox - eye_r, cy + oy - eye_r, cx + 9 + ox + eye_r, cy + oy + eye_r], fill=color)
+        d.arc([cx - 8 + ox, cy + 4 + oy, cx + 8 + ox, cy + 14 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cute_leaf_face():
+    cx, cy = 65, 65
+
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [
+            (cx - 2, cy - 38), (cx + 22, cy - 14), (cx + 26, cy + 14), (cx + 8, cy + 34),
+            (cx - 8, cy + 34), (cx - 26, cy + 14), (cx - 22, cy - 14), (cx - 2, cy - 38),
+        ]
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=5, joint="curve")
+        d.line([(cx - 2 + ox, cy - 30 + oy), (cx + ox, cy + 28 + oy)], fill=color, width=4)
+        eye_r = 3
+        d.ellipse([cx - 11 + ox - eye_r, cy - 2 + oy - eye_r, cx - 11 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.ellipse([cx + 7 + ox - eye_r, cy - 2 + oy - eye_r, cx + 7 + ox + eye_r, cy - 2 + oy + eye_r], fill=color)
+        d.arc([cx - 9 + ox, cy + 2 + oy, cx + 7 + ox, cy + 14 + oy], start=10, end=170, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+# --- 문화색 없는 보편 심볼 ---
+
+def _doodle_globe():
+    cx, cy, r = 65, 65, 42
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        d.ellipse([cx - r * 0.42 + ox, cy - r + oy, cx + r * 0.42 + ox, cy + r + oy], outline=color, width=4)
+        d.line([cx - r + ox, cy + oy, cx + r + ox, cy + oy], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_compass():
+    cx, cy, r = 65, 65, 40
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        pts = [(cx, cy - r * 0.78), (cx + r * 0.24, cy), (cx, cy + r * 0.78), (cx - r * 0.24, cy)]
+        p = [(x + ox, y + oy) for x, y in pts]
+        d.line(p + [p[0]], fill=color, width=5, joint="curve")
+        for ang in (0, 90, 180, 270):
+            a = math.radians(ang)
+            x1, y1 = cx + (r - 2) * math.sin(a), cy - (r - 2) * math.cos(a)
+            x2, y2 = cx + (r + 8) * math.sin(a), cy - (r + 8) * math.cos(a)
+            d.line([x1 + ox, y1 + oy, x2 + ox, y2 + oy], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_gear():
+    cx, cy, r_out, r_in, teeth = 65, 65, 38, 27, 8
+
+    def draw(d, off, color):
+        ox, oy = off
+        pts = []
+        for i in range(teeth * 2):
+            ang = math.pi * 2 * i / (teeth * 2)
+            r = r_out if i % 2 == 0 else r_in
+            pts.append((cx + r * math.cos(ang) + ox, cy + r * math.sin(ang) + oy))
+        d.line(pts + [pts[0]], fill=color, width=5, joint="curve")
+        d.ellipse([cx - 12 + ox, cy - 12 + oy, cx + 12 + ox, cy + 12 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_lightbulb():
+    cx, cy, r = 65, 50, 26
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        d.line([cx - r * 0.45 + ox, cy + r * 0.9 + oy, cx - r * 0.32 + ox, cy + r * 1.6 + oy], fill=color, width=5)
+        d.line([cx + r * 0.45 + ox, cy + r * 0.9 + oy, cx + r * 0.32 + ox, cy + r * 1.6 + oy], fill=color, width=5)
+        for i in range(3):
+            yy = cy + r * 1.55 + i * 9 + oy
+            d.line([cx - r * 0.34 + ox, yy, cx + r * 0.34 + ox, yy], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_leaf():
+    cx, cy = 65, 62
+
+    def draw(d, off, color):
+        ox, oy = off
+        top = (cx, cy - 44)
+        bot = (cx, cy + 34)
+        left = _quad_bezier(bot, (cx - 48, cy), top, n=16)
+        right = _quad_bezier(top, (cx + 48, cy), bot, n=16)
+        pts = [(x + ox, y + oy) for x, y in left + right]
+        d.line(pts, fill=color, width=5, joint="curve")
+        d.line([top[0] + ox, top[1] + oy, bot[0] + ox, bot[1] + oy], fill=color, width=4)
+        stem = _quad_bezier(bot, (cx + 4, cy + 46), (cx - 10, cy + 54), n=8)
+        d.line([(x + ox, y + oy) for x, y in stem], fill=color, width=4, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_droplet():
+    cx, cy, r = 65, 78, 26
+
+    def draw(d, off, color):
+        ox, oy = off
+        top = (cx, cy - r - 32)
+        left = (cx - r, cy)
+        right = (cx + r, cy)
+        up_left = _quad_bezier(left, (cx - r * 0.3, cy - r * 1.7), top, n=12)
+        up_right = _quad_bezier(top, (cx + r * 0.3, cy - r * 1.7), right, n=12)
+        arc_pts = []
+        for i in range(21):
+            ang = math.radians(180) * (i / 20)
+            arc_pts.append((cx + r * math.cos(ang), cy + r * math.sin(ang)))
+        pts = up_left + up_right + arc_pts
+        d.line([(x + ox, y + oy) for x, y in pts], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_open_book():
+    cx, cy = 65, 65
+
+    def draw(d, off, color):
+        ox, oy = off
+        w, h = 46, 30
+
+        def quad(p0, p1, p2, n=12):
+            return [(x + ox, y + oy) for x, y in _quad_bezier(p0, p1, p2, n)]
+
+        top_l, ctrl_l, spine_top = (cx - w, cy - h * 0.55), (cx - w * 0.5, cy - h * 0.95), (cx, cy - h * 0.25)
+        bot_l, ctrl_l2, spine_bot = (cx - w, cy + h * 0.75), (cx - w * 0.5, cy + h * 0.4), (cx, cy + h * 0.55)
+        top_r, ctrl_r = (cx + w, cy - h * 0.55), (cx + w * 0.5, cy - h * 0.95)
+        bot_r, ctrl_r2 = (cx + w, cy + h * 0.75), (cx + w * 0.5, cy + h * 0.4)
+        d.line(quad(top_l, ctrl_l, spine_top), fill=color, width=5, joint="curve")
+        d.line([top_l[0] + ox, top_l[1] + oy, bot_l[0] + ox, bot_l[1] + oy], fill=color, width=5)
+        d.line(quad(bot_l, ctrl_l2, spine_bot), fill=color, width=5, joint="curve")
+        d.line(quad(spine_top, ctrl_r, top_r), fill=color, width=5, joint="curve")
+        d.line([top_r[0] + ox, top_r[1] + oy, bot_r[0] + ox, bot_r[1] + oy], fill=color, width=5)
+        d.line(quad(bot_r, ctrl_r2, spine_bot), fill=color, width=5, joint="curve")
+        d.line([spine_top[0] + ox, spine_top[1] + oy, spine_bot[0] + ox, spine_bot[1] + oy], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_wave():
+    cy = 65
+
+    def draw(d, off, color):
+        ox, oy = off
+        pts = []
+        for i in range(41):
+            x = -45 + 90 * (i / 40)
+            y = 22 * math.sin(x / 15.0)
+            pts.append((65 + x + ox, cy + y + oy))
+        d.line(pts, fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_magnifying_glass():
+    cx, cy, r = 55, 55, 28
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([cx - r + ox, cy - r + oy, cx + r + ox, cy + r + oy], outline=color, width=5)
+        hx1, hy1 = cx + r * 0.72, cy + r * 0.72
+        d.line([hx1 + ox, hy1 + oy, hx1 + 26 + ox, hy1 + 26 + oy], fill=color, width=7)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_puzzle_piece():
+    cx, cy, s = 65, 65, 34
+
+    def draw(d, off, color):
+        ox, oy = off
+        bump = s * 0.35
+        x0, y0, x1, y1 = cx - s, cy - s, cx + s, cy - s
+        x2, y2, x3, y3 = cx + s, cy + s, cx - s, cy + s
+        pts = [(x0, y0), (cx - bump * 0.6, y0)]
+        for i in range(13):
+            ang = math.pi - math.pi * (i / 12)
+            pts.append((cx + bump * math.cos(ang), y0 - bump * 0.9 - bump * 0.9 * math.sin(ang)))
+        pts += [(cx + bump * 0.6, y0), (x1, y1), (x1, cy - bump * 0.6)]
+        for i in range(13):
+            ang = -math.pi / 2 - math.pi * (i / 12)
+            pts.append((x1 + bump * 0.9 + bump * 0.9 * math.cos(ang), cy + bump * math.sin(ang)))
+        pts += [(x1, cy + bump * 0.6), (x2, y2), (x3, y3), (x0, y0)]
+        p = [(x + ox, y + oy) for x, y in pts]
+        d.line(p, fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_arrow_up():
+    cx, cy = 65, 65
+
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([cx + ox, cy + 40 + oy, cx + ox, cy - 38 + oy], fill=color, width=6)
+        d.line([cx - 18 + ox, cy - 16 + oy, cx + ox, cy - 38 + oy], fill=color, width=6, joint="curve")
+        d.line([cx + 18 + ox, cy - 16 + oy, cx + ox, cy - 38 + oy], fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+# --- 추상 장식 도형 ---
+
+def _doodle_zigzag():
+    pts = [(20, 90), (45, 40), (65, 90), (85, 40), (110, 90)]
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_dot_cluster():
+    centers = [(45, 45), (70, 40), (55, 65), (85, 60), (65, 85), (40, 75), (90, 85)]
+    radii = [8, 6, 9, 5, 7, 6, 5]
+
+    def draw(d, off, color):
+        for (cx, cy), r in zip(centers, radii):
+            x, y = cx + off[0], cy + off[1]
+            d.ellipse([x - r, y - r, x + r, y + r], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_swirl_line():
+    pts = []
+    turns, steps, cx, cy = 2.4, 60, 65, 65
+    for i in range(steps + 1):
+        t = i / steps
+        ang = t * turns * 2 * math.pi
+        r = 6 + t * 40
+        pts.append((cx + r * math.cos(ang), cy + r * math.sin(ang)))
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_curved_arrow():
+    steps = 30
+    p0, p1, p2 = (25, 95), (65, 100), (100, 35)
+    pts = _quad_bezier(p0, p1, p2, n=steps)
+    ex, ey = pts[-1]
+    px, py = pts[-3]
+    ang = math.atan2(ey - py, ex - px)
+    head_len = 20
+    a1, a2 = ang + math.radians(150), ang - math.radians(150)
+    head1 = [(ex, ey), (ex + head_len * math.cos(a1), ey + head_len * math.sin(a1))]
+    head2 = [(ex, ey), (ex + head_len * math.cos(a2), ey + head_len * math.sin(a2))]
+
+    def draw(d, off, color):
+        d.line(_off_pts(pts, off), fill=color, width=6, joint="curve")
+        d.line(_off_pts(head1, off), fill=color, width=6, joint="curve")
+        d.line(_off_pts(head2, off), fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_checkmark():
+    pts = [(28, 65), (52, 92), (105, 30)]
+
+    def draw(d, off, color):
+        d.line(_off_pts(pts, off), fill=color, width=7, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_hexagon():
+    cx, cy, r = 65, 65, 42
+    pts = [(cx + r * math.cos(math.pi / 6 + i * math.pi / 3), cy + r * math.sin(math.pi / 6 + i * math.pi / 3)) for i in range(6)]
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p + [p[0]], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_wavy_line():
+    pts = []
+    steps = 40
+    for i in range(steps + 1):
+        t = i / steps
+        x = 15 + t * 100
+        y = 65 + 22 * math.sin(t * 3 * math.pi)
+        pts.append((x, y))
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_infinity():
+    pts = []
+    steps, cx, cy, a = 60, 65, 65, 34
+    for i in range(steps + 1):
+        t = i / steps * 2 * math.pi
+        scale = a / (1 + math.sin(t) ** 2)
+        x = cx + scale * math.cos(t)
+        y = cy + scale * math.sin(t) * math.cos(t)
+        pts.append((x, y))
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p, fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_asterisk():
+    cx, cy, r = 65, 65, 38
+    lines = []
+    for i in range(6):
+        ang = i * math.pi / 6
+        lines.append(((cx - r * math.cos(ang), cy - r * math.sin(ang)), (cx + r * math.cos(ang), cy + r * math.sin(ang))))
+
+    def draw(d, off, color):
+        for (x1, y1), (x2, y2) in lines:
+            d.line([(x1 + off[0], y1 + off[1]), (x2 + off[0], y2 + off[1])], fill=color, width=6)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_scribble_scratch():
+    # WHY 끊어진 3줄 사선(2026-08-03): 처음엔 zigzag처럼 이어진 선이었는데
+    # 40px에서 zigzag랑 거의 구분이 안 됐다 — 분필로 대충 그은 사선 3개로
+    # 바꿔서 확실히 다른 모양으로 읽히게 함.
+    strokes = [
+        [(30, 95), (48, 55)],
+        [(50, 100), (68, 60)],
+        [(70, 95), (88, 55)],
+    ]
+
+    def draw(d, off, color):
+        for s in strokes:
+            d.line(_off_pts(s, off), fill=color, width=7, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_plus_cross():
+    cx, cy, r = 65, 65, 34
+
+    def draw(d, off, color):
+        d.line([(cx - r + off[0], cy + off[1]), (cx + r + off[0], cy + off[1])], fill=color, width=7)
+        d.line([(cx + off[0], cy - r + off[1]), (cx + off[0], cy + r + off[1])], fill=color, width=7)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_triangle():
+    cx, cy, r = 65, 68, 42
+    pts = [(cx + r * math.cos(-math.pi / 2 + i * 2 * math.pi / 3), cy + r * math.sin(-math.pi / 2 + i * 2 * math.pi / 3)) for i in range(3)]
+
+    def draw(d, off, color):
+        p = _off_pts(pts, off)
+        d.line(p + [p[0]], fill=color, width=6, joint="curve")
+
+    return _stroke_shape(draw)
+
+
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
@@ -850,6 +1423,16 @@ _DOODLES = [
     _doodle_bird, _doodle_diamond, _doodle_apple, _doodle_spiral, _doodle_candle,
     _doodle_flag, _doodle_boat, _doodle_moon, _doodle_hourglass, _doodle_pencil,
     _doodle_target,
+    _doodle_cute_cloud_face, _doodle_cute_star_face, _doodle_cute_sun_face,
+    _doodle_cute_teardrop_face, _doodle_cute_mug_face, _doodle_cute_moon_face,
+    _doodle_cute_flower_face, _doodle_cute_droplet_wink, _doodle_cute_apple_face,
+    _doodle_cute_egg_face, _doodle_cute_leaf_face,
+    _doodle_globe, _doodle_compass, _doodle_gear, _doodle_lightbulb, _doodle_leaf,
+    _doodle_droplet, _doodle_open_book, _doodle_wave, _doodle_magnifying_glass,
+    _doodle_puzzle_piece, _doodle_arrow_up,
+    _doodle_zigzag, _doodle_dot_cluster, _doodle_swirl_line, _doodle_curved_arrow,
+    _doodle_checkmark, _doodle_hexagon, _doodle_wavy_line, _doodle_infinity,
+    _doodle_asterisk, _doodle_scribble_scratch, _doodle_plus_cross, _doodle_triangle,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
