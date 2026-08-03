@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Knees ache on the stairs,",
+    "mornings start stiff -",
+    "Foods Feeding Your Joint Inflammation"
+  ],
+  "eyebrow": "Joint Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Joints",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda",
+    "가라아게_illust.jpg": "Fried Food",
+    "가공육_illust.jpg": "Deli Meat",
+    "체리_illust.jpg": "Cherry",
+    "호두_illust.jpg": "Walnuts",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Certain everyday foods",
+        "keep raising inflammatory",
+        "compounds in your body",
+        "",
+        "That inflammation irritates",
+        "joint tissue, showing up as",
+        "pain and stiffness"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Women who drink 1+ soda",
+        "a day have a 63% higher",
+        "risk of rheumatoid arthritis",
+        "",
+        "Found in a Harvard study",
+        "of nearly 80,000 women"
+      ]
+    },
+    {
+      "name": "Soda - try this instead",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Tart cherry juice has been",
+        "shown in clinical trials",
+        "to lower CRP",
+        "",
+        "An easy swap that still",
+        "feels like a treat"
+      ]
+    },
+    {
+      "name": "Fried food",
+      "char_file": "가라아게_illust.jpg",
+      "body": [
+        "Fried food throws off your",
+        "omega-6 to omega-3 balance",
+        "",
+        "The average Western diet",
+        "sits at 15 to 20 to 1 -",
+        "a healthy ratio is near 4 to 1"
+      ]
+    },
+    {
+      "name": "Fried food - try this instead",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Cut back on fried food and",
+        "add a daily handful of walnuts",
+        "",
+        "Their omega-3s help bring",
+        "your balance back in check"
+      ]
+    },
+    {
+      "name": "Deli meat & processed meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Processed meat is linked",
+        "to higher CRP, your body's",
+        "main inflammation marker",
+        "",
+        "Every extra 50g a day raised",
+        "CRP by over 38% in one study"
+      ]
+    },
+    {
+      "name": "Deli meat - try this instead",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Swap in tofu or beans",
+        "a few times a week",
+        "",
+        "Plant protein is linked to",
+        "lower CRP levels too"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Joint inflammation builds",
+        "up quietly over time"
+      ],
+      [
+        "You don't have to quit these foods -",
+        "just watch how often and swap in better ones"
+      ]
+    ],
+    "tip": [
+      "Cut back on soda, fried food, and deli meat,",
+      "and bring in cherry, walnuts, and tofu"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
