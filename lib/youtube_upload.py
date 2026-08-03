@@ -312,6 +312,28 @@ def _topics_posted_elsewhere() -> set[str]:
     return posted
 
 
+def _is_already_uploaded(topic: str, uploaded: set[str]) -> bool:
+    """topic이 uploaded 집합에 있는지 확인 — 정확히 같은 문자열뿐 아니라, 그
+    topic의 "구 플랫 이름"(언어 접미사 없는 버전)도 같이 확인한다.
+
+    WHY(2026-08-03 버그 수정, 실제 사고로 발견): <주제>/<lang> 중첩 구조 도입
+    전에 올라간 topic들은 youtube_uploaded.json에 "갑상선_1"(접미사 없음)로
+    기록돼 있는데, topics.json은 이제 "갑상선_1/ko"로만 topic을 나열한다 —
+    문자열 그대로만 비교하면 이미 올라간 topic이 "아직 안 올라감"으로 보여서
+    똑같은 영상이 새 이름으로 재업로드되는 사고가 실제로 났다(15개 topic이
+    한국어 채널에 중복 업로드됨, 2026-08-03). "갑상선_1/ko"의 "/ko" 접미사를
+    떼서 "갑상선_1"도 uploaded에 있는지 같이 확인하면 이 클래스의 버그가
+    재발하지 않는다 — 언어가 "ko"(가장 오래된 관례)일 때만 해당, en/ja 등은
+    애초에 접미사 없는 옛 이름으로 기록된 적이 없어서 확인할 필요 없음."""
+    if topic in uploaded:
+        return True
+    if "/" in topic:
+        base, lang = topic.rsplit("/", 1)
+        if lang == "ko" and base in uploaded:
+            return True
+    return False
+
+
 def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
     """유튜브에 아직 안 올라간 topic 중 n개를 고른다. WHY 선택 순서(2026-08-02,
     "아닌 경우에는 너가 randomly하게 선택해서 올리는"): 다른 플랫폼에 이미
@@ -322,7 +344,7 @@ def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
     all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
     uploaded_path = ROOT / "output" / "youtube_uploaded.json"
     uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
-    candidates = [t for t in all_topics if t not in uploaded]
+    candidates = [t for t in all_topics if not _is_already_uploaded(t, uploaded)]
 
     posted_elsewhere = _topics_posted_elsewhere()
     priority = [t for t in candidates if t in posted_elsewhere]
@@ -365,7 +387,7 @@ def select_daily_topics_for_lang(lang: str, n: int) -> list[str]:
     lang_topics = [t for t in all_topics if _lang_from_topic(t) == lang]
     uploaded_path = ROOT / "output" / "youtube_uploaded.json"
     uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
-    candidates = [t for t in lang_topics if t not in uploaded]
+    candidates = [t for t in lang_topics if not _is_already_uploaded(t, uploaded)]
 
     posted_elsewhere = _topics_posted_elsewhere()
     priority = [t for t in candidates if t in posted_elsewhere]
