@@ -2651,10 +2651,22 @@ def assemble(
         # 앉혔는데, 칠판이 훨씬 커진 뒤로는 그 위치가 칠판 영역의 중앙이 아니라
         # 아래쪽에 치우쳐 보였다 — 칠판이 실제로 화면에서 차지하는 세로 범위
         # (title_h ~ title_h+칠판높이)의 중앙에 자막을 놓는다.
+        # ⚠️ WHY title_h를 그대로 안 쓰고 effective_top_pad를 다시 계산하는지
+        # (2026-08-03 버그 수정, "또 그 글이 좀 아래로 쏠렸네 칠판 중앙으로 들어가야
+        # 하는데" — 제목이 4줄이라 title_h가 커진 en_heartburn_1에서 실제 발견):
+        # `_build_chalkboard_bg`는 칠판 사진(리사이즈 후 약 1664px, H=1920보다 훨씬
+        # 큼)을 `effective_top_pad = min(top_pad, H - 칠판높이)`로 캡을 씌운 위치에
+        # 붙인다 — title_h가 이 캡(대략 255px)보다 크면 칠판은 실제로 title_h가
+        # 아니라 이 캡 지점부터 시작하는데, 여기 caption_center_y 계산은 그 캡을
+        # 무시하고 title_h를 그대로 "칠판 시작점"으로 썼다 — 그래서 실제 칠판
+        # 중앙보다 자막이 더 아래로 치우쳐 보였다. `_build_chalkboard_bg`와 정확히
+        # 같은 공식으로 effective_top_pad를 다시 계산해서 어긋남을 없앤다.
         caption_center_y = None
         if bg_style == "chalkboard":
-            board_bottom = min(title_h + _chalkboard_display_height(), H)
-            caption_center_y = (title_h + board_bottom) / 2
+            board_h = _chalkboard_display_height()
+            effective_top_pad = min(title_h, max(H - board_h, 0))
+            board_bottom = min(effective_top_pad + board_h, H)
+            caption_center_y = (effective_top_pad + board_bottom) / 2
 
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
