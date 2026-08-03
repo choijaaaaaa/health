@@ -13,7 +13,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import lib.content_review as content_review  # noqa: E402
-from lib.content_review import _card_news_text, review_topic  # noqa: E402
+from lib.content_review import _build_prompt, _card_news_text, review_topic  # noqa: E402
 
 
 class _FakeResponse:
@@ -160,6 +160,34 @@ def test_review_topic_gives_up_after_repeated_503_and_returns_empty(tmp_path, mo
     result = review_topic("테스트토픽_1")
     assert result == []
     assert "건너뜀" in capsys.readouterr().out
+
+
+def test_build_prompt_default_lang_is_korean_without_regional_criterion(tmp_path, monkeypatch):
+    prompt = _build_prompt("kor", "나레이션", "카드텍스트")
+    assert "한국어" in prompt
+    assert "해결책 재료" not in prompt  # REGIONAL_CRITERION은 한국어 리뷰엔 없어야 함
+
+
+def test_build_prompt_non_kor_adds_regional_criterion_and_language_name(tmp_path, monkeypatch):
+    prompt = _build_prompt("영어", "narration", "card text")
+    assert "영어" in prompt
+    assert "해결책 재료" in prompt  # 지역 소싱 기준이 추가돼야 함
+
+
+def test_review_topic_passes_lang_through_to_prompt(tmp_path, monkeypatch):
+    _write_topic(tmp_path, monkeypatch, "테스트토픽_1", narration="Some sentence.")
+    captured = {}
+
+    def fake_post(*args, **kwargs):
+        captured["prompt"] = kwargs["json"]["contents"][0]["parts"][0]["text"]
+        return _FakeResponse("[]")
+
+    monkeypatch.setenv("GEMINI_API_KEY", "fake-key")
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+
+    review_topic("테스트토픽_1", lang="영어")
+    assert "영어" in captured["prompt"]
+    assert "해결책 재료" in captured["prompt"]
 
 
 def test_review_all_continues_past_one_topic_erroring(tmp_path, monkeypatch, capsys):

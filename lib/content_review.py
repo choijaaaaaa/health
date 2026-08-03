@@ -5,9 +5,19 @@
 # 동어반복적인 대체 제안)를 못 잡는다 — 이건 패턴 매칭이 아니라 "이 문장이 맥락상
 # 말이 되는가"를 판단해야 하는 문제라 LLM 리뷰가 필요하다.
 #
+# WHY lang 파라미터(2026-08-03, 글로벌 확장 대비 — "내가 한국인이다보니 문맥이랑
+# 그런것들 스스로 검증이 안되잖아? ... 자동화? ... 너 스스로 검증하는 시스템"):
+# 사용자는 한국어 화자라 영어·스페인어 등 다른 언어 콘텐츠는 직접 검수할 수 없다 —
+# 대신 이 리뷰는 LLM이 하는 거라 언어와 무관하게 똑같이 돌릴 수 있다. lang="kor"
+# (기본값)이면 기존 동작 그대로, 다른 언어를 주면 그 언어 원어민 편집자 기준으로
+# 검토하되 issue 설명은 항상 한국어로 반환해서(quote는 원문 그대로) 한국어 화자인
+# 사용자가 결과를 읽을 수 있게 한다. 지역 콘텐츠 특유의 검사 항목(해결책 재료가 그
+# 지역에서 실제로 흔한지)도 이때만 추가된다 — 한국 콘텐츠는 애초에 한국 소싱
+# 기준이라 해당 없음.
+#
 # 사용법:
-#   python3 -m lib.content_review <topic>     — topic 하나만 리뷰
-#   python3 -m lib.content_review --all        — data/ 밑 모든 topic 배치 리뷰
+#   python3 -m lib.content_review <topic> [lang]  — topic 하나만 리뷰(lang 생략 시 한국어)
+#   python3 -m lib.content_review --all            — data/ 밑 모든 topic 배치 리뷰(한국어 전용)
 from __future__ import annotations
 
 import json
@@ -30,19 +40,31 @@ BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
 # 실제 사용 가능함을 확인함(2026-08-03).
 MODEL = "gemini-flash-latest"
 
-REVIEW_PROMPT = """당신은 한국어 건강 정보 숏폼 콘텐츠를 검수하는 깐깐한 편집자입니다.
-아래는 한 topic의 나레이션 대본과 카드뉴스 텍스트입니다. 다음 기준으로 문제
-있는 문장만 찾아주세요:
-
-1. 논리적으로 말이 안 되거나 앞뒤가 안 맞는 문장
+BASE_CRITERIA = """1. 논리적으로 말이 안 되거나 앞뒤가 안 맞는 문장
 2. 문법은 멀쩡하지만 맥락상 김빠지거나 성의없어 보이는 대체/팁 제안
    (예: "맥주 대신 무알코올 맥주로 바꿔보세요"처럼 동어반복적이거나 너무
    뻔해서 실질적 정보가 없는 경우)
 3. 과장되거나 근거 없어 보이는 의학적 주장
-4. 앞 문장과 모순되는 내용
+4. 앞 문장과 모순되는 내용"""
+
+# WHY 지역 소싱 기준 별도 추가(2026-08-03): 한국 콘텐츠는 원래 한국에서 흔히 구할 수
+# 있는 재료로 리서치하지만, 다른 언어권은 그 지역 문서로 독립 리서치해도 LLM이 초안을
+# 쓰는 과정에서 그 나라에 없거나 생소한 재료가 슬쩍 들어갈 위험이 있다 — 이건 사람이
+# 한국어로만 검수해서는 절대 못 잡는 문제라 LLM 리뷰에 필수로 넣는다.
+REGIONAL_CRITERION = """5. 언급된 해결책 재료·식품이 이 언어권/지역에서 실제로 흔히 구할 수 있는지
+   의심스러운 경우(그 지역에 없거나 매우 생소한 재료를 아무 설명 없이 대안으로
+   제시하는 경우)"""
+
+REVIEW_PROMPT = """당신은 {lang_desc} 건강 정보 숏폼 콘텐츠를 검수하는 깐깐한
+{lang_desc} 원어민 편집자입니다. 아래는 한 topic의 나레이션 대본과 카드뉴스
+텍스트입니다({lang_desc}로 작성됨). 다음 기준으로 문제 있는 문장만 찾아주세요:
+
+{criteria}
 
 문제가 없으면 빈 배열 []만 반환하세요. 문제가 있으면 아래 JSON 배열 형식
-으로만 답하세요(설명 문장이나 코드블록 표시 없이 JSON만):
+으로만 답하세요(설명 문장이나 코드블록 표시 없이 JSON만) — quote는 원문
+({lang_desc}) 그대로, issue 설명은 한국어 화자인 검수자를 위해 반드시
+한국어로 쓸 것:
 [{{"quote": "문제 문장 원문 그대로", "issue": "무엇이 문제인지 한국어 한 줄 설명"}}]
 
 --- 나레이션 ---
@@ -51,6 +73,16 @@ REVIEW_PROMPT = """당신은 한국어 건강 정보 숏폼 콘텐츠를 검수�
 --- 카드뉴스 텍스트 ---
 {card_text}
 """
+
+
+def _build_prompt(lang: str, narration: str, card_text: str) -> str:
+    if lang == "kor":
+        lang_desc = "한국어"
+        criteria = BASE_CRITERIA
+    else:
+        lang_desc = lang
+        criteria = BASE_CRITERIA + "\n" + REGIONAL_CRITERION
+    return REVIEW_PROMPT.format(lang_desc=lang_desc, criteria=criteria, narration=narration, card_text=card_text)
 
 
 def _headers() -> dict:
@@ -79,14 +111,14 @@ def _card_news_text(topic: str) -> str:
     return "\n".join(line for line in lines if line)
 
 
-def review_topic(topic: str) -> list[dict]:
+def review_topic(topic: str, lang: str = "kor") -> list[dict]:
     narration_path = ROOT / "data" / topic / "narration.txt"
     narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
     card_text = _card_news_text(topic)
     if not narration and not card_text:
         return []
 
-    prompt = REVIEW_PROMPT.format(narration=narration, card_text=card_text)
+    prompt = _build_prompt(lang, narration, card_text)
     # WHY 재시도(2026-08-03 버그 수정): --all로 전체 topic을 순회하다가 Gemini
     # 503(일시적 서버 과부하) 한 번에 스크립트 전체가 죽어서 뒤 topic들이 하나도
     # 리뷰가 안 된 채 끝난 적이 있다 — 5xx는 일시적일 확률이 높으니 지수 백오프로
@@ -146,11 +178,12 @@ if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--all":
         review_all()
     elif len(sys.argv) > 1:
-        found = review_topic(sys.argv[1])
+        lang_arg = sys.argv[2] if len(sys.argv) > 2 else "kor"
+        found = review_topic(sys.argv[1], lang_arg)
         if found:
             for issue in found:
                 print(f"- \"{issue.get('quote', '')}\" — {issue.get('issue', '')}")
         else:
             print("문제 없음")
     else:
-        print("사용법: python3 -m lib.content_review <topic> 또는 --all")
+        print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all")
