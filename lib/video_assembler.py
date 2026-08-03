@@ -593,18 +593,263 @@ def _doodle_lightning() -> Image.Image:
     return _stroke_shape(draw)
 
 
-# WHY 도형 종류를 11개→15개로 늘렸는지(2026-08-02, "이빠이넣어 귀여운 것들
-# 제발좀... 나중에 중복 이미지가 아니게 보이게 할때도 좋을 것 같단말이야"):
-# topic마다 seed로 랜덤 추출하는 구조라(_place_chalk_doodle) 종류 풀이 클수록
-# 여러 topic 영상을 연달아 볼 때 매번 다른 조합으로 보여서 "같은 배경 우려먹기"
-# 느낌이 준다 — 새 도형은 전부 회전/축소된 실제 렌더로 먼저 확인 후 추가함
-# (리본 도형이 작게 축소되면 뭉개지던 전례 때문에 신규 도형은 항상 이 확인을
-# 거친다).
+def _doodle_sun() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy, r = 65 + ox, 65 + oy, 26
+        d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=color, width=5)
+        for ang in range(0, 360, 45):
+            rad = math.radians(ang)
+            x1, y1 = cx + (r + 8) * math.cos(rad), cy + (r + 8) * math.sin(rad)
+            x2, y2 = cx + (r + 22) * math.cos(rad), cy + (r + 22) * math.sin(rad)
+            d.line([(x1, y1), (x2, y2)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_crown() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [(20 + ox, 95 + oy), (20 + ox, 50 + oy), (40 + ox, 70 + oy), (65 + ox, 35 + oy),
+               (90 + ox, 70 + oy), (110 + ox, 50 + oy), (110 + ox, 95 + oy)]
+        d.line(pts, fill=color, width=5, joint="curve")
+        d.line([(20 + ox, 95 + oy), (110 + ox, 95 + oy)], fill=color, width=5)
+        for x in (20, 110):
+            d.ellipse([x - 6 + ox, 44 + oy, x + 6 + ox, 56 + oy], fill=color)
+        d.ellipse([59 + ox, 29 + oy, 71 + ox, 41 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_gift() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.rectangle([20 + ox, 50 + oy, 100 + ox, 105 + oy], outline=color, width=5)
+        d.line([(60 + ox, 50 + oy), (60 + ox, 105 + oy)], fill=color, width=4)
+        d.line([(20 + ox, 72 + oy), (100 + ox, 72 + oy)], fill=color, width=4)
+        d.line([(60 + ox, 50 + oy), (45 + ox, 25 + oy)], fill=color, width=4, joint="curve")
+        d.line([(60 + ox, 50 + oy), (75 + ox, 25 + oy)], fill=color, width=4, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_bell() -> Image.Image:
+    """⚠️ v1은 아치+사선 어깨선+작은 추 원까지 넣었는데 작게 축소·회전되면
+    추 원이 몸통과 분리된 점처럼 보여 종처럼 안 읽혔다(실제 렌더로 발견,
+    `_doodle_chalk_stick`과 같은 교훈) — 추를 없애고 사선 어깨선을 아치에
+    바로 이어붙여 한 덩어리 실루엣으로 단순화."""
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(30 + ox, 100 + oy), (35 + ox, 55 + oy)], fill=color, width=5, joint="curve")
+        d.arc([35 + ox, 25 + oy, 95 + ox, 95 + oy], 180, 360, fill=color, width=5)
+        d.line([(95 + ox, 55 + oy), (100 + ox, 100 + oy)], fill=color, width=5, joint="curve")
+        d.line([(30 + ox, 100 + oy), (100 + ox, 100 + oy)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_key() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 15 + oy, 50 + ox, 50 + oy], outline=color, width=5)
+        d.line([(48 + ox, 32 + oy), (105 + ox, 32 + oy)], fill=color, width=5)
+        d.line([(88 + ox, 32 + oy), (88 + ox, 48 + oy)], fill=color, width=4)
+        d.line([(103 + ox, 32 + oy), (103 + ox, 44 + oy)], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_anchor() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx = 63 + ox
+        d.ellipse([cx - 10, 15 + oy, cx + 10, 35 + oy], outline=color, width=4)
+        d.line([(cx, 35 + oy), (cx, 100 + oy)], fill=color, width=5)
+        d.line([(cx - 25, 50 + oy), (cx + 25, 50 + oy)], fill=color, width=4)
+        d.arc([cx - 35, 60 + oy, cx + 35, 120 + oy], 0, 180, fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_house() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(20 + ox, 60 + oy), (65 + ox, 20 + oy), (110 + ox, 60 + oy)],
+               fill=color, width=5, joint="curve")
+        d.rectangle([30 + ox, 60 + oy, 100 + ox, 105 + oy], outline=color, width=5)
+        d.rectangle([55 + ox, 75 + oy, 75 + ox, 105 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_tree() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx = 65 + ox
+        d.polygon([(cx, 15 + oy), (cx - 30, 55 + oy), (cx + 30, 55 + oy)], outline=color, width=5)
+        d.polygon([(cx, 40 + oy), (cx - 35, 85 + oy), (cx + 35, 85 + oy)], outline=color, width=5)
+        d.rectangle([cx - 8, 85 + oy, cx + 8, 110 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_fish() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([20 + ox, 40 + oy, 85 + ox, 80 + oy], outline=color, width=5)
+        d.polygon([(85 + ox, 60 + oy), (112 + ox, 40 + oy), (112 + ox, 80 + oy)], outline=color, width=5)
+        d.ellipse([32 + ox, 55 + oy, 40 + ox, 63 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_bird() -> Image.Image:
+    """옛날 낙서의 새 실루엣 — 연결된 아치 두 개로 나는 새를 표현하는 흔한
+    간이 도형(글자 'M'처럼 두 번 꺾이는 곡선). 다른 도형처럼 채움/선화가 아니라
+    선 두 개뿐이라 아주 작게 축소돼도 뭉개지지 않는다."""
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([15 + ox, 40 + oy, 60 + ox, 75 + oy], 180, 360, fill=color, width=6)
+        d.arc([60 + ox, 40 + oy, 105 + ox, 75 + oy], 180, 360, fill=color, width=6)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_diamond() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.polygon([(65 + ox, 20 + oy), (100 + ox, 50 + oy), (65 + ox, 110 + oy), (30 + ox, 50 + oy)],
+                   outline=color, width=5)
+        d.line([(30 + ox, 50 + oy), (100 + ox, 50 + oy)], fill=color, width=3)
+        d.line([(65 + ox, 20 + oy), (48 + ox, 50 + oy)], fill=color, width=3)
+        d.line([(65 + ox, 20 + oy), (82 + ox, 50 + oy)], fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_apple() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 65 + ox, 72 + oy
+        d.arc([cx - 38, cy - 28, cx + 4, cy + 40], 25, 320, fill=color, width=5)
+        d.arc([cx - 4, cy - 28, cx + 38, cy + 40], 220, 155, fill=color, width=5)
+        d.line([(cx, cy - 28), (cx + 6, cy - 48)], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_spiral() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 65 + ox, 65 + oy
+        pts = []
+        for i in range(60):
+            ang = i * 0.35
+            r = 3 + i * 0.9
+            pts.append((cx + r * math.cos(ang), cy + r * math.sin(ang)))
+        d.line(pts, fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_candle() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx = 65 + ox
+        d.rectangle([cx - 12, 60 + oy, cx + 12, 110 + oy], outline=color, width=5)
+        d.line([(cx, 60 + oy), (cx, 42 + oy)], fill=color, width=4)
+        d.ellipse([cx - 9, 18 + oy, cx + 9, 42 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_flag() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(30 + ox, 15 + oy), (30 + ox, 115 + oy)], fill=color, width=5)
+        d.line([(30 + ox, 20 + oy), (95 + ox, 35 + oy), (30 + ox, 60 + oy)], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_boat() -> Image.Image:
+    """⚠️ 원래 나비를 넣었는데 타원 날개가 작게 회전되면 안경처럼 보여
+    실제 렌더 확인에서 탈락시켰다(리본 교훈과 동일 — 대칭 타원 2개는 이
+    스케일에서 다른 동그란 사물과 구분이 잘 안 됨) — 사다리꼴 선체+삼각
+    돛처럼 윤곽이 뚜렷한 배 도형으로 교체."""
+    def draw(d, off, color):
+        ox, oy = off
+        d.polygon([(20 + ox, 90 + oy), (110 + ox, 90 + oy), (95 + ox, 115 + oy), (35 + ox, 115 + oy)],
+                   outline=color, width=5)
+        d.line([(65 + ox, 90 + oy), (65 + ox, 20 + oy)], fill=color, width=5)
+        d.polygon([(65 + ox, 20 + oy), (65 + ox, 80 + oy), (105 + ox, 80 + oy)], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_moon() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([25 + ox, 20 + oy, 95 + ox, 110 + oy], 90, 300, fill=color, width=6)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_hourglass() -> Image.Image:
+    """⚠️ v1은 위/아래 삼각형을 한 줄로 이어그렸는데 작게 회전되면 그냥 나비
+    넥타이(X자)처럼 보여 모래시계로 안 읽혔다 — 위아래 뚜껑을 별도 굵은
+    가로선으로 확실히 그려서 "삼각형 두 개+캡"이라는 걸 더 분명히 했다."""
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(25 + ox, 20 + oy), (105 + ox, 20 + oy)], fill=color, width=6)
+        d.line([(25 + ox, 110 + oy), (105 + ox, 110 + oy)], fill=color, width=6)
+        d.polygon([(25 + ox, 20 + oy), (105 + ox, 20 + oy), (65 + ox, 65 + oy)], outline=color, width=5)
+        d.polygon([(25 + ox, 110 + oy), (105 + ox, 110 + oy), (65 + ox, 65 + oy)], outline=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_pencil() -> Image.Image:
+    """⚠️ v1은 얇은 대각선 하나뿐이라 작게 회전되면 그냥 사선처럼 보여
+    연필로 안 읽혔다(`_doodle_chalk_stick`과 같은 교훈 — 가는 선은 작은
+    화면에서 형태 정보를 못 준다) — 몸통을 굵은 평행 사각형(두꺼운 막대)으로
+    그리고 끝에 뚜렷한 삼각형 촉을 붙여 실루엣만으로 연필임을 알아보게 했다."""
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(22 + ox, 108 + oy), (82 + ox, 48 + oy)], fill=color, width=16)
+        d.polygon([(82 + ox, 48 + oy), (100 + ox, 22 + oy), (108 + ox, 30 + oy), (90 + ox, 56 + oy)],
+                   outline=color, width=4)
+        d.polygon([(14 + ox, 116 + oy), (22 + ox, 108 + oy), (30 + ox, 116 + oy)], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_target() -> Image.Image:
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy = 65 + ox, 65 + oy
+        for r in (45, 28, 11):
+            d.ellipse([cx - r, cy - r, cx + r, cy + r], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+# WHY 도형 종류를 15개→35개로 늘렸는지(2026-08-03, "파츠 더 늘렸어? 지금
+# 갯수의 2-3배는 늘리고싶네"): topic마다 seed로 랜덤 추출하는 구조라
+# (_place_chalk_doodle) 종류 풀이 클수록 여러 topic 영상을 연달아 볼 때 매번
+# 다른 조합으로 보여서 "같은 배경 우려먹기" 느낌이 준다 — 새 도형은 전부
+# 회전/축소된 실제 렌더로 먼저 확인 후 추가함(리본 도형이 작게 축소되면
+# 뭉개지던 전례 때문에 신규 도형은 항상 이 확인을 거친다). 이번 신규분(sun~
+# target 20종)도 같은 방식으로 50~85px 회전 렌더 확인 후 추가.
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
     _doodle_ribbon, _doodle_paw, _doodle_flower, _doodle_balloon, _doodle_umbrella,
-    _doodle_lightning,
+    _doodle_lightning, _doodle_sun, _doodle_crown, _doodle_gift, _doodle_bell,
+    _doodle_key, _doodle_anchor, _doodle_house, _doodle_tree, _doodle_fish,
+    _doodle_bird, _doodle_diamond, _doodle_apple, _doodle_spiral, _doodle_candle,
+    _doodle_flag, _doodle_boat, _doodle_moon, _doodle_hourglass, _doodle_pencil,
+    _doodle_target,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
@@ -626,20 +871,36 @@ def _anon_name(rng: random.Random) -> str:
     return f"{rng.choice(_SURNAMES)}OO"
 
 
-# WHY 명패 종류를 2종→6종으로 늘리고 풀에서 랜덤 선택하게 했는지(2026-08-03,
-# "칠판에 있는 파츠들은 랜덤으로 들어가게 해달라했는데 걍 다 들어간상태로만
-# 영상을 제작하는듯? 그리고 파츠들 더 다양화 하는게 좋을 것 같아"): 기존엔
-# "떠든 사람"+"주번"이 매 영상마다 고정으로 둘 다 나왔다 — 도형(별/하트 등)만
+# WHY 명패 종류를 2종→6종→18종으로 늘리고 풀에서 랜덤 선택하게 했는지
+# (2026-08-03, "칠판에 있는 파츠들은 랜덤으로 들어가게 해달라했는데 걍 다
+# 들어간상태로만 영상을 제작하는듯? 그리고 파츠들 더 다양화 하는게 좋을 것
+# 같아" → "파츠 더 늘렸어? 지금 갯수의 2-3배는 늘리고싶네"): 기존엔 "떠든
+# 사람"+"주번"이 매 영상마다 고정으로 둘 다 나왔다 — 도형(별/하트 등)만
 # 랜덤이고 "어떤 종류의 명패가 뜨는지" 자체는 항상 같아서 여러 topic을 연달아
 # 보면 매번 똑같은 골격으로 느껴졌다. 이제 이 풀에서 0~2개를 랜덤으로 뽑아서
-# (`_place_chalk_doodle`) topic마다 아예 다른 조합·개수가 나오게 한다.
+# (`_place_chalk_doodle`) topic마다 아예 다른 조합·개수가 나오게 한다. 6종→
+# 18종(3배)은 실제 교실 게시물에 흔한 당번·직책 이름을 그대로 재사용해서
+# ("떠든 사람"/"지각생"만 2명 형식, 나머지는 전부 1명) 새로 만든 이름이
+# 하나도 부자연스럽지 않게 했다.
 _NAMEPLATE_POOL = [
     ("떠든 사람: {}", 2, 26),
+    ("지각생: {}", 2, 26),
     ("주번 {}", 1, 30),
     ("우유 당번 {}", 1, 30),
     ("칠판 당번 {}", 1, 30),
     ("오늘의 발표자 {}", 1, 26),
     ("청소 당번 {}", 1, 30),
+    ("학급 회장 {}", 1, 30),
+    ("부회장 {}", 1, 30),
+    ("화분 당번 {}", 1, 30),
+    ("창문 당번 {}", 1, 30),
+    ("분리수거 당번 {}", 1, 24),
+    ("줄반장 {}", 1, 30),
+    ("급식 당번 {}", 1, 30),
+    ("이달의 독서왕 {}", 1, 24),
+    ("생일자 {}", 1, 30),
+    ("이달의 칭찬왕 {}", 1, 24),
+    ("우산 당번 {}", 1, 30),
 ]
 
 
