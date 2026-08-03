@@ -121,20 +121,114 @@ def find_real_photo(char_name: str) -> str | None:
     return str(cands[0]) if cands else None
 
 
-_WORD_RE = re.compile(r"[가-힣A-Za-z0-9]+")
+# WHY \w+(2026-08-03 버그 수정, en_heartburn_1 재생성 로그에서 스퓨리어스 세그먼트
+# 발견): 원래 [가-힣A-Za-z0-9]+였는데 아랍어·벵골어·힌디어·태국어·일본어·
+# 중국어·러시아어 나레이션은 이 범위 밖 문자라 키워드가 하나도 안 뽑혔다.
+# Python str 정규식은 \w가 기본적으로 유니코드 문자 범주를 다 포함하므로(한글·
+# 키릴·아랍·데바나가리·벵골·타이 문자 전부 포함) 언어 무관하게 쓸 수 있다.
+_WORD_RE = re.compile(r"\w+")
+
+# WHY 언어별 불용어 제거(2026-08-03 버그 수정, en_heartburn_1 재생성 로그 디버깅
+# 중 실제 확인): 공백으로 단어를 구분하는 언어는 "it/of/the/and" 같은 기능어가
+# 그대로 독립 토큰으로 뽑히는데, 한국어는 조사가 명사에 붙어 나오는 구조라 이런
+# 짧은 독립 기능어 토큰이 애초에 안 생겨서 원래 코드에서 문제가 안 보였다. 이
+# 기능어들이 관련 없는 문단에 우연히 여러 개 겹치면서 컷오프를 넘겨 엉뚱한
+# 항목이 조기 배정되는 게 실제 스퓨리어스 세그먼트의 주 원인이었다(디버깅으로
+# 확인: "it/of/the/and" 매치만으로 무관한 문단이 score 5~6 획득, 컷오프 통과).
+# 표준 불용어가 확인된 언어(로마자/키릴 문자, 띄어쓰기로 단어 구분)만 채워뒀다 —
+# 그 외 언어(아랍어·벵골어·힌디어·태국어·일본어·중국어처럼 띄어쓰기 관행이
+# 다르거나 직접 검증 못 한 언어)는 빈 셋이라 기존과 동일하게 동작(필터링 없음).
+_STOPWORDS_BY_LANG: dict[str, set[str]] = {
+    "en": {
+        "a", "an", "the", "and", "or", "but", "of", "to", "in", "on", "at", "for",
+        "with", "as", "is", "are", "was", "were", "be", "been", "it", "its", "this",
+        "that", "these", "those", "you", "your", "he", "she", "they", "we", "i",
+        "not", "no", "do", "does", "did", "so", "if", "than", "then", "from", "by",
+        "about", "into", "up", "down", "out", "over", "under", "again", "more",
+        "most", "some", "such", "own", "same", "too", "very", "can", "will", "just",
+        "should", "now", "there", "here", "one",
+    },
+    "es": {
+        "el", "la", "los", "las", "un", "una", "unos", "unas", "y", "o", "pero",
+        "de", "del", "a", "en", "por", "para", "con", "sin", "es", "son", "era",
+        "fue", "ser", "esta", "este", "estos", "estas", "que", "se", "su", "sus",
+        "lo", "le", "les", "no", "si", "muy", "mas", "como", "cuando", "donde",
+        "porque", "ya", "tambien", "entonces",
+    },
+    "pt": {
+        "o", "a", "os", "as", "um", "uma", "uns", "umas", "e", "ou", "mas", "de",
+        "do", "da", "dos", "das", "em", "por", "para", "com", "sem", "e", "sao",
+        "era", "foi", "ser", "esta", "este", "estes", "estas", "que", "se", "seu",
+        "sua", "seus", "suas", "lhe", "lhes", "nao", "sim", "muito", "mais", "como",
+        "quando", "onde", "porque", "ja", "tambem", "entao",
+    },
+    "fr": {
+        "le", "la", "les", "un", "une", "des", "et", "ou", "mais", "de", "du", "à",
+        "en", "par", "pour", "avec", "sans", "est", "sont", "était", "être", "ce",
+        "cet", "cette", "ces", "que", "qui", "se", "son", "sa", "ses", "leur",
+        "leurs", "ne", "pas", "oui", "non", "très", "plus", "comme", "quand", "où",
+        "parce", "si", "déjà", "aussi", "alors",
+    },
+    "de": {
+        "der", "die", "das", "den", "dem", "des", "ein", "eine", "einen", "einem",
+        "einer", "eines", "und", "oder", "aber", "von", "zu", "in", "auf", "an",
+        "für", "mit", "ohne", "ist", "sind", "war", "waren", "sein", "dies", "diese",
+        "dieser", "dieses", "dass", "sich", "ihr", "ihre", "nicht", "ja", "nein",
+        "sehr", "mehr", "wie", "wenn", "wo", "weil", "schon", "auch", "dann",
+    },
+    "ru": {
+        "и", "в", "во", "не", "что", "он", "на", "я", "с", "со", "как", "а", "то",
+        "все", "она", "так", "его", "но", "да", "ты", "к", "у", "же", "вы", "за",
+        "бы", "по", "только", "её", "мне", "было", "вот", "от", "меня", "ещё",
+        "нет", "о", "из", "ему", "когда", "уже", "или", "быть", "был", "для", "мы",
+        "тебя", "их", "чем", "была", "без", "себя", "под", "будет", "этот", "того",
+    },
+    "tr": {
+        "ve", "veya", "ama", "bir", "bu", "şu", "o", "de", "da", "ki", "ile",
+        "için", "gibi", "çok", "daha", "en", "ise", "ya", "hem", "ne", "değil",
+        "var", "yok", "her", "bazı", "kadar", "sonra", "önce", "çünkü", "eğer",
+        "artık", "hiç", "şey", "biz", "siz", "ben", "sen", "onlar",
+    },
+    "id": {
+        "yang", "dan", "di", "ke", "dari", "untuk", "pada", "dengan", "adalah",
+        "ini", "itu", "atau", "juga", "akan", "tidak", "ada", "saya", "kamu", "dia",
+        "mereka", "kita", "kami", "sudah", "belum", "bisa", "harus", "karena",
+        "jika", "tapi", "tetapi", "agar", "supaya", "sangat", "lebih", "paling",
+        "saja", "pun", "nya",
+    },
+    "vi": {
+        "và", "hoặc", "nhưng", "là", "của", "cho", "với", "không", "có", "này",
+        "đó", "những", "các", "một", "ở", "tại", "khi", "nếu", "vì", "do", "để",
+        "cũng", "đã", "sẽ", "đang", "rất", "hơn", "nhất", "thì", "mà", "ai", "gì",
+        "sao",
+    },
+}
 
 
-def _keywords(item: dict) -> set[str]:
+def _is_alt_item(item: dict, items: list[dict]) -> bool:
+    """이 항목이 "원인 대신 이걸 드세요" 식 대안 항목인지 판단.
+    WHY 한국어 '대신' 문자열 검사 대신 접두어 구조로 판단하는지(2026-08-03
+    버그 수정): '~ 대신'(한국어)/'— try this instead'(영어)처럼 언어마다 대안
+    표현이 달라서 문자열 매칭으론 한국어 topic만 걸러지고 다른 언어는 전부
+    빠져나갔다 — 콘텐츠 생성 규칙상 대안 항목 이름은 항상 원인 항목 이름을
+    그대로 접두어로 갖고 뒤에 대안 문구만 붙으므로, 같은 항목 목록 안 다른
+    항목 이름이 접두어인지로 언어 무관하게 판단한다."""
+    name = item["name"]
+    return any(o is not item and o["name"] and name.startswith(o["name"]) for o in items)
+
+
+def _keywords(item: dict, items: list[dict], lang: str = "kor") -> set[str]:
     """항목의 name+body 문장에서 뽑은 내용어 — narration.srt 문장과 겹치는 단어를
     찾아 그 항목이 실제로 언급되는 구간을 잡는 근거로 쓴다. char_file 베이스 이름
     (예: 탄산음료)은 일러스트용 대표 명칭일 뿐 나레이션엔 그 단어 그대로 안 나오는
     경우가 많아서(예: "단 음료"라고만 씀) name/body 쪽이 훨씬 신뢰도 높다.
-    WHY '대신' 항목은 name을 아예 안 쓰는지: "튀김 대신"처럼 대안 항목 이름은
+    WHY 대안 항목은 name을 아예 안 쓰는지: "튀김 대신"처럼 대안 항목 이름은
     원인 항목 이름("기름진 튀김·가공식품")의 단어를 그대로 재사용해서, name까지
     키워드로 넣으면 원인 문단에서 대안 항목이 잘못 잡힌다(둘 다 "튀김" 매치) —
     대안 항목은 body(실제로 그 대안 식품을 설명하는 문장)만 신뢰한다."""
-    text = " ".join(item["body"]) if "대신" in item["name"] else item["name"] + " " + " ".join(item["body"])
-    return {w for w in _WORD_RE.findall(text) if len(w) >= 2}
+    text = " ".join(item["body"]) if _is_alt_item(item, items) else item["name"] + " " + " ".join(item["body"])
+    stopwords = _STOPWORDS_BY_LANG.get(lang, set())
+    return {w for w in _WORD_RE.findall(text) if len(w) >= 2 and w.lower() not in stopwords}
 
 
 def _group_by_paragraph(narration_txt: str, srt_entries: list[tuple[float, float, str]]):
@@ -153,7 +247,12 @@ def _group_by_paragraph(narration_txt: str, srt_entries: list[tuple[float, float
     return [g for g in groups if g]
 
 
-def build_motion_schedule(items: list[dict], srt_entries: list[tuple[float, float, str]], narration_txt: str):
+def build_motion_schedule(
+    items: list[dict],
+    srt_entries: list[tuple[float, float, str]],
+    narration_txt: str,
+    lang: str = "kor",
+):
     """narration.txt 문단 단위로 각 항목의 name/body 키워드 겹침 점수를 매겨 어느
     항목이 그 문단에 해당하는지 정한다(문장 단위로 하면 도입부 훅 문장이 뒷부분
     품목명을 미리 한 번 언급하는 것만으로 엉뚱하게 일찍 전환되는 문제가 있었다 —
@@ -161,8 +260,18 @@ def build_motion_schedule(items: list[dict], srt_entries: list[tuple[float, floa
     문단에 여러 항목이 걸리면(마무리 문단에서 대안들을 한 번에 나열하는 경우 등)
     문단 내 키워드 등장 위치 비율로 시간을 비례 배분한다 — 정확한 원본 타이밍
     기록이 없어서 택한 근사치다."""
-    keyword_sets = [_keywords(it) for it in items]
+    keyword_sets = [_keywords(it, items, lang) for it in items]
     names = [_char_name(it["char_file"]) for it in items]
+    # WHY item["name"]도 매치 후보로 추가하는지(2026-08-03 버그 수정, en_heartburn_1
+    # 재생성 로그에서 실제 확인): names는 char_file 파생 내부 식별자라 한국어다 —
+    # 번역된 나레이션(영어 등)엔 절대 등장하지 않아 name_hit(가중치 10, 가장 강한
+    # 신호)이 비한국어 topic에서 항상 죽어있었다. item["name"]은 이미 언어별로
+    # 번역돼 있어 훨씬 강한 신호지만, 대안 항목("Coffee — try this instead")은
+    # 꼬리표가 붙어 나레이션과 그대로 안 겹치고 원인 항목 이름과도 겹쳐 혼선을
+    # 주므로(원인 문단에서 대안 항목이 잘못 잡힘) 대안 항목은 이 보조 신호에서
+    # 제외한다 — 대안 항목은 기존처럼 names(char_file 이름)만으로 판단.
+    alt_flags = [_is_alt_item(it, items) for it in items]
+    match_names = [None if alt_flags[i] else it["name"] for i, it in enumerate(items)]
     n = len(items)
 
     para_groups = _group_by_paragraph(narration_txt, srt_entries)
@@ -184,7 +293,7 @@ def build_motion_schedule(items: list[dict], srt_entries: list[tuple[float, floa
         for idx in range(n):
             if idx in assigned:
                 continue
-            name_hit = names[idx] in full_text
+            name_hit = names[idx] in full_text or bool(match_names[idx]) and match_names[idx] in full_text
             body_hits = sum(1 for kw in keyword_sets[idx] if kw in full_text)
             score = (10 if name_hit else 0) + body_hits
             if score > 0:
@@ -206,10 +315,12 @@ def build_motion_schedule(items: list[dict], srt_entries: list[tuple[float, floa
         for score, idx in raw:
             if score < cutoff:
                 continue
-            name_hit = names[idx] in full_text
-            pos = full_text.find(names[idx]) if name_hit else min(
-                full_text.find(kw) for kw in keyword_sets[idx] if kw in full_text
-            )
+            if names[idx] in full_text:
+                pos = full_text.find(names[idx])
+            elif match_names[idx] and match_names[idx] in full_text:
+                pos = full_text.find(match_names[idx])
+            else:
+                pos = min(full_text.find(kw) for kw in keyword_sets[idx] if kw in full_text)
             scored.append((pos, score, idx))
         if not scored:
             continue
@@ -329,7 +440,7 @@ def derive(topic: str) -> dict:
         srt_entries = _parse_srt(str(srt))
         narration_txt = (ROOT / "data" / topic / "narration.txt").read_text()
         kwargs["motion_path"] = None
-        kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt)
+        kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
 
     return kwargs
