@@ -435,6 +435,12 @@ def upload_short(
     status_body = _build_status_body(privacy_status, publish_at)
 
     youtube = build("youtube", "v3", credentials=_get_credentials(lang))
+    # WHY defaultLanguage/defaultAudioLanguage를 명시로 넘기는지(2026-08-03, "영어로
+    # 된거 업로드했는데 미국 알고리즘에 뜨긴 뜨겠지?"): 이 필드가 없으면 유튜브가
+    # 제목·설명·오디오를 분석해서 언어를 추정해야 하는데, 새 채널의 첫 영상들처럼
+    # 아직 참고할 시청 데이터가 없는 시점엔 이 명시적 신호가 자동 추정보다 훨씬
+    # 빠르고 확실하게 언어권 시청자에게 노출시켜준다. `lang` 코드(en/ja/ko 등)는
+    # data/global_channels.json의 code와 동일한 ISO 639-1 계열이라 그대로 재사용.
     request = youtube.videos().insert(
         part="snippet,status",
         body={
@@ -443,6 +449,8 @@ def upload_short(
                 "description": description,
                 "tags": tags,
                 "categoryId": category_id,
+                "defaultLanguage": lang,
+                "defaultAudioLanguage": lang,
             },
             "status": status_body,
         },
