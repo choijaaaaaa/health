@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Chest burning after meals,",
+    "and something sour keeps coming up?",
+    "Foods That Trigger Heartburn"
+  ],
+  "eyebrow": "Acid Reflux Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "고추_illust.jpg": "Spicy",
+    "바질_illust.jpg": "Herbs",
+    "토마토_illust.jpg": "Tomato"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A loose muscle between your",
+        "stomach and esophagus",
+        "",
+        "lets stomach acid",
+        "push back up"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine relaxes that muscle",
+        "and boosts acid production",
+        "",
+        "Worse on an empty stomach"
+      ]
+    },
+    {
+      "name": "Coffee — try this instead",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Switch to decaf, or drink it",
+        "after a meal instead of before"
+      ]
+    },
+    {
+      "name": "Spicy food",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Nearly half of reflux sufferers",
+        "say spicy food makes it worse",
+        "",
+        "Capsaicin irritates the esophagus",
+        "going down, and slows digestion"
+      ]
+    },
+    {
+      "name": "Spicy food — try this instead",
+      "char_file": "바질_illust.jpg",
+      "body": [
+        "Swap hot sauce for milder herbs",
+        "like basil or oregano"
+      ]
+    },
+    {
+      "name": "Tomato sauce",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "Pizza, pasta, ketchup —",
+        "tomatoes are naturally acidic",
+        "",
+        "About 1 in 10 reflux sufferers",
+        "point to tomato dishes"
+      ]
+    },
+    {
+      "name": "Tomato sauce — try this instead",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "Look for a low-acid tomato sauce,",
+        "or stir in a pinch of baking soda",
+        "",
+        "It helps neutralize the acidity"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["None of these need to", "disappear completely"],
+      ["Just watch the timing", "and the portions"]
+    ],
+    "tip": [
+      "Pay attention to what your body",
+      "tells you after each meal"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
