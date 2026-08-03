@@ -400,47 +400,48 @@ Promise.all([
       doneWrap.style.display = n > 0 ? "block" : "none";
     }
 
-    // WHY t.topic.split("/")[0] 폴백을 "ko"에만 적용하는지(2026-08-03 버그 수정,
-    // "글로벌로 영역 넓혔으니까... 국가별로 업로드가 되었는지 확인이되어야할거같은데"
-    // 지적으로 발견): 원래 폴백은 마이그레이션 전 완료 기록("가슴쓰림_1", 한국어
-    // 작업 기준)을 리네임 후에도 그대로 인정하려는 목적이었는데, 언어 구분 없이
-    // 모든 언어에 적용해버려서 "가슴쓰림_1/en" 행도 "가슴쓰림_1"이 완료 목록에
-    // 있다는 이유만으로 완료·업로드된 것처럼(실제로는 영어 업로드 자체를 안 했는데)
-    // 잘못 표시되는 실제 버그가 있었다. 언어 세그먼트가 "ko"이거나 아예 없는(구
-    // 플랫 topic) 경우에만 폴백을 적용하고, 그 외 언어는 정확한 "<topic>/<lang>"
-    // 문자열이 완료 목록에 직접 있을 때만 완료로 인정한다 — 언어별로 실제 업로드
-    // 여부가 따로 보이도록 배지에도 언어 라벨을 붙인다.
+    // WHY topic당 행 하나로 묶는지(2026-08-03, "왜 ja, en 이걸 왜 하나씩 행을
+    // 추가하는데?? 한 세트로 하고 업로드 여부는 앞에 버튼을 따로따로 두는 형태로
+    // 가야지" 지적): 언어별로 topics.json 항목이 "가슴쓰림_1/en", "가슴쓰림_1/ja",
+    // "가슴쓰림_1/ko"처럼 따로 나뉘면서, 이전엔 이 셋을 각각 별도 행으로 그렸다 —
+    // topic이 많아질수록 같은 콘텐츠가 언어 수만큼 목록을 도배해서 찾기 어려워짐.
+    // 이제 "/" 앞부분(baseTopic) 기준으로 그룹핑해서 **한 topic = 한 행**으로
+    // 그리고, 언어별 완료 여부는 그 행 안의 작은 배지(KO/EN/JA...)로 표시한다 —
+    // 배지 각각이 그 언어 대시보드로 바로 이동하는 링크를 겸한다.
+    const groups = new Map();
     topics.forEach(t => {
       const slashIdx = t.topic.indexOf("/");
       const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
-      const legacyFallbackOk = langSeg === null || langSeg === "ko";
-      const done = completed.has(t.topic) || (legacyFallbackOk && completed.has(baseTopic));
+      if (!groups.has(baseTopic)) groups.set(baseTopic, []);
+      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg });
+    });
+
+    groups.forEach((variants, baseTopic) => {
+      // WHY 대표 변형(primary)을 ko 우선으로 고르는지: 목록 제목·썸네일은 한
+      // 언어만 대표로 보여줘야 행이 안 복잡해지는데, 사용자가 한국어 화자라
+      // ko가 있으면 그게 가장 읽기 편하다 — ko가 없으면(글로벌 전용 topic)
+      // 그냥 첫 번째 변형을 쓴다.
+      const primary = variants.find(v => v.langSeg === "ko" || v.langSeg === null) || variants[0];
+      // WHY 완료(✅) 판정을 baseTopic 기준으로만 하는지: completed_topics.json은
+      // "콘텐츠 제작 전체 완료"를 topic 단위(언어 무관)로 기록하는 파일이라
+      // (위 "topic 완료 여부" 절 참고) 언어별로 나눠 볼 대상이 아니다 — 언어별
+      // 실제 업로드 여부는 아래 언어 배지가 따로 담당한다.
+      const done = completed.has(baseTopic) || variants.some(v => completed.has(v.topic));
+
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
 
       const badge = document.createElement("span");
       badge.textContent = done ? "✅" : "⬜";
-      badge.setAttribute("aria-label", t.topic + (done ? " 완료" : " 미완료"));
+      badge.setAttribute("aria-label", baseTopic + (done ? " 완료" : " 미완료"));
       badge.style.cssText = "width:18px;flex:0 0 auto;font-size:14px;line-height:1;";
-
-      const ytDone = youtubeDone.has(t.topic) || (legacyFallbackOk && youtubeDone.has(baseTopic));
-      const ytBadge = document.createElement("span");
-      const langLabel = langSeg ? langSeg.toUpperCase() + " " : "";
-      ytBadge.textContent = langLabel + (ytDone ? "YT ✓" : "YT");
-      ytBadge.style.cssText = "flex:0 0 auto;font-size:12px;font-weight:700;padding:2px 7px;border-radius:20px;"
-        + (ytDone
-          ? "background:#e53935;color:#fff;"
-          : "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;");
-      ytBadge.setAttribute("aria-label", t.topic + (ytDone ? " 유튜브 숏츠 업로드 완료" : " 유튜브 숏츠 미업로드"));
-      ytBadge.title = (langSeg ? `[${langSeg.toUpperCase()}] ` : "")
-        + (ytDone ? "유튜브 숏츠 업로드 완료(예약 게시 포함)" : "유튜브 숏츠 아직 업로드 안 됨");
 
       const thumb = document.createElement("div");
       thumb.style.cssText = "flex:0 0 auto;width:42px;height:52px;border-radius:6px;overflow:hidden;background:var(--bg-bottom);";
-      if (t.thumbnail) {
+      if (primary.thumbnail) {
         const img = document.createElement("img");
-        img.src = t.thumbnail;
+        img.src = primary.thumbnail;
         img.alt = "";
         img.loading = "lazy";
         img.style.cssText = "width:100%;height:100%;object-fit:cover;display:block;";
@@ -451,16 +452,38 @@ Promise.all([
       textWrap.style.cssText = "flex:1;min-width:0;";
 
       const a = document.createElement("a");
-      a.href = t.url;
-      a.textContent = t.topic;
+      a.href = primary.url;
+      a.textContent = baseTopic;
       a.style.cssText = "display:block;color:var(--ink);text-decoration:none;font-size:14px;font-weight:700;";
 
       const titleLine = document.createElement("div");
-      titleLine.textContent = t.title;
+      titleLine.textContent = primary.title;
       titleLine.style.cssText = "font-size:12px;color:var(--ink-soft);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;";
 
       textWrap.appendChild(a);
       textWrap.appendChild(titleLine);
+
+      // WHY 언어별 배지를 링크로도 겸하는지: 행 하나에 여러 언어가 묶여 있어서,
+      // 특정 언어 대시보드로 바로 가려면 그 언어 배지 자체가 이동 수단이어야
+      // 한다(대표 링크 하나만 있으면 다른 언어는 열 방법이 없어짐).
+      const langBadges = document.createElement("div");
+      langBadges.style.cssText = "display:flex;gap:4px;flex-wrap:wrap;flex:0 0 auto;";
+      variants.forEach(v => {
+        const langSeg = v.langSeg;
+        const legacyFallbackOk = langSeg === null || langSeg === "ko";
+        const ytDone = youtubeDone.has(v.topic) || (legacyFallbackOk && youtubeDone.has(baseTopic));
+        const pill = document.createElement("a");
+        pill.href = v.url;
+        pill.textContent = (langSeg ? langSeg.toUpperCase() : "KO") + (ytDone ? " ✓" : "");
+        pill.title = (langSeg ? `[${langSeg.toUpperCase()}] ` : "") + v.title
+          + (ytDone ? " — 유튜브 숏츠 업로드 완료(예약 게시 포함)" : " — 유튜브 숏츠 아직 업로드 안 됨");
+        pill.setAttribute("aria-label", v.topic + (ytDone ? " 유튜브 숏츠 업로드 완료" : " 유튜브 숏츠 미업로드"));
+        pill.style.cssText = "text-decoration:none;font-size:11px;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;"
+          + (ytDone
+            ? "background:#e53935;color:#fff;"
+            : "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.6;");
+        langBadges.appendChild(pill);
+      });
 
       if (done) {
         row.style.opacity = "0.45";
@@ -469,11 +492,11 @@ Promise.all([
       }
 
       row.appendChild(badge);
-      row.appendChild(ytBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
+      row.appendChild(langBadges);
       (done ? doneList : list).appendChild(row);
-      rows.push({ row, topic: t.topic });
+      rows.push({ row, topic: baseTopic });
     });
     refreshDoneWrap();
     document.getElementById("topicsSection").style.display = "block";
