@@ -223,35 +223,6 @@
       }
     ]
   },
-  "스웨덴어": {
-    "api_language": "swe",
-    "voices": [
-      {
-        "name": "Alessandra",
-        "actor_id": "tc_66178f0a3ed12f31b61c45fd"
-      },
-      {
-        "name": "Audrey",
-        "actor_id": "tc_67e38e6d4600650873ac157c"
-      },
-      {
-        "name": "Elise",
-        "actor_id": "tc_686dc45bbd6351e06ee64daf"
-      },
-      {
-        "name": "Lena",
-        "actor_id": "tc_64818747a6bcd7fe3f9614a7"
-      },
-      {
-        "name": "Manon",
-        "actor_id": "tc_64f97820ffc5b7a301bf119e"
-      },
-      {
-        "name": "Mateo",
-        "actor_id": "tc_64940730f061f1cd54991d1d"
-      }
-    ]
-  },
   "베트남어": {
     "api_language": "vie",
     "voices": [
