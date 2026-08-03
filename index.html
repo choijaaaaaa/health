@@ -473,20 +473,26 @@ Promise.all([
       // 언어들 모아보기" 두 갈래뿐이다. 한국 버튼은 기존 ko 대시보드로 그대로
       // 가고, Global 버튼은 이 topic의 언어별 유튜브·인스타 캡션을 모아둔
       // 새 global.html(lib/dashboard.py의 _generate_global_page가 생성)로 간다.
-      // WHY 버튼에도 업로드 완료 여부를 표시하는지(2026-08-03, "업로드 했다는걸
-      // 다른애들이나 나도 알수있도록 UI에서 표시될수있게"): 언어별 배지(KO/EN/JA
-      // ✓)를 버튼 2개로 합치면서 업로드 완료 표시가 같이 사라졌었다 — 버튼
-      // 자체에 체크 표시를 되살린다. 한국은 ko 하나뿐이라 단순 ✓, Global은
-      // 언어가 여러 개라 "몇 개 중 몇 개 완료"를 보여준다.
+      // WHY 버튼에 "YT ✓"라고 명시하는지(2026-08-03, "한국쪽 영상만 업로드되면
+      // 목록에서 체크가되어버리네? 근데 숏츠 유튜브에 올리는거랑 다른거
+      // 들어가는거랑 또 다른거라... 이거 둘다체크되면 완료로 쳐버리면 안돼
+      // 관리가안돼" 지적): 처음엔 그냥 "한국 ✓"였는데, 이 topic의 실제 완료
+      // 여부(카드뉴스+영상+캡션+모든 플랫폼 포스팅 전부 끝)는 행 왼쪽의
+      // ✅/⬜ 배지(completed_topics.json 기준)가 따로 담당하는데, 버튼의
+      // "✓"가 그것과 헷갈려서 "유튜브만 올렸는데 이 topic 전체가 끝난 것"처럼
+      // 잘못 보일 위험이 있었다. 유튜브 쇼츠 업로드(youtube_uploaded.json)와
+      // 다른 플랫폼 포스팅(posting_log.csv)·topic 전체 완료는 서로 다른
+      // 트래킹 파일이라 절대 섞으면 안 된다 — "YT"를 붙여서 이 체크가
+      // "유튜브 업로드만" 가리킨다는 걸 명시적으로 표시한다.
       const koVariant = variants.find(v => v.langSeg === "ko" || v.langSeg === null);
       const buttonWrap = document.createElement("div");
       buttonWrap.style.cssText = "display:flex;gap:8px;flex:0 0 auto;";
 
       const koBtn = document.createElement("a");
       const koDone = koVariant && (youtubeDone.has(koVariant.topic) || youtubeDone.has(baseTopic));
-      koBtn.textContent = "한국" + (koDone ? " ✓" : "");
+      koBtn.textContent = "한국" + (koDone ? " YT✓" : "");
       koBtn.setAttribute("aria-label", baseTopic + " 한국 플랫폼 페이지 열기"
-        + (koDone ? " (유튜브 업로드 완료)" : ""));
+        + (koDone ? " (유튜브 쇼츠만 업로드 완료 — 다른 플랫폼 포스팅과는 별개)" : ""));
       const koBtnBase = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;";
       if (koVariant) {
         koBtn.href = koVariant.url;
@@ -499,11 +505,11 @@ Promise.all([
       const globalDoneCount = globalVariants.filter(v => youtubeDone.has(v.topic)).length;
       const globalBtn = document.createElement("a");
       globalBtn.textContent = globalVariants.length
-        ? `Global ${globalDoneCount}/${globalVariants.length}`
+        ? `Global YT ${globalDoneCount}/${globalVariants.length}`
         : "Global";
       globalBtn.href = `output/${encodeURIComponent(baseTopic)}/global.html`;
       globalBtn.setAttribute("aria-label", baseTopic + " Global(언어별 유튜브·인스타) 페이지 열기"
-        + (globalVariants.length ? ` — 유튜브 업로드 ${globalDoneCount}/${globalVariants.length}개 완료` : ""));
+        + (globalVariants.length ? ` — 유튜브 쇼츠 업로드 ${globalDoneCount}/${globalVariants.length}개 완료(다른 플랫폼 포스팅과는 별개)` : ""));
       globalBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--gold);color:#fff;";
 
       buttonWrap.appendChild(koBtn);
