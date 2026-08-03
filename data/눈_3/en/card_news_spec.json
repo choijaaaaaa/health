@@ -1,0 +1,97 @@
+{
+  "title": [
+    "Those dark circles under your eyes -",
+    "sleep isn't always the reason",
+    "Everyday Drinks & Snacks Behind Dark Circles"
+  ],
+  "eyebrow": "Dark Circle Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Dark Circles",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "맥주_illust.jpg": "Alcohol",
+    "감자칩_illust.jpg": "Salty Snacks"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Skin under your eyes is",
+        "some of the thinnest on your body",
+        "",
+        "Blood vessels underneath",
+        "show right through it"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine acts as a diuretic,",
+        "pulling water from that thin skin",
+        "",
+        "That makes the vessels",
+        "underneath stand out more"
+      ]
+    },
+    {
+      "name": "Coffee — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Switch to decaf, or",
+        "add a glass of water alongside it"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Dehydrates you and dilates",
+        "those same under-eye vessels",
+        "",
+        "So they look darker and",
+        "more pooled the next morning"
+      ]
+    },
+    {
+      "name": "Alcohol — the fix",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Keep it to 1-2 drinks,",
+        "and drink water in between"
+      ]
+    },
+    {
+      "name": "Salty Snacks",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Chips and fries make your body",
+        "hold onto extra water",
+        "",
+        "That puffiness often shows up",
+        "first under your eyes"
+      ]
+    },
+    {
+      "name": "Salty Snacks — the fix",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Swap in unsalted nuts",
+        "or fresh fruit instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Dark circles are usually", "just thin skin plus fluid shifts"],
+      ["Cut back on these three,", "and they often look lighter"]
+    ],
+    "tip": [
+      "A full night's sleep and a cold",
+      "compress can help too"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
