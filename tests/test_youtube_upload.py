@@ -20,7 +20,10 @@ from lib.youtube_upload import (  # noqa: E402
     KST,
     _build_status_body,
     _category_from_topic,
+    _category_label,
+    _env_prefix,
     _extract_first_frame,
+    _lang_from_topic,
     _mark_youtube_uploaded,
     _next_daily_schedule,
     _parse_title_description,
@@ -46,6 +49,55 @@ def test_parse_title_description_happy_path():
 def test_parse_title_description_missing_marker_raises():
     with pytest.raises(ValueError):
         _parse_title_description("제목만 있고 구분자가 없는 캡션")
+
+
+def test_parse_title_description_english_caption():
+    caption = (
+        "Title: Why Your Thyroid Medication Might Not Be Working\n\n"
+        "Description:\n"
+        "Coffee, soy, and walnuts can interfere with absorption.\n\n"
+        "#Shorts #thyroid #healthtips"
+    )
+    title, description = _parse_title_description(caption, "en")
+    assert title == "Why Your Thyroid Medication Might Not Be Working"
+    assert description.startswith("Coffee, soy, and walnuts")
+    assert "#thyroid" in description
+
+
+def test_parse_title_description_japanese_caption():
+    caption = (
+        "タイトル: 食後に胸が焼けるのはなぜ？\n\n"
+        "説明:\n"
+        "アルコール・揚げ物・ラーメンに注意しましょう。\n\n"
+        "#Shorts #健康情報"
+    )
+    title, description = _parse_title_description(caption, "ja")
+    assert title == "食後に胸が焼けるのはなぜ？"
+    assert description.startswith("アルコール")
+
+
+@pytest.mark.parametrize(
+    "topic, lang, expected",
+    [
+        ("갑상선_1", "ko", "ko"),
+        ("갑상선_1/en", "en", "en"),
+        ("가슴쓰림_1/ja", "ja", "ja"),
+    ],
+)
+def test_lang_from_topic(topic, lang, expected):
+    assert _lang_from_topic(topic) == expected
+
+
+@pytest.mark.parametrize(
+    "channel, expected",
+    [
+        (None, "YOUTUBE_"),
+        ("en", "YOUTUBE_EN_"),
+        ("zh-TW", "YOUTUBE_ZH_TW_"),
+    ],
+)
+def test_env_prefix(channel, expected):
+    assert _env_prefix(channel) == expected
 
 
 def test_build_status_body_without_publish_at_uses_given_privacy():
@@ -77,6 +129,8 @@ def test_extract_first_frame_produces_readable_image(make_tiny_clip):
         ("다리쥐_3", "다리쥐"),
         ("60대_1", "60대"),
         ("가슴쓰림유발음식_1", "가슴쓰림유발음식"),
+        ("갑상선_1/en", "갑상선"),
+        ("가슴쓰림_1/ja", "가슴쓰림"),
     ],
 )
 def test_category_from_topic(topic, expected):
@@ -85,6 +139,36 @@ def test_category_from_topic(topic, expected):
 
 def test_playlist_title_for_category_is_descriptive():
     assert _playlist_title_for_category("눈") == "건강정보 - 눈"
+
+
+def test_playlist_title_for_category_uses_language_prefix():
+    assert _playlist_title_for_category("Thyroid", "en") == "Health Info - Thyroid"
+    assert _playlist_title_for_category("胸焼け", "ja") == "健康情報 - 胸焼け"
+
+
+def test_category_label_ko_uses_topic_folder_name():
+    assert _category_label("갑상선_1", "ko") == "갑상선"
+
+
+def test_category_label_reads_topic_word_from_spec(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    spec_dir = tmp_path / "data" / "갑상선_1" / "en"
+    spec_dir.mkdir(parents=True)
+    (spec_dir / "card_news_spec.json").write_text(json.dumps({"topic_word": "Thyroid"}), encoding="utf-8")
+    assert _category_label("갑상선_1/en", "en") == "Thyroid"
+
+
+def test_category_label_missing_topic_word_returns_none(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    spec_dir = tmp_path / "data" / "가슴쓰림_1" / "ja"
+    spec_dir.mkdir(parents=True)
+    (spec_dir / "card_news_spec.json").write_text(json.dumps({"eyebrow": "健康情報"}), encoding="utf-8")
+    assert _category_label("가슴쓰림_1/ja", "ja") is None
+
+
+def test_category_label_missing_spec_file_returns_none(tmp_path, monkeypatch):
+    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    assert _category_label("어떤주제_1/ja", "ja") is None
 
 
 # WHY(2026-08-02): "완성된 콘텐츠 목록에서 유튜브 숏츠"만" 완료되었는지를 해당

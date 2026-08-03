@@ -24,13 +24,12 @@ from dotenv import load_dotenv
 from google_auth_oauthlib.flow import InstalledAppFlow
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-from lib.youtube_upload import SCOPES  # noqa: E402 — WHY: 스코프를 한 곳(youtube_upload.py)에서만 관리해 둘이 어긋나는 걸 방지
+# WHY _env_prefix도 여기서 import하는지(2026-08-03): youtube_upload.py도 채널별
+# 자격증명을 읽어야 해서 같은 로직이 필요해졌다 — SCOPES와 같은 이유로 한 곳에서만
+# 관리해 두 파일이 어긋나는 걸 방지.
+from lib.youtube_upload import SCOPES, _env_prefix  # noqa: E402
 
 load_dotenv()
-
-
-def _env_prefix(channel: str | None) -> str:
-    return f"YOUTUBE_{channel.upper().replace('-', '_')}_" if channel else "YOUTUBE_"
 
 
 def main() -> None:
