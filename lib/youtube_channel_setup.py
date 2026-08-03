@@ -12,13 +12,27 @@ from __future__ import annotations
 
 import os
 import sys
+from pathlib import Path
 
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
+from googleapiclient.http import MediaFileUpload
 
 load_dotenv()
+
+ROOT = Path(__file__).resolve().parent.parent
+# WHY assets_library/channel_banners/(2026-08-03): 배너 이미지는 디자인 작업이라
+# API가 만들 수 없다(위 파일 헤더 WHY 참고) — 사람이 이미지를 여기 넣어두면 그
+# 파일을 그대로 업로드해서 채널에 붙인다. "<채널코드>.jpg"가 있으면 그 채널
+# 전용 배너를 쓰고, 없으면 "default.jpg"로 폴백한다 — 지금 있는 health.jpeg처럼
+# 텍스트 없는 범용 이미지는 언어 구분 없이 모든 채널에 그대로 재사용 가능하므로
+# (CLAUDE.md "언어마다 독립적으로 리서치" 원칙은 글로 쓰는 콘텐츠 얘기고, 텍스트
+# 없는 배경 사진엔 적용되지 않음) 채널마다 매번 새로 만들 필요 없다. 나중에 특정
+# 채널만 다른 배너를 쓰고 싶으면 그 채널 코드로 파일만 추가하면 된다.
+BANNER_DIR = ROOT / "assets_library" / "channel_banners"
+BANNER_EXTENSIONS = ("jpg", "jpeg", "png")
 
 # WHY 언어별로 완전히 새로 쓰는지(번역 아님): CLAUDE.md "글로벌 확장 준비" 절의
 # "번역 금지, 언어권마다 독립적으로" 원칙과 같은 이유 — 어투·이모지 사용 습관이
@@ -61,6 +75,17 @@ def _get_credentials(channel: str) -> Credentials:
     return creds
 
 
+def _resolve_banner_path(channel: str) -> Path | None:
+    """<채널코드>.{jpg,jpeg,png}가 있으면 그걸, 없으면 default.{jpg,jpeg,png}를
+    찾는다. 둘 다 없으면 None(배너 설정을 건너뜀)."""
+    for name in (channel, "default"):
+        for ext in BANNER_EXTENSIONS:
+            path = BANNER_DIR / f"{name}.{ext}"
+            if path.exists():
+                return path
+    return None
+
+
 def setup_channel(channel: str) -> None:
     meta = CHANNEL_META[channel]
     youtube = build("youtube", "v3", credentials=_get_credentials(channel))
@@ -71,6 +96,16 @@ def setup_channel(channel: str) -> None:
     branding["channel"]["keywords"] = meta["keywords"]
     branding["channel"]["country"] = meta["country"]
     branding["channel"]["defaultLanguage"] = meta["default_language"]
+
+    banner_path = _resolve_banner_path(channel)
+    if banner_path is not None:
+        banner_response = youtube.channelBanners().insert(
+            media_body=MediaFileUpload(str(banner_path), mimetype="image/jpeg" if banner_path.suffix != ".png" else "image/png"),
+        ).execute()
+        branding.setdefault("image", {})["bannerExternalUrl"] = banner_response["url"]
+        print(f"[youtube_channel_setup] 배너 이미지 적용: {banner_path.name}")
+    else:
+        print(f"[youtube_channel_setup] ⚠️ {channel}: 배너 이미지 없음(assets_library/channel_banners/) — 건너뜀")
 
     youtube.channels().update(
         part="brandingSettings",
