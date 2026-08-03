@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Still tired and puffy even though",
+    "you take your thyroid pill daily?",
+    "Foods That Block Your Thyroid Medication"
+  ],
+  "eyebrow": "Thyroid Med Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "두유_illust.jpg": "Soy Milk",
+    "호두_illust.jpg": "Walnuts"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Levothyroxine needs an empty",
+        "stomach to fully absorb",
+        "",
+        "Certain foods can bind to it",
+        "before your body gets the dose"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Can cut absorption by up to 30%",
+        "when taken too close to your pill",
+        "",
+        "Even a small cup counts"
+      ]
+    },
+    {
+      "name": "Coffee — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Wait 30–60 minutes after your pill",
+        "before your first sip"
+      ]
+    },
+    {
+      "name": "Soy Milk & Tofu",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Binds to levothyroxine in your gut",
+        "and blocks a lot of it",
+        "",
+        "Even a soy latte can do it"
+      ]
+    },
+    {
+      "name": "Soy — the fix",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Keep soy at least 4 hours",
+        "away from your dose"
+      ]
+    },
+    {
+      "name": "Walnuts",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "The fiber and compounds bind",
+        "to the medication",
+        "",
+        "Same effect, snack or breakfast"
+      ]
+    },
+    {
+      "name": "Walnuts — the fix",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Give it 4 hours between your",
+        "pill and a handful of walnuts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["None of this means", "giving these up for good"],
+      ["It's really just about", "timing"]
+    ],
+    "tip": [
+      "Take your pill on an empty stomach first thing,",
+      "then give it that window before anything else"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
