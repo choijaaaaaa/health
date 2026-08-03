@@ -1811,11 +1811,22 @@ AppleSDGothicNeo.ttc` macOS 시스템 폰트)는 한국어+기본 라틴만 지�
   인스턴스를 `fontTools.varLib.instancer`로 정적 추출) — 영어·스페인어·포르투갈어·
   프랑스어·독일어·스웨덴어·베트남어(까다로운 결합 성조 부호 포함)·인도네시아어·
   터키어 **라틴 문자권 9개 언어 전부 글리프 커버리지 확인 완료**.
-- ⚠️ **비라틴 스크립트(아랍어·벵골어·힌디어·태국어·일본어)는 아직 폰트 미해결** —
-  아랍어는 오른쪽에서 왼쪽으로 쓰는 RTL이라 PIL 기본 텍스트 렌더링으로 안 되고
-  별도 셰이핑/양방향 처리(예: `arabic-reshaper` + `python-bidi`)가 필요함. 나머지도
-  각 스크립트 전용 폰트(Noto Sans Arabic/Bengali/Devanagari/Thai, Noto Sans JP 등)를
-  따로 받아야 함 — 아직 작업 안 됨, 다음 우선순위.
+- **비라틴 스크립트 폰트도 완료(2026-08-03)** — 스크립트별 Noto Sans 계열을 같은
+  방식(가변 폰트 → `wght=700` 정적 Bold 추출)으로 소싱:
+  - `NotoSansArabic-Bold.ttf`(아랍어), `NotoSansBengali-Bold.ttf`(벵골어),
+    `NotoSansDevanagari-Bold.ttf`(힌디어), `NotoSansThai-Bold.ttf`(태국어),
+    `NotoSansJP-Bold.ttf`(일본어), `NotoSansTC-Bold.ttf`(대만어) — 전부 각
+    `OFL-NotoSans<Script>.txt` 라이선스 동봉
+  - 러시아어(키릴 문자)는 이미 `NotoSans-Bold.ttf`가 커버함("latin-greek-cyrillic"
+    통합 폰트라 별도 폰트 불필요 — `fontTools`로 확인)
+  - ⚠️ **아랍어는 RTL인데 시스템에 raqm이 없다**(`PIL.features.check("raqm")` →
+    `False`) — 그런데도 실제 렌더링 테스트(글자 이어짐꼴, 아랍어+라틴 숫자 혼합
+    문장의 양방향 배치)가 육안으로는 정상으로 보였다. 원인은 확인 안 했고(freetype
+    자체가 일부 GSUB을 처리하는 것으로 추정), **완벽하다고 단정하지 말고 실제
+    아랍어 원어민 스팟체크 때 이 부분도 같이 확인할 것** — 필요하면
+    `arabic-reshaper` + `python-bidi`를 나중에 추가로 넣을 수 있음.
+  - 벵골어·힌디어(데바나가리)·태국어는 결합 문자(conjunct)·성조 부호 위치까지
+    포함해서 렌더링 테스트 육안 확인함(자소 분리 없이 정상 결합됨).
 - 실제 렌더링 함수(`card_news.py`/`video_assembler.py`의 `FONT_PATH`/`CHALK_FONT_PATH`)에
   언어별 폰트를 선택하는 로직은 아직 연결 안 됨 — 폰트 파일 소싱·커버리지 검증까지만
   끝난 상태, 실제 다국어 파이프라인 코드 통합은 별도 작업.
