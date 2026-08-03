@@ -1,0 +1,96 @@
+{
+  "title": [
+    "Blurry, glare-heavy night vision",
+    "and dry, gritty eyes?",
+    "The Everyday Habits Hurting Your Eyes"
+  ],
+  "eyebrow": "Eye Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Vision",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda",
+    "케일_illust.jpg": "Kale",
+    "라면_illust.jpg": "Fried Food",
+    "연어_illust.jpg": "Salmon",
+    "스마트폰_illust.jpg": "Phone"
+  },
+  "items": [
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "It spikes your blood sugar,",
+        "",
+        "and the byproducts that build up",
+        "are linked to cataracts",
+        "and macular degeneration"
+      ]
+    },
+    {
+      "name": "Cut back, and add this",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Add lutein-rich kale",
+        "to your plate",
+        "",
+        "It has about 25 times more",
+        "of that pigment than carrots do"
+      ]
+    },
+    {
+      "name": "Fried & processed food",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "A U.S. study tracking people",
+        "for 18 years found this pattern",
+        "",
+        "tripled the risk of",
+        "late-stage macular degeneration"
+      ]
+    },
+    {
+      "name": "Cut back, and add this too",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Add salmon",
+        "to your plate",
+        "",
+        "Its omega-3s are linked to",
+        "slower disease progression"
+      ]
+    },
+    {
+      "name": "Late-night phone scrolling",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Screen time in the dark cuts",
+        "your blink rate from 20 a minute",
+        "to under 8",
+        "",
+        "raising your dry eye risk"
+      ]
+    },
+    {
+      "name": "Try this habit instead",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "The 20-20-20 rule:",
+        "every 20 minutes, look at",
+        "something 20 feet away",
+        "for 20 seconds"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Macular damage is", "hard to reverse"],
+      ["So start with what you eat", "and how you scroll"]
+    ],
+    "tip": [
+      "Cut back on soda and fried food,",
+      "add kale and salmon, try 20-20-20"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
