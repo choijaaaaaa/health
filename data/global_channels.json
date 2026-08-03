@@ -1,146 +1,146 @@
 {
   "한국어": {
     "code": "ko",
-    "gcp_project_id": null,
-    "brand_account_created": false,
+    "gcp_project_id": "worthitshopping-ko",
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping"
   },
   "영어": {
     "code": "en",
-    "gcp_project_id": null,
-    "brand_account_created": false,
+    "gcp_project_id": "worthitshopping-en",
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_en"
   },
   "일본어": {
     "code": "ja",
-    "gcp_project_id": null,
-    "brand_account_created": false,
+    "gcp_project_id": "worthitshopping-ja",
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_ja"
   },
   "대만어": {
     "code": "zh-TW",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_zh-tw"
   },
   "스페인어": {
     "code": "es",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_es"
   },
   "포르투갈어": {
     "code": "pt",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_pt"
   },
   "프랑스어": {
     "code": "fr",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_fr"
   },
   "독일어": {
     "code": "de",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_de"
   },
   "러시아어": {
     "code": "ru",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_ru"
   },
   "베트남어": {
     "code": "vi",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_vi"
   },
   "아랍어": {
     "code": "ar",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_ar"
   },
   "벵골어": {
     "code": "bn",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_bn"
   },
   "터키어": {
     "code": "tr",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_tr"
   },
   "태국어": {
     "code": "th",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_th"
   },
   "인도네시아어": {
     "code": "id",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_id"
   },
   "힌디어": {
     "code": "hi",
     "gcp_project_id": null,
-    "brand_account_created": false,
+    "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
     "refresh_token_issued": false,
-    "channel_url": null
+    "channel_url": "https://www.youtube.com/@worthitshopping_hi"
   }
 }
