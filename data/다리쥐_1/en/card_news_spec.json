@@ -1,0 +1,118 @@
+{
+  "title": [
+    "1 in 3 adults over 50 get",
+    "jolted awake by a leg cramp -",
+    "Foods That Drain Your Muscles at Night"
+  ],
+  "eyebrow": "Leg Cramp Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "LegCramps",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "맥주_illust.jpg": "Alcohol",
+    "가공육_illust.jpg": "Processed Food"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Muscles need magnesium,",
+        "potassium, and calcium",
+        "to relax properly",
+        "",
+        "Running low on these makes",
+        "them fire off cramps easily"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine ramps up how much",
+        "calcium and magnesium you",
+        "flush out through urine",
+        "",
+        "One study found it nearly",
+        "doubled calcium loss within",
+        "a few hours of that cup"
+      ]
+    },
+    {
+      "name": "Coffee - try this instead",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Keep your last cup earlier",
+        "in the day",
+        "",
+        "Switch to decaf or herbal tea",
+        "after lunch instead"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alcohol is a diuretic too",
+        "and drains magnesium and",
+        "calcium even faster",
+        "",
+        "Worse when that drink lands",
+        "right before bed"
+      ]
+    },
+    {
+      "name": "Alcohol - try this instead",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Match every drink with a",
+        "glass of water",
+        "",
+        "Stop at least 3 to 4 hours",
+        "before you turn in"
+      ]
+    },
+    {
+      "name": "Processed food",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Chips and deli meat pile",
+        "on sodium, throwing off",
+        "your whole electrolyte balance",
+        "",
+        "That makes muscles more",
+        "likely to seize up"
+      ]
+    },
+    {
+      "name": "Processed food - try this instead",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Swap salty chips for",
+        "unsalted nuts, and deli meat",
+        "for grilled chicken or tofu",
+        "",
+        "Add potassium-rich bananas",
+        "and spinach to rebalance"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nighttime leg cramps are often",
+        "linked to an electrolyte imbalance"
+      ],
+      [
+        "Watching your coffee, alcohol,",
+        "and salty foods may help ease it up"
+      ]
+    ],
+    "tip": [
+      "A glass of water and a light calf",
+      "stretch before bed can help too"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
