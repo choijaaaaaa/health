@@ -1957,10 +1957,40 @@ def make_gradient_bg(out_path: Path, top=(253, 249, 245), bottom=(246, 237, 230)
 
 
 CHALKBOARD_PHOTO_PATH = str(Path(__file__).resolve().parent.parent / "assets_library" / "backgrounds" / "칠판.png")
+_BACKGROUNDS_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "backgrounds"
+# WHY 칠판 색상 변형 풀(2026-08-03, 글로벌 확장 대비 "칠판 색상도 색상인데
+# 프레임 색상같은것도 변형을 주는 부분이 될 수 있겠고"): 원본 칠판.png 사진을
+# 그대로 색상(HSV hue)만 리컬러해서 만든 변형들 — 캐릭터 배경색 리컬러
+# (gemini_illust.recolor_background)와 같은 원리로, **좌표(크롭·트레이·판서면
+# 위치)는 전부 그대로 재사용 가능**하다(사진 구도 자체는 안 바뀌고 색만 바뀌므로).
+# Gemini로 완전히 새 사진을 생성하지 않은 이유도 이것 — 새 사진마다 구도가
+# 달라지면 CHALKBOARD_CROP_LEFT/RIGHT 등 실측 좌표를 매번 다시 재야 한다.
+# ⚠️ 흰색 프레임 조합은 제외함 — 아래 board_alpha 로직이 "RGB 전부 225 이상이면
+# 배경으로 간주해 투명 처리"하는 흰색 키잉을 쓰는데, 프레임을 흰색으로 칠하면
+# 프레임 자체가 투명 처리돼서 뒤쪽 실사진이 비쳐 보이는 사고가 난다.
+CHALKBOARD_VARIANTS = [
+    CHALKBOARD_PHOTO_PATH,  # 원본(초록 판서면 + 밝은 나무 프레임)
+    str(_BACKGROUNDS_DIR / "칠판_검정_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_검정_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_진초록_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_진초록_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_남색_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_초록_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_초록_검정.png"),
+]
+
+
+def pick_chalkboard_variant(seed: str) -> str:
+    """topic별 seed로 결정적 랜덤 선택 — 같은 topic을 재조립해도 매번 같은 색
+    조합이 나오게 한다(_place_chalk_doodle과 같은 패턴)."""
+    return random.Random(seed).choice(CHALKBOARD_VARIANTS)
+
+
 # WHY 실측 좌표를 상수로 고정(2026-08-02): 실물 칠판 사진(assets_library/backgrounds/
 # 칠판.png, 1024x1024)의 좌우 흰 여백을 나무 프레임 가장자리까지 잘라내기 위해
 # 픽셀을 직접 스캔해서 찾은 값 — "나무 프레임이 가로 폭에 딱맞게" 요청 반영.
-# 이 배경 이미지 자체를 바꾸지 않는 한 다시 측정할 필요 없음.
+# 이 배경 이미지 자체를 바꾸지 않는 한 다시 측정할 필요 없음. ⚠️ 이 좌표는 색상
+# 변형(CHALKBOARD_VARIANTS)에도 그대로 적용됨 — 사진 구도가 동일하기 때문.
 CHALKBOARD_CROP_LEFT = 65
 CHALKBOARD_CROP_RIGHT = 962
 # WHY CHALKBOARD_ZOOM(2026-08-02, "가로는 완전 꽉차게 더 크게... 위아래로 더 키워서
@@ -2005,7 +2035,8 @@ def _chalkboard_display_height() -> int:
 
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
                           photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
-                          doodle_seed: str | None = None, doodle_skip_right: bool = False):
+                          doodle_seed: str | None = None, doodle_skip_right: bool = False,
+                          board_photo_path: str | None = None):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -2043,7 +2074,7 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
     낙서를 하나 얹어서 빈 배경이 휑해 보이는 걸 덜어낸다 — `_place_chalk_doodle`
     참고. 안 주면(기존 호출부·테스트 호환) 낙서 없이 그대로."""
     with tempfile.TemporaryDirectory() as tmp:
-        photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
+        photo = Image.open(board_photo_path or CHALKBOARD_PHOTO_PATH).convert("RGB")
         cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
         scale = (W / cropped.width) * CHALKBOARD_ZOOM
         resized = cropped.resize((round(cropped.width * scale), round(cropped.height * scale)))
@@ -2295,8 +2326,10 @@ def assemble(
 
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
+            board_seed = Path(out_path).stem
             _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
-                                  doodle_seed=Path(out_path).stem, doodle_skip_right=bool(item_schedule))
+                                  doodle_seed=board_seed, doodle_skip_right=bool(item_schedule),
+                                  board_photo_path=pick_chalkboard_variant(board_seed))
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
