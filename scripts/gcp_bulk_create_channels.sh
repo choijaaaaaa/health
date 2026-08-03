@@ -17,11 +17,11 @@
 #
 # 실행:
 #   ./scripts/gcp_bulk_create_channels.sh <프로젝트ID-접두사>
-#   예: ./scripts/gcp_bulk_create_channels.sh healthshorts
-#       → healthshorts-ko, healthshorts-en, healthshorts-ja ... 16개 생성
+#   예: ./scripts/gcp_bulk_create_channels.sh worthitshopping
+#       → worthitshopping-ko, worthitshopping-en, worthitshopping-ja ... 16개 생성
 set -euo pipefail
 
-PREFIX="${1:?사용법: $0 <프로젝트ID-접두사> (예: healthshorts)}"
+PREFIX="${1:?사용법: $0 <프로젝트ID-접두사> (예: worthitshopping)}"
 BILLING_ACCOUNT_ID="${BILLING_ACCOUNT_ID:-}"  # 비워두면 결제 연결은 건너뛰고 수동으로 안내
 ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CHANNELS_JSON="$ROOT_DIR/data/global_channels.json"
@@ -41,7 +41,30 @@ for name, v in d.items():
 echo "=== 생성 대상: $(echo "$codes" | wc -l | tr -d ' ')개 채널 ==="
 
 for code in $codes; do
-  project_id="${PREFIX}-${code}"
+  # WHY 이미 배정된 프로젝트가 있으면 통째로 건너뛰는지(2026-08-03, 한국어 채널
+  # 사례): 한국어는 새 worthitshopping-ko를 만들 필요 없이 이미 쓰고 있던 다른
+  # 프로젝트(Data Analysis)를 그대로 재사용하기로 했다 — 이 경우
+  # data/global_channels.json의 gcp_project_id가 "${PREFIX}-${code}" 패턴과
+  # 다른 값으로 이미 채워져 있으므로, 그 값이 있으면 새로 만들지 않고 건너뛴다
+  # (없으면 아래처럼 평소대로 생성).
+  existing=$(python3 -c "
+import json
+d = json.load(open('$CHANNELS_JSON'))
+for name, v in d.items():
+    if v['code'] == '$code':
+        print(v.get('gcp_project_id') or '')
+")
+  if [[ -n "$existing" ]]; then
+    echo ""
+    echo "--- $code: 이미 $existing 배정됨 — 새로 안 만들고 건너뜀 ---"
+    continue
+  fi
+
+  # WHY 소문자로 바꾸는지: GCP 프로젝트 ID는 소문자·숫자·하이픈만 허용하는데
+  # data/global_channels.json의 code는 "zh-TW"처럼 대문자가 섞인 경우가 있다
+  # (env var 접두사용 — lib/youtube_auth_setup.py에서 .upper()로 다시 씀).
+  # 트래킹 JSON의 code 자체는 원래 표기 그대로 두고, project_id 만들 때만 낮춘다.
+  project_id="${PREFIX}-$(echo "$code" | tr '[:upper:]' '[:lower:]')"
   echo ""
   echo "--- $project_id ---"
 

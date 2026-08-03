@@ -12,18 +12,18 @@
     "code": "en",
     "gcp_project_id": "worthitshopping-en",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
-    "oauth_production": false,
-    "refresh_token_issued": false,
+    "oauth_consent_configured": true,
+    "oauth_production": true,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_en"
   },
   "일본어": {
     "code": "ja",
     "gcp_project_id": "worthitshopping-ja",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
-    "oauth_production": false,
-    "refresh_token_issued": false,
+    "oauth_consent_configured": true,
+    "oauth_production": true,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_ja"
   },
   "대만어": {
