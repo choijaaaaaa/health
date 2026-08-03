@@ -15,7 +15,8 @@
     "oauth_consent_configured": true,
     "oauth_production": true,
     "refresh_token_issued": true,
-    "channel_url": "https://www.youtube.com/@worthitshopping_en"
+    "channel_url": "https://www.youtube.com/@worthitshopping_en",
+    "channel_meta_configured": true
   },
   "일본어": {
     "code": "ja",
@@ -24,7 +25,8 @@
     "oauth_consent_configured": true,
     "oauth_production": true,
     "refresh_token_issued": true,
-    "channel_url": "https://www.youtube.com/@worthitshopping_ja"
+    "channel_url": "https://www.youtube.com/@worthitshopping_ja",
+    "channel_meta_configured": true
   },
   "대만어": {
     "code": "zh-TW",

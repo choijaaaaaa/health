@@ -1921,6 +1921,22 @@ output/가슴쓰림_1/en/{...동일 구조...}
   미리 만드는 셈. 언어별 콘텐츠 리서치 파이프라인이 실제로 돌아가기
   시작하면 그때 다국어 업로드 오케스트레이션을 같이 설계할 것.
 
+### 채널 초기 세팅 — `lib/youtube_channel_setup.py` (2026-08-03)
+
+브랜드 계정으로 채널만 만들면 설명·키워드가 전부 빈 값(실측: en/ja 둘 다
+`description=""`, keywords 없음)이라 검색 노출에 불리하다 —
+`channels().update()`(part=brandingSettings)로 언어별 채널 설명·키워드·
+국가(country)·기본 언어(defaultLanguage)를 반영한다. `CHANNEL_META` 딕셔너리에
+언어별로 완전히 새로 쓴 카피(번역 아님, 한국어 채널 설명의 어투·이모지 스타일만
+참고)를 담아둠. 실행: `python3 -m lib.youtube_channel_setup <code>`.
+
+- en/ja 이미 적용 완료(`data/global_channels.json`의 `channel_meta_configured`)
+- ⚠️ **배너 이미지·외부 링크는 이 스크립트가 안 다룬다** — 배너는 이미지 업로드가
+  필요한 별도 디자인 작업, 외부 링크는 YouTube가 Studio 전용으로 옮기고 공개
+  API에서 뺀 지 오래라 API로 설정하는 방법이 없음(Studio에서 채널마다 직접).
+- 나머지 13개 채널은 quota 승인 → OAuth 발급 끝나는 대로 `CHANNEL_META`에
+  그 언어 항목 추가하고 같은 스크립트로 반영할 것.
+
 ### 원칙 — 언어마다 독립적으로 리서치 (번역 금지)
 
 같은 topic(예: 당뇨·관절)이어도 **원인 설명·해결책 음식·거기 쓰이는 실사진/일러스트까지
