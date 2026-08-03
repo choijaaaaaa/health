@@ -58,6 +58,37 @@ PLAYLIST_DESCRIPTION = {
     "ja": lambda c: f"{c}に関する健康情報まとめ",
 }
 
+# WHY 언어별 타겟 시장 현지 시간대(2026-08-03, "각 나라별 오후 6시 전후... 아침저녁"
+# 확정 — data/global_research_rules.md의 "1차 타겟 국가" 기준): 시청자가 실제로
+# 스크롤하는 로컬 시간에 맞춰야 의미가 있어서 UTC/KST 일괄이 아니라 언어마다
+# 다르게 잡는다. 미국처럼 여러 시간대에 걸친 나라는 인구 밀집 동부 기준
+# (America/New_York), 아랍어(MENA/걸프 공통)는 대표로 UAE 기준 — 특정 국가로
+# 좁혀지면 그때 조정할 것.
+LANGUAGE_TIMEZONES: dict[str, ZoneInfo] = {
+    "ko": KST,
+    "en": ZoneInfo("America/New_York"),
+    "ja": ZoneInfo("Asia/Tokyo"),
+    "zh-TW": ZoneInfo("Asia/Taipei"),
+    "es": ZoneInfo("America/Mexico_City"),
+    "pt": ZoneInfo("America/Sao_Paulo"),
+    "fr": ZoneInfo("Europe/Paris"),
+    "de": ZoneInfo("Europe/Berlin"),
+    "ru": ZoneInfo("Europe/Moscow"),
+    "vi": ZoneInfo("Asia/Ho_Chi_Minh"),
+    "ar": ZoneInfo("Asia/Dubai"),
+    "bn": ZoneInfo("Asia/Dhaka"),
+    "tr": ZoneInfo("Europe/Istanbul"),
+    "th": ZoneInfo("Asia/Bangkok"),
+    "id": ZoneInfo("Asia/Jakarta"),
+    "hi": ZoneInfo("Asia/Kolkata"),
+}
+# WHY 채널당 하루 2개, 현지 오전 10시·오후 6시(2026-08-03 최종 확정 — "일 1개가
+# 나을거같아 2개가 나을거간아" 고민 끝에 "걍 2개 ㄱㄱ" → "각 국가별 그 나라 시간의
+# 오전 10시, 오후 6시"로 시각까지 못박음): 계정 캐스케이드 리스크 발견 이후에도
+# 사용자가 최종적으로 2개/일을 선택함 — 채널 하나 기준 속도로는 여러 소스가
+# "3개/일 이상"을 위험 신호로 언급한 것보다 충분히 낮은 페이스.
+CHANNEL_DAILY_HOURS = (10, 18)
+
 
 def _env_prefix(channel: str | None) -> str:
     """WHY 이 함수를 여기서 관리하는지(2026-08-03, 다국어 업로드 오케스트레이션):
@@ -324,6 +355,77 @@ def _next_daily_schedule(n: int, hours: tuple[int, ...] = DAILY_UPLOAD_HOURS,
     ]
 
 
+def select_daily_topics_for_lang(lang: str, n: int) -> list[str]:
+    """select_daily_topics와 같은 로직(다른 플랫폼 이미 게시된 topic 우선, 나머지는
+    무작위)이지만 특정 언어(채널) 하나로 한정한다 — 채널마다 각자의 topic 풀에서
+    골라야 "언어당 하루 2개"가 성립한다(전체 topic 풀에서 통으로 뽑으면 그날 특정
+    채널엔 하나도 안 걸리는 일이 생김)."""
+    topics_path = ROOT / "output" / "topics.json"
+    all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
+    lang_topics = [t for t in all_topics if _lang_from_topic(t) == lang]
+    uploaded_path = ROOT / "output" / "youtube_uploaded.json"
+    uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
+    candidates = [t for t in lang_topics if t not in uploaded]
+
+    posted_elsewhere = _topics_posted_elsewhere()
+    priority = [t for t in candidates if t in posted_elsewhere]
+    rest = [t for t in candidates if t not in posted_elsewhere]
+    random.shuffle(rest)
+
+    selected = priority[:n]
+    if len(selected) < n:
+        selected += rest[: n - len(selected)]
+    return selected
+
+
+def _next_channel_schedule(lang: str, hours: tuple[int, ...] = CHANNEL_DAILY_HOURS,
+                            now: datetime | None = None) -> list[str]:
+    """_next_daily_schedule과 같은 패턴(첫 슬롯 지났으면 그날 배치 통째로 다음날로)
+    이지만, 시간대가 KST 고정이 아니라 LANGUAGE_TIMEZONES에서 그 언어의 타겟 시장
+    현지 시간대를 가져와 쓴다."""
+    tz = LANGUAGE_TIMEZONES.get(lang, KST)
+    now = now or datetime.now(tz)
+    base_date = now.date()
+    if now.hour >= hours[0]:
+        base_date += timedelta(days=1)
+    utc = ZoneInfo("UTC")
+    return [
+        datetime(base_date.year, base_date.month, base_date.day, h, 0, tzinfo=tz)
+        .astimezone(utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        for h in hours
+    ]
+
+
+def upload_daily_per_channel(langs: list[str] | None = None, privacy_status: str = "private") -> dict[str, list[dict]]:
+    """`python3 lib/youtube_upload.py --daily-per-channel` 진입점(2026-08-03, "각
+    국가별 그 나라 시간의 오전 10시, 오후 6시"로 채널당 하루 2개 확정). 채널
+    (언어)마다 독립적으로 topic을 골라 그 나라 현지 시간 10시/18시에 예약 게시한다.
+
+    WHY langs 언어별로 통째로 try/except(2026-08-03): 아직 자격증명이 발급 안 된
+    언어(신규 계정 발급 전)나 topic이 아직 없는 언어가 섞여 있어도, 그 언어 하나
+    실패했다고 나머지 이미 준비된 채널(ko/en 등)까지 전체가 멈추면 안 된다 —
+    언어별로 독립적으로 시도하고 실패는 개별적으로 보고한다."""
+    langs = langs or list(YOUTUBE_PLATFORM_NAMES.keys())
+    results: dict[str, list[dict]] = {}
+    for lang in langs:
+        try:
+            topics = select_daily_topics_for_lang(lang, len(CHANNEL_DAILY_HOURS))
+            if not topics:
+                print(f"[youtube_upload] [{lang}] 업로드할 topic 없음 — 건너뜀")
+                results[lang] = []
+                continue
+            schedule = _next_channel_schedule(lang, hours=CHANNEL_DAILY_HOURS[: len(topics)])
+            lang_results = []
+            for topic, publish_at in zip(topics, schedule):
+                print(f"[youtube_upload] [{lang}] {topic} → {publish_at} 예약 게시로 업로드")
+                lang_results.append(upload_short(topic, privacy_status=privacy_status, publish_at=publish_at))
+            results[lang] = lang_results
+        except Exception as e:
+            print(f"[youtube_upload] ⚠️ [{lang}] 실패, 다른 채널은 계속 진행: {e}")
+            results[lang] = []
+    return results
+
+
 def upload_daily_batch(privacy_status: str = "private") -> list[dict]:
     """`python3 lib/youtube_upload.py --daily-batch` 진입점(2026-08-02, "유튜브
     업로드는 내가 업로드 하라고 하면 API 찔러서 10시, 11시, 14시, 17시 이렇게
@@ -435,6 +537,9 @@ if __name__ == "__main__":
     if sys.argv[1:2] == ["--daily-batch"]:
         privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
         upload_daily_batch(privacy_status=privacy_arg)
+    elif sys.argv[1:2] == ["--daily-per-channel"]:
+        privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
+        upload_daily_per_channel(privacy_status=privacy_arg)
     else:
         topic_arg = sys.argv[1]
         privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
