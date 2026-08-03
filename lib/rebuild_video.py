@@ -23,6 +23,36 @@ ILLUST_DIR = ROOT / "assets_library" / "illust"
 MOTION_DIR = ROOT / "assets_library" / "motion"
 REAL_DIR = ROOT / "assets_library" / "real"
 
+# WHY 언어 코드 프리픽스로 topic의 언어를 감지하는지(2026-08-03 버그 수정,
+# "en_heartburn_1 다시 만들었더니 우상단 라벨/명패가 전부 한글로 나옴" 실제
+# 확인): assemble()은 lang="kor" 기본값이라 이 함수가 명시로 안 넘기면 항상
+# 한국어 취급된다 — video_assembler.py 쪽엔 lang별 명패 풀(_NAMEPLATE_POOL_EN
+# 등)·item_label_overrides 플러밍이 이미 만들어져 있었는데, 정작 이 함수(실제
+# 재생성에 쓰는 진입점)가 그 파라미터들을 계산해서 넘기질 않아서 기능이
+# "만들어져 있지만 연결 안 된" 상태였다. topic 폴더명이 "<langcode>_<topic>_<n>"
+# 규칙(예: en_heartburn_1)을 따른다는 걸 이용해 프리픽스로 감지한다 — 매칭
+# 안 되면(프리픽스 없음) 기존 한국어 topic 그대로 "kor".
+_GLOBAL_CHANNELS_PATH = ROOT / "data" / "global_channels.json"
+
+
+@lru_cache(maxsize=1)
+def _lang_codes() -> list[str]:
+    if not _GLOBAL_CHANNELS_PATH.exists():
+        return []
+    channels = json.loads(_GLOBAL_CHANNELS_PATH.read_text())
+    return [v["code"] for v in channels.values() if v.get("code") and v["code"] != "ko"]
+
+
+def _detect_lang(topic: str) -> str:
+    for code in _lang_codes():
+        if topic.startswith(f"{code}_"):
+            return code
+    return "kor"
+
+
+def _strip_lang_prefix(topic: str, lang: str) -> str:
+    return topic[len(lang) + 1:] if lang != "kor" and topic.startswith(f"{lang}_") else topic
+
 BG_CANDIDATES = [
     ("0x00FF00", (0, 255, 0)),
     ("0x0000FF", (0, 0, 255)),
@@ -219,6 +249,24 @@ def derive(topic: str) -> dict:
     srt = ROOT / "output" / topic / f"{topic}_narration.srt"
     out = ROOT / "output" / topic / f"{topic}_shorts.mp4"
 
+    # WHY 여기서 lang/item_label_overrides/topic_word를 계산하는지: 위 파일 상단
+    # WHY 참고 — assemble() 쪽 파라미터는 이미 있었지만 이 함수가 안 넘겨서 실제
+    # 재생성 결과물엔 한 번도 반영된 적이 없었다.
+    lang = _detect_lang(topic)
+    # WHY 최단 이름을 고르는지: 같은 char_file(캐릭터 그림)을 "원인" 항목과 "대안"
+    # 항목이 같이 재사용하는 경우(예: "Coffee"/"Coffee — try this instead")가 흔해서,
+    # 그냥 마지막 값으로 덮어쓰면 우상단 라벨에 "Coffee — try this instead"처럼 긴
+    # 문장이 그대로 뜬다 — 화면 라벨은 짧은 식별용 이름이어야 하므로 후보 중 가장
+    # 짧은 걸 쓴다(대개 수식어 없는 원재료명 하나만 남은 케이스).
+    item_label_overrides = None
+    if lang != "kor":
+        item_label_overrides = {}
+        for it in items:
+            key = _char_name(it["char_file"])
+            if key not in item_label_overrides or len(it["name"]) < len(item_label_overrides[key]):
+                item_label_overrides[key] = it["name"]
+    topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", topic), lang) if lang != "kor" else None
+
     distinct_chars = {it["char_file"] for it in items}
     kwargs = dict(
         images=None,
@@ -231,6 +279,9 @@ def derive(topic: str) -> dict:
         title_banner_photo_path=banner_photo,
         end_card_text=DEFAULT_END_CARD_TEXT,
         end_card_char_path=str(ILLUST_DIR / cover_char_file),
+        lang=lang,
+        item_label_overrides=item_label_overrides,
+        topic_word=topic_word,
     )
 
     if len(distinct_chars) == 1:

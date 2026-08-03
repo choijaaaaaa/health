@@ -545,7 +545,7 @@ function _buildLinkBlock(hasNaverButton) {{
     const products = [];
     document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => products.push(inp.dataset.product));
     if (products.length === 0) return "";
-    return "🔵 상품: " + products.join(", ") + "\\n\\n" + NAVER_DISCLOSURE;
+    return _withDisclosure("🔵 상품: " + products.join(", "), NAVER_DISCLOSURE);
   }}
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {{
@@ -553,7 +553,17 @@ function _buildLinkBlock(hasNaverButton) {{
     if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   }});
   if (lines.length === 0) return "";
-  return lines.join("\\n") + "\\n\\n" + COUPANG_DISCLOSURE;
+  return _withDisclosure(lines.join("\\n"), COUPANG_DISCLOSURE);
+}}
+
+// WHY 고지문구를 위·아래 둘 다 붙이는지(2026-08-03, "링크랑 수수료 받는다는 문구
+// 상단으로 올렸는데... 상단뿐만아니라 하단에도 같이넣어줘 여러번 말했었는데 아직
+// 대응이안된듯"): 표시광고 고지는 사람이 스크롤 안 해도 바로 보이게 글 맨 위에
+// 있어야 한다는 요구가 있었는데, 실제로는 이 함수들이 매번 고지문구를 맨 아래에만
+// 붙이고 있었다(요청은 있었지만 코드에 반영이 안 된 채로 남아있던 gap) — 위·아래
+// 둘 다 넣어서 어느 쪽에서 봐도 고지가 바로 보이게 한다.
+function _withDisclosure(text, disclosure) {{
+  return disclosure + "\\n\\n" + text + "\\n\\n" + disclosure;
 }}
 
 // WHY 원본 URL 대신 CTA 문장(2026-07-30/31): 인스타·틱톡은 캡션 속 URL이 클릭이

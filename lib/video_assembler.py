@@ -40,6 +40,61 @@ CHALK_FONT_PATH = str(Path(__file__).resolve().parent.parent / "assets_library" 
 CHALKBOARD_TOP = (32, 66, 48)
 CHALKBOARD_BOTTOM = (20, 42, 31)
 
+_FONTS_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "fonts"
+# WHY 언어별 CHALK_FONT 매핑(2026-08-03 버그 수정): "글로벌 확장 준비" 절에서
+# 언어별 폰트(NotoSans 계열)를 스크립트 글리프 커버리지까지 확인해서 이미
+# 소싱해뒀는데("실제 렌더링 함수의 FONT_PATH/CHALK_FONT_PATH에 언어별 폰트를
+# 선택하는 로직은 아직 연결 안 됨" — CLAUDE.md에 그대로 남아있던 gap), 실제
+# 렌더링 코드는 여전히 CHALK_FONT_PATH(한국어 Gaegu 폰트) 하나만 모든 언어에
+# 썼다 — 영어는 Gaegu에 라틴 글리프가 우연히 있어서 티가 안 났지만, 아랍어·
+# 벵골어·힌디어·태국어·일본어·대만어는 Gaegu에 해당 스크립트 글리프가 아예
+# 없어서 네모 박스(tofu)로 깨졌을 것. 언어 코드 → 폰트 파일 매핑 하나로
+# 해결한다. 러시아어(키릴)는 NotoSans-Bold.ttf가 이미 커버(위 "폰트" 절 참고).
+_CHALK_FONT_BY_LANG: dict[str, str] = {
+    "kor": CHALK_FONT_PATH,
+    "ar": str(_FONTS_DIR / "NotoSansArabic-Bold.ttf"),
+    "bn": str(_FONTS_DIR / "NotoSansBengali-Bold.ttf"),
+    "hi": str(_FONTS_DIR / "NotoSansDevanagari-Bold.ttf"),
+    "th": str(_FONTS_DIR / "NotoSansThai-Bold.ttf"),
+    "ja": str(_FONTS_DIR / "NotoSansJP-Bold.ttf"),
+    "zh-TW": str(_FONTS_DIR / "NotoSansTC-Bold.ttf"),
+}
+_CHALK_FONT_LATIN_CYRILLIC = str(_FONTS_DIR / "NotoSans-Bold.ttf")
+
+
+def _chalk_font_for_lang(lang: str) -> str:
+    """lang(예: "en", "ar", "kor")에 맞는 손글씨체 폰트 경로를 고른다 — 스크립트별
+    전용 폰트가 있으면 그걸 쓰고, 없으면(영어·스페인어·포르투갈어·프랑스어·독일어·
+    러시아어·베트남어·터키어·인도네시아어처럼 라틴/키릴 글리프면 충분한 언어) 공용
+    NotoSans-Bold.ttf로 폴백한다. 매핑에 없는 새 언어 코드가 들어와도 안전하게
+    라틴 폰트로 폴백 — 아예 죽는 것보다 latin-only 글꼴로라도 뜨는 게 낫다."""
+    return _CHALK_FONT_BY_LANG.get(lang, _CHALK_FONT_LATIN_CYRILLIC)
+
+
+# WHY FONT_PATH도 같은 문제(2026-08-03 버그 수정): 제목 카드(썸네일로도 쓰임)·
+# 상단 후킹 배너·구식 캡션 스타일이 전부 FONT_PATH(한국어 시스템 폰트
+# AppleSDGothicNeo.ttc)를 언어 무관하게 썼다. FONT_PATH는 .ttc(폰트 컬렉션)라
+# `index=6`으로 특정 웨이트를 골라 썼는데, 대체 폰트(NotoSans 등)는 단일 .ttf라
+# index가 항상 0이어야 한다 — (경로, index) 쌍으로 반환해서 이 차이를 호출부가
+# 신경 안 쓰게 한다.
+_TITLE_FONT_BY_LANG: dict[str, tuple[str, int]] = {
+    "kor": (FONT_PATH, 6),
+    "ar": (str(_FONTS_DIR / "NotoSansArabic-Bold.ttf"), 0),
+    "bn": (str(_FONTS_DIR / "NotoSansBengali-Bold.ttf"), 0),
+    "hi": (str(_FONTS_DIR / "NotoSansDevanagari-Bold.ttf"), 0),
+    "th": (str(_FONTS_DIR / "NotoSansThai-Bold.ttf"), 0),
+    "ja": (str(_FONTS_DIR / "NotoSansJP-Bold.ttf"), 0),
+    "zh-TW": (str(_FONTS_DIR / "NotoSansTC-Bold.ttf"), 0),
+}
+_TITLE_FONT_LATIN_CYRILLIC = (str(_FONTS_DIR / "NotoSans-Bold.ttf"), 0)
+
+
+def _title_font_for_lang(lang: str) -> tuple[str, int]:
+    """제목 카드·상단 배너·구식 캡션용 굵은 산세리프 폰트를 (경로, ttc index)
+    쌍으로 고른다 — `_chalk_font_for_lang`과 같은 매핑 원칙, FONT_PATH 전용으로
+    ttc index 처리만 다르다."""
+    return _TITLE_FONT_BY_LANG.get(lang, _TITLE_FONT_LATIN_CYRILLIC)
+
 
 def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     text = Path(srt_path).read_text()
@@ -133,7 +188,7 @@ def _cover_crop_subject(photo_path: str, out_w: int, out_h: int) -> Image.Image:
 
 
 def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | None = None,
-                     photo_img: Image.Image | None = None) -> int:
+                     photo_img: Image.Image | None = None, lang: str = "kor") -> int:
     """영상 상단을 가로로 꽉 채우는 후킹 배너. WHY: 작은 알약 모양 라벨은 존재감이
     약해서 스크롤 중 3초컷으로 넘어가는 문제를 못 막는다(2026-07-30 피드백) —
     화면 가로 전체를 덮는 굵은 배너로 바꾸고, 텍스트도 카테고리 라벨이 아니라
@@ -153,7 +208,8 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     만든 배경 이미지를 photo_img로 넘기면, 배너는 그 이미지의 위쪽 box_h만큼만
     잘라 쓴다(같은 사진·같은 배율의 연속된 한 조각). photo_img가 있으면 photo_path는
     무시한다."""
-    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
+    _fpath, _findex = _title_font_for_lang(lang)
+    font = ImageFont.truetype(_fpath, font_size, index=_findex)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     max_text_w = W - 140
@@ -207,7 +263,8 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     return box_h
 
 
-def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None):
+def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None,
+                          lang: str = "kor"):
     """영상 맨 앞에 붙는 단색 배경 + 큰 제목 카드. WHY: 플랫폼이 썸네일을 영상
     첫 프레임으로 자동 지정하는 경우가 많아서, 이 카드 자체를 그대로 썸네일로
     쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다.
@@ -225,7 +282,8 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
         char = char.crop((left, top, left + W, top + H))
         scrim = Image.new("RGBA", (W, H), (200, 74, 98, 150))
         img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
-    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
+    _fpath, _findex = _title_font_for_lang(lang)
+    font = ImageFont.truetype(_fpath, font_size, index=_findex)
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
     words, lines, cur = text.split(), [], ""
@@ -251,8 +309,9 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     img.save(out_path)
 
 
-def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
-    font = ImageFont.truetype(FONT_PATH, font_size, index=6)
+def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940, lang: str = "kor"):
+    _fpath, _findex = _title_font_for_lang(lang)
+    font = ImageFont.truetype(_fpath, font_size, index=_findex)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     words, lines, cur = text.split(), [], ""
@@ -288,12 +347,17 @@ def _make_caption_png(text: str, out_path: Path, font_size=60, max_width=940):
     img.save(out_path)
 
 
-def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=940):
+def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=940, lang: str = "kor"):
     """칠판 배경용 자막(2026-08-02). _make_caption_png와 달리 반투명 박스가 없다 —
     배경 자체가 이미 짙은 칠판색이라 박스를 얹으면 이중으로 어두워지고 사진 위에
     붙인 스티커 같은 느낌만 준다. 대신 Gaegu(분필/마카 느낌 폰트)로 흰 글자를
-    직접 쓰고, 옅은 그림자만 살짝 깔아서 배경 톤이 조금 밝은 부분에서도 읽히게 한다."""
-    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
+    직접 쓰고, 옅은 그림자만 살짝 깔아서 배경 톤이 조금 밝은 부분에서도 읽히게 한다.
+
+    WHY lang(2026-08-03 버그 수정): 이 함수가 실제 나레이션 자막(영상 전체에서
+    가장 자주, 가장 크게 뜨는 텍스트)을 그리는데 폰트가 CHALK_FONT_PATH(한국어
+    Gaegu) 고정이었다 — 비라틴 스크립트 언어는 자막 전체가 깨져(tofu) 보였을
+    것. `_chalk_font_for_lang`로 언어별 폰트를 고른다."""
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     words, lines, cur = text.split(), [], ""
@@ -336,7 +400,7 @@ def _make_chalk_caption_png(text: str, out_path: Path, font_size=68, max_width=9
 # 이름 라벨을 만든다 — 카드뉴스는 자체 함수가 따로 있어(캔버스 크기·색상 상수가
 # 다름) 그대로 import하지 않고 이 모듈 안에서 동일한 스타일을 재구현했다.
 def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
-                          icon_size: int = 108, font_size: int = 40) -> None:
+                          icon_size: int = 108, font_size: int = 40, lang: str = "kor") -> None:
     ring_w = 6
     pad = ring_w + 10
     icon_canvas = icon_size + pad * 2
@@ -375,7 +439,7 @@ def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
     if icon is not None:
         icon_img.paste(icon, (pad, pad), icon)
 
-    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
     dummy = Image.new("RGBA", (1, 1))
     d = ImageDraw.Draw(dummy)
     bbox = d.textbbox((0, 0), name, font=font)
@@ -1518,13 +1582,14 @@ _NAMEPLATE_POOL_EN = [
 ]
 
 
-def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False) -> Image.Image:
+def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False,
+                      lang: str = "kor") -> Image.Image:
     """분필체 글자를 사각 테두리로 감싼 작은 명패 — 주번/떠든 사람/급훈 액자가
     전부 이 틀을 재사용하고 테두리 스타일(단선/이중선)만 다르게 쓴다. WHY 여백을
     font_size에 비례하게 뒀는지(2026-08-02, "급훈처럼 넣어놓은거 크기도 좀 키우고
     글자 폰트도 키워야지"): 여백이 고정값이면 폰트만 키웠을 때 액자가 글자에
     비해 옹색해 보인다 — 폰트 크기에 비례한 여백으로 액자 전체가 같이 커지게 한다."""
-    font = ImageFont.truetype(CHALK_FONT_PATH, font_size)
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
     pad_x, pad_y = round(font_size * 0.5), round(font_size * 0.32)
     dummy = Image.new("RGBA", (1, 1))
     bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
@@ -1776,7 +1841,7 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     # 골격으로 안 보인다.
     if rng.random() < 0.7:
         motto_word = topic_word if topic_word is not None else _topic_word_from_seed(seed)
-        motto = _doodle_text_box(motto_word, font_size=48, double_border=True)
+        motto = _doodle_text_box(motto_word, font_size=48, double_border=True, lang=lang)
         canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
 
     # WHY 풀에서 0~2개를 뽑는지: 위 _NAMEPLATE_POOL 정의부 WHY 참고 — "떠든
@@ -1791,7 +1856,7 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     plates = []
     for fmt, name_count, font_size in chosen:
         names = ", ".join(_anon_name(rng, lang) for _ in range(name_count))
-        plates.append(_doodle_text_box(fmt.format(names), font_size=font_size))
+        plates.append(_doodle_text_box(fmt.format(names), font_size=font_size, lang=lang))
     # WHY min(...)인지: 원래는 green_bottom_canvas(판서면 실측 하단) 기준으로만
     # 붙였는데, 유튜브 쇼츠 플레이어의 채널명·설명 캡션 띠가 화면 맨 아래
     # _YT_SAFE_BOTTOM(320px)만큼을 항상 가려서 실기기에서는 이 명패 글자가
@@ -2074,7 +2139,8 @@ def _chalkboard_display_height() -> int:
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
                           photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
                           doodle_seed: str | None = None, doodle_skip_right: bool = False,
-                          board_photo_path: str | None = None, lang: str = "kor"):
+                          board_photo_path: str | None = None, lang: str = "kor",
+                          topic_word: str | None = None):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -2153,7 +2219,8 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
 
         if doodle_seed:
             canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad,
-                                          skip_right=doodle_skip_right, lang=lang).convert("RGB")
+                                          skip_right=doodle_skip_right, lang=lang,
+                                          topic_word=topic_word).convert("RGB")
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -2291,6 +2358,12 @@ def assemble(
     # topic에도 한글이 그대로 노출된다 — {파일명_stem: 표시할 라벨} 매핑을
     # 주면 오버라이드, 없으면(기존 한국어 topic 전부) 기존처럼 파일명 그대로.
     item_label_overrides: dict[str, str] | None = None,
+    # WHY topic_word(2026-08-03 버그 수정): "급훈" 액자는 doodle_seed(topic 폴더명)
+    # 에서 한국식 "카테고리_번호" 규칙으로 단어를 뽑는데(_topic_word_from_seed),
+    # 글로벌 topic 폴더명은 "en_heartburn_1"처럼 언어 코드 프리픽스가 붙어 있어서
+    # 그대로 쓰면 "en_heartburn"처럼 어색한 단어가 나온다 — 호출자가 이미 프리픽스
+    # 뗀 단어를 넘기면 그걸 그대로 쓰고, 안 주면(기존 한국어 topic 전부) 기존 동작.
+    topic_word: str | None = None,
 ):
     if not motion_path and not motion_schedule:
         raise ValueError("motion_path 또는 motion_schedule 중 하나는 필요합니다")
@@ -2358,7 +2431,8 @@ def assemble(
         # 제목 줄 수에 따라 달라지므로(1줄/2줄) 고정값 대신 실제 배너를 먼저 만들어서
         # 그 높이(title_h)를 칠판 배경 생성에 넘긴다.
         title_png = tmp_path / "title.png"
-        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path, photo_img=shared_bg_photo)
+        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path,
+                                   photo_img=shared_bg_photo, lang=lang)
 
         # WHY caption_center_y(2026-08-02, "글이 너무 아래로 쏠려있잖아 칠판 기준으로
         # 중앙으로 들어가게"): 기존엔 화면 하단 기준 고정 오프셋(-620)으로 자막을
@@ -2375,7 +2449,8 @@ def assemble(
             board_seed = Path(out_path).stem
             _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
                                   doodle_seed=board_seed, doodle_skip_right=bool(item_schedule),
-                                  board_photo_path=pick_chalkboard_variant(board_seed), lang=lang)
+                                  board_photo_path=pick_chalkboard_variant(board_seed), lang=lang,
+                                  topic_word=topic_word)
         elif image_schedule:
             _build_background_schedule(image_schedule, total_duration, bg)
         else:
@@ -2421,7 +2496,7 @@ def assemble(
         # 형태로 드러났다(수면음식_1에서 실제로 발견) — 캐릭터 1명짜리 영상에서도
         # 전체적인 자막/오디오 싱크가 미세하게 어긋나는 형태로 존재했을 가능성이 있다.
         title_card_png = tmp_path / "title_card.png"
-        _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path)
+        _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path, lang=lang)
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-r", str(FPS), "-i", str(title_card_png),
@@ -2435,7 +2510,7 @@ def assemble(
         if end_card_duration > 0:
             end_card_png = tmp_path / "end_card.png"
             _make_title_card_png(end_card_text or DEFAULT_END_CARD_TEXT, end_card_png,
-                                  char_path=end_card_char_path or title_card_char_path)
+                                  char_path=end_card_char_path or title_card_char_path, lang=lang)
             end_card_out = tmp_path / "end_card.mp4"
             subprocess.run(
                 ["ffmpeg", "-y", "-loop", "1", "-t", f"{end_card_duration}", "-r", str(FPS), "-i", str(end_card_png),
@@ -2509,7 +2584,7 @@ def assemble(
                 win = f"between(t\\,{seg_start_abs}\\,{seg_end_abs})"
 
                 label_png = tmp_path / f"label_seg_{i:03d}.png"
-                _make_item_label_png(item["illust"], item["name"], label_png)
+                _make_item_label_png(item["illust"], item["name"], label_png, lang=lang)
                 label_idx = _add_input(label_png)
                 nxt = f"vl{i}"
                 filter_parts.append(
@@ -2599,9 +2674,9 @@ def assemble(
             if text:
                 cap_png = cap_dir / f"cap_{i:04d}.png"
                 if bg_style == "chalkboard":
-                    _make_chalk_caption_png(text, cap_png)
+                    _make_chalk_caption_png(text, cap_png, lang=lang)
                 else:
-                    _make_caption_png(text, cap_png)
+                    _make_caption_png(text, cap_png, lang=lang)
                 cap_y_expr = (
                     f"{caption_center_y}-overlay_h/2" if caption_center_y is not None
                     else "main_h-overlay_h-620"
