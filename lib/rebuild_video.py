@@ -44,10 +44,31 @@ def _lang_codes() -> list[str]:
 
 
 def _detect_lang(topic: str) -> str:
+    # WHY "/" 먼저 확인(2026-08-03, 다른 세션이 <topic>/<lang>/ 중첩 구조로
+    # 재편함 — "가슴쓰림_1" 파일럿에서 실제 확인): 새 구조에선 topic 인자가
+    # "가슴쓰림_1/en"처럼 경로로 들어온다 — 마지막 세그먼트가 언어 코드와
+    # 정확히 일치하면(부분 프리픽스 매칭이 아니라 완전 일치) 그걸 쓴다. 옛
+    # 플랫 프리픽스 규칙("en_heartburn_1")도 하위호환으로 계속 지원.
+    if "/" in topic:
+        last = topic.rsplit("/", 1)[-1]
+        if last == "ko" or last in _lang_codes():
+            return "kor" if last == "ko" else last
     for code in _lang_codes():
         if topic.startswith(f"{code}_"):
             return code
     return "kor"
+
+
+def _resolve_output_file(topic_dir: Path, suffix: str) -> Path:
+    """WHY glob으로 찾는지(2026-08-03, <topic>/<lang>/ 중첩 구조에서 실제 발견):
+    파일명 규칙이 폴더 구조와 안 맞는 경우가 실제로 있었다 — output/가슴쓰림_1/ko/는
+    파일명이 "가슴쓰림_1_*"(새 topic 이름과 일치)인데, output/가슴쓰림_1/en/은
+    "en_heartburn_1_*"(마이그레이션 전 옛 플랫 topic 이름 그대로, 폴더만 옮겨지고
+    파일명은 안 바뀜)라 규칙이 서로 다르다. topic 문자열에서 파일명을 그대로
+    유도하면 en 쪽은 틀린 경로가 나오므로, 실제 폴더 안의 파일을 glob으로 찾는다
+    (topic 문자열 기반 유도는 폴백으로만 남김)."""
+    matches = sorted(topic_dir.glob(f"*{suffix}"))
+    return matches[0] if matches else None
 
 
 def _strip_lang_prefix(topic: str, lang: str) -> str:
@@ -245,9 +266,19 @@ def derive(topic: str) -> dict:
 
     cover_char_file = spec.get("cover_char_file") or items[0]["char_file"]
 
-    audio = ROOT / "output" / topic / f"{topic}_narration.mp3"
-    srt = ROOT / "output" / topic / f"{topic}_narration.srt"
-    out = ROOT / "output" / topic / f"{topic}_shorts.mp4"
+    topic_dir = ROOT / "output" / topic
+    # WHY glob 우선 + 폴백(2026-08-03): 위 _resolve_output_file WHY 참고 — 파일명
+    # 규칙이 폴더 구조랑 안 맞는 실제 사례(가슴쓰림_1/en)가 있어서, 먼저 폴더
+    # 안을 뒤져서 실제 있는 파일을 쓰고, 아직 아무것도 없는 새 topic이면(첫
+    # 생성) topic 문자열 기반 이름으로 폴백한다. 출력(out) mp4는 오디오/자막과
+    # 같은 접두어를 써야 세 파일이 한 세트로 보이므로, 실제로 찾은 오디오
+    # 파일의 접두어를 그대로 재사용한다.
+    found_audio = _resolve_output_file(topic_dir, "_narration.mp3")
+    fallback_base = topic.rsplit("/", 1)[-1] if "/" in topic else topic
+    base_name = found_audio.name[: -len("_narration.mp3")] if found_audio else fallback_base
+    audio = found_audio or (topic_dir / f"{base_name}_narration.mp3")
+    srt = _resolve_output_file(topic_dir, "_narration.srt") or (topic_dir / f"{base_name}_narration.srt")
+    out = topic_dir / f"{base_name}_shorts.mp4"
 
     # WHY 여기서 lang/item_label_overrides/topic_word를 계산하는지: 위 파일 상단
     # WHY 참고 — assemble() 쪽 파라미터는 이미 있었지만 이 함수가 안 넘겨서 실제
@@ -265,7 +296,12 @@ def derive(topic: str) -> dict:
             key = _char_name(it["char_file"])
             if key not in item_label_overrides or len(it["name"]) < len(item_label_overrides[key]):
                 item_label_overrides[key] = it["name"]
-    topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", topic), lang) if lang != "kor" else None
+    # WHY base_name 기준으로 뽑는지(2026-08-03, 중첩 구조 대응): 중첩 topic
+    # ("가슴쓰림_1/en")은 topic 문자열 자체엔 영어 단어가 없다(첫 세그먼트는
+    # 한국어 topic 이름) — 실제 언어별 단어는 파일 접두어(base_name, 예:
+    # "en_heartburn_1")에만 있으므로 거기서 뽑는다. 플랫 구조("en_heartburn_1")
+    # 에서도 topic==base_name이라 기존 동작 그대로 유지됨.
+    topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", base_name), lang) if lang != "kor" else None
 
     distinct_chars = {it["char_file"] for it in items}
     kwargs = dict(
