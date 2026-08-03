@@ -427,8 +427,15 @@ const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이
 document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => {{
   const originalLabel = copyCommentLinksBtn.textContent;
   copyCommentLinksBtn.addEventListener("click", () => {{
+    // WHY .text/.disclosure로 분해해서 쓰는지(2026-08-03 버그 수정, "댓글용 링크
+    // 텍스트 복사 하면 [Object Object]만 뜨네" — 실제 발견): _buildLinkBlock이
+    // 위 고지문구 위/아래 배치 재작업 때 문자열 대신 {{text, disclosure}} 객체를
+    // 반환하도록 바뀌었는데, 여기서는 그 변경 전 코드 그대로 문자열 이어붙이듯
+    // 썼다 — 객체를 문자열에 그냥 이어붙이면 JS가 암묵적으로 toString()을 불러서
+    // "[object Object]"가 나온다. applyProductLinks()가 이미 쓰는 것과 같은
+    // 패턴(.text/.disclosure 각각 접근)으로 맞춘다.
     const linkBlock = _buildLinkBlock(false);
-    const text = linkBlock ? COMMENT_LINK_INTRO + "\\n\\n" + linkBlock : "";
+    const text = linkBlock ? COMMENT_LINK_INTRO + "\\n\\n" + linkBlock.text + "\\n\\n" + linkBlock.disclosure : "";
     if (!text) {{
       copyCommentLinksBtn.textContent = "먼저 상품 링크를 입력해주세요";
       setTimeout(() => {{ copyCommentLinksBtn.textContent = originalLabel; }}, 1500);
@@ -660,7 +667,14 @@ function applyProductLinks() {{
     const withTop = firstBreak === -1
       ? stripped + "\\n\\n" + topWrapped
       : stripped.slice(0, firstBreak) + "\\n\\n" + topWrapped + stripped.slice(firstBreak);
-    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + AUTO_BOTTOM_END;
+    // WHY 아래쪽도 고지문뿐 아니라 blockText(상품 링크/목록)까지 통째로
+    // 반복하는지(2026-08-03, "맨밑에 링크없잖아? 링크 넣어라고... 쿠팡 뿐만
+    // 아니라 네이버일때도 맨아래에도 상품 목록이랑 문구 띄워야한다고"): 처음엔
+    // 고지문만 아래에 붙였는데, 실제 요구사항은 "끝까지 읽고 안 올려도 구매
+    // 링크를 다시 볼 수 있어야 한다"였다 — 고지문+상품 링크(쿠팡) 또는
+    // 고지문+상품 목록(네이버, hasNaverButton 분기도 같은 blockText 경로를
+    // 타므로 이 한 줄로 둘 다 커버됨) 전체를 아래에도 그대로 반복한다.
+    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + "\\n\\n" + blockText + AUTO_BOTTOM_END;
     box.value = withTop + "\\n\\n" + bottomWrapped;
   }});
 }}

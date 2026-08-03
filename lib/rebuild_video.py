@@ -66,9 +66,20 @@ def _resolve_output_file(topic_dir: Path, suffix: str) -> Path:
     "en_heartburn_1_*"(마이그레이션 전 옛 플랫 topic 이름 그대로, 폴더만 옮겨지고
     파일명은 안 바뀜)라 규칙이 서로 다르다. topic 문자열에서 파일명을 그대로
     유도하면 en 쪽은 틀린 경로가 나오므로, 실제 폴더 안의 파일을 glob으로 찾는다
-    (topic 문자열 기반 유도는 폴백으로만 남김)."""
+    (topic 문자열 기반 유도는 폴백으로만 남김).
+    WHY 접두어 없는 파일명도 확인하는지(2026-08-03 버그 수정, 갑상선_1/en 영상
+    조립 중 실제 발견): `*{suffix}`(예: "*_narration.mp3")는 파일명 앞에 밑줄
+    포함 최소 한 글자가 있어야 매치된다 — 그런데 `lib/typecast_tts.py`는 처음부터
+    중첩 경로로 만든 신규 topic엔 접두어 없이 그냥 "narration.mp3"로 저장한다
+    (그 폴더 안에서 이미 유일해서 접두어가 필요 없다는 설계, CLAUDE.md에도 명시).
+    가슴쓰림_1/en처럼 마이그레이션 이력이 있어 접두어가 남은 topic만 위 glob으로
+    잡히고, 신규 topic은 하나도 안 잡혀서 폴백(전혀 엉뚱한 "en_narration.srt" 같은
+    경로)으로 빠졌다 — 접두어 버전이 없으면 접두어 없는 정확한 파일명도 확인한다."""
     matches = sorted(topic_dir.glob(f"*{suffix}"))
-    return matches[0] if matches else None
+    if matches:
+        return matches[0]
+    bare = topic_dir / suffix.lstrip("_")
+    return bare if bare.exists() else None
 
 
 def _strip_lang_prefix(topic: str, lang: str) -> str:
@@ -385,11 +396,23 @@ def derive(topic: str) -> dict:
     # 같은 접두어를 써야 세 파일이 한 세트로 보이므로, 실제로 찾은 오디오
     # 파일의 접두어를 그대로 재사용한다.
     found_audio = _resolve_output_file(topic_dir, "_narration.mp3")
+    # WHY base_name이 빈 문자열일 수 있는지(2026-08-03 버그 수정): found_audio가
+    # 접두어 없는 "narration.mp3"(신규 중첩 topic 관례)이면 "_narration.mp3"를
+    # 떼어내는 슬라이싱이 음수 길이만큼 잘라내서 빈 문자열이 나온다 — 그대로
+    # f"{base_name}_shorts.mp4"에 쓰면 "_shorts.mp4"처럼 이름이 깨진다. 접두어가
+    # 있는 파일(가슴쓰림_1/en처럼 마이그레이션 이력이 있는 topic)만 실제로
+    # 잘라내고, 빈 결과면 "접두어 없음"으로 간주해 아래에서 언더스코어 없이
+    # 이어붙인다.
     fallback_base = topic.rsplit("/", 1)[-1] if "/" in topic else topic
-    base_name = found_audio.name[: -len("_narration.mp3")] if found_audio else fallback_base
-    audio = found_audio or (topic_dir / f"{base_name}_narration.mp3")
-    srt = _resolve_output_file(topic_dir, "_narration.srt") or (topic_dir / f"{base_name}_narration.srt")
-    out = topic_dir / f"{base_name}_shorts.mp4"
+    if found_audio:
+        stripped = found_audio.name[: -len("_narration.mp3")]
+        base_name = stripped if stripped else None
+    else:
+        base_name = fallback_base
+    prefix = f"{base_name}_" if base_name else ""
+    audio = found_audio or (topic_dir / f"{prefix}narration.mp3")
+    srt = _resolve_output_file(topic_dir, "_narration.srt") or (topic_dir / f"{prefix}narration.srt")
+    out = topic_dir / f"{prefix}shorts.mp4"
 
     # WHY 여기서 lang/item_label_overrides/topic_word를 계산하는지: 위 파일 상단
     # WHY 참고 — assemble() 쪽 파라미터는 이미 있었지만 이 함수가 안 넘겨서 실제
@@ -416,12 +439,24 @@ def derive(topic: str) -> dict:
                 continue
             if key not in item_label_overrides or len(it["name"]) < len(item_label_overrides[key]):
                 item_label_overrides[key] = it["name"]
-    # WHY base_name 기준으로 뽑는지(2026-08-03, 중첩 구조 대응): 중첩 topic
-    # ("가슴쓰림_1/en")은 topic 문자열 자체엔 영어 단어가 없다(첫 세그먼트는
-    # 한국어 topic 이름) — 실제 언어별 단어는 파일 접두어(base_name, 예:
-    # "en_heartburn_1")에만 있으므로 거기서 뽑는다. 플랫 구조("en_heartburn_1")
-    # 에서도 topic==base_name이라 기존 동작 그대로 유지됨.
-    topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", base_name), lang) if lang != "kor" else None
+    # WHY spec["topic_word"] 우선(2026-08-03 버그 수정, 갑상선_1/en 영상 조립
+    # 중 실제 발견): base_name에서 뽑는 방식은 파일명에 언어 단어가 실제로 박혀
+    # 있는 topic(가슴쓰림_1/en처럼 예전에 flat 구조였다가 마이그레이션된 경우,
+    # base_name="en_heartburn_1")에만 통했다 — typecast_tts.py가 처음부터 중첩
+    # 경로로 만든 신규 topic은 파일명이 접두어 없는 "narration.mp3"라 base_name이
+    # None이 되고, re.sub(r"_\d+$", "", None)이 그대로 터진다. 애초에 파일명에서
+    # 영어 단어를 "역추출"하는 방식 자체가 우연에 기댄 것이었으므로, 이제
+    # card_news_spec.json에 명시적으로 적어둔 topic_word를 최우선으로 쓰고
+    # (char_display_names와 같은 패턴), base_name이 실제로 언어 단어를 담고
+    # 있는 옛 topic만 폴백으로 그 방식을 쓴다.
+    if lang == "kor":
+        topic_word = None
+    elif spec.get("topic_word"):
+        topic_word = spec["topic_word"]
+    elif base_name:
+        topic_word = _strip_lang_prefix(re.sub(r"_\d+$", "", base_name), lang)
+    else:
+        topic_word = None
 
     # WHY closing.cta 우선(2026-08-03 버그 수정): DEFAULT_END_CARD_TEXT는 한국어
     # 고정 문구라, 언어 감지가 됐어도 엔드카드만 한국어로 나오는 사고가 날 뻔했다

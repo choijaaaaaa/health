@@ -98,13 +98,20 @@
   ],
   "closing": {
     "headline": [
-      ["Bone loss happens quietly", "until a fracture reveals it"],
-      ["Watch what you drink,", "and pair it with calcium"]
+      [
+        "Bone loss happens quietly",
+        "until a fracture reveals it"
+      ],
+      [
+        "Watch what you drink,",
+        "and pair it with calcium"
+      ]
     ],
     "tip": [
       "Cut back on soda, coffee, and alcohol,",
       "and keep your calcium intake steady"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
-  }
+  },
+  "topic_word": "Bones"
 }

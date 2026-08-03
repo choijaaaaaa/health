@@ -70,13 +70,20 @@
   ],
   "closing": {
     "headline": [
-      ["You don't need", "all four at once"],
-      ["Pick whichever one", "is easiest for you"]
+      [
+        "You don't need",
+        "all four at once"
+      ],
+      [
+        "Pick whichever one",
+        "is easiest for you"
+      ]
     ],
     "tip": [
       "Pay attention to how",
       "your body actually responds"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
-  }
+  },
+  "topic_word": "Metabolism"
 }
