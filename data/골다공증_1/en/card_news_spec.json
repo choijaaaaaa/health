@@ -1,0 +1,110 @@
+{
+  "title": [
+    "1 in 2 women over 50",
+    "will break a bone from this —",
+    "Foods & Drinks That Speed Up Bone Loss"
+  ],
+  "eyebrow": "Osteoporosis Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda",
+    "커피_illust.jpg": "Coffee",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "When blood calcium dips,",
+        "your body pulls calcium",
+        "straight from your bones",
+        "",
+        "Do that again and again,",
+        "and bone density slowly",
+        "drops without warning"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Phosphoric acid in cola",
+        "pulls calcium out of your body",
+        "",
+        "One long-term study found",
+        "nearly 4% lower bone density",
+        "in women who drank cola regularly"
+      ]
+    },
+    {
+      "name": "Soda — try this instead",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Swap soda for sparkling water,",
+        "or a calcium-fortified drink",
+        "",
+        "Still want one?",
+        "Keep it to 1 can a day"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine makes your body",
+        "flush out calcium in urine",
+        "",
+        "Risk shows up most with",
+        "4+ cups a day and",
+        "low calcium intake"
+      ]
+    },
+    {
+      "name": "Coffee — try this instead",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cap it around",
+        "2 to 3 cups a day",
+        "",
+        "Add a splash of milk",
+        "for extra calcium"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Heavy drinking is linked to",
+        "a 38% higher fracture risk",
+        "",
+        "and up to 68% higher risk",
+        "of a hip fracture"
+      ]
+    },
+    {
+      "name": "Alcohol — try this instead",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Heavy drinking can hurt your",
+        "liver's ability to activate vitamin D",
+        "",
+        "Build in a few alcohol-free days,",
+        "and make sun or vitamin D food a daily habit"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Bone loss happens quietly", "until a fracture reveals it"],
+      ["Watch what you drink,", "and pair it with calcium"]
+    ],
+    "tip": [
+      "Cut back on soda, coffee, and alcohol,",
+      "and keep your calcium intake steady"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
