@@ -400,14 +400,22 @@ Promise.all([
       doneWrap.style.display = n > 0 ? "block" : "none";
     }
 
-    // WHY t.topic.split("/")[0] 폴백(2026-08-03, 글로벌 확장 — <topic>/<lang> 중첩
-    // topic 도입): completed_topics.json/youtube_uploaded.json은 여전히 "가슴쓰림_1"처럼
-    // 언어 구분 없는 topic 단위로 기록된다(이미 완료 표시된 기존 항목이 리네임 없이
-    // 그대로 유효해야 함) — topics.json의 새 항목은 "가슴쓰림_1/en"처럼 언어가 붙어있어
-    // 정확히 일치하지 않으므로, "/" 앞부분(원래 topic 이름)으로도 한 번 더 확인한다.
+    // WHY t.topic.split("/")[0] 폴백을 "ko"에만 적용하는지(2026-08-03 버그 수정,
+    // "글로벌로 영역 넓혔으니까... 국가별로 업로드가 되었는지 확인이되어야할거같은데"
+    // 지적으로 발견): 원래 폴백은 마이그레이션 전 완료 기록("가슴쓰림_1", 한국어
+    // 작업 기준)을 리네임 후에도 그대로 인정하려는 목적이었는데, 언어 구분 없이
+    // 모든 언어에 적용해버려서 "가슴쓰림_1/en" 행도 "가슴쓰림_1"이 완료 목록에
+    // 있다는 이유만으로 완료·업로드된 것처럼(실제로는 영어 업로드 자체를 안 했는데)
+    // 잘못 표시되는 실제 버그가 있었다. 언어 세그먼트가 "ko"이거나 아예 없는(구
+    // 플랫 topic) 경우에만 폴백을 적용하고, 그 외 언어는 정확한 "<topic>/<lang>"
+    // 문자열이 완료 목록에 직접 있을 때만 완료로 인정한다 — 언어별로 실제 업로드
+    // 여부가 따로 보이도록 배지에도 언어 라벨을 붙인다.
     topics.forEach(t => {
-      const baseTopic = t.topic.split("/")[0];
-      const done = completed.has(t.topic) || completed.has(baseTopic);
+      const slashIdx = t.topic.indexOf("/");
+      const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
+      const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
+      const legacyFallbackOk = langSeg === null || langSeg === "ko";
+      const done = completed.has(t.topic) || (legacyFallbackOk && completed.has(baseTopic));
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
 
@@ -416,15 +424,17 @@ Promise.all([
       badge.setAttribute("aria-label", t.topic + (done ? " 완료" : " 미완료"));
       badge.style.cssText = "width:18px;flex:0 0 auto;font-size:14px;line-height:1;";
 
-      const ytDone = youtubeDone.has(t.topic) || youtubeDone.has(baseTopic);
+      const ytDone = youtubeDone.has(t.topic) || (legacyFallbackOk && youtubeDone.has(baseTopic));
       const ytBadge = document.createElement("span");
-      ytBadge.textContent = ytDone ? "YT ✓" : "YT";
+      const langLabel = langSeg ? langSeg.toUpperCase() + " " : "";
+      ytBadge.textContent = langLabel + (ytDone ? "YT ✓" : "YT");
       ytBadge.style.cssText = "flex:0 0 auto;font-size:12px;font-weight:700;padding:2px 7px;border-radius:20px;"
         + (ytDone
           ? "background:#e53935;color:#fff;"
           : "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;");
       ytBadge.setAttribute("aria-label", t.topic + (ytDone ? " 유튜브 숏츠 업로드 완료" : " 유튜브 숏츠 미업로드"));
-      ytBadge.title = ytDone ? "유튜브 숏츠 업로드 완료(예약 게시 포함)" : "유튜브 숏츠 아직 업로드 안 됨";
+      ytBadge.title = (langSeg ? `[${langSeg.toUpperCase()}] ` : "")
+        + (ytDone ? "유튜브 숏츠 업로드 완료(예약 게시 포함)" : "유튜브 숏츠 아직 업로드 안 됨");
 
       const thumb = document.createElement("div");
       thumb.style.cssText = "flex:0 0 auto;width:42px;height:52px;border-radius:6px;overflow:hidden;background:var(--bg-bottom);";
