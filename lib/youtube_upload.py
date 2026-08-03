@@ -10,9 +10,7 @@ import json
 import os
 import random
 import re
-import subprocess
 import sys
-import tempfile
 import time
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -119,45 +117,6 @@ def _build_status_body(privacy_status: str, publish_at: str | None) -> dict:
     return body
 
 
-def _extract_first_frame(video_path: str) -> Path:
-    """영상 첫 프레임을 임시 jpg로 뽑는다. WHY: 유튜브가 자동으로 제안하는 썸네일
-    후보는 영상 중간 지점 위주라, 이 파이프라인의 타이틀 카드(영상 맨 앞, 훅 문구가
-    큼직하게 박힌 프레임)를 썸네일로 쓰려면 명시적으로 0초 프레임을 추출해서 올려야
-    한다."""
-    tmp_path = Path(tempfile.mkstemp(suffix=".jpg")[1])
-    subprocess.run(
-        ["ffmpeg", "-y", "-ss", "0", "-i", video_path, "-frames:v", "1", str(tmp_path)],
-        check=True, capture_output=True,
-    )
-    return tmp_path
-
-
-def _set_thumbnail(youtube, video_id: str, video_path: str) -> None:
-    """실패해도 영상 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다.
-
-    ⚠️ WHY 실패 원인을 코드에 단정적으로 안 적어두는지(2026-08-02): 테스트 중
-    404 "videoNotFound"를 봤는데, 원인은 채널 미인증도 쇼츠 제약도 아니고 단순히
-    그 영상을 테스트 후 지워서였다(`videos.list`로 확인 — 실제로 존재하지 않는
-    영상이었음). 즉 이 에러의 진짜 흔한 원인은 잘못된 videoId(삭제됐거나 오타)다 —
-    채널 인증(`channels().list().status.longUploadsStatus == "allowed"`로 확인
-    가능)이나 쇼츠 제약 쪽으로 성급하게 결론 내리지 말고, 먼저 videoId가 실제로
-    존재하는 영상인지부터 의심할 것."""
-    thumb_path = _extract_first_frame(video_path)
-    try:
-        youtube.thumbnails().set(
-            videoId=video_id,
-            media_body=MediaFileUpload(str(thumb_path), mimetype="image/jpeg"),
-        ).execute()
-        print("[youtube_upload] 썸네일을 영상 첫 프레임으로 설정 완료")
-    except HttpError as e:
-        print(
-            f"[youtube_upload] ⚠️ 썸네일 설정 실패(영상 업로드 자체는 성공함): {e}\n"
-            "  videoId가 실제로 존재하는지(삭제되지 않았는지) 먼저 확인하세요."
-        )
-    finally:
-        thumb_path.unlink(missing_ok=True)
-
-
 def _category_from_topic(topic: str) -> str:
     """topic 폴더명("카테고리_N", 2026-08-02 신규 명명 규칙)에서 카테고리만 뽑는다.
     예: "눈_1" -> "눈", "다리쥐_3" -> "다리쥐". 접미사 번호가 없는 옛날 topic명
@@ -234,8 +193,7 @@ def _playlist_has_video(youtube, playlist_id: str, video_id: str) -> bool:
 
 
 def _add_to_category_playlist(youtube, topic: str, video_id: str, lang: str = "ko") -> None:
-    """실패해도 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다(썸네일
-    설정과 동일한 정책).
+    """실패해도 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다.
 
     WHY _playlist_has_video로 먼저 확인하는지(2026-08-02, "버그있었나본데 그래서
     한도 이미 엄청빨리소진된듯? 네개씩 너어놨네"): 원래는 이미 그 영상이
@@ -294,8 +252,8 @@ def _mark_youtube_uploaded(topic: str) -> None:
     output/youtube_uploaded.json에 기록한다. WHY 예약 게시(publish_at)여도 여기서
     바로 기록하는지: "완전히 업로드가 완료되는게 기준이 아니라 예약 설정해서
     업로드를 완료한 경우에 확인할 수 있게 해주면 된다" — 실제 공개 전환 시각까지
-    기다리지 않고, 업로드+썸네일+재생목록 등록까지 끝나면(이 함수가 호출되는
-    시점) 완료로 본다."""
+    기다리지 않고, 업로드+재생목록 등록까지 끝나면(이 함수가 호출되는 시점)
+    완료로 본다."""
     path = ROOT / "output" / "youtube_uploaded.json"
     uploaded = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
     if topic not in uploaded:
@@ -464,7 +422,6 @@ def upload_short(
             print(f"[youtube_upload] 업로드 중... {int(status.progress() * 100)}%")
 
     video_id = response["id"]
-    _set_thumbnail(youtube, video_id, video_path)
     _add_to_category_playlist(youtube, topic, video_id, lang)
     _mark_youtube_uploaded(topic)
     if publish_at:

@@ -22,7 +22,6 @@ from lib.youtube_upload import (  # noqa: E402
     _category_from_topic,
     _category_label,
     _env_prefix,
-    _extract_first_frame,
     _lang_from_topic,
     _mark_youtube_uploaded,
     _next_daily_schedule,
@@ -110,16 +109,6 @@ def test_build_status_body_with_publish_at_forces_private():
     body = _build_status_body("public", "2026-08-03T09:00:00Z")
     assert body["privacyStatus"] == "private"
     assert body["publishAt"] == "2026-08-03T09:00:00Z"
-
-
-def test_extract_first_frame_produces_readable_image(make_tiny_clip):
-    clip = make_tiny_clip("clip.mp4", duration=1.0, color="0xFF0000")
-    frame_path = _extract_first_frame(str(clip))
-    try:
-        assert frame_path.exists()
-        assert frame_path.stat().st_size > 0
-    finally:
-        frame_path.unlink(missing_ok=True)
 
 
 @pytest.mark.parametrize(
