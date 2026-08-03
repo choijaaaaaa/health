@@ -236,8 +236,26 @@ def synthesize_segments(
             audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
             audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
 
-            seg_path = tmp_path / f"seg_{i:03d}.{ext}"
-            seg_path.write_bytes(audio_bytes)
+            # WHY WAV로 저장(2026-08-02 버그 수정, "목소리가 바뀔 때 싱크가 점점
+            # 더 어긋난다" 사용자 실측 발견): 여기서 seg_path를 mp3(ext)로 저장하면
+            # 무음 gap 파일(WAV)과 형식이 섞인 채로 아래 concat 디먼서에 들어가는데,
+            # 독립적으로 인코딩된 mp3 세그먼트마다 인코더 프라이밍/패딩이 붙어있어서
+            # concat 디먼서가 디코드+재인코딩하는 과정에서 이어붙이는 지점마다 미세한
+            # 시간 오차가 생긴다 — 세그먼트가 하나씩 늘어날 때마다 이 오차가 누적돼서
+            # 뒤로 갈수록(=목소리가 바뀔 때마다) 자막·캐릭터 전환이 실제 음성보다
+            # 점점 더 어긋나 보였다(이명_1에서 파형 실측으로 확인 — 첫 세그먼트는
+            # 오차 0, 이후 세그먼트마다 커짐). 무음 gap 파일과 동일하게 무손실 WAV로
+            # 저장해서 concat 입력을 전부 PCM으로 통일하면, 실제 인코딩은 맨 마지막
+            # 병합 단계에서 한 번만 일어나 이 누적 오차가 생기지 않는다.
+            seg_path = tmp_path / f"seg_{i:03d}.wav"
+            with tempfile.NamedTemporaryFile(suffix=f".{ext}", delete=False) as tmp_seg:
+                tmp_seg.write(audio_bytes)
+                tmp_seg_path = tmp_seg.name
+            subprocess.run(
+                ["ffmpeg", "-y", "-i", tmp_seg_path, "-c:a", "pcm_s16le", str(seg_path)],
+                check=True, capture_output=True,
+            )
+            os.remove(tmp_seg_path)
             lines.append(f"file '{seg_path}'")
 
             for w in words:

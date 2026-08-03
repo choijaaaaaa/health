@@ -129,6 +129,18 @@
   }
   .copy-comment-links:hover { opacity: 0.9; }
   .copy-comment-links.copied { background: var(--gold); color: #fff; }
+
+  .bottom-product-links {
+    margin: 40px 24px; padding: 20px; border-radius: 16px; background: var(--panel);
+    border: 1px solid var(--rule);
+  }
+  .bottom-product-links h2 { margin: 0 0 12px; font-size: 18px; }
+  .bottom-product-row {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 0; border-top: 1px solid var(--rule); font-size: 13px;
+  }
+  .bottom-product-name { font-weight: 700; min-width: 120px; }
+  .bottom-product-nolink { color: var(--ink-soft); }
   @media (max-width: 860px) {
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
@@ -227,7 +239,7 @@
       <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
-  <div class="dock-section"><h4>상품 링크</h4><button type="button" id="copyCommentLinksBtn" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
+  <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
 <div class="dock-product-row linked" id="dock-row-0">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-0" title="링크 넣기">🔗</button>
@@ -311,7 +323,7 @@
 
 나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 호르몬 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.
 
-감초·라면·치즈 다 무조건 끊을 필요는 없어요. 양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸는 것만으로 도움될 수 있어요.
+감초·라면·치즈 다 양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸는 것만으로 도움될 수 있어요.
 
 더 유용한 건강정보 궁금하면 팔로우 👆
 
@@ -344,7 +356,7 @@
 설명란:
 나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 코르티솔 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.
 
-감초(호르몬 대사), 라면(고나트륨), 치즈(나트륨+포화지방) — 무조건 끊지 않아도 양을 줄이고 대체 식품으로 바꾸는 것만으로 부기를 줄일 수 있어요.
+감초(호르몬 대사), 라면(고나트륨), 치즈(나트륨+포화지방) — 양을 줄이고 대체 식품으로 바꾸는 것만으로 부기를 줄일 수 있어요.
 
 더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆
 
@@ -374,7 +386,7 @@
   <a class="asset-link" href="부종_1_shorts.mp4" download="부종_1_shorts.mp4">🎬 영상 다운로드</a>
   <textarea class="caption-box" id="cap-2" spellcheck="false">혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요?
 
-나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡혀요. 감초·라면·치즈, 무조건 끊지 않아도 양을 줄이는 것만으로 도움될 수 있어요!
+나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡혀요. 감초·라면·치즈, 양을 줄이는 것만으로 도움될 수 있어요!
 
 #부종 #얼굴부종 #다리부종 #건강정보</textarea>
   <div class="card-actions">
@@ -439,7 +451,7 @@
 
 나트륨이 세포 밖에 수분을 붙잡아두고, 감초 속 글리시르히진은 호르몬 대사까지 건드려서 나트륨을 더 오래 붙들게 해요.
 
-감초·라면·치즈, 무조건 끊지 않아도 양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸면 부기를 크게 줄일 수 있어요.
+감초·라면·치즈, 양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸면 부기를 크게 줄일 수 있어요.
 
 더 유용한 건강정보 궁금하면 팔로우 👆
 
@@ -626,7 +638,7 @@
 🍜 라면 — 고나트륨, 삼투압으로 수분 저류
 🧀 치즈 — 나트륨+포화지방으로 순환 저하
 
-✅ 무조건 끊을 필요는 없어요, 양만 줄여도 도움돼요
+✅ 양만 줄여도 도움돼요
 
 여러분은 어떤 게 제일 의심되시나요?
 
@@ -656,9 +668,7 @@
   <a class="asset-link" href="card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg" download="부종_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
   <textarea class="caption-box" id="cap-8" spellcheck="false">혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법
 
-나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 호르몬 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.
-
-감초·라면·치즈 다 무조건 끊지 않아도 돼요. 양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸는 것만으로 도움될 수 있어요.
+나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 호르몬 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.양을 줄이고 옥수수수염차·칼륨 많은 음식으로 바꾸는 것만으로 도움될 수 있어요.
 
 #부종 #얼굴부종 #다리부종 #건강정보</textarea>
   <div class="card-actions">
@@ -670,6 +680,8 @@
 </div>
 </section>
 
+
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">옥수수수염차</span><a href="https://www.coupang.com/np/search?component=&q=%EC%98%A5%EC%88%98%EC%88%98%EC%88%98%EC%97%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS2x5mgq4" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">바나나</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B0%94%EB%82%98%EB%82%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSRAO5pNbo" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저염 치즈</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%97%BC%20%EC%B9%98%EC%A6%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS3fu2fzU" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
@@ -758,8 +770,11 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
-const copyCommentLinksBtn = document.getElementById("copyCommentLinksBtn");
-if (copyCommentLinksBtn) {
+// WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
+// 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
+// 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
+// class 기준 querySelectorAll로 바꿨다(위 row-toggle 등 다른 버튼들과 동일 패턴).
+document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => {
   const originalLabel = copyCommentLinksBtn.textContent;
   copyCommentLinksBtn.addEventListener("click", () => {
     const linkBlock = _buildLinkBlock(false);
@@ -778,7 +793,7 @@ if (copyCommentLinksBtn) {
       }, 1500);
     });
   });
-}
+});
 
 function _escapeHtml(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
