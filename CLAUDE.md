@@ -1205,8 +1205,8 @@ JS는 `document.querySelectorAll(".btn-go[data-copy-target]")`로 이미 전부 
 | 종류 | 위치 |
 |------|------|
 | 재사용 에셋 (일러스트/실물/모션) | `assets_library/{illust,real,motion}/` |
-| 주제별 작업 데이터 (대본·스펙·캡션) | `data/<주제>/` |
-| 주제별 산출물 (카드뉴스·영상·대시보드) | `output/<주제>/` |
+| 주제별 작업 데이터 (대본·스펙·캡션) | `data/<주제>/`(단일 언어) 또는 `data/<주제>/<lang>/`(다국어 — 아래 "글로벌 확장 준비 — 폴더 구조" 절 참고) |
+| 주제별 산출물 (카드뉴스·영상·대시보드) | `output/<주제>/`(단일 언어) 또는 `output/<주제>/<lang>/`(다국어) |
 | 라이브러리 코드 | `lib/*.py` |
 | 채널별 URL(정답 소스) | `data/social_accounts.json` — 새 topic 캡션은 여기서 복사할 것, 예전 topic JSON 복사 금지(오래된 URL 남아있을 수 있음) |
 | 비밀키 | `.env` (커밋 안 함), `.env.example` 항상 최신 유지 |
@@ -1779,6 +1779,67 @@ topic마다 작성자가 새로 쓰는 자유 문자열이고 (b) 호출부가 �
 Cloud/OAuth)·수익화(아마존·알리 등 제휴)도 이어서 이 세션이 담당** — "다른
 세션이 진행 중"이라던 위 노트는 실제로는 같은 세션 연속 작업이었음이 확인돼
 정정함.
+
+### 폴더 구조 — `<주제>/<lang>/` 중첩 (2026-08-03)
+
+다국어 topic은 `en_heartburn_1`처럼 언어를 폴더명 자체에 넣어 완전히 별도
+topic처럼 만들지 않는다 — 같은 주제(예: 가슴쓰림)의 언어별 콘텐츠를 한
+폴더 아래 모아서 관리하기로 확정("기존처럼 관절_1 이런 한국어 폴더 안에
+ko/en/fr 이런식으로 폴더 만들고 그안에 들어오도록 하자" — 2026-08-03).
+파일럿으로 만들었던 `en_heartburn_1`(독립 topic 폴더)은 기존 `가슴쓰림_1`과
+병합해서 이 구조로 재정리함:
+
+```
+data/가슴쓰림_1/ko/{card_news_spec.json, narration.txt, platform_captions.json}
+data/가슴쓰림_1/en/{card_news_spec.json, narration.txt, platform_captions.json}
+output/가슴쓰림_1/ko/{card_news/, dashboard.html, *_narration.mp3, *_narration.srt, *_shorts.mp4}
+output/가슴쓰림_1/en/{...동일 구조...}
+```
+
+- **기존 한국어 topic(30여 개)은 소급 이전 대상 아님** — 새로 다국어를 붙이는
+  topic만 이 구조로 전환한다. 한국어 단일 언어인 topic은 계속 기존 flat
+  구조(`data/<주제>/`) 그대로 둔다.
+- **`platform_captions.json`의 `"topic"` 필드는 언어별로 다르게** —
+  `"가슴쓰림_1_ko"` / `"가슴쓰림_1_en"`처럼 언어 접미사를 붙인다. 이 값이
+  대시보드의 localStorage 키(완료 체크·상품 링크) 접두어로 쓰이는데, ko/en이
+  같은 값을 쓰면 두 언어 대시보드가 완료 체크 상태를 서로 덮어쓴다.
+- **`lib/session_lock.py` 락은 언어 세분화 없이 `<주제>` 단위**로 건다(예:
+  `가슴쓰림_1`) — 락 파일명이 `{topic}.lock`이라 topic 문자열에 "/"가 들어가면
+  깨진다. 같은 주제의 ko/en을 동시에 다른 세션이 작업하는 걸 막는 효과도
+  있어서(구조 전환 중 레이스 위험) 이 세분화 없는 락이 오히려 안전하다.
+- **`lib/card_news.py`의 `generate()`는 `topic_prefix` 파라미터로 파일명
+  접두어를 명시할 것** — 기존엔 `out_dir.parent.name`(예:
+  `output/가슴쓰림_1/card_news` → "가슴쓰림_1")으로 자동 추론했는데, 언어별
+  하위 폴더가 생기면서 `output/가슴쓰림_1/en/card_news`의
+  `out_dir.parent.name`은 "en"이 되어 추론이 깨진다. 새 다국어 topic은
+  `generate(spec_path, char_dir, out_dir, topic_prefix="가슴쓰림_1_en")`처럼
+  명시로 호출할 것(빈 문자열 `""`을 주면 접두어 없이 저장 — 폴더 자체가 이미
+  topic+언어를 구분해주므로 접두어가 굳이 필요 없다면 이 방식도 가능).
+- **`lib/typecast_tts.py`의 `synthesize(topic, ...)`는 코드 수정 없이 그대로
+  동작** — `topic="가슴쓰림_1/en"`처럼 슬래시 포함 문자열을 넘기면
+  `Path("output") / topic`이 자동으로 중첩 경로(`output/가슴쓰림_1/en/`)를
+  만든다. 이 폴더 안에서는 `narration.mp3`/`narration.srt`가 이미
+  유일하므로(폴더 자체가 topic+언어를 구분) topic 접두어 없이 그대로 둬도 된다.
+- **`lib/dashboard.py`의 `_update_topics_index`는 1단계(`output/<주제>/
+  dashboard.html`)와 2단계(`output/<주제>/<lang>/dashboard.html`) glob을 둘 다
+  스캔**해서 `output/topics.json`에 중첩 topic은 `"topic": "가슴쓰림_1/en"`
+  형태로 등록한다. 루트 `index.html`은 `completed_topics.json`/
+  `youtube_uploaded.json`을 조회할 때 `t.topic`(예: "가슴쓰림_1/en") 뿐 아니라
+  `t.topic.split("/")[0]`(예: "가슴쓰림_1")로도 한 번 더 확인한다 — 이 두
+  트래킹 파일은 여전히 언어 구분 없는 topic 단위로 기록되므로, 이미 완료
+  표시된 기존 topic이 구조 전환 후에도 완료 배지를 그대로 유지하게 하기 위함.
+- **`tests/test_content_rules.py`의 `_discover_topics()`도 2단계까지
+  스캔** — `data/<주제>/platform_captions.json`이 없으면(중첩 구조로 전환된
+  topic) 하위 폴더를 훑어서 `<주제>/<lang>` 형태로 각각 독립 topic처럼 검사
+  대상에 넣는다. 새 콘텐츠 규칙 테스트를 추가할 때 이 이중 구조를 전제로
+  작성할 필요는 없다 — `DATA_DIR / topic / ...` 패턴은 topic 문자열에 "/"가
+  있어도 `Path`가 알아서 중첩 경로로 처리하므로 기존 테스트 코드는 그대로
+  재사용된다.
+- ⚠️ **아직 안 한 것**: `output/completed_topics.json`/
+  `output/youtube_uploaded.json`/`output/product_links.json`을 직접 갱신하는
+  스크립트나 `lib/youtube_upload.py`의 topic 선택 로직은 여전히 flat 구조
+  전제 — 다국어 topic의 유튜브 업로드 오케스트레이션은 실제 언어별 채널
+  인프라가 붙을 때 별도로 설계할 것(위 "아직 안 한 것" 노트와 동일 맥락).
 
 ### 채널 인프라 진행 상태 — `data/global_channels.json`
 

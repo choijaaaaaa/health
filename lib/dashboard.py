@@ -808,23 +808,37 @@ def _product_links_bottom_section(products: list[str], product_links: dict[str, 
 def _update_topics_index(out_path: str):
     """WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
     했다("루트로 들어가면 안되나?") — output/ 밑의 모든 대시보드를 스캔해서
-    output/topics.json을 갱신하면, 루트 index.html이 이걸 읽어 목록을 보여줄 수 있다."""
-    out_dir = Path(out_path).resolve().parent
-    output_root = out_dir.parent
+    output/topics.json을 갱신하면, 루트 index.html이 이걸 읽어 목록을 보여줄 수 있다.
+
+    WHY 1단계+2단계 glob 둘 다(2026-08-03, 글로벌 확장 — data/output <topic>/<lang>/
+    중첩 구조 도입): 기존 topic은 output/<topic>/dashboard.html(1단계), 언어별로
+    나뉜 새 글로벌 topic은 output/<topic>/<lang>/dashboard.html(2단계)이다 — 2단계
+    항목의 topic 식별자는 "<topic>/<lang>"로 조합해서 데이터 폴더 매칭·표시에 쓴다."""
+    # WHY 프로젝트 루트 기준 고정 경로(2026-08-03): out_dir.parent로 output_root를
+    # 추론하던 방식은 out_path가 정확히 output/<topic>/dashboard.html(1단계) 깊이일
+    # 때만 맞았다 — 중첩 topic(output/<topic>/<lang>/dashboard.html, 2단계)에서는
+    # out_dir.parent가 output/<topic>/이 되어버려 잘못된 루트를 잡는다. 프로젝트
+    # 루트 기준 고정 경로로 output_root를 직접 계산하면 깊이와 무관하게 항상 맞는다.
+    output_root = Path(__file__).resolve().parent.parent / "output"
+    data_root = output_root.parent / "data"
     topics = []
-    for dash in sorted(output_root.glob("*/dashboard.html")):
-        topic = dash.parent.name
+    dash_paths = sorted(output_root.glob("*/dashboard.html")) + sorted(output_root.glob("*/*/dashboard.html"))
+    for dash in dash_paths:
+        rel = dash.parent.relative_to(output_root)
+        topic = "/".join(rel.parts)  # flat: "가슴쓰림_1", 중첩: "가슴쓰림_1/en"
         title = topic
-        caption_path = output_root.parent / "data" / topic / "platform_captions.json"
+        caption_path = data_root / rel / "platform_captions.json"
         if caption_path.exists():
             try:
                 title = json.loads(caption_path.read_text()).get("title", topic)
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
-        # 피드백 — 표지 카드(항상 "<topic>_00_표지.jpg")가 있으면 썸네일로 같이 보여준다.
-        cover_path = dash.parent / "card_news" / f"{topic}_00_표지.jpg"
-        thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path.exists() else None
+        # 피드백 — 표지 카드가 있으면 썸네일로 같이 보여준다. WHY glob(2026-08-03): topic
+        # 접두어가 없는 중첩 topic("00_표지.jpg")과 있는 flat topic(과거 관례,
+        # "<topic>_00_표지.jpg") 둘 다 와일드카드로 매칭한다.
+        cover_path = next((dash.parent / "card_news").glob("*00_표지.jpg"), None)
+        thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path else None
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
             "thumbnail": thumbnail,

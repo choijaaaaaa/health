@@ -464,8 +464,16 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
     img.save(out_path, quality=95)
 
 
-def generate(spec_path: str, char_dir: str, out_dir: str):
-    """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}"""
+def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None):
+    """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
+
+    WHY topic_prefix 파라미터(2026-08-03, 글로벌 확장 — data/<topic>/<lang>/ 중첩
+    구조 도입): 기존엔 out_dir.parent.name(예: output/가슴쓰림_1/card_news →
+    "가슴쓰림_1")으로 파일명 접두어를 자동 추론했는데, 언어별 하위 폴더가 생기면서
+    (output/가슴쓰림_1/en/card_news) out_dir.parent.name이 "en"이 되어버려 추론이
+    깨진다. topic_prefix를 명시하면 그대로 쓰고(중첩 topic 호출부는 항상 명시할
+    것 — 빈 문자열 ""을 주면 접두어 없이 저장, 폴더 자체가 이미 topic+lang을
+    구분해주므로), 안 주면(기존 flat topic 전부) 기존 추론 그대로 하위호환."""
     spec = json.loads(Path(spec_path).read_text())
     char_dir = Path(char_dir)
     out_dir = Path(out_dir)
@@ -495,7 +503,7 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
     # WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하면서
     # output 폴더 안 파일명("00_표지.jpg" 등)이 topic마다 겹쳐서 구분이 안 됐다 — out_dir이
     # 관례상 output/<topic>/card_news라서 out_dir.parent.name이 topic 이름이 된다.
-    topic_prefix = out_dir.parent.name + "_"
+    topic_prefix = (topic_prefix + "_" if topic_prefix else "") if topic_prefix is not None else out_dir.parent.name + "_"
 
     # WHY make_cover_titlecard가 기본(2026-07-31): "카드뉴스 첫장도 숏폼 영상
     # 썸네일이랑 똑같이 그냥 가져가자" 피드백 이후 이 스타일이 표준이 됐다 —
@@ -550,4 +558,5 @@ def generate(spec_path: str, char_dir: str, out_dir: str):
 
 if __name__ == "__main__":
     spec_path, char_dir, out_dir = sys.argv[1], sys.argv[2], sys.argv[3]
-    generate(spec_path, char_dir, out_dir)
+    prefix = sys.argv[4] if len(sys.argv) > 4 else None
+    generate(spec_path, char_dir, out_dir, topic_prefix=prefix)

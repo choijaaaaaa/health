@@ -20,11 +20,14 @@ DATA_DIR = ROOT / "data"
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 COMMENT_KEYWORDS_PATH = Path.home() / ".claude" / "comment-keywords.md"
 
-# CLAUDE.md "플랫폼별 필수 플래그" 절 기준 — "네이버 클립"만 network: "naver"를
-# 가져야 한다(네이버 에디터에만 있는 "상품" 버튼 처리용). "네이버 블로그"는
-# 2026-08-01부로 브랜드커넥트 대신 쿠팡 링크를 쓰기로 바뀌어서 이 플래그가 없어야
-# 한다 — 이름에 "네이버"가 들어간다고 전부 이 플래그를 갖는 게 아님에 주의.
-NAVER_NETWORK_PLATFORMS = {"네이버 클립"}
+# CLAUDE.md "플랫폼별 필수 플래그" 절 기준 — "네이버 클립"과 "네이버 블로그"
+# 둘 다 network: "naver"를 가져야 한다. WHY 둘 다인지(2026-08-03 재번복):
+# 2026-08-01엔 네이버 블로그가 브랜드커넥트 대신 쿠팡 링크를 쓰도록 바뀌어서 이
+# 플래그가 빠졌었는데, "쿠팡 링크 달면 네이버 저품질 이슈 생긴다"는 게 확인돼서
+# 다시 브랜드커넥트 방식(이 플래그 있음)으로 되돌렸다 — 36개 topic 전부 소급
+# 적용됨. 이 테스트가 8/1 기준 그대로 남아있어서 8/3 재번복 이후 계속 실패하고
+# 있었다(재번복 당시 놓친 부분 — 이 테스트도 같이 갱신해야 했음).
+NAVER_NETWORK_PLATFORMS = {"네이버 클립", "네이버 블로그"}
 
 # CLAUDE.md 기준 — 클립보드 HTML 붙여넣기(이미지까지 같이 들어가는) 리치 에디터는
 # 네이버 블로그·티스토리뿐. 그 외 전 플랫폼은 rich_paste를 갖지 않아야 한다.
@@ -38,10 +41,28 @@ WEAK_HOOK_PHRASE = "걱정되는 분들 주목"
 
 
 def _discover_topics() -> list[str]:
-    """data/*/ 밑 실제 topic 디렉터리를 매번 다시 스캔한다(하드코딩 금지)."""
+    """data/*/ 밑 실제 topic 디렉터리를 매번 다시 스캔한다(하드코딩 금지).
+
+    WHY 2단계 탐색(2026-08-03, 글로벌 확장 — data/<topic>/<lang>/ 중첩 구조 도입):
+    기존 flat topic(data/<topic>/platform_captions.json)은 그대로 topic 이름만
+    낸다. 언어별 하위 폴더로 나뉜 새 글로벌 topic(data/<topic>/<lang>/
+    platform_captions.json)은 언어 폴더가 없으면 콘텐츠 파일 자체가 없어서 그냥
+    topic 이름만 내면 이후 _load_json이 전부 스킵돼 실질적으로 검사가 빠진다 —
+    "<topic>/<lang>" 형태로 언어별 경로를 각각 독립 topic처럼 낸다(Path가 슬래시를
+    그대로 하위 경로로 처리하므로 DATA_DIR / topic 형태의 기존 호출부는 그대로 동작)."""
     if not DATA_DIR.exists():
         return []
-    return sorted(p.name for p in DATA_DIR.iterdir() if p.is_dir())
+    topics = []
+    for p in sorted(DATA_DIR.iterdir()):
+        if not p.is_dir():
+            continue
+        if (p / "platform_captions.json").exists():
+            topics.append(p.name)
+            continue
+        for sub in sorted(p.iterdir()):
+            if sub.is_dir() and (sub / "platform_captions.json").exists():
+                topics.append(f"{p.name}/{sub.name}")
+    return topics
 
 
 TOPICS = _discover_topics()
