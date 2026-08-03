@@ -1,0 +1,51 @@
+{
+  "topic": "구내염_1_en",
+  "title": "That same sting on the same spot, every time you eat? - 3 Foods That Make Canker Sores Worse",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: 3 Foods That Are Secretly Making Your Canker Sores Worse\n\nDescription:\nBite into your lunch and feel that same sting hit the same sore spot again? A few everyday foods could be the reason it won't heal.\n\nCitrus fruits, chocolate, and coffee are three of the most common culprits behind canker sores that keep coming back or take forever to heal.\n\nWatch to find out why, and what to swap in instead.\n\n#cankersores #mouthulcers #oralhealth #healthtips #cankersore #mouthsores"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Bite into lunch and feel that same sting hit the same sore spot again? 😬\n\nIt's probably not bad luck - citrus fruits, chocolate, and coffee are three of the most common foods that make canker sores worse and slower to heal.\n\nHere's why, and the easy swaps that help.\n\n🔗 Link in profile for more health tips!\n\n#cankersores #mouthulcers #oralhealth #healthtips #cankersore #wellness"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "That same sting on the same sore spot every time you eat?? 😬 These 3 everyday foods could be why it won't heal - and no, you don't have to give them up forever.\n\n🔗 Link in bio for more!\n\n#cankersores #mouthulcers #oralhealth #healthtips #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Bite into your lunch and feel that same sting hit the same sore spot again?\n\nIt's probably not bad luck - citrus fruits, chocolate, and coffee are three of the most common foods that make canker sores worse and slower to heal. Watch the video to find out why, and what to swap in instead.\n\n#cankersores #mouthulcers #oralhealth #healthtips"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "That same sting on the same sore spot every time you eat?\n\nProbably not bad luck - citrus, chocolate, and coffee are 3 of the most common foods that make canker sores worse. Each one has an easy swap.\n\n#cankersores #mouthulcers #oralhealth"
+    }
+  ]
+}
