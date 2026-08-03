@@ -1,0 +1,97 @@
+{
+  "title": [
+    "Eyelid won't stop",
+    "twitching, even hours later?",
+    "Foods & Drinks That Trigger Eye Twitching"
+  ],
+  "eyebrow": "Eye Twitch Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "에너지드링크_illust.jpg": "Energy Drink",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "The nerve running your eyelid",
+        "gets overexcitable",
+        "",
+        "Low magnesium makes",
+        "it worse"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine keeps that nerve",
+        "switched on",
+        "",
+        "It flushes out magnesium",
+        "at the same time"
+      ]
+    },
+    {
+      "name": "Coffee — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Switch to decaf, or cap it",
+        "at 1-2 cups a day"
+      ]
+    },
+    {
+      "name": "Energy Drinks",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Often packs even more",
+        "caffeine per can",
+        "",
+        "Some cans hit as high",
+        "as a large coffee"
+      ]
+    },
+    {
+      "name": "Energy Drinks — the fix",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Swap it for sparkling water",
+        "or a caffeine-free electrolyte drink"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Relaxes you at first,",
+        "but dehydrates you",
+        "",
+        "The magnesium loss brings",
+        "the twitch back worse"
+      ]
+    },
+    {
+      "name": "Alcohol — the fix",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Keep it to 1-2 drinks,",
+        "and drink water alongside"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Eye twitching is usually", "just an overexcited nerve"],
+      ["Cut back on these three,", "and it often settles down"]
+    ],
+    "tip": [
+      "Refill magnesium with nuts",
+      "or leafy greens"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Eye Twitch"
+}
