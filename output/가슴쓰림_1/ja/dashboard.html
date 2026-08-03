@@ -545,7 +545,7 @@ document.querySelectorAll(".btn-copy").forEach(btn => {
   btn.addEventListener("click", () => {
     // WHY replace: 자동추가 구간 경계 표시는 보이지 않는 문자라 원래도 화면엔 안 보이지만,
     // 혹시 몰라 복사 시점에 한 번 더 확실히 제거한다.
-    const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("");
+    const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("").split(AUTO_BOTTOM_START).join("").split(AUTO_BOTTOM_END).join("");
     const cover = btn.dataset.cover;
     if (cover && window.ClipboardItem) {
       // WHY font-size를 인라인으로: 붙여넣기 대상 에디터(네이버 블로그·티스토리)가
@@ -574,7 +574,7 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
   btn.addEventListener("click", () => {
     const target = document.getElementById(btn.dataset.copyTarget);
     if (!target) return;
-    const text = target.value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("");
+    const text = target.value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("").split(AUTO_BOTTOM_START).join("").split(AUTO_BOTTOM_END).join("");
     navigator.clipboard.writeText(text).then(() => {
       btn.textContent = "캡션 복사됨 ✓ 붙여넣기만 하면 돼요";
       setTimeout(() => { btn.textContent = originalLabel; }, 2000);
@@ -722,27 +722,32 @@ function applyProductLinks() {
     // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
     // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
     const suppressBlock = card.dataset.suppressProductBlock === "1";
-    let block = suppressBlock ? "" : (noCaptionLink ? _buildCtaBlock(hasCommentDm, linkInComment) : _buildLinkBlock(hasNaverButton));
-    // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
-    // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
-    // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
-    if (block && card.dataset.profileNote === "1") {
-      block += "\n\n🔗 링크가 눌리지 않으면 채널 프로필에서 확인해주세요";
-    }
+    const result = suppressBlock ? null : (noCaptionLink ? _buildCtaBlock(hasCommentDm, linkInComment) : _buildLinkBlock(hasNaverButton));
     const stripped = _stripAutoLinks(box.value);
-    if (!block) {
+    if (!result) {
       box.value = stripped;
       return;
     }
-    // WHY 제목 바로 다음에 삽입(2026-08-02, 공정위 표시광고 지침 — 고지문이
-    // "게시물 첫 부분/제목 근처"에 있어야 함): 예전엔 이 블록을 캡션 맨 끝에
-    // 이어붙여서 고지문이 항상 스크롤을 다 내려야 보이는 위치에 있었다. 첫 줄
-    // (훅/제목) 바로 다음, 본문 시작 전에 끼워 넣는다.
-    const wrapped = AUTO_LINKS_START + block + AUTO_LINKS_END;
+    let blockText = result.text;
+    // WHY profile-note(2026-07-31): 유튜브 쇼츠 설명란 링크는 클릭이 안 된다는
+    // 피드백 — 그렇다고 링크 텍스트 자체를 빼는 게 아니라(요청: "링크도 있지만
+    // 프로필도 안내해주는 걸로"), 링크는 그대로 두고 프로필 확인 안내를 덧붙인다.
+    if (card.dataset.profileNote === "1") {
+      blockText += "\n\n🔗 링크가 눌리지 않으면 채널 프로필에서 확인해주세요";
+    }
+    // WHY 고지문을 맨 위(제목 다음)·맨 아래(캡션 최종 끝) 두 곳에 각각 한 번씩만
+    // 넣는지(2026-08-03 재작업 — 위 _buildLinkBlock/_buildCtaBlock 주석 참고):
+    // 공정위 지침상 "게시물 첫 부분"에 있어야 해서 제목 다음에 하나 넣고,
+    // "스크롤 안 해도 위에서 보이지만 끝까지 읽은 사람도 다시 보게" 요청대로
+    // 게시물 맨 끝에도 하나 더 넣는다 — 상품 블록 바로 위·아래에 몰아넣는 게
+    // 아니라 게시물 전체를 고지문으로 감싸는 것이 실제 요구사항이었다.
+    const topWrapped = AUTO_LINKS_START + result.disclosure + "\n\n" + blockText + AUTO_LINKS_END;
     const firstBreak = stripped.indexOf("\n");
-    box.value = firstBreak === -1
-      ? stripped + "\n\n" + wrapped
-      : stripped.slice(0, firstBreak) + "\n\n" + wrapped + stripped.slice(firstBreak);
+    const withTop = firstBreak === -1
+      ? stripped + "\n\n" + topWrapped
+      : stripped.slice(0, firstBreak) + "\n\n" + topWrapped + stripped.slice(firstBreak);
+    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + AUTO_BOTTOM_END;
+    box.value = withTop + "\n\n" + bottomWrapped;
   });
 }
 

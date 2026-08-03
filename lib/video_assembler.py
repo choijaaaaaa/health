@@ -154,6 +154,51 @@ def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
     return entries
 
 
+# WHY 자막 최대 줄 수 강제(2026-08-03, "이런 현상이 어디서도 많이 발생할거같은데
+# 언어가 글로벌로 늘어나니까... 칠판을 가득 채워버려서 보기 어렵다... 4줄정도를
+# 최대로 해야" — 가슴쓰림_1/ja 스크린샷에서 문장 4개가 한 자막에 뭉쳐 칠판을
+# 거의 다 채운 걸 실제로 보고 지적): 근본 원인은 Typecast API가 일부 언어(특히
+# 일본어)에서 단어 단위 타임스탬프를 문장 경계 없이 뭉텅이로 반환하는 것이지만,
+# 원인이 API든 그냥 원래 긴 문장이든 화면에 자막이 너무 많이 쌓이는 결과는
+# 언어·topic과 무관하게 똑같이 나쁘다 — 원인을 하나씩 쫓기보다 렌더링 단계에서
+# "화면에 뜨는 자막은 항상 MAX_CAPTION_LINES줄 이하"를 강제하는 안전장치를 둔다.
+MAX_CAPTION_LINES = 4
+_CAPTION_SENTENCE_SPLIT_RE = re.compile(r"(?<=[.!?。！？।؟])\s*")
+
+
+def _count_wrapped_lines(text: str, lang: str, font_size: int = 68, max_width: int = 940) -> int:
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
+    dummy = Image.new("RGBA", (1, 1))
+    d = ImageDraw.Draw(dummy)
+    return len(_wrap_text_for_lang(d, text, font, max_width, lang))
+
+
+def _split_long_caption_entries(
+    entries: list[tuple[float, float, str]], lang: str,
+) -> list[tuple[float, float, str]]:
+    """SRT 한 구간이 MAX_CAPTION_LINES줄을 넘치게 길면 문장 단위(마침표류 기준)로
+    쪼개서 여러 구간으로 나눈다 — 시간은 원래 구간 안에서 글자 수 비례로 배분한다
+    (정확한 원본 타이밍 기록이 없어 택한 근사치, rebuild_video.py의 문단 내 위치
+    비례 배분과 같은 방식). 문장이 하나뿐인데도 넘치면(원래부터 긴 단문) 더
+    쪼갤 안전한 기준이 없어 그대로 둔다 — 쉼표 단위 분할까지는 스코프 밖."""
+    result = []
+    for start, end, text in entries:
+        if _count_wrapped_lines(text, lang) <= MAX_CAPTION_LINES:
+            result.append((start, end, text))
+            continue
+        sentences = [s.strip() for s in _CAPTION_SENTENCE_SPLIT_RE.split(text) if s.strip()]
+        if len(sentences) <= 1:
+            result.append((start, end, text))
+            continue
+        total_len = sum(len(s) for s in sentences)
+        cursor = start
+        for i, s in enumerate(sentences):
+            seg_end = end if i == len(sentences) - 1 else cursor + (end - start) * (len(s) / total_len)
+            result.append((cursor, seg_end, s))
+            cursor = seg_end
+    return result
+
+
 def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
     """공정위 표시광고 지침 대응 — 실제 쿠팡/네이버 제휴 링크를 쓰기로 확정한
     영상에만 assemble(..., ad_tag=True)로 켠다. "처음부터 끝까지 노출" 요건 때문에
@@ -2870,6 +2915,10 @@ def assemble(
             for start, end, text in srt_entries
             if start < total_duration
         ]
+        # WHY 여기서 쪼개는지: 위 클램프까지 끝난 뒤(시간 범위가 확정된 뒤)라야
+        # 문장별로 나눈 구간에 정확한 시간을 비례 배분할 수 있다 — MAX_CAPTION_LINES
+        # WHY 주석 참고(_split_long_caption_entries 바로 위).
+        srt_entries = _split_long_caption_entries(srt_entries, lang)
         cap_dir = tmp_path / "caps"
         cap_dir.mkdir()
         timeline, cursor = [(0.0, offset, None)], 0.0
