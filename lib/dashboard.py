@@ -757,9 +757,13 @@ def _dock_products(products: list[str], product_links: dict[str, str] | None = N
             name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
             link_value=_esc(link), row_class=" linked" if link else "",
         )
-    # WHY 네이버 언급 없음(2026-08-01): 네이버 블로그도 브랜드커넥트 대신 쿠팡 링크를
-    # 쓰기로 바뀌면서 상품 링크는 쿠팡 하나만 필요해졌다 — 네이버 클립은 이 링크값과
-    # 무관하게 상품명이 자동으로 들어가므로 별도 안내가 필요 없다.
+    # WHY 네이버 전용 입력란이 따로 없는지(2026-08-03 주석 갱신 — 8/1엔 "네이버
+    # 블로그도 쿠팡 링크로 통일"이 이유였는데, 8/3에 저품질 이슈로 네이버 블로그가
+    # 다시 브랜드커넥트로 되돌아가면서 그 이유는 더 이상 맞지 않음): 이 덕 패널은
+    # 플랫폼 구분 없이 쿠팡 링크 하나만 입력받는 공용 UI다 — network:"naver"가
+    # 붙은 플랫폼(네이버 블로그·클립)은 이 값과 무관하게 `_buildLinkBlock`이
+    # 상품명만 나열하는 브랜드커넥트 방식으로 따로 처리하므로, 여기서 네이버용
+    # 입력란을 별도로 둘 필요가 없다.
     # WHY id 없이 class만 쓰는지(2026-08-02): 이 버튼을 페이지 맨 아래에도 복제해서
     # 넣으면서(`_product_links_bottom_section`) id가 중복되면 안 돼 — class 기준
     # querySelectorAll로 바인딩하도록 JS를 바꿔서 이제 id가 필요 없다.
