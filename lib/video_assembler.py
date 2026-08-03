@@ -626,6 +626,23 @@ def _anon_name(rng: random.Random) -> str:
     return f"{rng.choice(_SURNAMES)}OO"
 
 
+# WHY 명패 종류를 2종→6종으로 늘리고 풀에서 랜덤 선택하게 했는지(2026-08-03,
+# "칠판에 있는 파츠들은 랜덤으로 들어가게 해달라했는데 걍 다 들어간상태로만
+# 영상을 제작하는듯? 그리고 파츠들 더 다양화 하는게 좋을 것 같아"): 기존엔
+# "떠든 사람"+"주번"이 매 영상마다 고정으로 둘 다 나왔다 — 도형(별/하트 등)만
+# 랜덤이고 "어떤 종류의 명패가 뜨는지" 자체는 항상 같아서 여러 topic을 연달아
+# 보면 매번 똑같은 골격으로 느껴졌다. 이제 이 풀에서 0~2개를 랜덤으로 뽑아서
+# (`_place_chalk_doodle`) topic마다 아예 다른 조합·개수가 나오게 한다.
+_NAMEPLATE_POOL = [
+    ("떠든 사람: {}", 2, 26),
+    ("주번 {}", 1, 30),
+    ("우유 당번 {}", 1, 30),
+    ("칠판 당번 {}", 1, 30),
+    ("오늘의 발표자 {}", 1, 26),
+    ("청소 당번 {}", 1, 30),
+]
+
+
 def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False) -> Image.Image:
     """분필체 글자를 사각 테두리로 감싼 작은 명패 — 주번/떠든 사람/급훈 액자가
     전부 이 틀을 재사용하고 테두리 스타일(단선/이중선)만 다르게 쓴다. WHY 여백을
@@ -762,25 +779,33 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     급훈 문구가... 도형도 이것저것 엄청 넣어보자" → "이빠이넣어 귀여운 것들
     제발좀... 나중에 중복 이미지가 아니게 보이게 할때도 좋을 것 같단말이야"):
 
-    - **양쪽 위 모서리**: `_DOODLES` 중 서로 다른 도형을 한쪽당 `per_corner`개씩
-      흩뿌린다(겹침 방지 재시도 포함). 자막은 판서면 세로 중앙, 캐릭터는 항상
-      오른쪽 아래에 나오므로 위쪽 양 모서리는 topic 길이·자막 줄 수와 무관하게
-      절대 안 겹치는 유일한 안전 지대다.
+    ⚠️ **파츠 자체의 등장 여부도 랜덤**(2026-08-03, "칠판에 있는 파츠들은
+    랜덤으로 들어가게 해달라했는데 걍 다 들어간상태로만 영상을 제작하는듯?
+    그리고 파츠들 더 다양화 하는게 좋을 것 같아"): 처음엔 도형 종류만 랜덤이고
+    "어떤 파츠가 뜨는지"(급훈/명패/분필받침대) 자체는 매 영상 고정으로 전부
+    나왔다 — 아래 각 파츠 항목에 등장 확률/풀을 표시해뒀다. 자막·캐릭터와 안
+    겹치는 "안전지대" 자리 자체는 그대로 유지하되, 그 자리를 채울지 말지와
+    무엇으로 채울지를 seed로 결정적 랜덤화한다.
+
+    - **양쪽 위 모서리**: `_DOODLES` 중 서로 다른 도형을 한쪽당 2~`per_corner`개
+      (topic마다 다름)씩 흩뿌린다(겹침 방지 재시도 포함). 자막은 판서면 세로
+      중앙, 캐릭터는 항상 오른쪽 아래에 나오므로 위쪽 양 모서리는 topic 길이·
+      자막 줄 수와 무관하게 절대 안 겹치는 유일한 안전 지대다.
     - **양옆 여백(중간 높이)**: 자막(`_make_chalk_caption_png`, `max_width=940`,
       캔버스 W=1080 기준 중앙 정렬)은 아무리 길어도 좌우로 최소 ~50px는 항상
-      비워둔다 — 그 얇은 띠(가장자리에서 45px 폭)에 작은 낙서를 몇 개 더
-      흩뿌린다(2026-08-02, "모서리나 양옆에 여백 구간에 귀여운거 좀더 만들어
-      넣자"). 위쪽 모서리 클러스터보다 한참 아래(위 클러스터 바닥 + 60px)부터
-      시작해서 우상단 아이템 라벨(있을 때)과도, 하단 캐릭터(오른쪽 아래)와도
-      절대 안 겹치게 세로 범위를 짧게(`_SIDE_MARGIN_BAND_H`) 제한한다.
-    - **위쪽 중앙**: "급훈" 액자 — topic 폴더명에서 뽑은 한 단어 요약
-      (`_topic_word_from_seed`)을 이중 테두리 액자에 넣는다. 양쪽 모서리
+      비워둔다 — 그 얇은 띠(가장자리에서 45px 폭)에 작은 낙서를 0~3개
+      흩뿌린다(0개면 이 구간은 그냥 빈 채로 남음). 위쪽 모서리 클러스터보다
+      한참 아래(위 클러스터 바닥 + 60px)부터 시작해서 우상단 아이템 라벨
+      (있을 때)과도, 하단 캐릭터(오른쪽 아래)와도 절대 안 겹치게 세로 범위를
+      짧게(`_SIDE_MARGIN_BAND_H`) 제한한다.
+    - **위쪽 중앙**: "급훈" 액자(70% 확률) — topic 폴더명에서 뽑은 한 단어
+      요약(`_topic_word_from_seed`)을 이중 테두리 액자에 넣는다. 양쪽 모서리
       낙서 사이 빈 공간이라 여기도 자막·캐릭터와 안 겹친다.
-    - **왼쪽 아래**: "주번 OOO" 명패 + 그 위에 "떠든 사람: OOO, OOO" 명단을
-      쌓아 올린다 — 캐릭터가 항상 오른쪽 아래를 차지해서 왼쪽 아래가 유일하게
-      비어있는 하단 모서리다. 판서면 맨 아래쪽 끝에 붙여서 세로 중앙의 자막과는
-      안 겹치게 한다.
-    - **분필 받침대**: 판서면 아래 나무 받침대 위에 분필 조각 2~3개 + 지우개를
+    - **왼쪽 아래**: `_NAMEPLATE_POOL`(떠든 사람/주번/우유 당번/칠판 당번/
+      오늘의 발표자/청소 당번, 6종)에서 0~2개를 골라 쌓아 올린다 — 캐릭터가
+      항상 오른쪽 아래를 차지해서 왼쪽 아래가 유일하게 비어있는 하단 모서리다.
+      판서면 맨 아래쪽 끝에 붙여서 세로 중앙의 자막과는 안 겹치게 한다.
+    - **분필 받침대**(70% 확률): 판서면 아래 나무 받침대 위에 분필 조각 2~3개 + 지우개를
       얹는다 — 받침대의 왼쪽 절반만 쓴다(오른쪽은 코너 캐릭터 자리라 어차피
       캐릭터에 가려짐).
 
@@ -816,7 +841,12 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     zone_w, zone_h, top_gap = 260, 300, 20
     sides = ("left",) if skip_right else ("left", "right")
     for side in sides:
-        shapes = rng.sample(_DOODLES, min(per_corner, len(_DOODLES)))
+        # WHY per_corner를 고정 개수로 안 쓰는지(2026-08-03, 파츠 다양화 요청):
+        # 이 자리 자체(그리는지 여부)는 배치 안전지대라 항상 유지하되, 몇 개가
+        # 뿌려지는지는 topic마다 2~per_corner개로 흔들어서 화면 밀도가 매번
+        # 달라 보이게 한다.
+        side_count = rng.randint(2, max(per_corner, 2))
+        shapes = rng.sample(_DOODLES, min(side_count, len(_DOODLES)))
         placed: list[tuple[float, float]] = []
         for fn in shapes:
             lx = ly = 0
@@ -844,7 +874,10 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     _SIDE_MARGIN_W = 45
     _SIDE_MARGIN_BAND_H = 260
     margin_top = green_top_canvas + top_gap + zone_h + 60
-    count = rng.randint(2, 3)
+    # WHY 0을 허용하는지(2026-08-03, 파츠 다양화 요청): 예전엔 항상 2~3개가
+    # 나와서 이 띠가 한 번도 빈 적이 없었다 — 가끔은 아예 안 나오는 topic도
+    # 있어야 "매번 다 채워진 느낌"이 덜하다.
+    count = rng.randint(0, 3)
     placed_y: list[float] = []
     for _ in range(count):
         size = rng.randint(28, 42)
@@ -862,39 +895,52 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
         y = margin_top + ly
         canvas.alpha_composite(doodle, (lx, y))
 
-    motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
-    canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
+    # WHY 70% 확률인지(2026-08-03, "걍 다 들어간상태로만 영상을 제작하는듯"):
+    # 급훈은 항상 나오는 고정 파츠였다 — 가끔 빠지는 topic도 있어야 매번 같은
+    # 골격으로 안 보인다.
+    if rng.random() < 0.7:
+        motto = _doodle_text_box(_topic_word_from_seed(seed), font_size=48, double_border=True)
+        canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
 
-    talked_names = ", ".join(_anon_name(rng) for _ in range(2))
-    talked = _doodle_text_box(f"떠든 사람: {talked_names}", font_size=26)
-    juban = _doodle_text_box(f"주번 {_anon_name(rng)}", font_size=30)
+    # WHY 풀에서 0~2개를 뽑는지: 위 _NAMEPLATE_POOL 정의부 WHY 참고 — "떠든
+    # 사람"+"주번" 고정 조합 대신 topic마다 다른 종류·개수의 명패가 뜨게 한다.
+    n_plates = rng.randint(0, 2)
+    chosen = rng.sample(_NAMEPLATE_POOL, min(n_plates, len(_NAMEPLATE_POOL)))
+    plates = []
+    for fmt, name_count, font_size in chosen:
+        names = ", ".join(_anon_name(rng) for _ in range(name_count))
+        plates.append(_doodle_text_box(fmt.format(names), font_size=font_size))
     # WHY min(...)인지: 원래는 green_bottom_canvas(판서면 실측 하단) 기준으로만
     # 붙였는데, 유튜브 쇼츠 플레이어의 채널명·설명 캡션 띠가 화면 맨 아래
     # _YT_SAFE_BOTTOM(320px)만큼을 항상 가려서 실기기에서는 이 명패 글자가
     # 그 띠와 겹쳐 읽기 힘들었다 — 두 기준 중 더 위쪽(작은 y)을 쓴다.
     stack_bottom = min(green_bottom_canvas - 30, H - _YT_SAFE_BOTTOM)
-    juban_x, juban_y = 30, stack_bottom - juban.height
-    talked_x, talked_y = 30, juban_y - talked.height - 12
-    canvas.alpha_composite(talked, (talked_x, talked_y))
-    canvas.alpha_composite(juban, (juban_x, juban_y))
+    y_cursor = stack_bottom
+    for plate in plates:
+        y_cursor -= plate.height
+        canvas.alpha_composite(plate, (30, y_cursor))
+        y_cursor -= 12
 
     tray_top_x, tray_top_y = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_LEFT_ORIG, _CHALKBOARD_TRAY_TOP_ORIG, top_pad)
     tray_bottom_x, _ = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_RIGHT_ORIG, _CHALKBOARD_TRAY_BOTTOM_ORIG, top_pad)
     tray_mid_x = (tray_top_x + tray_bottom_x) / 2  # 오른쪽 절반은 코너 캐릭터 자리라 왼쪽 절반만 사용
     tray_y = round(tray_top_y) + 6
 
-    eraser = _doodle_eraser()
-    eraser_x = round(tray_top_x) + 20
-    canvas.alpha_composite(eraser, (eraser_x, tray_y))
-    chalk_x = eraser_x + eraser.width + 14
-    for i in range(rng.randint(2, 3)):
-        chalk = _doodle_chalk_stick()
-        angle = rng.uniform(-15, 15)
-        chalk = chalk.rotate(angle, expand=True, resample=Image.BICUBIC)
-        cx = chalk_x + i * (chalk.width - 6)
-        if cx + chalk.width > tray_mid_x:
-            break
-        canvas.alpha_composite(chalk, (cx, tray_y + rng.randint(-4, 4)))
+    # WHY 70% 확률인지: 분필 받침대도 급훈과 같은 이유로 고정 파츠였다 — 가끔
+    # 빈 받침대인 topic도 섞는다.
+    if rng.random() < 0.7:
+        eraser = _doodle_eraser()
+        eraser_x = round(tray_top_x) + 20
+        canvas.alpha_composite(eraser, (eraser_x, tray_y))
+        chalk_x = eraser_x + eraser.width + 14
+        for i in range(rng.randint(2, 3)):
+            chalk = _doodle_chalk_stick()
+            angle = rng.uniform(-15, 15)
+            chalk = chalk.rotate(angle, expand=True, resample=Image.BICUBIC)
+            cx = chalk_x + i * (chalk.width - 6)
+            if cx + chalk.width > tray_mid_x:
+                break
+            canvas.alpha_composite(chalk, (cx, tray_y + rng.randint(-4, 4)))
     return canvas
 
 

@@ -129,6 +129,18 @@
   }
   .copy-comment-links:hover { opacity: 0.9; }
   .copy-comment-links.copied { background: var(--gold); color: #fff; }
+
+  .bottom-product-links {
+    margin: 40px 24px; padding: 20px; border-radius: 16px; background: var(--panel);
+    border: 1px solid var(--rule);
+  }
+  .bottom-product-links h2 { margin: 0 0 12px; font-size: 18px; }
+  .bottom-product-row {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    padding: 10px 0; border-top: 1px solid var(--rule); font-size: 13px;
+  }
+  .bottom-product-name { font-weight: 700; min-width: 120px; }
+  .bottom-product-nolink { color: var(--ink-soft); }
   @media (max-width: 860px) {
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
@@ -227,7 +239,7 @@
       <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
-  <div class="dock-section"><h4>상품 링크</h4><button type="button" id="copyCommentLinksBtn" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
+  <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
 <div class="dock-product-row linked" id="dock-row-0">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-0" title="링크 넣기">🔗</button>
@@ -708,6 +720,8 @@
 </section>
 
 
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">무가당 탄산수</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EA%B0%80%EB%8B%B9%20%ED%83%84%EC%82%B0%EC%88%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSRhurg5gi" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSRjxn1pdc" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">닭가슴살</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQslYJIQK" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저지방 우유</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%A7%80%EB%B0%A9%20%EC%9A%B0%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSRlW7qwfc" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
+
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
@@ -795,8 +809,11 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
-const copyCommentLinksBtn = document.getElementById("copyCommentLinksBtn");
-if (copyCommentLinksBtn) {
+// WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
+// 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
+// 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
+// class 기준 querySelectorAll로 바꿨다(위 row-toggle 등 다른 버튼들과 동일 패턴).
+document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => {
   const originalLabel = copyCommentLinksBtn.textContent;
   copyCommentLinksBtn.addEventListener("click", () => {
     const linkBlock = _buildLinkBlock(false);
@@ -815,7 +832,7 @@ if (copyCommentLinksBtn) {
       }, 1500);
     });
   });
-}
+});
 
 function _escapeHtml(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
