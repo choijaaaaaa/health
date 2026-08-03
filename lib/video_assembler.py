@@ -1522,7 +1522,7 @@ _FIRST_NAMES_EN = ["Alex", "Jordan", "Sam", "Riley", "Casey", "Morgan", "Taylor"
 def _anon_name(rng: random.Random, lang: str = "kor") -> str:
     if lang == "kor":
         return f"{rng.choice(_SURNAMES)}OO"
-    return rng.choice(_FIRST_NAMES_EN)
+    return rng.choice(_FIRST_NAMES_BY_LANG.get(lang, _FIRST_NAMES_EN))
 
 
 # WHY 명패 종류를 2종→6종→18종으로 늘리고 풀에서 랜덤 선택하게 했는지
@@ -1580,6 +1580,220 @@ _NAMEPLATE_POOL_EN = [
     ("Window Helper: {}", 1, 24),
     ("Lunch Helper: {}", 1, 24),
 ]
+
+# WHY 14개 언어 추가 명패 풀(2026-08-03, "언어별로 다르게... 그 나라 감성에
+# 맞춰서" — 4개 서브에이전트 병렬 리서치): 한국어/영어 외 13개 글로벌 채널
+# 언어(+대만어 별도) 각각의 실제 교실 당번·직책 문화를 웹 검색으로 조사해서
+# (번역이 아니라) 그 문화에 맞게 새로 구성했다 — 위 "한국 교실 당번 문화를
+# 그대로 번역하지 않는지" WHY와 같은 원칙. 일부 항목(예: 감초 성분 표기가 아닌
+# 언어권별 "떠든 사람" 격 문구)은 실제 그 문화에 해당 관행이 있는지 근거가
+# 약하면 의도적으로 뺐다(예: 아랍어·벵골어·힌디어는 부정적 콜아웃 항목을 아예
+# 빼고 전부 긍정적 직책만 사용 — 리서치 근거 부족 시 안전한 쪽으로 판단).
+# 태국어는 실제 학교에서 정식 이름 대신 별명(ชื่อเล่น)으로 부르는 문화가
+# 확인돼서 이름 풀도 별명으로 구성함. 각 풀 출처는 커밋 메시지/PR 참고.
+_NAMEPLATE_POOL_JA = [
+    ("日直: {}", 1, 28), ("給食当番: {}", 1, 22), ("掃除当番: {}", 1, 24),
+    ("黒板係: {}", 1, 26), ("図書係: {}", 1, 26), ("生き物係: {}", 1, 24),
+    ("配り係: {}", 1, 26), ("掲示係: {}", 1, 24), ("レク係: {}", 1, 26),
+    ("新聞係: {}", 1, 26), ("ダンス係: {}", 1, 24), ("学級委員: {}", 1, 22),
+    ("窓係: {}", 1, 28), ("バースデー係: {}", 1, 20), ("おしゃべりさん: {}", 2, 20),
+    ("遅刻: {}", 2, 26),
+]
+_FIRST_NAMES_JA = ["はると", "ゆうと", "そうた", "みなと", "けんと", "りく",
+                   "さくら", "ゆい", "ひなた", "あおい", "みお", "あかり",
+                   "つむぎ", "そら", "ひまり"]
+
+_NAMEPLATE_POOL_TW = [
+    ("值日生: {}", 1, 26), ("班長: {}", 1, 28), ("副班長: {}", 1, 24),
+    ("風紀股長: {}", 1, 22), ("衛生股長: {}", 1, 22), ("學藝股長: {}", 1, 22),
+    ("總務股長: {}", 1, 22), ("康樂股長: {}", 1, 22), ("體育股長: {}", 1, 22),
+    ("圖書股長: {}", 1, 22), ("環保股長: {}", 1, 20), ("擦黑板: {}", 1, 26),
+    ("排路隊: {}", 1, 24), ("澆花: {}", 1, 28), ("小老師: {}", 1, 24),
+    ("愛講話: {}", 2, 22), ("遲到: {}", 2, 26),
+]
+_FIRST_NAMES_TW = ["家豪", "承恩", "冠廷", "宗翰", "柏翰", "品睿", "昊恩",
+                   "詩涵", "雨萱", "佳穎", "惠雯", "怡君", "心妍", "子晴", "立祥"]
+
+_NAMEPLATE_POOL_VI = [
+    ("Lớp trưởng: {}", 1, 26), ("Lớp phó học tập: {}", 1, 20),
+    ("Lớp phó lao động: {}", 1, 20), ("Lớp phó văn nghệ: {}", 1, 20),
+    ("Tổ trưởng: {}", 1, 26), ("Cờ đỏ: {}", 1, 28), ("Trực nhật: {}", 2, 22),
+    ("Quét lớp: {}", 1, 24), ("Lau bảng: {}", 1, 24), ("Tưới cây: {}", 1, 24),
+    ("Phát vở: {}", 1, 24), ("Sinh nhật: {}", 1, 26),
+    ("Hay nói chuyện: {}", 2, 20), ("Đi trễ: {}", 2, 26),
+    ("Sao của tuần: {}", 1, 22), ("Đọc sách giỏi: {}", 1, 22),
+]
+_FIRST_NAMES_VI = ["An", "Bình", "Chi", "Dũng", "Hà", "Huy", "Lan", "Linh",
+                   "Mai", "Minh", "Nam", "Ngọc", "Phương", "Thảo", "Tuấn"]
+
+_NAMEPLATE_POOL_TH = [
+    ("หัวหน้าห้อง: {}", 1, 26), ("รองหัวหน้าห้อง: {}", 1, 20),
+    ("เลขาห้อง: {}", 1, 26), ("เหรัญญิก: {}", 1, 24),
+    ("เวรประจำวัน: {}", 2, 20), ("กวาดห้อง: {}", 1, 24),
+    ("ลบกระดาน: {}", 1, 22), ("รดน้ำต้นไม้: {}", 1, 20),
+    ("แจกสมุด: {}", 1, 24), ("หัวหน้าแถว: {}", 1, 22), ("ถือธง: {}", 1, 26),
+    ("วันเกิด: {}", 1, 28), ("ดาวเด่น: {}", 1, 26), ("คุยเก่ง: {}", 2, 24),
+    ("มาสาย: {}", 2, 26), ("นักอ่านเก่ง: {}", 1, 22),
+]
+_FIRST_NAMES_TH = ["พลอย", "แบงค์", "มายด์", "ฟ้า", "กิ๊ฟ", "บอส", "ไอซ์",
+                   "มิ้นท์", "เบียร์", "โอม", "มุก", "กอล์ฟ", "น้ำ"]
+
+_NAMEPLATE_POOL_ES = [
+    ("Habló mucho: {}", 2, 22), ("Llegó tarde: {}", 2, 22),
+    ("Líder de fila: {}", 1, 26), ("Ayudante del día: {}", 1, 22),
+    ("Encargado de materiales: {}", 1, 16), ("Encargado del pizarrón: {}", 1, 18),
+    ("Presidente de grupo: {}", 1, 20), ("Vicepresidente: {}", 1, 24),
+    ("Encargado de las plantas: {}", 1, 16), ("Encargado de la puerta: {}", 1, 18),
+    ("Repartidor de cuadernos: {}", 1, 16), ("Encargado del reciclaje: {}", 1, 18),
+    ("Lector del día: {}", 1, 24), ("Estrella de la semana: {}", 1, 18),
+    ("Cumpleañero del mes: {}", 1, 20), ("Encargado de la fecha: {}", 1, 18),
+    ("Encargado del clima: {}", 1, 20), ("Compañero del mes: {}", 1, 20),
+]
+_FIRST_NAMES_ES = ["Mateo", "Sofía", "Santiago", "Valentina", "Camila", "Diego",
+                   "Ximena", "Sebastián", "Mariana", "Alejandro", "Fernanda",
+                   "Nicolás", "Isabella", "Emiliano", "Renata"]
+
+_NAMEPLATE_POOL_PT = [
+    ("Conversou muito: {}", 2, 20), ("Chegou atrasado: {}", 2, 20),
+    ("Ajudante do dia: {}", 1, 22), ("Líder da fila: {}", 1, 24),
+    ("Apagador do quadro: {}", 1, 18), ("Delegado de turma: {}", 1, 20),
+    ("Vice-delegado: {}", 1, 24), ("Ajudante das plantas: {}", 1, 18),
+    ("Ajudante da porta: {}", 1, 20), ("Ajudante dos cadernos: {}", 1, 18),
+    ("Ajudante da reciclagem: {}", 1, 16), ("Leitor do dia: {}", 1, 24),
+    ("Estrela da semana: {}", 1, 20), ("Aniversariante do mês: {}", 1, 16),
+    ("Ajudante do calendário: {}", 1, 16), ("Ajudante do tempo: {}", 1, 20),
+    ("Amigo do mês: {}", 1, 24), ("Ajudante da tinta: {}", 1, 20),
+]
+_FIRST_NAMES_PT = ["Miguel", "Sofia", "Arthur", "Helena", "Heitor", "Alice",
+                   "Davi", "Laura", "Bernardo", "Manuela", "Gabriel",
+                   "Valentina", "Pedro", "Isabela", "Lucas"]
+
+_NAMEPLATE_POOL_FR = [
+    ("A trop parlé : {}", 2, 22), ("En retard : {}", 2, 24),
+    ("Chef de rang : {}", 1, 24), ("Responsable du tableau : {}", 1, 16),
+    ("Responsable de la date : {}", 1, 16), ("Facteur de la classe : {}", 1, 16),
+    ("Distributeur : {}", 1, 24), ("Responsable météo : {}", 1, 20),
+    ("Responsable propreté : {}", 1, 18), ("Responsable BCD : {}", 1, 22),
+    ("Délégué de classe : {}", 1, 20), ("Délégué suppléant : {}", 1, 20),
+    ("Responsable des plantes : {}", 1, 16), ("Responsable de la porte : {}", 1, 16),
+    ("Élève de la semaine : {}", 1, 18), ("Anniversaire du mois : {}", 1, 18),
+    ("Responsable du tri : {}", 1, 18), ("Lecteur du jour : {}", 1, 22),
+]
+_FIRST_NAMES_FR = ["Léo", "Emma", "Gabriel", "Louise", "Raphaël", "Alice",
+                   "Jules", "Chloé", "Adam", "Léa", "Louis", "Manon",
+                   "Nathan", "Camille", "Hugo"]
+
+_NAMEPLATE_POOL_DE = [
+    ("Hat zu viel geredet: {}", 2, 20), ("Kam zu spät: {}", 2, 24),
+    ("Tafeldienst: {}", 1, 28), ("Austeildienst: {}", 1, 26),
+    ("Ordnungsdienst: {}", 1, 24), ("Blumendienst: {}", 1, 26),
+    ("Kalenderdienst: {}", 1, 24), ("Klassensprecher: {}", 1, 22),
+    ("Stellvertreter: {}", 1, 22), ("Mülldienst: {}", 1, 28),
+    ("Fensterdienst: {}", 1, 24), ("Wetterdienst: {}", 1, 24),
+    ("Büchereidienst: {}", 1, 22), ("Technikdienst: {}", 1, 24),
+    ("Botendienst: {}", 1, 26), ("Stern der Woche: {}", 1, 22),
+    ("Geburtstagskind: {}", 1, 22), ("Lesepate: {}", 1, 28),
+]
+_FIRST_NAMES_DE = ["Ben", "Mia", "Paul", "Emma", "Finn", "Lea", "Noah", "Mila",
+                   "Elias", "Anna", "Luis", "Lina", "Felix", "Marie", "Jonas"]
+
+_NAMEPLATE_POOL_RU = [
+    ("Шумели на уроке: {}", 2, 20), ("Опоздали сегодня: {}", 2, 20),
+    ("Староста класса: {}", 1, 24), ("Дежурный по классу: {}", 1, 20),
+    ("Физорг: {}", 1, 28), ("Цветовод: {}", 1, 26), ("Библиотекарь: {}", 1, 24),
+    ("Редактор газеты: {}", 1, 20), ("Санитар класса: {}", 1, 22),
+    ("Дежурный столовой: {}", 1, 20), ("Хранитель доски: {}", 1, 22),
+    ("Помощник учителя: {}", 1, 22), ("Именинник дня: {}", 1, 26),
+    ("Чтец недели: {}", 1, 24), ("Открывает окна: {}", 1, 22),
+    ("Культорг: {}", 1, 28),
+]
+_FIRST_NAMES_RU = ["Саша", "Женя", "Максим", "Даша", "Ваня", "Настя",
+                   "Витя", "Катя", "Дима", "Лена", "Паша", "Аня",
+                   "Миша", "Оля", "Костя"]
+
+_NAMEPLATE_POOL_TR = [
+    ("Sınıfta Konuşanlar: {}", 2, 18), ("Bugün Geç Kalanlar: {}", 2, 20),
+    ("Sınıf Başkanı: {}", 1, 24), ("Başkan Yardımcısı: {}", 1, 20),
+    ("Nöbetçi Öğrenci: {}", 1, 20), ("Tahta Sorumlusu: {}", 1, 20),
+    ("Çiçek Sorumlusu: {}", 1, 22), ("Kitap Dağıtan: {}", 1, 22),
+    ("Pencere Sorumlusu: {}", 1, 20), ("Temizlik Sorumlusu: {}", 1, 18),
+    ("Kitaplık Sorumlusu: {}", 1, 20), ("Doğum Günü: {}", 1, 28),
+    ("Haftanın Yıldızı: {}", 1, 20), ("Bugünün Sunucusu: {}", 1, 20),
+    ("Tebeşir Sorumlusu: {}", 1, 18), ("Günün Yardımcısı: {}", 1, 22),
+]
+_FIRST_NAMES_TR = ["Ayşe", "Mehmet", "Elif", "Emre", "Zeynep", "Ahmet",
+                   "Ece", "Burak", "Deniz", "Cem", "Selin", "Kerem",
+                   "Yusuf", "Ecrin", "Berk"]
+
+_NAMEPLATE_POOL_ID = [
+    ("Ribut di Kelas: {}", 2, 22), ("Terlambat Hari Ini: {}", 2, 20),
+    ("Ketua Kelas: {}", 1, 26), ("Wakil Ketua Kelas: {}", 1, 22),
+    ("Sekretaris Kelas: {}", 1, 22), ("Bendahara Kelas: {}", 1, 22),
+    ("Piket Hari Ini: {}", 1, 24), ("Penghapus Papan Tulis: {}", 1, 18),
+    ("Penyiram Bunga: {}", 1, 24), ("Petugas Absen: {}", 1, 24),
+    ("Seksi Kebersihan: {}", 1, 22), ("Pembagi Buku: {}", 1, 24),
+    ("Ulang Tahun: {}", 1, 28), ("Bintang Minggu Ini: {}", 1, 20),
+    ("Pembawa Acara Hari Ini: {}", 1, 18), ("Petugas UKS: {}", 1, 24),
+]
+_FIRST_NAMES_ID = ["Budi", "Siti", "Andi", "Dewi", "Rizky", "Putri",
+                   "Agus", "Ayu", "Fajar", "Rina", "Dimas", "Sari",
+                   "Bayu", "Indah", "Wahyu"]
+
+_NAMEPLATE_POOL_AR = [
+    ("عريف الفصل: {}", 1, 26), ("رئيس الفصل: {}", 1, 26),
+    ("نائب الرئيس: {}", 1, 24), ("مسؤول النظافة: {}", 1, 22),
+    ("أمين المكتبة: {}", 1, 24), ("مسؤول السبورة: {}", 1, 22),
+    ("مسؤول الحضور: {}", 1, 22), ("موزع الكراسات: {}", 1, 20),
+    ("حارس الباب: {}", 1, 26), ("مسؤول النباتات: {}", 1, 20),
+    ("طالب الأسبوع: {}", 1, 22), ("نجم الأسبوع: {}", 1, 24),
+    ("عيد ميلاد: {}", 1, 28), ("لوحة الشرف: {}", 2, 22),
+    ("قائد الصف: {}", 1, 24),
+]
+_FIRST_NAMES_AR = ["أحمد", "محمد", "عمر", "خالد", "يوسف", "علي", "زيد",
+                   "مريم", "فاطمة", "عائشة", "نور", "سارة", "زينب", "ليلى"]
+
+_NAMEPLATE_POOL_BN = [
+    ("ক্লাস ক্যাপ্টেন: {}", 2, 22), ("শ্রেণি প্রধান: {}", 1, 24),
+    ("পরিচ্ছন্নতা প্রধান: {}", 1, 20), ("লাইব্রেরি সহকারী: {}", 1, 20),
+    ("সপ্তাহের সেরা শিক্ষার্থী: {}", 1, 18), ("হাজিরা মনিটর: {}", 1, 22),
+    ("বোর্ড মনিটর: {}", 1, 22), ("সহ-অধিনায়ক: {}", 1, 22),
+    ("গাছ পরিচর্যাকারী: {}", 1, 18), ("দরজা রক্ষক: {}", 1, 26),
+    ("জন্মদিন: {}", 1, 30), ("সেরা পাঠক: {}", 1, 24),
+    ("হোমওয়ার্ক সংগ্রাহক: {}", 1, 18), ("সাপ্তাহিক তারকা: {}", 2, 20),
+]
+_FIRST_NAMES_BN = ["রহিম", "করিম", "আরিফ", "হাসান", "ইমরান", "আয়ান", "তারিক",
+                   "আয়েশা", "ফাতিমা", "নূর", "জারা", "রেহানা", "নাসরিন", "সাদিয়া"]
+
+_NAMEPLATE_POOL_HI = [
+    ("कक्षा मॉनिटर: {}", 1, 24), ("सफाई मॉनिटर: {}", 1, 22),
+    ("पुस्तकालय मॉनिटर: {}", 1, 20), ("अनुशासन प्रभारी: {}", 1, 20),
+    ("उपस्थिति मॉनिटर: {}", 1, 20), ("ब्लैकबोर्ड ड्यूटी: {}", 1, 20),
+    ("कक्षा प्रतिनिधि: {}", 1, 22), ("उप-मॉनिटर: {}", 1, 26),
+    ("खेल कप्तान: {}", 1, 26), ("हाउस कैप्टन: {}", 1, 24),
+    ("प्रार्थना सभा प्रभारी: {}", 1, 20), ("पौधा प्रभारी: {}", 1, 26),
+    ("जन्मदिन: {}", 1, 30), ("सप्ताह का सितारा: {}", 1, 22),
+    ("पेपर वितरक: {}", 1, 24), ("सम्मान सूची: {}", 2, 22),
+]
+_FIRST_NAMES_HI = ["आरव", "विवान", "अर्जुन", "रोहन", "आदित्य", "ईशान", "कबीर",
+                   "अनन्या", "दिया", "प्रिया", "रिया", "आराध्या", "सान्वी", "मीरा"]
+
+# WHY 두 개의 레지스트리 딕셔너리로 묶는지: 언어가 15개(+한국어)로 늘어난
+# 뒤로도 _anon_name/_place_chalk_doodle에서 if/elif를 15번 반복하지 않고
+# lang 코드 하나로 바로 찾게 한다 — 매핑에 없는 코드는 안전하게 영어로 폴백.
+_FIRST_NAMES_BY_LANG: dict[str, list[str]] = {
+    "en": _FIRST_NAMES_EN, "ja": _FIRST_NAMES_JA, "zh-TW": _FIRST_NAMES_TW,
+    "vi": _FIRST_NAMES_VI, "th": _FIRST_NAMES_TH, "es": _FIRST_NAMES_ES,
+    "pt": _FIRST_NAMES_PT, "fr": _FIRST_NAMES_FR, "de": _FIRST_NAMES_DE,
+    "ru": _FIRST_NAMES_RU, "tr": _FIRST_NAMES_TR, "id": _FIRST_NAMES_ID,
+    "ar": _FIRST_NAMES_AR, "bn": _FIRST_NAMES_BN, "hi": _FIRST_NAMES_HI,
+}
+_NAMEPLATE_POOL_BY_LANG: dict[str, list[tuple[str, int, int]]] = {
+    "en": _NAMEPLATE_POOL_EN, "ja": _NAMEPLATE_POOL_JA, "zh-TW": _NAMEPLATE_POOL_TW,
+    "vi": _NAMEPLATE_POOL_VI, "th": _NAMEPLATE_POOL_TH, "es": _NAMEPLATE_POOL_ES,
+    "pt": _NAMEPLATE_POOL_PT, "fr": _NAMEPLATE_POOL_FR, "de": _NAMEPLATE_POOL_DE,
+    "ru": _NAMEPLATE_POOL_RU, "tr": _NAMEPLATE_POOL_TR, "id": _NAMEPLATE_POOL_ID,
+    "ar": _NAMEPLATE_POOL_AR, "bn": _NAMEPLATE_POOL_BN, "hi": _NAMEPLATE_POOL_HI,
+}
 
 
 def _doodle_text_box(text: str, font_size: int = 30, double_border: bool = False,
@@ -1849,8 +2063,8 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     # WHY lang으로 풀을 통째로 바꾸는지(2026-08-03, 글로벌 확장): 한국 교실
     # 당번 문화를 그대로 번역하면 어색해서, 언어별로 아예 다른 문화적으로
     # 자연스러운 풀(_NAMEPLATE_POOL_EN 등)을 쓴다 — 위 _NAMEPLATE_POOL_EN
-    # 정의부 WHY 참고.
-    nameplate_pool = _NAMEPLATE_POOL if lang == "kor" else _NAMEPLATE_POOL_EN
+    # 정의부 WHY 참고. 매핑에 없는 언어 코드는 영어 풀로 안전하게 폴백.
+    nameplate_pool = _NAMEPLATE_POOL if lang == "kor" else _NAMEPLATE_POOL_BY_LANG.get(lang, _NAMEPLATE_POOL_EN)
     n_plates = rng.randint(0, 2)
     chosen = rng.sample(nameplate_pool, min(n_plates, len(nameplate_pool)))
     plates = []
