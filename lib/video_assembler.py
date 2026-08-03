@@ -1570,13 +1570,11 @@ _NAMEPLATE_POOL_EN = [
     ("Class President: {}", 1, 22),
     ("Vice President: {}", 1, 22),
     ("Plant Helper: {}", 1, 26),
-    ("Door Holder: {}", 1, 26),
     ("Paper Passer: {}", 1, 24),
     ("Recycling Helper: {}", 1, 20),
     ("Today's Speaker: {}", 1, 22),
     ("Reading Star: {}", 1, 24),
     ("Star of the Week: {}", 1, 20),
-    ("Birthday: {}", 1, 28),
     ("Window Helper: {}", 1, 24),
     ("Lunch Helper: {}", 1, 24),
 ]
