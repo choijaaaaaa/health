@@ -338,8 +338,51 @@ def _make_title_png(text: str, out_path: Path, font_size=64, photo_path: str | N
     return box_h
 
 
+# WHY 썸네일 배경색 팔레트(2026-08-03, "썸네일만 봐도 그냥 다 똑같아보이는데" —
+# 유튜브 "자동화된 대량생산" 스팸 정책 리스크 완화 목적): 이 카드가 영상 첫
+# 프레임이라 플랫폼 자동 썸네일로 그대로 쓰이는데, 배경색이 (200,74,98) 핑크
+# 하나로 하드코딩돼 있어서 채널 전체 썸네일이 색상만으로도 전부 똑같아 보였다.
+# topic마다 다른 색을 결정적으로(같은 topic은 재생성해도 항상 같은 색) 배정해서
+# 시각적으로 구분되게 한다 — 브랜드 톤에서 크게 벗어나지 않는 채도·톤으로 맞춘
+# 8색 팔레트.
+_TITLE_CARD_ACCENT_PALETTE: list[tuple[int, int, int]] = [
+    (200, 74, 98),   # 기존 핑크(하위호환 기본값 포함)
+    (74, 110, 200),  # 블루
+    (200, 140, 40),  # 오렌지
+    (90, 150, 110),  # 그린
+    (150, 90, 190),  # 퍼플
+    (200, 90, 60),   # 테라코타
+    (60, 150, 170),  # 틸
+    (170, 110, 150), # 로즈
+]
+
+
+def _accent_color_for_seed(seed: str) -> tuple[int, int, int]:
+    """seed 문자열(주로 title)로 팔레트에서 결정적으로 하나를 고른다. WHY 내장
+    hash() 대신 문자 코드 합을 쓰는지: 파이썬 문자열 hash()는 프로세스마다
+    랜덤 시드가 달라(hash randomization) 같은 topic이 재생성 때마다 다른 색을
+    받게 된다 — 항상 같은 결과가 나와야(재생성해도 색이 안 바뀌어야) 하므로
+    안정적인 합산 방식을 쓴다."""
+    idx = sum(ord(c) for c in seed) % len(_TITLE_CARD_ACCENT_PALETTE)
+    return _TITLE_CARD_ACCENT_PALETTE[idx]
+
+
+# WHY 텍스트 세로 위치도 변주(2026-08-03, 색만으론 부족 — "썸네일별 차별화" 연장):
+# 항상 정중앙 배치라 색이 달라도 레이아웃 뼈대가 똑같아 보인다는 지적을 예상해
+# 미리 반영 — 3개 지점(위/중앙/아래) 중 하나를 seed로 결정적으로 고른다. 색상용
+# seed 합산과 그대로 겹치면 같은 seed로 뽑은 값끼리 항상 같은 조합만 나올 수
+# 있어서, 자리수를 하나 더 섞어(문자별 위치 가중) 색과 실질적으로 독립적이게 한다.
+_TITLE_CARD_Y_BIAS = [0.30, 0.5, 0.70]
+
+
+def _text_y_bias_for_seed(seed: str) -> float:
+    idx = sum(ord(c) * (i + 1) for i, c in enumerate(seed)) % len(_TITLE_CARD_Y_BIAS)
+    return _TITLE_CARD_Y_BIAS[idx]
+
+
 def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None,
-                          lang: str = "kor"):
+                          lang: str = "kor", accent_color: tuple[int, int, int] = (200, 74, 98),
+                          y_bias: float = 0.5):
     """영상 맨 앞에 붙는 단색 배경 + 큰 제목 카드. WHY: 플랫폼이 썸네일을 영상
     첫 프레임으로 자동 지정하는 경우가 많아서, 이 카드 자체를 그대로 썸네일로
     쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다.
@@ -347,15 +390,19 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     WHY char_path(2026-07-31, "캐릭터를 큼직하고 흐리게 글자의 배경으로"): 순수
     단색 배경 대신, 캐릭터 이미지를 캔버스보다 훨씬 크게 확대·크롭해서 흐리게 깐
     뒤 ACCENT 톤 스크림을 얹는다 — 브랜드 컬러는 유지하면서 캐릭터가 은은하게
-    느껴지는 배경 무드를 만든다."""
-    img = Image.new("RGB", (W, H), (200, 74, 98))
+    느껴지는 배경 무드를 만든다.
+
+    WHY accent_color/y_bias 파라미터(2026-08-03, "썸네일만 봐도 다 똑같아보인다"):
+    기본값은 기존(핑크·정중앙) 그대로라 이 함수를 직접 부르는 다른 호출부(테스트
+    등)는 영향 없음 — assemble()만 title 기준 시드로 계산해서 넘긴다."""
+    img = Image.new("RGB", (W, H), accent_color)
     if char_path:
         target = int(H * 1.15)
         char = Image.open(char_path).convert("RGB").resize((target, target))
         char = char.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
         char = char.crop((left, top, left + W, top + H))
-        scrim = Image.new("RGBA", (W, H), (200, 74, 98, 150))
+        scrim = Image.new("RGBA", (W, H), (*accent_color, 150))
         img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
     _fpath, _findex = _title_font_for_lang(lang)
     font = ImageFont.truetype(_fpath, font_size, index=_findex)
@@ -365,7 +412,11 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
 
     line_h = font_size + 26
     total_h = line_h * len(lines)
-    y = (H - total_h) / 2
+    # WHY 클램프(2026-08-03): y_bias가 0.3/0.7처럼 위·아래로 치우쳐도 문단이
+    # 길면(여러 줄) 캔버스 밖으로 잘릴 수 있어서, 위아래 60px 여백은 항상
+    # 남기도록 범위를 제한한다.
+    margin = 60
+    y = max(margin, min(y_bias * H - total_h / 2, H - total_h - margin))
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
@@ -2148,21 +2199,30 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     return canvas
 
 
-def _build_character_segment(motion_path: str, duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
+def _build_character_segment(motion_path: str, duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
+                              flip: bool = False):
     """_build_character_loop의 단일 세그먼트 버전 — 캐릭터 여러 명이 구간별로
-    번갈아 나오는 _build_character_schedule에서 재사용한다."""
+    번갈아 나오는 _build_character_schedule에서 재사용한다.
+
+    WHY flip 파라미터(2026-08-03, "매번 똑같은 5초 루프 반복이 아니라 모션·구도에
+    변주 주기" — 유튜브 "자동화된 대량생산" 스팸 정책 리스크 완화 목적): 같은
+    캐릭터 에셋(예: 커피_motion.mp4)이 여러 topic·여러 영상에 그대로 재사용되면
+    영상마다 코너 장면이 픽셀 단위로 똑같아 보인다 — "미세한 변경만 준 대량생산"
+    신호를 줄이려고 좌우 반전 옵션을 추가했다. 캐릭터 원화가 좌우 비대칭이 아니라서
+    반전해도 어색하지 않다(글자·로고 없는 순수 캐릭터 일러스트 규칙과 일치)."""
     similarity = "0.03" if bg_color.upper() == "0XFFFFFF" else "0.15"
     despill = ""
     if bg_color.upper() == "0X00FF00":
         despill = "despill=type=green:mix=1.0:expand=0,"
     elif bg_color.upper() == "0X0000FF":
         despill = "despill=type=blue:mix=1.0:expand=0,"
+    flip_filter = "hflip," if flip else ""
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
+             "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
                     "lut=a='if(gt(val\\,16)\\,255\\,0)'",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
@@ -2189,7 +2249,7 @@ def _build_character_segment(motion_path: str, duration: float, out_path: Path, 
 
 def _build_character_schedule(
     schedule: list[tuple[float, float, str]] | list[tuple[float, float, str, str]],
-    total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
+    total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF", flip: bool = False,
 ):
     """캐릭터 여러 명이 구간별로 번갈아 나오는 캐릭터 트랙. WHY(2026-07-31, 수면음식_1
     — 대추/체리/호두 세 캐릭터가 각자 자기 대사 구간에만 나와야 하는데
@@ -2203,7 +2263,11 @@ def _build_character_schedule(
     섞인 topic에서 전체에 초록 colorkey를 쓰면 파란 배경이 그대로 남는 사고): 튜플이
     (start, end, path) 3개면 전역 bg_color를, (start, end, path, bg_color) 4개면
     그 세그먼트 전용 색을 쓴다 — 캐릭터마다 크로마키 색이 다른 topic(초록/파랑 섞임)을
-    지원하기 위함."""
+    지원하기 위함.
+
+    WHY flip이 topic 전체에 하나로 적용되는지(2026-08-03): 세그먼트마다 다르게 주면
+    같은 캐릭터가 한 영상 안에서 좌우가 계속 바뀌어 오히려 산만하다 — topic
+    하나당 한 번만 결정해서 영상 전체에 일관되게 적용한다."""
     schedule = sorted(schedule, key=lambda x: x[0])
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
@@ -2215,7 +2279,7 @@ def _build_character_schedule(
             if dur <= 0.02:
                 continue
             seg = tmp_path / f"char_seg_{i:03d}.mov"
-            _build_character_segment(motion_path, dur, seg, bg_color=seg_bg_color)
+            _build_character_segment(motion_path, dur, seg, bg_color=seg_bg_color, flip=flip)
             seg_paths.append(seg)
         list_path = tmp_path / "char_list.txt"
         list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in seg_paths))
@@ -2226,9 +2290,14 @@ def _build_character_schedule(
         )
 
 
-def _build_character_loop(motion_path: str, total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF"):
+def _build_character_loop(motion_path: str, total_duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
+                           flip: bool = False):
     """Kling 모션 클립(단색 배경)에서 배경을 알파로 빼고, 대사 길이만큼 반복시킨
     알파 채널 영상(qtrle mov)을 만든다. 대사 타이밍과 동기화하지 않고 그냥 반복.
+
+    WHY flip(2026-08-03): _build_character_segment와 같은 이유 — 같은 캐릭터
+    에셋이 여러 topic·영상에 재사용될 때 픽셀 단위로 완전히 똑같아 보이지 않게
+    좌우 반전 옵션을 준다.
 
     WHY 정방향+역방향(ping-pong) 이어붙이기: Kling이 생성한 클립은 시작 포즈와
     끝 포즈가 같다는 보장이 없어서, 그냥 -stream_loop로 반복하면 루프 지점마다
@@ -2275,10 +2344,11 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
         despill = "despill=type=blue:mix=1.0:expand=0,"
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
+        flip_filter = "hflip," if flip else ""
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", f"colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
+             "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
                     "lut=a='if(gt(val\\,16)\\,255\\,0)'",
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
@@ -2638,11 +2708,17 @@ def assemble(
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
 
+        # WHY title 기반으로 flip 결정(2026-08-03, "매번 똑같은 5초 루프 반복이
+        # 아니라 모션·구도에 변주 주기"): accent_color/y_bias와 같은 이유로 topic마다
+        # 결정적으로 갈리게 하되, 곱셈 가중치를 다르게 줘서 색·위치와 실질적으로
+        # 독립적인 조합이 나오게 한다.
+        char_flip = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(title)) % 2 == 0
         char_track = tmp_path / "char.mov"
         if motion_schedule:
-            _build_character_schedule(motion_schedule, total_duration, char_track, bg_color=bg_color)
+            _build_character_schedule(motion_schedule, total_duration, char_track, bg_color=bg_color,
+                                       flip=char_flip)
         else:
-            _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color)
+            _build_character_loop(motion_path, total_duration, char_track, bg_color=bg_color, flip=char_flip)
 
         # WHY item_schedule(2026-08-02, "칠판 우상단에 멈춰있는 일러스트와...
         # 이름을 함께 넣어줘야해"): motion_schedule의 각 구간(캐릭터 파일 경로)에서
@@ -2764,8 +2840,14 @@ def assemble(
         # 여러 명 번갈아 나오는 영상에서는 캐릭터 전환 타이밍이 한 구간씩 밀려 보이는
         # 형태로 드러났다(수면음식_1에서 실제로 발견) — 캐릭터 1명짜리 영상에서도
         # 전체적인 자막/오디오 싱크가 미세하게 어긋나는 형태로 존재했을 가능성이 있다.
+        # WHY title 기준으로 accent_color 시드를 잡는지: 제목 카드·엔드 카드가
+        # 같은 seed를 써야 한 영상 안에서 두 카드 색이 서로 다르게 튀지 않는다.
+        # y_bias(텍스트 세로 위치)는 제목 카드(=썸네일)에만 적용 — 엔드 카드는
+        # 매번 같은 짧은 CTA 문구라 정중앙 유지가 더 안정적으로 보인다.
+        accent_color = _accent_color_for_seed(title)
         title_card_png = tmp_path / "title_card.png"
-        _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path, lang=lang)
+        _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path,
+                              lang=lang, accent_color=accent_color, y_bias=_text_y_bias_for_seed(title))
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-r", str(FPS), "-i", str(title_card_png),
@@ -2779,7 +2861,8 @@ def assemble(
         if end_card_duration > 0:
             end_card_png = tmp_path / "end_card.png"
             _make_title_card_png(end_card_text or DEFAULT_END_CARD_TEXT, end_card_png,
-                                  char_path=end_card_char_path or title_card_char_path, lang=lang)
+                                  char_path=end_card_char_path or title_card_char_path, lang=lang,
+                                  accent_color=accent_color)
             end_card_out = tmp_path / "end_card.mp4"
             subprocess.run(
                 ["ffmpeg", "-y", "-loop", "1", "-t", f"{end_card_duration}", "-r", str(FPS), "-i", str(end_card_png),
