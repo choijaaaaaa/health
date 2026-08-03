@@ -1,0 +1,51 @@
+{
+  "topic": "당뇨_1_en",
+  "title": "1 in 3 American adults already have prediabetes - The Warning Signs Your Body Is Sending",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: 3 Warning Signs of Prediabetes Most People Miss\n\nDescription:\n1 in 3 American adults already has prediabetes, and most have no idea. Your body may already be flagging it - through skin changes, how long you sit, and how little you sleep.\n\nDark velvety skin patches (acanthosis nigricans), sitting 8+ hours without a break, and getting less than 6 hours of sleep are all linked to rising insulin resistance. Watch to find out why, and the simple fix for each one.\n\n#diabetes #prediabetes #insulinresistance #type2diabetes #healthtips #bloodsugar"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "1 in 3 American adults already has prediabetes - and most have no idea 😳\n\nDark velvety skin patches, sitting 8+ hours a day, and skimping on sleep can all quietly raise insulin resistance. None of it means you already have diabetes, but it's worth paying attention to.\n\nMore health tips like this - follow along!\n\n#diabetes #prediabetes #insulinresistance #healthtips #wellness"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "1 in 3 adults already has prediabetes and doesn't know it 😳 these are the 3 signs your body might already be sending\n\n🔗 Follow for more!\n\n#diabetes #prediabetes #insulinresistance #healthtips #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "1 in 3 American adults already has prediabetes, and most have no idea.\n\nDark velvety skin patches, sitting 8+ hours a day without a break, and getting less than 6 hours of sleep are all linked to rising insulin resistance. None of it means you already have diabetes - but it's worth paying attention to, and each one has a simple fix.\n\n#diabetes #prediabetes #insulinresistance #healthtips"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "1 in 3 American adults already has prediabetes, and most have no idea.\n\nSkin changes, too much sitting, too little sleep - 3 quiet signs your insulin resistance might already be rising.\n\n#diabetes #prediabetes #insulinresistance"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "title": [
+    "1 in 3 American adults",
+    "already have prediabetes",
+    "The Warning Signs Your Body Is Sending"
+  ],
+  "eyebrow": "Diabetes Risk Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Diabetes",
+  "char_display_names": {
+    "피부반점_illust.jpg": "Skin Patches",
+    "의자_illust.jpg": "Sitting",
+    "베개_illust.jpg": "Sleep"
+  },
+  "items": [
+    {
+      "name": "Dark Skin Patches",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Dark, velvety patches on your",
+        "neck, armpits, or knuckles",
+        "",
+        "that's acanthosis nigricans -",
+        "a sign of insulin resistance"
+      ]
+    },
+    {
+      "name": "See a doctor about it",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "It's not dangerous by itself,",
+        "but it's worth getting checked",
+        "",
+        "Treating what's behind it",
+        "clears the skin too"
+      ]
+    },
+    {
+      "name": "Sitting 8+ Hours a Day",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Staying still that long lets",
+        "insulin resistance build up quietly",
+        "",
+        "even if your weight",
+        "hasn't changed at all"
+      ]
+    },
+    {
+      "name": "Move every 30 minutes",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Stand or walk for just",
+        "2 minutes every half hour",
+        "",
+        "Can cut after-meal blood sugar",
+        "by up to a third"
+      ]
+    },
+    {
+      "name": "Skimping on Sleep",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Less than 6 hours a night",
+        "raises cortisol, blunts insulin",
+        "",
+        "Linked to roughly a 30%",
+        "higher risk of type 2 diabetes"
+      ]
+    },
+    {
+      "name": "Protect 7+ hours",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Consistent, longer sleep",
+        "helps insulin do its job",
+        "",
+        "most nights of the week"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "you already have diabetes"
+      ],
+      [
+        "But it's worth",
+        "paying attention to"
+      ]
+    ],
+    "tip": [
+      "Get skin changes checked, move every 30 minutes,",
+      "and protect 7+ hours of sleep"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
