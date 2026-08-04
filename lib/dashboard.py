@@ -43,6 +43,11 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
       <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" value="{link_value}" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    {naver_goto}
+    <div class="product-link-row">
+      <input type="text" class="product-link-input" data-market="naver" data-product="{name_attr}" value="{naver_link_value}" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
+      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
+    </div>
   </div>
 </div>
 """
@@ -784,25 +789,48 @@ def _load_product_links() -> dict[str, str]:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def _dock_products(products: list[str], product_links: dict[str, str] | None = None) -> str:
+def _load_naver_product_links() -> dict[str, str]:
+    """_load_product_links()와 같은 패턴, 네이버 커넥트용(2026-08-04, "네이버 커넥트도
+    주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼"). WHY 예전에 뺐던 위젯 입력창을 다시
+    넣는지: 2026-08-01엔 "브랜드커넥트 검색 입력창"이 매번 검색해서 링크를 만들어야
+    해서 번거로워 없앴는데, 지금은 상품별 최종 링크(naver.me 단축 URL)를 이미 다
+    확보해둔 상태라 예전처럼 검색하는 게 아니라 쿠팡처럼 고정 링크를 그냥 보여주기만
+    하면 된다 — 그래서 검색 입력창이 아니라 이 파일 하나로 관리."""
+    path = Path(__file__).resolve().parent.parent / "output" / "naver_product_links.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _dock_products(
+    products: list[str],
+    product_links: dict[str, str] | None = None,
+    naver_links: dict[str, str] | None = None,
+) -> str:
     if not products:
         return ""
     product_links = product_links or {}
+    naver_links = naver_links or {}
     rows = ""
     for idx, name in enumerate(products):
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         link = product_links.get(name, "")
+        naver_link = naver_links.get(name, "")
+        naver_goto = (
+            f'<a href="{_esc(naver_link)}" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>'
+            if naver_link else ""
+        )
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
             name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
-            link_value=_esc(link), row_class=" linked" if link else "",
+            link_value=_esc(link), row_class=" linked" if (link or naver_link) else "",
+            naver_link_value=_esc(naver_link), naver_goto=naver_goto,
         )
-    # WHY 네이버 전용 입력란이 따로 없는지(2026-08-03 주석 갱신 — 8/1엔 "네이버
-    # 블로그도 쿠팡 링크로 통일"이 이유였는데, 8/3에 저품질 이슈로 네이버 블로그가
-    # 다시 브랜드커넥트로 되돌아가면서 그 이유는 더 이상 맞지 않음): 이 덕 패널은
-    # 플랫폼 구분 없이 쿠팡 링크 하나만 입력받는 공용 UI다 — network:"naver"가
-    # 붙은 플랫폼(네이버 블로그·클립)은 이 값과 무관하게 `_buildLinkBlock`이
-    # 상품명만 나열하는 브랜드커넥트 방식으로 따로 처리하므로, 여기서 네이버용
-    # 입력란을 별도로 둘 필요가 없다.
+    # WHY 네이버 입력란이 캡션 자동삽입(_buildLinkBlock)엔 안 쓰이는지(2026-08-04):
+    # network:"naver" 플랫폼(네이버 블로그·클립) 캡션은 여전히 상품명만 나열하는
+    # 브랜드커넥트 방식 그대로다(쿠팡 링크를 캡션에 넣으면 저품질 판정 이슈가 있어서,
+    # 위 "네이버 블로그, 다시 브랜드커넥트로" 절 참고) — 이 네이버 입력란은 캡션에
+    # 자동으로 들어가지 않고, 사용자가 그 링크를 직접 확인·복사해서 다른 곳(실제 블로그
+    # 포스팅 등)에 쓰기 위한 위젯 전용 표시다.
     # WHY id 없이 class만 쓰는지(2026-08-02): 이 버튼을 페이지 맨 아래에도 복제해서
     # 넣으면서(`_product_links_bottom_section`) id가 중복되면 안 돼 — class 기준
     # querySelectorAll로 바인딩하도록 JS를 바꿔서 이제 id가 필요 없다.
@@ -816,7 +844,11 @@ def _dock_products(products: list[str], product_links: dict[str, str] | None = N
     )
 
 
-def _product_links_bottom_section(products: list[str], product_links: dict[str, str] | None = None) -> str:
+def _product_links_bottom_section(
+    products: list[str],
+    product_links: dict[str, str] | None = None,
+    naver_links: dict[str, str] | None = None,
+) -> str:
     """WHY(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데 언제까지
     안해줄거냐?"): 상품 링크는 원래 화면 오른쪽에 `position: fixed`로 항상 떠
     있는 덕 패널(`_dock_products`)에만 있었다 — 위 "열기" 버튼처럼 페이지
@@ -833,19 +865,26 @@ def _product_links_bottom_section(products: list[str], product_links: dict[str, 
     if not products:
         return ""
     product_links = product_links or {}
+    naver_links = naver_links or {}
     rows = ""
     for name in products:
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         link = product_links.get(name, "")
+        naver_link = naver_links.get(name, "")
         link_html = (
             f'<a href="{_esc(link)}" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a>'
             if link else '<span class="bottom-product-nolink">등록된 링크 없음</span>'
+        )
+        naver_html = (
+            f'<a href="{_esc(naver_link)}" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>'
+            if naver_link else '<span class="bottom-product-nolink">네이버 링크 없음</span>'
         )
         rows += (
             '<div class="bottom-product-row">'
             f'<span class="bottom-product-name">{_esc(name)}</span>'
             f'<a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>'
             f'{link_html}'
+            f'{naver_html}'
             '</div>'
         )
     return (
@@ -1106,8 +1145,11 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
     _product_links_loaded = _load_product_links()
-    dock_products = _dock_products(spec.get("products", []), _product_links_loaded)
-    dock_products_bottom = _product_links_bottom_section(spec.get("products", []), _product_links_loaded)
+    _naver_links_loaded = _load_naver_product_links()
+    dock_products = _dock_products(spec.get("products", []), _product_links_loaded, _naver_links_loaded)
+    dock_products_bottom = _product_links_bottom_section(
+        spec.get("products", []), _product_links_loaded, _naver_links_loaded
+    )
 
     asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
     # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")

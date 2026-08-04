@@ -239,3 +239,21 @@ def test_dock_products_leaves_unknown_product_blank():
     html = _dock_products(["처음 보는 상품"], {"현미": "https://link.coupang.com/a/fSP6lbm8Ki"})
     assert 'value=""' in html
     assert 'class="dock-product-row linked"' not in html
+
+
+# WHY(2026-08-04, "네이버 커넥트도 주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼... 위젯에도
+# 띄워주게 해야되겠어"): 쿠팡과 같은 패턴으로 output/naver_product_links.json에서
+# 네이버 커넥트 링크를 미리 채워 넣는 기능 테스트.
+
+def test_dock_products_prefills_naver_link():
+    html = _dock_products(["연어"], naver_links={"연어": "https://naver.me/5vJFBL58"})
+    assert 'data-market="naver"' in html
+    assert 'value="https://naver.me/5vJFBL58"' in html
+    assert "네이버 커넥트로 이동" in html
+    assert 'class="dock-product-row linked"' in html  # 쿠팡 링크가 없어도 네이버만 있으면 linked
+
+
+def test_dock_products_naver_goto_link_absent_when_no_link():
+    html = _dock_products(["처음 보는 상품"])
+    assert 'data-market="naver"' in html  # 입력란 자체는 항상 있음
+    assert "네이버 커넥트로 이동" not in html  # 링크가 없으면 이동 버튼은 안 뜸
