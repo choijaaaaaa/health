@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Pfeifen im Ohr,",
+    "wenn's still wird?",
+    "Diese drei Dinge können mitspielen"
+  ],
+  "cover_char_file": "이어폰_illust.jpg",
+  "cover_scrim_color": "#2E4A7A",
+  "eyebrow": "Tinnitus-Check",
+  "items": [
+    {
+      "name": "Warum passiert das?",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Werden die Hörsinneszellen",
+        "im Innenohr gereizt,",
+        "feuert der Hörnerv weiter",
+        "",
+        "obwohl gar kein echter",
+        "Ton da ist"
+      ]
+    },
+    {
+      "name": "Kopfhörer",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Dauerbeschallung über",
+        "85 Dezibel schädigt die",
+        "Sinneszellen Stück für Stück",
+        "",
+        "besonders bei stundenlangem",
+        "Hören ohne Pause"
+      ]
+    },
+    {
+      "name": "Kopfhörer richtig nutzen",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Regelmäßig Hörpausen einlegen",
+        "und Lautstärke bewusst",
+        "niedrig halten",
+        "",
+        "die 60/60-Regel hilft:",
+        "60 % Lautstärke, 60 Minuten"
+      ]
+    },
+    {
+      "name": "Schmerzmittel",
+      "char_file": "진통제_illust.jpg",
+      "body": [
+        "Häufige Einnahme von",
+        "Ibuprofen oder ASS",
+        "",
+        "steht laut Studien mit höherem",
+        "Tinnitus-Risiko in Verbindung"
+      ]
+    },
+    {
+      "name": "Schmerzmittel bewusster nehmen",
+      "char_file": "진통제_illust.jpg",
+      "body": [
+        "Nur so oft wie nötig",
+        "und so niedrig dosiert",
+        "wie möglich greifen",
+        "",
+        "bei Dauerschmerzen lieber",
+        "die Ursache ärztlich abklären"
+      ]
+    },
+    {
+      "name": "Böller & Konzerte",
+      "char_file": "폭죽_illust.jpg",
+      "body": [
+        "Ein Knall über 140 Dezibel",
+        "aus kurzer Distanz",
+        "",
+        "kann die Hörsinneszellen",
+        "bleibend schädigen (Knalltrauma)"
+      ]
+    },
+    {
+      "name": "Gehör schützen",
+      "char_file": "폭죽_illust.jpg",
+      "body": [
+        "Bei Böllern und Konzerten",
+        "Gehörschutz tragen",
+        "und Abstand halten",
+        "",
+        "danach den Ohren",
+        "eine stille Pause gönnen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tinnitus hat viele Ursachen,",
+        "aber Lärm und manche",
+        "Medikamente spielen oft mit rein"
+      ],
+      [
+        "Kopfhörer, Schmerzmittel, Böller",
+        "im Blick behalten hilft",
+        "den Ohren spürbar"
+      ]
+    ],
+    "tip": [
+      "Wer öfter laute Kopfhörer, Konzerte",
+      "oder Feuerwerk mitmacht, sollte immer",
+      "ein Paar Gehörschutz-Ohrstöpsel griffbereit haben"
+    ],
+    "cta": "Für mehr Gesundheitstipps: abonnieren und folgen"
+  }
+}
