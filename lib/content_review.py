@@ -37,11 +37,14 @@ load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
 BASE_URL = "https://generativelanguage.googleapis.com/v1beta"
-# WHY gemini-flash-latest(2026-08-03): lib/gemini_illust.py는 이미지 생성용이라 특정
-# 버전(gemini-3.1-flash-lite-image)에 고정돼 있지만, 이건 텍스트 리뷰만 하면 되니
-# 버전이 바뀌어도 자동으로 최신을 가리키는 latest 별칭을 쓴다 — 모델 리스트 조회로
-# 실제 사용 가능함을 확인함(2026-08-03).
-MODEL = "gemini-flash-latest"
+# WHY gemini-3.6-flash(2026-08-05): "latest" 별칭(gemini-flash-latest)이 이 API 키에서
+# 400 Bad Request(INVALID_ARGUMENT)로 막혀 모든 topic의 content_review가 실패하는 걸
+# 실측 확인(장_1/ru 작업 중 발견). 대체 후보로 먼저 gemini-3.1-flash-lite를 썼지만,
+# 같은 프롬프트·같은 텍스트를 gemini-3.5-flash/gemini-3.6-flash와 나란히 비교했더니
+# lite 모델만 criteria에 없는 근거(예: "전통 음식이라 향신료 제안이 부자연스럽다")로
+# 같은 문장을 반려→통과→반려를 반복하는 비결정적 판정을 보였다 — flash-lite가 QA
+# 게이트로 쓰기엔 신뢰도가 부족하다고 판단해 더 안정적인 판정을 준 3.6으로 교체.
+MODEL = "gemini-3.6-flash"
 
 BASE_CRITERIA = """1. 논리적으로 말이 안 되거나 앞뒤가 안 맞는 문장
 2. 문법은 멀쩡하지만 맥락상 김빠지거나 성의없어 보이는 대체/팁 제안
