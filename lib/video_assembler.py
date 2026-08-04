@@ -2582,6 +2582,14 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     return canvas
 
 
+def _is_static_image(path: str) -> bool:
+    """모션 mp4 대신 정지 illust jpg/png를 코너 캐릭터로 그대로 쓰는 경로인지
+    확장자로 판별한다(2026-08-05, 모션 생성 중단 확정). 확장자만 보는 단순
+    판별이라 충분 — 이 프로젝트 캐릭터 자산은 모션은 항상 .mp4, 정지 이미지는
+    항상 .jpg/.png로 고정된 관례를 따른다."""
+    return Path(path).suffix.lower() in (".jpg", ".jpeg", ".png")
+
+
 def _build_character_segment(motion_path: str, duration: float, out_path: Path, bg_color: str = "0xFFFFFF",
                               flip: bool = False):
     """_build_character_loop의 단일 세그먼트 버전 — 캐릭터 여러 명이 구간별로
@@ -2600,6 +2608,17 @@ def _build_character_segment(motion_path: str, duration: float, out_path: Path, 
     elif bg_color.upper() == "0X0000FF":
         despill = "despill=type=blue:mix=1.0:expand=0,"
     flip_filter = "hflip," if flip else ""
+    if _is_static_image(motion_path):
+        # WHY: _build_character_loop의 정지 이미지 분기와 동일한 이유(2026-08-05,
+        # 모션 생성 중단 확정) — ping-pong 없이 colorkey만 한 번 적용.
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-i", motion_path, "-t", f"{duration}",
+             "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
+                    "lut=a='if(gt(val\\,16)\\,255\\,0)'",
+             "-c:v", "qtrle", str(out_path)],
+            check=True, capture_output=True,
+        )
+        return
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
@@ -2728,6 +2747,22 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         flip_filter = "hflip," if flip else ""
+        if _is_static_image(motion_path):
+            # WHY(2026-08-05): 모션 생성 자체를 중단하기로 확정("이제 그냥 모션을
+            # 생성하지 않는거로 하자") — Kling도 build_static_motion_loop도 더
+            # 안 쓰고, 캐릭터 정지 일러스트(jpg)를 그대로 코너에 얹는다. 핑퐁
+            # 반복 루프는 애초에 "움직임을 매끄럽게 되돌리기" 위한 처리라
+            # 정지 이미지에는 무의미 — colorkey만 한 번 적용해서 정지 화면을
+            # 그대로 duration만큼 유지한다(ping-pong/reverse/loop 단계 생략,
+            # ffmpeg 호출 수가 4번에서 1번으로 줄어 처리도 훨씬 빠름).
+            subprocess.run(
+                ["ffmpeg", "-y", "-loop", "1", "-i", motion_path, "-t", f"{total_duration}",
+                 "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
+                        "lut=a='if(gt(val\\,16)\\,255\\,0)'",
+                 "-c:v", "qtrle", str(out_path)],
+                check=True, capture_output=True,
+            )
+            return
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,

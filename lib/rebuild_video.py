@@ -529,7 +529,7 @@ def derive(topic: str) -> dict:
 
     if len(distinct_chars) == 1:
         name = _char_name(items[0]["char_file"])
-        kwargs["motion_path"] = str(MOTION_DIR / f"{name}_motion.mp4")
+        kwargs["motion_path"] = _char_media_path(name)
         kwargs["motion_schedule"] = None
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
     else:
