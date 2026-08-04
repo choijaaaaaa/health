@@ -1,0 +1,51 @@
+{
+  "topic": "부종_1_pt",
+  "title": "Você sabe quanto sódio está escondido na sua cozinha? - 3 alimentos que incham sem avisar",
+  "products": ["Caldo Zero Sódio", "Shoyu Light", "Castanhas"],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Você sabe quanto sódio está escondido na sua cozinha? 3 alimentos que incham sem avisar\n\nDescription:\nO brasileiro consome quase o dobro do sódio recomendado por dia — boa parte escondida em três coisas bem comuns: caldo em tablete, shoyu e biscoito de polvilho.\n\nO excesso de sódio puxa água das células, e esse líquido se acumula nas pernas e nos pés ao longo do dia.\n\nVeja no vídeo quanto sódio cada um desses alimentos tem de verdade, e trocas simples que ajudam a desinchar sem cortar tudo de vez.\n\n#inchaço #retençãodelíquidos #sódio #saúde #dicasdesaude #bemestar"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Você sabia que o brasileiro consome quase o dobro do sódio recomendado? 💧\n\nBoa parte vem escondida em três coisas bem comuns na cozinha: caldo em tablete, shoyu e biscoito de polvilho — o excesso de sódio puxa água das células e incha pernas e pés.\n\nCaldo caseiro, menos shoyu (com limão ou gengibre no lugar) e pipoca sem sal já ajudam bastante.\n\n🔗 Link na bio para mais dicas de saúde!\n\n#inchaço #retençãodelíquidos #sódio #saúde #dicasdesaude #bemestar"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "Você consome mais sódio escondido do que imagina 💧 Caldo em tablete, shoyu e biscoito de polvilho podem ser os culpados pelo seu inchaço.\n\n🔗 Link na bio para mais!\n\n#inchaço #retençãodelíquidos #sódio #saúde #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Você sabia que o brasileiro consome quase o dobro do sódio recomendado por dia?\n\nBoa parte vem escondida em três coisas comuns na cozinha: caldo em tablete, shoyu e biscoito de polvilho — o excesso de sódio puxa água das células e incha pernas e pés ao longo do dia.\n\nAssista ao vídeo para ver quanto sódio cada um tem de verdade, e trocas simples que ajudam.\n\n#inchaço #retençãodelíquidos #sódio #saúde #dicasdesaude"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "Você sabe quanto sódio está escondido na sua cozinha?\n\nCaldo em tablete, shoyu e biscoito de polvilho são 3 dos maiores culpados pelo inchaço do dia a dia — e a soma passa rápido do limite diário.\n\n#inchaço #retençãodelíquidos #sódio"
+    }
+  ]
+}
