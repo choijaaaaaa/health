@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Antojitos con chile y limón,",
+    "y la llaga arde más otra vez?",
+    "3 cosas que agravan las llagas en la boca"
+  ],
+  "eyebrow": "Alerta de aftas bucales",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "char_display_names": {
+    "고추_illust.jpg": "Chile",
+    "레몬_illust.jpg": "Limón",
+    "맥주_illust.jpg": "Michelada"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Muchas llagas son recurrentes:",
+        "4 de cada 10 mujeres en México",
+        "tienen deficiencia de hierro",
+        "",
+        "Eso hace que la mucosa bucal",
+        "tarde más en sanar"
+      ]
+    },
+    {
+      "name": "Chile",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina irrita",
+        "la llaga abierta",
+        "",
+        "y la hace arder más fuerte"
+      ]
+    },
+    {
+      "name": "Chile — cámbialo por esto",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Cambia el antojito picante",
+        "por una quesadilla de frijoles",
+        "",
+        "mismo antojo salado,",
+        "y los frijoles dan hierro"
+      ]
+    },
+    {
+      "name": "Limón con sal",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Ácido cítrico puro,",
+        "pica justo en la llaga"
+      ]
+    },
+    {
+      "name": "Limón — cámbialo por esto",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Cambia la fruta con limón",
+        "por guayaba",
+        "",
+        "mucho menos ácida,",
+        "y su vitamina C ayuda",
+        "a absorber mejor el hierro"
+      ]
+    },
+    {
+      "name": "Michelada",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El alcohol reseca la mucosa,",
+        "y el chile y limón",
+        "",
+        "la irritan todavía más"
+      ]
+    },
+    {
+      "name": "Michelada — cámbiala por esto",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Prueba un agua de horchata:",
+        "no es ácida",
+        "",
+        "y no le suma ardor",
+        "a la llaga"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La mayoría de las llagas",
+        "sanan solas en 1 o 2 semanas"
+      ],
+      [
+        "Si dura más de 2 semanas,",
+        "consulta a tu médico"
+      ]
+    ],
+    "tip": [
+      "Frijoles, guayaba y agua de horchata",
+      "cuidan la llaga y ayudan con el hierro"
+    ],
+    "cta": "¿Quieres más tips de salud? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Aftas"
+}
