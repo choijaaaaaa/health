@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Subiu as escadas do trabalho",
+    "e ficou sem fôlego, com a cabeça rodando?",
+    "O que pode estar sabotando seu ferro"
+  ],
+  "eyebrow": "Sinal de anemia",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Anemia",
+  "char_display_names": {
+    "chimarrao_illust.jpg": "Chimarrão",
+    "suplemento_calcio_illust.jpg": "Cálcio",
+    "feijao_preto_illust.jpg": "Feijão Preto"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "chimarrao_illust.jpg",
+      "body": [
+        "O problema não é quanto",
+        "ferro você come",
+        "",
+        "É o que você toma logo depois —",
+        "isso bloqueia a absorção"
+      ]
+    },
+    {
+      "name": "Chimarrão e tereré",
+      "char_file": "chimarrao_illust.jpg",
+      "body": [
+        "O tanino da erva-mate",
+        "gruda no ferro dos vegetais",
+        "",
+        "Tomar logo após o almoço",
+        "já reduz bastante a absorção"
+      ]
+    },
+    {
+      "name": "Chimarrão assim",
+      "char_file": "chimarrao_illust.jpg",
+      "body": [
+        "Espere 1 a 2 horas",
+        "depois da refeição principal",
+        "",
+        "Assim o ferro já foi absorvido",
+        "antes do tanino chegar"
+      ]
+    },
+    {
+      "name": "Suplemento de cálcio",
+      "char_file": "suplemento_calcio_illust.jpg",
+      "body": [
+        "Tomado junto da refeição",
+        "",
+        "Acima de 300mg de cálcio,",
+        "a absorção do ferro cai pela metade"
+      ]
+    },
+    {
+      "name": "Cálcio assim",
+      "char_file": "suplemento_calcio_illust.jpg",
+      "body": [
+        "Separe o suplemento do almoço",
+        "por pelo menos 2 horas",
+        "",
+        "Cálcio de manhã, ferro à noite",
+        "(ou o contrário) funciona bem"
+      ]
+    },
+    {
+      "name": "Feijão preto",
+      "char_file": "feijao_preto_illust.jpg",
+      "body": [
+        "O próprio feijão guarda fitato",
+        "",
+        "Sem deixar de molho antes,",
+        "o fitato prende o próprio ferro do grão"
+      ]
+    },
+    {
+      "name": "Feijão assim",
+      "char_file": "feijao_preto_illust.jpg",
+      "body": [
+        "Deixe de molho 8 a 12 horas,",
+        "trocando a água antes de cozinhar",
+        "",
+        "Um suco de acerola no dia —",
+        "a vitamina C ajuda bastante na absorção"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Anemia por ferro baixo",
+        "não tem uma causa só"
+      ],
+      [
+        "Não precisa cortar nada —",
+        "só fazer alguns ajustes simples"
+      ]
+    ],
+    "tip": [
+      "Chimarrão 1-2h depois da refeição,",
+      "cálcio separado, feijão de molho"
+    ],
+    "cta": "Quer mais dicas de saúde? Inscreva-se, curta e siga o canal!"
+  }
+}
