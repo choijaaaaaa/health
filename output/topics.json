@@ -36,6 +36,12 @@
     "thumbnail": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "갱년기_1/ko",
+    "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
+    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/dashboard.html",
+    "thumbnail": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
@@ -186,6 +192,18 @@
     "thumbnail": "output/%EB%8B%B9%EB%87%A8_1/ko/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "목_1/ko",
+    "title": "아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면, 사실 이 음식들 때문일 수 있어요 - 목·어깨 뭉침 부르는 음식들",
+    "url": "output/%EB%AA%A9_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%AA%A9_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "변비_1/ko",
+    "title": "배 팽만감·잔변감·3일째 무소식, 하나라도 해당되면 - 변비 부르는 음식 피하는 법",
+    "url": "output/%EB%B3%80%EB%B9%84_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%B3%80%EB%B9%84_1/ko/card_news/%EB%B3%80%EB%B9%84_1_ko_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
     "topic": "부종_1/en",
     "title": "Rings tight by lunch, ankles thicker by evening? - Foods Behind Your Everyday Swelling",
     "url": "output/%EB%B6%80%EC%A2%85_1/en/dashboard.html",
@@ -262,6 +280,12 @@
     "title": "화장실에 가는 게 뜸하고 대변이 딱딱하다면 주목! - 변비 부르는 음식 피하는 법",
     "url": "output/%EC%9E%A5_2/ko/dashboard.html",
     "thumbnail": "output/%EC%9E%A5_2/ko/card_news/%EC%9E%A5_2_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "전립선_1/ko",
+    "title": "자다가 소변 때문에 자주 깨는 사람, 40대 이상에서는 둘 중 하나라는데 - 전립선 편하게 하는 음식 피하는 법",
+    "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ko/card_news/%EC%A0%84%EB%A6%BD%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
     "topic": "지방간_1/ko",
