@@ -1,0 +1,51 @@
+{
+  "topic": "변비_1_pt",
+  "title": "Quase 3 em cada 10 brasileiros convivem com isso - O Hábito no Café da Manhã Que Pode Estar Te Deixando Preso",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: O Hábito no Café da Manhã Que Pode Estar Te Deixando Preso\n\nDescription:\nQuase 3 em cada 10 brasileiros convivem com prisão de ventre - e o café da manhã pode ser um dos motivos.\n\nPão francês, embutidos como presunto e salsicha, e café em excesso podem deixar o intestino mais lento e as fezes mais ressecadas. Nenhum precisa ser cortado de vez - pequenas trocas já ajudam.\n\n#prisaodeventre #saudeintestinal #saudedigestiva #fibra #dicasdesaude #intestino"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Pão francês, presunto e café em excesso todo dia? 😩\n\nEsses três hábitos do café da manhã brasileiro podem estar deixando seu intestino mais lento. Nenhum precisa sumir do prato - só ajustar a quantidade já faz diferença.\n\nMais dicas de saúde por aqui - me segue!\n\n#prisaodeventre #saudeintestinal #saudedigestiva #fibra #bemestar"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "Esse combo do café da manhã pode estar te deixando preso 😩\n\n🔗 Segue pra mais dicas!\n\n#prisaodeventre #saudeintestinal #fibra #dicasdesaude #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Pão francês, presunto e café em excesso no café da manhã?\n\nO pão francês tem quase só farinha refinada e pouca fibra, embutidos como presunto e salsicha têm muito sódio e pouca fibra, e o excesso de café pode contribuir para a desidratação - tudo isso deixa o intestino mais lento. Não precisa cortar nada de vez - pequenas trocas já fazem diferença.\n\n#prisaodeventre #saudeintestinal #saudedigestiva #fibra"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "Esse combo do café da manhã pode estar por trás da sua prisão de ventre.\n\nPão francês, presunto e café em excesso - 3 hábitos comuns que deixam o intestino mais lento.\n\n#prisaodeventre #saudeintestinal #fibra"
+    }
+  ]
+}

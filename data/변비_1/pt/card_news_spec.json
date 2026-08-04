@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Quase 3 em cada 10 brasileiros",
+    "convivem com isso —",
+    "veja o que pode estar causando"
+  ],
+  "eyebrow": "Saúde intestinal",
+  "cover_scrim_color": "#B5652E",
+  "char_display_names": {
+    "흰빵": "Pão francês",
+    "가공육": "Embutidos",
+    "커피": "Café"
+  },
+  "items": [
+    {
+      "name": "Por que a prisão de ventre acontece",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Comer com pressa, sem fibra",
+        "nem água suficiente,",
+        "",
+        "deixa o intestino mais lento",
+        "e as fezes mais ressecadas"
+      ]
+    },
+    {
+      "name": "Pão francês",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Farinha bem refinada,",
+        "quase sem fibra",
+        "",
+        "O brasileiro come em média",
+        "53g por dia, quase só miolo branco"
+      ]
+    },
+    {
+      "name": "Pão francês, assim",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Troque parte do pão francês",
+        "por aveia ou pão integral",
+        "",
+        "Pequenas trocas já",
+        "fazem diferença"
+      ]
+    },
+    {
+      "name": "Presunto e embutidos",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Presunto, salsicha e mortadela",
+        "têm pouca fibra e muito sódio",
+        "",
+        "Isso resseca ainda mais",
+        "as fezes"
+      ]
+    },
+    {
+      "name": "Embutidos, assim",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Coma menos presunto e salsicha",
+        "no café da manhã",
+        "",
+        "Troque parte por mamão",
+        "ou outra fruta rica em fibra"
+      ]
+    },
+    {
+      "name": "Café em excesso",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "O brasileiro está entre os que",
+        "mais bebem café no mundo",
+        "",
+        "A cafeína tem efeito diurético",
+        "e pode piorar a desidratação"
+      ]
+    },
+    {
+      "name": "Café, assim",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Beba um copo de água",
+        "entre uma xícara e outra",
+        "",
+        "Isso ajuda a repor",
+        "o que o café retira"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa cortar",
+        "pão e café de vez"
+      ],
+      [
+        "Só ajustar a quantidade",
+        "já faz diferença"
+      ]
+    ],
+    "tip": [
+      "Troque parte do pão francês por aveia e coma mais mamão",
+      "Beba um copo de água entre uma xícara de café e outra"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga, curta e compartilhe"
+  }
+}
