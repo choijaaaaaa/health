@@ -1,0 +1,97 @@
+{
+  "title": ["80 million Americans have thinning hair,", "and genetics isn't the whole story -", "What Actually Speeds It Up"],
+  "eyebrow": "Hair Loss Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda & Energy Drinks",
+    "다이어트도시락_illust.jpg": "Crash Diets",
+    "영양제_illust.jpg": "Vitamin Megadoses"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Genetics decides if a follicle",
+        "is vulnerable at all",
+        "",
+        "Sudden shifts in diet and",
+        "supplements decide how fast",
+        "it gets pushed into shedding mode"
+      ]
+    },
+    {
+      "name": "Soda & Energy Drinks",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Regular soda and energy drinks",
+        "spike your blood sugar fast",
+        "",
+        "That kind of spike is linked to",
+        "inflammation that wears down",
+        "hair follicles over time"
+      ]
+    },
+    {
+      "name": "Soda & Energy Drinks — the fix",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Swap in water or",
+        "unsweetened tea instead"
+      ]
+    },
+    {
+      "name": "Crash Diets",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Jumping into strict keto",
+        "or long fasting windows",
+        "",
+        "can shock your body into thinking",
+        "food is scarce -",
+        "hair follicles are deprioritized first"
+      ]
+    },
+    {
+      "name": "Crash Diets — the fix",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Ease into any new diet",
+        "instead of slashing calories overnight"
+      ]
+    },
+    {
+      "name": "Vitamin Megadoses",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Even hair growth gummies",
+        "can backfire",
+        "",
+        "Too much vitamin A is toxic",
+        "and can trigger the exact",
+        "shedding it's supposed to prevent"
+      ]
+    },
+    {
+      "name": "Vitamin Megadoses — the fix",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Check your supplement label",
+        "instead of stacking more on top"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Hair loss is often", "a diet and supplement signal"],
+      ["Fix these three, and", "shedding often slows down"]
+    ],
+    "tip": [
+      "Water over soda, gradual diet changes,",
+      "and one hair supplement - not three"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Hair Loss"
+}
