@@ -1,0 +1,58 @@
+{
+  "title": [
+    "¿Se te infla el estómago",
+    "casi a diario?",
+    "3 causas que nadie relaciona con eso"
+  ],
+  "eyebrow": "Salud Digestiva",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "SaludIntestinal",
+  "char_display_names": {
+    "껌_illust.jpg": "Chicle sin azúcar",
+    "양파_illust.jpg": "Ajo y cebolla crudos",
+    "시계_illust.jpg": "Comer rápido"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "껌_illust.jpg",
+      "body": ["El chicle sin azúcar,", "el ajo y la cebolla crudos,", "y comer muy rápido", "", "son tres causas comunes", "que casi nadie relaciona", "con la hinchazón"]
+    },
+    {
+      "name": "Chicle sin azúcar",
+      "char_file": "껌_illust.jpg",
+      "body": ["Lleva sorbitol o xilitol,", "que el intestino", "no absorbe bien", "", "al llegar al colon,", "las bacterias los fermentan", "y generan gas"]
+    },
+    {
+      "name": "En vez de eso",
+      "char_file": "껌_illust.jpg",
+      "body": ["Usa enjuague bucal", "en vez de chicle", "", "refresca el aliento", "sin esos polioles", "que fermentan en el colon"]
+    },
+    {
+      "name": "Ajo y cebolla crudos",
+      "char_file": "양파_illust.jpg",
+      "body": ["Tan comunes en las salsas,", "tienen fructanos", "", "esas cadenas de fructosa", "no se digieren", "y fermentan en el colon"]
+    },
+    {
+      "name": "En vez de eso",
+      "char_file": "양파_illust.jpg",
+      "body": ["Fríelos en aceite", "y retira los trozos", "antes de comer", "", "el fructano se queda", "en el vegetal, no pasa al aceite"]
+    },
+    {
+      "name": "Comer rápido",
+      "char_file": "시계_illust.jpg",
+      "body": ["Comer rápido o hablar mucho", "mientras comes", "", "te hace tragar aire", "sin darte cuenta,", "y eso distiende el estómago"]
+    },
+    {
+      "name": "En vez de eso",
+      "char_file": "시계_illust.jpg",
+      "body": ["Mastica despacio", "cada bocado", "", "y evita hablar mucho", "justo al momento de comer"]
+    }
+  ],
+  "closing": {
+    "headline": [["La hinchazón casi siempre", "tiene una causa puntual"], ["Ajustar estos tres hábitos", "puede hacer mucha diferencia"]],
+    "tip": ["Mastica bien y come despacio,", "tu estómago te lo va a agradecer"],
+    "cta": "¿Quieres más consejos de salud como este? ¡Sigue, dale like y comparte!"
+  }
+}

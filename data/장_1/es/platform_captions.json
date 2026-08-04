@@ -1,0 +1,26 @@
+{
+  "topic": "장_1_es",
+  "title": "¿Se te infla el estómago casi a diario? 3 causas que nadie relaciona con eso",
+  "products": ["enjuague bucal", "aceite de oliva"],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Título: ¿Se te infla el estómago casi a diario? 3 causas que nadie relaciona con eso\n\nDescripción:\n¿Se te infla el estómago casi todos los días, aunque no comas mucho? El chicle sin azúcar, el ajo y la cebolla crudos, y comer muy rápido son tres causas que casi nadie relaciona con la hinchazón.\n\nEl chicle sin azúcar lleva sorbitol o xilitol que el intestino no absorbe bien, y al fermentarse en el colon generan gas. El ajo y la cebolla crudos, tan comunes en las salsas, tienen fructanos que tampoco se digieren bien en el intestino delgado. Y comer rápido o hablar mucho mientras comes te hace tragar aire sin darte cuenta.\n\nMira el video para saber qué cambiar en cada caso.\n\n#hinchazonabdominal #saludintestinal #gasesintestinales #saluddigestiva #tipsdesalud #saludmexico"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "¿Se te infla el estómago casi a diario, aunque no comas mucho? 🫃\n\nEl chicle sin azúcar, el ajo y la cebolla crudos, y comer muy rápido son tres causas que casi nadie relaciona con la hinchazón, y cada una tiene su solución.\n\nMira el video para saber cuál 👆\n\n#hinchazonabdominal #saludintestinal #gasesintestinales #saluddigestiva #tipsdesalud #saludmexico"
+    }
+  ]
+}
