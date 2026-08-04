@@ -1,0 +1,61 @@
+{
+  "topic": "손발저림_1_en",
+  "title": "Turns Out, Your Diabetes Pill Might Be Behind That Tingling In Your Hands and Feet - Causes of Hand and Foot Numbness",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Is your diabetes medication behind that tingling in your hands and feet? 3 real causes of numbness\n\nDescription:\nIf your hands or feet keep tingling and you can't figure out why, it's probably not just \"getting older\" - it could be one of these three things.\n\nMetformin, soda, and hours of sitting are three things doctors connect to nerve tingling and numbness, and each one has an easy fix that doesn't mean giving anything up completely.\n\nWatch to find out why these cause tingling, and what actually helps.\n\n#numbness #tingling #peripheralneuropathy #healthtips #diabetesawareness #nervehealth"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Turns out, that tingling in your hands and feet might not be random. 🤔\n\nIt could be one of three things: your diabetes medication, your soda habit, or your desk chair.\n\nHere's why they cause nerve tingling, and what actually helps.\n\n🔗 Link in profile for more health tips!\n\n#numbness #tingling #peripheralneuropathy #healthtips #diabetesawareness #nervehealth #wellness",
+      "suppress_product_block": true
+    },
+    {
+      "name": "Instagram Carousel",
+      "url": "https://www.instagram.com/",
+      "type": "cards",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "Copy caption + download all cards → New post → upload cards in order → paste caption",
+      "caption": "Turns out, that tingling in your hands and feet might not be random. 🤔\n\nSwipe to see the 3 most common causes of hand and foot tingling - and what actually helps.\n\n🔗 Link in profile for more health tips!\n\n#numbness #tingling #peripheralneuropathy #healthtips #diabetesawareness #nervehealth #wellness"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "That tingling in your hands and feet?? 🤔 It could be one of these 3 things - and no, you don't have to overhaul your whole life to fix it.\n\n🔗 Link in bio for more!\n\n#numbness #tingling #peripheralneuropathy #healthtips #diabetesawareness #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "Turns out, that tingling in your hands and feet might not be random.\n\nIt could be your diabetes medication, your soda habit, or your desk chair - three things doctors connect to nerve tingling.\n\nWatch the video to find out why, and what actually helps.\n\n#numbness #tingling #peripheralneuropathy #healthtips #diabetesawareness #nervehealth"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "Turns out, that tingling in your hands and feet might not be random.\n\nProbably one of 3 things: your diabetes medication, your soda habit, or your desk chair. Each one has an easy fix.\n\n#numbness #tingling #healthtips"
+    }
+  ]
+}
