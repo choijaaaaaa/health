@@ -30,7 +30,7 @@
   },
   "스페인어": {
     "code": "es",
-    "gcp_project_id": null,
+    "gcp_project_id": "worthitshopping-es",
     "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
@@ -39,7 +39,7 @@
   },
   "포르투갈어": {
     "code": "pt",
-    "gcp_project_id": null,
+    "gcp_project_id": "worthitshopping-pt",
     "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
@@ -48,7 +48,7 @@
   },
   "러시아어": {
     "code": "ru",
-    "gcp_project_id": null,
+    "gcp_project_id": "worthitshopping-ru",
     "brand_account_created": true,
     "oauth_consent_configured": false,
     "oauth_production": false,
