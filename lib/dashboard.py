@@ -944,7 +944,17 @@ def _update_topics_index(out_path: str):
     output_root = Path(__file__).resolve().parent.parent / "output"
     data_root = output_root.parent / "data"
     topics = []
-    dash_paths = sorted(output_root.glob("*/dashboard.html")) + sorted(output_root.glob("*/*/dashboard.html"))
+    # WHY 중첩 topic의 통합 허브 페이지(output/<topic>/dashboard.html, 아래
+    # _generate_unified_dashboard 참고)를 별도 flat topic으로 잘못 집계하지
+    # 않는지(2026-08-04): 통합 페이지가 언어별 dashboard.html과 "같은 파일명
+    # (dashboard.html)"을 쓰기로 하면서, 얕은 glob(`*/dashboard.html`)이 통합
+    # 허브 페이지 자체도 걸어버려서 "가슴쓰림_1"이 "가슴쓰림_1/en"·"가슴쓰림_1/ja"와
+    # 별개로 또 하나의 topic 행으로 중복 등록되는 문제가 생긴다 — 언어별 하위
+    # dashboard.html이 이미 존재하는 base topic은 얕은 glob 결과에서 제외한다.
+    nested_dash_paths = sorted(output_root.glob("*/*/dashboard.html"))
+    nested_bases = {p.parent.parent.name for p in nested_dash_paths}
+    flat_dash_paths = [p for p in sorted(output_root.glob("*/dashboard.html")) if p.parent.name not in nested_bases]
+    dash_paths = flat_dash_paths + nested_dash_paths
     for dash in dash_paths:
         rel = dash.parent.relative_to(output_root)
         topic = "/".join(rel.parts)  # flat: "가슴쓰림_1", 중첩: "가슴쓰림_1/en"
@@ -968,18 +978,15 @@ def _update_topics_index(out_path: str):
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
 
-    # WHY 여기서 global.html도 같이 만드는지(2026-08-03, "완성된 콘텐츠 목록에 한국
-    # 버튼만 있잖아? Global 버튼 추가하고... 국가 목록이 있고 접고 펼 수 있게"):
-    # 이 함수는 이미 output/ 전체를 스캔해서 base-topic별 언어 목록을 알고 있으므로,
-    # topics.json 갱신 시점에 같이 재생성하면 별도 호출 지점을 안 늘려도 된다.
-    base_topics = sorted({t["topic"].split("/", 1)[0] for t in topics})
-    for base in base_topics:
-        _generate_global_page(base, output_root, data_root)
+    # WHY 여기서 통합 대시보드(output/<topic>/dashboard.html)도 같이 만드는지
+    # (2026-08-03 최초 도입, 2026-08-04 전면 개편 — 아래 _generate_unified_dashboard
+    # WHY 참고): 이 함수는 이미 output/ 전체를 스캔해서 base-topic별 언어 목록을
+    # 알고 있으므로, topics.json 갱신 시점에 같이 재생성하면 별도 호출 지점을
+    # 안 늘려도 된다. 다국어 topic(언어 서브폴더가 있는 topic)만 대상 — 단일
+    # 언어 topic은 이미 그 자체가 output/<topic>/dashboard.html이라 만들 게 없음.
+    for base in nested_bases:
+        _generate_unified_dashboard(base, output_root, data_root)
 
-
-# WHY YouTube Shorts를 뺐는지(2026-08-04): _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 —
-# 업로드 자동화가 이미 처리해서 이 페이지에도 더는 카드를 안 보여준다.
-GLOBAL_PLATFORMS = ("Instagram Reels",)
 
 # WHY 이 딕셔너리를 여기 두는지: data/global_channels.json과 값 형식이 다르다(그
 # 파일은 code->메타 정보 dict이고 여기는 순서가 있는 표시용 라벨) — 이 페이지
@@ -993,12 +1000,23 @@ GLOBAL_LANG_LABELS = {
     "th": "태국어 ไทย", "id": "인도네시아어 Indonesia", "hi": "힌디어 हिन्दी",
 }
 
-GLOBAL_PAGE_TEMPLATE = """<!doctype html>
+# WHY 통합 대시보드를 별도 파일이 아니라 "언어별 dashboard.html을 그대로 iframe으로
+# 보여주는 탭 페이지"로 만드는지(2026-08-04, "글로벌도 합치자 한 페이지에 같이
+# 있고 포맷도 기존과 동일하게 가야겠다... 기존에 관리하던 폼이랑 동일하게 가져가면
+# 딱이네" — ko/글로벌을 따로 관리하던 두 페이지·두 버튼(한국/Global)을 없애고
+# 하나로 합쳐달라는 요청): CARD_TEMPLATE 기반의 완성된 카드(캡션 편집·상품
+# 링크 dock·고지문구 자동삽입·완료 체크 등)를 언어마다 다시 구현하면 두 벌을
+# 유지보수해야 하고 필연적으로 기능이 어긋난다 — 이미 생성된 언어별
+# dashboard.html을 그대로 iframe에 넣으면 "완전히 동일한 폼"이 100% 보장되고,
+# 앞으로 CARD_TEMPLATE/JS를 고치면 모든 언어 탭에 자동으로 반영된다. 아직 영상이
+# 없어서(1단계 콘텐츠만 완료) 그 언어의 dashboard.html 자체가 없는 경우에만
+# 가벼운 폴백 카드(_light_platform_card)를 대신 보여준다.
+UNIFIED_PAGE_TEMPLATE = """<!doctype html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} — Global 업로드</title>
+<title>{title} — 업로드 대시보드</title>
 <style>
   :root {{
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -1016,28 +1034,34 @@ GLOBAL_PAGE_TEMPLATE = """<!doctype html>
   header h1 {{ margin: 0 0 6px; font-size: 22px; }}
   header p {{ margin: 0; color: var(--ink-soft); font-size: 13px; }}
   .back {{ display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }}
-  main {{ max-width: 900px; margin: 0 auto; padding: 16px 20px 40px; }}
-  .lang-group {{
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 16px;
-    margin-bottom: 14px; overflow: hidden;
+  .lang-tabs {{
+    max-width: 1040px; margin: 20px auto 0; padding: 0 20px;
+    display: flex; gap: 8px; flex-wrap: wrap;
   }}
-  .lang-group > summary {{
-    cursor: pointer; padding: 16px 20px; font-size: 16px; font-weight: 700;
-    list-style: none; display: flex; align-items: center; gap: 10px;
+  .lang-tab {{
+    font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 22px; border: none;
+    background: var(--panel); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
+    border: 1px solid var(--rule);
   }}
-  .lang-group > summary::-webkit-details-marker {{ display: none; }}
-  .lang-group > summary::before {{ content: "▶"; font-size: 11px; color: var(--accent); transition: transform .15s; flex: 0 0 auto; }}
-  .lang-group[open] > summary::before {{ transform: rotate(90deg); }}
-  .lang-body {{ padding: 4px 20px 20px; display: flex; gap: 16px; flex-wrap: wrap; border-top: 1px solid var(--rule); }}
+  .lang-tab.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
+  main {{ max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; }}
+  .lang-panel {{ display: none; }}
+  .lang-panel.active {{ display: block; }}
+  iframe.dash-frame {{ width: 100%; height: 100vh; border: 0; border-radius: 16px; background: var(--panel); }}
+  .lang-body {{ display: flex; gap: 16px; flex-wrap: wrap; }}
   .plat-card {{
-    flex: 1 1 280px; background: var(--bg-bottom); border: 1px solid var(--rule); border-radius: 12px;
-    padding: 14px; margin-top: 16px;
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
   }}
   .plat-card h3 {{ margin: 0 0 8px; font-size: 14px; }}
   .plat-card video {{ width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }}
   .g-video-ph {{
     width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
     align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
+  }}
+  .plat-card .dl {{
+    display: block; font-size: 12px; font-weight: 700; color: var(--accent-deep); text-decoration: none;
+    margin: -4px 0 8px;
   }}
   .plat-card textarea {{
     width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
@@ -1057,12 +1081,21 @@ GLOBAL_PAGE_TEMPLATE = """<!doctype html>
 <a class="back" href="../../index.html">← 목록으로</a>
 <header>
   <h1>{title}</h1>
-  <p>언어(국가)별로 펼쳐서 유튜브·인스타그램 캡션을 확인·업로드하세요</p>
+  <p>언어를 골라 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
 </header>
+<div class="lang-tabs">{tab_buttons}</div>
 <main>
-{lang_sections}
+{lang_panels}
 </main>
 <script>
+document.querySelectorAll(".lang-tab").forEach(btn => {{
+  btn.addEventListener("click", () => {{
+    document.querySelectorAll(".lang-tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".lang-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.panel).classList.add("active");
+  }});
+}});
 document.querySelectorAll(".btn-copy").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const ta = document.getElementById(btn.dataset.target);
@@ -1079,28 +1112,56 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
     navigator.clipboard.writeText(ta.value);
   }});
 }});
+// WHY iframe 높이를 내용물에 맞춰 늘리는지: 언어별 dashboard.html은 카드 개수·
+// 상품 dock 펼침 여부에 따라 실제 높이가 topic마다 다르다 — 고정 높이면
+// 짧으면 빈 여백, 길면 내부 스크롤(이중 스크롤바)이 생겨 이 페이지에 있는
+// 것처럼 자연스럽게 안 보인다. 같은 오리진(로컬 파일/GitHub Pages 둘 다
+// 동일 도메인)이라 contentWindow 접근이 막히지 않으므로 로드 시 실측해서
+// 맞춘다 — 혹시 접근이 막히는 환경이면 고정 100vh로 조용히 폴백한다.
+document.querySelectorAll("iframe.dash-frame").forEach(frame => {{
+  frame.addEventListener("load", () => {{
+    try {{
+      const h = frame.contentWindow.document.body.scrollHeight;
+      if (h > 0) frame.style.height = (h + 40) + "px";
+    }} catch (e) {{ /* cross-origin 등 — 고정 높이 유지 */ }}
+  }});
+}});
 </script>
 </body>
 </html>
 """
 
 
-def _global_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str:
-    """YouTube Shorts/Instagram Reels 카드 하나 — 기존 CARD_TEMPLATE과 달리 disclosure/
-    product-link 동적 삽입 로직(_buildLinkBlock 등)을 아예 안 쓴다. WHY: 그 로직은
-    `data/affiliate_accounts.json`의 한국어 고지문구를 코드에서 그대로 끌어오는데,
-    글로벌 topic은 아직 활성화된 제휴 프로그램이 없어서(2026-08-03 "아마존/알리는
-    시간 좀 두고" 결정) 한국어 고지문이 영어/일본어 캡션에 섞여 붙는 사고를 막으려면
-    이 카드는 그냥 저장된 캡션 텍스트를 그대로 보여주는 게 맞다."""
+def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str:
+    """언어 대시보드(dashboard.html)가 아직 없는 언어(콘텐츠는 있지만 영상 조립
+    전 — 1단계만 끝난 상태)용 경량 카드. WHY disclosure/product-link 동적 삽입
+    로직(_buildLinkBlock 등)을 안 쓰는지: 그 로직은 쿠팡 파트너스 고지문구를
+    코드에서 그대로 끌어오는데, 글로벌 topic은 아직 활성화된 제휴 프로그램이
+    없어서(2026-08-03 "아마존/알리는 시간 좀 두고" 결정) 한국어 고지문이
+    영어/일본어 캡션에 섞여 붙는 사고를 막으려면 이 카드는 그냥 저장된 캡션
+    텍스트를 그대로 보여주는 게 맞다. WHY 플랫폼을 인스타 릴스로 제한하지 않고
+    전부 보여주는지(2026-08-04, "포맷도 기존과 동일하게" 요청): 예전엔
+    Instagram Reels만 보여줬는데, ko 대시보드처럼 실제 관리 대상인 전체
+    플랫폼을 보여주는 게 통합 취지에 맞는다."""
     video_dir = Path(__file__).resolve().parent.parent / "output" / topic / lang
     # WHY 두 글롭 다 시도하는지: 대부분 "<topic>_shorts.mp4"(topic 접두어) 규칙을
     # 따르지만, 일부 언어 topic은 접두어 없이 그냥 "shorts.mp4"로도 만들어져 있었다
     # (실측: 갑상선_1/en) — 폴더 자체가 이미 topic+언어를 구분해주므로 둘 다 허용.
     candidates = sorted(video_dir.glob("*shorts.mp4")) if video_dir.exists() else []
     if candidates:
-        video_html = f'<video src="{lang}/{quote(candidates[0].name)}" controls playsinline></video>'
+        video_name = quote(candidates[0].name)
+        dl_name = _prefixed(candidates[0].name, _esc(f"{topic}_{lang}"))
+        # WHY 다운로드 버튼을 추가했는지(2026-08-04, "동영상도 위젯같은데 다운받을
+        # 수 있는 버튼을 넣는다던지 하면 될듯" 요청): ko CARD_TEMPLATE(_asset_link)엔
+        # 이미 있던 "🎬 영상 다운로드 ↓" 링크가 이 경량 카드엔 없어서 <video controls>의
+        # 브라우저 기본 메뉴에 의존해야 했다 — 같은 패턴(다운로드 파일명에 topic
+        # 접두어)으로 명시적 버튼을 추가해 형식을 맞춘다.
+        video_html = (
+            f'<video src="{lang}/{video_name}" controls playsinline></video>'
+            f'<a class="dl" href="{lang}/{video_name}" download="{dl_name}">🎬 영상 다운로드 ↓</a>'
+        )
     else:
-        video_html = '<div class="g-video-ph">영상 준비 중</div>'
+        video_html = '<div class="g-video-ph">🎬 영상 준비 중</div>'
     ta_id = f"g-cap-{lang}-{idx}"
     return f"""
 <div class="plat-card">
@@ -1115,38 +1176,55 @@ def _global_platform_card(topic: str, lang: str, platform: dict, idx: int) -> st
 """
 
 
-def _generate_global_page(base_topic: str, output_root: Path, data_root: Path) -> None:
-    """topic 하나(예: "관절_1")의 언어별(ko 제외) YouTube Shorts/Instagram Reels
-    캡션을 한 페이지에 접이식(<details>)으로 모은다 — 개별 언어마다 dashboard.html을
-    따로 열어야 했던 것을 topic당 페이지 하나로 통합."""
+def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: Path) -> None:
+    """topic 하나(예: "관절_1")의 언어(ko 포함) 전체를 탭 하나짜리 페이지로
+    통합한다 — 언어마다 dashboard.html이 따로 있어서(+ko는 "한국" 버튼, 나머지는
+    "Global" 버튼으로 갈라져 있던 것) 그때그때 다른 URL을 오가야 했던 것을,
+    output/<topic>/dashboard.html 하나로 합친다(위 UNIFIED_PAGE_TEMPLATE WHY
+    참고). 이미 있는 언어별 dashboard.html은 그대로 iframe으로 보여주고
+    (완전히 동일한 폼 보장), 아직 영상이 없어 dashboard.html 자체가 없는 언어만
+    가벼운 폴백 카드를 보여준다."""
     topic_data_root = data_root / base_topic
-    lang_dirs = (
-        sorted(p.name for p in topic_data_root.iterdir() if p.is_dir() and p.name != "ko")
-        if topic_data_root.exists() else []
-    )
+    if not topic_data_root.exists():
+        return
+    all_langs = sorted(p.name for p in topic_data_root.iterdir() if p.is_dir())
+    # WHY ko를 맨 앞에 고정하는지: 사용자가 한국어 화자라 ko 탭이 기본으로
+    # 먼저 보이는 게 자연스럽다 — 나머지는 알파벳 순서 그대로.
+    langs = (["ko"] if "ko" in all_langs else []) + [l for l in all_langs if l != "ko"]
 
-    lang_sections = ""
-    idx = 0
-    for lang in lang_dirs:
+    tab_buttons = ""
+    lang_panels = ""
+    for i, lang in enumerate(langs):
         captions_path = topic_data_root / lang / "platform_captions.json"
         if not captions_path.exists():
             continue
-        try:
-            spec = json.loads(captions_path.read_text(encoding="utf-8"))
-        except json.JSONDecodeError:
-            continue
-        cards = ""
-        for p in spec.get("platforms", []):
-            if p["name"] in GLOBAL_PLATFORMS:
-                cards += _global_platform_card(base_topic, lang, p, idx)
-                idx += 1
-        if not cards:
-            continue
-        label = GLOBAL_LANG_LABELS.get(lang, lang.upper())
-        lang_sections += f'<details class="lang-group">\n  <summary>{_esc(label)}</summary>\n  <div class="lang-body">{cards}</div>\n</details>\n'
+        label = "한국어" if lang == "ko" else GLOBAL_LANG_LABELS.get(lang, lang.upper())
+        panel_id = f"panel-{lang}"
+        active = " active" if i == 0 else ""
+        tab_buttons += f'<button class="lang-tab{active}" data-panel="{panel_id}">{_esc(label)}</button>\n'
 
-    if not lang_sections:
-        lang_sections = '<div class="empty">아직 준비된 글로벌 언어 콘텐츠가 없어요</div>'
+        lang_dashboard = output_root / base_topic / lang / "dashboard.html"
+        if lang_dashboard.exists():
+            panel_body = f'<iframe class="dash-frame" src="{lang}/dashboard.html"></iframe>'
+        else:
+            try:
+                spec = json.loads(captions_path.read_text(encoding="utf-8"))
+            except json.JSONDecodeError:
+                spec = {}
+            cards = ""
+            for idx, p in enumerate(spec.get("platforms", [])):
+                if p["name"] in _UI_EXCLUDED_PLATFORMS:
+                    continue
+                cards += _light_platform_card(base_topic, lang, p, idx)
+            panel_body = (
+                f'<div class="lang-body">{cards}</div>' if cards
+                else '<div class="empty">아직 준비된 콘텐츠가 없어요</div>'
+            )
+        lang_panels += f'<div class="lang-panel{active}" id="{panel_id}">{panel_body}</div>\n'
+
+    if not tab_buttons:
+        tab_buttons = ""
+        lang_panels = '<div class="empty">아직 준비된 언어 콘텐츠가 없어요</div>'
 
     ko_captions = topic_data_root / "ko" / "platform_captions.json"
     title = base_topic
@@ -1156,10 +1234,12 @@ def _generate_global_page(base_topic: str, output_root: Path, data_root: Path) -
         except json.JSONDecodeError:
             pass
 
-    html = GLOBAL_PAGE_TEMPLATE.format(title=_esc(title), lang_sections=lang_sections)
+    html = UNIFIED_PAGE_TEMPLATE.format(
+        title=_esc(title), tab_buttons=tab_buttons, lang_panels=lang_panels,
+    )
     out_dir = output_root / base_topic
     out_dir.mkdir(parents=True, exist_ok=True)
-    (out_dir / "global.html").write_text(html, encoding="utf-8")
+    (out_dir / "dashboard.html").write_text(html, encoding="utf-8")
 
 
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):

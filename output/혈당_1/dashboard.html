@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  .lang-tabs {
+    max-width: 1040px; margin: 20px auto 0; padding: 0 20px;
+    display: flex; gap: 8px; flex-wrap: wrap;
+  }
+  .lang-tab {
+    font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 22px; border: none;
+    background: var(--panel); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
+    border: 1px solid var(--rule);
+  }
+  .lang-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  main { max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; }
+  .lang-panel { display: none; }
+  .lang-panel.active { display: block; }
+  iframe.dash-frame { width: 100%; height: 100vh; border: 0; border-radius: 16px; background: var(--panel); }
+  .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
+  .plat-card {
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
+  }
+  .plat-card h3 { margin: 0 0 8px; font-size: 14px; }
+  .plat-card video { width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }
+  .g-video-ph {
+    width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
+    align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
+  }
+  .plat-card .dl {
+    display: block; font-size: 12px; font-weight: 700; color: var(--accent-deep); text-decoration: none;
+    margin: -4px 0 8px;
+  }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기</h1>
+  <p>언어를 골라 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+</header>
+<div class="lang-tabs"><button class="lang-tab active" data-panel="panel-ko">한국어</button>
+</div>
+<main>
+<div class="lang-panel active" id="panel-ko"><iframe class="dash-frame" src="ko/dashboard.html"></iframe></div>
+
+</main>
+<script>
+document.querySelectorAll(".lang-tab").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".lang-tab").forEach(b => b.classList.remove("active"));
+    document.querySelectorAll(".lang-panel").forEach(p => p.classList.remove("active"));
+    btn.classList.add("active");
+    document.getElementById(btn.dataset.panel).classList.add("active");
+  });
+});
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+// WHY iframe 높이를 내용물에 맞춰 늘리는지: 언어별 dashboard.html은 카드 개수·
+// 상품 dock 펼침 여부에 따라 실제 높이가 topic마다 다르다 — 고정 높이면
+// 짧으면 빈 여백, 길면 내부 스크롤(이중 스크롤바)이 생겨 이 페이지에 있는
+// 것처럼 자연스럽게 안 보인다. 같은 오리진(로컬 파일/GitHub Pages 둘 다
+// 동일 도메인)이라 contentWindow 접근이 막히지 않으므로 로드 시 실측해서
+// 맞춘다 — 혹시 접근이 막히는 환경이면 고정 100vh로 조용히 폴백한다.
+document.querySelectorAll("iframe.dash-frame").forEach(frame => {
+  frame.addEventListener("load", () => {
+    try {
+      const h = frame.contentWindow.document.body.scrollHeight;
+      if (h > 0) frame.style.height = (h + 40) + "px";
+    } catch (e) { /* cross-origin 등 — 고정 높이 유지 */ }
+  });
+});
+</script>
+</body>
+</html>

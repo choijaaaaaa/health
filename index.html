@@ -452,9 +452,9 @@ Promise.all([
       textWrap.style.cssText = "flex:1;min-width:0;";
 
       // WHY <a>가 아니라 <span>인지(2026-08-03, "행 클릭할 때 들어가는 건
-      // 없애고"): 행 전체(제목 텍스트)를 눌러서 이동하던 걸 없애고, 아래 두
-      // 버튼(한국/Global)으로만 이동하게 한다 — 어느 언어로 갈지 행 텍스트
-      // 클릭만으로는 애매했던 것도 같이 해결됨.
+      // 없애고"): 행 전체(제목 텍스트)를 눌러서 이동하던 걸 없애고, 아래
+      // 버튼으로만 이동하게 한다 — 어느 언어로 갈지 행 텍스트 클릭만으로는
+      // 애매했던 것도 같이 해결됨.
       const titleSpan = document.createElement("span");
       titleSpan.textContent = baseTopic;
       titleSpan.style.cssText = "display:block;color:var(--ink);font-size:14px;font-weight:700;";
@@ -466,54 +466,53 @@ Promise.all([
       textWrap.appendChild(titleSpan);
       textWrap.appendChild(titleLine);
 
-      // WHY 버튼 2개(한국/Global)로 바꿨는지(2026-08-03, "완성된 콘텐츠 목록에
-      // 한국 버튼만 있잖아? 그 옆에 Global 해서 버튼 하나 더 추가하고 버튼
-      // 두개는 크기를 좀 키우자"): 언어별 배지(KO/EN/JA...)가 많아지면 행이
-      // 산만해지고, 실제로 필요한 건 "한국 플랫폼 페이지로" vs "글로벌
-      // 언어들 모아보기" 두 갈래뿐이다. 한국 버튼은 기존 ko 대시보드로 그대로
-      // 가고, Global 버튼은 이 topic의 언어별 유튜브·인스타 캡션을 모아둔
-      // 새 global.html(lib/dashboard.py의 _generate_global_page가 생성)로 간다.
-      // WHY 버튼에 "YT ✓"라고 명시하는지(2026-08-03, "한국쪽 영상만 업로드되면
-      // 목록에서 체크가되어버리네? 근데 숏츠 유튜브에 올리는거랑 다른거
-      // 들어가는거랑 또 다른거라... 이거 둘다체크되면 완료로 쳐버리면 안돼
-      // 관리가안돼" 지적): 처음엔 그냥 "한국 ✓"였는데, 이 topic의 실제 완료
-      // 여부(카드뉴스+영상+캡션+모든 플랫폼 포스팅 전부 끝)는 행 왼쪽의
-      // ✅/⬜ 배지(completed_topics.json 기준)가 따로 담당하는데, 버튼의
-      // "✓"가 그것과 헷갈려서 "유튜브만 올렸는데 이 topic 전체가 끝난 것"처럼
-      // 잘못 보일 위험이 있었다. 유튜브 쇼츠 업로드(youtube_uploaded.json)와
-      // 다른 플랫폼 포스팅(posting_log.csv)·topic 전체 완료는 서로 다른
-      // 트래킹 파일이라 절대 섞으면 안 된다 — "YT"를 붙여서 이 체크가
-      // "유튜브 업로드만" 가리킨다는 걸 명시적으로 표시한다.
+      // WHY 버튼 2개(한국/Global)를 다시 1개로 합쳤는지(2026-08-04, "글로벌도
+      // 합치자 한 페이지에 같이 있고... 어차피 내가 올려야하니까 같이
+      // 관리해야하기도 하고"): ko 대시보드와 언어별 global.html이 서로 다른
+      // URL·다른 폼이라 관리자가 두 곳을 오가야 했다 — 이제 언어(ko 포함)가
+      // 있는 topic은 전부 `lib/dashboard.py`의 `_generate_unified_dashboard`가
+      // 만드는 output/<baseTopic>/dashboard.html 하나로 모인다(그 페이지
+      // 안에서 언어 탭으로 전환, 각 탭은 기존 언어별 dashboard.html을 그대로
+      // iframe으로 보여줘서 폼이 완전히 동일함). 언어가 애초에 하나뿐인(중첩
+      // 폴더가 없는) 기존 topic은 그 자체가 이미 output/<topic>/dashboard.html
+      // 이라 URL이 똑같이 유지된다 — 버튼 로직이 "중첩이냐 아니냐"만 분기하면
+      // 끝나는 이유.
+      // WHY 버튼 라벨에 "YT ✓"를 언어별로 표시하는지(2026-08-03 최초 도입 이유
+      // 그대로 유지): topic 전체 완료(행 왼쪽 ✅/⬜, completed_topics.json)와
+      // "이 언어의 유튜브 쇼츠만 업로드됐는지"(youtube_uploaded.json)는 서로
+      // 다른 트래킹이라 섞으면 안 된다 — 버튼 하나로 합쳐도 이 구분은 그대로
+      // "KO✓ EN JA" 식 언어별 배지로 유지한다.
+      const isNested = variants.some(v => v.langSeg);
       const koVariant = variants.find(v => v.langSeg === "ko" || v.langSeg === null);
+      const dashUrl = isNested
+        ? `output/${encodeURIComponent(baseTopic)}/dashboard.html`
+        : (koVariant ? koVariant.url : variants[0].url);
+
+      const langBadges = variants
+        .slice()
+        .sort((a, b) => {
+          const ak = (a.langSeg === "ko" || a.langSeg === null) ? "" : a.langSeg;
+          const bk = (b.langSeg === "ko" || b.langSeg === null) ? "" : b.langSeg;
+          return ak.localeCompare(bk);
+        })
+        .map(v => {
+          const code = (v.langSeg === "ko" || v.langSeg === null) ? "KO" : v.langSeg.toUpperCase();
+          const d = youtubeDone.has(v.topic) || (code === "KO" && youtubeDone.has(baseTopic));
+          return code + (d ? "✓" : "");
+        })
+        .join(" ");
+
       const buttonWrap = document.createElement("div");
       buttonWrap.style.cssText = "display:flex;gap:8px;flex:0 0 auto;";
 
-      const koBtn = document.createElement("a");
-      const koDone = koVariant && (youtubeDone.has(koVariant.topic) || youtubeDone.has(baseTopic));
-      koBtn.textContent = "한국" + (koDone ? " YT✓" : "");
-      koBtn.setAttribute("aria-label", baseTopic + " 한국 플랫폼 페이지 열기"
-        + (koDone ? " (유튜브 쇼츠만 업로드 완료 — 다른 플랫폼 포스팅과는 별개)" : ""));
-      const koBtnBase = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;";
-      if (koVariant) {
-        koBtn.href = koVariant.url;
-        koBtn.style.cssText = koBtnBase + "background:var(--accent);color:#fff;";
-      } else {
-        koBtn.style.cssText = koBtnBase + "background:var(--bg-bottom);color:var(--ink-soft);opacity:0.5;pointer-events:none;";
-      }
+      const dashBtn = document.createElement("a");
+      dashBtn.textContent = langBadges;
+      dashBtn.href = dashUrl;
+      dashBtn.setAttribute("aria-label", baseTopic + " 대시보드 열기 — 언어별 유튜브 쇼츠 업로드 상태: "
+        + langBadges + "(✓ 표시는 유튜브 쇼츠 업로드만 뜻함, 다른 플랫폼 포스팅과는 별개)");
+      dashBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--accent);color:#fff;";
 
-      const globalVariants = variants.filter(v => v.langSeg && v.langSeg !== "ko");
-      const globalDoneCount = globalVariants.filter(v => youtubeDone.has(v.topic)).length;
-      const globalBtn = document.createElement("a");
-      globalBtn.textContent = globalVariants.length
-        ? `Global YT ${globalDoneCount}/${globalVariants.length}`
-        : "Global";
-      globalBtn.href = `output/${encodeURIComponent(baseTopic)}/global.html`;
-      globalBtn.setAttribute("aria-label", baseTopic + " Global(언어별 유튜브·인스타) 페이지 열기"
-        + (globalVariants.length ? ` — 유튜브 쇼츠 업로드 ${globalDoneCount}/${globalVariants.length}개 완료(다른 플랫폼 포스팅과는 별개)` : ""));
-      globalBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--gold);color:#fff;";
-
-      buttonWrap.appendChild(koBtn);
-      buttonWrap.appendChild(globalBtn);
+      buttonWrap.appendChild(dashBtn);
 
       if (done) {
         row.style.opacity = "0.45";
