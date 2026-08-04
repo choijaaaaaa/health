@@ -1,0 +1,813 @@
+# 체크리스트/자가진단형 Shorts 템플릿. WHY: 세로 체크리스트가 내레이션 진행에 맞춰
+# 하나씩 체크되는 포맷 — 항목 개수는 card_news_spec.json의 items에서 그대로 읽어
+# N개 어떤 topic이든 코드 변경 없이 동작해야 한다(하드코딩 3개 금지).
+from __future__ import annotations
+
+import json
+import math
+import shutil
+import subprocess
+import sys
+from pathlib import Path
+
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang, _parse_srt  # noqa: E402
+
+W, H = 1080, 1920
+FPS = 30
+ITEM_ICON_DIR = PROJECT_ROOT / "assets_library" / "illust"
+
+# lib/video_assembler.py의 _YT_SAFE_RIGHT/_YT_SAFE_BOTTOM과 반드시 같은 값이어야
+# 한다 — 유튜브 Shorts 앱 UI(공유/좋아요 버튼 등)가 화면 우측·하단을 가리는 픽셀 폭.
+_YT_SAFE_RIGHT = 150
+_YT_SAFE_BOTTOM = 320
+_SAFE_TOP = 50
+_SAFE_LEFT = 50
+SAFE_X1 = W - _YT_SAFE_RIGHT
+SAFE_Y1 = H - _YT_SAFE_BOTTOM
+_CENTER_X = W // 2
+# 화면 중앙(cx=540)은 세이프 영역 중앙(490)과 다르다 — 그대로 max_width를 주면
+# 우측 세이프 경계를 넘어간다. 중앙정렬 텍스트는 항상 이 폭으로 캡핑한다.
+SAFE_CENTERED_MAX_WIDTH = 2 * min(_CENTER_X - _SAFE_LEFT, SAFE_X1 - _CENTER_X)
+
+
+def _assert_within_safe_area(label, bbox):
+    """bbox=(x0,y0,x1,y1)는 실제로 렌더된 텍스트 블록의 경계 — 세이프 영역
+    (`_SAFE_LEFT`/`_SAFE_TOP`/`SAFE_X1`/`SAFE_Y1`) 밖으로 나가면 즉시 에러로
+    잡는다. 각 렌더 함수는 이 함수에 도달하기 전에 이미 폰트 축소·행 수 제한
+    (`_layout_multiline`)·항목 개수에 맞춘 동적 행 높이(`_checklist_layout`)로
+    안 걸리게 맞춰야 정상 — 이 assert가 실제로 걸리면 그 계산 로직에 구멍이
+    있다는 뜻이라 조용히 넘어가지 않고 바로 멈춘다.
+    """
+    x0, y0, x1, y1 = bbox
+    if x0 < _SAFE_LEFT - 1 or y0 < _SAFE_TOP - 1 or x1 > SAFE_X1 + 1 or y1 > SAFE_Y1 + 1:
+        raise RuntimeError(
+            f"[proto_checklist] 세이프 영역 침범 — {label}: "
+            f"bbox=({x0:.0f},{y0:.0f},{x1:.0f},{y1:.0f}), "
+            f"허용 범위=({_SAFE_LEFT},{_SAFE_TOP})~({SAFE_X1},{SAFE_Y1})"
+        )
+
+
+# ---------------------------------------------------------------------------
+# 토픽 시드 변주 — 프로젝트 표준 컨벤션: sum(ord(c) * (i*k + c0)) % len(options),
+# 축마다 (k, c0)를 다르게 줘서 accent/배경/체크박스 모양이 서로 다른 주기로 순환.
+# ---------------------------------------------------------------------------
+ACCENT_PALETTE: list[tuple[int, int, int]] = [
+    (27, 148, 123),
+    (200, 90, 60),
+    (74, 110, 200),
+    (150, 90, 190),
+    (200, 140, 40),
+    (170, 60, 110),
+]
+BG_TONES: list[tuple[int, int, int]] = [
+    (250, 247, 242),
+    (235, 242, 245),
+    (238, 244, 236),
+    (243, 238, 246),
+    (247, 238, 232),
+]
+CHECKBOX_SHAPES = ["rounded_square", "circle"]
+
+
+def _accent_for_seed(seed: str) -> tuple[int, int, int]:
+    idx = sum(ord(c) for c in seed) % len(ACCENT_PALETTE)
+    return ACCENT_PALETTE[idx]
+
+
+def _bg_variant_for_seed(seed: str) -> tuple[str, tuple[int, int, int], tuple[int, int, int]]:
+    tone_idx = sum(ord(c) * (i + 1) for i, c in enumerate(seed)) % len(BG_TONES)
+    mode = "gradient" if sum(ord(c) * (i * 3 + 2) for i, c in enumerate(seed)) % 2 == 0 else "solid"
+    top = BG_TONES[tone_idx]
+    bottom = tuple(max(0, round(c * 0.94)) for c in top)
+    return (mode, top, bottom)
+
+
+def _checkbox_shape_for_seed(seed: str) -> str:
+    idx = sum(ord(c) * (i * 2 + 1) for i, c in enumerate(seed)) % len(CHECKBOX_SHAPES)
+    return CHECKBOX_SHAPES[idx]
+
+
+TEXT_DARK = (34, 45, 56)
+TEXT_GRAY = (120, 128, 138)
+BOX_BORDER = (196, 203, 212)
+CARD_WHITE = (255, 255, 255)
+SHADOW = (20, 30, 40)
+
+
+def _accent_soft(accent: tuple[int, int, int]) -> tuple[int, int, int]:
+    """eyebrow 배지 배경용 — accent를 흰색 쪽으로 옅게 섞는다(혼합비 ~0.83)."""
+    return tuple(round(c + (255 - c) * 0.83) for c in accent)
+
+
+EYEBROW_SELFCHECK = "자가진단"
+EYEBROW_CAUSE = "원인 분석"
+EYEBROW_WRAPUP = "마무리"
+CHECKLIST_HEADER_BEFORE = "확인해야 할 3가지"
+CHECKLIST_HEADER_AFTER = "오늘부터 이렇게"
+MODE_FADE = 0.4
+ITEM_FADE = 0.45
+ITEM_FIX_FADE = 0.45
+
+
+def ease_out_cubic(x: float) -> float:
+    x = max(0, min(1, x))
+    return 1 - (1 - x) ** 3
+
+
+def progress(t: float, start: float, dur: float) -> float:
+    return ease_out_cubic((t - start) / dur)
+
+
+# ---------------------------------------------------------------------------
+# 폰트/텍스트 레이아웃
+# ---------------------------------------------------------------------------
+_FONT_CACHE: dict[tuple[str, int, int], "ImageFont.FreeTypeFont"] = {}
+
+
+def _load_font(path: str, index: int, size: int) -> "ImageFont.FreeTypeFont":
+    key = (path, index, size)
+    if key not in _FONT_CACHE:
+        _FONT_CACHE[key] = ImageFont.truetype(path, size, index=index)
+    return _FONT_CACHE[key]
+
+
+def _layout_multiline(
+    draw, raw_lines, font_path, font_index, base_size,
+    max_width, max_height, lang, min_size=18, line_h_ratio=1.28,
+):
+    """`raw_lines`(작성자가 미리 나눠둔 줄 또는 단일 문단)를 `max_width` 폭에
+    맞게 줄바꿈하고, 전체 높이가 `max_height`를 넘으면 폰트 크기를 줄여가며
+    다시 줄바꿈한다 — `min_size`까지 줄여도 안 맞으면 마지막 줄에 말줄임표를
+    붙여 강제로 잘라낸다(자리표시자 텍스트가 몇 배로 길어져도 절대 세이프
+    영역을 침범하지 않게 하는 마지막 안전장치).
+    """
+    size = base_size
+    while True:
+        f = _load_font(font_path, font_index, size)
+        wrapped = []
+        for line in raw_lines:
+            wrapped.extend(_wrap_text_for_lang(draw, line, f, max_width, lang) or [""])
+        line_h = round(size * line_h_ratio)
+        total_h = line_h * max(len(wrapped), 1)
+        if total_h <= max_height or size <= min_size:
+            if total_h > max_height and line_h > 0:
+                max_lines = max(1, int(max_height // line_h))
+                if len(wrapped) > max_lines:
+                    wrapped = wrapped[:max_lines]
+                    wrapped[-1] = wrapped[-1].rstrip() + "…"
+            return (wrapped, f, line_h)
+        size -= 2
+
+
+def draw_centered_lines(draw, lines, f, center_x, top_y, line_h, fill, alpha=255, label="centered-text"):
+    """가운데 정렬로 여러 줄을 그리고, 실제로 렌더된 bbox가 세이프 영역
+    안인지 검사한다. 반환값은 마지막 줄 아래 y좌표(다음 요소 배치용)."""
+    if not lines:
+        return top_y
+    color = fill + (alpha,) if len(fill) == 3 else fill
+    bx0 = math.inf
+    by0 = math.inf
+    bx1 = -math.inf
+    by1 = -math.inf
+    for i, line in enumerate(lines):
+        bbox = draw.textbbox((0, 0), line, font=f)
+        tw = bbox[2] - bbox[0]
+        th = bbox[3] - bbox[1]
+        x = center_x - tw / 2 - bbox[0]
+        y = top_y + i * line_h - bbox[1]
+        draw.text((round(x), round(y)), line, font=f, fill=color)
+        ly0 = top_y + i * line_h
+        lx0 = center_x - tw / 2
+        bx0 = min(bx0, lx0)
+        by0 = min(by0, ly0)
+        bx1 = max(bx1, lx0 + tw)
+        by1 = max(by1, ly0 + th)
+    _assert_within_safe_area(label, (bx0, by0, bx1, by1))
+    return top_y + len(lines) * line_h
+
+
+def draw_lines_left(draw, lines, f, x, top_y, line_h, fill, alpha=255, label="left-text"):
+    if not lines:
+        return top_y
+    color = fill + (alpha,) if len(fill) == 3 else fill
+    bx0 = math.inf
+    by0 = math.inf
+    bx1 = -math.inf
+    by1 = -math.inf
+    for i, line in enumerate(lines):
+        bbox = draw.textbbox((0, 0), line, font=f)
+        draw.text((round(x), round(top_y + i * line_h - bbox[1])), line, font=f, fill=color)
+        ly0 = top_y + i * line_h
+        lx0 = x + bbox[0]
+        ly1 = ly0 + (bbox[3] - bbox[1])
+        lx1 = x + bbox[2]
+        bx0 = min(bx0, lx0)
+        by0 = min(by0, ly0)
+        bx1 = max(bx1, lx1)
+        by1 = max(by1, ly1)
+    _assert_within_safe_area(label, (bx0, by0, bx1, by1))
+    return top_y + len(lines) * line_h
+
+
+def draw_eyebrow(canvas, draw, text, f, center_x, y, accent, accent_soft, alpha=255, label="eyebrow"):
+    bbox = draw.textbbox((0, 0), text, font=f)
+    th = bbox[3] - bbox[1]
+    tw = bbox[2] - bbox[0]
+    pad_x, pad_y = 34, 16
+    pill_h = th + pad_y * 2
+    pill_w = tw + pad_x * 2
+    x0 = center_x - pill_w / 2
+    pill = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(pill)
+    pd.rounded_rectangle(
+        [round(x0), round(y), round(x0 + pill_w), round(y + pill_h)],
+        radius=round(pill_h // 2), fill=accent_soft + (alpha,),
+    )
+    pd.text((round(x0 + pad_x - bbox[0]), round(y + pad_y - bbox[1])), text, font=f, fill=accent + (alpha,))
+    canvas.alpha_composite(pill)
+    _assert_within_safe_area(label, (x0, y, x0 + pill_w, y + pill_h))
+    return y + pill_h
+
+
+def _build_background(mode: str, top, bottom) -> "Image.Image":
+    if mode == "solid":
+        return Image.new("RGB", (W, H), top)
+    img = Image.new("RGB", (W, H), top)
+    draw = ImageDraw.Draw(img)
+    for y in range(H):
+        t = y / H
+        color = tuple(round(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
+        draw.line([(0, y), (W, y)], fill=color)
+    return img
+
+
+_ICON_CACHE: dict[tuple[Path, int], "Image.Image"] = {}
+
+
+def get_icon(path: Path, size: int) -> "Image.Image":
+    key = (path, size)
+    if key not in _ICON_CACHE:
+        img = Image.open(path).convert("RGB")
+        w, h = img.size
+        side = min(w, h)
+        top = (h - side) // 2
+        left = (w - side) // 2
+        img = img.crop((left, top, left + side, top + side)).resize((size, size), Image.LANCZOS)
+        mask = Image.new("L", (size, size), 0)
+        md = ImageDraw.Draw(mask)
+        md.rounded_rectangle([0, 0, size - 1, size - 1], radius=int(size * 0.22), fill=255)
+        rgba = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+        rgba.paste(img, (0, 0))
+        rgba.putalpha(mask)
+        _ICON_CACHE[key] = rgba
+    return _ICON_CACHE[key]
+
+
+def draw_checkbox(canvas, x, y, size, p, accent, shape):
+    """p=0이면 빈 체크박스(테두리만), p>0이면 채워진 박스 위에 체크마크를
+    두 획으로 나눠 그린다 — p<=0.5는 첫 획, p>0.5는 첫 획 완성+두 번째 획이
+    진행되어 "체크마크가 그려지는" 애니메이션처럼 보인다."""
+    box = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(box)
+    radius = int(size * 0.22)
+
+    def _outline():
+        if shape == "circle":
+            bd.ellipse([0, 0, size - 1, size - 1], fill=(255, 255, 255, 255),
+                       outline=BOX_BORDER + (255,), width=5)
+        else:
+            bd.rounded_rectangle([0, 0, size - 1, size - 1], radius=radius,
+                                  fill=(255, 255, 255, 255), outline=BOX_BORDER + (255,), width=5)
+
+    def _filled():
+        if shape == "circle":
+            bd.ellipse([0, 0, size - 1, size - 1], fill=accent + (255,))
+        else:
+            bd.rounded_rectangle([0, 0, size - 1, size - 1], radius=radius, fill=accent + (255,))
+
+    if p <= 0.001:
+        _outline()
+    else:
+        _filled()
+        pts = [
+            (0.2 * size, 0.55 * size),
+            (0.42 * size, 0.75 * size),
+            (0.83 * size, 0.27 * size),
+        ]
+        width = max(6, size // 11)
+        if p <= 0.5:
+            t2 = p / 0.5
+            x1 = pts[0][0] + (pts[1][0] - pts[0][0]) * t2
+            y1 = pts[0][1] + (pts[1][1] - pts[0][1]) * t2
+            bd.line([pts[0], (x1, y1)], fill=(255, 255, 255, 255), width=width, joint="curve")
+        else:
+            bd.line([pts[0], pts[1]], fill=(255, 255, 255, 255), width=width, joint="curve")
+            t2 = (p - 0.5) / 0.5
+            x2 = pts[1][0] + (pts[2][0] - pts[1][0]) * t2
+            y2 = pts[1][1] + (pts[2][1] - pts[1][1]) * t2
+            bd.line([pts[1], (x2, y2)], fill=(255, 255, 255, 255), width=width, joint="curve")
+    canvas.alpha_composite(box, (round(x), round(y)))
+
+
+def draw_shadowed_panel(canvas, box, radius, fill=(255, 255, 255, 235)):
+    x0, y0, x1, y1 = box
+    shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shadow)
+    sd.rounded_rectangle([round(x0), round(y0 + 18), round(x1), round(y1 + 18)],
+                          radius=radius, fill=SHADOW + (60,))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(20))
+    canvas.alpha_composite(shadow)
+    panel = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    pd = ImageDraw.Draw(panel)
+    pd.rounded_rectangle([round(x0), round(y0), round(x1), round(y1)], radius=radius, fill=fill)
+    canvas.alpha_composite(panel)
+
+
+# ---------------------------------------------------------------------------
+# spec 파싱 / 타이밍 / 레이아웃
+# ---------------------------------------------------------------------------
+def _join_body(body: list[str]) -> str:
+    """spec의 body는 빈 문자열로 문단을 구분한 줄 리스트 — 화면엔 한 문단처럼
+    흘려 보여주므로 빈 줄은 건너뛰고 공백으로 이어붙인다."""
+    return " ".join(line for line in body if line)
+
+
+def _load_items(spec: dict) -> tuple[str, str, list[dict]]:
+    """spec["items"][0]은 "왜 이런 문제가 생길까요" 원인 카드, items[1:]는
+    (원인, 대안) 쌍이 순서대로 배열돼 있다 — 쌍의 개수(=체크리스트 항목 개수)를
+    여기서 직접 세므로, 항목이 3개든 5개든 코드 변경 없이 그대로 동작한다."""
+    why_spec = spec["items"][0]
+    why_header = why_spec["name"]
+    why_body = _join_body(why_spec["body"])
+    pair_items = spec["items"][1:]
+    if len(pair_items) % 2 != 0 or not pair_items:
+        raise RuntimeError(
+            f"[proto_checklist] items[1:]는 (원인, 대안) 쌍이어야 하는데 "
+            f"{len(pair_items)}개입니다 — card_news_spec.json 구조를 확인할 것"
+        )
+    items = [
+        {
+            "label": cause["name"],
+            "fact": _join_body(cause["body"]),
+            "fix": _join_body(fix["body"]),
+            "icon": ITEM_ICON_DIR / cause["char_file"],
+        }
+        for cause, fix in zip(pair_items[0::2], pair_items[1::2])
+    ]
+    return (why_header, why_body, items)
+
+
+def _build_timing(cues: list[tuple[float, float, str]], total_duration: float, n_items: int) -> dict:
+    """srt 큐(2번째=원인 설명 시작, 3번째=체크리스트 시작으로 가정)를 기준으로
+    화면 구간을 나눈다. 체크리스트 구간은 앞 55%를 "원인(fact)", 뒤 45%를
+    "대안(fix)"에 배분하고, 각각 항목 개수만큼 균등 스태거링한다 — 내레이션이
+    "모든 N가지 대안"을 마지막 한 문장에 압축해도 화면에서는 항목별로 몇 초씩
+    시차를 두고 순서대로 드러나 한 번에 안 읽히는 문제를 피한다."""
+    if len(cues) > 1:
+        why_start = cues[1][0]
+    else:
+        why_start = min(total_duration * 0.12, max(total_duration - 2, 0))
+    if len(cues) > 2:
+        list_start = cues[2][0]
+    else:
+        list_start = why_start + max(total_duration * 0.15, 2)
+    list_start = max(list_start, why_start + 1)
+    closing_reserve = min(4, max(total_duration * 0.12, 2))
+    closing_start = total_duration - closing_reserve
+    min_checklist_dur = 1.2 * n_items
+    if closing_start - list_start < min_checklist_dur:
+        closing_start = min(list_start + min_checklist_dur, total_duration)
+    checklist_dur = max(closing_start - list_start, 0.01)
+    facts_span = checklist_dur * 0.55
+    fixes_span = checklist_dur - facts_span
+    check_times = [list_start + facts_span * i / n_items for i in range(n_items)]
+    fixes_window_start = list_start + facts_span
+    fix_times = [fixes_window_start + fixes_span * i / n_items for i in range(n_items)]
+    return {
+        "why_start": why_start,
+        "list_start": list_start,
+        "closing_start": closing_start,
+        "check_times": check_times,
+        "fix_times": fix_times,
+    }
+
+
+def _checklist_layout(measure_draw, items, n_items, font_path, font_index, lang, panel_top) -> dict:
+    card_x0 = 90
+    card_x1 = min(990, SAFE_X1 - 20)
+    usable_height = SAFE_Y1 - panel_top - 40
+    row_h = None
+    row_gap = 36
+    for gap_try in (36, 24, 16, 12):
+        candidate = (usable_height - (n_items - 1) * gap_try) / n_items
+        if candidate >= 130:
+            row_h = min(candidate, 380)
+            row_gap = gap_try
+            break
+    if row_h is None:
+        # 항목이 너무 많아 표준 gap으로는 안 맞을 때 — 최소 행 높이(90)까지
+        # 압축해서라도 세이프 영역 안에 배치를 시도한다.
+        row_gap = 10
+        row_h = max((usable_height - (n_items - 1) * row_gap) / n_items, 90)
+    panel_bottom = panel_top + n_items * row_h + (n_items - 1) * row_gap + 40
+    if panel_bottom > SAFE_Y1 + 1:
+        raise RuntimeError(
+            f"[proto_checklist] 체크리스트 항목이 너무 많아({n_items}개) "
+            f"세이프 영역 안에 배치할 수 없습니다 — panel_bottom={panel_bottom:.0f} > {SAFE_Y1}"
+        )
+    box_size = round(min(max(row_h * 0.259, 56), 100))
+    icon_size = round(min(max(row_h * 0.318, 64), 130))
+    box_pad_left = 60
+    text_left = card_x0 + box_pad_left + box_size + 40
+    icon_x = card_x1 - 40 - icon_size
+    max_w = max(icon_x - 30 - text_left, 200)
+    label_size = round(min(max(row_h * 0.147, 28), 54))
+    label_font = _load_font(font_path, font_index, label_size)
+    label_line_h = round(label_size * 1.2)
+    body_base_size = round(min(max(row_h * 0.082, 18), 30))
+
+    rows = []
+    for i, item in enumerate(items):
+        row_top = panel_top + 40 + i * (row_h + row_gap)
+        box_y = round(row_top + (row_h - box_size) / 2 - row_h * 0.088)
+        icon_y = round(row_top + (row_h - icon_size) / 2)
+        label_lines = _wrap_text_for_lang(measure_draw, item["label"], label_font, max_w, lang) or [""]
+        max_label_lines = 2
+        if len(label_lines) > max_label_lines:
+            label_lines = label_lines[:max_label_lines]
+            label_lines[-1] = label_lines[-1].rstrip() + "…"
+        label_h = len(label_lines) * label_line_h
+        body_top = box_y + 6 + label_h + 12
+        body_max_h = max(row_top + row_h - body_top - 16, body_base_size * 1.28)
+        fact_lines, fact_font, fact_line_h = _layout_multiline(
+            measure_draw, [item["fact"]], font_path, font_index, body_base_size,
+            max_w, body_max_h, lang, min_size=16,
+        )
+        fix_lines, fix_font, fix_line_h = _layout_multiline(
+            measure_draw, [item["fix"]], font_path, font_index, body_base_size,
+            max_w, body_max_h, lang, min_size=16,
+        )
+        rows.append({
+            "label_lines": label_lines, "label_font": label_font, "label_line_h": label_line_h,
+            "box_x": card_x0 + box_pad_left, "box_y": box_y,
+            "icon_x": icon_x, "icon_y": icon_y,
+            "row_top": row_top, "text_left": text_left, "body_top": body_top,
+            "fact_lines": fact_lines, "fact_font": fact_font, "fact_line_h": fact_line_h,
+            "fix_lines": fix_lines, "fix_font": fix_font, "fix_line_h": fix_line_h,
+            "icon": item["icon"],
+        })
+    return {
+        "card_x0": card_x0, "card_x1": card_x1,
+        "panel_top": panel_top, "panel_bottom": panel_bottom,
+        "row_h": row_h, "row_gap": row_gap,
+        "box_size": box_size, "icon_size": icon_size,
+        "rows": rows,
+    }
+
+
+# ---------------------------------------------------------------------------
+# Ctx — topic 하나의 렌더링에 필요한 모든 상태(콘텐츠/변주/타이밍/레이아웃)를
+# 갖고 있다. 여러 topic을 반복 렌더링해도 서로 상태를 공유하지 않는다.
+# ---------------------------------------------------------------------------
+class Ctx:
+    def __init__(self, topic_dir, lang, audio_path, srt_path, spec_path, out_path, total_duration):
+        self.topic_dir = topic_dir
+        self.lang = lang
+        self.audio_path = audio_path
+        self.srt_path = srt_path
+        self.spec_path = spec_path
+        self.out_path = out_path
+        self.total_duration = total_duration
+
+        with open(spec_path, encoding="utf-8") as f:
+            spec = json.load(f)
+        self.spec = spec
+
+        title_full = list(spec["title"])
+        self.title_main_lines = title_full[:-1] if len(title_full) > 1 else title_full
+        self.title_sub = title_full[-1] if len(title_full) > 1 else ""
+        title_seed = " ".join(title_full)
+
+        self.why_header, self.why_body, self.items = _load_items(spec)
+        self.n_items = len(self.items)
+        self.closing_tip = list(spec["closing"]["tip"])
+        self.closing_cta = spec["closing"]["cta"]
+
+        self.font_path, self.font_index = _title_font_for_lang(lang)
+
+        # 토픽 시드 변주 — accent 색상 / 배경 톤·모드 / 체크박스 모양
+        self.accent = _accent_for_seed(title_seed)
+        self.accent_soft = _accent_soft(self.accent)
+        bg_mode, bg_top, bg_bottom = _bg_variant_for_seed(title_seed)
+        self.bg_base = _build_background(bg_mode, bg_top, bg_bottom)
+        self.checkbox_shape = _checkbox_shape_for_seed(title_seed)
+
+        cues = _parse_srt(str(srt_path))
+        self.timing = _build_timing(cues, total_duration, self.n_items)
+        self.modes = [
+            ("title", 0, self.timing["why_start"]),
+            ("why", self.timing["why_start"], self.timing["list_start"]),
+            ("checklist", self.timing["list_start"], self.timing["closing_start"]),
+            ("closing", self.timing["closing_start"], None),
+        ]
+
+        measure_draw = ImageDraw.Draw(Image.new("RGBA", (2, 2)))
+
+        # 체크리스트 화면 헤더("확인해야 할 3가지" -> "오늘부터 이렇게") 높이를
+        # 먼저 추정해 panel_top(카드 시작 y)을 계산한다.
+        header_font = _load_font(self.font_path, self.font_index, 60)
+        header_lines_a = _wrap_text_for_lang(
+            measure_draw, CHECKLIST_HEADER_BEFORE, header_font, SAFE_CENTERED_MAX_WIDTH, lang
+        ) or [""]
+        header_lines_b = _wrap_text_for_lang(
+            measure_draw, CHECKLIST_HEADER_AFTER, header_font, SAFE_CENTERED_MAX_WIDTH, lang
+        ) or [""]
+        header_line_h = round(75)
+        header_lines_count = max(len(header_lines_a), len(header_lines_b))
+        eyebrow_h_est = round(48) + 32
+        header_top = 110 + eyebrow_h_est + 55
+        header_bottom = header_top + header_lines_count * header_line_h
+        panel_top = header_bottom + 40
+        self.checklist_header_font = header_font
+        self.checklist_header_top = header_top
+        self.checklist_layout = _checklist_layout(
+            measure_draw, self.items, self.n_items, self.font_path, self.font_index, lang, panel_top
+        )
+
+        # title 화면: 헤드라인 + (선택) 서브헤드 + 체크박스 아이콘
+        eyebrow_bottom_est = 300 + eyebrow_h_est
+        icon_reserve = 300
+        avail = max(SAFE_Y1 - eyebrow_bottom_est - 40, 200)
+        text_avail = max(avail - icon_reserve, 160)
+        self.title_lines, self.title_font, self.title_line_h = _layout_multiline(
+            measure_draw, self.title_main_lines, self.font_path, self.font_index, 78,
+            min(940, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.62, lang, min_size=40,
+        )
+        self.title_sub_lines, self.title_sub_font, self.title_sub_line_h = _layout_multiline(
+            measure_draw, [self.title_sub] if self.title_sub else [], self.font_path, self.font_index, 38,
+            min(860, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.38, lang, min_size=22,
+        )
+        self.title_icon_size = max(min(icon_reserve - 140, 160), 90)
+
+        # why 화면: 원인 헤드라인 + 본문
+        why_body_top_est = 420 + eyebrow_h_est + 70 + 100
+        why_avail = max(SAFE_Y1 - why_body_top_est - 40, 160)
+        self.why_header_lines, self.why_header_font, self.why_header_line_h = _layout_multiline(
+            measure_draw, [self.why_header], self.font_path, self.font_index, 66,
+            min(900, SAFE_CENTERED_MAX_WIDTH), 220, lang, min_size=36,
+        )
+        self.why_body_lines, self.why_body_font, self.why_body_line_h = _layout_multiline(
+            measure_draw, [self.why_body], self.font_path, self.font_index, 42,
+            min(900, SAFE_CENTERED_MAX_WIDTH), why_avail, lang, min_size=22,
+        )
+
+        # closing 화면: 헤드라인 + 팁 + CTA
+        closing_start_y_est = 420 + eyebrow_h_est + 70
+        closing_avail = max(SAFE_Y1 - closing_start_y_est - 40, 240)
+        self.closing_header_lines, self.closing_header_font, self.closing_header_line_h = _layout_multiline(
+            measure_draw, [EYEBROW_WRAPUP + " 팁"], self.font_path, self.font_index, 66,
+            min(900, SAFE_CENTERED_MAX_WIDTH), closing_avail * 0.2, lang, min_size=36,
+        )
+        self.closing_tip_lines, self.closing_tip_font, self.closing_tip_line_h = _layout_multiline(
+            measure_draw, self.closing_tip, self.font_path, self.font_index, 46,
+            min(900, SAFE_CENTERED_MAX_WIDTH), closing_avail * 0.48, lang, min_size=26,
+        )
+        self.closing_cta_lines, self.closing_cta_font, self.closing_cta_line_h = _layout_multiline(
+            measure_draw, [self.closing_cta], self.font_path, self.font_index, 32,
+            min(780, SAFE_CENTERED_MAX_WIDTH), closing_avail * 0.32, lang, min_size=20,
+        )
+
+    def font(self, size):
+        return _load_font(self.font_path, self.font_index, size)
+
+    def get_bg(self):
+        return self.bg_base.copy()
+
+
+# ---------------------------------------------------------------------------
+# 화면별 렌더 함수
+# ---------------------------------------------------------------------------
+def render_title(ctx: Ctx):
+    canvas = ctx.get_bg().convert("RGBA")
+    draw = ImageDraw.Draw(canvas)
+    cx = W // 2
+    y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, 300,
+                      ctx.accent, ctx.accent_soft, label="title-eyebrow")
+    y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, y + 70, ctx.title_line_h,
+                             TEXT_DARK, label="title-main")
+    sub_y = y + 60
+    if ctx.title_sub_lines:
+        sub_y = draw_centered_lines(draw, ctx.title_sub_lines, ctx.title_sub_font, cx, sub_y,
+                                     ctx.title_sub_line_h, ctx.accent, label="title-sub")
+    icon_size = ctx.title_icon_size
+    icon_y = min(sub_y + 100, SAFE_Y1 - icon_size - 20)
+    draw_checkbox(canvas, cx - icon_size // 2, icon_y, icon_size, 1, ctx.accent, ctx.checkbox_shape)
+    return canvas
+
+
+def render_why(ctx: Ctx):
+    canvas = ctx.get_bg().convert("RGBA")
+    draw = ImageDraw.Draw(canvas)
+    cx = W // 2
+    y = draw_eyebrow(canvas, draw, EYEBROW_CAUSE, ctx.font(30), cx, 420,
+                      ctx.accent, ctx.accent_soft, label="why-eyebrow")
+    y = draw_centered_lines(draw, ctx.why_header_lines, ctx.why_header_font, cx, y + 70,
+                             ctx.why_header_line_h, TEXT_DARK, label="why-header")
+    draw_centered_lines(draw, ctx.why_body_lines, ctx.why_body_font, cx, y + 30,
+                         ctx.why_body_line_h, TEXT_GRAY, label="why-body")
+    return canvas
+
+
+def render_closing(ctx: Ctx):
+    canvas = ctx.get_bg().convert("RGBA")
+    draw = ImageDraw.Draw(canvas)
+    cx = W // 2
+    y = draw_eyebrow(canvas, draw, EYEBROW_WRAPUP, ctx.font(30), cx, 420,
+                      ctx.accent, ctx.accent_soft, label="closing-eyebrow")
+    y = draw_centered_lines(draw, ctx.closing_header_lines, ctx.closing_header_font, cx, y + 70,
+                             ctx.closing_header_line_h, TEXT_DARK, label="closing-header")
+    y = draw_centered_lines(draw, ctx.closing_tip_lines, ctx.closing_tip_font, cx, y + 40,
+                             ctx.closing_tip_line_h, TEXT_GRAY, label="closing-tip")
+    draw_centered_lines(draw, ctx.closing_cta_lines, ctx.closing_cta_font, cx, y + 50,
+                         ctx.closing_cta_line_h, ctx.accent, label="closing-cta")
+    return canvas
+
+
+def render_checklist(ctx: Ctx, t: float):
+    canvas = ctx.get_bg().convert("RGBA")
+    draw = ImageDraw.Draw(canvas)
+    cx = W // 2
+    layout = ctx.checklist_layout
+
+    # 헤더 문구가 "확인해야 할 N가지" -> "오늘부터 이렇게"로 크로스페이드
+    # (첫 fix_time을 기준으로 삼아, 대안이 하나라도 드러나기 시작하면 전환).
+    fixes_p = progress(t, ctx.timing["fix_times"][0], MODE_FADE)
+    eyebrow_y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, 110,
+                              ctx.accent, ctx.accent_soft, label="checklist-eyebrow")
+    header_top = eyebrow_y + 55
+    if fixes_p < 1:
+        draw_centered_lines(draw, [CHECKLIST_HEADER_BEFORE], ctx.checklist_header_font, cx, header_top, 0,
+                             TEXT_DARK, alpha=int(255 * (1 - fixes_p)), label="checklist-header-before")
+    if fixes_p > 0:
+        draw_centered_lines(draw, [CHECKLIST_HEADER_AFTER], ctx.checklist_header_font, cx, header_top, 0,
+                             TEXT_DARK, alpha=int(255 * fixes_p), label="checklist-header-after")
+
+    draw_shadowed_panel(
+        canvas,
+        (layout["card_x0"] - 20, layout["panel_top"], layout["card_x1"] + 20, layout["panel_bottom"]),
+        radius=44,
+    )
+
+    check_times = ctx.timing["check_times"]
+    fix_times = ctx.timing["fix_times"]
+    for i, row in enumerate(layout["rows"]):
+        p = progress(t, check_times[i], ITEM_FADE)
+        draw_checkbox(canvas, row["box_x"], row["box_y"], layout["box_size"], p, ctx.accent, ctx.checkbox_shape)
+        draw_lines_left(draw, row["label_lines"], row["label_font"], row["text_left"], row["box_y"] + 6,
+                         row["label_line_h"], TEXT_DARK, 255, label=f"checklist-label-{i}")
+
+        if p > 0.001:
+            icon_img = get_icon(row["icon"], layout["icon_size"])
+            if p < 1:
+                icon_img = icon_img.copy()
+                a = icon_img.split()[3].point(lambda v, p=p: int(v * p))
+                icon_img.putalpha(a)
+            canvas.alpha_composite(icon_img, (round(row["icon_x"]), round(row["icon_y"])))
+
+        # cause(fact)에서 fix로 크로스페이드 — 내레이션이 대안들을 한 문장에
+        # 압축해도 fix_times가 항목마다 몇 초씩 벌어져 있어(스태거링) 화면에서는
+        # 순서대로 하나씩 읽을 수 있다.
+        item_fix_p = progress(t, fix_times[i], ITEM_FIX_FADE)
+        fact_alpha = max(0, 1 - item_fix_p) if p > 0 else 0
+        fix_alpha = item_fix_p
+        if fact_alpha > 0.01:
+            draw_lines_left(draw, row["fact_lines"], row["fact_font"], row["text_left"], row["body_top"],
+                             row["fact_line_h"], TEXT_GRAY, int(255 * fact_alpha), label=f"checklist-fact-{i}")
+        if fix_alpha > 0.01:
+            draw_lines_left(draw, row["fix_lines"], row["fix_font"], row["text_left"], row["body_top"],
+                             row["fix_line_h"], ctx.accent, int(255 * fix_alpha), label=f"checklist-fix-{i}")
+    return canvas
+
+
+def _render_mode(ctx: Ctx, idx: int, t: float):
+    name = ctx.modes[idx][0]
+    if name == "title":
+        return render_title(ctx)
+    if name == "why":
+        return render_why(ctx)
+    if name == "checklist":
+        return render_checklist(ctx, t)
+    return render_closing(ctx)
+
+
+def render_frame(ctx: Ctx, t: float):
+    idx = len(ctx.modes) - 1
+    for i, (name, start, end) in enumerate(ctx.modes):
+        if end is None or t < end:
+            idx = i
+            break
+    name, start, end = ctx.modes[idx]
+    frame = _render_mode(ctx, idx, t)
+    if end is not None and end - t < MODE_FADE and idx + 1 < len(ctx.modes):
+        blend = 1 - ease_out_cubic((end - t) / MODE_FADE)
+        next_frame = _render_mode(ctx, idx + 1, t)
+        frame = Image.blend(frame.convert("RGB"), next_frame.convert("RGB"), blend).convert("RGBA")
+    return frame.convert("RGB")
+
+
+# ---------------------------------------------------------------------------
+# 엔트리포인트
+# ---------------------------------------------------------------------------
+def ffprobe_duration(path) -> float:
+    out = subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+         "-of", "default=noprint_wrappers=1:nokey=1", str(path)],
+        capture_output=True, text=True, check=True,
+    )
+    return float(out.stdout.strip())
+
+
+def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str) -> None:
+    """임의의 topic 하나를 이 체크리스트 템플릿으로 렌더링한다 — 항목 개수는
+    `spec_path`의 `items` 리스트에서 그대로 읽고, 폰트는 `lang`에 맞춰 자동으로
+    고른다(다른 코드에서 여러 topic에 대해 반복 호출해도 서로 상태를 공유하지
+    않는다 — 모든 콘텐츠/타이밍/레이아웃이 `Ctx` 인스턴스 안에만 산다).
+    """
+    audio_path = Path(audio_path)
+    srt_path = Path(srt_path)
+    spec_path = Path(spec_path)
+    out_path = Path(out_path)
+    topic_dir = Path(topic_dir)
+
+    if not audio_path.exists():
+        raise FileNotFoundError(f"narration audio not found: {audio_path}")
+    if not srt_path.exists():
+        raise FileNotFoundError(f"narration srt not found: {srt_path}")
+    if not spec_path.exists():
+        raise FileNotFoundError(f"card_news_spec.json not found: {spec_path}")
+
+    duration = ffprobe_duration(audio_path)
+    print(f"[proto_checklist] narration duration = {duration:.3f}s")
+
+    ctx = Ctx(topic_dir, lang, audio_path, srt_path, spec_path, out_path, duration)
+    print(f"[proto_checklist] items={ctx.n_items}, accent={ctx.accent}, checkbox_shape={ctx.checkbox_shape}")
+
+    out_dir = out_path.parent
+    frames_dir = out_dir / "_frames"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    if frames_dir.exists():
+        shutil.rmtree(frames_dir)
+    frames_dir.mkdir(parents=True)
+
+    frame_count = math.ceil(duration * FPS)
+    print(f"[proto_checklist] rendering {frame_count} frames at {FPS}fps ...")
+    for i in range(frame_count):
+        t = min(i / FPS, duration)
+        img = render_frame(ctx, t)
+        img.save(frames_dir / f"frame_{i:06d}.png")
+        if i % 150 == 0:
+            print(f"  frame {i}/{frame_count} (t={t:.2f}s)")
+
+    print("[proto_checklist] muxing with ffmpeg ...")
+    subprocess.run(
+        [
+            "ffmpeg", "-y",
+            "-framerate", str(FPS),
+            "-i", str(frames_dir / "frame_%06d.png"),
+            "-i", str(audio_path),
+            "-map", "0:v:0", "-map", "1:a:0",
+            "-c:v", "libx264", "-pix_fmt", "yuv420p",
+            "-c:a", "aac", "-b:a", "160k",
+            "-t", f"{duration:.3f}",
+            str(out_path),
+        ],
+        check=True,
+    )
+    shutil.rmtree(frames_dir)
+
+    out_duration = ffprobe_duration(out_path)
+    print(f"[proto_checklist] done -> {out_path}")
+    print(f"[proto_checklist] output duration = {out_duration:.3f}s (audio = {duration:.3f}s)")
+
+
+def main():
+    """CLI 진입점 — 기존 하위호환 테스트용 경로(부종_1/ko)를 기본값으로 render()를
+    호출한다."""
+    topic_dir = PROJECT_ROOT / "output" / "부종_1" / "ko"
+    render(
+        topic_dir=str(topic_dir),
+        lang="kor",
+        audio_path=str(topic_dir / "부종_1_narration.mp3"),
+        srt_path=str(topic_dir / "부종_1_narration.srt"),
+        spec_path=str(PROJECT_ROOT / "data" / "부종_1" / "ko" / "card_news_spec.json"),
+        out_path=str(PROJECT_ROOT / "output" / "_template_lab_ko" / "checklist" / "shorts.mp4"),
+    )
+
+
+if __name__ == "__main__":
+    main()
