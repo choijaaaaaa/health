@@ -539,14 +539,27 @@ def rebuild(topic: str):
         # 중복 구현하는 대신 derive()가 이미 계산해둔 audio/srt/out/lang을
         # 재사용하고, 새 템플릿 시그니처에 맞는 spec_path만 추가로 계산한다.
         spec_path = ROOT / "data" / topic / "card_news_spec.json"
-        _TEMPLATE_RENDERERS[fmt](
-            topic_dir=str(ROOT / "output" / topic),
-            lang=kwargs["lang"],
-            audio_path=kwargs["audio_path"],
-            srt_path=kwargs["srt_path"],
-            spec_path=str(spec_path),
-            out_path=kwargs["out_path"],
-        )
+        try:
+            _TEMPLATE_RENDERERS[fmt](
+                topic_dir=str(ROOT / "output" / topic),
+                lang=kwargs["lang"],
+                audio_path=kwargs["audio_path"],
+                srt_path=kwargs["srt_path"],
+                spec_path=str(spec_path),
+                out_path=kwargs["out_path"],
+            )
+        except RuntimeError as e:
+            # WHY(2026-08-05): 4개 신규 템플릿은 각자 특정 items 구조를 전제한다
+            # (예: checklist는 items[1:]가 (원인,대안) 짝수 쌍이어야 함) — 모든
+            # topic의 콘텐츠가 이 전제를 만족하진 않는다(예: 당뇨_1/ja는 원인
+            # 카드 1개 + 독립 증상 카드 3개, 짝이 안 맞음). select_format()은
+            # topic 문자열만 보고 결정론적으로 고르므로 데이터 구조까지는 알 수
+            # 없다 — 템플릿이 구조 불일치로 RuntimeError를 던지면, items 구조
+            # 제약이 없는 판서형(chalkboard)으로 그 topic만 폴백한다.
+            print(f"⚠️  {fmt} 템플릿이 이 topic 데이터 구조와 안 맞아 폴백: {e}")
+            assemble(**kwargs)
+            print(f"완료(chalkboard 폴백): {kwargs['out_path']}")
+            return
         print(f"완료: {kwargs['out_path']}")
         return
     print("banner photo:", kwargs["title_banner_photo_path"])
