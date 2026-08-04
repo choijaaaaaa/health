@@ -1802,6 +1802,144 @@ def _doodle_clock():
     return _stroke_shape(draw)
 
 
+# WHY 10개 추가(2026-08-04, "계속계속 쭉쭉 더만들어" — 3차 확장): 앞선 두 배치와
+# 같은 스타일 그대로, 아직 없던 소재(머그컵/엄지척/메달/책가방/발자국/비행기/
+# 열기구/카메라/별똥별/버섯) 채움.
+def _doodle_mug():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(30 + ox, 40 + oy), (30 + ox, 95 + oy), (90 + ox, 95 + oy), (90 + ox, 40 + oy)],
+               fill=color, width=5, joint="curve")
+        d.arc([88 + ox, 50 + oy, 116 + ox, 85 + oy], 270, 90, fill=color, width=5)
+        d.arc([38 + ox, 8 + oy, 54 + ox, 28 + oy], 200, 40, fill=color, width=3)
+        d.arc([64 + ox, 3 + oy, 80 + ox, 23 + oy], 200, 40, fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_thumbs_up():
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([38 + ox, 18 + oy, 62 + ox, 72 + oy], radius=12, outline=color, width=6)
+        d.rounded_rectangle([35 + ox, 70 + oy, 108 + ox, 112 + oy], radius=12, outline=color, width=6)
+        for x in (58, 76, 94):
+            d.line([(x + ox, 70 + oy), (x + ox, 112 + oy)], fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_medal():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(35 + ox, 10 + oy), (65 + ox, 55 + oy), (95 + ox, 10 + oy)],
+               fill=color, width=5, joint="curve")
+        d.ellipse([35 + ox, 55 + oy, 95 + ox, 115 + oy], outline=color, width=6)
+        cx, cy, r_outer, r_inner = 65 + ox, 85 + oy, 16, 7
+        pts = []
+        for i in range(10):
+            ang = math.pi / 2 + i * math.pi / 5
+            r = r_outer if i % 2 == 0 else r_inner
+            pts.append((cx + r * math.cos(ang), cy - r * math.sin(ang)))
+        d.line(pts + [pts[0]], fill=color, width=3, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_backpack():
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([28 + ox, 35 + oy, 102 + ox, 115 + oy], radius=18, outline=color, width=5)
+        d.rounded_rectangle([45 + ox, 50 + oy, 85 + ox, 80 + oy], radius=8, outline=color, width=4)
+        d.arc([40 + ox, 15 + oy, 60 + ox, 45 + oy], 180, 360, fill=color, width=5)
+        d.arc([70 + ox, 15 + oy, 90 + ox, 45 + oy], 180, 360, fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_feather():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(65 + ox, 10 + oy), (40 + ox, 35 + oy), (35 + ox, 70 + oy), (45 + ox, 100 + oy),
+                (65 + ox, 120 + oy), (85 + ox, 100 + oy), (95 + ox, 70 + oy), (90 + ox, 35 + oy),
+                (65 + ox, 10 + oy)], fill=color, width=5, joint="curve")
+        d.line([(65 + ox, 15 + oy), (65 + ox, 115 + oy)], fill=color, width=3)
+        for t in range(1, 5):
+            y = 15 + t * 20
+            d.line([(65 + ox, y + oy), (50 + ox, y + 10 + oy)], fill=color, width=2)
+            d.line([(65 + ox, y + oy), (80 + ox, y + 10 + oy)], fill=color, width=2)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_airplane():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(65 + ox, 10 + oy), (72 + ox, 60 + oy), (65 + ox, 120 + oy), (58 + ox, 60 + oy),
+                (65 + ox, 10 + oy)], fill=color, width=5, joint="curve")
+        d.line([(20 + ox, 75 + oy), (58 + ox, 68 + oy), (58 + ox, 85 + oy), (20 + ox, 95 + oy)],
+               fill=color, width=4, joint="curve")
+        d.line([(110 + ox, 75 + oy), (72 + ox, 68 + oy), (72 + ox, 85 + oy), (110 + ox, 95 + oy)],
+               fill=color, width=4, joint="curve")
+        d.line([(58 + ox, 105 + oy), (45 + ox, 118 + oy), (58 + ox, 112 + oy)],
+               fill=color, width=3, joint="curve")
+        d.line([(72 + ox, 105 + oy), (85 + ox, 118 + oy), (72 + ox, 112 + oy)],
+               fill=color, width=3, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_hot_air_balloon():
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([25 + ox, 10 + oy, 105 + ox, 90 + oy], 0, 360, fill=color, width=5)
+        d.line([(45 + ox, 85 + oy), (38 + ox, 112 + oy)], fill=color, width=4)
+        d.line([(85 + ox, 85 + oy), (92 + ox, 112 + oy)], fill=color, width=4)
+        d.line([(65 + ox, 88 + oy), (65 + ox, 112 + oy)], fill=color, width=4)
+        d.rectangle([38 + ox, 112 + oy, 92 + ox, 126 + oy], outline=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_camera():
+    def draw(d, off, color):
+        ox, oy = off
+        d.rounded_rectangle([20 + ox, 40 + oy, 110 + ox, 100 + oy], radius=10, outline=color, width=5)
+        d.rectangle([45 + ox, 25 + oy, 75 + ox, 42 + oy], outline=color, width=4)
+        d.ellipse([48 + ox, 52 + oy, 82 + ox, 86 + oy], outline=color, width=5)
+        d.ellipse([90 + ox, 48 + oy, 100 + ox, 58 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_shooting_star():
+    def draw(d, off, color):
+        ox, oy = off
+        cx, cy, r_outer, r_inner = 85, 40, 26, 11
+        pts = []
+        for i in range(10):
+            ang = math.pi / 2 + i * math.pi / 5
+            r = r_outer if i % 2 == 0 else r_inner
+            pts.append((cx + r * math.cos(ang) + ox, cy - r * math.sin(ang) + oy))
+        d.line(pts + [pts[0]], fill=color, width=4, joint="curve")
+        for dx, dy, w in [(-30, 30, 6), (-45, 45, 4), (-58, 58, 3)]:
+            d.line([(cx - 15 + ox, cy + 15 + oy), (cx - 15 + dx + ox, cy + 15 + dy + oy)],
+                   fill=color, width=w)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_mushroom():
+    def draw(d, off, color):
+        ox, oy = off
+        d.arc([20 + ox, 25 + oy, 110 + ox, 85 + oy], 180, 360, fill=color, width=5)
+        d.line([(48 + ox, 80 + oy), (44 + ox, 118 + oy), (86 + ox, 118 + oy), (82 + ox, 80 + oy)],
+               fill=color, width=5, joint="curve")
+        for cx, cy in [(45, 45), (65, 35), (85, 48)]:
+            d.ellipse([cx - 7 + ox, cy - 7 + oy, cx + 7 + ox, cy + 7 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
@@ -1825,6 +1963,9 @@ _DOODLES = [
     _doodle_trophy, _doodle_rocket, _doodle_kite, _doodle_icecream, _doodle_cupcake,
     _doodle_glasses, _doodle_bowtie, _doodle_envelope, _doodle_ruler,
     _doodle_paintbrush, _doodle_clock,
+    _doodle_mug, _doodle_thumbs_up, _doodle_medal, _doodle_backpack, _doodle_feather,
+    _doodle_airplane, _doodle_hot_air_balloon, _doodle_camera, _doodle_shooting_star,
+    _doodle_mushroom,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
@@ -1883,6 +2024,16 @@ _NAMEPLATE_POOL = [
     ("생일자 {}", 1, 30),
     ("이달의 칭찬왕 {}", 1, 24),
     ("우산 당번 {}", 1, 30),
+    # WHY 8개 추가(2026-08-04, "계속계속 쭉쭉 더만들어" — 3차 확장): 위와 같은
+    # 실제 한국 교실 당번·직책 관행에서 더 뽑았다. 18→26종.
+    ("실내화 검사 {}", 1, 24),
+    ("사물함 정리 {}", 1, 24),
+    ("손소독 당번 {}", 1, 26),
+    ("체육 준비물 {}", 1, 24),
+    ("안전 지킴이 {}", 1, 24),
+    ("복도 정숙 지킴이 {}", 1, 20),
+    ("가방 정리 {}", 1, 26),
+    ("칠판 지우개 담당 {}", 1, 20),
 ]
 
 # WHY 한국 교실 당번 문화를 그대로 번역하지 않는지(2026-08-03, 글로벌 확장):
@@ -2661,6 +2812,12 @@ CHALKBOARD_VARIANTS = [
     str(_BACKGROUNDS_DIR / "칠판_청록_밝은나무.png"),
     str(_BACKGROUNDS_DIR / "칠판_보라_밝은나무.png"),
     str(_BACKGROUNDS_DIR / "칠판_남색_어두운나무.png"),
+    # WHY 2개 추가(2026-08-04, "계속계속 쭉쭉 더만들어" — 3차 확장): 보드×프레임
+    # 3x9 그리드에서 남은 빈칸 중 대비가 충분한 것만 채움. 갈색×어두운나무는
+    # 둘 다 갈색 계열이라 프레임·판서면 경계가 잘 안 보여서 제외했다(생성은
+    # 해봤지만 라이브러리에 넣지 않음 — 흰색 프레임 제외와 같은 이유).
+    str(_BACKGROUNDS_DIR / "칠판_검정_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_회색_어두운나무.png"),
 ]
 
 
