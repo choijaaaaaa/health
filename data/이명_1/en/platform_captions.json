@@ -1,0 +1,26 @@
+{
+  "topic": "이명_1_en",
+  "title": "Ringing in your ears after the range, vaping, or turning 50? - The Causes Most People Miss",
+  "products": ["Vitamin B12 supplements"],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Why does tinnitus show up after shooting, vaping, or turning 50? 3 hidden causes\n\nDescription:\nIf ringing shows up after a day at the range, a few vape sessions, or seemingly out of nowhere as you get older, it's probably not just stress - it's one of these three things.\n\nLoud gunfire, nicotine from vaping, and a common vitamin B12 gap are three causes that most people never connect to tinnitus, and each one has a simple next step.\n\nWatch to find out why these trigger ringing in your ears, and what actually helps.\n\n#tinnitus #ringinginears #hearinghealth #healthtips #earhealth #hearingloss"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Ringing in your ears after the range, vaping, or turning 50? 🔫🎧\n\nIt's probably not just stress - it's one of these three things: loud gunfire, nicotine from vaping, and a common vitamin B12 gap.\n\nHere's why they trigger tinnitus, and what actually helps.\n\nComment \"쿠팡\" and I'll DM you the details!\n\n#tinnitus #ringinginears #hearinghealth #healthtips #earhealth #hearingloss #wellness"
+    }
+  ]
+}

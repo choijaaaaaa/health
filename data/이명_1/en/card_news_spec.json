@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Ringing that shows up after",
+    "the range, vaping, or turning 50 -",
+    "Causes Behind Tinnitus You're Missing"
+  ],
+  "eyebrow": "Tinnitus Alert",
+  "char_display_names": {
+    "총_illust.jpg": "Gunfire",
+    "전자담배_illust.jpg": "Vaping",
+    "비타민B12_illust.jpg": "Vitamin B12"
+  },
+  "cover_char_file": "총_illust.jpg",
+  "cover_scrim_color": "#2C3E50",
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "총_illust.jpg",
+      "body": [
+        "Loud shots, nicotine, and a",
+        "vitamin gap can each choke off",
+        "blood flow or nerves in the ear",
+        "",
+        "Different triggers, same",
+        "phantom ringing"
+      ]
+    },
+    {
+      "name": "Recreational Gunfire",
+      "char_file": "총_illust.jpg",
+      "body": [
+        "A single shot can hit 150-165 dB,",
+        "past NIOSH's 140 dB one-shot limit",
+        "",
+        "That much impulse noise can",
+        "damage the inner ear instantly"
+      ]
+    },
+    {
+      "name": "Gunfire — the fix",
+      "char_file": "총_illust.jpg",
+      "body": [
+        "Wear foam or electronic",
+        "earplugs every time you shoot",
+        "",
+        "95% of hunters skip this -",
+        "don't be one of them"
+      ]
+    },
+    {
+      "name": "Vaping",
+      "char_file": "전자담배_illust.jpg",
+      "body": [
+        "Nicotine narrows the tiny",
+        "blood vessels feeding the ear",
+        "",
+        "Less oxygen to those cells is",
+        "linked to new or worse tinnitus"
+      ]
+    },
+    {
+      "name": "Vaping — the fix",
+      "char_file": "전자담배_illust.jpg",
+      "body": [
+        "Cutting back - even by half -",
+        "can ease strain on the inner ear",
+        "",
+        "Ask a doctor if quitting",
+        "on your own feels hard"
+      ]
+    },
+    {
+      "name": "Low Vitamin B12",
+      "char_file": "비타민B12_illust.jpg",
+      "body": [
+        "Low B12 can wear down the",
+        "nerves inside the inner ear",
+        "",
+        "Nearly half of people with noise-",
+        "related tinnitus tested low on B12"
+      ]
+    },
+    {
+      "name": "B12 — the fix",
+      "char_file": "비타민B12_illust.jpg",
+      "body": [
+        "Eating little meat or dairy?",
+        "Ask your doctor for a B12 test",
+        "",
+        "A supplement or fortified",
+        "cereal may help close the gap"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means quitting",
+        "shooting sports or vaping overnight"
+      ],
+      [
+        "Better protection and cutting",
+        "back on nicotine may help"
+      ]
+    ],
+    "tip": [
+      "Running a fan or white noise in quiet rooms",
+      "can also make tinnitus less noticeable"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Tinnitus"
+}
