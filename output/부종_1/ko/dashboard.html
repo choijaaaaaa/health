@@ -984,18 +984,25 @@ function applyProductLinks() {
     // 전까지 설명란 링크가 아예 클릭이 안 돼서 판매 관련 문구를 넣어봤자 반감만 산다는
     // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
     // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
-    // WHY linkInComment도 suppressBlock처럼 취급하는지(2026-08-04, "이건 굳이
-    // 두번 넣을 필요가 없잖아... 그리고 아예 이 멘트 자체를 없애도 될거같은데?
-    // 댓글에 넣으려면 넣고 안넣으려면 안넣고 그런거지 / 쿠팡 파트너스 활동 관련
-    // 코멘트도 댓글에다 링크 남길 때 같이 올리면되는거아니여?"): 쓰레드·페이스북은
-    // 실제 링크를 댓글에 다는지 여부가 매번 게시자 재량인 수동 흐름이라, 캡션
-    // 본문에 "댓글에 남겨둘게요"라는 확정된 약속(+고지문구)을 위아래 두 번
-    // 자동으로 박아넣는 게 맞지 않았다 — 이미 있는 "💬 댓글용 링크 텍스트 복사"
-    // 버튼(COMMENT_LINK_INTRO + _buildLinkBlock(false), 고지문구 포함)이 실제로
-    // 댓글에 달 때 쓸 텍스트를 그대로 제공하므로, 캡션 본문에는 아무것도 안
-    // 붙이는 게 맞다.
-    const suppressBlock = card.dataset.suppressProductBlock === "1" || linkInComment;
-    const result = suppressBlock ? null : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton));
+    // WHY linkInComment는 "약속 문구"만 빼고 고지문구는 남기는지(2026-08-04
+    // 재수정, "맞는말이야? 본문에는 쿠팡 파트너스 관련 코멘트 없애도돼?" 지적으로
+    // 바로잡음): 처음엔 "댓글에 남겨둘게요"라는 확정된 약속 문구와 쿠팡 파트너스
+    // 고지문구를 한 묶음으로 보고 linkInComment면 둘 다(suppressBlock과 동일하게)
+    // 없앴는데, 공정위 "추천·보증 등에 관한 표시·광고 심사지침" 기준으로 제휴
+    // 고지는 게시물 본문(그것도 추가 행동 없이 보이는 위치)에 있어야지 댓글에만
+    // 있으면 인정 안 된다 — 지워도 되는 건 "댓글에 넣으려면 넣고 안넣으려면
+    // 안넣고" 약속 문구뿐, 고지문구는 본문에 남겨야 한다. linkInComment는
+    // blockText(상품명/링크 나열, 애초에 본문에 넣을 링크가 없음)만 비우고
+    // disclosure는 그대로 살린다.
+    // WHY linkInComment는 고지문구를 아래(AUTO_BOTTOM)에는 안 넣고 위에만
+    // 넣는지(2026-08-04, "페이스북은 고지문구 맨위에 하나만 있으면돼 어차피
+    // 링크가 본문에 있지도 않은데"): 다른 플랫폼이 아래에도 고지문+상품 링크를
+    // 반복하는 건 "끝까지 읽은 사람도 다시 링크를 볼 수 있어야 한다"는 요구
+    // 때문인데, linkInComment 플랫폼은 애초에 본문에 링크 자체가 없어서(실제
+    // 링크는 댓글에만 있음) 아래에 다시 반복할 대상이 없다 — 고지문 하나만
+    // 아래에도 중복해서 넣을 이유가 없다.
+    const suppressBlock = card.dataset.suppressProductBlock === "1";
+    const result = suppressBlock ? null : (linkInComment ? {text: "", disclosure: COUPANG_DISCLOSURE} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
     const stripped = _stripAutoLinks(box.value);
     if (!result) {
       box.value = stripped;
@@ -1008,17 +1015,13 @@ function applyProductLinks() {
     if (card.dataset.profileNote === "1") {
       blockText += "\n\n🔗 링크가 눌리지 않으면 채널 프로필에서 확인해주세요";
     }
-    // WHY 고지문을 맨 위(제목 다음)·맨 아래(캡션 최종 끝) 두 곳에 각각 한 번씩만
-    // 넣는지(2026-08-03 재작업 — 위 _buildLinkBlock/_buildCtaBlock 주석 참고):
-    // 공정위 지침상 "게시물 첫 부분"에 있어야 해서 제목 다음에 하나 넣고,
-    // "스크롤 안 해도 위에서 보이지만 끝까지 읽은 사람도 다시 보게" 요청대로
-    // 게시물 맨 끝에도 하나 더 넣는다 — 상품 블록 바로 위·아래에 몰아넣는 게
-    // 아니라 게시물 전체를 고지문으로 감싸는 것이 실제 요구사항이었다.
-    const topWrapped = AUTO_LINKS_START + result.disclosure + "\n\n" + blockText + AUTO_LINKS_END;
-    const firstBreak = stripped.indexOf("\n");
-    const withTop = firstBreak === -1
-      ? stripped + "\n\n" + topWrapped
-      : stripped.slice(0, firstBreak) + "\n\n" + topWrapped + stripped.slice(firstBreak);
+    // WHY linkInComment는 위쪽 고지문을 아예 생략하는지(2026-08-04, "아니 맨위도
+    // 아니다 걍 맨 아래 하나만 남겨줘" — 처음엔 위+아래, 그다음 위만으로
+    // 조정했다가 최종적으로 아래 하나만으로 확정): 다른 플랫폼은 공정위 지침상
+    // "게시물 첫 부분"에 있어야 해서 위/아래 둘 다 넣지만, linkInComment는
+    // 최종적으로 아래 한 곳에만 고지문을 남기기로 확정 — 위쪽은 아예 건드리지
+    // 않고 원본 캡션을 그대로 둔다.
+    const withTop = stripped;
     // WHY 아래쪽도 고지문뿐 아니라 blockText(상품 링크/목록)까지 통째로
     // 반복하는지(2026-08-03, "맨밑에 링크없잖아? 링크 넣어라고... 쿠팡 뿐만
     // 아니라 네이버일때도 맨아래에도 상품 목록이랑 문구 띄워야한다고"): 처음엔
@@ -1026,7 +1029,10 @@ function applyProductLinks() {
     // 링크를 다시 볼 수 있어야 한다"였다 — 고지문+상품 링크(쿠팡) 또는
     // 고지문+상품 목록(네이버, hasNaverButton 분기도 같은 blockText 경로를
     // 타므로 이 한 줄로 둘 다 커버됨) 전체를 아래에도 그대로 반복한다.
-    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + "\n\n" + blockText + AUTO_BOTTOM_END;
+    // WHY blockText가 빈 문자열일 때 줄바꿈을 안 붙이는지(linkInComment): 위
+    // result 분기에서 linkInComment는 blockText가 항상 "" — 무조건 줄바꿈을
+    // 이어붙이면 고지문 뒤에 내용 없는 빈 줄만 남는다.
+    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + (blockText ? "\n\n" + blockText : "") + AUTO_BOTTOM_END;
     box.value = withTop + "\n\n" + bottomWrapped;
   });
 }
