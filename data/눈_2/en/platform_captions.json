@@ -20,32 +20,6 @@
       "comment_dm_automation": false,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "Third energy drink of the day, and your eyelid still won't stop twitching? 👁️\n\nIt's usually an overexcited nerve - and coffee, energy drinks, and alcohol are three of the biggest reasons why. Each one also drains magnesium, which is what helps that nerve settle back down.\n\nHere's why, and easy swaps that actually help.\n\n🔗 Link in profile for more health tips!\n\n#eyetwitch #myokymia #eyehealth #healthtips #magnesium #wellness"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "Third energy drink today and your eye's still twitching?? 👁️ These 3 things in your cup could be why - and no, you don't have to cut them out completely.\n\n🔗 Link in bio for more!\n\n#eyetwitch #myokymia #eyehealth #healthtips #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
-      "caption": "Third energy drink of the day, and your eyelid still won't stop twitching?\n\nIt's usually an overexcited nerve - coffee, energy drinks, and alcohol are three of the most common triggers, and each one also drains the magnesium your nerves need to settle down.\n\nWatch the video to find out why, and what to swap in instead.\n\n#eyetwitch #myokymia #eyehealth #healthtips"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "Third energy drink of the day, and your eyelid still won't stop twitching?\n\nUsually an overexcited nerve - coffee, energy drinks, and alcohol are 3 of the biggest triggers, and each one drains magnesium too.\n\n#eyetwitch #myokymia #eyehealth"
     }
   ]
 }

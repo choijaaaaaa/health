@@ -20,32 +20,6 @@
       "suppress_product_block": true,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "Ever notice your lower back feels stiffer after a long commute than after a workout? 🚗\n\nIt's probably not just the sitting - salty snacks, alcohol, and sugary treats can make that stiffness worse.\n\nHere's why, and what to swap them for instead.\n\nWant more health tips? Follow for more 👆\n\n#lowerbackpain #backstiffness #healthtips #deskjob #wellness"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "Lower back stiffer after a commute than a workout? 🚗 It might be one of these 3 foods - and no, you don't have to cut them out completely.\n\nWant more? Follow for tips!\n\n#lowerbackpain #backstiffness #healthtips #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended)",
-      "caption": "Ever notice your lower back feels stiffer after a long commute than after a workout?\n\nIt's probably not just the sitting - salty snacks, alcohol, and sugary treats are three common culprits, and each one has an easy swap.\n\nWatch the video to find out why, and what to reach for instead.\n\n#lowerbackpain #backstiffness #healthtips #wellness"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "Lower back stiffer after a commute than a workout?\n\nSalty snacks, alcohol, and sugary treats are 3 common culprits - each one has an easy swap that still lets you enjoy your day.\n\n#lowerbackpain #backstiffness #healthtips"
     }
   ]
 }
