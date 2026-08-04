@@ -974,15 +974,7 @@ function _buildLinkBlock(hasNaverButton) {
 // 대시보드 열 때마다(링크를 안 넣어놓은 상태) 인스타 캡션에 댓글 CTA가 통째로
 // 사라져 보였다("인스타쪽 왜 댓글달면 링크 준다는거 없어졌어?" 반복 지적). CTA는
 // hasCommentDm이 켜진 플랫폼이면 링크 입력 여부와 무관하게 항상 붙는다.
-function _buildCtaBlock(hasCommentDm, linkInComment) {
-  // WHY linkInComment(2026-08-02, "댓글에는 링크 넣어도 돼?"): 쓰레드·페이스북처럼
-  // 인포크 자동화도 없고 프로필 링크 도달 문제도 있는 플랫폼은, 캡션 본문엔 링크를
-  // 안 넣고(메타 계열이 아웃바운드 링크 있는 게시물 도달을 낮춘다고 알려져 있음)
-  // "댓글에 남겨둘게요"로 안내한다 — 실제 링크는 게시자가 게시 직후 댓글로 직접
-  // 추가하는 수동 흐름(이 파이프라인은 원래 전부 수동 게시라 흐름이 자연스럽게 이어짐).
-  if (linkInComment) {
-    return {text: "🔗 구매 링크는 댓글에 남겨둘게요!", disclosure: COUPANG_DISCLOSURE};
-  }
+function _buildCtaBlock(hasCommentDm) {
   if (!hasCommentDm) {
     return {text: "🔗 상품 링크는 프로필에서 확인해주세요!", disclosure: COUPANG_DISCLOSURE};
   }
@@ -1004,8 +996,18 @@ function applyProductLinks() {
     // 전까지 설명란 링크가 아예 클릭이 안 돼서 판매 관련 문구를 넣어봤자 반감만 산다는
     // 판단 — 이 조건을 넘기기 전까지는 링크/고지문구 자체를 아예 안 붙인다(팔로우 요청만
     // 정적 캡션에 남긴다). 500명 넘으면 이 플래그를 caption JSON에서 지울 것.
-    const suppressBlock = card.dataset.suppressProductBlock === "1";
-    const result = suppressBlock ? null : (noCaptionLink ? _buildCtaBlock(hasCommentDm, linkInComment) : _buildLinkBlock(hasNaverButton));
+    // WHY linkInComment도 suppressBlock처럼 취급하는지(2026-08-04, "이건 굳이
+    // 두번 넣을 필요가 없잖아... 그리고 아예 이 멘트 자체를 없애도 될거같은데?
+    // 댓글에 넣으려면 넣고 안넣으려면 안넣고 그런거지 / 쿠팡 파트너스 활동 관련
+    // 코멘트도 댓글에다 링크 남길 때 같이 올리면되는거아니여?"): 쓰레드·페이스북은
+    // 실제 링크를 댓글에 다는지 여부가 매번 게시자 재량인 수동 흐름이라, 캡션
+    // 본문에 "댓글에 남겨둘게요"라는 확정된 약속(+고지문구)을 위아래 두 번
+    // 자동으로 박아넣는 게 맞지 않았다 — 이미 있는 "💬 댓글용 링크 텍스트 복사"
+    // 버튼(COMMENT_LINK_INTRO + _buildLinkBlock(false), 고지문구 포함)이 실제로
+    // 댓글에 달 때 쓸 텍스트를 그대로 제공하므로, 캡션 본문에는 아무것도 안
+    // 붙이는 게 맞다.
+    const suppressBlock = card.dataset.suppressProductBlock === "1" || linkInComment;
+    const result = suppressBlock ? null : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton));
     const stripped = _stripAutoLinks(box.value);
     if (!result) {
       box.value = stripped;
