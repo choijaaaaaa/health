@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Zumbido que só aparece",
+    "à noite ou depois do fone?",
+    "3 hábitos comuns podem ser a causa"
+  ],
+  "cover_char_file": "fone_de_ouvido_illust.jpg",
+  "eyebrow": "ZUMBIDO",
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "fone_de_ouvido_illust.jpg",
+      "body": [
+        "Quando algo irrita o",
+        "sistema auditivo,",
+        "",
+        "o cérebro passa a",
+        "ouvir um som que não existe"
+      ]
+    },
+    {
+      "name": "Fone no talo",
+      "char_file": "fone_de_ouvido_illust.jpg",
+      "body": [
+        "Pela regra 60/60,",
+        "volume acima de 60%",
+        "por mais de 60 minutos",
+        "já sobrecarrega a audição",
+        "",
+        "A cada 3 decibéis a mais,",
+        "o tempo seguro cai pela metade"
+      ]
+    },
+    {
+      "name": "Fone com cuidado",
+      "char_file": "fone_de_ouvido_illust.jpg",
+      "body": [
+        "Use até 60% do volume",
+        "por até 60 minutos seguidos",
+        "",
+        "Faça uma pausa",
+        "a cada 30 minutos"
+      ]
+    },
+    {
+      "name": "Analgésico em excesso",
+      "char_file": "comprimido_illust.jpg",
+      "body": [
+        "Doses altas de aspirina",
+        "ou anti-inflamatório",
+        "",
+        "podem alterar o fluxo",
+        "sanguíneo da cóclea",
+        "",
+        "e causar zumbido temporário"
+      ]
+    },
+    {
+      "name": "Analgésico com cuidado",
+      "char_file": "comprimido_illust.jpg",
+      "body": [
+        "Evite repetir o remédio",
+        "sem orientação médica",
+        "",
+        "Se a dor for frequente,",
+        "procure a causa com um médico"
+      ]
+    },
+    {
+      "name": "Cotonete",
+      "char_file": "cotonete_illust.jpg",
+      "body": [
+        "Em vez de limpar,",
+        "o cotonete empurra",
+        "a cera mais fundo",
+        "",
+        "formando um tampão que",
+        "pressiona o tímpano"
+      ]
+    },
+    {
+      "name": "Limpeza correta",
+      "char_file": "cotonete_illust.jpg",
+      "body": [
+        "Limpe só a parte externa",
+        "da orelha com uma toalha",
+        "",
+        "Nunca cotonete",
+        "pra dentro do canal"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Fone e analgésico afetam a cóclea,",
+        "cotonete machuca o canal e o tímpano -",
+        "causas diferentes, resultado parecido"
+      ],
+      [
+        "Pequenos ajustes no dia a dia",
+        "já reduzem bastante o risco"
+      ]
+    ],
+    "tip": [
+      "Um ruído leve no ambiente, tipo ventilador,",
+      "também ajuda a distrair do zumbido"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga o perfil!"
+  }
+}
