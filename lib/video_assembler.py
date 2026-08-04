@@ -380,9 +380,23 @@ def _text_y_bias_for_seed(seed: str) -> float:
     return _TITLE_CARD_Y_BIAS[idx]
 
 
+# WHY 색·세로 위치에 이어 "형태" 자체도 변주(2026-08-04, "썸네일 형태 같은것들도
+# 전반적으로 챙겨봐"): 색과 위치가 달라도 매번 "배경색 + 중앙 텍스트"라는 뼈대는
+# 동일해서 여전히 비슷해 보인다는 앞선 WHY의 우려가 실제로 남아있었다. banner(글자
+# 뒤 반투명 띠)·boxed(글자 둘레 테두리 박스)를 추가해 뼈대 자체를 topic마다 다르게
+# 한다. seed 가중치를 색(i+1)·위치(i+2)와 또 다르게(i+3) 섞어 세 값이 서로
+# 독립적으로 조합되게 한다.
+_TITLE_CARD_STYLES = ["plain", "banner", "boxed"]
+
+
+def _title_card_style_for_seed(seed: str) -> str:
+    idx = sum(ord(c) * (i + 3) for i, c in enumerate(seed)) % len(_TITLE_CARD_STYLES)
+    return _TITLE_CARD_STYLES[idx]
+
+
 def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None,
                           lang: str = "kor", accent_color: tuple[int, int, int] = (200, 74, 98),
-                          y_bias: float = 0.5):
+                          y_bias: float = 0.5, style: str = "plain"):
     """영상 맨 앞에 붙는 단색 배경 + 큰 제목 카드. WHY: 플랫폼이 썸네일을 영상
     첫 프레임으로 자동 지정하는 경우가 많아서, 이 카드 자체를 그대로 썸네일로
     쓸 수 있게 글자를 크고 굵게, 배경은 단색으로 단순하게 만든다.
@@ -417,6 +431,21 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     # 남기도록 범위를 제한한다.
     margin = 60
     y = max(margin, min(y_bias * H - total_h / 2, H - total_h - margin))
+
+    max_tw = max(draw.textbbox((0, 0), line, font=font)[2] - draw.textbbox((0, 0), line, font=font)[0]
+                 for line in lines)
+    if style == "banner":
+        pad_y = 24
+        overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(overlay).rectangle(
+            [0, y - pad_y, W, y + total_h + pad_y], fill=(0, 0, 0, 120))
+        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        draw = ImageDraw.Draw(img)
+    elif style == "boxed":
+        pad_x, pad_y = 50, 34
+        box = [(W - max_tw) / 2 - pad_x, y - pad_y, (W + max_tw) / 2 + pad_x, y + total_h + pad_y]
+        draw.rounded_rectangle(box, radius=20, outline=(255, 255, 255), width=6)
+
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
         tw = bbox[2] - bbox[0]
@@ -1574,6 +1603,122 @@ def _doodle_triangle():
     return _stroke_shape(draw)
 
 
+# WHY 8개 추가(2026-08-04, "파츠 좀 늘려줄래... 전반적으로 챙겨봐"): 기존 68종
+# 풀에 없던 소재(눈꽃/말풍선 물음표·느낌표/트로피/로켓/연/벙어리장갑/컵케이크)로
+# 다양성 확대. 나머지 도돌이와 동일하게 130x130 캔버스 + 흰색 스트로크 +
+# 그림자 오프셋 패턴(_stroke_shape)을 그대로 따른다.
+def _doodle_snowflake():
+    cx, cy, r = 65, 65, 40
+
+    def draw(d, off, color):
+        ox, oy = off
+        for ang in (0, 60, 120):
+            rad = math.radians(ang)
+            x1, y1 = cx - r * math.cos(rad) + ox, cy - r * math.sin(rad) + oy
+            x2, y2 = cx + r * math.cos(rad) + ox, cy + r * math.sin(rad) + oy
+            d.line([(x1, y1), (x2, y2)], fill=color, width=5)
+            for t in (-0.55, 0.55):
+                mx, my = cx + r * t * math.cos(rad) + ox, cy + r * t * math.sin(rad) + oy
+                for side in (-1, 1):
+                    brad = rad + side * math.radians(35)
+                    bx, by = mx + 14 * math.cos(brad), my + 14 * math.sin(brad)
+                    d.line([(mx, my), (bx, by)], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_question_bubble():
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 12 + oy, 115 + ox, 100 + oy], outline=color, width=5)
+        d.polygon([(40 + ox, 96 + oy), (58 + ox, 96 + oy), (34 + ox, 118 + oy)], fill=color)
+        d.arc([42 + ox, 28 + oy, 88 + ox, 62 + oy], 180, 30, fill=color, width=6)
+        d.line([(65 + ox, 58 + oy), (65 + ox, 68 + oy)], fill=color, width=6)
+        d.ellipse([61 + ox, 76 + oy, 71 + ox, 86 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_exclaim_bubble():
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 12 + oy, 115 + ox, 100 + oy], outline=color, width=5)
+        d.polygon([(72 + ox, 96 + oy), (90 + ox, 96 + oy), (96 + ox, 118 + oy)], fill=color)
+        d.line([(65 + ox, 28 + oy), (65 + ox, 66 + oy)], fill=color, width=7)
+        d.ellipse([60 + ox, 76 + oy, 70 + ox, 86 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_trophy():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(30 + ox, 22 + oy), (100 + ox, 22 + oy), (78 + ox, 70 + oy),
+                (52 + ox, 70 + oy), (30 + ox, 22 + oy)], fill=color, width=5, joint="curve")
+        d.arc([10 + ox, 26 + oy, 40 + ox, 58 + oy], 260, 140, fill=color, width=5)
+        d.arc([90 + ox, 26 + oy, 120 + ox, 58 + oy], 40, 280, fill=color, width=5)
+        d.line([(65 + ox, 70 + oy), (65 + ox, 90 + oy)], fill=color, width=5)
+        d.line([(42 + ox, 90 + oy), (88 + ox, 90 + oy), (82 + ox, 104 + oy),
+                (48 + ox, 104 + oy), (42 + ox, 90 + oy)], fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_rocket():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(65 + ox, 12 + oy), (44 + ox, 55 + oy), (44 + ox, 88 + oy),
+                (86 + ox, 88 + oy), (86 + ox, 55 + oy), (65 + ox, 12 + oy)],
+               fill=color, width=5, joint="curve")
+        d.ellipse([54 + ox, 42 + oy, 76 + ox, 64 + oy], outline=color, width=5)
+        d.line([(44 + ox, 78 + oy), (26 + ox, 106 + oy)], fill=color, width=5)
+        d.line([(86 + ox, 78 + oy), (104 + ox, 106 + oy)], fill=color, width=5)
+        d.line([(52 + ox, 92 + oy), (46 + ox, 112 + oy)], fill=color, width=5)
+        d.line([(78 + ox, 92 + oy), (84 + ox, 112 + oy)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_kite():
+    def draw(d, off, color):
+        ox, oy = off
+        pts = [(65 + ox, 14 + oy), (100 + ox, 52 + oy), (65 + ox, 112 + oy), (30 + ox, 52 + oy)]
+        d.line(pts + [pts[0]], fill=color, width=5, joint="curve")
+        d.line([(30 + ox, 52 + oy), (100 + ox, 52 + oy)], fill=color, width=4)
+        d.line([(65 + ox, 14 + oy), (65 + ox, 112 + oy)], fill=color, width=4)
+        tail_start = (65 + ox, 112 + oy)
+        for i, (dx, dy) in enumerate([(-6, 10), (6, 10), (-6, 10)]):
+            nx, ny = tail_start[0] + dx, tail_start[1] + dy
+            d.line([tail_start, (nx, ny)], fill=color, width=3)
+            tail_start = (nx, ny)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_icecream():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(50 + ox, 70 + oy), (65 + ox, 116 + oy), (80 + ox, 70 + oy)],
+               fill=color, width=5, joint="curve")
+        d.arc([38 + ox, 30 + oy, 92 + ox, 84 + oy], 0, 360, fill=color, width=5)
+        d.line([(30 + ox, 55 + oy), (100 + ox, 55 + oy)], fill=color, width=4)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_cupcake():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(38 + ox, 78 + oy), (44 + ox, 112 + oy), (86 + ox, 112 + oy), (92 + ox, 78 + oy)],
+               fill=color, width=5, joint="curve")
+        d.arc([30 + ox, 46 + oy, 60 + ox, 76 + oy], 180, 360, fill=color, width=5)
+        d.arc([50 + ox, 40 + oy, 80 + ox, 70 + oy], 180, 360, fill=color, width=5)
+        d.arc([70 + ox, 46 + oy, 100 + ox, 76 + oy], 180, 360, fill=color, width=5)
+        d.ellipse([61 + ox, 26 + oy, 71 + ox, 36 + oy], fill=color)
+
+    return _stroke_shape(draw)
+
+
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
@@ -1593,6 +1738,8 @@ _DOODLES = [
     _doodle_zigzag, _doodle_dot_cluster, _doodle_swirl_line, _doodle_curved_arrow,
     _doodle_checkmark, _doodle_hexagon, _doodle_wavy_line, _doodle_infinity,
     _doodle_asterisk, _doodle_scribble_scratch, _doodle_plus_cross, _doodle_triangle,
+    _doodle_snowflake, _doodle_question_bubble, _doodle_exclaim_bubble,
+    _doodle_trophy, _doodle_rocket, _doodle_kite, _doodle_icecream, _doodle_cupcake,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
@@ -2407,6 +2554,17 @@ CHALKBOARD_VARIANTS = [
     str(_BACKGROUNDS_DIR / "칠판_남색_밝은나무.png"),
     str(_BACKGROUNDS_DIR / "칠판_초록_어두운나무.png"),
     str(_BACKGROUNDS_DIR / "칠판_초록_검정.png"),
+    # WHY 8개 추가(2026-08-04, "파츠 좀 늘려줄래... 칠판도 전반적으로 챙겨봐"):
+    # 기존 팔레트를 넘어서는 새 보드색(보라/청록/갈색/회색) + 안 쓰였던 프레임
+    # 조합 추가. 흰색 프레임 조합은 위 board_alpha 흰색 키잉 사고 때문에 계속 제외.
+    str(_BACKGROUNDS_DIR / "칠판_보라_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_보라_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_청록_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_청록_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_갈색_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_회색_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_남색_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_진초록_검정.png"),
 ]
 
 
@@ -2867,7 +3025,8 @@ def assemble(
         accent_color = _accent_color_for_seed(title)
         title_card_png = tmp_path / "title_card.png"
         _make_title_card_png(title_card_text or title, title_card_png, char_path=title_card_char_path,
-                              lang=lang, accent_color=accent_color, y_bias=_text_y_bias_for_seed(title))
+                              lang=lang, accent_color=accent_color, y_bias=_text_y_bias_for_seed(title),
+                              style=_title_card_style_for_seed(title))
         title_card_out = tmp_path / "title_card.mp4"
         subprocess.run(
             ["ffmpeg", "-y", "-loop", "1", "-t", f"{title_card_duration}", "-r", str(FPS), "-i", str(title_card_png),
