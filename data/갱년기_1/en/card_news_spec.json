@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Face suddenly burning up mid-meeting,",
+    "then drenched in sweat minutes later?",
+    "Foods That Make Hot Flashes Worse"
+  ],
+  "eyebrow": "Menopause Alert",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "맥주_illust.jpg": "Wine",
+    "고추_illust.jpg": "Spicy Food"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Lower estrogen makes your brain's",
+        "heat control center oversensitive",
+        "",
+        "Small temperature shifts get",
+        "misread as overheating"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A Mayo Clinic study of 1,800+",
+        "women linked caffeine to worse",
+        "hot flashes and night sweats"
+      ]
+    },
+    {
+      "name": "Coffee — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Try decaf, or skip",
+        "caffeine after noon"
+      ]
+    },
+    {
+      "name": "Wine & Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Widens blood vessels fast,",
+        "raising skin temperature",
+        "",
+        "A flush can hit while",
+        "you're still drinking"
+      ]
+    },
+    {
+      "name": "Alcohol — the fix",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Avoid it within a few hours",
+        "of bedtime, or pace it",
+        "with water"
+      ]
+    },
+    {
+      "name": "Spicy Food",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaicin triggers the same",
+        "heat-sensing nerves as",
+        "a hot flash",
+        "",
+        "Sweat and flushing often",
+        "follow right after"
+      ]
+    },
+    {
+      "name": "Spicy Food — the fix",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Sip ice water through",
+        "the meal to take",
+        "the edge off"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "cutting these out for good"
+      ],
+      [
+        "Small tweaks in amount",
+        "and timing can help"
+      ]
+    ],
+    "tip": [
+      "Add more soy - edamame or tofu may cut",
+      "hot flash frequency by over 20%"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Menopause"
+}
