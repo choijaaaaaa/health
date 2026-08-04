@@ -1158,6 +1158,16 @@ def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str
     # 따르지만, 일부 언어 topic은 접두어 없이 그냥 "shorts.mp4"로도 만들어져 있었다
     # (실측: 갑상선_1/en) — 폴더 자체가 이미 topic+언어를 구분해주므로 둘 다 허용.
     candidates = sorted(video_dir.glob("*shorts.mp4")) if video_dir.exists() else []
+    # WHY 인스타그램 릴스 카드만 별도로 *shorts_instagram.mp4를 찾는지(2026-08-04,
+    # "instagram이라고 되어있는것들도 ui에서 다운로드 할수있게 해줘야 해" 요청):
+    # generate()(ko/완성된 언어 대시보드)는 이미 이 안전 여백 버전을 인스타 릴스
+    # 카드에 자동 연결하는데(위 instagram_video_path 참고), 이 경량 카드는 아직
+    # 그 로직이 없어서 shorts_instagram.mp4가 폴더에 있어도 다운로드할 방법이
+    # 없었다 — 같은 규칙을 그대로 적용해서 형식을 맞춘다.
+    if platform["name"] in _INSTAGRAM_REELS_NAMES and video_dir.exists():
+        ig_candidates = sorted(video_dir.glob("*shorts_instagram.mp4"))
+        if ig_candidates:
+            candidates = ig_candidates
     if candidates:
         video_name = quote(candidates[0].name)
         dl_name = _prefixed(candidates[0].name, _esc(f"{topic}_{lang}"))
