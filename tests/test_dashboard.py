@@ -228,7 +228,9 @@ def test_video_placeholder_when_video_file_does_not_exist(tmp_path):
 
 
 def test_video_tag_when_video_file_exists(tmp_path):
-    """회귀 4c: video_path가 실제로 존재하는 파일을 가리키면 <video> 태그가 나와야 한다."""
+    """회귀(2026-08-05, 방향 전환): mp4는 이제 git에 안 올라가서(.gitignore)
+    GitHub Pages에서 <video> 태그가 항상 깨진다 — video_path가 존재해도
+    <video> 태그 대신 로컬 경로 안내 문구가 나와야 한다."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -238,11 +240,16 @@ def test_video_tag_when_video_file_exists(tmp_path):
     generate(str(spec_path), str(card_news_dir), str(video_path), str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
-    assert "<video" in html
+    assert "<video" not in html
     assert "영상 준비 중" not in html
+    assert "영상 조립 완료" in html
+    assert "로컬" in html
 
 
 def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
+    """회귀(2026-08-05, 방향 전환): 표지(00_표지.jpg) 외 카드뉴스 상세 이미지는
+    이제 git에 안 올라가서(.gitignore) GitHub Pages에서 깨진 이미지로 보인다 —
+    갤러리에는 표지 한 장만 나와야 한다."""
     platforms = [_platform("카드뉴스플랫폼", "cards")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -256,9 +263,9 @@ def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
     generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
-    assert html.count('<img src="card_news/') == 3
+    assert html.count('<img src="card_news/') == 1
     assert "00_표지.jpg" in html
-    assert "01_%EC%99%9C" in html or "01_왜" in html  # quote()로 인코딩될 수 있음
+    assert "01_%EC%99%9C" not in html and "01_왜" not in html
 
 
 def test_caption_html_special_characters_are_escaped(tmp_path):
