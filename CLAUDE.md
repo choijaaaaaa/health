@@ -221,6 +221,14 @@ python3 -m lib.content_review --lang-check <base_topic>   # 다국어: 진짜 �
 
 ## 글로벌 확장
 
+⚠️ **언어 범위 축소(2026-08-05)**: 진행 언어는 **한국어·영어·일본어·스페인어·
+포르투갈어·러시아어 6개로 확정**("이렇게만 남기자"). 그 외 언어(대만어·
+프랑스어·독일어·베트남어·아랍어·벵골어·터키어·태국어·인도네시아어·힌디어)는
+data/output 콘텐츠 전부 삭제, `data/global_research_rules.md`·
+`typecast_voices_global.json`·`global_channels.json`도 5개 언어(영/일/스/포/러)만
+남기고 정리함. 새 topic·언어는 이 6개 범위 안에서만 진행할 것 — 확장이 다시
+필요해지면 git 히스토리에서 복원.
+
 - **번역 금지 — 언어마다 독립 리서치**(원인·해결책·이미지 전부 그 지역
   원문 자료 기준). topic(다룰 주제) 자체는 공통, 실질 콘텐츠만 독립.
 - **글로벌 topic은 카드뉴스 없이 숏츠만** — `card_news.py generate()` 생략.
