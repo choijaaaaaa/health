@@ -92,12 +92,33 @@ def _headers() -> dict:
     return {"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"}
 
 
-def _card_news_text(topic: str) -> str:
+def _topic_dir(topic: str, lang: str = "kor") -> Path:
+    """WHY(2026-08-04 버그 수정): review_topic/_card_news_text/review_all이 전부
+    data/<topic>/narration.txt(예전 단일 언어 구조)만 보고 있었다 — 2026-08-03
+    글로벌 확장으로 전 topic이 data/<topic>/<lang>/ 중첩 구조로 바뀐 뒤에도 이
+    함수들은 안 고쳐진 채로 남아있었다. 그 결과 narration_path.exists()가 항상
+    False가 되고 review_topic()이 "narration도 card_text도 없음"으로 판단해
+    빈 리스트(= "문제 없음")를 그냥 반환하고 있었다 — 에러 없이 조용히 아무
+    리뷰도 안 한 것(실제로 목_1/허리_1/갱년기_1 등에서 "문제 없음"으로 나왔던
+    결과가 전부 이 버그로 인한 거짓 통과였음을 실측 확인). lang="kor"이면 ko/,
+    다른 언어는 GLOBAL_LANG_LABELS_FALLBACK을 코드→이름의 역방향으로 찾아 그
+    코드 폴더를 본다. 중첩 폴더가 없으면(가정: 예전 단일 언어 구조 topic 대비)
+    topic 폴더 자체로 폴백한다."""
+    base = ROOT / "data" / topic
+    if lang == "kor":
+        code = "ko"
+    else:
+        code = next((k for k, v in GLOBAL_LANG_LABELS_FALLBACK.items() if v == lang), lang)
+    nested = base / code
+    return nested if nested.exists() else base
+
+
+def _card_news_text(topic: str, lang: str = "kor") -> str:
     """WHY items[].name/body + closing만 뽑는지: card_news_spec.json엔 char_file
     (일러스트 파일명)·cover_scrim_color 같은 텍스트가 아닌 값도 섞여 있어서, 스키마
     (위 "카드뉴스 스펙" 절 참고: items[{{name, char_file, body}}], closing{{headline,
     tip, cta}})를 알고 정확히 그 필드만 골라야 리뷰 프롬프트에 노이즈가 안 낀다."""
-    spec_path = ROOT / "data" / topic / "card_news_spec.json"
+    spec_path = _topic_dir(topic, lang) / "card_news_spec.json"
     if not spec_path.exists():
         return ""
     spec = json.loads(spec_path.read_text(encoding="utf-8"))
@@ -115,9 +136,9 @@ def _card_news_text(topic: str) -> str:
 
 
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
-    narration_path = ROOT / "data" / topic / "narration.txt"
+    narration_path = _topic_dir(topic, lang) / "narration.txt"
     narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
-    card_text = _card_news_text(topic)
+    card_text = _card_news_text(topic, lang)
     if not narration and not card_text:
         return []
 
@@ -271,9 +292,16 @@ def check_language_independence_all() -> dict[str, dict[str, dict]]:
 
 
 def review_all() -> dict[str, list[dict]]:
-    """data/ 밑 모든 topic을 순회하며 리뷰 — 기존 topic 전수 감사용(일회성 실행)."""
+    """data/ 밑 모든 topic을 순회하며 리뷰(한국어만, --all은 문서상 한국어 전용) —
+    기존 topic 전수 감사용(일회성 실행). WHY (d / "ko" / "narration.txt")도
+    같이 보는지(2026-08-04 버그 수정): 글로벌 확장 이후 전 topic이 <topic>/ko/
+    중첩 구조라 (d / "narration.txt")만 보면 전부 걸러져서 리뷰 대상이 0개가
+    되는 버그가 있었다 — 중첩/구식 단일 언어 구조 둘 다 topic으로 인정한다."""
     results: dict[str, list[dict]] = {}
-    topic_dirs = sorted(d for d in (ROOT / "data").iterdir() if d.is_dir() and (d / "narration.txt").exists())
+    topic_dirs = sorted(
+        d for d in (ROOT / "data").iterdir()
+        if d.is_dir() and ((d / "ko" / "narration.txt").exists() or (d / "narration.txt").exists())
+    )
     for d in topic_dirs:
         topic = d.name
         try:
