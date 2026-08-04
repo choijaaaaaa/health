@@ -10,7 +10,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from lib.typecast_tts import _insert_sentence_pauses, SENTENCE_GAP_MS  # noqa: E402
+from lib.typecast_tts import (  # noqa: E402
+    SENTENCE_GAP_MS,
+    _insert_sentence_pauses,
+    _pick_segment_voices,
+    _voice_lang_from_topic,
+    _voice_pool,
+)
 
 
 def _make_tone(path: Path, duration: float) -> None:
@@ -64,6 +70,34 @@ def test_last_sentence_tail_is_not_clipped(tmp_path):
     # 기존 정상 동작이다 — 오디오 꼬리를 살리는 이번 수정이 이 계산 자체를 바꾸면 안 됨.
     expected_last_word_end = 1.0 + (SENTENCE_GAP_MS / 1000) + (2.5 - 1.0)
     assert abs(new_words[-1]["end"] - expected_last_word_end) < 1e-6
+
+
+def test_pick_segment_voices_uses_korean_pool_by_default():
+    """회귀 방지: lang을 안 주면 기존처럼 한국어 보이스 풀에서 골라야 한다."""
+    kor_names = {v["name"] for v in _voice_pool("kor")[0]}
+    picked = _pick_segment_voices(3)
+    assert set(picked) <= kor_names
+
+
+def test_pick_segment_voices_uses_language_specific_pool():
+    """회귀: --multi-voice로 영어 topic을 돌리면 한국어 보이스가 아니라 영어 보이스
+    풀에서 골라야 한다(2026-08-04 버그 수정 — 예전엔 lang을 무시하고 항상
+    data/typecast_voices.json만 읽어서 영어/일본어 텍스트에 한국어 보이스+
+    language="kor"가 붙는 조용한 오류가 있었다)."""
+    kor_names = {v["name"] for v in _voice_pool("kor")[0]}
+    eng_names = {v["name"] for v in _voice_pool("영어")[0]}
+    assert kor_names.isdisjoint(eng_names)  # 두 풀이 실제로 겹치지 않는지 전제 확인
+
+    picked = _pick_segment_voices(2, lang="영어")
+    assert set(picked) <= eng_names
+    assert set(picked).isdisjoint(kor_names)
+
+
+def test_voice_lang_from_topic():
+    assert _voice_lang_from_topic("목_1") == "kor"
+    assert _voice_lang_from_topic("목_1/ko") == "kor"
+    assert _voice_lang_from_topic("목_1/en") == "영어"
+    assert _voice_lang_from_topic("목_1/ja") == "일본어"
 
 
 def test_middle_sentence_still_trimmed_to_next_boundary(tmp_path):

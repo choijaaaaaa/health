@@ -225,10 +225,18 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
 SEGMENT_GAP_MS = 400  # 문장 사이 간격(SENTENCE_GAP_MS)보다 살짝 길게 — 화자 전환 체감용
 
 
-def _pick_segment_voices(n: int) -> list[str]:
+def _pick_segment_voices(n: int, lang: str = "kor") -> list[str]:
     """n개 세그먼트에 서로 겹치지 않는 보이스를 배정(보이스 개수보다 세그먼트가 많으면
-    그 다음부터는 랜덤 재사용하되 바로 직전과는 겹치지 않게 한다)."""
-    names = [v["name"] for v in json.loads((ROOT / "data" / "typecast_voices.json").read_text())]
+    그 다음부터는 랜덤 재사용하되 바로 직전과는 겹치지 않게 한다).
+
+    WHY lang 파라미터(2026-08-04 버그 수정): 이 함수가 항상 data/typecast_voices.json
+    (한국어 전용 파일)에서만 이름을 골랐다 — _voice_pool()에 lang 파라미터가 생긴
+    뒤에도(2026-08-03) 이 함수와 synthesize_segments()는 안 고쳐진 채로 남아있었다.
+    그 결과 --multi-voice로 en/ja 등 다른 언어 topic을 돌리면 한국어 보이스 이름이
+    골라지고, _call_tts가 그 이름을 lang="kor"로 조회해서 성공은 하지만(이름 자체는
+    한국어 파일에 실존하니 조회는 안 깨짐) 실제로는 한국어 보이스·"language":"kor"로
+    영어/일본어 텍스트를 읽어버리는 조용한 버그였다(에러 없이 잘못된 음성이 나옴)."""
+    names = [v["name"] for v in _voice_pool(lang)[0]]
     if n <= len(names):
         return random.sample(names, n)
     picked = random.sample(names, len(names))
@@ -239,14 +247,15 @@ def _pick_segment_voices(n: int) -> list[str]:
 
 
 def synthesize_segments(
-    topic: str, segments: list[str], voice_names: list[str] | None = None, audio_format: str = "mp3"
+    topic: str, segments: list[str], voice_names: list[str] | None = None, audio_format: str = "mp3",
+    lang: str = "kor",
 ) -> dict:
     """narration.txt를 문단(항목)별로 나눠 각각 다른 보이스로 TTS를 생성한 뒤 이어붙인다.
     voice_names를 안 주면 문단 개수만큼 서로 겹치지 않는 보이스를 랜덤 배정한다.
     출력 경로는 synthesize()와 동일(output/<topic>/narration.mp3, narration.srt)이라
     video_assembler.py 등 이후 단계는 단일/멀티 보이스 여부와 무관하게 그대로 쓰면 된다."""
     if voice_names is None:
-        voice_names = _pick_segment_voices(len(segments))
+        voice_names = _pick_segment_voices(len(segments), lang)
     elif len(voice_names) != len(segments):
         raise ValueError("voice_names 개수가 segments 개수와 다름")
 
@@ -262,7 +271,7 @@ def synthesize_segments(
         for i, (text, voice_name) in enumerate(zip(segments, voice_names)):
             segment_starts.append(cursor)
             print(f"[typecast] 세그먼트 {i + 1}/{len(segments)} 보이스: {voice_name}")
-            audio_bytes, words, ext = _call_tts(text, voice_name, audio_format)
+            audio_bytes, words, ext = _call_tts(text, voice_name, audio_format, lang)
             audio_bytes, words = _insert_sentence_pauses(audio_bytes, ext, words)
 
             # WHY WAV로 저장(2026-08-02 버그 수정, "목소리가 바뀔 때 싱크가 점점
@@ -346,17 +355,42 @@ def synthesize_segments(
     }
 
 
+# WHY 이 매핑이 필요한지(2026-08-04): topic 폴더명 뒤 언어 코드("목_1/en")는
+# lib/youtube_upload.py 등 다른 스크립트와 동일한 영문 코드 관례를 쓰는데,
+# typecast_tts.py의 lang 파라미터·typecast_voices_global.json 키는 한국어
+# 언어명("영어")이다 — CLI에서 topic 경로만 보고 바로 호출할 수 있게 여기서만
+# 변환한다. lib/content_review.py의 GLOBAL_LANG_LABELS_FALLBACK과 같은 목록이지만
+# (원본은 lib/dashboard.py의 GLOBAL_LANG_LABELS) 이 파일이 dashboard.py를 몰라도
+# 되는 독립 모듈로 남도록 그 파일의 선례를 따라 여기도 최소 복제한다.
+_LANG_CODE_TO_VOICE_LANG = {
+    "en": "영어", "ja": "일본어", "zh-TW": "대만어", "es": "스페인어",
+    "pt": "포르투갈어", "fr": "프랑스어", "de": "독일어", "ru": "러시아어",
+    "vi": "베트남어", "ar": "아랍어", "bn": "벵골어", "tr": "터키어",
+    "th": "태국어", "id": "인도네시아어", "hi": "힌디어",
+}
+
+
+def _voice_lang_from_topic(topic: str) -> str:
+    """"목_1/en" -> "영어", "목_1/ko" 또는 "목_1"(언어 세그먼트 없음) -> "kor"."""
+    code = topic.rsplit("/", 1)[1] if "/" in topic else "ko"
+    if code == "ko":
+        return "kor"
+    if code not in _LANG_CODE_TO_VOICE_LANG:
+        raise ValueError(f"typecast_tts.py: 알 수 없는 언어 코드 '{code}'(topic={topic!r})")
+    return _LANG_CODE_TO_VOICE_LANG[code]
+
+
 if __name__ == "__main__":
     if "--multi-voice" in sys.argv:
         # 사용법: python3 lib/typecast_tts.py <topic> --multi-voice <narration.txt 경로>
         topic = sys.argv[1]
         narration_path = sys.argv[sys.argv.index("--multi-voice") + 1]
         segments = [p.strip() for p in Path(narration_path).read_text().split("\n\n") if p.strip()]
-        result = synthesize_segments(topic, segments)
+        result = synthesize_segments(topic, segments, lang=_voice_lang_from_topic(topic))
         print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
     else:
         topic = sys.argv[1]
         text = sys.argv[2]
         voice_name = sys.argv[3] if len(sys.argv) > 3 else None
-        result = synthesize(topic, text, voice_name)
+        result = synthesize(topic, text, voice_name, lang=_voice_lang_from_topic(topic))
         print(json.dumps({k: v for k, v in result.items() if k != "words"}, ensure_ascii=False, indent=2))
