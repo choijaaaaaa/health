@@ -940,16 +940,22 @@ function _stripAutoLinks(text) {
 // (캡션 최종 끝) 배치는 호출부(`applyProductLinks`)가 각각 한 번씩 담당한다.
 function _buildLinkBlock(hasNaverButton) {
   if (hasNaverButton) {
-    // WHY URL은 안 넣지만 상품명은 넣는지(2026-07-31 정정, 2026-08-01 단순화): 네이버
-    // 클립처럼 에디터에 진짜 "상품" 버튼이 있는 곳(data-naver-button="1")은 URL을
-    // 본문에 붙여넣는 방식이 아니라 그 버튼으로 직접 추가해야 한다(2026-07-30 확인).
-    // 예전엔 "네이버 링크 입력창에 뭐라도 입력해야" 그 상품이 목록에 포함됐는데,
-    // 그 입력창 자체가 성가시기만 하고 실제로 쓰는 링크도 아니었다는 피드백(2026-08-01)
-    // 으로 입력창을 없애고 이 topic의 전체 상품을 조건 없이 나열한다.
-    const products = [];
-    document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => products.push(inp.dataset.product));
-    if (products.length === 0) return null;
-    return {text: "🔵 상품: " + products.join(", "), disclosure: NAVER_DISCLOSURE};
+    // WHY 실제 링크를 넣는지(2026-08-04, "등록만하면 되겠냐? 그럼 이제 자동으로
+    // 링크 거는게 가능해진건데 네이버 커넥트도 링크 넣어놔야지 본문에"): 2026-08-01엔
+    // 상품명만 나열했었다 — 그 시점엔 네이버 커넥트 계정 ID만 있고 상품별 최종
+    // 링크 자체가 없어서("그 입력창이 성가시기만 하고 실제로 쓰는 링크도 아니었다")
+    // URL을 넣을 수가 없었다. 이제 output/naver_product_links.json에 상품별 실제
+    // naver.me 링크가 등록돼 있어서, 쿠팡 분기와 동일하게 실제 링크를 본문에 넣는다
+    // (네이버 커넥트는 쿠팡과 달리 저품질 판정 이슈가 없는 네이버 자체 프로그램이라
+    // 링크를 본문에 넣어도 안전 — 위 "네이버 블로그, 다시 브랜드커넥트로" 절 참고).
+    // 아직 링크가 없는 상품은 이름만 나열(하위 호환 폴백).
+    const lines = [];
+    document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {
+      const url = inp.value.trim();
+      lines.push(url ? "🔗 " + inp.dataset.product + " 구매: " + url : "🔵 상품: " + inp.dataset.product);
+    });
+    if (lines.length === 0) return null;
+    return {text: lines.join("\n"), disclosure: NAVER_DISCLOSURE};
   }
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {
