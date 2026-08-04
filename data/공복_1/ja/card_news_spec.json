@@ -7,14 +7,14 @@
   "eyebrow": "代謝ケア",
   "topic_word": "空腹",
   "char_display_names": {
-    "味噌汁_illust.jpg": "味噌汁",
-    "納豆_illust.jpg": "納豆",
-    "白湯_illust.jpg": "白湯"
+    "된장국_illust.jpg": "味噌汁",
+    "낫토_illust.jpg": "納豆",
+    "백탕_illust.jpg": "白湯"
   },
   "items": [
     {
       "name": "なぜ痩せないの?",
-      "char_file": "味噌汁_illust.jpg",
+      "char_file": "된장국_illust.jpg",
       "body": [
         "空腹のまま甘い物や",
         "白いご飯を食べると",
@@ -25,7 +25,7 @@
     },
     {
       "name": "味噌汁",
-      "char_file": "味噌汁_illust.jpg",
+      "char_file": "된장국_illust.jpg",
       "body": [
         "習慣的に飲む人は",
         "飲まない人に比べて",
@@ -36,7 +36,7 @@
     },
     {
       "name": "納豆",
-      "char_file": "納豆_illust.jpg",
+      "char_file": "낫토_illust.jpg",
       "body": [
         "食物繊維が豊富で",
         "",
@@ -46,7 +46,7 @@
     },
     {
       "name": "白湯",
-      "char_file": "白湯_illust.jpg",
+      "char_file": "백탕_illust.jpg",
       "body": [
         "甘いカフェオレや",
         "清涼飲料水はNG",
@@ -58,8 +58,14 @@
   ],
   "closing": {
     "headline": [
-      ["3つ全部じゃなくても", "大丈夫です"],
-      ["まずひとつから", "試してみてください"]
+      [
+        "3つ全部じゃなくても",
+        "大丈夫です"
+      ],
+      [
+        "まずひとつから",
+        "試してみてください"
+      ]
     ],
     "tip": [
       "自分の体に合うものを",

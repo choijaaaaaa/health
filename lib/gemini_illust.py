@@ -6,6 +6,7 @@ from __future__ import annotations
 import base64
 import os
 import random
+import subprocess
 import sys
 from pathlib import Path
 
@@ -170,6 +171,37 @@ def edit_illustration(base_image_path: str, instruction: str, out_path: str) -> 
     with open(out_path, "wb") as f:
         f.write(image_bytes)
     print(f"[gemini] 이미지 편집 완료: {out_path}")
+    return out_path
+
+
+# WHY 정지 이미지 루프 폴백(2026-08-03, "이런 쓰레기같은 품질의 이미지를 스스로
+# 판단하고 답없으면 그냥 제미나이가 생성한 움직이지 않는 이미지를 쓰게 만들어줄수있어?"):
+# Kling image2video는 둥글고 팔다리 없는 디자인일수록 5초 안에 형태가 무너지는 경우가
+# 실제로 있었다(우메보시_motion.mp4/버터_motion.mp4/된장국_motion.mp4에서 실측 확인 —
+# 캐릭터가 옆모습으로 돌아가며 없어야 할 팔다리가 생기거나, 아예 다른 실사 사진으로
+# 바뀌어버리는 정체성 붕괴). Kling 모션을 만든 뒤엔 반드시 프레임 몇 장을 뽑아서
+# (ffmpeg -vf fps=... 로) 육안 검수하고, 캐릭터 정체성이 무너지는 프레임이 하나라도
+# 있으면 그 Kling 결과물은 버리고 이 함수로 정지 루프를 만들어 대신 쓴다 — 자동 판단은
+# 코드가 아니라(육안 없이는 "형태가 무너졌다"를 픽셀 규칙만으로 신뢰성 있게 감지하기
+# 어려움) 매번 프레임을 실제로 보는 세션/서브에이전트가 판단할 것. Kling 모션 클립과
+# 똑같은 해상도(960x960)·프레임레이트(30fps)·길이(~5.1초)로 만들어서 이후
+# video_assembler.py의 ping-pong·chroma-key 처리 파이프라인이 출처(Kling vs 정지
+# 루프)와 무관하게 동일하게 동작한다.
+def build_static_motion_loop(illust_path: str, out_path: str, duration: float = 5.1) -> str:
+    """Kling을 아예 안 쓰거나(비용 절감) Kling 결과가 불량 판정났을 때 쓰는 대체
+    모션 클립 — 캐릭터가 전혀 움직이지 않는 정지 루프. 크로마키 배경은 원본
+    일러스트 그대로 유지되므로 video_assembler.py의 colorkey 로직이 그대로 먹힌다."""
+    Path(out_path).parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run(
+        [
+            "ffmpeg", "-y", "-loop", "1", "-i", str(illust_path),
+            "-t", str(duration), "-r", "30",
+            "-vf", "scale=960:960",
+            "-pix_fmt", "yuv420p", str(out_path),
+        ],
+        check=True, capture_output=True,
+    )
+    print(f"[gemini_illust] 정지 이미지 루프 생성 완료(Kling 대체): {out_path}")
     return out_path
 
 
