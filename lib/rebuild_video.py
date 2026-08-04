@@ -17,11 +17,40 @@ from pathlib import Path
 from PIL import Image
 
 from lib.video_assembler import _parse_srt, assemble, DEFAULT_END_CARD_TEXT
+from lib.templates.proto_before_after_transition import render as _render_before_after_transition
+from lib.templates.proto_checklist import render as _render_checklist
+from lib.templates.proto_ranking_countdown import render as _render_ranking_countdown
+from lib.templates.proto_timeline import render as _render_timeline
 
 ROOT = Path(__file__).resolve().parent.parent
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 MOTION_DIR = ROOT / "assets_library" / "motion"
 REAL_DIR = ROOT / "assets_library" / "real"
+
+# WHY 이 5개·이 순서인지(2026-08-04, CLAUDE.md "영상 포맷 다각화" 절 참고 —
+# ⚠️ 이 섹션은 한 번 유실됐다가 재작성됨, 아래서 바로 다시 커밋할 것):
+# 판서형(기존)은 시그니처가 달라 아래 select_format()이 이름만 반환하고
+# rebuild()가 별도 분기로 처리한다 — 나머지 4개는 전부
+# render(topic_dir, lang, audio_path, srt_path, spec_path, out_path) 시그니처로
+# 통일돼 있어서 딕셔너리 하나로 매핑할 수 있다.
+FORMAT_ROSTER = ["chalkboard", "before_after_transition", "checklist", "ranking_countdown", "timeline"]
+_TEMPLATE_RENDERERS = {
+    "before_after_transition": _render_before_after_transition,
+    "checklist": _render_checklist,
+    "ranking_countdown": _render_ranking_countdown,
+    "timeline": _render_timeline,
+}
+
+
+def select_format(topic: str) -> str:
+    """topic(+언어) 문자열만으로 결정론적으로 영상 포맷 하나를 고른다 — 진짜
+    랜덤이 아니라 같은 topic은 재생성해도 항상 같은 포맷이 나와야 재현 가능함
+    (프로젝트 전역에서 이미 쓰는 topic-시드 변주 패턴과 동일한 공식). 다른
+    topic·다른 언어가 이미 뭘 골랐는지는 전혀 참고하지 않는다(2026-08-04
+    확정 — "다른 국가에서 어떻게 선정되어있는지까지 확인할필요까진 없다") —
+    그래서 이 함수는 topic 하나만 받고 순수 함수다, 전역 상태·레지스트리 없음."""
+    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(topic))
+    return FORMAT_ROSTER[seed_val % len(FORMAT_ROSTER)]
 
 # WHY 언어 코드 프리픽스로 topic의 언어를 감지하는지(2026-08-03 버그 수정,
 # "en_heartburn_1 다시 만들었더니 우상단 라벨/명패가 전부 한글로 나옴" 실제
@@ -499,9 +528,27 @@ def derive(topic: str) -> dict:
 
 
 def rebuild(topic: str):
+    fmt = select_format(topic)
     kwargs = derive(topic)
     print(f"=== {topic} ===")
+    print("format:", fmt)
     print("title:", kwargs["title"])
+    if fmt != "chalkboard":
+        # WHY derive()를 그대로 재사용하는지: 새 템플릿도 오디오/자막 접두어
+        # 유무·언어 감지 같은 derive()의 경로 유도 로직이 그대로 필요하다 —
+        # 중복 구현하는 대신 derive()가 이미 계산해둔 audio/srt/out/lang을
+        # 재사용하고, 새 템플릿 시그니처에 맞는 spec_path만 추가로 계산한다.
+        spec_path = ROOT / "data" / topic / "card_news_spec.json"
+        _TEMPLATE_RENDERERS[fmt](
+            topic_dir=str(ROOT / "output" / topic),
+            lang=kwargs["lang"],
+            audio_path=kwargs["audio_path"],
+            srt_path=kwargs["srt_path"],
+            spec_path=str(spec_path),
+            out_path=kwargs["out_path"],
+        )
+        print(f"완료: {kwargs['out_path']}")
+        return
     print("banner photo:", kwargs["title_banner_photo_path"])
     if kwargs["motion_schedule"]:
         for seg in kwargs["motion_schedule"]:
