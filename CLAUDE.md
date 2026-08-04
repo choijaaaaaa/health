@@ -49,34 +49,36 @@
 
 - `assets_library/{illust,real,motion}/<품목>_*` — 캐릭터 일러스트/실사진/모션
   루프. 새 캐릭터 만들기 전 `ls assets_library/illust/`로 비슷한 시각 카테고리
-  기존 파일 있는지 먼저 `Read`로 확인 — 있으면 이미지·모션 둘 다 재사용(모션도
-  따로 새로 만들면 API 비용 중복).
-  - ⚠️ **파일명은 topic 언어를 따라간다(언어권별 독립 리서치 원칙 때문에
-    한국어 세션은 `이어폰_illust.jpg`, 포르투갈어 세션은
-    `fone_de_ouvido_illust.jpg`처럼 서로 다른 언어로 지어짐) — 비교할 때
-    한국어 이름만 훑지 말고 `ls assets_library/illust/` 전체 목록을 보고
-    다른 언어 이름이어도 시각적으로 같은 물건인지 판단할 것.** 2026-08-05
-    실제로 이어폰·면봉·바나나·용안·진통제 알약류가 언어마다 각각 따로
-    생성된 게 다수 발견됨(파일 크기 전부 다름 = 진짜 중복 생성, API 비용
-    낭비) — 검색을 자기 언어로만 하면 이렇게 놓친다.
+  기존 파일 있는지 먼저 `Read`로 확인 — 있으면 그대로 재사용, 새로 만들지 말 것.
+  - ⚠️ **파일명은 topic 언어와 무관하게 항상 한국어로 짓는다**(2026-08-05
+    확정). 예전엔 topic 언어를 따라 지어서(포르투갈어 세션은
+    `fone_de_ouvido_illust.jpg`처럼) 같은 물건인데 언어마다 파일이 따로
+    생성되는 사고가 실제로 다수 발생했다(이어폰·면봉·바나나·용안·알약류 등
+    — 파일 크기 전부 달라 진짜 중복 생성, API 비용 낭비 확인 후 전부 한글
+    이름으로 통합·병합함). 한국에 없는 품목이라도 번역하지 말고 한글로
+    새로 이름 짓는다(예: `nopal`→`백년초`, `avena`→`귀리`) — 그래야
+    `ls assets_library/illust/`만 보고도 다른 언어 세션이 이미 만든 걸
+    알아볼 수 있다.
 - **실사진 소싱**: `lib/real_photo_sourcing.py <영어검색어> <후보수> <pexels|unsplash|both>`
   → Read로 골라서 `assets_library/real/<품목>_real_NN.jpg`로 저장.
 - **크로마키 배경색**: 기본 초록(`#00FF00`)이되, 캐릭터 자체가 초록 계열(오이·
   상추 등)이면 겹치므로 `lib/gemini_illust.py`의 `pick_bg_color(avoid=[...])`로
   파란/마젠타/시안/보라 중 하나 고르고 `video_assembler.py --bg-color`도 동일하게 맞출 것.
 
-## 캐릭터 모션
+## 캐릭터 모션 — 생성 중단 (2026-08-05)
 
-- **현재 방식**: Kling AI image2video로 정지 캐릭터 1장 → 5초 루프 영상. Kling
-  토큰 소진 후엔 새 topic부터 모션 없이 정지 이미지로 전환 예정(코드 아직 미반영).
-- ⚠️ **Kling 결과물은 반드시 육안 검수** — 생성 직후 `ffmpeg -ss <0.5초 간격
-  3~4곳> -vframes 1`로 프레임 뽑아 Read로 확인, 팔다리 생성·형태 붕괴·다른
-  사물로 변형 등 문제 있으면 그 결과는 버리고
-  `lib/gemini_illust.py`의 `build_static_motion_loop(illust_path, out_path)`로
-  정지 루프 대체 (Kling과 동일 스펙 960x960/30fps라 바로 호환). 이 판단은
-  자동화하지 않음 — 매번 실제로 볼 것.
-- 팔다리 없는 둥근 디자인은 Kling 실패율이 체감상 낮지 않음(약 23%) — 처음부터
-  `build_static_motion_loop`로 가는 것도 합리적 선택.
+- **새 캐릭터는 모션을 만들지 않는다** — Kling도, `build_static_motion_loop`
+  정지 루프 mp4도 더 이상 호출하지 않는다("모션을 생성하지 않는거로 하자,
+  영상에서 모션 없는 일러스트 jpg 파일만 쓰자" — 사용자 확정). 캐릭터는
+  일러스트(jpg) 생성까지만 하고 끝 — `lib/video_assembler.py`의
+  `_build_character_loop`/`_build_character_segment`가 확장자를 보고
+  자동으로 정지 이미지 코너 오버레이로 처리한다(`--motion`에 `*_motion.mp4`
+  대신 `*_illust.jpg` 경로를 그대로 넘기면 됨, `lib/rebuild_video.py`의
+  `_char_media_path()`가 이미 이렇게 자동 분기).
+- 과거(2026-08-05 이전)에 만들어진 Kling 모션 mp4(77개)는 그대로 자산으로
+  남아있고 재사용 가능 — 새로 만들지만 않으면 됨. 정지 루프로 만들어졌던
+  가짜 모션(움직임 전혀 없이 "모션"이라고만 불리던 mp4, 90개)은 전수조사
+  후 전부 삭제함(illust jpg는 유지).
 
 ## 영상 조립 (`lib/video_assembler.py`)
 
