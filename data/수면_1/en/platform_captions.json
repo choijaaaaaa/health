@@ -1,0 +1,26 @@
+{
+  "topic": "수면_1_en",
+  "title": "Revenge Bedtime Procrastination Is Costing Americans Sleep — Try These 3 Foods",
+  "products": ["kiwi", "pistachios", "milk"],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "YouTube Studio 열기 → 만들기 → 동영상 업로드",
+      "caption": "Title: The Sleep Habit With An Actual Name — And 3 Foods That Help\n\nDescription:\nYou tell yourself \"just one more video\" and suddenly it's 1am — that's revenge bedtime procrastination, and a recent national survey found most American adults do it regularly. Blue light delays melatonin, and about 2 in 3 American adults don't get enough magnesium, so your nervous system stays wired even after the phone's finally down.\n\nThree foods may help before bed: kiwi, pistachios, and warm milk. Research suggests two kiwis about an hour before bed can help you fall asleep faster and sleep longer. Pistachios naturally contain melatonin, tryptophan, and magnesium. And warm milk isn't just an old story — casein peptides formed as milk digests have a calming effect on the nervous system.\n\nThese foods won't fix bedtime procrastination on their own, but paired with a set phone cutoff time, falling asleep gets a lot easier.\n\n#Shorts #SleepTips #Magnesium #HealthTips #SleepHygiene"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "캡션 복사 → 새 릴스 → 캡션란에 붙여넣기",
+      "caption": "Staying up til 1am scrolling even though you're exhausted? That has a name now: revenge bedtime procrastination 📱😴 A recent national survey found most American adults do it regularly.\n\nBlue light delays melatonin, and 2 in 3 American adults don't get enough magnesium, so your body stays wired even after you put the phone down.\n\n3 foods that may help: kiwi 🥝, pistachios 🌰, and warm milk 🥛. Two kiwis an hour before bed, a small handful of pistachios, or a warm cup of milk — pick one and see how it goes.\n\nWant more health tips like this? Follow for more 👆\n\n#SleepTips #RevengeBedtimeProcrastination #Magnesium #HealthTips #SleepHygiene"
+    }
+  ]
+}

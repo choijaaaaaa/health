@@ -1,18 +1,83 @@
 {
   "_comment": "언어별 TTS 발화 속도 계수 — 2026-08-05 실측 데이터 기반(narration.txt 단위수 / narration.mp3 실제 길이). 공백으로 단어 구분되는 언어는 unit=word(공백 기준 split), 구분 안 되는 언어(일본어/대만어/태국어)는 unit=char(공백 제외 글자수). rate = 초당 단위 개수 — narration.txt 작성 전 예상 길이 계산에 사용(TTS 호출 전 사전 추정, 재생성 비용 절감 목적). 샘플 수가 적은 언어는 추정치라 오차 있을 수 있음 — 새 topic 생성될 때마다 재보정 권장.",
-  "ar": {"unit": "word", "rate": 2.147, "samples": 3},
-  "bn": {"unit": "word", "rate": 2.695, "samples": 3},
-  "de": {"unit": "word", "rate": 2.573, "samples": 3},
-  "en": {"unit": "word", "rate": 3.361, "samples": 16},
-  "es": {"unit": "word", "rate": 3.372, "samples": 7},
-  "fr": {"unit": "word", "rate": 3.351, "samples": 2},
-  "hi": {"unit": "word", "rate": 3.195, "samples": 3},
-  "id": {"unit": "word", "rate": 3.415, "samples": 2},
-  "ja": {"unit": "char", "rate": 7.217, "samples": 32},
-  "pt": {"unit": "word", "rate": 3.352, "samples": 7},
-  "ru": {"unit": "word", "rate": 3.041, "samples": 3},
-  "th": {"unit": "char", "rate": 13.572, "samples": 2},
-  "tr": {"unit": "word", "rate": 2.732, "samples": 3},
-  "vi": {"unit": "word", "rate": 5.027, "samples": 3},
-  "zh-TW": {"unit": "char", "rate": 5.902, "samples": 8}
+  "ar": {
+    "unit": "word",
+    "rate": 2.147,
+    "samples": 3
+  },
+  "bn": {
+    "unit": "word",
+    "rate": 2.695,
+    "samples": 3
+  },
+  "de": {
+    "unit": "word",
+    "rate": 2.573,
+    "samples": 3
+  },
+  "en": {
+    "unit": "word",
+    "rate": 3.361,
+    "samples": 16
+  },
+  "es": {
+    "unit": "word",
+    "rate": 3.372,
+    "samples": 7
+  },
+  "fr": {
+    "unit": "word",
+    "rate": 3.351,
+    "samples": 2
+  },
+  "hi": {
+    "unit": "word",
+    "rate": 3.195,
+    "samples": 3
+  },
+  "id": {
+    "unit": "word",
+    "rate": 3.415,
+    "samples": 2
+  },
+  "ja": {
+    "unit": "char",
+    "rate": 7.217,
+    "samples": 32
+  },
+  "pt": {
+    "unit": "word",
+    "rate": 3.352,
+    "samples": 7
+  },
+  "ru": {
+    "unit": "word",
+    "rate": 3.041,
+    "samples": 3
+  },
+  "th": {
+    "unit": "char",
+    "rate": 13.572,
+    "samples": 2
+  },
+  "tr": {
+    "unit": "word",
+    "rate": 2.732,
+    "samples": 3
+  },
+  "vi": {
+    "unit": "word",
+    "rate": 5.027,
+    "samples": 3
+  },
+  "zh-TW": {
+    "unit": "char",
+    "rate": 5.902,
+    "samples": 8
+  },
+  "영어": {
+    "unit": "word",
+    "rate": 2.6123234828515773,
+    "samples": 2
+  }
 }

@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Can't put your phone down",
+    "at night? That's revenge",
+    "bedtime procrastination"
+  ],
+  "eyebrow": "Health Tip",
+  "char_display_names": {
+    "키위_illust.jpg": "Kiwi",
+    "피스타치오_illust.jpg": "Pistachios",
+    "우유_illust.jpg": "Warm Milk"
+  },
+  "items": [
+    {
+      "name": "Why can't you fall asleep?",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Revenge bedtime procrastination -",
+        "most American adults do it",
+        "",
+        "Blue light delays melatonin,",
+        "and low magnesium keeps",
+        "your nervous system wired"
+      ]
+    },
+    {
+      "name": "Kiwi",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Eating kiwi before bed",
+        "is backed by real research",
+        "",
+        "It may help you fall asleep",
+        "faster and sleep longer"
+      ]
+    },
+    {
+      "name": "How to eat kiwi",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Two kiwis, about",
+        "an hour before bed",
+        "",
+        "Stick with it most nights -",
+        "the study ran for 4 weeks"
+      ]
+    },
+    {
+      "name": "Pistachios",
+      "char_file": "피스타치오_illust.jpg",
+      "body": [
+        "Pistachios naturally contain",
+        "melatonin, tryptophan,",
+        "and magnesium",
+        "",
+        "All three support your body's",
+        "own wind-down process"
+      ]
+    },
+    {
+      "name": "How to eat pistachios",
+      "char_file": "피스타치오_illust.jpg",
+      "body": [
+        "A small handful,",
+        "about 30 minutes before bed",
+        "",
+        "Unsalted is the better choice",
+        "for a calmer night"
+      ]
+    },
+    {
+      "name": "Warm milk",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Not just an old story",
+        "",
+        "Casein peptides formed",
+        "as milk digests have a",
+        "calming effect on your body"
+      ]
+    },
+    {
+      "name": "How to drink it",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "One warm cup,",
+        "30 to 60 minutes before bed",
+        "",
+        "A consistent bedtime still",
+        "matters more than any one food"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "These foods won't undo",
+        "bedtime procrastination alone"
+      ],
+      [
+        "But paired with a set",
+        "phone cutoff time, they help"
+      ]
+    ],
+    "tip": [
+      "Try one tonight,",
+      "and set a bedtime alarm too"
+    ],
+    "cta": "Want more health tips? Subscribe and like the channel"
+  },
+  "topic_word": "Revenge Bedtime Procrastination"
+}
