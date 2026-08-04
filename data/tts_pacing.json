@@ -17,8 +17,8 @@
   },
   "en": {
     "unit": "word",
-    "rate": 3.361,
-    "samples": 16
+    "rate": 3.2815725262556685,
+    "samples": 21
   },
   "es": {
     "unit": "word",
@@ -74,10 +74,5 @@
     "unit": "char",
     "rate": 5.902,
     "samples": 8
-  },
-  "영어": {
-    "unit": "word",
-    "rate": 3.027404610273806,
-    "samples": 5
   }
 }

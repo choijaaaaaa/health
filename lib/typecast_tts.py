@@ -235,6 +235,21 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
 _PACING_PATH = ROOT / "data" / "tts_pacing.json"
 _CHAR_BASED_LANGS = {"ja", "zh-TW", "th"}
 
+# WHY(2026-08-05 버그 수정, 장_1/en 작업 중 발견): synthesize()의 lang 파라미터는
+# _voice_pool() 조회용으로 한국어 라벨("영어")을 받는데, 그 값을 그대로
+# _record_pacing_sample에 넘겨서 tts_pacing.json에 "en"과 별도로 "영어" 키가
+# 따로 생기는 버그가 있었다 — 두 용도(보이스 조회 vs pacing 키)가 서로 다른
+# 언어 식별자 체계를 쓴다는 걸 놓친 채 파라미터 하나로 겸용했던 게 원인.
+# global_channels.json의 한국어 라벨→ISO 코드 매핑과 동일하게 맞춘다.
+_LABEL_TO_CODE = {
+    "영어": "en", "일본어": "ja", "스페인어": "es",
+    "포르투갈어": "pt", "러시아어": "ru",
+}
+
+
+def _pacing_lang_code(lang: str) -> str:
+    return _LABEL_TO_CODE.get(lang, lang)
+
 
 def _pacing_unit_count(text: str, lang: str) -> int:
     if lang in _CHAR_BASED_LANGS:
@@ -248,6 +263,7 @@ def _record_pacing_sample(lang: str, text: str, duration: float) -> None:
     갱신 공식). lang="kor"(한국어)는 이 표에서 관리 안 함(글로벌 topic 대상 지표)."""
     if lang == "kor":
         return
+    lang = _pacing_lang_code(lang)
     unit_count = _pacing_unit_count(text, lang)
     if unit_count == 0:
         return
@@ -276,6 +292,7 @@ def estimate_duration(text: str, lang: str) -> float | None:
     None(호출자가 감으로 판단)."""
     if not _PACING_PATH.exists():
         return None
+    lang = _pacing_lang_code(lang)
     pacing = json.loads(_PACING_PATH.read_text(encoding="utf-8"))
     entry = pacing.get(lang)
     if not entry:
