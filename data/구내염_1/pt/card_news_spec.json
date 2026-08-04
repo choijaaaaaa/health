@@ -1,0 +1,105 @@
+{
+  "title": [
+    "A afta sempre volta",
+    "no mesmo lugar?",
+    "3 alimentos que pioram a ferida"
+  ],
+  "cover_char_file": "파인애플_illust.jpg",
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "파인애플_illust.jpg",
+      "body": [
+        "14% dos brasileiros são",
+        "vegetarianos hoje",
+        "",
+        "Quem corta carne sem repor",
+        "pode faltar vitamina B12,",
+        "e a mucosa enfraquece"
+      ]
+    },
+    {
+      "name": "Abacaxi",
+      "char_file": "파인애플_illust.jpg",
+      "body": [
+        "A bromelina do abacaxi",
+        "machuca a mucosa por dentro",
+        "",
+        "Não é só o azedo",
+        "que arde na ferida"
+      ]
+    },
+    {
+      "name": "No lugar do abacaxi",
+      "char_file": "파파야_illust.jpg",
+      "body": [
+        "Troque por mamão,",
+        "bem mais suave",
+        "",
+        "Menos ácido,",
+        "menos irritação"
+      ]
+    },
+    {
+      "name": "Pimenta",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "A capsaicina da pimenta",
+        "queima direto na ferida",
+        "",
+        "Isso irrita ainda mais",
+        "a mucosa já sensível"
+      ]
+    },
+    {
+      "name": "No lugar da pimenta",
+      "char_file": "바질_illust.jpg",
+      "body": [
+        "Troque por ervas frescas",
+        "como manjericão",
+        "",
+        "Dá sabor",
+        "sem ardência"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "O café resseca a boca",
+        "e prolonga a irritação",
+        "",
+        "Além do ácido,",
+        "que já incomoda a ferida"
+      ]
+    },
+    {
+      "name": "No lugar do café",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Troque por um chá de camomila",
+        "",
+        "E aposte em ovo e queijo",
+        "no dia a dia pra repor a B12"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A maioria das aftas",
+        "cicatriza em 1 a 2 semanas"
+      ],
+      [
+        "Se passar disso,",
+        "procure um dentista"
+      ]
+    ],
+    "tip": [
+      "Mamão, ervas frescas e camomila",
+      "reduzem a irritação no dia a dia"
+    ],
+    "cta": "Quer mais dicas de saúde? Se inscreva, curta e siga"
+  },
+  "eyebrow": "Atenção com aftas"
+}

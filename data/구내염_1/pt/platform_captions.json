@@ -1,0 +1,30 @@
+{
+  "topic": "구내염_1_pt",
+  "title": "A afta sempre volta no mesmo lugar? 3 alimentos que pioram a ferida",
+  "products": [
+    "Mamão",
+    "Chá de Camomila",
+    "Ovo"
+  ],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: A Afta Sempre Volta no Mesmo Lugar? Veja Por Quê\n\nDescription:\nO Brasil já tem 14% da população vegetariana, um crescimento de 75% em uma década. Quem corta carne sem repor direito pode faltar vitamina B12 - e isso deixa a mucosa da boca mais fraca, fazendo a afta demorar mais para cicatrizar.\n\nCom a mucosa fragilizada, três alimentos bem comuns pioram tudo: o abacaxi (a bromelina machuca a mucosa por dentro), a pimenta (a capsaicina queima direto na ferida) e o café (resseca a boca e prolonga a irritação).\n\nTroque o abacaxi por mamão, a pimenta por ervas frescas como manjericão, e o café por um chá de camomila. E aposte em ovo e queijo no dia a dia pra ajudar a repor a B12.\n\nA maioria das aftas cicatriza em 1 a 2 semanas - se passar disso, procure um dentista.\n\n#Shorts #afta #saudebucal #vitaminaB12 #vegetariano #saude #dicasdesaude"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "Copiar legenda → novo Reels → colar no campo de legenda",
+      "caption": "A afta sempre volta no mesmo lugar? 😖\n\nO Brasil já tem 14% da população vegetariana, um crescimento de 75% em uma década - e quem corta carne sem repor direito pode faltar vitamina B12, deixando a mucosa da boca mais fraca.\n\nAbacaxi, pimenta e café pioram a irritação. Troque por mamão, ervas frescas e chá de camomila, e aposte em ovo e queijo pra repor a B12.\n\nQuer mais dicas de saúde? Segue aqui 👆\n\n#afta #saudebucal #vitaminaB12 #vegetariano #saude #bemestar"
+    }
+  ]
+}
