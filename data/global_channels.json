@@ -34,7 +34,7 @@
     "brand_account_created": true,
     "oauth_consent_configured": true,
     "oauth_production": false,
-    "refresh_token_issued": false,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_es"
   },
   "포르투갈어": {
@@ -43,7 +43,7 @@
     "brand_account_created": true,
     "oauth_consent_configured": true,
     "oauth_production": false,
-    "refresh_token_issued": false,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_pt"
   },
   "러시아어": {
@@ -52,7 +52,7 @@
     "brand_account_created": true,
     "oauth_consent_configured": true,
     "oauth_production": false,
-    "refresh_token_issued": false,
+    "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_ru"
   }
 }
