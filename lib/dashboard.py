@@ -1282,7 +1282,20 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
 
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
-    topic = spec.get("topic", spec["title"])
+    topic = spec.get("topic")
+    if not isinstance(topic, str):
+        # WHY(2026-08-05): 글로벌(비한국어) topic의 card_news_spec.json은 "topic"
+        # 필드가 아예 없고 "title"도 영상 템플릿용으로 줄바꿈된 리스트라(문자열이
+        # 아님), 기존 폴백(spec["title"])이 그대로 크래시했다 — spec_path의
+        # data/<주제>/[<lang>/]card_news_spec.json 경로에서 <주제>[_<lang>] 슬러그를
+        # 유도한다(CLAUDE.md "글로벌 확장"의 topic 필드 명명 규칙과 동일 형식).
+        parts = Path(spec_path).resolve().parts
+        try:
+            idx = parts.index("data")
+            rest = parts[idx + 1:-1]
+        except ValueError:
+            rest = ()
+        topic = "_".join(rest) if rest else Path(spec_path).parent.name
     # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
     # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
