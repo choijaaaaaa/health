@@ -1,0 +1,26 @@
+{
+  "topic": "수면_1_es",
+  "title": "¿Duermes mal por el estrés? 3 remedios mexicanos para relajarte antes de dormir",
+  "products": ["té de tila", "avena", "plátano"],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "YouTube Studio 열기 → 만들기 → 동영상 업로드",
+      "caption": "Título: ¿Duermes mal por el estrés? 3 remedios mexicanos para relajarte antes de dormir\n\nDescripción:\nCasi la mitad de los adultos en México duerme mal, y buena parte de esos casos de insomnio están ligados al estrés y los nervios del día a día, que mantienen el cuerpo alerta.\n\nEl té de tila es un remedio tradicional mexicano de generaciones atrás — un estudio de la UNAM encontró que sus flavonoides actúan sobre receptores del cerebro ligados a la calma. La avena ayuda a que el triptófano llegue al cerebro y se convierta en la hormona del sueño, y el plátano aporta magnesio y potasio que relajan los músculos y el sistema nervioso.\n\nEstos alimentos no resuelven el insomnio por sí solos, pero mantener un horario de sueño constante junto con ellos sí puede ayudarte a descansar mejor.\n\n#Shorts #insomnio #tedetila #dormirmejor #saludmental #remediosnaturales"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "캡션 복사 → 새 릴스 → 캡션란에 붙여넣기",
+      "caption": "¿Te cuesta dormirte o te despiertas varias veces en la noche? Casi la mitad de los adultos en México duerme mal 😴\n\nEl estrés y los nervios del día a día mantienen el cuerpo alerta. El té de tila (remedio tradicional mexicano, respaldado por un estudio de la UNAM), la avena y el plátano pueden ayudarte a relajarte antes de dormir 🍌🌿\n\n¿Quieres más consejos de salud como este? Sígueme 👆\n\n#insomnio #tedetila #dormirmejor #saludmental #remediosnaturales"
+    }
+  ]
+}
