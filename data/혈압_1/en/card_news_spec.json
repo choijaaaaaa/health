@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Two sugary drinks a day was enough",
+    "to raise blood pressure risk by 52%",
+    "3 Everyday Habits Behind High Blood Pressure"
+  ],
+  "eyebrow": "Blood Pressure Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "가공육_illust.jpg": "Deli Meat",
+    "맥주_illust.jpg": "Alcohol",
+    "탄산음료_illust.jpg": "Soda"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Sodium pulls extra fluid",
+        "into your blood vessels",
+        "",
+        "Alcohol stiffens vessel walls,",
+        "and sugar spikes insulin -",
+        "which holds onto even more sodium"
+      ]
+    },
+    {
+      "name": "Deli Meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "6 thin slices of deli turkey",
+        "or ham already pack half your",
+        "daily sodium limit",
+        "",
+        "That extra salt pulls more",
+        "fluid into your blood vessels"
+      ]
+    },
+    {
+      "name": "Deli Meat — try this instead",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Ask the counter for freshly",
+        "roasted chicken breast instead",
+        "of cured deli meat",
+        "",
+        "Buying packaged? Look for",
+        "\"low-sodium\" on the label"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Regular heavy drinking",
+        "stiffens blood vessel walls",
+        "over time",
+        "",
+        "Mayo Clinic research found cutting",
+        "to a moderate amount dropped",
+        "systolic pressure by ~5.5 points"
+      ]
+    },
+    {
+      "name": "Alcohol — try this instead",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Swap your evening drink",
+        "for hibiscus tea instead",
+        "",
+        "A Tufts study found 3 cups a day",
+        "for 6 weeks dropped systolic",
+        "pressure by about 7 points"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "2+ sugary drinks a day is linked",
+        "to 52% higher blood pressure risk",
+        "over 25 years",
+        "",
+        "The sugar spikes insulin and your",
+        "body holds onto extra sodium"
+      ]
+    },
+    {
+      "name": "Soda — try this instead",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Swap for sparkling water",
+        "instead",
+        "",
+        "You keep the fizz,",
+        "lose the sugar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Blood pressure risk builds",
+        "from small daily habits"
+      ],
+      [
+        "None of these need to",
+        "disappear completely"
+      ]
+    ],
+    "tip": [
+      "Start with deli meat, alcohol,",
+      "or soda - pick one and swap it"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Blood Pressure"
+}
