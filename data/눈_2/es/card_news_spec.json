@@ -1,0 +1,113 @@
+{
+  "title": [
+    "En México pasamos más de 7 horas",
+    "al día viendo el celular",
+    "Las causas reales del párpado que tiembla"
+  ],
+  "eyebrow": "Alerta: párpado que tiembla",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "char_display_names": {
+    "스마트폰_illust.jpg": "Pantallas",
+    "베개_illust.jpg": "Descanso",
+    "의자_illust.jpg": "Estrés"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Parpadeas mucho menos",
+        "cuando ves pantallas por horas",
+        "",
+        "El mal descanso y el estrés",
+        "también alteran el nervio",
+        "que mueve el párpado"
+      ]
+    },
+    {
+      "name": "Pantallas",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Ver el celular o la compu",
+        "por horas reduce el parpadeo",
+        "",
+        "El ojo se reseca e irrita,",
+        "y eso activa el nervio",
+        "del párpado"
+      ]
+    },
+    {
+      "name": "Pantallas — la solución",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Cada 20 minutos, mira algo",
+        "lejos durante 20 segundos",
+        "",
+        "Baja el brillo y usa lágrimas",
+        "artificiales si sientes sequedad"
+      ]
+    },
+    {
+      "name": "Falta de sueño",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Dormir poco deja el sistema",
+        "nervioso más sensible",
+        "",
+        "El músculo del párpado",
+        "se excita con más facilidad"
+      ]
+    },
+    {
+      "name": "Falta de sueño — la solución",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Apaga las pantallas un par",
+        "de horas antes de dormir",
+        "",
+        "Intenta dormir entre 7 y 8 horas"
+      ]
+    },
+    {
+      "name": "Estrés acumulado",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Pasar horas sin moverte",
+        "en el trabajo o la escuela",
+        "",
+        "acumula tensión que también",
+        "hace temblar el párpado"
+      ]
+    },
+    {
+      "name": "Estrés — la solución",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Levántate a caminar",
+        "cada hora, aunque sea un poco",
+        "",
+        "Estirar el cuerpo ayuda a",
+        "bajar la tensión acumulada"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El temblor del párpado",
+        "casi siempre es el nervio sobreexcitado"
+      ],
+      [
+        "Cuidar pantallas, sueño y pausas",
+        "ayuda a que se calme"
+      ]
+    ],
+    "tip": [
+      "Prueba la regla 20-20-20",
+      "y descansa la vista seguido"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Párpado"
+}
