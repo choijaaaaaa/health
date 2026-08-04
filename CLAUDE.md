@@ -155,10 +155,17 @@
   topic은 네이버 블로그·티스토리·인스타그램 릴스·유튜브 쇼츠·네이버 클립·
   쓰레드·틱톡. **글로벌(비한국어) topic은 YouTube Shorts + Instagram Reels
   두 항목만**(유튜브는 자동 업로드라 대시보드 UI에서 제외됨).
-- **필수 플래그**(빠짐없이):
+- ⚠️ **글로벌(비한국어) topic은 제휴/상품 관련 필드 자체를 안 쓴다**(2026-08-05,
+  "쿠팡 DM 자동화라는거 자체가 필요가없어 일단 유튜브든 인스타든 건강정보만
+  주는 형태로 운영할거야. 채널이 커지면 알리나 아마존 붙일거고" — 확정).
+  `comment_keyword`·`comment_dm_automation`·`products`·`suppress_product_block`
+  등 아래 플래그는 **한국어 topic 전용**이다 — 글로벌 topic은 이 필드들을
+  아예 넣지 않고 순수 건강정보 콘텐츠로만 작성할 것(채널이 커지면 그때
+  아마존/알리익스프레스 제휴로 전환 예정, 아직 아님).
+- **필수 플래그**(한국어 topic, 빠짐없이):
   - `no_caption_link: true` — 인스타 릴스·틱톡(URL 클릭 안 되는 플랫폼)
   - `comment_dm_automation: true` — 인스타 릴스만(실제 자동화 연동된 곳)
-  - `comment_keyword: "쿠팡"` — **모든 topic 공통 고정값**
+  - `comment_keyword: "쿠팡"` — **한국어 topic 공통 고정값**
   - `network: "naver"` — 네이버 블로그 + 네이버 클립 둘 다(URL 없이 상품명만
     나열하는 로직 트리거)
   - `rich_paste: true` — 네이버 블로그·티스토리만(클립보드 이미지 붙여넣기)
