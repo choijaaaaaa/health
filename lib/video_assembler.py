@@ -386,7 +386,7 @@ def _text_y_bias_for_seed(seed: str) -> float:
 # 뒤 반투명 띠)·boxed(글자 둘레 테두리 박스)를 추가해 뼈대 자체를 topic마다 다르게
 # 한다. seed 가중치를 색(i+1)·위치(i+2)와 또 다르게(i+3) 섞어 세 값이 서로
 # 독립적으로 조합되게 한다.
-_TITLE_CARD_STYLES = ["plain", "banner", "boxed"]
+_TITLE_CARD_STYLES = ["plain", "banner", "boxed", "underline"]
 
 
 def _title_card_style_for_seed(seed: str) -> str:
@@ -445,6 +445,12 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
         pad_x, pad_y = 50, 34
         box = [(W - max_tw) / 2 - pad_x, y - pad_y, (W + max_tw) / 2 + pad_x, y + total_h + pad_y]
         draw.rounded_rectangle(box, radius=20, outline=(255, 255, 255), width=6)
+    elif style == "underline":
+        bar_w, bar_h = max_tw + 50, 14
+        bar_y = y + total_h + 18
+        draw.rounded_rectangle(
+            [(W - bar_w) / 2, bar_y, (W + bar_w) / 2, bar_y + bar_h],
+            radius=bar_h / 2, fill=(255, 255, 255))
 
     for line in lines:
         bbox = draw.textbbox((0, 0), line, font=font)
@@ -1719,6 +1725,83 @@ def _doodle_cupcake():
     return _stroke_shape(draw)
 
 
+# WHY 6개 추가(2026-08-04, "더해도 좋아" — 1차 8종에 이어 2차 확장): 위와 같은
+# 스타일(130x130 캔버스 + 흰색 스트로크 + 그림자 오프셋)로 아직 없던 소재
+# 채움(안경/보타이/편지봉투/자/붓/시계).
+def _doodle_glasses():
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([14 + ox, 40 + oy, 54 + ox, 80 + oy], outline=color, width=5)
+        d.ellipse([76 + ox, 40 + oy, 116 + ox, 80 + oy], outline=color, width=5)
+        d.line([(54 + ox, 58 + oy), (76 + ox, 58 + oy)], fill=color, width=5)
+        d.line([(14 + ox, 58 + oy), (2 + ox, 50 + oy)], fill=color, width=5)
+        d.line([(116 + ox, 58 + oy), (128 + ox, 50 + oy)], fill=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_bowtie():
+    def draw(d, off, color):
+        ox, oy = off
+        left = [(20 + ox, 35 + oy), (60 + ox, 65 + oy), (20 + ox, 95 + oy), (20 + ox, 35 + oy)]
+        right = [(110 + ox, 35 + oy), (70 + ox, 65 + oy), (110 + ox, 95 + oy), (110 + ox, 35 + oy)]
+        d.line(left, fill=color, width=5, joint="curve")
+        d.line(right, fill=color, width=5, joint="curve")
+        d.ellipse([56 + ox, 55 + oy, 74 + ox, 75 + oy], outline=color, width=5)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_envelope():
+    def draw(d, off, color):
+        ox, oy = off
+        d.rectangle([16 + ox, 32 + oy, 114 + ox, 98 + oy], outline=color, width=5)
+        d.line([(16 + ox, 32 + oy), (65 + ox, 70 + oy), (114 + ox, 32 + oy)],
+               fill=color, width=5, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_ruler():
+    def draw(d, off, color):
+        ox, oy = off
+        d.rectangle([14 + ox, 50 + oy, 116 + ox, 80 + oy], outline=color, width=5)
+        for i in range(1, 8):
+            x = 14 + i * 14.6
+            h = 12 if i % 2 == 0 else 8
+            d.line([(x + ox, 50 + oy), (x + ox, 50 + h + oy)], fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
+def _doodle_paintbrush():
+    def draw(d, off, color):
+        ox, oy = off
+        d.line([(35 + ox, 112 + oy), (78 + ox, 68 + oy)], fill=color, width=7)
+        d.line([(72 + ox, 62 + oy), (96 + ox, 38 + oy)], fill=color, width=10)
+        pts = [(88 + ox, 32 + oy), (100 + ox, 16 + oy), (112 + ox, 30 + oy),
+               (104 + ox, 44 + oy), (88 + ox, 32 + oy)]
+        d.line(pts, fill=color, width=4, joint="curve")
+
+    return _stroke_shape(draw)
+
+
+def _doodle_clock():
+    def draw(d, off, color):
+        ox, oy = off
+        d.ellipse([15 + ox, 15 + oy, 115 + ox, 115 + oy], outline=color, width=5)
+        cx, cy = 65 + ox, 65 + oy
+        d.line([(cx, cy), (cx, cy - 32)], fill=color, width=5)
+        d.line([(cx, cy), (cx + 24, cy + 10)], fill=color, width=5)
+        for ang in range(0, 360, 30):
+            rad = math.radians(ang)
+            x1, y1 = cx + 44 * math.cos(rad), cy + 44 * math.sin(rad)
+            x2, y2 = cx + 50 * math.cos(rad), cy + 50 * math.sin(rad)
+            d.line([(x1, y1), (x2, y2)], fill=color, width=3)
+
+    return _stroke_shape(draw)
+
+
 _DOODLES = [
     _doodle_star, _doodle_heart, _doodle_sparkle, _doodle_note, _doodle_smiley,
     _doodle_cloud, _doodle_rainbow, _doodle_clover, _doodle_speech_bubble,
@@ -1740,6 +1823,8 @@ _DOODLES = [
     _doodle_asterisk, _doodle_scribble_scratch, _doodle_plus_cross, _doodle_triangle,
     _doodle_snowflake, _doodle_question_bubble, _doodle_exclaim_bubble,
     _doodle_trophy, _doodle_rocket, _doodle_kite, _doodle_icecream, _doodle_cupcake,
+    _doodle_glasses, _doodle_bowtie, _doodle_envelope, _doodle_ruler,
+    _doodle_paintbrush, _doodle_clock,
 ]
 
 # WHY 실측 상수(2026-08-02): 칠판.png(1024x1024)에서 초록 판서면이 실제로 시작/끝나는
@@ -2565,6 +2650,17 @@ CHALKBOARD_VARIANTS = [
     str(_BACKGROUNDS_DIR / "칠판_회색_밝은나무.png"),
     str(_BACKGROUNDS_DIR / "칠판_남색_검정.png"),
     str(_BACKGROUNDS_DIR / "칠판_진초록_검정.png"),
+    # WHY 8개 추가(2026-08-04, "더해도 좋아" — 위 배치에 이어 2차 확장): 새 보드색
+    # 와인(맨지/버건디 톤) 추가 + 그동안 비어있던 색상 교차 조합(갈색×검정,
+    # 회색×검정, 청록/보라×밝은나무, 남색×어두운나무) 채움.
+    str(_BACKGROUNDS_DIR / "칠판_와인_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_와인_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_와인_어두운나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_갈색_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_회색_검정.png"),
+    str(_BACKGROUNDS_DIR / "칠판_청록_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_보라_밝은나무.png"),
+    str(_BACKGROUNDS_DIR / "칠판_남색_어두운나무.png"),
 ]
 
 
