@@ -1,0 +1,26 @@
+{
+  "topic": "수면_1_fr",
+  "title": "1 Français sur 2 dit que le stress abîme son sommeil - 3 habitudes du soir à connaître",
+  "products": ["Laitue", "Amandes", "Banane"],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "YouTube Studio 열기 → 만들기 → 동영상 업로드",
+      "caption": "Titre : Près d'1 Français sur 2 dit que le stress abîme son sommeil\n\nDescription :\nEnviron un Français sur deux estime que le stress perturbe son sommeil, et le manque de magnésium (qui touche 7 Français sur 10) accentue cette nervosité qui empêche de bien dormir.\n\nTrois habitudes du soir reviennent souvent : la tisane de laitue (un remède de grand-mère redevenu viral, grâce au lactucarium qu'elle contient), les amandes (riches en magnésium), et la banane (vitamine B6 et précurseur de la sérotonine).\n\nCes habitudes ne remplacent pas un rythme de sommeil régulier : se coucher à heure fixe et limiter les écrans le soir restent la base.\n\n#Shorts #Sommeil #Stress #Magnésium #SantéNaturelle"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "suppress_product_block": true,
+      "action": "캡션 복사 → 새 릴스 → 캡션란에 붙여넣기",
+      "caption": "1 Français sur 2 dit que le stress abîme son sommeil 😴\n\n7 Français sur 10 manquent de magnésium, ce qui accentue la nervosité le soir. Trois habitudes reviennent souvent : la tisane de laitue (un remède de grand-mère redevenu viral sur les réseaux), les amandes riches en magnésium, et la banane pour sa vitamine B6.\n\nCes habitudes ne remplacent pas un rythme de sommeil régulier, mais elles peuvent aider 🌙\n\nEnvie de plus d'astuces santé ? Abonnez-vous 👆\n\n#Sommeil #Stress #Magnésium #SantéNaturelle #AstuceSanté"
+    }
+  ]
+}
