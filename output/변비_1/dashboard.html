@@ -34,7 +34,20 @@
   main { max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; }
   .lang-panel { display: none; }
   .lang-panel.active { display: block; }
-  iframe.dash-frame { width: 100%; height: 100vh; border: 0; border-radius: 16px; background: var(--panel); }
+  /* WHY 고정 뷰포트 높이 + 자체 스크롤(기본 iframe scrolling)을 유지하는지
+     (2026-08-04, 실제 버그로 발견됨 — "위젯은 위아래로 이동하면서 따라오지
+     않고, 안쪽으로 들어와서 다른 스크립트들을 가리게 되었어"): 예전엔 iframe
+     높이를 내용물 실측 높이로 늘려서(load 시 scrollHeight 적용) 이 페이지
+     전체가 하나의 스크롤처럼 보이게 했는데, 그러면 iframe 내부 문서 입장에서는
+     "뷰포트 = 전체 문서 높이"라 스크롤이 아예 안 생겨서 언어별 dashboard.html
+     안의 상품 링크 dock(position: fixed)이 스크롤을 전혀 못 따라오는 상태가
+     됐다 — position:fixed/sticky는 항상 자기 문서 자신의 뷰포트 기준으로만
+     동작해서, 부모 페이지 스크롤과는 애초에 연동될 수 없다(postMessage로
+     직접 동기화하지 않는 한). 이중 스크롤바가 생기더라도 iframe이 실제로
+     스크롤 가능한 뷰포트를 가져야 그 안의 fixed dock이 정상 동작하므로,
+     고정 높이로 되돌리고 자동 리사이즈는 뺐다 — standalone으로 열었을 때와
+     동일한 동작을 보장하는 쪽이 우선. */
+  iframe.dash-frame { width: 100%; height: 82vh; border: 0; border-radius: 16px; background: var(--panel); }
   .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
   .plat-card {
     flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
@@ -73,6 +86,7 @@
 <div class="lang-tabs"><button class="lang-tab active" data-panel="panel-ko">한국어</button>
 <button class="lang-tab" data-panel="panel-en">영어 English</button>
 <button class="lang-tab" data-panel="panel-ja">일본어 日本語</button>
+<button class="lang-tab" data-panel="panel-pt">포르투갈어 Português</button>
 </div>
 <main>
 <div class="lang-panel active" id="panel-ko"><iframe class="dash-frame" src="ko/dashboard.html"></iframe></div>
@@ -112,6 +126,51 @@ More health tips like this - follow along!
   </div>
 </div>
 </div></div>
+<div class="lang-panel" id="panel-pt"><div class="lang-body">
+<div class="plat-card">
+  <h3>Instagram Reels</h3>
+  <div class="g-video-ph">🎬 영상 준비 중</div>
+  <textarea id="g-cap-pt-1" spellcheck="false">Pão francês, presunto e café em excesso todo dia? 😩
+
+Esses três hábitos do café da manhã brasileiro podem estar deixando seu intestino mais lento. Nenhum precisa sumir do prato - só ajustar a quantidade já faz diferença.
+
+Mais dicas de saúde por aqui - me segue!
+
+#prisaodeventre #saudeintestinal #saudedigestiva #fibra #bemestar</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-pt-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="g-cap-pt-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card">
+  <h3>Facebook</h3>
+  <div class="g-video-ph">🎬 영상 준비 중</div>
+  <textarea id="g-cap-pt-3" spellcheck="false">Pão francês, presunto e café em excesso no café da manhã?
+
+O pão francês tem quase só farinha refinada e pouca fibra, embutidos como presunto e salsicha têm muito sódio e pouca fibra, e o excesso de café pode contribuir para a desidratação - tudo isso deixa o intestino mais lento. Não precisa cortar nada de vez - pequenas trocas já fazem diferença.
+
+#prisaodeventre #saudeintestinal #saudedigestiva #fibra</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-pt-3">캡션 복사</button>
+    <a class="btn-go" href="https://www.facebook.com/" target="_blank" rel="noopener" data-copy-target="g-cap-pt-3">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card">
+  <h3>Threads</h3>
+  <div class="g-video-ph">🎬 영상 준비 중</div>
+  <textarea id="g-cap-pt-4" spellcheck="false">Esse combo do café da manhã pode estar por trás da sua prisão de ventre.
+
+Pão francês, presunto e café em excesso - 3 hábitos comuns que deixam o intestino mais lento.
+
+#prisaodeventre #saudeintestinal #fibra</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-pt-4">캡션 복사</button>
+    <a class="btn-go" href="https://www.threads.net/" target="_blank" rel="noopener" data-copy-target="g-cap-pt-4">열기 →</a>
+  </div>
+</div>
+</div></div>
 
 </main>
 <script>
@@ -137,20 +196,6 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
   btn.addEventListener("click", () => {
     const ta = document.getElementById(btn.dataset.copyTarget);
     navigator.clipboard.writeText(ta.value);
-  });
-});
-// WHY iframe 높이를 내용물에 맞춰 늘리는지: 언어별 dashboard.html은 카드 개수·
-// 상품 dock 펼침 여부에 따라 실제 높이가 topic마다 다르다 — 고정 높이면
-// 짧으면 빈 여백, 길면 내부 스크롤(이중 스크롤바)이 생겨 이 페이지에 있는
-// 것처럼 자연스럽게 안 보인다. 같은 오리진(로컬 파일/GitHub Pages 둘 다
-// 동일 도메인)이라 contentWindow 접근이 막히지 않으므로 로드 시 실측해서
-// 맞춘다 — 혹시 접근이 막히는 환경이면 고정 100vh로 조용히 폴백한다.
-document.querySelectorAll("iframe.dash-frame").forEach(frame => {
-  frame.addEventListener("load", () => {
-    try {
-      const h = frame.contentWindow.document.body.scrollHeight;
-      if (h > 0) frame.style.height = (h + 40) + "px";
-    } catch (e) { /* cross-origin 등 — 고정 높이 유지 */ }
   });
 });
 </script>
