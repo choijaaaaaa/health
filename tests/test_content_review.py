@@ -13,7 +13,7 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import lib.content_review as content_review  # noqa: E402
-from lib.content_review import _build_prompt, _card_news_text, review_topic  # noqa: E402
+from lib.content_review import _build_prompt, _card_news_text, _topic_dir, review_topic  # noqa: E402
 
 
 class _FakeResponse:
@@ -67,6 +67,56 @@ def test_card_news_text_extracts_items_and_closing_only(tmp_path, monkeypatch):
 def test_card_news_text_missing_file_returns_empty(tmp_path, monkeypatch):
     _write_topic(tmp_path, monkeypatch, "테스트토픽_1")
     assert _card_news_text("테스트토픽_1") == ""
+
+
+# WHY 이 테스트들이 필요한지(2026-08-04 회귀 방지): review_topic/_card_news_text가
+# 전부 data/<topic>/narration.txt(구식 단일 언어 구조)만 보고 있어서, 2026-08-03
+# 글로벌 확장으로 모든 topic이 data/<topic>/<lang>/ 중첩 구조로 바뀐 뒤에는 실제로는
+# 파일을 하나도 못 찾아 조용히 "문제 없음"(빈 리스트)을 반환하고 있었다 — 에러도 안
+# 나고 API 호출도 안 되니 겉으로는 "정상적으로 통과"처럼 보였다. 위 _write_topic
+# 기반 테스트들은 전부 평평한 구조라 이 버그를 못 잡았다(폴백 경로만 탔음) — 이
+# 테스트들은 실제 운영 구조(중첩)를 흉내내서 진짜로 파일을 찾는지 확인한다.
+
+def _write_nested_topic(tmp_path, monkeypatch, topic: str, lang_code: str = "ko",
+                         narration: str = "", spec: dict | None = None):
+    monkeypatch.setattr(content_review, "ROOT", tmp_path)
+    data_dir = tmp_path / "data" / topic / lang_code
+    data_dir.mkdir(parents=True)
+    if narration:
+        (data_dir / "narration.txt").write_text(narration, encoding="utf-8")
+    if spec is not None:
+        (data_dir / "card_news_spec.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+
+
+def test_topic_dir_resolves_nested_ko_folder_when_present(tmp_path, monkeypatch):
+    _write_nested_topic(tmp_path, monkeypatch, "목_1", "ko", narration="아무 문장.")
+    assert _topic_dir("목_1", "kor") == tmp_path / "data" / "목_1" / "ko"
+
+
+def test_topic_dir_resolves_nested_lang_folder_via_name_reverse_lookup(tmp_path, monkeypatch):
+    _write_nested_topic(tmp_path, monkeypatch, "목_1", "en", narration="Some sentence.")
+    assert _topic_dir("목_1", "영어") == tmp_path / "data" / "목_1" / "en"
+
+
+def test_topic_dir_falls_back_to_flat_when_no_nested_folder(tmp_path, monkeypatch):
+    _write_topic(tmp_path, monkeypatch, "테스트토픽_1", narration="아무 문장.")
+    assert _topic_dir("테스트토픽_1", "kor") == tmp_path / "data" / "테스트토픽_1"
+
+
+def test_review_topic_finds_content_in_nested_ko_structure(tmp_path, monkeypatch):
+    """회귀: 중첩 구조 topic의 narration.txt를 못 찾아 API 호출 자체를 건너뛰고
+    조용히 빈 리스트를 반환하던 버그(2026-08-04)."""
+    _write_nested_topic(tmp_path, monkeypatch, "목_1", "ko", narration="문제되는 문장이야.")
+    fake_issues = [{"quote": "문제되는 문장이야.", "issue": "테스트용 이슈"}]
+
+    def fake_post(*args, **kwargs):
+        return _FakeResponse(json.dumps(fake_issues, ensure_ascii=False))
+
+    monkeypatch.setenv("GEMINI_API_KEY", "fake-key")
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+
+    result = review_topic("목_1")
+    assert result == fake_issues
 
 
 def test_review_topic_parses_json_array_response(tmp_path, monkeypatch):

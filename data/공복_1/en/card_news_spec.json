@@ -1,89 +1,64 @@
 {
   "title": [
-    "Still not losing fat",
-    "even though you're eating less?",
-    "4 Foods To Try On An Empty Stomach"
+    "Feeling Shaky and Starving",
+    "by Mid-Morning?",
+    "What To Do Before Your First Cup of Coffee"
   ],
-  "eyebrow": "Fat Loss Stalling",
+  "eyebrow": "Coffee & Blood Sugar",
   "swipe_label": "Swipe to see more  →",
   "closing_label": "Wrap-up",
+  "topic_word": "Coffee",
   "items": [
     {
-      "name": "Why does this happen",
-      "char_file": "계란_illust.jpg",
+      "name": "Why Does This Happen",
+      "char_file": "커피_illust.jpg",
       "body": [
-        "Refined carbs and sugar",
-        "spike your blood sugar fast",
+        "Cortisol peaks in the first",
+        "30-45 minutes after waking",
         "",
-        "That triggers an insulin surge",
-        "that tells your body",
-        "to store fat, not burn it"
+        "Coffee hitting an empty stomach",
+        "piles right on top of it"
       ]
     },
     {
       "name": "Eggs",
       "char_file": "계란_illust.jpg",
       "body": [
-        "One of the most filling",
-        "breakfasts you can eat",
+        "Protein before your coffee",
+        "blunts the glucose swing",
         "",
-        "Study: people who ate eggs",
-        "instead of a bagel ate less",
-        "for the next 36 hours"
+        "Study: coffee before breakfast",
+        "raised blood sugar response",
+        "by about 50%"
       ]
     },
     {
-      "name": "Chia Seed Water",
-      "char_file": "치아씨드_illust.jpg",
+      "name": "Cottage Cheese",
+      "char_file": "치즈_illust.jpg",
       "body": [
-        "Absorbs up to 12x its weight",
-        "in water, forms a gel in your stomach",
+        "Same protein-first idea,",
+        "just grab and go",
         "",
-        "1 tbsp in water first thing",
-        "curbed hunger before lunch"
-      ]
-    },
-    {
-      "name": "Apple Cider Vinegar",
-      "char_file": "사과식초_illust.jpg",
-      "body": [
-        "Diluted in water,",
-        "a popular morning habit",
-        "",
-        "Meta-analysis of 10 trials:",
-        "linked to lower weight, BMI,",
-        "and waist size over 12 weeks"
-      ]
-    },
-    {
-      "name": "Green Tea",
-      "char_file": "녹차_illust.jpg",
-      "body": [
-        "Catechins + natural caffeine",
-        "may support fat burning",
-        "",
-        "12-week trial: exercisers who",
-        "also drank it lost more",
-        "abdominal fat than exercise alone"
+        "Pair it with berries",
+        "for an easy combo"
       ]
     }
   ],
   "closing": {
     "headline": [
       [
-        "You don't need",
-        "all four at once"
+        "You don't have to",
+        "quit coffee"
       ],
       [
-        "Pick whichever one",
-        "is easiest for you"
+        "Just don't make it the first",
+        "thing your stomach sees"
       ]
     ],
     "tip": [
-      "Pay attention to how",
-      "your body actually responds"
+      "Wait 45-60 minutes after waking",
+      "if you can, or eat something first"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
-  },
-  "topic_word": "Metabolism"
+  }
 }
