@@ -1,0 +1,51 @@
+{
+  "topic": "눈_2_es",
+  "title": "Pasamos más de 7 horas al día viendo el celular en México, ¿y tu párpado no deja de temblar? - Las causas reales del párpado que tiembla",
+  "products": [],
+  "comment_keyword": "",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "YouTube Studio 열기 → 만들기 → 동영상 업로드",
+      "caption": "Title: Por qué las pantallas, el mal sueño y el estrés hacen temblar tu párpado\n\nDescription:\nEn México pasamos más de 7 horas al día viendo el celular, y eso podría estar detrás de ese párpado que no deja de temblar.\n\nLas pantallas reducen el parpadeo y resecan el ojo, el mal descanso deja el sistema nervioso más sensible, y el estrés acumulado por pasar horas sin moverte también hace que el párpado se excite más.\n\nMira el video para conocer la solución con la regla del 20-20-20 y otros cambios simples.\n\n#temblordeparpado #miokimia #saludocular #tipsdesalud #bienestar"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": false,
+      "action": "캡션 복사 → 새 릴스 → 캡션란에 붙여넣기",
+      "caption": "¿Pasas más de 7 horas al día viendo el celular? 👁️ Eso podría estar detrás de ese párpado que no deja de temblar.\n\nLas pantallas, el mal descanso y el estrés acumulado son los tres factores que más se repiten - cada uno deja el nervio del párpado más sensible de lo normal.\n\nAquí te contamos por qué, y qué hacer para que se calme.\n\n🔗 Link en el perfil para más tips de salud!\n\n#temblordeparpado #miokimia #saludocular #tipsdesalud #bienestar"
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "캡션 복사 → 동영상 업로드 → 캡션란에 붙여넣기",
+      "caption": "¿Se te sigue moviendo el párpado y no sabes por qué? 👁️ Puede ser tu celular, tu sueño o el estrés acumulado.\n\n🔗 Link en la bio para más!\n\n#temblordeparpado #miokimia #saludocular #tipsdesalud #fyp"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 → 붙여넣기(표지 이미지 첨부 권장) → 게시 후 댓글에 링크 추가",
+      "caption": "¿Pasas más de 7 horas al día viendo el celular? Eso podría estar detrás de ese párpado que no deja de temblar.\n\nLas pantallas, el mal descanso y el estrés acumulado son los tres factores que más se repiten, y cada uno deja el nervio del párpado más sensible.\n\nMira el video para conocer por qué pasa y qué hacer al respecto.\n\n#temblordeparpado #miokimia #saludocular #tipsdesalud"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 스레드 → 붙여넣기(표지 이미지 첨부 권장)",
+      "caption": "¿Pasas más de 7 horas al día viendo el celular? Eso podría estar detrás de ese párpado que no deja de temblar.\n\nLas pantallas, el mal descanso y el estrés acumulado son los 3 factores que más se repiten.\n\n#temblordeparpado #miokimia #saludocular"
+    }
+  ]
+}
