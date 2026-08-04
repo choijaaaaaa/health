@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Karnın şişip",
+    "gaz mı yapıyor?",
+    "Gerçek neden bu üç şey olabilir"
+  ],
+  "eyebrow": "GAZ VE ŞİŞKİNLİK",
+  "cover_char_file": "양파_illust.jpg",
+  "char_display_names": {
+    "양파_illust.jpg": "Soğan-Sarımsak",
+    "건살구_illust.jpg": "Kükürtlü Kuru Kayısı",
+    "껌_illust.jpg": "Sakız"
+  },
+  "items": [
+    {
+      "name": "Neden Oluyor?",
+      "char_file": "양파_illust.jpg",
+      "body": ["Soğan-sarımsak, kükürtlü kuru kayısı", "ve sakız çiğnemek de", "", "şişkinliğe ve gaza", "yol açabiliyor"]
+    },
+    {
+      "name": "Soğan-Sarımsak",
+      "char_file": "양파_illust.jpg",
+      "body": ["Fruktoz ince bağırsakta", "sindirilemeyip kalın bağırsağa iner", "", "bakteriler fermente edince", "gaz oluşur"]
+    },
+    {
+      "name": "Soğan-Sarımsak Yerine",
+      "char_file": "양파_illust.jpg",
+      "body": ["Çiğ yerine pişirerek", "az miktarda tüketmek", "", "fermantasyonu azaltıp", "şişkinliği hafifletir"]
+    },
+    {
+      "name": "Kükürtlü Kuru Kayısı",
+      "char_file": "건살구_illust.jpg",
+      "body": ["Parlak turuncu sülfürlü kayısıdaki", "sülfür dioksit ve sorbitol", "", "hassas bağırsakta", "gaz yapabiliyor"]
+    },
+    {
+      "name": "Kayısıda Bunu Seç",
+      "char_file": "건살구_illust.jpg",
+      "body": ["Koyu renkli, sülfürsüz", "\"gün kurusu\" kayısıyı", "", "azar azar", "tüketmek daha iyi"]
+    },
+    {
+      "name": "Sakız Çiğnemek",
+      "char_file": "껌_illust.jpg",
+      "body": ["Sakız ve hızlı yemek", "fazla hava yutmana neden olur", "", "mideye dolan hava", "şişkinlik yaratır"]
+    },
+    {
+      "name": "Sakız Yerine",
+      "char_file": "껌_illust.jpg",
+      "body": ["Sakızı azaltıp", "yemekten sonra rezene çayı içmek", "", "hava yutmayı azaltır", "sindirimi rahatlatır"]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Şişkinlik çoğu zaman", "sofradaki küçük detaylarla", "ilgili olabilir"],
+      ["Pişirme ve seçim şeklini", "değiştirmek bile", "fark yaratabilir"]
+    ],
+    "tip": ["Yavaş ye, bol su iç", "bu da şişkinliği azaltmaya yardımcı olur"],
+    "cta": "Daha fazla sağlık bilgisi için takip et"
+  },
+  "topic_word": "Sindirim"
+}
