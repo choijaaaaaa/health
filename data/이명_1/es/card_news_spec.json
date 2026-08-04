@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Te truena la mandíbula",
+    "y además te zumba el oído?",
+    "3 causas que nadie conecta"
+  ],
+  "eyebrow": "Alerta de Salud Auditiva",
+  "topic_word": "Acúfenos",
+  "char_display_names": {
+    "mandibula_illust.jpg": "Mandíbula",
+    "pastilla_illust.jpg": "Antiinflamatorio",
+    "호박씨_illust.jpg": "Pepitas de Calabaza",
+    "아보카도_illust.jpg": "Aguacate"
+  },
+  "cover_char_file": "mandibula_illust.jpg",
+  "items": [
+    {
+      "name": "¿Por qué se conecta con el oído?",
+      "char_file": "mandibula_illust.jpg",
+      "body": [
+        "El nervio que mueve tu mandíbula",
+        "también controla un músculo",
+        "",
+        "diminuto dentro del oído medio,",
+        "así que la tensión mandibular puede alterarlo"
+      ]
+    },
+    {
+      "name": "Bruxismo",
+      "char_file": "mandibula_illust.jpg",
+      "body": [
+        "Apretar o rechinar los dientes",
+        "por estrés tensa el músculo",
+        "",
+        "pegado al oído medio,",
+        "y esa presión genera el zumbido"
+      ]
+    },
+    {
+      "name": "Relájala así",
+      "char_file": "mandibula_illust.jpg",
+      "body": [
+        "Pon la lengua en el paladar,",
+        "detrás de los dientes de arriba,",
+        "",
+        "y deja los dientes separados",
+        "varias veces al día"
+      ]
+    },
+    {
+      "name": "Automedicarte también pasa factura",
+      "char_file": "pastilla_illust.jpg",
+      "body": [
+        "Un antiinflamatorio de vez en cuando",
+        "no es problema",
+        "",
+        "pero automedicarte seguido puede",
+        "dañar las células del oído interno"
+      ]
+    },
+    {
+      "name": "Haz esto en cambio",
+      "char_file": "pastilla_illust.jpg",
+      "body": [
+        "Si necesitas antiinflamatorio",
+        "más de 2 veces por semana",
+        "",
+        "coméntaselo a tu médico",
+        "en vez de repetirlo por tu cuenta"
+      ]
+    },
+    {
+      "name": "Falta de magnesio",
+      "char_file": "호박씨_illust.jpg",
+      "body": [
+        "El magnesio protege el flujo",
+        "de sangre hacia el oído interno",
+        "",
+        "pero casi 7 de cada 10 mexicanos",
+        "no llegan a la cantidad diaria que necesitan"
+      ]
+    },
+    {
+      "name": "Súmalo a tu dieta",
+      "char_file": "아보카도_illust.jpg",
+      "body": [
+        "Pepitas de calabaza y aguacate",
+        "son buenas fuentes de magnesio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El zumbido puede tener",
+        "muchas causas distintas"
+      ],
+      [
+        "pero el bruxismo, la automedicación",
+        "y la falta de magnesio son fáciles de pasar por alto"
+      ]
+    ],
+    "tip": [
+      "Relaja la mandíbula, cuida cómo te automedicas,",
+      "y suma pepitas de calabaza o aguacate a tu dieta"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
