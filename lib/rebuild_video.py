@@ -20,25 +20,26 @@ from lib.video_assembler import _parse_srt, assemble, DEFAULT_END_CARD_TEXT
 from lib.templates.proto_before_after_transition import render as _render_before_after_transition
 from lib.templates.proto_checklist import render as _render_checklist
 from lib.templates.proto_ranking_countdown import render as _render_ranking_countdown
-from lib.templates.proto_timeline import render as _render_timeline
 
 ROOT = Path(__file__).resolve().parent.parent
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 MOTION_DIR = ROOT / "assets_library" / "motion"
 REAL_DIR = ROOT / "assets_library" / "real"
 
-# WHY 이 5개·이 순서인지(2026-08-04, CLAUDE.md "영상 포맷 다각화" 절 참고 —
-# ⚠️ 이 섹션은 한 번 유실됐다가 재작성됨, 아래서 바로 다시 커밋할 것):
+# WHY 이 4개·이 순서인지(2026-08-04, CLAUDE.md "영상 포맷 다각화" 절 참고):
 # 판서형(기존)은 시그니처가 달라 아래 select_format()이 이름만 반환하고
-# rebuild()가 별도 분기로 처리한다 — 나머지 4개는 전부
+# rebuild()가 별도 분기로 처리한다 — 나머지는 전부
 # render(topic_dir, lang, audio_path, srt_path, spec_path, out_path) 시그니처로
 # 통일돼 있어서 딕셔너리 하나로 매핑할 수 있다.
-FORMAT_ROSTER = ["chalkboard", "before_after_transition", "checklist", "ranking_countdown", "timeline"]
+# WHY timeline 빠졌는지(2026-08-05, "타임라인이거 포맷 빼는게 낫겠다 모션이
+# 일치하지가않아"): 육안 검토 결과 진행 라인/스톱 애니메이션 타이밍이 나레이션과
+# 안 맞는 문제 발견 — 로스터에서 제외. 코드(`lib/templates/proto_timeline.py`)는
+# 그대로 남겨둠, 나중에 타이밍 문제 고치면 다시 로스터에 넣는 것도 가능.
+FORMAT_ROSTER = ["chalkboard", "before_after_transition", "checklist", "ranking_countdown"]
 _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
     "ranking_countdown": _render_ranking_countdown,
-    "timeline": _render_timeline,
 }
 
 
@@ -128,23 +129,37 @@ def _char_name(char_file: str) -> str:
     return char_file.replace("_illust.jpg", "")
 
 
+def _char_media_path(name: str) -> str:
+    """이 캐릭터에 쓸 실제 파일 — 모션 mp4가 있으면 그걸(과거 Kling 시절 자산),
+    없으면 정지 illust jpg를 그대로 반환한다(2026-08-05, 모션 생성 자체를
+    중단하기로 확정 — Kling도 정지 루프 mp4도 더 이상 새로 안 만듦). 어느 쪽이든
+    video_assembler.py의 _build_character_loop/_build_character_segment가
+    `_is_static_image()`로 확장자를 보고 알아서 분기한다."""
+    motion_path = MOTION_DIR / f"{name}_motion.mp4"
+    if motion_path.exists():
+        return str(motion_path)
+    return str(ILLUST_DIR / f"{name}_illust.jpg")
+
+
 @lru_cache(maxsize=None)
 def nearest_bg_color_for_motion(name: str) -> str:
-    """모션 클립(mp4) 첫 프레임의 모서리 픽셀을 5색 크로마키 후보 중 가장 가까운
-    색으로 매핑한다.
+    """캐릭터 미디어(모션 mp4 또는 정지 illust jpg) 모서리 픽셀을 5색 크로마키
+    후보 중 가장 가까운 색으로 매핑한다.
     ⚠️ WHY 일러스트가 아니라 모션 클립에서 직접 읽는지(2026-08-02, 눈_1 재조립
     실사 확인 중 발견): 기존 캐릭터 일러스트는 카드뉴스 표지 중복 방지를 위해
     나중에 배경색을 다양하게 리컬러했지만(recolor_background), 그 리컬러는 정지
     이미지 파일에만 적용됐고 이미 Kling으로 만들어둔 모션 mp4는 그대로 원래
     배경색(대부분 초록)으로 남아있다 — 일러스트 모서리 색으로 bg_color를
     유도하면 실제 모션 클립 배경과 안 맞아서 크로마키 제거가 안 되고 초록
-    사각형이 그대로 화면에 노출되는 사고가 난다. 모션 클립 자체의 첫 프레임을
-    읽어야 실제로 지워야 할 색을 정확히 알 수 있다."""
-    motion_path = MOTION_DIR / f"{name}_motion.mp4"
+    사각형이 그대로 화면에 노출되는 사고가 난다. 모션 클립이 있으면 그 클립의
+    첫 프레임을, 모션 자체가 없는(2026-08-05 이후 신규) 캐릭터는 illust jpg
+    자체를 읽는다 — 어차피 같은 파일을 그대로 코너에 쓸 것이므로 그 파일의
+    실제 배경색을 읽는 게 맞다."""
+    media_path = _char_media_path(name)
     with tempfile.TemporaryDirectory() as tmp:
         frame_path = Path(tmp) / "frame.png"
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(motion_path), "-vframes", "1", str(frame_path)],
+            ["ffmpeg", "-y", "-i", media_path, "-vframes", "1", str(frame_path)],
             check=True, capture_output=True,
         )
         img = Image.open(frame_path).convert("RGB")
@@ -394,7 +409,7 @@ def build_motion_schedule(
             continue
         name = names[idx]
         char_file = f"{name}_illust.jpg"
-        motion_path = str(MOTION_DIR / f"{name}_motion.mp4")
+        motion_path = _char_media_path(name)
         bg_color = nearest_bg_color_for_motion(name)
         segments.append((round(t, 3), round(seg_end, 3), motion_path, bg_color))
     return segments

@@ -113,8 +113,11 @@
 
 ## 영상 포맷 다각화 (`lib/templates/`)
 
-- **로스터 5개**: 판서형(기존, `video_assembler.py`) + `before_after_transition`/
-  `checklist`/`ranking_countdown`/`timeline`(`lib/templates/proto_*.py`).
+- **로스터 4개**: 판서형(기존, `video_assembler.py`) + `before_after_transition`/
+  `checklist`/`ranking_countdown`(`lib/templates/proto_*.py`). `timeline`은
+  2026-08-05 제외(진행 라인/스톱 애니메이션 타이밍이 나레이션과 안 맞음) —
+  코드는 `lib/templates/proto_timeline.py`에 남아있고 `rebuild_video.py`의
+  `FORMAT_ROSTER`에서만 빠짐, 타이밍 고치면 재편입 가능.
 - **선택**: `lib/rebuild_video.py`의 `select_format(topic)`이 topic 문자열
   기준 결정론적 시드(`sum(ord(c)*(i*k+c0)...)  % len(options)`, 축마다 다른
   (k,c0))로 하나를 고른다 — 진짜 랜덤 아님(재생성해도 같은 topic은 같은
