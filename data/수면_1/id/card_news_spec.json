@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Susah Tidur Karena",
+    "Keasyikan Scroll HP?",
+    "Ini 3 Sahabat Malam"
+  ],
+  "eyebrow": "TIPS TIDUR",
+  "char_display_names": {
+    "바나나_illust.jpg": "Pisang",
+    "꿀_illust.jpg": "Madu",
+    "아몬드_illust.jpg": "Kacang Almond"
+  },
+  "items": [
+    {
+      "name": "Kenapa Malah Terjaga?",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Ini bisa jadi kebiasaan",
+        "\"balas dendam waktu tidur\"",
+        "",
+        "Otak menuntut balik waktu",
+        "istirahat dengan begadang",
+        "scroll medsos",
+        "",
+        "Cahaya biru HP menghambat",
+        "melatonin, hormon pemicu kantuk"
+      ]
+    },
+    {
+      "name": "Pisang",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Kaya triptofan, magnesium,",
+        "dan kalium",
+        "",
+        "Membantu otot dan saraf",
+        "lebih rileks sebelum tidur"
+      ]
+    },
+    {
+      "name": "Cara Konsumsi Pisang",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Satu buah pisang sekitar",
+        "sejam sebelum tidur",
+        "",
+        "Bisa juga dipotong",
+        "dan dicampur oatmeal"
+      ]
+    },
+    {
+      "name": "Madu",
+      "char_file": "꿀_illust.jpg",
+      "body": [
+        "Glukosanya dipercaya",
+        "menekan orexin, hormon",
+        "yang bikin otak tetap waspada",
+        "",
+        "Juga membantu mengisi",
+        "cadangan energi hati saat tidur"
+      ]
+    },
+    {
+      "name": "Cara Konsumsi Madu",
+      "char_file": "꿀_illust.jpg",
+      "body": [
+        "Satu sendok teh madu murni",
+        "sebelum tidur",
+        "",
+        "Bisa dicampur air hangat,",
+        "jangan air panas mendidih"
+      ]
+    },
+    {
+      "name": "Kacang Almond",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Kaya magnesium yang",
+        "membantu menurunkan",
+        "hormon stres kortisol",
+        "",
+        "Lemak sehatnya juga",
+        "menenangkan sistem saraf"
+      ]
+    },
+    {
+      "name": "Cara Konsumsi Almond",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Segenggam kecil (sekitar",
+        "10-15 butir) sebelum tidur",
+        "",
+        "Pilih almond tawar,",
+        "bukan yang asin atau manis"
+      ]
+    },
+    {
+      "name": "Perlu Diingat",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Penelitian pada mahasiswa",
+        "Indonesia: lebih dari 70%",
+        "alami kualitas tidur buruk",
+        "",
+        "Makanan saja tidak cukup",
+        "kalau HP masih dipegang",
+        "sampai larut malam"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tiga makanan ini bisa bantu,",
+        "tapi bukan solusi instan"
+      ],
+      [
+        "Batasi waktu main HP",
+        "di kasur juga sama pentingnya"
+      ]
+    ],
+    "tip": [
+      "Coba konsumsi secukupnya",
+      "sekitar satu jam sebelum tidur"
+    ],
+    "cta": "Mau info kesehatan lainnya? Subscribe dan follow ya"
+  }
+}
