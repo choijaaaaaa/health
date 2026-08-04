@@ -1,7 +1,11 @@
 {
   "topic": "코골이_1_ja",
   "title": "習慣的にいびきをかく方へ - 悪化させる食習慣3つ",
-  "products": ["塩分の多い食品", "唐揚げ", "ビール"],
+  "products": [
+    "塩分の多い食品",
+    "唐揚げ",
+    "ビール"
+  ],
   "comment_keyword": "",
   "platforms": [
     {
@@ -20,32 +24,6 @@
       "suppress_product_block": true,
       "action": "캡션 복사 → 새 릴스 → 캡션란에 붙여넣기",
       "caption": "習慣的にいびきをかいていませんか？🌿\n\n実は塩分の多い食事・揚げ物・寝る前の晩酌、それぞれに理由があります。\n\n負担を減らすちょっとした工夫を動画でチェック！\n\nもっと役立つ健康情報が気になる方はフォローしてお待ちください👆\n\n#いびき #健康情報 #睡眠 #健康豆知識"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "캡션 복사 → 동영상 업로드 → 캡션란에 붙여넣기",
-      "caption": "習慣的にいびきをかいていませんか？🌿 それ、塩分の多い食事・揚げ物・晩酌が関係しているかも。ちょっとした工夫で変わります。\n\n🔗 プロフィールのリンクからもっと！\n\n#いびき #健康情報 #睡眠 #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "캡션 복사 → 새 게시물 → 붙여넣기(표지 이미지 첨부 권장) → 게시 후 댓글에 링크 추가",
-      "caption": "習慣的にいびきをかいていませんか？\n\n実は塩分の多い食事・揚げ物・寝る前の晩酌、それぞれ理由があり、量とタイミングを見直すだけで負担を減らせます。\n\n動画で詳しく解説しています。\n\n#いびき #健康情報 #睡眠"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "캡션 복사 → 새 스레드 → 붙여넣기(표지 이미지 첨부 권장)",
-      "caption": "習慣的にいびきをかいていませんか？\n\n塩分の多い食事・揚げ物・寝る前の晩酌が関係しているかもしれません。それぞれ、ちょっとした工夫で負担を減らせます。\n\n#いびき #健康情報 #睡眠"
     }
   ]
 }

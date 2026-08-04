@@ -20,32 +20,6 @@
       "suppress_product_block": true,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "¿Las ojeras se ven peor cada vez que trasnochas con el celular? 👀\n\nLa luz azul, el refresco y las botanas saladas de medianoche pueden hacer que se vean más oscuras e hinchadas.\n\nAquí te explico por qué, y algunos cambios simples que ayudan.\n\n¡Sigue la cuenta para más tips de salud! 👆\n\n#ojeras #ojerasoscuras #saluddelapiel #tipsdesalud #bienestar #skincare"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "¿Las ojeras se ven peor cada vez que trasnochas viendo el celular?? 👀 El refresco y las botanas saladas de medianoche podrían ser parte del problema — y no tienes que dejarlos por completo.\n\n🔗 ¡Link en la bio para más!\n\n#ojeras #ojerasoscuras #saluddelapiel #tipsdesalud #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
-      "caption": "¿Las ojeras se ven peor cada vez que trasnochas con el celular?\n\nLa luz azul, el refresco y las botanas saladas de medianoche son de los hábitos más comunes detrás de esto, y cada uno tiene un cambio sencillo.\n\nMira el video para saber por qué, y qué probar en su lugar.\n\n#ojeras #ojerasoscuras #saluddelapiel #tipsdesalud"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "¿Las ojeras se ven peor cada vez que trasnochas con el celular? 👀\n\nLa luz azul, el refresco y las botanas saladas de medianoche son 3 de los hábitos más comunes detrás de esto. Cada uno tiene un cambio simple que no significa dejarlo de golpe.\n\n#ojeras #ojerasoscuras #saluddelapiel #tipsdesalud"
     }
   ]
 }

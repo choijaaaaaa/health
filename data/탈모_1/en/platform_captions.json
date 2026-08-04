@@ -20,41 +20,6 @@
       "comment_dm_automation": false,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "80 million Americans have thinning hair, and genetics isn't the whole story 🧬\n\nSudden shifts in diet and supplements can push follicles into shedding mode faster - sugary drinks, crash diets, and vitamin megadoses are the three to watch.\n\nHere's why, and simple swaps that actually help.\n\n🔗 Link in profile for more health tips!\n\n#hairloss #hairthinning #scalphealth #haircare #healthtips #wellness"
-    },
-    {
-      "name": "Instagram Carousel",
-      "url": "https://www.instagram.com/",
-      "type": "cards",
-      "no_caption_link": true,
-      "comment_dm_automation": false,
-      "action": "Copy caption + download all cards → New post → upload cards in order → paste caption",
-      "caption": "80 million Americans have thinning hair, and genetics isn't the whole story 🧬\n\nSwipe to see the 3 everyday habits that actually speed it up - and what to swap in instead.\n\n🔗 Link in profile for more health tips!\n\n#hairloss #hairthinning #scalphealth #haircare #healthtips #wellness"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "80 million Americans have thinning hair?? 🧬 Genetics isn't the whole story - here's what actually speeds it up.\n\n🔗 Link in bio for more!\n\n#hairloss #hairthinning #scalphealth #healthtips #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
-      "caption": "80 million Americans have thinning hair, and genetics isn't the whole story.\n\nSudden shifts in diet and supplements can push follicles into shedding mode faster - sugary drinks, crash diets, and vitamin megadoses are the three to watch.\n\nWatch the video to find out why, and what to swap in instead.\n\n#hairloss #hairthinning #scalphealth #haircare #healthtips"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "80 million Americans have thinning hair, and genetics isn't the whole story.\n\nSugary drinks, crash diets, and vitamin megadoses can speed it up just as fast - and each one has an easy fix.\n\n#hairloss #hairthinning #healthtips"
     }
   ]
 }

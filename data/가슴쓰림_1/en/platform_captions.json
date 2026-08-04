@@ -20,41 +20,6 @@
       "comment_dm_automation": false,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "Waking up at 3am with a sour, burning taste in your throat? 🔥\n\nIt's probably not the meal itself — it's one of these three things: coffee, spicy food, and tomato-based sauces.\n\nHere's why they trigger heartburn, and what to swap them for instead.\n\n🔗 Link in profile for more health tips!\n\n#heartburn #acidreflux #GERD #healthtips #guthealth #digestivehealth #wellness"
-    },
-    {
-      "name": "Instagram Carousel",
-      "url": "https://www.instagram.com/",
-      "type": "cards",
-      "no_caption_link": true,
-      "comment_dm_automation": false,
-      "action": "Copy caption + download all cards → New post → upload cards in order → paste caption",
-      "caption": "Waking up at 3am with a sour, burning taste in your throat? 🔥\n\nSwipe to see the 3 most common heartburn triggers — and what to eat instead so you don't have to give up flavor.\n\n🔗 Link in profile for more health tips!\n\n#heartburn #acidreflux #GERD #healthtips #guthealth #digestivehealth #wellness"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "Waking up at 3am with heartburn?? 🔥 It's probably one of these 3 foods — and no, you don't have to quit them completely.\n\n🔗 Link in bio for more!\n\n#heartburn #acidreflux #GERD #healthtips #guthealth #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
-      "caption": "Waking up at 3am with a sour, burning taste in your throat?\n\nIt's probably not the meal itself — coffee, spicy food, and tomato-based sauces are three of the most common heartburn triggers, and each one has an easy swap.\n\nWatch the video to find out why, and what to eat instead.\n\n#heartburn #acidreflux #GERD #healthtips #guthealth #digestivehealth"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "Waking up at 3am with a sour, burning taste in your throat?\n\nProbably not the meal itself — coffee, spicy food, and tomato sauce are 3 of the most common heartburn triggers. Each one has an easy swap that still lets you enjoy your food.\n\n#heartburn #acidreflux #healthtips"
     }
   ]
 }

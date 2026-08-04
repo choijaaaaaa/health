@@ -20,32 +20,6 @@
       "suppress_product_block": true,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "Reaching for chips at your desk again? 😩\n\nThat everyday snack, plus cheese and not enough water, can all quietly make constipation worse. None of them need to be cut out completely.\n\nMore health tips like this - follow along!\n\n#constipation #guthealth #digestivehealth #fiber #wellness"
-    },
-    {
-      "name": "TikTok",
-      "url": "https://www.tiktok.com/upload",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "Copy caption → Upload video → paste in caption field",
-      "caption": "That desk snack habit might be why you're backed up 😩\n\n🔗 Follow for more!\n\n#constipation #guthealth #fiber #healthtips #fyp"
-    },
-    {
-      "name": "Facebook",
-      "url": "https://www.facebook.com/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
-      "caption": "Reaching for chips at your desk again?\n\nChips and processed snacks are low in fiber and high in sodium, cheese and dairy contain slow-digesting casein, and not drinking enough water makes stool harder to pass. None of it means you need to cut these out completely - small changes can make a real difference.\n\n#constipation #guthealth #digestivehealth #fiber"
-    },
-    {
-      "name": "Threads",
-      "url": "https://www.threads.net/",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
-      "caption": "That desk snack habit might be part of why you're backed up.\n\nChips, cheese, and not enough water - 3 everyday things that quietly make constipation worse.\n\n#constipation #guthealth #fiber"
     }
   ]
 }
