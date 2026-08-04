@@ -1,0 +1,105 @@
+{
+  "title": ["Bloated by Mid-Afternoon", "Even on a Light Day?", "3 'Healthy' Habits Behind It"],
+  "eyebrow": "Gut Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "프로틴바_illust.jpg",
+  "char_display_names": {
+    "프로틴바_illust.jpg": "Protein Bars",
+    "웨이프로틴쉐이크_illust.jpg": "Whey Shakes",
+    "저탄고단백식단_illust.jpg": "Low-Carb, High-Protein Meals"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "프로틴바_illust.jpg",
+      "body": [
+        "Added fibers and fast protein doses",
+        "ferment or back up your gut",
+        "",
+        "It shows up constantly",
+        "in \"fitness\" foods"
+      ]
+    },
+    {
+      "name": "Protein Bars",
+      "char_file": "프로틴바_illust.jpg",
+      "body": [
+        "\"High fiber\" bars often get that",
+        "fiber from chicory root, mostly inulin",
+        "",
+        "Your gut can't break it down,",
+        "so bacteria ferment it in the colon",
+        "",
+        "About 10 grams is enough",
+        "to trigger gas"
+      ]
+    },
+    {
+      "name": "Protein Bars — the fix",
+      "char_file": "프로틴바_illust.jpg",
+      "body": [
+        "Check labels for chicory root,",
+        "and build fiber from whole foods",
+        "like berries or oats instead"
+      ]
+    },
+    {
+      "name": "Whey Shakes",
+      "char_file": "웨이프로틴쉐이크_illust.jpg",
+      "body": [
+        "Whey shakes carry real milk lactose",
+        "",
+        "A big post-workout dose",
+        "is a lot to process at once —",
+        "undigested lactose ferments fast"
+      ]
+    },
+    {
+      "name": "Whey Shakes — the fix",
+      "char_file": "웨이프로틴쉐이크_illust.jpg",
+      "body": [
+        "Switch to whey isolate,",
+        "which strips out most of that lactose,",
+        "",
+        "or space shakes out",
+        "instead of doubling up"
+      ]
+    },
+    {
+      "name": "Low-Carb, High-Protein Diets",
+      "char_file": "저탄고단백식단_illust.jpg",
+      "body": [
+        "Cutting carbs hard for keto",
+        "drops fiber fast too",
+        "",
+        "Whole grains and fruit are where",
+        "most people actually get theirs",
+        "",
+        "Less fiber means slower digestion —",
+        "and that backup is its own bloating"
+      ]
+    },
+    {
+      "name": "Low-Carb — the fix",
+      "char_file": "저탄고단백식단_illust.jpg",
+      "body": [
+        "Keep chia seeds, avocado,",
+        "and leafy greens in the rotation",
+        "to stay regular"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Bloating isn't always about", "what you're avoiding"],
+      ["Sometimes it's the \"healthy\"", "swaps you added instead"]
+    ],
+    "tip": [
+      "Add fiber gradually and space out",
+      "protein doses to keep your gut steady"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Gut Health"
+}
