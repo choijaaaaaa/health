@@ -32,7 +32,7 @@
     "code": "es",
     "gcp_project_id": "worthitshopping-es",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
+    "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": false,
     "channel_url": "https://www.youtube.com/@worthitshopping_es"
@@ -41,7 +41,7 @@
     "code": "pt",
     "gcp_project_id": "worthitshopping-pt",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
+    "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": false,
     "channel_url": "https://www.youtube.com/@worthitshopping_pt"
@@ -50,7 +50,7 @@
     "code": "ru",
     "gcp_project_id": "worthitshopping-ru",
     "brand_account_created": true,
-    "oauth_consent_configured": false,
+    "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": false,
     "channel_url": "https://www.youtube.com/@worthitshopping_ru"
