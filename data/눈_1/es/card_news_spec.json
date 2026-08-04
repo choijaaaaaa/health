@@ -1,0 +1,101 @@
+{
+  "title": [
+    "¿Te arden los ojos al picar chile,",
+    "o le das al refresco sin pensarlo?",
+    "Los hábitos que dañan tu vista en México"
+  ],
+  "eyebrow": "Alerta de Salud Visual",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Visión",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco",
+    "nopal_illust.jpg": "Nopal",
+    "고추_illust.jpg": "Chile",
+    "치아씨드_illust.jpg": "Chía"
+  },
+  "cover_char_file": "탄산음료_illust.jpg",
+  "items": [
+    {
+      "name": "Refresco en México",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "México toma en promedio",
+        "163 litros de refresco al año",
+        "",
+        "el consumo más alto del mundo —",
+        "3 de cada 10 diabetes nuevas se le atribuyen"
+      ]
+    },
+    {
+      "name": "Lo que sigue: retinopatía",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sin control, la diabetes",
+        "lleva a retinopatía diabética",
+        "",
+        "ya afecta al 31.5% de los diabéticos",
+        "en México — principal causa de ceguera irreversible"
+      ]
+    },
+    {
+      "name": "Cámbialo por esto",
+      "char_file": "nopal_illust.jpg",
+      "body": [
+        "El nopal ayuda:",
+        "",
+        "su fibra y mucílago",
+        "regulan la glucosa en sangre"
+      ]
+    },
+    {
+      "name": "Picar chile sin cuidado",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Tocarte los ojos después",
+        "de picar chile también arde",
+        "",
+        "la capsaicina es aceitosa —",
+        "el agua sola tarda en quitarla"
+      ]
+    },
+    {
+      "name": "Haz esto en cambio",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Lávate las manos",
+        "con jabón antes",
+        "",
+        "de tocarte los ojos"
+      ]
+    },
+    {
+      "name": "Protege tu retina",
+      "char_file": "치아씨드_illust.jpg",
+      "body": [
+        "La chía también ayuda:",
+        "su omega-3 puede formar",
+        "hasta la mitad de la grasa",
+        "",
+        "que compone tu retina"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La retinopatía diabética",
+        "no se revierte fácilmente"
+      ],
+      [
+        "Pero puedes bajar el riesgo",
+        "cambiando lo que tomas y comes"
+      ]
+    ],
+    "tip": [
+      "Cambia el refresco por agua y nopal,",
+      "agrega chía y hazte un examen de vista al año"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
