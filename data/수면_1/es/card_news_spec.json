@@ -7,14 +7,14 @@
   "eyebrow": "Salud del Sueño",
   "topic_word": "Descanso",
   "char_display_names": {
-    "tila_illust.jpg": "Té de Tila",
-    "avena_illust.jpg": "Avena",
-    "platano_illust.jpg": "Plátano"
+    "보리수차_illust.jpg": "Té de Tila",
+    "귀리_illust.jpg": "Avena",
+    "바나나_illust.jpg": "Plátano"
   },
   "items": [
     {
       "name": "¿Por qué duermo mal?",
-      "char_file": "tila_illust.jpg",
+      "char_file": "보리수차_illust.jpg",
       "body": [
         "Casi la mitad de los adultos",
         "en México duerme mal",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Té de Tila",
-      "char_file": "tila_illust.jpg",
+      "char_file": "보리수차_illust.jpg",
       "body": [
         "Remedio tradicional mexicano",
         "de generaciones atrás",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Cómo tomarla",
-      "char_file": "tila_illust.jpg",
+      "char_file": "보리수차_illust.jpg",
       "body": [
         "Prepara la infusión",
         "20 minutos antes",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Avena",
-      "char_file": "avena_illust.jpg",
+      "char_file": "귀리_illust.jpg",
       "body": [
         "Sus carbohidratos ayudan",
         "a que el triptófano",
@@ -59,7 +59,7 @@
     },
     {
       "name": "Cómo tomarla",
-      "char_file": "avena_illust.jpg",
+      "char_file": "귀리_illust.jpg",
       "body": [
         "Una taza tibia",
         "por la noche",
@@ -68,7 +68,7 @@
     },
     {
       "name": "Plátano",
-      "char_file": "platano_illust.jpg",
+      "char_file": "바나나_illust.jpg",
       "body": [
         "Tiene magnesio y potasio,",
         "que relajan los músculos",
@@ -77,7 +77,7 @@
     },
     {
       "name": "Cómo comerlo",
-      "char_file": "platano_illust.jpg",
+      "char_file": "바나나_illust.jpg",
       "body": [
         "Cómete uno entero,",
         "una hora antes",

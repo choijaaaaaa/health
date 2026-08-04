@@ -4,18 +4,18 @@
     "耳朵常常嗡嗡叫?",
     "可能是音量習慣出了問題"
   ],
-  "cover_char_file": "藍牙耳機_illust.jpg",
+  "cover_char_file": "이어폰_illust.jpg",
   "cover_scrim_color": "#2D5FB8",
   "eyebrow": "耳鳴警訊",
   "char_display_names": {
-    "藍牙耳機_illust.jpg": "藍牙耳機",
-    "降噪耳機_illust.jpg": "降噪耳機",
-    "安全帽耳機_illust.jpg": "安全帽耳機"
+    "이어폰_illust.jpg": "藍牙耳機",
+    "노이즈캔슬링헤드폰_illust.jpg": "降噪耳機",
+    "헬멧이어폰_illust.jpg": "安全帽耳機"
   },
   "items": [
     {
       "name": "為什麼會耳鳴",
-      "char_file": "藍牙耳機_illust.jpg",
+      "char_file": "이어폰_illust.jpg",
       "body": [
         "內耳毛細胞",
         "被噪音傷到",
@@ -27,7 +27,7 @@
     },
     {
       "name": "捷運公車耳機",
-      "char_file": "藍牙耳機_illust.jpg",
+      "char_file": "이어폰_illust.jpg",
       "body": [
         "車廂噪音",
         "常有75到85分貝",
@@ -38,7 +38,7 @@
     },
     {
       "name": "捷運公車耳機 這樣做",
-      "char_file": "藍牙耳機_illust.jpg",
+      "char_file": "이어폰_illust.jpg",
       "body": [
         "音量控制在",
         "最大音量六成以下",
@@ -49,7 +49,7 @@
     },
     {
       "name": "降噪耳機",
-      "char_file": "降噪耳機_illust.jpg",
+      "char_file": "노이즈캔슬링헤드폰_illust.jpg",
       "body": [
         "一戴就是",
         "好幾個小時不休息",
@@ -60,7 +60,7 @@
     },
     {
       "name": "降噪耳機 這樣做",
-      "char_file": "降噪耳機_illust.jpg",
+      "char_file": "노이즈캔슬링헤드폰_illust.jpg",
       "body": [
         "單次聆聽",
         "不超過60分鐘",
@@ -71,7 +71,7 @@
     },
     {
       "name": "機車安全帽耳機",
-      "char_file": "安全帽耳機_illust.jpg",
+      "char_file": "헬멧이어폰_illust.jpg",
       "body": [
         "引擎聲加風切聲",
         "動輒破90分貝",
@@ -82,7 +82,7 @@
     },
     {
       "name": "機車安全帽耳機 這樣做",
-      "char_file": "安全帽耳機_illust.jpg",
+      "char_file": "헬멧이어폰_illust.jpg",
       "body": [
         "騎車盡量少聽音樂",
         "導航開到剛好聽到",

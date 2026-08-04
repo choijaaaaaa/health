@@ -10,8 +10,8 @@
   "cover_char_file": "버블티_illust.jpg",
   "char_display_names": {
     "버블티_illust.jpg": "手搖飲",
-    "麻辣鍋_illust.jpg": "麻辣鍋",
-    "地瓜葉_illust.jpg": "地瓜葉"
+    "마라훠궈_illust.jpg": "麻辣鍋",
+    "고구마잎_illust.jpg": "地瓜葉"
   },
   "items": [
     {
@@ -54,7 +54,7 @@
     },
     {
       "name": "麻辣鍋",
-      "char_file": "麻辣鍋_illust.jpg",
+      "char_file": "마라훠궈_illust.jpg",
       "body": [
         "湯底鈉含量",
         "特別驚人",
@@ -66,7 +66,7 @@
     },
     {
       "name": "麻辣鍋這樣吃更安心",
-      "char_file": "麻辣鍋_illust.jpg",
+      "char_file": "마라훠궈_illust.jpg",
       "body": [
         "鈉排出的同時",
         "鈣也會一起流失",
@@ -78,7 +78,7 @@
     },
     {
       "name": "地瓜葉、菠菜",
-      "char_file": "地瓜葉_illust.jpg",
+      "char_file": "고구마잎_illust.jpg",
       "body": [
         "這類蔬菜草酸偏高",
         "",
@@ -89,7 +89,7 @@
     },
     {
       "name": "這樣吃草酸大幅降低",
-      "char_file": "地瓜葉_illust.jpg",
+      "char_file": "고구마잎_illust.jpg",
       "body": [
         "先川燙過水",
         "再吃",

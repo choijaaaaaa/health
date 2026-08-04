@@ -6,14 +6,14 @@
   ],
   "eyebrow": "睡眠健康",
   "char_display_names": {
-    "酸棗仁_illust.jpg": "酸棗仁",
-    "蓮子_illust.jpg": "蓮子",
-    "桂圓_illust.jpg": "桂圓"
+    "산조인_illust.jpg": "酸棗仁",
+    "연자육_illust.jpg": "蓮子",
+    "용안육_illust.jpg": "桂圓"
   },
   "items": [
     {
       "name": "為什麼會睡不好",
-      "char_file": "酸棗仁_illust.jpg",
+      "char_file": "산조인_illust.jpg",
       "body": [
         "中醫認為壓力大、",
         "思慮過多容易",
@@ -25,7 +25,7 @@
     },
     {
       "name": "酸棗仁",
-      "char_file": "酸棗仁_illust.jpg",
+      "char_file": "산조인_illust.jpg",
       "body": [
         "自古就是",
         "安神藥材",
@@ -37,7 +37,7 @@
     },
     {
       "name": "酸棗仁怎麼吃",
-      "char_file": "酸棗仁_illust.jpg",
+      "char_file": "산조인_illust.jpg",
       "body": [
         "中藥行買得到的",
         "酸棗仁茶包",
@@ -48,7 +48,7 @@
     },
     {
       "name": "蓮子",
-      "char_file": "蓮子_illust.jpg",
+      "char_file": "연자육_illust.jpg",
       "body": [
         "性平味甘",
         "能清心火、安神養心",
@@ -59,7 +59,7 @@
     },
     {
       "name": "蓮子怎麼吃",
-      "char_file": "蓮子_illust.jpg",
+      "char_file": "연자육_illust.jpg",
       "body": [
         "蓮子湯、蓮子粥",
         "晚餐後吃一碗",
@@ -70,7 +70,7 @@
     },
     {
       "name": "桂圓",
-      "char_file": "桂圓_illust.jpg",
+      "char_file": "용안육_illust.jpg",
       "body": [
         "能補心脾、",
         "養血安神",
@@ -81,7 +81,7 @@
     },
     {
       "name": "桂圓怎麼吃",
-      "char_file": "桂圓_illust.jpg",
+      "char_file": "용안육_illust.jpg",
       "body": [
         "睡前1小時",
         "泡杯桂圓茶",
@@ -92,7 +92,7 @@
     },
     {
       "name": "提醒",
-      "char_file": "酸棗仁_illust.jpg",
+      "char_file": "산조인_illust.jpg",
       "body": [
         "食材只能輔助,",
         "沒辦法馬上解決失眠",

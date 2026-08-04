@@ -10,7 +10,7 @@
   "topic_word": "Visión",
   "char_display_names": {
     "탄산음료_illust.jpg": "Refresco",
-    "nopal_illust.jpg": "Nopal",
+    "백년초_illust.jpg": "Nopal",
     "고추_illust.jpg": "Chile",
     "치아씨드_illust.jpg": "Chía"
   },
@@ -40,7 +40,7 @@
     },
     {
       "name": "Cámbialo por esto",
-      "char_file": "nopal_illust.jpg",
+      "char_file": "백년초_illust.jpg",
       "body": [
         "El nopal ayuda:",
         "",

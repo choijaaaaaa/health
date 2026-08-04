@@ -9,14 +9,14 @@
   "closing_label": "Resumo",
   "topic_word": "Anemia",
   "char_display_names": {
-    "chimarrao_illust.jpg": "Chimarrão",
-    "suplemento_calcio_illust.jpg": "Cálcio",
-    "feijao_preto_illust.jpg": "Feijão Preto"
+    "마테차_illust.jpg": "Chimarrão",
+    "칼슘보충제_illust.jpg": "Cálcio",
+    "검은콩_illust.jpg": "Feijão Preto"
   },
   "items": [
     {
       "name": "Por que isso acontece",
-      "char_file": "chimarrao_illust.jpg",
+      "char_file": "마테차_illust.jpg",
       "body": [
         "O problema não é quanto",
         "ferro você come",
@@ -27,7 +27,7 @@
     },
     {
       "name": "Chimarrão e tereré",
-      "char_file": "chimarrao_illust.jpg",
+      "char_file": "마테차_illust.jpg",
       "body": [
         "O tanino da erva-mate",
         "gruda no ferro dos vegetais",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Chimarrão assim",
-      "char_file": "chimarrao_illust.jpg",
+      "char_file": "마테차_illust.jpg",
       "body": [
         "Espere 1 a 2 horas",
         "depois da refeição principal",
@@ -49,7 +49,7 @@
     },
     {
       "name": "Suplemento de cálcio",
-      "char_file": "suplemento_calcio_illust.jpg",
+      "char_file": "칼슘보충제_illust.jpg",
       "body": [
         "Tomado junto da refeição",
         "",
@@ -59,7 +59,7 @@
     },
     {
       "name": "Cálcio assim",
-      "char_file": "suplemento_calcio_illust.jpg",
+      "char_file": "칼슘보충제_illust.jpg",
       "body": [
         "Separe o suplemento do almoço",
         "por pelo menos 2 horas",
@@ -70,7 +70,7 @@
     },
     {
       "name": "Feijão preto",
-      "char_file": "feijao_preto_illust.jpg",
+      "char_file": "검은콩_illust.jpg",
       "body": [
         "O próprio feijão guarda fitato",
         "",
@@ -80,7 +80,7 @@
     },
     {
       "name": "Feijão assim",
-      "char_file": "feijao_preto_illust.jpg",
+      "char_file": "검은콩_illust.jpg",
       "body": [
         "Deixe de molho 8 a 12 horas,",
         "trocando a água antes de cozinhar",

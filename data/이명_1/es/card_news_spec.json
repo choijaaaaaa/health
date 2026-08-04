@@ -7,16 +7,16 @@
   "eyebrow": "Alerta de Salud Auditiva",
   "topic_word": "Acúfenos",
   "char_display_names": {
-    "mandibula_illust.jpg": "Mandíbula",
-    "pastilla_illust.jpg": "Antiinflamatorio",
+    "턱관절_illust.jpg": "Mandíbula",
+    "알약_illust.jpg": "Antiinflamatorio",
     "호박씨_illust.jpg": "Pepitas de Calabaza",
     "아보카도_illust.jpg": "Aguacate"
   },
-  "cover_char_file": "mandibula_illust.jpg",
+  "cover_char_file": "턱관절_illust.jpg",
   "items": [
     {
       "name": "¿Por qué se conecta con el oído?",
-      "char_file": "mandibula_illust.jpg",
+      "char_file": "턱관절_illust.jpg",
       "body": [
         "El nervio que mueve tu mandíbula",
         "también controla un músculo",
@@ -27,7 +27,7 @@
     },
     {
       "name": "Bruxismo",
-      "char_file": "mandibula_illust.jpg",
+      "char_file": "턱관절_illust.jpg",
       "body": [
         "Apretar o rechinar los dientes",
         "por estrés tensa el músculo",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Relájala así",
-      "char_file": "mandibula_illust.jpg",
+      "char_file": "턱관절_illust.jpg",
       "body": [
         "Pon la lengua en el paladar,",
         "detrás de los dientes de arriba,",
@@ -49,7 +49,7 @@
     },
     {
       "name": "Automedicarte también pasa factura",
-      "char_file": "pastilla_illust.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Un antiinflamatorio de vez en cuando",
         "no es problema",
@@ -60,7 +60,7 @@
     },
     {
       "name": "Haz esto en cambio",
-      "char_file": "pastilla_illust.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Si necesitas antiinflamatorio",
         "más de 2 veces por semana",

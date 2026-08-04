@@ -4,12 +4,12 @@
     "à noite ou depois do fone?",
     "3 hábitos comuns podem ser a causa"
   ],
-  "cover_char_file": "fone_de_ouvido_illust.jpg",
+  "cover_char_file": "헤드폰_illust.jpg",
   "eyebrow": "ZUMBIDO",
   "items": [
     {
       "name": "Por que isso acontece",
-      "char_file": "fone_de_ouvido_illust.jpg",
+      "char_file": "헤드폰_illust.jpg",
       "body": [
         "Quando algo irrita o",
         "sistema auditivo,",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Fone no talo",
-      "char_file": "fone_de_ouvido_illust.jpg",
+      "char_file": "헤드폰_illust.jpg",
       "body": [
         "Pela regra 60/60,",
         "volume acima de 60%",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Fone com cuidado",
-      "char_file": "fone_de_ouvido_illust.jpg",
+      "char_file": "헤드폰_illust.jpg",
       "body": [
         "Use até 60% do volume",
         "por até 60 minutos seguidos",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Analgésico em excesso",
-      "char_file": "comprimido_illust.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Doses altas de aspirina",
         "ou anti-inflamatório",
@@ -57,7 +57,7 @@
     },
     {
       "name": "Analgésico com cuidado",
-      "char_file": "comprimido_illust.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Evite repetir o remédio",
         "sem orientação médica",
@@ -68,7 +68,7 @@
     },
     {
       "name": "Cotonete",
-      "char_file": "cotonete_illust.jpg",
+      "char_file": "면봉_illust.jpg",
       "body": [
         "Em vez de limpar,",
         "o cotonete empurra",
@@ -80,7 +80,7 @@
     },
     {
       "name": "Limpeza correta",
-      "char_file": "cotonete_illust.jpg",
+      "char_file": "면봉_illust.jpg",
       "body": [
         "Limpe só a parte externa",
         "da orelha com uma toalha",

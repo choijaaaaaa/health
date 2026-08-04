@@ -5,26 +5,26 @@
     "3 hábitos do dia a dia do brasileiro para rever"
   ],
   "eyebrow": "Saúde intestinal",
-  "cover_char_file": "feijao_preto_illust.jpg",
+  "cover_char_file": "검은콩_illust.jpg",
   "char_display_names": {
-    "feijao_preto_illust.jpg": "Feijão",
+    "검은콩_illust.jpg": "Feijão",
     "양파_illust.jpg": "Cebola e alho",
     "껌_illust.jpg": "Chiclete sem açúcar"
   },
   "items": [
     {
       "name": "Por que isso acontece?",
-      "char_file": "feijao_preto_illust.jpg",
+      "char_file": "검은콩_illust.jpg",
       "body": ["Rafinose, frutanos e sorbitol", "não são absorvidos", "no intestino delgado", "", "descem até o intestino grosso", "e as bactérias fermentam tudo"]
     },
     {
       "name": "Feijão",
-      "char_file": "feijao_preto_illust.jpg",
+      "char_file": "검은콩_illust.jpg",
       "body": ["O prato mais comido no país", "tem rafinose e estaquiose", "", "açúcares que o corpo", "não consegue quebrar sozinho"]
     },
     {
       "name": "Feijão, assim",
-      "char_file": "feijao_preto_illust.jpg",
+      "char_file": "검은콩_illust.jpg",
       "body": ["Deixe de molho", "e troque a água antes de cozinhar", "", "isso reduz boa parte", "da rafinose"]
     },
     {

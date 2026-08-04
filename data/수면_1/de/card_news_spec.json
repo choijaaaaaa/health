@@ -6,14 +6,14 @@
   ],
   "eyebrow": "SCHLAF-TIPP",
   "char_display_names": {
-    "baldrian_illust.jpg": "Baldrian",
-    "hopfen_illust.jpg": "Hopfen",
-    "melisse_illust.jpg": "Melisse"
+    "발레리안_illust.jpg": "Baldrian",
+    "홉_illust.jpg": "Hopfen",
+    "레몬밤_illust.jpg": "Melisse"
   },
   "items": [
     {
       "name": "Warum fällt Einschlafen so schwer?",
-      "char_file": "baldrian_illust.jpg",
+      "char_file": "발레리안_illust.jpg",
       "body": [
         "Laut Robert Koch-Institut hat",
         "jeder dritte Erwachsene in",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Baldrian",
-      "char_file": "baldrian_illust.jpg",
+      "char_file": "발레리안_illust.jpg",
       "body": [
         "Wirkt beruhigend auf die Nerven",
         "und kann Anspannung lösen",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Baldrian richtig einnehmen",
-      "char_file": "baldrian_illust.jpg",
+      "char_file": "발레리안_illust.jpg",
       "body": [
         "Als Tee: 2-3 g Baldrianwurzel",
         "mit heißem Wasser übergießen,",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Hopfen",
-      "char_file": "hopfen_illust.jpg",
+      "char_file": "홉_illust.jpg",
       "body": [
         "Wird traditionell bei Unruhe",
         "und leichten Schlafstörungen",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Melisse",
-      "char_file": "melisse_illust.jpg",
+      "char_file": "레몬밤_illust.jpg",
       "body": [
         "Verstärkt die Wirkung von Baldrian",
         "",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Melisse richtig einnehmen",
-      "char_file": "melisse_illust.jpg",
+      "char_file": "레몬밤_illust.jpg",
       "body": [
         "Baldrian und Melisse zu gleichen",
         "Teilen als Tee: 2 TL Mischung mit",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Worauf du achten solltest",
-      "char_file": "baldrian_illust.jpg",
+      "char_file": "발레리안_illust.jpg",
       "body": [
         "Baldrian kann die Reaktionsfähigkeit",
         "beeinträchtigen — bis zu 2 Stunden",
