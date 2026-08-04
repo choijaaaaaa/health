@@ -1,0 +1,100 @@
+{
+  "title": [
+    "1 Français sur 2 dit que",
+    "le stress abîme son sommeil",
+    "3 habitudes du soir à connaître"
+  ],
+  "eyebrow": "Astuce Sommeil",
+  "swipe_label": "Balayez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "상추_illust.jpg": "Laitue",
+    "아몬드_illust.jpg": "Amandes",
+    "바나나_illust.jpg": "Banane"
+  },
+  "items": [
+    {
+      "name": "Pourquoi cette nervosité",
+      "char_file": "상추_illust.jpg",
+      "body": [
+        "Le stress maintient le",
+        "système nerveux en alerte",
+        "",
+        "7 Français sur 10",
+        "manquent de magnésium,",
+        "ce qui accentue la nervosité"
+      ]
+    },
+    {
+      "name": "Laitue",
+      "char_file": "상추_illust.jpg",
+      "body": [
+        "Elle contient du lactucarium,",
+        "un remède de grand-mère",
+        "redevenu viral sur les réseaux"
+      ]
+    },
+    {
+      "name": "Laitue — comment faire",
+      "char_file": "상추_illust.jpg",
+      "body": [
+        "Quelques feuilles infusées",
+        "dans l'eau chaude suffisent",
+        "",
+        "À boire en tisane le soir"
+      ]
+    },
+    {
+      "name": "Amandes",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Riches en magnésium,",
+        "qui contribue à réduire",
+        "la fatigue nerveuse"
+      ]
+    },
+    {
+      "name": "Amandes — comment faire",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Une petite poignée",
+        "en fin de journée suffit"
+      ]
+    },
+    {
+      "name": "Banane",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Apporte de la vitamine B6",
+        "et un acide aminé",
+        "précurseur de la sérotonine"
+      ]
+    },
+    {
+      "name": "Banane — comment faire",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "À manger environ",
+        "une heure avant le coucher"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ces habitudes ne remplacent pas",
+        "un rythme de sommeil régulier"
+      ],
+      [
+        "Se coucher à heure fixe et limiter",
+        "les écrans le soir restent la base"
+      ]
+    ],
+    "tip": [
+      "À tester le soir,",
+      "sans en abuser"
+    ],
+    "cta": "Envie de plus d'astuces santé ? Abonnez-vous et likez !"
+  },
+  "topic_word": "Sommeil"
+}
