@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Wine, takeout, and a diet soda",
+    "in one day - temples pounding by morning?",
+    "Foods That May Trigger Migraines"
+  ],
+  "eyebrow": "Migraine Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "와인_illust.jpg": "Red Wine",
+    "라면_illust.jpg": "MSG",
+    "탄산음료_illust.jpg": "Diet Soda"
+  },
+  "items": [
+    {
+      "name": "Red wine",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Red wine carries far more histamine",
+        "than white wine",
+        "",
+        "That histamine surge can set off",
+        "a migraine within hours for some people"
+      ]
+    },
+    {
+      "name": "MSG in takeout",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Common in Chinese takeout",
+        "and packaged noodles or snacks",
+        "",
+        "Regular MSG intake caused headaches",
+        "in healthy adults within just 5 days"
+      ]
+    },
+    {
+      "name": "Diet soda (aspartame)",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Aspartame is reported as a trigger",
+        "nearly 3x more often",
+        "",
+        "by migraine sufferers than by",
+        "people with other headache types"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Start by cutting back -", "not overhauling everything at once"]
+    ],
+    "tip": [
+      "Cut out a suspected trigger for a few weeks,",
+      "then add it back alone to test it"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
