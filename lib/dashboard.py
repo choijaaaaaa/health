@@ -30,6 +30,14 @@ TYPE_SECTION_TITLE = {
 }
 TYPE_ORDER = ["video", "cards", "text"]
 
+# WHY 이 두 플랫폼은 대시보드 UI에서 아예 뺀다(2026-08-04, "틱톡 플랫폼 배제하고
+# 유튜브 숏츠도 이제 어차피 다 업로드해주니까 이것도 배제하자"): 유튜브 쇼츠는
+# 업로드 자동화가 이미 처리하고, 틱톡은 업로드 대상에서 제외하기로 해서, 파일
+# 상단 WHY의 "사람이 수동 업로드" 전제가 이 둘에는 더 이상 맞지 않는다. 언어별로
+# 표시 이름이 다르므로(한국어는 "유튜브 쇼츠"/"틱톡", 그 외 전 언어는 글로벌
+# 표시용 영어 이름 "YouTube Shorts"/"TikTok"을 그대로 씀) 두 형태 모두 넣는다.
+_UI_EXCLUDED_PLATFORMS = {"유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok"}
+
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
   <div class="dock-product-head">
@@ -964,7 +972,9 @@ def _update_topics_index(out_path: str):
         _generate_global_page(base, output_root, data_root)
 
 
-GLOBAL_PLATFORMS = ("YouTube Shorts", "Instagram Reels")
+# WHY YouTube Shorts를 뺐는지(2026-08-04): _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 —
+# 업로드 자동화가 이미 처리해서 이 페이지에도 더는 카드를 안 보여준다.
+GLOBAL_PLATFORMS = ("Instagram Reels",)
 
 # WHY 이 딕셔너리를 여기 두는지: data/global_channels.json과 값 형식이 다르다(그
 # 파일은 code->메타 정보 dict이고 여기는 순서가 있는 표시용 라벨) — 이 페이지
@@ -1150,6 +1160,10 @@ def _generate_global_page(base_topic: str, output_root: Path, data_root: Path) -
 def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
     topic = spec.get("topic", spec["title"])
+    # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
+    # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
+    # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
+    spec["platforms"] = [p for p in spec.get("platforms", []) if p["name"] not in _UI_EXCLUDED_PLATFORMS]
 
     # WHY 자동 경고(2026-07-31): 해시태그가 한 플랫폼만 빠진 채로 넘어간 적이 있었다
     # ("전반적으로 해시태그 있어야하는건 자동으로 넣어줘야하지않을까" 지적) — 매번

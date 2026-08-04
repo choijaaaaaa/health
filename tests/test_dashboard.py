@@ -54,6 +54,31 @@ def test_generate_creates_html_with_all_platform_names(tmp_path):
     assert "인스타그램 릴스" in html
 
 
+def test_excluded_platforms_not_rendered(tmp_path):
+    """회귀(2026-08-04): 유튜브 쇼츠/틱톡은 업로드 자동화 대상이라 대시보드 UI에
+    카드 자체가 안 뜨고, 그 옆의 다른 플랫폼은 그대로 떠야 한다. 한국어 이름과
+    글로벌(영어) 이름 둘 다 걸러지는지 확인한다."""
+    platforms = [
+        _platform("유튜브 쇼츠", "video"),
+        _platform("틱톡", "video"),
+        _platform("YouTube Shorts", "video"),
+        _platform("TikTok", "video"),
+        _platform("인스타그램 릴스", "video"),
+    ]
+    spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
+    card_news_dir, out_path = _make_dirs(tmp_path)
+
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
+    html = out_path.read_text(encoding="utf-8")
+
+    # WHY 전체 html이 아니라 platform-card만 검사하는지: CARD_TEMPLATE 안에 이
+    # 플랫폼 이름들을 언급하는 고정 JS 주석(구독자 500명 조건 설명 등)이 있어서
+    # 전체 텍스트로 검사하면 그 주석 때문에 오탐(false positive)이 난다.
+    cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
+    assert len(cards) == 1
+    assert "인스타그램 릴스" in cards[0]
+
+
 def test_missing_hashtag_prints_warning(capsys, tmp_path):
     """회귀 1: 캡션에 '#'이 없으면 print()로 경고가 찍혀야 한다."""
     platforms = [_platform("해시태그없는플랫폼", "text", caption="해시태그가 아예 없는 캡션입니다")]
@@ -82,9 +107,14 @@ def test_hashtag_present_no_warning_for_that_platform(capsys, tmp_path):
 def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_path):
     """회귀 2: network:'naver'가 있는 플랫폼에만 data-naver-button='1'이 붙어야 하고,
     다른 플랫폼에는 붙으면 안 된다(잘못 붙으면 네이버 URL이 안 들어가는 버그 재발)."""
+    # WHY "유튜브 쇼츠"가 아니라 "네이버 클립"/"일반영상플랫폼"을 쓰는지
+    # (2026-08-04): "유튜브 쇼츠"는 이제 대시보드 UI에서 아예 빠지는 플랫폼이라
+    # (lib/dashboard.py의 _UI_EXCLUDED_PLATFORMS 참고) 여기서 쓰면 필터링돼서
+    # 카드 자체가 안 나온다 — 이 테스트의 목적(naver 아닌 video 플랫폼에는
+    # data-naver-button이 안 붙는지 검증)과는 무관한 이름으로 교체.
     platforms = [
         _platform("네이버 클립", "video", network="naver"),
-        _platform("유튜브 쇼츠", "video"),
+        _platform("일반영상플랫폼", "video"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms, products=["돼지감자"])
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -96,10 +126,10 @@ def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_pat
     assert len(cards) == 2
 
     naver_card = next(c for c in cards if "네이버 클립" in c)
-    youtube_card = next(c for c in cards if "유튜브 쇼츠" in c)
+    other_card = next(c for c in cards if "일반영상플랫폼" in c)
 
     assert 'data-naver-button="1"' in naver_card
-    assert 'data-naver-button=""' in youtube_card
+    assert 'data-naver-button=""' in other_card
 
 
 def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path):
