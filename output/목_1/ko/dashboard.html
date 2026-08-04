@@ -220,8 +220,8 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/목_1_ko/목_1_ko_shorts.mp4</code>에서 확인</span>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
   <div class="dock-section">
@@ -312,10 +312,10 @@
   <h2>미리보기</h2>
   <div class="preview-row">
     <div class="video-panel">
-      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>
+      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/목_1_ko/목_1_ko_shorts.mp4</code>에서 확인</div>
     </div>
     <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"><img src="card_news/ko_00_%ED%91%9C%EC%A7%80.jpg" alt="ko_00_표지"><img src="card_news/ko_01_%EC%99%9C%20%EB%AA%A9%EA%B3%BC%20%EC%96%B4%EA%B9%A8%EA%B0%80%20%EB%BB%A3%EB%BB%A3%ED%95%B4%EC%A7%88%EA%B9%8C%EC%9A%94.jpg" alt="ko_01_왜 목과 어깨가 뻣뻣해질까요"><img src="card_news/ko_02_%EB%9D%BC%EB%A9%B4%C2%B7%EC%A7%A0%20%EA%B5%AD%EB%AC%BC%20%EC%9D%8C%EC%8B%9D.jpg" alt="ko_02_라면·짠 국물 음식"><img src="card_news/ko_03_%EB%9D%BC%EB%A9%B4%EC%9D%80%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg" alt="ko_03_라면은 이렇게"><img src="card_news/ko_04_%EC%BB%A4%ED%94%BC%C2%B7%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%9D%8C%EB%A3%8C.jpg" alt="ko_04_커피·카페인 음료"><img src="card_news/ko_05_%EC%BB%A4%ED%94%BC%EB%8A%94%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg" alt="ko_05_커피는 이렇게"><img src="card_news/ko_06_%EB%A7%A5%EC%A3%BC%20%EB%93%B1%20%EC%88%A0.jpg" alt="ko_06_맥주 등 술"><img src="card_news/ko_07_%EB%A7%A5%EC%A3%BC%EB%8A%94%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg" alt="ko_07_맥주는 이렇게"><img src="card_news/ko_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg" alt="ko_08_마무리"></div>
+      <div class="card-scroll"><img src="card_news/ko_00_%ED%91%9C%EC%A7%80.jpg" alt="ko_00_표지"></div>
     </div>
   </div>
 </section>
@@ -339,7 +339,7 @@
     </div>
   </div>
   <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
+  <span class="asset-link disabled">🎬 로컬 output/목_1_ko/목_1_ko_shorts.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-0" spellcheck="false">아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면 😖
 
 라면 국물·커피·맥주가 수분 균형과 마그네슘을 흔들어서 근육이 더 뭉치게 만들 수 있어요.
@@ -371,7 +371,7 @@
     </div>
   </div>
   <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기</div>
-  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
+  <span class="asset-link disabled">🎬 로컬 output/목_1_ko/목_1_ko_shorts.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-1" spellcheck="false">아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면?
 
 라면 국물·커피·맥주가 수분 균형과 마그네슘을 흔들어서 뭉침을 키울 수 있어요.
@@ -579,7 +579,7 @@
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const CARD_IMAGE_NAMES = ["ko_00_%ED%91%9C%EC%A7%80.jpg", "ko_01_%EC%99%9C%20%EB%AA%A9%EA%B3%BC%20%EC%96%B4%EA%B9%A8%EA%B0%80%20%EB%BB%A3%EB%BB%A3%ED%95%B4%EC%A7%88%EA%B9%8C%EC%9A%94.jpg", "ko_02_%EB%9D%BC%EB%A9%B4%C2%B7%EC%A7%A0%20%EA%B5%AD%EB%AC%BC%20%EC%9D%8C%EC%8B%9D.jpg", "ko_03_%EB%9D%BC%EB%A9%B4%EC%9D%80%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg", "ko_04_%EC%BB%A4%ED%94%BC%C2%B7%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%9D%8C%EB%A3%8C.jpg", "ko_05_%EC%BB%A4%ED%94%BC%EB%8A%94%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg", "ko_06_%EB%A7%A5%EC%A3%BC%20%EB%93%B1%20%EC%88%A0.jpg", "ko_07_%EB%A7%A5%EC%A3%BC%EB%8A%94%20%EC%9D%B4%EB%A0%87%EA%B2%8C.jpg", "ko_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg"];
+const CARD_IMAGE_NAMES = ["ko_00_%ED%91%9C%EC%A7%80.jpg"];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.

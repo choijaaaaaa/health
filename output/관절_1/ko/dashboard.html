@@ -220,8 +220,8 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <a href="관절_1_shorts.mp4" download="관절_1_shorts.mp4">🎬 영상 다운로드</a>
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/관절_1/관절_1_shorts.mp4</code>에서 확인</span>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
   <div class="dock-section">
@@ -312,10 +312,10 @@
   <h2>미리보기</h2>
   <div class="preview-row">
     <div class="video-panel">
-      <video src="관절_1_shorts.mp4" controls playsinline></video><a class="dl" href="관절_1_shorts.mp4" download="관절_1_shorts.mp4">영상 다운로드 ↓</a>
+      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/관절_1/관절_1_shorts.mp4</code>에서 확인</div>
     </div>
     <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"><img src="card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg" alt="관절_1_00_표지"><img src="card_news/%EA%B4%80%EC%A0%88_1_01_%EC%99%9C%20%EC%9D%B4%EB%9F%B0%20%EB%AC%B8%EC%A0%9C%EA%B0%80%20%EC%83%9D%EA%B8%B8%EA%B9%8C%EC%9A%94.jpg" alt="관절_1_01_왜 이런 문제가 생길까요"><img src="card_news/%EA%B4%80%EC%A0%88_1_02_%ED%8A%80%EA%B9%80%C2%B7%EB%9D%BC%EB%A9%B4%EB%A5%98.jpg" alt="관절_1_02_튀김·라면류"><img src="card_news/%EA%B4%80%EC%A0%88_1_03_%ED%8A%80%EA%B9%80%20%EB%8C%80%EC%8B%A0.jpg" alt="관절_1_03_튀김 대신"><img src="card_news/%EA%B4%80%EC%A0%88_1_04_%ED%83%84%EC%82%B0%EC%9D%8C%EB%A3%8C%C2%B7%EA%B0%80%EB%8B%B9%EC%9D%8C%EB%A3%8C.jpg" alt="관절_1_04_탄산음료·가당음료"><img src="card_news/%EA%B4%80%EC%A0%88_1_05_%ED%83%84%EC%82%B0%EC%9D%8C%EB%A3%8C%20%EB%8C%80%EC%8B%A0.jpg" alt="관절_1_05_탄산음료 대신"><img src="card_news/%EA%B4%80%EC%A0%88_1_06_%EC%86%8C%EC%8B%9C%EC%A7%80%20%EB%93%B1%20%EA%B0%80%EA%B3%B5%EC%9C%A1.jpg" alt="관절_1_06_소시지 등 가공육"><img src="card_news/%EA%B4%80%EC%A0%88_1_07_%EA%B0%80%EA%B3%B5%EC%9C%A1%20%EB%8C%80%EC%8B%A0.jpg" alt="관절_1_07_가공육 대신"><img src="card_news/%EA%B4%80%EC%A0%88_1_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg" alt="관절_1_08_마무리"></div>
+      <div class="card-scroll"><img src="card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg" alt="관절_1_00_표지"></div>
     </div>
   </div>
 </section>
@@ -339,7 +339,7 @@
     </div>
   </div>
   <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="관절_1_shorts_instagram.mp4" download="관절_1_shorts_instagram.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 로컬 output/관절_1/관절_1_shorts_instagram.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-0" spellcheck="false">계단 내려올 때 무릎이 시큰거리고 아침에 뻣뻣하다면 지금 확인하세요! 🦵
 
 튀김·탄산음료·가공육을 자주 먹으면 몸속 염증 물질이 늘어나면서 관절 통증과 뻣뻣함으로 이어질 수 있어요.
@@ -371,7 +371,7 @@
     </div>
   </div>
   <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="관절_1_shorts.mp4" download="관절_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 로컬 output/관절_1/관절_1_shorts.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-1" spellcheck="false">계단 내려올 때 무릎이 시큰거리고 아침에 뻣뻣하다면 지금 확인하세요!
 
 튀김·탄산음료·가공육을 자주 먹으면 관절 염증 물질이 늘어날 수 있어요.
@@ -575,7 +575,7 @@
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const CARD_IMAGE_NAMES = ["%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg", "%EA%B4%80%EC%A0%88_1_01_%EC%99%9C%20%EC%9D%B4%EB%9F%B0%20%EB%AC%B8%EC%A0%9C%EA%B0%80%20%EC%83%9D%EA%B8%B8%EA%B9%8C%EC%9A%94.jpg", "%EA%B4%80%EC%A0%88_1_02_%ED%8A%80%EA%B9%80%C2%B7%EB%9D%BC%EB%A9%B4%EB%A5%98.jpg", "%EA%B4%80%EC%A0%88_1_03_%ED%8A%80%EA%B9%80%20%EB%8C%80%EC%8B%A0.jpg", "%EA%B4%80%EC%A0%88_1_04_%ED%83%84%EC%82%B0%EC%9D%8C%EB%A3%8C%C2%B7%EA%B0%80%EB%8B%B9%EC%9D%8C%EB%A3%8C.jpg", "%EA%B4%80%EC%A0%88_1_05_%ED%83%84%EC%82%B0%EC%9D%8C%EB%A3%8C%20%EB%8C%80%EC%8B%A0.jpg", "%EA%B4%80%EC%A0%88_1_06_%EC%86%8C%EC%8B%9C%EC%A7%80%20%EB%93%B1%20%EA%B0%80%EA%B3%B5%EC%9C%A1.jpg", "%EA%B4%80%EC%A0%88_1_07_%EA%B0%80%EA%B3%B5%EC%9C%A1%20%EB%8C%80%EC%8B%A0.jpg", "%EA%B4%80%EC%A0%88_1_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg"];
+const CARD_IMAGE_NAMES = ["%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg"];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.

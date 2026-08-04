@@ -220,8 +220,8 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <a href="부종_1_shorts.mp4" download="부종_1_shorts.mp4">🎬 영상 다운로드</a>
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/부종_1/부종_1_shorts.mp4</code>에서 확인</span>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
   <div class="dock-section">
@@ -312,10 +312,10 @@
   <h2>미리보기</h2>
   <div class="preview-row">
     <div class="video-panel">
-      <video src="부종_1_shorts.mp4" controls playsinline></video><a class="dl" href="부종_1_shorts.mp4" download="부종_1_shorts.mp4">영상 다운로드 ↓</a>
+      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/부종_1/부종_1_shorts.mp4</code>에서 확인</div>
     </div>
     <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"><img src="card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg" alt="부종_1_00_표지"><img src="card_news/%EB%B6%80%EC%A2%85_1_01_%EC%99%9C%20%EB%B6%80%EC%A2%85%EC%9D%B4%20%EC%83%9D%EA%B8%B8%EA%B9%8C%EC%9A%94.jpg" alt="부종_1_01_왜 부종이 생길까요"><img src="card_news/%EB%B6%80%EC%A2%85_1_02_%EA%B0%90%EC%B4%88.jpg" alt="부종_1_02_감초"><img src="card_news/%EB%B6%80%EC%A2%85_1_03_%EA%B0%90%EC%B4%88%20%EB%8C%80%EC%8B%A0.jpg" alt="부종_1_03_감초 대신"><img src="card_news/%EB%B6%80%EC%A2%85_1_04_%EB%9D%BC%EB%A9%B4.jpg" alt="부종_1_04_라면"><img src="card_news/%EB%B6%80%EC%A2%85_1_05_%EB%9D%BC%EB%A9%B4%20%EB%8C%80%EC%8B%A0.jpg" alt="부종_1_05_라면 대신"><img src="card_news/%EB%B6%80%EC%A2%85_1_06_%EC%B9%98%EC%A6%88.jpg" alt="부종_1_06_치즈"><img src="card_news/%EB%B6%80%EC%A2%85_1_07_%EC%B9%98%EC%A6%88%20%EB%8C%80%EC%8B%A0.jpg" alt="부종_1_07_치즈 대신"><img src="card_news/%EB%B6%80%EC%A2%85_1_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg" alt="부종_1_08_마무리"></div>
+      <div class="card-scroll"><img src="card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg" alt="부종_1_00_표지"></div>
     </div>
   </div>
 </section>
@@ -339,7 +339,7 @@
     </div>
   </div>
   <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="부종_1_shorts_instagram.mp4" download="부종_1_shorts_instagram.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 로컬 output/부종_1/부종_1_shorts_instagram.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-0" spellcheck="false">혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? 💧
 
 나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 호르몬 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.
@@ -371,7 +371,7 @@
     </div>
   </div>
   <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="부종_1_shorts.mp4" download="부종_1_shorts.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 로컬 output/부종_1/부종_1_shorts.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-1" spellcheck="false">혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요?
 
 나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡혀요. 감초·라면·치즈, 양을 줄이는 것만으로 도움될 수 있어요!
@@ -571,7 +571,7 @@
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const CARD_IMAGE_NAMES = ["%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg", "%EB%B6%80%EC%A2%85_1_01_%EC%99%9C%20%EB%B6%80%EC%A2%85%EC%9D%B4%20%EC%83%9D%EA%B8%B8%EA%B9%8C%EC%9A%94.jpg", "%EB%B6%80%EC%A2%85_1_02_%EA%B0%90%EC%B4%88.jpg", "%EB%B6%80%EC%A2%85_1_03_%EA%B0%90%EC%B4%88%20%EB%8C%80%EC%8B%A0.jpg", "%EB%B6%80%EC%A2%85_1_04_%EB%9D%BC%EB%A9%B4.jpg", "%EB%B6%80%EC%A2%85_1_05_%EB%9D%BC%EB%A9%B4%20%EB%8C%80%EC%8B%A0.jpg", "%EB%B6%80%EC%A2%85_1_06_%EC%B9%98%EC%A6%88.jpg", "%EB%B6%80%EC%A2%85_1_07_%EC%B9%98%EC%A6%88%20%EB%8C%80%EC%8B%A0.jpg", "%EB%B6%80%EC%A2%85_1_08_%EB%A7%88%EB%AC%B4%EB%A6%AC.jpg"];
+const CARD_IMAGE_NAMES = ["%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg"];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.

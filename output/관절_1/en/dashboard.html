@@ -220,8 +220,8 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <a href="shorts.mp4" download="관절_1_en_shorts.mp4">🎬 영상 다운로드</a>
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/관절_1_en/shorts.mp4</code>에서 확인</span>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
   <div class="dock-section">
@@ -246,7 +246,7 @@
   <h2>미리보기</h2>
   <div class="preview-row">
     <div class="video-panel">
-      <video src="shorts.mp4" controls playsinline></video><a class="dl" href="shorts.mp4" download="관절_1_en_shorts.mp4">영상 다운로드 ↓</a>
+      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/관절_1_en/shorts.mp4</code>에서 확인</div>
     </div>
     <div class="card-gallery" id="card-gallery">
       <div class="card-scroll"></div>
@@ -273,7 +273,7 @@
     </div>
   </div>
   <div class="action-line">Copy caption → New Reel → paste in caption field</div>
-  <a class="asset-link" href="shorts_instagram.mp4" download="관절_1_en_shorts_instagram.mp4">🎬 영상 다운로드</a>
+  <span class="asset-link disabled">🎬 로컬 output/관절_1_en/shorts_instagram.mp4에서 확인</span>
   <textarea class="caption-box" id="cap-0" spellcheck="false">Grilled burgers and a few beers last night — and your big toe's throbbing this morning? 🦶
 
 That sudden pain could be a gout attack. Beer, red meat, and sugary soda are three everyday triggers that raise uric acid - and each one has an easy swap.
