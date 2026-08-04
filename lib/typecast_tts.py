@@ -208,13 +208,80 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
     audio_path.write_bytes(audio_bytes)
     srt_path.write_text(_build_srt(words))
 
+    duration = words[-1]["end"] if words else None
+    # WHY(2026-08-05): TTS는 글자 수 기준 과금이라 "생성→길이 확인→너무 길면 재작성
+    # 후 재생성"을 반복하면 실제로 API를 여러 번 호출하는 것과 같다("돈 존나
+    # 나간다" — 사용자 확인). 이제 TTS는 topic당 1회만 호출하고 결과 길이를
+    # 그대로 받아들인다(45초를 넘겨도 재생성하지 않음) — 대신 매 생성마다
+    # 실제 결과(글자/단어수 대비 초)를 pacing.json에 누적 기록해서, 다음 topic
+    # narration.txt를 쓸 때 미리 "이 정도 분량이면 몇 초가 나온다"를 추정할 수
+    # 있게 한다(경험 기반 자기 개선 — 사용자가 "계속 학습할 수 있는 프로세스"
+    # 요청). 실패해도(파일 권한 등) 본 생성 자체는 막지 않도록 조용히 무시.
+    if duration:
+        try:
+            _record_pacing_sample(lang, text, duration)
+        except Exception as e:
+            print(f"[typecast] pacing 기록 실패(무시): {e}")
+
     return {
         "audio_path": str(audio_path),
         "srt_path": str(srt_path),
-        "duration": words[-1]["end"] if words else None,
+        "duration": duration,
         "word_count": len(words),
         "words": words,
     }
+
+
+_PACING_PATH = ROOT / "data" / "tts_pacing.json"
+_CHAR_BASED_LANGS = {"ja", "zh-TW", "th"}
+
+
+def _pacing_unit_count(text: str, lang: str) -> int:
+    if lang in _CHAR_BASED_LANGS:
+        return len(re.sub(r"\s+", "", text))
+    return len(text.split())
+
+
+def _record_pacing_sample(lang: str, text: str, duration: float) -> None:
+    """이번 생성 결과(단위수/초)를 기존 평균에 누적 반영(가중 이동평균 —
+    샘플 수가 늘수록 새 값 1건의 영향은 자연히 작아짐, 표준적인 온라인 평균
+    갱신 공식). lang="kor"(한국어)는 이 표에서 관리 안 함(글로벌 topic 대상 지표)."""
+    if lang == "kor":
+        return
+    unit_count = _pacing_unit_count(text, lang)
+    if unit_count == 0:
+        return
+    new_rate = unit_count / duration
+
+    pacing: dict = {}
+    if _PACING_PATH.exists():
+        pacing = json.loads(_PACING_PATH.read_text(encoding="utf-8"))
+
+    entry = pacing.get(lang)
+    if entry is None:
+        unit = "char" if lang in _CHAR_BASED_LANGS else "word"
+        entry = {"unit": unit, "rate": new_rate, "samples": 1}
+    else:
+        n = entry.get("samples", 1)
+        entry["rate"] = (entry["rate"] * n + new_rate) / (n + 1)
+        entry["samples"] = n + 1
+    pacing[lang] = entry
+    _PACING_PATH.write_text(json.dumps(pacing, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def estimate_duration(text: str, lang: str) -> float | None:
+    """narration.txt를 실제로 TTS로 뽑기 전에, 이 언어의 지금까지 누적된 pacing
+    데이터로 예상 길이(초)를 미리 계산한다 — topic 작성 전 분량을 가늠하는 용도
+    (재생성 방지가 목적이지, 사후 검증용이 아니다). 아직 이 언어 데이터가 없으면
+    None(호출자가 감으로 판단)."""
+    if not _PACING_PATH.exists():
+        return None
+    pacing = json.loads(_PACING_PATH.read_text(encoding="utf-8"))
+    entry = pacing.get(lang)
+    if not entry:
+        return None
+    unit_count = _pacing_unit_count(text, lang)
+    return unit_count / entry["rate"] if entry["rate"] else None
 
 
 # WHY 세그먼트별 다른 보이스(2026-08-01): 캐릭터 여러 명이 번갈아 나오는 topic(예:
