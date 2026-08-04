@@ -56,6 +56,8 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
       <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" value="{link_value}" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <a href="{naver_search_url}" target="_blank" rel="noopener">🟢 네이버 검색</a>
+    <button type="button" class="copy-market-link" data-url="{naver_search_url}" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     {naver_goto}
     <div class="product-link-row">
       <input type="text" class="product-link-input" data-market="naver" data-product="{name_attr}" value="{naver_link_value}" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
@@ -821,11 +823,17 @@ def _load_product_links() -> dict[str, str]:
 
 def _load_naver_product_links() -> dict[str, str]:
     """_load_product_links()와 같은 패턴, 네이버 커넥트용(2026-08-04, "네이버 커넥트도
-    주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼"). WHY 예전에 뺐던 위젯 입력창을 다시
-    넣는지: 2026-08-01엔 "브랜드커넥트 검색 입력창"이 매번 검색해서 링크를 만들어야
-    해서 번거로워 없앴는데, 지금은 상품별 최종 링크(naver.me 단축 URL)를 이미 다
-    확보해둔 상태라 예전처럼 검색하는 게 아니라 쿠팡처럼 고정 링크를 그냥 보여주기만
-    하면 된다 — 그래서 검색 입력창이 아니라 이 파일 하나로 관리."""
+    주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼"). 이미 링크를 확보한 상품은 이 파일에서
+    찾아 고정 링크로 바로 보여준다 — 쿠팡과 동일하게 동일 상품명이면 링크도 재사용.
+
+    ⚠️ 검색 링크는 별도로 여전히 필요하다(2026-08-04, "네이버 커넥트 검색도 전에
+    있었는데 한번 뺐었거든... 검색해서 대응을 해야하는부분이라"): 2026-08-01엔
+    "브랜드커넥트 검색 입력창"을 매번 검색해서 링크를 만들어야 해서 번거롭다고 없앴는데,
+    이 파일에 아직 없는 신규 상품은 결국 사용자가 직접 검색해서 브랜드커넥트 링크를
+    새로 만들어야 한다 — 이 파일은 "이미 만들어둔 링크 재사용" 캐시일 뿐, 검색 자체를
+    대체하지 않는다. `_dock_products()`가 쿠팡 검색 버튼과 동일한 패턴(🟢 네이버 검색 +
+    복사)을 항상 같이 렌더링하고, 이 파일에 링크가 있으면 그 아래 "네이버 커넥트로
+    이동" 링크를 추가로 보여준다."""
     path = Path(__file__).resolve().parent.parent / "output" / "naver_product_links.json"
     if not path.exists():
         return {}
@@ -844,6 +852,7 @@ def _dock_products(
     rows = ""
     for idx, name in enumerate(products):
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
+        naver_search_url = f"https://search.shopping.naver.com/search/all?query={quote(name)}"
         link = product_links.get(name, "")
         naver_link = naver_links.get(name, "")
         naver_goto = (
@@ -854,6 +863,7 @@ def _dock_products(
             name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
             link_value=_esc(link), row_class=" linked" if (link or naver_link) else "",
             naver_link_value=_esc(naver_link), naver_goto=naver_goto,
+            naver_search_url=naver_search_url,
         )
     # WHY 네이버 입력란이 캡션 자동삽입(_buildLinkBlock)엔 안 쓰이는지(2026-08-04):
     # network:"naver" 플랫폼(네이버 블로그·클립) 캡션은 여전히 상품명만 나열하는
