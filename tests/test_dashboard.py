@@ -79,6 +79,50 @@ def test_excluded_platforms_not_rendered(tmp_path):
     assert "인스타그램 릴스" in cards[0]
 
 
+def test_instagram_reels_uses_safe_margin_video_when_present(tmp_path):
+    """회귀(2026-08-04): 같은 폴더에 <...>_shorts_instagram.mp4(안전 여백 버전)가
+    있으면 인스타그램 릴스 카드의 다운로드 링크만 그 파일을 가리키고, 다른
+    video 타입 플랫폼(예: 네이버 클립)은 원본 영상을 그대로 써야 한다."""
+    platforms = [
+        _platform("인스타그램 릴스", "video"),
+        _platform("네이버 클립", "video"),
+    ]
+    spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
+    card_news_dir, out_path = _make_dirs(tmp_path)
+
+    video_dir = out_path.parent
+    (video_dir / "테스트주제_1_shorts.mp4").write_bytes(b"fake original video")
+    (video_dir / "테스트주제_1_shorts_instagram.mp4").write_bytes(b"fake safe-margin video")
+
+    generate(str(spec_path), str(card_news_dir), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
+    html = out_path.read_text(encoding="utf-8")
+
+    cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
+    reels_card = next(c for c in cards if "인스타그램 릴스" in c)
+    naver_card = next(c for c in cards if "네이버 클립" in c)
+
+    assert "테스트주제_1_shorts_instagram.mp4" in reels_card
+    assert "테스트주제_1_shorts_instagram.mp4" not in naver_card
+    assert "테스트주제_1_shorts.mp4" in naver_card
+
+
+def test_instagram_reels_falls_back_to_main_video_when_no_safe_margin_file(tmp_path):
+    """회귀(2026-08-04): 안전 여백 버전이 아직 없는 topic에서는 인스타그램 릴스
+    카드도 "영상 준비 중"이 아니라 원본 영상을 그대로 써야 한다."""
+    platforms = [_platform("인스타그램 릴스", "video")]
+    spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
+    card_news_dir, out_path = _make_dirs(tmp_path)
+
+    video_dir = out_path.parent
+    (video_dir / "테스트주제_1_shorts.mp4").write_bytes(b"fake original video")
+
+    generate(str(spec_path), str(card_news_dir), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
+    html = out_path.read_text(encoding="utf-8")
+
+    assert "영상 준비 중" not in html
+    assert "테스트주제_1_shorts.mp4" in html
+
+
 def test_missing_hashtag_prints_warning(capsys, tmp_path):
     """회귀 1: 캡션에 '#'이 없으면 print()로 경고가 찍혀야 한다."""
     platforms = [_platform("해시태그없는플랫폼", "text", caption="해시태그가 아예 없는 캡션입니다")]

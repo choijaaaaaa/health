@@ -38,6 +38,11 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 표시용 영어 이름 "YouTube Shorts"/"TikTok"을 그대로 씀) 두 형태 모두 넣는다.
 _UI_EXCLUDED_PLATFORMS = {"유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok"}
 
+# WHY 인스타그램 릴스만 별도 영상을 쓰는지(2026-08-04): generate()의
+# instagram_video_path WHY 참고 — 인스타 릴스 카드에서만 안전 여백 버전 파일을
+# 연결하기 위해 이름으로 매칭한다.
+_INSTAGRAM_REELS_NAMES = {"인스타그램 릴스", "Instagram Reels"}
+
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
   <div class="dock-product-head">
@@ -1194,6 +1199,21 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     has_video = bool(video_path and Path(video_path).exists())
     video_name = Path(video_path).name if video_path else "shorts.mp4"
     video_download_attr = _prefixed(video_name, _esc(topic))
+
+    # WHY 인스타그램용 별도 영상을 자동으로 찾는지(2026-08-04, "인스타 숏츠로
+    # 업로드할거를 양옆, 상하 더 키워가지고 만들어놓으면... 데스크탑에서 업로드해도
+    # 딱 맞게"): 칠판 나무 프레임이 캔버스 가장자리에 여백 없이 꽉 차서 인스타
+    # 릴스 UI(세이프존)와 겹쳐 잘려 보이는 문제 — build_instagram_safe_video()로
+    # 안전 여백을 더한 별도 파일(<...>_shorts_instagram.mp4)을 같은 폴더에 만들어두면
+    # 여기서 자동으로 찾아서 인스타그램 릴스 카드에만 그 파일을 연결한다. CLI
+    # 인자를 안 늘리는 이유: video_path만 넘기면 나머지 호출부(테스트 등) 수정 없이
+    # 그대로 호환된다.
+    instagram_video_path = None
+    if video_path:
+        ig_candidates = sorted(Path(video_path).parent.glob("*shorts_instagram.mp4"))
+        if ig_candidates:
+            instagram_video_path = ig_candidates[0]
+    instagram_video_name = instagram_video_path.name if instagram_video_path else video_name
     if has_video:
         video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download="{video_download_attr}">영상 다운로드 ↓</a>'
         video_download_link = f'<a href="{video_name}" download="{video_download_attr}">🎬 영상 다운로드</a>'
@@ -1231,6 +1251,12 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
             # rich_paste: true로 표시해서 이 기능을 켠다.
             cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
+            # WHY has_video는 그대로 쓰고 video_name만 바꾸는지: instagram_video_name이
+            # 안전 여백 버전이 없으면 이미 video_name으로 폴백해두므로(위 WHY 참고),
+            # has_video까지 has_instagram_video로 바꾸면 안전 여백 버전이 아직
+            # 없는 topic에서 원본 영상이 있는데도 "영상 준비 중"으로 잘못 뜬다.
+            is_instagram_reels = p["name"] in _INSTAGRAM_REELS_NAMES
+            card_video_name = instagram_video_name if is_instagram_reels else video_name
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -1239,7 +1265,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, has_video, video_name, topic, cover_path.name if cover_path else None),
+                asset_link=_asset_link(t, has_video, card_video_name, topic, cover_path.name if cover_path else None),
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",

@@ -23,6 +23,7 @@ from lib.video_assembler import (
     _parse_srt,
     _place_chalk_doodle,
     assemble,
+    build_instagram_safe_video,
     make_gradient_bg,
 )
 
@@ -45,6 +46,17 @@ def _ffprobe_frame_rate(path) -> float:
     )
     num, den = out.stdout.strip().split("/")
     return float(num) / float(den)
+
+
+def _ffprobe_resolution(path) -> tuple[int, int]:
+    out = subprocess.run(
+        ["ffprobe", "-v", "error", "-select_streams", "v:0",
+         "-show_entries", "stream=width,height",
+         "-of", "csv=s=x:p=0", str(path)],
+        capture_output=True, text=True, check=True,
+    )
+    w, h = out.stdout.strip().split("x")
+    return int(w), int(h)
 
 
 def _write_srt(tmp_path, entries: list[tuple[str, str, str]]):
@@ -336,4 +348,51 @@ class TestAssembleEndCard:
         assert actual == pytest.approx(expected, abs=0.5), (
             f"expected ~{expected}s, got {actual}s — SRT가 오디오보다 길 때 "
             "엔딩 카드 영역까지 침범해서 영상이 늘어난 것으로 보임(클램프 회귀)"
+        )
+
+
+class TestInstagramSafeVideo:
+    """2026-08-04 — 칠판 나무 프레임이 캔버스 가장자리에 꽉 차서 인스타그램
+    릴스 UI 세이프존과 겹쳐 잘려 보이는 문제(build_instagram_safe_video) 검증."""
+
+    def test_output_keeps_source_resolution_and_duration(self, tmp_path):
+        source = tmp_path / "source.mp4"
+        duration = 1.5
+        _build_chalkboard_bg(duration, source)
+
+        out_path = tmp_path / "safe.mp4"
+        build_instagram_safe_video(str(source), out_path)
+
+        assert out_path.exists()
+        assert _ffprobe_resolution(out_path) == (W, H)
+        assert _ffprobe_duration(out_path) == pytest.approx(duration, abs=0.2)
+
+    def test_content_is_scaled_down_leaving_margin(self, tmp_path):
+        """WHY 합성 입력을 쓰는지: 실제 칠판 배경은 가장자리 색이 미묘해서(흰
+        여백/나무 톤이 블러 후에도 비슷하게 남아) 픽셀 diff가 작으면 판정이
+        애매하다 — 캔버스 맨 꼭짓점에 원색(순수 빨강) 마커를 정확히 박아둔
+        합성 입력을 쓰면, 안전 여백판에서는 그 꼭짓점이 축소+블러 배경으로
+        바뀌어 더는 순수 빨강이 아니어야 한다는 걸 확실하게 확인할 수 있다."""
+        source = tmp_path / "source.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "lavfi",
+             "-i", f"color=c=black:s={W}x{H}:d=0.5:r={FPS},"
+                   f"drawbox=x=0:y=0:w=40:h=40:color=red:t=fill",
+             "-pix_fmt", "yuv420p", str(source)],
+            check=True, capture_output=True,
+        )
+
+        out_path = tmp_path / "safe.mp4"
+        build_instagram_safe_video(str(source), out_path, margin_scale=0.8)
+        frame_safe = tmp_path / "frame_safe.png"
+        subprocess.run(
+            ["ffmpeg", "-y", "-ss", "0.1", "-i", str(out_path), "-update", "1",
+             "-vframes", "1", str(frame_safe)],
+            check=True, capture_output=True,
+        )
+
+        corner_pixel = Image.open(frame_safe).convert("RGB").getpixel((0, 0))
+        assert corner_pixel != (255, 0, 0), (
+            f"안전 여백판의 (0,0) 픽셀이 여전히 순수 빨강({corner_pixel})임 — "
+            "margin_scale이 적용 안 돼서 원본 꼭짓점 마커가 그대로 가장자리에 있는 것으로 보임"
         )
