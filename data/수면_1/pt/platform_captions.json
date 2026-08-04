@@ -1,0 +1,30 @@
+{
+  "topic": "수면_1_pt",
+  "title": "Acorda sempre no mesmo horário de madrugada? 3 alimentos que ajudam a manter o sono",
+  "products": [
+    "Chá de Camomila",
+    "Maracujá",
+    "Banana"
+  ],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Acorda Sempre no Mesmo Horário de Madrugada? Veja Por Quê\n\nDescription:\nVocê acorda sempre no mesmo horário de madrugada e não consegue voltar a dormir? Pode ser um pico de cortisol: quando a glicose cai durante a noite, o corpo libera cortisol e adrenalina de emergência, e esse alarme te acorda de repente. Jantar rico em açúcar piora essa queda.\n\nO maracujá é considerado o fitoterápico mais estudado no Brasil pra ansiedade e sono. A camomila tem apigenina, que se liga aos receptores GABA-A do cérebro. E a banana junta triptofano, magnésio e potássio, que viram serotonina e depois melatonina.\n\nEsses alimentos podem ajudar, mas manter um horário fixo pra dormir continua sendo o mais importante.\n\n#Shorts #sono #insonia #maracuja #camomila #banana #saude"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "suppress_product_block": true,
+      "action": "Copiar legenda → novo Reels → colar no campo de legenda",
+      "caption": "Acorda sempre no mesmo horário de madrugada e não consegue voltar a dormir? 😴\n\nPode ser um pico de cortisol: quando a glicose cai à noite, o corpo libera cortisol e adrenalina de emergência - e isso te acorda de repente. Maracujá, camomila e banana podem ajudar a acalmar o sistema nervoso antes de dormir.\n\nMas manter um horário fixo pra dormir continua sendo o mais importante.\n\nQuer mais dicas de saúde? Segue aqui 👆\n\n#sono #insonia #maracuja #camomila #banana #saude #bemestar"
+    }
+  ]
+}

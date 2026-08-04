@@ -1,0 +1,133 @@
+{
+  "title": [
+    "Acorda sempre no mesmo",
+    "horário de madrugada?",
+    "3 alimentos que ajudam a manter o sono"
+  ],
+  "cover_char_file": "카모마일_illust.jpg",
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Quando a glicose cai",
+        "durante a noite, o corpo",
+        "libera cortisol e adrenalina",
+        "de emergência",
+        "",
+        "Esse alarme interno",
+        "pode te acordar de repente",
+        "",
+        "Jantar rico em açúcar ou",
+        "carboidrato refinado piora",
+        "essa queda"
+      ]
+    },
+    {
+      "name": "Maracujá",
+      "char_file": "패션프루트_illust.jpg",
+      "body": [
+        "É considerado o fitoterápico",
+        "mais estudado no Brasil",
+        "pra ansiedade e sono",
+        "",
+        "Mais de 20 estudos apontam",
+        "efeito calmante, e ele parece",
+        "atuar nos receptores GABA"
+      ]
+    },
+    {
+      "name": "Como consumir o maracujá",
+      "char_file": "패션프루트_illust.jpg",
+      "body": [
+        "Suco natural da polpa,",
+        "sem adição de açúcar,",
+        "1 a 2 horas antes de deitar",
+        "",
+        "Chá da folha também",
+        "é usado tradicionalmente"
+      ]
+    },
+    {
+      "name": "Camomila",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Tem apigenina, um composto",
+        "que se liga aos receptores",
+        "GABA-A do cérebro",
+        "",
+        "Em um estudo, mais da metade",
+        "dos participantes teve resposta",
+        "clara após 8 semanas de uso"
+      ]
+    },
+    {
+      "name": "Como consumir a camomila",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Uma xícara de chá quente,",
+        "cerca de 30 a 45 minutos",
+        "antes de deitar",
+        "",
+        "Evite tomar líquido demais",
+        "perto da hora de dormir"
+      ]
+    },
+    {
+      "name": "Banana",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Tem triptofano, magnésio",
+        "e potássio",
+        "",
+        "O triptofano vira serotonina",
+        "e depois melatonina -",
+        "o magnésio ajuda nesse processo"
+      ]
+    },
+    {
+      "name": "Como consumir a banana",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Uma banana à noite,",
+        "sozinha ou com aveia",
+        "",
+        "É fruta - não precisa",
+        "exagerar na quantidade"
+      ]
+    },
+    {
+      "name": "Atenção",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Esses alimentos podem ajudar,",
+        "mas não substituem",
+        "tratamento se o problema",
+        "persistir",
+        "",
+        "Manter um horário fixo",
+        "pra dormir continua sendo",
+        "o mais importante"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Esses 3 alimentos podem ajudar",
+        "a controlar a queda de glicose"
+      ],
+      [
+        "Mas dormir e acordar",
+        "sempre no mesmo horário",
+        "é o que mais faz diferença"
+      ]
+    ],
+    "tip": [
+      "Experimente 1 a 2 horas",
+      "antes de deitar, sem exagerar"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga o perfil!"
+  },
+  "eyebrow": "SONO"
+}
