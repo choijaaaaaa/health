@@ -103,6 +103,30 @@
 - output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
   `--out`은 직접 지정, `typecast_tts.py` 결과는 필요시 rename).
 
+## 영상 포맷 다각화 (`lib/templates/`)
+
+- **로스터 5개**: 판서형(기존, `video_assembler.py`) + `before_after_transition`/
+  `checklist`/`ranking_countdown`/`timeline`(`lib/templates/proto_*.py`).
+- **선택**: `lib/rebuild_video.py`의 `select_format(topic)`이 topic 문자열
+  기준 결정론적 시드(`sum(ord(c)*(i*k+c0)...)  % len(options)`, 축마다 다른
+  (k,c0))로 하나를 고른다 — 진짜 랜덤 아님(재생성해도 같은 topic은 같은
+  포맷), 다른 topic·언어 참고 안 함(전역 상태 없음). `rebuild(topic)`이 그
+  포맷대로 자동 분기 렌더링 — `python3 -m lib.rebuild_video <topic>`만
+  실행하면 됨.
+- 신규 4개 템플릿 공통 시그니처: `render(topic_dir, lang, audio_path,
+  srt_path, spec_path, out_path)`. `card_news_spec.json`의 `items` 개수를
+  그대로 읽어서 3개 고정 아님. 폰트는 `video_assembler.py`의
+  `_title_font_for_lang`/`_wrap_text_for_lang` 재사용(16개 언어 자동 지원).
+- **안전영역**: `_YT_SAFE_RIGHT=150`/`_YT_SAFE_BOTTOM=320`(유튜브 Shorts 앱
+  UI가 가리는 영역) — 4개 템플릿 전부 이 값을 로컬 상수로 복제해서 모든
+  텍스트 블록이 `(0,0,W-150,H-320)` 안에 들어오도록 강제 체크한다. 새
+  템플릿 추가 시 반드시 넣을 것 — 빠뜨리면 실기기에서 텍스트가 잘려 보인다.
+- 산출물이 코드보다 오래됐는지는 `python3 -m lib.check_video_staleness`로
+  확인(미게시 topic만 대상, 재생성은 자동으로 안 함).
+- ⚠️ 이 영상 포맷 시스템(코드+문서) 전체가 2026-08-04에 한 번 커밋 안 된 채
+  통째로 유실됐다가 재구축됨 — **이 종류 작업(대규모 신규 코드)은 완성되는
+  즉시 커밋할 것**, 리뷰용이라고 미루지 말 것.
+
 ## TTS (`lib/typecast_tts.py`)
 
 - `synthesize(topic, text)` — 보이스 미지정 시 `data/typecast_voices.json`에서
