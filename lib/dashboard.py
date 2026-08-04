@@ -1296,6 +1296,12 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         except ValueError:
             rest = ()
         topic = "_".join(rest) if rest else Path(spec_path).parent.name
+    if isinstance(spec.get("title"), list):
+        # WHY(2026-08-05): 영상 템플릿(before_after_transition 등)용으로 줄바꿈
+        # 리스트로 저장된 title을 대시보드는 그대로 한 줄 문자열로 써야 한다
+        # (_esc()가 .replace()를 호출하므로 리스트면 그대로 크래시) — 공백으로
+        # 합쳐서 단일 문자열로 정규화, 아래 모든 title 사용처가 그대로 재사용.
+        spec["title"] = " ".join(spec["title"])
     # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
     # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
