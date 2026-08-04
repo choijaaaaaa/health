@@ -328,7 +328,7 @@ PAGE_TEMPLATE = """<!doctype html>
     <h4>다운로드</h4>
     <div class="dock-links">
       {video_download_link}
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드뉴스 전체 다운로드</button>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
   <div class="dock-section">
@@ -809,8 +809,10 @@ def _prefixed(name: str, topic: str) -> str:
 def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str, cover_name: str | None) -> str:
     topic_attr = _esc(topic)
     if platform_type == "video":
+        # WHY 다운로드 링크 대신 안내 문구인지: video_block WHY 참고(2026-08-05) —
+        # mp4가 git에 없어서 이 링크는 GitHub Pages에서 항상 깨진다.
         if has_video:
-            return f'<a class="asset-link" href="{video_name}" download="{_prefixed(video_name, topic_attr)}">🎬 영상 다운로드</a>'
+            return f'<span class="asset-link disabled">🎬 로컬 output/{topic_attr}/{_esc(video_name)}에서 확인</span>'
         return '<span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>'
     if platform_type == "cards":
         return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
@@ -1186,17 +1188,14 @@ def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str
         ig_candidates = sorted(video_dir.glob("*shorts_instagram.mp4"))
         if ig_candidates:
             candidates = ig_candidates
+    # WHY <video>·다운로드 버튼 대신 로컬 경로 안내인지(2026-08-05, video_block
+    # WHY 참고): mp4가 git에 안 올라가서(.gitignore) GitHub Pages에선 이 링크가
+    # 항상 깨진다 — 로컬 파일 존재 여부는 그대로 candidates로 판단하되(조립
+    # 완료 표시 목적), 실제 재생/다운로드 UI는 없앤다.
     if candidates:
-        video_name = quote(candidates[0].name)
-        dl_name = _prefixed(candidates[0].name, _esc(f"{topic}_{lang}"))
-        # WHY 다운로드 버튼을 추가했는지(2026-08-04, "동영상도 위젯같은데 다운받을
-        # 수 있는 버튼을 넣는다던지 하면 될듯" 요청): ko CARD_TEMPLATE(_asset_link)엔
-        # 이미 있던 "🎬 영상 다운로드 ↓" 링크가 이 경량 카드엔 없어서 <video controls>의
-        # 브라우저 기본 메뉴에 의존해야 했다 — 같은 패턴(다운로드 파일명에 topic
-        # 접두어)으로 명시적 버튼을 추가해 형식을 맞춘다.
+        local_hint = f"output/{topic}/{lang}/{candidates[0].name}"
         video_html = (
-            f'<video src="{lang}/{video_name}" controls playsinline></video>'
-            f'<a class="dl" href="{lang}/{video_name}" download="{dl_name}">🎬 영상 다운로드 ↓</a>'
+            f'<div class="g-video-ph">🎬 영상 조립 완료<br>로컬 <code>{_esc(local_hint)}</code>에서 확인</div>'
         )
     else:
         video_html = '<div class="g-video-ph">🎬 영상 준비 중</div>'
@@ -1324,10 +1323,14 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         spec.get("products", []), _product_links_loaded, _naver_links_loaded
     )
 
-    asset_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
-    # WHY quote(p.name): 파일명에 "?" 같은 URL 특수문자가 있으면(예: "돼지감자란?.jpg")
-    # 브라우저가 쿼리스트링으로 오해해서 이미지가 깨진다(2026-07-30 확인).
-    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in asset_imgs)
+    # WHY 표지 한 장만 쓰는지(2026-08-05, "asset이랑 output의 영상들은 사실
+    # 프로젝트에 올라가지 않아도 돼... 카드뉴스도 마찬가지고" 이후): 카드뉴스
+    # 상세 이미지는 표지(00_표지.jpg)만 남기고 git 추적에서 뺐다(.gitignore
+    # 참고) — 로컬에는 전부 그대로 있어서 예전처럼 전체 글롭(`*.jpg`)을 쓰면
+    # GitHub Pages에서는 표지 말고 전부 깨진 이미지로 보인다. 실제로 배포됐을
+    # 때도 살아있는 파일만 갤러리에 넣는다.
+    cover_imgs = sorted(Path(card_news_dir).glob("*00_표지.jpg")) if Path(card_news_dir).exists() else []
+    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in cover_imgs)
 
     keyword = re.sub(r"_\d+$", "", topic).replace("_", " ")
     unsplash_url = f"https://unsplash.com/s/photos/{quote(keyword)}"
@@ -1351,9 +1354,24 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         if ig_candidates:
             instagram_video_path = ig_candidates[0]
     instagram_video_name = instagram_video_path.name if instagram_video_path else video_name
+
+    # WHY 영상 미리보기·다운로드 버튼을 없앴는지(2026-08-05, "asset이랑 output의
+    # 영상들은 사실 프로젝트에 올라가지 않아도 돼... 다운로드 이런것도 어쩔수없지"):
+    # mp4가 이제 git에 안 올라가므로(.gitignore 참고) 이 대시보드가 GitHub
+    # Pages로 배포되면 <video>·다운로드 링크가 전부 깨진 상태로 보인다. 사용자가
+    # 실제로도 이 미리보기/다운로드로 업로드하지 않고 로컬 output/ 폴더에서 직접
+    # 파일을 쓰는 방식으로 바뀌어서, 깨진 UI 대신 로컬 경로를 안내하는 정적
+    # 문구로 대체한다 — has_video는 계속 로컬 파일 존재 여부 판단에만 씀
+    # (조립 완료 여부 표시는 필요하므로).
+    local_video_hint = f"output/{topic}/{video_name}" if video_path else f"output/{topic}/"
     if has_video:
-        video_block = f'<video src="{video_name}" controls playsinline></video><a class="dl" href="{video_name}" download="{video_download_attr}">영상 다운로드 ↓</a>'
-        video_download_link = f'<a href="{video_name}" download="{video_download_attr}">🎬 영상 다운로드</a>'
+        video_block = (
+            f'<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;'
+            f'display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;'
+            f'color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>{_esc(local_video_hint)}</code>'
+            f'에서 확인</div>'
+        )
+        video_download_link = f'<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>{_esc(local_video_hint)}</code>에서 확인</span>'
     else:
         video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
         video_download_link = '<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>'
@@ -1416,7 +1434,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
 
-    card_image_names_js = json.dumps([quote(p.name) for p in asset_imgs])
+    card_image_names_js = json.dumps([quote(p.name) for p in cover_imgs])
 
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
