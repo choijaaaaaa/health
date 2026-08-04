@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Denger bunyi \"ngiiing\"",
+    "di telinga pas sepi?",
+    "Bisa jadi 3 kebiasaan ini"
+  ],
+  "eyebrow": "Waspada Tinnitus",
+  "cover_char_file": "담배_illust.jpg",
+  "cover_scrim_color": "#1F6F5C",
+  "char_display_names": {
+    "담배_illust.jpg": "Rokok",
+    "이어폰_illust.jpg": "Headset",
+    "오토바이_illust.jpg": "Knalpot"
+  },
+  "topic_word": "Tinnitus",
+  "items": [
+    {
+      "name": "Kenapa bisa denging?",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Sel rambut halus di telinga dalam",
+        "nangkep suara lalu",
+        "kirim sinyal ke otak",
+        "",
+        "Kalau aliran darahnya keganggu,",
+        "otak bisa salah baca sinyal itu"
+      ]
+    },
+    {
+      "name": "Rokok",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Nikotin bikin",
+        "pembuluh darah menyempit",
+        "",
+        "Oksigen ke telinga dalam",
+        "pun ikut berkurang"
+      ]
+    },
+    {
+      "name": "Rokok, gantinya",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Kunyah permen karet",
+        "pas pengen ngerokok",
+        "",
+        "Susah berhenti sendiri?",
+        "Quitline.INA Kemenkes 0800-177-6565",
+        "konseling gratis"
+      ]
+    },
+    {
+      "name": "Headset kekencengan",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Kemenkes kasih patokan 60/60:",
+        "volume maks 60%,",
+        "60 menit lalu istirahat",
+        "",
+        "Di atas 85 desibel",
+        "bisa rusak sel rambut telinga"
+      ]
+    },
+    {
+      "name": "Headset, gantinya",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Pakai earphone noise-cancelling",
+        "biar nggak perlu kenceng-kenceng",
+        "",
+        "Kasih telinga jeda tiap 1 jam",
+        "biar sel rambutnya nggak kecapean"
+      ]
+    },
+    {
+      "name": "Knalpot & jalan bising",
+      "char_file": "오토바이_illust.jpg",
+      "body": [
+        "Knalpot motor bisa tembus",
+        "100 desibel pas digas pol",
+        "",
+        "Paparan berulang bisa bikin",
+        "gangguan pendengaran permanen"
+      ]
+    },
+    {
+      "name": "Kalau sering macet",
+      "char_file": "오토바이_illust.jpg",
+      "body": [
+        "Pakai earplug",
+        "buat kurangi paparan bising",
+        "",
+        "Jaga jarak dari knalpot bising,",
+        "kurangi headset di jalan raya"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tinnitus punya banyak penyebab,",
+        "tapi kebiasaan harian ini",
+        "juga pengaruhi telinga dalam"
+      ],
+      [
+        "Kurangi rokok, jaga volume headset,",
+        "lindungi telinga dari bising jalan"
+      ]
+    ],
+    "tip": [
+      "Di tempat sepi, coba nyalain white noise",
+      "biar dengingnya nggak terlalu kerasa"
+    ],
+    "cta": "Mau info kesehatan lainnya? Follow terus ya"
+  }
+}
