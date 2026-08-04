@@ -1,7 +1,7 @@
 [
   {
     "topic": "가슴쓰림_1/en",
-    "title": "Chest burning after meals, and something sour keeps coming up? - Foods That Trigger Heartburn",
+    "title": "Waking up at 3am with a sour, burning taste in your throat? - Foods That Trigger Heartburn",
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/dashboard.html",
     "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/card_news/en_heartburn_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
@@ -66,10 +66,22 @@
     "thumbnail": "output/%EA%B3%B5%EB%B3%B5_1/ko/card_news/%EA%B3%B5%EB%B3%B5_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "관절_1/en",
+    "title": "Knees ache on the stairs, mornings start stiff - Foods Feeding Your Joint Inflammation",
+    "url": "output/%EA%B4%80%EC%A0%88_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "관절_1/ko",
     "title": "계단 내려올 때 무릎이 시큰거리고 아침에 뻣뻣하다면 지금 확인하세요! - 관절 염증 키우는 음식들",
     "url": "output/%EA%B4%80%EC%A0%88_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B4%80%EC%A0%88_1/ko/card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "구내염_1/en",
+    "title": "That same sting on the same spot, every time you eat? - 3 Foods That Make Canker Sores Worse",
+    "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/en/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "구내염_1/ko",
@@ -78,10 +90,22 @@
     "thumbnail": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ko/card_news/%EA%B5%AC%EB%82%B4%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "눈_1/en",
+    "title": "Headlights turning into starbursts on your drive home at night? - Everyday Habits Hurting Your Eyes",
+    "url": "output/%EB%88%88_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "눈_1/ko",
     "title": "눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? - 눈 건강 해치는 의외의 음식·습관",
     "url": "output/%EB%88%88_1/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_1/ko/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "눈_2/en",
+    "title": "Third energy drink of the day, and your eyelid still won't stop twitching? - Foods & Drinks That Trigger Eye Twitching",
+    "url": "output/%EB%88%88_2/en/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "눈_2/ko",
@@ -90,10 +114,22 @@
     "thumbnail": "output/%EB%88%88_2/ko/card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "눈_3/en",
+    "title": "Dark circles showing up right on schedule every allergy season? - Everyday Drinks & Snacks Behind Dark Circles",
+    "url": "output/%EB%88%88_3/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "눈_3/ko",
     "title": "잠을 충분히 자도 눈 밑 다크서클이 진하다면 주목! - 다크서클 부르는 음식 피하는 법",
     "url": "output/%EB%88%88_3/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_3/ko/card_news/%EB%88%88_3_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "다리쥐_1/en",
+    "title": "1 in 3 adults over 50 get jolted awake by a leg cramp - Foods That Drain Your Muscles at Night",
+    "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/en/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "다리쥐_1/ko",
@@ -102,10 +138,22 @@
     "thumbnail": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ko/card_news/%EB%8B%A4%EB%A6%AC%EC%A5%90_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "당뇨_1/en",
+    "title": "1 in 3 American adults already have prediabetes - The Warning Signs Your Body Is Sending",
+    "url": "output/%EB%8B%B9%EB%87%A8_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "당뇨_1/ko",
     "title": "간식이나 밥 먹고 나면 유독 졸리고 나른하다면 주목! - 당뇨 부르는 음식 4가지",
     "url": "output/%EB%8B%B9%EB%87%A8_1/ko/dashboard.html",
     "thumbnail": "output/%EB%8B%B9%EB%87%A8_1/ko/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "부종_1/en",
+    "title": "Rings tight by lunch, ankles thicker by evening? - Foods Behind Your Everyday Swelling",
+    "url": "output/%EB%B6%80%EC%A2%85_1/en/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "부종_1/ko",
