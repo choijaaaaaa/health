@@ -1,0 +1,53 @@
+{
+  "topic": "구내염_1_es",
+  "title": "¿Antojitos con chile y limón, y la llaga arde más otra vez? - 3 cosas que agravan las llagas en la boca",
+  "products": [],
+  "comment_keyword": "쿠팡",
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: 3 cosas que agravan las llagas en la boca (aftas)\n\nDescription:\n¿Comiste antojitos con chile y limón y hoy la llaga te arde más?\n\nEl chile, el limón con sal y la michelada están entre los que más agravan las aftas bucales que no sanan rápido.\n\nMira el video para saber por qué, y qué puedes comer en su lugar.\n\n#aftasbucales #llagasbucales #saludbucal #tipsdesalud #boca #saludmexico"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/",
+      "type": "video",
+      "no_caption_link": true,
+      "comment_dm_automation": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "¿Antojitos con chile y limón, y la llaga te arde más al día siguiente? 😬\n\nNo es mala suerte - el chile, el limón con sal y la michelada están entre los que más agravan las aftas bucales.\n\nAquí te digo por qué, y los cambios fáciles que ayudan.\n\n🔗 Link en el perfil para más tips de salud!\n\n#aftasbucales #llagasbucales #saludbucal #tipsdesalud #wellness",
+      "suppress_product_block": true
+    },
+    {
+      "name": "TikTok",
+      "url": "https://www.tiktok.com/upload",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "Copy caption → Upload video → paste in caption field",
+      "caption": "¿La llaga te arde más después de tus antojitos con chile y limón?? 😬 Estas 3 cosas podrían ser la razón - y no, no tienes que dejarlas para siempre.\n\n🔗 Link en bio para más!\n\n#aftasbucales #llagasbucales #saludbucal #tipsdesalud #fyp",
+      "suppress_product_block": true
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting",
+      "caption": "¿Comiste antojitos con chile y limón y la llaga te arde más al día siguiente?\n\nNo es mala suerte - el chile, el limón con sal y la michelada están entre los que más agravan las aftas bucales que no sanan rápido. Mira el video para saber por qué, y qué comer en su lugar.\n\n#aftasbucales #llagasbucales #saludbucal #tipsdesalud"
+    },
+    {
+      "name": "Threads",
+      "url": "https://www.threads.net/",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption → New thread → paste (cover image attachment recommended)",
+      "caption": "¿Antojitos con chile y limón, y la llaga arde más al día siguiente?\n\nProbablemente no es mala suerte - el chile, el limón con sal y la michelada son 3 de los que más agravan las aftas. Cada uno tiene un cambio fácil.\n\n#aftasbucales #llagasbucales #saludbucal"
+    }
+  ]
+}
