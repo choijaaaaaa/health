@@ -383,7 +383,7 @@ class TestInstagramSafeVideo:
         )
 
         out_path = tmp_path / "safe.mp4"
-        build_instagram_safe_video(str(source), out_path, margin_scale=0.8)
+        build_instagram_safe_video(str(source), out_path, margin_scale_x=0.8, margin_scale_y=0.8)
         frame_safe = tmp_path / "frame_safe.png"
         subprocess.run(
             ["ffmpeg", "-y", "-ss", "0.1", "-i", str(out_path), "-update", "1",
@@ -394,5 +394,5 @@ class TestInstagramSafeVideo:
         corner_pixel = Image.open(frame_safe).convert("RGB").getpixel((0, 0))
         assert corner_pixel != (255, 0, 0), (
             f"안전 여백판의 (0,0) 픽셀이 여전히 순수 빨강({corner_pixel})임 — "
-            "margin_scale이 적용 안 돼서 원본 꼭짓점 마커가 그대로 가장자리에 있는 것으로 보임"
+            "margin_scale_x/y가 적용 안 돼서 원본 꼭짓점 마커가 그대로 가장자리에 있는 것으로 보임"
         )
