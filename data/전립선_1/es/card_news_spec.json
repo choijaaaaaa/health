@@ -1,0 +1,114 @@
+{
+  "title": [
+    "México es el país que más",
+    "refresco toma en el mundo",
+    "3 hábitos que empeoran tus noches"
+  ],
+  "eyebrow": "Salud Prostática",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Próstata",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco",
+    "맥주_illust.jpg": "Cerveza / Tequila",
+    "말린자두_illust.jpg": "Ciruelas pasas"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La próstata crece",
+        "y presiona la vejiga,",
+        "así que no se vacía del todo",
+        "",
+        "Se vuelve más sensible",
+        "y avisa con",
+        "cualquier cantidad de orina"
+      ]
+    },
+    {
+      "name": "Refresco",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sube el azúcar en la sangre",
+        "",
+        "Con el tiempo puede llevar",
+        "a diabetes,",
+        "causa común de orinar de noche"
+      ]
+    },
+    {
+      "name": "Cámbialo en la cena",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Agua natural",
+        "o agua de jamaica",
+        "sin azúcar",
+        "",
+        "Mismo gusto por tomar algo,",
+        "sin el golpe de azúcar"
+      ]
+    },
+    {
+      "name": "Cerveza y tequila",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Irritan la vejiga",
+        "e inflaman la próstata",
+        "",
+        "Eso debilita el chorro",
+        "y aumenta las ganas de ir"
+      ]
+    },
+    {
+      "name": "Corta el trago a tiempo",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Si vas a tomar,",
+        "",
+        "hazlo 3 a 4 horas",
+        "antes de dormir"
+      ]
+    },
+    {
+      "name": "Estreñimiento",
+      "char_file": "말린자두_illust.jpg",
+      "body": [
+        "El recto lleno",
+        "presiona la vejiga",
+        "",
+        "y confunde las señales",
+        "de \"ya me urge\""
+      ]
+    },
+    {
+      "name": "Más fibra ayuda",
+      "char_file": "말린자두_illust.jpg",
+      "body": [
+        "Unas ciruelas pasas",
+        "o más fibra en el día",
+        "",
+        "ayudan a que todo",
+        "funcione mejor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hay que dejar",
+        "todo por completo"
+      ],
+      [
+        "Solo cuidar cuánto",
+        "y cuándo lo tomas"
+      ]
+    ],
+    "tip": [
+      "Refresco por agua, alcohol 3-4 horas antes de dormir,",
+      "y más fibra en el día"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y sigue la cuenta!"
+  }
+}
