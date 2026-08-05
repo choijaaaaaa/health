@@ -1,0 +1,111 @@
+{
+  "title": [
+    "That post-meal bloat",
+    "might not be your food",
+    "it's these 3 hidden habits"
+  ],
+  "eyebrow": "Stomach Bloating Alert",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "프로틴바_illust.jpg": "Protein Bars & Shakes",
+    "케일_illust.jpg": "Raw Cruciferous Veggies",
+    "냉음료_illust.jpg": "Drinking Through a Straw"
+  },
+  "items": [
+    {
+      "name": "Why does this happen?",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Certain foods and drinking",
+        "habits build up gas",
+        "",
+        "in your stomach and gut,",
+        "and that's what causes the bloat"
+      ]
+    },
+    {
+      "name": "Protein Bars & Shakes",
+      "char_file": "프로틴바_illust.jpg",
+      "body": [
+        "Sugar alcohols barely",
+        "get absorbed by your gut",
+        "",
+        "so bacteria ferment them",
+        "in your colon and make gas"
+      ]
+    },
+    {
+      "name": "Try This Instead",
+      "char_file": "프로틴바_illust.jpg",
+      "body": [
+        "Pick bars sweetened with",
+        "monk fruit or stevia",
+        "",
+        "and check the label",
+        "for sugar alcohol grams"
+      ]
+    },
+    {
+      "name": "Raw Cruciferous Veggies",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Raw broccoli, kale, and cabbage",
+        "are loaded with raffinose",
+        "",
+        "a sugar bacteria ferment",
+        "in your colon, creating gas"
+      ]
+    },
+    {
+      "name": "Try This Instead",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Steam them instead",
+        "of eating them raw",
+        "",
+        "your body breaks them down",
+        "much easier when cooked"
+      ]
+    },
+    {
+      "name": "Drinking Through a Straw",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Every sip through a straw",
+        "pulls extra air in",
+        "",
+        "doctors call this habit",
+        "aerophagia"
+      ]
+    },
+    {
+      "name": "Try This Instead",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Drink straight from",
+        "the cup instead",
+        "",
+        "and keep that",
+        "extra air out"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "You don't have to",
+        "just live with the bloat"
+      ],
+      [
+        "Swap the habit that's",
+        "causing it and feel lighter"
+      ]
+    ],
+    "tip": [
+      "Pick monk fruit bars, steam your veggies,",
+      "and skip the straw"
+    ],
+    "cta": "Follow for more health tips"
+  },
+  "topic_word": "Stomach Bloating"
+}
