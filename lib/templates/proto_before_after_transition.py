@@ -631,6 +631,59 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     cause_durs = durs[1:1 + n_pairs]
     fix_durs = list(durs[1 + n_pairs:1 + 2 * n_pairs])
 
+    # WHY 원인(cause) 구간을 실제 SRT 타임스탬프로 덮어쓰는지(2026-08-05,
+    # 코골이_1 실측 확인 — 세 번째 원인 화면이 실제 내레이션보다 12초 넘게
+    # 일찍 뜨는 심각한 어긋남을 발견). 위 비례-배분은 "메커니즘 설명 뒤에
+    # 곧장 원인1이 나온다"고 가정하는데, 실제로는 "이 세 가지가 각각 다른
+    # 방식으로 만든다" 같은 다리 문장이 하나 더 있는 topic이 있어서 그
+    # 구간이 어느 beat 가중치에도 안 잡히고, 뒤 beat들이 전부 앞당겨지며
+    # 오차가 누적된다. 원인은 이 프로젝트 콘텐츠 관행상("항목 여러 개
+    # 설명 전엔 이름부터 나열") 거의 항상 "첫 번째는 OO야" 식으로 항목명을
+    # 직접 언급하므로, SRT 큐 텍스트에서 항목명을 순서대로 찾아 실제
+    # 타임스탬프를 그대로 쓰는 게 비례-배분 추정보다 훨씬 정확하다 — 못
+    # 찾은 원인이 하나라도 있으면 안전하게 비례-배분 결과를 그대로
+    # 유지한다(원래 동작 그대로, 회귀 없음).
+    cause_starts_real: list[float | None] = []
+    search_from = 0
+    for c in causes:
+        name = c.get("name", "")
+        found_start = None
+        if name:
+            for idx in range(search_from, len(entries)):
+                if name in entries[idx][2]:
+                    found_start = entries[idx][0]
+                    search_from = idx + 1
+                    break
+        cause_starts_real.append(found_start)
+
+    if all(s is not None for s in cause_starts_real):
+        mechanism_dur = cause_starts_real[0] - hook_duration
+        for i in range(n_pairs - 1):
+            cause_durs[i] = cause_starts_real[i + 1] - cause_starts_real[i]
+        # 마지막 원인 구간의 끝(=해결책 시작)도 첫 해결책 이름이 SRT에 개별
+        # 언급되면 그 시점으로 — 안 되면(해결책 N개가 마지막 한 문장에
+        # 압축된 topic) 기존 비례-배분 길이를 그대로 유지.
+        fix0_name = fixes[0].get("name", "")
+        fix0_start_real = None
+        if fix0_name:
+            for idx in range(search_from, len(entries)):
+                if fix0_name in entries[idx][2]:
+                    fix0_start_real = entries[idx][0]
+                    break
+        last_cause_end = (
+            fix0_start_real if fix0_start_real is not None
+            else cause_starts_real[-1] + cause_durs[-1]
+        )
+        cause_durs[-1] = max(last_cause_end - cause_starts_real[-1], min_dur)
+        # 원인 실측치 반영분만큼 해결책 구간 총량도 재계산 — 기존 fix_durs의
+        # 상대 비율(텍스트 길이 비례)은 유지하되 절대 길이만 새 총량에 맞춰
+        # 스케일.
+        fix_total_before = sum(fix_durs)
+        new_fix_total = remaining - mechanism_dur - sum(cause_durs)
+        if fix_total_before > 0 and new_fix_total > 0:
+            scale = new_fix_total / fix_total_before
+            fix_durs = [d * scale for d in fix_durs]
+
     # 엔딩(headline/tip)은 오디오에 별도로 나레이션되지 않으므로(전체 길이를
     # audio_duration과 정확히 맞춰야 함) 마지막 해결책 구간 꼬리에서 시간을
     # 빌려와 별도 화면으로 뗀다 — 추가 시간 없이 총 길이를 그대로 유지.
