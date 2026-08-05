@@ -34,21 +34,7 @@
   }
   section > h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
-  .preview-row { display: flex; gap: 24px; flex-wrap: wrap; }
-  .video-panel {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    flex: 0 0 auto;
-  }
-  .video-panel video {
-    width: 260px; aspect-ratio: 9/16; border-radius: 12px; background: #000; display: block;
-  }
-  .video-panel .dl {
-    display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700;
-    color: var(--accent-deep); text-decoration: none;
-  }
-
   .card-gallery {
-    flex: 1; min-width: 280px;
     background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
     scroll-margin-top: 20px;
   }
@@ -220,23 +206,7 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/부종_1_pt/shorts.mp4</code>에서 확인</span>
       <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>실사진 소싱</h4>
-    <div class="dock-links">
-      <a href="https://unsplash.com/s/photos/%EB%B6%80%EC%A2%85%201%20pt" target="_blank" rel="noopener">🔍 Unsplash</a>
-      <a href="https://www.pexels.com/search/%EB%B6%80%EC%A2%85%201%20pt/" target="_blank" rel="noopener">🔍 Pexels</a>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>제작 도구</h4>
-    <div class="dock-links">
-      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
-      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
-      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
   <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
@@ -310,13 +280,8 @@
 
 <section>
   <h2>미리보기</h2>
-  <div class="preview-row">
-    <div class="video-panel">
-      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/부종_1_pt/shorts.mp4</code>에서 확인</div>
-    </div>
-    <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"></div>
-    </div>
+  <div class="card-gallery" id="card-gallery">
+    <div class="card-scroll"></div>
   </div>
 </section>
 
@@ -324,7 +289,7 @@
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
-<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
+<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
@@ -335,58 +300,23 @@
         <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_pt" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
   <div class="action-line">Copy caption → New Reel → paste in caption field</div>
-  <span class="asset-link disabled">🎬 로컬 output/부종_1_pt/shorts_instagram.mp4에서 확인</span>
+  
   <textarea class="caption-box" id="cap-0" spellcheck="false">Você sabia que o brasileiro consome quase o dobro do sódio recomendado? 💧
 
 Boa parte vem escondida em três coisas bem comuns na cozinha: caldo em tablete, shoyu e biscoito de polvilho — o excesso de sódio puxa água das células e incha pernas e pés.
 
 Caldo caseiro, menos shoyu (com limão ou gengibre no lugar) e pipoca sem sal já ajudam bastante.
 
-🔗 Link na bio para mais dicas de saúde!
+Quer mais dicas de saúde como essa? Segue aí 👆
 
 #inchaço #retençãodelíquidos #sódio #saúde #dicasdesaude #bemestar</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-  </div>
-</div>
-</div>
-</section>
-
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
-<div class="platform-card" data-done-key="Facebook" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>Facebook</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="Facebook" data-name="Facebook">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.facebook.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">Copy caption → New post → paste (attach cover image recommended) → add purchase link in comment after posting</div>
-  
-  <textarea class="caption-box" id="cap-1" spellcheck="false">Você sabia que o brasileiro consome quase o dobro do sódio recomendado por dia?
-
-Boa parte vem escondida em três coisas comuns na cozinha: caldo em tablete, shoyu e biscoito de polvilho — o excesso de sódio puxa água das células e incha pernas e pés ao longo do dia.
-
-Assista ao vídeo para ver quanto sódio cada um tem de verdade, e trocas simples que ajudam.
-
-#inchaço #retençãodelíquidos #sódio #saúde #dicasdesaude</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.facebook.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_pt" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>

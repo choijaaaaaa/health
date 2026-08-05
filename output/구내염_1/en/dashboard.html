@@ -34,21 +34,7 @@
   }
   section > h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
-  .preview-row { display: flex; gap: 24px; flex-wrap: wrap; }
-  .video-panel {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    flex: 0 0 auto;
-  }
-  .video-panel video {
-    width: 260px; aspect-ratio: 9/16; border-radius: 12px; background: #000; display: block;
-  }
-  .video-panel .dl {
-    display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700;
-    color: var(--accent-deep); text-decoration: none;
-  }
-
   .card-gallery {
-    flex: 1; min-width: 280px;
     background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
     scroll-margin-top: 20px;
   }
@@ -220,23 +206,7 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>output/구내염_1_en/shorts.mp4</code>에서 확인</span>
       <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>실사진 소싱</h4>
-    <div class="dock-links">
-      <a href="https://unsplash.com/s/photos/%EA%B5%AC%EB%82%B4%EC%97%BC%201%20en" target="_blank" rel="noopener">🔍 Unsplash</a>
-      <a href="https://www.pexels.com/search/%EA%B5%AC%EB%82%B4%EC%97%BC%201%20en/" target="_blank" rel="noopener">🔍 Pexels</a>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>제작 도구</h4>
-    <div class="dock-links">
-      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
-      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
-      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
   
@@ -244,13 +214,8 @@
 
 <section>
   <h2>미리보기</h2>
-  <div class="preview-row">
-    <div class="video-panel">
-      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>output/구내염_1_en/shorts.mp4</code>에서 확인</div>
-    </div>
-    <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"></div>
-    </div>
+  <div class="card-gallery" id="card-gallery">
+    <div class="card-scroll"></div>
   </div>
 </section>
 
@@ -258,7 +223,7 @@
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
-<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
+<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
@@ -269,23 +234,23 @@
         <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
   <div class="action-line">Copy caption → New Reel → paste in caption field</div>
-  <span class="asset-link disabled">🎬 로컬 output/구내염_1_en/shorts_instagram.mp4에서 확인</span>
+  
   <textarea class="caption-box" id="cap-0" spellcheck="false">Bite into lunch and feel that same sting hit the same sore spot again? 😬
 
 It's probably not bad luck - citrus fruits, chocolate, and coffee are three of the most common foods that make canker sores worse and slower to heal.
 
 Here's why, and the easy swaps that help.
 
-🔗 Link in profile for more health tips!
+Want more health tips like this? Follow along 👆
 
 #cankersores #mouthulcers #oralhealth #healthtips #cankersore #wellness</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>

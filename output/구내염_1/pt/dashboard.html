@@ -34,21 +34,7 @@
   }
   section > h2::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
-  .preview-row { display: flex; gap: 24px; flex-wrap: wrap; }
-  .video-panel {
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    flex: 0 0 auto;
-  }
-  .video-panel video {
-    width: 260px; aspect-ratio: 9/16; border-radius: 12px; background: #000; display: block;
-  }
-  .video-panel .dl {
-    display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700;
-    color: var(--accent-deep); text-decoration: none;
-  }
-
   .card-gallery {
-    flex: 1; min-width: 280px;
     background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
     scroll-margin-top: 20px;
   }
@@ -220,23 +206,7 @@
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>
       <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>실사진 소싱</h4>
-    <div class="dock-links">
-      <a href="https://unsplash.com/s/photos/%EA%B5%AC%EB%82%B4%EC%97%BC%201%20pt" target="_blank" rel="noopener">🔍 Unsplash</a>
-      <a href="https://www.pexels.com/search/%EA%B5%AC%EB%82%B4%EC%97%BC%201%20pt/" target="_blank" rel="noopener">🔍 Pexels</a>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>제작 도구</h4>
-    <div class="dock-links">
-      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
-      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
-      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
   <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
@@ -310,13 +280,8 @@
 
 <section>
   <h2>미리보기</h2>
-  <div class="preview-row">
-    <div class="video-panel">
-      <div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>
-    </div>
-    <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll"></div>
-    </div>
+  <div class="card-gallery" id="card-gallery">
+    <div class="card-scroll"></div>
   </div>
 </section>
 
@@ -324,7 +289,7 @@
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
-<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="1" data-suppress-product-block="1" data-link-in-comment="">
+<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
@@ -335,11 +300,11 @@
         <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_pt" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
   <div class="action-line">Copiar legenda → novo Reels → colar no campo de legenda</div>
-  <span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>
+  
   <textarea class="caption-box" id="cap-0" spellcheck="false">A afta sempre volta no mesmo lugar? 😖
 
 O Brasil já tem 14% da população vegetariana, um crescimento de 75% em uma década - e quem corta carne sem repor direito pode faltar vitamina B12, deixando a mucosa da boca mais fraca.
@@ -351,7 +316,7 @@ Quer mais dicas de saúde? Segue aqui 👆
 #afta #saudebucal #vitaminaB12 #vegetariano #saude #bemestar</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_pt" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
   </div>
 </div>
@@ -542,7 +507,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
-const COMMENT_KEYWORD = "\ucfe0\ud321";
+const COMMENT_KEYWORD = "Mam\u00e3o";
 const LINK_STORAGE_PREFIX = "hs_link_%EA%B5%AC%EB%82%B4%EC%97%BC_1_pt_";
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
