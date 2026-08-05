@@ -73,6 +73,15 @@ BG_TONES: list[tuple[int, int, int]] = [
     (247, 238, 232),
 ]
 CHECKBOX_SHAPES = ["rounded_square", "circle"]
+# WHY 훅(타이틀) 화면 헤드라인 장식 스타일 4종(2026-08-06, 판서형 title card의
+# plain/banner/boxed/underline을 그대로 이식 — "저품질/반복" 정책 리스크 대응):
+# 오프닝(=피드 썸네일 대체) 화면에 topic-seeded 변형 축을 하나 더 둔다.
+HOOK_STYLES = ["plain", "banner", "boxed", "underline"]
+
+
+def _hook_style_for_seed(seed: str) -> str:
+    idx = sum(ord(c) * (i * 7 + 4) for i, c in enumerate(seed)) % len(HOOK_STYLES)
+    return HOOK_STYLES[idx]
 
 
 def _accent_for_seed(seed: str) -> tuple[int, int, int]:
@@ -621,6 +630,7 @@ class Ctx:
         bg_mode, bg_top, bg_bottom = _bg_variant_for_seed(title_seed)
         self.bg_base = _build_background(bg_mode, bg_top, bg_bottom)
         self.checkbox_shape = _checkbox_shape_for_seed(title_seed)
+        self.hook_style = _hook_style_for_seed(title_seed)
         # WHY y_jitter(2026-08-05, "저품질/반복" 정책 리스크 대응): topic마다
         # 오프닝(프레임 0=사실상 썸네일) eyebrow 시작 위치를 ±20px 정도 미세
         # 이동 — title_eyebrow_y가 아래 avail/text_avail 계산의 기준점이라
@@ -731,8 +741,47 @@ def render_title(ctx: Ctx):
     cx = W // 2
     y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK_BY_LANG.get(ctx.lang, EYEBROW_SELFCHECK_BY_LANG["en"]), ctx.font(30), cx, ctx.title_eyebrow_y,
                       ctx.accent, ctx.accent_soft, label="title-eyebrow")
-    y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, y + 46, ctx.title_line_h,
-                             TEXT_DARK, label="title-main")
+    title_top = y + 46
+
+    # WHY plain/banner/boxed/underline 4종(2026-08-06, 판서형 title card
+    # 스타일을 그대로 이식 — "저품질/반복" 정책 리스크 대응): banner는 배경이
+    # 밝은색이라(칠판형처럼 검정 반투명이면 원래도 어두운 title-main 텍스트와
+    # 대비가 죽는다) accent 색을 채우고 텍스트를 흰색으로 바꿔 대비를 유지.
+    max_tw = 0.0
+    for line in ctx.title_lines:
+        bb = draw.textbbox((0, 0), line, font=ctx.title_font)
+        max_tw = max(max_tw, bb[2] - bb[0])
+    title_block_h = ctx.title_line_h * len(ctx.title_lines)
+
+    if ctx.hook_style == "banner":
+        pad_x, pad_y = 36, 20
+        layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        ImageDraw.Draw(layer).rounded_rectangle(
+            [max(cx - max_tw / 2 - pad_x, _SAFE_LEFT), max(title_top - pad_y, _SAFE_TOP),
+             min(cx + max_tw / 2 + pad_x, SAFE_X1), min(title_top + title_block_h + pad_y, SAFE_Y1)],
+            radius=18, fill=ctx.accent + (235,),
+        )
+        canvas.alpha_composite(layer)
+        title_color = (255, 255, 255)
+    else:
+        title_color = TEXT_DARK
+
+    y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, title_top, ctx.title_line_h,
+                             title_color, label="title-main")
+
+    if ctx.hook_style == "boxed":
+        pad_x, pad_y = 26, 16
+        box = [max(cx - max_tw / 2 - pad_x, _SAFE_LEFT), max(title_top - pad_y, _SAFE_TOP),
+               min(cx + max_tw / 2 + pad_x, SAFE_X1), min(title_top + title_block_h + pad_y, SAFE_Y1)]
+        draw.rounded_rectangle(box, radius=18, outline=ctx.accent, width=5)
+    elif ctx.hook_style == "underline":
+        bar_w = min(max_tw + 40, SAFE_X1 - _SAFE_LEFT)
+        bar_h = 10
+        bar_y = min(title_top + title_block_h + 14, SAFE_Y1 - bar_h)
+        draw.rounded_rectangle(
+            [cx - bar_w / 2, bar_y, cx + bar_w / 2, bar_y + bar_h], radius=bar_h / 2, fill=ctx.accent,
+        )
+
     sub_y = y + 26
     if ctx.title_sub_lines:
         sub_y = draw_centered_lines(draw, ctx.title_sub_lines, ctx.title_sub_font, cx, sub_y,

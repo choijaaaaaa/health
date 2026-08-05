@@ -129,6 +129,11 @@ THEME_PAIRS = [
 
 WIPE_STYLES = ["wipeleft", "wiperight", "slideup", "smoothleft"]
 PROGRESS_STYLES = ["dots", "bar"]
+# WHY 훅 화면 텍스트 장식 스타일(2026-08-06, "판서형이 이미 하던 방식과 동일한
+# 원칙을 신규 포맷에도 적용" — 판서형 title card의 plain/banner/boxed/underline
+# 4종을 그대로 이식): 저품질/반복 콘텐츠 정책 리스크 대응으로 오프닝(=피드
+# 썸네일 대체) 화면에도 topic-seeded 변형을 하나 더 둔다.
+HOOK_STYLES = ["plain", "banner", "boxed", "underline"]
 PIVOT_TRANSITION = "circleopen"  # before→after 전환점, 극적인 전환 하나만 고정
 QUICK_XFADE_DUR = 0.3
 PIVOT_XFADE_DUR = 0.85
@@ -143,7 +148,13 @@ def _pick_variety(seed_str: str) -> dict:
     theme = _seeded_choice(seed_str, THEME_PAIRS, k=7, c0=3)
     wipe = _seeded_choice(seed_str, WIPE_STYLES, k=13, c0=11)
     progress = _seeded_choice(seed_str, PROGRESS_STYLES, k=5, c0=2)
-    return {"theme": theme, "wipe": wipe, "progress": progress}
+    hook_style = _seeded_choice(seed_str, HOOK_STYLES, k=17, c0=5)
+    # WHY 텍스트 위치 지터(2026-08-06, checklist의 title_eyebrow_y 지터와
+    # 동일 원칙): ±20px 범위로 훅 화면 hero 카드 시작 y를 topic마다 살짝
+    # 다르게 흔든다 — 안전영역 여유(hero_top이 SAFE_TOP+20에서 시작하고
+    # leftover만큼 더 내려가는 구조라 ±20 정도는 항상 안전).
+    y_jitter = sum(ord(c) * (i * 5 + 3) for i, c in enumerate(seed_str)) % 41 - 20
+    return {"theme": theme, "wipe": wipe, "progress": progress, "hook_style": hook_style, "y_jitter": y_jitter}
 
 
 # ── 유틸 ──────────────────────────────────────────────────────────────
@@ -379,7 +390,7 @@ def _hero_card(chroma_img: Image.Image, card_w: int, card_h: int, palette: dict)
 
 def _render_hook_screen(theme: dict, lang: str, hook_lines: list[str], char_chroma: Image.Image | None,
                          progress_style: str, progress_index: int, progress_total: int,
-                         headline_size: int = 60) -> Image.Image:
+                         headline_size: int = 60, style: str = "plain", y_jitter: int = 0) -> Image.Image:
     """오프닝/타이틀 화면 전용 렌더러. WHY 별도 함수로 분리(공용 _render_screen
     재사용 안 함): 이 파이프라인은 별도 커스텀 썸네일을 업로드하지 않아
     (lib/youtube_upload.py 확인) 이 영상의 0프레임이 피드에서 실질적인
@@ -408,7 +419,11 @@ def _render_hook_screen(theme: dict, lang: str, hook_lines: list[str], char_chro
     max_width = VISUAL_CENTER_MAX_WIDTH
     safe_h = SAFE_BOTTOM - SAFE_TOP
 
-    hero_top = SAFE_TOP + 20  # WHY 20인지: 진행 표시(dots)를 이 화면에서 뺐으므로
+    # WHY y_jitter(2026-08-06, checklist의 title_eyebrow_y 지터와 동일 원칙 —
+    # "저품질/반복" 정책 리스크 대응): topic마다 훅 화면 시작 위치를 ±20px
+    # 흔든다. hero_avail_h가 hero_top을 그대로 반영해 계산되므로(아래) 안전
+    # 여백은 자동으로 유지된다.
+    hero_top = SAFE_TOP + 20 + y_jitter  # WHY 20인지: 진행 표시(dots)를 이 화면에서 뺐으므로
     # 예전 90px(dots+여백)이 필요 없다 — 위쪽 여백만 살짝 남기고 바로 시작.
     text_gap = 44
     # WHY 텍스트를 먼저 "측정"만 해서 실제 줄 수를 안다(자리 배치는 나중):
@@ -446,10 +461,45 @@ def _render_hook_screen(theme: dict, lang: str, hook_lines: list[str], char_chro
         # 영역 안에서 세로 중앙에 맞춰 빈 위/아래 공백을 균등하게 나눈다.
         text_top = hero_top + max(hero_avail_h - text_block_h, 0) / 2 + text_gap
 
+    # WHY plain/banner/boxed/underline 4종(2026-08-06, 판서형 title card
+    # 스타일을 그대로 이식): banner는 텍스트 뒤에 깔려야 해서 그리기 전에
+    # 미리 폭을 재고, boxed/underline은 실제로 그려진 뒤 bbox를 그대로 써서
+    # 정확히 감싼다.
+    if style == "banner":
+        pad_x, pad_y = 40, 24
+        max_tw = 0.0
+        for line in wrapped:
+            if not line:
+                continue
+            bb = dummy_draw.textbbox((0, 0), line, font=font)
+            max_tw = max(max_tw, bb[2] - bb[0])
+        overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
+        ImageDraw.Draw(overlay).rounded_rectangle(
+            [max(VISUAL_CX - max_tw / 2 - pad_x, SAFE_LEFT), max(text_top - pad_y, SAFE_TOP),
+             min(VISUAL_CX + max_tw / 2 + pad_x, SAFE_RIGHT), min(text_top + text_block_h + pad_y, SAFE_BOTTOM)],
+            radius=18, fill=(0, 0, 0, 120),
+        )
+        img = Image.alpha_composite(img.convert("RGBA"), overlay).convert("RGB")
+        draw = ImageDraw.Draw(img)
+
     text_color = (255, 255, 255)
     stroke_color = (0, 0, 0)
     text_bbox = _draw_text_block(draw, wrapped, font, line_h, VISUAL_CX, text_top, text_color, stroke_color)
     _verify_safe_area(text_bbox, "hook")
+
+    if style == "boxed":
+        pad_x, pad_y = 30, 18
+        box = [max(text_bbox[0] - pad_x, SAFE_LEFT), max(text_bbox[1] - pad_y, SAFE_TOP),
+               min(text_bbox[2] + pad_x, SAFE_RIGHT), min(text_bbox[3] + pad_y, SAFE_BOTTOM)]
+        draw.rounded_rectangle(box, radius=20, outline=(255, 255, 255), width=6)
+    elif style == "underline":
+        bar_w = min((text_bbox[2] - text_bbox[0]) + 50, SAFE_RIGHT - SAFE_LEFT)
+        bar_h = 14
+        bar_y = min(text_bbox[3] + 18, SAFE_BOTTOM - bar_h)
+        draw.rounded_rectangle(
+            [VISUAL_CX - bar_w / 2, bar_y, VISUAL_CX + bar_w / 2, bar_y + bar_h],
+            radius=bar_h / 2, fill=(255, 255, 255),
+        )
 
     return img
 
@@ -616,6 +666,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     seed_str = Path(topic_dir).name or spec.get("title", ["topic"])[0]
     variety = _pick_variety(seed_str)
     theme, wipe_style, progress_style = variety["theme"], variety["wipe"], variety["progress"]
+    hook_style, hook_y_jitter = variety["hook_style"], variety["y_jitter"]
 
     hook_lines = spec["title"][:-1] if len(spec["title"]) > 1 else spec["title"]
     hook_duration = entries[0][1] if entries else max(audio_duration * 0.1, 2.5)
@@ -758,10 +809,11 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         for idx, s in enumerate(screens):
             if idx == 0:
                 # 오프닝(훅) 화면만 큰 hero 카드 전용 렌더러 사용 — 나머지
-                # mechanism/cause/fix beat는 기존 _render_screen 그대로.
+                # mechanism/cause beat는 기존 _render_screen 그대로.
                 img = _render_hook_screen(
                     theme, lang, s["body"], s["char"],
                     progress_style, idx, total_beats, headline_size=s["headline_size"],
+                    style=hook_style, y_jitter=hook_y_jitter,
                 )
             else:
                 img = _render_screen(
