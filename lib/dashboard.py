@@ -1036,7 +1036,13 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
     margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
     text-transform: uppercase; letter-spacing: 0.04em;
   }}
-  iframe.dash-frame {{ width: 100%; height: 80vh; min-height: 600px; border: 0; border-radius: 16px; background: var(--panel); display: block; }}
+  /* WHY 고정 650px인지(2026-08-05, "릴스 각 언어별로 카드 왜 없어졌어?" —
+     실제로는 안 없어졌고 아래 글로벌 섹션이 화면 밖으로 밀려서 안 보인 것):
+     탭 전환 방식일 땐 iframe 하나만 보이는 화면을 꽉 채워야 해서 80vh를 썼는데,
+     지금은 이 iframe이 페이지 안 여러 섹션 중 하나라 80vh(대부분 화면 높이)를
+     그대로 차지하면 바로 아래 글로벌 카드들이 스크롤 한참 뒤에야 보인다 —
+     내용이 다 보이는 적당한 고정 높이로 줄인다. */
+  iframe.dash-frame {{ width: 100%; height: 650px; border: 0; border-radius: 16px; background: var(--panel); display: block; }}
   .lang-body {{ display: flex; gap: 16px; flex-wrap: wrap; }}
   .plat-card {{
     flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
