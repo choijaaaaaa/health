@@ -41,21 +41,40 @@ DAILY_UPLOAD_HOURS = (10, 13, 16, 19)
 # "Description:", ja는 "タイトル:"/"説明:" — dashboard.py가 사람이 복사-붙여넣기 하도록
 # 그 언어 그대로 만든 캡션이라 번역이 아니라 실제 포맷이 다름). 아직 콘텐츠가 없는
 # 나머지 13개 언어는 필요해질 때 여기 추가할 것.
-YOUTUBE_PLATFORM_NAMES = {"ko": "유튜브 쇼츠", "en": "YouTube Shorts", "ja": "YouTube Shorts"}
+YOUTUBE_PLATFORM_NAMES = {
+    "ko": "유튜브 쇼츠", "en": "YouTube Shorts", "ja": "YouTube Shorts",
+    # WHY es/pt/ru도 "YouTube Shorts"(영어 이름) 그대로인지(2026-08-05 추가):
+    # 이 세 언어의 platform_captions.json도 en/ja처럼 캡션 언어와 무관하게
+    # 플랫폼 이름 자체는 "YouTube Shorts"로 통일해서 쓰고 있음(실측 확인 —
+    # 구내염_1/es, 당뇨_1/pt, 수면_1/ru 전부 동일).
+    "es": "YouTube Shorts", "pt": "YouTube Shorts", "ru": "YouTube Shorts",
+}
 CAPTION_MARKERS = {
     "ko": ("제목:", "설명란:\n"),
     "en": ("Title:", "Description:\n"),
     "ja": ("タイトル:", "説明:\n"),
+    # WHY es/pt/ru도 영어 마커("Title:"/"Description:")인지: 이 마커는 파싱 후
+    # 버려지는 내부 구분자일 뿐 실제 시청자에게 노출되지 않는다 — 콘텐츠
+    # 생성 시 언어와 무관하게 영어 마커를 공통으로 써왔음(실측 확인, 위와 동일).
+    "es": ("Title:", "Description:\n"),
+    "pt": ("Title:", "Description:\n"),
+    "ru": ("Title:", "Description:\n"),
 }
 # WHY 재생목록 제목 접두사도 언어별로(2026-08-03): "건강정보 - "로 채널 안 재생목록을
 # 한눈에 묶어보게 한 기존 설계(_playlist_title_for_category 참고)를 en/ja 채널에도
 # 그대로 적용하되 그 언어로. ja의 "健康情報"는 실제 ja 카드뉴스 eyebrow 필드와 동일한
 # 표현을 그대로 재사용(가슴쓰림_1/ja/card_news_spec.json 확인).
-PLAYLIST_TITLE_PREFIX = {"ko": "건강정보", "en": "Health Info", "ja": "健康情報"}
+PLAYLIST_TITLE_PREFIX = {
+    "ko": "건강정보", "en": "Health Info", "ja": "健康情報",
+    "es": "Información de Salud", "pt": "Informações de Saúde", "ru": "Информация о здоровье",
+}
 PLAYLIST_DESCRIPTION = {
     "ko": lambda c: f"{c} 관련 건강 정보 모음",
     "en": lambda c: f"Health info about {c}",
     "ja": lambda c: f"{c}に関する健康情報まとめ",
+    "es": lambda c: f"Información de salud sobre {c}",
+    "pt": lambda c: f"Informações de saúde sobre {c}",
+    "ru": lambda c: f"Информация о здоровье: {c}",
 }
 
 # WHY 언어별 타겟 시장 현지 시간대(2026-08-03, "각 나라별 오후 6시 전후... 아침저녁"
