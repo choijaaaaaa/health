@@ -1,0 +1,103 @@
+{
+  "title": [
+    "51% dos brasileiros",
+    "estão acima do peso",
+    "e isso pesa na lombar"
+  ],
+  "eyebrow": "SAÚDE DA LOMBAR",
+  "cover_scrim_color": "#5B4636",
+  "char_display_names": {
+    "돼지껍질튀김_illust.jpg": "Torresmo",
+    "소시지_illust.jpg": "Embutidos",
+    "흰빵_illust.jpg": "Pão francês"
+  },
+  "items": [
+    {
+      "name": "Por que a lombar dói?",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "A dor lombar não é",
+        "só questão de postura",
+        "",
+        "Gordura abdominal empurra o",
+        "corpo e curva mais a lombar"
+      ]
+    },
+    {
+      "name": "Torresmo",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "É frito e rico em gordura",
+        "",
+        "Poucas porções já somam",
+        "boa parte das calorias do dia"
+      ]
+    },
+    {
+      "name": "Troque assim",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Castanhas em",
+        "pequenas porções"
+      ]
+    },
+    {
+      "name": "Embutidos",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Linguiça e bacon, comuns",
+        "na feijoada e no churrasco",
+        "",
+        "Somam gordura saturada",
+        "e calorias que se acumulam"
+      ]
+    },
+    {
+      "name": "Troque assim",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Peito de frango",
+        "grelhado"
+      ]
+    },
+    {
+      "name": "Pão francês",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Farinha refinada é um",
+        "carboidrato de absorção rápida",
+        "",
+        "A maioria dos brasileiros",
+        "come pelo menos um por dia"
+      ]
+    },
+    {
+      "name": "Troque assim",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Pão integral",
+        "no lugar dele"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Torresmo, embutidos e pão francês",
+        "são alimentos comuns no dia a dia"
+      ],
+      [
+        "Reduzir aos poucos",
+        "favorece uma lombar mais leve"
+      ]
+    ],
+    "tip": [
+      "Troque o torresmo por castanhas, prefira peito de",
+      "frango aos embutidos e escolha pão integral"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga a conta e curta"
+  },
+  "swipe_label": "Arraste para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Lombar"
+}
