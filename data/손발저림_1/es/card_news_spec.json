@@ -1,0 +1,72 @@
+{
+  "title": [
+    "¿Se te duermen",
+    "las manos y los pies?",
+    "3 causas que casi nadie relaciona"
+  ],
+  "eyebrow": "Hormigueo en manos y pies",
+  "swipe_label": "Desliza para ver por qué  →",
+  "closing_label": "Resumen",
+  "cover_char_file": "담배_illust.jpg",
+  "cover_scrim_color": "#2E6F9E",
+  "char_display_names": {
+    "담배_illust.jpg": "Cigarro",
+    "호박씨_illust.jpg": "Magnesio",
+    "스마트폰_illust.jpg": "Celular"
+  },
+  "items": [
+    {
+      "name": "El cigarro",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "La nicotina contrae los",
+        "vasos sanguíneos pequeños",
+        "",
+        "Tus manos y pies pueden bajar",
+        "hasta 3 grados de temperatura",
+        "",
+        "y les llega menos sangre",
+        "a la punta de los dedos"
+      ]
+    },
+    {
+      "name": "La falta de magnesio",
+      "char_file": "호박씨_illust.jpg",
+      "body": [
+        "Más de 6 de cada 10 mexicanos",
+        "no llegan al magnesio que necesitan",
+        "",
+        "y eso puede causar hormigueo,",
+        "calambres y nervios muy sensibles",
+        "",
+        "Aguacate, pepitas y frijoles",
+        "son buena fuente de magnesio"
+      ]
+    },
+    {
+      "name": "El celular",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Usarlo más de 2 horas seguidas",
+        "comprime el nervio de la muñeca",
+        "",
+        "y puede causar hormigueo",
+        "y adormecimiento en los dedos",
+        "",
+        "Haz pausas para estirar",
+        "la muñeca cada rato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Si el hormigueo no se quita,", "consulta con un médico"],
+      ["Estos tres cambios son", "un buen punto de partida"]
+    ],
+    "tip": [
+      "Menos cigarro, más aguacate y frijoles,",
+      "y pausas para la muñeca al usar el celular"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Sigue la cuenta!"
+  }
+}
