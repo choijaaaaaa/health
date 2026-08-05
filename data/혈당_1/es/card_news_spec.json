@@ -1,0 +1,103 @@
+{
+  "title": [
+    "¿Antojo de dulce después",
+    "de comer? El nopal puede",
+    "ayudar con el pico de glucosa"
+  ],
+  "eyebrow": "Control de Glucosa",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Glucosa",
+  "char_display_names": {
+    "백년초_illust.jpg": "Nopal"
+  },
+  "items": [
+    {
+      "name": "¿Qué es un pico de glucosa?",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "¿Tacos, quesadillas o pan dulce",
+        "te dan sueño o antojo de dulce?",
+        "",
+        "puede ser un pico de glucosa:",
+        "sube rápido y cae de golpe"
+      ]
+    },
+    {
+      "name": "Por qué importa",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Si se repite seguido,",
+        "puede llevar a resistencia",
+        "a la insulina",
+        "",
+        "aquí es donde entro yo"
+      ]
+    },
+    {
+      "name": "Yo soy el nopal",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "En México me comen",
+        "desde hace siglos",
+        "",
+        "estudios en pacientes mexicanos",
+        "con diabetes tipo 2 muestran que",
+        "comerme con la comida",
+        "puede aplanar ese pico"
+      ]
+    },
+    {
+      "name": "Cómo funciona",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Mi fibra - pectina y mucílago -",
+        "frena el vaciado del estómago",
+        "",
+        "así el azúcar se absorbe más despacio,",
+        "y también frena la enzima",
+        "que convierte el almidón en azúcar"
+      ]
+    },
+    {
+      "name": "Lo que dice el estudio",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "85 gramos de nopal",
+        "con desayunos mexicanos",
+        "",
+        "bajaron el pico de glucosa",
+        "hasta 30% con chilaquiles",
+        "y hasta 48% con quesadillas"
+      ]
+    },
+    {
+      "name": "Antes de aumentar el nopal",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Si tomas medicamento para la diabetes,",
+        "consulta a tu médico primero",
+        "",
+        "juntos pueden bajar demasiado el azúcar,",
+        "y no reemplazo el tratamiento"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El nopal no baja la glucosa",
+        "por sí solo como magia"
+      ],
+      [
+        "Pero puede ayudar a aplanar",
+        "el pico después de comer"
+      ]
+    ],
+    "tip": [
+      "Prueba agua de nopal sin azúcar en vez de refresco,",
+      "y mantén el ejercicio y los buenos hábitos"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
