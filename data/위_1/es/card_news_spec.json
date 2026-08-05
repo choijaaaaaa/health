@@ -1,0 +1,110 @@
+{
+  "title": [
+    "¿Se te infla el abdomen",
+    "después de comer?",
+    "No siempre es por lo picante"
+  ],
+  "eyebrow": "Alerta de salud digestiva",
+  "topic_word": "Hinchazón abdominal",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "검은콩_illust.jpg": "Frijoles",
+    "치즈_illust.jpg": "Lácteos",
+    "돼지껍질튀김_illust.jpg": "Frituras"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Sentir el abdomen inflado y con gases",
+        "después de comer no siempre es por el chile",
+        "",
+        "Alimentos muy comunes en la dieta mexicana",
+        "generan gas en el intestino sin que te des cuenta"
+      ]
+    },
+    {
+      "name": "Frijoles y otras leguminosas",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Contienen azúcares como la rafinosa",
+        "que el cuerpo no puede digerir bien",
+        "",
+        "Llegan enteros al colon, donde las bacterias",
+        "los fermentan de golpe y generan gas"
+      ]
+    },
+    {
+      "name": "Prueba esto",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Cocínalos con epazote o hoja de laurel",
+        "",
+        "Un estudio mexicano encontró que esta",
+        "técnica tradicional puede ayudar a digerirlos mejor"
+      ]
+    },
+    {
+      "name": "Lácteos: queso, crema y leche",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Hasta 8 de cada 10 mexicanos tienen",
+        "cierto grado de intolerancia a la lactosa",
+        "",
+        "El azúcar de la leche que no se digiere",
+        "fermenta en el intestino y produce gas"
+      ]
+    },
+    {
+      "name": "Prueba esto",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Cambia poco a poco a quesos añejos",
+        "o productos deslactosados",
+        "",
+        "Contienen menos lactosa y",
+        "se digieren mucho más fácil"
+      ]
+    },
+    {
+      "name": "Tacos dorados, chicharrón y frituras",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "La grasa tarda más en digerirse",
+        "y retrasa el vaciado del estómago",
+        "",
+        "Eso deja más tiempo para que",
+        "los alimentos fermenten y generen gas"
+      ]
+    },
+    {
+      "name": "Prueba esto",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Los tacos dorados también quedan",
+        "crujientes al horno o en freidora de aire",
+        "",
+        "Llevan mucha menos grasa y",
+        "se digieren más rápido"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La hinchazón no siempre",
+        "es por comer picante"
+      ],
+      [
+        "Ajustar estos 3 alimentos",
+        "ya hace una gran diferencia"
+      ]
+    ],
+    "tip": [
+      "Frijoles con epazote, lácteos añejos",
+      "y tacos dorados al horno o en freidora de aire"
+    ],
+    "cta": "¿Quieres más información de salud como esta? ¡Suscríbete, dale like y síguenos!"
+  }
+}
