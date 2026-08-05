@@ -209,6 +209,11 @@
   topic은 네이버 블로그·티스토리·인스타그램 릴스·유튜브 쇼츠·네이버 클립·
   쓰레드·틱톡. **글로벌(비한국어) topic은 YouTube Shorts + Instagram Reels
   두 항목만**(유튜브는 자동 업로드라 대시보드 UI에서 제외됨).
+  - ⚠️ **러시아어(ru)는 예외 — Instagram Reels 없이 YouTube Shorts만**
+    (2026-08-05, "인스타그램 계정 수 한계가있어서 러시아는 제외하고 갈게" —
+    확정). `data/global_channels.json`의 `러시아어` 항목에 `instagram_url`도
+    제거해뒀다. 인스타그램용 크롭 영상(`build_instagram_safe_video`)도 ru
+    topic에는 만들지 말 것 — 다른 5개 언어(ko/en/ja/es/pt)는 그대로 유지.
 - ⚠️ **글로벌(비한국어) topic은 제휴/상품 관련 필드 자체를 안 쓴다**(2026-08-05,
   "쿠팡 DM 자동화라는거 자체가 필요가없어 일단 유튜브든 인스타든 건강정보만
   주는 형태로 운영할거야. 채널이 커지면 알리나 아마존 붙일거고" — 확정).
