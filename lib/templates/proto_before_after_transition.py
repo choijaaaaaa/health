@@ -132,6 +132,12 @@ PROGRESS_STYLES = ["dots", "bar"]
 PIVOT_TRANSITION = "circleopen"  # before→after 전환점, 극적인 전환 하나만 고정
 QUICK_XFADE_DUR = 0.3
 PIVOT_XFADE_DUR = 0.85
+# WHY 2.6초인지(2026-08-05, 코골이_1 실측 확인 — "해결책 화면이 너무 짧아서
+# 읽지도 못한다"): 해결책 본문은 보통 40~55자 두 문장(빈 줄로 구분)인데,
+# 영상 보면서 동시에 읽어야 하는 조건에서 이보다 짧으면 실제로 못 읽고
+# 지나간다. 해결책 N개가 마지막 한 문장에 압축된 topic에서 이 바닥을
+# 지키도록 강제한다.
+FIX_READ_MIN = 2.6
 
 
 def _seeded_choice(seed_str: str, options: list, k: int, c0: int):
@@ -661,8 +667,15 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         for i in range(n_pairs - 1):
             cause_durs[i] = cause_starts_real[i + 1] - cause_starts_real[i]
         # 마지막 원인 구간의 끝(=해결책 시작)도 첫 해결책 이름이 SRT에 개별
-        # 언급되면 그 시점으로 — 안 되면(해결책 N개가 마지막 한 문장에
-        # 압축된 topic) 기존 비례-배분 길이를 그대로 유지.
+        # 언급되면 그 시점으로. 안 되면(해결책 N개가 마지막 한 문장에 압축된
+        # topic — 게다가 그 문장이 원인과 다른 동의어를 쓰는 경우도 흔해서
+        # "맥주"의 해결책 문장이 "술은..."으로 시작하는 식— 이름 문자열
+        # 매칭 자체가 실패한다) SRT 마지막 큐의 시작 시각을 대신 쓴다 — 이
+        # 프로젝트 나레이션 관행상 마지막 큐는 항상 마무리/해결책 요약
+        # 문장이라 안전한 근사치다. WHY(2026-08-05, 코골이_1 실측 확인 —
+        # "맥주에서 치즈로 넘어갈 때도 스크립트랑 그림이 안 맞는다"): 이
+        # 폴백이 없으면 마지막 원인 구간이 실제보다 짧게 잡혀 해결책 화면이
+        # 나레이션이 원인을 설명하는 도중에 먼저 떠버렸다.
         fix0_name = fixes[0].get("name", "")
         fix0_start_real = None
         if fix0_name:
@@ -670,24 +683,42 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
                 if fix0_name in entries[idx][2]:
                     fix0_start_real = entries[idx][0]
                     break
+        if fix0_start_real is None and entries and entries[-1][0] > cause_starts_real[-1]:
+            fix0_start_real = entries[-1][0]
         last_cause_end = (
             fix0_start_real if fix0_start_real is not None
             else cause_starts_real[-1] + cause_durs[-1]
         )
         cause_durs[-1] = max(last_cause_end - cause_starts_real[-1], min_dur)
-        # 원인 실측치 반영분만큼 해결책 구간 총량도 재계산 — 기존 fix_durs의
-        # 상대 비율(텍스트 길이 비례)은 유지하되 절대 길이만 새 총량에 맞춰
-        # 스케일.
-        fix_total_before = sum(fix_durs)
+        # 원인 실측치 반영분만큼 해결책 구간 총량도 재계산.
+        # WHY _proportional_durations로 재분배하는지(2026-08-05, "해결책
+        # 화면이 너무 짧아서 못 읽는다" 실측 확인 — 이 헬퍼 자체가 원래
+        # "해결책 N개가 압축된 마지막 한 문장을 실제 글자 수 비례로 나눈다"
+        # 용도로 설계돼 있었는데 여기서는 안 쓰고 단순 선형 스케일만
+        # 하고 있었다): 선형 스케일은 min_dur 바닥을 무시해서 압축된
+        # topic에서 화면 하나가 1~2초로 잘려 읽을 수 없었다. 그래도 예산
+        # 자체가 FIX_READ_MIN*N에 못 미치면(나레이션이 너무 압축된 경우)
+        # mechanism 구간에서 부족분을 빌려온다 — mechanism은 원인처럼
+        # 항목별로 정확히 맞아야 하는 문장 경계가 없어서(설명이 쭉 이어지는
+        # 구간) 몇 초 당겨도 체감 어긋남이 거의 없다.
+        fix_weights = weights[1 + n_pairs:1 + 2 * n_pairs]
         new_fix_total = remaining - mechanism_dur - sum(cause_durs)
-        if fix_total_before > 0 and new_fix_total > 0:
-            scale = new_fix_total / fix_total_before
-            fix_durs = [d * scale for d in fix_durs]
+        if new_fix_total > 0:
+            fix_budget_min = FIX_READ_MIN * n_pairs
+            if new_fix_total < fix_budget_min:
+                shortfall = fix_budget_min - new_fix_total
+                borrow = min(shortfall, max(mechanism_dur - min_dur, 0))
+                mechanism_dur -= borrow
+                new_fix_total += borrow
+            fix_min_dur = min(FIX_READ_MIN, new_fix_total / n_pairs)
+            fix_durs = _proportional_durations(new_fix_total, fix_weights, fix_min_dur)
 
     # 엔딩(headline/tip)은 오디오에 별도로 나레이션되지 않으므로(전체 길이를
     # audio_duration과 정확히 맞춰야 함) 마지막 해결책 구간 꼬리에서 시간을
     # 빌려와 별도 화면으로 뗀다 — 추가 시간 없이 총 길이를 그대로 유지.
-    closing_dur = min(3.2, fix_durs[-1] * 0.4)
+    # WHY FIX_READ_MIN 밑으로는 안 뺏는지: 클로징 화면 때문에 바로 앞
+    # 해결책 화면이 다시 못 읽을 정도로 짧아지면 본말전도.
+    closing_dur = min(3.2, fix_durs[-1] * 0.4, max(fix_durs[-1] - FIX_READ_MIN, 0))
     fix_durs[-1] = max(fix_durs[-1] - closing_dur, min_dur)
     closing_dur = remaining - (mechanism_dur + sum(cause_durs) + sum(fix_durs))
     closing_dur = max(closing_dur, 1.0)
