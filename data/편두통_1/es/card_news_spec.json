@@ -1,0 +1,114 @@
+{
+  "title": [
+    "¿Te saltas comidas, casi no",
+    "tomas agua, y se te antoja chocolate?",
+    "Esto te dice tu migraña, no lo que crees"
+  ],
+  "eyebrow": "Alerta de migraña",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Migraña",
+  "char_display_names": {
+    "시계_illust.jpg": "Saltarte comidas",
+    "물방울_illust.jpg": "Deshidratación",
+    "다크초콜릿_illust.jpg": "Antojo de chocolate"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "La migraña no siempre",
+        "la causa lo que comes",
+        "",
+        "A veces es saltarte comidas,",
+        "no tomar agua, o",
+        "un antojo mal interpretado"
+      ]
+    },
+    {
+      "name": "Saltarte comidas",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Pasar más de 5 horas",
+        "sin comer baja tu glucosa",
+        "",
+        "Eso puede desencadenar",
+        "una migraña"
+      ]
+    },
+    {
+      "name": "Así lo evitas",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Come algo ligero",
+        "cada 3 o 4 horas",
+        "",
+        "El desayuno es la comida",
+        "que más se salta la gente"
+      ]
+    },
+    {
+      "name": "Deshidratación",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Reduce el volumen de sangre",
+        "que llega al cerebro",
+        "",
+        "Hasta 1 de cada 3 personas",
+        "con migraña la señala como",
+        "su desencadenante"
+      ]
+    },
+    {
+      "name": "Hidrátate así",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Toma agua seguido",
+        "durante todo el día",
+        "",
+        "No esperes a tener sed",
+        "para empezar a tomar"
+      ]
+    },
+    {
+      "name": "Antojo de chocolate",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "No es la causa:",
+        "es un síntoma premonitorio",
+        "",
+        "El cerebro ya empezó la crisis",
+        "hasta 48 horas antes"
+      ]
+    },
+    {
+      "name": "Tómalo así",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Si se te antoja de la nada,",
+        "tómalo como aviso",
+        "",
+        "Descansa antes de que",
+        "llegue el dolor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La migraña no siempre tiene",
+        "una sola causa evidente"
+      ],
+      [
+        "Ajusta tus horarios de comida y agua —",
+        "y escucha lo que tu cuerpo ya te avisa"
+      ]
+    ],
+    "tip": [
+      "Come algo ligero cada 3 o 4 horas, aunque sea poco,",
+      "toma agua seguido y descansa si se te antoja algo dulce"
+    ],
+    "cta": "¿Quieres más información de salud? ¡Suscríbete, dale like y sigue la cuenta!"
+  }
+}
