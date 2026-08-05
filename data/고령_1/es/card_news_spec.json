@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Te cuesta levantarte de la silla",
+    "sin usar las manos?",
+    "3 hábitos con la proteína que restan fuerza"
+  ],
+  "eyebrow": "Alerta Muscular",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "char_display_names": {
+    "단과자빵_illust.jpg": "Pan Dulce de Desayuno",
+    "하얀국_illust.jpg": "Caldo Aguado de Plato Fuerte",
+    "소고기_illust.jpg": "Toda la Carne en la Cena"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "El músculo necesita proteína",
+        "en cada comida",
+        "",
+        "no solo en el total del día"
+      ]
+    },
+    {
+      "name": "Pan Dulce de Desayuno",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "El pan dulce con atole",
+        "es casi puro carbohidrato",
+        "",
+        "El cuerpo empieza el día",
+        "sin material para el músculo"
+      ]
+    },
+    {
+      "name": "Pan Dulce — mejor esto",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Agrega un huevo o",
+        "un vaso de leche extra",
+        "",
+        "Ya cambia todo"
+      ]
+    },
+    {
+      "name": "Caldo Aguado de Plato Fuerte",
+      "char_file": "하얀국_illust.jpg",
+      "body": [
+        "Llena el estómago pero",
+        "casi no aporta proteína",
+        "",
+        "Es fácil de elegir por ser",
+        "más fácil de masticar"
+      ]
+    },
+    {
+      "name": "Caldo Aguado — mejor esto",
+      "char_file": "하얀국_illust.jpg",
+      "body": [
+        "Agrégale pollo deshebrado,",
+        "frijoles o un huevo cocido",
+        "",
+        "Misma comida, más proteína"
+      ]
+    },
+    {
+      "name": "Toda la Carne en la Cena",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "El cuerpo solo aprovecha bien",
+        "una porción a la vez",
+        "",
+        "Guardarla toda para la noche",
+        "no rinde igual"
+      ]
+    },
+    {
+      "name": "Cena — mejor esto",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Reparte proteína en",
+        "desayuno, comida y cena",
+        "",
+        "No solo comer más,",
+        "sino repartirla mejor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No se trata de comer",
+        "más proteína de golpe"
+      ],
+      [
+        "sino de repartirla en",
+        "cada comida del día"
+      ]
+    ],
+    "tip": [
+      "Tus músculos lo notan",
+      "con cada comida bien repartida"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Fuerza Muscular"
+}
