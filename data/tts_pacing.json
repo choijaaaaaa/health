@@ -61,12 +61,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> origin/session/ru-heartburn
 =======
 >>>>>>> origin/session/ru-thyroid
 =======
 >>>>>>> origin/session/es-menopause
+=======
+>>>>>>> origin/session/ru-menopause
     "rate": 3.280079802898097,
     "samples": 9
 =======
@@ -86,6 +89,7 @@
     "unit": "word",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     "rate": 2.8715923152121956,
 =======
     "rate": 2.8941814928314886,
@@ -95,6 +99,10 @@
     "rate": 2.8767333494031466,
     "samples": 38
 >>>>>>> origin/session/ru-thyroid
+=======
+    "rate": 2.872281096523147,
+    "samples": 37
+>>>>>>> origin/session/ru-menopause
   },
   "th": {
     "unit": "char",
