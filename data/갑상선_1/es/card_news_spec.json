@@ -1,0 +1,91 @@
+{
+  "title": [
+    "¿Cambiaste tu sal por sal rosa",
+    "o harina de yuca sin gluten?",
+    "Así podría afectar tu tiroides"
+  ],
+  "eyebrow": "Alerta de tiroides",
+  "char_display_names": {
+    "소금_illust.jpg": "Sal",
+    "카사바_illust.jpg": "Yuca"
+  },
+  "items": [
+    {
+      "name": "¿Qué está pasando?",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Cansancio, frío que no",
+        "se quita y kilos que",
+        "no bajan pueden ser señales",
+        "",
+        "A veces el problema está",
+        "en la sal o harina",
+        "que crees más saludable"
+      ]
+    },
+    {
+      "name": "Sal rosa y sal de mar",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "La sal común debe llevar",
+        "yodo por ley en México",
+        "",
+        "La sal rosa del Himalaya",
+        "se vende como condimento,",
+        "no como sal, sin esa regla"
+      ]
+    },
+    {
+      "name": "Así usa la sal",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Usa sal yodada como base",
+        "para cocinar todos los días",
+        "",
+        "Deja la sal rosa o de mar",
+        "solo para toques ocasionales"
+      ]
+    },
+    {
+      "name": "Harina de yuca",
+      "char_file": "카사바_illust.jpg",
+      "body": [
+        "Se puso de moda en",
+        "recetas sin gluten",
+        "",
+        "Si no está bien procesada,",
+        "bloquea la absorción de yodo",
+        "en la tiroides"
+      ]
+    },
+    {
+      "name": "Así usa la yuca",
+      "char_file": "카사바_illust.jpg",
+      "body": [
+        "Elige harina de yuca",
+        "de una marca conocida",
+        "",
+        "Que garantice un proceso",
+        "industrial completo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta tirar",
+        "la sal rosa ni la yuca"
+      ],
+      [
+        "Solo cambia cómo",
+        "y cuánto las usas"
+      ]
+    ],
+    "tip": [
+      "Sal yodada como base diaria,",
+      "sal gourmet solo de vez en cuando"
+    ],
+    "cta": "¿Quieres más información de salud? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Tiroides"
+}
