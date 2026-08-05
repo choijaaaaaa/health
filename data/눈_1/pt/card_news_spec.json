@@ -1,0 +1,73 @@
+{
+  "title": [
+    "Aquela carninha vermelha",
+    "crescendo no canto do olho?",
+    "Os hábitos que prejudicam sua visão no Brasil"
+  ],
+  "eyebrow": "Alerta de Saúde Ocular",
+  "swipe_label": "Arraste para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Visão",
+  "char_display_names": {
+    "태양_illust.jpg": "Sol",
+    "선글라스_illust.jpg": "Óculos",
+    "브라질너트_illust.jpg": "Castanha-do-Pará"
+  },
+  "items": [
+    {
+      "name": "Sol forte o ano todo",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "A exposição acumulada",
+        "aos raios UV",
+        "",
+        "é a principal causa",
+        "do pterígio e da catarata"
+      ]
+    },
+    {
+      "name": "Óculos piratas não protegem",
+      "char_file": "선글라스_illust.jpg",
+      "body": [
+        "4 em cada 10 brasileiros",
+        "usam óculos piratas",
+        "",
+        "que reprovam nos testes",
+        "de proteção UV do Inmetro"
+      ]
+    },
+    {
+      "name": "Escolha certo",
+      "char_file": "선글라스_illust.jpg",
+      "body": [
+        "Prefira óculos com",
+        "selo UV400",
+        "",
+        "e use boné em dias",
+        "de sol forte"
+      ]
+    },
+    {
+      "name": "Castanha-do-pará ajuda",
+      "char_file": "브라질너트_illust.jpg",
+      "body": [
+        "Maior fonte vegetal",
+        "de selênio",
+        "",
+        "um antioxidante ligado à",
+        "proteção contra catarata"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Pterígio e catarata", "são difíceis de reverter"],
+      ["Proteja os olhos do sol,", "e prefira óculos de verdade"]
+    ],
+    "tip": [
+      "Use óculos com selo UV400",
+      "e coma 1-2 castanhas-do-pará por dia"
+    ],
+    "cta": "Quer mais dicas de saúde? Se inscreva, curta e siga!"
+  }
+}
