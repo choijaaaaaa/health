@@ -155,6 +155,16 @@
   포맷), 다른 topic·언어 참고 안 함(전역 상태 없음). `rebuild(topic)`이 그
   포맷대로 자동 분기 렌더링 — `python3 -m lib.rebuild_video <topic>`만
   실행하면 됨.
+- ⚠️ **재조립 필요(2026-08-06)**: `before_after_transition`이 "해결책 항목별
+  화면(N개)" 구조를 없애고 "원인 화면들 → 요약(클로징) 화면 하나"로
+  바뀜(커밋 `0e8d68a5`) — 해결책을 원인만큼 자세히 나레이션하지 않는
+  topic이 많아 항목별 화면 하나당 줄 수 있는 시간이 구조적으로 부족했음
+  (코골이_1 실측: 항목별일 때 최대 4초 vs 요약 화면 하나로 합치니 8.5초).
+  **이 커밋 이전에 `before_after_transition`으로 렌더링된 기존 영상은
+  전부 옛 구조(항목별 화면)라 재조립 필요** — `python3 -m lib.rebuild_video
+  <topic>` 재실행(같은 topic은 `select_format`이 결정론적이라 포맷 그대로
+  유지됨). mp4 재생성 후 인스타그램 크롭(`build_instagram_safe_video`)·
+  `dashboard.html`도 함께 갱신할 것(위 "영상 조립" 절 참고).
 - 신규 4개 템플릿 공통 시그니처: `render(topic_dir, lang, audio_path,
   srt_path, spec_path, out_path)`. `card_news_spec.json`의 `items` 개수를
   그대로 읽어서 3개 고정 아님. 폰트는 `video_assembler.py`의
