@@ -46,6 +46,15 @@ SAFE_BOTTOM = H - _YT_SAFE_BOTTOM
 # 보인다. 오늘 다른 템플릿에서 실제로 터진 "중앙정렬 비대칭-안전영역 버그"가
 # 바로 이 축을 캔버스 중앙 기준으로 잘못 잡아서 생겼다.
 SAFE_CX = (SAFE_LEFT + SAFE_RIGHT) / 2
+# WHY 이거 하나 더 필요한지(2026-08-05, 사용자가 오프닝 화면 스크린샷 보고
+# "중앙 정렬은 안했네 왜지?" 지적): SAFE_CX는 안전박스 폭(880px)을 꽉 채우는
+# 요소엔 맞지만, 그보다 좁은 요소를 SAFE_CX에 맞추면 안전박스 자체가 좌우
+# 비대칭이라(왼쪽 50 vs 오른쪽 150) 캔버스 눈으로 보면 왼쪽으로 쏠려 보인다.
+# 오프닝 히어로 카드처럼 폭을 안전박스 최대치까지 안 채워도 되는 요소는
+# 캔버스 진짜 중앙(540)에 맞추되, 폭을 VISUAL_CENTER_MAX_WIDTH 이하로만
+# 잡으면 두 안전 경계 다 자동으로 지켜진다(540 기준 좌우 대칭 최대폭).
+VISUAL_CX = W / 2
+VISUAL_CENTER_MAX_WIDTH = 2 * min(VISUAL_CX - SAFE_LEFT, SAFE_RIGHT - VISUAL_CX)
 
 
 def _verify_safe_area(bbox: tuple[float, float, float, float], label: str) -> None:
@@ -292,6 +301,129 @@ def _char_medallion(chroma_img: Image.Image, size: int) -> Image.Image:
     return canvas
 
 
+def _lighten(color: tuple[int, int, int], amt: float) -> tuple[int, int, int]:
+    return tuple(int(c + (255 - c) * amt) for c in color)
+
+
+def _hero_card(chroma_img: Image.Image, card_w: int, card_h: int, palette: dict) -> Image.Image:
+    """오프닝 화면 전용 큰 시각적 앵커. 기존 600px 원형 메달리온은 본문
+    beat에는 유지하되(그대로 재사용), 오프닝만 이 함수로 교체 — 캐릭터 주변에
+    큰 반투명 "유리 패널" 카드를 깔아서 확대된 캐릭터 둘레가 빈 캔버스가
+    아니라 채워진 블록으로 읽히게 한다(before 톤 자체가 원래 어둡기 때문에
+    카드가 없으면 확대된 캐릭터만 둥둥 떠 있고 나머지는 여전히 빈 배경처럼
+    보임 — 요구사항의 "40%+ 빈 배경" 문제의 진짜 원인). 그림자 블러는 기존
+    파일 전체 컨벤션대로 안전영역 오버플로 위험 때문에 안 씀 — 대신 accent
+    색 테두리 링으로 경계를 준다."""
+    radius = 56
+    canvas = Image.new("RGBA", (card_w, card_h), (0, 0, 0, 0))
+    cdraw = ImageDraw.Draw(canvas)
+    accent = palette["accent"]
+    # WHY 패널 색을 순백 대신 팔레트 top을 밝힌 톤으로: "cool/dim" 정체성을
+    # 오프닝에서도 유지하면서(순백 카드는 밝고 따뜻해 보여 전환 후 화면인
+    # after와 구분이 안 됨) 어두운 배경 위에서도 카드 경계가 또렷하게 보일
+    # 만큼은 밝게(35%) 만든다.
+    panel_rgb = _lighten(palette["top"], 0.35)
+    cdraw.rounded_rectangle([0, 0, card_w - 1, card_h - 1], radius=radius, fill=(*panel_rgb, 235))
+    cdraw.rounded_rectangle([0, 0, card_w - 1, card_h - 1], radius=radius, outline=(*accent, 220), width=5)
+
+    # WHY 콘텐츠 bbox로 먼저 트림: 크로마 제거된 일러스트는 640x640 정사각
+    # 안에 실제 캐릭터가 여백을 두고 들어있어서(원본 소스 자체의 여백),
+    # 정사각 그대로 카드를 키워도 캐릭터 주위 빈 여백만 함께 커진다(실제
+    # 렌더 확인 결과 — 카드는 커졌는데 캐릭터 체감 크기는 그대로였음). 알파
+    # 채널 bbox로 실제 그려진 픽셀 범위만 잘라낸 뒤 카드에 맞게 "contain"
+    # 방식으로 최대한 키운다 — 이래야 "작은 원형 로고 아님, 큰 시각적 앵커"
+    # 요구사항이 실제로 체감된다.
+    alpha = chroma_img.split()[3]
+    bbox = alpha.getbbox()
+    cropped = chroma_img.crop(bbox) if bbox else chroma_img
+    cw, ch = cropped.size
+    target_w, target_h = card_w * 0.88, card_h * 0.88
+    scale = min(target_w / cw, target_h / ch)
+    new_w, new_h = max(1, round(cw * scale)), max(1, round(ch * scale))
+    char_img = cropped.resize((new_w, new_h))
+    cx0 = (card_w - new_w) // 2
+    cy0 = (card_h - new_h) // 2
+    canvas.paste(char_img, (cx0, cy0), char_img)
+    return canvas
+
+
+def _render_hook_screen(theme: dict, lang: str, hook_lines: list[str], char_chroma: Image.Image | None,
+                         progress_style: str, progress_index: int, progress_total: int,
+                         headline_size: int = 60) -> Image.Image:
+    """오프닝/타이틀 화면 전용 렌더러. WHY 별도 함수로 분리(공용 _render_screen
+    재사용 안 함): 이 파이프라인은 별도 커스텀 썸네일을 업로드하지 않아
+    (lib/youtube_upload.py 확인) 이 영상의 0프레임이 피드에서 실질적인
+    썸네일 역할을 한다 — 작은 원형 캐릭터 + 그 아래 40%+ 빈 배경이던 기존
+    구성은 썸네일 크기에서 훅이 약하게 읽혀서, 캐릭터를 큰 "유리 패널"
+    카드로 확대하고 남은 세로 공간을 텍스트가 실측 높이만큼만 가져가게 해
+    빈 공간을 없앤다. 나머지 beat(mechanism/cause/fix) 화면은 손대지 않고
+    _render_screen을 그대로 쓴다.
+    WHY 진행 표시(dots/bar)를 이 화면만 안 그리는지(2026-08-05, 사용자
+    지적 "이미지의 상단 점이 필요하나?"): 진행 표시는 재생 중 "지금 몇
+    번째 화면인지" 알려주는 용도라 그 자체로는 유효하지만, 정지 썸네일
+    한 장으로 볼 땐 맥락 없는 점 몇 개일 뿐이라 후킹에 도움이 안 되고
+    상단 공간만 차지한다 — 오프닝만 빼고 나머지 화면엔 그대로 남긴다."""
+    palette = theme["before"]
+    img = _vertical_gradient(palette["top"], palette["bottom"]).convert("RGB")
+    draw = ImageDraw.Draw(img)
+    accent = palette["accent"]
+
+    dummy = Image.new("RGBA", (1, 1))
+    dummy_draw = ImageDraw.Draw(dummy)
+    # WHY max_width가 아니라 VISUAL_CENTER_MAX_WIDTH인지: 이 오프닝 화면의
+    # 카드·텍스트는 캔버스 진짜 중앙(VISUAL_CX=540)에 맞춰야 눈으로 봤을 때
+    # 중앙정렬로 보인다(위 VISUAL_CENTER_MAX_WIDTH 정의 참고) — 안전박스
+    # 최대폭(880)을 그대로 쓰면 SAFE_CX(490) 기준이 되어 화면 오른쪽에
+    # 여백이 몰리고 왼쪽으로 쏠려 보인다.
+    max_width = VISUAL_CENTER_MAX_WIDTH
+    safe_h = SAFE_BOTTOM - SAFE_TOP
+
+    hero_top = SAFE_TOP + 20  # WHY 20인지: 진행 표시(dots)를 이 화면에서 뺐으므로
+    # 예전 90px(dots+여백)이 필요 없다 — 위쪽 여백만 살짝 남기고 바로 시작.
+    text_gap = 44
+    # WHY 텍스트를 먼저 "측정"만 해서 실제 줄 수를 안다(자리 배치는 나중):
+    # hero 카드 높이를 정하려면 텍스트가 실제로 몇 줄이 될지 먼저 알아야
+    # 하고, 그래야 짧은 훅 문장에서도 hero 아래에 남는 빈 공간이 생기지 않는다.
+    text_cap_h = int(safe_h * 0.46)
+    wrapped, font, line_h = _fit_text_block(
+        dummy_draw, hook_lines, lang, max_width, text_cap_h, max_size=headline_size, min_size=34,
+    )
+    text_block_h = line_h * len(wrapped)
+
+    hero_w = max_width
+    hero_avail_h = SAFE_BOTTOM - hero_top - text_gap - text_block_h
+    # WHY 상한을 hero_w*1.4까지 넉넉하게: 카드가 남는 세로 공간을 최대한
+    # 다 차지하게 해서 카드↔텍스트 사이에 빈 여백 띠가 생기지 않게 한다(처음
+    # 시도에서 상한을 1.05로 좁게 잡았더니 남는 공간이 "카드 위 여백"과
+    # "카드-텍스트 사이 여백" 두 군데로 쪼개져 화면 중간에 빈 회색 띠가
+    # 보였음 — 실제 렌더 확인 후 수정). 남는 만큼은 전부 hero_top(카드 위쪽
+    # 여백)으로 보내 카드가 텍스트 바로 위까지 바짝 채우게 한다.
+    hero_h = max(min(hero_avail_h, hero_w * 1.4), 260)
+    leftover = hero_avail_h - hero_h
+    if leftover > 0:
+        hero_top += leftover
+
+    if char_chroma is not None:
+        hero = _hero_card(char_chroma, round(hero_w), round(hero_h), palette)
+        px = round(VISUAL_CX - hero.width / 2)
+        py = round(hero_top)
+        img.paste(hero, (px, py), hero)
+        char_bbox = (px, py, px + hero.width, py + hero.height)
+        _verify_safe_area(char_bbox, "hero-character")
+        text_top = py + hero.height + text_gap
+    else:
+        # 캐릭터 일러스트가 없는 topic(방어적 fallback) — 텍스트를 세이프
+        # 영역 안에서 세로 중앙에 맞춰 빈 위/아래 공백을 균등하게 나눈다.
+        text_top = hero_top + max(hero_avail_h - text_block_h, 0) / 2 + text_gap
+
+    text_color = (255, 255, 255)
+    stroke_color = (0, 0, 0)
+    text_bbox = _draw_text_block(draw, wrapped, font, line_h, VISUAL_CX, text_top, text_color, stroke_color)
+    _verify_safe_area(text_bbox, "hook")
+
+    return img
+
+
 # ── 화면(beat) 렌더링 ─────────────────────────────────────────────────
 
 def _render_screen(tone: str, theme: dict, lang: str, label: str | None, body_lines: list[str],
@@ -515,10 +647,18 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
 
         png_paths, target_durs = [], []
         for idx, s in enumerate(screens):
-            img = _render_screen(
-                s["tone"], theme, lang, s["label"], s["body"], s["char"],
-                progress_style, idx, total_beats, headline_size=s["headline_size"],
-            )
+            if idx == 0:
+                # 오프닝(훅) 화면만 큰 hero 카드 전용 렌더러 사용 — 나머지
+                # mechanism/cause/fix beat는 기존 _render_screen 그대로.
+                img = _render_hook_screen(
+                    theme, lang, s["body"], s["char"],
+                    progress_style, idx, total_beats, headline_size=s["headline_size"],
+                )
+            else:
+                img = _render_screen(
+                    s["tone"], theme, lang, s["label"], s["body"], s["char"],
+                    progress_style, idx, total_beats, headline_size=s["headline_size"],
+                )
             p = tmp_path / f"scr_{idx:02d}.png"
             img.save(p)
             png_paths.append(p)
