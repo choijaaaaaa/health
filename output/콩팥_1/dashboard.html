@@ -21,8 +21,15 @@
   header h1 { margin: 0 0 6px; font-size: 22px; }
   header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
   .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
-  main { max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; display: flex; flex-direction: column; gap: 28px; }
-  .lang-section { display: flex; flex-direction: column; gap: 10px; }
+  /* WHY main이 row-wrap 플렉스인지(2026-08-05, "글로벌도 영상 쪽에 한국이랑
+     병렬로 나열되게 해"): 한국어(iframe)와 글로벌(카드) 섹션을 위아래로 쌓지
+     않고 나란히 두 칼럼으로 배치 — 좁은 화면에서는 flex-wrap으로 자연스럽게
+     아래로 떨어진다. */
+  main {
+    max-width: 1400px; margin: 0 auto; padding: 16px 20px 40px;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+  }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; flex: 1 1 420px; min-width: 320px; }
   .lang-heading {
     margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
     text-transform: uppercase; letter-spacing: 0.04em;
