@@ -831,18 +831,29 @@ def render_checklist(ctx: Ctx, t: float):
     cx = W // 2
     layout = ctx.checklist_layout
 
-    # 헤더 문구가 "확인해야 할 N가지" -> "오늘부터 이렇게"로 크로스페이드
+    # 헤더 문구가 "확인해야 할 N가지" -> "오늘부터 이렇게"로 전환
     # (첫 fix_time을 기준으로 삼아, 대안이 하나라도 드러나기 시작하면 전환).
+    # WHY 순차 페이드인지(2026-08-05, 실제 화면 확인 중 발견 — "체크리스트형
+    # 위에도 겹치는 현상이 좀 있다"): 항목별 fact/fix 크로스페이드와 똑같은
+    # 문제 — 서로 다른 문단 텍스트를 동시에 반투명 겹쳐 그리면 글자 단위로
+    # 뒤섞여 읽을 수 없다. 전환 구간 앞 절반엔 이전 헤더만 페이드아웃, 뒤
+    # 절반엔 새 헤더만 페이드인해서 겹치는 순간 자체를 없앤다.
     fixes_p = progress(t, ctx.timing["fix_times"][0], MODE_FADE)
     eyebrow_y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK_BY_LANG.get(ctx.lang, EYEBROW_SELFCHECK_BY_LANG["en"]), ctx.font(30), cx, 110,
                               ctx.accent, ctx.accent_soft, label="checklist-eyebrow")
     header_top = eyebrow_y + 55
-    if fixes_p < 1:
+    if fixes_p <= 0.5:
+        before_alpha = max(0, 1 - fixes_p * 2)
+        after_alpha = 0
+    else:
+        before_alpha = 0
+        after_alpha = min(1, (fixes_p - 0.5) * 2)
+    if before_alpha > 0.01:
         draw_centered_lines(draw, [CHECKLIST_HEADER_BEFORE], ctx.checklist_header_font, cx, header_top, 0,
-                             TEXT_DARK, alpha=int(255 * (1 - fixes_p)), label="checklist-header-before")
-    if fixes_p > 0:
+                             TEXT_DARK, alpha=int(255 * before_alpha), label="checklist-header-before")
+    if after_alpha > 0.01:
         draw_centered_lines(draw, [CHECKLIST_HEADER_AFTER], ctx.checklist_header_font, cx, header_top, 0,
-                             TEXT_DARK, alpha=int(255 * fixes_p), label="checklist-header-after")
+                             TEXT_DARK, alpha=int(255 * after_alpha), label="checklist-header-after")
 
     draw_shadowed_panel(
         canvas,
