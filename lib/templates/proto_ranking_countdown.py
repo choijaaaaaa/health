@@ -352,19 +352,6 @@ def _render_item_safe(bg: Image.Image, item: dict, rank: int, n_items: int, lang
     )
 
 
-# WHY 별도 딕셔너리: 이 캡션은 spec에 없는(card_news_spec.json이 언어별로 이미
-# 로컬라이즈해 담고 있는 title/eyebrow와 달리) 템플릿 자체의 고정 UI 문구라
-# 6개 서비스 언어(ko/en/ja/es/pt/ru) 값을 여기 직접 둔다 — lang="kor" 기준.
-_TEASE_CAPTION = {
-    "kor": "가장 위험한 건 마지막에 공개돼요",
-    "en": "The riskiest one is revealed last",
-    "ja": "一番危ないのは最後に公開",
-    "es": "El más riesgoso se revela al final",
-    "pt": "O mais arriscado é revelado por último",
-    "ru": "Самое опасное — в конце",
-}
-
-
 def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
                         ramp: list[tuple[int, int, int]], shape_name: str,
                         shrink_step: int = 0) -> Image.Image:
@@ -472,14 +459,6 @@ def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
     for dx, dy in ((-3, 0), (3, 0), (0, -3), (0, 3)):
         draw.text((nx + dx, ny + dy), num_text, font=num_font2, fill=(0, 0, 0, 160))
     draw.text((nx, ny), num_text, font=num_font2, fill=(255, 255, 255, 255))
-    y += badge_d + round(28 * shrink)
-
-    # 6) 예고 캡션
-    cap_font = ImageFont.truetype(fpath, round(38 * shrink), index=findex)
-    cap_text = _TEASE_CAPTION.get(lang, _TEASE_CAPTION["kor"])
-    cb = draw.textbbox((0, 0), cap_text, font=cap_font)
-    cx = CONTENT_CENTER_X - (cb[2] - cb[0]) // 2 - cb[0]
-    draw.text((cx, y), cap_text, font=cap_font, fill=(235, 235, 245, 235))
 
     return frame
 
