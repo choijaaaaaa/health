@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Protein shake, milky latte, a bag of chips -",
+    "a pretty normal day",
+    "The Foods Behind Adult Acne"
+  ],
+  "eyebrow": "Adult Acne Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Adult Acne",
+  "char_display_names": {
+    "웨이프로틴쉐이크_illust.jpg": "Whey Protein Shake",
+    "우유_illust.jpg": "Skim Milk",
+    "감자칩_illust.jpg": "Potato Chips",
+    "계란_illust.jpg": "Eggs",
+    "두유_illust.jpg": "Soy Milk",
+    "아몬드_illust.jpg": "Almonds"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "웨이프로틴쉐이크_illust.jpg",
+      "body": [
+        "High-glycemic carbs and dairy",
+        "proteins both raise insulin and IGF-1",
+        "",
+        "a hormone that increases oil",
+        "production and thickens pores"
+      ]
+    },
+    {
+      "name": "Whey Protein Shakes",
+      "char_file": "웨이프로틴쉐이크_illust.jpg",
+      "body": [
+        "Dermatologists have reported",
+        "breakouts in bodybuilders",
+        "",
+        "within weeks of",
+        "starting whey protein"
+      ]
+    },
+    {
+      "name": "Instead of whey shakes",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Swap in a couple of eggs",
+        "",
+        "A whole-food protein without",
+        "the concentrated hormones"
+      ]
+    },
+    {
+      "name": "Skim Milk",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Carries a stronger acne link",
+        "than whole milk",
+        "",
+        "Processing likely concentrates",
+        "its oil-stimulating hormones"
+      ]
+    },
+    {
+      "name": "Instead of skim milk",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Trade in unsweetened soy milk",
+        "",
+        "No dairy hormones,",
+        "same creamy pour"
+      ]
+    },
+    {
+      "name": "Potato Chips",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "A high-glycemic snack",
+        "",
+        "Low-glycemic eaters improved",
+        "nearly twice as much",
+        "over 12 weeks in one trial"
+      ]
+    },
+    {
+      "name": "Instead of chips",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Reach for a handful of almonds",
+        "",
+        "Same crunch,",
+        "far less blood sugar spike"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "you have to quit these foods forever"
+      ],
+      [
+        "But watching how often",
+        "they show up is worth it"
+      ]
+    ],
+    "tip": [
+      "Cut back on whey shakes, skim milk, and potato chips,",
+      "and bring in eggs, soy milk, and almonds"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
