@@ -10,8 +10,8 @@
   "topic_word": "Anemia",
   "char_display_names": {
     "마테차_illust.jpg": "Chimarrão",
-    "칼슘보충제_illust.jpg": "Cálcio",
-    "검은콩_illust.jpg": "Feijão Preto"
+    "검은콩_illust.jpg": "Feijão Preto",
+    "영양제_illust.jpg": "Cálcio"
   },
   "items": [
     {
@@ -49,7 +49,7 @@
     },
     {
       "name": "Suplemento de cálcio",
-      "char_file": "칼슘보충제_illust.jpg",
+      "char_file": "영양제_illust.jpg",
       "body": [
         "Tomado junto da refeição",
         "",
@@ -59,7 +59,7 @@
     },
     {
       "name": "Cálcio assim",
-      "char_file": "칼슘보충제_illust.jpg",
+      "char_file": "영양제_illust.jpg",
       "body": [
         "Separe o suplemento do almoço",
         "por pelo menos 2 horas",
