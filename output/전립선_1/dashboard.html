@@ -12,64 +12,32 @@
     --panel: #fffdfa; --rule: #e9ddd0;
   }
   * { box-sizing: border-box; }
-  html, body { height: 100%; }
   body {
     margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
     background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
     color: var(--ink);
-    display: flex; flex-direction: column; min-height: 100vh;
   }
-  header { padding: 32px 24px 8px; text-align: center; flex: 0 0 auto; }
+  header { padding: 32px 24px 8px; text-align: center; }
   header h1 { margin: 0 0 6px; font-size: 22px; }
   header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
   .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
-  .lang-tabs {
-    max-width: 1040px; margin: 20px auto 0; padding: 0 20px;
-    display: flex; gap: 8px; flex-wrap: wrap; flex: 0 0 auto; width: 100%;
+  main { max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; display: flex; flex-direction: column; gap: 28px; }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; }
+  .lang-heading {
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
   }
-  .lang-tab {
-    font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 22px; border: none;
-    background: var(--panel); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
-    border: 1px solid var(--rule);
-  }
-  .lang-tab.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  /* WHY main도 flex:1로 나머지 높이를 다 차지하는지: iframe 패널이 여기 아래에
-     실제 뷰포트에 가까운 높이를 확보해야 그 안의 상품 링크 dock(position:fixed,
-     아래 iframe WHY 참고)이 좁은 박스에 눌리지 않고 편하게 클릭할 수 있는
-     크기로 뜬다. */
-  main { max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; flex: 1 1 auto; min-height: 0; width: 100%; display: flex; flex-direction: column; }
-  .lang-panel { display: none; }
-  .lang-panel.active { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }
-  /* WHY iframe이 뷰포트 대부분을 채우는 고정 높이(자동 리사이즈 없음)인지
-     (2026-08-04, 실제 버그로 두 번 발견됨): ① 예전엔 iframe 높이를 내용물
-     실측 높이로 늘려서(load 시 scrollHeight 적용) 페이지 전체가 하나의
-     스크롤처럼 보이게 했는데, 그러면 iframe 내부 문서 입장에서 "뷰포트 =
-     전체 문서 높이"가 되어 스크롤 자체가 안 생기고, 언어별 dashboard.html
-     안의 상품 링크 dock(position: fixed)이 스크롤을 전혀 못 따라오게 됐다 —
-     position:fixed는 항상 자기 문서 자신의 뷰포트 기준으로만 동작해서 부모
-     페이지 스크롤과 연동될 수 없다. ② 그래서 82vh 고정 높이로 되돌렸더니
-     이번엔 "따라오고아니고 보다 바깥으로 빠져서 좀더 편하게 버튼을 누르는거
-     더 중요해" — dock이 좁은 82vh 박스 안에 눌려서 버튼을 누르기 불편하다는
-     지적. iframe은 어떤 경우든 자기 박스 밖으로 내용을 못 내보내므로(다른
-     documents라 CSS로 못 뚫음), 박스 자체를 실제 브라우저 창에 최대한
-     가깝게 키우는 게 유일한 실용적 해법 — 위 body/main의 flex 레이아웃으로
-     header·탭을 뺀 나머지 뷰포트 전체를 iframe에 준다. */
-  iframe.dash-frame { width: 100%; flex: 1 1 auto; min-height: 600px; border: 0; border-radius: 16px; background: var(--panel); }
+  iframe.dash-frame { width: 100%; height: 80vh; min-height: 600px; border: 0; border-radius: 16px; background: var(--panel); display: block; }
   .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
   .plat-card {
     flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
     padding: 14px;
   }
+  .plat-lang {
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }
   .plat-card h3 { margin: 0 0 8px; font-size: 14px; }
-  .plat-card video { width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }
-  .g-video-ph {
-    width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
-    align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
-  }
-  .plat-card .dl {
-    display: block; font-size: 12px; font-weight: 700; color: var(--accent-deep); text-decoration: none;
-    margin: -4px 0 8px;
-  }
   .plat-card textarea {
     width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
     font-size: 12px; font-family: inherit; resize: vertical;
@@ -88,18 +56,13 @@
 <a class="back" href="../../index.html">← 목록으로</a>
 <header>
   <h1>자다가 소변 때문에 자주 깨는 사람, 40대 이상에서 꽤 많이 겪는다는데 - 전립선 편하게 하는 음식 피하는 법</h1>
-  <p>언어를 골라 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
 </header>
-<div class="lang-tabs"><button class="lang-tab active" data-panel="panel-ko">한국어</button>
-<button class="lang-tab" data-panel="panel-en">영어 English</button>
-<button class="lang-tab" data-panel="panel-ja">일본어 日本語</button>
-</div>
 <main>
-<div class="lang-panel active" id="panel-ko"><iframe class="dash-frame" src="ko/dashboard.html"></iframe></div>
-<div class="lang-panel" id="panel-en"><div class="lang-body">
+<section class="lang-section"><h2 class="lang-heading">한국어</h2><iframe class="dash-frame" src="ko/dashboard.html"></iframe></section>
+<section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
 <div class="plat-card">
-  <h3>Instagram Reels</h3>
-  <div class="g-video-ph">🎬 영상 조립 완료<br>로컬 <code>output/전립선_1/en/전립선_1_en_shorts.mp4</code>에서 확인</div>
+  <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
   <textarea id="g-cap-en-1" spellcheck="false">Most men in their 50s and 60s already get up at night to pee 🚽
 
 Caffeine and alcohol both block the hormone that helps your kidneys hold onto water, and a salty dinner makes you thirstier right before bed. None of it means something's wrong - just watching timing and amount in the evening helps.
@@ -112,11 +75,9 @@ More health tips like this - follow along!
     <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="g-cap-en-1">열기 →</a>
   </div>
 </div>
-</div></div>
-<div class="lang-panel" id="panel-ja"><div class="lang-body">
+
 <div class="plat-card">
-  <h3>Instagram Reels</h3>
-  <div class="g-video-ph">🎬 영상 조립 완료<br>로컬 <code>output/전립선_1/ja/전립선_1_ja_shorts.mp4</code>에서 확인</div>
+  <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
   <textarea id="g-cap-ja-1" spellcheck="false">夜、ラーメンの汁を飲み切って寝た日ほど、夜中に目が覚める…？🍜
 
 塩分・カフェイン・アルコールが重なると、夜中に起きる回数が増えます。それぞれ、ちょっとした工夫で負担を減らせます。
@@ -131,18 +92,10 @@ More health tips like this - follow along!
     <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="g-cap-ja-1">열기 →</a>
   </div>
 </div>
-</div></div>
+</div></section>
 
 </main>
 <script>
-document.querySelectorAll(".lang-tab").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll(".lang-tab").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".lang-panel").forEach(p => p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.panel).classList.add("active");
-  });
-});
 document.querySelectorAll(".btn-copy").forEach(btn => {
   btn.addEventListener("click", () => {
     const ta = document.getElementById(btn.dataset.target);

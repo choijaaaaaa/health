@@ -49,11 +49,6 @@ _UI_EXCLUDED_PLATFORMS = {
     "쓰레드", "인스타그램 카드뉴스", "Threads", "Instagram Carousel",
 }
 
-# WHY 인스타그램 릴스만 별도 영상을 쓰는지(2026-08-04): generate()의
-# instagram_video_path WHY 참고 — 인스타 릴스 카드에서만 안전 여백 버전 파일을
-# 연결하기 위해 이름으로 매칭한다.
-_INSTAGRAM_REELS_NAMES = {"인스타그램 릴스", "Instagram Reels"}
-
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
   <div class="dock-product-head">
@@ -104,6 +99,16 @@ CARD_TEMPLATE = """
 </div>
 """
 
+# WHY 영상 미리보기 박스가 없는지(2026-08-05, "회색박스 텍스트 필요없잖아? 이제
+# 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가 git에 안 올라가서 실제로
+# 재생도 안 되는 "영상 조립 완료 / 로컬에서 확인" 텍스트만 있는 박스였다 — 로컬
+# output/ 폴더에서 직접 작업하는 사람에게는 굳이 화면에 또 안내할 필요가 없다는
+# 지적으로 뺐다. 표지 이미지 갤러리만 남는다.
+# WHY quick-dock에 실사진 소싱(Unsplash/Pexels)·제작 도구(인포크/쿠팡파트너스/
+# 타입캐스트) 섹션이 없는지(2026-08-05, "UI에 찌꺼기가 좀 많이남아있다...
+# 쓸모없는것들 정리"): 이 페이지는 콘텐츠가 이미 완성된 뒤 업로드만 하는
+# 단계인데, 저 링크들은 전부 제작(리서치·TTS·소싱) 단계 도구라 이 시점엔 쓸
+# 일이 없다.
 PAGE_TEMPLATE = """<!doctype html>
 <html lang="ko">
 <head>
@@ -140,21 +145,7 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   section > h2::before {{ content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }}
 
-  .preview-row {{ display: flex; gap: 24px; flex-wrap: wrap; }}
-  .video-panel {{
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    flex: 0 0 auto;
-  }}
-  .video-panel video {{
-    width: 260px; aspect-ratio: 9/16; border-radius: 12px; background: #000; display: block;
-  }}
-  .video-panel .dl {{
-    display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 700;
-    color: var(--accent-deep); text-decoration: none;
-  }}
-
   .card-gallery {{
-    flex: 1; min-width: 280px;
     background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
     scroll-margin-top: 20px;
   }}
@@ -319,10 +310,6 @@ PAGE_TEMPLATE = """<!doctype html>
   <h1>{title}</h1>
 </header>
 
-<!-- WHY 실사진 소싱(Unsplash/Pexels)·제작 도구(인포크/쿠팡파트너스/타입캐스트) 뺐는지
-     (2026-08-05, "UI에 찌꺼기가 좀 많이남아있다... 쓸모없는것들 정리"): 이 페이지는
-     콘텐츠가 이미 완성된 뒤 업로드만 하는 단계인데, 저 링크들은 전부 제작(리서치·
-     TTS·소싱) 단계 도구라 이 시점엔 쓸 일이 없다. -->
 <div class="quick-dock" id="quickDock">
   <div class="dock-head">
     <span>빠른 도구</span>
@@ -330,7 +317,6 @@ PAGE_TEMPLATE = """<!doctype html>
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      {video_download_link}
       <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
     </div>
   </div>
@@ -339,13 +325,8 @@ PAGE_TEMPLATE = """<!doctype html>
 
 <section>
   <h2>미리보기</h2>
-  <div class="preview-row">
-    <div class="video-panel">
-      {video_block}
-    </div>
-    <div class="card-gallery" id="card-gallery">
-      <div class="card-scroll">{card_thumbs}</div>
-    </div>
+  <div class="card-gallery" id="card-gallery">
+    <div class="card-scroll">{card_thumbs}</div>
   </div>
 </section>
 
@@ -794,14 +775,12 @@ def _prefixed(name: str, topic: str) -> str:
     return name if name.startswith(topic + "_") else f"{topic}_{name}"
 
 
-def _asset_link(platform_type: str, has_video: bool, video_name: str, topic: str, cover_name: str | None) -> str:
+def _asset_link(platform_type: str, topic: str, cover_name: str | None) -> str:
+    # WHY video 타입엔 안내문 자체가 없는지(2026-08-05, "회색박스 텍스트
+    # 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가 git에
+    # 없어서 이 텍스트가 가리키던 다운로드/재생은 애초에 불가능했고, 로컬에서
+    # 직접 작업하는 사람에게는 그 안내 자체가 불필요한 잡음이었다.
     topic_attr = _esc(topic)
-    if platform_type == "video":
-        # WHY 다운로드 링크 대신 안내 문구인지: video_block WHY 참고(2026-08-05) —
-        # mp4가 git에 없어서 이 링크는 GitHub Pages에서 항상 깨진다.
-        if has_video:
-            return f'<span class="asset-link disabled">🎬 로컬 output/{topic_attr}/{_esc(video_name)}에서 확인</span>'
-        return '<span class="asset-link disabled">🎬 영상 준비 중 — 나중에 다시 확인</span>'
     if platform_type == "cards":
         return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
     if not cover_name:
@@ -1013,20 +992,21 @@ GLOBAL_LANG_LABELS = {
 }
 
 # WHY 통합 대시보드를 별도 파일이 아니라 "언어별 dashboard.html을 그대로 iframe으로
-# 보여주는 탭 페이지"로 만드는지(2026-08-04, "글로벌도 합치자 한 페이지에 같이
+# 보여주는 페이지"로 만드는지(2026-08-04, "글로벌도 합치자 한 페이지에 같이
 # 있고 포맷도 기존과 동일하게 가야겠다... 기존에 관리하던 폼이랑 동일하게 가져가면
 # 딱이네" — ko/글로벌을 따로 관리하던 두 페이지·두 버튼(한국/Global)을 없애고
 # 하나로 합쳐달라는 요청): CARD_TEMPLATE 기반의 완성된 카드(캡션 편집·상품
 # 링크 dock·고지문구 자동삽입·완료 체크 등)를 언어마다 다시 구현하면 두 벌을
 # 유지보수해야 하고 필연적으로 기능이 어긋난다 — 이미 생성된 ko dashboard.html을
 # 그대로 iframe에 넣으면 "완전히 동일한 폼"이 100% 보장되고, 앞으로
-# CARD_TEMPLATE/JS를 고치면 ko 탭에 자동으로 반영된다.
-# ⚠️ WHY 글로벌(비한국어) 언어는 iframe을 아예 안 쓰는지(2026-08-05, "UI에
-# 찌꺼기가 좀 많이남아있다... 글로벌도 버튼눌러서 이동해서 인스타 누르지말고
-# 걍 하나로 병합해도될듯" — ko와는 별개로 결정): 아래 _generate_unified_dashboard
-# WHY 참고 — 글로벌은 어차피 카드 1장(인스타그램 릴스)뿐이라 iframe으로 전체
-# 업로드 폼을 또 감쌀 필요가 없다. 영상 조립 여부와 무관하게(조립 전이든 후든)
-# 항상 가벼운 카드(_light_platform_card)를 보여준다.
+# CARD_TEMPLATE/JS를 고치면 ko 섹션에 자동으로 반영된다.
+# ⚠️ WHY 탭 전환 UI를 아예 없앴는지(2026-08-05, "UI에 찌꺼기가 좀 많이남아있다
+# ... 이제 항목도 줄었으니 글로벌도 버튼눌러서 이동해서 인스타 누르지말고 걍
+# 하나로 병합해도될듯" → "1번은 한국이든 글로벌이든 전부 한 탭으로 가라고"로
+# 확정): 언어마다 탭을 눌러 전환하던 방식을 버리고, 한국어(iframe)와 글로벌
+# 언어들(가벼운 카드, 아래 _generate_unified_dashboard 참고)을 한 페이지에
+# 전부 세로로 나열한다 — 스크롤 한 번으로 모든 언어를 다 볼 수 있어서 언어별로
+# 탭을 오갈 필요가 없다.
 UNIFIED_PAGE_TEMPLATE = """<!doctype html>
 <html lang="ko">
 <head>
@@ -1041,64 +1021,32 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
     --panel: #fffdfa; --rule: #e9ddd0;
   }}
   * {{ box-sizing: border-box; }}
-  html, body {{ height: 100%; }}
   body {{
     margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
     background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
     color: var(--ink);
-    display: flex; flex-direction: column; min-height: 100vh;
   }}
-  header {{ padding: 32px 24px 8px; text-align: center; flex: 0 0 auto; }}
+  header {{ padding: 32px 24px 8px; text-align: center; }}
   header h1 {{ margin: 0 0 6px; font-size: 22px; }}
   header p {{ margin: 0; color: var(--ink-soft); font-size: 13px; }}
   .back {{ display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }}
-  .lang-tabs {{
-    max-width: 1040px; margin: 20px auto 0; padding: 0 20px;
-    display: flex; gap: 8px; flex-wrap: wrap; flex: 0 0 auto; width: 100%;
+  main {{ max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; display: flex; flex-direction: column; gap: 28px; }}
+  .lang-section {{ display: flex; flex-direction: column; gap: 10px; }}
+  .lang-heading {{
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
   }}
-  .lang-tab {{
-    font-size: 14px; font-weight: 700; padding: 10px 18px; border-radius: 22px; border: none;
-    background: var(--panel); color: var(--ink-soft); cursor: pointer; white-space: nowrap;
-    border: 1px solid var(--rule);
-  }}
-  .lang-tab.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
-  /* WHY main도 flex:1로 나머지 높이를 다 차지하는지: iframe 패널이 여기 아래에
-     실제 뷰포트에 가까운 높이를 확보해야 그 안의 상품 링크 dock(position:fixed,
-     아래 iframe WHY 참고)이 좁은 박스에 눌리지 않고 편하게 클릭할 수 있는
-     크기로 뜬다. */
-  main {{ max-width: 1040px; margin: 0 auto; padding: 16px 20px 40px; flex: 1 1 auto; min-height: 0; width: 100%; display: flex; flex-direction: column; }}
-  .lang-panel {{ display: none; }}
-  .lang-panel.active {{ display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; }}
-  /* WHY iframe이 뷰포트 대부분을 채우는 고정 높이(자동 리사이즈 없음)인지
-     (2026-08-04, 실제 버그로 두 번 발견됨): ① 예전엔 iframe 높이를 내용물
-     실측 높이로 늘려서(load 시 scrollHeight 적용) 페이지 전체가 하나의
-     스크롤처럼 보이게 했는데, 그러면 iframe 내부 문서 입장에서 "뷰포트 =
-     전체 문서 높이"가 되어 스크롤 자체가 안 생기고, 언어별 dashboard.html
-     안의 상품 링크 dock(position: fixed)이 스크롤을 전혀 못 따라오게 됐다 —
-     position:fixed는 항상 자기 문서 자신의 뷰포트 기준으로만 동작해서 부모
-     페이지 스크롤과 연동될 수 없다. ② 그래서 82vh 고정 높이로 되돌렸더니
-     이번엔 "따라오고아니고 보다 바깥으로 빠져서 좀더 편하게 버튼을 누르는거
-     더 중요해" — dock이 좁은 82vh 박스 안에 눌려서 버튼을 누르기 불편하다는
-     지적. iframe은 어떤 경우든 자기 박스 밖으로 내용을 못 내보내므로(다른
-     documents라 CSS로 못 뚫음), 박스 자체를 실제 브라우저 창에 최대한
-     가깝게 키우는 게 유일한 실용적 해법 — 위 body/main의 flex 레이아웃으로
-     header·탭을 뺀 나머지 뷰포트 전체를 iframe에 준다. */
-  iframe.dash-frame {{ width: 100%; flex: 1 1 auto; min-height: 600px; border: 0; border-radius: 16px; background: var(--panel); }}
+  iframe.dash-frame {{ width: 100%; height: 80vh; min-height: 600px; border: 0; border-radius: 16px; background: var(--panel); display: block; }}
   .lang-body {{ display: flex; gap: 16px; flex-wrap: wrap; }}
   .plat-card {{
     flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
     padding: 14px;
   }}
+  .plat-lang {{
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }}
   .plat-card h3 {{ margin: 0 0 8px; font-size: 14px; }}
-  .plat-card video {{ width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #000; display: block; margin-bottom: 8px; }}
-  .g-video-ph {{
-    width: 150px; aspect-ratio: 9/16; border-radius: 8px; background: #efe3d8; display: flex;
-    align-items: center; justify-content: center; font-size: 12px; color: var(--ink-soft); margin-bottom: 8px;
-  }}
-  .plat-card .dl {{
-    display: block; font-size: 12px; font-weight: 700; color: var(--accent-deep); text-decoration: none;
-    margin: -4px 0 8px;
-  }}
   .plat-card textarea {{
     width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
     font-size: 12px; font-family: inherit; resize: vertical;
@@ -1117,21 +1065,12 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
 <a class="back" href="../../index.html">← 목록으로</a>
 <header>
   <h1>{title}</h1>
-  <p>언어를 골라 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
 </header>
-<div class="lang-tabs">{tab_buttons}</div>
 <main>
-{lang_panels}
+{lang_sections}
 </main>
 <script>
-document.querySelectorAll(".lang-tab").forEach(btn => {{
-  btn.addEventListener("click", () => {{
-    document.querySelectorAll(".lang-tab").forEach(b => b.classList.remove("active"));
-    document.querySelectorAll(".lang-panel").forEach(p => p.classList.remove("active"));
-    btn.classList.add("active");
-    document.getElementById(btn.dataset.panel).classList.add("active");
-  }});
-}});
 document.querySelectorAll(".btn-copy").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const ta = document.getElementById(btn.dataset.target);
@@ -1155,7 +1094,7 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
 
 
 def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str:
-    """글로벌(비한국어) 언어 탭 전용 경량 카드(2026-08-05부터 영상 조립 여부와
+    """글로벌(비한국어) 언어 전용 경량 카드(2026-08-05부터 영상 조립 여부와
     무관하게 항상 이걸 씀 — 아래 _generate_unified_dashboard WHY 참고). WHY
     disclosure/product-link 동적 삽입 로직(_buildLinkBlock 등)을 안 쓰는지:
     그 로직은 쿠팡 파트너스 고지문구를 코드에서 그대로 끌어오는데, 글로벌
@@ -1166,38 +1105,19 @@ def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str
     "포맷도 기존과 동일하게" 요청): 예전엔 Instagram Reels만 보여줬는데, ko
     대시보드처럼 실제 관리 대상인 전체 플랫폼을 보여주는 게 통합 취지에
     맞는다 — 어차피 UI 제외 목록(_UI_EXCLUDED_PLATFORMS) 적용 후엔 글로벌
-    topic에 남는 플랫폼이 인스타그램 릴스 하나뿐이라 실질적으로는 카드 1장."""
-    video_dir = Path(__file__).resolve().parent.parent / "output" / topic / lang
-    # WHY 두 글롭 다 시도하는지: 대부분 "<topic>_shorts.mp4"(topic 접두어) 규칙을
-    # 따르지만, 일부 언어 topic은 접두어 없이 그냥 "shorts.mp4"로도 만들어져 있었다
-    # (실측: 갑상선_1/en) — 폴더 자체가 이미 topic+언어를 구분해주므로 둘 다 허용.
-    candidates = sorted(video_dir.glob("*shorts.mp4")) if video_dir.exists() else []
-    # WHY 인스타그램 릴스 카드만 별도로 *shorts_instagram.mp4를 찾는지(2026-08-04,
-    # "instagram이라고 되어있는것들도 ui에서 다운로드 할수있게 해줘야 해" 요청):
-    # generate()(ko/완성된 언어 대시보드)는 이미 이 안전 여백 버전을 인스타 릴스
-    # 카드에 자동 연결하는데(위 instagram_video_path 참고), 이 경량 카드는 아직
-    # 그 로직이 없어서 shorts_instagram.mp4가 폴더에 있어도 다운로드할 방법이
-    # 없었다 — 같은 규칙을 그대로 적용해서 형식을 맞춘다.
-    if platform["name"] in _INSTAGRAM_REELS_NAMES and video_dir.exists():
-        ig_candidates = sorted(video_dir.glob("*shorts_instagram.mp4"))
-        if ig_candidates:
-            candidates = ig_candidates
-    # WHY <video>·다운로드 버튼 대신 로컬 경로 안내인지(2026-08-05, video_block
-    # WHY 참고): mp4가 git에 안 올라가서(.gitignore) GitHub Pages에선 이 링크가
-    # 항상 깨진다 — 로컬 파일 존재 여부는 그대로 candidates로 판단하되(조립
-    # 완료 표시 목적), 실제 재생/다운로드 UI는 없앤다.
-    if candidates:
-        local_hint = f"output/{topic}/{lang}/{candidates[0].name}"
-        video_html = (
-            f'<div class="g-video-ph">🎬 영상 조립 완료<br>로컬 <code>{_esc(local_hint)}</code>에서 확인</div>'
-        )
-    else:
-        video_html = '<div class="g-video-ph">🎬 영상 준비 중</div>'
+    topic에 남는 플랫폼이 인스타그램 릴스 하나뿐이라 실질적으로는 카드 1장.
+    WHY 영상 조립 상태 표시가 없는지(2026-08-05, "회색박스 텍스트 필요없잖아?
+    이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가 git에 없어서
+    재생·다운로드가 안 되는 텍스트만 있는 박스였다 — 로컬 output/<topic>/<lang>/
+    폴더에서 직접 작업하는 사람에게는 불필요한 안내라 아예 뺐다. WHY 언어
+    라벨을 붙이는지(2026-08-05, "한국이든 글로벌이든 전부 한 탭으로" — 언어별
+    탭 제거): 이제 여러 언어의 카드가 한 화면에 같이 나열되므로, 카드만 봐서는
+    어떤 언어인지 구분이 안 돼서 카드마다 언어명을 표시한다."""
+    lang_label = GLOBAL_LANG_LABELS.get(lang, lang.upper())
     ta_id = f"g-cap-{lang}-{idx}"
     return f"""
 <div class="plat-card">
-  <h3>{_esc(platform['name'])}</h3>
-  {video_html}
+  <h3><span class="plat-lang">{_esc(lang_label)}</span>{_esc(platform['name'])}</h3>
   <textarea id="{ta_id}" spellcheck="false">{_esc(platform['caption'])}</textarea>
   <div class="plat-actions">
     <button class="btn-copy" data-target="{ta_id}">캡션 복사</button>
@@ -1208,9 +1128,9 @@ def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str
 
 
 def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: Path) -> None:
-    """topic 하나(예: "관절_1")의 언어(ko 포함) 전체를 탭 하나짜리 페이지로
-    통합한다 — 언어마다 dashboard.html이 따로 있어서(+ko는 "한국" 버튼, 나머지는
-    "Global" 버튼으로 갈라져 있던 것) 그때그때 다른 URL을 오가야 했던 것을,
+    """topic 하나(예: "관절_1")의 언어(ko 포함) 전체를 한 페이지로 통합한다 —
+    언어마다 dashboard.html이 따로 있어서(+ko는 "한국" 버튼, 나머지는 "Global"
+    버튼으로 갈라져 있던 것) 그때그때 다른 URL을 오가야 했던 것을,
     output/<topic>/dashboard.html 하나로 합친다(위 UNIFIED_PAGE_TEMPLATE WHY
     참고). ko는 언어별 dashboard.html을 그대로 iframe으로 보여준다(완전히 동일한
     폼 보장, 여러 플랫폼을 관리해야 해서 그 폼이 필요함).
@@ -1220,51 +1140,74 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
     이동해서 인스타 누르지말고 걍 하나로 병합해도될듯"): 글로벌 topic은
     UI에서 유튜브 쇼츠가 자동 업로드로 빠지고 나면 플랫폼이 인스타그램 릴스
     하나만 남는데다, 제휴 프로그램이 아직 없어(CLAUDE.md "글로벌 확장" 참고)
-    쿠팡/네이버 상품 링크 덕도 전부 빈 찌꺼기다 — 언어 탭 클릭 → iframe 속
-    "업로드 대시보드" 전체 폼(빠른 도구 덕·상품 링크 섹션 등) → 그 안의 카드
-    하나를 또 찾아 열기, 이렇게 두 겹으로 감쌀 이유가 없다. 언어 탭을 누르면
-    바로 그 카드 하나(영상 상태+캡션+열기 버튼)가 보이도록 병합한다."""
+    쿠팡/네이버 상품 링크 덕도 전부 빈 찌꺼기다 — iframe 속 "업로드 대시보드"
+    전체 폼(빠른 도구 덕·상품 링크 섹션 등)으로 카드 하나를 또 감쌀 이유가 없다.
+
+    WHY 언어별 탭 자체를 없앴는지(2026-08-05, "1번은 한국이든 글로벌이든 전부
+    한 탭으로 가라고" — 탭 전환 UI 완전 폐지 확정): 한국어(iframe) 섹션과
+    글로벌 언어 카드들을 전부 한 페이지에 세로로 나열한다 — 언어별로 버튼을
+    눌러 전환할 필요 없이 스크롤만으로 전부 확인 가능."""
     topic_data_root = data_root / base_topic
     if not topic_data_root.exists():
         return
     all_langs = sorted(p.name for p in topic_data_root.iterdir() if p.is_dir())
-    # WHY ko를 맨 앞에 고정하는지: 사용자가 한국어 화자라 ko 탭이 기본으로
-    # 먼저 보이는 게 자연스럽다 — 나머지는 알파벳 순서 그대로.
+    # WHY ko를 맨 앞에 고정하는지: 사용자가 한국어 화자라 한국어 섹션이 먼저
+    # 보이는 게 자연스럽다 — 나머지는 알파벳 순서 그대로.
     langs = (["ko"] if "ko" in all_langs else []) + [l for l in all_langs if l != "ko"]
 
-    tab_buttons = ""
-    lang_panels = ""
-    for i, lang in enumerate(langs):
+    sections = ""
+    global_cards = ""
+    for lang in langs:
         captions_path = topic_data_root / lang / "platform_captions.json"
         if not captions_path.exists():
             continue
-        label = "한국어" if lang == "ko" else GLOBAL_LANG_LABELS.get(lang, lang.upper())
-        panel_id = f"panel-{lang}"
-        active = " active" if i == 0 else ""
-        tab_buttons += f'<button class="lang-tab{active}" data-panel="{panel_id}">{_esc(label)}</button>\n'
 
-        lang_dashboard = output_root / base_topic / lang / "dashboard.html"
-        if lang == "ko" and lang_dashboard.exists():
-            panel_body = f'<iframe class="dash-frame" src="{lang}/dashboard.html"></iframe>'
-        else:
+        if lang == "ko":
+            lang_dashboard = output_root / base_topic / "ko" / "dashboard.html"
+            if lang_dashboard.exists():
+                sections += (
+                    '<section class="lang-section"><h2 class="lang-heading">한국어</h2>'
+                    '<iframe class="dash-frame" src="ko/dashboard.html"></iframe></section>\n'
+                )
+                continue
+            # WHY ko도 iframe 없으면 light card로 폴백하는지: 아직 영상 조립
+            # 전이라 ko/dashboard.html 자체가 없는 극히 드문 상태(보통 ko는
+            # 콘텐츠 완성과 동시에 전체 폼이 생김) — 그래도 빈 화면보다는
+            # 캡션이라도 보이는 게 낫다.
             try:
                 spec = json.loads(captions_path.read_text(encoding="utf-8"))
             except json.JSONDecodeError:
                 spec = {}
-            cards = ""
-            for idx, p in enumerate(spec.get("platforms", [])):
-                if p["name"] in _UI_EXCLUDED_PLATFORMS:
-                    continue
-                cards += _light_platform_card(base_topic, lang, p, idx)
-            panel_body = (
-                f'<div class="lang-body">{cards}</div>' if cards
-                else '<div class="empty">아직 준비된 콘텐츠가 없어요</div>'
+            ko_cards = "".join(
+                _light_platform_card(base_topic, lang, p, idx)
+                for idx, p in enumerate(spec.get("platforms", []))
+                if p["name"] not in _UI_EXCLUDED_PLATFORMS
             )
-        lang_panels += f'<div class="lang-panel{active}" id="{panel_id}">{panel_body}</div>\n'
+            if ko_cards:
+                sections += (
+                    '<section class="lang-section"><h2 class="lang-heading">한국어</h2>'
+                    f'<div class="lang-body">{ko_cards}</div></section>\n'
+                )
+            continue
 
-    if not tab_buttons:
-        tab_buttons = ""
-        lang_panels = '<div class="empty">아직 준비된 언어 콘텐츠가 없어요</div>'
+        try:
+            spec = json.loads(captions_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            spec = {}
+        global_cards += "".join(
+            _light_platform_card(base_topic, lang, p, idx)
+            for idx, p in enumerate(spec.get("platforms", []))
+            if p["name"] not in _UI_EXCLUDED_PLATFORMS
+        )
+
+    if global_cards:
+        sections += (
+            '<section class="lang-section"><h2 class="lang-heading">글로벌</h2>'
+            f'<div class="lang-body">{global_cards}</div></section>\n'
+        )
+
+    if not sections:
+        sections = '<div class="empty">아직 준비된 언어 콘텐츠가 없어요</div>'
 
     ko_captions = topic_data_root / "ko" / "platform_captions.json"
     title = base_topic
@@ -1274,9 +1217,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
         except json.JSONDecodeError:
             pass
 
-    html = UNIFIED_PAGE_TEMPLATE.format(
-        title=_esc(title), tab_buttons=tab_buttons, lang_panels=lang_panels,
-    )
+    html = UNIFIED_PAGE_TEMPLATE.format(title=_esc(title), lang_sections=sections)
     out_dir = output_root / base_topic
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "dashboard.html").write_text(html, encoding="utf-8")
@@ -1335,45 +1276,13 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     cover_imgs = sorted(Path(card_news_dir).glob("*00_표지.jpg")) if Path(card_news_dir).exists() else []
     card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in cover_imgs)
 
-    has_video = bool(video_path and Path(video_path).exists())
-    video_name = Path(video_path).name if video_path else "shorts.mp4"
-    video_download_attr = _prefixed(video_name, _esc(topic))
-
-    # WHY 인스타그램용 별도 영상을 자동으로 찾는지(2026-08-04, "인스타 숏츠로
-    # 업로드할거를 양옆, 상하 더 키워가지고 만들어놓으면... 데스크탑에서 업로드해도
-    # 딱 맞게"): 칠판 나무 프레임이 캔버스 가장자리에 여백 없이 꽉 차서 인스타
-    # 릴스 UI(세이프존)와 겹쳐 잘려 보이는 문제 — build_instagram_safe_video()로
-    # 안전 여백을 더한 별도 파일(<...>_shorts_instagram.mp4)을 같은 폴더에 만들어두면
-    # 여기서 자동으로 찾아서 인스타그램 릴스 카드에만 그 파일을 연결한다. CLI
-    # 인자를 안 늘리는 이유: video_path만 넘기면 나머지 호출부(테스트 등) 수정 없이
-    # 그대로 호환된다.
-    instagram_video_path = None
-    if video_path:
-        ig_candidates = sorted(Path(video_path).parent.glob("*shorts_instagram.mp4"))
-        if ig_candidates:
-            instagram_video_path = ig_candidates[0]
-    instagram_video_name = instagram_video_path.name if instagram_video_path else video_name
-
-    # WHY 영상 미리보기·다운로드 버튼을 없앴는지(2026-08-05, "asset이랑 output의
-    # 영상들은 사실 프로젝트에 올라가지 않아도 돼... 다운로드 이런것도 어쩔수없지"):
-    # mp4가 이제 git에 안 올라가므로(.gitignore 참고) 이 대시보드가 GitHub
-    # Pages로 배포되면 <video>·다운로드 링크가 전부 깨진 상태로 보인다. 사용자가
-    # 실제로도 이 미리보기/다운로드로 업로드하지 않고 로컬 output/ 폴더에서 직접
-    # 파일을 쓰는 방식으로 바뀌어서, 깨진 UI 대신 로컬 경로를 안내하는 정적
-    # 문구로 대체한다 — has_video는 계속 로컬 파일 존재 여부 판단에만 씀
-    # (조립 완료 여부 표시는 필요하므로).
-    local_video_hint = f"output/{topic}/{video_name}" if video_path else f"output/{topic}/"
-    if has_video:
-        video_block = (
-            f'<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;'
-            f'display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;'
-            f'color:var(--ink-soft);font-size:13px;">🎬 영상 조립 완료<br>로컬 <code>{_esc(local_video_hint)}</code>'
-            f'에서 확인</div>'
-        )
-        video_download_link = f'<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 로컬 <code>{_esc(local_video_hint)}</code>에서 확인</span>'
-    else:
-        video_block = '<div style="width:260px;aspect-ratio:9/16;background:#f1e6dc;border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--ink-soft);font-size:13px;">영상 준비 중</div>'
-        video_download_link = '<span style="color:var(--ink-soft);font-size:12px;padding:8px 10px;">🎬 영상 준비 중</span>'
+    # WHY video_path를 받고도 대시보드에서 안 쓰는지(2026-08-05, "회색박스
+    # 텍스트 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가
+    # git에 안 올라가서 UI에 뭘 표시해도 실제 재생·다운로드는 안 됐고, 로컬에서
+    # 직접 작업하는 사람에게 "로컬에서 확인"류 안내는 잡음이라 전부 뺐다.
+    # video_path 파라미터는 video_assembler.py 등 다른 호출부·테스트가 여전히
+    # 4개 위치 인자로 호출하므로 시그니처만 유지한다(호출부까지 바꾸는 건 이
+    # 정리의 범위 밖).
 
     # WHY base64로 직접 embed: 원격 URL(src="https://...")은 네이버/티스토리 에디터가
     # 붙여넣기 시 외부 이미지를 거부하거나 못 불러오는 경우가 있었다(2026-07-30 확인) —
@@ -1405,12 +1314,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
             # rich_paste: true로 표시해서 이 기능을 켠다.
             cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
-            # WHY has_video는 그대로 쓰고 video_name만 바꾸는지: instagram_video_name이
-            # 안전 여백 버전이 없으면 이미 video_name으로 폴백해두므로(위 WHY 참고),
-            # has_video까지 has_instagram_video로 바꾸면 안전 여백 버전이 아직
-            # 없는 topic에서 원본 영상이 있는데도 "영상 준비 중"으로 잘못 뜬다.
-            is_instagram_reels = p["name"] in _INSTAGRAM_REELS_NAMES
-            card_video_name = instagram_video_name if is_instagram_reels else video_name
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -1419,7 +1322,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, has_video, card_video_name, topic, cover_path.name if cover_path else None),
+                asset_link=_asset_link(t, topic, cover_path.name if cover_path else None),
                 done_key=quote(p["name"]),
                 cover_attr=cover_attr,
                 copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
@@ -1436,10 +1339,9 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     card_image_names_js = json.dumps([quote(p.name) for p in cover_imgs])
 
     html = PAGE_TEMPLATE.format(
-        title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
+        title=_esc(spec["title"]), card_thumbs=card_thumbs,
         platform_sections=sections_html,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
-        video_download_link=video_download_link,
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),

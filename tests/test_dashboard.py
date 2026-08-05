@@ -79,10 +79,12 @@ def test_excluded_platforms_not_rendered(tmp_path):
     assert "인스타그램 릴스" in cards[0]
 
 
-def test_instagram_reels_uses_safe_margin_video_when_present(tmp_path):
-    """회귀(2026-08-04): 같은 폴더에 <...>_shorts_instagram.mp4(안전 여백 버전)가
-    있으면 인스타그램 릴스 카드의 다운로드 링크만 그 파일을 가리키고, 다른
-    video 타입 플랫폼(예: 네이버 클립)은 원본 영상을 그대로 써야 한다."""
+def test_video_filename_never_rendered_regardless_of_files_present(tmp_path):
+    """회귀(2026-08-05, "회색박스 텍스트 필요없잖아? 이제 어차피 영상을
+    깃허브에 올려놓지를 않는데?"): mp4가 git에 안 올라가서 어떤 영상 파일이
+    있든(원본만, 안전 여백 버전까지 둘 다) 대시보드에는 그 파일명을 전혀
+    보여주지 않는다 — video_assembler.py가 만드는 <...>_shorts_instagram.mp4
+    선택 로직은 이제 dashboard.py 밖(로컬 폴더)에서만 의미가 있다."""
     platforms = [
         _platform("인스타그램 릴스", "video"),
         _platform("네이버 클립", "video"),
@@ -97,30 +99,8 @@ def test_instagram_reels_uses_safe_margin_video_when_present(tmp_path):
     generate(str(spec_path), str(card_news_dir), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
-    cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
-    reels_card = next(c for c in cards if "인스타그램 릴스" in c)
-    naver_card = next(c for c in cards if "네이버 클립" in c)
-
-    assert "테스트주제_1_shorts_instagram.mp4" in reels_card
-    assert "테스트주제_1_shorts_instagram.mp4" not in naver_card
-    assert "테스트주제_1_shorts.mp4" in naver_card
-
-
-def test_instagram_reels_falls_back_to_main_video_when_no_safe_margin_file(tmp_path):
-    """회귀(2026-08-04): 안전 여백 버전이 아직 없는 topic에서는 인스타그램 릴스
-    카드도 "영상 준비 중"이 아니라 원본 영상을 그대로 써야 한다."""
-    platforms = [_platform("인스타그램 릴스", "video")]
-    spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    card_news_dir, out_path = _make_dirs(tmp_path)
-
-    video_dir = out_path.parent
-    (video_dir / "테스트주제_1_shorts.mp4").write_bytes(b"fake original video")
-
-    generate(str(spec_path), str(card_news_dir), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
-    html = out_path.read_text(encoding="utf-8")
-
-    assert "영상 준비 중" not in html
-    assert "테스트주제_1_shorts.mp4" in html
+    assert "테스트주제_1_shorts.mp4" not in html
+    assert "테스트주제_1_shorts_instagram.mp4" not in html
 
 
 def test_missing_hashtag_prints_warning(capsys, tmp_path):
@@ -200,37 +180,38 @@ def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path):
     assert order == {"영상B": "0", "카드C": "1", "텍스트A": "2", "텍스트D": "3"}
 
 
-def test_video_placeholder_when_video_path_is_none(tmp_path):
-    """회귀 4a: video_path가 None이면 '영상 준비 중' placeholder, <video> 태그 없음."""
+def _assert_no_video_status_ui(html):
+    assert "<video" not in html
+    assert "영상 준비 중" not in html
+    assert "영상 조립 완료" not in html
+
+
+def test_no_video_status_ui_when_video_path_is_none(tmp_path):
+    """회귀(2026-08-05, "회색박스 텍스트 필요없잖아? 이제 어차피 영상을
+    깃허브에 올려놓지를 않는데?"): video_path가 None이어도 영상 상태를
+    알려주는 <video> 태그나 "영상 준비 중" 문구가 나오면 안 된다."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
 
     generate(str(spec_path), str(card_news_dir), None, str(out_path))
-    html = out_path.read_text(encoding="utf-8")
-
-    assert "영상 준비 중" in html
-    assert "<video" not in html
+    _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
 
 
-def test_video_placeholder_when_video_file_does_not_exist(tmp_path):
-    """회귀 4b: video_path 문자열은 있지만 실제 파일이 없으면 여전히 placeholder."""
+def test_no_video_status_ui_when_video_file_does_not_exist(tmp_path):
+    """video_path 문자열은 있지만 가리키는 파일이 실제로 없어도 마찬가지."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
     missing_video = tmp_path / "없는파일_shorts.mp4"
 
     generate(str(spec_path), str(card_news_dir), str(missing_video), str(out_path))
-    html = out_path.read_text(encoding="utf-8")
-
-    assert "영상 준비 중" in html
-    assert "<video" not in html
+    _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
 
 
-def test_video_tag_when_video_file_exists(tmp_path):
-    """회귀(2026-08-05, 방향 전환): mp4는 이제 git에 안 올라가서(.gitignore)
-    GitHub Pages에서 <video> 태그가 항상 깨진다 — video_path가 존재해도
-    <video> 태그 대신 로컬 경로 안내 문구가 나와야 한다."""
+def test_no_video_status_ui_when_video_file_exists(tmp_path):
+    """실제 mp4가 존재해도 마찬가지 — mp4는 git에 안 올라가서(.gitignore)
+    GitHub Pages에서 재생도 안 되므로 파일 존재 여부와 무관하게 UI에 안 보여준다."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -238,12 +219,7 @@ def test_video_tag_when_video_file_exists(tmp_path):
     video_path.write_bytes(b"fake mp4 bytes")
 
     generate(str(spec_path), str(card_news_dir), str(video_path), str(out_path))
-    html = out_path.read_text(encoding="utf-8")
-
-    assert "<video" not in html
-    assert "영상 준비 중" not in html
-    assert "영상 조립 완료" in html
-    assert "로컬" in html
+    _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
 
 
 def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
