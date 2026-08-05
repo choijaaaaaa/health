@@ -1,0 +1,101 @@
+{
+  "title": [
+    "Casi 1 de cada 3 mexicanos",
+    "con diabetes no lo sabe",
+    "Las 3 señales que el cuerpo manda primero"
+  ],
+  "eyebrow": "Alerta de Diabetes",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Diabetes",
+  "char_display_names": {
+    "발저림_illust.jpg": "Hormigueo",
+    "잇몸출혈_illust.jpg": "Encías",
+    "무좀_illust.jpg": "Hongos"
+  },
+  "items": [
+    {
+      "name": "Hormigueo en los pies",
+      "char_file": "발저림_illust.jpg",
+      "body": [
+        "Sientes hormigueo o adormecimiento",
+        "en los pies sin razón aparente",
+        "",
+        "puede ser de los primeros avisos",
+        "de que el azúcar está alta"
+      ]
+    },
+    {
+      "name": "Por qué pasa",
+      "char_file": "발저림_illust.jpg",
+      "body": [
+        "El azúcar alta por un tiempo",
+        "daña los nervios más pequeños",
+        "",
+        "sobre todo los más lejanos",
+        "al corazón, como los pies"
+      ]
+    },
+    {
+      "name": "Encías que sangran",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "Te sangran las encías",
+        "al cepillarte los dientes",
+        "",
+        "no es solo falta de higiene -",
+        "el azúcar alto debilita la boca"
+      ]
+    },
+    {
+      "name": "Cuida tus encías",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "Quienes viven con diabetes",
+        "pierden piezas dentales más fácil",
+        "",
+        "revisa tus encías",
+        "con el dentista"
+      ]
+    },
+    {
+      "name": "Hongos que regresan",
+      "char_file": "무좀_illust.jpg",
+      "body": [
+        "Infecciones por hongos que no se quitan,",
+        "como el pie de atleta",
+        "",
+        "el exceso de azúcar alimenta",
+        "justo lo que el hongo necesita"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "무좀_illust.jpg",
+      "body": [
+        "Ninguna señal sola",
+        "significa que ya tienes diabetes",
+        "",
+        "pero vale la pena revisarla",
+        "con un análisis de glucosa"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ninguna de estas señales",
+        "confirma diabetes por sí sola"
+      ],
+      [
+        "Pero sí vale la pena",
+        "prestarles atención"
+      ]
+    ],
+    "tip": [
+      "Revisa el hormigueo, las encías y las infecciones,",
+      "y pide un análisis de glucosa en tu centro de salud"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
