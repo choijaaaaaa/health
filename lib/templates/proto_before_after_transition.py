@@ -21,6 +21,7 @@ _REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
+from lib.bgm import mix_bgm  # noqa: E402
 from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang  # noqa: E402
 
 W, H = 1080, 1920
@@ -716,9 +717,11 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             )
             chained = padded
 
+        mixed_audio = mix_bgm(audio_path, str(tmp_path / "mixed_audio.m4a"), audio_duration, seed_str)
+
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(chained), "-i", audio_path,
+            ["ffmpeg", "-y", "-i", str(chained), "-i", mixed_audio,
              "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-pix_fmt", "yuv420p",
              "-c:a", "aac", "-b:a", "192k", "-t", f"{audio_duration:.4f}", "-shortest", str(out_path)],
             check=True, capture_output=True,

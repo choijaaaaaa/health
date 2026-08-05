@@ -15,6 +15,7 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
+from lib.bgm import mix_bgm  # noqa: E402
 from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang, _parse_srt  # noqa: E402
 
 W, H = 1080, 1920
@@ -897,13 +898,15 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         if i % 150 == 0:
             print(f"  frame {i}/{frame_count} (t={t:.2f}s)")
 
+    mixed_audio = mix_bgm(str(audio_path), str(frames_dir / "mixed_audio.m4a"), duration, topic_dir.name)
+
     print("[proto_checklist] muxing with ffmpeg ...")
     subprocess.run(
         [
             "ffmpeg", "-y",
             "-framerate", str(FPS),
             "-i", str(frames_dir / "frame_%06d.png"),
-            "-i", str(audio_path),
+            "-i", mixed_audio,
             "-map", "0:v:0", "-map", "1:a:0",
             "-c:v", "libx264", "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "160k",

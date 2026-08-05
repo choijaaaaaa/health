@@ -113,6 +113,34 @@
 - output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
   `--out`은 직접 지정, `typecast_tts.py` 결과는 필요시 rename).
 
+## 배경음악(BGM) (`lib/bgm.py`)
+
+- **소스는 유튜브 오디오 보관함**(studio.youtube.com > 오디오 보관함)에서
+  사용자가 직접 다운로드한 무보컬 트랙만 `assets_library/music/`에 둔다
+  (2026-08-05) — 저작권 클레임 걱정 없는 유일한 무료 소스로 확정, 새 트랙
+  추가 시에도 반드시 무보컬(장르 Ambient/Cinematic/Classical/Jazz&Blues/
+  Folk&Acoustic 위주, 다운로드 전 미리듣기로 보컬 여부 확인) — Pixabay
+  `/api/audio/`는 엔드포인트는 있지만 일반 API 키 계정엔 403으로 막혀있어
+  못 씀, Suno는 무료 플랜이 비상업적 용도로 약관에 못박혀 있어 제외.
+  `assets_library/music/`는 대용량이라 git엔 안 올라간다(`.gitignore`).
+- **선택**: `lib.bgm.pick_track(seed)`가 seed(topic 폴더명 등) 기준 결정론적
+  시드로 트랙 하나를 고른다(같은 topic은 항상 같은 곡, 진짜 랜덤 아님) —
+  트랙이 하나도 없으면 `None`, 호출부는 BGM 없이 조용히 폴백.
+- **믹싱**: 항상 `BGM_VOLUME_DB=-24dB` + 앞뒤 `FADE_SEC=1.5초` 페이드로
+  "내레이션 절대 방해 안 하는 은은한 밑바탕" 용도로만 깐다(사용자 확정,
+  값 조정은 이 두 상수만 바꾸면 전체 파이프라인에 일괄 반영). `amix`엔 항상
+  `normalize=0`을 명시할 것 — 기본값(1)이면 입력 개수만큼 자동으로
+  볼륨을 나눠서 내레이션까지 같이 작아진다.
+- 단순 케이스(내레이션 길이만큼만 깔면 되는 3개 신규 템플릿)는
+  `lib.bgm.mix_bgm(narration_path, out_path, duration, seed)` 하나로 끝 —
+  리턴값을 기존 최종 mux 단계의 `audio_path` 자리에 그대로 넣으면 되고,
+  비디오 코덱/트림 로직은 안 건드려도 된다.
+- 복합 케이스(`video_assembler.py`의 `assemble()` — 제목 카드·엔딩 카드
+  무음 구간까지 포함한 전체 영상 길이 동안 계속 깔아야 해서 기존
+  `adelay`/`apad` 필터와 한 filter_complex 안에서 조립해야 함)는
+  `lib.bgm.bgm_filter_segment(seed, duration, in_label, out_label)`로 필터
+  조각만 받아서 직접 조립할 것.
+
 ## 영상 포맷 다각화 (`lib/templates/`)
 
 - **로스터 4개**: 판서형(기존, `video_assembler.py`) + `before_after_transition`/

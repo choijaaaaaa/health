@@ -17,6 +17,7 @@ bin/
 assets_library/illust/
 assets_library/real/
 assets_library/motion/
+assets_library/music/
 output/**/*.mp4
 output/**/card_news/*.jpg
 !output/**/card_news/*00_표지.jpg

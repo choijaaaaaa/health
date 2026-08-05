@@ -21,6 +21,18 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
+# WHY sys.path 조작: 이 파일은 `python3 lib/video_assembler.py`로 직접 실행되는
+# 경우(CLAUDE.md에 문서화된 표준 호출법)와 `from lib.video_assembler import
+# assemble`로 다른 모듈(rebuild_video.py 등)이 import하는 경우 둘 다 지원해야
+# 한다 — 직접 실행 시 sys.path[0]이 lib/ 자기 자신이라 `from lib.bgm import ...`
+# 절대 import가 실패하므로, 프로젝트 루트를 sys.path에 먼저 넣는다(templates/
+# proto_*.py가 이미 쓰는 것과 동일한 패턴).
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+if str(_REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(_REPO_ROOT))
+
+from lib.bgm import bgm_filter_segment  # noqa: E402
+
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 FPS = 30
@@ -3560,9 +3572,29 @@ def assemble(
         # 안 건드리고, 엔딩 카드가 이미 갖고 있던 무음 구간 앞부분만 나레이션
         # 여운으로 채우는 것뿐이라 안전하다.
         end_pad = min(0.7, end_card_duration * 0.5)
+        # WHY 배경음악을 title_card_duration+total_duration+end_card_duration
+        # 전체(video_total_duration)에 깔고 나레이션은 그 앞부분만 delay/pad하는지:
+        # BGM은 "밑바탕"이라 제목 카드·엔딩 카드 구간에서도 끊기지 않고 계속 흘러야
+        # 자연스럽다 — 나레이션 없는 구간(제목 카드)에서 BGM만 뚝 끊기면 오히려
+        # 더 어색하다.
+        video_total_duration = title_card_duration + total_duration + end_card_duration
+        bgm_result = bgm_filter_segment(
+            Path(out_path).stem, video_total_duration, in_label="2:a", out_label="bgm",
+        )
+        if bgm_result is not None:
+            bgm_frag, bgm_track = bgm_result
+            narr_frag = f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[narr]"
+            filter_complex = (
+                f"{narr_frag};{bgm_frag};"
+                f"[narr][bgm]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]"
+            )
+            mux_inputs = ["-i", str(captioned), "-i", audio_path, "-i", str(bgm_track)]
+        else:
+            filter_complex = f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[a]"
+            mux_inputs = ["-i", str(captioned), "-i", audio_path]
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(captioned), "-i", audio_path,
-             "-filter_complex", f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[a]",
+            ["ffmpeg", "-y", *mux_inputs,
+             "-filter_complex", filter_complex,
              "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
              out_path],
             check=True, capture_output=True,

@@ -19,6 +19,7 @@ from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 # 이 파일이 `python proto_ranking_countdown.py`로 단독 실행될 때도(CLI 진입점) 항상
 # 동작해야 하므로 패키지 상대 import에 의존할 수 없다.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
+from lib.bgm import mix_bgm  # noqa: E402
 from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang  # noqa: E402
 
 W, H = 1080, 1920
@@ -569,9 +570,11 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             check=True, capture_output=True,
         )
 
+        mixed_audio = mix_bgm(audio_path, str(tmp_path / "mixed_audio.m4a"), total_duration, seed_title)
+
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(video_only), "-i", audio_path,
+            ["ffmpeg", "-y", "-i", str(video_only), "-i", mixed_audio,
              "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
              "-shortest", str(out_path)],
             check=True, capture_output=True,
