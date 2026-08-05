@@ -1,0 +1,121 @@
+{
+    "title": [
+        "Você evita leite",
+        "por causa da intolerância à lactose?",
+        "Isso pode estar acelerando sua osteoporose"
+    ],
+    "eyebrow": "Alerta de osteoporose",
+    "swipe_label": "Deslize para ver mais  →",
+    "closing_label": "Resumo",
+    "cover_char_file": "우유_illust.jpg",
+    "char_display_names": {
+        "우유_illust.jpg": "Evitar leite e laticínios",
+        "커피_illust.jpg": "Cafezinho em excesso",
+        "소시지_illust.jpg": "Sal e embutidos"
+    },
+    "items": [
+        {
+            "name": "Por que isso acontece",
+            "char_file": "우유_illust.jpg",
+            "body": [
+                "Quando o cálcio no sangue cai,",
+                "o corpo retira esse cálcio",
+                "direto dos ossos",
+                "",
+                "Repetido por anos,",
+                "isso reduz a densidade óssea",
+                "aos poucos e sem dor"
+            ]
+        },
+        {
+            "name": "Evitar leite e laticínios",
+            "char_file": "우유_illust.jpg",
+            "body": [
+                "Boa parte dos brasileiros",
+                "tem intolerância à lactose",
+                "e evita laticínios",
+                "",
+                "Isso pode significar",
+                "até 400mg a menos",
+                "de cálcio por dia"
+            ]
+        },
+        {
+            "name": "Em vez de evitar leite",
+            "char_file": "우유_illust.jpg",
+            "body": [
+                "Troque por bebidas vegetais",
+                "fortificadas com cálcio,",
+                "sardinha ou brócolis",
+                "",
+                "Queijos bem curados",
+                "têm menos lactose",
+                "e costumam ser tolerados"
+            ]
+        },
+        {
+            "name": "Cafezinho em excesso",
+            "char_file": "커피_illust.jpg",
+            "body": [
+                "O Brasil é o 2º maior",
+                "consumidor de café do mundo",
+                "",
+                "A cafeína atrapalha",
+                "a absorção de cálcio -",
+                "acima de 4 xícaras por dia já prejudica"
+            ]
+        },
+        {
+            "name": "Cafezinho — ajuste assim",
+            "char_file": "커피_illust.jpg",
+            "body": [
+                "Limite o cafezinho a",
+                "até 3 xícaras por dia",
+                "",
+                "Tome longe das refeições",
+                "com leite ou queijo"
+            ]
+        },
+        {
+            "name": "Sal e embutidos",
+            "char_file": "소시지_illust.jpg",
+            "body": [
+                "Salsicha, presunto e linguiça",
+                "têm sódio em excesso",
+                "",
+                "O excesso de sódio",
+                "faz o corpo eliminar",
+                "mais cálcio pela urina"
+            ]
+        },
+        {
+            "name": "Em vez de embutidos",
+            "char_file": "소시지_illust.jpg",
+            "body": [
+                "Prefira carnes frescas",
+                "com menos sal",
+                "",
+                "Tempere com ervas",
+                "em vez de sal em excesso"
+            ]
+        }
+    ],
+    "closing": {
+        "headline": [
+            [
+                "A osteoporose avança em silêncio",
+                "até uma fratura revelar o problema"
+            ],
+            [
+                "Cuidar do cálcio, do café e do sal",
+                "protege seus ossos desde já"
+            ]
+        ],
+        "tip": [
+            "Busque cálcio também fora do leite, com sardinha ou bebidas vegetais fortificadas,",
+            "limite o cafezinho e prefira carnes frescas no lugar dos embutidos"
+        ],
+        "cta": "Quer mais informações de saúde? Se inscreva, curta e siga!"
+    },
+    "topic_word": "Ossos"
+}
