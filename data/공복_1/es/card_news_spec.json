@@ -1,0 +1,71 @@
+{
+  "title": [
+    "¿Te Da Mareo o Temblor",
+    "Cuando Entrenas en Ayunas?",
+    "Lo Que Dice la Ciencia"
+  ],
+  "eyebrow": "Ejercicio en Ayunas",
+  "topic_word": "Ayunas",
+  "items": [
+    {
+      "name": "¿Por Qué Pasa Esto?",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "El ejercicio en ayunas quema",
+        "hasta 20% más grasa",
+        "(British Journal of Nutrition)",
+        "",
+        "Pero la Universidad de Bath halló:",
+        "eso no significa más pérdida",
+        "de grasa a largo plazo"
+      ]
+    },
+    {
+      "name": "Hidratación",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Toma agua antes de salir",
+        "",
+        "La deshidratación empeora",
+        "el mareo aunque no hayas comido"
+      ]
+    },
+    {
+      "name": "Intensidad Baja",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Empieza con algo corto y suave",
+        "",
+        "Caminar rápido, no tu rutina",
+        "más intensa"
+      ]
+    },
+    {
+      "name": "Proteína Después",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Huevo, yogur griego o frijoles",
+        "",
+        "Ayudan a recuperar",
+        "el músculo usado como energía"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No es para todos",
+        "escucha a tu cuerpo"
+      ],
+      [
+        "Diabetes o corazón delicado:",
+        "consulta antes de entrenar en ayunas"
+      ]
+    ],
+    "tip": [
+      "Empieza con lo más simple:",
+      "un vaso de agua antes de salir"
+    ],
+    "cta": "¿Quieres más tips de salud? ¡Síguenos!"
+  }
+}
