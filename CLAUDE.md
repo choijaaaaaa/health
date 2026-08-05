@@ -188,6 +188,11 @@
     = 2*min(VISUAL_CX-SAFE_LEFT, SAFE_RIGHT-VISUAL_CX)`로 폭을 캡핑하고
     `VISUAL_CX`에 정렬하면 두 조건(안전영역 준수 + 시각적 중앙) 동시 만족.
   - 오프닝 프레임 리뷰 이미지는 `output/_thumbnail_review/`에 모아둠(git 추적).
+- ⚠️ **미해결(2026-08-05)**: `checklist` 헤드라인(제목) 텍스트도 겹쳐 보이는
+  현상 발견 — 전립선_1/ko 스크린샷에서 상단 제목 두 줄이 서로 겹쳐 읽을 수
+  없는 상태로 확인됨. 같은 파일에서 이미 고친 항목별 원인→해결책 크로스페이드
+  버그(순차 페이드로 수정, `render_checklist()`의 `fact_alpha`/`fix_alpha`)와는
+  다른 지점 — 헤드라인 자체의 페이드/전환 로직을 별도로 찾아 확인할 것.
 
 ## TTS (`lib/typecast_tts.py`)
 
