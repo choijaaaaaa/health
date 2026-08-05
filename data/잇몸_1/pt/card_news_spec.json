@@ -1,0 +1,100 @@
+{
+    "title": [
+        "Sua gengiva sangra",
+        "toda vez que você escova?",
+        "3 hábitos brasileiros por trás do sangramento"
+    ],
+    "eyebrow": "Alerta de sangramento na gengiva",
+    "swipe_label": "Deslize para ver mais  →",
+    "closing_label": "Resumo",
+    "cover_char_file": "잇몸출혈_illust.jpg",
+    "char_display_names": {
+        "잇몸출혈_illust.jpg": "Por que a gengiva sangra",
+        "감자칩_illust.jpg": "Biscoito recheado e salgadinho",
+        "연유_illust.jpg": "Doce de leite e brigadeiro",
+        "과라나_illust.jpg": "Refrigerante de guaraná"
+    },
+    "items": [
+        {
+            "name": "Por que isso acontece",
+            "char_file": "잇몸출혈_illust.jpg",
+            "body": [
+                "Biscoito recheado, doce de leite", "e refrigerante de guaraná",
+                "alimentam as bactérias da boca", "",
+                "Um estudo da Unicamp já ligou", "ultraprocessados à inflamação",
+                "da gengiva"
+            ]
+        },
+        {
+            "name": "Biscoito recheado e salgadinho",
+            "char_file": "감자칩_illust.jpg",
+            "body": [
+                "Estão entre os itens mais comprados", "pelas famílias brasileiras",
+                "",
+                "Açúcar escondido e gordura trans", "juntos deixam a gengiva",
+                "mais inflamada"
+            ]
+        },
+        {
+            "name": "Em vez de biscoito e salgadinho",
+            "char_file": "감자칩_illust.jpg",
+            "body": [
+                "Troque por castanha-do-pará", "sem sal",
+                "",
+                "Menos açúcar escondido", "e menos gordura trans",
+                "no seu dia a dia"
+            ]
+        },
+        {
+            "name": "Doce de leite e brigadeiro",
+            "char_file": "연유_illust.jpg",
+            "body": [
+                "O Brasil é o maior consumidor", "de leite condensado do mundo",
+                "",
+                "O açúcar gruda no dente", "e a fermentação bacteriana",
+                "irrita a gengiva por horas"
+            ]
+        },
+        {
+            "name": "Em vez de doce de leite",
+            "char_file": "연유_illust.jpg",
+            "body": [
+                "Troque por frutas ricas", "em vitamina C",
+                "",
+                "Acerola e goiaba", "são fáceis de achar",
+                "e ricas em vitamina C"
+            ]
+        },
+        {
+            "name": "Refrigerante de guaraná",
+            "char_file": "과라나_illust.jpg",
+            "body": [
+                "O Brasil está entre os 10 países", "que mais consomem refrigerante",
+                "",
+                "O açúcar alimenta as bactérias", "e o ácido cítrico",
+                "desgasta o esmalte"
+            ]
+        },
+        {
+            "name": "Em vez de refrigerante",
+            "char_file": "과라나_illust.jpg",
+            "body": [
+                "Troque por água ou chá gelado", "sem açúcar",
+                "",
+                "E capriche na escovação suave", "com fio dental",
+                "todos os dias"
+            ]
+        }
+    ],
+    "closing": {
+        "headline": [
+            ["O sangramento na gengiva", "tem várias causas"],
+            ["mas reduzir esses 3 hábitos", "já ajuda bastante"]
+        ],
+        "tip": [
+            "Escovação suave e fio dental", "fazem toda a diferença"
+        ],
+        "cta": "Quer mais informações de saúde? Se inscreva, curta e siga!"
+    },
+    "topic_word": "Gengiva"
+}
