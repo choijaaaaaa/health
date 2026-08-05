@@ -249,7 +249,7 @@ def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
 
 def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lang: str,
                         badge_color: tuple[int, int, int], shape_name: str,
-                        shrink_step: int = 0) -> Image.Image:
+                        shrink_step: int = 0, y_jitter: int = 0) -> Image.Image:
     """카운트다운 한 아이템(랭크 뱃지 + 아이템 이름 + 팩트 텍스트 패널 + 하단 진행
     도트)을 그린 프레임 하나. shrink_step은 안전영역 위반 시 재시도마다 콘텐츠를
     한 단계씩 줄이기 위한 값(0=원래 크기)."""
@@ -257,6 +257,7 @@ def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lan
     draw = ImageDraw.Draw(frame)
     fpath, findex = _title_font_for_lang(lang)
     shrink = max(0.62, 1.0 - shrink_step * 0.09)
+    y_jitter = round(y_jitter * shrink)
     # WHY max_text_w도 shrink 적용: 패널 드롭섀도 블러 번짐 등으로 실제 픽셀이
     # 경계를 넘는 게 감지되면(아래 _render_item_safe) 이 폭 자체를 줄여
     # 재시도해야 패널 오른쪽 가장자리가 실질적으로 경계에서 멀어진다 — 폰트
@@ -271,7 +272,7 @@ def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lan
     ring = (255, 255, 255, 220)
     badge_img = _BADGE_SHAPE_FNS[shape_name](badge_d, (*badge_color, 255), ring)
     badge_x = CONTENT_CENTER_X - badge_d // 2
-    badge_y = round(140 * shrink)
+    badge_y = round(140 * shrink) + y_jitter
     frame.alpha_composite(badge_img, (badge_x, badge_y))
 
     num_text = str(rank)
@@ -334,14 +335,14 @@ def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lan
 
 def _render_item_safe(bg: Image.Image, item: dict, rank: int, n_items: int, lang: str,
                        badge_color: tuple[int, int, int], shape_name: str,
-                       max_attempts: int = 6) -> Image.Image:
+                       max_attempts: int = 6, y_jitter: int = 0) -> Image.Image:
     """안전영역 픽셀 diff 검사를 통과할 때까지 콘텐츠를 줄여가며 재시도. WHY
     silently 넘기지 않는지: 요구사항 그대로 — 위반이 감지되면 여백을 넓히거나
     콘텐츠를 줄여 다시 그리고, 그래도 끝내 못 맞추면 예외를 던져서 문제를
     숨기지 않는다."""
     for attempt in range(max_attempts):
         frame = _render_item_frame(bg, item, rank, n_items, lang, badge_color, shape_name,
-                                    shrink_step=attempt)
+                                    shrink_step=attempt, y_jitter=y_jitter)
         violated, bbox = _safe_area_violation(frame, bg)
         if not violated:
             return frame
@@ -355,7 +356,7 @@ def _render_item_safe(bg: Image.Image, item: dict, rank: int, n_items: int, lang
 
 def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
                         ramp: list[tuple[int, int, int]], shape_name: str,
-                        shrink_step: int = 0) -> Image.Image:
+                        shrink_step: int = 0, y_jitter: int = 0) -> Image.Image:
     """카운트다운 시작 전 오프닝(훅) 화면. WHY 별도 화면인지: 이 화면이 유튜브
     쇼츠 피드의 사실상 썸네일(프레임 0)인데, 아이템 #N 화면을 그대로 프레임 0에
     쓰면 "왜 부종이 생길까요" 같은 개별 아이템 문구만 보여 후킹이 약했다(2026-08-05,
@@ -375,7 +376,7 @@ def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
     eyebrow_text = spec.get("eyebrow") or ""
     title_lines_raw = spec.get("title") or []
 
-    y = round(70 * shrink)
+    y = round(70 * shrink) + round(y_jitter * shrink)
 
     # 1) eyebrow 배지
     if eyebrow_text:
@@ -466,11 +467,12 @@ def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
 
 def _render_hook_safe(bg: Image.Image, spec: dict, n_items: int, lang: str,
                        ramp: list[tuple[int, int, int]], shape_name: str,
-                       max_attempts: int = 6) -> Image.Image:
+                       max_attempts: int = 6, y_jitter: int = 0) -> Image.Image:
     """훅 화면 버전의 _render_item_safe — 안전영역 위반 시 shrink_step을 올려가며
     재시도, 끝내 못 맞추면 예외로 알린다(요구사항 그대로, 조용히 넘기지 않음)."""
     for attempt in range(max_attempts):
-        frame = _render_hook_frame(bg, spec, n_items, lang, ramp, shape_name, shrink_step=attempt)
+        frame = _render_hook_frame(bg, spec, n_items, lang, ramp, shape_name,
+                                    shrink_step=attempt, y_jitter=y_jitter)
         violated, bbox = _safe_area_violation(frame, bg)
         if not violated:
             return frame
@@ -494,6 +496,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     ramp = _BADGE_RAMPS[_seed_axis(seed_title, k=5, c0=2, n_options=len(_BADGE_RAMPS))]
     base_hue = 215 + _seed_axis(seed_title, k=3, c0=11, n_options=86)  # navy(215)~purple(300)
     shape_name = ("circle", "shield")[_seed_axis(seed_title, k=7, c0=13, n_options=2)]
+    y_jitter = _seed_axis(seed_title, k=19, c0=6, n_options=41) - 20
 
     total_duration = _ffprobe_duration(audio_path)
     # srt_path는 총 길이 상호검증용이 아니라 훅 화면 노출 시간을 정하는 데 직접
@@ -531,7 +534,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
 
         seg_paths = []
 
-        hook_frame = _render_hook_safe(bg, spec, n, lang, ramp, shape_name)
+        hook_frame = _render_hook_safe(bg, spec, n, lang, ramp, shape_name, y_jitter=y_jitter)
         hook_png = tmp_path / "hook.png"
         hook_frame.convert("RGB").save(hook_png, quality=95)
         hook_seg = tmp_path / "seg_hook.mp4"
@@ -547,7 +550,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             rank = n - idx  # 내레이션 순서 그대로: 첫 아이템=#N(가장 순함) ... 마지막=#1(최악)
             severity_t = (n - rank) / max(n - 1, 1)  # 0.0(#N, 순함) ~ 1.0(#1, 최악)
             badge_color = _ramp_color(ramp, severity_t)
-            frame = _render_item_safe(bg, item, rank, n, lang, badge_color, shape_name)
+            frame = _render_item_safe(bg, item, rank, n, lang, badge_color, shape_name, y_jitter=y_jitter)
             item_png = tmp_path / f"item_{idx:02d}.png"
             frame.convert("RGB").save(item_png, quality=95)
 
