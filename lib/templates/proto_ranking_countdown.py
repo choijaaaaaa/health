@@ -35,11 +35,16 @@ _SAFE_MARGIN = 24  # 요구사항의 "plus margin" — 안전영역 경계에 �
 SAFE_RIGHT_X = W - _YT_SAFE_RIGHT - _SAFE_MARGIN
 SAFE_BOTTOM_Y = H - _YT_SAFE_BOTTOM - _SAFE_MARGIN
 CONTENT_LEFT = 48
-# WHY 중앙을 W/2가 아닌 안전영역 중심으로: 오른쪽 150px+여유를 뺀 구간 안에서만
-# 배치해야 하므로, 그 구간의 중심을 텍스트/뱃지 정렬 기준으로 삼는다(실제 화면
-# 정중앙보다 살짝 왼쪽) — video_assembler.py의 doodle 배치가 오른쪽을 통째로
-# 포기하는 것과 같은 이유.
-CONTENT_CENTER_X = (CONTENT_LEFT + SAFE_RIGHT_X) // 2
+# WHY 안전영역 중심(490 근처)이 아니라 캔버스 진짜 중앙(540)인지(2026-08-05
+# 수정, 사용자가 스크린샷 보고 "한쪽으로 쏠림 있는데" 지적 — 바로 위 예전
+# 주석의 "안전영역 중심을 기준으로 삼는다"는 판단이 원인이었다): 안전영역
+# 자체(48~906)가 540 기준으로 이미 비대칭이라, 그 중심(≈477)에 배지·미니
+# 순위띠를 맞추면 폭이 좁은 요소라도 화면 전체로 보면 왼쪽으로 쏠려 보인다.
+# 이 템플릿의 배지(320px)·미니 순위띠는 어차피 안전영역 폭을 다 채우지
+# 않으므로, 540에 중앙정렬해도 VISUAL_CENTER_MAX_WIDTH 안에만 들면 안전영역
+# 위반이 안 난다 — 아래 텍스트 wrap 폭도 이 상수로 캡핑한다.
+CONTENT_CENTER_X = W // 2
+VISUAL_CENTER_MAX_WIDTH = 2 * min(CONTENT_CENTER_X - CONTENT_LEFT, SAFE_RIGHT_X - CONTENT_CENTER_X)
 
 
 def _seed_axis(title: str, k: int, c0: int, n_options: int) -> int:
@@ -218,6 +223,29 @@ def _ffprobe_duration(path: str) -> float:
     return float(out)
 
 
+def _parse_srt(srt_path: str) -> list[tuple[float, float, str]]:
+    """SRT 구간 목록. WHY 필요: 첫 구간(entries[0])의 길이가 실제 나레이션에서
+    훅 문장("아침엔 얼굴이 퉁퉁 붓고...")을 읽는 데 걸리는 시간과 정확히
+    일치한다 — 이 값을 훅 화면 노출 시간으로 그대로 쓰면 오디오와 화면이
+    어긋나지 않는다(proto_before_after_transition.py와 동일한 패턴)."""
+    import re
+    text = Path(srt_path).read_text(encoding="utf-8")
+    time_re = re.compile(r"(\d\d):(\d\d):(\d\d),(\d\d\d) --> (\d\d):(\d\d):(\d\d),(\d\d\d)")
+    entries = []
+    for block in text.strip().split("\n\n"):
+        lines = block.strip().split("\n")
+        if len(lines) < 3:
+            continue
+        m = time_re.match(lines[1])
+        if not m:
+            continue
+        h1, m1, s1, ms1, h2, m2, s2, ms2 = map(int, m.groups())
+        start = h1 * 3600 + m1 * 60 + s1 + ms1 / 1000
+        end = h2 * 3600 + m2 * 60 + s2 + ms2 / 1000
+        entries.append((start, end, " ".join(lines[2:])))
+    return entries
+
+
 def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lang: str,
                         badge_color: tuple[int, int, int], shape_name: str,
                         shrink_step: int = 0) -> Image.Image:
@@ -228,12 +256,14 @@ def _render_item_frame(bg: Image.Image, item: dict, rank: int, n_items: int, lan
     draw = ImageDraw.Draw(frame)
     fpath, findex = _title_font_for_lang(lang)
     shrink = max(0.62, 1.0 - shrink_step * 0.09)
-    # WHY max_text_w도 shrink 적용: 처음엔 안전영역 경계에 딱 맞춘 폭(906-48=858px)을
-    # 쓰지만, 패널 드롭섀도 블러 번짐 등으로 실제 픽셀이 경계를 넘는 게 감지되면
-    # (아래 _render_item_safe) 이 폭 자체를 줄여 재시도해야 패널 오른쪽 가장자리가
-    # 실질적으로 경계에서 멀어진다 — 폰트 크기만 줄이고 폭은 그대로면 재시도가
-    # 무의미해진다.
-    max_text_w = round((SAFE_RIGHT_X - CONTENT_LEFT) * shrink)
+    # WHY max_text_w도 shrink 적용: 패널 드롭섀도 블러 번짐 등으로 실제 픽셀이
+    # 경계를 넘는 게 감지되면(아래 _render_item_safe) 이 폭 자체를 줄여
+    # 재시도해야 패널 오른쪽 가장자리가 실질적으로 경계에서 멀어진다 — 폰트
+    # 크기만 줄이고 폭은 그대로면 재시도가 무의미해진다. 기준 폭은
+    # VISUAL_CENTER_MAX_WIDTH(540 중앙정렬 기준 좌우 대칭 최대폭) — 안전영역
+    # 전체 폭(858px)을 그대로 쓰면 CONTENT_CENTER_X=540 기준으로 텍스트가
+    # 오른쪽 경계에 치우쳐 배치돼 화면상 왼쪽 쏠림으로 보인다(2026-08-05 수정).
+    max_text_w = round(VISUAL_CENTER_MAX_WIDTH * shrink)
 
     # 1) 랭크 뱃지
     badge_d = round(320 * shrink)
@@ -322,6 +352,153 @@ def _render_item_safe(bg: Image.Image, item: dict, rank: int, n_items: int, lang
     )
 
 
+# WHY 별도 딕셔너리: 이 캡션은 spec에 없는(card_news_spec.json이 언어별로 이미
+# 로컬라이즈해 담고 있는 title/eyebrow와 달리) 템플릿 자체의 고정 UI 문구라
+# 6개 서비스 언어(ko/en/ja/es/pt/ru) 값을 여기 직접 둔다 — lang="kor" 기준.
+_TEASE_CAPTION = {
+    "kor": "가장 위험한 건 마지막에 공개돼요",
+    "en": "The riskiest one is revealed last",
+    "ja": "一番危ないのは最後に公開",
+    "es": "El más riesgoso se revela al final",
+    "pt": "O mais arriscado é revelado por último",
+    "ru": "Самое опасное — в конце",
+}
+
+
+def _render_hook_frame(bg: Image.Image, spec: dict, n_items: int, lang: str,
+                        ramp: list[tuple[int, int, int]], shape_name: str,
+                        shrink_step: int = 0) -> Image.Image:
+    """카운트다운 시작 전 오프닝(훅) 화면. WHY 별도 화면인지: 이 화면이 유튜브
+    쇼츠 피드의 사실상 썸네일(프레임 0)인데, 아이템 #N 화면을 그대로 프레임 0에
+    쓰면 "왜 부종이 생길까요" 같은 개별 아이템 문구만 보여 후킹이 약했다(2026-08-05,
+    사용자 지적: "썸네일이 제대로 안잡혀있다"). 또한 SRT 첫 구간이 실제로 이 훅
+    문장을 읽는 나레이션이라(render()의 hook_duration 참고) 아이템 화면을 t=0에
+    바로 놓으면 나레이션과도 어긋난다.
+    구성: eyebrow 배지 → headline(spec title) → 미니 순위 미리보기(N→1, 왼쪽이
+    먼저 공개되는 #N, 오른쪽이 마지막에 공개되는 #1 — 하단 진행 도트와 같은 방향) →
+    red-escalation 그라디언트 바 → 가장 나쁜 항목(#1) 예고 배지(어떤 항목인지는
+    밝히지 않고 숫자만 - 스포일러 방지)."""
+    frame = bg.copy().convert("RGBA")
+    draw = ImageDraw.Draw(frame)
+    fpath, findex = _title_font_for_lang(lang)
+    shrink = max(0.62, 1.0 - shrink_step * 0.09)
+    max_w = round(VISUAL_CENTER_MAX_WIDTH * shrink)
+
+    eyebrow_text = spec.get("eyebrow") or ""
+    title_lines_raw = spec.get("title") or []
+
+    y = round(70 * shrink)
+
+    # 1) eyebrow 배지
+    if eyebrow_text:
+        eb_font = ImageFont.truetype(fpath, round(34 * shrink), index=findex)
+        ebbox = draw.textbbox((0, 0), eyebrow_text, font=eb_font)
+        etw, eth = ebbox[2] - ebbox[0], ebbox[3] - ebbox[1]
+        pad_x, pad_y = round(30 * shrink), round(14 * shrink)
+        pill_w, pill_h = etw + pad_x * 2, eth + pad_y * 2
+        px0 = CONTENT_CENTER_X - pill_w // 2
+        draw.rounded_rectangle(
+            [px0, y, px0 + pill_w, y + pill_h], radius=pill_h // 2,
+            fill=(255, 255, 255, 235),
+        )
+        draw.text((px0 + pad_x - ebbox[0], y + pad_y - ebbox[1]), eyebrow_text,
+                   font=eb_font, fill=(*ramp[-1], 255))
+        y += pill_h + round(34 * shrink)
+
+    # 2) headline(spec title)
+    title_font = ImageFont.truetype(fpath, round(64 * shrink), index=findex)
+    title_lines: list[str] = []
+    for raw_line in title_lines_raw:
+        title_lines += _wrap_text_for_lang(draw, raw_line, title_font, max_w, lang)
+    line_h = round(round(64 * shrink) * 1.32)
+    for line in title_lines:
+        lb = draw.textbbox((0, 0), line, font=title_font)
+        lx = CONTENT_CENTER_X - (lb[2] - lb[0]) // 2 - lb[0]
+        for dx, dy in ((-2, 0), (2, 0), (0, -2), (0, 2)):
+            draw.text((lx + dx, y + dy), line, font=title_font, fill=(0, 0, 0, 130))
+        draw.text((lx, y), line, font=title_font, fill=(255, 255, 255, 255))
+        y += line_h
+    y += round(30 * shrink)
+
+    # 3) 미니 순위 미리보기 — N개 항목을 카운트다운으로 보여줄 거라는 예고.
+    # 하단 진행 도트(_render_item_frame)와 같은 방향(왼쪽=#N 먼저 공개,
+    # 오른쪽=#1 마지막 공개)으로 맞춰 두 화면이 같은 시각 문법을 쓰게 한다.
+    dot_d = max(28, min(56, round((max_w - (n_items - 1) * 14) / max(n_items, 1))))
+    dot_d = round(dot_d * shrink)
+    gap = round(dot_d * 0.32)
+    strip_w = n_items * dot_d + (n_items - 1) * gap
+    start_x = CONTENT_CENTER_X - strip_w // 2
+    num_font = ImageFont.truetype(fpath, round(dot_d * 0.42), index=findex)
+    for i in range(n_items):
+        rank = n_items - i
+        t = (n_items - rank) / max(n_items - 1, 1)
+        color = _ramp_color(ramp, t)
+        cx = start_x + i * (dot_d + gap) + dot_d // 2
+        cy = y + dot_d // 2
+        draw.ellipse([cx - dot_d // 2, cy - dot_d // 2, cx + dot_d // 2, cy + dot_d // 2],
+                     fill=(*color, 235), outline=(255, 255, 255, 200), width=2)
+        num_text = str(rank)
+        nb = draw.textbbox((0, 0), num_text, font=num_font)
+        draw.text((cx - (nb[2] - nb[0]) // 2 - nb[0], cy - (nb[3] - nb[1]) // 2 - nb[1]),
+                   num_text, font=num_font, fill=(255, 255, 255, 255))
+    y += dot_d + round(40 * shrink)
+
+    # 4) red-escalation 그라디언트 바 — 왼쪽(첫 공개, 순함)에서 오른쪽(#1, 최악)
+    # 으로 갈수록 위험색이 짙어지는 배지 램프를 그대로 가로 바에 매핑.
+    bar_h = round(16 * shrink)
+    bar_w = max_w
+    grad_row = Image.new("RGB", (bar_w, 1))
+    for x in range(bar_w):
+        grad_row.putpixel((x, 0), _ramp_color(ramp, x / max(bar_w - 1, 1)))
+    grad = grad_row.resize((bar_w, bar_h), Image.BILINEAR).convert("RGBA")
+    bar_mask = Image.new("L", (bar_w, bar_h), 0)
+    ImageDraw.Draw(bar_mask).rounded_rectangle(
+        [0, 0, bar_w - 1, bar_h - 1], radius=bar_h // 2, fill=255)
+    bar_x0 = CONTENT_CENTER_X - bar_w // 2
+    frame.paste(grad, (bar_x0, y), bar_mask)
+    y += bar_h + round(52 * shrink)
+
+    # 5) 가장 나쁜(#1) 항목 예고 배지 — 어떤 항목인지는 밝히지 않고 "1"이라는
+    # 숫자로만 긴장감을 준다(스포일러 없이 후킹).
+    badge_d = round(420 * shrink)
+    badge_img = _BADGE_SHAPE_FNS[shape_name](badge_d, (*ramp[-1], 255), (255, 255, 255, 225))
+    badge_x = CONTENT_CENTER_X - badge_d // 2
+    frame.alpha_composite(badge_img, (badge_x, y))
+    num_text = "1"
+    num_font2 = ImageFont.truetype(fpath, round(190 * shrink), index=findex)
+    nb = draw.textbbox((0, 0), num_text, font=num_font2)
+    nx = badge_x + badge_d // 2 - (nb[2] - nb[0]) // 2 - nb[0]
+    ny = y + badge_d // 2 - (nb[3] - nb[1]) // 2 - nb[1]
+    for dx, dy in ((-3, 0), (3, 0), (0, -3), (0, 3)):
+        draw.text((nx + dx, ny + dy), num_text, font=num_font2, fill=(0, 0, 0, 160))
+    draw.text((nx, ny), num_text, font=num_font2, fill=(255, 255, 255, 255))
+    y += badge_d + round(28 * shrink)
+
+    # 6) 예고 캡션
+    cap_font = ImageFont.truetype(fpath, round(38 * shrink), index=findex)
+    cap_text = _TEASE_CAPTION.get(lang, _TEASE_CAPTION["kor"])
+    cb = draw.textbbox((0, 0), cap_text, font=cap_font)
+    cx = CONTENT_CENTER_X - (cb[2] - cb[0]) // 2 - cb[0]
+    draw.text((cx, y), cap_text, font=cap_font, fill=(235, 235, 245, 235))
+
+    return frame
+
+
+def _render_hook_safe(bg: Image.Image, spec: dict, n_items: int, lang: str,
+                       ramp: list[tuple[int, int, int]], shape_name: str,
+                       max_attempts: int = 6) -> Image.Image:
+    """훅 화면 버전의 _render_item_safe — 안전영역 위반 시 shrink_step을 올려가며
+    재시도, 끝내 못 맞추면 예외로 알린다(요구사항 그대로, 조용히 넘기지 않음)."""
+    for attempt in range(max_attempts):
+        frame = _render_hook_frame(bg, spec, n_items, lang, ramp, shape_name, shrink_step=attempt)
+        violated, bbox = _safe_area_violation(frame, bg)
+        if not violated:
+            return frame
+        print(f"[safe-area] hook screen attempt {attempt}: violation bbox={bbox} — "
+              f"shrinking content and re-rendering", file=sys.stderr)
+    raise RuntimeError(f"훅 화면이 {max_attempts}번 재시도 후에도 안전영역을 벗어납니다.")
+
+
 def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str,
            out_path: str) -> None:
     """랭킹 카운트다운 Shorts 렌더링 진입점. topic_dir(예: "output/부종_1")의
@@ -330,6 +507,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     convention: 언어 접미사 없는 topic 폴더명 하나로 언어 버전 간에도 같은
     variety가 재현되게 한다."""
     items = _load_items(spec_path)
+    spec = json.loads(Path(spec_path).read_text(encoding="utf-8"))
     n = len(items)
     seed_title = Path(topic_dir).name
 
@@ -338,34 +516,53 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     shape_name = ("circle", "shield")[_seed_axis(seed_title, k=7, c0=13, n_options=2)]
 
     total_duration = _ffprobe_duration(audio_path)
-    # srt_path는 총 길이 상호검증용으로만 참고 — 실제 길이는 항상 오디오 실측값을
-    # 신뢰한다(video_assembler.py의 기존 관행과 동일: SRT 타임스탬프는 멀티보이스
-    # TTS 무음 간격 누적 등으로 실제 오디오 길이와 어긋나는 경우가 있었다).
-    if Path(srt_path).exists():
-        srt_text = Path(srt_path).read_text(encoding="utf-8")
-        if not srt_text.strip():
-            print(f"[warn] srt_path가 비어 있습니다: {srt_path}", file=sys.stderr)
+    # srt_path는 총 길이 상호검증용이 아니라 훅 화면 노출 시간을 정하는 데 직접
+    # 쓴다 — 실제 나레이션 첫 구간(entries[0])이 정확히 훅 문장이라(2026-08-05
+    # 확인), 그 구간 길이를 훅 화면에 그대로 배정해야 나레이션과 화면이 맞는다.
+    # 그 뒤 아이템별 배분은 여전히 오디오 실측 총 길이 기준으로 계산해 SRT
+    # 타임스탬프 누적 오차(멀티보이스 TTS 무음 간격 등)가 전체 길이에 번지지
+    # 않게 한다(video_assembler.py의 기존 관행과 동일).
+    entries = _parse_srt(srt_path) if Path(srt_path).exists() else []
+    if not entries:
+        print(f"[warn] srt_path가 비어 있습니다: {srt_path}", file=sys.stderr)
+    hook_duration = entries[0][1] if entries else max(total_duration * 0.1, 2.5)
+    remaining = max(total_duration - hook_duration, 1.0)
 
     bg = _make_background(base_hue)
 
     # 아이템별 화면 노출 시간 — 각 아이템 팩트 텍스트 길이에 비례 배분(내레이션이
     # 대략 텍스트량에 비례해 길어지는 경향을 근사). 최소 노출시간을 둬서 아주
-    # 짧은 아이템도 순간적으로 스쳐 지나가지 않게 한다.
+    # 짧은 아이템도 순간적으로 스쳐 지나가지 않게 한다. 훅 화면 시간(hook_duration)은
+    # 이 배분에서 빼고 남은 remaining만 아이템들이 나눠 쓴다.
     min_dur = 3.0
     weights = [max(len(it["fact_text"]), 12) for it in items]
     total_weight = sum(weights)
-    raw_durs = [max(min_dur, total_duration * w / total_weight) for w in weights]
-    scale = total_duration / sum(raw_durs)
+    raw_durs = [max(min_dur, remaining * w / total_weight) for w in weights]
+    scale = remaining / sum(raw_durs)
     durs = [d * scale for d in raw_durs]
 
     total_frames = round(total_duration * FPS)
+    hook_frames = round(hook_duration * FPS)
     frames_per_item = [max(round(min_dur * FPS), round(d * FPS)) for d in durs]
-    frames_per_item[-1] += total_frames - sum(frames_per_item)
+    frames_per_item[-1] += (total_frames - hook_frames) - sum(frames_per_item)
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
 
         seg_paths = []
+
+        hook_frame = _render_hook_safe(bg, spec, n, lang, ramp, shape_name)
+        hook_png = tmp_path / "hook.png"
+        hook_frame.convert("RGB").save(hook_png, quality=95)
+        hook_seg = tmp_path / "seg_hook.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-i", str(hook_png),
+             "-frames:v", str(hook_frames), "-r", str(FPS),
+             "-c:v", "libx264", "-pix_fmt", "yuv420p", str(hook_seg)],
+            check=True, capture_output=True,
+        )
+        seg_paths.append(hook_seg)
+
         for idx, item in enumerate(items):
             rank = n - idx  # 내레이션 순서 그대로: 첫 아이템=#N(가장 순함) ... 마지막=#1(최악)
             severity_t = (n - rank) / max(n - 1, 1)  # 0.0(#N, 순함) ~ 1.0(#1, 최악)
