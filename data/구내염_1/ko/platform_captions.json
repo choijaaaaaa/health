@@ -6,7 +6,6 @@
     "아몬드",
     "두부"
   ],
-  "comment_keyword": "쿠팡",
   "platforms": [
     {
       "name": "네이버 블로그",
@@ -30,7 +29,6 @@
       "url": "https://www.instagram.com/worthitshopping/",
       "type": "video",
       "no_caption_link": true,
-      "comment_dm_automation": true,
       "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "입 안이 자꾸 헐고 화끈거리나요? 😖\n\n비타민B군이나 아연이 부족하거나 면역력이 떨어지면 점막이 약해져서 구내염이 잘 생겨요.\n\n레몬·다크초콜릿·라면 대신 바나나·아몬드·두부로 바꾸는 것만으로 자극을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#구내염 #입안궤양 #구강궤양 #비타민B12 #건강정보",
       "suppress_product_block": true
@@ -40,7 +38,6 @@
       "url": "https://www.instagram.com/worthitshopping/",
       "type": "cards",
       "no_caption_link": true,
-      "comment_dm_automation": true,
       "action": "카드뉴스 이미지 전체 다운로드 → 여러장 게시물로 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "입 안이 자꾸 헐고 있다면, 이유가 있어요 😖 (넘겨보세요 →)\n\n비타민B군·아연 부족으로 점막이 약해진 상태에서 자극적인 음식이 닿으면 구내염이 더 심해질 수 있어요.\n\n레몬·다크초콜릿·라면, 바나나·아몬드·두부로 바꾸는 법을 정리했어요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#구내염 #입안궤양 #구강궤양 #건강카드뉴스 #건강정보"
     },

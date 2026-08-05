@@ -212,19 +212,23 @@
 - ⚠️ **글로벌(비한국어) topic은 제휴/상품 관련 필드 자체를 안 쓴다**(2026-08-05,
   "쿠팡 DM 자동화라는거 자체가 필요가없어 일단 유튜브든 인스타든 건강정보만
   주는 형태로 운영할거야. 채널이 커지면 알리나 아마존 붙일거고" — 확정).
-  `comment_keyword`·`comment_dm_automation`·`products`·`suppress_product_block`
-  등 아래 플래그는 **한국어 topic 전용**이다 — 글로벌 topic은 이 필드들을
-  아예 넣지 않고 순수 건강정보 콘텐츠로만 작성할 것(채널이 커지면 그때
-  아마존/알리익스프레스 제휴로 전환 예정, 아직 아님).
+  `products`·`suppress_product_block` 등 아래 플래그는 **한국어 topic 전용**이다
+  — 글로벌 topic은 이 필드들을 아예 넣지 않고 순수 건강정보 콘텐츠로만
+  작성할 것(채널이 커지면 그때 아마존/알리익스프레스 제휴로 전환 예정,
+  아직 아님).
+- ⚠️ **"댓글에 키워드 남기면 DM으로 알려드려요" 류 자동화 CTA — 한국어·글로벌
+  전부 완전히 폐기**(2026-08-05, "댓글 뭐 달면 dm 준다는거 다 삭제하라고
+  전에 말했는데 대응안된듯" — 예전에 한 번 지시했는데 반영이 안 돼서 재확인
+  및 전체 정리함). `comment_keyword`·`comment_dm_automation` 필드는 이제 어떤
+  topic·플랫폼에도 쓰지 않는다 — 새 topic 캡션에 이런 CTA 문구(어느 언어든)
+  자체를 쓰지 말 것. 마무리 CTA는 그냥 "더 유용한 건강정보 궁금하면
+  팔로우/구독"류로 통일.
 - **필수 플래그**(한국어 topic, 빠짐없이):
   - `no_caption_link: true` — 인스타 릴스·틱톡(URL 클릭 안 되는 플랫폼)
-  - `comment_dm_automation: true` — 인스타 릴스만(실제 자동화 연동된 곳)
-  - `comment_keyword: "쿠팡"` — **한국어 topic 공통 고정값**
   - `network: "naver"` — 네이버 블로그 + 네이버 클립 둘 다(URL 없이 상품명만
     나열하는 로직 트리거)
   - `rich_paste: true` — 네이버 블로그·티스토리만(클립보드 이미지 붙여넣기)
-  - `suppress_product_block: true` — 유튜브 쇼츠(구독자 500명 전까지) +
-    현재 모든 인스타(채널 성장 우선, 나중에 `comment_dm_automation`으로 전환 예정)
+  - `suppress_product_block: true` — 유튜브 쇼츠(구독자 500명 전까지) + 모든 인스타
   - `link_in_comment: true` — 쓰레드·페이스북(본문 링크 대신 댓글에), 항상
     `no_caption_link`와 같이 씀. 제휴 고지문구는 본문 맨 아래 한 곳만.
 - 해시태그 전 플랫폼 필수 — 새 topic 후 `python3 -c "..."` (아래 "테스트" 절
