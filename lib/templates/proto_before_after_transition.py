@@ -654,9 +654,18 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
 
         total_beats = 2 + 2 * n_pairs + 1  # hook + mechanism + N cause + N fix + closing
         screens: list[dict] = []
+        # WHY mechanism_item 폴백(2026-08-05, 코골이_1 실측 확인 — 오프닝
+        # 화면이 캐릭터 하나 없이 텍스트만 덩그러니 뜨는 문제 발견): spec에
+        # cover_char_file이 없는 topic이 실제로 많은데, 이 경우 이전엔
+        # "캐릭터 없음" 방어 폴백(빈 배경)으로 빠져서 프레임 0(=사실상
+        # 썸네일)가 휑하게 나왔다. mechanism_item(items[0])은 항상
+        # char_file을 갖고 있으므로(아래 mechanism 화면에서 바로 다음 줄에
+        # 쓰임) 이걸 1차 폴백으로 쓴다 — checklist가 이미 쓰는 것과 동일한
+        # cover_char_file 폴백 원칙.
         screens.append({
             "tone": "before", "label": None, "body": hook_lines,
-            "char": chroma_for(spec.get("cover_char_file")), "dur": hook_duration, "headline_size": 60,
+            "char": chroma_for(spec.get("cover_char_file") or mechanism_item.get("char_file")),
+            "dur": hook_duration, "headline_size": 60,
         })
         screens.append({
             "tone": "before", "label": mechanism_item["name"], "body": mechanism_item["body"],
