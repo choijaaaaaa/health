@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Precisa se apoiar nos braços",
+    "pra levantar da cadeira?",
+    "A hora que você come proteína importa"
+  ],
+  "eyebrow": "Força Muscular",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Café da manhã",
+    "계란_illust.jpg": "Troca no café da manhã",
+    "소고기_illust.jpg": "Almoço",
+    "그릭요거트_illust.jpg": "Distribua ao longo do dia",
+    "하얀국_illust.jpg": "Jantar",
+    "치즈_illust.jpg": "No jantar"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Depois dos 60 anos, o corpo",
+        "só aproveita bem uns 25 a 30g",
+        "de proteína por refeição",
+        "",
+        "Comer tudo de uma vez",
+        "não compensa as outras",
+        "refeições vazias"
+      ]
+    },
+    {
+      "name": "Café da manhã",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Levantamento com idosos",
+        "brasileiros achou só 8g",
+        "de proteína no café da manhã",
+        "",
+        "Café, pão francês e manteiga",
+        "quase não têm proteína"
+      ]
+    },
+    {
+      "name": "Café da manhã, troque por",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "2 ovos com um pedaço",
+        "de queijo minas",
+        "",
+        "Ou iogurte grego",
+        "com granola e frutas"
+      ]
+    },
+    {
+      "name": "Almoço",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "O almoço passa de 33g",
+        "de proteína",
+        "",
+        "Mas o corpo só aproveita",
+        "uma quantidade por vez —",
+        "o resto não vira músculo"
+      ]
+    },
+    {
+      "name": "Distribua ao longo do dia",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "Idosos que espalham a proteína",
+        "pelas três refeições",
+        "têm mais força muscular",
+        "",
+        "do que quem concentra",
+        "tudo numa refeição só"
+      ]
+    },
+    {
+      "name": "Jantar",
+      "char_file": "하얀국_illust.jpg",
+      "body": [
+        "Sopa, pão ou só um",
+        "cafezinho antes de dormir",
+        "",
+        "Passar a noite toda",
+        "sem proteína também conta"
+      ]
+    },
+    {
+      "name": "No jantar, inclua",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Frango, ovo, queijo",
+        "ou iogurte",
+        "",
+        "Isso ajuda a fechar",
+        "a conta do dia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa mudar",
+        "tudo de uma vez"
+      ],
+      [
+        "Redistribuir a proteína",
+        "já faz diferença"
+      ]
+    ],
+    "tip": [
+      "Inclua ovo, queijo ou iogurte",
+      "no café da manhã e no jantar"
+    ],
+    "cta": "Quer mais dicas de saúde? Se inscreva, curta e siga!"
+  },
+  "topic_word": "Força Muscular"
+}
