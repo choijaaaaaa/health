@@ -115,10 +115,23 @@ def generate_illustration(
     out_path: str | None = None,
     bg_color_name: str = "초록",
     bg_color_hex: str = "#00FF00",
+    force: bool = False,
 ) -> str:
     """bg_color_name/bg_color_hex: 캐릭터 자체 색상과 겹치지 않는 크로마키 배경색을
     호출자가 판단해서 넘긴다 — 캐릭터가 초록 계열(오이·상추 등)이면 파란색이나
-    마젠타로 바꿔서 호출할 것(기본값 초록은 갈색/베이지 계열 채소·과일 기준)."""
+    마젠타로 바꿔서 호출할 것(기본값 초록은 갈색/베이지 계열 채소·과일 기준).
+
+    WHY out_path에 파일이 이미 있으면 API를 아예 안 부르는지(2026-08-05, "이쪽도
+    돈 계속 나간다" — 최적화 요청): "새 캐릭터 만들기 전 ls assets_library/illust/로
+    확인" 규칙이 세션이 매번 기억해서 손으로 확인해야 하는 절차였다 — 실제로 이전에
+    같은 캐릭터가 언어 세션마다 중복 생성돼서(이어폰·면봉·바나나 등) 비용이 샌
+    이력이 있다(CLAUDE.md 참고). 존재 여부 확인을 코드 레벨 가드로 옮기면 깜빡하고
+    또 호출해도 돈이 안 나간다 — 의도적으로 다시 그리고 싶으면 force=True로 명시."""
+    out_path = out_path or str(LIBRARY_DIR / f"{item_name}_illust.jpg")
+    if not force and Path(out_path).exists():
+        print(f"[gemini] {item_name} 일러스트 이미 있음, 생성 스킵: {out_path} (재생성하려면 force=True)")
+        return out_path
+
     prompt = STYLE_PROMPT.format(item=item_name, bg_color_name=bg_color_name, bg_color_hex=bg_color_hex)
     resp = requests.post(
         f"{BASE_URL}/models/{MODEL}:generateContent",
@@ -136,7 +149,6 @@ def generate_illustration(
     image_bytes = base64.b64decode(image_part["inlineData"]["data"])
 
     LIBRARY_DIR.mkdir(parents=True, exist_ok=True)
-    out_path = out_path or str(LIBRARY_DIR / f"{item_name}_illust.jpg")
     with open(out_path, "wb") as f:
         f.write(image_bytes)
     print(f"[gemini] {item_name} 일러스트 생성 완료: {out_path}")
@@ -207,4 +219,5 @@ def build_static_motion_loop(illust_path: str, out_path: str, duration: float = 
 
 if __name__ == "__main__":
     item_name = sys.argv[1]
-    generate_illustration(item_name)
+    force = "--force" in sys.argv[2:]
+    generate_illustration(item_name, force=force)
