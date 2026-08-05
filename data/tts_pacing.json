@@ -52,6 +52,9 @@
   "pt": {
     "unit": "word",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/session/ru-heartburn
     "rate": 3.280079802898097,
     "samples": 9
 =======
@@ -61,7 +64,11 @@
   },
   "ru": {
     "unit": "word",
+<<<<<<< HEAD
     "rate": 2.8715923152121956,
+=======
+    "rate": 2.8941814928314886,
+>>>>>>> origin/session/ru-heartburn
     "samples": 37
   },
   "th": {
