@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Quase 3 em cada 10 brasileiros",
+    "já têm gordura no fígado, segundo o Instituto Brasileiro do Fígado",
+    "3 hábitos alimentares que sobrecarregam o fígado"
+  ],
+  "eyebrow": "Atenção à gordura no fígado",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refrigerante",
+    "흰빵_illust.jpg": "Pão francês",
+    "만두_illust.jpg": "Salgados fritos"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "O fígado é um órgão",
+        "silencioso, que avisa",
+        "tarde quando algo vai mal",
+        "",
+        "Esses hábitos do dia a dia",
+        "ajudam a acumular gordura",
+        "no fígado aos poucos"
+      ]
+    },
+    {
+      "name": "Refrigerante",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "O açúcar do refrigerante",
+        "é rico em frutose",
+        "",
+        "A frutose é processada",
+        "quase só pelo fígado",
+        "e vira gordura ali mesmo"
+      ]
+    },
+    {
+      "name": "Em vez de refrigerante",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Troque por água",
+        "com limão ou água",
+        "com gás sem açúcar",
+        "",
+        "O sabor refrescante",
+        "continua, sem sobrecarregar",
+        "o fígado"
+      ]
+    },
+    {
+      "name": "Pão francês",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Feito de farinha branca",
+        "refinada, tem índice",
+        "glicêmico alto",
+        "",
+        "A glicose sobe rápido",
+        "e o excesso pode virar",
+        "gordura no fígado"
+      ]
+    },
+    {
+      "name": "Em vez de pão francês",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Pão integral tem",
+        "mais fibras",
+        "",
+        "A absorção do açúcar",
+        "fica mais lenta,",
+        "aliviando o fígado"
+      ]
+    },
+    {
+      "name": "Salgados fritos",
+      "char_file": "만두_illust.jpg",
+      "body": [
+        "Coxinha, pastel e",
+        "outros salgados fritos",
+        "concentram gordura saturada",
+        "",
+        "Comer com frequência",
+        "sobrecarrega o fígado"
+      ]
+    },
+    {
+      "name": "Em vez de salgados fritos",
+      "char_file": "만두_illust.jpg",
+      "body": [
+        "Prefira a versão",
+        "assada ou air fryer",
+        "",
+        "Menos gordura absorvida,",
+        "mesmo sabor de sempre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "O fígado é silencioso,",
+        "os danos demoram a aparecer"
+      ],
+      [
+        "Não precisa cortar tudo de vez,",
+        "trocar aos poucos já ajuda"
+      ]
+    ],
+    "tip": [
+      "Troque o refrigerante por água com limão, o pão francês por integral",
+      "e os salgados fritos pela versão assada"
+    ],
+    "cta": "Quer mais informações de saúde? Siga e curta o perfil"
+  }
+}
