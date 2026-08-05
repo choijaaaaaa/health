@@ -1,0 +1,113 @@
+{
+  "title": [
+    "It's not garlic or coffee -",
+    "the real culprits behind your breath",
+    "3 Everyday Habits Behind Bad Breath"
+  ],
+  "eyebrow": "Bad Breath Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "와인_illust.jpg",
+  "char_display_names": {
+    "와인_illust.jpg": "Alcohol",
+    "치즈_illust.jpg": "Dairy (Milk & Cheese)",
+    "알약_illust.jpg": "Allergy Medication"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Dry mouth means less saliva,",
+        "and bacteria multiply fast",
+        "",
+        "They break down proteins into",
+        "the sulfur compounds behind bad breath"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Blocks the hormone that helps",
+        "your body hold onto water",
+        "",
+        "Your mouth dries out",
+        "within hours of drinking"
+      ]
+    },
+    {
+      "name": "Alcohol — what helps",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Alternate every drink",
+        "with a glass of water",
+        "",
+        "Keeps saliva flowing",
+        "while your body processes it"
+      ]
+    },
+    {
+      "name": "Dairy",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Milk and cheese proteins",
+        "get broken down by bacteria",
+        "",
+        "Into hydrogen sulfide -",
+        "a rotten-egg smell of its own"
+      ]
+    },
+    {
+      "name": "Dairy — what helps",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Rinse with water",
+        "or crunch on an apple after",
+        "",
+        "The chewing helps clear",
+        "residue before bacteria get to work"
+      ]
+    },
+    {
+      "name": "Allergy Medication",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Antihistamines block the signal",
+        "that tells your glands to make saliva",
+        "",
+        "Over 400 medications",
+        "list dry mouth as a side effect"
+      ]
+    },
+    {
+      "name": "Allergy Medication — what helps",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Keep water close",
+        "and chew sugar-free gum",
+        "",
+        "Ask your pharmacist about",
+        "a lower-drying option"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Bad breath usually comes down to",
+        "dry mouth and sulfur compounds"
+      ],
+      [
+        "A few small habits",
+        "can make a real difference"
+      ]
+    ],
+    "tip": [
+      "Stay hydrated throughout the day",
+      "and it gets a lot easier to manage"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Breath"
+}
