@@ -1,0 +1,110 @@
+{
+  "title": [
+    "¿Llevas días sin poder",
+    "ir al baño?",
+    "El hábito diario que puede estar detrás"
+  ],
+  "eyebrow": "Alerta de salud intestinal",
+  "topic_word": "Estreñimiento",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco",
+    "단과자빵_illust.jpg": "Pan dulce",
+    "백년초_illust.jpg": "Nopal"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Hasta 1 de cada 7 personas",
+        "en México convive con estreñimiento crónico",
+        "",
+        "El refresco, la comida ultraprocesada",
+        "y tomar poca agua",
+        "hacen que el intestino se vuelva más lento"
+      ]
+    },
+    {
+      "name": "El refresco en exceso",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "México es el país que más",
+        "refresco toma en el mundo",
+        "",
+        "No aporta fibra, y al reemplazar",
+        "el agua deja las heces más secas"
+      ]
+    },
+    {
+      "name": "Prueba esto",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cambia poco a poco el refresco",
+        "por agua simple o agua mineral",
+        "",
+        "Empieza reduciendo una lata",
+        "a la semana"
+      ]
+    },
+    {
+      "name": "Pan dulce y botanas ultraprocesadas",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Hechos con harina refinada,",
+        "casi sin fibra",
+        "",
+        "Dejan menos volumen en el intestino",
+        "y lo hacen trabajar más lento"
+      ]
+    },
+    {
+      "name": "Prueba esto",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Cambia parte del pan dulce",
+        "por avena o pan integral",
+        "",
+        "Pequeños cambios ya hacen",
+        "una diferencia"
+      ]
+    },
+    {
+      "name": "Licuado de ciruela pasa y nopal",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Remedio casero muy usado en México",
+        "",
+        "El sorbitol de la ciruela atrae agua",
+        "al intestino, y el nopal aporta fibra",
+        "y mucílago que ayudan al tránsito"
+      ]
+    },
+    {
+      "name": "Así se prepara",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Licúa nopal con ciruelas pasa",
+        "remojadas y un poco de agua",
+        "",
+        "Tómalo en ayunas, sin colar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta dejar",
+        "todo de golpe"
+      ],
+      [
+        "Pequeños cambios",
+        "hacen la diferencia"
+      ]
+    ],
+    "tip": [
+      "Cambia el refresco por agua, reduce el pan dulce,",
+      "y prueba el licuado de ciruela pasa con nopal"
+    ],
+    "cta": "¿Quieres más información de salud como esta? ¡Suscríbete, dale like y síguenos!"
+  }
+}
