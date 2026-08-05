@@ -49,16 +49,24 @@ YOUTUBE_PLATFORM_NAMES = {
     # 구내염_1/es, 당뇨_1/pt, 수면_1/ru 전부 동일).
     "es": "YouTube Shorts", "pt": "YouTube Shorts", "ru": "YouTube Shorts",
 }
+# WHY es/pt/ru는 값이 리스트인지(2026-08-05, 실제 업로드 배치에서 발견된 버그 —
+# "예상한 'Description:' 구분자가 캡션에 없음" 에러): 세션마다 영어 마커("Title:"/
+# "Description:")를 쓰기도 하고 그 언어 마커("Título:"/"Descripción:",
+# "Название:"/"Заголовок:"+"Описание:" 등)를 쓰기도 해서 하나로 고정할 수 없다
+# (실측: es 12/20, pt 15/16, ru 16/12/2로 세 갈래 다 섞여 있음 — 콘텐츠 작성 시
+# 마커를 통일하라고 강제하는 규칙이 없었던 게 원인으로 보임). _parse_title_description이
+# 이 리스트를 순서대로 시도해서 실제 캡션에 있는 마커를 찾는다.
 CAPTION_MARKERS = {
-    "ko": ("제목:", "설명란:\n"),
-    "en": ("Title:", "Description:\n"),
-    "ja": ("タイトル:", "説明:\n"),
-    # WHY es/pt/ru도 영어 마커("Title:"/"Description:")인지: 이 마커는 파싱 후
-    # 버려지는 내부 구분자일 뿐 실제 시청자에게 노출되지 않는다 — 콘텐츠
-    # 생성 시 언어와 무관하게 영어 마커를 공통으로 써왔음(실측 확인, 위와 동일).
-    "es": ("Title:", "Description:\n"),
-    "pt": ("Title:", "Description:\n"),
-    "ru": ("Title:", "Description:\n"),
+    "ko": [("제목:", "설명란:\n")],
+    "en": [("Title:", "Description:\n")],
+    "ja": [("タイトル:", "説明:\n")],
+    "es": [("Title:", "Description:\n"), ("Título:", "Descripción:\n")],
+    "pt": [("Title:", "Description:\n"), ("Título:", "Descrição:\n")],
+    "ru": [
+        ("Title:", "Description:\n"),
+        ("Название:", "Описание:\n"),
+        ("Заголовок:", "Описание:\n"),
+    ],
 }
 # WHY 재생목록 제목 접두사도 언어별로(2026-08-03): "건강정보 - "로 채널 안 재생목록을
 # 한눈에 묶어보게 한 기존 설계(_playlist_title_for_category 참고)를 en/ja 채널에도
@@ -144,15 +152,18 @@ def _get_credentials(lang: str = "ko") -> Credentials:
 
 def _parse_title_description(caption: str, lang: str = "ko") -> tuple[str, str]:
     """"제목: X\n\n설명란:\nY" 형식을 (title, description)으로 분리한다(위
-    CAPTION_MARKERS 참고 — 언어마다 구분자가 다름). 이 형식은 lib/dashboard.py가
-    사람이 복사-붙여넣기 하도록 만든 캡션 그대로라, 새 포맷으로 바뀌면 이 파서도
+    CAPTION_MARKERS 참고 — 언어마다 구분자 후보가 여러 개일 수 있음, 순서대로
+    시도해서 실제 캡션에 있는 걸 찾는다). 이 형식은 lib/dashboard.py가 사람이
+    복사-붙여넣기 하도록 만든 캡션 그대로라, 새 포맷으로 바뀌면 이 파서도
     같이 고쳐야 한다."""
-    title_prefix, desc_marker = CAPTION_MARKERS.get(lang, CAPTION_MARKERS["ko"])
-    if desc_marker not in caption:
-        raise ValueError(f"예상한 '{desc_marker.strip()}' 구분자가 캡션에 없음: {caption[:80]!r}...")
-    title_part, description = caption.split(desc_marker, 1)
-    title = title_part.replace(title_prefix, "", 1).strip()
-    return title, description.strip()
+    candidates = CAPTION_MARKERS.get(lang, CAPTION_MARKERS["ko"])
+    for title_prefix, desc_marker in candidates:
+        if desc_marker in caption:
+            title_part, description = caption.split(desc_marker, 1)
+            title = title_part.replace(title_prefix, "", 1).strip()
+            return title, description.strip()
+    tried = ", ".join(repr(m.strip()) for _, m in candidates)
+    raise ValueError(f"예상한 구분자({tried}) 중 캡션에 있는 게 없음: {caption[:80]!r}...")
 
 
 def _build_status_body(privacy_status: str, publish_at: str | None) -> dict:
