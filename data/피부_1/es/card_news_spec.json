@@ -1,0 +1,114 @@
+{
+  "title": [
+    "¿Piel opaca y líneas finas",
+    "que no cuadran con tu edad?",
+    "Lo que comemos (y no comemos) en México"
+  ],
+  "eyebrow": "Alerta de Salud de la Piel",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Piel",
+  "char_display_names": {
+    "단과자빵_illust.jpg": "Pan dulce",
+    "가공육_illust.jpg": "Embutidos",
+    "토마토_illust.jpg": "Verduras",
+    "탄산음료_illust.jpg": "Refresco",
+    "파파야_illust.jpg": "Papaya",
+    "흰살생선_illust.jpg": "Pescado fresco",
+    "물방울_illust.jpg": "Agua simple"
+  },
+  "cover_char_file": "단과자빵_illust.jpg",
+  "items": [
+    {
+      "name": "Sodio que no ves",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "9 de cada 10 mexicanos",
+        "consumen más sodio del recomendado",
+        "",
+        "casi el doble —",
+        "sobre todo por pan dulce y salado"
+      ]
+    },
+    {
+      "name": "También suma esto",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Embutidos y quesos",
+        "aportan aún más sodio",
+        "",
+        "el exceso retiene líquidos",
+        "y deja la piel hinchada y sin brillo"
+      ]
+    },
+    {
+      "name": "Pocas frutas y verduras",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "Menos del 40% de los adultos",
+        "come las frutas y verduras que necesita",
+        "",
+        "apenas la mitad de lo recomendado —",
+        "el colágeno queda sin protección antioxidante"
+      ]
+    },
+    {
+      "name": "Refresco antes que agua",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El 93% de la población",
+        "toma más refresco que agua simple",
+        "",
+        "1 de cada 5 no bebe agua simple",
+        "ningún día — la piel pierde elasticidad"
+      ]
+    },
+    {
+      "name": "Cambia esto",
+      "char_file": "파파야_illust.jpg",
+      "body": [
+        "Cambia el pan dulce",
+        "por fruta fresca como la papaya,",
+        "",
+        "rica en vitamina C"
+      ]
+    },
+    {
+      "name": "También esto",
+      "char_file": "흰살생선_illust.jpg",
+      "body": [
+        "Cambia los embutidos",
+        "",
+        "por pescado o carne fresca",
+        "cocinada en casa"
+      ]
+    },
+    {
+      "name": "Y esto",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Cambia un refresco al día",
+        "",
+        "por agua simple",
+        "para hidratar tu piel"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El daño en el colágeno",
+        "no se revierte fácilmente"
+      ],
+      [
+        "Pero puedes cuidar tu piel",
+        "con lo que pones en el plato"
+      ]
+    ],
+    "tip": [
+      "Cambia el pan dulce por fruta fresca y los embutidos por carne fresca,",
+      "agrega verduras y un vaso de agua simple al día"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
