@@ -22,20 +22,8 @@
   },
   "es": {
     "unit": "word",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "rate": 3.399807807274856,
-=======
-    "rate": 3.392841058136757,
->>>>>>> origin/session/es-heartburn
-=======
-    "rate": 3.3928465182862033,
->>>>>>> origin/session/es-menopause
-=======
-    "rate": 3.391700451147704,
->>>>>>> origin/session/es-elderly
-    "samples": 34
+    "rate": 3.39429895871138,
+    "samples": 37
   },
   "fr": {
     "unit": "word",
@@ -59,65 +47,13 @@
   },
   "pt": {
     "unit": "word",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/session/ru-heartburn
-=======
->>>>>>> origin/session/ru-thyroid
-=======
->>>>>>> origin/session/es-menopause
-=======
->>>>>>> origin/session/ru-menopause
-=======
->>>>>>> origin/session/es-elderly
-=======
->>>>>>> origin/session/ru-elderly
-    "rate": 3.280079802898097,
-    "samples": 9
-=======
-    "rate": 3.1479260229579333,
-    "samples": 10
->>>>>>> origin/session/pt-heartburn
-=======
-    "rate": 3.2556992657032766,
-    "samples": 10
->>>>>>> origin/session/pt-thyroid
-=======
-    "rate": 3.2797258199870556,
-    "samples": 10
->>>>>>> origin/session/pt-menopause
+    "rate": 3.2408577278865907,
+    "samples": 12
   },
   "ru": {
     "unit": "word",
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "rate": 2.8715923152121956,
-=======
-    "rate": 2.8941814928314886,
->>>>>>> origin/session/ru-heartburn
-    "samples": 37
-=======
-    "rate": 2.8767333494031466,
-    "samples": 38
->>>>>>> origin/session/ru-thyroid
-=======
-    "rate": 2.872281096523147,
-    "samples": 37
->>>>>>> origin/session/ru-menopause
-=======
-    "rate": 2.8626764543972265,
-    "samples": 39
->>>>>>> origin/session/ru-elderly
+    "rate": 2.875492941673441,
+    "samples": 42
   },
   "th": {
     "unit": "char",
