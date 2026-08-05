@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Las piernas no te dejan",
+    "dormir en la noche?",
+    "Esto podría estar bajando tu hierro"
+  ],
+  "eyebrow": "Señal de anemia",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Anemia",
+  "char_display_names": {
+    "알약_illust.jpg": "Omeprazol",
+    "영양제_illust.jpg": "Zinc",
+    "아스피린_illust.jpg": "Ibuprofeno"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "No siempre es cuánto",
+        "hierro comes",
+        "",
+        "A veces es lo que tomas junto —",
+        "eso bloquea la absorción"
+      ]
+    },
+    {
+      "name": "Omeprazol",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "El hierro necesita ácido",
+        "del estómago para absorberse",
+        "",
+        "El omeprazol baja esa acidez"
+      ]
+    },
+    {
+      "name": "Omeprazol así",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Sepáralo del hierro",
+        "por varias horas",
+        "",
+        "Coméntaselo a tu médico",
+        "si lo usas seguido"
+      ]
+    },
+    {
+      "name": "Zinc",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Compite con el hierro",
+        "por el mismo transportador",
+        "",
+        "Juntos, la absorción",
+        "puede caer hasta la mitad"
+      ]
+    },
+    {
+      "name": "Zinc así",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Hierro en ayunas,",
+        "zinc por la noche",
+        "",
+        "Así no compiten entre sí"
+      ]
+    },
+    {
+      "name": "Ibuprofeno seguido",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "El uso constante puede",
+        "irritar el estómago",
+        "",
+        "Y causar un sangrado",
+        "que no se nota"
+      ]
+    },
+    {
+      "name": "Ibuprofeno así",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Si lo usas seguido",
+        "para dolor de cabeza o cólicos",
+        "",
+        "coméntaselo a tu médico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La anemia por falta de hierro",
+        "no tiene una sola causa"
+      ],
+      [
+        "No hay que dejar nada de golpe —",
+        "solo ajustar los horarios"
+      ]
+    ],
+    "tip": [
+      "Omeprazol y zinc separados del hierro,",
+      "ibuprofeno seguido: consulta a tu médico"
+    ],
+    "cta": "¿Quieres más información de salud? ¡Suscríbete, dale like y sigue la cuenta!"
+  }
+}
