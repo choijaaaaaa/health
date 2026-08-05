@@ -426,12 +426,43 @@ def _load_items(spec: dict) -> tuple[str, str, list[dict]]:
     return (why_header, why_body, items)
 
 
-def _build_timing(cues: list[tuple[float, float, str]], total_duration: float, n_items: int) -> dict:
+def _proportional_durations(total: float, weights: list[float], min_dur: float) -> list[float]:
+    """total 시간을 weights 비례로 나눈다(`proto_before_after_transition.py`와
+    동일한 검증된 로직) — min_dur 미만으로 떨어지는 항목은 바닥을 대주고
+    나머지 항목에서 비례로 빌려온다."""
+    n = len(weights)
+    if n == 0:
+        return []
+    total_w = sum(weights) or n
+    raw = [total * w / total_w for w in weights] if sum(weights) > 0 else [total / n] * n
+    deficit = sum(max(0.0, min_dur - r) for r in raw)
+    if deficit <= 0:
+        return raw
+    boosted = [max(r, min_dur) for r in raw]
+    surplus_idx = [i for i, r in enumerate(raw) if r > min_dur]
+    surplus_total = sum(raw[i] - min_dur for i in surplus_idx)
+    if surplus_total > 0:
+        for i in surplus_idx:
+            share = (raw[i] - min_dur) / surplus_total
+            boosted[i] -= deficit * share
+    boosted[-1] += total - sum(boosted)
+    return boosted
+
+
+def _build_timing(cues: list[tuple[float, float, str]], total_duration: float, n_items: int,
+                   items: list[dict]) -> dict:
     """srt 큐(2번째=원인 설명 시작, 3번째=체크리스트 시작으로 가정)를 기준으로
-    화면 구간을 나눈다. 체크리스트 구간은 앞 55%를 "원인(fact)", 뒤 45%를
-    "대안(fix)"에 배분하고, 각각 항목 개수만큼 균등 스태거링한다 — 내레이션이
-    "모든 N가지 대안"을 마지막 한 문장에 압축해도 화면에서는 항목별로 몇 초씩
-    시차를 두고 순서대로 드러나 한 번에 안 읽히는 문제를 피한다."""
+    화면 구간을 나눈다.
+    WHY 텍스트 길이 비례 배분(2026-08-05, 전립선_1 실측 검증 중 발견 — 이전엔
+    "원인 55%/대안 45%"를 항목 개수로 균등 스태거링만 했는데, 원인·대안이
+    각각 개별 문장으로 시차 있게 내레이션되는 topic(예: 전립선_1)에서는 대안1
+    체크가 실제 내레이션보다 8.7초나 늦게 뜨는 심각한 어긋남이 실측으로
+    확인됐다. `proto_before_after_transition.py`가 이미 검증한 해법과 동일
+    원칙 — SRT 구간 수를 믿는 대신(내레이션이 "모든 N가지 대안"을 마지막
+    한 문장에 압축하기도 해서 구간 수가 topic마다 들쭉날쭉함), 원인·대안
+    각각의 실제 본문 글자 수를 "비트" 가중치로 써서 checklist_dur를 비례
+    배분한다 — 원인/대안이 각각 따로 내레이션되는 topic·마지막에 압축되는
+    topic 둘 다에서 자연스럽게 맞아떨어진다."""
     if len(cues) > 1:
         why_start = cues[1][0]
     else:
@@ -447,11 +478,20 @@ def _build_timing(cues: list[tuple[float, float, str]], total_duration: float, n
     if closing_start - list_start < min_checklist_dur:
         closing_start = min(list_start + min_checklist_dur, total_duration)
     checklist_dur = max(closing_start - list_start, 0.01)
-    facts_span = checklist_dur * 0.55
-    fixes_span = checklist_dur - facts_span
-    check_times = [list_start + facts_span * i / n_items for i in range(n_items)]
-    fixes_window_start = list_start + facts_span
-    fix_times = [fixes_window_start + fixes_span * i / n_items for i in range(n_items)]
+
+    weights = []
+    for it in items:
+        weights.append(max(len(it["fact"]), 1))
+        weights.append(max(len(it["fix"]), 1))
+    durs = _proportional_durations(checklist_dur, weights, min_dur=max(checklist_dur * 0.04, 0.6))
+
+    check_times, fix_times = [], []
+    t = list_start
+    for i in range(n_items):
+        check_times.append(t)
+        t += durs[2 * i]
+        fix_times.append(t)
+        t += durs[2 * i + 1]
     return {
         "why_start": why_start,
         "list_start": list_start,
@@ -588,7 +628,7 @@ class Ctx:
         self.y_jitter = sum(ord(c) * (i * 5 + 3) for i, c in enumerate(title_seed)) % 41 - 20
 
         cues = _parse_srt(str(srt_path))
-        self.timing = _build_timing(cues, total_duration, self.n_items)
+        self.timing = _build_timing(cues, total_duration, self.n_items, self.items)
         self.modes = [
             ("title", 0, self.timing["why_start"]),
             ("why", self.timing["why_start"], self.timing["list_start"]),
