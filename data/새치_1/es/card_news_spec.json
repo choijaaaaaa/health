@@ -1,0 +1,51 @@
+{
+  "title": [
+    "Canas nuevas cada semana",
+    "antes de los 35,",
+    "3 hábitos que las aceleran"
+  ],
+  "eyebrow": "Canas prematuras",
+  "cover_char_file": "맥주_illust.jpg",
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "맥주_illust.jpg",
+      "body": ["El estrés oxidativo daña", "las células que dan color al cabello", "", "Los folículos con canas tienen", "menos zinc y cobre"]
+    },
+    {
+      "name": "Alcohol en exceso",
+      "char_file": "맥주_illust.jpg",
+      "body": ["Cerveza, tequila o mezcal", "los fines de semana", "", "Genera radicales libres y", "dificulta absorber zinc y cobre"]
+    },
+    {
+      "name": "En vez de tanto alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": ["Cambia algunos días", "por agua mineral", "", "Reduce las bebidas", "poco a poco"]
+    },
+    {
+      "name": "Carne muy dorada",
+      "char_file": "소고기_illust.jpg",
+      "body": ["La carne asada muy quemada", "forma aminas heterocíclicas", "", "que generan", "estrés oxidativo"]
+    },
+    {
+      "name": "En vez de tan dorada",
+      "char_file": "소고기_illust.jpg",
+      "body": ["Prefiere término medio", "en vez de muy tatemada", "", "Evita las partes", "completamente quemadas"]
+    },
+    {
+      "name": "Frituras y botanas",
+      "char_file": "감자칩_illust.jpg",
+      "body": ["El aceite reutilizado genera", "grasas trans y radicales libres", "", "Eso eleva el", "estrés oxidativo del cuerpo"]
+    },
+    {
+      "name": "En vez de frituras",
+      "char_file": "감자칩_illust.jpg",
+      "body": ["Elige cacahuates", "o pepitas naturales", "", "Aportan zinc y cobre", "sin aceite reutilizado"]
+    }
+  ],
+  "closing": {
+    "headline": [["Las canas no son solo genética,", "el estrés oxidativo también influye"], ["Alcohol, carne muy dorada y frituras", "pueden acelerar su aparición"]],
+    "tip": ["Menos alcohol y frituras, carne a término medio,", "y snacks como cacahuates o pepitas"],
+    "cta": "Si quieres más información de salud, síguenos y dale like"
+  }
+}
