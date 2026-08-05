@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Pain under your right ribs",
+    "after a fatty meal,",
+    "eyes turning yellow?"
+  ],
+  "eyebrow": "Pancreas Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Pancreas",
+  "char_display_names": {
+    "패스트푸드_illust.jpg": "Fatty Meals",
+    "다이어트도시락_illust.jpg": "Crash Dieting",
+    "가라아게_illust.jpg": "Low-Fiber Diet",
+    "귀리_illust.jpg": "Fiber Fix"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Gallstones cause 35-40%",
+        "of acute pancreatitis in the US",
+        "",
+        "A stone blocks the shared duct,",
+        "enzymes back up into the pancreas"
+      ]
+    },
+    {
+      "name": "Crash Dieting",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Losing weight too fast",
+        "spikes cholesterol in bile",
+        "",
+        "That extra cholesterol",
+        "crystallizes into stones"
+      ]
+    },
+    {
+      "name": "Diet the Safer Way",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Aim for 0.5-1 kg a week,",
+        "not a crash diet",
+        "",
+        "Keep some healthy fat in meals -",
+        "it helps your gallbladder empty"
+      ]
+    },
+    {
+      "name": "Low-Fiber Diet",
+      "char_file": "가라아게_illust.jpg",
+      "body": [
+        "Diets low in fruit,",
+        "veggies, and whole grains",
+        "",
+        "are linked to",
+        "a higher rate of gallstones"
+      ]
+    },
+    {
+      "name": "Fiber Fix",
+      "char_file": "귀리_illust.jpg",
+      "body": [
+        "Add beans, oats,",
+        "and vegetables",
+        "",
+        "More fiber,",
+        "fewer stones"
+      ]
+    },
+    {
+      "name": "Red Flags",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Pain that won't quit, fever,",
+        "or yellowing skin and eyes",
+        "",
+        "That's an ER visit,",
+        "not wait-and-see"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gallstones are the #1 cause",
+        "of acute pancreatitis in the US"
+      ],
+      [
+        "A few diet habits",
+        "can lower your risk"
+      ]
+    ],
+    "tip": [
+      "Skip crash diets, add fiber,",
+      "and don't ignore yellow eyes"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
