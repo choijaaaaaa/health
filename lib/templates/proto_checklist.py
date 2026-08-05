@@ -268,6 +268,52 @@ def get_icon(path: Path, size: int) -> "Image.Image":
     return _ICON_CACHE[key]
 
 
+def _remove_chroma(img: Image.Image, thresh: int = 160) -> Image.Image:
+    """캐릭터 일러스트는 Kling/Gemini 생성 단계에서 크로마키 배경(코너 픽셀 색을
+    자동으로 키 색상 채택 — 캐릭터 자체가 초록 계열이면 배경이 파란/마젠타로
+    바뀌므로 하드코딩 금지)으로 만들어진다 — `card_news.py`의
+    `_remove_chroma_bg`, `proto_before_after_transition.py`의 `_remove_chroma`와
+    동일한 원리. 이 파일의 체크리스트 행 아이콘(`get_icon`)은 작게(64~130px)
+    표시돼 배경색이 스티커 프레임처럼 보여 그대로 둬도 무리 없지만, 오프닝
+    화면은 이미지를 거의 카드 전체 크기로 키우므로 크로마 배경을 그대로 두면
+    자간진단 카드가 아니라 "깨진 초록/마젠타 스크린"처럼 보인다 — 반드시
+    투명 처리 후 흰 카드 위에 올린다."""
+    img = img.convert("RGBA")
+    key = img.getpixel((2, 2))[:3]
+    kr, kg, kb = key
+    pixels = img.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            r, g, b, a = pixels[x, y]
+            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
+                pixels[x, y] = (r, g, b, 0)
+    return img
+
+
+_COVER_CACHE: dict[tuple[Path, int, int], "Image.Image"] = {}
+
+
+def get_cover_card_image(path: Path, box_w: int, box_h: int) -> "Image.Image":
+    """오프닝 화면의 커버 이미지 카드용 — 크로마 배경을 제거한 캐릭터를 정사각형
+    그대로(왜곡 없이) box 안에 맞춰 중앙 배치한 투명 배경 RGBA를 반환한다.
+    호출부가 이미 흰 패널(`draw_shadowed_panel`)을 먼저 그려두므로, 투명한
+    영역은 자연스럽게 그 흰 카드가 비쳐 보인다. 프레임마다(제목 화면 지속
+    시간 + 다음 모드로의 크로스페이드 구간) 반복 호출되므로 `get_icon`과 같은
+    캐싱 패턴을 그대로 따른다 — 크로마 제거는 픽셀 단위 순회라 느려서
+    프레임마다 다시 계산하면 안 된다."""
+    key = (path, box_w, box_h)
+    if key not in _COVER_CACHE:
+        square = min(box_w, box_h)
+        raw = Image.open(path).convert("RGB").resize((square, square), Image.LANCZOS)
+        raw = _remove_chroma(raw)
+        canvas = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 0))
+        cx = (box_w - square) // 2
+        cy = (box_h - square) // 2
+        canvas.alpha_composite(raw, (cx, cy))
+        _COVER_CACHE[key] = canvas
+    return _COVER_CACHE[key]
+
+
 def draw_checkbox(canvas, x, y, size, p, accent, shape):
     """p=0이면 빈 체크박스(테두리만), p>0이면 채워진 박스 위에 체크마크를
     두 획으로 나눠 그린다 — p<=0.5는 첫 획, p>0.5는 첫 획 완성+두 번째 획이
@@ -498,6 +544,17 @@ class Ctx:
         self.closing_tip = list(spec["closing"]["tip"])
         self.closing_cta = spec["closing"]["cta"]
 
+        # 오프닝 화면의 시각적 앵커 — card_news_spec.json의 cover_char_file을
+        # 우선 쓰고, 없는 과거 spec은 첫 체크리스트 항목 아이콘으로 대체한다
+        # (그래도 없으면 None -> render_title이 빈 체크박스 폴백으로 처리).
+        cover_file = spec.get("cover_char_file")
+        if cover_file:
+            self.cover_image_path = ITEM_ICON_DIR / cover_file
+        elif self.items:
+            self.cover_image_path = self.items[0]["icon"]
+        else:
+            self.cover_image_path = None
+
         self.font_path, self.font_index = _title_font_for_lang(lang)
 
         # 토픽 시드 변주 — accent 색상 / 배경 톤·모드 / 체크박스 모양
@@ -539,20 +596,26 @@ class Ctx:
             measure_draw, self.items, self.n_items, self.font_path, self.font_index, lang, panel_top
         )
 
-        # title 화면: 헤드라인 + (선택) 서브헤드 + 체크박스 아이콘
-        eyebrow_bottom_est = 300 + eyebrow_h_est
-        icon_reserve = 300
-        avail = max(SAFE_Y1 - eyebrow_bottom_est - 40, 200)
-        text_avail = max(avail - icon_reserve, 160)
+        # title 화면(=업로드 썸네일 대체 프레임): 헤드라인 + (선택) 서브헤드 +
+        # 커버 이미지 카드. 헤드라인·서브헤드는 상단에 짧게 캡핑하고, 나머지
+        # 세로 공간은 전부 커버 이미지 카드에 넘겨 하단이 비지 않게 한다 —
+        # 예전엔 eyebrow를 y=300에서 시작해 상단도 비고, 아이콘 하나(300px
+        # 예약)만 놓고 그 아래 전부 배경만 남아 캔버스 하단 절반이 빈 채로
+        # 남았었다(진단된 문제). eyebrow를 checklist 화면과 비슷하게 위로
+        # 당겨서 그만큼을 이미지 카드 몫으로 돌린다.
+        self.title_eyebrow_y = 90
+        text_top_est = self.title_eyebrow_y + eyebrow_h_est + 46
+        text_block_budget = 480
+        avail = max(SAFE_Y1 - text_top_est - 40, 200)
+        text_avail = min(text_block_budget, avail)
         self.title_lines, self.title_font, self.title_line_h = _layout_multiline(
-            measure_draw, self.title_main_lines, self.font_path, self.font_index, 78,
-            min(940, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.62, lang, min_size=40,
+            measure_draw, self.title_main_lines, self.font_path, self.font_index, 76,
+            min(940, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.66, lang, min_size=40,
         )
         self.title_sub_lines, self.title_sub_font, self.title_sub_line_h = _layout_multiline(
-            measure_draw, [self.title_sub] if self.title_sub else [], self.font_path, self.font_index, 38,
-            min(860, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.38, lang, min_size=22,
+            measure_draw, [self.title_sub] if self.title_sub else [], self.font_path, self.font_index, 40,
+            min(860, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.34, lang, min_size=22,
         )
-        self.title_icon_size = max(min(icon_reserve - 140, 160), 90)
 
         # why 화면: 원인 헤드라인 + 본문
         why_body_top_est = 420 + eyebrow_h_est + 70 + 100
@@ -593,20 +656,81 @@ class Ctx:
 # 화면별 렌더 함수
 # ---------------------------------------------------------------------------
 def render_title(ctx: Ctx):
+    """오프닝/타이틀 화면 — 이 파이프라인은 커스텀 썸네일을 따로 업로드하지
+    않으므로(`lib/youtube_upload.py` 확인됨) 이 프레임이 피드에서 사실상
+    썸네일 역할을 한다. 헤드라인 아래 커버 이미지 카드를 크게 채워 하단이
+    비지 않게 하고, 카드 위에는 아직 "체크되지 않은" 빈 체크박스만 겹쳐
+    자가진단 정체성을 유지한다 — 실제 체크(완료 상태)는 체크리스트 화면에서만
+    등장해야 내레이션 흐름과 맞다(오프닝에서 이미 채워진 체크마크를 보여주면
+    "이미 끝난 일"처럼 읽혀 혼란을 준다)."""
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, 300,
+    y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, ctx.title_eyebrow_y,
                       ctx.accent, ctx.accent_soft, label="title-eyebrow")
-    y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, y + 70, ctx.title_line_h,
+    y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, y + 46, ctx.title_line_h,
                              TEXT_DARK, label="title-main")
-    sub_y = y + 60
+    sub_y = y + 26
     if ctx.title_sub_lines:
         sub_y = draw_centered_lines(draw, ctx.title_sub_lines, ctx.title_sub_font, cx, sub_y,
                                      ctx.title_sub_line_h, ctx.accent, label="title-sub")
-    icon_size = ctx.title_icon_size
-    icon_y = min(sub_y + 100, SAFE_Y1 - icon_size - 20)
-    draw_checkbox(canvas, cx - icon_size // 2, icon_y, icon_size, 1, ctx.accent, ctx.checkbox_shape)
+
+    # WHY SAFE_CENTERED_MAX_WIDTH로 폭을 캡핑하는지(2026-08-05 수정, 사용자
+    # 지적 "쏠림 있는데 수정 안 한거같은데" — 이전 주석의 "세이프 영역
+    # 자체를 기준으로 하므로 비대칭 버그가 재발할 여지 없다"는 판단이
+    # 틀렸었다): 세이프 영역 자체(50~930)가 캔버스 진짜 중앙(540) 기준으로
+    # 이미 비대칭이라, 그 전체 폭을 그대로 카드에 쓰면 카드 중심이 490에
+    # 맞춰져 화면 전체로 보면 왼쪽으로 쏠려 보인다. SAFE_CENTERED_MAX_WIDTH
+    # (540 기준 좌우 대칭 최대폭)로 카드 폭을 캡핑하고 540에 중앙정렬해야
+    # 두 조건(안전영역 준수 + 눈으로 봤을 때 중앙)이 동시에 만족된다.
+    card_top = sub_y + 44
+    card_w_capped = SAFE_CENTERED_MAX_WIDTH
+    card_x0 = _CENTER_X - card_w_capped // 2
+    card_x1 = _CENTER_X + card_w_capped // 2
+    card_bottom = SAFE_Y1
+    card_w = card_x1 - card_x0
+    card_h = card_bottom - card_top
+    if card_h > 120:
+        radius = 40
+        draw_shadowed_panel(canvas, (card_x0, card_top, card_x1, card_bottom), radius=radius)
+        if ctx.cover_image_path and ctx.cover_image_path.exists():
+            inner_pad = 14
+            img_box_w = round(card_w - inner_pad * 2)
+            img_box_h = round(card_h - inner_pad * 2)
+            cover = get_cover_card_image(ctx.cover_image_path, img_box_w, img_box_h)
+            canvas.alpha_composite(cover, (round(card_x0 + inner_pad), round(card_top + inner_pad)))
+
+            # "아직 체크 전"을 보여주는 빈 체크박스 배지 — 사진 위에서도 잘
+            # 보이도록 부드러운 그림자를 깔고 그 위에 p=0(빈 박스)로 그린다.
+            badge_size = min(96, round(card_h * 0.16))
+            badge_x = card_x0 + 30
+            badge_y = card_bottom - badge_size - 30
+            shadow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            sd = ImageDraw.Draw(shadow)
+            shadow_box = [badge_x - 8, badge_y + 8, badge_x + badge_size + 8, badge_y + badge_size + 20]
+            if ctx.checkbox_shape == "circle":
+                sd.ellipse(shadow_box, fill=SHADOW + (110,))
+            else:
+                sd.rounded_rectangle(shadow_box, radius=22, fill=SHADOW + (110,))
+            shadow = shadow.filter(ImageFilter.GaussianBlur(12))
+            canvas.alpha_composite(shadow)
+            draw_checkbox(canvas, badge_x, badge_y, badge_size, 0, ctx.accent, ctx.checkbox_shape)
+            # 기본 draw_checkbox 테두리(BOX_BORDER, 옅은 회색)는 흰 카드 위에서
+            # 눈에 잘 안 띈다 — 배지 위에 accent색 링을 한 번 더 덧그려 토픽
+            # 테마색과 연결되고 사진 배경 위에서도 또렷하게 보이게 한다.
+            ring_box = [badge_x, badge_y, badge_x + badge_size - 1, badge_y + badge_size - 1]
+            if ctx.checkbox_shape == "circle":
+                draw.ellipse(ring_box, outline=ctx.accent + (255,), width=6)
+            else:
+                draw.rounded_rectangle(ring_box, radius=int(badge_size * 0.22),
+                                        outline=ctx.accent + (255,), width=6)
+        else:
+            # 커버 이미지가 없는(과거 spec 등) topic 대비 폴백 — 카드 중앙에
+            # 큼직한 빈 체크박스만 놓아도 이미지 없이 카드 공백은 채워진다.
+            big_size = min(round(card_w * 0.42), round(card_h * 0.5), 260)
+            bx = card_x0 + (card_w - big_size) // 2
+            by = card_top + (card_h - big_size) // 2
+            draw_checkbox(canvas, bx, by, big_size, 0, ctx.accent, ctx.checkbox_shape)
     return canvas
 
 
