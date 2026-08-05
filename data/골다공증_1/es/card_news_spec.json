@@ -1,0 +1,114 @@
+{
+  "title": [
+    "¿Te fracturaste una muñeca",
+    "con una caída que antes no te habría dolido?",
+    "Hábitos que aceleran la osteoporosis"
+  ],
+  "eyebrow": "Alerta de osteoporosis",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "cover_char_file": "담배_illust.jpg",
+  "char_display_names": {
+    "담배_illust.jpg": "Tabaquismo",
+    "탄산음료_illust.jpg": "Refresco de cola",
+    "의자_illust.jpg": "Sedentarismo"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Cuando el calcio en la sangre baja,",
+        "el cuerpo lo saca",
+        "directamente de los huesos",
+        "",
+        "Si esto se repite,",
+        "la densidad ósea",
+        "baja poco a poco"
+      ]
+    },
+    {
+      "name": "Tabaquismo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "La nicotina reduce el estrógeno",
+        "que protege los huesos",
+        "",
+        "Quienes fuman pueden tener",
+        "hasta cinco veces más riesgo",
+        "de osteoporosis"
+      ]
+    },
+    {
+      "name": "En vez del cigarro",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Dejar de fumar",
+        "ayuda a que el hueso",
+        "vuelva a fijar el calcio",
+        "",
+        "Busca apoyo en tu centro de salud",
+        "para dejarlo poco a poco"
+      ]
+    },
+    {
+      "name": "Refresco de cola",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "México es de los países",
+        "que más refresco de cola",
+        "toma en el mundo",
+        "",
+        "Muchas veces se toma",
+        "en vez de leche desde niños,",
+        "y esa leche nunca se repone"
+      ]
+    },
+    {
+      "name": "En vez del refresco",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cambia el refresco de cola",
+        "por leche, yogur o",
+        "agua mineral con calcio",
+        "",
+        "Si lo tomas,",
+        "que sea ocasional"
+      ]
+    },
+    {
+      "name": "Sedentarismo",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "El hueso necesita",
+        "cargar peso",
+        "para mantenerse fuerte",
+        "",
+        "Pasar el día sentado",
+        "sin caminar",
+        "lo debilita más rápido"
+      ]
+    },
+    {
+      "name": "En vez de estar sentado",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Camina o haz",
+        "ejercicio de fuerza",
+        "al menos tres veces por semana",
+        "",
+        "Levantarte cada rato",
+        "también ayuda"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["La osteoporosis avanza en silencio", "hasta que una fractura la revela"],
+      ["Dejar el cigarro, cambiar el refresco", "y moverte más protege tus huesos"]
+    ],
+    "tip": ["Cambia el refresco por leche o agua con calcio", "y camina o haz ejercicio de fuerza tres veces por semana"],
+    "cta": "¿Quieres más información de salud? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Huesos"
+}
