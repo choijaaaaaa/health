@@ -1,0 +1,113 @@
+{
+  "title": [
+    "¿Sabías que 9 de cada 10 mexicanos",
+    "comen más sodio del que necesitan?",
+    "Lo que hay detrás del dolor de cuello y hombros"
+  ],
+  "cover_char_file": "아보카도_illust.jpg",
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Ver el celular con",
+        "la cabeza agachada",
+        "tensa el cuello y hombros",
+        "",
+        "Sin suficiente magnesio,",
+        "esos músculos cuestan",
+        "más trabajo para relajarse"
+      ]
+    },
+    {
+      "name": "El consomé de cubo",
+      "char_file": "육수큐브_illust.jpg",
+      "body": [
+        "Un cubo tipo Knorr Suiza",
+        "tiene más de 1,000 mg",
+        "de sodio",
+        "",
+        "Se usa casi a diario en",
+        "sopas, arroz y frijoles",
+        "en México"
+      ]
+    },
+    {
+      "name": "Para el consomé",
+      "char_file": "백년초_illust.jpg",
+      "body": [
+        "Cambia el cubo por",
+        "caldo casero con hierbas",
+        "",
+        "Los nopales aportan potasio,",
+        "que ayuda a equilibrar",
+        "el sodio en el cuerpo"
+      ]
+    },
+    {
+      "name": "Botanas con chile y sal",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "El chile en polvo con sal,",
+        "como el Tajín, suma",
+        "sodio muy rápido",
+        "",
+        "Una cucharadita ya cubre",
+        "casi la mitad de lo",
+        "recomendado al día"
+      ]
+    },
+    {
+      "name": "Para las botanas",
+      "char_file": "호박씨_illust.jpg",
+      "body": [
+        "Cambia parte de las",
+        "botanas saladas por pepitas",
+        "",
+        "Son ricas en magnesio,",
+        "el mineral que ayuda",
+        "a relajar los músculos"
+      ]
+    },
+    {
+      "name": "La michelada",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El alcohol le quita",
+        "magnesio al cuerpo",
+        "",
+        "La sal del vaso y el clamato",
+        "suman todavía más sodio"
+      ]
+    },
+    {
+      "name": "En vez de michelada",
+      "char_file": "아보카도_illust.jpg",
+      "body": [
+        "Prueba agua de jamaica",
+        "para hidratarte sin alcohol",
+        "",
+        "Y agrega aguacate a tus",
+        "comidas por su magnesio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El cuello y los hombros",
+        "cargan con más de lo que crees"
+      ],
+      [
+        "Unos pequeños cambios",
+        "pueden aliviar esa pesadez"
+      ]
+    ],
+    "tip": [
+      "Cambia el consomé de cubo por caldo casero, y las botanas saladas por pepitas,",
+      "cambia la michelada por agua de jamaica, y suma nopales y aguacate a tu día"
+    ],
+    "cta": "¿Quieres más tips de salud? ¡Síguenos!"
+  },
+  "eyebrow": "CUELLO Y HOMBROS"
+}
