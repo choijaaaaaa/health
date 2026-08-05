@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Cabeça latejando depois de um dia",
+    "sem comer direito, com pouca água",
+    "e trocando calor por ar-condicionado?",
+    "Hábitos do dia a dia que podem causar enxaqueca"
+  ],
+  "eyebrow": "Alerta de enxaqueca",
+  "swipe_label": "Arraste para ver mais  →",
+  "closing_label": "Resumo",
+  "char_display_names": {
+    "시계_illust.jpg": "Pular refeição",
+    "물방울_illust.jpg": "Desidratação",
+    "태양_illust.jpg": "Calor"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Pular refeição, ficar com pouca água",
+        "e enfrentar calor ou ar-condicionado",
+        "",
+        "podem disparar uma crise de enxaqueca",
+        "mesmo sem nenhum alimento específico"
+      ]
+    },
+    {
+      "name": "Jejum prolongado",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Ficar muitas horas sem comer",
+        "derruba a glicose no sangue",
+        "",
+        "Pesquisas mostram mais crises",
+        "em quem pula o café da manhã"
+      ]
+    },
+    {
+      "name": "Coma assim",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Faça pequenos lanches leves",
+        "a cada 3 horas, sem pular refeição",
+        "",
+        "Manter a glicose estável",
+        "reduz o risco de crise"
+      ]
+    },
+    {
+      "name": "Desidratação",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Cerca de 1 em cada 3 pessoas",
+        "com enxaqueca aponta a falta de água",
+        "",
+        "A queda no volume de sangue",
+        "muda a circulação no cérebro"
+      ]
+    },
+    {
+      "name": "Beba água assim",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Beba água aos poucos",
+        "ao longo do dia",
+        "",
+        "Um estudo viu 21 horas a menos",
+        "de dor com 1,5L extra de água por dia"
+      ]
+    },
+    {
+      "name": "Calor e ar-condicionado",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "A dor de cabeça sobe cerca de 7,5%",
+        "a cada 5°C a mais de calor",
+        "",
+        "Trocar calor por ar-condicionado",
+        "gelado de repente também pesa"
+      ]
+    },
+    {
+      "name": "Evite assim",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Evite trocas bruscas de temperatura",
+        "entre ambientes gelados e o calor",
+        "",
+        "Ajuste o ar-condicionado aos poucos",
+        "e tenha uma roupa leve por perto"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A enxaqueca do dia a dia",
+        "nem sempre vem de um alimento"
+      ],
+      [
+        "Comer na hora certa, beber água",
+        "e evitar trocas bruscas de temperatura ajuda"
+      ]
+    ],
+    "tip": [
+      "Coma a cada 3 horas e beba água aos poucos,",
+      "evite trocas bruscas entre calor e ar-condicionado"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Inscreva-se, curta e siga!"
+  },
+  "topic_word": "Enxaqueca"
+}
