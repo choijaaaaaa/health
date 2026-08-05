@@ -564,6 +564,11 @@ class Ctx:
         bg_mode, bg_top, bg_bottom = _bg_variant_for_seed(title_seed)
         self.bg_base = _build_background(bg_mode, bg_top, bg_bottom)
         self.checkbox_shape = _checkbox_shape_for_seed(title_seed)
+        # WHY y_jitter(2026-08-05, "저품질/반복" 정책 리스크 대응): topic마다
+        # 오프닝(프레임 0=사실상 썸네일) eyebrow 시작 위치를 ±20px 정도 미세
+        # 이동 — title_eyebrow_y가 아래 avail/text_avail 계산의 기준점이라
+        # 여기서만 흔들어도 텍스트·카드 배분 전체가 자동으로 안전하게 맞춰짐.
+        self.y_jitter = sum(ord(c) * (i * 5 + 3) for i, c in enumerate(title_seed)) % 41 - 20
 
         cues = _parse_srt(str(srt_path))
         self.timing = _build_timing(cues, total_duration, self.n_items)
@@ -604,7 +609,7 @@ class Ctx:
         # 예약)만 놓고 그 아래 전부 배경만 남아 캔버스 하단 절반이 빈 채로
         # 남았었다(진단된 문제). eyebrow를 checklist 화면과 비슷하게 위로
         # 당겨서 그만큼을 이미지 카드 몫으로 돌린다.
-        self.title_eyebrow_y = 90
+        self.title_eyebrow_y = 90 + self.y_jitter
         text_top_est = self.title_eyebrow_y + eyebrow_h_est + 46
         text_block_budget = 480
         avail = max(SAFE_Y1 - text_top_est - 40, 200)
