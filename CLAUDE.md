@@ -379,10 +379,16 @@ python3 -m pytest tests/ -v
 ## 유튜브 쇼츠 자동 업로드 (`lib/youtube_upload.py`)
 
 - 단일 topic: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]`
-- 하루 배치(사용자가 "업로드해" 지시할 때만 직접 트리거):
-  `python3 lib/youtube_upload.py --daily-batch [privacy]` — 4개를
-  10/13/16/19시(KST) 예약 게시. `select_daily_topics`가 다른 플랫폼에 이미
-  포스팅된 topic을 우선 선택.
+- ⚠️ **일괄 업로드 표준은 `--daily-per-channel`, 채널당 하루 2개로 고정**
+  (2026-08-05 재확인 — 저품질/반복 콘텐츠 정책 리서치 결과 업로드 빈도 자체는
+  정책 위반 기준이 아니지만, 늘려서 얻는 이득도 없어서 보수적으로 2개 유지
+  하기로 확정). 사용자가 "업로드해" 지시할 때만 직접 트리거:
+  `python3 lib/youtube_upload.py --daily-per-channel [privacy]` — 채널(언어)
+  마다 현지 시간 오전 10시·오후 6시에 예약 게시. `select_daily_topics_for_lang`이
+  다른 플랫폼에 이미 포스팅된 topic을 우선 선택.
+  - ⚠️ **`--daily-batch`(하루 4개, KST 고정)는 레거시 — 새로 쓰지 말 것.**
+    언어 확장 전 한국어 단일 채널 시절 로직이라 6개 채널 체제에 안 맞는다.
+    코드는 남아있지만(`select_daily_topics`) 호출하지 말 것.
 - 업로드 성공 시 자동으로: 카테고리 재생목록에 추가(중복 삽입 방지 확인 후),
   `output/youtube_uploaded.json`에 기록. 커스텀 썸네일 자동 설정은 하지 않음
   (결과 품질 문제로 제거) — 유튜브 자동 제안 또는 Studio 수동.
