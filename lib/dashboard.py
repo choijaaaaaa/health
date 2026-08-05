@@ -95,6 +95,7 @@ CARD_TEMPLATE = """
     <button class="btn-copy" data-target="cap-{idx}" data-cover="{cover_attr}">{copy_label}</button>
     <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
+    {naver_connect_comment_btn}
   </div>
 </div>
 """
@@ -295,6 +296,11 @@ PAGE_TEMPLATE = """<!doctype html>
   }}
   .btn-copy.copied {{ background: var(--gold); color: #fff; }}
   .edit-hint {{ font-size: 11px; color: var(--ink-soft); }}
+  .copy-naver-connect-comment {{
+    background: var(--gold-soft, #fdeecb); color: var(--gold, #b5820a); border: none;
+    font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  }}
+  .copy-naver-connect-comment.copied {{ background: var(--gold); color: #fff; }}
 
   .lightbox {{
     display: none; position: fixed; inset: 0; background: rgba(20,14,10,0.85);
@@ -421,6 +427,24 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {{
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
+// WHY 이 버튼이 따로 필요한지(2026-08-06, "네이버클립 근데 댓글까지 필요한거면
+// 댓글도 어떻게 올릴지 UI에 반영되어야할거같은데"): 네이버 쇼핑 커넥트 표시
+// 규정은 쿠팡 파트너스와 위치가 다르다 — 대가성 문구를 캡션 본문이 아니라
+// 업로드 직후 남기는 "첫 번째 고정 댓글"로 따로 달아야 한다(공식 문서는 못
+// 찾음, 실제 활동자 가이드 기준 — CLAUDE.md "네이버 클립" 절 참고). 문구
+// 자체가 고정 문장이라 링크 조합이 필요없어서 COMMENT_LINK_INTRO/
+// _buildLinkBlock 재사용 없이 상수 하나만 그대로 복사한다.
+const NAVER_CONNECT_COMMENT = "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.";
+document.querySelectorAll(".copy-naver-connect-comment").forEach(btn => {{
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {{
+    navigator.clipboard.writeText(NAVER_CONNECT_COMMENT).then(() => {{
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => {{ btn.textContent = originalLabel; btn.classList.remove("copied"); }}, 1500);
+    }});
+  }});
+}});
 // WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
 // 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
 // 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
@@ -1402,6 +1426,20 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 suppress_product_block_attr="1" if p.get("suppress_product_block") else "",
                 comment_dm_attr="1" if p.get("comment_dm_automation") else "",
                 link_in_comment_attr="1" if p.get("link_in_comment") else "",
+                # WHY name=="네이버 클립"으로 직접 판별하는지(2026-08-06): network:"naver"
+                # 플래그는 지금 네이버 블로그에만 붙어있음(클립은 캡션에 링크
+                # 자체를 안 써서 이 플래그가 필요없음, 위 "네이버 블로그, 다시
+                # 브랜드커넥트로" 절 참고) — 이 버튼은 대가성 문구를 댓글로 따로
+                # 달아야 하는 클립 전용이라 이름으로 직접 잡는다.
+                # suppress_product_block이 걸려있는 동안(제휴 보류 중)은 버튼
+                # 자체를 숨긴다 — 재개 시점에 플래그만 지우면 이 버튼도 같이
+                # 나타나게.
+                naver_connect_comment_btn=(
+                    '<button type="button" class="copy-naver-connect-comment">'
+                    "📌 커넥트 댓글 문구 복사</button>"
+                    if p.get("name") == "네이버 클립" and not p.get("suppress_product_block")
+                    else ""
+                ),
             )
             idx += 1
         sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
