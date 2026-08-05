@@ -96,6 +96,35 @@ THEME_PAIRS = [
         "before": {"top": (70, 56, 92), "bottom": (38, 30, 52), "accent": (196, 168, 255)},
         "after": {"top": (255, 138, 128), "bottom": (255, 73, 108), "accent": (110, 18, 38)},
     },
+    # WHY 5개 추가(2026-08-05, "저품질/반복" 정책 리스크 대응 — 원래 3개뿐이라
+    # topic 3개마다 배색이 그대로 반복됐다): 기존 관습(before=차분/어두운 톤,
+    # after=밝고 따뜻한 톤, after.accent는 진행 표시 대비를 위해 어두운
+    # 변형)을 그대로 유지하면서 색상군만 서로 겹치지 않게 넓힘.
+    {
+        "name": "deep_teal_warm_gold",
+        "before": {"top": (20, 60, 65), "bottom": (10, 30, 33), "accent": (120, 220, 210)},
+        "after": {"top": (255, 200, 80), "bottom": (230, 150, 30), "accent": (90, 55, 10)},
+    },
+    {
+        "name": "slate_navy_soft_peach",
+        "before": {"top": (35, 45, 65), "bottom": (18, 24, 36), "accent": (150, 180, 220)},
+        "after": {"top": (255, 190, 160), "bottom": (255, 150, 110), "accent": (110, 55, 30)},
+    },
+    {
+        "name": "charcoal_maroon_bright_mint",
+        "before": {"top": (50, 30, 35), "bottom": (28, 16, 20), "accent": (220, 140, 150)},
+        "after": {"top": (110, 230, 190), "bottom": (40, 190, 140), "accent": (10, 70, 50)},
+    },
+    {
+        "name": "plum_wine_sunny_yellow",
+        "before": {"top": (60, 25, 55), "bottom": (32, 12, 30), "accent": (210, 140, 200)},
+        "after": {"top": (255, 220, 90), "bottom": (255, 180, 40), "accent": (100, 70, 10)},
+    },
+    {
+        "name": "steel_blue_warm_rose",
+        "before": {"top": (45, 60, 80), "bottom": (22, 30, 42), "accent": (170, 200, 230)},
+        "after": {"top": (255, 150, 170), "bottom": (230, 90, 120), "accent": (100, 25, 45)},
+    },
 ]
 
 WIPE_STYLES = ["wipeleft", "wiperight", "slideup", "smoothleft"]
