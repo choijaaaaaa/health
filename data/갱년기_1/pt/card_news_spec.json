@@ -1,0 +1,103 @@
+{
+  "title": [
+    "Come igual, treina igual,",
+    "mas a barriga cresce sozinha",
+    "depois dos 45?"
+  ],
+  "eyebrow": "Alerta da menopausa",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refrigerante",
+    "흰빵_illust.jpg": "Pão e biscoito",
+    "계란_illust.jpg": "Ovo",
+    "검은콩_illust.jpg": "Feijão"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "O estrogênio cai e o corpo",
+        "fica resistente à insulina",
+        "",
+        "A massa muscular também",
+        "some mais rápido — e é o",
+        "músculo que mais queima",
+        "calorias em repouso"
+      ]
+    },
+    {
+      "name": "Açúcar e ultraprocessados",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Pão, biscoito e refrigerante",
+        "elevam a glicose rápido demais",
+        "",
+        "Isso empurra a gordura",
+        "direto pra região da barriga"
+      ]
+    },
+    {
+      "name": "Ultraprocessados — o ajuste",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Não precisa cortar tudo",
+        "",
+        "Trocar o refrigerante por água",
+        "na maior parte da semana",
+        "já ajuda bastante"
+      ]
+    },
+    {
+      "name": "Perda de massa muscular",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Menos músculo significa",
+        "menos calorias queimadas",
+        "só pra manter o corpo funcionando",
+        "",
+        "Um estudo mostrou ganho de",
+        "até 2,5 kg só pela queda hormonal"
+      ]
+    },
+    {
+      "name": "Proteína — a meta certa",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "1,2 a 1,6 g de proteína",
+        "por quilo de peso ao dia",
+        "",
+        "Dois ovos já dão",
+        "cerca de 12 g"
+      ]
+    },
+    {
+      "name": "Feijão também conta",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Uma concha de feijão soma",
+        "mais 7 a 9 g de proteína",
+        "",
+        "Combinado com arroz forma",
+        "um perfil completo de aminoácidos"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sobrepeso apareceu em 72,6%",
+        "das brasileiras na pós-menopausa"
+      ],
+      [
+        "Mas proteína e atividade física",
+        "juntas revertem boa parte disso"
+      ]
+    ],
+    "tip": [
+      "Pequenas trocas na proteína e no açúcar",
+      "pesam mais do que parece nessa fase"
+    ],
+    "cta": "Quer mais dicas de saúde assim? Se inscreva e siga o canal"
+  },
+  "topic_word": "Menopausa"
+}
