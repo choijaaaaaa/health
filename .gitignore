@@ -22,3 +22,4 @@ output/**/*.mp4
 output/**/card_news/*.jpg
 !output/**/card_news/*00_표지.jpg
 output/**/_frames/
+_테스트*.mp3

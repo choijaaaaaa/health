@@ -237,6 +237,46 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, audio_forma
     }
 
 
+def revert_tempo_to_1x(topic: str) -> None:
+    """1.15배속(구 AUDIO_TEMPO)으로 이미 생성된 narration.mp3/srt를 원 속도(1.0)로
+    되돌린다(2026-08-05, AUDIO_TEMPO 1.15->1.0 전환 시점에 이미 만들어둔 기존
+    topic을 Typecast API 재호출 비용 없이 되돌리기 위함 — "확인해보고 문제없으면
+    타입캐스트 다시찔러서 돈낼 필요없이 그렇게해도될거같은데" 확정, ffmpeg
+    atempo 필터로 테스트해서 길이·볼륨 이상 없음 확인 완료).
+
+    ffmpeg의 atempo(피치 보존 타임스트레치)로 오디오를 1/1.15배 늘리고, SRT
+    타임스탬프도 같은 비율(x1.15)로 다시 계산해서 오디오와 자막이 계속 맞게
+    한다. ⚠️ 이미 1.0배속으로 새로 생성된(2026-08-05 이후) topic에는 절대
+    쓰지 말 것 — 다시 느려져서 배속이 더 꼬인다. 1.15배속 시절 topic 전용."""
+    audio_dir = ROOT / "output" / topic
+    mp3_candidates = [p for p in audio_dir.glob("*narration.mp3")]
+    if not mp3_candidates:
+        raise FileNotFoundError(f"{audio_dir}에 narration.mp3 없음")
+    mp3_path = mp3_candidates[0]
+    srt_path = mp3_path.with_name(mp3_path.name.replace("narration.mp3", "narration.srt"))
+
+    factor = 1 / 1.15
+    tmp_path = mp3_path.with_name(mp3_path.stem + ".tmp.mp3")
+    subprocess.run(
+        ["ffmpeg", "-y", "-i", str(mp3_path), "-filter:a", f"atempo={factor}", str(tmp_path)],
+        check=True, capture_output=True,
+    )
+    tmp_path.replace(mp3_path)
+
+    if srt_path.exists():
+        text = srt_path.read_text(encoding="utf-8")
+
+        def _scale(m: re.Match) -> str:
+            h, mi, s, ms = int(m[1]), int(m[2]), int(m[3]), int(m[4])
+            total = h * 3600 + mi * 60 + s + ms / 1000
+            return _format_srt_time(total * 1.15)
+
+        new_text = re.sub(r"(\d{2}):(\d{2}):(\d{2}),(\d{3})", _scale, text)
+        srt_path.write_text(new_text, encoding="utf-8")
+
+    print(f"[typecast] {topic}: 1.15배속 -> 1.0배속(원 속도) 변환 완료 — {mp3_path.name}, {srt_path.name}")
+
+
 _PACING_PATH = ROOT / "data" / "tts_pacing.json"
 _CHAR_BASED_LANGS = {"ja", "zh-TW", "th"}
 
@@ -470,7 +510,10 @@ def _voice_lang_from_topic(topic: str) -> str:
 
 
 if __name__ == "__main__":
-    if "--multi-voice" in sys.argv:
+    if "--revert-tempo" in sys.argv:
+        # 사용법: python3 lib/typecast_tts.py --revert-tempo <topic>
+        revert_tempo_to_1x(sys.argv[sys.argv.index("--revert-tempo") + 1])
+    elif "--multi-voice" in sys.argv:
         # 사용법: python3 lib/typecast_tts.py <topic> --multi-voice <narration.txt 경로>
         topic = sys.argv[1]
         narration_path = sys.argv[sys.argv.index("--multi-voice") + 1]
