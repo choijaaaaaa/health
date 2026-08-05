@@ -1055,11 +1055,18 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
     flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
     padding: 14px;
   }}
+  .plat-card.is-done {{ opacity: 0.55; border-color: var(--accent); background: var(--accent-soft); }}
   .plat-lang {{
     display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
     text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
   }}
-  .plat-card h3 {{ margin: 0 0 8px; font-size: 14px; }}
+  .plat-head {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }}
+  .plat-card h3 {{ margin: 0; font-size: 14px; }}
+  .plat-done-check {{
+    display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-soft);
+    white-space: nowrap; cursor: pointer; flex: 0 0 auto;
+  }}
+  .plat-done-check input {{ width: 13px; height: 13px; accent-color: var(--accent); cursor: pointer; }}
   .plat-card textarea {{
     width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
     font-size: 12px; font-family: inherit; resize: vertical;
@@ -1100,6 +1107,31 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
     navigator.clipboard.writeText(ta.value);
   }});
 }});
+// WHY 글로벌 카드에도 완료 체크를 다는지(2026-08-05, "인스타그램 릴스
+// 글로벌꺼도 선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko
+// dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
+// hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
+// 내보내기가 언어 상관없이 전부 픽업하게 한다.
+const TOPIC_NAME = {topic_name_js};
+const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
+document.querySelectorAll(".plat-done-toggle").forEach(cb => {{
+  const storageKey = STORAGE_PREFIX + cb.dataset.key;
+  const card = cb.closest(".plat-card");
+  if (localStorage.getItem(storageKey)) {{
+    cb.checked = true;
+    card.classList.add("is-done");
+  }}
+  cb.addEventListener("change", () => {{
+    if (cb.checked) {{
+      const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() }};
+      localStorage.setItem(storageKey, JSON.stringify(record));
+      card.classList.add("is-done");
+    }} else {{
+      localStorage.removeItem(storageKey);
+      card.classList.remove("is-done");
+    }}
+  }});
+}});
 </script>
 </body>
 </html>
@@ -1125,12 +1157,35 @@ def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str
     폴더에서 직접 작업하는 사람에게는 불필요한 안내라 아예 뺐다. WHY 언어
     라벨을 붙이는지(2026-08-05, "한국이든 글로벌이든 전부 한 탭으로" — 언어별
     탭 제거): 이제 여러 언어의 카드가 한 화면에 같이 나열되므로, 카드만 봐서는
-    어떤 언어인지 구분이 안 돼서 카드마다 언어명을 표시한다."""
+    어떤 언어인지 구분이 안 돼서 카드마다 언어명을 표시한다.
+    WHY "완료" 체크박스가 있는지(2026-08-05, "인스타그램 릴스 글로벌꺼도
+    선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko 카드
+    (CARD_TEMPLATE)에만 완료 체크가 있어서 글로벌 topic은 posting_log.csv
+    내보내기(index.html)에 아예 안 잡혔다 — ko와 동일한 hs_done_ localStorage
+    키 스킴을 그대로 써서(아래 UNIFIED_PAGE_TEMPLATE의 done-toggle 스크립트
+    참고) CSV 내보내기가 언어 무관하게 전부 픽업하게 한다. done_key에 lang을
+    섞는 이유: 5개 언어가 전부 같은 플랫폼명("Instagram Reels")을 쓰므로
+    lang 없이는 완료 체크가 언어끼리 서로 덮어씀."""
     lang_label = GLOBAL_LANG_LABELS.get(lang, lang.upper())
     ta_id = f"g-cap-{lang}-{idx}"
+    # WHY done_key와 data-name이 같은 원문 문자열에서 나오는지: index.html의
+    # CSV 가져오기가 key = DONE_KEY_PREFIX + encodeURIComponent(topic) + "_" +
+    # encodeURIComponent(platform) 식으로 "platform"(=CSV로 내보낸 dataset.name)
+    # 값만으로 key를 재조립한다 — key와 name이 서로 다른 문자열이면 내보내기→
+    # 가져오기 왕복 시 key가 어긋나서 체크 상태가 복원 안 된다(ko 카드의
+    # done_key=quote(p["name"]) / data-name={name} 패턴과 동일하게 맞춤).
+    done_name_raw = f"{platform['name']} ({lang.upper()})"
+    done_key = quote(done_name_raw)
+    done_name = _esc(done_name_raw)
     return f"""
-<div class="plat-card">
-  <h3><span class="plat-lang">{_esc(lang_label)}</span>{_esc(platform['name'])}</h3>
+<div class="plat-card" data-done-key="{done_key}">
+  <div class="plat-head">
+    <h3><span class="plat-lang">{_esc(lang_label)}</span>{_esc(platform['name'])}</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="{done_key}" data-name="{done_name}">
+      <span>완료</span>
+    </label>
+  </div>
   <textarea id="{ta_id}" spellcheck="false">{_esc(platform['caption'])}</textarea>
   <div class="plat-actions">
     <button class="btn-copy" data-target="{ta_id}">캡션 복사</button>
@@ -1230,7 +1285,9 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
         except json.JSONDecodeError:
             pass
 
-    html = UNIFIED_PAGE_TEMPLATE.format(title=_esc(title), lang_sections=sections)
+    html = UNIFIED_PAGE_TEMPLATE.format(
+        title=_esc(title), lang_sections=sections, topic_name_js=json.dumps(base_topic),
+    )
     out_dir = output_root / base_topic
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "dashboard.html").write_text(html, encoding="utf-8")
