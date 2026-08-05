@@ -1,8 +1,38 @@
 [
   {
-    "topic": "갑상선_1/en",
-    "title": "Still tired and puffy even though you take your thyroid pill daily? - Foods That Block Your Thyroid Medication",
-    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/en/dashboard.html",
+    "topic": "가슴쓰림_1/en",
+    "title": "Waking up at 3am with a sour, burning taste in your throat? - Foods That Trigger Heartburn",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/dashboard.html",
+    "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/card_news/en_heartburn_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "가슴쓰림_1/es",
+    "title": "No es lo picante lo que más pega a tu reflujo - Alimentos que agravan el reflujo",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "가슴쓰림_1/ja",
+    "title": "飲み会のあと、いつも胸が焼けるような感じがする？ - 逆流性食道炎を招く食べ物",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "가슴쓰림_1/ko",
+    "title": "가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/dashboard.html",
+    "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/card_news/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "가슴쓰림_1/pt",
+    "title": "Depois do churrasco de domingo, aquela queimação no peito? - Alimentos que pioram o refluxo",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "가슴쓰림_1/ru",
+    "title": "После новогоднего стола жжёт в груди? — 3 блюда, которые вызывают изжогу",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
@@ -48,12 +78,6 @@
     "thumbnail": null
   },
   {
-    "topic": "갱년기_1/ko",
-    "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/dashboard.html",
-    "thumbnail": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
     "topic": "갱년기_1/pt",
     "title": "Come igual, treina igual, mas a barriga cresce sozinha depois dos 45? - O que realmente muda na menopausa",
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/pt/dashboard.html",
@@ -69,30 +93,6 @@
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "고령_1/es",
-    "title": "¿Te cuesta levantarte de la silla sin usar las manos? - 3 hábitos con la proteína que te restan fuerza",
-    "url": "output/%EA%B3%A0%EB%A0%B9_1/es/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "고령_1/ja",
-    "title": "元気な高齢者の10人に2人が「かくれ脱水」？ - 見落としがちな飲み物・食べ方",
-    "url": "output/%EA%B3%A0%EB%A0%B9_1/ja/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "고령_1/ko",
-    "title": "손발이 저리고 차갑고 잘 붓는다면 주목! - 60대 음식 똑똑하게 고르는 법",
-    "url": "output/%EA%B3%A0%EB%A0%B9_1/ko/dashboard.html",
-    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/ko/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
-    "topic": "고령_1/ru",
-    "title": "Путаются мысли и наваливается слабость в пост? Как питаться с умом после 60",
-    "url": "output/%EA%B3%A0%EB%A0%B9_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
@@ -118,12 +118,6 @@
     "title": "예전보다 키가 줄고 허리가 자꾸 굽고 있다면, 이유가 있어요 - 골다공증 부르는 음식 피하는 법",
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ko/card_news/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
-    "topic": "골다공증_1/pt",
-    "title": "Você evita leite por intolerância à lactose? Isso pode estar acelerando sua osteoporose",
-    "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/pt/dashboard.html",
-    "thumbnail": null
   },
   {
     "topic": "골다공증_1/ru",
@@ -168,9 +162,51 @@
     "thumbnail": null
   },
   {
-    "topic": "눈_2/en",
-    "title": "Third energy drink of the day, and your eyelid still won't stop twitching? - Foods & Drinks That Trigger Eye Twitching",
-    "url": "output/%EB%88%88_2/en/dashboard.html",
+    "topic": "구내염_1/pt",
+    "title": "A afta sempre volta no mesmo lugar? 3 alimentos que pioram a ferida",
+    "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "구내염_1/ru",
+    "title": "У каждой третьей женщины находят нехватку железа — 3 продукта, которые мешают ранке зажить",
+    "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/en",
+    "title": "Headlights turning into starbursts on your drive home at night? - Everyday Habits Hurting Your Eyes",
+    "url": "output/%EB%88%88_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/es",
+    "title": "¿Se te enrojecen los ojos al picar chile, o le das al refresco sin pensarlo? - Los hábitos que dañan tu vista en México",
+    "url": "output/%EB%88%88_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/ja",
+    "title": "スマホを見た後、遠くのピントがすぐ合わないことはありませんか？ - それ「スマホ老眼」かもしれません",
+    "url": "output/%EB%88%88_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/ko",
+    "title": "눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? - 눈 건강 해치는 의외의 음식·습관",
+    "url": "output/%EB%88%88_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_1/ko/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "눈_1/pt",
+    "title": "Aquela carninha vermelha crescendo no canto do olho? - Os hábitos que prejudicam sua visão no Brasil",
+    "url": "output/%EB%88%88_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/ru",
+    "title": "Глаза красные и как будто в них насыпали песка к вечеру? - Зимние привычки, которые вредят зрению",
+    "url": "output/%EB%88%88_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
@@ -184,12 +220,6 @@
     "title": "実は、毎日の「元気チャージ」習慣が、まぶたのピクピクを招いているかも - まぶたのピクピクを招く飲み物習慣",
     "url": "output/%EB%88%88_2/ja/dashboard.html",
     "thumbnail": null
-  },
-  {
-    "topic": "눈_2/ko",
-    "title": "눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법",
-    "url": "output/%EB%88%88_2/ko/dashboard.html",
-    "thumbnail": "output/%EB%88%88_2/ko/card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
     "topic": "눈_2/pt",
@@ -240,9 +270,21 @@
     "thumbnail": null
   },
   {
-    "topic": "당뇨_1/en",
-    "title": "1 in 3 American adults already have prediabetes - The Warning Signs Your Body Is Sending",
-    "url": "output/%EB%8B%B9%EB%87%A8_1/en/dashboard.html",
+    "topic": "다리쥐_1/en",
+    "title": "1 in 3 adults over 50 get jolted awake by a leg cramp - Foods That Drain Your Muscles at Night",
+    "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "다리쥐_1/es",
+    "title": "¿Calambres en las piernas durante el embarazo? Por qué pasan y qué hacer",
+    "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "다리쥐_1/ja",
+    "title": "毎晩冷房をつけたまま眠っていませんか、実はそれが夜中の足のつりの原因かも - こむら返りを防ぐ3つの見直しポイント",
+    "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ja/dashboard.html",
     "thumbnail": null
   },
   {
@@ -264,12 +306,6 @@
     "thumbnail": "output/%EB%8B%B9%EB%87%A8_1/ko/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
-    "topic": "당뇨_1/pt",
-    "title": "Sede que não passa de madrugada? - 4 hábitos que disparam sua glicose",
-    "url": "output/%EB%8B%B9%EB%87%A8_1/pt/dashboard.html",
-    "thumbnail": null
-  },
-  {
     "topic": "당뇨_1/ru",
     "title": "Кожа чешется без сыпи, особенно по ночам? - 4 сладости со скрытым сахаром",
     "url": "output/%EB%8B%B9%EB%87%A8_1/ru/dashboard.html",
@@ -279,12 +315,6 @@
     "topic": "목_1/en",
     "title": "Fell asleep scrolling on your phone and woke up unable to turn your head? - Foods & Drinks Behind Your Morning Neck Pain",
     "url": "output/%EB%AA%A9_1/en/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "목_1/es",
-    "title": "9 de cada 10 mexicanos comen más sodio del que necesitan - Lo que hay detrás del dolor de cuello y hombros",
-    "url": "output/%EB%AA%A9_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -312,28 +342,34 @@
     "thumbnail": null
   },
   {
+    "topic": "변비_1/ja",
+    "title": "お腹が張って3日もトイレに行けていないなら - 便秘を悪化させる意外な習慣",
+    "url": "output/%EB%B3%80%EB%B9%84_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "변비_1/ko",
+    "title": "배 팽만감·잔변감·3일째 무소식, 하나라도 해당되면 - 변비 부르는 음식 피하는 법",
+    "url": "output/%EB%B3%80%EB%B9%84_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%B3%80%EB%B9%84_1/ko/card_news/%EB%B3%80%EB%B9%84_1_ko_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "변비_1/pt",
+    "title": "Quase 3 em cada 10 brasileiros convivem com isso - O Hábito no Café da Manhã Que Pode Estar Te Deixando Preso",
+    "url": "output/%EB%B3%80%EB%B9%84_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "변비_1/ru",
+    "title": "Живот вздулся, третий день не идёшь в туалет? - Возможно, дело в твоей утренней каше",
+    "url": "output/%EB%B3%80%EB%B9%84_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "부종_1/en",
     "title": "Rings tight by lunch, ankles thicker by evening? - Foods Behind Your Everyday Swelling",
     "url": "output/%EB%B6%80%EC%A2%85_1/en/dashboard.html",
     "thumbnail": null
-  },
-  {
-    "topic": "부종_1/es",
-    "title": "Le echamos limón, chile y sal a casi todo - 3 alimentos mexicanos que esconden sodio",
-    "url": "output/%EB%B6%80%EC%A2%85_1/es/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "부종_1/ja",
-    "title": "毎日何気なく食べているそれ、実は顔や脚のむくみの原因かもしれません - むくみを招く食習慣3つ",
-    "url": "output/%EB%B6%80%EC%A2%85_1/ja/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "부종_1/ko",
-    "title": "혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법",
-    "url": "output/%EB%B6%80%EC%A2%85_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%B6%80%EC%A2%85_1/ko/card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
     "topic": "부종_1/pt",
@@ -342,9 +378,171 @@
     "thumbnail": null
   },
   {
-    "topic": "부종_1/ru",
-    "title": "Утром лицо опухшее, а к вечеру ноги тяжёлые? - В этих 3 продуктах соли больше, чем кажется",
-    "url": "output/%EB%B6%80%EC%A2%85_1/ru/dashboard.html",
+    "topic": "빈혈_1/en",
+    "title": "Your Legs Won't Stop Moving at Night? It Might Not Be Restlessness — It Could Be Low Iron",
+    "url": "output/%EB%B9%88%ED%98%88_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "빈혈_1/es",
+    "title": "¿Las piernas no te dejan dormir en la noche? - Lo que podría estar bajando tu hierro sin que lo notes",
+    "url": "output/%EB%B9%88%ED%98%88_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "빈혈_1/ja",
+    "title": "体にいいと思って続けている習慣が、貧血を招いているかもしれません - 貧血を招く意外な食習慣3つ",
+    "url": "output/%EB%B9%88%ED%98%88_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "빈혈_1/ko",
+    "title": "이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! - 빈혈 부르는 의외의 음식 습관",
+    "url": "output/%EB%B9%88%ED%98%88_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%B9%88%ED%98%88_1/ko/card_news/%EB%B9%88%ED%98%88_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "빈혈_1/pt",
+    "title": "Subiu as escadas do trabalho e ficou sem fôlego, com a cabeça rodando? - O que pode estar sabotando seu ferro",
+    "url": "output/%EB%B9%88%ED%98%88_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "빈혈_1/ru",
+    "title": "Ты ешь гречку от анемии, но гемоглобин не растёт? - Вот что на самом деле решает усвоение железа",
+    "url": "output/%EB%B9%88%ED%98%88_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "새치_1/en",
+    "title": "Going gray way earlier than your friends? 3 habits that speed it up",
+    "url": "output/%EC%83%88%EC%B9%98_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "새치_1/es",
+    "title": "Si te salen canas nuevas cada semana antes de los 35, no es solo genética - 3 hábitos que aceleran las canas",
+    "url": "output/%EC%83%88%EC%B9%98_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "손발저림_1/en",
+    "title": "Turns Out, Your Diabetes Pill Might Be Behind That Tingling In Your Hands and Feet - Causes of Hand and Foot Numbness",
+    "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "손발저림_1/es",
+    "title": "¿Se te duermen las manos y los pies? 3 causas que casi nadie relaciona - Hormigueo en manos y pies",
+    "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "손발저림_1/ja",
+    "title": "涼しい部屋でも手足の先だけ冷たくジンジンする方へ - 見直したい3つの飲食習慣",
+    "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "손발저림_1/ko",
+    "title": "손발 끝이 자꾸 저리고 시린가요? - 손발 저림 부르는 음식 피하는 법",
+    "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ko/card_news/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "수면_1/en",
+    "title": "Revenge Bedtime Procrastination Is Costing Americans Sleep — Try These 3 Foods",
+    "url": "output/%EC%88%98%EB%A9%B4_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "수면_1/es",
+    "title": "¿Duermes mal por el estrés? 3 remedios mexicanos para relajarte antes de dormir",
+    "url": "output/%EC%88%98%EB%A9%B4_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "수면_1/ja",
+    "title": "朝起きても体がだるいなら、それは睡眠負債のサイン - GABAで整える食習慣",
+    "url": "output/%EC%88%98%EB%A9%B4_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "수면_1/ko",
+    "title": "불면증 때문에 힘든 분들 주목! 천연 수면 음식 이야기",
+    "url": "output/%EC%88%98%EB%A9%B4_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_1/ko/card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "수면_1/pt",
+    "title": "Acorda sempre no mesmo horário de madrugada? 3 alimentos que ajudam a manter o sono",
+    "url": "output/%EC%88%98%EB%A9%B4_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "수면_1/ru",
+    "title": "Зимой темнеет рано, а сон не идёт? - 3 продукта для крепкого сна",
+    "url": "output/%EC%88%98%EB%A9%B4_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "식곤증_1/en",
+    "title": "Eyelids Getting Heavy 20 Minutes After Lunch? - The Classic American Lunch Might Be Why",
+    "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "식곤증_1/es",
+    "title": "¿Sueño Insoportable Después de Comer? - El Mal del Puerco Tiene Causa",
+    "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "식곤증_1/pt",
+    "title": "Modorra Depois do Almoço? - O Pico de Glicemia Pode Ser a Causa",
+    "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "식곤증_1/ru",
+    "title": "После обеда клонит в сон? Проблема не в вас, а в еде на тарелке",
+    "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "위_1/en",
+    "title": "Post-Meal Bloat? It Might Be These 3 Hidden Habits, Not Your Food",
+    "url": "output/%EC%9C%84_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "위_1/es",
+    "title": "¿Se te infla el abdomen después de comer? - No siempre es por lo picante",
+    "url": "output/%EC%9C%84_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "위_1/ja",
+    "title": "実はそのガムが、お腹の張りの原因かもしれません - 見直したい3つの食習慣",
+    "url": "output/%EC%9C%84_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "위_1/ko",
+    "title": "밥 먹고 배가 빵빵하게 부풀고 트림·방귀가 잦다면 저장부터 하세요 - 더부룩함 부르는 의외의 습관",
+    "url": "output/%EC%9C%84_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%9C%84_1/ko/card_news/%EC%9C%84_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "위_1/pt",
+    "title": "Barriga Estufa Depois de Comer? Pode Ser Estes 3 Hábitos, Não a Comida",
+    "url": "output/%EC%9C%84_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "위_1/ru",
+    "title": "Живот раздувается после еды? Дело может быть не в порции — 3 скрытые привычки",
+    "url": "output/%EC%9C%84_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
@@ -354,33 +552,9 @@
     "thumbnail": null
   },
   {
-    "topic": "이명_1/es",
-    "title": "¿Te truena la mandíbula y además te zumba el oído? 3 causas que nadie conecta con los acúfenos",
-    "url": "output/%EC%9D%B4%EB%AA%85_1/es/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "이명_1/ja",
-    "title": "耳の奥でキーンと鳴る音 - 実は首や肩のコリが関係しているかもしれません",
-    "url": "output/%EC%9D%B4%EB%AA%85_1/ja/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "이명_1/ko",
-    "title": "조용한 곳에서 들리는 삐- 소리, 스트레스 때문이 아니라 이명 부르는 음식 때문일 수 있어요",
-    "url": "output/%EC%9D%B4%EB%AA%85_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%9D%B4%EB%AA%85_1/ko/card_news/%EC%9D%B4%EB%AA%85_1_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
     "topic": "이명_1/pt",
     "title": "Zumbido que só aparece à noite ou depois do fone? 3 hábitos comuns podem ser a causa",
     "url": "output/%EC%9D%B4%EB%AA%85_1/pt/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "이명_1/ru",
-    "title": "Тянетесь за таблеткой от головы, а в ушах потом звенит? Дело может быть не в стрессе",
-    "url": "output/%EC%9D%B4%EB%AA%85_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
@@ -414,12 +588,6 @@
     "thumbnail": null
   },
   {
-    "topic": "장_1/es",
-    "title": "¿Se te infla el estómago casi a diario? 3 causas que nadie relaciona con eso",
-    "url": "output/%EC%9E%A5_1/es/dashboard.html",
-    "thumbnail": null
-  },
-  {
     "topic": "장_1/ja",
     "title": "お腹の張りやおならが気になる方へ - 見直したい食べ物・飲み物3つ",
     "url": "output/%EC%9E%A5_1/ja/dashboard.html",
@@ -441,6 +609,18 @@
     "topic": "장_1/ru",
     "title": "Живот раздувает после еды? - 3 продукта, которые стоит проверить",
     "url": "output/%EC%9E%A5_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "장_2/en",
+    "title": "Started a protein shake, an iron pill, or a daily antacid? - Habits That Cause Constipation",
+    "url": "output/%EC%9E%A5_2/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "장_2/es",
+    "title": "3 Alimentos que te Pueden Estar Estriñendo (y Comes Seguido)",
+    "url": "output/%EC%9E%A5_2/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -468,12 +648,6 @@
     "thumbnail": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ko/card_news/%EC%A0%84%EB%A6%BD%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
-    "topic": "전립선_1/pt",
-    "title": "Depois de um churrasco de sábado, quem passou dos 50 já sabe - 3 Hábitos à Noite Que Pioram Isso",
-    "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/pt/dashboard.html",
-    "thumbnail": null
-  },
-  {
     "topic": "전립선_1/ru",
     "title": "Если весь день сидишь за рулём или за компьютером и встаёшь ночью чаще других - дело не только в возрасте",
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ru/dashboard.html",
@@ -492,16 +666,10 @@
     "thumbnail": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ko/card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
-    "topic": "췌장_1/ja",
-    "title": "お酒のお供のから揚げが招くみぞおち〜背中の痛み - 膵臓を守る3つの習慣",
-    "url": "output/%EC%B7%8C%EC%9E%A5_1/ja/dashboard.html",
+    "topic": "췌장_1",
+    "title": "췌장_1",
+    "url": "output/%EC%B7%8C%EC%9E%A5_1/dashboard.html",
     "thumbnail": null
-  },
-  {
-    "topic": "췌장_1/ko",
-    "title": "명치에서 등까지 통증이 뻗친다, 대변이 물에 뜬다 — 하나라도 해당되면 - 췌장 굳게 만드는 냉장고 음식",
-    "url": "output/%EC%B7%8C%EC%9E%A5_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%B7%8C%EC%9E%A5_1/ko/card_news/%EC%B7%8C%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
     "topic": "콩팥_1/ja",
@@ -516,6 +684,30 @@
     "thumbnail": "output/%EC%BD%A9%ED%8C%A5_1/ko/card_news/%EC%BD%A9%ED%8C%A5_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "탈모_1/ja",
+    "title": "残業後はコンビニ、飲み会はお酒、寝る前はスマホ？ 髪に負担をかける生活習慣3つ",
+    "url": "output/%ED%83%88%EB%AA%A8_1/ja/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "탈모_1/ko",
+    "title": "머리 감을 때마다 한 움큼씩 빠지고 정수리 가르마가 휑해지고 있다면, 이유가 있어요 - 탈모 부르는 식탁 위 습관",
+    "url": "output/%ED%83%88%EB%AA%A8_1/ko/dashboard.html",
+    "thumbnail": "output/%ED%83%88%EB%AA%A8_1/ko/card_news/%ED%83%88%EB%AA%A8_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "탈모_1/pt",
+    "title": "Quase metade das brasileiras já sentiu o cabelo cair mais - 3 hábitos que aceleram a queda de cabelo",
+    "url": "output/%ED%83%88%EB%AA%A8_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "탈모_1/ru",
+    "title": "Если зимой расчёска забивается сильнее обычного, а к весне волосы редеют - дело не только в генах",
+    "url": "output/%ED%83%88%EB%AA%A8_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "통풍_1/ja",
     "title": "飲み会の翌朝、足の親指がズキズキするなら要注意 - 痛風を招く居酒屋メニュー",
     "url": "output/%ED%86%B5%ED%92%8D_1/ja/dashboard.html",
@@ -526,18 +718,6 @@
     "title": "엄지발가락이나 무릎이 갑자기 벌겋게 붓고 아프다면 주목! - 통풍 부르는 음식 피하는 법",
     "url": "output/%ED%86%B5%ED%92%8D_1/ko/dashboard.html",
     "thumbnail": "output/%ED%86%B5%ED%92%8D_1/ko/card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
-    "topic": "편두통_1/en",
-    "title": "Wine, takeout, and a diet soda in one day - temples pounding by morning? - Foods That May Trigger Migraines",
-    "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/en/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "편두통_1/es",
-    "title": "¿Te saltas comidas, casi no tomas agua, y se te antoja chocolate? - Esto te dice tu migraña, no lo que crees",
-    "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/es/dashboard.html",
-    "thumbnail": null
   },
   {
     "topic": "편두통_1/ja",
@@ -564,28 +744,52 @@
     "thumbnail": null
   },
   {
-    "topic": "혈당_1/ja",
-    "title": "丼もの早食い、甘いスティックコーヒー、〆のラーメン。心当たりがあるなら - 血糖値スパイクを招く意外な習慣3つ",
-    "url": "output/%ED%98%88%EB%8B%B9_1/ja/dashboard.html",
+    "topic": "피부_1/ja",
+    "title": "肌のくすみや小じわが気になる方へ - コラーゲンを壊す意外な「焼き色」習慣",
+    "url": "output/%ED%94%BC%EB%B6%80_1/ja/dashboard.html",
     "thumbnail": null
   },
   {
-    "topic": "혈당_1/ko",
-    "title": "혈당 관리에 어려움이 있는 분들 주목! 돼지감자차 이야기",
-    "url": "output/%ED%98%88%EB%8B%B9_1/ko/dashboard.html",
-    "thumbnail": "output/%ED%98%88%EB%8B%B9_1/ko/card_news/%ED%98%88%EB%8B%B9_1_00_%ED%91%9C%EC%A7%80.jpg"
+    "topic": "피부_1/ko",
+    "title": "피부가 푸석하고 칙칙해지고 잔주름까지 늘었다면, 나이 탓이 아니라 이 음식 때문일 수 있어요 - 콜라겐 무너뜨리는 의외의 음식",
+    "url": "output/%ED%94%BC%EB%B6%80_1/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_1/ko/card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
-    "topic": "혈당_2/ja",
-    "title": "ランチ後の会議中に襲ってくる強い眠気、実はやる気不足ではなく血糖値スパイクのせいかも - お酢で防ぐ食後の急上昇習慣",
-    "url": "output/%ED%98%88%EB%8B%B9_2/ja/dashboard.html",
+    "topic": "피부_2/ja",
+    "title": "残業帰りのラーメン、コンビニのカフェオレ、から揚げ弁当…顎・頬ニキビを招く食習慣3つ",
+    "url": "output/%ED%94%BC%EB%B6%80_2/ja/dashboard.html",
     "thumbnail": null
   },
   {
-    "topic": "혈당_2/ko",
-    "title": "밥 먹고 금방 또 배고프고 단 게 자꾸 당긴다면 주목! 블루베리 이야기",
-    "url": "output/%ED%98%88%EB%8B%B9_2/ko/dashboard.html",
-    "thumbnail": "output/%ED%98%88%EB%8B%B9_2/ko/card_news/%ED%98%88%EB%8B%B9_2_00_%ED%91%9C%EC%A7%80.jpg"
+    "topic": "피부_2/ko",
+    "title": "턱·볼 라인에 여드름이 자꾸 올라온다면 주목! - 성인여드름 부르는 음식 피하는 법",
+    "url": "output/%ED%94%BC%EB%B6%80_2/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_2/ko/card_news/%ED%94%BC%EB%B6%80_2_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "허리_1/en",
+    "title": "Ever notice your lower back feels stiffer after a long commute than after a workout? - Foods That Trigger Lower Back Stiffness",
+    "url": "output/%ED%97%88%EB%A6%AC_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "허리_1/es",
+    "title": "México es el país que más refresco toma en el mundo y tu espalda baja lo resiente - Alimentos que agravan el dolor lumbar",
+    "url": "output/%ED%97%88%EB%A6%AC_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "혈당_1",
+    "title": "혈당_1",
+    "url": "output/%ED%98%88%EB%8B%B9_1/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "혈당_2",
+    "title": "혈당_2",
+    "url": "output/%ED%98%88%EB%8B%B9_2/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "혈압_1/en",
@@ -594,33 +798,9 @@
     "thumbnail": null
   },
   {
-    "topic": "혈압_1/es",
-    "title": "3 Alimentos Cotidianos que Suben tu Presión (y Qué Comer en su Lugar)",
-    "url": "output/%ED%98%88%EC%95%95_1/es/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "혈압_1/ja",
-    "title": "夕方に指輪や靴がきつくなるなら、実は塩分の摂りすぎかもしれません - 血圧を上げる意外な食習慣3つ",
-    "url": "output/%ED%98%88%EC%95%95_1/ja/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "혈압_1/ko",
-    "title": "심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거리는 거, 사실 이 음식 때문일 수 있어요 - 혈압 확 올리는 의외의 음식들",
-    "url": "output/%ED%98%88%EC%95%95_1/ko/dashboard.html",
-    "thumbnail": "output/%ED%98%88%EC%95%95_1/ko/card_news/%ED%98%88%EC%95%95_1_00_%ED%91%9C%EC%A7%80.jpg"
-  },
-  {
     "topic": "혈압_1/pt",
     "title": "Zumbido no Ouvido e Dor de Cabeça de Repente - 3 Alimentos do Dia a Dia que Elevam a Pressão",
     "url": "output/%ED%98%88%EC%95%95_1/pt/dashboard.html",
-    "thumbnail": null
-  },
-  {
-    "topic": "혈압_1/ru",
-    "title": "Лицо утром отекает, а к вечеру голову словно сдавливает обруч - 3 привычных продукта, которые повышают давление",
-    "url": "output/%ED%98%88%EC%95%95_1/ru/dashboard.html",
     "thumbnail": null
   }
 ]

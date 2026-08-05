@@ -105,9 +105,26 @@ def _accent_soft(accent: tuple[int, int, int]) -> tuple[int, int, int]:
     return tuple(round(c + (255 - c) * 0.83) for c in accent)
 
 
-EYEBROW_SELFCHECK = "자가진단"
-EYEBROW_CAUSE = "원인 분석"
-EYEBROW_WRAPUP = "마무리"
+# WHY 언어별 딕셔너리(2026-08-05 버그 수정, "콩팥_1 일본어 영상 격자 네모" 실제
+# 발견): 이 3개 라벨이 lang과 무관하게 한국어 리터럴로 고정돼 있어서, 한글
+# 글리프가 없는 언어별 폰트로 그리면 빈 사각형(tofu box)으로 깨졌다 — 다른
+# 화면 텍스트는 다 lang에 맞는 폰트/문구를 쓰는데 이 eyebrow 배지만 예외였음.
+EYEBROW_SELFCHECK_BY_LANG = {
+    "kor": "자가진단", "en": "Self-Check", "ja": "セルフチェック",
+    "es": "Autochequeo", "pt": "Autoavaliação", "ru": "Самопроверка",
+}
+EYEBROW_CAUSE_BY_LANG = {
+    "kor": "원인 분석", "en": "Root Cause", "ja": "原因分析",
+    "es": "La Causa", "pt": "A Causa", "ru": "Причина",
+}
+EYEBROW_WRAPUP_BY_LANG = {
+    "kor": "마무리", "en": "Wrap-Up", "ja": "まとめ",
+    "es": "Resumen", "pt": "Resumo", "ru": "Итог",
+}
+CLOSING_TIP_HEADER_BY_LANG = {
+    "kor": "마무리 팁", "en": "Wrap-Up Tip", "ja": "まとめのコツ",
+    "es": "Consejo Final", "pt": "Dica Final", "ru": "Итоговый совет",
+}
 CHECKLIST_HEADER_BEFORE = "확인해야 할 3가지"
 CHECKLIST_HEADER_AFTER = "오늘부터 이렇게"
 MODE_FADE = 0.4
@@ -639,7 +656,7 @@ class Ctx:
         closing_start_y_est = 420 + eyebrow_h_est + 70
         closing_avail = max(SAFE_Y1 - closing_start_y_est - 40, 240)
         self.closing_header_lines, self.closing_header_font, self.closing_header_line_h = _layout_multiline(
-            measure_draw, [EYEBROW_WRAPUP + " 팁"], self.font_path, self.font_index, 66,
+            measure_draw, [CLOSING_TIP_HEADER_BY_LANG.get(lang, CLOSING_TIP_HEADER_BY_LANG["en"])], self.font_path, self.font_index, 66,
             min(900, SAFE_CENTERED_MAX_WIDTH), closing_avail * 0.2, lang, min_size=36,
         )
         self.closing_tip_lines, self.closing_tip_font, self.closing_tip_line_h = _layout_multiline(
@@ -672,7 +689,7 @@ def render_title(ctx: Ctx):
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, ctx.title_eyebrow_y,
+    y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK_BY_LANG.get(ctx.lang, EYEBROW_SELFCHECK_BY_LANG["en"]), ctx.font(30), cx, ctx.title_eyebrow_y,
                       ctx.accent, ctx.accent_soft, label="title-eyebrow")
     y = draw_centered_lines(draw, ctx.title_lines, ctx.title_font, cx, y + 46, ctx.title_line_h,
                              TEXT_DARK, label="title-main")
@@ -744,7 +761,7 @@ def render_why(ctx: Ctx):
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_CAUSE, ctx.font(30), cx, 420,
+    y = draw_eyebrow(canvas, draw, EYEBROW_CAUSE_BY_LANG.get(ctx.lang, EYEBROW_CAUSE_BY_LANG["en"]), ctx.font(30), cx, 420,
                       ctx.accent, ctx.accent_soft, label="why-eyebrow")
     y = draw_centered_lines(draw, ctx.why_header_lines, ctx.why_header_font, cx, y + 70,
                              ctx.why_header_line_h, TEXT_DARK, label="why-header")
@@ -757,7 +774,7 @@ def render_closing(ctx: Ctx):
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_WRAPUP, ctx.font(30), cx, 420,
+    y = draw_eyebrow(canvas, draw, EYEBROW_WRAPUP_BY_LANG.get(ctx.lang, EYEBROW_WRAPUP_BY_LANG["en"]), ctx.font(30), cx, 420,
                       ctx.accent, ctx.accent_soft, label="closing-eyebrow")
     y = draw_centered_lines(draw, ctx.closing_header_lines, ctx.closing_header_font, cx, y + 70,
                              ctx.closing_header_line_h, TEXT_DARK, label="closing-header")
@@ -777,7 +794,7 @@ def render_checklist(ctx: Ctx, t: float):
     # 헤더 문구가 "확인해야 할 N가지" -> "오늘부터 이렇게"로 크로스페이드
     # (첫 fix_time을 기준으로 삼아, 대안이 하나라도 드러나기 시작하면 전환).
     fixes_p = progress(t, ctx.timing["fix_times"][0], MODE_FADE)
-    eyebrow_y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK, ctx.font(30), cx, 110,
+    eyebrow_y = draw_eyebrow(canvas, draw, EYEBROW_SELFCHECK_BY_LANG.get(ctx.lang, EYEBROW_SELFCHECK_BY_LANG["en"]), ctx.font(30), cx, 110,
                               ctx.accent, ctx.accent_soft, label="checklist-eyebrow")
     header_top = eyebrow_y + 55
     if fixes_p < 1:
