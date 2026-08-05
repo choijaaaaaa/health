@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Depois de um churrasco de sábado,",
+    "quem passou dos 50 já sabe:",
+    "3 Hábitos à Noite Que Pioram Isso"
+  ],
+  "eyebrow": "Alerta de Saúde da Próstata",
+  "swipe_label": "Arraste para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Próstata",
+  "char_display_names": {
+    "소고기_illust.jpg": "Carne Vermelha",
+    "토마토_illust.jpg": "Molho de Tomate",
+    "귤_illust.jpg": "Frutas Cítricas"
+  },
+  "items": [
+    {
+      "name": "Por Que Isso Acontece",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "A próstata aumentada",
+        "pressiona a bexiga,",
+        "que não esvazia direito",
+        "",
+        "Ela fica mais sensível",
+        "e avisa antes",
+        "da hora"
+      ]
+    },
+    {
+      "name": "Carne Vermelha (Churrasco)",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "O excesso de carne gordurosa",
+        "está associado",
+        "a mais inflamação",
+        "",
+        "Isso pode piorar",
+        "os sintomas da próstata"
+      ]
+    },
+    {
+      "name": "Ajuste no Churrasco",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Prefira porções menores",
+        "",
+        "e evite deixar",
+        "a carne muito tostada"
+      ]
+    },
+    {
+      "name": "Molho de Tomate",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "É bem ácido",
+        "e irrita a bexiga",
+        "",
+        "Dá mais vontade",
+        "de urinar à noite"
+      ]
+    },
+    {
+      "name": "Troque à Noite",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "Prefira molho de azeite",
+        "ou legumes",
+        "",
+        "Sabor diferente,",
+        "bem menos irritação"
+      ]
+    },
+    {
+      "name": "Frutas Cítricas",
+      "char_file": "귤_illust.jpg",
+      "body": [
+        "Laranja e limão",
+        "são ácidas",
+        "",
+        "E irritam ainda mais",
+        "a bexiga à noite"
+      ]
+    },
+    {
+      "name": "Escolha à Noite",
+      "char_file": "귤_illust.jpg",
+      "body": [
+        "Prefira banana",
+        "ou mamão",
+        "",
+        "Bem mais suaves",
+        "para a bexiga"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa cortar tudo",
+        "de uma vez"
+      ],
+      [
+        "Só ajustar o que você come",
+        "à noite já faz diferença"
+      ]
+    ],
+    "tip": [
+      "Porções menores de carne, molho de azeite à noite,",
+      "e frutas menos ácidas depois do jantar"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Inscreva-se, curta e siga!"
+  }
+}
