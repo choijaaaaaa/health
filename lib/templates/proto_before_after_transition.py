@@ -627,6 +627,19 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     hook_duration = entries[0][1] if entries else max(audio_duration * 0.1, 2.5)
     remaining = max(audio_duration - hook_duration, 1.0)
 
+    # WHY 클로징(마무리 팁) 화면도 최소 읽기 시간을 미리 확보해두는지
+    # (2026-08-06, 코골이_1 실측 확인 — "마지막 빨간 부분 글은 긴데 볼 시간이
+    # 없다"): 클로징은 헤드라인 2문단+팁까지 최대 6줄로 해결책 화면보다도
+    # 텍스트가 많은데, 나레이션이 따로 없어 항상 "남는 시간"만 받다 보니
+    # 1초 바닥까지 떨어져 있었다. 본문 글자 수 비례로 최소 시간을 먼저
+    # 계산해서 예산 배분 단계에서부터 반영한다(FIX_READ_MIN과 같은 계산식).
+    _closing_spec = spec.get("closing", {})
+    _closing_weight = (
+        sum(len(ln) for block in _closing_spec.get("headline", []) for ln in block)
+        + sum(len(ln) for ln in _closing_spec.get("tip", []) if ln)
+    )
+    CLOSING_READ_MIN = min(5.0, max(2.4, _closing_weight * 0.045))
+
     beats = [("mechanism", mechanism_item)] + [(f"cause{i}", c) for i, c in enumerate(causes, 1)] + \
             [(f"fix{i}", f) for i, f in enumerate(fixes, 1)]
     weights = [max(sum(len(l) for l in it["body"] if l), 1) for _, it in beats]
@@ -704,24 +717,30 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         fix_weights = weights[1 + n_pairs:1 + 2 * n_pairs]
         new_fix_total = remaining - mechanism_dur - sum(cause_durs)
         if new_fix_total > 0:
+            # 해결책 화면들 + 클로징까지 합쳐서 필요한 최소 예산을 한 번에
+            # 따져서 부족하면 mechanism에서 빌려온다(위와 같은 이유 —
+            # mechanism은 문장 경계 정확도 요구가 낮음).
             fix_budget_min = FIX_READ_MIN * n_pairs
-            if new_fix_total < fix_budget_min:
-                shortfall = fix_budget_min - new_fix_total
+            total_min_needed = fix_budget_min + CLOSING_READ_MIN
+            if new_fix_total < total_min_needed:
+                shortfall = total_min_needed - new_fix_total
                 borrow = min(shortfall, max(mechanism_dur - min_dur, 0))
                 mechanism_dur -= borrow
                 new_fix_total += borrow
-            fix_min_dur = min(FIX_READ_MIN, new_fix_total / n_pairs)
-            fix_durs = _proportional_durations(new_fix_total, fix_weights, fix_min_dur)
-
-    # 엔딩(headline/tip)은 오디오에 별도로 나레이션되지 않으므로(전체 길이를
-    # audio_duration과 정확히 맞춰야 함) 마지막 해결책 구간 꼬리에서 시간을
-    # 빌려와 별도 화면으로 뗀다 — 추가 시간 없이 총 길이를 그대로 유지.
-    # WHY FIX_READ_MIN 밑으로는 안 뺏는지: 클로징 화면 때문에 바로 앞
-    # 해결책 화면이 다시 못 읽을 정도로 짧아지면 본말전도.
-    closing_dur = min(3.2, fix_durs[-1] * 0.4, max(fix_durs[-1] - FIX_READ_MIN, 0))
-    fix_durs[-1] = max(fix_durs[-1] - closing_dur, min_dur)
-    closing_dur = remaining - (mechanism_dur + sum(cause_durs) + sum(fix_durs))
-    closing_dur = max(closing_dur, 1.0)
+            closing_dur = min(CLOSING_READ_MIN, max(new_fix_total - fix_budget_min, min_dur))
+            fix_pool = new_fix_total - closing_dur
+            fix_min_dur = min(FIX_READ_MIN, fix_pool / n_pairs)
+            fix_durs = _proportional_durations(fix_pool, fix_weights, fix_min_dur)
+        else:
+            closing_dur = max(CLOSING_READ_MIN, 1.0)
+    else:
+        # 원인 실측 동기화가 안 된 topic(회귀 없는 기존 폴백 경로)도 클로징은
+        # 똑같이 최소 읽기 시간을 보장 — 마지막 해결책 화면 꼬리에서만 빌려오되
+        # FIX_READ_MIN 밑으로는 뺏지 않는다.
+        closing_dur = min(CLOSING_READ_MIN, fix_durs[-1] * 0.4, max(fix_durs[-1] - FIX_READ_MIN, 0))
+        fix_durs[-1] = max(fix_durs[-1] - closing_dur, min_dur)
+        closing_dur = remaining - (mechanism_dur + sum(cause_durs) + sum(fix_durs))
+        closing_dur = max(closing_dur, 1.0)
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
