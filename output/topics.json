@@ -6,6 +6,12 @@
     "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/card_news/en_heartburn_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "가슴쓰림_1/es",
+    "title": "No es lo picante lo que más pega a tu reflujo - Alimentos que agravan el reflujo",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "가슴쓰림_1/ja",
     "title": "飲み会のあと、いつも胸が焼けるような感じがする？ - 逆流性食道炎を招く食べ物",
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ja/dashboard.html",
@@ -16,6 +22,18 @@
     "title": "가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법",
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/card_news/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "가슴쓰림_1/pt",
+    "title": "Depois do churrasco de domingo, aquela queimação no peito? - Alimentos que pioram o refluxo",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "가슴쓰림_1/ru",
+    "title": "После новогоднего стола жжёт в груди? — 3 блюда, которые вызывают изжогу",
+    "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ru/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "갑상선_1/en",
@@ -36,9 +54,27 @@
     "thumbnail": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "갑상선_1/pt",
+    "title": "Trocou o sal comum pelo sal rosa do Himalaia? - Hábitos \"Saudáveis\" que Sabotam sua Tireoide",
+    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "갑상선_1/ru",
+    "title": "Покупаете йодированную соль вместо обычной? 3 блюда, которые сводят пользу к нулю",
+    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "갱년기_1/en",
     "title": "Face suddenly burning up mid-meeting, then drenched in sweat minutes later? - Foods That Make Hot Flashes Worse",
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "갱년기_1/es",
+    "title": "¿Se te olvida la palabra que tenías en la punta de la lengua? - La Niebla Mental de la Menopausia",
+    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -54,9 +90,27 @@
     "thumbnail": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "갱년기_1/pt",
+    "title": "Come igual, treina igual, mas a barriga cresce sozinha depois dos 45? - O que realmente muda na menopausa",
+    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "갱년기_1/ru",
+    "title": "После сладкого чая или бани лицо вдруг заливает жаром? - Что усиливает приливы при менопаузе",
+    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "고령_1/es",
+    "title": "¿Te cuesta levantarte de la silla sin usar las manos? - 3 hábitos con la proteína que te restan fuerza",
+    "url": "output/%EA%B3%A0%EB%A0%B9_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -72,9 +126,21 @@
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/ko/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "고령_1/ru",
+    "title": "Путаются мысли и наваливается слабость в пост? Как питаться с умом после 60",
+    "url": "output/%EA%B3%A0%EB%A0%B9_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "골다공증_1/en",
     "title": "1 in 2 women over 50 will break a bone from this - Foods & Drinks That Speed Up Bone Loss",
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "골다공증_1/es",
+    "title": "¿Te fracturaste una muñeca con una caída que antes no te habría dolido? - Hábitos que aceleran la osteoporosis",
+    "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -438,6 +504,12 @@
     "thumbnail": null
   },
   {
+    "topic": "빈혈_1/es",
+    "title": "¿Las piernas no te dejan dormir en la noche? - Lo que podría estar bajando tu hierro sin que lo notes",
+    "url": "output/%EB%B9%88%ED%98%88_1/es/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "빈혈_1/ja",
     "title": "体にいいと思って続けている習慣が、貧血を招いているかもしれません - 貧血を招く意外な食習慣3つ",
     "url": "output/%EB%B9%88%ED%98%88_1/ja/dashboard.html",
@@ -453,6 +525,12 @@
     "topic": "빈혈_1/pt",
     "title": "Subiu as escadas do trabalho e ficou sem fôlego, com a cabeça rodando? - O que pode estar sabotando seu ferro",
     "url": "output/%EB%B9%88%ED%98%88_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "빈혈_1/ru",
+    "title": "Ты ешь гречку от анемии, но гемоглобин не растёт? - Вот что на самом деле решает усвоение железа",
+    "url": "output/%EB%B9%88%ED%98%88_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
