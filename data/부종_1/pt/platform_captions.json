@@ -1,7 +1,11 @@
 {
   "topic": "부종_1_pt",
   "title": "Você sabe quanto sódio está escondido na sua cozinha? - 3 alimentos que incham sem avisar",
-  "products": ["Caldo Zero Sódio", "Shoyu Light", "Castanhas"],
+  "products": [
+    "Caldo Zero Sódio",
+    "Shoyu Light",
+    "Castanhas"
+  ],
   "comment_keyword": "",
   "platforms": [
     {
@@ -14,7 +18,7 @@
     },
     {
       "name": "Instagram Reels",
-      "url": "https://www.instagram.com/",
+      "url": "https://www.instagram.com/worthitshopping_pt",
       "type": "video",
       "no_caption_link": true,
       "comment_dm_automation": false,

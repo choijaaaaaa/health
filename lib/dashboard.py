@@ -9,7 +9,6 @@ from __future__ import annotations
 
 import base64
 import json
-import re
 import sys
 from pathlib import Path
 from urllib.parse import quote
@@ -320,6 +319,10 @@ PAGE_TEMPLATE = """<!doctype html>
   <h1>{title}</h1>
 </header>
 
+<!-- WHY 실사진 소싱(Unsplash/Pexels)·제작 도구(인포크/쿠팡파트너스/타입캐스트) 뺐는지
+     (2026-08-05, "UI에 찌꺼기가 좀 많이남아있다... 쓸모없는것들 정리"): 이 페이지는
+     콘텐츠가 이미 완성된 뒤 업로드만 하는 단계인데, 저 링크들은 전부 제작(리서치·
+     TTS·소싱) 단계 도구라 이 시점엔 쓸 일이 없다. -->
 <div class="quick-dock" id="quickDock">
   <div class="dock-head">
     <span>빠른 도구</span>
@@ -329,21 +332,6 @@ PAGE_TEMPLATE = """<!doctype html>
     <div class="dock-links">
       {video_download_link}
       <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>실사진 소싱</h4>
-    <div class="dock-links">
-      <a href="{unsplash_url}" target="_blank" rel="noopener">🔍 Unsplash</a>
-      <a href="{pexels_url}" target="_blank" rel="noopener">🔍 Pexels</a>
-    </div>
-  </div>
-  <div class="dock-section">
-    <h4>제작 도구</h4>
-    <div class="dock-links">
-      <a href="https://link.inpock.co.kr/admin" target="_blank" rel="noopener">🔗 인포크 관리자</a>
-      <a href="https://partners.coupang.com/" target="_blank" rel="noopener">🛒 쿠팡파트너스</a>
-      <a href="https://studio.typecast.ai/" target="_blank" rel="noopener">🎙 타입캐스트</a>
     </div>
   </div>
   {dock_products}
@@ -1030,11 +1018,15 @@ GLOBAL_LANG_LABELS = {
 # 딱이네" — ko/글로벌을 따로 관리하던 두 페이지·두 버튼(한국/Global)을 없애고
 # 하나로 합쳐달라는 요청): CARD_TEMPLATE 기반의 완성된 카드(캡션 편집·상품
 # 링크 dock·고지문구 자동삽입·완료 체크 등)를 언어마다 다시 구현하면 두 벌을
-# 유지보수해야 하고 필연적으로 기능이 어긋난다 — 이미 생성된 언어별
-# dashboard.html을 그대로 iframe에 넣으면 "완전히 동일한 폼"이 100% 보장되고,
-# 앞으로 CARD_TEMPLATE/JS를 고치면 모든 언어 탭에 자동으로 반영된다. 아직 영상이
-# 없어서(1단계 콘텐츠만 완료) 그 언어의 dashboard.html 자체가 없는 경우에만
-# 가벼운 폴백 카드(_light_platform_card)를 대신 보여준다.
+# 유지보수해야 하고 필연적으로 기능이 어긋난다 — 이미 생성된 ko dashboard.html을
+# 그대로 iframe에 넣으면 "완전히 동일한 폼"이 100% 보장되고, 앞으로
+# CARD_TEMPLATE/JS를 고치면 ko 탭에 자동으로 반영된다.
+# ⚠️ WHY 글로벌(비한국어) 언어는 iframe을 아예 안 쓰는지(2026-08-05, "UI에
+# 찌꺼기가 좀 많이남아있다... 글로벌도 버튼눌러서 이동해서 인스타 누르지말고
+# 걍 하나로 병합해도될듯" — ko와는 별개로 결정): 아래 _generate_unified_dashboard
+# WHY 참고 — 글로벌은 어차피 카드 1장(인스타그램 릴스)뿐이라 iframe으로 전체
+# 업로드 폼을 또 감쌀 필요가 없다. 영상 조립 여부와 무관하게(조립 전이든 후든)
+# 항상 가벼운 카드(_light_platform_card)를 보여준다.
 UNIFIED_PAGE_TEMPLATE = """<!doctype html>
 <html lang="ko">
 <head>
@@ -1163,16 +1155,18 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
 
 
 def _light_platform_card(topic: str, lang: str, platform: dict, idx: int) -> str:
-    """언어 대시보드(dashboard.html)가 아직 없는 언어(콘텐츠는 있지만 영상 조립
-    전 — 1단계만 끝난 상태)용 경량 카드. WHY disclosure/product-link 동적 삽입
-    로직(_buildLinkBlock 등)을 안 쓰는지: 그 로직은 쿠팡 파트너스 고지문구를
-    코드에서 그대로 끌어오는데, 글로벌 topic은 아직 활성화된 제휴 프로그램이
-    없어서(2026-08-03 "아마존/알리는 시간 좀 두고" 결정) 한국어 고지문이
-    영어/일본어 캡션에 섞여 붙는 사고를 막으려면 이 카드는 그냥 저장된 캡션
-    텍스트를 그대로 보여주는 게 맞다. WHY 플랫폼을 인스타 릴스로 제한하지 않고
-    전부 보여주는지(2026-08-04, "포맷도 기존과 동일하게" 요청): 예전엔
-    Instagram Reels만 보여줬는데, ko 대시보드처럼 실제 관리 대상인 전체
-    플랫폼을 보여주는 게 통합 취지에 맞는다."""
+    """글로벌(비한국어) 언어 탭 전용 경량 카드(2026-08-05부터 영상 조립 여부와
+    무관하게 항상 이걸 씀 — 아래 _generate_unified_dashboard WHY 참고). WHY
+    disclosure/product-link 동적 삽입 로직(_buildLinkBlock 등)을 안 쓰는지:
+    그 로직은 쿠팡 파트너스 고지문구를 코드에서 그대로 끌어오는데, 글로벌
+    topic은 아직 활성화된 제휴 프로그램이 없어서(2026-08-03 "아마존/알리는
+    시간 좀 두고" 결정) 한국어 고지문이 영어/일본어 캡션에 섞여 붙는 사고를
+    막으려면 이 카드는 그냥 저장된 캡션 텍스트를 그대로 보여주는 게 맞다.
+    WHY 플랫폼을 인스타 릴스로 제한하지 않고 전부 보여주는지(2026-08-04,
+    "포맷도 기존과 동일하게" 요청): 예전엔 Instagram Reels만 보여줬는데, ko
+    대시보드처럼 실제 관리 대상인 전체 플랫폼을 보여주는 게 통합 취지에
+    맞는다 — 어차피 UI 제외 목록(_UI_EXCLUDED_PLATFORMS) 적용 후엔 글로벌
+    topic에 남는 플랫폼이 인스타그램 릴스 하나뿐이라 실질적으로는 카드 1장."""
     video_dir = Path(__file__).resolve().parent.parent / "output" / topic / lang
     # WHY 두 글롭 다 시도하는지: 대부분 "<topic>_shorts.mp4"(topic 접두어) 규칙을
     # 따르지만, 일부 언어 topic은 접두어 없이 그냥 "shorts.mp4"로도 만들어져 있었다
@@ -1218,9 +1212,18 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
     통합한다 — 언어마다 dashboard.html이 따로 있어서(+ko는 "한국" 버튼, 나머지는
     "Global" 버튼으로 갈라져 있던 것) 그때그때 다른 URL을 오가야 했던 것을,
     output/<topic>/dashboard.html 하나로 합친다(위 UNIFIED_PAGE_TEMPLATE WHY
-    참고). 이미 있는 언어별 dashboard.html은 그대로 iframe으로 보여주고
-    (완전히 동일한 폼 보장), 아직 영상이 없어 dashboard.html 자체가 없는 언어만
-    가벼운 폴백 카드를 보여준다."""
+    참고). ko는 언어별 dashboard.html을 그대로 iframe으로 보여준다(완전히 동일한
+    폼 보장, 여러 플랫폼을 관리해야 해서 그 폼이 필요함).
+
+    WHY 글로벌(비한국어) 언어는 iframe 대신 항상 가벼운 카드인지(2026-08-05,
+    "UI에 찌꺼기가 좀 많이남아있다... 이제 항목도 줄었으니 글로벌도 버튼눌러서
+    이동해서 인스타 누르지말고 걍 하나로 병합해도될듯"): 글로벌 topic은
+    UI에서 유튜브 쇼츠가 자동 업로드로 빠지고 나면 플랫폼이 인스타그램 릴스
+    하나만 남는데다, 제휴 프로그램이 아직 없어(CLAUDE.md "글로벌 확장" 참고)
+    쿠팡/네이버 상품 링크 덕도 전부 빈 찌꺼기다 — 언어 탭 클릭 → iframe 속
+    "업로드 대시보드" 전체 폼(빠른 도구 덕·상품 링크 섹션 등) → 그 안의 카드
+    하나를 또 찾아 열기, 이렇게 두 겹으로 감쌀 이유가 없다. 언어 탭을 누르면
+    바로 그 카드 하나(영상 상태+캡션+열기 버튼)가 보이도록 병합한다."""
     topic_data_root = data_root / base_topic
     if not topic_data_root.exists():
         return
@@ -1241,7 +1244,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
         tab_buttons += f'<button class="lang-tab{active}" data-panel="{panel_id}">{_esc(label)}</button>\n'
 
         lang_dashboard = output_root / base_topic / lang / "dashboard.html"
-        if lang_dashboard.exists():
+        if lang == "ko" and lang_dashboard.exists():
             panel_body = f'<iframe class="dash-frame" src="{lang}/dashboard.html"></iframe>'
         else:
             try:
@@ -1331,10 +1334,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # 때도 살아있는 파일만 갤러리에 넣는다.
     cover_imgs = sorted(Path(card_news_dir).glob("*00_표지.jpg")) if Path(card_news_dir).exists() else []
     card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in cover_imgs)
-
-    keyword = re.sub(r"_\d+$", "", topic).replace("_", " ")
-    unsplash_url = f"https://unsplash.com/s/photos/{quote(keyword)}"
-    pexels_url = f"https://www.pexels.com/search/{quote(keyword)}/"
 
     has_video = bool(video_path and Path(video_path).exists())
     video_name = Path(video_path).name if video_path else "shorts.mp4"
@@ -1438,7 +1437,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
 
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), video_block=video_block, card_thumbs=card_thumbs,
-        platform_sections=sections_html, unsplash_url=unsplash_url, pexels_url=pexels_url,
+        platform_sections=sections_html,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
         video_download_link=video_download_link,
         card_image_names_js=card_image_names_js,

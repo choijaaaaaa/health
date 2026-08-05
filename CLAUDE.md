@@ -246,7 +246,9 @@ data/output 콘텐츠 전부 삭제, `data/global_research_rules.md`·
 - 언어별 리서치 체크리스트는 `data/global_research_rules.md`(1차 타겟 국가,
   광고법·종교적 금기 식품 등) — 작성 전 필독. TTS 보이스는
   `data/typecast_voices_global.json`, 채널 인프라 상태는
-  `data/global_channels.json`.
+  `data/global_channels.json`(언어별 `instagram_url` 포함 — Instagram Reels
+  platform_captions.json의 `url` 필드는 항상 이 값으로 채울 것, 한국어 계정
+  URL을 재사용하지 말 것).
 - 폰트: 라틴 문자권은 `NotoSans-Bold.ttf`, 스크립트별 별도 폰트
   (`NotoSansArabic/Bengali/Devanagari/Thai/JP/TC-Bold.ttf`) 이미 연결 완료 —
   `_chalk_font_for_lang(lang)`/`_title_font_for_lang(lang)` 사용.

@@ -1,7 +1,11 @@
 {
   "topic": "수면_1_es",
   "title": "¿Duermes mal por el estrés? 3 remedios mexicanos para relajarte antes de dormir",
-  "products": ["té de tila", "avena", "plátano"],
+  "products": [
+    "té de tila",
+    "avena",
+    "plátano"
+  ],
   "comment_keyword": "쿠팡",
   "platforms": [
     {
@@ -14,7 +18,7 @@
     },
     {
       "name": "Instagram Reels",
-      "url": "https://www.instagram.com/",
+      "url": "https://www.instagram.com/worthitshopping_es",
       "type": "video",
       "no_caption_link": true,
       "comment_dm_automation": true,

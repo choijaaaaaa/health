@@ -16,7 +16,8 @@
     "oauth_production": true,
     "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_en",
-    "channel_meta_configured": true
+    "channel_meta_configured": true,
+    "instagram_url": "https://www.instagram.com/worthitshopping_en"
   },
   "일본어": {
     "code": "ja",
@@ -26,7 +27,8 @@
     "oauth_production": true,
     "refresh_token_issued": true,
     "channel_url": "https://www.youtube.com/@worthitshopping_ja",
-    "channel_meta_configured": true
+    "channel_meta_configured": true,
+    "instagram_url": "https://www.instagram.com/worthitshopping_ja"
   },
   "스페인어": {
     "code": "es",
@@ -35,7 +37,8 @@
     "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": true,
-    "channel_url": "https://www.youtube.com/@worthitshopping_es"
+    "channel_url": "https://www.youtube.com/@worthitshopping_es",
+    "instagram_url": "https://www.instagram.com/worthitshopping_es"
   },
   "포르투갈어": {
     "code": "pt",
@@ -44,7 +47,8 @@
     "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": true,
-    "channel_url": "https://www.youtube.com/@worthitshopping_pt"
+    "channel_url": "https://www.youtube.com/@worthitshopping_pt",
+    "instagram_url": "https://www.instagram.com/worthitshopping_pt"
   },
   "러시아어": {
     "code": "ru",
@@ -53,6 +57,7 @@
     "oauth_consent_configured": true,
     "oauth_production": false,
     "refresh_token_issued": true,
-    "channel_url": "https://www.youtube.com/@worthitshopping_ru"
+    "channel_url": "https://www.youtube.com/@worthitshopping_ru",
+    "instagram_url": "https://www.instagram.com/worthitshopping_ru"
   }
 }
