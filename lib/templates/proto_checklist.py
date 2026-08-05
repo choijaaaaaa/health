@@ -866,12 +866,21 @@ def render_checklist(ctx: Ctx, t: float):
                 icon_img.putalpha(a)
             canvas.alpha_composite(icon_img, (round(row["icon_x"]), round(row["icon_y"])))
 
-        # cause(fact)에서 fix로 크로스페이드 — 내레이션이 대안들을 한 문장에
-        # 압축해도 fix_times가 항목마다 몇 초씩 벌어져 있어(스태거링) 화면에서는
-        # 순서대로 하나씩 읽을 수 있다.
+        # cause(fact)에서 fix로 전환 — 순차 페이드(먼저 fact가 완전히
+        # 사라진 뒤에 fix가 나타남), 진짜 크로스페이드 아님. WHY(2026-08-05,
+        # 실제 화면 확인 중 발견 — "문제점->해결책으로 넘어갈 때 글자가
+        # 겹쳐져 보인다"): fact/fix는 서로 다른 문단 텍스트라 체크박스·아이콘처럼
+        # 동시에 반투명 겹쳐도 자연스러운 크로스페이드가 아니라, 두 문단이
+        # 글자 단위로 뒤섞여 읽을 수 없는 상태로 보인다 — 전환 구간(0.45초)의
+        # 앞 절반엔 fact만 페이드아웃, 뒤 절반엔 fix만 페이드인해서 겹치는
+        # 순간 자체를 없앤다.
         item_fix_p = progress(t, fix_times[i], ITEM_FIX_FADE)
-        fact_alpha = max(0, 1 - item_fix_p) if p > 0 else 0
-        fix_alpha = item_fix_p
+        if item_fix_p <= 0.5:
+            fact_alpha = max(0, 1 - item_fix_p * 2) if p > 0 else 0
+            fix_alpha = 0
+        else:
+            fact_alpha = 0
+            fix_alpha = min(1, (item_fix_p - 0.5) * 2)
         if fact_alpha > 0.01:
             draw_lines_left(draw, row["fact_lines"], row["fact_font"], row["text_left"], row["body_top"],
                              row["fact_line_h"], TEXT_GRAY, int(255 * fact_alpha), label=f"checklist-fact-{i}")
