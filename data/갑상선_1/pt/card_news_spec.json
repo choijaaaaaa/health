@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Trocou o sal comum pelo sal rosa",
+    "e tem suco verde todo dia?",
+    "Hábitos \"saudáveis\" que sabotam a tireoide"
+  ],
+  "eyebrow": "Alerta de Tireoide",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "char_display_names": {
+    "소금_illust.jpg": "Sal Rosa do Himalaia",
+    "요오드소금_illust.jpg": "Sal Iodado Comum",
+    "그린스무디_illust.jpg": "Suco Verde de Couve",
+    "녹차_illust.jpg": "Chá Verde",
+    "브라질너트_illust.jpg": "Castanha-do-Pará"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "요오드소금_illust.jpg",
+      "body": [
+        "A tireoide precisa de iodo",
+        "todos os dias pra funcionar",
+        "",
+        "Trocar hábitos sem saber pode",
+        "cortar essa fonte aos poucos"
+      ]
+    },
+    {
+      "name": "Sal Rosa do Himalaia",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "O sal de cozinha no Brasil é",
+        "iodado por lei desde os anos 1950",
+        "",
+        "Sal rosa e sal marinho importado",
+        "geralmente não têm iodo nenhum"
+      ]
+    },
+    {
+      "name": "Sal Rosa — a solução",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Não precisa abandonar o sal rosa",
+        "",
+        "Alterne com o sal iodado comum",
+        "no dia a dia da cozinha"
+      ]
+    },
+    {
+      "name": "Suco Verde de Couve",
+      "char_file": "그린스무디_illust.jpg",
+      "body": [
+        "A couve crua carrega substâncias",
+        "que atrapalham a captação de iodo",
+        "",
+        "Suco todo dia com a folha sempre",
+        "crua reduz essa absorção aos poucos"
+      ]
+    },
+    {
+      "name": "Suco Verde — a solução",
+      "char_file": "그린스무디_illust.jpg",
+      "body": [
+        "Escalde a couve antes de bater",
+        "no suco algumas vezes por semana"
+      ]
+    },
+    {
+      "name": "Chá Verde",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "O chá verde tem flúor em",
+        "quantidade que compete com o iodo",
+        "",
+        "Tomado várias vezes ao dia pra",
+        "emagrecer, soma mais um fator"
+      ]
+    },
+    {
+      "name": "Chá Verde — a solução",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Limite o chá verde a",
+        "uma xícara por dia"
+      ]
+    },
+    {
+      "name": "A Aliada da Tireoide",
+      "char_file": "브라질너트_illust.jpg",
+      "body": [
+        "Duas castanhas-do-pará por dia",
+        "já garantem o selênio que a",
+        "tireoide precisa pra funcionar bem",
+        "",
+        "É a maior fonte natural de",
+        "selênio do planeta"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nenhum desses hábitos",
+        "precisa sumir da rotina"
+      ],
+      [
+        "É só uma questão de",
+        "equilíbrio e variedade"
+      ]
+    ],
+    "tip": [
+      "Alterne o sal rosa com o iodado, escalde a couve às vezes",
+      "e limite o chá verde a uma xícara por dia"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Se inscreva, curta e siga!"
+  },
+  "topic_word": "Tireoide"
+}
