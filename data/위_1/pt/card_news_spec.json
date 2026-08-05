@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Sua barriga estufa",
+    "depois de comer?",
+    "conheça estes 3 hábitos"
+  ],
+  "eyebrow": "Alerta de Estufamento",
+  "cover_char_file": "껌_illust.jpg",
+  "char_display_names": {
+    "껌_illust.jpg": "Chiclete e Bala Diet",
+    "검은콩_illust.jpg": "Feijão sem Deixar de Molho",
+    "망고_illust.jpg": "Frutas Tropicais em Excesso"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece?",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "Certos alimentos e hábitos",
+        "acumulam gases",
+        "",
+        "no estômago e no intestino,",
+        "e é isso que causa o estufamento"
+      ]
+    },
+    {
+      "name": "Chiclete e Bala Diet",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "O sorbitol desses produtos",
+        "não é bem absorvido",
+        "",
+        "e fermenta no intestino,",
+        "formando gases"
+      ]
+    },
+    {
+      "name": "Experimente Isto",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "Limite a quantidade",
+        "por dia",
+        "",
+        "e evite mastigar",
+        "por muito tempo seguido"
+      ]
+    },
+    {
+      "name": "Feijão sem Deixar de Molho",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "A rafinose do feijão",
+        "o intestino não quebra sozinho",
+        "",
+        "e a fermentação no cólon",
+        "libera bastante gás"
+      ]
+    },
+    {
+      "name": "Experimente Isto",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Deixe o feijão de molho",
+        "por pelo menos 8 horas",
+        "",
+        "e troque a água",
+        "antes de cozinhar"
+      ]
+    },
+    {
+      "name": "Frutas Tropicais em Excesso",
+      "char_file": "망고_illust.jpg",
+      "body": [
+        "Frutas bem maduras como manga",
+        "têm bastante frutose",
+        "",
+        "que sobra sem absorver",
+        "e fermenta, formando gases"
+      ]
+    },
+    {
+      "name": "Experimente Isto",
+      "char_file": "망고_illust.jpg",
+      "body": [
+        "Coma porções menores",
+        "ao longo do dia",
+        "",
+        "junto de uma castanha,",
+        "que desacelera a absorção"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Você não precisa",
+        "só conviver com o estufamento"
+      ],
+      [
+        "Troque o hábito que causa isso",
+        "e sinta a diferença"
+      ]
+    ],
+    "tip": [
+      "Chiclete e bala diet com moderação, feijão de molho,",
+      "e frutas em porções menores"
+    ],
+    "cta": "Siga para mais dicas de saúde"
+  },
+  "topic_word": "Estufamento Abdominal"
+}
