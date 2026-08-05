@@ -19,14 +19,13 @@ from PIL import Image
 from lib.video_assembler import _parse_srt, assemble, DEFAULT_END_CARD_TEXT
 from lib.templates.proto_before_after_transition import render as _render_before_after_transition
 from lib.templates.proto_checklist import render as _render_checklist
-from lib.templates.proto_ranking_countdown import render as _render_ranking_countdown
 
 ROOT = Path(__file__).resolve().parent.parent
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 MOTION_DIR = ROOT / "assets_library" / "motion"
 REAL_DIR = ROOT / "assets_library" / "real"
 
-# WHY 이 4개·이 순서인지(2026-08-04, CLAUDE.md "영상 포맷 다각화" 절 참고):
+# WHY 이 3개·이 순서인지(2026-08-04, CLAUDE.md "영상 포맷 다각화" 절 참고):
 # 판서형(기존)은 시그니처가 달라 아래 select_format()이 이름만 반환하고
 # rebuild()가 별도 분기로 처리한다 — 나머지는 전부
 # render(topic_dir, lang, audio_path, srt_path, spec_path, out_path) 시그니처로
@@ -35,11 +34,15 @@ REAL_DIR = ROOT / "assets_library" / "real"
 # 일치하지가않아"): 육안 검토 결과 진행 라인/스톱 애니메이션 타이밍이 나레이션과
 # 안 맞는 문제 발견 — 로스터에서 제외. 코드(`lib/templates/proto_timeline.py`)는
 # 그대로 남겨둠, 나중에 타이밍 문제 고치면 다시 로스터에 넣는 것도 가능.
-FORMAT_ROSTER = ["chalkboard", "before_after_transition", "checklist", "ranking_countdown"]
+# WHY ranking_countdown 빠졌는지(2026-08-05, "사진도 없고 이상하게 만들어놨던데.
+# 그리고 뭐 7개씩 넣고 이래버리니까"): 실사진 없이 텍스트·배지만으로 구성되고
+# item 개수를 spec 그대로(최대 7개) 다 렌더링해서 화면이 과밀해 보이는 문제로
+# 로스터에서 제외. 코드(`lib/templates/proto_ranking_countdown.py`)는 그대로
+# 남겨둠.
+FORMAT_ROSTER = ["chalkboard", "before_after_transition", "checklist"]
 _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
-    "ranking_countdown": _render_ranking_countdown,
 }
 
 
