@@ -180,6 +180,18 @@
     "thumbnail": "output/%EB%88%88_1/ko/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "눈_1/pt",
+    "title": "Aquela carninha vermelha crescendo no canto do olho? - Os hábitos que prejudicam sua visão no Brasil",
+    "url": "output/%EB%88%88_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_1/ru",
+    "title": "Глаза красные и как будто в них насыпали песка к вечеру? - Зимние привычки, которые вредят зрению",
+    "url": "output/%EB%88%88_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "눈_2/en",
     "title": "Third energy drink of the day, and your eyelid still won't stop twitching? - Foods & Drinks That Trigger Eye Twitching",
     "url": "output/%EB%88%88_2/en/dashboard.html",
@@ -202,6 +214,18 @@
     "title": "눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법",
     "url": "output/%EB%88%88_2/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_2/ko/card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg"
+  },
+  {
+    "topic": "눈_2/pt",
+    "title": "Treinou pesado no calor, e sua pálpebra não para de tremer? - Por que o suor pode ser a causa",
+    "url": "output/%EB%88%88_2/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_2/ru",
+    "title": "Веко дёргается сильнее именно зимой, а не летом? Дело не в кофе - Почему зимой чаще дёргается веко",
+    "url": "output/%EB%88%88_2/ru/dashboard.html",
+    "thumbnail": null
   },
   {
     "topic": "눈_3/en",
@@ -228,6 +252,18 @@
     "thumbnail": "output/%EB%88%88_3/ko/card_news/%EB%88%88_3_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "눈_3/pt",
+    "title": "Olheiras mesmo dormindo bem? - 3 hábitos brasileiros que pioram as olheiras",
+    "url": "output/%EB%88%88_3/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "눈_3/ru",
+    "title": "Тёмные круги под глазами не проходят зимой? - 3 зимние причины тёмных кругов",
+    "url": "output/%EB%88%88_3/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "다리쥐_1/en",
     "title": "1 in 3 adults over 50 get jolted awake by a leg cramp - Foods That Drain Your Muscles at Night",
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/en/dashboard.html",
@@ -252,9 +288,21 @@
     "thumbnail": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ko/card_news/%EB%8B%A4%EB%A6%AC%EC%A5%90_1_00_%ED%91%9C%EC%A7%80.jpg"
   },
   {
+    "topic": "다리쥐_1/ru",
+    "title": "Судорога свела ногу ночью? - Возможно, это сигнал варикоза",
+    "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "당뇨_1/en",
     "title": "1 in 3 American adults already have prediabetes - The Warning Signs Your Body Is Sending",
     "url": "output/%EB%8B%B9%EB%87%A8_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "당뇨_1/es",
+    "title": "3 Señales del Cuerpo que Muchos Ignoran (y Pueden Ser Diabetes)",
+    "url": "output/%EB%8B%B9%EB%87%A8_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -276,9 +324,21 @@
     "thumbnail": null
   },
   {
+    "topic": "당뇨_1/ru",
+    "title": "Кожа чешется без сыпи, особенно по ночам? - 4 сладости со скрытым сахаром",
+    "url": "output/%EB%8B%B9%EB%87%A8_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "목_1/en",
     "title": "Fell asleep scrolling on your phone and woke up unable to turn your head? - Foods & Drinks Behind Your Morning Neck Pain",
     "url": "output/%EB%AA%A9_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "목_1/es",
+    "title": "9 de cada 10 mexicanos comen más sodio del que necesitan - Lo que hay detrás del dolor de cuello y hombros",
+    "url": "output/%EB%AA%A9_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -300,9 +360,21 @@
     "thumbnail": null
   },
   {
+    "topic": "목_1/ru",
+    "title": "Ноутбук допоздна, а утром шею не повернуть? - Продукты, из-за которых немеют шея и плечи",
+    "url": "output/%EB%AA%A9_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "변비_1/en",
     "title": "Reaching for chips at your desk again? - The Habit That Might Be Backing You Up",
     "url": "output/%EB%B3%80%EB%B9%84_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "변비_1/es",
+    "title": "¿Llevas días sin ir al baño? - El hábito diario que puede estar detrás del estreñimiento",
+    "url": "output/%EB%B3%80%EB%B9%84_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -324,9 +396,21 @@
     "thumbnail": null
   },
   {
+    "topic": "변비_1/ru",
+    "title": "Живот вздулся, третий день не идёшь в туалет? - Возможно, дело в твоей утренней каше",
+    "url": "output/%EB%B3%80%EB%B9%84_1/ru/dashboard.html",
+    "thumbnail": null
+  },
+  {
     "topic": "부종_1/en",
     "title": "Rings tight by lunch, ankles thicker by evening? - Foods Behind Your Everyday Swelling",
     "url": "output/%EB%B6%80%EC%A2%85_1/en/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "부종_1/es",
+    "title": "Le echamos limón, chile y sal a casi todo - 3 alimentos mexicanos que esconden sodio",
+    "url": "output/%EB%B6%80%EC%A2%85_1/es/dashboard.html",
     "thumbnail": null
   },
   {
@@ -345,6 +429,12 @@
     "topic": "부종_1/pt",
     "title": "Você sabe quanto sódio está escondido na sua cozinha? - 3 alimentos que incham sem avisar",
     "url": "output/%EB%B6%80%EC%A2%85_1/pt/dashboard.html",
+    "thumbnail": null
+  },
+  {
+    "topic": "부종_1/ru",
+    "title": "Утром лицо опухшее, а к вечеру ноги тяжёлые? - В этих 3 продуктах соли больше, чем кажется",
+    "url": "output/%EB%B6%80%EC%A2%85_1/ru/dashboard.html",
     "thumbnail": null
   },
   {
