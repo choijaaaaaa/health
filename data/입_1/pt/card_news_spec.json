@@ -1,0 +1,104 @@
+{
+  "title": [
+    "Depois do churrasco",
+    "o hálito incomoda?",
+    "3 hábitos que pioram o mau cheiro"
+  ],
+  "eyebrow": "Atenção ao hálito",
+  "char_display_names": {
+    "맥주_illust.jpg": "Bebida alcoólica",
+    "소고기_illust.jpg": "Carne vermelha",
+    "저탄고단백식단_illust.jpg": "Jejum intermitente"
+  },
+  "items": [
+    {
+      "name": "Por que o hálito fica ruim?",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Quando a boca fica seca",
+        "a saliva diminui",
+        "",
+        "e as bactérias quebram proteínas",
+        "liberando compostos de enxofre"
+      ]
+    },
+    {
+      "name": "Bebida alcoólica",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "O álcool tem efeito diurético",
+        "e reduz a saliva",
+        "",
+        "além de descamar células da boca",
+        "que viram enxofre no processo"
+      ]
+    },
+    {
+      "name": "Bebida alcoólica: como ajudar",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Intercale cada copo",
+        "com um copo de água",
+        "",
+        "isso ajuda a repor a saliva",
+        "e reduzir as bactérias"
+      ]
+    },
+    {
+      "name": "Carne vermelha",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "A carne vermelha é rica",
+        "em proteína",
+        "",
+        "os resíduos entre os dentes",
+        "viram alimento para as bactérias"
+      ]
+    },
+    {
+      "name": "Carne vermelha: como ajudar",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Complemente o prato",
+        "com uma salada verde",
+        "",
+        "e use fio dental",
+        "logo depois da refeição"
+      ]
+    },
+    {
+      "name": "Jejum intermitente",
+      "char_file": "저탄고단백식단_illust.jpg",
+      "body": [
+        "No jejum ou em dietas",
+        "com pouco carboidrato",
+        "",
+        "o corpo libera corpos cetônicos",
+        "com cheiro adocicado ou de acetona"
+      ]
+    },
+    {
+      "name": "Jejum intermitente: como ajudar",
+      "char_file": "저탄고단백식단_illust.jpg",
+      "body": [
+        "Beba bastante água",
+        "ao longo do jejum",
+        "",
+        "e evite cortar o carboidrato",
+        "de forma repentina"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["O mau hálito quase nunca", "é só falta de escovação"],
+      ["Cerveja, carne vermelha e jejum", "também têm seu papel"]
+    ],
+    "tip": [
+      "Beba água regularmente",
+      "e não corte o carboidrato de vez"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga e curta para não perder"
+  },
+  "topic_word": "Mau hálito"
+}
