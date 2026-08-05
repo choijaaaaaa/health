@@ -132,12 +132,6 @@ PROGRESS_STYLES = ["dots", "bar"]
 PIVOT_TRANSITION = "circleopen"  # before→after 전환점, 극적인 전환 하나만 고정
 QUICK_XFADE_DUR = 0.3
 PIVOT_XFADE_DUR = 0.85
-# WHY 2.6초인지(2026-08-05, 코골이_1 실측 확인 — "해결책 화면이 너무 짧아서
-# 읽지도 못한다"): 해결책 본문은 보통 40~55자 두 문장(빈 줄로 구분)인데,
-# 영상 보면서 동시에 읽어야 하는 조건에서 이보다 짧으면 실제로 못 읽고
-# 지나간다. 해결책 N개가 마지막 한 문장에 압축된 topic에서 이 바닥을
-# 지키도록 강제한다.
-FIX_READ_MIN = 2.6
 
 
 def _seeded_choice(seed_str: str, options: list, k: int, c0: int):
@@ -632,7 +626,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     # 없다"): 클로징은 헤드라인 2문단+팁까지 최대 6줄로 해결책 화면보다도
     # 텍스트가 많은데, 나레이션이 따로 없어 항상 "남는 시간"만 받다 보니
     # 1초 바닥까지 떨어져 있었다. 본문 글자 수 비례로 최소 시간을 먼저
-    # 계산해서 예산 배분 단계에서부터 반영한다(FIX_READ_MIN과 같은 계산식).
+    # 계산해서 예산 배분 단계에서부터 반영한다.
     _closing_spec = spec.get("closing", {})
     _closing_weight = (
         sum(len(ln) for block in _closing_spec.get("headline", []) for ln in block)
@@ -640,15 +634,23 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     )
     CLOSING_READ_MIN = min(5.0, max(2.4, _closing_weight * 0.045))
 
-    beats = [("mechanism", mechanism_item)] + [(f"cause{i}", c) for i, c in enumerate(causes, 1)] + \
-            [(f"fix{i}", f) for i, f in enumerate(fixes, 1)]
+    # WHY 해결책(fix)을 항목별 개별 화면으로 안 보여주는지(2026-08-06,
+    # 코골이_1 실측 확인 — "~ 대신 해서 나오는 항목별 개선책 삭제해야겠다
+    # 이거 하나하나 열거하니까 대본에 비해 시간이 너무 짧아서 안 된다"):
+    # 해결책 N개를 각자 화면으로 쪼개면 나레이션이 원인 설명에 비해
+    # 해결책은 짧게(또는 마지막 한 문장에 압축해서) 언급하는 topic이 많아,
+    # 화면 하나당 실제로 줄 수 있는 시간이 구조적으로 부족했다(가독 최소
+    # 시간을 강제로 보장해도 mechanism 구간을 계속 깎아먹는 식). 원인
+    # 화면들 뒤에는 기존 클로징(요약+팁) 화면 하나만 두고, 해결책에 쓰였던
+    # 예산을 전부 이 화면에 몰아준다.
+    beats = [("mechanism", mechanism_item)] + [(f"cause{i}", c) for i, c in enumerate(causes, 1)]
     weights = [max(sum(len(l) for l in it["body"] if l), 1) for _, it in beats]
     min_dur = max(1.3, remaining * 0.03)
-    durs = _proportional_durations(remaining, weights, min_dur)
+    mech_cause_budget = max(remaining - CLOSING_READ_MIN, min_dur * len(weights))
+    durs = _proportional_durations(mech_cause_budget, weights, min_dur)
 
     mechanism_dur = durs[0]
     cause_durs = durs[1:1 + n_pairs]
-    fix_durs = list(durs[1 + n_pairs:1 + 2 * n_pairs])
 
     # WHY 원인(cause) 구간을 실제 SRT 타임스탬프로 덮어쓰는지(2026-08-05,
     # 코골이_1 실측 확인 — 세 번째 원인 화면이 실제 내레이션보다 12초 넘게
@@ -679,17 +681,14 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         mechanism_dur = cause_starts_real[0] - hook_duration
         for i in range(n_pairs - 1):
             cause_durs[i] = cause_starts_real[i + 1] - cause_starts_real[i]
-        # 마지막 원인 구간의 끝(=해결책 시작)도 첫 해결책 이름이 SRT에 개별
+        # 마지막 원인 구간의 끝(=클로징 시작)도 첫 해결책 이름이 SRT에 개별
         # 언급되면 그 시점으로. 안 되면(해결책 N개가 마지막 한 문장에 압축된
         # topic — 게다가 그 문장이 원인과 다른 동의어를 쓰는 경우도 흔해서
         # "맥주"의 해결책 문장이 "술은..."으로 시작하는 식— 이름 문자열
         # 매칭 자체가 실패한다) SRT 마지막 큐의 시작 시각을 대신 쓴다 — 이
         # 프로젝트 나레이션 관행상 마지막 큐는 항상 마무리/해결책 요약
-        # 문장이라 안전한 근사치다. WHY(2026-08-05, 코골이_1 실측 확인 —
-        # "맥주에서 치즈로 넘어갈 때도 스크립트랑 그림이 안 맞는다"): 이
-        # 폴백이 없으면 마지막 원인 구간이 실제보다 짧게 잡혀 해결책 화면이
-        # 나레이션이 원인을 설명하는 도중에 먼저 떠버렸다.
-        fix0_name = fixes[0].get("name", "")
+        # 문장이라 안전한 근사치다.
+        fix0_name = fixes[0].get("name", "") if fixes else ""
         fix0_start_real = None
         if fix0_name:
             for idx in range(search_from, len(entries)):
@@ -703,44 +702,18 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             else cause_starts_real[-1] + cause_durs[-1]
         )
         cause_durs[-1] = max(last_cause_end - cause_starts_real[-1], min_dur)
-        # 원인 실측치 반영분만큼 해결책 구간 총량도 재계산.
-        # WHY _proportional_durations로 재분배하는지(2026-08-05, "해결책
-        # 화면이 너무 짧아서 못 읽는다" 실측 확인 — 이 헬퍼 자체가 원래
-        # "해결책 N개가 압축된 마지막 한 문장을 실제 글자 수 비례로 나눈다"
-        # 용도로 설계돼 있었는데 여기서는 안 쓰고 단순 선형 스케일만
-        # 하고 있었다): 선형 스케일은 min_dur 바닥을 무시해서 압축된
-        # topic에서 화면 하나가 1~2초로 잘려 읽을 수 없었다. 그래도 예산
-        # 자체가 FIX_READ_MIN*N에 못 미치면(나레이션이 너무 압축된 경우)
-        # mechanism 구간에서 부족분을 빌려온다 — mechanism은 원인처럼
-        # 항목별로 정확히 맞아야 하는 문장 경계가 없어서(설명이 쭉 이어지는
-        # 구간) 몇 초 당겨도 체감 어긋남이 거의 없다.
-        fix_weights = weights[1 + n_pairs:1 + 2 * n_pairs]
-        new_fix_total = remaining - mechanism_dur - sum(cause_durs)
-        if new_fix_total > 0:
-            # 해결책 화면들 + 클로징까지 합쳐서 필요한 최소 예산을 한 번에
-            # 따져서 부족하면 mechanism에서 빌려온다(위와 같은 이유 —
-            # mechanism은 문장 경계 정확도 요구가 낮음).
-            fix_budget_min = FIX_READ_MIN * n_pairs
-            total_min_needed = fix_budget_min + CLOSING_READ_MIN
-            if new_fix_total < total_min_needed:
-                shortfall = total_min_needed - new_fix_total
-                borrow = min(shortfall, max(mechanism_dur - min_dur, 0))
-                mechanism_dur -= borrow
-                new_fix_total += borrow
-            closing_dur = min(CLOSING_READ_MIN, max(new_fix_total - fix_budget_min, min_dur))
-            fix_pool = new_fix_total - closing_dur
-            fix_min_dur = min(FIX_READ_MIN, fix_pool / n_pairs)
-            fix_durs = _proportional_durations(fix_pool, fix_weights, fix_min_dur)
-        else:
-            closing_dur = max(CLOSING_READ_MIN, 1.0)
-    else:
-        # 원인 실측 동기화가 안 된 topic(회귀 없는 기존 폴백 경로)도 클로징은
-        # 똑같이 최소 읽기 시간을 보장 — 마지막 해결책 화면 꼬리에서만 빌려오되
-        # FIX_READ_MIN 밑으로는 뺏지 않는다.
-        closing_dur = min(CLOSING_READ_MIN, fix_durs[-1] * 0.4, max(fix_durs[-1] - FIX_READ_MIN, 0))
-        fix_durs[-1] = max(fix_durs[-1] - closing_dur, min_dur)
-        closing_dur = remaining - (mechanism_dur + sum(cause_durs) + sum(fix_durs))
-        closing_dur = max(closing_dur, 1.0)
+
+    # 클로징(요약+팁) 화면 — 해결책 항목별 화면이 없어졌으므로 mechanism+원인
+    # 이후 남는 시간 전부가 이 화면 하나로 간다. 최소 읽기 시간
+    # (CLOSING_READ_MIN)에 못 미치면 mechanism 구간(문장 경계 정확도 요구가
+    # 낮은 구간)에서 빌려온다.
+    closing_dur = remaining - mechanism_dur - sum(cause_durs)
+    if closing_dur < CLOSING_READ_MIN:
+        shortfall = CLOSING_READ_MIN - closing_dur
+        borrow = min(shortfall, max(mechanism_dur - min_dur, 0))
+        mechanism_dur -= borrow
+        closing_dur += borrow
+    closing_dur = max(closing_dur, 1.0)
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
@@ -755,7 +728,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
                 char_cache[char_file] = _remove_chroma(raw)
             return char_cache[char_file]
 
-        total_beats = 2 + 2 * n_pairs + 1  # hook + mechanism + N cause + N fix + closing
+        total_beats = 2 + n_pairs + 1  # hook + mechanism + N cause + closing(해결책 개별 화면 없음)
         screens: list[dict] = []
         # WHY mechanism_item 폴백(2026-08-05, 코골이_1 실측 확인 — 오프닝
         # 화면이 캐릭터 하나 없이 텍스트만 덩그러니 뜨는 문제 발견): spec에
@@ -779,13 +752,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
                 "tone": "before", "label": c["name"], "body": c["body"],
                 "char": chroma_for(c.get("char_file")), "dur": dur, "headline_size": 50,
             })
-        for f, dur in zip(fixes, fix_durs):
-            screens.append({
-                "tone": "after", "label": f["name"], "body": f["body"],
-                "char": chroma_for(f.get("char_file")), "dur": dur, "headline_size": 50,
-            })
-
-        pivot_boundary_index = 1 + n_pairs  # cause 마지막(index n_pairs) → fix 첫(index n_pairs+1) 사이
+        pivot_boundary_index = 1 + n_pairs  # cause 마지막(index n_pairs) → 클로징(요약) 사이 — 문제→해결 피벗
 
         png_paths, target_durs = [], []
         for idx, s in enumerate(screens):
