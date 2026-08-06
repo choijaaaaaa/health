@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Mãos e pés gelados",
+    "o tempo todo?",
+    "3 hábitos que pioram isso"
+  ],
+  "eyebrow": "Alerta de Circulação",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "cover_char_file": "담배_illust.jpg",
+  "cover_scrim_color": "#2C5F8A",
+  "char_display_names": {
+    "담배_illust.jpg": "Cigarro",
+    "소시지_illust.jpg": "Embutidos",
+    "커피_illust.jpg": "Café"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece?",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "O sangue não circula bem",
+        "até a ponta dos dedos",
+        "",
+        "Vasos que se contraem",
+        "por certos hábitos",
+        "pioram esse quadro"
+      ]
+    },
+    {
+      "name": "O Cigarro",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "A nicotina contrai",
+        "os vasos na hora",
+        "",
+        "O monóxido de carbono",
+        "reduz o oxigênio",
+        "que chega ao sangue"
+      ]
+    },
+    {
+      "name": "Para o Cigarro",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Reduzir ou parar de fumar",
+        "já ajuda a circulação",
+        "a melhorar aos poucos"
+      ]
+    },
+    {
+      "name": "Embutidos e Salgadinhos",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Presunto, salsicha e",
+        "macarrão instantâneo",
+        "escondem sódio em excesso",
+        "",
+        "O corpo retém líquido e",
+        "os vasos ficam mais estreitos"
+      ]
+    },
+    {
+      "name": "Para os Embutidos",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Prefira carnes frescas",
+        "no lugar de embutidos",
+        "",
+        "Tempere com ervas naturais,",
+        "não misturas prontas com sal"
+      ]
+    },
+    {
+      "name": "O Café em Excesso",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Café o dia inteiro",
+        "também contrai os vasos",
+        "",
+        "Passar de 3 xícaras pode",
+        "deixar mãos e pés",
+        "ainda mais frios"
+      ]
+    },
+    {
+      "name": "Para o Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Limite a 2 ou 3 xícaras",
+        "por dia",
+        "",
+        "Troque o resto por um",
+        "chá de gengibre morno"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cigarro, embutidos e café em excesso,",
+        "não precisa cortar tudo de vez"
+      ],
+      [
+        "Reduzir e trocar já deixa",
+        "as mãos e os pés mais quentes"
+      ]
+    ],
+    "tip": [
+      "Um chá de gengibre morno com mais frequência",
+      "ajuda na circulação das extremidades"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga, curta e compartilhe!"
+  },
+  "topic_word": "Mãos e Pés Frios"
+}
