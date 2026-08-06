@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Deita à noite e sente aquela",
+    "coceira funda nas pernas que não para?",
+    "Alimentos Que Pioram as Pernas Inquietas"
+  ],
+  "eyebrow": "Alerta de Pernas Inquietas",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Açúcar",
+    "커피_illust.jpg": "Cafeína",
+    "맥주_illust.jpg": "Álcool"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Está ligado à dopamina",
+        "no cérebro",
+        "",
+        "Alguns alimentos pioram",
+        "bastante os sintomas"
+      ]
+    },
+    {
+      "name": "Açúcar",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Estudo: pontuação média 26",
+        "com dieta rica em açúcar,",
+        "vs 6 com dieta pobre",
+        "",
+        "Refrigerante e doces",
+        "pioram o quadro à noite"
+      ]
+    },
+    {
+      "name": "Açúcar — a solução",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Troque por frutas",
+        "frescas ou castanhas"
+      ]
+    },
+    {
+      "name": "Cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Café, chá preto e energéticos",
+        "estimulam o sistema nervoso",
+        "",
+        "Podem atrapalhar a",
+        "absorção de ferro"
+      ]
+    },
+    {
+      "name": "Cafeína — a solução",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Depois das 16h,",
+        "prefira chá de camomila"
+      ]
+    },
+    {
+      "name": "Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Parece relaxar",
+        "no começo",
+        "",
+        "Mas prejudica o sono e",
+        "intensifica o desconforto"
+      ]
+    },
+    {
+      "name": "Álcool — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Pare de beber 3 a 4",
+        "horas antes de dormir"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não é preciso cortar",
+        "tudo isso de uma vez"
+      ],
+      [
+        "Reduzir a quantidade e o",
+        "horário já ajuda bastante"
+      ]
+    ],
+    "tip": [
+      "Ferro baixo? Inclua carne vermelha,",
+      "folhas verde-escuras e feijão"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga e ative as notificações!"
+  },
+  "topic_word": "Síndrome das Pernas Inquietas"
+}
