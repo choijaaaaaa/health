@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Esquece por que entrou",
+    "no cômodo?",
+    "3 hábitos que prejudicam a memória"
+  ],
+  "eyebrow": "Alerta de Memória",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Memória",
+  "char_display_names": {
+    "감자칩_illust.jpg": "Ultraprocessados",
+    "브라질너트_illust.jpg": "Castanha-do-Pará",
+    "가공육_illust.jpg": "Embutidos",
+    "정어리_illust.jpg": "Peixe Fresco",
+    "맥주_illust.jpg": "Álcool",
+    "물방울_illust.jpg": "Água"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "O cérebro é sensível à",
+        "inflamação e ao fluxo de sangue",
+        "",
+        "Ultraprocessados, embutidos e álcool",
+        "afetam justamente esses dois pontos"
+      ]
+    },
+    {
+      "name": "Ultraprocessados",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Biscoito recheado, salgadinho",
+        "e macarrão instantâneo",
+        "",
+        "Estudo da USP com o Elsa-Brasil:",
+        "declínio cognitivo até 28% mais rápido",
+        "em quem consome mais"
+      ]
+    },
+    {
+      "name": "Ultraprocessados — a troca",
+      "char_file": "브라질너트_illust.jpg",
+      "body": [
+        "Troque o salgadinho",
+        "por castanha-do-pará",
+        "",
+        "Um lanche natural no lugar",
+        "do industrializado"
+      ]
+    },
+    {
+      "name": "Embutidos",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Presunto, salsicha e linguiça",
+        "têm sódio e nitrito em excesso",
+        "",
+        "Isso eleva a pressão e reduz",
+        "o sangue que chega ao cérebro",
+        "",
+        "Consumo diário: 17% mais risco",
+        "de comprometimento cognitivo"
+      ]
+    },
+    {
+      "name": "Embutidos — a troca",
+      "char_file": "정어리_illust.jpg",
+      "body": [
+        "Prefira peixe fresco",
+        "no lugar dos embutidos",
+        "",
+        "Sardinha grelhada é uma opção",
+        "simples e acessível"
+      ]
+    },
+    {
+      "name": "Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Cerveja e vinho também contam:",
+        "atingem direto o hipocampo",
+        "",
+        "Duas latas de cerveja por dia já",
+        "aparecem ligadas a um cérebro",
+        "até 2 anos e meio mais velho"
+      ]
+    },
+    {
+      "name": "Álcool — a troca",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Reduza para poucas doses",
+        "de cerveja ou vinho por semana",
+        "",
+        "E intercale com água",
+        "entre um copo e outro"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ultraprocessados, embutidos e álcool",
+        "não precisam ser cortados de vez"
+      ],
+      [
+        "Pequenas trocas já ajudam",
+        "a proteger sua memória"
+      ]
+    ],
+    "tip": [
+      "Salgadinho → castanha-do-pará, embutidos → peixe fresco,",
+      "cerveja/vinho → poucas doses por semana + água"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Inscreva-se, curta e siga!"
+  }
+}
