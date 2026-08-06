@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Couro cabeludo coça",
+    "e a caspa não para de cair?",
+    "3 hábitos alimentares por trás disso"
+  ],
+  "eyebrow": "Alerta de Caspa",
+  "swipe_label": "Deslize para ver o motivo  →",
+  "closing_label": "Resumo",
+  "cover_char_file": "브리가데이로_illust.jpg",
+  "cover_scrim_color": "#5B3A29",
+  "char_display_names": {
+    "브리가데이로_illust.jpg": "Doces",
+    "우유_illust.jpg": "Leite e Derivados",
+    "치킨고로케_illust.jpg": "Frituras"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "브리가데이로_illust.jpg",
+      "body": [
+        "O couro cabeludo tem",
+        "glândulas de sebo",
+        "",
+        "Alguns alimentos estimulam",
+        "esse sebo em excesso,",
+        "",
+        "alimento fácil para",
+        "o fungo da caspa"
+      ]
+    },
+    {
+      "name": "Doces",
+      "char_file": "브리가데이로_illust.jpg",
+      "body": [
+        "Brigadeiro e refrigerante",
+        "elevam o açúcar rápido",
+        "",
+        "Isso aumenta a insulina",
+        "e o hormônio IGF-1,",
+        "",
+        "ligados ao excesso",
+        "de oleosidade"
+      ]
+    },
+    {
+      "name": "Doces — troque por isso",
+      "char_file": "브리가데이로_illust.jpg",
+      "body": [
+        "Troque por castanhas",
+        "ou frutas na hora da fome"
+      ]
+    },
+    {
+      "name": "Leite e Derivados",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Leite e derivados também",
+        "estimulam esse mesmo hormônio",
+        "",
+        "Isso deixa o couro cabeludo",
+        "mais oleoso e propenso",
+        "à caspa"
+      ]
+    },
+    {
+      "name": "Leite — troque por isso",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Troque por bebida vegetal,",
+        "como leite de aveia"
+      ]
+    },
+    {
+      "name": "Frituras",
+      "char_file": "치킨고로케_illust.jpg",
+      "body": [
+        "Coxinha e pastel,",
+        "principalmente em óleo",
+        "reaproveitado,",
+        "",
+        "aumentam a inflamação e",
+        "desequilibram o couro cabeludo"
+      ]
+    },
+    {
+      "name": "Frituras — troque por isso",
+      "char_file": "치킨고로케_illust.jpg",
+      "body": [
+        "Prefira a versão assada",
+        "no forno ou na airfryer"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Coceira e caspa passageiras são comuns,",
+        "mas se persistirem, procure um dermatologista"
+      ],
+      [
+        "Pequenas trocas na alimentação",
+        "já podem fazer diferença"
+      ]
+    ],
+    "tip": [
+      "Menos doce e fritura, mais castanhas",
+      "e sardinha rica em ômega-3"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga, curta e compartilhe!"
+  },
+  "topic_word": "Caspa"
+}
