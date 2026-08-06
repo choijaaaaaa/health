@@ -1,0 +1,24 @@
+{
+  "topic": "피부_2_en",
+  "title": "Protein shake, milky latte, a bag of chips - a pretty normal day - The Foods Behind Adult Acne",
+  "products": [],
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: The Everyday Habit Secretly Fueling Your Adult Acne\n\nDescription:\nPost-workout protein shake, a milky latte, a bag of chips at your desk - sounds like a normal day, but it's oddly common in people with jawline and cheek acne. Nearly half of American women in their 20s deal with it. Whey protein shakes have been linked to breakouts in bodybuilders within weeks of starting them, skim milk carries a stronger acne link than whole milk, and high-glycemic snacks like potato chips spike the same insulin pathway.\n\nWatch to find out why these three habits raise IGF-1 and oil production, and the easy swaps that don't mean giving up protein, dairy, or snacks for good.\n\n#acne #adultacne #skincare #dermatology #healthyskin #healthtips #skinhealth"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Protein shake after the gym, a milky latte, chips at your desk - just a normal day, right? 😤\n\nWhey protein shakes, skim milk, and potato chips can all quietly spike the same hormone pathway that drives oil production and clogged pores. None of it means you have to quit these foods forever - just worth watching how often they show up.\n\nMore health tips like this - follow along!\n\n#acne #adultacne #skincare #dermatology #healthtips #wellness"
+    }
+  ]
+}
