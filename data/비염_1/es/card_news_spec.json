@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Te despiertas con la nariz tapada",
+    "aunque ya tomaste tu antihistamínico?",
+    "Alimentos Que Empeoran la Rinitis"
+  ],
+  "eyebrow": "Alerta de Rinitis",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "치즈_illust.jpg": "Lácteos",
+    "육수큐브_illust.jpg": "Caldos y aditivos",
+    "새우_illust.jpg": "Mariscos"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Muchas personas con rinitis",
+        "notan que los estornudos y",
+        "la congestión empeoran",
+        "después de ciertas comidas",
+        "",
+        "Hay alimentos que disparan",
+        "más histamina en el cuerpo"
+      ]
+    },
+    {
+      "name": "Lácteos",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "La leche y el queso contienen",
+        "caseína, que algunos estudios",
+        "ligan a moco más espeso",
+        "",
+        "Muchas personas sienten",
+        "la nariz más tapada",
+        "después de tomar lácteos"
+      ]
+    },
+    {
+      "name": "Lácteos — la solución",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Prueba con leche",
+        "de avena o almendra"
+      ]
+    },
+    {
+      "name": "Caldos y aditivos",
+      "char_file": "육수큐브_illust.jpg",
+      "body": [
+        "Los caldos en cubo y sopas",
+        "instantáneas suelen llevar",
+        "glutamato monosódico",
+        "",
+        "Puede intensificar los síntomas",
+        "en personas sensibles"
+      ]
+    },
+    {
+      "name": "Caldos — la solución",
+      "char_file": "육수큐브_illust.jpg",
+      "body": [
+        "Cambia el caldo en cubo",
+        "por caldo casero con hierbas"
+      ]
+    },
+    {
+      "name": "Mariscos",
+      "char_file": "새우_illust.jpg",
+      "body": [
+        "El camarón y otros mariscos",
+        "suelen tener más histamina",
+        "que el pescado fresco",
+        "",
+        "Comer bastante puede",
+        "intensificar los estornudos",
+        "y la congestión"
+      ]
+    },
+    {
+      "name": "Mariscos — la solución",
+      "char_file": "새우_illust.jpg",
+      "body": [
+        "Prefiere pescado fresco",
+        "como tilapia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lácteos, caldos y mariscos",
+        "no hay que eliminarlos del todo"
+      ],
+      [
+        "Cambios pequeños en lo que",
+        "eliges pueden bajar la reacción"
+      ]
+    ],
+    "tip": [
+      "Si la congestión dura más de 2 semanas,",
+      "vale la pena consultar a un especialista"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Sigue el canal!"
+  },
+  "topic_word": "Rinitis"
+}
