@@ -1,0 +1,116 @@
+{
+  "title": [
+    "A new study found three foods",
+    "linked to faster memory decline",
+    "3 Everyday Foods Behind Memory Loss"
+  ],
+  "eyebrow": "Memory Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "감자칩_illust.jpg": "Ultra-Processed Snacks",
+    "가공육_illust.jpg": "Processed Meat",
+    "탄산음료_illust.jpg": "Sugary Drinks"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Your brain runs on steady",
+        "blood sugar and blood flow",
+        "",
+        "A new Tufts University study ties",
+        "ultra-processed snacks, processed meat,",
+        "and sugary drinks to faster memory loss"
+      ]
+    },
+    {
+      "name": "Ultra-Processed Snacks",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Over 10,000 adults tracked",
+        "for eight years",
+        "",
+        "Getting a fifth of daily calories from",
+        "packaged snacks and frozen meals was",
+        "linked to 35% faster cognitive decline"
+      ]
+    },
+    {
+      "name": "Ultra-Processed Snacks — try this instead",
+      "char_file": "감자칩_illust.jpg",
+      "body": [
+        "Swap the chip bag for",
+        "a handful of nuts or berries",
+        "",
+        "Same snack habit,",
+        "a lighter load on your brain"
+      ]
+    },
+    {
+      "name": "Processed Meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Eating it daily - even just",
+        "two strips of bacon -",
+        "raised dementia risk by 13%",
+        "",
+        "Each added daily serving raised",
+        "cognitive aging by ~1.6 years"
+      ]
+    },
+    {
+      "name": "Processed Meat — try this instead",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Swap in nuts, legumes,",
+        "chicken, or fish instead",
+        "",
+        "Nuts and legumes alone were",
+        "linked to a 20% lower risk"
+      ]
+    },
+    {
+      "name": "Sugary Drinks",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Boston University's Framingham",
+        "Heart Study: 2+ sugary drinks a day",
+        "matched memory scores 11 years older",
+        "",
+        "Plus a smaller hippocampus -",
+        "the brain's own memory center"
+      ]
+    },
+    {
+      "name": "Sugary Drinks — try this instead",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Reach for sparkling",
+        "water instead",
+        "",
+        "Same fizz,",
+        "none of the sugar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Memory decline often builds",
+        "from small daily habits"
+      ],
+      [
+        "None of these foods need to",
+        "disappear completely"
+      ]
+    ],
+    "tip": [
+      "Start with one - snacks, meat,",
+      "or soda - and swap it today"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Memory Loss"
+}
