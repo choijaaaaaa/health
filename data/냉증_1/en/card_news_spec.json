@@ -1,0 +1,68 @@
+{
+  "title": [
+    "If your hands and feet",
+    "feel like ice even indoors,",
+    "it's not just the weather"
+  ],
+  "eyebrow": "Cold Hands & Feet Alert",
+  "swipe_label": "Swipe to see why  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeine",
+    "소금_illust.jpg": "Sodium",
+    "돼지껍질튀김_illust.jpg": "Fried Food"
+  },
+  "items": [
+    {
+      "name": "Coffee & Energy Drinks",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A 2013 study found caffeine",
+        "blunts your fingers' natural",
+        "rewarming response to cold",
+        "",
+        "Try capping coffee at",
+        "one or two cups a day"
+      ]
+    },
+    {
+      "name": "Salt",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Most Americans get too much",
+        "sodium before they even",
+        "touch a salt shaker",
+        "",
+        "Mostly from processed food,",
+        "and it can damage",
+        "blood vessel walls",
+        "",
+        "Check labels and reach for",
+        "low-sodium options"
+      ]
+    },
+    {
+      "name": "Fried Food",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "One high-fat meal can",
+        "temporarily cut blood flow",
+        "through your arteries",
+        "",
+        "Swap fried chicken or fries for",
+        "grilled or baked versions"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["None of these need to", "disappear completely"],
+      ["Cutting back can help warm up", "cold hands and feet"]
+    ],
+    "tip": [
+      "Ginger or a pinch of cayenne pepper",
+      "is linked to better blood flow"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
