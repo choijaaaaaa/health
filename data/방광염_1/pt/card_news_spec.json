@@ -1,0 +1,103 @@
+{
+  "title": [
+    "Tomou o antibiótico certinho,",
+    "mas a ardência ainda aparece",
+    "depois de certas refeições?"
+  ],
+  "eyebrow": "Alerta de Cistite",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "소시지_illust.jpg": "Embutidos",
+    "레몬_illust.jpg": "Frutas Cítricas"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A bexiga reage aos",
+        "componentes concentrados",
+        "na urina",
+        "",
+        "Alguns alimentos do dia a dia",
+        "pioram bastante essa inflamação"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Age como diurético e",
+        "irrita direto a bexiga,",
+        "aumentando o volume de urina"
+      ]
+    },
+    {
+      "name": "Café — a solução",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Troque por chá de ervas,",
+        "ou limite a uma xícara",
+        "pela manhã"
+      ]
+    },
+    {
+      "name": "Embutidos",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Salsicha, bacon e outros",
+        "embutidos levam conservantes",
+        "e alto teor de sódio",
+        "",
+        "Esses aditivos podem irritar",
+        "diretamente a bexiga"
+      ]
+    },
+    {
+      "name": "Embutidos — a solução",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Prefira carnes frescas",
+        "no lugar deles"
+      ]
+    },
+    {
+      "name": "Frutas Cítricas",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Laranja, limão e outras",
+        "frutas cítricas têm alto",
+        "teor de ácido cítrico",
+        "",
+        "Essa acidez pode irritar",
+        "uma bexiga já inflamada"
+      ]
+    },
+    {
+      "name": "Cítricos — a solução",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Reduza enquanto o",
+        "desconforto durar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa",
+        "cortar tudo de vez"
+      ],
+      [
+        "Pequenas trocas",
+        "já fazem diferença"
+      ]
+    ],
+    "tip": [
+      "Beber bastante água ao longo do dia",
+      "ajuda a diluir a urina e aliviar a irritação"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga a conta!"
+  },
+  "topic_word": "Cistite"
+}
