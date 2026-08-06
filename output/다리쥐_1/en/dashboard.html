@@ -26,6 +26,10 @@
     padding: 5px 16px; border-radius: 999px; margin-bottom: 12px;
   }
   header h1 { margin: 0; font-size: 24px; line-height: 1.4; }
+  .ad-tag-badge {
+    display: inline-block; margin-top: 10px; background: #2f2a24; color: #fff; font-size: 12px;
+    font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  }
 
   section { max-width: 1040px; margin: 0 auto; padding: 0 24px 28px; }
   section > h2 {
@@ -184,6 +188,11 @@
   }
   .btn-copy.copied { background: var(--gold); color: #fff; }
   .edit-hint { font-size: 11px; color: var(--ink-soft); }
+  .copy-naver-connect-comment {
+    background: var(--gold-soft, #fdeecb); color: var(--gold, #b5820a); border: none;
+    font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .copy-naver-connect-comment.copied { background: var(--gold); color: #fff; }
 
   .lightbox {
     display: none; position: fixed; inset: 0; background: rgba(20,14,10,0.85);
@@ -197,6 +206,7 @@
 <header>
   <div class="eyebrow">업로드 대시보드</div>
   <h1>1 in 3 adults over 50 get jolted awake by a leg cramp - Foods That Drain Your Muscles at Night</h1>
+  
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -310,6 +320,24 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
+// WHY 이 버튼이 따로 필요한지(2026-08-06, "네이버클립 근데 댓글까지 필요한거면
+// 댓글도 어떻게 올릴지 UI에 반영되어야할거같은데"): 네이버 쇼핑 커넥트 표시
+// 규정은 쿠팡 파트너스와 위치가 다르다 — 대가성 문구를 캡션 본문이 아니라
+// 업로드 직후 남기는 "첫 번째 고정 댓글"로 따로 달아야 한다(공식 문서는 못
+// 찾음, 실제 활동자 가이드 기준 — CLAUDE.md "네이버 클립" 절 참고). 문구
+// 자체가 고정 문장이라 링크 조합이 필요없어서 COMMENT_LINK_INTRO/
+// _buildLinkBlock 재사용 없이 상수 하나만 그대로 복사한다.
+const NAVER_CONNECT_COMMENT = "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.";
+document.querySelectorAll(".copy-naver-connect-comment").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    navigator.clipboard.writeText(NAVER_CONNECT_COMMENT).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+    });
+  });
+});
 // WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
 // 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
 // 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
