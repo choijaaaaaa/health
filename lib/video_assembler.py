@@ -211,13 +211,32 @@ def _split_long_caption_entries(
     return result
 
 
-def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
+# WHY 언어별 고정 사전인지(2026-08-06, "영상은 언어별로 이미 따로 렌더링되니
+# 텍스트만 그 언어 단어로 바꾸면 되는거 아님?" 확인): topic 하나가 6개 언어를
+# 갖추면 애초에 오디오·자막이 달라 언어별로 별도 mp4를 렌더링하는 구조라(이
+# 사전과 무관하게 원래 그럼), 태그 문구를 언어별로 다르게 넣는 데 드는 추가
+# 비용은 그 렌더링 호출에 문자열 하나 바꿔 넘기는 정도뿐이다 — 영어 하나로
+# 퉁치지 않고 로컬 단어를 쓴다.
+AD_TAG_TEXT_BY_LANG = {
+    "kor": "광고", "en": "AD", "ja": "広告",
+    "es": "Publicidad", "pt": "Anúncio", "ru": "Реклама",
+}
+
+
+def _build_ad_tag_badge(lang: str = "kor", font_size=28, padding=12) -> Image.Image:
     """공정위 표시광고 지침 대응 — 실제 쿠팡/네이버 제휴 링크를 쓰기로 확정한
-    영상에만 assemble(..., ad_tag=True)로 켠다. "처음부터 끝까지 노출" 요건 때문에
-    약하게(반투명)라도 전체 구간에 계속 떠 있어야 하고, 후반부에만 넣는 건 안 됨
-    (shopping-shorts-video에서 확인된 규칙과 동일)."""
-    font = ImageFont.truetype(FONT_PATH, font_size)
-    text = "광고"
+    영상에만 켠다(ffmpeg 합성 경로는 assemble(..., ad_tag=True), PIL 프레임
+    렌더러(checklist/before_after_transition)는 draw_ad_tag_overlay() 참고).
+    "처음부터 끝까지 노출" 요건 때문에 약하게(반투명)라도 전체 구간에 계속
+    떠 있어야 하고, 후반부에만 넣는 건 안 됨(shopping-shorts-video에서
+    확인된 규칙과 동일).
+
+    WHY _title_font_for_lang인지: 일본어 "広告"는 AppleSDGothicNeo(한국어
+    시스템 폰트)에 글리프가 없어 깨져 보인다 — 이미 있는 언어별 폰트 매핑을
+    그대로 재사용."""
+    font_path, font_index = _title_font_for_lang(lang)
+    font = ImageFont.truetype(font_path, font_size, index=font_index)
+    text = AD_TAG_TEXT_BY_LANG.get(lang, "AD")
     dummy = Image.new("RGBA", (1, 1))
     bbox = ImageDraw.Draw(dummy).textbbox((0, 0), text, font=font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
@@ -225,7 +244,23 @@ def _make_ad_tag_png(out_path: Path, font_size=28, padding=12):
     img = Image.new("RGBA", (box_w, box_h), (0, 0, 0, 100))
     draw = ImageDraw.Draw(img)
     draw.text((padding - bbox[0], padding - bbox[1]), text, font=font, fill=(255, 255, 255, 210))
-    img.save(out_path)
+    return img
+
+
+def _make_ad_tag_png(out_path: Path, lang: str = "kor", font_size=28, padding=12):
+    _build_ad_tag_badge(lang, font_size, padding).save(out_path)
+
+
+def draw_ad_tag_overlay(img: Image.Image, lang: str = "kor", top_margin: int = 16) -> Image.Image:
+    """PIL 프레임 단위로 직접 그리는 신규 템플릿(checklist/before_after_transition)
+    전용 — ffmpeg overlay 필터 대신 프레임/화면 이미지 하나하나에 배지를 합성한다.
+    호출부가 프레임마다(또는 화면 PNG 저장 직전마다) 불러서 "처음부터 끝까지
+    노출" 요건을 자연스럽게 만족시킨다. 우상단 위치는 판서형 assemble()의
+    `x=main_w-overlay_w-20, y=title_h+16`과 시각적으로 맞춘다."""
+    badge = _build_ad_tag_badge(lang)
+    x = img.width - badge.width - 20
+    img.paste(badge, (x, top_margin), badge)
+    return img
 
 
 def _cover_crop_subject(photo_path: str, out_w: int, out_h: int) -> Image.Image:
@@ -3408,7 +3443,25 @@ def assemble(
         filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
         current = nxt
 
+        # WHY ad_tag과 item_schedule을 더 이상 상호배타로 안 두는지(2026-08-06,
+        # 손톱_1 실측 확인 — 캐릭터 여러 명 topic은 우상단이 항상 아이템 라벨
+        # 차지라 광고 태그가 아예 안 뜨는 사고였음): 둘 다 "우상단"을 원해서
+        # 자리가 겹치니, 태그가 켜져 있으면 아이템 라벨을 그 아래로 밀어서
+        # 세로로 쌓는다 — 태그는 항상 title_h+16, 라벨은 태그가 있으면 그만큼
+        # 더 아래(title_h+16+ad_tag_h+8), 없으면 기존 자리(title_h+20) 그대로.
+        ad_tag_h = 0
+        if ad_tag:
+            ad_png = tmp_path / "ad_tag.png"
+            _make_ad_tag_png(ad_png, lang=lang)
+            ad_tag_h = Image.open(ad_png).height
+            ad_idx = _add_input(ad_png)
+            nxt = "vad"
+            filter_parts.append(
+                f"[{current}][{ad_idx}:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[{nxt}]")
+            current = nxt
+
         if item_schedule:
+            label_y = title_h + 16 + ad_tag_h + 8 if ad_tag else title_h + 20
             for i, item in enumerate(item_schedule):
                 seg_start_abs = item["start"] + title_card_duration
                 seg_end_abs = item["end"] + title_card_duration
@@ -3419,16 +3472,7 @@ def assemble(
                 label_idx = _add_input(label_png)
                 nxt = f"vl{i}"
                 filter_parts.append(
-                    f"[{current}][{label_idx}:v]overlay=x=main_w-overlay_w-24:y={title_h + 20}:enable='{win}'[{nxt}]")
-                current = nxt
-        else:
-            if ad_tag:
-                ad_png = tmp_path / "ad_tag.png"
-                _make_ad_tag_png(ad_png)
-                ad_idx = _add_input(ad_png)
-                nxt = "vad"
-                filter_parts.append(
-                    f"[{current}][{ad_idx}:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[{nxt}]")
+                    f"[{current}][{label_idx}:v]overlay=x=main_w-overlay_w-24:y={label_y}:enable='{win}'[{nxt}]")
                 current = nxt
 
         filter_complex = ";".join(filter_parts)
