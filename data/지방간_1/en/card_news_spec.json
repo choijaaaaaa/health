@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Tired no matter how much you rest,",
+    "with a dull ache under your right ribs?",
+    "3 diet triggers behind fatty liver"
+  ],
+  "eyebrow": "Silent Liver Damage",
+  "items": [
+    {
+      "name": "Why does this happen?",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "About 1 in 4 US adults has",
+        "fatty liver disease — NIDDK",
+        "calls it a 'silent epidemic'",
+        "",
+        "It usually shows no symptoms,",
+        "but fatigue or a dull ache",
+        "can be early signs",
+        "",
+        "These 3 everyday foods keep",
+        "adding fat to your liver"
+      ]
+    },
+    {
+      "name": "Fast food (burgers & fries)",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Getting 20%+ of your daily",
+        "calories from fast food is",
+        "linked to significantly higher",
+        "liver fat",
+        "",
+        "(2023 USC study)"
+      ]
+    },
+    {
+      "name": "Instead of fast food",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Try a home-grilled chicken",
+        "sandwich or a protein bowl",
+        "",
+        "Same craving, way less",
+        "saturated fat for your liver"
+      ]
+    },
+    {
+      "name": "Sugary soda (even diet)",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "A 2025 UK Biobank study of",
+        "120,000+ adults found sugary",
+        "drinks raised fatty liver risk",
+        "by 50% — diet soda by 60%"
+      ]
+    },
+    {
+      "name": "Instead of soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sparkling water skips the",
+        "sugar without losing the fizz",
+        "",
+        "Unsweetened tea works too —",
+        "same ritual, none of the sugar"
+      ]
+    },
+    {
+      "name": "Red meat (steak, ground beef)",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "People who eat the most",
+        "red meat have about 27%",
+        "higher odds of fatty liver",
+        "",
+        "Saturated fat adds real",
+        "strain on the liver"
+      ]
+    },
+    {
+      "name": "Instead of red meat",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Fish or chicken a few nights",
+        "a week keeps the flavor,",
+        "",
+        "cuts the saturated fat",
+        "your liver has to process"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "The liver stays silent,",
+        "so damage is easy to miss"
+      ],
+      [
+        "A few swaps a week take",
+        "real pressure off your liver"
+      ]
+    ],
+    "tip": [
+      "Swap fast food for grilled chicken, soda for sparkling water,",
+      "and red meat for fish a few times a week"
+    ],
+    "cta": "Follow for more health tips that actually help"
+  }
+}
