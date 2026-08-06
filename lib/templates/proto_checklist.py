@@ -134,8 +134,19 @@ CLOSING_TIP_HEADER_BY_LANG = {
     "kor": "마무리 팁", "en": "Wrap-Up Tip", "ja": "まとめのコツ",
     "es": "Consejo Final", "pt": "Dica Final", "ru": "Итоговый совет",
 }
-CHECKLIST_HEADER_BEFORE = "확인해야 할 3가지"
-CHECKLIST_HEADER_AFTER = "오늘부터 이렇게"
+# WHY 언어별 딕셔너리(2026-08-06 버그 수정, "checklist 헤더가 es 영상에서
+# 격자 네모로 나온다" 실제 확인): EYEBROW_*_BY_LANG은 이미 언어별로 고쳤는데
+# 이 헤더 문구("확인해야 할 3가지"->"오늘부터 이렇게")는 그 fix에서 빠뜨리고
+# 여전히 한국어 하드코딩이었다 — 한글 글리프 없는 폰트로 그려지는 비한국어
+# 영상에서 전부 tofu box로 깨짐.
+CHECKLIST_HEADER_BEFORE_BY_LANG = {
+    "kor": "확인해야 할 3가지", "en": "3 Things to Check", "ja": "確認すべき3つ",
+    "es": "3 cosas a revisar", "pt": "3 coisas a verificar", "ru": "3 вещи для проверки",
+}
+CHECKLIST_HEADER_AFTER_BY_LANG = {
+    "kor": "오늘부터 이렇게", "en": "Start Today", "ja": "今日からこう",
+    "es": "Desde hoy así", "pt": "A partir de hoje assim", "ru": "Начните сегодня",
+}
 MODE_FADE = 0.4
 ITEM_FADE = 0.45
 ITEM_FIX_FADE = 0.45
@@ -652,10 +663,12 @@ class Ctx:
         # 먼저 추정해 panel_top(카드 시작 y)을 계산한다.
         header_font = _load_font(self.font_path, self.font_index, 60)
         header_lines_a = _wrap_text_for_lang(
-            measure_draw, CHECKLIST_HEADER_BEFORE, header_font, SAFE_CENTERED_MAX_WIDTH, lang
+            measure_draw, CHECKLIST_HEADER_BEFORE_BY_LANG.get(lang, CHECKLIST_HEADER_BEFORE_BY_LANG["en"]),
+            header_font, SAFE_CENTERED_MAX_WIDTH, lang
         ) or [""]
         header_lines_b = _wrap_text_for_lang(
-            measure_draw, CHECKLIST_HEADER_AFTER, header_font, SAFE_CENTERED_MAX_WIDTH, lang
+            measure_draw, CHECKLIST_HEADER_AFTER_BY_LANG.get(lang, CHECKLIST_HEADER_AFTER_BY_LANG["en"]),
+            header_font, SAFE_CENTERED_MAX_WIDTH, lang
         ) or [""]
         header_line_h = round(75)
         header_lines_count = max(len(header_lines_a), len(header_lines_b))
@@ -898,10 +911,12 @@ def render_checklist(ctx: Ctx, t: float):
         before_alpha = 0
         after_alpha = min(1, (fixes_p - 0.5) * 2)
     if before_alpha > 0.01:
-        draw_centered_lines(draw, [CHECKLIST_HEADER_BEFORE], ctx.checklist_header_font, cx, header_top, 0,
+        header_before = CHECKLIST_HEADER_BEFORE_BY_LANG.get(ctx.lang, CHECKLIST_HEADER_BEFORE_BY_LANG["en"])
+        draw_centered_lines(draw, [header_before], ctx.checklist_header_font, cx, header_top, 0,
                              TEXT_DARK, alpha=int(255 * before_alpha), label="checklist-header-before")
     if after_alpha > 0.01:
-        draw_centered_lines(draw, [CHECKLIST_HEADER_AFTER], ctx.checklist_header_font, cx, header_top, 0,
+        header_after = CHECKLIST_HEADER_AFTER_BY_LANG.get(ctx.lang, CHECKLIST_HEADER_AFTER_BY_LANG["en"])
+        draw_centered_lines(draw, [header_after], ctx.checklist_header_font, cx, header_top, 0,
                              TEXT_DARK, alpha=int(255 * after_alpha), label="checklist-header-after")
 
     draw_shadowed_panel(
