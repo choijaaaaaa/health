@@ -1,0 +1,99 @@
+{
+  "title": [
+    "Up for the third time",
+    "before 2 a.m. just to pee,",
+    "and it burns worse each time?"
+  ],
+  "eyebrow": "Bladder Health Alert",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeine",
+    "탄산음료_illust.jpg": "Diet Soda",
+    "귤_illust.jpg": "Citrus Fruit"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "The bladder wall reacts to",
+        "what's concentrated in urine",
+        "",
+        "Some everyday foods make",
+        "that reaction - and the",
+        "burning - noticeably worse"
+      ]
+    },
+    {
+      "name": "Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Coffee and tea stimulate",
+        "the bladder directly and",
+        "increase urine output"
+      ]
+    },
+    {
+      "name": "Caffeine — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Swap for water or",
+        "herbal tea"
+      ]
+    },
+    {
+      "name": "Diet Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Artificial sweeteners can",
+        "aggravate an already",
+        "inflamed bladder lining"
+      ]
+    },
+    {
+      "name": "Diet Soda — the fix",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Try plain still",
+        "water instead"
+      ]
+    },
+    {
+      "name": "Citrus Fruit",
+      "char_file": "귤_illust.jpg",
+      "body": [
+        "Orange juice and other",
+        "citrus are high in",
+        "citric acid",
+        "",
+        "That acidity can directly",
+        "irritate the bladder lining"
+      ]
+    },
+    {
+      "name": "Citrus — the fix",
+      "char_file": "귤_illust.jpg",
+      "body": [
+        "Try a lower-acid fruit",
+        "like banana instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of these need",
+        "to disappear for good"
+      ],
+      [
+        "Small swaps make",
+        "a real difference"
+      ]
+    ],
+    "tip": [
+      "Drinking plenty of plain water helps",
+      "dilute urine and ease the irritation"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Bladder Health"
+}

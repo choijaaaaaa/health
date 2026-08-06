@@ -1,0 +1,102 @@
+{
+  "title": [
+    "No solo el agua importa",
+    "cuando tienes cistitis:",
+    "lo que comes también cuenta"
+  ],
+  "eyebrow": "Alerta de Cistitis",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "고추_illust.jpg": "Chile Picante",
+    "토마토_illust.jpg": "Jitomate"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La vejiga reacciona a los",
+        "componentes que terminan",
+        "en la orina",
+        "",
+        "Ciertos alimentos intensifican",
+        "esa inflamación bastante más",
+        "de lo que imaginas"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Irrita directamente la vejiga",
+        "y aumenta el volumen",
+        "de orina"
+      ]
+    },
+    {
+      "name": "Café — la solución",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cambia a agua o té",
+        "sin cafeína"
+      ]
+    },
+    {
+      "name": "Chile Picante",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina irrita",
+        "la pared de la vejiga",
+        "",
+        "Puede intensificar el ardor",
+        "y la urgencia al orinar"
+      ]
+    },
+    {
+      "name": "Chile — la solución",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Baja el nivel de picante",
+        "en tus salsas"
+      ]
+    },
+    {
+      "name": "Jitomate",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "El jitomate y las salsas",
+        "de tomate tienen alto",
+        "contenido de ácido",
+        "",
+        "Esa acidez puede irritar",
+        "una vejiga ya inflamada"
+      ]
+    },
+    {
+      "name": "Jitomate — la solución",
+      "char_file": "토마토_illust.jpg",
+      "body": [
+        "Redúcelo mientras",
+        "dura la molestia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta",
+        "dejar todo por completo"
+      ],
+      [
+        "Pequeños cambios",
+        "hacen la diferencia"
+      ]
+    ],
+    "tip": [
+      "Tomar suficiente agua también ayuda",
+      "a eliminar bacterias de la vejiga"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Sigue la cuenta!"
+  },
+  "topic_word": "Cistitis"
+}
