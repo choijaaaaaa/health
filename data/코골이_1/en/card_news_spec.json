@@ -1,0 +1,51 @@
+{
+  "title": ["If your partner keeps", "elbowing you awake over snoring,", "check what's on your plate"],
+  "eyebrow": "Snoring Alert",
+  "char_display_names": {
+    "가공육_illust.jpg": "Processed Meat",
+    "탄산음료_illust.jpg": "Soda & Sugary Drinks",
+    "고추_illust.jpg": "Spicy Fried Food"
+  },
+  "items": [
+    {
+      "name": "Why Do You Snore?",
+      "char_file": "가공육_illust.jpg",
+      "body": ["Your airway narrows", "while you sleep", "", "Air squeezes through", "and tissue vibrates"]
+    },
+    {
+      "name": "Processed Meat",
+      "char_file": "가공육_illust.jpg",
+      "body": ["Bacon and deli meats", "are loaded with sodium", "and nitrates", "", "That may contribute to", "swelling in throat tissue"]
+    },
+    {
+      "name": "Instead of Bacon",
+      "char_file": "가공육_illust.jpg",
+      "body": ["Try freshly cooked", "chicken or turkey breast", "", "Skip deli meat", "close to bedtime"]
+    },
+    {
+      "name": "Soda & Sugary Drinks",
+      "char_file": "탄산음료_illust.jpg",
+      "body": ["Regular soda can drive", "weight gain over time", "", "Extra neck fat thickens", "the airway wall"]
+    },
+    {
+      "name": "Instead of Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": ["Swap in sparkling water", "or plain water instead", "", "Small swap,", "big difference over time"]
+    },
+    {
+      "name": "Spicy, Greasy Takeout",
+      "char_file": "고추_illust.jpg",
+      "body": ["Hot wings and fried food", "can trigger acid reflux", "", "Reflux may irritate your", "airway tissue at night"]
+    },
+    {
+      "name": "Time It Right",
+      "char_file": "고추_illust.jpg",
+      "body": ["Finish spicy or fried meals", "3+ hours before bed", "", "Side sleeping also helps", "keep your airway open"]
+    }
+  ],
+  "closing": {
+    "headline": [["Snoring usually comes", "from a narrowed airway"], ["Cutting back on these foods", "can ease the pressure"]],
+    "tip": ["Sleeping on your side", "helps keep your airway open"],
+    "cta": "Follow for more useful health tips"
+  }
+}
