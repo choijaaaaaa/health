@@ -22,7 +22,9 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from lib.bgm import mix_bgm  # noqa: E402
-from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang  # noqa: E402
+from lib.video_assembler import (  # noqa: E402
+    _title_font_for_lang, _wrap_text_for_lang, draw_ad_tag_overlay,
+)
 
 W, H = 1080, 1920
 FPS = 30
@@ -637,7 +639,8 @@ def _xfade_chain(seg_paths: list[Path], raw_durs: list[float], transitions: list
     )
 
 
-def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str) -> None:
+def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str,
+           ad_tag: bool = False) -> None:
     """card_news_spec.json(mechanism → N쌍의 원인/해결 → closing)을 읽어 풀블리드
     전-후 전환 숏츠를 렌더링한다. N은 하드코딩하지 않고 items 길이에서 유도한다.
 
@@ -820,6 +823,8 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
                     s["tone"], theme, lang, s["label"], s["body"], s["char"],
                     progress_style, idx, total_beats, headline_size=s["headline_size"],
                 )
+            if ad_tag:
+                img = draw_ad_tag_overlay(img, lang)
             p = tmp_path / f"scr_{idx:02d}.png"
             img.save(p)
             png_paths.append(p)
@@ -830,6 +835,8 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         closing_img = _render_closing_screen(
             theme, lang, spec["closing"], closing_chromas, progress_style, total_beats - 1, total_beats,
         )
+        if ad_tag:
+            closing_img = draw_ad_tag_overlay(closing_img, lang)
         closing_png = tmp_path / f"scr_{len(screens):02d}.png"
         closing_img.save(closing_png)
         png_paths.append(closing_png)

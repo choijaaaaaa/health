@@ -138,6 +138,10 @@ PAGE_TEMPLATE = """<!doctype html>
     padding: 5px 16px; border-radius: 999px; margin-bottom: 12px;
   }}
   header h1 {{ margin: 0; font-size: 24px; line-height: 1.4; }}
+  .ad-tag-badge {{
+    display: inline-block; margin-top: 10px; background: #2f2a24; color: #fff; font-size: 12px;
+    font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  }}
 
   section {{ max-width: 1040px; margin: 0 auto; padding: 0 24px 28px; }}
   section > h2 {{
@@ -314,6 +318,7 @@ PAGE_TEMPLATE = """<!doctype html>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
   <h1>{title}</h1>
+  {ad_tag_badge}
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -974,10 +979,16 @@ def _update_topics_index(out_path: str):
         rel = dash.parent.relative_to(output_root)
         topic = "/".join(rel.parts)  # flat: "가슴쓰림_1", 중첩: "가슴쓰림_1/en"
         title = topic
+        # WHY ad_tag도 여기서 같이 읽는지(2026-08-06, "플래그 세워서 육안으로
+        # 신규 포맷이라는거 구분 가능하게"): 영상 우상단 광고 태그 오버레이가
+        # 적용된 topic인지를 목록에서 바로 구분할 수 있어야 한다.
+        ad_tag_applied = False
         caption_path = data_root / rel / "platform_captions.json"
         if caption_path.exists():
             try:
-                title = json.loads(caption_path.read_text()).get("title", topic)
+                caption_spec = json.loads(caption_path.read_text())
+                title = caption_spec.get("title", topic)
+                ad_tag_applied = bool(caption_spec.get("ad_tag"))
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
@@ -988,7 +999,7 @@ def _update_topics_index(out_path: str):
         thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path else None
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
-            "thumbnail": thumbnail,
+            "thumbnail": thumbnail, "ad_tag": ad_tag_applied,
         })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
@@ -1446,8 +1457,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
 
     card_image_names_js = json.dumps([quote(p.name) for p in cover_imgs])
 
+    ad_tag_badge = '<span class="ad-tag-badge">🏷️ 광고표시 적용</span>' if spec.get("ad_tag") else ""
+
     html = PAGE_TEMPLATE.format(
-        title=_esc(spec["title"]), card_thumbs=card_thumbs,
+        title=_esc(spec["title"]), card_thumbs=card_thumbs, ad_tag_badge=ad_tag_badge,
         platform_sections=sections_html,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
         card_image_names_js=card_image_names_js,

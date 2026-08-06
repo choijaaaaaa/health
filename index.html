@@ -414,7 +414,7 @@ Promise.all([
       const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
       if (!groups.has(baseTopic)) groups.set(baseTopic, []);
-      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg });
+      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag });
     });
 
     groups.forEach((variants, baseTopic) => {
@@ -428,6 +428,10 @@ Promise.all([
       // (위 "topic 완료 여부" 절 참고) 언어별로 나눠 볼 대상이 아니다 — 언어별
       // 실제 업로드 여부는 아래 언어 배지가 따로 담당한다.
       const done = completed.has(baseTopic) || variants.some(v => completed.has(v.topic));
+      // WHY(2026-08-06, "플래그 세워서 육안으로 신규 포맷이라는거 구분 가능하게"):
+      // 영상 우상단 광고 태그 오버레이 적용 여부를 언어 무관하게(하나라도 적용됐으면)
+      // 목록에서 바로 구분할 수 있어야 한다.
+      const adTagApplied = variants.some(v => v.adTag);
 
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
@@ -436,6 +440,14 @@ Promise.all([
       badge.textContent = done ? "✅" : "⬜";
       badge.setAttribute("aria-label", baseTopic + (done ? " 완료" : " 미완료"));
       badge.style.cssText = "width:18px;flex:0 0 auto;font-size:14px;line-height:1;";
+
+      const adTagBadge = document.createElement("span");
+      if (adTagApplied) {
+        adTagBadge.textContent = "🏷️";
+        adTagBadge.title = "영상 우상단 광고 태그 적용됨";
+        adTagBadge.setAttribute("aria-label", "광고 태그 적용됨");
+        adTagBadge.style.cssText = "width:16px;flex:0 0 auto;font-size:13px;line-height:1;";
+      }
 
       const thumb = document.createElement("div");
       thumb.style.cssText = "flex:0 0 auto;width:42px;height:52px;border-radius:6px;overflow:hidden;background:var(--bg-bottom);";
@@ -521,6 +533,7 @@ Promise.all([
       }
 
       row.appendChild(badge);
+      row.appendChild(adTagBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
       row.appendChild(buttonWrap);

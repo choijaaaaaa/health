@@ -16,7 +16,9 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from lib.bgm import mix_bgm  # noqa: E402
-from lib.video_assembler import _title_font_for_lang, _wrap_text_for_lang, _parse_srt  # noqa: E402
+from lib.video_assembler import (  # noqa: E402
+    _title_font_for_lang, _wrap_text_for_lang, _parse_srt, draw_ad_tag_overlay,
+)
 
 W, H = 1080, 1920
 FPS = 30
@@ -1003,7 +1005,8 @@ def ffprobe_duration(path) -> float:
     return float(out.stdout.strip())
 
 
-def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str) -> None:
+def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str,
+           ad_tag: bool = False) -> None:
     """임의의 topic 하나를 이 체크리스트 템플릿으로 렌더링한다 — 항목 개수는
     `spec_path`의 `items` 리스트에서 그대로 읽고, 폰트는 `lang`에 맞춰 자동으로
     고른다(다른 코드에서 여러 topic에 대해 반복 호출해도 서로 상태를 공유하지
@@ -1040,6 +1043,8 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     for i in range(frame_count):
         t = min(i / FPS, duration)
         img = render_frame(ctx, t)
+        if ad_tag:
+            img = draw_ad_tag_overlay(img, lang)
         img.save(frames_dir / f"frame_{i:06d}.png")
         if i % 150 == 0:
             print(f"  frame {i}/{frame_count} (t={t:.2f}s)")

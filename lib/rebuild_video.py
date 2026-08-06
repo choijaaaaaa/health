@@ -528,6 +528,12 @@ def derive(topic: str) -> dict:
         lang=lang,
         item_label_overrides=item_label_overrides,
         topic_word=topic_word,
+        # WHY 기본 True(2026-08-06, "우상단에 광고 태그 다는거 대응해달라... 새로
+        # 만들던 애들부터는 전부 적용": 실제 제휴 링크 확정 여부와 무관하게 픽셀
+        # 오버레이 자체는 이제부터 항상 켠다 — 캡션 쪽 실제 커미션 링크/고지문구는
+        # 플랫폼별로 여전히 CLAUDE.md "오버레이 구현 후 플랫폼별 대응" 정책을
+        # 따로 따른다(네이버 클립만 즉시 재개, 유튜브·인스타는 계속 보류).
+        ad_tag=True,
     )
 
     if len(distinct_chars) == 1:
@@ -565,6 +571,7 @@ def rebuild(topic: str):
                 srt_path=kwargs["srt_path"],
                 spec_path=str(spec_path),
                 out_path=kwargs["out_path"],
+                ad_tag=kwargs["ad_tag"],
             )
         except RuntimeError as e:
             # WHY(2026-08-05): 4개 신규 템플릿은 각자 특정 items 구조를 전제한다
