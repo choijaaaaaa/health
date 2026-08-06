@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Si te siguen saliendo granos",
+    "en la mandíbula y las mejillas",
+    "cuidado con estos 3 alimentos"
+  ],
+  "eyebrow": "Alerta de Acné",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "topic_word": "Acné",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco",
+    "단과자빵_illust.jpg": "Pan dulce",
+    "치즈_illust.jpg": "Queso"
+  },
+  "items": [
+    {
+      "name": "Por qué salen los granos",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cuando algo dispara tu azúcar,",
+        "el cuerpo suelta insulina de golpe",
+        "",
+        "esa insulina eleva el IGF-1,",
+        "una hormona que sube la grasa en la piel"
+      ]
+    },
+    {
+      "name": "Refresco",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "México bebe casi 40% más refresco",
+        "por persona que Estados Unidos",
+        "",
+        "esa azúcar dispara la insulina",
+        "y el IGF-1 de golpe"
+      ]
+    },
+    {
+      "name": "En vez de refresco",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cambia el refresco",
+        "por agua mineral con limón",
+        "",
+        "así evitas el pico de azúcar",
+        "que dispara la insulina"
+      ]
+    },
+    {
+      "name": "Pan dulce",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "La concha y otros panes dulces",
+        "son harina refinada",
+        "",
+        "en pacientes mexicanos con acné",
+        "se encontró un consumo de pan más frecuente"
+      ]
+    },
+    {
+      "name": "En vez de pan dulce",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Cambia el pan dulce",
+        "por avena",
+        "",
+        "se descompone más lento",
+        "y evita el pico de glucosa"
+      ]
+    },
+    {
+      "name": "Queso y crema",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "El queso y la crema",
+        "de tacos y quesadillas",
+        "",
+        "suben el IGF-1 por su propia vía,",
+        "sin necesitar azúcar de por medio"
+      ]
+    },
+    {
+      "name": "Con el queso",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "No hace falta quitarlo del todo,",
+        "sirve porciones más pequeñas",
+        "",
+        "o cambia la crema por aguacate",
+        "en tus tacos y quesadillas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El refresco, el pan dulce y el queso",
+        "disparan insulina e IGF-1"
+      ],
+      [
+        "Cambiar estos tres alimentos",
+        "puede calmar tu piel"
+      ]
+    ],
+    "tip": [
+      "Agua mineral con limón, avena y menos queso -",
+      "así baja el pico de insulina e IGF-1"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y síguenos!"
+  }
+}
