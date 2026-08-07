@@ -435,7 +435,7 @@ Promise.all([
       const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
       if (!groups.has(baseTopic)) groups.set(baseTopic, []);
-      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, track: t.track });
+      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, tracks: t.tracks || [] });
     });
 
     groups.forEach((variants, baseTopic) => {
@@ -453,12 +453,14 @@ Promise.all([
       // 영상 우상단 광고 태그 오버레이 적용 여부를 언어 무관하게(하나라도 적용됐으면)
       // 목록에서 바로 구분할 수 있어야 한다.
       const adTagApplied = variants.some(v => v.adTag);
-      // WHY 언어 하나라도 "숏츠"면 그룹 전체를 "숏츠"로: adTagApplied와 같은
-      // 집계 원칙 — 같은 topic의 언어별 트랙이 갈리는 경우는 실질적으로 없고,
-      // 있어도 영상이 하나라도 있으면 그 topic은 사실상 숏츠 topic이다.
-      const track = variants.some(v => v.track === "shorts") ? "shorts" : "card_news";
-      const targetList = track === "shorts" ? shortsList : cardNewsList;
+      // WHY 배타적 분류 대신 소속 트랙 목록인지(2026-08-07, "기존에 이미
+      // 생성되었던 카드뉴스 형태 애들도 아예 새로 만든 탭으로 넣어 전부다"):
+      // 영상+카드뉴스를 같이 가진 기존 topic은 두 탭 모두에서 찾을 수 있어야
+      // 한다 — 언어 하나라도 그 트랙 콘텐츠가 있으면 그룹 전체가 그 트랙에도
+      // 속한다(adTagApplied와 같은 "하나라도 있으면" 집계 원칙).
+      const groupTracks = ["shorts", "card_news"].filter(t => variants.some(v => v.tracks.includes(t)));
 
+      function buildRow() {
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
 
@@ -563,8 +565,28 @@ Promise.all([
       row.appendChild(thumb);
       row.appendChild(textWrap);
       row.appendChild(buttonWrap);
-      (done ? doneList : targetList).appendChild(row);
-      rows.push({ row, topic: baseTopic, list: targetList });
+      return row;
+      }
+
+      if (done) {
+        // WHY 완료 섹션은 트랙 무관 한 행만: doneList는 트랙 구분 없이 공유라
+        // 두 트랙에 다 속해도 중복으로 넣지 않는다(위 "완료 섹션도 트랙 구분
+        // 없이 공유" 원칙).
+        const row = buildRow();
+        doneList.appendChild(row);
+        rows.push({ row, topic: baseTopic, list: doneList });
+      } else {
+        // WHY 트랙마다 별도 DOM 노드를 새로 만드는지: 같은 row 엘리먼트를 두
+        // 리스트에 동시에 appendChild할 수 없다(DOM 노드는 부모 하나뿐) —
+        // 소속된 트랙 수만큼 buildRow()를 다시 호출해 독립된 행을 각 리스트에
+        // 넣는다.
+        groupTracks.forEach(t => {
+          const targetList = t === "shorts" ? shortsList : cardNewsList;
+          const row = buildRow();
+          targetList.appendChild(row);
+          rows.push({ row, topic: baseTopic, list: targetList });
+        });
+      }
     });
     refreshDoneWrap();
     document.getElementById("topicsSection").style.display = "block";

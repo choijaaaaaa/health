@@ -5,7 +5,9 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/dashboard.html",
     "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/en/card_news/en_heartburn_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "가슴쓰림_1/es",
@@ -13,7 +15,9 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "가슴쓰림_1/ja",
@@ -21,7 +25,9 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "가슴쓰림_1/ko",
@@ -29,7 +35,10 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ko/card_news/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "가슴쓰림_1/pt",
@@ -37,7 +46,9 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "가슴쓰림_1/ru",
@@ -45,7 +56,9 @@
     "url": "output/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갑상선_1/en",
@@ -53,7 +66,9 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갑상선_1/es",
@@ -61,7 +76,9 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갑상선_1/ja",
@@ -69,7 +86,9 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갑상선_1/ko",
@@ -77,7 +96,10 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "갑상선_1/pt",
@@ -85,7 +107,9 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갑상선_1/ru",
@@ -93,7 +117,9 @@
     "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갱년기_1/en",
@@ -101,7 +127,9 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갱년기_1/es",
@@ -109,7 +137,9 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갱년기_1/ja",
@@ -117,7 +147,9 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갱년기_1/ko",
@@ -125,7 +157,10 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "갱년기_1/pt",
@@ -133,7 +168,9 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "갱년기_1/ru",
@@ -141,7 +178,9 @@
     "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "고령_1/en",
@@ -149,7 +188,9 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "고령_1/es",
@@ -157,7 +198,9 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "고령_1/ja",
@@ -165,7 +208,9 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "고령_1/ko",
@@ -173,7 +218,10 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/ko/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "고령_1/pt",
@@ -181,7 +229,9 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "고령_1/ru",
@@ -189,7 +239,9 @@
     "url": "output/%EA%B3%A0%EB%A0%B9_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "골다공증_1/en",
@@ -197,7 +249,9 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "골다공증_1/es",
@@ -205,7 +259,9 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "골다공증_1/ja",
@@ -213,7 +269,9 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "골다공증_1/ko",
@@ -221,7 +279,10 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ko/card_news/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "골다공증_1/pt",
@@ -229,7 +290,9 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "골다공증_1/ru",
@@ -237,7 +300,9 @@
     "url": "output/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "공복_1/en",
@@ -245,7 +310,9 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "공복_1/es",
@@ -253,7 +320,9 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "공복_1/ja",
@@ -261,7 +330,9 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "공복_1/ko",
@@ -269,7 +340,10 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B3%B5%EB%B3%B5_1/ko/card_news/%EA%B3%B5%EB%B3%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "공복_1/pt",
@@ -277,7 +351,9 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "공복_1/ru",
@@ -285,7 +361,9 @@
     "url": "output/%EA%B3%B5%EB%B3%B5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "관절_1/en",
@@ -293,7 +371,9 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "관절_1/es",
@@ -301,7 +381,9 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "관절_1/ja",
@@ -309,7 +391,9 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "관절_1/ko",
@@ -317,7 +401,10 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B4%80%EC%A0%88_1/ko/card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "관절_1/pt",
@@ -325,7 +412,9 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "관절_1/ru",
@@ -333,7 +422,9 @@
     "url": "output/%EA%B4%80%EC%A0%88_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "구내염_1/en",
@@ -341,7 +432,9 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "구내염_1/es",
@@ -349,7 +442,9 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "구내염_1/ja",
@@ -357,7 +452,9 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "구내염_1/ko",
@@ -365,7 +462,10 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ko/card_news/%EA%B5%AC%EB%82%B4%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "구내염_1/pt",
@@ -373,7 +473,9 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "구내염_1/ru",
@@ -381,7 +483,9 @@
     "url": "output/%EA%B5%AC%EB%82%B4%EC%97%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "기억력_1/en",
@@ -389,7 +493,9 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "기억력_1/es",
@@ -397,7 +503,9 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "기억력_1/ja",
@@ -405,7 +513,9 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "기억력_1/ko",
@@ -413,7 +523,10 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/ko/dashboard.html",
     "thumbnail": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/ko/card_news/%EA%B8%B0%EC%96%B5%EB%A0%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "기억력_1/pt",
@@ -421,7 +534,9 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "기억력_1/ru",
@@ -429,7 +544,9 @@
     "url": "output/%EA%B8%B0%EC%96%B5%EB%A0%A5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "냉증_1/en",
@@ -437,7 +554,9 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "냉증_1/es",
@@ -445,7 +564,9 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "냉증_1/ja",
@@ -453,7 +574,9 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "냉증_1/ko",
@@ -461,7 +584,10 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/ko/dashboard.html",
     "thumbnail": "output/%EB%83%89%EC%A6%9D_1/ko/card_news/%EB%83%89%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "냉증_1/pt",
@@ -469,7 +595,9 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "냉증_1/ru",
@@ -477,7 +605,9 @@
     "url": "output/%EB%83%89%EC%A6%9D_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_1/en",
@@ -485,7 +615,9 @@
     "url": "output/%EB%88%88_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_1/es",
@@ -493,7 +625,9 @@
     "url": "output/%EB%88%88_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_1/ja",
@@ -501,7 +635,9 @@
     "url": "output/%EB%88%88_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_1/ko",
@@ -509,7 +645,10 @@
     "url": "output/%EB%88%88_1/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_1/ko/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "눈_1/pt",
@@ -517,7 +656,9 @@
     "url": "output/%EB%88%88_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_1/ru",
@@ -525,7 +666,9 @@
     "url": "output/%EB%88%88_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_2/en",
@@ -533,7 +676,9 @@
     "url": "output/%EB%88%88_2/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_2/es",
@@ -541,7 +686,9 @@
     "url": "output/%EB%88%88_2/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_2/ja",
@@ -549,7 +696,9 @@
     "url": "output/%EB%88%88_2/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_2/ko",
@@ -557,7 +706,10 @@
     "url": "output/%EB%88%88_2/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_2/ko/card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "눈_2/pt",
@@ -565,7 +717,9 @@
     "url": "output/%EB%88%88_2/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_2/ru",
@@ -573,7 +727,9 @@
     "url": "output/%EB%88%88_2/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_3/en",
@@ -581,7 +737,9 @@
     "url": "output/%EB%88%88_3/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_3/es",
@@ -589,7 +747,9 @@
     "url": "output/%EB%88%88_3/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_3/ja",
@@ -597,7 +757,9 @@
     "url": "output/%EB%88%88_3/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_3/ko",
@@ -605,7 +767,10 @@
     "url": "output/%EB%88%88_3/ko/dashboard.html",
     "thumbnail": "output/%EB%88%88_3/ko/card_news/%EB%88%88_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "눈_3/pt",
@@ -613,7 +778,9 @@
     "url": "output/%EB%88%88_3/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "눈_3/ru",
@@ -621,7 +788,9 @@
     "url": "output/%EB%88%88_3/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "다리쥐_1/en",
@@ -629,7 +798,9 @@
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "다리쥐_1/es",
@@ -637,7 +808,9 @@
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "다리쥐_1/ja",
@@ -645,7 +818,9 @@
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "다리쥐_1/ko",
@@ -653,7 +828,10 @@
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ko/dashboard.html",
     "thumbnail": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ko/card_news/%EB%8B%A4%EB%A6%AC%EC%A5%90_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "다리쥐_1/ru",
@@ -661,7 +839,9 @@
     "url": "output/%EB%8B%A4%EB%A6%AC%EC%A5%90_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "당뇨_1/en",
@@ -669,7 +849,9 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "당뇨_1/es",
@@ -677,7 +859,9 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "당뇨_1/ja",
@@ -685,7 +869,9 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "당뇨_1/ko",
@@ -693,7 +879,10 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/ko/dashboard.html",
     "thumbnail": "output/%EB%8B%B9%EB%87%A8_1/ko/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "당뇨_1/pt",
@@ -701,7 +890,9 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "당뇨_1/ru",
@@ -709,7 +900,9 @@
     "url": "output/%EB%8B%B9%EB%87%A8_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "두피_1/en",
@@ -717,7 +910,9 @@
     "url": "output/%EB%91%90%ED%94%BC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "두피_1/es",
@@ -725,7 +920,9 @@
     "url": "output/%EB%91%90%ED%94%BC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "두피_1/ja",
@@ -733,7 +930,9 @@
     "url": "output/%EB%91%90%ED%94%BC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "두피_1/ko",
@@ -741,7 +940,10 @@
     "url": "output/%EB%91%90%ED%94%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EB%91%90%ED%94%BC_1/ko/card_news/%EB%91%90%ED%94%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "두피_1/pt",
@@ -749,7 +951,9 @@
     "url": "output/%EB%91%90%ED%94%BC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "두피_1/ru",
@@ -757,7 +961,9 @@
     "url": "output/%EB%91%90%ED%94%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "목_1/en",
@@ -765,7 +971,9 @@
     "url": "output/%EB%AA%A9_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "목_1/es",
@@ -773,7 +981,9 @@
     "url": "output/%EB%AA%A9_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "목_1/ja",
@@ -781,7 +991,9 @@
     "url": "output/%EB%AA%A9_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "목_1/ko",
@@ -789,7 +1001,10 @@
     "url": "output/%EB%AA%A9_1/ko/dashboard.html",
     "thumbnail": "output/%EB%AA%A9_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "목_1/pt",
@@ -797,7 +1012,9 @@
     "url": "output/%EB%AA%A9_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "목_1/ru",
@@ -805,7 +1022,9 @@
     "url": "output/%EB%AA%A9_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "방광염_1/en",
@@ -813,7 +1032,29 @@
     "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "방광염_1/es",
+    "title": "No solo el agua importa cuando tienes cistitis: lo que comes también cuenta - Alimentos que empeoran la cistitis",
+    "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "방광염_1/ja",
+    "title": "会議中に何度もトイレに行きたくなり、そのたびに痛みがあるなら - 膀胱炎を悪化させる食べ物",
+    "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "방광염_1/ko",
@@ -821,7 +1062,30 @@
     "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/ko/card_news/%EB%B0%A9%EA%B4%91%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "방광염_1/pt",
+    "title": "Tomou o antibiótico certinho, mas a ardência ainda aparece depois de certas refeições? - Alimentos que pioram a cistite",
+    "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "방광염_1/ru",
+    "title": "Почти каждая вторая женщина сталкивается с циститом, но не все знают почему - Что усиливает цистит",
+    "url": "output/%EB%B0%A9%EA%B4%91%EC%97%BC_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "변비_1/en",
@@ -829,7 +1093,9 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "변비_1/es",
@@ -837,7 +1103,9 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "변비_1/ja",
@@ -845,7 +1113,9 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "변비_1/ko",
@@ -853,7 +1123,10 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/ko/dashboard.html",
     "thumbnail": "output/%EB%B3%80%EB%B9%84_1/ko/card_news/%EB%B3%80%EB%B9%84_1_ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "변비_1/pt",
@@ -861,7 +1134,9 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "변비_1/ru",
@@ -869,7 +1144,9 @@
     "url": "output/%EB%B3%80%EB%B9%84_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "부종_1/en",
@@ -877,7 +1154,9 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "부종_1/es",
@@ -885,7 +1164,9 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "부종_1/ja",
@@ -893,7 +1174,9 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "부종_1/ko",
@@ -901,7 +1184,10 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/ko/dashboard.html",
     "thumbnail": "output/%EB%B6%80%EC%A2%85_1/ko/card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "부종_1/pt",
@@ -909,7 +1195,9 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "부종_1/ru",
@@ -917,7 +1205,9 @@
     "url": "output/%EB%B6%80%EC%A2%85_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "비염_1/en",
@@ -925,7 +1215,9 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "비염_1/es",
@@ -933,7 +1225,9 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "비염_1/ja",
@@ -941,7 +1235,9 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "비염_1/ko",
@@ -949,7 +1245,10 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EB%B9%84%EC%97%BC_1/ko/card_news/%EB%B9%84%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "비염_1/pt",
@@ -957,7 +1256,9 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "비염_1/ru",
@@ -965,7 +1266,9 @@
     "url": "output/%EB%B9%84%EC%97%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "빈혈_1/en",
@@ -973,7 +1276,9 @@
     "url": "output/%EB%B9%88%ED%98%88_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "빈혈_1/es",
@@ -981,7 +1286,9 @@
     "url": "output/%EB%B9%88%ED%98%88_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "빈혈_1/ja",
@@ -989,7 +1296,9 @@
     "url": "output/%EB%B9%88%ED%98%88_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "빈혈_1/ko",
@@ -997,7 +1306,10 @@
     "url": "output/%EB%B9%88%ED%98%88_1/ko/dashboard.html",
     "thumbnail": "output/%EB%B9%88%ED%98%88_1/ko/card_news/%EB%B9%88%ED%98%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "빈혈_1/pt",
@@ -1005,7 +1317,9 @@
     "url": "output/%EB%B9%88%ED%98%88_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "빈혈_1/ru",
@@ -1013,7 +1327,9 @@
     "url": "output/%EB%B9%88%ED%98%88_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "새치_1/en",
@@ -1021,7 +1337,9 @@
     "url": "output/%EC%83%88%EC%B9%98_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "새치_1/es",
@@ -1029,7 +1347,9 @@
     "url": "output/%EC%83%88%EC%B9%98_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "새치_1/ja",
@@ -1037,7 +1357,9 @@
     "url": "output/%EC%83%88%EC%B9%98_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "새치_1/ko",
@@ -1045,7 +1367,10 @@
     "url": "output/%EC%83%88%EC%B9%98_1/ko/dashboard.html",
     "thumbnail": "output/%EC%83%88%EC%B9%98_1/ko/card_news/%EC%83%88%EC%B9%98_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "새치_1/pt",
@@ -1053,7 +1378,9 @@
     "url": "output/%EC%83%88%EC%B9%98_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "새치_1/ru",
@@ -1061,7 +1388,9 @@
     "url": "output/%EC%83%88%EC%B9%98_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "생리통_1/en",
@@ -1069,7 +1398,9 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "생리통_1/es",
@@ -1077,7 +1408,9 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "생리통_1/ja",
@@ -1085,7 +1418,9 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "생리통_1/ko",
@@ -1093,7 +1428,10 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ko/dashboard.html",
     "thumbnail": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ko/card_news/%EC%83%9D%EB%A6%AC%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "생리통_1/pt",
@@ -1101,7 +1439,9 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "생리통_1/ru",
@@ -1109,7 +1449,9 @@
     "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손발저림_1/en",
@@ -1117,7 +1459,9 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손발저림_1/es",
@@ -1125,7 +1469,9 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손발저림_1/ja",
@@ -1133,7 +1479,9 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손발저림_1/ko",
@@ -1141,7 +1489,10 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ko/card_news/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "손발저림_1/pt",
@@ -1149,7 +1500,9 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손발저림_1/ru",
@@ -1157,7 +1510,19 @@
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "손톱_1/en",
+    "title": "Doing everything right for stronger nails, but they still split, thin out, or ridge? - Foods That Make Nail Health Worse",
+    "url": "output/%EC%86%90%ED%86%B1_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "손톱_1/ko",
@@ -1165,7 +1530,10 @@
     "url": "output/%EC%86%90%ED%86%B1_1/ko/dashboard.html",
     "thumbnail": "output/%EC%86%90%ED%86%B1_1/ko/card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "수면_1/en",
@@ -1173,7 +1541,9 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "수면_1/es",
@@ -1181,7 +1551,9 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "수면_1/ja",
@@ -1189,7 +1561,9 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "수면_1/ko",
@@ -1197,7 +1571,10 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/ko/dashboard.html",
     "thumbnail": "output/%EC%88%98%EB%A9%B4_1/ko/card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "수면_1/pt",
@@ -1205,7 +1582,9 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "수면_1/ru",
@@ -1213,7 +1592,9 @@
     "url": "output/%EC%88%98%EB%A9%B4_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "식곤증_1/en",
@@ -1221,7 +1602,9 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "식곤증_1/es",
@@ -1229,7 +1612,9 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "식곤증_1/ja",
@@ -1237,7 +1622,9 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "식곤증_1/ko",
@@ -1245,7 +1632,10 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/ko/dashboard.html",
     "thumbnail": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/ko/card_news/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "식곤증_1/pt",
@@ -1253,7 +1643,9 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "식곤증_1/ru",
@@ -1261,7 +1653,9 @@
     "url": "output/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "위_1/en",
@@ -1269,7 +1663,9 @@
     "url": "output/%EC%9C%84_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "위_1/es",
@@ -1277,7 +1673,9 @@
     "url": "output/%EC%9C%84_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "위_1/ja",
@@ -1285,7 +1683,9 @@
     "url": "output/%EC%9C%84_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "위_1/ko",
@@ -1293,7 +1693,10 @@
     "url": "output/%EC%9C%84_1/ko/dashboard.html",
     "thumbnail": "output/%EC%9C%84_1/ko/card_news/%EC%9C%84_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "위_1/pt",
@@ -1301,7 +1704,9 @@
     "url": "output/%EC%9C%84_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "위_1/ru",
@@ -1309,7 +1714,9 @@
     "url": "output/%EC%9C%84_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "이명_1/en",
@@ -1317,7 +1724,9 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "이명_1/es",
@@ -1325,7 +1734,9 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "이명_1/ja",
@@ -1333,7 +1744,9 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "이명_1/ko",
@@ -1341,7 +1754,10 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/ko/dashboard.html",
     "thumbnail": "output/%EC%9D%B4%EB%AA%85_1/ko/card_news/%EC%9D%B4%EB%AA%85_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "이명_1/pt",
@@ -1349,7 +1765,9 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "이명_1/ru",
@@ -1357,7 +1775,9 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "입_1/en",
@@ -1365,7 +1785,9 @@
     "url": "output/%EC%9E%85_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "입_1/es",
@@ -1373,7 +1795,9 @@
     "url": "output/%EC%9E%85_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "입_1/ja",
@@ -1381,7 +1805,9 @@
     "url": "output/%EC%9E%85_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "입_1/ko",
@@ -1389,7 +1815,10 @@
     "url": "output/%EC%9E%85_1/ko/dashboard.html",
     "thumbnail": "output/%EC%9E%85_1/ko/card_news/%EC%9E%85_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "입_1/pt",
@@ -1397,7 +1826,9 @@
     "url": "output/%EC%9E%85_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "입_1/ru",
@@ -1405,7 +1836,9 @@
     "url": "output/%EC%9E%85_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "잇몸_1/en",
@@ -1413,7 +1846,9 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "잇몸_1/es",
@@ -1421,7 +1856,9 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "잇몸_1/ja",
@@ -1429,7 +1866,9 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "잇몸_1/ko",
@@ -1437,7 +1876,10 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/ko/dashboard.html",
     "thumbnail": "output/%EC%9E%87%EB%AA%B8_1/ko/card_news/%EC%9E%87%EB%AA%B8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "잇몸_1/pt",
@@ -1445,7 +1887,9 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "잇몸_1/ru",
@@ -1453,7 +1897,9 @@
     "url": "output/%EC%9E%87%EB%AA%B8_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_1/en",
@@ -1461,7 +1907,9 @@
     "url": "output/%EC%9E%A5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_1/es",
@@ -1469,7 +1917,9 @@
     "url": "output/%EC%9E%A5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_1/ja",
@@ -1477,7 +1927,9 @@
     "url": "output/%EC%9E%A5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_1/ko",
@@ -1485,7 +1937,10 @@
     "url": "output/%EC%9E%A5_1/ko/dashboard.html",
     "thumbnail": "output/%EC%9E%A5_1/ko/card_news/%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "장_1/pt",
@@ -1493,7 +1948,9 @@
     "url": "output/%EC%9E%A5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_1/ru",
@@ -1501,7 +1958,9 @@
     "url": "output/%EC%9E%A5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_2/en",
@@ -1509,7 +1968,9 @@
     "url": "output/%EC%9E%A5_2/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_2/es",
@@ -1517,7 +1978,9 @@
     "url": "output/%EC%9E%A5_2/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_2/ja",
@@ -1525,7 +1988,9 @@
     "url": "output/%EC%9E%A5_2/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_2/ko",
@@ -1533,7 +1998,10 @@
     "url": "output/%EC%9E%A5_2/ko/dashboard.html",
     "thumbnail": "output/%EC%9E%A5_2/ko/card_news/%EC%9E%A5_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "장_2/pt",
@@ -1541,7 +2009,9 @@
     "url": "output/%EC%9E%A5_2/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "장_2/ru",
@@ -1549,7 +2019,9 @@
     "url": "output/%EC%9E%A5_2/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "전립선_1/en",
@@ -1557,7 +2029,9 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "전립선_1/es",
@@ -1565,7 +2039,9 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "전립선_1/ja",
@@ -1573,7 +2049,9 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "전립선_1/ko",
@@ -1581,7 +2059,10 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ko/dashboard.html",
     "thumbnail": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ko/card_news/%EC%A0%84%EB%A6%BD%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "전립선_1/pt",
@@ -1589,7 +2070,9 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "전립선_1/ru",
@@ -1597,7 +2080,39 @@
     "url": "output/%EC%A0%84%EB%A6%BD%EC%84%A0_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "정맥류_1/en",
+    "title": "Been on your feet all day at work, and your leg veins look more twisted by evening? - Foods That Make Varicose Veins Worse",
+    "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "정맥류_1/es",
+    "title": "¿Después de estar de pie todo el día sientes hormigueo o calambres en las piernas? - Alimentos que empeoran las várices",
+    "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "정맥류_1/ja",
+    "title": "夕方になると脚の血管に沿ってかゆみを感じることはありませんか? - 下肢静脈瘤を悪化させる食べ物",
+    "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "정맥류_1/ko",
@@ -1605,7 +2120,30 @@
     "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/ko/dashboard.html",
     "thumbnail": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/ko/card_news/%EC%A0%95%EB%A7%A5%EB%A5%98_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "정맥류_1/pt",
+    "title": "Depois de um dia sentado no trabalho, as veias das pernas ficam mais visíveis? - Alimentos que pioram as varizes",
+    "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "정맥류_1/ru",
+    "title": "После долгой поездки в поезде или самолёте ноги наливаются тяжестью? - Что усиливает варикоз",
+    "url": "output/%EC%A0%95%EB%A7%A5%EB%A5%98_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "지방간_1/en",
@@ -1613,7 +2151,9 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "지방간_1/es",
@@ -1621,7 +2161,9 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "지방간_1/ja",
@@ -1629,7 +2171,9 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "지방간_1/ko",
@@ -1637,7 +2181,10 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ko/dashboard.html",
     "thumbnail": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ko/card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "지방간_1/pt",
@@ -1645,7 +2192,9 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "지방간_1/ru",
@@ -1653,7 +2202,39 @@
     "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "질염_1/en",
+    "title": "Most women deal with a yeast infection at some point - Foods That Feed Vaginal Yeast Infections",
+    "url": "output/%EC%A7%88%EC%97%BC_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "질염_1/es",
+    "title": "Una de las infecciones más comunes en las mujeres - Alimentos Que Empeoran la Candidiasis",
+    "url": "output/%EC%A7%88%EC%97%BC_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "질염_1/ja",
+    "title": "「清潔にしていれば大丈夫」と思っていませんか？ - 膣炎を悪化させる食べ物",
+    "url": "output/%EC%A7%88%EC%97%BC_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "질염_1/ko",
@@ -1661,7 +2242,60 @@
     "url": "output/%EC%A7%88%EC%97%BC_1/ko/dashboard.html",
     "thumbnail": "output/%EC%A7%88%EC%97%BC_1/ko/card_news/%EC%A7%88%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "질염_1/pt",
+    "title": "Coceira e corrimento que não passa? - Alimentos Que Pioram a Candidíase",
+    "url": "output/%EC%A7%88%EC%97%BC_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "질염_1/ru",
+    "title": "Молочница бывает у большинства женщин - Продукты, усиливающие молочницу",
+    "url": "output/%EC%A7%88%EC%97%BC_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "체취_1/en",
+    "title": "Notice people take a small step back mid-conversation, even hours after your shower? - Foods That Make Body Odor Worse",
+    "url": "output/%EC%B2%B4%EC%B7%A8_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "체취_1/es",
+    "title": "¿Sales del gimnasio recién bañado, pero el sudor huele más fuerte? - Alimentos Que Empeoran el Olor Corporal",
+    "url": "output/%EC%B2%B4%EC%B7%A8_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "체취_1/ja",
+    "title": "会議中、隣の同僚がふと椅子を少し離す？ - 体臭を強くする食べ物",
+    "url": "output/%EC%B2%B4%EC%B7%A8_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "체취_1/ko",
@@ -1669,7 +2303,30 @@
     "url": "output/%EC%B2%B4%EC%B7%A8_1/ko/dashboard.html",
     "thumbnail": "output/%EC%B2%B4%EC%B7%A8_1/ko/card_news/%EC%B2%B4%EC%B7%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "체취_1/pt",
+    "title": "Percebe que o cheiro do suor fica mais forte à tarde? - Alimentos Que Pioram o Odor Corporal",
+    "url": "output/%EC%B2%B4%EC%B7%A8_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "체취_1/ru",
+    "title": "Замечали, что коллега незаметно отодвигает стул? - Продукты, Усиливающие Запах Тела",
+    "url": "output/%EC%B2%B4%EC%B7%A8_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "췌장_1/en",
@@ -1677,7 +2334,9 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "췌장_1/es",
@@ -1685,7 +2344,9 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "췌장_1/ja",
@@ -1693,7 +2354,9 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "췌장_1/ko",
@@ -1701,7 +2364,10 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/ko/dashboard.html",
     "thumbnail": "output/%EC%B7%8C%EC%9E%A5_1/ko/card_news/%EC%B7%8C%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "췌장_1/pt",
@@ -1709,7 +2375,9 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "췌장_1/ru",
@@ -1717,7 +2385,39 @@
     "url": "output/%EC%B7%8C%EC%9E%A5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치아_1/en",
+    "title": "Enamel Damage Doesn't Grow Back, the ADA Warns - 3 Everyday Culprits Behind It",
+    "url": "output/%EC%B9%98%EC%95%84_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치아_1/es",
+    "title": "Un Estudio Encontró pH Menor a 4.5 en Estas Bebidas - Así Desgastan tu Esmalte Dental",
+    "url": "output/%EC%B9%98%EC%95%84_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치아_1/ja",
+    "title": "コーラpH2.5、オレンジジュースpH3.5 - 歯にとって危険な酸性度の飲み物とは",
+    "url": "output/%EC%B9%98%EC%95%84_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "치아_1/ko",
@@ -1725,7 +2425,60 @@
     "url": "output/%EC%B9%98%EC%95%84_1/ko/dashboard.html",
     "thumbnail": "output/%EC%B9%98%EC%95%84_1/ko/card_news/%EC%B9%98%EC%95%84_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "치아_1/pt",
+    "title": "Pesquisas Apontam Erosão Dentária em 30% dos Adolescentes Brasileiros - Veja Por Quê",
+    "url": "output/%EC%B9%98%EC%95%84_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치아_1/ru",
+    "title": "Зуб в Коле 11 Суток - Что Стоматологи Обнаружили с Эмалью",
+    "url": "output/%EC%B9%98%EC%95%84_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치질_1/en",
+    "title": "Extra itching and burning the morning after wing night and a few beers? - Foods That Make Hemorrhoids Worse",
+    "url": "output/%EC%B9%98%EC%A7%88_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치질_1/es",
+    "title": "¿Comezón y ardor que empeoran al día siguiente de picante y cerveza? - Alimentos que empeoran las hemorroides",
+    "url": "output/%EC%B9%98%EC%A7%88_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치질_1/ja",
+    "title": "辛いものやお酒を飲んだ翌日、痔の痛みがさらに増す方へ - 痔を悪化させる食べ物",
+    "url": "output/%EC%B9%98%EC%A7%88_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "치질_1/ko",
@@ -1733,7 +2486,30 @@
     "url": "output/%EC%B9%98%EC%A7%88_1/ko/dashboard.html",
     "thumbnail": "output/%EC%B9%98%EC%A7%88_1/ko/card_news/%EC%B9%98%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "치질_1/pt",
+    "title": "Mais ardência e coceira no dia seguinte a um churrasco com cerveja? - Alimentos que pioram as hemorroidas",
+    "url": "output/%EC%B9%98%EC%A7%88_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "치질_1/ru",
+    "title": "Жжение и зуд усиливаются на следующий день после застолья? - Продукты, которые усиливают геморрой",
+    "url": "output/%EC%B9%98%EC%A7%88_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "코골이_1/en",
@@ -1741,7 +2517,9 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "코골이_1/es",
@@ -1749,7 +2527,9 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "코골이_1/ja",
@@ -1757,7 +2537,9 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "코골이_1/ko",
@@ -1765,7 +2547,10 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/ko/dashboard.html",
     "thumbnail": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/ko/card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "코골이_1/pt",
@@ -1773,7 +2558,9 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "코골이_1/ru",
@@ -1781,7 +2568,9 @@
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "콩팥_1/en",
@@ -1789,7 +2578,9 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "콩팥_1/es",
@@ -1797,7 +2588,9 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "콩팥_1/ja",
@@ -1805,7 +2598,9 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "콩팥_1/ko",
@@ -1813,7 +2608,10 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/ko/dashboard.html",
     "thumbnail": "output/%EC%BD%A9%ED%8C%A5_1/ko/card_news/%EC%BD%A9%ED%8C%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "콩팥_1/pt",
@@ -1821,7 +2619,9 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "콩팥_1/ru",
@@ -1829,7 +2629,9 @@
     "url": "output/%EC%BD%A9%ED%8C%A5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "탈모_1/en",
@@ -1837,7 +2639,9 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "탈모_1/es",
@@ -1845,7 +2649,9 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "탈모_1/ja",
@@ -1853,7 +2659,9 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "탈모_1/ko",
@@ -1861,7 +2669,10 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/ko/dashboard.html",
     "thumbnail": "output/%ED%83%88%EB%AA%A8_1/ko/card_news/%ED%83%88%EB%AA%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "탈모_1/pt",
@@ -1869,7 +2680,9 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "탈모_1/ru",
@@ -1877,7 +2690,9 @@
     "url": "output/%ED%83%88%EB%AA%A8_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "통풍_1/en",
@@ -1885,7 +2700,9 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "통풍_1/es",
@@ -1893,7 +2710,9 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "통풍_1/ja",
@@ -1901,7 +2720,9 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "통풍_1/ko",
@@ -1909,7 +2730,10 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/ko/dashboard.html",
     "thumbnail": "output/%ED%86%B5%ED%92%8D_1/ko/card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "통풍_1/pt",
@@ -1917,7 +2741,9 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "통풍_1/ru",
@@ -1925,7 +2751,9 @@
     "url": "output/%ED%86%B5%ED%92%8D_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "편두통_1/en",
@@ -1933,7 +2761,9 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "편두통_1/es",
@@ -1941,7 +2771,9 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "편두통_1/ja",
@@ -1949,7 +2781,9 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "편두통_1/ko",
@@ -1957,7 +2791,10 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/ko/dashboard.html",
     "thumbnail": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/ko/card_news/%ED%8E%B8%EB%91%90%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "편두통_1/pt",
@@ -1965,7 +2802,9 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "편두통_1/ru",
@@ -1973,7 +2812,9 @@
     "url": "output/%ED%8E%B8%EB%91%90%ED%86%B5_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_1/es",
@@ -1981,7 +2822,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_1/ja",
@@ -1989,7 +2832,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_1/ko",
@@ -1997,7 +2842,10 @@
     "url": "output/%ED%94%BC%EB%B6%80_1/ko/dashboard.html",
     "thumbnail": "output/%ED%94%BC%EB%B6%80_1/ko/card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "피부_1/pt",
@@ -2005,7 +2853,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_1/ru",
@@ -2013,7 +2863,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_2/en",
@@ -2021,7 +2873,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_2/es",
@@ -2029,7 +2883,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_2/ja",
@@ -2037,7 +2893,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_2/ko",
@@ -2045,7 +2903,10 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/ko/dashboard.html",
     "thumbnail": "output/%ED%94%BC%EB%B6%80_2/ko/card_news/%ED%94%BC%EB%B6%80_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "피부_2/pt",
@@ -2053,7 +2914,9 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "피부_2/ru",
@@ -2061,7 +2924,39 @@
     "url": "output/%ED%94%BC%EB%B6%80_2/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "하지불안증후군_1/en",
+    "title": "Your Coffee Might Be Why Your Legs Won't Stop Moving at Night - What's Making Restless Legs Syndrome Worse",
+    "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "하지불안증후군_1/es",
+    "title": "¿Sabías Que el Gluten Podría Estar Empeorando tus Piernas Inquietas? 3 Alimentos a Vigilar",
+    "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "하지불안증후군_1/ja",
+    "title": "映画館や新幹線でじっとしていられない人へ - 夜のあの飲み物がむずむず脚症候群を悪化させているかも",
+    "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "하지불안증후군_1/ko",
@@ -2069,7 +2964,30 @@
     "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/ko/dashboard.html",
     "thumbnail": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/ko/card_news/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "하지불안증후군_1/pt",
+    "title": "Um Estudo Revelou Que o Açúcar Pode Quadruplicar a Gravidade da Síndrome das Pernas Inquietas",
+    "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "하지불안증후군_1/ru",
+    "title": "Почему Ноги «Танцуют» Каждую Ночь, Хотя Вы Не Двигаетесь Днём? Вот Продукты, Которые в Этом Виноваты",
+    "url": "output/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "허리_1/en",
@@ -2077,7 +2995,9 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "허리_1/es",
@@ -2085,7 +3005,9 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "허리_1/ja",
@@ -2093,7 +3015,9 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "허리_1/ko",
@@ -2101,7 +3025,10 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/ko/dashboard.html",
     "thumbnail": "output/%ED%97%88%EB%A6%AC_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "허리_1/pt",
@@ -2109,7 +3036,9 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "허리_1/ru",
@@ -2117,7 +3046,9 @@
     "url": "output/%ED%97%88%EB%A6%AC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_1/en",
@@ -2125,7 +3056,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_1/es",
@@ -2133,7 +3066,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_1/ja",
@@ -2141,7 +3076,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_1/ko",
@@ -2149,7 +3086,10 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/ko/dashboard.html",
     "thumbnail": "output/%ED%98%88%EB%8B%B9_1/ko/card_news/%ED%98%88%EB%8B%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "혈당_1/pt",
@@ -2157,7 +3097,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_1/ru",
@@ -2165,7 +3107,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_2/en",
@@ -2173,7 +3117,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_2/es",
@@ -2181,7 +3127,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_2/ja",
@@ -2189,7 +3137,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_2/ko",
@@ -2197,7 +3147,10 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/ko/dashboard.html",
     "thumbnail": "output/%ED%98%88%EB%8B%B9_2/ko/card_news/%ED%98%88%EB%8B%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "혈당_2/pt",
@@ -2205,7 +3158,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈당_2/ru",
@@ -2213,7 +3168,9 @@
     "url": "output/%ED%98%88%EB%8B%B9_2/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈압_1/en",
@@ -2221,7 +3178,9 @@
     "url": "output/%ED%98%88%EC%95%95_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈압_1/es",
@@ -2229,7 +3188,9 @@
     "url": "output/%ED%98%88%EC%95%95_1/es/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈압_1/ja",
@@ -2237,7 +3198,9 @@
     "url": "output/%ED%98%88%EC%95%95_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈압_1/ko",
@@ -2245,7 +3208,10 @@
     "url": "output/%ED%98%88%EC%95%95_1/ko/dashboard.html",
     "thumbnail": "output/%ED%98%88%EC%95%95_1/ko/card_news/%ED%98%88%EC%95%95_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   },
   {
     "topic": "혈압_1/pt",
@@ -2253,7 +3219,9 @@
     "url": "output/%ED%98%88%EC%95%95_1/pt/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   },
   {
     "topic": "혈압_1/ru",
@@ -2261,6 +3229,8 @@
     "url": "output/%ED%98%88%EC%95%95_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
-    "track": "shorts"
+    "tracks": [
+      "shorts"
+    ]
   }
 ]
