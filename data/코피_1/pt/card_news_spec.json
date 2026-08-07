@@ -1,0 +1,62 @@
+{
+  "title": [
+    "Sangramento de nariz",
+    "de novo essa semana?",
+    "3 fatores que podem ser a causa"
+  ],
+  "eyebrow": "Alerta de Sangramento Nasal",
+  "cover_char_file": "손가락_illust.jpg",
+  "char_display_names": {
+    "손가락_illust.jpg": "Cutucar o nariz",
+    "비강스프레이_illust.jpg": "Spray descongestionante",
+    "혈압계_illust.jpg": "Pressão alta"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "손가락_illust.jpg",
+      "body": ["O sangue vem de vasinhos", "finos na entrada do nariz", "", "Alguns hábitos deixam", "esses vasinhos mais fáceis", "de romper"]
+    },
+    {
+      "name": "Cutucar o nariz",
+      "char_file": "손가락_illust.jpg",
+      "body": ["Bate direto nos vasinhos", "e resseca a mucosa", "", "Causa mais comum,", "principalmente à noite", "ou ao acordar"]
+    },
+    {
+      "name": "Cutucar o nariz — evite assim",
+      "char_file": "손가락_illust.jpg",
+      "body": ["Mantenha as unhas", "sempre curtas e lisas", "", "Sentiu vontade de coçar?", "Use um lenço macio"]
+    },
+    {
+      "name": "Spray descongestionante",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": ["Mais de 3 dias seguidos", "causa efeito rebote", "", "O nariz entope mais,", "a mucosa fica irritada", "e sangra fácil"]
+    },
+    {
+      "name": "Spray descongestionante — use assim",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": ["Use por no máximo", "3 dias seguidos", "", "Se precisar mais,", "procure um médico"]
+    },
+    {
+      "name": "Pressão alta descontrolada",
+      "char_file": "혈압계_illust.jpg",
+      "body": ["Deixa os vasos", "mais frágeis", "", "O sangramento demora", "mais para estancar"]
+    },
+    {
+      "name": "Pressão alta — cuide assim",
+      "char_file": "혈압계_illust.jpg",
+      "body": ["Meça a pressão", "de vez em quando", "", "Principalmente se já teve", "sangramento recente"]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Cutucar, spray em excesso e pressão alta,"],
+      ["controlar esses 3 fatores", "já reduz bastante"]
+    ],
+    "tip": [
+      "Se o sangramento não parar em 10 minutos",
+      "ou for muito frequente, procure um médico"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Segue e curte aí"
+  }
+}
