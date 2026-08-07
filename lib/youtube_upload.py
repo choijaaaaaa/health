@@ -59,7 +59,11 @@ YOUTUBE_PLATFORM_NAMES = {
 CAPTION_MARKERS = {
     "ko": [("제목:", "설명란:\n")],
     "en": [("Title:", "Description:\n")],
-    "ja": [("タイトル:", "説明:\n")],
+    "ja": [
+        ("タイトル:", "説明:\n"),
+        ("タイトル:", "概要欄:\n"),
+        ("Title:", "Description:\n"),
+    ],
     "es": [("Title:", "Description:\n"), ("Título:", "Descripción:\n")],
     "pt": [("Title:", "Description:\n"), ("Título:", "Descrição:\n")],
     "ru": [
@@ -533,6 +537,12 @@ def upload_short(
         raise ValueError(f"{topic}: platform_captions.json에 '{platform_name}' 항목이 없음")
 
     title, description = _parse_title_description(platform["caption"], lang)
+    # WHY(2026-08-07): YouTube 제목 100자 제한 초과 시 API가 "invalidTitle"로
+    # 거부하는데 에러 메시지가 "제목이 비어있음"처럼 오해하기 쉽게 나옴(목_1/es,
+    # 허리_1/es, 혈압_1/pt 실제 발생) — 단어 경계에서 잘라 재발을 막는다.
+    if len(title) > 100:
+        truncated = title[:100].rsplit(" ", 1)[0].rstrip(" ,.!?¿¡-")
+        title = truncated or title[:100]
 
     if video_path is None:
         # WHY 정확한 파일명을 조립하지 않고 글롭으로 찾는지(2026-08-03, 언어별
