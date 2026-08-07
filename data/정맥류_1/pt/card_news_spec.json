@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Depois de um dia sentado no trabalho,",
+    "as veias das pernas ficam mais visíveis?",
+    "Alimentos que pioram as varizes"
+  ],
+  "eyebrow": "Alerta de Varizes",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Cerveja",
+    "소시지_illust.jpg": "Embutidos",
+    "프랑스빵_illust.jpg": "Pão Francês"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "As veias das pernas",
+        "precisam empurrar o",
+        "sangue até o coração",
+        "",
+        "Alguns alimentos aumentam",
+        "o volume de sangue ou",
+        "sobrecarregam as veias"
+      ]
+    },
+    {
+      "name": "Cerveja",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Dilata os vasos",
+        "sanguíneos e desidrata",
+        "o corpo",
+        "",
+        "Enfraquece a força das",
+        "veias para empurrar",
+        "o sangue de volta"
+      ]
+    },
+    {
+      "name": "Cerveja — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Intercale com água",
+        "para beber menos"
+      ]
+    },
+    {
+      "name": "Embutidos",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Salsicha, presunto e",
+        "outros embutidos têm",
+        "muito sódio",
+        "",
+        "O sódio faz o corpo reter",
+        "água, aumentando o",
+        "volume de sangue"
+      ]
+    },
+    {
+      "name": "Embutidos — a solução",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Troque por carnes",
+        "frescas"
+      ]
+    },
+    {
+      "name": "Pão Francês",
+      "char_file": "프랑스빵_illust.jpg",
+      "body": [
+        "Pouca fibra favorece",
+        "a prisão de ventre",
+        "",
+        "Fazer força no banheiro",
+        "aumenta a pressão",
+        "abdominal e sobrecarrega",
+        "as veias das pernas"
+      ]
+    },
+    {
+      "name": "Pão Francês — a solução",
+      "char_file": "프랑스빵_illust.jpg",
+      "body": [
+        "Troque por aveia",
+        "ou batata-doce"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cerveja, embutidos e pão francês",
+        "não precisam sumir de vez"
+      ],
+      [
+        "Reduzir e trocar já ajuda",
+        "as pernas a ficarem mais leves"
+      ]
+    ],
+    "tip": [
+      "Beber bastante água também pode",
+      "ajudar a reduzir o inchaço"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga a conta!"
+  },
+  "topic_word": "Varizes"
+}
