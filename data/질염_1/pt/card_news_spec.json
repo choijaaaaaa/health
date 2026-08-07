@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Coceira e corrimento",
+    "que não passa?",
+    "Alimentos Que Pioram a Candidíase"
+  ],
+  "eyebrow": "Alerta de Saúde Vaginal",
+  "char_display_names": {
+    "사탕_illust.jpg": "Doces",
+    "흰빵_illust.jpg": "Pão e Arroz Branco",
+    "맥주_illust.jpg": "Álcool"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "A cândida, um dos fungos",
+        "por trás disso,",
+        "se alimenta de açúcar",
+        "",
+        "Uma dieta rica em açúcar",
+        "dá mais combustível a ela"
+      ]
+    },
+    {
+      "name": "Doces",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Doces, bolos e balas",
+        "elevam rápido o açúcar",
+        "",
+        "Esse pico pode ajudar",
+        "a cândida a crescer"
+      ]
+    },
+    {
+      "name": "Doces — a solução",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Troque por castanhas",
+        "ou frutas frescas"
+      ]
+    },
+    {
+      "name": "Pão e Arroz Branco",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Carboidratos refinados",
+        "viram açúcar rápido",
+        "",
+        "Elevam a glicemia tão rápido",
+        "quanto os doces"
+      ]
+    },
+    {
+      "name": "Carboidratos — a solução",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Escolha pão integral",
+        "no lugar"
+      ]
+    },
+    {
+      "name": "Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Cerveja e bebidas doces",
+        "combinam açúcar e álcool",
+        "",
+        "Pode desequilibrar seu açúcar",
+        "e derrubar sua imunidade"
+      ]
+    },
+    {
+      "name": "Álcool — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Prefira água com gás",
+        "em vez de cerveja"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pequenas trocas no que",
+        "você come podem ajudar"
+      ],
+      [
+        "Não precisa cortar",
+        "tudo de uma vez"
+      ]
+    ],
+    "tip": [
+      "Iogurte sem açúcar com probióticos",
+      "também pode ajudar"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga, curta e se inscreva!"
+  },
+  "topic_word": "Saúde Vaginal"
+}
