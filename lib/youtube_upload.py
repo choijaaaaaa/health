@@ -364,6 +364,19 @@ def _is_already_uploaded(topic: str, uploaded: set[str]) -> bool:
     return False
 
 
+def _has_video(topic: str) -> bool:
+    """WHY(2026-08-07, 실제 사고로 발견): topics.json은 콘텐츠만 완성돼도(영상
+    조립 전, light-card 폴백 대시보드만 있어도) topic을 등록한다 — daily 선택
+    함수가 이걸 그대로 후보로 쓰면 영상 없는 topic이 뽑혀서 upload_short()가
+    FileNotFoundError를 던지고, upload_daily_per_channel()의 언어별 통짜
+    try/except 때문에 그 뒤로 예정돼있던 같은 언어의 나머지 topic까지 전부
+    스킵돼버린다(실측: ko 배치에서 비염_1/질염_1이 영상 없이 뽑혀서 발견)."""
+    video_dir = ROOT / "output" / topic
+    if not video_dir.exists():
+        return False
+    return any(m for m in video_dir.glob("*shorts.mp4") if "instagram" not in m.name)
+
+
 def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
     """유튜브에 아직 안 올라간 topic 중 n개를 고른다. WHY 선택 순서(2026-08-02,
     "아닌 경우에는 너가 randomly하게 선택해서 올리는"): 다른 플랫폼에 이미
@@ -374,7 +387,7 @@ def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
     all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
     uploaded_path = ROOT / "output" / "youtube_uploaded.json"
     uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
-    candidates = [t for t in all_topics if not _is_already_uploaded(t, uploaded)]
+    candidates = [t for t in all_topics if not _is_already_uploaded(t, uploaded) and _has_video(t)]
 
     posted_elsewhere = _topics_posted_elsewhere()
     priority = [t for t in candidates if t in posted_elsewhere]
@@ -417,7 +430,7 @@ def select_daily_topics_for_lang(lang: str, n: int) -> list[str]:
     lang_topics = [t for t in all_topics if _lang_from_topic(t) == lang]
     uploaded_path = ROOT / "output" / "youtube_uploaded.json"
     uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
-    candidates = [t for t in lang_topics if not _is_already_uploaded(t, uploaded)]
+    candidates = [t for t in lang_topics if not _is_already_uploaded(t, uploaded) and _has_video(t)]
 
     posted_elsewhere = _topics_posted_elsewhere()
     priority = [t for t in candidates if t in posted_elsewhere]

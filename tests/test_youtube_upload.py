@@ -207,6 +207,14 @@ def test_topics_posted_elsewhere_missing_file_returns_empty(tmp_path, monkeypatc
 
 
 def _write_topics_json(out_dir, topic_names):
+    # WHY 각 topic 폴더에 더미 mp4도 만드는지(2026-08-07): select_daily_topics*가
+    # _has_video()로 영상 존재 여부를 걸러내게 바뀌어서, 영상 파일이 없으면
+    # topics.json에 있어도 후보에서 빠진다 — 이 테스트들은 선택 로직 자체(우선순위·
+    # 중복 제외)를 검증하는 게 목적이라 영상 유무 필터에 걸리면 안 된다.
+    for t in topic_names:
+        topic_dir = out_dir / t
+        topic_dir.mkdir(parents=True, exist_ok=True)
+        (topic_dir / f"{t}_shorts.mp4").write_bytes(b"fake")
     out_dir.joinpath("topics.json").write_text(
         json.dumps([{"topic": t, "title": t, "url": "", "thumbnail": None} for t in topic_names],
                    ensure_ascii=False),
