@@ -1,0 +1,95 @@
+{
+  "title": [
+    "Já quebrou a unha só de",
+    "abrir uma lata ou uma bolsa?",
+    "Alimentos Que Enfraquecem Suas Unhas"
+  ],
+  "eyebrow": "Alerta de Unhas",
+  "char_display_names": {
+    "맥주_illust.jpg": "Cerveja e Álcool",
+    "커피_illust.jpg": "Café",
+    "라면_illust.jpg": "Macarrão Instantâneo"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "A unha é formada quase",
+        "toda de queratina",
+        "",
+        "Alguns hábitos alimentares",
+        "atrapalham essa produção"
+      ]
+    },
+    {
+      "name": "Cerveja e Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Pode atrapalhar a absorção",
+        "de biotina, o nutriente",
+        "mais ligado à força da unha"
+      ]
+    },
+    {
+      "name": "Álcool — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Intercale com água",
+        "e reduza a quantidade"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tem efeito diurético e seus",
+        "compostos podem reduzir",
+        "absorção de ferro e zinco"
+      ]
+    },
+    {
+      "name": "Café — a solução",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tome longe",
+        "das refeições"
+      ]
+    },
+    {
+      "name": "Macarrão Instantâneo",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Enche o estômago mas tem",
+        "pouca proteína e mineral",
+        "se consumido com frequência"
+      ]
+    },
+    {
+      "name": "Macarrão — a solução",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Troque por ovo",
+        "ou feijão"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa",
+        "cortar de vez"
+      ],
+      [
+        "Pequenos ajustes de quantidade",
+        "e horário já ajudam"
+      ]
+    ],
+    "tip": [
+      "Ovo e feijão são boas fontes de biotina",
+      "e proteína para fortalecer a unha"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Se inscreva, curta e siga!"
+  },
+  "topic_word": "Saúde das Unhas"
+}
