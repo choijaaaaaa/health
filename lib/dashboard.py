@@ -249,6 +249,16 @@ PAGE_TEMPLATE = """<!doctype html>
 
   .platform-section + .platform-section {{ margin-top: 6px; }}
 
+  .platform-tabs {{ display: flex; gap: 8px; margin-bottom: 18px; }}
+  .platform-tab-btn {{
+    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
+    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--ink-soft); cursor: pointer;
+  }}
+  .platform-tab-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
+  .platform-tab-pane {{ display: none; }}
+  .platform-tab-pane.active {{ display: block; }}
+
   .grid {{
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }}
@@ -358,6 +368,17 @@ const TOPIC_NAME = {topic_name_js};
 function _withTopicPrefix(name) {{
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }}
+
+document.querySelectorAll(".platform-tab-btn").forEach(btn => {{
+  btn.addEventListener("click", () => {{
+    const target = btn.dataset.tabTarget;
+    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
+    document.querySelectorAll(".platform-tab-pane").forEach(
+      p => p.classList.toggle("active", p.dataset.tabPane === target)
+    );
+  }});
+}});
+
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
   downloadAllBtn.addEventListener("click", () => {{
@@ -1415,7 +1436,14 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         platforms_by_type.setdefault(p.get("type", "text"), []).append(p)
 
     idx = 0
-    sections_html = ""
+    # WHY 영상/카드뉴스+텍스트 두 탭으로 나누는지(2026-08-07, "숏츠형태랑
+    # 카드뉴스형태의 콘텐츠 내용이 다 들어가있는데... 어떤 주제에 해당하는
+    # 콘텐츠들이 다 만들어져있다고 그게 모두 한곳에 모여있을 필요 없어졌어"):
+    # 숏츠·카드뉴스가 이제 독립 트랙(위 index.html 목록 분리와 동일 원칙)이라
+    # 한 topic이 둘 다 갖고 있어도 페이지 안에서까지 섞여 보일 필요가 없다 —
+    # video 타입은 "숏츠" 탭, cards+text 타입은 "카드뉴스" 탭으로 분리.
+    shorts_sections_html = ""
+    cardnews_sections_html = ""
     for t in TYPE_ORDER:
         group = platforms_by_type.get(t, [])
         if not group:
@@ -1461,15 +1489,33 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 ),
             )
             idx += 1
-        sections_html += SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
+        section_html = SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
+        if t == "video":
+            shorts_sections_html += section_html
+        else:
+            cardnews_sections_html += section_html
 
     card_image_names_js = json.dumps([quote(p.name) for p in cover_imgs])
 
     ad_tag_badge = '<span class="ad-tag-badge">🏷️ 광고표시 적용</span>' if spec.get("ad_tag") else ""
 
+    # WHY 둘 다 있을 때만 탭 버튼을 보여주는지: 하나만 있으면(카드뉴스 전용
+    # topic 등) 탭 자체가 무의미 — 있는 쪽만 그대로 보여준다.
+    if shorts_sections_html and cardnews_sections_html:
+        platform_sections = (
+            '<div class="platform-tabs">'
+            '<button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button>'
+            '<button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button>'
+            "</div>"
+            f'<div class="platform-tab-pane active" data-tab-pane="shorts">{shorts_sections_html}</div>'
+            f'<div class="platform-tab-pane" data-tab-pane="cardnews">{cardnews_sections_html}</div>'
+        )
+    else:
+        platform_sections = shorts_sections_html or cardnews_sections_html
+
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), card_thumbs=card_thumbs, ad_tag_badge=ad_tag_badge,
-        platform_sections=sections_html,
+        platform_sections=platform_sections,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
         card_image_names_js=card_image_names_js,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),

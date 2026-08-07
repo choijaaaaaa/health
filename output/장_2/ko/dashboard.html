@@ -137,6 +137,16 @@
 
   .platform-section + .platform-section { margin-top: 6px; }
 
+  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+  .platform-tab-btn {
+    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
+    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--ink-soft); cursor: pointer;
+  }
+  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .platform-tab-pane { display: none; }
+  .platform-tab-pane.active { display: block; }
+
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -295,7 +305,7 @@
   </div>
 </section>
 
-
+<div class="platform-tabs"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
@@ -360,7 +370,7 @@
 </div>
 </div>
 </section>
-
+</div><div class="platform-tab-pane" data-tab-pane="cardnews">
 <section class="platform-section">
   <h2>텍스트 게시 플랫폼</h2>
   <div class="grid">
@@ -538,7 +548,7 @@
 </div>
 </div>
 </section>
-
+</div>
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">통곡물 식품</span><a href="https://www.coupang.com/np/search?component=&q=%ED%86%B5%EA%B3%A1%EB%AC%BC%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQpx44X0e" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/G5kDunS0" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">고구마</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B3%A0%EA%B5%AC%EB%A7%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQaeQxBDM" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/G4duIqG7" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">닭가슴살</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQslYJIQK" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xZKAxyDb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -555,6 +565,17 @@ const TOPIC_NAME = "\uc7a5_2";
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
+
+document.querySelectorAll(".platform-tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.tabTarget;
+    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
+    document.querySelectorAll(".platform-tab-pane").forEach(
+      p => p.classList.toggle("active", p.dataset.tabPane === target)
+    );
+  });
+});
+
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {
   downloadAllBtn.addEventListener("click", () => {
