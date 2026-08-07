@@ -1,0 +1,100 @@
+{
+  "title": [
+    "¿Comezón y ardor que empeoran",
+    "al día siguiente de picante y cerveza?",
+    "Alimentos que empeoran las hemorroides"
+  ],
+  "eyebrow": "Alerta de hemorroides",
+  "char_display_names": {
+    "고추_illust.jpg": "Comida picante",
+    "맥주_illust.jpg": "Alcohol",
+    "가공육_illust.jpg": "Carnes procesadas"
+  },
+  "items": [
+    {
+      "name": "Por qué empeoran los síntomas",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Esas venas ya están bajo",
+        "presión por el pujo al evacuar",
+        "",
+        "Algunos alimentos suman más",
+        "presión o irritan directamente"
+      ]
+    },
+    {
+      "name": "Comida picante",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina irrita",
+        "el revestimiento intestinal",
+        "",
+        "Puede provocar más movimientos",
+        "intestinales y tensión extra"
+      ]
+    },
+    {
+      "name": "Comida picante — la solución",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Cambia el chile por hierbas",
+        "y especias suaves"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Deshidrata el cuerpo y",
+        "endurece las heces",
+        "",
+        "Ir al baño puede ser",
+        "más doloroso y con más sangrado"
+      ]
+    },
+    {
+      "name": "Alcohol — la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alterna con agua",
+        "y límitalo a una copa"
+      ]
+    },
+    {
+      "name": "Alimentos bajos en fibra",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Facilitan el estreñimiento",
+        "",
+        "Pujar más fuerte aumenta",
+        "la presión sobre esas venas"
+      ]
+    },
+    {
+      "name": "Procesados — la solución",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Cámbialos por verduras",
+        "o cereales integrales"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta eliminar",
+        "todo esto para siempre"
+      ],
+      [
+        "Reducir la cantidad y cambiar",
+        "opciones ya ayuda"
+      ]
+    ],
+    "tip": [
+      "Tomar suficiente agua también",
+      "puede ayudar a suavizar las heces"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Hemorroides"
+}
