@@ -1,0 +1,100 @@
+{
+  "title": [
+    "Hiccups always hit",
+    "at the worst possible moment?",
+    "3 Everyday Habits Behind It"
+  ],
+  "eyebrow": "Hiccup Triggers",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "급히먹기_illust.jpg": "Eating Fast",
+    "냉음료_illust.jpg": "Temp Swing",
+    "긴장_illust.jpg": "Stress"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "급히먹기_illust.jpg",
+      "body": [
+        "Your diaphragm suddenly spasms,",
+        "then your vocal cords snap shut",
+        "",
+        "A few everyday habits",
+        "set that off more than you'd think"
+      ]
+    },
+    {
+      "name": "Eating too fast",
+      "char_file": "급히먹기_illust.jpg",
+      "body": [
+        "Wolfing down a meal",
+        "means swallowing air with it",
+        "",
+        "That trapped air stretches your",
+        "stomach right against the diaphragm"
+      ]
+    },
+    {
+      "name": "Eating too fast — try this instead",
+      "char_file": "급히먹기_illust.jpg",
+      "body": [
+        "Slow down and take smaller bites",
+        "so less air gets swallowed"
+      ]
+    },
+    {
+      "name": "Sudden temperature swing",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Hot soup followed by",
+        "an ice-cold drink",
+        "",
+        "The quick shift irritates",
+        "the nerves near your diaphragm"
+      ]
+    },
+    {
+      "name": "Temperature swing — try this instead",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Let hot and cold foods settle",
+        "a few minutes apart"
+      ]
+    },
+    {
+      "name": "Stress and excitement",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "A jolt of nervousness",
+        "sends extra signals",
+        "",
+        "Through the vagus nerve,",
+        "which connects to the diaphragm"
+      ]
+    },
+    {
+      "name": "Stress — try this instead",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "A few slow, deep breaths",
+        "before eating calms the nerve",
+        "",
+        "So it's less likely to",
+        "set off a spasm"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["A few small habits", "make the difference"],
+      ["Slow down, and watch", "the sudden shifts"]
+    ],
+    "tip": [
+      "If hiccups start, hold your breath",
+      "10 to 20 seconds and exhale slowly,",
+      "or sip cold water slowly"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
