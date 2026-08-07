@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Una de las infecciones más",
+    "comunes en las mujeres -",
+    "Alimentos Que Empeoran la Candidiasis"
+  ],
+  "eyebrow": "Alerta de Salud Vaginal",
+  "char_display_names": {
+    "단과자빵_illust.jpg": "Pan Dulce",
+    "흰빵_illust.jpg": "Pan y Arroz Blanco",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "La cándida, uno de los",
+        "hongos detrás de esto,",
+        "se alimenta de azúcar",
+        "",
+        "Una dieta alta en azúcar",
+        "le da más combustible"
+      ]
+    },
+    {
+      "name": "Pan Dulce",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "El pan dulce y los dulces",
+        "elevan rápido el azúcar",
+        "",
+        "Ese pico puede ayudar",
+        "a la cándida a crecer"
+      ]
+    },
+    {
+      "name": "Pan Dulce — la solución",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Cambia por nueces",
+        "o fruta fresca"
+      ]
+    },
+    {
+      "name": "Pan y Arroz Blanco",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Los carbohidratos refinados",
+        "se convierten en azúcar rápido",
+        "",
+        "Elevan el azúcar en sangre",
+        "tan rápido como los dulces"
+      ]
+    },
+    {
+      "name": "Carbohidratos — la solución",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Elige pan integral",
+        "en su lugar"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "La cerveza y bebidas dulces",
+        "combinan azúcar y alcohol",
+        "",
+        "Puede desestabilizar tu azúcar",
+        "y bajar tus defensas"
+      ]
+    },
+    {
+      "name": "Alcohol — la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Prueba agua mineral",
+        "con gas en su lugar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pequeños cambios en",
+        "lo que comes pueden ayudar"
+      ],
+      [
+        "No hace falta dejarlo",
+        "todo por completo"
+      ]
+    ],
+    "tip": [
+      "El yogur sin azúcar con cultivos vivos",
+      "también puede ayudar"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Sigue, dale like y suscríbete!"
+  },
+  "topic_word": "Salud Vaginal"
+}
