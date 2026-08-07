@@ -470,8 +470,16 @@ topic·언어는 이 6개 범위 안에서만 진행할 것 — 확장이 다시
   언어는 경량 폴백 카드(`_light_platform_card`).
 - 완료 기록: `output/completed_topics.json`(topic 전체), 유튜브는
   `output/youtube_uploaded.json`, 상품 링크는 `output/product_links.json`
-  (상품명→쿠팡 링크, 사용자가 채팅으로 주면 직접 추가), 포스팅 기록은
+  (쿠팡)·`output/naver_product_links.json`(네이버 커넥트), 포스팅 기록은
   `output/posting_log.csv`(브라우저 CSV 내보내기 → 커밋).
+  - ⚠️ **상품 링크 CSV 내보내기(2026-08-07)**: 개별 topic 대시보드의
+    쿠팡/네이버 링크 입력창(`.product-link-input`)은 브라우저 localStorage
+    (`hs_link_<topic>_<market>_<product>`)에만 쌓인다 — `index.html`의
+    "📥 상품 링크 CSV 내보내기" 버튼으로 `market,product,url` CSV를
+    받으면, 그 내용을 읽어 `output/product_links.json`/
+    `output/naver_product_links.json`(둘 다 `{상품명: 링크}` 평평한
+    dict)에 병합해 반영할 것 — 기존 값 덮어쓰기 아니라 병합(다른 topic이
+    이미 등록해둔 상품 링크를 지우지 않게).
 
 ## GitHub Pages
 
