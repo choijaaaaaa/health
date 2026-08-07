@@ -983,12 +983,20 @@ def _update_topics_index(out_path: str):
         # 신규 포맷이라는거 구분 가능하게"): 영상 우상단 광고 태그 오버레이가
         # 적용된 topic인지를 목록에서 바로 구분할 수 있어야 한다.
         ad_tag_applied = False
+        # WHY track을 저장 필드 대신 여기서 파생하는지(2026-08-07, "쇼츠 부문 /
+        # 카드뉴스 부문" 목록 분리): 수동 플래그는 언젠가 빠뜨리거나 실제
+        # 콘텐츠와 어긋나는 사고로 이어진다(이 프로젝트에서 network/
+        # suppress_product_block 등으로 반복된 패턴) — platforms에 video 타입
+        # 플랫폼이 하나라도 있으면 "숏츠", 없으면 "카드뉴스"로 그때그때 계산.
+        track = "card_news"
         caption_path = data_root / rel / "platform_captions.json"
         if caption_path.exists():
             try:
                 caption_spec = json.loads(caption_path.read_text())
                 title = caption_spec.get("title", topic)
                 ad_tag_applied = bool(caption_spec.get("ad_tag"))
+                if any(p.get("type") == "video" for p in caption_spec.get("platforms", [])):
+                    track = "shorts"
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
@@ -999,7 +1007,7 @@ def _update_topics_index(out_path: str):
         thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path else None
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
-            "thumbnail": thumbnail, "ad_tag": ad_tag_applied,
+            "thumbnail": thumbnail, "ad_tag": ad_tag_applied, "track": track,
         })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))

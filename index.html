@@ -202,11 +202,16 @@
      했다는 피드백 — output/topics.json(dashboard.py가 생성할 때마다 자동 갱신)을
      읽어서 완성된 콘텐츠 목록을 루트에서 바로 보여준다. -->
 <div id="topicsSection" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:none;">
-  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 12px;">완성된 콘텐츠</h2>
   <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
-    style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:10px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
-  <div id="topicsList" style="display:flex;flex-direction:column;gap:8px;"></div>
-  <div id="topicsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+    style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:14px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
+
+  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 12px;">🎬 숏츠</h2>
+  <div id="shortsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+  <div id="shortsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+
+  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:24px 0 12px;">🗞 카드뉴스</h2>
+  <div id="cardNewsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+  <div id="cardNewsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
 
   <details id="topicsDoneWrap" style="margin-top:16px;display:none;">
     <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">완료된 콘텐츠 (<span id="topicsDoneCount">0</span>)</summary>
@@ -387,11 +392,19 @@ Promise.all([
     if (!topics.length) return;
     const completed = new Set(completedList);
     const youtubeDone = new Set(youtubeList);
-    const list = document.getElementById("topicsList");
+    // WHY 목록을 숏츠/카드뉴스 두 섹션으로 분리(2026-08-07, "쇼츠 부문 /
+    // 카드뉴스 부문 이렇게 세분화"): 같은 주제라도 TTS/영상 없이 카드뉴스만
+    // 대량 생산하는 topic이 생기면서, 영상 topic과 섞여 있으면 찾기 어려워짐 —
+    // track(lib/dashboard.py가 파생해서 topics.json에 기록)에 따라 두 리스트로
+    // 나눠 담는다. 완료 섹션은 트랙 구분 없이 공유(완료 topic 자체가 적어서
+    // 나눌 실익이 없음).
+    const shortsList = document.getElementById("shortsList");
+    const cardNewsList = document.getElementById("cardNewsList");
+    const shortsEmpty = document.getElementById("shortsEmpty");
+    const cardNewsEmpty = document.getElementById("cardNewsEmpty");
     const doneList = document.getElementById("topicsDoneList");
     const doneWrap = document.getElementById("topicsDoneWrap");
     const doneCount = document.getElementById("topicsDoneCount");
-    const empty = document.getElementById("topicsEmpty");
     const rows = [];
 
     function refreshDoneWrap() {
@@ -414,7 +427,7 @@ Promise.all([
       const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
       if (!groups.has(baseTopic)) groups.set(baseTopic, []);
-      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag });
+      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, track: t.track });
     });
 
     groups.forEach((variants, baseTopic) => {
@@ -432,6 +445,11 @@ Promise.all([
       // 영상 우상단 광고 태그 오버레이 적용 여부를 언어 무관하게(하나라도 적용됐으면)
       // 목록에서 바로 구분할 수 있어야 한다.
       const adTagApplied = variants.some(v => v.adTag);
+      // WHY 언어 하나라도 "숏츠"면 그룹 전체를 "숏츠"로: adTagApplied와 같은
+      // 집계 원칙 — 같은 topic의 언어별 트랙이 갈리는 경우는 실질적으로 없고,
+      // 있어도 영상이 하나라도 있으면 그 topic은 사실상 숏츠 topic이다.
+      const track = variants.some(v => v.track === "shorts") ? "shorts" : "card_news";
+      const targetList = track === "shorts" ? shortsList : cardNewsList;
 
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
@@ -537,8 +555,8 @@ Promise.all([
       row.appendChild(thumb);
       row.appendChild(textWrap);
       row.appendChild(buttonWrap);
-      (done ? doneList : list).appendChild(row);
-      rows.push({ row, topic: baseTopic });
+      (done ? doneList : targetList).appendChild(row);
+      rows.push({ row, topic: baseTopic, list: targetList });
     });
     refreshDoneWrap();
     document.getElementById("topicsSection").style.display = "block";
@@ -546,13 +564,18 @@ Promise.all([
     const searchInput = document.getElementById("topicSearch");
     searchInput.addEventListener("input", () => {
       const q = searchInput.value.trim().toLowerCase();
-      let visibleActiveCount = 0;
-      rows.forEach(({ row, topic }) => {
+      let visibleShortsCount = 0;
+      let visibleCardNewsCount = 0;
+      rows.forEach(({ row, topic, list }) => {
         const match = topic.toLowerCase().includes(q);
         row.style.display = match ? "flex" : "none";
-        if (match && row.parentElement === list) visibleActiveCount++;
+        if (match && row.parentElement === list) {
+          if (list === shortsList) visibleShortsCount++;
+          else if (list === cardNewsList) visibleCardNewsCount++;
+        }
       });
-      empty.style.display = visibleActiveCount === 0 ? "block" : "none";
+      shortsEmpty.style.display = visibleShortsCount === 0 ? "block" : "none";
+      cardNewsEmpty.style.display = visibleCardNewsCount === 0 ? "block" : "none";
     });
   })
   .catch(() => {});
