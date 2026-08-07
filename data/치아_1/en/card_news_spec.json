@@ -1,0 +1,104 @@
+{
+  "title": [
+    "Enamel damage doesn't grow back,",
+    "the ADA warns —",
+    "3 everyday culprits behind it"
+  ],
+  "eyebrow": "Dental Health Alert",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda",
+    "주스팩_illust.jpg": "Orange Juice",
+    "사탕_illust.jpg": "Candy & Gummies"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Tooth enamel is",
+        "vulnerable to acid",
+        "",
+        "Highly acidic or sugary",
+        "foods keep attacking",
+        "that surface"
+      ]
+    },
+    {
+      "name": "Soda (Cola)",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Acidic enough that every sip",
+        "leaves microscopic damage",
+        "on enamel",
+        "",
+        "Even sugar-free soda erodes",
+        "teeth - carbonation itself",
+        "makes it acidic"
+      ]
+    },
+    {
+      "name": "Soda — the fix",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Skip brushing right after -",
+        "rinse with water and",
+        "wait about 30 minutes"
+      ]
+    },
+    {
+      "name": "Orange Juice",
+      "char_file": "주스팩_illust.jpg",
+      "body": [
+        "Just as acidic as soda,",
+        "and can erode enamel",
+        "just as much"
+      ]
+    },
+    {
+      "name": "Orange Juice — the fix",
+      "char_file": "주스팩_illust.jpg",
+      "body": [
+        "Try drinking juice",
+        "through a straw"
+      ]
+    },
+    {
+      "name": "Candy & Gummies",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Mouth bacteria feast on",
+        "the sugar and produce acid",
+        "",
+        "That acid eats directly",
+        "into your teeth"
+      ]
+    },
+    {
+      "name": "Candy — the fix",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Rinse with water first,",
+        "then brush after",
+        "a short wait"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Enamel damage adds up",
+        "little by little"
+      ],
+      [
+        "Small timing changes",
+        "can help protect it"
+      ]
+    ],
+    "tip": [
+      "Rinse with water after acidic drinks,",
+      "and use a straw when you can"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Teeth"
+}
