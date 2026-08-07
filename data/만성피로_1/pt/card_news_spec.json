@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Dorme bem e mesmo assim",
+    "acorda cansado?",
+    "3 hábitos brasileiros que explicam"
+  ],
+  "eyebrow": "Energia e Fadiga",
+  "topic_word": "Fadiga",
+  "char_display_names": {
+    "태양_illust.jpg": "Pouco Sol",
+    "검은콩_illust.jpg": "Almoço Pesado",
+    "에어컨_illust.jpg": "Ar-Condicionado"
+  },
+  "items": [
+    {
+      "name": "Por que estou sempre cansado?",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "No Brasil, esse cansaço",
+        "constante muitas vezes",
+        "não vem de doença",
+        "",
+        "e sim de três hábitos",
+        "bem comuns no dia a dia"
+      ]
+    },
+    {
+      "name": "Pouco Sol",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Mesmo num país tropical,",
+        "escritório fechado e carro",
+        "com vidro fechado",
+        "",
+        "deixam você com bem",
+        "pouca luz solar direta"
+      ]
+    },
+    {
+      "name": "Por que cansa?",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Estudo da Fiocruz: mais da",
+        "metade dos brasileiros tem",
+        "vitamina D insuficiente",
+        "mesmo no verão",
+        "",
+        "e sem ela, as células não",
+        "produzem energia direito"
+      ]
+    },
+    {
+      "name": "Almoço Pesado",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "Feijoada com bastante",
+        "carne gorda e embutido",
+        "",
+        "exige muito trabalho",
+        "do sistema digestivo"
+      ]
+    },
+    {
+      "name": "Por que cansa?",
+      "char_file": "검은콩_illust.jpg",
+      "body": [
+        "O corpo manda mais sangue",
+        "pro estômago pra digerir",
+        "",
+        "e sobra menos energia",
+        "pro resto do corpo"
+      ]
+    },
+    {
+      "name": "Ar-Condicionado",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Entrar e sair o dia todo",
+        "entre o calor lá fora e",
+        "o ar-condicionado gelado"
+      ]
+    },
+    {
+      "name": "Por que cansa?",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Essa troca brusca obriga",
+        "o corpo a gastar energia",
+        "só se regulando",
+        "",
+        "e isso vira cansaço",
+        "mental ao longo do dia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pegue uns 15 minutos de",
+        "sol direto pela manhã"
+      ],
+      [
+        "No almoço, prefira menos fritura e mais verdura,",
+        "e deixe o ar-condicionado por volta de 24°C"
+      ]
+    ],
+    "tip": [
+      "Comece mudando",
+      "um dos três hoje"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Siga e curta!"
+  }
+}
