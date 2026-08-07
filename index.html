@@ -239,6 +239,15 @@
     </label>
     <span id="logSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
   </div>
+  <!-- WHY 상품 링크도 같은 이유로 내보내기가 필요한지(2026-08-07, "쿠팡이랑
+       네이버커넥트 넣어놓은 링크도 받게 되어있나? 그거 받아서 너가 처리해야하는데"):
+       개별 topic 대시보드의 쿠팡/네이버 링크 입력창(.product-link-input)은
+       hs_link_ localStorage에만 저장되고 지금까지 내보내는 방법이 없었다 —
+       위 포스팅 기록과 완전히 같은 문제라 같은 CSV 왕복 패턴을 그대로 적용. -->
+  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+    <button type="button" id="exportLinksBtn" class="btn btn-ghost" style="width:auto;">📥 상품 링크 CSV 내보내기</button>
+    <span id="linksSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
+  </div>
 </div>
 
 <div class="layout">
@@ -342,6 +351,48 @@ document.getElementById("exportLogBtn").addEventListener("click", () => {
   URL.revokeObjectURL(a.href);
   document.getElementById("logSyncMsg").textContent =
     `${rows.length}건 내보냄 — 다운로드된 파일을 output/posting_log.csv로 옮겨주세요`;
+});
+
+// WHY market_product 순서로 찾는지: localStorage 키가
+// "hs_link_<topic>_<market>_<product>" 형태인데, topic·product 이름 자체에도
+// "_"가 흔히 들어가서(예: "가슴쓰림_1") 단순 split("_")로는 market/product
+// 경계를 못 찾는다 — market은 "coupang"/"naver" 둘뿐이라는 걸 이용해 그
+// 마지막 등장 위치를 기준으로 뒤쪽은 product, 그 앞은 topic으로 자른다.
+function _collectProductLinks() {
+  const rows = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const key = localStorage.key(i);
+    if (!key || !key.startsWith("hs_link_")) continue;
+    const url = localStorage.getItem(key);
+    if (!url || !url.trim()) continue;
+    for (const market of ["coupang", "naver"]) {
+      const marker = "_" + market + "_";
+      const idx = key.lastIndexOf(marker);
+      if (idx === -1) continue;
+      const product = key.slice(idx + marker.length);
+      rows.push({ market, product, url: url.trim() });
+      break;
+    }
+  }
+  rows.sort((a, b) => a.market.localeCompare(b.market) || a.product.localeCompare(b.product));
+  return rows;
+}
+
+document.getElementById("exportLinksBtn").addEventListener("click", () => {
+  const rows = _collectProductLinks();
+  const lines = ["market,product,url", ...rows.map(r =>
+    [r.market, r.product, r.url].map(_csvEscape).join(","))];
+  const blob = new Blob(["﻿" + lines.join("\n")], { type: "text/csv;charset=utf-8;" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "product_links_export.csv";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(a.href);
+  document.getElementById("linksSyncMsg").textContent = rows.length
+    ? `${rows.length}건 내보냄 — 이 파일을 Claude Code에게 전달하면 output/product_links.json·naver_product_links.json에 반영해줍니다`
+    : "내보낼 상품 링크가 없어요(대시보드에서 입력한 게 없음)";
 });
 
 // WHY 정규식 기반 간단 파서(2026-08-02): 내보내기가 항상 모든 필드를 따옴표로
