@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Un estudio encontró pH menor",
+    "a 4.5 en estas bebidas —",
+    "así desgastan tu esmalte dental"
+  ],
+  "eyebrow": "Alerta de salud dental",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco de cola",
+    "주스팩_illust.jpg": "Jugo de naranja",
+    "사탕_illust.jpg": "Dulces y gomitas"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El esmalte dental",
+        "es vulnerable a los ácidos",
+        "",
+        "Bebidas o alimentos muy",
+        "ácidos o con mucha azúcar",
+        "siguen atacando la superficie"
+      ]
+    },
+    {
+      "name": "Refresco de cola",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Estudio latam: pH menor",
+        "a 4.5 en todas las",
+        "bebidas analizadas",
+        "",
+        "La Coca-Cola, entre",
+        "las de menor pH"
+      ]
+    },
+    {
+      "name": "Refresco — la solución",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "No te cepilles de inmediato -",
+        "enjuágate con agua y",
+        "espera unos 30 minutos"
+      ]
+    },
+    {
+      "name": "Jugo de naranja",
+      "char_file": "주스팩_illust.jpg",
+      "body": [
+        "pH entre 2 y 4",
+        "",
+        "Puede erosionar el esmalte",
+        "tanto como un refresco"
+      ]
+    },
+    {
+      "name": "Jugo — la solución",
+      "char_file": "주스팩_illust.jpg",
+      "body": [
+        "Prueba tomarlo",
+        "con popote"
+      ]
+    },
+    {
+      "name": "Dulces y gomitas",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Las bacterias de la boca",
+        "se alimentan del azúcar",
+        "y producen ácido",
+        "",
+        "Ese ácido corroe",
+        "el diente directamente"
+      ]
+    },
+    {
+      "name": "Dulces — la solución",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Enjuágate con agua",
+        "primero, cepíllate",
+        "unos 30 minutos después"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El daño al esmalte",
+        "se acumula poco a poco"
+      ],
+      [
+        "Pequeños cambios de hábito",
+        "pueden ayudar a protegerlo"
+      ]
+    ],
+    "tip": [
+      "Enjuágate con agua tras bebidas ácidas,",
+      "y usa popote cuando puedas"
+    ],
+    "cta": "¿Quieres más tips de salud como este? ¡Sigue y suscríbete!"
+  },
+  "topic_word": "Dientes"
+}
