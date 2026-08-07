@@ -1,0 +1,100 @@
+{
+  "title": [
+    "Mais ardência e coceira no dia",
+    "seguinte a um churrasco com cerveja?",
+    "Alimentos que pioram as hemorroidas"
+  ],
+  "eyebrow": "Alerta de hemorroidas",
+  "char_display_names": {
+    "고추_illust.jpg": "Pimenta",
+    "맥주_illust.jpg": "Álcool",
+    "가공육_illust.jpg": "Carnes processadas"
+  },
+  "items": [
+    {
+      "name": "Por que os sintomas pioram",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Essas veias já ficam sob",
+        "pressão com o esforço",
+        "",
+        "Alguns alimentos somam mais",
+        "pressão ou irritam direto"
+      ]
+    },
+    {
+      "name": "Pimenta",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "A capsaicina pode dilatar",
+        "os vasos da região",
+        "",
+        "E irritar a mucosa,",
+        "deixando tudo mais ardido"
+      ]
+    },
+    {
+      "name": "Pimenta — a solução",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Troque por ervas como",
+        "orégano ou alecrim"
+      ]
+    },
+    {
+      "name": "Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Dilata os vasos sanguíneos",
+        "e desidrata o corpo",
+        "",
+        "As fezes ficam mais duras -",
+        "dor e sangramento pioram"
+      ]
+    },
+    {
+      "name": "Álcool — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Intercale com água",
+        "e reduza a quantidade"
+      ]
+    },
+    {
+      "name": "Alimentos com pouca fibra",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Facilitam a prisão de ventre",
+        "",
+        "Fazer mais força aumenta",
+        "a pressão nessas veias"
+      ]
+    },
+    {
+      "name": "Embutidos — a solução",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Troque por verduras",
+        "ou grãos integrais"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa cortar",
+        "tudo isso para sempre"
+      ],
+      [
+        "Reduzir a quantidade e trocar",
+        "já ajuda a aliviar"
+      ]
+    ],
+    "tip": [
+      "Beber bastante água também",
+      "pode ajudar a amolecer as fezes"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Se inscreva, curta e siga o canal!"
+  },
+  "topic_word": "Hemorroidas"
+}
