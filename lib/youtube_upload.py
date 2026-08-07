@@ -495,6 +495,116 @@ def upload_daily_per_channel(langs: list[str] | None = None, privacy_status: str
     return results
 
 
+def _is_upload_limit_error(e: Exception) -> bool:
+    """YouTube 계정당 하루 실제 업로드 개수 제한(API 쿼터와 다른 별개 제약,
+    2026-08-07 실측 발견) 여부 확인. HttpError의 reason이 'uploadLimitExceeded'인
+    경우만 True — 이 에러는 그날 그 채널에서 더 이상 업로드가 안 된다는 뜻이라
+    호출부가 해당 채널을 즉시 포기하고 다음 채널로 넘어가야 한다(재시도해도
+    똑같이 실패함, 다른 SKIP 사유와 달리 topic을 바꿔도 소용없음)."""
+    if not isinstance(e, HttpError):
+        return False
+    content = e.content.decode("utf-8", errors="ignore") if isinstance(e.content, bytes) else str(e.content or "")
+    return "uploadLimitExceeded" in content
+
+
+def _last_scheduled_publish_at(lang: str) -> datetime | None:
+    """그 채널(언어)에 이미 예약 게시로 올라가 있는 영상 중 가장 늦은 publishAt을
+    찾는다. WHY(2026-08-07): backlog를 이어서 올릴 때 _next_channel_schedule처럼
+    "지금부터"로 스케줄을 잡으면 이미 예약된 미래 영상과 같은 시각에 겹친다 —
+    채널의 실제 업로드 대기열 맨 뒤에 이어붙이려면 지금 예약된 것 중 가장 늦은
+    시각을 먼저 알아야 한다. 예약된 게 하나도 없으면 None(호출부가 "지금"으로
+    폴백)."""
+    youtube = build("youtube", "v3", credentials=_get_credentials(lang))
+    channel = youtube.channels().list(part="contentDetails", mine=True).execute()
+    uploads_playlist = channel["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
+    video_ids: list[str] = []
+    page_token = None
+    while True:
+        resp = youtube.playlistItems().list(
+            part="contentDetails", playlistId=uploads_playlist, maxResults=50, pageToken=page_token
+        ).execute()
+        video_ids += [i["contentDetails"]["videoId"] for i in resp["items"]]
+        page_token = resp.get("nextPageToken")
+        if not page_token or len(video_ids) > 500:
+            break
+    utc = ZoneInfo("UTC")
+    latest: datetime | None = None
+    for i in range(0, len(video_ids), 50):
+        batch = video_ids[i:i + 50]
+        vresp = youtube.videos().list(part="status", id=",".join(batch)).execute()
+        for v in vresp["items"]:
+            publish_at = v["status"].get("publishAt")
+            if not publish_at:
+                continue
+            dt = datetime.strptime(publish_at, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=utc)
+            if latest is None or dt > latest:
+                latest = dt
+    return latest
+
+
+def _backlog_schedule_for_lang(lang: str, n: int) -> list[str]:
+    """현지 오전 10시/오후 6시(CHANNEL_DAILY_HOURS) 슬롯을 여러 날에 걸쳐 n개
+    만든다. 채널에 이미 예약된 것 중 가장 늦은 시각이 있으면 그 다음 날부터
+    이어서(대기열 뒤에 이어붙임), 없으면 _next_daily_schedule과 같은 규칙
+    (오늘 첫 슬롯이 지났으면 내일부터)으로 지금 기준 시작."""
+    tz = LANGUAGE_TIMEZONES.get(lang, KST)
+    utc = ZoneInfo("UTC")
+    last = _last_scheduled_publish_at(lang)
+    if last is not None:
+        day = last.astimezone(tz).date() + timedelta(days=1)
+    else:
+        now = datetime.now(tz)
+        day = now.date()
+        if now.hour >= CHANNEL_DAILY_HOURS[0]:
+            day += timedelta(days=1)
+    slots: list[str] = []
+    while len(slots) < n:
+        for h in CHANNEL_DAILY_HOURS:
+            dt = datetime(day.year, day.month, day.day, h, 0, tzinfo=tz)
+            slots.append(dt.astimezone(utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+            if len(slots) >= n:
+                break
+        day += timedelta(days=1)
+    return slots
+
+
+def upload_backlog(langs: list[str] | None = None, privacy_status: str = "private") -> dict[str, dict]:
+    """`python3 lib/youtube_upload.py --backlog` 진입점(2026-08-07, "그냥 유튜브에
+    올려줘 하면 이 방식대로 돌아가게 해" 확정 — CLAUDE.md "유튜브 쇼츠 자동
+    업로드" 절 참고). 채널(언어)마다 아직 안 올라간 topic 전체를 한 번에
+    큐잉해서, 그날 그 채널의 실제 uploadLimitExceeded 한도에 부딪힐 때까지
+    밀어붙인다 — 채널마다 숫자를 미리 정해두지 않고 "덜 올라간 채널일수록
+    더 많이 올라가는" 효과를 자연히 얻는다. 한도에 걸리면 그 채널만 즉시
+    포기하고 다음 채널로 넘어가고(재시도해도 실패하므로), 그 외 개별 오류
+    (네트워크 일시 오류 등)는 해당 topic만 건너뛰고 계속 진행한다."""
+    langs = langs or list(YOUTUBE_PLATFORM_NAMES.keys())
+    results: dict[str, dict] = {}
+    for lang in langs:
+        topics = select_daily_topics_for_lang(lang, 9999)
+        if not topics:
+            print(f"[youtube_upload] [{lang}] 업로드할 topic 없음 — 건너뜀")
+            results[lang] = {"uploaded": [], "limit_hit": False}
+            continue
+        schedule = _backlog_schedule_for_lang(lang, len(topics))
+        uploaded: list[dict] = []
+        limit_hit = False
+        for topic, publish_at in zip(topics, schedule):
+            try:
+                r = upload_short(topic, privacy_status=privacy_status, publish_at=publish_at)
+                uploaded.append(r)
+                print(f"[youtube_upload] [{lang}] {topic} → {publish_at} 업로드 완료")
+            except Exception as e:
+                if _is_upload_limit_error(e):
+                    print(f"[youtube_upload] [{lang}] 하루 업로드 한도 도달 — {topic}부터 다음날로 미룸")
+                    limit_hit = True
+                    break
+                print(f"[youtube_upload] ⚠️ [{lang}] {topic} 건너뜀: {e}")
+        results[lang] = {"uploaded": uploaded, "limit_hit": limit_hit}
+        print(f"[youtube_upload] --- {lang} 완료: {len(uploaded)}건 업로드"
+              f"{'(한도 도달로 중단)' if limit_hit else ''} ---")
+    return results
+
+
 def upload_daily_batch(privacy_status: str = "private") -> list[dict]:
     """`python3 lib/youtube_upload.py --daily-batch` 진입점(2026-08-02, "유튜브
     업로드는 내가 업로드 하라고 하면 API 찔러서 10시, 11시, 14시, 17시 이렇게
@@ -615,6 +725,9 @@ if __name__ == "__main__":
     elif sys.argv[1:2] == ["--daily-per-channel"]:
         privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
         upload_daily_per_channel(privacy_status=privacy_arg)
+    elif sys.argv[1:2] == ["--backlog"]:
+        privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"
+        upload_backlog(privacy_status=privacy_arg)
     else:
         topic_arg = sys.argv[1]
         privacy_arg = sys.argv[2] if len(sys.argv) > 2 else "private"

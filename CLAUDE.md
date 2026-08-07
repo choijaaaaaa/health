@@ -510,32 +510,26 @@ python3 -m pytest tests/ -v
 ## 유튜브 쇼츠 자동 업로드 (`lib/youtube_upload.py`)
 
 - 단일 topic: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]`
-- ⚠️ **일괄 업로드 표준은 `--daily-per-channel`, 채널당 하루 2개로 고정**
-  (2026-08-05 — 저품질/반복 콘텐츠 정책 리서치 결과 업로드 빈도 자체는
-  정책 위반 기준이 아니지만, 늘려서 얻는 이득도 없어 보수적으로 2개 유지):
-  `python3 lib/youtube_upload.py --daily-per-channel [privacy]` — 채널(언어)
-  마다 현지 시간 오전 10시·오후 6시에 예약 게시. `select_daily_topics_for_lang`이
-  다른 플랫폼에 이미 포스팅된 topic을 우선 선택. 사용자가 "업로드해" 지시할
-  때만 직접 트리거.
-  - ⚠️ **`--daily-batch`(하루 4개, KST 고정)는 레거시 — 새로 쓰지 말 것.**
+- ⚠️ **일괄 업로드 표준은 `--backlog`(2026-08-07, `--daily-per-channel`
+  대체) — "유튜브에 올려줘"/"업로드해" 등 트리거 문구 하나로 요청하면 이걸로
+  진행할 것**: `python3 lib/youtube_upload.py --backlog [privacy]`
+  (`upload_backlog()`). 채널(언어)마다 아직 안 올라간 topic 전체를 한 번에
+  큐잉해서, `uploadLimitExceeded`(계정당 하루 실제 업로드 개수 제한 — API
+  쿼터와 무관하고 `publishAt` 예약으로도 못 피함, 2026-08-07 실측: pt
+  17개·en 31개·es 34개에서 채널마다 다른 상한에 걸림)에 부딪힐 때까지
+  자동으로 밀어붙인다 — 채널별로 몇 개가 안전한지 미리 추측할 필요 없음.
+  한도 도달 시 그 채널만 즉시 포기하고(`_is_upload_limit_error`) 다음 채널로
+  넘어가며, 스케줄은 `_last_scheduled_publish_at`으로 그 채널에 이미 예약된
+  것 중 가장 늦은 시각 다음부터 이어붙인다(겹침 방지). topic이 다 소진되면
+  새로 준비되는 만큼만 올라가서 자연히 하루 2개 안팎으로 수렴함.
+  - ⚠️ **`--daily-per-channel`/`--daily-batch`는 레거시 — 새로 쓰지 말 것.**
+    전자는 채널당 하루 2개로 고정해 backlog가 쌓이면 못 따라가고, 후자는
     언어 확장 전 한국어 단일 채널 시절 로직이라 6개 채널 체제에 안 맞는다.
 - 업로드 성공 시 자동으로: 카테고리 재생목록에 추가(중복 삽입 방지 확인 후),
   `output/youtube_uploaded.json`에 기록. 커스텀 썸네일 자동 설정은 하지 않음
   (결과 품질 문제로 제거) — 유튜브 자동 제안 또는 Studio 수동.
 - OAuth 1회 설정은 archive의 "유튜브 쇼츠 자동 업로드" 절 참고(사용자가 직접
   해야 하는 단계 포함).
-- ⚠️ **밀린 backlog를 몰아 올릴 때 — `uploadLimitExceeded`(계정당 하루 실제
-  업로드 개수 제한, API 쿼터와 무관하고 `publishAt` 예약으로도 못 피함)에
-  채널마다 각기 다른 상한에서 걸릴 수 있음**(2026-08-07 실측: pt 17개, en
-  31개, es 34개에서 걸림 — ru/ja는 그날 상한 자체를 안 건드림). **채널별로
-  몇 개가 안전한지 미리 추측하지 말 것** — 대신 `output/youtube_uploaded.json`
-  기준으로 채널(언어)마다 아직 안 올라간 topic 전체를 한 번에 큐잉해서 그날
-  실제 한도에 자동으로 멈출 때까지 밀어붙인다(`upload_short`가 topic별
-  try/except로 격리돼 있어 한 채널이 한도에 걸려도 다른 채널·다음 topic엔
-  영향 없음 — 한도 초과는 topic 하나만 실패로 넘어가는 안전한 실패임). 이
-  방식이면 채널마다 그날 낼 수 있는 최대치를 자동으로 다 뽑아내면서 "덜
-  올라간 채널"에 더 많이 배정하는 효과도 자연히 생김. 한도에 걸린 topic은
-  다음날 이후로 자연히 다시 큐잉하면 됨.
 - ⚠️ **캡션 구분자(`CAPTION_MARKERS`) 언어별로 여러 후보 필요** — 같은
   언어라도 topic마다 "タイトル:/説明:"·"Title:/Description:" 등 다른
   표기가 섞여 있을 수 있음(2026-08-07 ja에서 "概要欄:" 변형 발견, 10개
