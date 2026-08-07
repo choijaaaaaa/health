@@ -168,6 +168,17 @@ Quer mais dicas de saúde? Me siga 👆
 
 </main>
 <script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+})();
 document.querySelectorAll(".btn-copy").forEach(btn => {
   btn.addEventListener("click", () => {
     const ta = document.getElementById(btn.dataset.target);

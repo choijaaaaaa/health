@@ -305,7 +305,7 @@
   </div>
 </section>
 
-<div class="platform-tabs"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
 <section class="platform-section">
   <h2>영상 업로드 플랫폼</h2>
   <div class="grid">
@@ -575,6 +575,23 @@ document.querySelectorAll(".platform-tab-btn").forEach(btn => {
     );
   });
 });
+
+// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
+// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
+// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
+// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
+// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
+// 볼 수 있어버리므로 버튼째로 숨긴다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  const target = tabParam === "card_news" ? "cardnews" : tabParam;
+  if (!target) return;
+  const panes = document.querySelectorAll(".platform-tab-pane");
+  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
+  if (!hasTarget) return;
+  document.getElementById("topicTrackTabButtons")?.remove();
+  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
+})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

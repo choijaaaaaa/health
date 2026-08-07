@@ -379,6 +379,23 @@ document.querySelectorAll(".platform-tab-btn").forEach(btn => {{
   }});
 }});
 
+// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
+// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
+// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
+// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
+// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
+// 볼 수 있어버리므로 버튼째로 숨긴다.
+(function () {{
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  const target = tabParam === "card_news" ? "cardnews" : tabParam;
+  if (!target) return;
+  const panes = document.querySelectorAll(".platform-tab-pane");
+  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
+  if (!hasTarget) return;
+  document.getElementById("topicTrackTabButtons")?.remove();
+  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
+}})();
+
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
   downloadAllBtn.addEventListener("click", () => {{
@@ -1177,6 +1194,17 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
 {lang_sections}
 </main>
 <script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {{
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+}})();
 document.querySelectorAll(".btn-copy").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const ta = document.getElementById(btn.dataset.target);
@@ -1528,7 +1556,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # topic 등) 탭 자체가 무의미 — 있는 쪽만 그대로 보여준다.
     if shorts_sections_html and cardnews_sections_html:
         platform_sections = (
-            '<div class="platform-tabs">'
+            '<div class="platform-tabs" id="topicTrackTabButtons">'
             '<button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button>'
             '<button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button>'
             "</div>"
