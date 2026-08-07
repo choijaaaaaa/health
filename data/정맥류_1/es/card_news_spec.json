@@ -1,0 +1,110 @@
+{
+  "title": [
+    "¿Después de estar de pie todo el día",
+    "sientes hormigueo o calambres en las piernas?",
+    "Alimentos que empeoran las várices"
+  ],
+  "eyebrow": "Alerta de Venas Várices",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Embutidos",
+    "단과자빵_illust.jpg": "Pan Dulce",
+    "맥주_illust.jpg": "Cerveza"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Las venas de las piernas",
+        "tienen que empujar la",
+        "sangre hasta el corazón",
+        "",
+        "Algunos alimentos aumentan",
+        "el volumen o le ponen",
+        "más presión a las venas"
+      ]
+    },
+    {
+      "name": "Embutidos",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Los embutidos y la comida",
+        "procesada tienen",
+        "mucho sodio",
+        "",
+        "El sodio hace que el cuerpo",
+        "retenga agua, subiendo",
+        "el volumen de sangre"
+      ]
+    },
+    {
+      "name": "Embutidos — la solución",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Cambia los embutidos",
+        "por carnes frescas"
+      ]
+    },
+    {
+      "name": "Pan Dulce",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Bajo en fibra, favorece",
+        "el estreñimiento",
+        "",
+        "Pujar en el baño sube la",
+        "presión abdominal y",
+        "carga las venas de la pierna"
+      ]
+    },
+    {
+      "name": "Pan Dulce — la solución",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Cámbialo por avena",
+        "o fruta"
+      ]
+    },
+    {
+      "name": "Cerveza",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Dilata los vasos",
+        "sanguíneos y deshidrata",
+        "el cuerpo",
+        "",
+        "Debilita la fuerza con la",
+        "que las venas empujan",
+        "la sangre hacia arriba"
+      ]
+    },
+    {
+      "name": "Cerveza — la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Sustitúyela por agua",
+        "mineral con limón",
+        "algunas noches"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Los embutidos, el pan dulce y la cerveza",
+        "no hay que eliminarlos por completo"
+      ],
+      [
+        "Reducir y cambiar por otra cosa",
+        "ayuda a que las piernas se sientan mejor"
+      ]
+    ],
+    "tip": [
+      "Tomar suficiente agua también puede",
+      "ayudar a reducir la hinchazón"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Sigue la cuenta!"
+  },
+  "topic_word": "Várices"
+}
