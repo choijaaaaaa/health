@@ -17,13 +17,13 @@
   },
   "en": {
     "unit": "word",
-    "rate": 2.8535413271788426,
-    "samples": 1
+    "rate": 2.9405759092536856,
+    "samples": 2
   },
   "es": {
     "unit": "word",
-    "rate": 2.9515643119229393,
-    "samples": 1
+    "rate": 2.8928065723821836,
+    "samples": 2
   },
   "fr": {
     "unit": "word",
@@ -42,18 +42,18 @@
   },
   "ja": {
     "unit": "char",
-    "rate": 6.275652173913044,
-    "samples": 1
+    "rate": 6.450435538597209,
+    "samples": 3
   },
   "pt": {
     "unit": "word",
-    "rate": 2.818137154683992,
-    "samples": 1
+    "rate": 2.8812494356065144,
+    "samples": 2
   },
   "ru": {
     "unit": "word",
-    "rate": 2.500428644933427,
-    "samples": 1
+    "rate": 2.644683254088978,
+    "samples": 2
   },
   "th": {
     "unit": "char",
