@@ -205,13 +205,21 @@
   <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
     style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:14px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
 
-  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:0 0 12px;">🎬 숏츠</h2>
-  <div id="shortsList" style="display:flex;flex-direction:column;gap:8px;"></div>
-  <div id="shortsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+  <div id="topicTrackTabs" style="display:flex;gap:8px;margin-bottom:14px;">
+    <button type="button" class="track-tab-btn active" data-track-target="shorts"
+      style="font-family:inherit;font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;border:1px solid var(--rule);background:var(--accent);color:#fff;cursor:pointer;">🎬 숏츠</button>
+    <button type="button" class="track-tab-btn" data-track-target="card_news"
+      style="font-family:inherit;font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;border:1px solid var(--rule);background:var(--panel);color:var(--ink-soft);cursor:pointer;">🗞 카드뉴스</button>
+  </div>
 
-  <h2 style="font-size:15px;letter-spacing:0.03em;color:var(--ink-soft);text-transform:uppercase;margin:24px 0 12px;">🗞 카드뉴스</h2>
-  <div id="cardNewsList" style="display:flex;flex-direction:column;gap:8px;"></div>
-  <div id="cardNewsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+  <div id="shortsPane" class="track-tab-pane" data-track-pane="shorts">
+    <div id="shortsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+    <div id="shortsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+  </div>
+  <div id="cardNewsPane" class="track-tab-pane" data-track-pane="card_news" style="display:none;">
+    <div id="cardNewsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+    <div id="cardNewsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
+  </div>
 
   <details id="topicsDoneWrap" style="margin-top:16px;display:none;">
     <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">완료된 콘텐츠 (<span id="topicsDoneCount">0</span>)</summary>
@@ -560,6 +568,26 @@ Promise.all([
     });
     refreshDoneWrap();
     document.getElementById("topicsSection").style.display = "block";
+
+    // WHY 카드뉴스 목록을 처음부터 같이 안 보여주는지(2026-08-07, "카드뉴스
+    // 자체를 목록에서 빼라고... 그 main쪽에서 / 숏츠 버튼이랑 병렬로 텍스트형태인거
+    // 선택할 수 있는 버튼 누를 수 있게 되어있고 그거에 따라 목록이 나오게"):
+    // 두 섹션을 동시에 늘어놓지 않고, 탭 버튼으로 골라야 그 목록만 보이게 한다
+    // (개별 topic dashboard.html에 이미 적용한 것과 동일한 탭 패턴).
+    document.querySelectorAll(".track-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const target = btn.dataset.trackTarget;
+        document.querySelectorAll(".track-tab-btn").forEach(b => {
+          const active = b === btn;
+          b.classList.toggle("active", active);
+          b.style.background = active ? "var(--accent)" : "var(--panel)";
+          b.style.color = active ? "#fff" : "var(--ink-soft)";
+        });
+        document.querySelectorAll(".track-tab-pane").forEach(p => {
+          p.style.display = p.dataset.trackPane === target ? "block" : "none";
+        });
+      });
+    });
 
     const searchInput = document.getElementById("topicSearch");
     searchInput.addEventListener("input", () => {
