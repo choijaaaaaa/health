@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Percebe que o cheiro do suor",
+    "fica mais forte à tarde?",
+    "Alimentos Que Pioram o Odor Corporal"
+  ],
+  "eyebrow": "Alerta de Odor Corporal",
+  "cover_char_file": "마늘기름_illust.jpg",
+  "char_display_names": {
+    "마늘기름_illust.jpg": "Alho e Cebola",
+    "소고기_illust.jpg": "Carne Vermelha",
+    "맥주_illust.jpg": "Álcool"
+  },
+  "items": [
+    {
+      "name": "Por que isso acontece",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "O odor corporal surge quando",
+        "compostos dos alimentos, já",
+        "digeridos, saem pelo suor",
+        "",
+        "Alguns alimentos produzem",
+        "muito mais moléculas de cheiro"
+      ]
+    },
+    {
+      "name": "Alho e Cebola",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Compostos de enxofre,",
+        "como a alicina",
+        "",
+        "Podem ser liberados pelo",
+        "suor e respiração por",
+        "mais de 24 horas"
+      ]
+    },
+    {
+      "name": "Alho e Cebola — a solução",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Cozinhe em vez",
+        "de comer cru"
+      ]
+    },
+    {
+      "name": "Carne Vermelha",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Demora mais para",
+        "ser digerida",
+        "",
+        "Esse processo mais lento gera",
+        "mais substâncias de odor"
+      ]
+    },
+    {
+      "name": "Carne Vermelha — a solução",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Troque por peixe branco",
+        "ou frango em alguns dias"
+      ]
+    },
+    {
+      "name": "Álcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Cerveja e vinho",
+        "são quebrados em",
+        "ácido acético",
+        "",
+        "Eliminado pelo suor,",
+        "com cheiro azedo"
+      ]
+    },
+    {
+      "name": "Álcool — a solução",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Beba água",
+        "junto com o álcool"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Não precisa eliminar",
+        "esses alimentos"
+      ],
+      [
+        "Cozinhar e trocar algumas coisas",
+        "já ajuda bastante"
+      ]
+    ],
+    "tip": [
+      "Frutas cítricas e vegetais ricos em",
+      "clorofila, como couve e espinafre,",
+      "podem ajudar a neutralizar o odor"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga, curta e se inscreva!"
+  },
+  "topic_word": "Odor Corporal"
+}

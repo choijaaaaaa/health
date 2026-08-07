@@ -1,0 +1,106 @@
+{
+  "title": [
+    "¿Sales del gimnasio recién bañado,",
+    "pero el sudor huele más fuerte?",
+    "Alimentos Que Empeoran el Olor Corporal"
+  ],
+  "eyebrow": "Alerta de Olor Corporal",
+  "cover_char_file": "마늘기름_illust.jpg",
+  "char_display_names": {
+    "마늘기름_illust.jpg": "Ajo y Cebolla",
+    "소고기_illust.jpg": "Carne Roja",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "El olor corporal se forma",
+        "cuando lo que comes se digiere",
+        "y se libera por el sudor",
+        "",
+        "Algunos alimentos generan",
+        "muchas más moléculas de olor"
+      ]
+    },
+    {
+      "name": "Ajo y Cebolla",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Compuestos de azufre",
+        "como la alicina",
+        "",
+        "Pueden liberarse por el sudor",
+        "y el aliento por más",
+        "de 24 horas"
+      ]
+    },
+    {
+      "name": "Ajo y Cebolla — la solución",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Cocínalos en vez",
+        "de comerlos crudos"
+      ]
+    },
+    {
+      "name": "Carne Roja",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Tarda más en digerirse",
+        "que otras proteínas",
+        "",
+        "Ese proceso más lento genera",
+        "más compuestos de olor"
+      ]
+    },
+    {
+      "name": "Carne Roja — la solución",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Cámbiala por pescado blanco",
+        "o pollo algunos días"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "La cerveza y el vino",
+        "se descomponen en",
+        "ácido acético",
+        "",
+        "Liberado por el sudor,",
+        "con olor agrio"
+      ]
+    },
+    {
+      "name": "Alcohol — la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Toma agua",
+        "junto con el alcohol"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta eliminarlos",
+        "por completo"
+      ],
+      [
+        "Cocinar y cambiar algunas cosas",
+        "ayuda bastante"
+      ]
+    ],
+    "tip": [
+      "El perejil y otras verduras de hoja",
+      "verde, ricos en clorofila, pueden",
+      "ayudar a neutralizar el olor"
+    ],
+    "cta": "¿Quieres más consejos de salud? Síguenos, dale like y suscríbete"
+  },
+  "topic_word": "Olor Corporal"
+}
