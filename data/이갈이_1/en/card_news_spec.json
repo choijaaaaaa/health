@@ -1,0 +1,52 @@
+{
+  "title": ["Sore Jaw And Worn Teeth", "On A Night You Weren't", "Even Stressed?"],
+  "eyebrow": "Bruxism Alert",
+  "cover_char_file": "턱관절_illust.jpg",
+  "char_display_names": {
+    "속쓰림_illust.jpg": "Acid Reflux",
+    "가족력_illust.jpg": "Genetics",
+    "알약_illust.jpg": "ADHD Medication"
+  },
+  "items": [
+    {
+      "name": "Three Independent Triggers",
+      "char_file": "턱관절_illust.jpg",
+      "body": ["Three independent triggers", "behind sleep bruxism are", "", "Acid reflux, genetics,", "and ADHD medication"]
+    },
+    {
+      "name": "Acid Reflux",
+      "char_file": "속쓰림_illust.jpg",
+      "body": ["People with GERD are up to", "6x more likely to grind", "at night", "", "Acid creeping up the esophagus", "can trigger brief awakenings", "that set the jaw clenching"]
+    },
+    {
+      "name": "Acid Reflux: What To Do",
+      "char_file": "속쓰림_illust.jpg",
+      "body": ["Frequent heartburn?", "Treating the reflux", "can ease the grinding too"]
+    },
+    {
+      "name": "Genetics",
+      "char_file": "가족력_illust.jpg",
+      "body": ["Twin studies show genetics", "explains roughly half", "the risk of sleep bruxism", "", "Kids are about 50% more likely", "to grind if a parent had", "a history of it too"]
+    },
+    {
+      "name": "Genetics: What To Do",
+      "char_file": "가족력_illust.jpg",
+      "body": ["Family history of grinding?", "Mention it at your next", "dental checkup"]
+    },
+    {
+      "name": "ADHD Medication",
+      "char_file": "알약_illust.jpg",
+      "body": ["Adderall and Ritalin raise", "dopamine activity in a way", "that also ramps up", "jaw muscle activity", "", "Soreness often shows up", "within weeks of starting"]
+    },
+    {
+      "name": "ADHD Medication: What To Do",
+      "char_file": "알약_illust.jpg",
+      "body": ["Grinding started after a new", "stimulant prescription?", "Ask your doctor about the dose"]
+    }
+  ],
+  "closing": {
+    "headline": [["Acid reflux, genetics,", "and ADHD medication can all"], ["quietly drive nighttime", "teeth grinding"]],
+    "tip": ["If grinding is new or severe,", "a dentist can check for", "a nightguard too"],
+    "cta": "Follow for more useful health tips"
+  }
+}
