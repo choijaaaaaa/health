@@ -1,0 +1,26 @@
+{
+  "topic": "만성피로_1_en",
+  "title": "Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests",
+  "products": [],
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Still dragging after a full night's sleep? Check these 3 habits\n\nDescription:\nChronic low energy can build up with no diagnosed condition at all. Running low on water, falling short on magnesium, and scrolling on a bright phone before bed can each quietly wreck your energy the next day — even after eight hours in bed.\n\nWatch to see why each one matters and what to swap in instead.\n\n#chronicfatigue #dehydration #magnesium #sleepquality #healthtips #wellness",
+      "ad_tag": true
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Still dragging even after a full night's sleep? 😴\n\nRunning low on water, falling short on magnesium, and scrolling on a bright phone before bed — three habits that quietly wreck your energy the next day.\n\nCarry a water bottle, add magnesium-rich foods like spinach or almonds, and put the phone down an hour before bed.\n\n#chronicfatigue #dehydration #magnesium #sleepquality #healthtips",
+      "ad_tag": true
+    }
+  ]
+}
