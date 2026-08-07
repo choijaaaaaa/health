@@ -1,0 +1,107 @@
+{
+  "title": [
+    "Acorda com a mandíbula travada",
+    "mesmo sem café ou álcool à noite?"
+  ],
+  "eyebrow": "Atenção ao bruxismo",
+  "cover_char_file": "이갈이_illust.jpg",
+  "char_display_names": {
+    "이갈이_illust.jpg": "Bruxismo do sono",
+    "수면무호흡_illust.jpg": "Apneia do sono",
+    "알약_illust.jpg": "Antidepressivos",
+    "브라질너트_illust.jpg": "Magnésio baixo"
+  },
+  "items": [
+    {
+      "name": "Por que o bruxismo aparece?",
+      "char_file": "이갈이_illust.jpg",
+      "body": [
+        "Três fatores que passam",
+        "despercebidos são",
+        "",
+        "apneia do sono,",
+        "antidepressivos",
+        "e falta de magnésio"
+      ]
+    },
+    {
+      "name": "Apneia do sono",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Na apneia, a via aérea",
+        "se fecha à noite",
+        "",
+        "o corpo aciona os músculos",
+        "da mandíbula para reabrir o ar",
+        "",
+        "cerca de 1/3 de quem tem apneia",
+        "range os dentes"
+      ]
+    },
+    {
+      "name": "Apneia do sono: como ajudar",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Se você ronca ou sente",
+        "falta de ar dormindo,",
+        "",
+        "vale fazer um exame do sono"
+      ]
+    },
+    {
+      "name": "Antidepressivos",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Alguns antidepressivos",
+        "aumentam a serotonina",
+        "e reduzem a dopamina,",
+        "",
+        "que controla os movimentos",
+        "e pode gerar contrações",
+        "involuntárias na mandíbula"
+      ]
+    },
+    {
+      "name": "Antidepressivos: como ajudar",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Bruxismo novo após",
+        "começar o remédio?",
+        "",
+        "Converse com quem prescreveu"
+      ]
+    },
+    {
+      "name": "Magnésio baixo",
+      "char_file": "브라질너트_illust.jpg",
+      "body": [
+        "O magnésio relaxa os músculos",
+        "e equilibra o sistema nervoso",
+        "",
+        "com o nível baixo, a mandíbula",
+        "fica mais tensa durante o sono"
+      ]
+    },
+    {
+      "name": "Magnésio baixo: como ajudar",
+      "char_file": "브라질너트_illust.jpg",
+      "body": [
+        "Castanha-do-pará, feijão preto",
+        "e banana ajudam a repor",
+        "o magnésio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Bruxismo nem sempre é", "só estresse"],
+      ["Apneia, remédios e magnésio", "também têm seu papel"]
+    ],
+    "tip": [
+      "Se persistir, procure",
+      "um dentista ou médico do sono"
+    ],
+    "cta": "Quer mais dicas de saúde? Siga e curta para não perder"
+  },
+  "topic_word": "Bruxismo do sono"
+}
