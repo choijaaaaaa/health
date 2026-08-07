@@ -11,7 +11,7 @@ import base64
 import json
 import sys
 from pathlib import Path
-from urllib.parse import quote
+from urllib.parse import quote, quote_plus
 
 
 def _esc(text: str) -> str:
@@ -875,6 +875,7 @@ def _dock_products(
     products: list[str],
     product_links: dict[str, str] | None = None,
     naver_links: dict[str, str] | None = None,
+    naver_brandconnect_id: str | None = None,
 ) -> str:
     if not products:
         return ""
@@ -883,7 +884,20 @@ def _dock_products(
     rows = ""
     for idx, name in enumerate(products):
         coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
-        naver_search_url = f"https://search.shopping.naver.com/search/all?query={quote(name)}"
+        # WHY search.shopping.naver.com이 아니라 brandconnect.naver.com인지
+        # (2026-08-07, "네이버 브랜드커넥트 연동 링크는 이런 형태로 들어가야하는데
+        # 지금 네이버 쇼핑쪽 링크를 던지고 있네" — 실제 사용 링크 예시로 발견):
+        # 일반 쇼핑 검색 결과가 아니라 브랜드커넥트 자체 상품 검색 페이지로 바로
+        # 가야 그 자리에서 커넥트 링크를 만들 수 있다. ID는 data/affiliate_accounts.json의
+        # naver_brandconnect_id 재사용(쿠팡처럼 topic마다 다른 게 아니라 계정
+        # 고정값). quote_plus인 이유: 네이버가 실제 쓰는 URL이 공백을 %20이 아니라
+        # +로 인코딩해서(실측 예시 URL 그대로) 맞춰준다.
+        naver_search_url = (
+            f"https://brandconnect.naver.com/{naver_brandconnect_id}/affiliate/products/search"
+            f"?query={quote_plus(name)}&tab=product"
+            if naver_brandconnect_id
+            else f"https://search.shopping.naver.com/search/all?query={quote(name)}"
+        )
         link = product_links.get(name, "")
         naver_link = naver_links.get(name, "")
         naver_goto = (
@@ -1404,7 +1418,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     disclosure = affiliate.get("disclosure", {})
     _product_links_loaded = _load_product_links()
     _naver_links_loaded = _load_naver_product_links()
-    dock_products = _dock_products(spec.get("products", []), _product_links_loaded, _naver_links_loaded)
+    dock_products = _dock_products(
+        spec.get("products", []), _product_links_loaded, _naver_links_loaded,
+        naver_brandconnect_id=affiliate.get("naver_brandconnect_id"),
+    )
     dock_products_bottom = _product_links_bottom_section(
         spec.get("products", []), _product_links_loaded, _naver_links_loaded
     )
