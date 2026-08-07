@@ -1,0 +1,108 @@
+{
+  "title": [
+    "O soluço quase nunca",
+    "tem a ver com nervoso",
+    "3 Gatilhos Escondidos no Prato"
+  ],
+  "eyebrow": "Radar do Soluço",
+  "swipe_label": "Deslize para ver mais  →",
+  "closing_label": "Resumo",
+  "topic_word": "Soluço",
+  "cover_char_file": "패스트푸드_illust.jpg",
+  "char_display_names": {
+    "패스트푸드_illust.jpg": "Almoço Correndo",
+    "탄산음료_illust.jpg": "Refrigerante",
+    "고추_illust.jpg": "Comida Apimentada"
+  },
+  "items": [
+    {
+      "name": "Não é nervoso, é o prato",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "O culpado costuma ser",
+        "algo que você comeu",
+        "ou bebeu há pouco",
+        "",
+        "O diafragma reage com",
+        "um espasmo repentino"
+      ]
+    },
+    {
+      "name": "Almoço Correndo",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Comer rápido entre",
+        "compromissos faz engolir",
+        "ar em excesso",
+        "",
+        "Esse ar distende o estômago",
+        "logo abaixo do diafragma"
+      ]
+    },
+    {
+      "name": "Almoço Correndo — o que fazer",
+      "char_file": "패스트푸드_illust.jpg",
+      "body": [
+        "Mastigar mais, mesmo com",
+        "pouco tempo, já ajuda"
+      ]
+    },
+    {
+      "name": "Refrigerante",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Refrigerante e água com gás",
+        "distendem o estômago",
+        "pelo próprio gás",
+        "",
+        "E isso empurra o",
+        "diafragma logo ali em cima"
+      ]
+    },
+    {
+      "name": "Refrigerante — o que fazer",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Beba devagar, sem virar",
+        "o copo de uma vez"
+      ]
+    },
+    {
+      "name": "Comida Apimentada",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "A pimenta irrita",
+        "quimicamente o estômago",
+        "",
+        "Como ele fica colado",
+        "no diafragma, vira espasmo"
+      ]
+    },
+    {
+      "name": "Comida Apimentada — o que fazer",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Um gole de leite ajuda mais",
+        "que água — a caseína",
+        "neutraliza a capsaicina"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "O soluço costuma vir",
+        "de hábitos simples da rotina"
+      ],
+      [
+        "Desacelerar na hora de",
+        "comer já faz diferença"
+      ]
+    ],
+    "tip": [
+      "Mastigue mais mesmo com pressa, beba o refrigerante devagar, um gole de leite corta a ardência da pimenta —",
+      "e se o soluço vier, prenda a respiração por 10 segundos e solte devagar"
+    ],
+    "cta": "Quer mais dicas de saúde como essa? Inscreva-se, curta e siga!"
+  }
+}
