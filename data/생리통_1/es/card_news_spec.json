@@ -1,0 +1,99 @@
+{
+  "title": [
+    "¿Cancelas planes o pides permiso",
+    "en el trabajo por el dolor del período?",
+    "Alimentos Que Empeoran el Cólico Menstrual"
+  ],
+  "eyebrow": "Alerta de Salud",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Refresco con Cafeína",
+    "소금_illust.jpg": "Comida Salada",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El útero libera prostaglandinas",
+        "que lo contraen con fuerza",
+        "",
+        "Algunos alimentos disparan",
+        "esa liberación"
+      ]
+    },
+    {
+      "name": "Refresco con Cafeína",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Un estudio con 258 estudiantes",
+        "encontró más dolor menstrual",
+        "entre quienes los tomaban seguido"
+      ]
+    },
+    {
+      "name": "Refresco — la solución",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cambia por agua con limón",
+        "o agua de fruta natural"
+      ]
+    },
+    {
+      "name": "Comida Salada",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Frituras y embutidos retienen",
+        "líquido y provocan hinchazón",
+        "",
+        "Su grasa saturada aumenta",
+        "las prostaglandinas"
+      ]
+    },
+    {
+      "name": "Comida Salada — la solución",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Cambia por pollo a la plancha",
+        "o verduras al horno"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Deshidrata el cuerpo y puede",
+        "intensificar los cambios de humor",
+        "",
+        "El dolor se siente más",
+        "fuerte al día siguiente"
+      ]
+    },
+    {
+      "name": "Alcohol — la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Prueba agua mineral",
+        "con limón en su lugar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta eliminarlos",
+        "por completo"
+      ],
+      [
+        "Pequeños cambios unos días",
+        "antes ayudan bastante"
+      ]
+    ],
+    "tip": [
+      "Comer más pescado o nueces por el omega-3",
+      "también puede ayudar a bajar la inflamación"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Dolor Menstrual"
+}
