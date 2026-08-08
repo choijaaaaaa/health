@@ -81,7 +81,7 @@
 <main>
 <section class="lang-section"><h2 class="lang-heading">한국어</h2><iframe class="dash-frame" src="ko/dashboard.html"></iframe></section>
 <section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
-<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29" data-plat-type="video">
   <div class="plat-head">
     <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
     <label class="plat-done-check">
@@ -104,7 +104,7 @@ Follow for more health tips like this!
   </div>
 </div>
 
-<div class="plat-card" data-done-key="Instagram%20Reels%20%28ES%29">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28ES%29" data-plat-type="video">
   <div class="plat-head">
     <h3><span class="plat-lang">스페인어 Español</span>Instagram Reels</h3>
     <label class="plat-done-check">
@@ -127,7 +127,7 @@ Cambia el consomé por hierbas + nopales, las botanas por pepitas, y la michelad
   </div>
 </div>
 
-<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29" data-plat-type="video">
   <div class="plat-head">
     <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
     <label class="plat-done-check">
@@ -150,7 +150,7 @@ Cambia el consomé por hierbas + nopales, las botanas por pepitas, y la michelad
   </div>
 </div>
 
-<div class="plat-card" data-done-key="Instagram%20Reels%20%28PT%29">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28PT%29" data-plat-type="video">
   <div class="plat-head">
     <h3><span class="plat-lang">포르투갈어 Português</span>Instagram Reels</h3>
     <label class="plat-done-check">
@@ -186,6 +186,27 @@ Quer mais dicas de saúde? Segue aqui 👆
   if (!tabParam) return;
   const frame = document.querySelector("iframe.dash-frame");
   if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
 })();
 document.querySelectorAll(".btn-copy").forEach(btn => {
   btn.addEventListener("click", () => {

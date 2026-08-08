@@ -44,6 +44,12 @@ _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
 }
+# WHY 3:1:1 가중치(2026-08-08, "판서형이 더 좋다. 반응도 좋고. 대충 3:1:1로
+# 가면 될듯"): FORMAT_ROSTER는 "포맷 종류가 뭐가 있는지"를 그대로 보여주는
+# 목록으로 유지하고, 실제 선택은 이 가중 풀에서 한다 — 같은 결정론적 시드
+# 공식(topic 문자열만으로 재현 가능)을 그대로 쓰되 분모만 5로 늘려 chalkboard가
+# 5칸 중 3칸을 차지하게 한다.
+_FORMAT_WEIGHTED_POOL = ["chalkboard", "chalkboard", "chalkboard", "before_after_transition", "checklist"]
 
 
 def select_format(topic: str) -> str:
@@ -54,7 +60,7 @@ def select_format(topic: str) -> str:
     확정 — "다른 국가에서 어떻게 선정되어있는지까지 확인할필요까진 없다") —
     그래서 이 함수는 topic 하나만 받고 순수 함수다, 전역 상태·레지스트리 없음."""
     seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(topic))
-    return FORMAT_ROSTER[seed_val % len(FORMAT_ROSTER)]
+    return _FORMAT_WEIGHTED_POOL[seed_val % len(_FORMAT_WEIGHTED_POOL)]
 
 # WHY 언어 코드 프리픽스로 topic의 언어를 감지하는지(2026-08-03 버그 수정,
 # "en_heartburn_1 다시 만들었더니 우상단 라벨/명패가 전부 한글로 나옴" 실제

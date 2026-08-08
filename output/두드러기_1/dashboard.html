@@ -83,6 +83,38 @@
 
 </main>
 <script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
+})();
 document.querySelectorAll(".btn-copy").forEach(btn => {
   btn.addEventListener("click", () => {
     const ta = document.getElementById(btn.dataset.target);
