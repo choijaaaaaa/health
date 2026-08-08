@@ -1055,7 +1055,15 @@ def _update_topics_index(out_path: str):
                 platform_types = {p.get("type") for p in caption_spec.get("platforms", [])}
                 if "video" in platform_types:
                     tracks.append("shorts")
-                if platform_types & {"cards", "text"}:
+                # WHY 페이스북 제외(2026-08-08): type이 "text"라 카드뉴스
+                # 판별에 같이 걸렸는데, 실제로는 숏츠 영상을 올리는 플랫폼이라
+                # (CLAUDE.md "영상 필요 플랫폼" 목록에 페이스북 포함) 카드뉴스
+                # 이미지와 무관하다 — 카드뉴스 탭 판별에서 페이스북은 빼고 본다.
+                card_news_types = {
+                    p.get("type") for p in caption_spec.get("platforms", [])
+                    if p.get("name") != "페이스북"
+                }
+                if card_news_types & {"cards", "text"}:
                     tracks.append("card_news")
             except (json.JSONDecodeError, OSError):
                 pass
@@ -1509,6 +1517,15 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
         platforms_by_type.setdefault(p.get("type", "text"), []).append(p)
+
+    # WHY 페이스북을 "video" 그룹으로 옮기는지(2026-08-08): type은 "text"지만
+    # (클립보드 붙여넣기 방식이라) 실제로는 숏츠 영상을 올리는 플랫폼이라
+    # (CLAUDE.md "영상 필요 플랫폼" 목록에 포함) 카드뉴스 탭이 아니라 숏츠
+    # 탭에 있어야 한다 — index.html의 tracks 판별 로직과 동일 원칙.
+    fb_platforms = [p for p in platforms_by_type.get("text", []) if p.get("name") == "페이스북"]
+    if fb_platforms:
+        platforms_by_type["text"] = [p for p in platforms_by_type["text"] if p.get("name") != "페이스북"]
+        platforms_by_type["video"].extend(fb_platforms)
 
     idx = 0
     # WHY 영상/카드뉴스+텍스트 두 탭으로 나누는지(2026-08-07, "숏츠형태랑
