@@ -242,6 +242,42 @@
 </section>
 
 
+<section class="platform-section">
+  <h2>영상 업로드 플랫폼</h2>
+  <div class="grid">
+<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
+  <div class="platform-head">
+    <div class="platform-name-wrap">
+      <span class="type-badge badge-video">영상</span>
+      <h3>Instagram Reels</h3>
+    </div>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    </div>
+  </div>
+  <div class="action-line">Copy caption → New Reel → paste in caption field</div>
+  
+  <textarea class="caption-box" id="cap-0" spellcheck="false">About 60% of Americans get a nosebleed at some point 🤧
+
+If yours keep coming back - allergy meds, dry airplane cabin air, and blowing too hard can all quietly make it worse. None of them need to be cut out completely.
+
+More health tips like this - follow along!
+
+#nosebleed #epistaxis #allergies #healthtips #wellness</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <span class="edit-hint">직접 수정 가능</span>
+    
+  </div>
+</div>
+</div>
+</section>
+
 
 
 
@@ -252,8 +288,13 @@ const CARD_IMAGE_NAMES = [];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
+const TOPIC_NAME = "T";
+// WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
+// 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
+// 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
+// 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
+// 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
-const TOPIC_NAME = "\ucf54\ud53c_1_en";
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {
@@ -474,7 +515,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const COMMENT_KEYWORD = "";
-const LINK_STORAGE_PREFIX = "hs_link_%EC%BD%94%ED%94%BC_1_en_";
+const LINK_STORAGE_PREFIX = "hs_link_T_";
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
 // 끝에 붙는 경우에만 안전했다 — 그런데 공정위 표시광고 지침상 고지문이 "게시물
@@ -701,7 +742,7 @@ function applyProductLinks() {
 // topic 이름 자체에 "_"가 들어있어서(예: 눈_1) 안전하게 쪼갤 방법이 없다 — 값
 // 안에 topic/platform/게시시각을 자체적으로 담아서 내보내기가 파싱 없이 바로
 // 되게 한다(포스팅 스케줄 로그 — index.html의 CSV 내보내기/가져오기 참고).
-const STORAGE_PREFIX = "hs_done_%EC%BD%94%ED%94%BC_1_en_";
+const STORAGE_PREFIX = "hs_done_T_";
 (async () => {
   const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
   const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
