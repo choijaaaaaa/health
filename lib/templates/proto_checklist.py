@@ -696,8 +696,12 @@ class Ctx:
         text_block_budget = 480
         avail = max(SAFE_Y1 - text_top_est - 40, 200)
         text_avail = min(text_block_budget, avail)
+        # WHY 88인지(2026-08-08, "신규 포맷 영상들 썸네일 글자 크기가 너무
+        # 작다. 기존 포맷정도의 폰트로는 맞춰줘야 할 것 같다"): 판서형 title
+        # card 기본 크기(88)와 맞춤 — 안전영역 초과 시 _layout_multiline이
+        # min_size=40까지 자동 축소하므로 회귀 위험 없음.
         self.title_lines, self.title_font, self.title_line_h = _layout_multiline(
-            measure_draw, self.title_main_lines, self.font_path, self.font_index, 76,
+            measure_draw, self.title_main_lines, self.font_path, self.font_index, 88,
             min(940, SAFE_CENTERED_MAX_WIDTH), text_avail * 0.66, lang, min_size=40,
         )
         self.title_sub_lines, self.title_sub_font, self.title_sub_line_h = _layout_multiline(

@@ -392,7 +392,7 @@ def _hero_card(chroma_img: Image.Image, card_w: int, card_h: int, palette: dict)
 
 def _render_hook_screen(theme: dict, lang: str, hook_lines: list[str], char_chroma: Image.Image | None,
                          progress_style: str, progress_index: int, progress_total: int,
-                         headline_size: int = 60, style: str = "plain", y_jitter: int = 0) -> Image.Image:
+                         headline_size: int = 88, style: str = "plain", y_jitter: int = 0) -> Image.Image:
     """오프닝/타이틀 화면 전용 렌더러. WHY 별도 함수로 분리(공용 _render_screen
     재사용 안 함): 이 파이프라인은 별도 커스텀 썸네일을 업로드하지 않아
     (lib/youtube_upload.py 확인) 이 영상의 0프레임이 피드에서 실질적인
@@ -792,10 +792,16 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         # char_file을 갖고 있으므로(아래 mechanism 화면에서 바로 다음 줄에
         # 쓰임) 이걸 1차 폴백으로 쓴다 — checklist가 이미 쓰는 것과 동일한
         # cover_char_file 폴백 원칙.
+        # WHY 88인지(2026-08-08, "신규 포맷 영상들 썸네일 글자 크기가 너무
+        # 작다. 기존 포맷정도의 폰트로는 맞춰줘야 할 것 같다"): 판서형
+        # title card(_make_title_card_png)의 기본 font_size가 88 — 프레임
+        # 0(=사실상 썸네일)이 그 크기와 맞아야 피드에서 잘 읽힌다. 안전영역
+        # 초과 시엔 _fit_text_block이 이 값을 상한으로 자동으로 줄이므로
+        # (min_size=34) 짧은 훅 문장은 88 그대로, 긴 문장만 자동 축소된다.
         screens.append({
             "tone": "before", "label": None, "body": hook_lines,
             "char": chroma_for(spec.get("cover_char_file") or mechanism_item.get("char_file")),
-            "dur": hook_duration, "headline_size": 60,
+            "dur": hook_duration, "headline_size": 88,
         })
         screens.append({
             "tone": "before", "label": mechanism_item["name"], "body": mechanism_item["body"],
