@@ -323,6 +323,8 @@ PAGE_TEMPLATE = """<!doctype html>
   .lightbox.open {{ display: flex; }}
   .lightbox img {{ max-width: 100%; max-height: 90vh; border-radius: 12px; }}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/supabase_client.js"></script>
 </head>
 <body>
 <header>
@@ -363,6 +365,12 @@ const CARD_IMAGE_NAMES = {card_image_names_js};
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
 const TOPIC_NAME = {topic_name_js};
+// WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
+// 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
+// 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
+// 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
+// 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {{
@@ -772,30 +780,38 @@ function applyProductLinks() {{
   }});
 }}
 
-document.querySelectorAll(".product-link-input").forEach(inp => {{
-  const row = inp.closest(".dock-product-row");
-  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.market + "_" + inp.dataset.product;
-  const saved = localStorage.getItem(storageKey);
-  if (saved) {{
-    inp.value = saved;
-    row.classList.add("linked");
-  }}
-  inp.addEventListener("input", () => {{
-    if (inp.value.trim()) {{
-      localStorage.setItem(storageKey, inp.value.trim());
-      row.classList.add("linked");
-    }} else {{
-      localStorage.removeItem(storageKey);
-      row.classList.remove("linked");
-    }}
-    applyProductLinks();
-  }});
-  inp.addEventListener("keydown", e => {{
-    if (e.key === "Enter") {{ row.classList.remove("row-expanded"); inp.blur(); }}
-  }});
-}});
+(async () => {{
+  const {{ data: dbLinks }} = await sb.from("product_links").select("market,product,url").eq("topic", TOPIC_NAME);
+  const dbLinkMap = new Map((dbLinks || []).map(r => [r.market + "_" + r.product, r.url]));
 
-applyProductLinks();
+  document.querySelectorAll(".product-link-input").forEach(inp => {{
+    const row = inp.closest(".dock-product-row");
+    const linkKey = inp.dataset.market + "_" + inp.dataset.product;
+    const storageKey = LINK_STORAGE_PREFIX + linkKey;
+    const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || "";
+    if (saved) {{
+      inp.value = saved;
+      row.classList.add("linked");
+    }}
+    inp.addEventListener("input", () => {{
+      if (inp.value.trim()) {{
+        localStorage.setItem(storageKey, inp.value.trim());
+        row.classList.add("linked");
+        sb.from("product_links").upsert({{ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() }});
+      }} else {{
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+      }}
+      applyProductLinks();
+    }});
+    inp.addEventListener("keydown", e => {{
+      if (e.key === "Enter") {{ row.classList.remove("row-expanded"); inp.blur(); }}
+    }});
+  }});
+
+  applyProductLinks();
+}})();
 
 // WHY JSON으로 저장(2026-08-02): 예전엔 이 키에 그냥 "1"만 넣었는데, 이러면
 // 나중에 CSV로 내보낼 때 topic/플랫폼명을 키 문자열에서 역으로 파싱해야 하고
@@ -803,24 +819,32 @@ applyProductLinks();
 // 안에 topic/platform/게시시각을 자체적으로 담아서 내보내기가 파싱 없이 바로
 // 되게 한다(포스팅 스케줄 로그 — index.html의 CSV 내보내기/가져오기 참고).
 const STORAGE_PREFIX = "hs_done_{topic}_";
-document.querySelectorAll(".done-toggle").forEach(cb => {{
-  const storageKey = STORAGE_PREFIX + cb.dataset.key;
-  const card = cb.closest(".platform-card");
-  if (localStorage.getItem(storageKey)) {{
-    cb.checked = true;
-    card.classList.add("is-done");
-  }}
-  cb.addEventListener("change", () => {{
-    if (cb.checked) {{
-      const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() }};
-      localStorage.setItem(storageKey, JSON.stringify(record));
+(async () => {{
+  const {{ data: dbPosted }} = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".done-toggle").forEach(cb => {{
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".platform-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {{
+      cb.checked = true;
       card.classList.add("is-done");
-    }} else {{
-      localStorage.removeItem(storageKey);
-      card.classList.remove("is-done");
     }}
+    cb.addEventListener("change", () => {{
+      if (cb.checked) {{
+        const postedAt = new Date().toISOString();
+        const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt }};
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
+      }} else {{
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+      }}
+    }});
   }});
-}});
+}})();
 </script>
 </body>
 </html>
@@ -1191,6 +1215,8 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
   .btn-go {{ background: var(--accent); color: #fff; }}
   .empty {{ text-align: center; padding: 60px 20px; color: var(--ink-soft); }}
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/supabase_client.js"></script>
 </head>
 <body>
 <a class="back" href="../../index.html">← 목록으로</a>
@@ -1256,25 +1282,34 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
 // hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
 // 내보내기가 언어 상관없이 전부 픽업하게 한다.
 const TOPIC_NAME = {topic_name_js};
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
-document.querySelectorAll(".plat-done-toggle").forEach(cb => {{
-  const storageKey = STORAGE_PREFIX + cb.dataset.key;
-  const card = cb.closest(".plat-card");
-  if (localStorage.getItem(storageKey)) {{
-    cb.checked = true;
-    card.classList.add("is-done");
-  }}
-  cb.addEventListener("change", () => {{
-    if (cb.checked) {{
-      const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() }};
-      localStorage.setItem(storageKey, JSON.stringify(record));
+(async () => {{
+  const {{ data: dbPosted }} = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {{
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {{
+      cb.checked = true;
       card.classList.add("is-done");
-    }} else {{
-      localStorage.removeItem(storageKey);
-      card.classList.remove("is-done");
     }}
+    cb.addEventListener("change", () => {{
+      if (cb.checked) {{
+        const postedAt = new Date().toISOString();
+        const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt }};
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
+      }} else {{
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+      }}
+    }});
   }});
-}});
+}})();
 </script>
 </body>
 </html>

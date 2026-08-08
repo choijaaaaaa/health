@@ -71,6 +71,8 @@
   .btn-go { background: var(--accent); color: #fff; }
   .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="/supabase_client.js"></script>
 </head>
 <body>
 <a class="back" href="../../index.html">← 목록으로</a>
@@ -228,25 +230,34 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
 // hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
 // 내보내기가 언어 상관없이 전부 픽업하게 한다.
 const TOPIC_NAME = "\ud53c\ubd80_2";
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
-document.querySelectorAll(".plat-done-toggle").forEach(cb => {
-  const storageKey = STORAGE_PREFIX + cb.dataset.key;
-  const card = cb.closest(".plat-card");
-  if (localStorage.getItem(storageKey)) {
-    cb.checked = true;
-    card.classList.add("is-done");
-  }
-  cb.addEventListener("change", () => {
-    if (cb.checked) {
-      const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() };
-      localStorage.setItem(storageKey, JSON.stringify(record));
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
       card.classList.add("is-done");
-    } else {
-      localStorage.removeItem(storageKey);
-      card.classList.remove("is-done");
     }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+      }
+    });
   });
-});
+})();
 </script>
 </body>
 </html>
