@@ -905,6 +905,16 @@
     ]
   },
   {
+    "topic": "두드러기_1/ko",
+    "title": "먹고 나면 피부가 부풀어 오르고 미친 듯이 가려운 팽진이 생긴다면 - 두드러기 부르는 음식 3가지",
+    "url": "output/%EB%91%90%EB%93%9C%EB%9F%AC%EA%B8%B0_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%91%90%EB%93%9C%EB%9F%AC%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "두피_1/en",
     "title": "Been Through 2-3 Anti-Dandruff Shampoos and the Flakes Still Keep Coming Back? - Foods That Fight Your Shampoo",
     "url": "output/%EB%91%90%ED%94%BC_1/en/dashboard.html",
@@ -961,6 +971,128 @@
     "url": "output/%EB%91%90%ED%94%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/en",
+    "title": "Hiccups always hit at the worst possible moment? - 3 Everyday Habits Behind It",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/es",
+    "title": "¿Hipo a la mitad de tus tacos con salsa? - 3 hábitos que lo disparan en México",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/ja",
+    "title": "早食い、熱い冷たいの連続、緊張。しゃっくりが頻繁なら - 見落としがちな原因3つ",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/ko",
+    "title": "자꾸 딸꾹질이 난다면 - 딸꾹질을 자주 유발하는 음식·습관 3가지",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/ko/card_news/%EB%94%B8%EA%BE%B9%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/pt",
+    "title": "O Soluço Quase Nunca Tem a Ver Com Nervoso - 3 Gatilhos Escondidos no Prato",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "딸꾹질_1/ru",
+    "title": "Не можешь остановить икоту? - 3 частые причины и что делать",
+    "url": "output/%EB%94%B8%EA%BE%B9%EC%A7%88_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "만성피로_1/en",
+    "title": "Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "만성피로_1/es",
+    "title": "¿Duermes bien y aun así te levantas cansado? 3 hábitos mexicanos que lo explican",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "만성피로_1/ja",
+    "title": "「疲れが取れない」その原因は身近な三つの習慣かも",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "만성피로_1/ko",
+    "title": "자도 자도 피곤하다면 - 만성피로 부르는 습관 피하는 법",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ko/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "만성피로_1/pt",
+    "title": "Dorme bem e mesmo assim acorda cansado? 3 hábitos brasileiros que explicam",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "만성피로_1/ru",
+    "title": "Спите 8 часов, но всё равно разбиты? 3 привычки, о которых не знают",
+    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
     "tracks": [
       "shorts"
     ]
@@ -1759,6 +1891,67 @@
     ]
   },
   {
+    "topic": "이갈이_1/en",
+    "title": "Sore Jaw And Worn Teeth On A Night You Weren't Even Stressed? - 3 Independent Causes of Teeth Grinding",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이갈이_1/es",
+    "title": "1 de cada 4 mexicanos tiene alto riesgo de apnea del sueño - así afecta a tus dientes",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이갈이_1/ja",
+    "title": "喫煙者は非喫煙者より歯ぎしりが多いという調査結果 - 見落としがちな生活習慣3つ",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이갈이_1/ko",
+    "title": "자고 일어났는데 턱이 뻐근하고 어금니가 시큰거린다면 - 이갈이 심해지는 습관 3가지",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/ko/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "이갈이_1/pt",
+    "title": "Acorda com a mandíbula travada mesmo sem café ou álcool? - 3 causas do bruxismo que passam despercebidas",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이갈이_1/ru",
+    "title": "Просыпаетесь с ноющей челюстью и стёртыми зубами? Причина может быть не в стрессе",
+    "url": "output/%EC%9D%B4%EA%B0%88%EC%9D%B4_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
     "topic": "이명_1/en",
     "title": "Ringing in your ears after the range, vaping, or turning 50? - The Causes Most People Miss",
     "url": "output/%EC%9D%B4%EB%AA%85_1/en/dashboard.html",
@@ -1815,6 +2008,67 @@
     "url": "output/%EC%9D%B4%EB%AA%85_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이석증_1/en",
+    "title": "About 1 in 40 people will get it - the most common cause of vertigo - Habits Behind Recurring BPPV Dizziness",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이석증_1/es",
+    "title": "¿La cocina da vueltas al agacharte o al mirar hacia la alacena? - Lo que tu salud metabólica tiene que ver con el vértigo posicional",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이석증_1/ja",
+    "title": "空を見上げたり棚に手を伸ばした拍子に襲われるめまいは生活習慣が原因かも",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이석증_1/ko",
+    "title": "자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/ko/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "이석증_1/pt",
+    "title": "Tontura ao se abaixar para calçar o sapato? - 3 hábitos que pioram a VPPB",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "이석증_1/ru",
+    "title": "Каждое пятое обращение к ЛОРу с головокружением - это ДППГ - 3 причины, которые сдвигают отолиты",
+    "url": "output/%EC%9D%B4%EC%84%9D%EC%A6%9D_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
     "tracks": [
       "shorts"
     ]
@@ -2606,6 +2860,67 @@
     "topic": "코골이_1/ru",
     "title": "Храпишь так, что будишь всю семью? - Вот что усиливает храп вечером",
     "url": "output/%EC%BD%94%EA%B3%A8%EC%9D%B4_1/ru/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "코피_1/en",
+    "title": "About 60% of Americans Get a Nosebleed - Why Yours Might Keep Coming Back",
+    "url": "output/%EC%BD%94%ED%94%BC_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "코피_1/es",
+    "title": "En temporada de calor, el IMSS ve más consultas por sangrado nasal - Hábitos Que Provocan Sangrado Nasal",
+    "url": "output/%EC%BD%94%ED%94%BC_1/es/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "코피_1/ja",
+    "title": "最近、鼻血が増えていませんか？ - 繰り返す鼻血の意外な原因",
+    "url": "output/%EC%BD%94%ED%94%BC_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "코피_1/ko",
+    "title": "코피가 부쩍 자주 나고 한 번 나면 잘 멎지 않는다면 - 코피 자주 나게 하는 습관 피하는 법",
+    "url": "output/%EC%BD%94%ED%94%BC_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%BD%94%ED%94%BC_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "코피_1/pt",
+    "title": "Sangramento de nariz de novo essa semana? - 3 fatores que podem ser a causa",
+    "url": "output/%EC%BD%94%ED%94%BC_1/pt/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "코피_1/ru",
+    "title": "Кровь из носа стала идти чаще? 3 скрытые причины",
+    "url": "output/%EC%BD%94%ED%94%BC_1/ru/dashboard.html",
     "thumbnail": null,
     "ad_tag": false,
     "tracks": [
