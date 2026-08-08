@@ -324,7 +324,7 @@ PAGE_TEMPLATE = """<!doctype html>
   .lightbox img {{ max-width: 100%; max-height: 90vh; border-radius: 12px; }}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/supabase_client.js"></script>
+<script src="{asset_prefix}supabase_client.js"></script>
 </head>
 <body>
 <header>
@@ -1216,7 +1216,7 @@ UNIFIED_PAGE_TEMPLATE = """<!doctype html>
   .empty {{ text-align: center; padding: 60px 20px; color: var(--ink-soft); }}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="/supabase_client.js"></script>
+<script src="../../supabase_client.js"></script>
 </head>
 <body>
 <a class="back" href="../../index.html">← 목록으로</a>
@@ -1640,11 +1640,21 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     else:
         platform_sections = shorts_sections_html or cardnews_sections_html
 
+    # WHY 상대경로로 계산하는지(2026-08-08, "index에 목록 아예 안보이는데?" —
+    # GitHub Pages는 choijaaaaaa.github.io/health/처럼 서브경로에서 서빙되는데
+    # 절대경로("/supabase_client.js")는 사이트 루트(choijaaaaaa.github.io/)를
+    # 가리켜버려 404가 났다 — out_path 깊이(레거시 output/<topic>/dashboard.html
+    # 2단계, 글로벌 output/<topic>/<lang>/dashboard.html 3단계)에 맞춰 "../" 개수를
+    # 그때그때 계산해야 GitHub Pages·Vercel(진짜 루트) 양쪽에서 다 맞는다.
+    project_root = Path(__file__).resolve().parent.parent
+    out_dir = Path(out_path).resolve().parent
+    asset_prefix = "../" * len(out_dir.relative_to(project_root).parts)
+
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), card_thumbs=card_thumbs, ad_tag_badge=ad_tag_badge,
         platform_sections=platform_sections,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
-        card_image_names_js=card_image_names_js,
+        card_image_names_js=card_image_names_js, asset_prefix=asset_prefix,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
         # WHY comment_keyword 우선(2026-07-31): 상품이 없는 topic(products: [])은

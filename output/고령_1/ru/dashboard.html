@@ -26,6 +26,10 @@
     padding: 5px 16px; border-radius: 999px; margin-bottom: 12px;
   }
   header h1 { margin: 0; font-size: 24px; line-height: 1.4; }
+  .ad-tag-badge {
+    display: inline-block; margin-top: 10px; background: #2f2a24; color: #fff; font-size: 12px;
+    font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  }
 
   section { max-width: 1040px; margin: 0 auto; padding: 0 24px 28px; }
   section > h2 {
@@ -133,6 +137,16 @@
 
   .platform-section + .platform-section { margin-top: 6px; }
 
+  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
+  .platform-tab-btn {
+    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
+    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
+    color: var(--ink-soft); cursor: pointer;
+  }
+  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .platform-tab-pane { display: none; }
+  .platform-tab-pane.active { display: block; }
+
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -184,6 +198,11 @@
   }
   .btn-copy.copied { background: var(--gold); color: #fff; }
   .edit-hint { font-size: 11px; color: var(--ink-soft); }
+  .copy-naver-connect-comment {
+    background: var(--gold-soft, #fdeecb); color: var(--gold, #b5820a); border: none;
+    font-size: 12px; font-weight: 700; padding: 8px 16px; border-radius: 999px; cursor: pointer;
+  }
+  .copy-naver-connect-comment.copied { background: var(--gold); color: #fff; }
 
   .lightbox {
     display: none; position: fixed; inset: 0; background: rgba(20,14,10,0.85);
@@ -192,11 +211,14 @@
   .lightbox.open { display: flex; }
   .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../../../supabase_client.js"></script>
 </head>
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
   <h1>Путаются мысли, портится настроение и накатывает слабость в пост? Как питаться в пост с умом после 60</h1>
+  
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -231,11 +253,45 @@ const CARD_IMAGE_NAMES = [];
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
 const TOPIC_NAME = "\uace0\ub839_1_ru";
+// WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
+// 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
+// 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
+// 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
+// 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
+
+document.querySelectorAll(".platform-tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const target = btn.dataset.tabTarget;
+    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
+    document.querySelectorAll(".platform-tab-pane").forEach(
+      p => p.classList.toggle("active", p.dataset.tabPane === target)
+    );
+  });
+});
+
+// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
+// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
+// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
+// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
+// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
+// 볼 수 있어버리므로 버튼째로 숨긴다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  const target = tabParam === "card_news" ? "cardnews" : tabParam;
+  if (!target) return;
+  const panes = document.querySelectorAll(".platform-tab-pane");
+  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
+  if (!hasTarget) return;
+  document.getElementById("topicTrackTabButtons")?.remove();
+  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
+})();
+
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {
   downloadAllBtn.addEventListener("click", () => {
@@ -310,6 +366,24 @@ document.querySelectorAll(".copy-product-link").forEach(btn => {
 // 링크 전달하는 정도의 문구로 해야함"): 상품을 소개하는 느낌보다 그냥 바로가기
 // 링크 모음이라는 담백한 톤으로 정정.
 const COMMENT_LINK_INTRO = "🔗 빠르게 이동할 수 있는 링크 목록이에요!";
+// WHY 이 버튼이 따로 필요한지(2026-08-06, "네이버클립 근데 댓글까지 필요한거면
+// 댓글도 어떻게 올릴지 UI에 반영되어야할거같은데"): 네이버 쇼핑 커넥트 표시
+// 규정은 쿠팡 파트너스와 위치가 다르다 — 대가성 문구를 캡션 본문이 아니라
+// 업로드 직후 남기는 "첫 번째 고정 댓글"로 따로 달아야 한다(공식 문서는 못
+// 찾음, 실제 활동자 가이드 기준 — CLAUDE.md "네이버 클립" 절 참고). 문구
+// 자체가 고정 문장이라 링크 조합이 필요없어서 COMMENT_LINK_INTRO/
+// _buildLinkBlock 재사용 없이 상수 하나만 그대로 복사한다.
+const NAVER_CONNECT_COMMENT = "이 포스팅은 네이버 쇼핑 커넥트 활동의 일환으로, 판매 발생 시 수수료를 제공받습니다.";
+document.querySelectorAll(".copy-naver-connect-comment").forEach(btn => {
+  const originalLabel = btn.textContent;
+  btn.addEventListener("click", () => {
+    navigator.clipboard.writeText(NAVER_CONNECT_COMMENT).then(() => {
+      btn.textContent = "복사됨 ✓";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = originalLabel; btn.classList.remove("copied"); }, 1500);
+    });
+  });
+});
 // WHY querySelectorAll(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데"):
 // 이 버튼이 상단 덕 패널에만 있었는데, 페이지 맨 아래에도 같은 버튼을 복제해서
 // 넣었다 — id 하나만 바라보는 getElementById로는 두 번째 복제본이 안 잡혀서
@@ -594,30 +668,38 @@ function applyProductLinks() {
   });
 }
 
-document.querySelectorAll(".product-link-input").forEach(inp => {
-  const row = inp.closest(".dock-product-row");
-  const storageKey = LINK_STORAGE_PREFIX + inp.dataset.market + "_" + inp.dataset.product;
-  const saved = localStorage.getItem(storageKey);
-  if (saved) {
-    inp.value = saved;
-    row.classList.add("linked");
-  }
-  inp.addEventListener("input", () => {
-    if (inp.value.trim()) {
-      localStorage.setItem(storageKey, inp.value.trim());
-      row.classList.add("linked");
-    } else {
-      localStorage.removeItem(storageKey);
-      row.classList.remove("linked");
-    }
-    applyProductLinks();
-  });
-  inp.addEventListener("keydown", e => {
-    if (e.key === "Enter") { row.classList.remove("row-expanded"); inp.blur(); }
-  });
-});
+(async () => {
+  const { data: dbLinks } = await sb.from("product_links").select("market,product,url").eq("topic", TOPIC_NAME);
+  const dbLinkMap = new Map((dbLinks || []).map(r => [r.market + "_" + r.product, r.url]));
 
-applyProductLinks();
+  document.querySelectorAll(".product-link-input").forEach(inp => {
+    const row = inp.closest(".dock-product-row");
+    const linkKey = inp.dataset.market + "_" + inp.dataset.product;
+    const storageKey = LINK_STORAGE_PREFIX + linkKey;
+    const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || "";
+    if (saved) {
+      inp.value = saved;
+      row.classList.add("linked");
+    }
+    inp.addEventListener("input", () => {
+      if (inp.value.trim()) {
+        localStorage.setItem(storageKey, inp.value.trim());
+        row.classList.add("linked");
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+      } else {
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+      }
+      applyProductLinks();
+    });
+    inp.addEventListener("keydown", e => {
+      if (e.key === "Enter") { row.classList.remove("row-expanded"); inp.blur(); }
+    });
+  });
+
+  applyProductLinks();
+})();
 
 // WHY JSON으로 저장(2026-08-02): 예전엔 이 키에 그냥 "1"만 넣었는데, 이러면
 // 나중에 CSV로 내보낼 때 topic/플랫폼명을 키 문자열에서 역으로 파싱해야 하고
@@ -625,24 +707,32 @@ applyProductLinks();
 // 안에 topic/platform/게시시각을 자체적으로 담아서 내보내기가 파싱 없이 바로
 // 되게 한다(포스팅 스케줄 로그 — index.html의 CSV 내보내기/가져오기 참고).
 const STORAGE_PREFIX = "hs_done_%EA%B3%A0%EB%A0%B9_1_ru_";
-document.querySelectorAll(".done-toggle").forEach(cb => {
-  const storageKey = STORAGE_PREFIX + cb.dataset.key;
-  const card = cb.closest(".platform-card");
-  if (localStorage.getItem(storageKey)) {
-    cb.checked = true;
-    card.classList.add("is-done");
-  }
-  cb.addEventListener("change", () => {
-    if (cb.checked) {
-      const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt: new Date().toISOString() };
-      localStorage.setItem(storageKey, JSON.stringify(record));
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".platform-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
       card.classList.add("is-done");
-    } else {
-      localStorage.removeItem(storageKey);
-      card.classList.remove("is-done");
     }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+      }
+    });
   });
-});
+})();
 </script>
 </body>
 </html>
