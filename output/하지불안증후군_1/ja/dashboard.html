@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>夜横になると脚の奥が むずむず這うように痒くなる？ むずむず脚症候群を悪化させる食べ物 — 업로드 대시보드</title>
+<title>映画館や新幹線でじっとしていられない人へ - 夜のあの飲み物がむずむず脚症候群を悪化させているかも — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -137,16 +137,6 @@
 
   .platform-section + .platform-section { margin-top: 6px; }
 
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -217,8 +207,8 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>夜横になると脚の奥が むずむず這うように痒くなる？ むずむず脚症候群を悪化させる食べ物</h1>
-  
+  <h1>映画館や新幹線でじっとしていられない人へ - 夜のあの飲み物がむずむず脚症候群を悪化させているかも</h1>
+  <span class="ad-tag-badge">🏷️ 광고표시 적용</span>
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -242,6 +232,42 @@
 </section>
 
 
+<section class="platform-section">
+  <h2>영상 업로드 플랫폼</h2>
+  <div class="grid">
+<div class="platform-card" data-done-key="Instagram%20Reels" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
+  <div class="platform-head">
+    <div class="platform-name-wrap">
+      <span class="type-badge badge-video">영상</span>
+      <h3>Instagram Reels</h3>
+    </div>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    </div>
+  </div>
+  <div class="action-line">キャプションをコピー → 新規リール → キャプション欄に貼り付け</div>
+  
+  <textarea class="caption-box" id="cap-0" spellcheck="false">夜横になると脚の奥がむずむず這うように痒くなる？🦵
+
+カフェイン・お酒・精製炭水化物は、むずむず脚症候群の症状を悪化させることがあります。全部やめなくても、量とタイミングを見直すだけで大丈夫。
+
+もっと健康情報が知りたい方はフォロー👆
+
+#むずむず脚症候群 #レストレスレッグス症候群 #睡眠の質 #安眠 #健康情報</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <span class="edit-hint">직접 수정 가능</span>
+    
+  </div>
+</div>
+</div>
+</section>
+
 
 
 
@@ -252,46 +278,13 @@ const CARD_IMAGE_NAMES = [];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
-const TOPIC_NAME = "\ud558\uc9c0\ubd88\uc548\uc99d\ud6c4\uad70_1_ja";
-// WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
-// 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
-// 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
-// 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
-// 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+const TOPIC_NAME = "\ud558\uc9c0\ubd88\uc548\uc99d\ud6c4\uad70_1_ja";
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
-
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {
   downloadAllBtn.addEventListener("click", () => {
