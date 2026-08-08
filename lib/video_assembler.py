@@ -217,9 +217,14 @@ def _split_long_caption_entries(
 # 사전과 무관하게 원래 그럼), 태그 문구를 언어별로 다르게 넣는 데 드는 추가
 # 비용은 그 렌더링 호출에 문자열 하나 바꿔 넘기는 정도뿐이다 — 영어 하나로
 # 퉁치지 않고 로컬 단어를 쓴다.
+# WHY pt가 "Anúncio"에서 "Publicidade"로 바뀌었는지(2026-08-08): 실제
+# 리서치 결과(브라질 CONAR 자율규제 기준 문구, archive "영상 광고 표시 의무"
+# 절 참고)는 `publicidade`/`#publi`인데 "Anúncio"(공고/발표라는 뜻, 다른
+# 단어)로 잘못 들어가 있었다 — 배지 표시용이라 다른 언어 항목과 통일해서
+# "#" 없이 대문자로 시작하는 형태로 정정.
 AD_TAG_TEXT_BY_LANG = {
     "kor": "광고", "en": "AD", "ja": "広告",
-    "es": "Publicidad", "pt": "Anúncio", "ru": "Реклама",
+    "es": "Publicidad", "pt": "Publicidade", "ru": "Реклама",
 }
 
 
