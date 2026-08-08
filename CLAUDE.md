@@ -434,6 +434,19 @@ python3 -m lib.content_review --lang-check <base_topic>   # 다국어: 진짜 �
   재생성한다(위 "콘텐츠 톤" 절 TTS 규칙 참고, 절대 규칙은 아니고 권장 순서).
 - `--lang-check`에서 `is_translation: true`가 나오면 그 세션이 스스로 판단해서
   그 언어권 상황에 맞는 진짜 다른 각도로 다시 쓸 것(번역 금지 원칙, 아래 참고).
+- ⚠️ **`card_news_spec.json`의 `title` 배열 마지막 줄 = 카드뉴스 표지·영상
+  오프닝 타이틀 화면에서 자동으로 떼어내는 "독립 라벨"이다**(2026-08-08,
+  "썸네일 글 이상하게 나오는 현상... 짤려서 만들어지는애들이 많아" — 실측
+  52개 topic/언어 조합에서 발견, `data/title_truncation_backlog.md` 참고).
+  `lib/card_news.py`/`lib/rebuild_video.py`
+  둘 다 `" ".join(title[:-1])`로 마지막 줄을 뺀 나머지만 훅으로 쓴다 —
+  `title`을 그냥 "훅 문장 하나를 여러 줄로 나눈 것"으로만 쓰면 마지막 줄이
+  통째로 잘려나가 미완성 문장으로 노출된다. 올바른 예:
+  `["혈당 관리에 어려움이 있는", "분들 주목!", "돼지감자차 이야기"]`(마지막 줄이
+  진짜 독립 라벨). `content_review.py`의 `check_title_truncation()`이 훅이
+  문장부호로 안 끝나면 자동으로 잡아주지만(review_topic 호출 시 항상 실행),
+  title을 작성하는 시점에 이미 "마지막 줄 = 짧은 독립 라벨"인지 스스로
+  확인할 것.
 
 ## 글로벌 확장
 
@@ -484,14 +497,21 @@ topic·언어는 이 6개 범위 안에서만 진행할 것 — 확장이 다시
   `output/youtube_uploaded.json`, 상품 링크는 `output/product_links.json`
   (쿠팡)·`output/naver_product_links.json`(네이버 커넥트), 포스팅 기록은
   `output/posting_log.csv`(브라우저 CSV 내보내기 → 커밋).
-  - ⚠️ **상품 링크 CSV 내보내기(2026-08-07)**: 개별 topic 대시보드의
-    쿠팡/네이버 링크 입력창(`.product-link-input`)은 브라우저 localStorage
-    (`hs_link_<topic>_<market>_<product>`)에만 쌓인다 — `index.html`의
-    "📥 상품 링크 CSV 내보내기" 버튼으로 `market,product,url` CSV를
-    받으면, 그 내용을 읽어 `output/product_links.json`/
-    `output/naver_product_links.json`(둘 다 `{상품명: 링크}` 평평한
-    dict)에 병합해 반영할 것 — 기존 값 덮어쓰기 아니라 병합(다른 topic이
-    이미 등록해둔 상품 링크를 지우지 않게).
+  - ⚠️ **상품 링크는 Supabase 직접 연동(2026-08-08, CSV 왕복 폐기)**:
+    개별 topic 대시보드의 `.product-link-input`은 이제 Supabase
+    `product_links`(topic·market·product·url) 테이블에 직접 upsert/delete —
+    브라우저 localStorage·CSV 내보내기 안 씀. **상품명 하나로 여러 topic에
+    공용 재사용되는 캐시**는 별도 `global_product_links`(market·product·url,
+    topic 없음) 테이블 — `index.html`의 "🔗 미등록 상품 링크" 섹션이
+    `output/all_products.json`(전체 topic이 실제 쓰는 상품명 목록,
+    `lib/dashboard.py`의 `_write_all_products()`가 매 대시보드 생성마다
+    자동 갱신)과 이 테이블을 대조해서 링크 없는 상품만 보여주고, 입력하면
+    바로 이 테이블에 저장된다. `output/product_links.json`/
+    `naver_product_links.json`(git 추적, `_load_product_links()`가 대시보드
+    생성 시 읽어 입력창을 미리 채움)은 이 테이블과 별개인 로컬 스냅샷 —
+    `scripts/supabase_backfill.py`는 로컬 json → Supabase 1회 백필용(반대
+    방향, Supabase에 새로 채운 값이 이 로컬 json에 자동으로 안 내려옴 —
+    두 값이 어긋날 수 있다는 뜻, 필요 시 수동 확인).
 
 ## GitHub Pages
 

@@ -138,12 +138,71 @@ def _card_news_text(topic: str, lang: str = "kor") -> str:
     return "\n".join(line for line in lines if line)
 
 
+# WHY(2026-08-08, "야 전반적으로 썸네일 글 이상하게 나오는 현상... 짤려서
+# 만들어지는애들이 많아"): lib/card_news.py/lib/rebuild_video.py가 spec["title"]의
+# 마지막 줄을 "주제명 라벨"로 간주해 자동으로 떼고 나머지만 표지·영상 오프닝
+# 훅으로 쓴다(예: ["혈당 관리에 어려움이 있는", "분들 주목!", "돼지감자차 이야기"]
+# → 라벨만 "돼지감자차 이야기"). 이 관례를 모르고 title을 그냥 훅 문장 하나를
+# 여러 줄로 나눠서만 쓴 topic이 많았다(전체 스캔 결과 52개 조합) — 마지막 줄
+# "자체"가 이어지는 문장 조각처럼 보이는 어미/격조사로 끝나는지(블랙리스트)로
+# 판정한다. WHY 화이트리스트(훅이 문장부호로 끝나야 함) 대신 블랙리스트인지:
+# 처음엔 "훅이 ?!로 안 끝나면 의심"으로 짰다가 "예전보다 키가 줄고 허리가 자꾸
+# 굽고 있다면, 이유가 있어요"처럼 문장부호 없이 정상 종결되는 흔한 한국어 평서형
+# (~요)을 대량 오탐(118개, 실제로는 52개만 진짜)했다 — "마지막 줄이 조사/어미로
+# 안 끝났으면 괜찮다"는 쪽이 훨씬 보수적이라 오탐이 적다.
+_KO_CONTINUATION_ENDINGS = ("면", "고", "며", "서", "데", "지만")
+_JA_CONTINUATION_ENDINGS = ("で", "に", "と", "も", "が", "を", "は", "の", "から", "ので")
+
+
+def check_title_truncation(topic: str, lang: str = "kor") -> list[dict]:
+    """spec["title"](list)의 마지막 줄이 독립 라벨이 아니라 훅 문장이 이어지다
+    잘린 조각처럼 보이면 경고한다 — 최종 판단은 사람이 하되, 놓치기 쉬운 신호를
+    자동으로 표시만 한다."""
+    spec_path = _topic_dir(topic, lang) / "card_news_spec.json"
+    if not spec_path.exists():
+        return []
+    spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    title = spec.get("title")
+    if not isinstance(title, list) or len(title) < 2:
+        return []
+    last = title[-1].strip()
+    if not last:
+        return []
+    lang_code = "ko" if lang == "kor" else lang
+    if lang_code == "ko":
+        suspect = last.endswith(_KO_CONTINUATION_ENDINGS)
+    elif lang_code == "ja":
+        suspect = last.endswith(_JA_CONTINUATION_ENDINGS)
+    elif lang_code in ("en", "es", "pt", "ru"):
+        # WHY 소문자 시작(2026-08-08): 진짜 독립 라벨은 명사구라 보통 대문자로
+        # 시작한다(예: "3 Foods Hurting Your Circulation") — 소문자로 시작하면
+        # 바로 앞 줄에서 이어지는 문장 조각일 확률이 높다.
+        suspect = last[0].islower()
+    else:
+        suspect = False
+    if not suspect:
+        return []
+    hook = " ".join(title[:-1]).strip()
+    return [{
+        "quote": " / ".join(title),
+        "issue": (
+            f'title 배열의 마지막 줄("{last}")을 라벨로 간주해 표지·영상 훅에서 뗐더니'
+            f' "{hook}"만 남습니다 — 마지막 줄이 진짜 독립된 주제 라벨(예: "돼지감자차'
+            f' 이야기", "3 Foods Hurting Your Circulation")인지, 아니면 훅 문장이 이어지다'
+            f' 잘린 조각인지 확인하세요. 후자라면 훅을 완결된 문장/질문으로 마무리하고'
+            f' 별도로 짧은 독립 라벨을 마지막 줄에 추가해야 합니다.'
+        ),
+        "severity": "high",
+    }]
+
+
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
+    title_issues = check_title_truncation(topic, lang)
     narration_path = _topic_dir(topic, lang) / "narration.txt"
     narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
     card_text = _card_news_text(topic, lang)
     if not narration and not card_text:
-        return []
+        return title_issues
 
     prompt = _build_prompt(lang, narration, card_text)
     # WHY 재시도(2026-08-03 버그 수정): --all로 전체 topic을 순회하다가 Gemini
@@ -164,7 +223,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         time.sleep(2 ** attempt)
     else:
         print(f"[content_review] ⚠️ {topic}: 서버 오류로 3회 재시도 후 실패 — 건너뜀 ({last_error})")
-        return []
+        return title_issues
     resp.raise_for_status()
     data = resp.json()
     text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
@@ -175,8 +234,8 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         issues = json.loads(text)
     except json.JSONDecodeError:
         print(f"[content_review] ⚠️ {topic}: 응답 파싱 실패 — {text[:200]}")
-        return []
-    return issues if isinstance(issues, list) else []
+        return title_issues
+    return title_issues + (issues if isinstance(issues, list) else [])
 
 
 # WHY 별도 함수(2026-08-03, "그게 어쨌든 한국이랑 글로벌의 유튜브 숏츠 영상 제목이
