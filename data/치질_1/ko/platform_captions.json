@@ -47,7 +47,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "[광고]\n\n화장지에 피가 묻어나온다면\n\n매운 음식·술·가공육 — 치질을 더 키울 수 있는 음식이 있어요.\n\n무조건 끊지 않아도 돼요. 양을 줄이고 바꿔주면 한결 가벼워질 수 있어요!\n\n#치질 #치핵 #건강정보",
-      "suppress_product_block": false
+      "suppress_product_block": false,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

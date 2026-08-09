@@ -254,7 +254,7 @@
   </div>
 </div>
 
-<div class="dock-product-row" id="dock-row-1">
+<div class="dock-product-row linked" id="dock-row-1">
   <div class="dock-product-head">
     <button class="row-toggle" data-row="dock-row-1" title="링크 넣기">🔗</button>
     <span class="dock-product-name">녹차</span>
@@ -263,14 +263,14 @@
     <a href="https://www.coupang.com/np/search?component=&q=%EB%85%B9%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
     <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%85%B9%EC%B0%A8&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
     <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="녹차" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
+      <input type="text" class="product-link-input" data-market="coupang" data-product="녹차" value="https://link.coupang.com/a/f2QYkbGUXA" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%85%B9%EC%B0%A8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%85%B9%EC%B0%A8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    
+    <a href="https://naver.me/xUZcCyyI" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
     <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="녹차" value="" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
+      <input type="text" class="product-link-input" data-market="naver" data-product="녹차" value="https://naver.me/xUZcCyyI" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
     </div>
   </div>
@@ -440,7 +440,7 @@
 </section>
 
 
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">그릭요거트</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSTxOMNRGS" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FXnqyp8y" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">녹차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%85%B9%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">그릭요거트</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSTxOMNRGS" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FXnqyp8y" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">녹차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%85%B9%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f2QYkbGUXA" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xUZcCyyI" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
@@ -449,8 +449,13 @@ const CARD_IMAGE_NAMES = ["ko_00_%ED%91%9C%EC%A7%80.jpg"];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
-const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 const TOPIC_NAME = "\ub2e4\ud55c\uc99d_1";
+// WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
+// 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
+// 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
+// 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
+// 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {
@@ -814,7 +819,13 @@ function applyProductLinks() {
     // 링크는 댓글에만 있음) 아래에 다시 반복할 대상이 없다 — 고지문 하나만
     // 아래에도 중복해서 넣을 이유가 없다.
     const suppressBlock = card.dataset.suppressProductBlock === "1";
-    const result = suppressBlock ? null : (linkInComment ? {text: "", disclosure: COUPANG_DISCLOSURE} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
+    // WHY hasNaverButton으로 고지문을 다시 나누는지(2026-08-09, "네이버 클립에다가
+    // 쿠팡 파트너스 올려놨네... 링크는 영상에서 넣는다고" — 네이버 클립은 상품을
+    // 캡션이 아니라 클립 앱 자체의 상품 태그 기능으로 붙이므로 본문엔 광고 고지
+    // 코멘트만 있으면 되는 linkInComment 케이스인데, 위 라인은 linkInComment면
+    // 무조건 COUPANG_DISCLOSURE를 썼다 — 네이버 클립(hasNaverButton)엔 네이버
+    // 고지문구가 붙어야 한다.
+    const result = suppressBlock ? null : (linkInComment ? {text: "", disclosure: hasNaverButton ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
     const stripped = _stripAutoLinks(box.value);
     if (!result) {
       box.value = stripped;

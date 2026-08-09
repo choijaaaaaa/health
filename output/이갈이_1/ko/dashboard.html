@@ -300,7 +300,7 @@
   </div>
 </div>
 
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
+<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
   <div class="platform-head">
     <div class="platform-name-wrap">
       <span class="type-badge badge-video">영상</span>
@@ -899,7 +899,13 @@ function applyProductLinks() {
     // 링크는 댓글에만 있음) 아래에 다시 반복할 대상이 없다 — 고지문 하나만
     // 아래에도 중복해서 넣을 이유가 없다.
     const suppressBlock = card.dataset.suppressProductBlock === "1";
-    const result = suppressBlock ? null : (linkInComment ? {text: "", disclosure: COUPANG_DISCLOSURE} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
+    // WHY hasNaverButton으로 고지문을 다시 나누는지(2026-08-09, "네이버 클립에다가
+    // 쿠팡 파트너스 올려놨네... 링크는 영상에서 넣는다고" — 네이버 클립은 상품을
+    // 캡션이 아니라 클립 앱 자체의 상품 태그 기능으로 붙이므로 본문엔 광고 고지
+    // 코멘트만 있으면 되는 linkInComment 케이스인데, 위 라인은 linkInComment면
+    // 무조건 COUPANG_DISCLOSURE를 썼다 — 네이버 클립(hasNaverButton)엔 네이버
+    // 고지문구가 붙어야 한다.
+    const result = suppressBlock ? null : (linkInComment ? {text: "", disclosure: hasNaverButton ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
     const stripped = _stripAutoLinks(box.value);
     if (!result) {
       box.value = stripped;

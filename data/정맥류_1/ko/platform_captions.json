@@ -47,7 +47,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "[광고]\n\n저녁마다 종아리가 퉁퉁 붓는다면\n\n인스턴트·술·흰빵 — 정맥류를 더 키울 수 있는 음식이 있어요.\n\n무조건 끊지 않아도 돼요. 양을 줄이고 바꿔주면 한결 편해질 수 있어요!\n\n#하지정맥류 #정맥류 #다리붓기 #건강정보",
-      "suppress_product_block": false
+      "suppress_product_block": false,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

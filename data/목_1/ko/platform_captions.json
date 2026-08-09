@@ -47,7 +47,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면?\n\n라면 국물·커피·맥주가 수분 균형과 마그네슘을 흔들어서 뭉침을 키울 수 있어요.\n\n케일·호두·다크초콜릿으로 마그네슘을 채워보세요!\n\n#목뻣뻣함 #어깨뭉침 #거북목 #건강정보",
-      "suppress_product_block": true
+      "suppress_product_block": true,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

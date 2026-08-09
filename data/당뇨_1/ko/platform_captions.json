@@ -51,7 +51,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "간식이나 밥 먹고 나면 유독 졸리고 나른하다면 주목!\n\n혈당이 확 올랐다가 반응성 저혈당으로 뚝 떨어지면서 그 졸음이 오는 거예요. 흑당버블티·단팥빵·찹쌀떡·양념갈비, 다 무조건 끊지 않아도 돼요. 채소·단백질 먼저 먹고 탄수화물 나중에, 식후엔 가볍게 걸어보세요!\n\n#당뇨부르는음식 #혈당스파이크 #식후졸음 #건강정보",
-      "suppress_product_block": true
+      "suppress_product_block": true,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

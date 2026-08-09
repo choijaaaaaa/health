@@ -55,7 +55,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요?\n\n나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡혀요. 감초·라면·치즈, 양을 줄이는 것만으로 도움될 수 있어요!\n\n#부종 #얼굴부종 #다리부종 #건강정보",
-      "suppress_product_block": true
+      "suppress_product_block": true,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

@@ -55,7 +55,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기 (설명 300자 제한 기준으로 작성함)",
       "caption": "대화할 때마다 입냄새가 신경 쓰인다면 주목!\n\n입안이 마르면 세균이 번식하기 좋아져서 입냄새가 나요. 커피·양파·가공육, 무조건 끊지 않아도 돼요. 물을 자주 마시고 조리법만 바꿔보세요!\n\n#입냄새 #구취 #구강건조 #건강정보",
-      "suppress_product_block": true
+      "suppress_product_block": true,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",

@@ -56,7 +56,9 @@
       "type": "video",
       "action": "PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "예전보다 키가 줄고 허리가 자꾸 굽고 있다면, 이유가 있어요\n\n혈중 칼슘이 부족해지면 몸이 뼈에서 칼슘을 꺼내 쓰면서 골밀도가 낮아져요. 탄산음료·커피·소시지, 돼요. 양만 줄여보세요!\n\n#골다공증 #골밀도 #칼슘부족 #건강정보",
-      "suppress_product_block": true
+      "suppress_product_block": true,
+      "network": "naver",
+      "link_in_comment": true
     },
     {
       "name": "쓰레드",
