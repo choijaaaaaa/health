@@ -62,37 +62,6 @@
     ]
   },
   {
-    "topic": "갱년기_1/en",
-    "title": "Face suddenly burning up mid-meeting, then drenched in sweat minutes later? - Foods That Make Hot Flashes Worse",
-    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "갱년기_1/ja",
-    "title": "電車の中で急に顔が熱くなり、汗が止まらないことはありませんか？ - 更年期のホットフラッシュを悪化させる食べ物",
-    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "갱년기_1/ko",
-    "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-    "url": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/dashboard.html",
-    "thumbnail": "output/%EA%B0%B1%EB%85%84%EA%B8%B0_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
@@ -865,37 +834,6 @@
     ]
   },
   {
-    "topic": "생리통_1/en",
-    "title": "Doubled over with cramps the moment your period starts, reaching for painkillers? - Foods That Make Period Cramps Worse",
-    "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": true,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "생리통_1/ja",
-    "title": "生理のたびに予定をキャンセルしたり、学校や仕事を休んだりしていませんか? - 生理痛を悪化させる食べ物",
-    "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": true,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "생리통_1/ko",
-    "title": "생리 시작하면 아랫배가 쥐어짜듯 아프고 허리까지 뻐근하다면 - 생리통 키우는 음식 피하는 법",
-    "url": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%83%9D%EB%A6%AC%ED%86%B5_1/ko/card_news/%EC%83%9D%EB%A6%AC%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": true,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "손발저림_1/en",
     "title": "Turns Out, Your Diabetes Pill Might Be Behind That Tingling In Your Hands and Feet - Causes of Hand and Foot Numbness",
     "url": "output/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1/en/dashboard.html",
@@ -1067,6 +1005,68 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_2/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "여성_3/en",
+    "title": "Doubled over with cramps the moment your period starts, reaching for painkillers? - Foods That Make Period Cramps Worse",
+    "url": "output/%EC%97%AC%EC%84%B1_3/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_3/ja",
+    "title": "生理のたびに予定をキャンセルしたり、学校や仕事を休んだりしていませんか? - 生理痛を悪化させる食べ物",
+    "url": "output/%EC%97%AC%EC%84%B1_3/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_3/ko",
+    "title": "생리 시작하면 아랫배가 쥐어짜듯 아프고 허리까지 뻐근하다면 - 생리통 키우는 음식 피하는 법",
+    "url": "output/%EC%97%AC%EC%84%B1_3/ko/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_3/ko/card_news/%EC%97%AC%EC%84%B1_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "여성_4/en",
+    "title": "Face suddenly burning up mid-meeting, then drenched in sweat minutes later? - Foods That Make Hot Flashes Worse",
+    "url": "output/%EC%97%AC%EC%84%B1_4/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_4/ja",
+    "title": "電車の中で急に顔が熱くなり、汗が止まらないことはありませんか？ - 更年期のホットフラッシュを悪化させる食べ物",
+    "url": "output/%EC%97%AC%EC%84%B1_4/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_4/ko",
+    "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
+    "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_4/ko/card_news/%EC%97%AC%EC%84%B1_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
