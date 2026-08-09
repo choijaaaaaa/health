@@ -340,7 +340,7 @@ PAGE_TEMPLATE = """<!doctype html>
   <div class="dock-section">
     <h4>다운로드</h4>
     <div class="dock-links">
-      <button class="dock-links-btn" id="downloadAllCards">🖼 표지 이미지 다운로드</button>
+      <button class="dock-links-btn" id="downloadAllCards">🖼 카드 이미지 전체 다운로드</button>
     </div>
   </div>
   {dock_products}
@@ -1558,14 +1558,15 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         spec.get("products", []), _product_links_loaded, _naver_links_loaded
     )
 
-    # WHY 표지 한 장만 쓰는지(2026-08-05, "asset이랑 output의 영상들은 사실
-    # 프로젝트에 올라가지 않아도 돼... 카드뉴스도 마찬가지고" 이후): 카드뉴스
-    # 상세 이미지는 표지(00_표지.jpg)만 남기고 git 추적에서 뺐다(.gitignore
-    # 참고) — 로컬에는 전부 그대로 있어서 예전처럼 전체 글롭(`*.jpg`)을 쓰면
-    # GitHub Pages에서는 표지 말고 전부 깨진 이미지로 보인다. 실제로 배포됐을
-    # 때도 살아있는 파일만 갤러리에 넣는다.
-    cover_imgs = sorted(Path(card_news_dir).glob("*00_표지.jpg")) if Path(card_news_dir).exists() else []
-    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in cover_imgs)
+    # WHY 다시 전체 글롭인지(2026-08-09, "지방간_1 이런건 왜 카드뉴스 형태
+    # 내용물들이 다 사라졌지?"): 2026-08-05엔 표지(00_표지.jpg)만 git 추적해서
+    # 전체 글롭을 쓰면 배포본에서 나머지가 깨진 이미지로 보였다 — 이후
+    # "카드뉴스 개별 이미지도 git/Vercel에 포함"(2026-08-09) 결정으로 카드
+    # 이미지 전체가 배포되므로, 이 제한이 남아있으면 "미리보기"/"카드 이미지
+    # 다운로드"가 표지 1장만 보여주는(버튼 id는 downloadAllCards인데 실제로는
+    # 1장뿐인) 불일치가 생긴다.
+    card_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
+    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in card_imgs)
 
     # WHY video_path를 받고도 대시보드에서 안 쓰는지(2026-08-05, "회색박스
     # 텍스트 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가
@@ -1661,7 +1662,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         else:
             cardnews_sections_html += section_html
 
-    card_image_names_js = json.dumps([quote(p.name) for p in cover_imgs])
+    card_image_names_js = json.dumps([quote(p.name) for p in card_imgs])
 
     ad_tag_badge = '<span class="ad-tag-badge">🏷️ 광고표시 적용</span>' if spec.get("ad_tag") else ""
 
