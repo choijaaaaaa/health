@@ -1,147 +1,80 @@
 {
-    "영어": {
-        "api_language": "eng",
-        "voices": [
-            {
-                "name": "Alena",
-                "actor_id": "tc_689450bdcce4027c2f06eee8"
-            },
-            {
-                "name": "Anja",
-                "actor_id": "tc_688185a9183d96f8ca52885e"
-            },
-            {
-                "name": "Callum",
-                "actor_id": "tc_69a8e49d2e36ab42260be475"
-            },
-            {
-                "name": "Damian",
-                "actor_id": "tc_67ad6d39799793979dad0e1b"
-            },
-            {
-                "name": "Elise",
-                "actor_id": "tc_686dc45bbd6351e06ee64daf"
-            },
-            {
-                "name": "Nia",
-                "actor_id": "tc_684a5a7ba2ce934624b59c6e"
-            },
-            {
-                "name": "Ray",
-                "actor_id": "tc_69ba81d4010e58c7aaecafa7"
-            },
-            {
-                "name": "Zoey",
-                "actor_id": "tc_67d238428572120c4aa644cc"
-            }
-        ]
-    },
-    "일본어": {
-        "api_language": "jpn",
-        "voices": [
-            {
-                "name": "Ai Shimizu",
-                "actor_id": "tc_633d5244093ca33db95ddfce"
-            },
-            {
-                "name": "Daichi Inoue",
-                "actor_id": "tc_63622a97ee3708cc70012f94"
-            },
-            {
-                "name": "Kenta Yoshida",
-                "actor_id": "tc_62a8974c6fe31dc29ac53b0d"
-            },
-            {
-                "name": "Mirei Kato",
-                "actor_id": "tc_63edf3ccd8e2eb7338999376"
-            },
-            {
-                "name": "Miu Kobayashi",
-                "actor_id": "tc_68d49c1e02c83f1fd4cdeaae"
-            },
-            {
-                "name": "Rin Ishida",
-                "actor_id": "tc_64b8efc5417ceca08a0b8a16"
-            },
-            {
-                "name": "Ryouta Takahashi",
-                "actor_id": "tc_62baac31e1c614d37b9160e3"
-            },
-            {
-                "name": "Tomoko Nomura",
-                "actor_id": "tc_63be4f467ac1708d9ccd75d4"
-            },
-            {
-                "name": "Yui Sato",
-                "actor_id": "tc_629fe972013e90b4db213fd8"
-            }
-        ]
-    },
-    "스페인어": {
-        "api_language": "spa",
-        "voices": [
-            {
-                "name": "Jake",
-                "actor_id": "tc_643797da6738883e188505b7"
-            },
-            {
-                "name": "Patrick",
-                "actor_id": "tc_637cbff794cf9b355ca6f6c6"
-            },
-            {
-                "name": "Samantha",
-                "actor_id": "tc_62baac538f06bd484ee976bd"
-            }
-        ]
-    },
-    "포르투갈어": {
-        "api_language": "por",
-        "voices": [
-            {
-                "name": "Alessandra",
-                "actor_id": "tc_66178f0a3ed12f31b61c45fd"
-            },
-            {
-                "name": "Fabio",
-                "actor_id": "tc_66178ed5ad7d3761c21ebfff"
-            },
-            {
-                "name": "Junghee",
-                "actor_id": "tc_5ebea1a364afaf00087fc2fb"
-            },
-            {
-                "name": "Sujin",
-                "actor_id": "tc_5c3c52ca5827e00008dd7f3a"
-            }
-        ]
-    },
-    "러시아어": {
-        "api_language": "rus",
-        "voices": [
-            {
-                "name": "Callum",
-                "actor_id": "tc_69a8e49d2e36ab42260be475"
-            },
-            {
-                "name": "Chad",
-                "actor_id": "tc_67c90d6244cf859417f2fff5"
-            },
-            {
-                "name": "Donatella",
-                "actor_id": "tc_68f04250d96385a3aa5e8865"
-            },
-            {
-                "name": "Hailey",
-                "actor_id": "tc_677f3763b5a012d3b3b3e85e"
-            },
-            {
-                "name": "Ray",
-                "actor_id": "tc_69ba81d4010e58c7aaecafa7"
-            },
-            {
-                "name": "Valerie",
-                "actor_id": "tc_67c90d1c45897c4a74a51a8d"
-            }
-        ]
-    }
+  "영어": {
+    "api_language": "eng",
+    "voices": [
+      {
+        "name": "Alena",
+        "actor_id": "tc_689450bdcce4027c2f06eee8"
+      },
+      {
+        "name": "Anja",
+        "actor_id": "tc_688185a9183d96f8ca52885e"
+      },
+      {
+        "name": "Callum",
+        "actor_id": "tc_69a8e49d2e36ab42260be475"
+      },
+      {
+        "name": "Damian",
+        "actor_id": "tc_67ad6d39799793979dad0e1b"
+      },
+      {
+        "name": "Elise",
+        "actor_id": "tc_686dc45bbd6351e06ee64daf"
+      },
+      {
+        "name": "Nia",
+        "actor_id": "tc_684a5a7ba2ce934624b59c6e"
+      },
+      {
+        "name": "Ray",
+        "actor_id": "tc_69ba81d4010e58c7aaecafa7"
+      },
+      {
+        "name": "Zoey",
+        "actor_id": "tc_67d238428572120c4aa644cc"
+      }
+    ]
+  },
+  "일본어": {
+    "api_language": "jpn",
+    "voices": [
+      {
+        "name": "Ai Shimizu",
+        "actor_id": "tc_633d5244093ca33db95ddfce"
+      },
+      {
+        "name": "Daichi Inoue",
+        "actor_id": "tc_63622a97ee3708cc70012f94"
+      },
+      {
+        "name": "Kenta Yoshida",
+        "actor_id": "tc_62a8974c6fe31dc29ac53b0d"
+      },
+      {
+        "name": "Mirei Kato",
+        "actor_id": "tc_63edf3ccd8e2eb7338999376"
+      },
+      {
+        "name": "Miu Kobayashi",
+        "actor_id": "tc_68d49c1e02c83f1fd4cdeaae"
+      },
+      {
+        "name": "Rin Ishida",
+        "actor_id": "tc_64b8efc5417ceca08a0b8a16"
+      },
+      {
+        "name": "Ryouta Takahashi",
+        "actor_id": "tc_62baac31e1c614d37b9160e3"
+      },
+      {
+        "name": "Tomoko Nomura",
+        "actor_id": "tc_63be4f467ac1708d9ccd75d4"
+      },
+      {
+        "name": "Yui Sato",
+        "actor_id": "tc_629fe972013e90b4db213fd8"
+      }
+    ]
+  }
 }
