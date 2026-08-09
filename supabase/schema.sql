@@ -14,9 +14,16 @@ create table if not exists topics (
   updated_at timestamptz not null default now()
 );
 
+-- WHY (base_topic, track) 복합키인지(2026-08-09, "숏츠 탭이랑 카드뉴스 탭이
+-- 같이반영되는건데... 숏츠쪽 다 끝나면 눌러서 그쪽 목록에 반영하고 카드뉴스에서
+-- 눌르면 카드뉴스쪽 목록에 반영하고 그래야지"): base_topic 하나가 숏츠·카드뉴스
+-- 두 트랙을 동시에 가질 수 있는데, base_topic만 키였을 때는 완료 체크가
+-- 트랙 구분 없이 topic 전체에 적용돼 한쪽만 끝내도 다른 쪽 목록에서도 사라졌다.
 create table if not exists completed_topics (
-  base_topic text primary key,
-  completed_at timestamptz not null default now()
+  base_topic text not null,
+  track text not null,
+  completed_at timestamptz not null default now(),
+  primary key (base_topic, track)
 );
 
 -- WHY (topic, platform) 복합키인지: 체크박스 하나가 "이 플랫폼에 이 topic을
