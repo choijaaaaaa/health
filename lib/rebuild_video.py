@@ -44,12 +44,14 @@ _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
 }
-# WHY 3:1:1 가중치(2026-08-08, "판서형이 더 좋다. 반응도 좋고. 대충 3:1:1로
-# 가면 될듯"): FORMAT_ROSTER는 "포맷 종류가 뭐가 있는지"를 그대로 보여주는
-# 목록으로 유지하고, 실제 선택은 이 가중 풀에서 한다 — 같은 결정론적 시드
-# 공식(topic 문자열만으로 재현 가능)을 그대로 쓰되 분모만 5로 늘려 chalkboard가
-# 5칸 중 3칸을 차지하게 한다.
-_FORMAT_WEIGHTED_POOL = ["chalkboard", "chalkboard", "chalkboard", "before_after_transition", "checklist"]
+# WHY chalkboard 전용으로 전환(2026-08-10, "기존 포맷으로만 가야겠다 신규
+# 포맷들 퀄이 너무 안좋아... 걍 칠판 판서하던 그 사이즈로만 가야할듯"):
+# before_after_transition/checklist 신규 포맷 2종의 실측 퀄리티가 기대에
+# 못 미친다는 판단으로 3:1:1 가중치(2026-08-08)를 폐기하고 chalkboard만
+# 선택되게 되돌림. FORMAT_ROSTER·_TEMPLATE_RENDERERS·템플릿 코드 자체는
+# 그대로 남겨둔다(나중에 품질 개선하면 다시 풀에 넣을 수 있게 — timeline/
+# ranking_countdown 로스터 제외 때와 동일 패턴).
+_FORMAT_WEIGHTED_POOL = ["chalkboard"]
 
 
 def select_format(topic: str) -> str:
