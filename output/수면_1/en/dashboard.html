@@ -786,8 +786,18 @@ function applyProductLinks() {
     // linkInComment 하나에만 걸리게 명시적으로 분기): 다른 플랫폼(네이버
     // 블로그·티스토리 등)은 공정위 지침상 "게시물 첫 부분"에 있어야 해서
     // 여전히 위/아래 둘 다 넣는다 — linkInComment만 예외로 위쪽을 생략한다.
+    // ⚠️ WHY 네이버 클립(hasNaverButton)만 다시 예외의 예외인지(2026-08-10,
+    // "맨처음에 그냥 [광고] 이래되어있고 마지막 줄에... 이거 두개 그냥
+    // 합쳐가지고 첫줄에만 넣어놓는게 낫지않겠냐"): 네이버 클립은 캡션 첫 줄에
+    // "[광고]" 표시가 정적으로 이미 있는데(공정위 지침상 광고 표시 규칙), 위
+    // linkInComment 규칙대로 고지문을 아래에만 넣으니 "[광고]"(위)와 실제
+    // 고지 문장(아래)이 따로 떨어져 나왔다 — 광고 표시와 고지 문장은 원래
+    // 한 덩어리라 맨 위 한 줄로 합치고 아래쪽 중복은 없앤다.
     let withTop;
-    if (linkInComment) {
+    if (linkInComment && hasNaverButton) {
+      const topWrapped = AUTO_LINKS_START + "[광고] " + result.disclosure + AUTO_LINKS_END;
+      withTop = topWrapped + "\n\n" + stripped;
+    } else if (linkInComment) {
       withTop = stripped;
     } else {
       const topWrapped = AUTO_LINKS_START + result.disclosure + (blockText ? "\n\n" + blockText : "") + AUTO_LINKS_END;
@@ -806,6 +816,13 @@ function applyProductLinks() {
     // WHY blockText가 빈 문자열일 때 줄바꿈을 안 붙이는지(linkInComment): 위
     // result 분기에서 linkInComment는 blockText가 항상 "" — 무조건 줄바꿈을
     // 이어붙이면 고지문 뒤에 내용 없는 빈 줄만 남는다.
+    // WHY 네이버 클립(linkInComment && hasNaverButton)은 아래쪽을 아예 안
+    // 붙이는지: 위에서 이미 "[광고] + 고지문"을 맨 위 한 줄로 합쳐 넣었다 —
+    // 아래에 고지문만 또 붙이면 방금 합친 의미가 없어진다(중복 표시).
+    if (linkInComment && hasNaverButton) {
+      box.value = withTop;
+      return;
+    }
     const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + (blockText ? "\n\n" + blockText : "") + AUTO_BOTTOM_END;
     box.value = withTop + "\n\n" + bottomWrapped;
   });
