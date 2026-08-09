@@ -202,11 +202,50 @@
     border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink);
   }
   .missing-link-saved { font-size: 11px; color: var(--gold); }
+
+  /* WHY position:fixed 위젯인지(2026-08-09, "매 화면에서 아래로 끌지않아도
+     볼수잇게"): 원래 목록 하단 <details>였는데, topicsList가 길어지면 계속
+     스크롤해서 내려가야 보였다 — lib/dashboard.py의 개별 topic 대시보드가
+     이미 쓰는 .quick-dock(우측 고정 패널) 패턴을 그대로 가져와서, 스크롤
+     위치와 무관하게 항상 접근 가능하게 한다. */
+  #missingLinksDock { position: fixed; top: 20px; right: 20px; z-index: 9998; }
+  #missingLinksToggle {
+    display: flex; align-items: center; gap: 6px;
+    background: var(--accent); color: #fff; border: none; border-radius: 999px;
+    padding: 10px 18px; font-size: 13px; font-weight: 700; cursor: pointer;
+    box-shadow: 0 10px 24px rgba(60,45,35,0.25);
+  }
+  #missingLinksToggle .count-badge {
+    background: rgba(255,255,255,0.25); border-radius: 999px; padding: 1px 8px; font-size: 12px;
+  }
+  #missingLinksPanel {
+    display: none; position: absolute; top: calc(100% + 8px); right: 0;
+    width: 320px; max-height: 70vh; overflow-y: auto;
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(60,45,35,0.25); padding: 14px;
+    flex-direction: column; gap: 8px;
+  }
+  #missingLinksPanel.open { display: flex; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="supabase_client.js"></script>
 </head>
 <body>
+
+<!-- WHY(2026-08-08, "제품 링크 안 되어있는 목록을 메인에다가 따로 빼놓고
+     거기다 넣고 저장하면 글로벌로 반영되게" → 2026-08-09, "매 화면에서
+     아래로 끌지않아도 볼수잇게"): 개별 topic 대시보드를 하나씩 돌면서 어느
+     상품에 링크가 비어있는지 찾는 건 비효율적이다 — 전체 상품 목록
+     (output/all_products.json, dashboard.py가 매번 갱신) 대비
+     global_product_links(Supabase)에 없는 것만 걸러서 여기서 바로 입력하면,
+     그 상품을 쓰는 모든 topic 캡션에 자동 반영된다. 스크롤과 무관하게 항상
+     보이도록 body 최상단에 고정 위젯으로 둔다(topicsSection 안이 아님). -->
+<div id="missingLinksDock" style="display:none;">
+  <button type="button" id="missingLinksToggle">🔗 미등록 링크 <span class="count-badge" id="missingLinksCount">0</span></button>
+  <div id="missingLinksPanel">
+    <div id="missingLinksList" style="display:flex;flex-direction:column;gap:8px;"></div>
+  </div>
+</div>
 
 <header>
   <h1>건강 카드뉴스 스펙 에디터</h1>
@@ -269,20 +308,6 @@
     <button type="button" id="exportLinksBtn" class="btn btn-ghost" style="width:auto;">📥 상품 링크 CSV 내보내기</button>
     <span id="linksSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
   </div>
-
-  <!-- WHY(2026-08-08, "제품 링크 안 되어있는 목록을 메인에다가 따로 빼놓고
-       거기다 넣고 저장하면 글로벌로 반영되게"): 개별 topic 대시보드를 하나씩
-       돌면서 어느 상품에 링크가 비어있는지 찾는 건 비효율적이다 — 전체
-       상품 목록(output/all_products.json, dashboard.py가 매번 갱신) 대비
-       global_product_links(Supabase)에 없는 것만 걸러서 여기서 바로
-       입력하면, 그 상품을 쓰는 모든 topic 캡션에 자동 반영된다(각 topic
-       대시보드의 상품 링크 입력창도 같은 global_product_links를 폴백으로
-       읽으므로 — 위 "네이버 블로그, 다시 브랜드커넥트로" 절과 동일한
-       하이브리드 구조).-->
-  <details id="missingLinksWrap" style="margin-top:16px;display:none;">
-    <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">미등록 상품 링크 (<span id="missingLinksCount">0</span>)</summary>
-    <div id="missingLinksList" style="display:flex;flex-direction:column;gap:8px;margin-top:8px;"></div>
-  </details>
 </div>
 
 <div class="layout">
@@ -758,12 +783,15 @@ Promise.all([
     if (!products.length) return;
     const have = new Set(linkRows.map(r => r.market + "|" + r.product));
     const missing = products.filter(p => !have.has("coupang|" + p) || !have.has("naver|" + p));
-    const wrap = document.getElementById("missingLinksWrap");
+    const dock = document.getElementById("missingLinksDock");
+    const toggle = document.getElementById("missingLinksToggle");
+    const panel = document.getElementById("missingLinksPanel");
     const list = document.getElementById("missingLinksList");
     const countEl = document.getElementById("missingLinksCount");
     if (!missing.length) return;
     countEl.textContent = missing.length;
-    wrap.style.display = "block";
+    dock.style.display = "block";
+    toggle.addEventListener("click", () => panel.classList.toggle("open"));
 
     // WHY Enter 키로만 저장(2026-08-09, 기존 topic별 상품 링크 입력창과
     // 동일 UX 패턴 재사용 — product-link-input): 타이핑 중간에 매 keystroke마다
