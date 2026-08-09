@@ -189,6 +189,19 @@
   }
   .hint { font-size: 12px; color: var(--ink-soft); margin-top: 10px; line-height: 1.6; }
   .hint code { background: var(--accent-soft); padding: 1px 6px; border-radius: 4px; }
+
+  .missing-link-row {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 10px 14px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .missing-link-row b { font-size: 13px; }
+  .missing-link-field { display: flex; align-items: center; gap: 8px; }
+  .missing-link-field label { margin: 0; width: 74px; flex: 0 0 auto; font-size: 12px; }
+  .missing-link-input {
+    flex: 1; font-family: inherit; font-size: 13px; padding: 6px 10px;
+    border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink);
+  }
+  .missing-link-saved { font-size: 11px; color: var(--gold); }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="supabase_client.js"></script>
@@ -256,6 +269,20 @@
     <button type="button" id="exportLinksBtn" class="btn btn-ghost" style="width:auto;">📥 상품 링크 CSV 내보내기</button>
     <span id="linksSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
   </div>
+
+  <!-- WHY(2026-08-08, "제품 링크 안 되어있는 목록을 메인에다가 따로 빼놓고
+       거기다 넣고 저장하면 글로벌로 반영되게"): 개별 topic 대시보드를 하나씩
+       돌면서 어느 상품에 링크가 비어있는지 찾는 건 비효율적이다 — 전체
+       상품 목록(output/all_products.json, dashboard.py가 매번 갱신) 대비
+       global_product_links(Supabase)에 없는 것만 걸러서 여기서 바로
+       입력하면, 그 상품을 쓰는 모든 topic 캡션에 자동 반영된다(각 topic
+       대시보드의 상품 링크 입력창도 같은 global_product_links를 폴백으로
+       읽으므로 — 위 "네이버 블로그, 다시 브랜드커넥트로" 절과 동일한
+       하이브리드 구조).-->
+  <details id="missingLinksWrap" style="margin-top:16px;display:none;">
+    <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">미등록 상품 링크 (<span id="missingLinksCount">0</span>)</summary>
+    <div id="missingLinksList" style="display:flex;flex-direction:column;gap:8px;margin-top:8px;"></div>
+  </details>
 </div>
 
 <div class="layout">
@@ -716,6 +743,62 @@ Promise.all([
         if (match && row.parentElement === list && list === topicsListEl) visibleCount++;
       });
       topicsEmptyEl.style.display = visibleCount === 0 ? "block" : "none";
+    });
+  })
+  .catch(() => {});
+
+// WHY 위 topics 목록과 별개 Promise 체인인지: all_products.json은 topics.json과
+// 갱신 시점이 같지만(dashboard.py가 매번 함께 씀) 실패해도 위 topic 목록
+// 렌더링에 영향을 주면 안 된다 — 이 섹션은 실패해도 그냥 숨겨진 채로 둔다.
+Promise.all([
+  fetch("output/all_products.json").then(r => r.ok ? r.json() : []).catch(() => []),
+  sb.from("global_product_links").select("market,product,url").then(r => r.data || []),
+])
+  .then(([products, linkRows]) => {
+    if (!products.length) return;
+    const have = new Set(linkRows.map(r => r.market + "|" + r.product));
+    const missing = products.filter(p => !have.has("coupang|" + p) || !have.has("naver|" + p));
+    const wrap = document.getElementById("missingLinksWrap");
+    const list = document.getElementById("missingLinksList");
+    const countEl = document.getElementById("missingLinksCount");
+    if (!missing.length) return;
+    countEl.textContent = missing.length;
+    wrap.style.display = "block";
+
+    // WHY Enter 키로만 저장(2026-08-09, 기존 topic별 상품 링크 입력창과
+    // 동일 UX 패턴 재사용 — product-link-input): 타이핑 중간에 매 keystroke마다
+    // upsert를 보내면 낭비이고, blur만 쓰면 실수로 다른 곳 클릭했을 때 저장
+    // 안 됐는지 헷갈린다 — Enter로 명시적 확정만 저장.
+    missing.forEach(product => {
+      const row = el("div", "missing-link-row");
+      const title = el("b", null, product);
+      row.appendChild(title);
+      ["coupang", "naver"].forEach(market => {
+        if (have.has(market + "|" + product)) return;
+        const field = el("div", "missing-link-field");
+        const label = document.createElement("label");
+        label.textContent = market === "coupang" ? "쿠팡" : "네이버";
+        const input = document.createElement("input");
+        input.type = "text";
+        input.className = "missing-link-input";
+        input.placeholder = market === "coupang" ? "쿠팡 파트너스 링크 붙여넣고 Enter" : "네이버 커넥트 링크 붙여넣고 Enter";
+        const saved = el("span", "missing-link-saved", "");
+        input.addEventListener("keydown", async (ev) => {
+          if (ev.key !== "Enter") return;
+          const url = input.value.trim();
+          if (!url) return;
+          input.disabled = true;
+          await sb.from("global_product_links").upsert({ market, product, url });
+          have.add(market + "|" + product);
+          saved.textContent = "저장됨 ✓";
+          input.disabled = false;
+        });
+        field.appendChild(label);
+        field.appendChild(input);
+        field.appendChild(saved);
+        row.appendChild(field);
+      });
+      list.appendChild(row);
     });
   })
   .catch(() => {});

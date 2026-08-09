@@ -1029,6 +1029,38 @@ def _product_links_bottom_section(
     )
 
 
+def _write_all_products(output_root: Path, data_root: Path) -> None:
+    """WHY(2026-08-08, "제품 링크 안 되어있는 목록을 메인에다가 따로 빼놓고
+    거기다 넣고 저장하면 글로벌로 반영되게"): index.html이 "아직 쿠팡/네이버
+    링크가 없는 상품"을 계산하려면 "지금 topic들이 실제로 쓰는 상품명 전체
+    목록"이 먼저 필요하다 — Supabase `topics` 테이블엔 상품명이 없고(topic/
+    title/url/thumbnail/ad_tag/tracks뿐), 로컬 platform_captions.json에만
+    있다. `global_product_links`(Supabase, market·product·url)처럼 자주
+    바뀌는 "상태"가 아니라 "지금 뭐가 있는지" 정적 목록이라 topics.json과
+    같은 패턴(git 추적 정적 파일, 매 generate() 호출마다 자동 갱신)으로
+    둔다 — 굳이 Supabase 테이블·스키마 변경 없이 기존 하이브리드 구조 그대로
+    확장."""
+    products: set[str] = set()
+    for fp in sorted(data_root.glob("*/ko/platform_captions.json")):
+        try:
+            spec = json.loads(fp.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        products.update(spec.get("products", []))
+    # WHY 언어 하위 폴더 없는(2단계 아닌 flat) topic도 포함하는지: 위 glob은
+    # "<topic>/ko/platform_captions.json"만 잡아서, 다국어 확장 이전에 만든
+    # flat topic("<topic>/platform_captions.json")의 상품명이 누락된다.
+    for fp in sorted(data_root.glob("*/platform_captions.json")):
+        try:
+            spec = json.loads(fp.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            continue
+        products.update(spec.get("products", []))
+    (output_root / "all_products.json").write_text(
+        json.dumps(sorted(products), ensure_ascii=False, indent=2)
+    )
+
+
 def _update_topics_index(out_path: str):
     """WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
     했다("루트로 들어가면 안되나?") — output/ 밑의 모든 대시보드를 스캔해서
@@ -1109,6 +1141,7 @@ def _update_topics_index(out_path: str):
         })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
+    _write_all_products(output_root, data_root)
 
     # WHY 여기서 통합 대시보드(output/<topic>/dashboard.html)도 같이 만드는지
     # (2026-08-03 최초 도입, 2026-08-04 전면 개편 — 아래 _generate_unified_dashboard
