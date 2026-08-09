@@ -19,6 +19,15 @@
       "suppress_product_block": true,
       "action": "Copy caption -> New Reel -> paste into caption field",
       "caption": "Going gray way earlier than your friends? It might not just be genetics 🤍\n\nLow B12, too much zinc, and chronic stress may all speed up premature graying, according to research.\n\nWant more health tips like this? Follow along 👆\n\n#GrayHair #PrematureGray #VitaminB12 #HealthTips"
+    },
+    {
+      "name": "Facebook",
+      "url": "",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "Going gray way earlier than your friends? It might not just be genetics 🤍\n\nLow B12, too much zinc, and chronic stress may all speed up premature graying, according to research.\n\nWant more health tips like this? Follow along 👆\n\n#GrayHair #PrematureGray #VitaminB12 #HealthTips"
     }
   ]
 }

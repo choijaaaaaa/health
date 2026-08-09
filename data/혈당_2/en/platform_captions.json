@@ -20,6 +20,15 @@
       "suppress_product_block": true,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "That 3pm crash isn't about willpower 😴\n\nUSDA researchers found under half a teaspoon of cinnamon a day for 40 days lowered blood sugar about 20% in people with type 2 diabetes, and a 2024 trial backed it up with continuous glucose monitor data.\n\nStir it into oatmeal, coffee, or a smoothie - just go with Ceylon (\"true cinnamon\") over cassia for daily use, and check with your doctor if you're on diabetes medication.\n\n#bloodsugar #cinnamon #glucosespike #healthtips #nutrition #wellness"
+    },
+    {
+      "name": "Facebook",
+      "url": "",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "That 3pm crash isn't about willpower 😴\n\nUSDA researchers found under half a teaspoon of cinnamon a day for 40 days lowered blood sugar about 20% in people with type 2 diabetes, and a 2024 trial backed it up with continuous glucose monitor data.\n\nStir it into oatmeal, coffee, or a smoothie - just go with Ceylon (\"true cinnamon\") over cassia for daily use, and check with your doctor if you're on diabetes medication.\n\n#bloodsugar #cinnamon #glucosespike #healthtips #nutrition #wellness"
     }
   ]
 }

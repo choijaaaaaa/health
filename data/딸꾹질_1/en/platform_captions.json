@@ -10,7 +10,13 @@
       "suppress_product_block": true,
       "action": "Open YouTube Studio → Create → Upload video",
       "caption": "Title: Why do hiccups keep hitting you? 3 habits that trigger them\n\nDescription:\nHiccups always seem to strike at the worst possible moment - and it's usually not random. A few everyday habits set off the diaphragm spasm behind them more than people realize.\n\nEating too fast, sudden hot-to-cold temperature swings, and stress or excitement are three of the most common triggers, and each one has a simple fix that still lets you enjoy your meal.\n\nWatch to find out why these habits trigger hiccups, and what to do instead.\n\n#hiccups #diaphragm #healthtips #digestivehealth #wellness",
-      "hashtags": ["#hiccups", "#diaphragm", "#healthtips", "#digestivehealth", "#wellness"]
+      "hashtags": [
+        "#hiccups",
+        "#diaphragm",
+        "#healthtips",
+        "#digestivehealth",
+        "#wellness"
+      ]
     },
     {
       "name": "Instagram Reels",
@@ -20,7 +26,22 @@
       "suppress_product_block": true,
       "action": "Copy caption → New Reel → paste in caption field",
       "caption": "Hiccups always hit at the worst possible moment? 🌀\n\nIt's usually not random - eating too fast, sudden temperature swings, and stress are three of the most common triggers.\n\nHere's why they set off your diaphragm, and what to do instead.\n\nWant more health tips like this? Follow along 👆\n\n#hiccups #diaphragm #healthtips #digestivehealth #wellness",
-      "hashtags": ["#hiccups", "#diaphragm", "#healthtips", "#digestivehealth", "#wellness"]
+      "hashtags": [
+        "#hiccups",
+        "#diaphragm",
+        "#healthtips",
+        "#digestivehealth",
+        "#wellness"
+      ]
+    },
+    {
+      "name": "Facebook",
+      "url": "",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "Hiccups always hit at the worst possible moment? 🌀\n\nIt's usually not random - eating too fast, sudden temperature swings, and stress are three of the most common triggers.\n\nHere's why they set off your diaphragm, and what to do instead.\n\nWant more health tips like this? Follow along 👆\n\n#hiccups #diaphragm #healthtips #digestivehealth #wellness"
     }
   ]
 }
