@@ -202,6 +202,16 @@
     border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink);
   }
   .missing-link-saved { font-size: 11px; color: var(--gold); }
+  .missing-link-search-row { display: flex; align-items: center; gap: 8px; }
+  .missing-link-search-row a {
+    font-size: 12px; font-weight: 700; color: var(--accent-deep); text-decoration: none;
+    background: var(--accent-soft); padding: 5px 10px; border-radius: 8px;
+  }
+  .missing-link-copy-btn {
+    font-family: inherit; font-size: 12px; font-weight: 700; padding: 5px 10px;
+    border-radius: 8px; border: 1px solid var(--rule); background: #fff; color: var(--ink-soft);
+    cursor: pointer;
+  }
 
   /* WHY position:fixed 위젯인지(2026-08-09, "매 화면에서 아래로 끌지않아도
      볼수잇게"): 원래 목록 하단 <details>였는데, topicsList가 길어지면 계속
@@ -793,16 +803,50 @@ Promise.all([
     dock.style.display = "block";
     toggle.addEventListener("click", () => panel.classList.toggle("open"));
 
-    // WHY Enter 키로만 저장(2026-08-09, 기존 topic별 상품 링크 입력창과
-    // 동일 UX 패턴 재사용 — product-link-input): 타이핑 중간에 매 keystroke마다
-    // upsert를 보내면 낭비이고, blur만 쓰면 실수로 다른 곳 클릭했을 때 저장
-    // 안 됐는지 헷갈린다 — Enter로 명시적 확정만 저장.
+    // WHY 검색/복사 버튼 추가(2026-08-09, "항목별로 링크 넣는거 왜 아예
+    // 없애버렸어... 복사 버튼이랑 링크 넘어가는 버튼도 왜 다 빼먹은거야" —
+    // 개별 topic 대시보드의 .dock-product-row(lib/dashboard.py _dock_products)
+    // 패턴과 똑같이 맞춘다): 검색 링크 없이 입력창만 있으면 파트너스 링크를
+    // 만들 상품 검색 페이지 자체를 못 열어서 애초에 붙여넣을 링크를 구할
+    // 방법이 없다 — 쿠팡/네이버 검색 열기 버튼과 그 링크 복사 버튼을 그대로
+    // 재현한다. 네이버 브랜드커넥트 ID는 data/affiliate_accounts.json과 동일
+    // 값(계정 고정, topic마다 다르지 않음).
+    const NAVER_BRANDCONNECT_ID = "978391003266240";
+    // WHY Enter 키로만 저장(기존 topic별 상품 링크 입력창과 동일 UX 패턴
+    // 재사용 — product-link-input): 타이핑 중간에 매 keystroke마다 upsert를
+    // 보내면 낭비이고, blur만 쓰면 실수로 다른 곳 클릭했을 때 저장 안 됐는지
+    // 헷갈린다 — Enter로 명시적 확정만 저장.
     missing.forEach(product => {
       const row = el("div", "missing-link-row");
       const title = el("b", null, product);
       row.appendChild(title);
       ["coupang", "naver"].forEach(market => {
         if (have.has(market + "|" + product)) return;
+        const searchUrl = market === "coupang"
+          ? `https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product)}&channel=user`
+          : `https://brandconnect.naver.com/${NAVER_BRANDCONNECT_ID}/affiliate/products/search?query=${encodeURIComponent(product)}&tab=product`;
+
+        const searchRow = el("div", "missing-link-search-row");
+        const searchLink = document.createElement("a");
+        searchLink.href = searchUrl;
+        searchLink.target = "_blank";
+        searchLink.rel = "noopener";
+        searchLink.textContent = market === "coupang" ? "🛒 쿠팡 검색" : "🟢 네이버 검색";
+        const copyBtn = document.createElement("button");
+        copyBtn.type = "button";
+        copyBtn.className = "missing-link-copy-btn";
+        copyBtn.textContent = "🔎 복사";
+        copyBtn.title = "검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용";
+        copyBtn.addEventListener("click", () => {
+          navigator.clipboard.writeText(searchUrl).then(() => {
+            const orig = copyBtn.textContent;
+            copyBtn.textContent = "복사됨 ✓";
+            setTimeout(() => { copyBtn.textContent = orig; }, 1500);
+          });
+        });
+        searchRow.appendChild(searchLink);
+        searchRow.appendChild(copyBtn);
+
         const field = el("div", "missing-link-field");
         const label = document.createElement("label");
         label.textContent = market === "coupang" ? "쿠팡" : "네이버";
@@ -824,6 +868,7 @@ Promise.all([
         field.appendChild(label);
         field.appendChild(input);
         field.appendChild(saved);
+        row.appendChild(searchRow);
         row.appendChild(field);
       });
       list.appendChild(row);
