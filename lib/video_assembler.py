@@ -3237,8 +3237,18 @@ def assemble(
                 seg_start, seg_end, motion_p = entry[0], entry[1], entry[2]
                 motion_p = Path(motion_p)
                 base = motion_p.stem
+                # WHY "_illust" 접미사도 벗기는지(2026-08-09, "사탕_illust"가 라벨에
+                # 그대로 노출 + 아이콘이 빈 원으로 나온 버그 — 냉이_1/여성_1 실측
+                # 확인): 코너 캐릭터가 "<품목>_motion.mp4"가 아니라 정지 이미지
+                # "<품목>_illust.jpg"를 직접 가리키는 topic(모션 생성 없이 일러스트만
+                # 있는 경우, _is_static_image() 경로)에서는 stem이 "_motion"으로
+                # 안 끝나 위 분기를 안 타고, "<품목>_illust"가 그대로 base가 되어
+                # (1) 라벨 텍스트에 "_illust"가 노출되고 (2) 아래 illust_p가
+                # "<품목>_illust_illust.jpg"로 이중 접미사가 붙어 파일을 못 찾는다.
                 if base.endswith("_motion"):
                     base = base[: -len("_motion")]
+                elif base.endswith("_illust"):
+                    base = base[: -len("_illust")]
                 assets_root = motion_p.parent.parent
                 illust_p = assets_root / "illust" / f"{base}_illust.jpg"
                 item_schedule.append({
