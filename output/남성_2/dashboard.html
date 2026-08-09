@@ -138,7 +138,7 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
 // dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
 // hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
 // 내보내기가 언어 상관없이 전부 픽업하게 한다.
-const TOPIC_NAME = "\uc694\ub85c\uacb0\uc11d_1";
+const TOPIC_NAME = "\ub0a8\uc131_2";
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
 (async () => {

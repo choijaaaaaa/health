@@ -779,14 +779,25 @@ function applyProductLinks() {
 }
 
 (async () => {
-  const { data: dbLinks } = await sb.from("product_links").select("market,product,url").eq("topic", TOPIC_NAME);
+  // WHY global_product_links도 같이 조회하는지(2026-08-09, "메인에서 넣었는데
+  // 대시보드들어오니 또 반영이안되어있네" — 메인 페이지 미등록 링크 위젯은
+  // global_product_links(상품명 기준, topic 무관)에 저장하는데 이 대시보드는
+  // product_links(topic별로 따로)만 읽어서 서로 완전히 분리된 두 시스템이었다):
+  // 이 topic에서 아직 한 번도 등록 안 한 상품이라도, 다른 topic에서(또는 메인
+  // 페이지에서) 이미 등록된 같은 상품명의 전역 링크가 있으면 그걸 폴백으로
+  // 채운다 — 우선순위는 topic 전용(product_links) > 전역(global_product_links).
+  const [{ data: dbLinks }, { data: globalLinks }] = await Promise.all([
+    sb.from("product_links").select("market,product,url").eq("topic", TOPIC_NAME),
+    sb.from("global_product_links").select("market,product,url"),
+  ]);
+  const globalLinkMap = new Map((globalLinks || []).map(r => [r.market + "_" + r.product, r.url]));
   const dbLinkMap = new Map((dbLinks || []).map(r => [r.market + "_" + r.product, r.url]));
 
   document.querySelectorAll(".product-link-input").forEach(inp => {
     const row = inp.closest(".dock-product-row");
     const linkKey = inp.dataset.market + "_" + inp.dataset.product;
     const storageKey = LINK_STORAGE_PREFIX + linkKey;
-    const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || "";
+    const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || globalLinkMap.get(linkKey) || "";
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
