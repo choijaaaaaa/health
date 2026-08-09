@@ -207,21 +207,15 @@
   <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
     style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:14px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
 
-  <div id="topicTrackTabs" style="display:flex;gap:8px;margin-bottom:14px;">
-    <button type="button" class="track-tab-btn active" data-track-target="shorts"
-      style="font-family:inherit;font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;border:1px solid var(--rule);background:var(--accent);color:#fff;cursor:pointer;">🎬 숏츠</button>
-    <button type="button" class="track-tab-btn" data-track-target="card_news"
-      style="font-family:inherit;font-size:14px;font-weight:700;padding:10px 20px;border-radius:999px;border:1px solid var(--rule);background:var(--panel);color:var(--ink-soft);cursor:pointer;">🗞 카드뉴스</button>
-  </div>
-
-  <div id="shortsPane" class="track-tab-pane" data-track-pane="shorts">
-    <div id="shortsList" style="display:flex;flex-direction:column;gap:8px;"></div>
-    <div id="shortsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
-  </div>
-  <div id="cardNewsPane" class="track-tab-pane" data-track-pane="card_news" style="display:none;">
-    <div id="cardNewsList" style="display:flex;flex-direction:column;gap:8px;"></div>
-    <div id="cardNewsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
-  </div>
+  <!-- WHY 탭 제거(2026-08-09, "카드뉴스 탭이랑 숏츠 탭 나눌 필요 없겠다...
+       걍 한데 모으고 탭 선택 필요없도록하자" — 채널·언어 축소로 목록 자체가
+       작아져서 트랙별로 나눠 볼 실익이 없어짐): 숏츠/카드뉴스를 하나의
+       목록으로 합친다. 카드뉴스만 있는 topic은 대시보드에 들어가면 자연히
+       카드뉴스 화면만 뜨고(숏츠 콘텐츠 자체가 없으므로), 트랙이 둘 다 있는
+       topic은 그 페이지 안의 자체 탭(lib/dashboard.py의 topicTrackTabButtons)
+       으로 고르면 된다 — 목록 단계에서 미리 트랙을 고를 필요가 없어짐. -->
+  <div id="topicsList" style="display:flex;flex-direction:column;gap:8px;"></div>
+  <div id="topicsEmpty" style="display:none;color:var(--ink-soft);font-size:13px;padding:10px 4px;">일치하는 폴더가 없어요</div>
 
   <details id="topicsDoneWrap" style="margin-top:16px;display:none;">
     <summary style="cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;">완료된 콘텐츠 (<span id="topicsDoneCount">0</span>)</summary>
@@ -521,15 +515,12 @@ Promise.all([
     });
 
     function renderAll() {
-    const shortsList = document.getElementById("shortsList");
-    const cardNewsList = document.getElementById("cardNewsList");
-    const shortsEmpty = document.getElementById("shortsEmpty");
-    const cardNewsEmpty = document.getElementById("cardNewsEmpty");
+    const topicsList = document.getElementById("topicsList");
+    const topicsEmpty = document.getElementById("topicsEmpty");
     const doneList = document.getElementById("topicsDoneList");
     const doneWrap = document.getElementById("topicsDoneWrap");
     const doneCount = document.getElementById("topicsDoneCount");
-    shortsList.innerHTML = "";
-    cardNewsList.innerHTML = "";
+    topicsList.innerHTML = "";
     doneList.innerHTML = "";
     const rows = [];
 
@@ -545,11 +536,6 @@ Promise.all([
       // ko가 있으면 그게 가장 읽기 편하다 — ko가 없으면(글로벌 전용 topic)
       // 그냥 첫 번째 변형을 쓴다.
       const primary = variants.find(v => v.langSeg === "ko" || v.langSeg === null) || variants[0];
-      // WHY 완료(✅) 판정이 baseTopic+track 조합인지(2026-08-09): 언어별 실제
-      // 업로드 여부는 아래 언어 배지가 따로 담당하고, 이 배지는 "topic의 이
-      // 트랙(숏츠/카드뉴스) 제작이 끝났다"만 표시한다 — 트랙마다 독립적으로
-      // 눌러야 그 트랙 목록에서만 빠진다(아래 groupTracks.forEach에서 트랙별로
-      // 판정).
       // WHY(2026-08-06, "플래그 세워서 육안으로 신규 포맷이라는거 구분 가능하게"):
       // 영상 우상단 광고 태그 오버레이 적용 여부를 언어 무관하게(하나라도 적용됐으면)
       // 목록에서 바로 구분할 수 있어야 한다.
@@ -561,8 +547,15 @@ Promise.all([
       // 속한다(adTagApplied와 같은 "하나라도 있으면" 집계 원칙).
       const groupTracks = ["shorts", "card_news"].filter(t => variants.some(v => v.tracks.includes(t)));
 
-      function buildRow(track, done) {
-      const completedKey = `${baseTopic}|${track}`;
+      // WHY 배지 하나가 소속된 트랙 전부를 한번에 처리하는지(2026-08-09,
+      // "카드뉴스 탭이랑 숏츠 탭 나눌 필요 없겠다... 배지 하나가 둘 다
+      // 처리"): 목록이 트랙 구분 없이 하나로 합쳐지면서, 완료 배지도 그
+      // topic이 가진 모든 트랙(숏츠+카드뉴스)을 동시에 완료 처리하는 게
+      // 자연스럽다 — DB 스키마((base_topic, track) 복합키)는 그대로 두고
+      // groupTracks 전체에 대해 upsert/delete만 한번에 실행한다.
+      const done = groupTracks.every(t => completed.has(`${baseTopic}|${t}`));
+
+      function buildRow() {
       const row = document.createElement("div");
       row.style.cssText = "display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--rule);border-radius:12px;padding:10px 18px;";
 
@@ -570,17 +563,17 @@ Promise.all([
       badge.type = "button";
       badge.textContent = done ? "✅" : "⬜";
       badge.style.cssText = "width:22px;height:22px;flex:0 0 auto;font-size:14px;line-height:1;padding:0;border:none;background:transparent;cursor:pointer;";
-      badge.title = done ? "클릭하면 완료 표시를 해제합니다" : `클릭하면 ${track === "shorts" ? "숏츠" : "카드뉴스"} 완료 목록으로 옮깁니다`;
-      badge.setAttribute("aria-label", baseTopic + (done ? " 완료 표시 해제" : " 완료로 표시") + " (" + track + ")");
+      badge.title = done ? "클릭하면 완료 표시를 해제합니다" : "클릭하면 완료 목록으로 옮깁니다";
+      badge.setAttribute("aria-label", baseTopic + (done ? " 완료 표시 해제" : " 완료로 표시"));
       badge.addEventListener("click", async (ev) => {
         ev.stopPropagation();
         badge.disabled = true;
         if (done) {
-          await sb.from("completed_topics").delete().eq("base_topic", baseTopic).eq("track", track);
-          completed.delete(completedKey);
+          await sb.from("completed_topics").delete().eq("base_topic", baseTopic);
+          groupTracks.forEach(t => completed.delete(`${baseTopic}|${t}`));
         } else {
-          await sb.from("completed_topics").upsert({ base_topic: baseTopic, track });
-          completed.add(completedKey);
+          await sb.from("completed_topics").upsert(groupTracks.map(t => ({ base_topic: baseTopic, track: t })));
+          groupTracks.forEach(t => completed.add(`${baseTopic}|${t}`));
         }
         const q = searchInput.value;
         renderAll();
@@ -648,12 +641,11 @@ Promise.all([
       const dashUrlBase = isNested
         ? `output/${encodeURIComponent(baseTopic)}/dashboard.html`
         : (koVariant ? koVariant.url : variants[0].url);
-      // WHY 링크에 ?tab= 붙이는지(2026-08-07, "카드뉴스 탭으로 들어가서
-      // 대시보드 들어가는 경우엔 숏츠는 안 보이고, 숏츠 탭으로 들어가서
-      // 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안 보여야지"): 어느
-      // 탭에서 들어왔는지를 대시보드 페이지(및 다국어 topic의 iframe)에
-      // 전달해서, 그 페이지에서도 해당 트랙 화면만 보이게 강제한다.
-      const dashUrl = dashUrlBase + (dashUrlBase.includes("?") ? "&" : "?") + "tab=" + track;
+      // WHY ?tab= 안 붙이는지(2026-08-09, 목록 탭 제거와 같은 이유): 예전엔
+      // index.html에서 누른 탭을 대시보드 페이지에 강제로 전달했는데, 이제
+      // 목록에 탭 자체가 없다 — 대시보드 페이지 자체의 tab 버튼(트랙이 둘 다
+      // 있을 때만 보임)이 그 역할을 대신한다.
+      const dashUrl = dashUrlBase;
 
       const langBadges = variants
         .slice()
@@ -695,18 +687,12 @@ Promise.all([
       return row;
       }
 
-      // WHY 트랙마다 독립적으로 완료 목록을 판정하는지(2026-08-09): 숏츠만
-      // 끝내고 카드뉴스는 아직이면 숏츠 탭에서만 완료 섹션으로 옮겨가야 한다 —
-      // 트랙 수만큼 buildRow()를 호출해 각자 완료 여부에 맞는 리스트(활성
-      // 목록 또는 완료 목록)에 넣는다. 두 트랙 다 완료면 완료 섹션에 행이
-      // 두 개(숏츠용/카드뉴스용) 생기는 게 맞다 — 트랙별로 독립된 상태니까.
-      groupTracks.forEach(t => {
-        const doneForTrack = completed.has(`${baseTopic}|${t}`);
-        const targetList = doneForTrack ? doneList : (t === "shorts" ? shortsList : cardNewsList);
-        const row = buildRow(t, doneForTrack);
-        targetList.appendChild(row);
-        rows.push({ row, topic: baseTopic, list: targetList });
-      });
+      // WHY topic당 행 하나만: 목록에 트랙 구분이 없어졌으니(위 배지 WHY 참고)
+      // 완료면 doneList, 아니면 topicsList 하나에만 넣는다.
+      const row = buildRow();
+      const targetList = done ? doneList : topicsList;
+      targetList.appendChild(row);
+      rows.push({ row, topic: baseTopic, list: targetList });
     });
     refreshDoneWrap();
     currentRows = rows;
@@ -715,48 +701,21 @@ Promise.all([
     renderAll();
     document.getElementById("topicsSection").style.display = "block";
 
-    // WHY 카드뉴스 목록을 처음부터 같이 안 보여주는지(2026-08-07, "카드뉴스
-    // 자체를 목록에서 빼라고... 그 main쪽에서 / 숏츠 버튼이랑 병렬로 텍스트형태인거
-    // 선택할 수 있는 버튼 누를 수 있게 되어있고 그거에 따라 목록이 나오게"):
-    // 두 섹션을 동시에 늘어놓지 않고, 탭 버튼으로 골라야 그 목록만 보이게 한다
-    // (개별 topic dashboard.html에 이미 적용한 것과 동일한 탭 패턴).
-    document.querySelectorAll(".track-tab-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const target = btn.dataset.trackTarget;
-        document.querySelectorAll(".track-tab-btn").forEach(b => {
-          const active = b === btn;
-          b.classList.toggle("active", active);
-          b.style.background = active ? "var(--accent)" : "var(--panel)";
-          b.style.color = active ? "#fff" : "var(--ink-soft)";
-        });
-        document.querySelectorAll(".track-tab-pane").forEach(p => {
-          p.style.display = p.dataset.trackPane === target ? "block" : "none";
-        });
-      });
-    });
-
     // WHY currentRows/getElementById를 매번 다시 참조하는지(2026-08-08, 완료
     // 배지 토글 도입): renderAll()이 배지 클릭마다 목록 DOM을 통째로 새로
-    // 그리므로, 이 리스너가 만들어질 때 한 번 캡처한 shortsList 등 옛 노드를
-    // 계속 붙잡고 있으면 재검색 시 빈 화면을 가리키게 된다.
+    // 그리므로, 이 리스너가 만들어질 때 한 번 캡처한 옛 노드를 계속 붙잡고
+    // 있으면 재검색 시 빈 화면을 가리키게 된다.
     searchInput.addEventListener("input", () => {
       const q = searchInput.value.trim().toLowerCase();
-      const shortsListEl = document.getElementById("shortsList");
-      const cardNewsListEl = document.getElementById("cardNewsList");
-      const shortsEmptyEl = document.getElementById("shortsEmpty");
-      const cardNewsEmptyEl = document.getElementById("cardNewsEmpty");
-      let visibleShortsCount = 0;
-      let visibleCardNewsCount = 0;
+      const topicsListEl = document.getElementById("topicsList");
+      const topicsEmptyEl = document.getElementById("topicsEmpty");
+      let visibleCount = 0;
       currentRows.forEach(({ row, topic, list }) => {
         const match = topic.toLowerCase().includes(q);
         row.style.display = match ? "flex" : "none";
-        if (match && row.parentElement === list) {
-          if (list === shortsListEl) visibleShortsCount++;
-          else if (list === cardNewsListEl) visibleCardNewsCount++;
-        }
+        if (match && row.parentElement === list && list === topicsListEl) visibleCount++;
       });
-      shortsEmptyEl.style.display = visibleShortsCount === 0 ? "block" : "none";
-      cardNewsEmptyEl.style.display = visibleCardNewsCount === 0 ? "block" : "none";
+      topicsEmptyEl.style.display = visibleCount === 0 ? "block" : "none";
     });
   })
   .catch(() => {});
