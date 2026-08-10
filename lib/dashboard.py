@@ -761,17 +761,18 @@ function applyProductLinks() {{
     // linkInComment 하나에만 걸리게 명시적으로 분기): 다른 플랫폼(네이버
     // 블로그·티스토리 등)은 공정위 지침상 "게시물 첫 부분"에 있어야 해서
     // 여전히 위/아래 둘 다 넣는다 — linkInComment만 예외로 위쪽을 생략한다.
-    // ⚠️ WHY 네이버 클립(hasNaverButton)만 다시 예외의 예외인지(2026-08-10,
-    // "맨처음에 그냥 [광고] 이래되어있고 마지막 줄에... 이거 두개 그냥
-    // 합쳐가지고 첫줄에만 넣어놓는게 낫지않겠냐"): 네이버 클립은 캡션 첫 줄에
-    // "[광고]" 표시가 정적으로 이미 있는데(공정위 지침상 광고 표시 규칙), 위
-    // linkInComment 규칙대로 고지문을 아래에만 넣으니 "[광고]"(위)와 실제
-    // 고지 문장(아래)이 따로 떨어져 나왔다 — 광고 표시와 고지 문장은 원래
-    // 한 덩어리라 맨 위 한 줄로 합치고 아래쪽 중복은 없앤다.
+    // ⚠️ WHY 네이버 클립(hasNaverButton)은 "[광고]+고지문"을 맨 아래 한
+    // 덩어리로 합치는지(2026-08-10 재수정 — 한 번 맨 위로 합쳤다가 "클립이나
+    // 숏츠나 맨 아래에 들어오게 하자... 상단에 들어올 필요가 없어보여 어차피
+    // 바로 눈에 들어올만큼 짧은 글인데" 지적으로 다시 뒤집음): 네이버 클립
+    // 캡션은 200~300자 수준으로 짧아서 스크롤 없이 전체가 한눈에 보이므로,
+    // 공정위 "추가 행동 없이 보이는 위치" 요건은 위/아래 어느 쪽이든
+    // 동일하게 충족된다 — 그럴 거면 본문 맨 위(사용자 정적 캡션 바로 앞)에
+    // 끼어드는 것보다 맨 아래가 자연스럽다. "[광고]" 표시와 고지 문장은
+    // 여전히 한 덩어리로 유지(따로 떨어지면 안 됨).
     let withTop;
     if (linkInComment && hasNaverButton) {{
-      const topWrapped = AUTO_LINKS_START + "[광고] " + result.disclosure + AUTO_LINKS_END;
-      withTop = topWrapped + "\\n\\n" + stripped;
+      withTop = stripped;
     }} else if (linkInComment) {{
       withTop = stripped;
     }} else {{
@@ -791,14 +792,11 @@ function applyProductLinks() {{
     // WHY blockText가 빈 문자열일 때 줄바꿈을 안 붙이는지(linkInComment): 위
     // result 분기에서 linkInComment는 blockText가 항상 "" — 무조건 줄바꿈을
     // 이어붙이면 고지문 뒤에 내용 없는 빈 줄만 남는다.
-    // WHY 네이버 클립(linkInComment && hasNaverButton)은 아래쪽을 아예 안
-    // 붙이는지: 위에서 이미 "[광고] + 고지문"을 맨 위 한 줄로 합쳐 넣었다 —
-    // 아래에 고지문만 또 붙이면 방금 합친 의미가 없어진다(중복 표시).
-    if (linkInComment && hasNaverButton) {{
-      box.value = withTop;
-      return;
-    }}
-    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + (blockText ? "\\n\\n" + blockText : "") + AUTO_BOTTOM_END;
+    // WHY 네이버 클립만 "[광고] " 접두어를 붙이는지: 이 플랫폼은 광고 표시와
+    // 고지 문장이 한 덩어리로(따로 떨어지지 않게) 나와야 한다는 요건이 있어서
+    // (위 withTop 분기 WHY 참고) — 다른 플랫폼은 고지문만 그대로 둔다.
+    const bottomDisclosure = (linkInComment && hasNaverButton) ? ("[광고] " + result.disclosure) : result.disclosure;
+    const bottomWrapped = AUTO_BOTTOM_START + bottomDisclosure + (blockText ? "\\n\\n" + blockText : "") + AUTO_BOTTOM_END;
     box.value = withTop + "\\n\\n" + bottomWrapped;
   }});
 }}
