@@ -18,9 +18,11 @@
 # 자동으로 정리된다.
 #
 # 사용법:
-#   python3 -m lib.trend_check --daily          하루 첫 실행: 전체 후보 스냅샷(이미 있으면 스킵)
-#   python3 -m lib.trend_check --daily --force   오늘자 스냅샷을 강제로 다시 조회
-#   python3 -m lib.trend_check --show            마지막 스냅샷을 재조회 없이 출력
+#   python3 -m lib.trend_check --daily             하루 첫 실행: 전체 후보 스냅샷(이미 있으면 스킵)
+#   python3 -m lib.trend_check --daily --force      오늘자 스냅샷을 강제로 다시 조회
+#   python3 -m lib.trend_check --show               마지막 스냅샷을 재조회 없이 출력
+#   python3 -m lib.trend_check --backfill [N]        과거 N일치(기본 30) 백필, API 호출은 배치당 1번뿐
+#   python3 -m lib.trend_check --related <키워드>     그 키워드의 연관 급상승 검색어(진짜 discovery)
 #   python3 -m lib.trend_check <키워드1> [키워드2] ...   즉석 비교(최대 5개, 로그에 안 남음)
 import json
 import sys
@@ -28,6 +30,7 @@ import time
 from datetime import date, timedelta
 from pathlib import Path
 
+import pandas as pd
 from pytrends.request import TrendReq
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -79,7 +82,7 @@ def _fetch_batch(keywords: list[str], timeframe: str = "today 3-m", geo: str = "
     return results
 
 
-def _print_results(results: dict[str, dict]) -> None:
+def _print_results(results: dict[str, dict], highlight_top: int = 0) -> None:
     if not results:
         print("데이터 없음.")
         return
@@ -90,9 +93,13 @@ def _print_results(results: dict[str, dict]) -> None:
     print("(0~100 척도는 같이 조회한 키워드 중 최댓값 기준 상대값 — 절대 수치 아님, 순위·모멘텀만 참고)")
     ordered = sorted(results.items(), key=lambda kv: kv[1]["momentum"], reverse=True)
     print(f"{'키워드':<14} {'최근 관심도':>10} {'모멘텀':>10}")
-    for kw, v in ordered:
+    # WHY highlight_top(2026-08-10, "더더더 고도화해"): 25개 키워드를 매번 눈으로
+    # 다 훑기보다, 모멘텀 상위 N개를 "🔥 추천"으로 바로 짚어주면 소재 선정이
+    # 빨라진다 — 즉석 비교(5개 이하)에선 의미가 적어 기본값 0(off).
+    for idx, (kw, v) in enumerate(ordered):
         arrow = "▲" if v["momentum"] > 3 else ("▼" if v["momentum"] < -3 else "-")
-        print(f"{kw:<14} {v['recent_avg']:>10.1f} {v['momentum']:>+9.1f} {arrow}")
+        tag = " 🔥 추천" if highlight_top and idx < highlight_top and v["momentum"] > 3 else ""
+        print(f"{kw:<14} {v['recent_avg']:>10.1f} {v['momentum']:>+9.1f} {arrow}{tag}")
 
 
 def _load_log() -> dict[str, dict]:
@@ -115,7 +122,7 @@ def daily_snapshot(force: bool = False) -> None:
     today = date.today().isoformat()
     if today in log and not force:
         print(f"오늘({today})자 스냅샷이 이미 있습니다 — 재조회 없이 기존 결과를 보여줍니다.")
-        _print_results(log[today])
+        _print_results(log[today], highlight_top=3)
         return
 
     # WHY 배치 사이에 sleep을 두는지(2026-08-10 실측 — 딜레이 없이 5개씩 연속
@@ -135,7 +142,7 @@ def daily_snapshot(force: bool = False) -> None:
     log[today] = all_results
     _save_log(log)
     print(f"{today}자 스냅샷 저장 완료 ({len(all_results)}개 키워드).")
-    _print_results(all_results)
+    _print_results(all_results, highlight_top=3)
 
 
 def show_latest() -> None:
@@ -145,17 +152,99 @@ def show_latest() -> None:
         return
     latest_date = max(log.keys())
     print(f"최신 스냅샷: {latest_date}")
-    _print_results(log[latest_date])
+    _print_results(log[latest_date], highlight_top=3)
+
+
+def backfill_history(days: int = 30) -> None:
+    """과거 N일치를 채운다. WHY API를 N번이 아니라 배치당 1번만 부르는지: pytrends
+    interest_over_time()은 timeframe에 걸리는 전체 구간(기본 3개월)의 일별 값을
+    한 번에 돌려준다 — 이미 갖고 있는 그 시계열에서 최근 N일을 그대로 잘라 쓰면
+    되므로, 하루하루 따로 조회할 필요가 없다(호출 수 = 배치 수 그대로,
+    daily_snapshot과 동일)."""
+    log = _load_log()
+    batches = [SEASONAL_KEYWORDS[i:i + 5] for i in range(0, len(SEASONAL_KEYWORDS), 5)]
+    by_date: dict[str, dict] = {}
+    for i, batch in enumerate(batches):
+        if i > 0:
+            time.sleep(5)
+        try:
+            pytrends = TrendReq(hl="ko-KR", tz=540)
+            pytrends.build_payload(batch, timeframe="today 3-m", geo="KR")
+            df = pytrends.interest_over_time()
+        except Exception as e:
+            print(f"⚠️ 구글 트렌드 조회 실패({type(e).__name__}: {e}) — 이 배치는 건너뜁니다.")
+            continue
+        if df.empty:
+            continue
+        for kw in batch:
+            if kw not in df.columns:
+                continue
+            series = df[kw].astype(float)
+            # WHY rolling(3) 후 shift(3)로 모멘텀을 계산하는지: daily_snapshot의
+            # "최근 3일 평균 vs 그 이전 3일 평균"과 같은 정의를, 과거 각 날짜
+            # 기준으로도 동일하게 재현하기 위함 — 날짜마다 다른 창을 손으로 계산할
+            # 필요 없이 pandas rolling으로 한 번에 처리.
+            recent_roll = series.rolling(3, min_periods=1).mean()
+            momentum_roll = recent_roll - recent_roll.shift(3)
+            tail_idx = series.index[-days:]
+            for d in tail_idx:
+                date_str = d.strftime("%Y-%m-%d")
+                m = momentum_roll.loc[d]
+                by_date.setdefault(date_str, {})[kw] = {
+                    "recent_avg": round(float(recent_roll.loc[d]), 1),
+                    "momentum": round(float(m), 1) if pd.notna(m) else 0.0,
+                }
+
+    if not by_date:
+        print("백필 실패 — WebSearch로 수동 확인할 것.")
+        return
+
+    for date_str, kws in by_date.items():
+        log.setdefault(date_str, {}).update(kws)
+    _save_log(log)
+    print(f"{len(by_date)}일치 백필 완료 ({min(by_date)} ~ {max(by_date)}).")
+
+
+def related_rising(keyword: str) -> None:
+    """WHY(2026-08-10, "더더더 고도화해" — discovery 엔드포인트가 죽어서 대안
+    필요): related_queries()는 특정 키워드 기준 "요즘 같이 뜨는 연관 검색어"를
+    준다 — trending_searches류(순수 발견형)만큼은 아니어도, 계절 캘린더로 고른
+    카테고리 하나를 더 구체적인 하위 소재(예: "독감" → "독감 잠복기", "독감
+    유행시기 2026")로 쪼갤 때 제일 쓸모 있다. rising(급상승)만 보여준다 —
+    top(그냥 인기)은 계절 무관 고정 검색어가 많아 소재 발굴엔 덜 유용."""
+    try:
+        pytrends = TrendReq(hl="ko-KR", tz=540)
+        pytrends.build_payload([keyword], timeframe="today 3-m", geo="KR")
+        result = pytrends.related_queries()
+    except Exception as e:
+        print(f"⚠️ 구글 트렌드 조회 실패({type(e).__name__}: {e}) — WebSearch로 수동 확인할 것.")
+        return
+
+    rising = result.get(keyword, {}).get("rising")
+    if rising is None or rising.empty:
+        print(f"'{keyword}'의 연관 급상승 검색어가 없습니다.")
+        return
+    print(f"'{keyword}' 연관 급상승 검색어:")
+    for _, row in rising.head(10).iterrows():
+        print(f"  - {row['query']} ({row['value']})")
 
 
 if __name__ == "__main__":
     args = sys.argv[1:]
     if not args:
-        print("사용법: --daily | --daily --force | --show | <키워드1> [키워드2] ...")
+        print("사용법: --daily | --daily --force | --show | --backfill [N] | --related <키워드> | <키워드1> [키워드2] ...")
     elif args[0] == "--daily":
         daily_snapshot(force="--force" in args)
     elif args[0] == "--show":
         show_latest()
+    elif args[0] == "--backfill":
+        n = int(args[1]) if len(args) > 1 and args[1].isdigit() else RETENTION_DAYS
+        backfill_history(n)
+    elif args[0] == "--related":
+        if len(args) < 2:
+            print("사용법: python3 -m lib.trend_check --related <키워드>")
+        else:
+            related_rising(args[1])
     else:
         kws = args[:5]
         if len(args) > 5:
