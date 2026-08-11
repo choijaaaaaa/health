@@ -279,68 +279,6 @@
     ]
   },
   {
-    "topic": "뇌_1/en",
-    "title": "A 2026 Study Found 3 Everyday Foods Linked to Faster Memory Decline",
-    "url": "output/%EB%87%8C_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "뇌_1/ja",
-    "title": "買い物リストを覚えたつもりで、レジの前で思い出せないことはありませんか？ - 記憶力を落とす日本人の食習慣3つ",
-    "url": "output/%EB%87%8C_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "뇌_1/ko",
-    "title": "방금 놓아둔 물건이 어디 있는지 기억이 안 나고 하려던 말이 자꾸 맴돈다면 - 기억력 흐리는 음식 피하는 법",
-    "url": "output/%EB%87%8C_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%87%8C_1/ko/card_news/%EA%B8%B0%EC%96%B5%EB%A0%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": true,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
-    "topic": "뇌_2/en",
-    "title": "Wine, takeout, and a diet soda in one day - temples pounding by morning? - Foods That May Trigger Migraines",
-    "url": "output/%EB%87%8C_2/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "뇌_2/ja",
-    "title": "雨が降る前になると頭がズキズキするなら - 片頭痛を招く意外な習慣3つ",
-    "url": "output/%EB%87%8C_2/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "뇌_2/ko",
-    "title": "관자놀이가 지끈지끈 맥박처럼 뛰고 빛만 봐도 눈이 시리다면 — 편두통 환자 10명 중 7명이 꼽은 이 음식, 혹시 나도? - 편두통 부르는 의외의 음식들",
-    "url": "output/%EB%87%8C_2/ko/dashboard.html",
-    "thumbnail": "output/%EB%87%8C_2/ko/card_news/%ED%8E%B8%EB%91%90%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "눈_1/en",
     "title": "Headlights turning into starbursts on your drive home at night? - Everyday Habits Hurting Your Eyes",
     "url": "output/%EB%88%88_1/en/dashboard.html",
@@ -653,6 +591,68 @@
     "title": "머리 감을 때마다 한 움큼씩 빠지고 정수리 가르마가 휑해지고 있다면, 이유가 있어요 - 탈모 부르는 식탁 위 습관",
     "url": "output/%EB%A8%B8%EB%A6%AC_3/ko/dashboard.html",
     "thumbnail": "output/%EB%A8%B8%EB%A6%AC_3/ko/card_news/%ED%83%88%EB%AA%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "머리_4/en",
+    "title": "A 2026 Study Found 3 Everyday Foods Linked to Faster Memory Decline",
+    "url": "output/%EB%A8%B8%EB%A6%AC_4/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "머리_4/ja",
+    "title": "買い物リストを覚えたつもりで、レジの前で思い出せないことはありませんか？ - 記憶力を落とす日本人の食習慣3つ",
+    "url": "output/%EB%A8%B8%EB%A6%AC_4/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "머리_4/ko",
+    "title": "방금 놓아둔 물건이 어디 있는지 기억이 안 나고 하려던 말이 자꾸 맴돈다면 - 기억력 흐리는 음식 피하는 법",
+    "url": "output/%EB%A8%B8%EB%A6%AC_4/ko/dashboard.html",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_4/ko/card_news/%EA%B8%B0%EC%96%B5%EB%A0%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "머리_5/en",
+    "title": "Wine, takeout, and a diet soda in one day - temples pounding by morning? - Foods That May Trigger Migraines",
+    "url": "output/%EB%A8%B8%EB%A6%AC_5/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "머리_5/ja",
+    "title": "雨が降る前になると頭がズキズキするなら - 片頭痛を招く意外な習慣3つ",
+    "url": "output/%EB%A8%B8%EB%A6%AC_5/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "머리_5/ko",
+    "title": "관자놀이가 지끈지끈 맥박처럼 뛰고 빛만 봐도 눈이 시리다면 — 편두통 환자 10명 중 7명이 꼽은 이 음식, 혹시 나도? - 편두통 부르는 의외의 음식들",
+    "url": "output/%EB%A8%B8%EB%A6%AC_5/ko/dashboard.html",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_5/ko/card_news/%ED%8E%B8%EB%91%90%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts",
