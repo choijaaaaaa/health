@@ -1,36 +1,5 @@
 [
   {
-    "topic": "갑상선_1/en",
-    "title": "Still tired and puffy even though you take your thyroid pill daily? - Foods That Block Your Thyroid Medication",
-    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "갑상선_1/ja",
-    "title": "体がだるく首元も重いのに原因がわからない方へ - 甲状腺の働きを妨げる意外な習慣",
-    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "갑상선_1/ko",
-    "title": "이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! - 갑상선 기능 방해하는 뜻밖의 음식",
-    "url": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/dashboard.html",
-    "thumbnail": "output/%EA%B0%91%EC%83%81%EC%84%A0_1/ko/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
@@ -248,6 +217,37 @@
     ]
   },
   {
+    "topic": "근골격_6/en",
+    "title": "Shrimp cocktail, sardines, anchovies - your big toe throbbing this morning? - The Seafood That Triggers Gout Attacks",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "근골격_6/ja",
+    "title": "飲み会の翌朝、足の親指がズキズキするなら要注意 - 痛風を招く居酒屋メニュー",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "근골격_6/ko",
+    "title": "엄지발가락이나 무릎이 갑자기 벌겋게 붓고 아프다면 주목! - 통풍 부르는 음식 피하는 법",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/ko/card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "냄새_1/en",
     "title": "Notice people take a small step back mid-conversation, even hours after your shower? - Foods That Make Body Odor Worse",
     "url": "output/%EB%83%84%EC%83%88_1/en/dashboard.html",
@@ -440,6 +440,99 @@
     "thumbnail": "output/%EB%88%88_4/ko/card_news/%EB%8B%A4%EB%9E%98%EB%81%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_1/en",
+    "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
+    "url": "output/%EB%8C%80%EC%82%AC_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_1/ja",
+    "title": "健診で脂肪肝と言われた人の8割はお酒を飲まない人 - 肝臓を弱らせる食習慣3つ",
+    "url": "output/%EB%8C%80%EC%82%AC_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_1/ko",
+    "title": "쉬어도 피곤하고 오른쪽 윗배가 묵직하게 뻐근한데 그냥 넘기고 계셨다면 잠깐 - 지방간 부르는 냉장고 음식",
+    "url": "output/%EB%8C%80%EC%82%AC_1/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_1/ko/card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_2/en",
+    "title": "Pain under your right ribs after a fatty meal, eyes turning yellow?",
+    "url": "output/%EB%8C%80%EC%82%AC_2/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_2/ja",
+    "title": "お酒のお供のから揚げが招くみぞおち〜背中の痛み - 膵臓を守る3つの習慣",
+    "url": "output/%EB%8C%80%EC%82%AC_2/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_2/ko",
+    "title": "명치에서 등까지 통증이 뻗친다, 대변이 물에 뜬다 — 하나라도 해당되면 - 췌장 굳게 만드는 냉장고 음식",
+    "url": "output/%EB%8C%80%EC%82%AC_2/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_2/ko/card_news/%EC%B7%8C%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_3/en",
+    "title": "Still tired and puffy even though you take your thyroid pill daily? - Foods That Block Your Thyroid Medication",
+    "url": "output/%EB%8C%80%EC%82%AC_3/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_3/ja",
+    "title": "体がだるく首元も重いのに原因がわからない方へ - 甲状腺の働きを妨げる意外な習慣",
+    "url": "output/%EB%8C%80%EC%82%AC_3/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_3/ko",
+    "title": "이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! - 갑상선 기능 방해하는 뜻밖의 음식",
+    "url": "output/%EB%8C%80%EC%82%AC_3/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_3/ko/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -928,9 +1021,40 @@
     ]
   },
   {
-    "topic": "손_1/en",
+    "topic": "소화_7/en",
+    "title": "Extra itching and burning the morning after wing night and a few beers? - Foods That Make Hemorrhoids Worse",
+    "url": "output/%EC%86%8C%ED%99%94_7/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "소화_7/ja",
+    "title": "辛いものやお酒を飲んだ翌日、痔の痛みがさらに増す方へ - 痔を悪化させる食べ物",
+    "url": "output/%EC%86%8C%ED%99%94_7/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "소화_7/ko",
+    "title": "화장실에서 볼일 볼 때마다 항문이 따갑고 화장지에 피가 묻어나온다면 - 치질 키우는 음식 피하는 법",
+    "url": "output/%EC%86%8C%ED%99%94_7/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_7/ko/card_news/%EC%B9%98%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "손발_1/en",
     "title": "Doing everything right for stronger nails, but they still split, thin out, or ridge? - Foods That Make Nail Health Worse",
-    "url": "output/%EC%86%90_1/en/dashboard.html",
+    "url": "output/%EC%86%90%EB%B0%9C_1/en/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
     "tracks": [
@@ -938,9 +1062,9 @@
     ]
   },
   {
-    "topic": "손_1/ja",
+    "topic": "손발_1/ja",
     "title": "缶のプルタブを開けただけで爪が欠けた…なんて経験は？ - 爪を弱くする身近な食習慣",
-    "url": "output/%EC%86%90_1/ja/dashboard.html",
+    "url": "output/%EC%86%90%EB%B0%9C_1/ja/dashboard.html",
     "thumbnail": null,
     "ad_tag": true,
     "tracks": [
@@ -948,10 +1072,10 @@
     ]
   },
   {
-    "topic": "손_1/ko",
+    "topic": "손발_1/ko",
     "title": "손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법",
-    "url": "output/%EC%86%90_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%86%90_1/ko/card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "url": "output/%EC%86%90%EB%B0%9C_1/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C_1/ko/card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts",
@@ -1485,99 +1609,6 @@
     ]
   },
   {
-    "topic": "지방간_1/en",
-    "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
-    "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "지방간_1/ja",
-    "title": "健診で脂肪肝と言われた人の8割はお酒を飲まない人 - 肝臓を弱らせる食習慣3つ",
-    "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "지방간_1/ko",
-    "title": "쉬어도 피곤하고 오른쪽 윗배가 묵직하게 뻐근한데 그냥 넘기고 계셨다면 잠깐 - 지방간 부르는 냉장고 음식",
-    "url": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%A7%80%EB%B0%A9%EA%B0%84_1/ko/card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
-    "topic": "췌장_1/en",
-    "title": "Pain under your right ribs after a fatty meal, eyes turning yellow?",
-    "url": "output/%EC%B7%8C%EC%9E%A5_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "췌장_1/ja",
-    "title": "お酒のお供のから揚げが招くみぞおち〜背中の痛み - 膵臓を守る3つの習慣",
-    "url": "output/%EC%B7%8C%EC%9E%A5_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "췌장_1/ko",
-    "title": "명치에서 등까지 통증이 뻗친다, 대변이 물에 뜬다 — 하나라도 해당되면 - 췌장 굳게 만드는 냉장고 음식",
-    "url": "output/%EC%B7%8C%EC%9E%A5_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%B7%8C%EC%9E%A5_1/ko/card_news/%EC%B7%8C%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
-    "topic": "치질_1/en",
-    "title": "Extra itching and burning the morning after wing night and a few beers? - Foods That Make Hemorrhoids Worse",
-    "url": "output/%EC%B9%98%EC%A7%88_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": true,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "치질_1/ja",
-    "title": "辛いものやお酒を飲んだ翌日、痔の痛みがさらに増す方へ - 痔を悪化させる食べ物",
-    "url": "output/%EC%B9%98%EC%A7%88_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": true,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "치질_1/ko",
-    "title": "화장실에서 볼일 볼 때마다 항문이 따갑고 화장지에 피가 묻어나온다면 - 치질 키우는 음식 피하는 법",
-    "url": "output/%EC%B9%98%EC%A7%88_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%B9%98%EC%A7%88_1/ko/card_news/%EC%B9%98%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": true,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "코_1/en",
     "title": "Taking allergy medicine every day but still waking up mouth-breathing? - Foods That Make Rhinitis Worse",
     "url": "output/%EC%BD%94_1/en/dashboard.html",
@@ -1663,37 +1694,6 @@
     "title": "자다가 코를 심하게 골거나 숨이 막히는 느낌이 든다면 주목! - 코골이 부르는 음식 피하는 법",
     "url": "output/%EC%BD%94_3/ko/dashboard.html",
     "thumbnail": "output/%EC%BD%94_3/ko/card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
-    "topic": "통풍_1/en",
-    "title": "Shrimp cocktail, sardines, anchovies - your big toe throbbing this morning? - The Seafood That Triggers Gout Attacks",
-    "url": "output/%ED%86%B5%ED%92%8D_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "통풍_1/ja",
-    "title": "飲み会の翌朝、足の親指がズキズキするなら要注意 - 痛風を招く居酒屋メニュー",
-    "url": "output/%ED%86%B5%ED%92%8D_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "통풍_1/ko",
-    "title": "엄지발가락이나 무릎이 갑자기 벌겋게 붓고 아프다면 주목! - 통풍 부르는 음식 피하는 법",
-    "url": "output/%ED%86%B5%ED%92%8D_1/ko/dashboard.html",
-    "thumbnail": "output/%ED%86%B5%ED%92%8D_1/ko/card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts",
