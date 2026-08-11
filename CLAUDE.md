@@ -47,6 +47,17 @@
     upsert 코드를 **필터(`if t['topic'] in {...}`) 없이 `output/topics.json`
     전체**로 돌려서 `url`/`thumbnail`까지 통째로 덮어쓸 것 — `Prefer:
     resolution=merge-duplicates`라 기존 행 그대로 안전하게 갱신된다.
+  - ⚠️ **위 upsert 요청 body에 `updated_at`을 절대 포함하지 말 것(2026-08-11)**
+    — `index.html`의 메인 목록 정렬이 `posting_log`(사람이 플랫폼 포스팅
+    체크박스를 눌러야만 생기는 수동 기록이라 방금 만든 topic엔 아직 없을 수
+    있음)가 비어있을 때 `topics.updated_at`을 "이 topic이 DB에 처음
+    upsert된 시각" 폴백으로 쓴다(위 upsert 코드가 `updated_at`을 안 보내는
+    한, `topic` 컬럼 PK 최초 삽입 시점의 `default now()`가 그대로 남아있고
+    이후 PATCH·upsert로는 절대 안 바뀜 — 실측 확인됨, 2026-08-08 스키마
+    도입 때 백필된 173개만 그 시각을 공유하고 그 뒤로 만들어진 topic은 전부
+    고유한 실제 생성 시각을 가짐). `updated_at`을 payload에 넣어서 매번
+    "지금"으로 새로 찍으면 이 신호가 깨져서 오래된 topic이 새 topic처럼
+    정렬 맨 위로 튀는 버그가 생긴다.
   - ⚠️ **"끝까지"는 한국어(ko) 하나로 끝나는 게 아니라 글로벌 6개 언어(ko/en/
     ja/es/pt/ru) 전체를 뜻한다(2026-08-07 명확화)** — "새 topic 신규 생성"
     요청을 ko 대본·TTS만 만들고 완료 처리하는 사고가 반복됐음(다른 세션·이
