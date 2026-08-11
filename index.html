@@ -358,23 +358,11 @@ Promise.all([
   // 실제 공개 전환 시각을 기다리지 않고) lib/youtube_upload.py가 이 테이블에
   // 자동 기록한다(_mark_youtube_uploaded).
   sb.from("youtube_uploaded").select("topic").then(r => (r.data || []).map(x => x.topic)),
-  // WHY posting_log에서 최초 게시일을 뽑는지(2026-08-11, "기존꺼가 위로
-  // 오게 해"): topics.updated_at은 topic 카테고리 대량 재편 때 183개를
-  // 통째로 다시 upsert하면서 다 비슷한 시각으로 뭉개져서 진짜 발행 순서를
-  // 못 나타낸다 — posting_log.posted_at은 리네임 때 topic 값만 새 이름으로
-  // 바뀌었을 뿐 시각 자체는 그대로라, 각 topic의 실제 최초 게시 시각을
-  // 그대로 보존하고 있다.
-  sb.from("posting_log").select("topic,posted_at").then(r => r.data || []),
 ])
-  .then(([topics, completedList, youtubeList, postingLogRows]) => {
+  .then(([topics, completedList, youtubeList]) => {
     if (!topics.length) return;
     const completed = new Set(completedList);
     const youtubeDone = new Set(youtubeList);
-    const firstPostedAt = new Map();
-    postingLogRows.forEach(r => {
-      const prev = firstPostedAt.get(r.topic);
-      if (!prev || r.posted_at < prev) firstPostedAt.set(r.topic, r.posted_at);
-    });
     const searchInput = document.getElementById("topicSearch");
     let currentRows = [];
 
@@ -386,18 +374,17 @@ Promise.all([
     // 이제 "/" 앞부분(baseTopic) 기준으로 그룹핑해서 **한 topic = 한 행**으로
     // 그리고, 언어별 완료 여부는 그 행 안의 작은 배지(KO/EN/JA...)로 표시한다 —
     // 배지 각각이 그 언어 대시보드로 바로 이동하는 링크를 겸한다.
-    // WHY topics.updated_at도 정렬 폴백으로 같이 모으는지(2026-08-11, "새롭게
-    // 만들어서 처음 커밋·푸시할 때 posting_log가 수정되는게 맞아?" 질문에서
-    // 확인된 사실): posting_log는 사람이 각 플랫폼 포스팅 체크박스를 눌러야만
-    // 생기는 수동 기록이라, 방금 자동화 파이프라인이 만들어 커밋한 새 topic은
-    // 아직 어디에도 안 올렸으면 posting_log가 비어있다 — 이 경우 최초 발행일
-    // 신호가 아예 없어서 정렬이 다 뒤로 밀리는데, 새 topic이 생성 직후부터도
-    // 제자리에 정렬되도록 topics.updated_at(Supabase upsert 시점, "완전 자동화
-    // 모드"의 필수 단계라 매 topic 생성마다 찍힘)을 2차 폴백으로 쓴다. 단,
-    // 2026-08-08 카테고리 스키마 도입 때 173개 topic을 한꺼번에 백필해서
-    // 그 시각(09:25:56.911903)만 공유하는 값들은 개별 topic의 진짜 생성
-    // 시각이 아니므로 신호로 못 쓴다 — 그 시각과 정확히 같으면 무시한다.
-    const BULK_MIGRATION_TS = "2026-08-08T09:25:56.911903+00:00";
+    // WHY 정렬을 topics.updated_at 하나로 통일하는지(2026-08-11, "하나의
+    // 통일된 기준을 가져가는게 더 중요하다고 생각해서" — posting_log와
+    // 이중 폴백하던 걸 사용자가 단순화 요청): posting_log는 사람이 플랫폼
+    // 포스팅 체크박스를 눌러야만 생기는 수동 기록이라 새 topic엔 당장 없을
+    // 수 있는 반면, updated_at은 Supabase upsert 시점("완전 자동화 모드"의
+    // 필수 단계)에 항상 자동으로 찍히고 이후 절대 안 바뀐다(CLAUDE.md의
+    // "updated_at을 payload에 넣지 말 것" 규칙 참고). 2026-08-08 카테고리
+    // 스키마 도입 때 173개 topic이 한꺼번에 백필돼서 그 시각을 공유하지만,
+    // 그 시각이 이후 개별 topic들보다 이르므로 오름차순에서 자연스럽게
+    // 다 같이 맨 위(기존 콘텐츠 취급)로 뭉친다 — 사용자도 "기존꺼는 예전
+    // 거라는 걸 아니까" 그 안에서의 세부 순서는 상관없다고 확인함.
     const groups = new Map();
     const topicUpdatedAt = new Map();
     topics.forEach(t => {
@@ -406,7 +393,7 @@ Promise.all([
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
       if (!groups.has(baseTopic)) groups.set(baseTopic, []);
       groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, tracks: t.tracks || [] });
-      if (t.updated_at && t.updated_at !== BULK_MIGRATION_TS) {
+      if (t.updated_at) {
         const prev = topicUpdatedAt.get(baseTopic);
         if (!prev || t.updated_at < prev) topicUpdatedAt.set(baseTopic, t.updated_at);
       }
@@ -429,13 +416,12 @@ Promise.all([
     }
 
     // WHY 정렬 기준(2026-08-11, "기존꺼가 위로 오게 해. 완료 목록은 새로운게
-    // 위로 오게 하고"): 미완료 목록은 최초 게시일 오름차순(오래된 topic이
-    // 위). 신호 우선순위는 posting_log 최초 게시일 → (없으면) topics.updated_at
-    // (Supabase upsert 시점, 위 topicUpdatedAt WHY 참고) → (그것도 없으면)
-    // Infinity로 맨 아래. 완료 목록은 같은 정렬을 그대로 쓰되 각 행을 뒤에
-    // 붙이지 않고 맨 앞에 꽂아서(prepend) 결과적으로 최신순(내림차순)이
-    // 되게 한다 — 정렬을 두 번 따로 하지 않아도 된다.
-    const sortKey = baseTopic => firstPostedAt.get(baseTopic) || topicUpdatedAt.get(baseTopic) || "￿";
+    // 위로 오게 하고"): 미완료 목록은 topics.updated_at 오름차순(오래된
+    // topic이 위, 위 topicUpdatedAt WHY 참고) — 값이 없으면 맨 아래. 완료
+    // 목록은 같은 정렬을 그대로 쓰되 각 행을 뒤에 붙이지 않고 맨 앞에
+    // 꽂아서(prepend) 결과적으로 최신순(내림차순)이 되게 한다 — 정렬을 두
+    // 번 따로 하지 않아도 된다.
+    const sortKey = baseTopic => topicUpdatedAt.get(baseTopic) || "￿";
     const sortedGroups = [...groups.entries()].sort((a, b) => {
       const ta = sortKey(a[0]);
       const tb = sortKey(b[0]);
