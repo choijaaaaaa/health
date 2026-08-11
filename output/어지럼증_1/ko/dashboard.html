@@ -300,10 +300,10 @@
         <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-name="네이버 블로그">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" >열기 →</a>
+      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 자동 포함, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
+  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   
   <textarea class="caption-box" id="cap-0" spellcheck="false">머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지
 
@@ -356,8 +356,8 @@
 
 #어지럼증 #저혈당 #카페인 #탈수 #나트륨 #메니에르병 #균형감각 #건강정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" >열기 →</a>
+    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
+    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
     
   </div>
@@ -374,10 +374,10 @@
         <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" >열기 →</a>
+      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     </div>
   </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 자동 포함, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
+  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   
   <textarea class="caption-box" id="cap-1" spellcheck="false">머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지
 
@@ -430,8 +430,8 @@
 
 #어지럼증 #저혈당 #카페인 #탈수 #나트륨 #메니에르병 #균형감각 #건강정보</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" >열기 →</a>
+    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
     
   </div>
@@ -613,10 +613,6 @@ document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => 
   });
 });
 
-function _escapeHtml(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
 document.querySelectorAll(".btn-copy").forEach(btn => {
   const originalLabel = btn.textContent;
   const onCopied = () => {
@@ -628,21 +624,7 @@ document.querySelectorAll(".btn-copy").forEach(btn => {
     // WHY replace: 자동추가 구간 경계 표시는 보이지 않는 문자라 원래도 화면엔 안 보이지만,
     // 혹시 몰라 복사 시점에 한 번 더 확실히 제거한다.
     const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("").split(AUTO_BOTTOM_START).join("").split(AUTO_BOTTOM_END).join("");
-    const cover = btn.dataset.cover;
-    if (cover && window.ClipboardItem) {
-      // WHY font-size를 인라인으로: 붙여넣기 대상 에디터(네이버 블로그·티스토리)가
-      // 기본 폰트 크기를 작게 잡는 경우가 많아서, 처음부터 읽기 편한 크기로 넣어준다
-      // (리치에디터는 대개 인라인 스타일까지 그대로 붙여넣음).
-      const bodyHtml = text.split("\n").map(line => line.trim() ? `<p style="font-size:17px;line-height:1.7;">${_escapeHtml(line)}</p>` : "<br>").join("");
-      const html = `<p><img src="${cover}" style="max-width:100%;"></p>` + bodyHtml;
-      const item = new ClipboardItem({
-        "text/plain": new Blob([text], {type: "text/plain"}),
-        "text/html": new Blob([html], {type: "text/html"}),
-      });
-      navigator.clipboard.write([item]).then(onCopied).catch(() => navigator.clipboard.writeText(text).then(onCopied));
-    } else {
-      navigator.clipboard.writeText(text).then(onCopied);
-    }
+    navigator.clipboard.writeText(text).then(onCopied);
   });
 });
 // WHY 열기 버튼도 자동 복사(2026-08-01, "버튼 누르면 그 플랫폼으로 넘어가서 글까지

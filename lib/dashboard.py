@@ -7,7 +7,6 @@
 # 콘텐츠 유형별로 섹션을 나눠 스캔하기 쉽게 재구성.
 from __future__ import annotations
 
-import base64
 import json
 import sys
 from pathlib import Path
@@ -85,15 +84,15 @@ CARD_TEMPLATE = """
         <input type="checkbox" class="done-toggle" data-key="{done_key}" data-name="{name}">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="{url}" target="_blank" rel="noopener" {go_copy_attr}>{go_label}</a>
+      <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     </div>
   </div>
   <div class="action-line">{action}</div>
   {asset_link}
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-{idx}" data-cover="{cover_attr}">{copy_label}</button>
-    <a class="btn-go" href="{url}" target="_blank" rel="noopener" {go_copy_attr}>{go_label}</a>
+    <button class="btn-copy" data-target="cap-{idx}">캡션 복사</button>
+    <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
     {naver_connect_comment_btn}
   </div>
@@ -528,10 +527,6 @@ document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => 
   }});
 }});
 
-function _escapeHtml(s) {{
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}}
-
 document.querySelectorAll(".btn-copy").forEach(btn => {{
   const originalLabel = btn.textContent;
   const onCopied = () => {{
@@ -543,21 +538,7 @@ document.querySelectorAll(".btn-copy").forEach(btn => {{
     // WHY replace: 자동추가 구간 경계 표시는 보이지 않는 문자라 원래도 화면엔 안 보이지만,
     // 혹시 몰라 복사 시점에 한 번 더 확실히 제거한다.
     const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("").split(AUTO_BOTTOM_START).join("").split(AUTO_BOTTOM_END).join("");
-    const cover = btn.dataset.cover;
-    if (cover && window.ClipboardItem) {{
-      // WHY font-size를 인라인으로: 붙여넣기 대상 에디터(네이버 블로그·티스토리)가
-      // 기본 폰트 크기를 작게 잡는 경우가 많아서, 처음부터 읽기 편한 크기로 넣어준다
-      // (리치에디터는 대개 인라인 스타일까지 그대로 붙여넣음).
-      const bodyHtml = text.split("\\n").map(line => line.trim() ? `<p style="font-size:17px;line-height:1.7;">${{_escapeHtml(line)}}</p>` : "<br>").join("");
-      const html = `<p><img src="${{cover}}" style="max-width:100%;"></p>` + bodyHtml;
-      const item = new ClipboardItem({{
-        "text/plain": new Blob([text], {{type: "text/plain"}}),
-        "text/html": new Blob([html], {{type: "text/html"}}),
-      }});
-      navigator.clipboard.write([item]).then(onCopied).catch(() => navigator.clipboard.writeText(text).then(onCopied));
-    }} else {{
-      navigator.clipboard.writeText(text).then(onCopied);
-    }}
+    navigator.clipboard.writeText(text).then(onCopied);
   }});
 }});
 // WHY 열기 버튼도 자동 복사(2026-08-01, "버튼 누르면 그 플랫폼으로 넘어가서 글까지
@@ -1602,18 +1583,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # 4개 위치 인자로 호출하므로 시그니처만 유지한다(호출부까지 바꾸는 건 이
     # 정리의 범위 밖).
 
-    # WHY base64로 직접 embed: 원격 URL(src="https://...")은 네이버/티스토리 에디터가
-    # 붙여넣기 시 외부 이미지를 거부하거나 못 불러오는 경우가 있었다(2026-07-30 확인) —
-    # 이미지 바이트를 클립보드 HTML에 직접 박아넣으면 어느 사이트에 붙여도 안정적으로 뜬다.
     # WHY glob(2026-07-31): card_news.py가 이제 파일명 앞에 topic 접두어를 붙이므로
     # ("<topic>_00_표지.jpg") 정확한 이름을 하드코딩하지 않고 패턴으로 찾는다 — 접두어
     # 없는 예전 topic("00_표지.jpg")과도 둘 다 호환.
     cover_path = next(Path(card_news_dir).glob("*00_표지.jpg"), None)
-    has_cover = cover_path is not None
-    cover_url = ""
-    if has_cover:
-        cover_b64 = base64.b64encode(cover_path.read_bytes()).decode("ascii")
-        cover_url = f"data:image/jpeg;base64,{cover_b64}"
 
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
@@ -1643,23 +1616,9 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             continue
         cards_html = ""
         for p in group:
-            # WHY p.get("rich_paste") 대신 t=="text" 전체를 안 쓰는지: 쓰레드·페이스북은
-            # 리치에디터가 아니라 단순 텍스트 입력창이라 HTML 붙여넣기로 이미지가 안 들어감
-            # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
-            # rich_paste: true로 표시해서 이 기능을 켠다.
-            cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
-            # WHY 열기 버튼의 자동 캡션 복사를 rich_paste 플랫폼(네이버 블로그·
-            # 티스토리)에서만 끄는지(2026-08-10, "캡션까지 굳이 복사할 필요없어"):
-            # 이 두 플랫폼은 이미 "캡션 복사"(.btn-copy) 버튼이 캡션+표지 이미지를
-            # 함께 클립보드에 넣어준다 — 그 상태에서 열기를 누르면 이 범용 핸들러가
-            # 텍스트 전용으로 다시 덮어써서 방금 복사한 이미지까지 날아간다.
-            go_copy_attr = "" if p.get("rich_paste") else f'data-copy-target="cap-{idx}"'
-            go_label = "열기 →" if p.get("rich_paste") else "열기(캡션 자동복사) →"
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
-                go_copy_attr=go_copy_attr,
-                go_label=go_label,
                 idx=idx,
                 caption=_esc(p["caption"]),
                 type=t,
@@ -1667,8 +1626,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 action=_esc(p.get("action", "")),
                 asset_link=_asset_link(t, topic, cover_path.name if cover_path else None),
                 done_key=quote(p["name"]),
-                cover_attr=cover_attr,
-                copy_label="캡션+이미지 복사" if cover_attr else "캡션 복사",
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
                 profile_note_attr="1" if p.get("add_profile_note") else "",
