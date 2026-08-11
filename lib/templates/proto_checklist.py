@@ -286,29 +286,43 @@ def _build_background(mode: str, top, bottom) -> "Image.Image":
     return img
 
 
-_ICON_CACHE: dict[tuple[Path, int], "Image.Image"] = {}
+_ICON_CACHE: dict[tuple[Path, int, tuple[int, int, int]], "Image.Image"] = {}
 
 
-def get_icon(path: Path, size: int) -> "Image.Image":
-    key = (path, size)
+def get_icon(path: Path, size: int, accent_soft: tuple[int, int, int]) -> "Image.Image":
+    """WHY 크로마 배경을 accent_soft 배지로 바꿨는지(2026-08-11, "새 포맷
+    고도화" — 실제 렌더 확인 중 발견): 원래는 크로마 배경을 그대로 뒀다
+    ("작게 표시돼 스티커 프레임처럼 보여 무리 없다"는 판단, 위 _remove_chroma
+    문서 참고) — 근데 각 캐릭터 소스마다 자동 채택된 키 색상이 제각각이라
+    (마젠타/보라/시안 등), 실제로 렌더해보니 한 체크리스트 안에서 항목마다
+    서로 안 어울리는 원색이 뒤섞여 나왔다. 크로마를 진짜로 제거하고 이
+    topic의 accent_soft(다른 배지들과 이미 같은 색 — eyebrow pill 등)로
+    통일된 배경을 깔아서 일관된 톤으로 보이게 한다."""
+    key = (path, size, accent_soft)
     if key not in _ICON_CACHE:
-        img = Image.open(path).convert("RGB")
-        w, h = img.size
-        side = min(w, h)
-        top = (h - side) // 2
-        left = (w - side) // 2
-        img = img.crop((left, top, left + side, top + side)).resize((size, size), Image.LANCZOS)
+        raw = Image.open(path).convert("RGB")
+        chroma = _remove_chroma(raw)
+        alpha = chroma.split()[3]
+        bbox = alpha.getbbox()
+        cropped = chroma.crop(bbox) if bbox else chroma
+        cw, ch = cropped.size
+        scale = min(size * 0.86 / cw, size * 0.86 / ch)
+        new_w, new_h = max(1, round(cw * scale)), max(1, round(ch * scale))
+        char_img = cropped.resize((new_w, new_h), Image.LANCZOS)
+
         mask = Image.new("L", (size, size), 0)
         md = ImageDraw.Draw(mask)
         md.rounded_rectangle([0, 0, size - 1, size - 1], radius=int(size * 0.22), fill=255)
-        rgba = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-        rgba.paste(img, (0, 0))
-        rgba.putalpha(mask)
-        _ICON_CACHE[key] = rgba
+        badge = Image.new("RGBA", (size, size), accent_soft + (255,))
+        badge.putalpha(mask)
+        cx0 = (size - new_w) // 2
+        cy0 = (size - new_h) // 2
+        badge.alpha_composite(char_img, (cx0, cy0))
+        _ICON_CACHE[key] = badge
     return _ICON_CACHE[key]
 
 
-def _remove_chroma(img: Image.Image, thresh: int = 160) -> Image.Image:
+def _remove_chroma(img: Image.Image, thresh: int = 160, feather: int = 240) -> Image.Image:
     """캐릭터 일러스트는 Kling/Gemini 생성 단계에서 크로마키 배경(코너 픽셀 색을
     자동으로 키 색상 채택 — 캐릭터 자체가 초록 계열이면 배경이 파란/마젠타로
     바뀌므로 하드코딩 금지)으로 만들어진다 — `card_news.py`의
@@ -317,16 +331,36 @@ def _remove_chroma(img: Image.Image, thresh: int = 160) -> Image.Image:
     표시돼 배경색이 스티커 프레임처럼 보여 그대로 둬도 무리 없지만, 오프닝
     화면은 이미지를 거의 카드 전체 크기로 키우므로 크로마 배경을 그대로 두면
     자간진단 카드가 아니라 "깨진 초록/마젠타 스크린"처럼 보인다 — 반드시
-    투명 처리 후 흰 카드 위에 올린다."""
+    투명 처리 후 흰 카드 위에 올린다.
+    WHY feather+디스필 추가(2026-08-11, `before_after_transition`에서 같은
+    문제를 실측하고 고친 뒤 이 파일에도 동일 적용) — 하드컷 threshold만으로는
+    경계 anti-alias 픽셀에 배경색이 살짝 남아서, 오프닝처럼 크게 확대하는
+    자리에서 눈에 띄는 색 테두리로 보인다. 상세 원리·실측 근거는
+    proto_before_after_transition.py의 _remove_chroma 문서화 참고."""
     img = img.convert("RGBA")
     key = img.getpixel((2, 2))[:3]
     kr, kg, kb = key
+    non_key = min(range(3), key=lambda i: key[i])
     pixels = img.load()
     for y in range(img.height):
         for x in range(img.width):
             r, g, b, a = pixels[x, y]
-            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
+            d = abs(r - kr) + abs(g - kg) + abs(b - kb)
+            if d < thresh:
                 pixels[x, y] = (r, g, b, 0)
+            elif d < thresh + feather:
+                spill = 1 - min(max((d - thresh) / feather, 0.0), 1.0)
+                ch = [r, g, b]
+                base = ch[non_key]
+                for i in range(3):
+                    if i == non_key:
+                        continue
+                    excess = max(0, ch[i] - base)
+                    ch[i] = round(ch[i] - excess * spill)
+                new_a = round(a * (1 - spill))
+                pixels[x, y] = (
+                    max(0, min(255, ch[0])), max(0, min(255, ch[1])), max(0, min(255, ch[2])), new_a,
+                )
     return img
 
 
@@ -869,7 +903,25 @@ def render_why(ctx: Ctx):
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_CAUSE_BY_LANG.get(ctx.lang, EYEBROW_CAUSE_BY_LANG["en"]), ctx.font(30), cx, 420,
+
+    # WHY 세로 중앙 정렬(2026-08-11, "새 포맷 고도화" — before_after_transition에서
+    # 같은 문제를 실측하고 고친 뒤 이 화면에도 적용): 원래 eyebrow를 항상
+    # y=420에 고정해서 그렸는데, 캐릭터 없이 텍스트 두 블록뿐인 이 화면은
+    # 짧은 topic마다 화면 하단 55%+가 그냥 배경만 남았다. eyebrow 높이 +
+    # 헤드라인 + 본문 실제 렌더 높이를 먼저 합산해서, 그 그룹 전체를 안전
+    # 영역 안에서 중앙에 놓는다.
+    eyebrow_text = EYEBROW_CAUSE_BY_LANG.get(ctx.lang, EYEBROW_CAUSE_BY_LANG["en"])
+    eyebrow_font = ctx.font(30)
+    eyebrow_bbox = draw.textbbox((0, 0), eyebrow_text, font=eyebrow_font)
+    eyebrow_h = (eyebrow_bbox[3] - eyebrow_bbox[1]) + 16 * 2
+    header_h = ctx.why_header_line_h * len(ctx.why_header_lines)
+    body_h = ctx.why_body_line_h * len(ctx.why_body_lines)
+    group_h = eyebrow_h + 70 + header_h + 30 + body_h
+    available_h = SAFE_Y1 - _SAFE_TOP
+    extra = available_h - group_h
+    y0 = _SAFE_TOP + (extra / 2 if extra > 0 else 0)
+
+    y = draw_eyebrow(canvas, draw, eyebrow_text, eyebrow_font, cx, y0,
                       ctx.accent, ctx.accent_soft, label="why-eyebrow")
     y = draw_centered_lines(draw, ctx.why_header_lines, ctx.why_header_font, cx, y + 70,
                              ctx.why_header_line_h, TEXT_DARK, label="why-header")
@@ -882,7 +934,22 @@ def render_closing(ctx: Ctx):
     canvas = ctx.get_bg().convert("RGBA")
     draw = ImageDraw.Draw(canvas)
     cx = W // 2
-    y = draw_eyebrow(canvas, draw, EYEBROW_WRAPUP_BY_LANG.get(ctx.lang, EYEBROW_WRAPUP_BY_LANG["en"]), ctx.font(30), cx, 420,
+
+    # WHY 세로 중앙 정렬: render_why와 동일한 이유(위 WHY 참고) — eyebrow +
+    # 헤드라인 + 팁 + CTA 네 블록 실제 높이를 합산해서 안전영역 중앙에 놓는다.
+    eyebrow_text = EYEBROW_WRAPUP_BY_LANG.get(ctx.lang, EYEBROW_WRAPUP_BY_LANG["en"])
+    eyebrow_font = ctx.font(30)
+    eyebrow_bbox = draw.textbbox((0, 0), eyebrow_text, font=eyebrow_font)
+    eyebrow_h = (eyebrow_bbox[3] - eyebrow_bbox[1]) + 16 * 2
+    header_h = ctx.closing_header_line_h * len(ctx.closing_header_lines)
+    tip_h = ctx.closing_tip_line_h * len(ctx.closing_tip_lines)
+    cta_h = ctx.closing_cta_line_h * len(ctx.closing_cta_lines)
+    group_h = eyebrow_h + 70 + header_h + 40 + tip_h + 50 + cta_h
+    available_h = SAFE_Y1 - _SAFE_TOP
+    extra = available_h - group_h
+    y0 = _SAFE_TOP + (extra / 2 if extra > 0 else 0)
+
+    y = draw_eyebrow(canvas, draw, eyebrow_text, eyebrow_font, cx, y0,
                       ctx.accent, ctx.accent_soft, label="closing-eyebrow")
     y = draw_centered_lines(draw, ctx.closing_header_lines, ctx.closing_header_font, cx, y + 70,
                              ctx.closing_header_line_h, TEXT_DARK, label="closing-header")
@@ -940,7 +1007,7 @@ def render_checklist(ctx: Ctx, t: float):
                          row["label_line_h"], TEXT_DARK, 255, label=f"checklist-label-{i}")
 
         if p > 0.001:
-            icon_img = get_icon(row["icon"], layout["icon_size"])
+            icon_img = get_icon(row["icon"], layout["icon_size"], ctx.accent_soft)
             if p < 1:
                 icon_img = icon_img.copy()
                 a = icon_img.split()[3].point(lambda v, p=p: int(v * p))
