@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지 — 업로드 대시보드</title>
+<title>자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 이석증 예방법 — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -217,8 +221,8 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지</h1>
-  <span class="ad-tag-badge">🏷️ 광고표시 적용</span>
+  <h1>자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 이석증 예방법</h1>
+  
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -231,73 +235,7 @@
       <button class="dock-links-btn" id="downloadAllCards">🖼 카드 이미지 전체 다운로드</button>
     </div>
   </div>
-  <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
-<div class="dock-product-row" id="dock-row-0">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-0" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">비타민D 영양제</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCD%20%EC%98%81%EC%96%91%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCD%20%EC%98%81%EC%96%91%EC%A0%9C&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="비타민D 영양제" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B9%84%ED%83%80%EB%AF%BCD+%EC%98%81%EC%96%91%EC%A0%9C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B9%84%ED%83%80%EB%AF%BCD+%EC%98%81%EC%96%91%EC%A0%9C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="비타민D 영양제" value="" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-
-<div class="dock-product-row linked" id="dock-row-1">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-1" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">디카페인 커피</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="디카페인 커피" value="https://link.coupang.com/a/fRs4dknEtw" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="디카페인 커피" value="https://naver.me/FoX8x8fV" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-
-<div class="dock-product-row linked" id="dock-row-2">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-2" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">저나트륨 식품</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="저나트륨 식품" value="https://www.coupang.com/np/search?component=&amp;q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&amp;channel=user" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="저나트륨 식품" value="https://naver.me/5OlijsAL" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+  
 </div>
 
 <section>
@@ -307,262 +245,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
-<section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
-  <div class="grid">
-<div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>인스타그램 릴스</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-name="인스타그램 릴스">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-0" spellcheck="false">돌아눕거나 고개 젖힐 때 핑 도는 어지럼증 🌀
 
-비타민D 부족, 나트륨 과다, 카페인 과다 — 이석증 위험을 높일 수 있는 생활습관이에요.
 
-나트륨·카페인은 줄이고 비타민D는 챙겨보세요!
 
-더 유용한 건강정보 궁금하면 팔로우 👆
-
-#이석증 #어지럼증 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>네이버 클립</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-name="네이버 클립">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기, 업로드 직후 첫 댓글에 커넥트 활동 고지문 추가</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-1" spellcheck="false">돌아눕거나 고개 젖힐 때 핑 도는 어지럼증이 반복된다면
-
-비타민D 부족·나트륨 과다·카페인 과다 — 이석증 위험을 높일 수 있는 생활습관이 있어요.
-
-나트륨·카페인은 줄이고 비타민D는 챙기면 위험을 줄일 수 있어요!
-
-#이석증 #어지럼증 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    <button type="button" class="copy-naver-connect-comment">📌 커넥트 댓글 문구 복사</button>
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>페이스북</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81" data-name="페이스북">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="cap-2">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-2" spellcheck="false">자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지
-
-비타민D 부족(칼슘 대사 흐트러짐), 나트륨 과다(내이 압력 상승), 카페인 과다(내이 혈류·신경 영향) — 이석증 위험을 높일 수 있는 생활습관이 있어요.
-
-나트륨·카페인은 줄이고 비타민D는 챙기면 위험을 줄일 수 있어요.
-
-#이석증 #어지럼증 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-2">캡션 복사</button>
-    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="cap-2">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>네이버 블로그</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-name="네이버 블로그">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-3">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-3" spellcheck="false">자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지
-
-00 · 표지
-
-
-자다가 돌아눕거나 고개를 젖힐 때 갑자기 세상이 핑 도는 어지럼증이 몇 초씩 반복된 적 있나요? 매일의 생활습관이 그 증상에 영향을 주고 있을 수 있어요.
-
-01 · 왜 어지러울까요
-
-
-이런 어지럼증은 이석증(양성발작성두위현훈)일 가능성이 있어요. 귓속 평형기관에 붙어 있던 작은 칼슘 결정, 이석이 제자리를 벗어나 반고리관으로 흘러들어가면서 생기는 경우가 많아요.
-
-02 · 비타민D 부족
-
-
-첫 번째는 비타민D 부족이에요. 이석의 주성분이 칼슘이라, 겨울철처럼 햇빛을 충분히 쬐지 못해 비타민D가 부족해지면 칼슘 대사가 흐트러지면서 이석증 위험이 높아질 수 있다고 알려져 있어요. 실제로 이석증 환자에게서 골다공증·비타민D 결핍 비율이 높게 나타난 연구 결과도 있어요.
-
-03 · 비타민D는 이렇게
-
-
-하루 20~30분 정도 햇빛을 쬐거나, 등푸른생선·달걀노른자처럼 비타민D가 든 음식을 챙겨보세요.
-
-04 · 나트륨 과다
-
-
-두 번째는 나트륨 과다 섭취예요. 나트륨을 많이 먹으면 귓속 림프액이 늘어나 내이 압력이 높아지면서 어지럼 증상이 더 심해질 수 있어요.
-
-05 · 나트륨은 이렇게
-
-
-국물 요리나 짠 반찬을 조금씩 줄이고, 국물은 다 마시지 않는 습관부터 시작해보세요.
-
-06 · 카페인 과다
-
-
-세 번째는 카페인 과다 섭취예요. 커피 같은 카페인을 많이 마시면 내이 혈류와 신경 반응에 영향을 줘서 어지럼을 악화시킬 수 있어요.
-
-07 · 카페인은 이렇게
-
-
-커피는 하루 한두 잔 이내로 조절하고, 필요하면 디카페인으로 바꿔보세요.
-
-08 · 마무리
-
-
-나트륨과 카페인 섭취는 조금씩 줄이고, 비타민D는 햇빛과 음식으로 챙겨보세요. 이런 습관만으로도 이석증 위험을 줄이는 데 도움이 될 수 있어요. 다만 어지럼이 몇 초 넘게 지속되거나 자주 반복된다면 이비인후과 진료를 받아보는 것도 방법이에요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#이석증 #어지럼증 #양성발작성두위현훈 #비타민D #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-3">캡션 복사</button>
-    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-3">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지
-
-00 · 표지
-
-
-누워서 돌아눕거나 고개를 젖히는 순간 갑자기 천장이 핑 도는 느낌, 몇 초 뒤엔 가라앉지만 자꾸 반복된 적 있나요? 생각보다 매일의 생활습관이 이 증상에 영향을 줄 수 있어요.
-
-01 · 왜 어지러울까요
-
-
-이런 증상은 이석증(양성발작성두위현훈)일 가능성이 있어요. 귓속 평형기관에 붙어 있던 작은 칼슘 결정인 이석이 제자리를 벗어나 반고리관으로 흘러들어가면서 자세를 바꿀 때마다 어지럼이 생기는 질환이에요.
-
-02 · 비타민D 부족
-
-
-첫 번째 요인은 비타민D 부족이에요. 이석은 칼슘으로 이루어져 있는데, 햇빛을 충분히 쬐지 못해 비타민D가 부족해지면 칼슘 대사가 흐트러지면서 이석증 위험이 높아질 수 있다고 보고돼 있어요. 실제로 이석증 환자군에서 골다공증·비타민D 결핍 비율이 정상군보다 높게 나타난 연구도 있어요.
-
-03 · 비타민D는 이렇게
-
-
-하루 20~30분 정도 햇빛을 쬐고, 등푸른생선이나 달걀노른자처럼 비타민D가 든 음식을 식단에 챙겨보세요.
-
-04 · 나트륨 과다
-
-
-두 번째 요인은 나트륨 과다 섭취예요. 짠 음식을 많이 먹으면 귓속 림프액이 늘어나 내이 압력이 높아지면서 어지럼 증상이 더 심해질 수 있어요.
-
-05 · 나트륨은 이렇게
-
-
-국물 요리나 짠 반찬 섭취를 조금씩 줄이고, 국물은 다 마시지 않는 습관부터 만들어보세요.
-
-06 · 카페인 과다
-
-
-세 번째 요인은 카페인 과다 섭취예요. 커피 같은 카페인을 많이 마시면 내이 혈류와 신경 반응에 영향을 줘서 어지럼이 심해질 수 있어요.
-
-07 · 카페인은 이렇게
-
-
-커피는 하루 한두 잔 이내로 조절하고, 필요하다면 디카페인으로 바꿔보는 것도 방법이에요.
-
-08 · 마무리
-
-
-나트륨과 카페인은 줄이고 비타민D는 꾸준히 챙기는 것, 이 정도 습관 변화만으로도 이석증 위험을 낮추는 데 도움이 될 수 있어요. 다만 어지럼이 몇 초 넘게 지속되거나 자주 반복된다면 이비인후과 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#이석증 #어지럼증 #양성발작성두위현훈 #비타민D #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-</div>
-</section>
-</div>
-
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">비타민D 영양제</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCD%20%EC%98%81%EC%96%91%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs4dknEtw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://www.coupang.com/np/search?component=&amp;q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&amp;channel=user" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
@@ -779,7 +464,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
-const COMMENT_KEYWORD = "\ube44\ud0c0\ubbfcD \uc601\uc591\uc81c";
+const COMMENT_KEYWORD = "";
 const LINK_STORAGE_PREFIX = "hs_link_%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3_ko_";
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
@@ -1013,12 +698,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

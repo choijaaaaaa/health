@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법 — 업로드 대시보드</title>
+<title>손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 손톱 관리법 — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -217,8 +221,8 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법</h1>
-  <span class="ad-tag-badge">🏷️ 광고표시 적용</span>
+  <h1>손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 손톱 관리법</h1>
+  
 </header>
 
 <div class="quick-dock" id="quickDock">
@@ -231,73 +235,7 @@
       <button class="dock-links-btn" id="downloadAllCards">🖼 카드 이미지 전체 다운로드</button>
     </div>
   </div>
-  <div class="dock-section"><h4>상품 링크</h4><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button>
-<div class="dock-product-row" id="dock-row-0">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-0" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">달걀</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AC%EA%B1%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%8B%AC%EA%B1%80&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="달걀" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8B%AC%EA%B1%80&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8B%AC%EA%B1%80&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="달걀" value="" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-
-<div class="dock-product-row" id="dock-row-1">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-1" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">콩</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%BD%A9&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%BD%A9&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="콩" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BD%A9&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BD%A9&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="콩" value="" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-
-<div class="dock-product-row linked" id="dock-row-2">
-  <div class="dock-product-head">
-    <button class="row-toggle" data-row="dock-row-2" title="링크 넣기">🔗</button>
-    <span class="dock-product-name">저나트륨 식품</span>
-  </div>
-  <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="저나트륨 식품" value="https://www.coupang.com/np/search?component=&amp;q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&amp;channel=user" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="naver" data-product="저나트륨 식품" value="https://naver.me/5OlijsAL" placeholder="네이버 커넥트 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 네이버 커넥트 링크 복사">📋 복사</button>
-    </div>
-  </div>
-</div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+  
 </div>
 
 <section>
@@ -307,262 +245,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
-<section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
-  <div class="grid">
-<div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>인스타그램 릴스</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-name="인스타그램 릴스">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg" download="손발_1_ko_손톱_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-0" spellcheck="false">손톱이 자꾸 갈라지고 얇아진다면 💅
 
-술(비오틴 소모), 카페인(미네랄 흡수 방해), 인스턴트 식품(영양 밀도 낮음) — 손톱을 약하게 만들 수 있는 뜻밖의 음식이에요.
 
-무조건 끊지 않아도 돼요. 양을 줄이고 바꿔보세요!
 
-더 유용한 건강정보 궁금하면 팔로우 👆
-
-#손톱건강 #손톱갈라짐 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>네이버 클립</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD" data-name="네이버 클립">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">PC 링크는 제한적 — 모바일 네이버 앱에서 클립 업로드 → 캡션 복사해서 붙여넣기</div>
-  <a class="asset-link" href="card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg" download="손발_1_ko_손톱_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-1" spellcheck="false">손톱이 자꾸 갈라지고 얇아진다면
-
-술·카페인·인스턴트 식품 — 손톱을 약하게 만들 수 있는 음식이 있어요.
-
-무조건 끊지 않아도 돼요. 양을 줄이고 바꿔주면 한결 튼튼해질 수 있어요!
-
-#손톱건강 #손톱갈라짐 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    <button type="button" class="copy-naver-connect-comment">📌 커넥트 댓글 문구 복사</button>
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-video">영상</span>
-      <h3>페이스북</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81" data-name="페이스북">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="cap-2">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가</div>
-  <a class="asset-link" href="card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg" download="손발_1_ko_손톱_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-2" spellcheck="false">손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법
-
-술(비오틴 소모), 카페인(미네랄 흡수 방해), 인스턴트 식품(영양 밀도 낮음) — 손톱을 약하게 만들 수 있는 뜻밖의 음식이 있어요.
-
-무조건 끊지 않아도 돼요. 양을 줄이고 바꿔주면 손톱이 튼튼해질 수 있어요.
-
-#손톱건강 #손톱갈라짐 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-2">캡션 복사</button>
-    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="cap-2">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
-<div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>네이버 블로그</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-name="네이버 블로그">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-3">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg" download="손발_1_ko_손톱_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-3" spellcheck="false">손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법
-
-00 · 표지
-
-
-손톱이 자꾸 갈라지고 얇아지고, 세로줄까지 늘어나는 걸 발견한 적 있나요? 매일 먹는 음식 중 몇 가지가 그 상태를 더 키우고 있을 수 있어요.
-
-01 · 왜 손톱이 약해질까요
-
-
-손톱은 케라틴이라는 단백질로 이루어져 있어요. 이 단백질을 만드는 데 필요한 영양소(단백질·철분·아연·비오틴 등)의 흡수를 방해하거나 소모시키는 음식을 자주 먹으면 손톱이 약해질 수 있어요.
-
-02 · 술
-
-
-첫 번째는 맥주·와인 같은 술이에요. 알코올을 많이 마시면 손톱 건강에 중요한 비오틴이 몸에서 빠르게 소모될 수 있다고 알려져 있어요.
-
-03 · 술은 이렇게
-
-
-술을 마신다면 물과 번갈아 마시면서 자연스럽게 양을 줄여보세요.
-
-04 · 카페인
-
-
-두 번째는 커피 같은 카페인이에요. 철분·아연 같은 미네랄 흡수를 방해해서, 손톱을 만드는 재료 자체가 부족해질 수 있어요.
-
-05 · 카페인은 이렇게
-
-
-커피는 식사 시간과 어느 정도 시간차를 두고 마셔보세요. 미네랄 흡수 방해를 줄일 수 있어요.
-
-06 · 인스턴트 식품
-
-
-세 번째는 라면 같은 인스턴트 식품이에요. 영양 밀도가 낮은 편이라, 자주 먹으면 손톱에 필요한 단백질과 미네랄이 상대적으로 부족해지기 쉬워요.
-
-07 · 인스턴트는 이렇게
-
-
-라면 대신 달걀이나 콩 같은 단백질 식품을 늘려보세요.
-
-08 · 마무리
-
-
-술·카페인·인스턴트를 전부 끊을 필요는 없어요. 양을 줄이고 대체 식품으로 바꾸는 것만으로도 손톱이 한결 튼튼해질 수 있어요. 수분을 충분히 섭취하는 것도 손톱 갈라짐을 줄이는 데 도움될 수 있고요. 설거지나 청소할 때 고무장갑을 끼는 것도 세제로 인한 손톱 건조를 막는 데 도움이 돼요. 다만 손톱 변화가 갑작스럽거나 색까지 변한다면 다른 원인일 수 있으니 병원 진료를 받아보는 것도 방법이에요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#손톱건강 #손톱갈라짐 #손톱관리 #손톱영양 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-3">캡션 복사</button>
-    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="cap-3">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg" download="손발_1_ko_손톱_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법
-
-00 · 표지
-
-
-예전보다 손톱이 자꾸 갈라지고 얇아지고, 세로줄까지 도드라져 보인 적 있나요? 매니큐어나 젤네일 탓만은 아닐 수 있어요. 매일 먹는 음식 중 몇 가지가 그 상태를 더 키우고 있을 수 있거든요.
-
-01 · 왜 손톱이 약해질까요
-
-
-손톱은 케라틴이라는 단백질로 이루어진 조직이에요. 이 단백질을 만드는 데 필요한 영양소(단백질·철분·아연·비오틴 등)의 흡수를 방해하거나 몸속에서 소모시키는 음식을 자주 먹으면 손톱이 약해지기 쉬워요.
-
-02 · 술
-
-
-첫 번째는 맥주·와인 같은 술이에요. 알코올을 많이 마시면 손톱 건강에 중요한 비오틴이 몸에서 빠르게 소모될 수 있다고 알려져 있어요.
-
-03 · 술은 이렇게
-
-
-술을 마신다면 물과 번갈아 마시면서 자연스럽게 양을 줄여보세요.
-
-04 · 카페인
-
-
-두 번째는 커피 같은 카페인이에요. 철분·아연 같은 미네랄 흡수를 방해하는 성질이 있어서, 손톱을 만드는 재료 자체가 부족해질 수 있어요.
-
-05 · 카페인은 이렇게
-
-
-커피는 식사 시간과 어느 정도 시간차를 두고 마셔보는 게 도움이 돼요.
-
-06 · 인스턴트 식품
-
-
-세 번째는 라면 같은 인스턴트 식품이에요. 영양 밀도가 낮은 편이라, 자주 먹으면 상대적으로 손톱에 필요한 단백질과 미네랄이 부족해지기 쉬워요.
-
-07 · 인스턴트는 이렇게
-
-
-라면 대신 달걀이나 콩 같은 단백질 식품을 식단에 늘려보세요.
-
-08 · 마무리
-
-
-술·카페인·인스턴트를 전부 끊어야 하는 건 아니에요. 양을 줄이고 대체 식품으로 바꾸는 것만으로도 손톱이 눈에 띄게 튼튼해질 수 있어요. 수분을 충분히 섭취하는 습관도 손톱 갈라짐을 줄이는 데 도움이 되고요. 다만 손톱 변화가 갑작스럽거나 색까지 변한다면 다른 원인일 수 있으니 병원 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#손톱건강 #손톱갈라짐 #손톱관리 #손톱영양 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
-</div>
-</section>
-</div>
-
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">달걀</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AC%EA%B1%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">콩</span><a href="https://www.coupang.com/np/search?component=&q=%EC%BD%A9&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://www.coupang.com/np/search?component=&amp;q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&amp;channel=user" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
@@ -779,7 +464,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
-const COMMENT_KEYWORD = "\ub2ec\uac40";
+const COMMENT_KEYWORD = "";
 const LINK_STORAGE_PREFIX = "hs_link_%EC%86%90%EB%B0%9C_1_ko_";
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
@@ -1013,12 +698,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
