@@ -229,19 +229,56 @@ def _vertical_gradient(top: tuple[int, int, int], bottom: tuple[int, int, int]) 
     return img
 
 
-def _remove_chroma(img: Image.Image, thresh: int = 160) -> Image.Image:
+def _remove_chroma(img: Image.Image, thresh: int = 160, feather: int = 240) -> Image.Image:
     """캐릭터 일러스트의 크로마키 배경(코너 픽셀 색을 자동으로 키 색상 채택 —
     캐릭터 자체가 초록 계열이면 파란/마젠타로 배경이 바뀌므로 하드코딩 금지,
-    card_news.py의 _remove_chroma_bg와 같은 원리)을 투명 처리한다."""
+    card_news.py의 _remove_chroma_bg와 원리는 같되 여기서만 페더링+디스필을
+    추가함(2026-08-11, "새 포맷 고도화" 요청으로 실제 렌더 프레임 육안 확인
+    중 발견) — card_news.py 쪽은 원형 배지가 작고 흰 링으로 가장자리를 덮어서
+    문제가 안 보였지만, 이 템플릿의 _hero_card는 알파 bbox로 크롭한 뒤 카드
+    88%까지 확대해서 그리는 구조라 딱 잘라내는 하드 컷 방식의 잔상이 그대로
+    커져서 눈에 띄는 테두리로 보였다. 실측(도넛_illust.jpg 경계 스캔) 결과
+    실제 키 색상이 초록 단일 채널이 아니라 시안(0,255,255, 초록+파랑 둘 다
+    최대)인 소스가 있었고, 스필이 완전히 빠지는 데 걸리는 거리(d)가 대략
+    160~400이라 feather=55는 한 픽셀 만에 다 지나가버려 사실상 효과가
+    없었다 — 240으로 넓혀서 실제로 그 구간을 덮게 했다. thresh 밖(완전
+    불투명)~thresh+feather(완전 투명) 사이를 선형 보간해서 부드러운 경계를
+    만들고, 그 구간의 픽셀은 색상에서 "키가 아닌 채널" 대비 튀어나온 만큼만
+    깎는 디스필도 적용한다(시안처럼 두 채널이 동시에 키인 경우도 커버)."""
     img = img.convert("RGBA")
     key = img.getpixel((2, 2))[:3]
     kr, kg, kb = key
+    # WHY non_key(키가 가장 안 섞인 채널)를 기준으로 나머지 채널의 "초과분"을
+    # 깎는지: 초록 단일 키(0,255,0)는 R·B가 non_key 후보라 둘 다 기준 삼아도
+    # 되지만, 시안 키(0,255,255)처럼 두 채널(G,B)이 동시에 키 색이면 그중
+    # 하나만 "dominant"로 잡아 깎는 방식은 나머지 한 채널의 잔여 스필을 놓친다
+    # — 대신 키가 가장 낮은 채널(R) 하나를 기준선으로 잡고 G·B 둘 다 그
+    # 기준선 위로 튀어나온 만큼을 깎으면 어떤 키 조합에도 일반적으로 통한다.
+    non_key = min(range(3), key=lambda i: key[i])
     pixels = img.load()
     for y in range(img.height):
         for x in range(img.width):
             r, g, b, a = pixels[x, y]
-            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
+            d = abs(r - kr) + abs(g - kg) + abs(b - kb)
+            if d < thresh:
                 pixels[x, y] = (r, g, b, 0)
+            elif d < thresh + feather:
+                # WHY spill 방향: d==thresh(배경에 가까운 경계) 근처일수록
+                # spill=1(가장 투명·가장 강하게 디스필), d==thresh+feather
+                # (확실한 캐릭터 픽셀)에 가까울수록 spill=0(원본 그대로) —
+                # 하드 컷 바로 위 구간을 부드럽게 이어붙인다.
+                spill = 1 - min(max((d - thresh) / feather, 0.0), 1.0)
+                ch = [r, g, b]
+                base = ch[non_key]
+                for i in range(3):
+                    if i == non_key:
+                        continue
+                    excess = max(0, ch[i] - base)
+                    ch[i] = round(ch[i] - excess * spill)
+                new_a = round(a * (1 - spill))
+                pixels[x, y] = (
+                    max(0, min(255, ch[0])), max(0, min(255, ch[1])), max(0, min(255, ch[2])), new_a,
+                )
     return img
 
 
@@ -527,9 +564,31 @@ def _render_screen(tone: str, theme: dict, lang: str, label: str | None, body_li
         _verify_safe_area(chip_bbox, f"chip[{label}]")
         y_cursor = chip_bbox[3] + 24
 
+    # WHY 그룹(메달리온+텍스트) 통째로 세로 중앙 정렬(2026-08-11, "새 포맷
+    # 고도화" 요청으로 실제 렌더 프레임 육안 확인 중 발견): 기존엔 y_cursor에서
+    # 바로 그려서 텍스트가 짧은 topic(2~3줄짜리 body가 대부분)마다 화면 하단
+    # 40~50%가 그냥 배경만 남는 문제가 있었다 — 텍스트 실제 렌더 높이를 먼저
+    # 계산해두고, [메달리온+간격+텍스트] 총 높이를 안전영역 나머지 공간 안에서
+    # 중앙에 배치한다. 메달리온 크기도 600→660으로 키워서 시각적 앵커 자체를
+    # 더 크게(빈 공간을 "재배치"만이 아니라 "축소"도 하는 방향).
+    size = 660 if char_chroma is not None else 0
+    char_gap = 36 if char_chroma is not None else 0
+    dummy = Image.new("RGBA", (1, 1))
+    dummy_draw = ImageDraw.Draw(dummy)
+    max_width = SAFE_RIGHT - SAFE_LEFT
+    available_h = SAFE_BOTTOM - y_cursor
+    text_budget_h = max(available_h - size - char_gap, 200)
+    wrapped, font, line_h = _fit_text_block(
+        dummy_draw, body_lines, lang, max_width, text_budget_h, max_size=headline_size,
+    )
+    text_h = line_h * len(wrapped)
+    group_h = size + char_gap + text_h
+    extra = available_h - group_h
+    if extra > 0:
+        y_cursor += extra / 2
+
     char_bottom = y_cursor
     if char_chroma is not None:
-        size = 600
         med = _char_medallion(char_chroma, size)
         # 캐릭터 자체는 원형 마스크라 사각 이미지 전체가 아니라 원 안쪽만 실제로
         # 보이므로, 안전영역 확인은 사각 붙임 좌표(placement box) 기준으로 충분히
@@ -539,15 +598,8 @@ def _render_screen(tone: str, theme: dict, lang: str, label: str | None, body_li
         img.paste(med, (px, py), med)
         char_bbox = (px, py, px + med.width, py + med.height)
         _verify_safe_area(char_bbox, "character")
-        char_bottom = py + med.height + 36
+        char_bottom = py + med.height + char_gap
 
-    dummy = Image.new("RGBA", (1, 1))
-    dummy_draw = ImageDraw.Draw(dummy)
-    max_width = SAFE_RIGHT - SAFE_LEFT
-    max_height = SAFE_BOTTOM - char_bottom
-    wrapped, font, line_h = _fit_text_block(
-        dummy_draw, body_lines, lang, max_width, max_height, max_size=headline_size,
-    )
     text_color = (255, 255, 255)
     stroke_color = (0, 0, 0)
     text_bbox = _draw_text_block(draw, wrapped, font, line_h, SAFE_CX, char_bottom, text_color, stroke_color)
@@ -565,36 +617,57 @@ def _render_closing_screen(theme: dict, lang: str, closing: dict, char_chromas: 
     _draw_progress(draw, progress_style, progress_index, progress_total, SAFE_CX, SAFE_TOP + 10, accent)
 
     y_cursor = SAFE_TOP + 60
-    if char_chromas:
-        size, gap = 150, 20
-        meds = [_char_medallion(c, size) for c in char_chromas[:3]]
-        total_w = sum(m.width for m in meds) + gap * (len(meds) - 1)
-        x = SAFE_CX - total_w / 2
-        top = y_cursor
-        for m in meds:
-            img.paste(m, (round(x), round(top)), m)
-            x += m.width + gap
-        char_bbox = (SAFE_CX - total_w / 2, top, SAFE_CX + total_w / 2, top + meds[0].height)
-        _verify_safe_area(char_bbox, "closing-medallions")
-        y_cursor = top + meds[0].height + 40
-
     dummy = Image.new("RGBA", (1, 1))
     dummy_draw = ImageDraw.Draw(dummy)
     max_width = SAFE_RIGHT - SAFE_LEFT
     headline_lines = [ln for block in closing["headline"] for ln in block]
-    max_height = int((SAFE_BOTTOM - y_cursor) * 0.62)
-    wrapped, font, line_h = _fit_text_block(
-        dummy_draw, headline_lines, lang, max_width, max_height, max_size=58,
+
+    # WHY 클로징도 본문 화면과 같은 이유로 세로 중앙 정렬(2026-08-11, "새 포맷
+    # 고도화"): 메달리온 행 150px + 헤드라인 + 팁까지 다 top-anchor라 헤드라인이
+    # 짧은 topic은 화면 하단 절반이 그냥 그라디언트 배경만 남았다. 실제 렌더
+    # 높이를 먼저 계산해서 [메달리온+헤드라인+팁] 전체를 안전영역 중앙에 놓는다.
+    med_size, med_gap = 150, 20
+    med_h = med_size if char_chromas else 0
+    med_bottom_gap = 40 if char_chromas else 0
+    available_h = SAFE_BOTTOM - y_cursor
+    headline_budget = int(available_h * 0.62)
+    headline_wrapped, headline_font, headline_line_h = _fit_text_block(
+        dummy_draw, headline_lines, lang, max_width, headline_budget, max_size=58,
     )
-    bbox = _draw_text_block(draw, wrapped, font, line_h, SAFE_CX, y_cursor, (255, 255, 255), (0, 0, 0))
+    headline_h = headline_line_h * len(headline_wrapped)
+    tip_gap = 30
+    tip_wrapped, tip_font, tip_line_h = ([], None, 0)
+    tip_h = 0
+    if closing.get("tip"):
+        remaining_for_tip = max(available_h - med_h - med_bottom_gap - headline_h - tip_gap, 40)
+        tip_wrapped, tip_font, tip_line_h = _fit_text_block(
+            dummy_draw, closing["tip"], lang, max_width, remaining_for_tip, max_size=38, min_size=22,
+        )
+        tip_h = tip_line_h * len(tip_wrapped)
+
+    group_h = med_h + med_bottom_gap + headline_h + (tip_gap + tip_h if tip_wrapped else 0)
+    extra = available_h - group_h
+    if extra > 0:
+        y_cursor += extra / 2
+
+    if char_chromas:
+        meds = [_char_medallion(c, med_size) for c in char_chromas[:3]]
+        total_w = sum(m.width for m in meds) + med_gap * (len(meds) - 1)
+        x = SAFE_CX - total_w / 2
+        top = y_cursor
+        for m in meds:
+            img.paste(m, (round(x), round(top)), m)
+            x += m.width + med_gap
+        char_bbox = (SAFE_CX - total_w / 2, top, SAFE_CX + total_w / 2, top + meds[0].height)
+        _verify_safe_area(char_bbox, "closing-medallions")
+        y_cursor = top + meds[0].height + med_bottom_gap
+
+    bbox = _draw_text_block(draw, headline_wrapped, headline_font, headline_line_h, SAFE_CX, y_cursor,
+                             (255, 255, 255), (0, 0, 0))
     _verify_safe_area(bbox, "closing-headline")
 
-    tip_top = bbox[3] + 30
-    tip_max_h = SAFE_BOTTOM - tip_top
-    if tip_max_h > 40 and closing.get("tip"):
-        tip_wrapped, tip_font, tip_line_h = _fit_text_block(
-            dummy_draw, closing["tip"], lang, max_width, tip_max_h, max_size=38, min_size=22,
-        )
+    if tip_wrapped:
+        tip_top = bbox[3] + tip_gap
         tip_bbox = _draw_text_block(draw, tip_wrapped, tip_font, tip_line_h, SAFE_CX, tip_top,
                                      (255, 245, 235), (0, 0, 0))
         _verify_safe_area(tip_bbox, "closing-tip")
