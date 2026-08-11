@@ -44,14 +44,16 @@ _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
 }
-# WHY chalkboard 전용으로 전환(2026-08-10, "기존 포맷으로만 가야겠다 신규
-# 포맷들 퀄이 너무 안좋아... 걍 칠판 판서하던 그 사이즈로만 가야할듯"):
-# before_after_transition/checklist 신규 포맷 2종의 실측 퀄리티가 기대에
-# 못 미친다는 판단으로 3:1:1 가중치(2026-08-08)를 폐기하고 chalkboard만
-# 선택되게 되돌림. FORMAT_ROSTER·_TEMPLATE_RENDERERS·템플릿 코드 자체는
-# 그대로 남겨둔다(나중에 품질 개선하면 다시 풀에 넣을 수 있게 — timeline/
-# ranking_countdown 로스터 제외 때와 동일 패턴).
-_FORMAT_WEIGHTED_POOL = ["chalkboard"]
+# WHY chalkboard+before_after_transition 1:1로 복귀(2026-08-11, "체크리스트는
+# 빼고 칠판이랑 before after 이 두개 해야겠다" — before_after_transition
+# 고도화(세로 중앙 정렬+크로마 디스필) 실측 결과 검토 후 재승인): checklist는
+# 같은 고도화를 거쳤지만 이번엔 제외 — chalkboard/before_after_transition만
+# 동률로 섞는다. checklist 코드·FORMAT_ROSTER는 그대로 남겨둠(나중에 다시
+# 풀에 넣을 수 있게 — timeline/ranking_countdown 로스터 제외 때와 동일 패턴).
+# 2026-08-10엔 이 반대로 "신규 포맷들 퀄이 너무 안좋다"는 판단으로 3:1:1
+# 가중치(2026-08-08)를 폐기하고 chalkboard만 남겼었음 — 그 결정을 이번
+# 고도화로 부분적으로 뒤집은 것.
+_FORMAT_WEIGHTED_POOL = ["chalkboard", "before_after_transition"]
 
 
 def select_format(topic: str) -> str:
