@@ -623,9 +623,18 @@ Promise.all([
     // 재사용 — product-link-input): 타이핑 중간에 매 keystroke마다 upsert를
     // 보내면 낭비이고, blur만 쓰면 실수로 다른 곳 클릭했을 때 저장 안 됐는지
     // 헷갈린다 — Enter로 명시적 확정만 저장.
+    // WHY document.createElement로 직접 만드는지(2026-08-11 버그 수정,
+    // "밑에보면 목록에 아무것도 없잖음"): 이 블록이 el() 헬퍼(원래 카드뉴스
+    // 미리보기 폼 쪽에서 정의됐던 함수)를 갖다 썼는데, 그 폼이 다른 세션의
+    // 리팩터로 없어지면서 el() 정의 자체가 파일에서 사라졌다 — 배지·카운트는
+    // 이 루프 진입 전에 이미 실행돼서 멀쩡해 보였지만, 루프 첫 줄에서
+    // ReferenceError가 터져 목록은 항상 비어 있었다. 외부 함수 의존 없이
+    // 그 자리에서 바로 만든다.
     missing.forEach(product => {
-      const row = el("div", "missing-link-row");
-      const title = el("b", null, product);
+      const row = document.createElement("div");
+      row.className = "missing-link-row";
+      const title = document.createElement("b");
+      title.textContent = product;
       row.appendChild(title);
       ["coupang", "naver"].forEach(market => {
         if (have.has(market + "|" + product)) return;
@@ -633,7 +642,8 @@ Promise.all([
           ? `https://www.coupang.com/np/search?component=&q=${encodeURIComponent(product)}&channel=user`
           : `https://brandconnect.naver.com/${NAVER_BRANDCONNECT_ID}/affiliate/products/search?query=${encodeURIComponent(product)}&tab=product`;
 
-        const searchRow = el("div", "missing-link-search-row");
+        const searchRow = document.createElement("div");
+        searchRow.className = "missing-link-search-row";
         const searchLink = document.createElement("a");
         searchLink.href = searchUrl;
         searchLink.target = "_blank";
@@ -654,14 +664,16 @@ Promise.all([
         searchRow.appendChild(searchLink);
         searchRow.appendChild(copyBtn);
 
-        const field = el("div", "missing-link-field");
+        const field = document.createElement("div");
+        field.className = "missing-link-field";
         const label = document.createElement("label");
         label.textContent = market === "coupang" ? "쿠팡" : "네이버";
         const input = document.createElement("input");
         input.type = "text";
         input.className = "missing-link-input";
         input.placeholder = market === "coupang" ? "쿠팡 파트너스 링크 붙여넣기" : "네이버 커넥트 링크 붙여넣기";
-        const saved = el("span", "missing-link-saved", "");
+        const saved = document.createElement("span");
+        saved.className = "missing-link-saved";
         // WHY 마켓별 도메인 검증(2026-08-09, "유효성 검사도 넣을수있냐? 링크를
         // 잘못넣는경우 안되게하는거야" — 예: 네이버 칸에 쿠팡 링크를 잘못
         // 붙여넣는 실수 방지): URL 형식 자체가 아니라도, 쿠팡 파트너스 링크는
