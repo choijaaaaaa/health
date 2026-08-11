@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -287,7 +291,7 @@ Swap white bread for whole grain, chips for nuts, soda for unsweetened iced tea 
         <input type="checkbox" class="done-toggle" data-key="Facebook" data-name="Facebook">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="https://www.facebook.com/profile.php?id=61592893302063" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     </div>
   </div>
   <div class="action-line">Copy caption -&gt; New post -&gt; paste (attach cover image or video) -&gt; after posting, add purchase link in comment</div>
@@ -301,7 +305,7 @@ Swap white bread for whole grain, chips for nuts, soda for unsweetened iced tea 
 #postlunchslump #bloodsugar #energycrash #healthtips #nutrition #wellness</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
+    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61592893302063" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
     
   </div>
@@ -761,12 +765,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
