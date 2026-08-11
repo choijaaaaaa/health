@@ -201,8 +201,86 @@ def check_title_truncation(topic: str, lang: str = "kor") -> list[dict]:
     }]
 
 
+# WHY 소급 적용 안 함(2026-08-10): 위 check_title_truncation()과 마찬가지로 새
+# topic 작성 시점에만 통과시키면 되는 규칙이라 tests/test_content_rules.py(매
+# 실행마다 data/ 전체를 재스캔하는 회귀 테스트)에는 안 넣는다 — 거기 넣으면
+# 이 규칙 도입 이전에 쓰인 기존 topic 수십 개가 전부 실패해서 "소급 수정 안
+# 함" 원칙과 충돌한다. check_title_truncation()처럼 review_topic() 경유로만
+# 새 topic에 적용되게 한다.
+GENERIC_CTA_CLOSING_PHRASES = (
+    "저장부터 하세요", "저장하세요", "저장해두세요",
+    "주목하세요", "주목!",
+    "확인하세요", "확인해보세요", "지금 확인하세요",
+    "놓치지 마세요",
+)
+
+BLOG_TITLE_MIN_LENGTH = 25
+BLOG_TITLE_MAX_LENGTH = 40
+
+
+def check_title_closing(topic: str, lang: str = "kor") -> list[dict]:
+    """title 배열 마지막 줄·블로그 제목의 "-" 뒤쪽이 "저장부터 하세요"류 의미
+    없는 CTA 문구인지 검사한다(2026-08-10, "저장부터 하세요 이딴건 너무
+    구닥다리식 의미도 없는 문구" — 사용자 지적). CLAUDE.md "콘텐츠 톤" 절
+    참고 — 마지막 라벨은 해결책을 미리보기하는 명사구여야 한다."""
+    issues = []
+
+    def _is_generic_cta(text: str) -> bool:
+        stripped = text.strip()
+        return any(stripped == p or stripped.startswith(p) for p in GENERIC_CTA_CLOSING_PHRASES)
+
+    spec_path = _topic_dir(topic, lang) / "card_news_spec.json"
+    if spec_path.exists():
+        title = json.loads(spec_path.read_text(encoding="utf-8")).get("title")
+        if isinstance(title, list) and len(title) >= 2 and _is_generic_cta(title[-1]):
+            issues.append({
+                "quote": title[-1],
+                "issue": f'card_news_spec.json title 마지막 줄("{title[-1]}")이 의미 없는 CTA 문구입니다 — 무엇에 대한 해결책인지 드러나는 명사구로 바꾸세요(예: "OO 줄이는 습관 3가지").',
+                "severity": "medium",
+            })
+
+    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
+    if caption_path.exists():
+        blog_title = json.loads(caption_path.read_text(encoding="utf-8")).get("title", "")
+        tail = blog_title.rsplit(" - ", 1)[-1] if " - " in blog_title else blog_title
+        if _is_generic_cta(tail):
+            issues.append({
+                "quote": blog_title,
+                "issue": f'블로그 제목("{blog_title}")의 마지막 라벨이 의미 없는 CTA 문구입니다 — 무엇에 대한 해결책인지 드러나는 명사구로 바꾸세요.',
+                "severity": "medium",
+            })
+
+    return issues
+
+
+def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
+    """블로그 제목("platform_captions.json"의 "title" 필드)이 25~40자인지
+    검사한다(2026-08-10, "블로그 제목은 25~40자 사이로 들어가도록" — 사용자
+    확정). 네이버 블로그·티스토리가 없는 topic(글로벌 등)은 대상 아님."""
+    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
+    if not caption_path.exists():
+        return []
+    spec = json.loads(caption_path.read_text(encoding="utf-8"))
+    has_blog = any(p.get("name") in ("네이버 블로그", "티스토리") for p in spec.get("platforms", []))
+    if not has_blog:
+        return []
+    title = spec.get("title", "")
+    length = len(title)
+    if BLOG_TITLE_MIN_LENGTH <= length <= BLOG_TITLE_MAX_LENGTH:
+        return []
+    return [{
+        "quote": title,
+        "issue": f'블로그 제목이 {length}자입니다 — {BLOG_TITLE_MIN_LENGTH}~{BLOG_TITLE_MAX_LENGTH}자 사이로 맞추세요.',
+        "severity": "medium",
+    }]
+
+
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
-    title_issues = check_title_truncation(topic, lang)
+    title_issues = (
+        check_title_truncation(topic, lang)
+        + check_title_closing(topic, lang)
+        + check_blog_title_length(topic, lang)
+    )
     narration_path = _topic_dir(topic, lang) / "narration.txt"
     narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
     card_text = _card_news_text(topic, lang)
