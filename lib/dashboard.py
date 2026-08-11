@@ -85,7 +85,7 @@ CARD_TEMPLATE = """
         <input type="checkbox" class="done-toggle" data-key="{done_key}" data-name="{name}">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="{url}" target="_blank" rel="noopener" {go_copy_attr}>{go_label}</a>
     </div>
   </div>
   <div class="action-line">{action}</div>
@@ -93,7 +93,7 @@ CARD_TEMPLATE = """
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-{idx}" data-cover="{cover_attr}">{copy_label}</button>
-    <a class="btn-go" href="{url}" target="_blank" rel="noopener" data-copy-target="cap-{idx}">열기(캡션 자동복사) →</a>
+    <a class="btn-go" href="{url}" target="_blank" rel="noopener" {go_copy_attr}>{go_label}</a>
     <span class="edit-hint">직접 수정 가능</span>
     {naver_connect_comment_btn}
   </div>
@@ -1648,9 +1648,18 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             # (2026-07-30 확인) — 실제로 되는 네이버블로그·티스토리 같은 블로그 에디터만
             # rich_paste: true로 표시해서 이 기능을 켠다.
             cover_attr = cover_url if (p.get("rich_paste") and has_cover) else ""
+            # WHY 열기 버튼의 자동 캡션 복사를 rich_paste 플랫폼(네이버 블로그·
+            # 티스토리)에서만 끄는지(2026-08-10, "캡션까지 굳이 복사할 필요없어"):
+            # 이 두 플랫폼은 이미 "캡션 복사"(.btn-copy) 버튼이 캡션+표지 이미지를
+            # 함께 클립보드에 넣어준다 — 그 상태에서 열기를 누르면 이 범용 핸들러가
+            # 텍스트 전용으로 다시 덮어써서 방금 복사한 이미지까지 날아간다.
+            go_copy_attr = "" if p.get("rich_paste") else f'data-copy-target="cap-{idx}"'
+            go_label = "열기 →" if p.get("rich_paste") else "열기(캡션 자동복사) →"
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
+                go_copy_attr=go_copy_attr,
+                go_label=go_label,
                 idx=idx,
                 caption=_esc(p["caption"]),
                 type=t,
