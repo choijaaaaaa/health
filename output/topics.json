@@ -567,37 +567,6 @@
     ]
   },
   {
-    "topic": "만성피로_1/en",
-    "title": "Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests",
-    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "만성피로_1/ja",
-    "title": "「疲れが取れない」その原因は身近な三つの習慣かも",
-    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": true,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "만성피로_1/ko",
-    "title": "자도 자도 피곤하다면 - 만성피로 부르는 습관 피하는 법",
-    "url": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1/ko/card_news/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": true,
-    "tracks": [
-      "shorts",
-      "card_news"
-    ]
-  },
-  {
     "topic": "머리_1/en",
     "title": "Been Through 2-3 Anti-Dandruff Shampoos and the Flakes Still Keep Coming Back? - Foods That Fight Your Shampoo",
     "url": "output/%EB%A8%B8%EB%A6%AC_1/en/dashboard.html",
@@ -800,37 +769,6 @@
     "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_4/ko/card_news/%EB%82%A8%EC%84%B1_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
-    ]
-  },
-  {
-    "topic": "빈혈_1/en",
-    "title": "Your Legs Won't Stop Moving at Night? It Might Not Be Restlessness — It Could Be Low Iron",
-    "url": "output/%EB%B9%88%ED%98%88_1/en/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "빈혈_1/ja",
-    "title": "体にいいと思って続けている習慣が、貧血を招いているかもしれません - 貧血を招く意外な食習慣3つ",
-    "url": "output/%EB%B9%88%ED%98%88_1/ja/dashboard.html",
-    "thumbnail": null,
-    "ad_tag": false,
-    "tracks": [
-      "shorts"
-    ]
-  },
-  {
-    "topic": "빈혈_1/ko",
-    "title": "이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! - 빈혈 부르는 의외의 음식 습관",
-    "url": "output/%EB%B9%88%ED%98%88_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%B9%88%ED%98%88_1/ko/card_news/%EB%B9%88%ED%98%88_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "shorts",
       "card_news"
     ]
   },
@@ -1351,6 +1289,37 @@
     ]
   },
   {
+    "topic": "어지럼증_4/en",
+    "title": "Your Legs Won't Stop Moving at Night? It Might Not Be Restlessness — It Could Be Low Iron",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "어지럼증_4/ja",
+    "title": "体にいいと思って続けている習慣が、貧血を招いているかもしれません - 貧血を招く意外な食習慣3つ",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "어지럼증_4/ko",
+    "title": "이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! - 빈혈 부르는 의외의 음식 습관",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/ko/dashboard.html",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/ko/card_news/%EB%B9%88%ED%98%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "여성_1/en",
     "title": "Most women deal with a yeast infection at some point - Foods That Feed Vaginal Yeast Infections",
     "url": "output/%EC%97%AC%EC%84%B1_1/en/dashboard.html",
@@ -1695,6 +1664,37 @@
     "url": "output/%EC%BD%94_3/ko/dashboard.html",
     "thumbnail": "output/%EC%BD%94_3/ko/card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피로_1/en",
+    "title": "Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests",
+    "url": "output/%ED%94%BC%EB%A1%9C_1/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피로_1/ja",
+    "title": "「疲れが取れない」その原因は身近な三つの習慣かも",
+    "url": "output/%ED%94%BC%EB%A1%9C_1/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피로_1/ko",
+    "title": "자도 자도 피곤하다면 - 만성피로 부르는 습관 피하는 법",
+    "url": "output/%ED%94%BC%EB%A1%9C_1/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_1/ko/card_news/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
     "tracks": [
       "shorts",
       "card_news"

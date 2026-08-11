@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>「疲れが取れない」 その原因は身近な 三つの習慣かも — 업로드 대시보드</title>
+<title>Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -217,7 +217,7 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>「疲れが取れない」 その原因は身近な 三つの習慣かも</h1>
+  <h1>Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests</h1>
   
 </header>
 
@@ -256,23 +256,52 @@
         <input type="checkbox" class="done-toggle" data-key="Instagram%20Reels" data-name="Instagram Reels">
         <span>완료</span>
       </label>
-      <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+      <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
     </div>
   </div>
-  <div class="action-line">캡션 복사 → 새 릴스 → 캡션란에 붙여넣기</div>
+  <div class="action-line">Copy caption → New Reel → paste in caption field</div>
   
-  <textarea class="caption-box" id="cap-0" spellcheck="false">「疲れが取れない」その原因、実は身近な習慣かも…😮‍💨
+  <textarea class="caption-box" id="cap-0" spellcheck="false">Still dragging even after a full night's sleep? 😴
 
-コンビニ弁当中心の食生活、長時間労働・残業、シャワーだけの入浴——慢性疲労を招く三つの習慣です。
+Running low on water, falling short on magnesium, and scrolling on a bright phone before bed — three habits that quietly wreck your energy the next day.
 
-コンビニ食が多い日は納豆や玄米を一品足す、仕事の合間に深呼吸、可能な日は湯船に浸かる。それだけで体の軽さが変わってきます✨
+Carry a water bottle, add magnesium-rich foods like spinach or almonds, and put the phone down an hour before bed.
 
-もっと役立つ健康情報が気になる方はフォローしてお待ちください👆
-
-#慢性疲労 #自律神経 #ビタミンB群 #健康情報 #健康豆知識</textarea>
+#chronicfatigue #dehydration #magnesium #sleepquality #healthtips</textarea>
   <div class="card-actions">
-    <button class="btn-copy" data-target="cap-0" data-cover="">캡션 복사</button>
-    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <button class="btn-copy" data-target="cap-0">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="cap-0">열기(캡션 자동복사) →</a>
+    <span class="edit-hint">직접 수정 가능</span>
+    
+  </div>
+</div>
+
+<div class="platform-card" data-done-key="Facebook" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="1">
+  <div class="platform-head">
+    <div class="platform-name-wrap">
+      <span class="type-badge badge-video">영상</span>
+      <h3>Facebook</h3>
+    </div>
+    <div class="head-actions">
+      <label class="done-check">
+        <input type="checkbox" class="done-toggle" data-key="Facebook" data-name="Facebook">
+        <span>완료</span>
+      </label>
+      <a class="btn-go" href="" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
+    </div>
+  </div>
+  <div class="action-line">Copy caption -&gt; New post -&gt; paste (attach cover image or video) -&gt; after posting, add purchase link in comment</div>
+  
+  <textarea class="caption-box" id="cap-1" spellcheck="false">Still dragging even after a full night's sleep? 😴
+
+Running low on water, falling short on magnesium, and scrolling on a bright phone before bed — three habits that quietly wreck your energy the next day.
+
+Carry a water bottle, add magnesium-rich foods like spinach or almonds, and put the phone down an hour before bed.
+
+#chronicfatigue #dehydration #magnesium #sleepquality #healthtips</textarea>
+  <div class="card-actions">
+    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
+    <a class="btn-go" href="" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
     <span class="edit-hint">직접 수정 가능</span>
     
   </div>
@@ -290,7 +319,7 @@ const CARD_IMAGE_NAMES = [];
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
-const TOPIC_NAME = "T";
+const TOPIC_NAME = "\ud53c\ub85c_1_en";
 // WHY posting_log/product_links를 Supabase에도 미러링하는지(2026-08-08, "db에는
 // 내가 제어하는것들 전반적으로 넣도록하자"): localStorage는 여전히 기기 재방문 시
 // 즉시 복원되는 1차 소스로 유지하고(기존 캡션 자동삽입 로직이 이 값을 그대로
@@ -454,10 +483,6 @@ document.querySelectorAll(".copy-comment-links").forEach(copyCommentLinksBtn => 
   });
 });
 
-function _escapeHtml(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-
 document.querySelectorAll(".btn-copy").forEach(btn => {
   const originalLabel = btn.textContent;
   const onCopied = () => {
@@ -469,21 +494,7 @@ document.querySelectorAll(".btn-copy").forEach(btn => {
     // WHY replace: 자동추가 구간 경계 표시는 보이지 않는 문자라 원래도 화면엔 안 보이지만,
     // 혹시 몰라 복사 시점에 한 번 더 확실히 제거한다.
     const text = document.getElementById(btn.dataset.target).value.split(AUTO_LINKS_START).join("").split(AUTO_LINKS_END).join("").split(AUTO_BOTTOM_START).join("").split(AUTO_BOTTOM_END).join("");
-    const cover = btn.dataset.cover;
-    if (cover && window.ClipboardItem) {
-      // WHY font-size를 인라인으로: 붙여넣기 대상 에디터(네이버 블로그·티스토리)가
-      // 기본 폰트 크기를 작게 잡는 경우가 많아서, 처음부터 읽기 편한 크기로 넣어준다
-      // (리치에디터는 대개 인라인 스타일까지 그대로 붙여넣음).
-      const bodyHtml = text.split("\n").map(line => line.trim() ? `<p style="font-size:17px;line-height:1.7;">${_escapeHtml(line)}</p>` : "<br>").join("");
-      const html = `<p><img src="${cover}" style="max-width:100%;"></p>` + bodyHtml;
-      const item = new ClipboardItem({
-        "text/plain": new Blob([text], {type: "text/plain"}),
-        "text/html": new Blob([html], {type: "text/html"}),
-      });
-      navigator.clipboard.write([item]).then(onCopied).catch(() => navigator.clipboard.writeText(text).then(onCopied));
-    } else {
-      navigator.clipboard.writeText(text).then(onCopied);
-    }
+    navigator.clipboard.writeText(text).then(onCopied);
   });
 });
 // WHY 열기 버튼도 자동 복사(2026-08-01, "버튼 누르면 그 플랫폼으로 넘어가서 글까지
@@ -517,7 +528,7 @@ lightbox.addEventListener("click", () => lightbox.classList.remove("open"));
 const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\ud2b8\ub108\uc2a4 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c, \uc774\uc5d0 \ub530\ub978 \uc77c\uc815\uc561\uc758 \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const COMMENT_KEYWORD = "";
-const LINK_STORAGE_PREFIX = "hs_link_T_";
+const LINK_STORAGE_PREFIX = "hs_link_%ED%94%BC%EB%A1%9C_1_en_";
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
 // 끝에 붙는 경우에만 안전했다 — 그런데 공정위 표시광고 지침상 고지문이 "게시물
@@ -687,17 +698,18 @@ function applyProductLinks() {
     // linkInComment 하나에만 걸리게 명시적으로 분기): 다른 플랫폼(네이버
     // 블로그·티스토리 등)은 공정위 지침상 "게시물 첫 부분"에 있어야 해서
     // 여전히 위/아래 둘 다 넣는다 — linkInComment만 예외로 위쪽을 생략한다.
-    // ⚠️ WHY 네이버 클립(hasNaverButton)만 다시 예외의 예외인지(2026-08-10,
-    // "맨처음에 그냥 [광고] 이래되어있고 마지막 줄에... 이거 두개 그냥
-    // 합쳐가지고 첫줄에만 넣어놓는게 낫지않겠냐"): 네이버 클립은 캡션 첫 줄에
-    // "[광고]" 표시가 정적으로 이미 있는데(공정위 지침상 광고 표시 규칙), 위
-    // linkInComment 규칙대로 고지문을 아래에만 넣으니 "[광고]"(위)와 실제
-    // 고지 문장(아래)이 따로 떨어져 나왔다 — 광고 표시와 고지 문장은 원래
-    // 한 덩어리라 맨 위 한 줄로 합치고 아래쪽 중복은 없앤다.
+    // ⚠️ WHY 네이버 클립(hasNaverButton)은 "[광고]+고지문"을 맨 아래 한
+    // 덩어리로 합치는지(2026-08-10 재수정 — 한 번 맨 위로 합쳤다가 "클립이나
+    // 숏츠나 맨 아래에 들어오게 하자... 상단에 들어올 필요가 없어보여 어차피
+    // 바로 눈에 들어올만큼 짧은 글인데" 지적으로 다시 뒤집음): 네이버 클립
+    // 캡션은 200~300자 수준으로 짧아서 스크롤 없이 전체가 한눈에 보이므로,
+    // 공정위 "추가 행동 없이 보이는 위치" 요건은 위/아래 어느 쪽이든
+    // 동일하게 충족된다 — 그럴 거면 본문 맨 위(사용자 정적 캡션 바로 앞)에
+    // 끼어드는 것보다 맨 아래가 자연스럽다. "[광고]" 표시와 고지 문장은
+    // 여전히 한 덩어리로 유지(따로 떨어지면 안 됨).
     let withTop;
     if (linkInComment && hasNaverButton) {
-      const topWrapped = AUTO_LINKS_START + "[광고] " + result.disclosure + AUTO_LINKS_END;
-      withTop = topWrapped + "\n\n" + stripped;
+      withTop = stripped;
     } else if (linkInComment) {
       withTop = stripped;
     } else {
@@ -717,14 +729,11 @@ function applyProductLinks() {
     // WHY blockText가 빈 문자열일 때 줄바꿈을 안 붙이는지(linkInComment): 위
     // result 분기에서 linkInComment는 blockText가 항상 "" — 무조건 줄바꿈을
     // 이어붙이면 고지문 뒤에 내용 없는 빈 줄만 남는다.
-    // WHY 네이버 클립(linkInComment && hasNaverButton)은 아래쪽을 아예 안
-    // 붙이는지: 위에서 이미 "[광고] + 고지문"을 맨 위 한 줄로 합쳐 넣었다 —
-    // 아래에 고지문만 또 붙이면 방금 합친 의미가 없어진다(중복 표시).
-    if (linkInComment && hasNaverButton) {
-      box.value = withTop;
-      return;
-    }
-    const bottomWrapped = AUTO_BOTTOM_START + result.disclosure + (blockText ? "\n\n" + blockText : "") + AUTO_BOTTOM_END;
+    // WHY 네이버 클립만 "[광고] " 접두어를 붙이는지: 이 플랫폼은 광고 표시와
+    // 고지 문장이 한 덩어리로(따로 떨어지지 않게) 나와야 한다는 요건이 있어서
+    // (위 withTop 분기 WHY 참고) — 다른 플랫폼은 고지문만 그대로 둔다.
+    const bottomDisclosure = (linkInComment && hasNaverButton) ? ("[광고] " + result.disclosure) : result.disclosure;
+    const bottomWrapped = AUTO_BOTTOM_START + bottomDisclosure + (blockText ? "\n\n" + blockText : "") + AUTO_BOTTOM_END;
     box.value = withTop + "\n\n" + bottomWrapped;
   });
 }
@@ -778,7 +787,7 @@ function applyProductLinks() {
 // topic 이름 자체에 "_"가 들어있어서(예: 눈_1) 안전하게 쪼갤 방법이 없다 — 값
 // 안에 topic/platform/게시시각을 자체적으로 담아서 내보내기가 파싱 없이 바로
 // 되게 한다(포스팅 스케줄 로그 — index.html의 CSV 내보내기/가져오기 참고).
-const STORAGE_PREFIX = "hs_done_T_";
+const STORAGE_PREFIX = "hs_done_%ED%94%BC%EB%A1%9C_1_en_";
 (async () => {
   const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
   const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
