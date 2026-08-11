@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  /* WHY main이 row-wrap 플렉스인지(2026-08-05, "글로벌도 영상 쪽에 한국이랑
+     병렬로 나열되게 해"): 한국어(iframe)와 글로벌(카드) 섹션을 위아래로 쌓지
+     않고 나란히 두 칼럼으로 배치 — 좁은 화면에서는 flex-wrap으로 자연스럽게
+     아래로 떨어진다. */
+  main {
+    max-width: 1400px; margin: 0 auto; padding: 16px 20px 40px;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+  }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; flex: 1 1 420px; min-width: 320px; }
+  .lang-heading {
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  /* WHY 고정 650px인지(2026-08-05, "릴스 각 언어별로 카드 왜 없어졌어?" —
+     실제로는 안 없어졌고 아래 글로벌 섹션이 화면 밖으로 밀려서 안 보인 것):
+     탭 전환 방식일 땐 iframe 하나만 보이는 화면을 꽉 채워야 해서 80vh를 썼는데,
+     지금은 이 iframe이 페이지 안 여러 섹션 중 하나라 80vh(대부분 화면 높이)를
+     그대로 차지하면 바로 아래 글로벌 카드들이 스크롤 한참 뒤에야 보인다 —
+     내용이 다 보이는 적당한 고정 높이로 줄인다. */
+  iframe.dash-frame { width: 100%; height: 650px; border: 0; border-radius: 16px; background: var(--panel); display: block; }
+  .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
+  .plat-card {
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
+  }
+  .plat-card.is-done { opacity: 0.55; border-color: var(--accent); background: var(--accent-soft); }
+  .plat-lang {
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }
+  .plat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .plat-card h3 { margin: 0; font-size: 14px; }
+  .plat-done-check {
+    display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-soft);
+    white-space: nowrap; cursor: pointer; flex: 0 0 auto;
+  }
+  .plat-done-check input { width: 13px; height: 13px; accent-color: var(--accent); cursor: pointer; }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../../supabase_client.js"></script>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법</h1>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+</header>
+<main>
+<section class="lang-section"><h2 class="lang-heading">한국어</h2><iframe class="dash-frame" src="ko/dashboard.html"></iframe></section>
+<section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28EN%29" data-name="Instagram Reels (EN)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-en-1" spellcheck="false">Rings tight by lunch, ankles thicker by evening? 💧
+
+Extra sodium traps water around your cells - and deli meat, canned soup, and beer are three of the most common everyday culprits. A few slices of deli ham alone can carry over 1,000mg of sodium.
+
+Here's why, and simple swaps that actually help.
+
+Want more health tips like this? Follow along 👆
+
+#swelling #waterretention #edema #sodium #healthtips #wellness</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-en-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="g-cap-en-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="Facebook%20%28EN%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">영어 English</span>Facebook</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Facebook%20%28EN%29" data-name="Facebook (EN)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-en-2" spellcheck="false">Rings tight by lunch, ankles thicker by evening? 💧
+
+Extra sodium traps water around your cells - and deli meat, canned soup, and beer are three of the most common everyday culprits. A few slices of deli ham alone can carry over 1,000mg of sodium.
+
+Here's why, and simple swaps that actually help.
+
+Want more health tips like this? Follow along 👆
+
+#swelling #waterretention #edema #sodium #healthtips #wellness</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-en-2">캡션 복사</button>
+    <a class="btn-go" href="" target="_blank" rel="noopener" data-copy-target="g-cap-en-2">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28JA%29" data-name="Instagram Reels (JA)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ja-1" spellcheck="false">朝は顔が、夜は脚が重だるい…それ、毎日の食習慣が原因かもしれません🍜
+
+カップ麺・加工肉・ポテトチップス――それぞれに理由があります。
+
+むくみを和らげるちょっとした工夫を動画でチェック！
+
+もっと役立つ健康情報が気になる方はフォローしてお待ちください👆
+
+#むくみ #むくみ解消 #塩分 #健康情報</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ja-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="g-cap-ja-1">열기 →</a>
+  </div>
+</div>
+</div></section>
+
+</main>
+<script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
+})();
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+// WHY 글로벌 카드에도 완료 체크를 다는지(2026-08-05, "인스타그램 릴스
+// 글로벌꺼도 선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko
+// dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
+// hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
+// 내보내기가 언어 상관없이 전부 픽업하게 한다.
+const TOPIC_NAME = "\uc21c\ud658_2";
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
+      card.classList.add("is-done");
+    }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

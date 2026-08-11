@@ -257,6 +257,32 @@ def _playlist_has_video(youtube, playlist_id: str, video_id: str) -> bool:
     return False
 
 
+def _remove_from_playlist(youtube, playlist_id: str, video_id: str) -> bool:
+    """topic 카테고리 재편(2026-08-11, 구강/피부 등 세분화된 topic들을 상위
+    카테고리로 통합)으로 옛 카테고리 재생목록에 남은 영상을 정리할 때 쓴다.
+    playlistItems는 video_id가 아니라 playlistItem 고유 id로 삭제해야 해서,
+    먼저 list로 그 id를 찾아야 한다. 못 찾으면(이미 없음) False만 반환하고
+    조용히 넘어간다 — _add_to_category_playlist와 마찬가지로 호출부가 이미
+    완료된 작업(리네임) 자체를 막지 않게 예외를 삼킨다."""
+    request = youtube.playlistItems().list(part="id,snippet", playlistId=playlist_id, maxResults=50)
+    item_id = None
+    while request is not None and item_id is None:
+        response = request.execute()
+        for item in response.get("items", []):
+            if item["snippet"]["resourceId"]["videoId"] == video_id:
+                item_id = item["id"]
+                break
+        request = youtube.playlistItems().list_next(request, response)
+    if item_id is None:
+        return False
+    try:
+        youtube.playlistItems().delete(id=item_id).execute()
+        return True
+    except HttpError as e:
+        print(f"[youtube_upload] ⚠️ 재생목록에서 제거 실패: {e}")
+        return False
+
+
 def _add_to_category_playlist(youtube, topic: str, video_id: str, lang: str = "ko") -> None:
     """실패해도 업로드 자체는 이미 성공한 뒤라 예외를 삼키고 경고만 남긴다.
 

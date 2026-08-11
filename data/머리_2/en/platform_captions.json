@@ -1,0 +1,33 @@
+{
+  "topic": "머리_2_en",
+  "title": "Going gray way earlier than your friends? 3 habits that speed it up",
+  "products": [],
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio -> Create -> Upload video",
+      "caption": "Title: Going Gray Way Earlier Than Your Friends? 3 Habits That Speed It Up\n\nDescription:\nGray hair isn't only about genetics - some everyday habits may speed it up. Low vitamin B12 (common on a plant-based diet), overdoing zinc supplements, and chronic stress can all play a role in premature graying, according to research.\n\nWatch to see why each one matters and what may help.\n\n#GrayHair #PrematureGray #VitaminB12 #Zinc #HairHealth #HealthTips"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption -> New Reel -> paste into caption field",
+      "caption": "Going gray way earlier than your friends? It might not just be genetics 🤍\n\nLow B12, too much zinc, and chronic stress may all speed up premature graying, according to research.\n\nWant more health tips like this? Follow along 👆\n\n#GrayHair #PrematureGray #VitaminB12 #HealthTips"
+    },
+    {
+      "name": "Facebook",
+      "url": "",
+      "type": "video",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "Going gray way earlier than your friends? It might not just be genetics 🤍\n\nLow B12, too much zinc, and chronic stress may all speed up premature graying, according to research.\n\nWant more health tips like this? Follow along 👆\n\n#GrayHair #PrematureGray #VitaminB12 #HealthTips"
+    }
+  ]
+}
