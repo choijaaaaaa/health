@@ -3178,5 +3178,71 @@
       "recent_avg": 2.0,
       "momentum": -5.0
     }
+  },
+  "2026-08-11": {
+    "장염": {
+      "recent_avg": 56.0,
+      "momentum": -2.0
+    },
+    "수족냉증": {
+      "recent_avg": 1.0,
+      "momentum": -0.3
+    },
+    "다래끼": {
+      "recent_avg": 24.0,
+      "momentum": 2.7
+    },
+    "환절기 비염": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "꽃가루 알레르기": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "피부 건조증": {
+      "recent_avg": 0.0,
+      "momentum": -0.3
+    },
+    "관절통": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "환절기 탈모": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "독감": {
+      "recent_avg": 5.0,
+      "momentum": 0.7
+    },
+    "동상": {
+      "recent_avg": 10.7,
+      "momentum": -2.3
+    },
+    "안구건조증": {
+      "recent_avg": 7.3,
+      "momentum": 0.7
+    },
+    "겨울철 우울감": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "노로바이러스": {
+      "recent_avg": 3.3,
+      "momentum": -2.7
+    },
+    "춘곤증": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "미세먼지": {
+      "recent_avg": 21.3,
+      "momentum": 3.0
+    },
+    "구강 건강": {
+      "recent_avg": 52.7,
+      "momentum": 11.7
+    }
   }
 }

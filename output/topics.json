@@ -515,16 +515,6 @@
     ]
   },
   {
-    "topic": "두바이초콜릿_1/ko",
-    "title": "요즘 SNS에서 난리 난 두바이 초콜릿, 한 조각 먹기 전에 확인해야 할 성분 3가지",
-    "url": "output/%EB%91%90%EB%B0%94%EC%9D%B4%EC%B4%88%EC%BD%9C%EB%A6%BF_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%91%90%EB%B0%94%EC%9D%B4%EC%B4%88%EC%BD%9C%EB%A6%BF_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "card_news"
-    ]
-  },
-  {
     "topic": "두피_1/en",
     "title": "Been Through 2-3 Anti-Dandruff Shampoos and the Flakes Still Keep Coming Back? - Foods That Fight Your Shampoo",
     "url": "output/%EB%91%90%ED%94%BC_1/en/dashboard.html",
@@ -1892,6 +1882,16 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "혈당_3/ko",
+    "title": "한때 SNS를 뒤흔들었던 두바이 초콜릿, 다시 먹기 전에 확인해야 할 성분 3가지",
+    "url": "output/%ED%98%88%EB%8B%B9_3/ko/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_3/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
