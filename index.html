@@ -358,11 +358,23 @@ Promise.all([
   // 실제 공개 전환 시각을 기다리지 않고) lib/youtube_upload.py가 이 테이블에
   // 자동 기록한다(_mark_youtube_uploaded).
   sb.from("youtube_uploaded").select("topic").then(r => (r.data || []).map(x => x.topic)),
+  // WHY posting_log에서 최초 게시일을 뽑는지(2026-08-11, "기존꺼가 위로
+  // 오게 해"): topics.updated_at은 topic 카테고리 대량 재편 때 183개를
+  // 통째로 다시 upsert하면서 다 비슷한 시각으로 뭉개져서 진짜 발행 순서를
+  // 못 나타낸다 — posting_log.posted_at은 리네임 때 topic 값만 새 이름으로
+  // 바뀌었을 뿐 시각 자체는 그대로라, 각 topic의 실제 최초 게시 시각을
+  // 그대로 보존하고 있다.
+  sb.from("posting_log").select("topic,posted_at").then(r => r.data || []),
 ])
-  .then(([topics, completedList, youtubeList]) => {
+  .then(([topics, completedList, youtubeList, postingLogRows]) => {
     if (!topics.length) return;
     const completed = new Set(completedList);
     const youtubeDone = new Set(youtubeList);
+    const firstPostedAt = new Map();
+    postingLogRows.forEach(r => {
+      const prev = firstPostedAt.get(r.topic);
+      if (!prev || r.posted_at < prev) firstPostedAt.set(r.topic, r.posted_at);
+    });
     const searchInput = document.getElementById("topicSearch");
     let currentRows = [];
 
@@ -399,7 +411,18 @@ Promise.all([
       doneWrap.style.display = n > 0 ? "block" : "none";
     }
 
-    groups.forEach((variants, baseTopic) => {
+    // WHY 정렬 기준(2026-08-11, "기존꺼가 위로 오게 해. 완료 목록은 새로운게
+    // 위로 오게 하고"): 미완료 목록은 최초 게시일 오름차순(오래된 topic이
+    // 위) — posting_log 기록이 없는 topic(아직 어디에도 안 올린 콘텐츠)은
+    // Infinity로 취급해서 맨 아래로 보낸다. 완료 목록은 같은 정렬을 그대로
+    // 쓰되 각 행을 뒤에 붙이지 않고 맨 앞에 꽂아서(prepend) 결과적으로
+    // 최신순(내림차순)이 되게 한다 — 정렬을 두 번 따로 하지 않아도 된다.
+    const sortedGroups = [...groups.entries()].sort((a, b) => {
+      const ta = firstPostedAt.get(a[0]) || "￿";
+      const tb = firstPostedAt.get(b[0]) || "￿";
+      return ta < tb ? -1 : ta > tb ? 1 : 0;
+    });
+    sortedGroups.forEach(([baseTopic, variants]) => {
       // WHY 대표 변형(primary)을 ko 우선으로 고르는지: 목록 제목·썸네일은 한
       // 언어만 대표로 보여줘야 행이 안 복잡해지는데, 사용자가 한국어 화자라
       // ko가 있으면 그게 가장 읽기 편하다 — ko가 없으면(글로벌 전용 topic)
@@ -557,10 +580,16 @@ Promise.all([
       }
 
       // WHY topic당 행 하나만: 목록에 트랙 구분이 없어졌으니(위 배지 WHY 참고)
-      // 완료면 doneList, 아니면 topicsList 하나에만 넣는다.
+      // 완료면 doneList, 아니면 topicsList 하나에만 넣는다. doneList는
+      // appendChild 대신 맨 앞에 꽂아서(prepend) 오름차순 순회 결과를
+      // 최신순으로 뒤집는다 — 바로 위 sortedGroups WHY 참고.
       const row = buildRow();
       const targetList = done ? doneList : topicsList;
-      targetList.appendChild(row);
+      if (done) {
+        targetList.insertBefore(row, targetList.firstChild);
+      } else {
+        targetList.appendChild(row);
+      }
       rows.push({ row, topic: baseTopic, list: targetList });
     });
     refreshDoneWrap();
