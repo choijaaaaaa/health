@@ -417,8 +417,8 @@ HOOK_PATTERNS = [
 
 def select_hook_pattern(topic: str) -> tuple[str, str]:
     """select_format()과 동일한 시드 공식으로 topic당 훅 패턴 하나를 결정론적으로
-    고른다. (이름, 설명) 튜플 반환 — 내용 기준(구체적 증상 호출, 장기/질환명 걱정형
-    금지)은 패턴과 무관하게 그대로 유지, 바뀌는 건 문장 어미/형태뿐."""
+    고른다. (이름, 설명) 튜플 반환 — 내용 기준(핵심 키워드로 시작 → 구체적 걱정
+    포인트로 연결)은 패턴과 무관하게 그대로 유지, 바뀌는 건 문장 어미/형태뿐."""
     seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(topic))
     return HOOK_PATTERNS[seed_val % len(HOOK_PATTERNS)]
 
