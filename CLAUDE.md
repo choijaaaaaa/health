@@ -13,8 +13,32 @@
 
 - **역할 고정 없음** — 세션 하나가 신규 topic·기존 topic 수정·설정 변경 전부 처리.
 - **완전 자동화 모드** — "다음 topic 해줘"류 요청은 소재 선정→리서치→콘텐츠 작성→
-  이미지/TTS/영상 조립→대시보드→git commit·push까지 중간 승인 없이 끝까지 진행.
-  단, 유튜브 외 플랫폼 업로드는 API 연동이 없어 사람이 대시보드에서 수동으로 함.
+  이미지/TTS/영상 조립→대시보드→**Supabase `topics` upsert**→git commit·push까지
+  중간 승인 없이 끝까지 진행. 단, 유튜브 외 플랫폼 업로드는 API 연동이 없어
+  사람이 대시보드에서 수동으로 함.
+  - ⚠️ **Supabase `topics` upsert는 절대 빠뜨리지 말 것(2026-08-11 실측 사고)**
+    — `lib/dashboard.py`의 `generate()`/`_update_topics_index()`는 로컬
+    `output/topics.json`만 갱신하고 Supabase는 **전혀 건드리지 않는다**.
+    index.html의 메인 목록은 Supabase `topics` 테이블만 읽으므로, 이 단계를
+    빠뜨리면 "커밋·푸시는 됐는데 사이트 목록엔 안 보이는" 상태가 된다(실제
+    발생 — 새 topic 3개를 만들고 push까지 했는데 Supabase만 안 넣어서
+    목록에서 안 보였음). 새 topic(또는 리네임) 작업 마지막에 항상:
+    ```python
+    import os, json, requests
+    from dotenv import load_dotenv
+    load_dotenv()
+    url, key = os.environ['SUPABASE_URL'], os.environ['SUPABASE_SERVICE_ROLE_KEY']
+    headers = {'apikey': key, 'Authorization': f'Bearer {key}', 'Content-Type': 'application/json',
+               'Prefer': 'resolution=merge-duplicates,return=minimal'}
+    topics = json.load(open('output/topics.json'))
+    rows = [{'topic': t['topic'], 'title': t.get('title'), 'url': t.get('url'),
+             'thumbnail': t.get('thumbnail'), 'ad_tag': bool(t.get('ad_tag', False)),
+             'tracks': t.get('tracks', [])} for t in topics if t['topic'] in {"<새 topic 이름들>"}]
+    requests.post(f'{url}/rest/v1/topics', headers=headers, json=rows, timeout=30)
+    ```
+    작업 끝나면 로컬 `output/topics.json`과 Supabase `topics` 테이블 topic
+    목록이 정확히 일치하는지 한 번 diff로 확인할 것(위 스크립트의 `missing`
+    계산 패턴 재사용 가능).
   - ⚠️ **"끝까지"는 한국어(ko) 하나로 끝나는 게 아니라 글로벌 6개 언어(ko/en/
     ja/es/pt/ru) 전체를 뜻한다(2026-08-07 명확화)** — "새 topic 신규 생성"
     요청을 ko 대본·TTS만 만들고 완료 처리하는 사고가 반복됐음(다른 세션·이
