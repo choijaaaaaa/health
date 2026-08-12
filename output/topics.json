@@ -515,6 +515,16 @@
     ]
   },
   {
+    "topic": "눈_7/ko",
+    "title": "황반변성, 직선이 물결치듯 휘어져 보이시나요? - 황반 지키는 습관",
+    "url": "output/%EB%88%88_7/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_7/ko/card_news/%EB%88%88_7_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "대사_1/en",
     "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
     "url": "output/%EB%8C%80%EC%82%AC_1/en/dashboard.html",
@@ -1942,6 +1952,16 @@
     "ad_tag": true,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "입_9/ko",
+    "title": "치아 착색, 양치 열심히 해도 누렇다면 - 착색 막는 습관",
+    "url": "output/%EC%9E%85_9/ko/dashboard.html",
+    "thumbnail": "output/%EC%9E%85_9/ko/card_news/%EC%9E%85_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
       "card_news"
     ]
   },
