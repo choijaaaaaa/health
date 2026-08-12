@@ -175,6 +175,12 @@
     "카드뉴스"(`lib/dashboard.py`의 `_update_topics_index()`가 매번 재계산해서
     `output/topics.json`에 기록, `index.html`이 이 값으로 "🎬 숏츠"/"🗞 카드뉴스"
     두 섹션으로 나눠 보여줌). 새 필드를 손으로 추가·관리할 필요 없음.
+- ⚠️ **카드뉴스 표지 배경색은 매 topic 다르게(2026-08-12)** — `card_news_spec.json`에
+  `cover_scrim_color`(hex 문자열)를 안 넣으면 기본값인 브랜드 ACCENT(로즈핑크)로
+  전부 동일하게 나온다("왜 죄다 빨간바탕만 해놨냐" 지적, 실측 14개 topic 전부
+  같은 핑크였음). 새 topic마다 다른 hex를 지정할 것 — 이미 쓰인 값은
+  `grep -rh "cover_scrim_color" data/*/ko/card_news_spec.json`으로 확인 후 안 겹치는
+  톤으로 고른다.
 
 ## 동시 세션 안전장치 — 매번 필수
 
