@@ -446,6 +446,23 @@ def _title_card_style_for_seed(seed: str) -> str:
     return _TITLE_CARD_STYLES[idx]
 
 
+def _remove_chroma_bg(img: Image.Image, thresh: int = 160) -> Image.Image:
+    """캐릭터 일러스트의 크로마키 배경(코너 픽셀 색을 자동으로 키 색상 채택 —
+    캐릭터 자체가 초록 계열이면 배경이 파란/마젠타로 바뀌므로 하드코딩 금지)을
+    투명 처리한다 — `lib/card_news.py`의 `_remove_chroma_bg`와 동일한 원리(각
+    파일이 이 작은 유틸을 독립적으로 갖는 기존 컨벤션을 따름)."""
+    img = img.convert("RGBA")
+    key = img.getpixel((2, 2))[:3]
+    kr, kg, kb = key
+    pixels = img.load()
+    for y in range(img.height):
+        for x in range(img.width):
+            r, g, b, a = pixels[x, y]
+            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
+                pixels[x, y] = (r, g, b, 0)
+    return img
+
+
 def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str | None = None,
                           lang: str = "kor", accent_color: tuple[int, int, int] = (200, 74, 98),
                           y_bias: float = 0.5, style: str = "plain"):
@@ -463,9 +480,17 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     등)는 영향 없음 — assemble()만 title 기준 시드로 계산해서 넘긴다."""
     img = Image.new("RGB", (W, H), accent_color)
     if char_path:
-        target = int(H * 1.15)
-        char = Image.open(char_path).convert("RGB").resize((target, target))
-        char = char.filter(ImageFilter.GaussianBlur(25))
+        # WHY 블러 전에 크로마 제거+accent_color로 배경 채우기(2026-08-12,
+        # "UI 왜이렇게됐지" — lib/card_news.py의 make_cover_titlecard에서
+        # 같은 문제를 실측하고 고친 뒤 여기도 동일 적용): 캐릭터가 정사각
+        # 프레임을 꽉 안 채우는 소스는 원본 크로마 배경색이 블러+반투명
+        # 스크림 밑으로 그대로 비쳐서 타이틀 카드가 얼룩덜룩하게 보였다.
+        raw = Image.open(char_path).convert("RGB").resize((int(H * 1.15), int(H * 1.15)))
+        chroma = _remove_chroma_bg(raw)
+        filled = Image.new("RGB", chroma.size, accent_color)
+        filled.paste(chroma, (0, 0), chroma)
+        target = chroma.size[0]
+        char = filled.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
         char = char.crop((left, top, left + W, top + H))
         scrim = Image.new("RGBA", (W, H), (*accent_color, 150))

@@ -212,9 +212,20 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
     달라진다. 기본값은 브랜드 ACCENT(로즈핑크) 그대로 유지, 필요할 때만 넘긴다."""
     img = Image.new("RGB", (W, H), scrim_color)
     if char_path:
-        target = int(H * 1.15)
-        char = Image.open(char_path).convert("RGB").resize((target, target))
-        char = char.filter(ImageFilter.GaussianBlur(25))
+        # WHY 블러 전에 크로마 제거+scrim_color로 배경 채우기(2026-08-12,
+        # "UI 왜이렇게됐지" — 코_4 표지에서 실제로 발견): 원본 캐릭터 소스는
+        # 초록/시안 크로마키 배경으로 만들어지는데, 여기선 그 원본을 그대로
+        # 리사이즈·블러했다 — 캐릭터가 정사각 프레임을 꽉 안 채우는 소스는
+        # (예: 휴지_illust.jpg) 블러 후에도 배경의 초록이 절반 투명 스크림
+        # 밑으로 그대로 비쳐서 "초록/핑크 뒤섞인 표지"처럼 보였다. 크로마를
+        # 먼저 제거하고 불투명 scrim_color로 배경을 채운 뒤 블러하면, 어디를
+        # 블러해도 캐릭터색 아니면 scrim_color뿐이라 원본 배경색이 안 남는다.
+        raw = Image.open(char_path).convert("RGB").resize((int(H * 1.15), int(H * 1.15)))
+        chroma = _remove_chroma_bg(raw)
+        filled = Image.new("RGB", chroma.size, scrim_color)
+        filled.paste(chroma, (0, 0), chroma)
+        target = chroma.size[0]
+        char = filled.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
         char = char.crop((left, top, left + W, top + H))
         scrim = Image.new("RGBA", (W, H), (*scrim_color, 150))
