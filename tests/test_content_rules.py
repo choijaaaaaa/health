@@ -169,6 +169,34 @@ def test_naver_blog_min_length(topic):
 
 
 # ---------------------------------------------------------------------------
+# 규칙 1-2: 네이버 블로그·티스토리는 같은 원고 금지(2026-08-12, 재발 방지 —
+# CLAUDE.md에 규칙은 있었는데 자동 검사가 없어서 실측 85개 topic 전부
+# 제목이 동일했고 그중 29개는 본문까지 완전히 동일했던 사고 이후 추가).
+# 제목(캡션 첫 줄)과 본문 전체 중 하나라도 두 플랫폼이 완전히 같으면 실패 —
+# "도입부·설명 문장을 다르게 재작성"하라는 규칙의 최소 방어선.
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_naver_blog_and_tistory_not_duplicated(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    platforms = {p["name"]: p for p in spec.get("platforms", [])}
+    naver = platforms.get("네이버 블로그")
+    tistory = platforms.get("티스토리")
+    if not naver or not tistory:
+        pytest.skip(f"{topic}: 네이버 블로그·티스토리 둘 다 있는 topic 아님")
+    naver_caption = naver.get("caption", "").strip()
+    tistory_caption = tistory.get("caption", "").strip()
+    naver_title = next((l.strip() for l in naver_caption.split("\n") if l.strip()), "")
+    tistory_title = next((l.strip() for l in tistory_caption.split("\n") if l.strip()), "")
+    assert naver_title != tistory_title, (
+        f"{topic}: 네이버 블로그·티스토리 제목이 동일함 — {naver_title!r}"
+    )
+    assert naver_caption != tistory_caption, (
+        f"{topic}: 네이버 블로그·티스토리 본문이 완전히 동일함 — 도입부/설명 문장을 다르게 재작성할 것"
+    )
+
+
+# ---------------------------------------------------------------------------
 # 규칙 2: "~대요"(전언체) 금지
 # ---------------------------------------------------------------------------
 
