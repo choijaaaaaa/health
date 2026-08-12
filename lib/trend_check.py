@@ -23,14 +23,18 @@
 #   python3 -m lib.trend_check --show               마지막 스냅샷을 재조회 없이 출력
 #   python3 -m lib.trend_check --backfill [N]        과거 N일치(기본 30) 백필, API 호출은 배치당 1번뿐
 #   python3 -m lib.trend_check --related <키워드>     그 키워드의 연관 급상승 검색어(진짜 discovery)
+#   python3 -m lib.trend_check --hidoc               하이닥 전체 인기뉴스 top5(2026-08-12 추가,
+#                                                     하이닥 자체 조회수 기준 — 검색 트렌드 아님)
 #   python3 -m lib.trend_check <키워드1> [키워드2] ...   즉석 비교(최대 5개, 로그에 안 남음)
 import json
+import re
 import sys
 import time
 from datetime import date, timedelta
 from pathlib import Path
 
 import pandas as pd
+import requests
 from pytrends.request import TrendReq
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -229,14 +233,51 @@ def related_rising(keyword: str) -> None:
         print(f"  - {row['query']} ({row['value']})")
 
 
+HIDOC_URL = "https://news.hidoc.co.kr/"
+
+
+def hidoc_popular() -> list[dict]:
+    """하이닥 뉴스 메인의 "전체 인기뉴스" 섹션을 가져온다(2026-08-12, "이거
+    추가하면 좋겠다" — signal.bz 실시간 검색어가 정치/연예 위주라 건강 소재
+    발굴엔 안 맞아서 대체로 찾음). ⚠️ 이건 네이버/구글 검색 트렌드가 아니라
+    **하이닥 자체 사이트 조회수 기준 인기 랭킹**(하이닥 독자들이 지금 많이
+    읽는 글, 딱 5개까지만 노출됨) — 국민 전체 관심사가 아니라 건강 매체 하나의
+    편집/독자 반응 신호로만 참고할 것. bs4 등 새 의존성 추가 안 하려고 정규식
+    으로 파싱 — 하이닥이 페이지 구조를 바꾸면 이 파싱도 깨질 수 있음(그 경우
+    경고만 출력하고 빈 리스트 반환, 파이프라인 전체를 막지 않음)."""
+    try:
+        resp = requests.get(HIDOC_URL, headers={"User-Agent": "Mozilla/5.0"}, timeout=10)
+        resp.raise_for_status()
+    except requests.RequestException as e:
+        print(f"⚠️ 하이닥 조회 실패({type(e).__name__}: {e})")
+        return []
+    m = re.search(r'전체 인기뉴스</strong>.*?<div id="skin-\d+"[^>]*>(.*?)</div></section>',
+                  resp.text, re.S)
+    if not m:
+        print("⚠️ 하이닥 페이지 구조가 바뀐 것으로 보임 — 파싱 실패, 직접 확인할 것: " + HIDOC_URL)
+        return []
+    items = re.findall(r'href="([^"]+)"[^>]*>\s*<H2[^>]*>([^<]+)</H2>', m.group(1))
+    return [{"title": title.strip(), "url": url} for url, title in items]
+
+
+def _print_hidoc(items: list[dict]) -> None:
+    if not items:
+        return
+    print("하이닥 전체 인기뉴스(하이닥 자체 조회수 기준, 네이버/구글 검색 트렌드 아님):")
+    for i, item in enumerate(items, 1):
+        print(f"  {i}. {item['title']}")
+
+
 if __name__ == "__main__":
     args = sys.argv[1:]
     if not args:
-        print("사용법: --daily | --daily --force | --show | --backfill [N] | --related <키워드> | <키워드1> [키워드2] ...")
+        print("사용법: --daily | --daily --force | --show | --backfill [N] | --related <키워드> | --hidoc | <키워드1> [키워드2] ...")
     elif args[0] == "--daily":
         daily_snapshot(force="--force" in args)
     elif args[0] == "--show":
         show_latest()
+    elif args[0] == "--hidoc":
+        _print_hidoc(hidoc_popular())
     elif args[0] == "--backfill":
         n = int(args[1]) if len(args) > 1 and args[1].isdigit() else RETENTION_DAYS
         backfill_history(n)
