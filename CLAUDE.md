@@ -730,6 +730,15 @@ git 히스토리에서 복원.
     `scripts/supabase_backfill.py`는 로컬 json → Supabase 1회 백필용(반대
     방향, Supabase에 새로 채운 값이 이 로컬 json에 자동으로 안 내려옴 —
     두 값이 어긋날 수 있다는 뜻, 필요 시 수동 확인).
+  - ⚠️ **계절 태그(`season`, 2026-08-12)** — `platform_captions.json`에
+    `"season": ["여름"]`처럼 넣으면 `_update_topics_index()`가 `output/
+    topics.json`·Supabase `topics.season`(text[] 컬럼, `supabase/schema.sql`)
+    까지 실어나르고, `index.html`이 검색창 아래 봄/여름/가을/겨울 필터
+    버튼으로 보여준다. **태깅 기준: 원인이 계절/환경 그 자체인 topic만**
+    (냉방병→여름, 온열질환→여름, 미세먼지→봄) — 땀띠·자외선·식중독처럼
+    여름에 흔하지만 원인이 계절 자체는 아닌 topic은 넣지 않기로 확정
+    ("땀띠 자외선 식중독 이런건 계절은 아니지"). 새 topic 작성 시 이
+    기준에 해당하면 넣고, 애매하면 넣지 말 것(과태깅보다 누락이 안전).
 
 ## GitHub Pages
 
