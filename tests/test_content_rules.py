@@ -275,6 +275,41 @@ def test_rich_paste_flag(topic):
 
 
 # ---------------------------------------------------------------------------
+# 규칙 9: 이미지 삽입 위치 표시는 "01 · 소제목" 형식 — 카메라 이모지·대괄호·
+# "삽입" 텍스트 금지(2026-08-12, 재발 방지 — 규칙은 CLAUDE.md에 있었는데
+# 자동 검사가 없어서 근골격_3(다리쥐_1) 같은 옛 형식("📷 [00_표지.jpg 삽입]")
+# 잔존을 못 잡아냈음).
+# ---------------------------------------------------------------------------
+
+_BAD_IMAGE_MARKER_RE = re.compile(r"📷|\[[^\]]*\]|삽입")
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_naver_blog_and_tistory_image_marker_format(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    problems = []
+    for p in spec.get("platforms", []):
+        if p["name"] not in ("네이버 블로그", "티스토리"):
+            continue
+        hits = _BAD_IMAGE_MARKER_RE.findall(p.get("caption", ""))
+        if hits:
+            problems.append(f"{p['name']}: 옛 이미지 마커 형식 잔존({hits}) — '01 · 소제목' 형식으로 바꿀 것")
+    assert not problems, f"{topic}: {problems}"
+
+
+# ---------------------------------------------------------------------------
+# 규칙 10: products 필드는 "·"(가운뎃점)로 두 품목을 이어붙이지 않는다
+# (2026-08-12) — 실제 쿠팡/네이버에서 검색되는 단일 식품 카테고리 하나만.
+# ---------------------------------------------------------------------------
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_products_no_middle_dot(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    bad = [prod for prod in spec.get("products", []) if "·" in prod]
+    assert not bad, f"{topic}: products에 '·'로 두 품목을 이어붙인 항목 있음 — {bad}"
+
+
+# ---------------------------------------------------------------------------
 # 규칙 7: card_news_spec.json의 items[].char_file이 assets_library/illust/에 실존하는가
 # ---------------------------------------------------------------------------
 
