@@ -85,23 +85,75 @@ def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
     return y
 
 
-def _fit_multiline_block_size(draw, lines, max_height, size, weight, line_gap_ratio, min_size=32, step=2):
+def _wrap_line_to_width(draw, text, font, max_width):
+    """한 줄이 max_width를 넘으면 공백 기준으로 먼저 쪼개고, 공백이 없거나
+    단어 하나가 그래도 넘치면 글자 단위로 강제로 쪼갠다(2026-08-12, "이거
+    말고도 또 있을거같은데" — _fit_multiline_block_size로 세로 잘림은
+    고쳤는데 실측해보니 가로로도 패널 밖까지 튀어나가는 줄이 있었다:
+    "마신 양보다 더 많은 수분을 몸 밖으로 내보내요"처럼 작성자가 줄바꿈을
+    안 넣은 긴 문장. 한글은 어절 경계가 없어도 글자 단위로 잘라도 자연스럽게
+    읽혀서 최후 폴백으로 무리 없다)."""
+    if not text:
+        return [text]
+    bbox = draw.textbbox((0, 0), text, font=font)
+    if bbox[2] - bbox[0] <= max_width:
+        return [text]
+    words = text.split(" ")
+    if len(words) > 1:
+        rough, cur = [], ""
+        for w in words:
+            test = (cur + " " + w).strip()
+            bbox = draw.textbbox((0, 0), test, font=font)
+            if bbox[2] - bbox[0] > max_width and cur:
+                rough.append(cur)
+                cur = w
+            else:
+                cur = test
+        if cur:
+            rough.append(cur)
+        result = []
+        for ln in rough:
+            bbox = draw.textbbox((0, 0), ln, font=font)
+            if bbox[2] - bbox[0] > max_width:
+                result.extend(_wrap_line_to_width(draw, ln, font, max_width))
+            else:
+                result.append(ln)
+        return result
+    lines, cur = [], ""
+    for ch in text:
+        test = cur + ch
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_width and cur:
+            lines.append(cur)
+            cur = ch
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def _fit_multiline_block_size(draw, lines, max_width, max_height, size, weight, line_gap_ratio,
+                               min_size=32, step=2):
     """WHY(2026-08-12, "짤리는거 꽤 많던데" — 실측 확인: 하지불안증후군_1의
     "정제 탄수화물" 카드가 9줄짜리 본문인데 항상 고정 58px로 그려서 패널 밖으로
     잘려나갔다): _fit_single_line_size는 제목(한 줄, 폭 기준)만 커버하고 본문
-    (여러 줄, 높이 기준)엔 대응하는 게 없었다 — 작성자가 줄바꿈은 미리 해서
-    넘기지만(_draw_centered가 폭 줄바꿈을 안 함) 총 줄 수가 몇 줄이 될지는
-    topic마다 다르므로, 총 높이(줄 수 × line_height)가 max_height를 넘으면
-    폰트 크기와 줄간격을 같은 비율로 줄여가며 맞춘다. line_gap_ratio는 기존
-    고정값(86/58≈1.483)에서 유도 — 크기가 바뀌어도 줄간격 비율은 그대로 유지."""
-    while size > min_size:
+    (여러 줄, 높이 기준)엔 대응하는 게 없었다. 폭·높이 둘 다 확인 — 각 후보
+    크기에서 먼저 폭 기준으로 다시 줄바꿈(_wrap_line_to_width)한 뒤, 그 결과
+    총 줄 수 × line_height가 max_height를 넘으면 크기를 줄여 재시도한다.
+    line_gap_ratio는 기존 고정값(86/58≈1.483)에서 유도 — 크기가 바뀌어도
+    줄간격 비율은 그대로 유지. 반환값의 wrapped를 실제 그릴 때 써야 폭 초과가
+    실제로 해소된다(원본 lines를 그대로 쓰면 안 됨)."""
+    while True:
+        f = _font(size, weight)
+        wrapped = []
+        for line in lines:
+            wrapped.extend(_wrap_line_to_width(draw, line, f, max_width))
         line_height = round(size * line_gap_ratio)
-        total_h = line_height * len(lines)
-        if total_h <= max_height:
-            break
+        total_h = line_height * max(len(wrapped), 1)
+        if total_h <= max_height or size <= min_size:
+            return wrapped, size, line_height
         size -= step
-    line_height = round(size * line_gap_ratio)
-    return size, line_height
 
 
 def _fit_single_line_size(draw, text, max_width, size, weight, min_size=52, step=4):
@@ -447,11 +499,12 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     y = _draw_centered(draw, [name], y, 0, title_size, INK, "bold")
     _diamond_divider(draw, y + 132)
     body_y = y + 182
+    body_max_width = (panel_box[2] - panel_box[0]) - 80
     body_max_height = panel_box[3] - body_y - 30
-    body_size, body_line_h = _fit_multiline_block_size(
-        draw, body_lines, body_max_height, 58, "medium", line_gap_ratio=86 / 58,
+    body_wrapped, body_size, body_line_h = _fit_multiline_block_size(
+        draw, body_lines, body_max_width, body_max_height, 58, "medium", line_gap_ratio=86 / 58,
     )
-    _draw_centered(draw, body_lines, body_y, body_line_h, body_size, INK, "medium")
+    _draw_centered(draw, body_wrapped, body_y, body_line_h, body_size, INK, "medium")
 
     draw.rectangle([0, H - 70, W, H], fill=ACCENT)
     _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 30, (255, 255, 255), "medium")
@@ -484,19 +537,34 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
         draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
 
     # 글자 크게 — 팩트카드와 동일하게 마무리 카드도 확실히 키움(2026-07-30)
+    # WHY headline_blocks도 fit 처리(2026-08-12, "이런거 매번 고치라고 하면
+    # 그때만 괜찮아지고 다음에 또 문제 생긴다" — body_lines/tip_lines 고친
+    # 김에 이 파일의 같은 클래스(다중 줄 고정 크기 렌더) 호출부 전부 훑어서
+    # 같이 고침): headline_blocks도 topic마다 줄 수가 달라지는데 항상 고정
+    # 56px였다 — 전체 블록 줄 수 합산 기준으로 미리 크기를 맞춘 뒤 그린다.
+    # 아래 tip/cta에 쓸 공간(대략 220px)을 미리 빼고 나머지를 headline에 준다.
     draw = ImageDraw.Draw(img)
     y = 190 + med_size + 76
+    headline_all_lines = [ln for block in headline_blocks for ln in block]
+    headline_max_width = W - 160
+    headline_max_height = (H - 96) - y - 220
+    _, headline_size, headline_line_h = _fit_multiline_block_size(
+        draw, headline_all_lines, headline_max_width, headline_max_height, 56, "bold", line_gap_ratio=76 / 56,
+    )
+    headline_font = _font(headline_size, "bold")
     for i, block in enumerate(headline_blocks):
         weight = "bold" if i == 0 else "semibold"
         color = INK if i == 0 else ACCENT_DEEP
-        y = _draw_centered(draw, block, y, 76, 56, color, weight) + 34
+        block_wrapped = [w for ln in block for w in _wrap_line_to_width(draw, ln, headline_font, headline_max_width)]
+        y = _draw_centered(draw, block_wrapped, y, headline_line_h, headline_size, color, weight) + 34
     _diamond_divider(draw, y + 6)
     tip_y = y + 58
+    tip_max_width = W - 160
     tip_max_height = (H - 96) - tip_y - 20
-    tip_size, tip_line_h = _fit_multiline_block_size(
-        draw, tip_lines, tip_max_height, 42, "regular", line_gap_ratio=64 / 42,
+    tip_wrapped, tip_size, tip_line_h = _fit_multiline_block_size(
+        draw, tip_lines, tip_max_width, tip_max_height, 42, "regular", line_gap_ratio=64 / 42,
     )
-    _draw_centered(draw, tip_lines, tip_y, tip_line_h, tip_size, INK_SOFT, "regular")
+    _draw_centered(draw, tip_wrapped, tip_y, tip_line_h, tip_size, INK_SOFT, "regular")
 
     draw.rectangle([0, H - 96, W, H], fill=ACCENT)
     cta_size = _fit_single_line_size(draw, cta_text, W - 160, 34, "semibold", min_size=22)
