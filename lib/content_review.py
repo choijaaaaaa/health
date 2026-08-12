@@ -215,7 +215,7 @@ GENERIC_CTA_CLOSING_PHRASES = (
 )
 
 BLOG_TITLE_MIN_LENGTH = 25
-BLOG_TITLE_MAX_LENGTH = 40
+BLOG_TITLE_MAX_LENGTH = 50
 
 
 def check_title_closing(topic: str, lang: str = "kor") -> list[dict]:
@@ -254,9 +254,10 @@ def check_title_closing(topic: str, lang: str = "kor") -> list[dict]:
 
 
 def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
-    """블로그 제목("platform_captions.json"의 "title" 필드)이 25~40자인지
-    검사한다(2026-08-10, "블로그 제목은 25~40자 사이로 들어가도록" — 사용자
-    확정). 네이버 블로그·티스토리가 없는 topic(글로벌 등)은 대상 아님."""
+    """블로그 제목("platform_captions.json"의 "title" 필드)이 25~50자인지
+    검사한다(2026-08-10 최초 25~40자 확정 → 2026-08-12 실측 위반율 67%로
+    너무 빡빡하다는 판단에 25~50자로 완화, "25~40이 너무 빡세긴 한듯. 25~50으로
+    가자" — 사용자 확정). 네이버 블로그·티스토리가 없는 topic(글로벌 등)은 대상 아님."""
     caption_path = _topic_dir(topic, lang) / "platform_captions.json"
     if not caption_path.exists():
         return []
