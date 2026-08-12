@@ -85,6 +85,25 @@ def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
     return y
 
 
+def _fit_multiline_block_size(draw, lines, max_height, size, weight, line_gap_ratio, min_size=32, step=2):
+    """WHY(2026-08-12, "짤리는거 꽤 많던데" — 실측 확인: 하지불안증후군_1의
+    "정제 탄수화물" 카드가 9줄짜리 본문인데 항상 고정 58px로 그려서 패널 밖으로
+    잘려나갔다): _fit_single_line_size는 제목(한 줄, 폭 기준)만 커버하고 본문
+    (여러 줄, 높이 기준)엔 대응하는 게 없었다 — 작성자가 줄바꿈은 미리 해서
+    넘기지만(_draw_centered가 폭 줄바꿈을 안 함) 총 줄 수가 몇 줄이 될지는
+    topic마다 다르므로, 총 높이(줄 수 × line_height)가 max_height를 넘으면
+    폰트 크기와 줄간격을 같은 비율로 줄여가며 맞춘다. line_gap_ratio는 기존
+    고정값(86/58≈1.483)에서 유도 — 크기가 바뀌어도 줄간격 비율은 그대로 유지."""
+    while size > min_size:
+        line_height = round(size * line_gap_ratio)
+        total_h = line_height * len(lines)
+        if total_h <= max_height:
+            break
+        size -= step
+    line_height = round(size * line_gap_ratio)
+    return size, line_height
+
+
 def _fit_single_line_size(draw, text, max_width, size, weight, min_size=52, step=4):
     """WHY(2026-08-01): 카드 title(item['name'])은 title/closing headline과 달리
     작성자가 미리 줄바꿈해서 넘기는 게 아니라 한 줄 문자열 그대로 렌더링된다 —
@@ -427,7 +446,12 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     title_size = _fit_single_line_size(draw, name, title_max_width, 92, "bold")
     y = _draw_centered(draw, [name], y, 0, title_size, INK, "bold")
     _diamond_divider(draw, y + 132)
-    _draw_centered(draw, body_lines, y + 182, 86, 58, INK, "medium")
+    body_y = y + 182
+    body_max_height = panel_box[3] - body_y - 30
+    body_size, body_line_h = _fit_multiline_block_size(
+        draw, body_lines, body_max_height, 58, "medium", line_gap_ratio=86 / 58,
+    )
+    _draw_centered(draw, body_lines, body_y, body_line_h, body_size, INK, "medium")
 
     draw.rectangle([0, H - 70, W, H], fill=ACCENT)
     _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 30, (255, 255, 255), "medium")
@@ -467,7 +491,12 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
         color = INK if i == 0 else ACCENT_DEEP
         y = _draw_centered(draw, block, y, 76, 56, color, weight) + 34
     _diamond_divider(draw, y + 6)
-    _draw_centered(draw, tip_lines, y + 58, 64, 42, INK_SOFT, "regular")
+    tip_y = y + 58
+    tip_max_height = (H - 96) - tip_y - 20
+    tip_size, tip_line_h = _fit_multiline_block_size(
+        draw, tip_lines, tip_max_height, 42, "regular", line_gap_ratio=64 / 42,
+    )
+    _draw_centered(draw, tip_lines, tip_y, tip_line_h, tip_size, INK_SOFT, "regular")
 
     draw.rectangle([0, H - 96, W, H], fill=ACCENT)
     cta_size = _fit_single_line_size(draw, cta_text, W - 160, 34, "semibold", min_size=22)
