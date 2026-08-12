@@ -1,5 +1,25 @@
 [
   {
+    "topic": "계절질환_1/ko",
+    "title": "냉방병, 에어컨 쐬면 몸이 으슬으슬하다면 - 온도차 이기는 습관",
+    "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_1/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_1/ko/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "계절질환_2/ko",
+    "title": "온열질환, 더운 날 어지럽고 기운이 쭉 빠진다면 - 탈수 예방 습관",
+    "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_2/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_2/ko/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
@@ -320,16 +340,6 @@
     ]
   },
   {
-    "topic": "냉방병_1/ko",
-    "title": "냉방병, 에어컨 쐬면 몸이 으슬으슬하다면 - 온도차 이기는 습관",
-    "url": "output/%EB%83%89%EB%B0%A9%EB%B3%91_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%83%89%EB%B0%A9%EB%B3%91_1/ko/card_news/%EB%83%89%EB%B0%A9%EB%B3%91_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
-      "card_news"
-    ]
-  },
-  {
     "topic": "눈_1/en",
     "title": "Headlights turning into starbursts on your drive home at night? - Everyday Habits Hurting Your Eyes",
     "url": "output/%EB%88%88_1/en/dashboard.html",
@@ -439,6 +449,17 @@
     "thumbnail": "output/%EB%88%88_5/ko/card_news/%EB%88%88_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "눈_6/ko",
+    "title": "결막염, 눈 빨갛고 간지러운 게 나만 그런가 싶었다면 - 눈 지키는 습관",
+    "url": "output/%EB%88%88_6/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_6/ko/card_news/%EB%88%88_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -1614,16 +1635,6 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
-      "card_news"
-    ]
-  },
-  {
-    "topic": "온열질환_1/ko",
-    "title": "온열질환, 더운 날 어지럽고 기운이 쭉 빠진다면 - 탈수 예방 습관",
-    "url": "output/%EC%98%A8%EC%97%B4%EC%A7%88%ED%99%98_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%98%A8%EC%97%B4%EC%A7%88%ED%99%98_1/ko/card_news/%EC%98%A8%EC%97%B4%EC%A7%88%ED%99%98_1_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": [
       "card_news"
     ]
   },
