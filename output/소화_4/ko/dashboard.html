@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="잡곡" value="https://link.coupang.com/a/fSSrajKQxw" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9E%A1%EA%B3%A1&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9E%A1%EA%B3%A1&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xSBojbL9" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="견과류" value="https://link.coupang.com/a/fSSuka3GsC" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B2%AC%EA%B3%BC%EB%A5%98&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B2%AC%EA%B3%BC%EB%A5%98&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xjYCNGNS" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="고구마" value="https://link.coupang.com/a/fSQaeQxBDM" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B3%A0%EA%B5%AC%EB%A7%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B3%A0%EA%B5%AC%EB%A7%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/G4duIqG7" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -310,6 +317,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="두유" value="https://link.coupang.com/a/fRinwfLYw8" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -515,14 +523,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 표시 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="소화_4_식곤증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">점심만 먹으면 쏟아지는 졸음 주목! - 식곤증 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">식곤증의 원인은 혈당 크래시 - 점심 메뉴만 바꿔도 줄어드는 졸음
 
 00 · 표지
 
 
-점심 먹고 자리에 앉으면 눈꺼풀이 천근만근, 회의 중에도 꾸벅꾸벅 조는 경험 있으신가요? 의지가 약해서가 아니라 무엇을 먹었는지가 문제일 수 있어요. 원인이 되는 음식만 조절해도 오후 컨디션이 확 달라져요.
+점심을 먹고 나면 눈꺼풀이 무거워지고 회의 중에도 자꾸 졸게 되는 경험, 다들 한 번쯤 있으실 거예요. 이건 의지력 문제가 아니라 무엇을 먹었는지의 문제인 경우가 많아요. 원인이 되는 음식만 알고 조절해도 오후 컨디션이 눈에 띄게 달라져요.
 
-혈당지수(GI)가 높은 음식을 먹으면 혈당이 짧은 시간 안에 급격히 치솟아요. 몸은 이 혈당을 낮추기 위해 인슐린을 한꺼번에 많이 분비하는데, 이 과정에서 혈당이 다시 뚝 떨어지는 반응성 저혈당, 이른바 '혈당 크래시'가 나타나는 것으로 알려져 있어요. 이렇게 혈당이 급격히 떨어지면 뇌로 가는 포도당 공급이 줄면서 극심한 피로감과 졸음으로 이어져요.
+혈당지수(GI)가 높은 음식을 먹으면 짧은 시간 안에 혈당이 급격히 치솟아요. 몸은 이걸 낮추려고 인슐린을 한꺼번에 많이 분비하는데, 그 과정에서 혈당이 다시 뚝 떨어지는 반응성 저혈당, 이른바 '혈당 크래시'가 나타나요. 혈당이 급격히 떨어지면 뇌로 가는 포도당 공급도 줄어들면서 심한 피로감과 졸음으로 이어져요.
 
 01 · 왜 식후에 졸릴까요
 
@@ -530,37 +538,37 @@
 02 · 흰쌀밥
 
 
-첫 번째는 흰쌀밥이에요. 흰쌀밥은 혈당지수가 70을 넘는 대표적인 고GI 음식인데, 반찬 없이 흰밥만 먹었을 때 공복 대비 혈당이 90mg/dL 가까이 더 올랐다는 실험 결과도 있어요. 이렇게 급격히 오른 혈당을 낮추려고 인슐린이 대량으로 분비되면서 식후 졸음이 더 심해질 수 있어요.
+가장 먼저 짚을 건 흰쌀밥이에요. 혈당지수가 70을 넘는 대표적인 고GI 음식인데, 반찬 없이 흰밥만 먹었을 때 공복 대비 혈당이 90mg/dL 가까이 더 오른 실험 결과도 있어요. 이렇게 치솟은 혈당을 낮추려고 인슐린이 대량으로 분비되면서 식후 졸음이 더 심해질 수 있어요.
 
 03 · 흰쌀밥 대신
 
 
-채소나 단백질 반찬을 먼저 먹고 밥을 나중에 먹거나, 잡곡을 섞어 지으면 혈당이 오르는 속도를 늦출 수 있어요. 밥을 지어 냉장 보관했다가 다시 데워 먹으면 저항성 전분이 늘어나 혈당 상승 폭이 줄어든다는 연구 결과도 있으니 참고해보세요.
+밥보다 채소나 단백질 반찬을 먼저 먹고 밥은 나중에 먹거나, 잡곡을 섞어 지으면 혈당이 오르는 속도를 늦출 수 있어요. 지어놓은 밥을 냉장 보관했다가 다시 데워 먹으면 저항성 전분이 늘어나 혈당 상승 폭이 줄어든다는 연구 결과도 참고할 만해요.
 
 04 · 단팥빵
 
 
-두 번째는 단팥빵이에요. 밀가루 반죽에 설탕을 듬뿍 넣은 단팥소까지 더해져서 정제 탄수화물과 단순당 함량이 아주 높은 간식이에요. 이런 음식은 소화·흡수가 빨라 혈당을 순식간에 끌어올리고, 그만큼 떨어질 때도 가팔라서 식후 나른함을 더 크게 만들어요.
+두 번째는 단팥빵이에요. 밀가루 반죽에 설탕을 듬뿍 넣은 단팥소까지 더해져서 정제 탄수화물과 단순당 함량이 상당히 높은 간식이에요. 소화·흡수가 빨라 혈당을 순식간에 끌어올리고, 그만큼 떨어질 때도 가팔라서 식후 나른함이 더 크게 느껴져요.
 
 05 · 단팥빵 대신
 
 
-하루 반 개 정도로 양을 줄이고, 견과류나 우유·두유 같은 단백질을 같이 먹으면 혈당이 오르내리는 폭을 완화할 수 있어요. 통곡물 식품이나 고구마처럼 식이섬유가 많은 간식으로 바꾸는 것도 좋은 방법이에요.
+하루 반 개 정도로 양을 줄이고 견과류나 우유·두유 같은 단백질을 함께 먹으면 혈당이 오르내리는 폭이 완화돼요. 통곡물 식품이나 고구마처럼 식이섬유가 풍부한 간식으로 바꾸는 것도 좋은 방법이에요.
 
 06 · 찹쌀떡
 
 
-세 번째는 찹쌀떡이에요. 찹쌀 특유의 찰기 때문에 소화효소가 쉽게 작용해서 분해 속도가 빨라지는데, 그래서 혈당지수가 80~90까지 올라가는 것으로 알려져 있어요. 양이 적어도 혈당이 급하게 오르내릴 수 있는 음식이에요.
+세 번째는 찹쌀떡이에요. 찹쌀 특유의 찰기 덕분에 소화효소가 쉽게 작용해서 분해 속도가 빠른데, 그만큼 혈당지수도 80~90까지 올라가는 것으로 알려져 있어요. 양이 적어도 혈당이 급하게 오르내릴 수 있는 음식이에요.
 
 07 · 찹쌀떡 대신
 
 
-한 번에 다 먹지 말고 반쪽씩 나눠 먹거나, 식이섬유가 풍부한 과일이나 견과류를 곁들이면 혈당이 완만하게 오르도록 도와줘요. 천천히 꼭꼭 씹어 먹는 것만으로도 흡수 속도를 늦추는 데 도움이 돼요.
+한 번에 다 먹지 말고 반쪽씩 나눠 먹거나, 식이섬유가 풍부한 과일이나 견과류를 곁들이면 혈당이 완만하게 오르도록 도와줘요. 천천히 꼭꼭 씹어 먹는 습관만으로도 흡수 속도를 늦추는 데 도움이 돼요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊을 필요는 없어요. 흰쌀밥은 채소·단백질을 먼저, 단팥빵은 반 개씩 나눠서 단백질과 함께, 찹쌀떡은 소량씩 식이섬유와 곁들이는 것만으로도 오후 식곤증을 크게 줄일 수 있어요. 점심 식사 순서만 바꿔도 하루가 훨씬 가벼워질 거예요.
+흰쌀밥·단팥빵·찹쌀떡, 세 가지 다 무조건 끊을 필요는 없어요. 흰쌀밥은 채소·단백질을 먼저 먹고, 단팥빵은 반 개씩 나눠서 단백질과 곁들이고, 찹쌀떡은 소량씩 식이섬유와 함께 먹는 것만으로도 오후 식곤증은 크게 줄어들어요. 점심 식사 순서만 바꿔도 하루가 훨씬 가벼워질 거예요.
 
 #식곤증 #혈당스파이크 #혈당크래시 #고GI음식 #식후졸음 #혈당관리 #건강정보</textarea>
   <div class="card-actions">
@@ -1025,12 +1033,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

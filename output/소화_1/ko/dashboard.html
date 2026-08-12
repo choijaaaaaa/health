@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="디카페인 커피" value="https://link.coupang.com/a/fRs4dknEtw" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="보리차" value="https://link.coupang.com/a/fRvp1GDwyG" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B3%B4%EB%A6%AC%EC%B0%A8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B3%B4%EB%A6%AC%EC%B0%A8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xxohMhmP" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="통밀 식품" value="https://link.coupang.com/a/fRgoexRGwu" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%86%B5%EB%B0%80+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%86%B5%EB%B0%80+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xF4bibOz" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -493,14 +500,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg" download="소화_1_ko_가슴쓰림_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">역류성 식도염, 가슴 쓰림과 신물의 원인 - 식도를 자극하는 음식 피하는 법
 
 00 · 표지
 
 
-국내 역류성식도염 유병률은 2021년 설문 기준 18.5%로 계속 늘고 있고, 건강보험심사평가원 통계로는 한 해 약 450만 명이 진료를 받아요. 무조건 끊을 필요는 없고, 먹는 시점과 양만 조절해도 부담을 크게 줄일 수 있어요.
+역류성 식도염을 겪는 국내 성인 비율은 2021년 설문 기준 18.5%에 달하고, 건강보험심사평가원 통계로는 한 해 약 450만 명이 진료를 받을 정도로 흔한 질환이에요. 다행히 원인이 되는 음식을 완전히 끊을 필요는 없고, 언제 얼마나 먹는지만 조절해도 부담을 크게 줄일 수 있어요.
 
-위와 식도 사이를 막아주는 하부식도괄약근이 느슨해지면 위산이 식도로 역류하면서 가슴이 쓰리고 신물이 올라와요. 카페인·지방·탄산 같은 성분이 이 괄약근의 긴장도를 떨어뜨리고 위산 분비까지 늘려서 역류를 훨씬 쉽게 만들어요.
+위와 식도 경계에 있는 하부식도괄약근이 제 힘을 못 쓰면 위산이 식도 쪽으로 역류하면서 가슴이 타는 듯 쓰리고 신물이 올라와요. 카페인·지방·탄산 성분은 이 괄약근의 긴장도를 떨어뜨리는 동시에 위산 분비량까지 늘려서 역류가 훨씬 잘 일어나는 환경을 만들어요.
 
 01 · 왜 가슴이 쓰리고 신물이 올라올까요
 
@@ -508,37 +515,37 @@
 02 · 커피
 
 
-첫 번째는 커피예요. 카페인은 하부식도괄약근의 긴장도를 떨어뜨리고 위산 분비까지 늘리는 것으로 나타났어요. 빈속에 마시면 위산 농도가 이미 높은 상태라 자극이 훨씬 심해져요.
+카페인이 문제의 시작이에요. 커피 속 카페인 성분은 하부식도괄약근의 힘을 떨어뜨리면서 동시에 위산 분비량도 늘리는 것으로 확인됐어요. 특히 빈속에 마시면 이미 위산 농도가 높은 상태라 자극이 훨씬 크게 느껴져요.
 
 03 · 커피 대신
 
 
-디카페인 커피는 카페인 자극은 훨씬 적지만 산도는 여전히 남아있어서, 빈속보다는 식후에 마시는 게 나아요. 카페인이 아예 없는 생강차나 보리차로 바꾸는 것도 좋은 대안이에요.
+커피를 완전히 끊을 필요는 없어요. 디카페인 커피는 카페인 자극은 크게 줄지만 산도 자체는 남아있으니 빈속보다 식사 후에 마시는 편이 낫고, 카페인이 전혀 없는 생강차나 보리차로 바꿔도 좋은 대안이 돼요.
 
 04 · 탄산음료
 
 
-두 번째는 탄산음료예요. 탄산이 위 속에서 부풀면서 위 내부 압력이 확 올라가는데, 이 압력이 위산을 식도 쪽으로 밀어올리는 역류의 직접적인 원인이 돼요.
+다음은 탄산음료예요. 탄산이 위 속에서 부풀어 오르면서 위 내부 압력을 순간적으로 끌어올리는데, 이렇게 높아진 압력이 위산을 식도 방향으로 밀어 올리는 직접적인 원인이 돼요.
 
 05 · 탄산음료 대신
 
 
-톡 쏘는 느낌이 필요하면 탄산수보다 상온의 물이 훨씬 안전해요. 식사 직후보다 2~3시간 지나서 마시면 위 압력이 어느 정도 가라앉은 뒤라 부담이 줄어요.
+톡 쏘는 청량감이 필요하다면 탄산수 대신 상온의 물을 선택하는 게 안전해요. 마시는 시점도 중요한데, 식사 직후보다 2~3시간 지난 뒤에 마시면 위 압력이 어느 정도 가라앉은 후라 부담이 훨씬 줄어들어요.
 
 06 · 기름진 야식
 
 
-세 번째는 도넛 같은 기름진 야식이에요. 기름진 음식은 소화되는 데 시간이 오래 걸려서 위에 머무는 시간이 길어지고, 위 속 압력이 높아진 채로 오래가면 역류로 이어져요.
+세 번째 원인은 도넛처럼 기름진 야식이에요. 지방이 많은 음식은 소화에 걸리는 시간이 길어서 위 속에 오래 머무르고, 위 내부 압력이 높은 상태가 지속되면 결국 역류로 연결돼요.
 
 07 · 기름진 야식 대신
 
 
-튀긴 간식 대신 구운 빵이나 담백한 통밀 크래커를 고르면 위에 머무는 시간이 줄어들어요. 야식은 되도록 자기 3시간 전엔 끝내는 게 좋아요.
+튀긴 간식 대신 구운 빵이나 담백한 통밀 크래커로 바꾸면 위에 머무는 시간 자체가 줄어들어요. 야식은 잠들기 최소 3시간 전에는 마무리하는 습관도 함께 지키는 게 좋아요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊어야 하는 건 아니에요. 커피는 디카페인으로 바꾸거나 식후에 마시고, 탄산음료 대신 상온의 물을, 기름진 야식 대신 담백한 간식을 고르는 것만으로도 가슴쓰림 부담을 크게 줄일 수 있어요. 식사 후엔 바로 눕지 말고 2~3시간은 세워서 보내는 것도 잊지 마세요.
+커피·탄산음료·기름진 야식, 세 가지 다 식단에서 완전히 빼야 하는 건 아니에요. 커피는 디카페인이나 식후로 바꾸고, 탄산음료는 상온의 물로, 기름진 야식은 담백한 간식으로 바꾸는 것만으로도 가슴쓰림은 눈에 띄게 줄어들어요. 식사 후 2~3시간은 눕지 않고 세워서 보내는 습관도 함께 챙기세요.
 
 #역류성식도염 #위식도역류 #가슴쓰림 #속쓰림 #디카페인 #보리차 #건강정보</textarea>
   <div class="card-actions">
@@ -1003,12 +1010,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

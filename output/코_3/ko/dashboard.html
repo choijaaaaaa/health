@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="무알코올 맥주" value="https://link.coupang.com/a/fSQfk8IuyW" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC+%EB%A7%A5%EC%A3%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC+%EB%A7%A5%EC%A3%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="두유" value="https://link.coupang.com/a/fRinwfLYw8" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="두부" value="https://link.coupang.com/a/fSQgumfszs" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EB%B6%80&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EB%B6%80&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -493,52 +500,52 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 표시 위치에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg" download="코_3_코골이_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">자다가 코를 심하게 골거나 숨이 막히는 느낌이 든다면 주목! - 코골이 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">자면서 숨이 턱 막히고 코골이가 심하다면? 기도를 좁히는 식습관부터 점검하기
 
 00 · 표지
 
 
-코를 심하게 골거나, 자다가 숨이 턱 막히는 느낌에 깬 적 있으신가요? 무조건 참을 필요는 없어요. 원인이 되는 음식과 습관만 조절해도 코골이 빈도를 크게 줄일 수 있어요.
+옆에서 자던 사람이 코골이 소리에 깨거나, 스스로 숨이 턱 막히는 느낌에 잠에서 깬 적 있나요? 그냥 참고 넘길 문제만은 아니에요. 원인이 되는 음식과 생활 습관을 조절하는 것만으로도 코골이 빈도를 크게 낮출 수 있어요.
 
 01 · 왜 코를 골게 될까요
 
 
-코골이는 자는 동안 기도가 좁아지면서 공기가 지나갈 때 주변 조직이 떨려서 나는 소리예요. 목 근육이 축 늘어지거나 기도 안쪽에 지방·점액이 쌓이면 이 좁아짐이 훨씬 심해지는데, 술·유제품·야식 같은 음식이 각각 다른 방식으로 이 좁아짐을 만들어요.
+코골이 소리의 정체는 잠든 사이 좁아진 기도로 공기가 지나가면서 주변 조직이 떨리는 진동이에요. 목 근육이 축 처지거나 기도 안쪽에 지방과 점액이 쌓이면 이 좁아짐이 훨씬 심해지는데, 흥미롭게도 술·유제품·야식이 각기 다른 경로로 이 좁아짐을 만들어내요.
 
 02 · 맥주
 
 
-첫 번째는 맥주 같은 술이에요. 알코올은 중추신경을 억제해서 인두(목 안쪽) 근육을 평소 수면 때보다 더 늘어지게 만드는 것으로 알려져 있는데, 근육이 늘어질수록 기도가 좁아져서 코골이가 심해져요. 실제로 술을 마신 뒤에는 코골이 소리가 더 커지고 수면무호흡 증상까지 동반되는 경우가 많다는 보고도 있어요.
+첫 번째 원인은 맥주 같은 술이에요. 알코올이 중추신경을 억제하면서 인두(목 안쪽) 근육이 평소보다 훨씬 더 축 늘어지는 것으로 알려져 있는데, 근육이 늘어질수록 기도는 좁아지고 코골이는 심해져요. 음주 후에는 코골이 소리가 더 커지고 수면무호흡까지 함께 나타나는 경우가 많다는 보고도 있어요.
 
 03 · 맥주 대신
 
 
-잠들기 최소 3~4시간 전에는 음주를 마무리하는 게 목 근육이 과도하게 늘어지는 걸 막는 데 도움이 돼요. 술자리를 피하기 어렵다면 무알코올 맥주로 바꿔서 목 넘김의 습관만 유지하는 것도 방법이에요.
+취침 3~4시간 전까지는 음주를 끝내두는 게 목 근육이 과하게 늘어지는 걸 막는 데 효과적이에요. 술자리 자체를 피하기 어렵다면 무알코올 맥주로 바꿔서 마시는 분위기와 습관만 유지하는 것도 좋은 대안이에요.
 
 04 · 치즈
 
 
-두 번째는 치즈 같은 유제품이에요. 유제품이 목과 기도 점막의 점액 분비를 늘린다는 이야기는 오래전부터 알려져 왔는데, 이 점액이 기도 안쪽에 끈적하게 들러붙으면 공기가 지나가는 통로가 더 좁아지면서 코 고는 소리가 커질 수 있어요.
+두 번째 원인은 치즈 같은 유제품이에요. 유제품이 목과 기도 점막의 점액 분비량을 늘린다는 이야기는 예전부터 알려져 있었는데, 이 점액이 기도 안쪽에 끈끈하게 들러붙으면 공기 통로가 더 비좁아지고 코 고는 소리도 커질 수 있어요.
 
 05 · 치즈 대신
 
 
-자기 전에는 유제품 대신 두유로 바꿔보는 게 좋아요. 유제품을 꼭 먹어야 한다면 저지방 유제품을 고르면 점액 부담을 조금이라도 줄일 수 있어요.
+잠들기 전이라면 유제품 대신 두유를 마시는 쪽이 더 나아요. 그래도 유제품이 꼭 먹고 싶다면 저지방 제품을 골라서 점액 부담을 조금이라도 낮추는 게 좋아요.
 
 06 · 라면
 
 
-세 번째는 라면 같은 자기 전 고칼로리 야식이에요. 늦은 시간에 짜고 기름진 음식을 먹으면 체중이 늘기 쉬운데, 목 주변에 지방이 쌓이면 기도 벽이 두꺼워지면서 공간이 좁아져요. 게다가 과식한 채로 바로 누우면 위산이 식도로 역류하기 좋은 조건이 만들어져서 기도를 더 자극한다는 연구 결과도 있어요.
+세 번째 원인은 라면 같은 취침 전 고칼로리 야식이에요. 늦은 밤 짜고 기름진 음식을 먹는 습관은 체중 증가로 이어지기 쉽고, 목 주변에 지방이 쌓이면 기도 벽이 두꺼워지면서 공간이 좁아져요. 여기에 배부른 상태로 바로 눕기까지 하면 위산이 식도로 역류하기 좋은 조건이 만들어져 기도를 더 자극한다는 연구 결과도 있어요.
 
 07 · 라면 대신
 
 
-잠들기 최소 2~3시간 전에는 음식 섭취를 피하는 게 위산 역류와 체중 증가를 함께 줄이는 방법이에요. 출출할 땐 두부나 닭가슴살처럼 짜지 않고 담백한 단백질 위주로 가볍게 채워보세요.
+취침 2~3시간 전부터는 음식을 먹지 않는 게 위산 역류와 체중 증가를 동시에 막는 방법이에요. 배가 출출하다면 두부나 닭가슴살처럼 짜지 않고 담백한 단백질로 가볍게 배를 채우는 게 좋아요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊어야 하는 건 아니에요. 술은 자기 전 3~4시간은 피하고 술자리가 있다면 무알코올 맥주로, 치즈 대신 두유나 저지방 유제품으로, 라면 대신 두부·닭가슴살 같은 담백한 야식으로 바꾸는 것만으로도 코골이 부담을 크게 줄일 수 있어요. 옆으로 누워 자는 자세도 기도를 확보하는 데 도움이 되니 같이 시도해보세요.
+세 가지를 전부 끊어낼 필요는 없어요. 술은 취침 3~4시간 전까지만 마시고 술자리에선 무알코올 맥주로, 치즈는 두유나 저지방 유제품으로, 라면은 두부·닭가슴살 같은 담백한 야식으로 바꾸는 것만으로 코골이 부담이 크게 줄어들어요. 옆으로 누워 자는 자세를 함께 시도하면 기도를 확보하는 데도 도움이 돼요.
 
 #코골이 #수면무호흡 #기도확보 #무알코올맥주 #저지방유제품 #건강정보</textarea>
   <div class="card-actions">
@@ -1003,12 +1010,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

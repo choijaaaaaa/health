@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>눈 밑이 자꾸 파르르 떨린다면 주목! 눈 떨림 부르는 음식 피하는 법 — 업로드 대시보드</title>
+<title>눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법 — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -217,7 +221,7 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>눈 밑이 자꾸 파르르 떨린다면 주목! 눈 떨림 부르는 음식 피하는 법</h1>
+  <h1>눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법</h1>
   
 </header>
 
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="디카페인 커피" value="https://link.coupang.com/a/fRs4dknEtw" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8+%EC%BB%A4%ED%94%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="마그네슘 영양제" value="https://link.coupang.com/a/fSRxmGTN6a" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A7%88%EA%B7%B8%EB%84%A4%EC%8A%98+%EC%98%81%EC%96%91%EC%A0%9C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A7%88%EA%B7%B8%EB%84%A4%EC%8A%98+%EC%98%81%EC%96%91%EC%A0%9C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5yh8k1SO" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="바나나" value="https://link.coupang.com/a/fSRAO5pNbo" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B0%94%EB%82%98%EB%82%98&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%B0%94%EB%82%98%EB%82%98&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5eDdmgh6" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -493,14 +500,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호·소제목 위치에 해당 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg" download="눈_2_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">눈꺼풀이 자꾸 실룩거리며 떨린다면 - 카페인·정제당 습관부터 점검해보세요
 
 00 · 표지
 
 
-눈 밑이 파르르 떨려서 신경 쓰인 적 있으신가요? 무조건 참을 필요는 없어요. 원인이 되는 음식 습관만 조절해도 눈 떨림 빈도를 크게 줄일 수 있어요.
+눈꺼풀이 나도 모르게 실룩거려서 신경 쓰였던 적, 다들 한 번쯤 있을 거예요. 참고 넘기는 대신 원인이 되는 식습관부터 살펴보면 떨림 빈도를 확실히 줄일 수 있어요.
 
-눈꺼풀 떨림은 의학적으로 눈 주위 근육(안륜근)에 신경 신호가 제멋대로 나가면서 생기는 미세 경련이에요. 마그네슘이 부족하면 신경과 근육이 만나는 지점에서 칼슘과 마그네슘의 균형이 깨져서 신경이 과하게 흥분하기 쉬워지는데, 카페인과 정제당이 이 흥분성을 더 키우는 것으로 알려져 있어요.
+의학적으로 눈꺼풀 떨림은 눈 주위 근육인 안륜근에 신경 신호가 불규칙하게 전달되면서 일어나는 미세한 경련이에요. 핵심은 마그네슘이에요 — 마그네슘이 부족하면 신경과 근육이 맞닿는 부위에서 칼슘·마그네슘 균형이 무너지고, 신경이 쉽게 과흥분 상태가 돼요. 여기에 카페인과 정제당이 더해지면 이 흥분성이 한층 커져요.
 
 01 · 왜 눈이 떨릴까요
 
@@ -508,37 +515,37 @@
 02 · 커피
 
 
-첫 번째는 커피예요. 카페인은 아데노신 수용체를 막아서 신경을 계속 흥분 상태로 만드는데, 동시에 이뇨작용으로 칼슘과 마그네슘이 소변으로 더 빠르게 빠져나가게 만드는 것으로 나타났어요. 하루 권장 카페인 섭취량은 400mg 정도인데, 이를 넘기면 신경 과민 증상이 더 잘 나타나요.
+첫 번째 원인은 커피예요. 카페인은 아데노신 수용체를 차단해서 신경을 계속 각성 상태로 유지시키고, 동시에 이뇨작용을 일으켜 칼슘과 마그네슘이 소변으로 더 빨리 빠져나가게 만들어요. 하루 카페인 권장 섭취량은 400mg인데, 이 기준을 넘기면 신경이 예민해지는 증상이 더 잦아져요.
 
 03 · 커피 대신
 
 
-디카페인 커피나 카페인 없는 보리차로 바꾸면 흥분성 자극과 이뇨 부담을 함께 줄일 수 있어요. 완전히 끊기 어렵다면 하루 2~3잔 이하로 줄이고, 마그네슘이 풍부한 견과류를 간식으로 챙겨보세요.
+커피를 디카페인이나 카페인 없는 보리차로 바꾸는 것만으로 신경 자극과 이뇨 부담을 동시에 낮출 수 있어요. 아예 끊기 힘들다면 하루 2~3잔 선으로 줄이고, 그 사이사이 마그네슘이 풍부한 견과류를 챙겨 먹어보세요.
 
 04 · 에너지드링크
 
 
-두 번째는 에너지드링크예요. 카페인에 타우린 같은 각성 성분까지 겹쳐서 신경 흥분성을 커피보다 더 크게 끌어올리는데, 캔 하나에 든 카페인양이 커피전문점 커피 못지않게 높은 제품도 많아요.
+두 번째는 에너지드링크예요. 카페인만 있는 커피와 달리 타우린 같은 각성 성분까지 함께 들어있어서 신경 흥분도를 더 크게 끌어올려요. 캔 한 개에 담긴 카페인양이 커피전문점 아메리카노와 맞먹는 제품도 흔해요.
 
 05 · 에너지드링크 대신
 
 
-피로할 땐 무카페인 탄산수나 저카페인 음료로 바꿔보세요. 당장의 각성보다 바나나 같은 천연 당분과 충분한 수면으로 피로를 푸는 게 눈 떨림 예방에 더 도움이 돼요.
+피곤할 때 손이 가는 에너지드링크는 무카페인 탄산수나 저카페인 음료로 바꿔보세요. 순간적인 각성 효과에 의존하기보다 바나나 같은 자연 당분과 충분한 수면으로 피로를 해소하는 쪽이 눈 떨림 예방에는 훨씬 효과적이에요.
 
 06 · 단팥빵
 
 
-세 번째는 단팥빵 같은 정제당 간식이에요. 정제당은 혈당을 급하게 올렸다가 인슐린이 쏟아지면서 다시 뚝 떨어뜨리는데, 이 혈당 롤러코스터가 신경을 예민하게 만들어서 눈 떨림으로 이어질 수 있어요.
+세 번째는 단팥빵처럼 정제당이 많이 든 간식이에요. 정제당은 혈당을 순식간에 끌어올린 다음, 인슐린이 대량 분비되면서 혈당을 다시 급격히 떨어뜨려요. 이렇게 혈당이 롤러코스터처럼 오르내리는 과정에서 신경이 예민해지고, 그게 눈 떨림으로 나타나요.
 
 07 · 단팥빵 대신
 
 
-견과류나 무가당 그릭요거트처럼 혈당을 천천히 올리는 간식으로 바꿔보세요. 바나나·아몬드에는 마그네슘도 풍부해서 눈 떨림의 원인 자체를 줄이는 데 도움이 돼요.
+단 간식이 당길 땐 혈당을 천천히 올리는 견과류나 무가당 그릭요거트로 바꿔보세요. 특히 바나나와 아몬드는 마그네슘까지 풍부해서 눈 떨림의 근본 원인을 줄이는 데도 도움이 돼요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊어야 하는 건 아니에요. 커피는 디카페인으로 바꾸거나 하루 2~3잔 이하로, 에너지드링크 대신 무카페인 음료로, 단팥빵 대신 견과류나 바나나로 바꾸는 것만으로도 눈 떨림 빈도를 크게 줄일 수 있어요. 마그네슘이 풍부한 견과류와 바나나를 평소에 챙겨보세요.
+커피·에너지드링크·단팥빵, 셋 다 완전히 끊어낼 필요는 없어요. 커피는 디카페인이나 하루 2~3잔으로, 에너지드링크는 무카페인 음료로, 단팥빵은 견과류나 바나나로 바꾸는 것만으로 눈 떨림 빈도가 눈에 띄게 줄어요. 평소 마그네슘이 풍부한 견과류와 바나나를 꾸준히 챙기는 습관도 함께 들여보세요.
 
 #눈떨림 #눈밑떨림 #안검경련 #마그네슘부족 #카페인 #혈당스파이크 #건강정보</textarea>
   <div class="card-actions">
@@ -1003,12 +1010,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

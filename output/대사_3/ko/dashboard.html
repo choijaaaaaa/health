@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="저요오드 식품" value="https://link.coupang.com/a/fRiis40BG0" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/GvWVjyCp" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="케일" value="https://link.coupang.com/a/fSQvKcIkDc" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BC%80%EC%9D%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%BC%80%EC%9D%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/GjyfW5P4" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="두유" value="https://link.coupang.com/a/fRinwfLYw8" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%91%90%EC%9C%A0&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -501,54 +508,54 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg" download="대사_3_ko_갑상선_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! - 갑상선 기능 방해하는 뜻밖의 음식
+  <textarea class="caption-box" id="cap-4" spellcheck="false">괜히 피곤하고 유난히 춥고 목이 살짝 부어 보인다면 - 갑상선 기능을 떨어뜨리는 의외의 음식들
 
 00 · 표지
 
 
-이유 없는 피로감, 남들보다 유난히 추위를 타는 것, 목이 살짝 붓는 것 — 다 노화나 컨디션 탓으로 넘기기 쉽지만 갑상선 기능 이상의 대표 신호예요. 여기에 체중 증가, 변비, 손발이나 얼굴 부기, 피부 건조까지 겹친다면 가볍게 넘기지 말고 TSH·Free T4 혈액검사로 확인해보는 게 좋아요. 서서히 진행되는 특성 때문에 노화나 단순 피로로 오인하기 쉽다는 게 이 질환의 함정이에요.
+특별한 이유 없이 몸이 축 처지고, 남들보다 유독 추위를 못 견디고, 거울을 보니 목 앞쪽이 살짝 부어 보이는 증상 — 흔히 '나이 들어서 그런가' '요즘 좀 무리했나' 하고 넘기지만 실제로는 갑상선 기능 저하의 전형적인 신호예요. 살이 잘 안 빠지고, 변비가 생기고, 손발이나 얼굴이 붓고, 피부가 푸석해지는 증상까지 함께 나타난다면 병원에서 TSH·Free T4 수치를 확인해보는 게 안전해요. 이 질환이 무서운 건 증상이 워낙 서서히 진행돼서, 본인은 그저 나이 들거나 피곤해서라고 착각하기 쉽다는 점이에요.
+
+그런데 우리가 별생각 없이 매일 먹는 음식·습관 중에도 갑상선 기능의 발목을 잡는 것들이 숨어있어요. 대표적인 세 가지를 정리해볼게요.
 
 01 · 갑상선이 보내는 신호
 
 
-문제는 매일 먹는 익숙한 음식·습관 중에도 갑상선 기능을 방해하는 것들이 있다는 거예요. 세 가지를 짚어볼게요.
-
 02 · 미역국·해조류
 
 
-첫 번째는 미역국·해조류예요. 미역 100g에는 요오드가 8,730㎍이나 들어있는데, 한국인의 하루 요오드 상한섭취량(2,400㎍)의 3배가 넘는 양이에요. 가톨릭대 식품영양학과와 서울대병원 내분비내과 공동 연구팀이 국민건강영양조사(2007~2009년) 원자료로 성인 9,998명을 분석한 결과, 요오드를 하루 평균 1,154㎍씩 먹는 상위 20%는 하루 139㎍씩 먹는 하위 20%보다 갑상선 질환 위험이 1.63배 높은 것으로 나타났어요. 한국인은 해조류(65.6%)로 요오드의 절반 이상을 섭취하는데, 이미 하루 중간값 섭취량(375㎍)이 권장량의 두 배를 넘는 상태예요.
+첫 번째 주범은 다름 아닌 미역국과 해조류예요. 미역 100g 안에 들어있는 요오드는 무려 8,730㎍인데, 이는 한국인 하루 요오드 상한섭취량인 2,400㎍의 3배를 훌쩍 넘는 수치예요. 가톨릭대 식품영양학과와 서울대병원 내분비내과가 함께 국민건강영양조사(2007~2009년) 데이터로 성인 9,998명을 분석했더니, 요오드를 하루 1,154㎍씩 섭취하는 상위 20% 그룹이 139㎍만 섭취하는 하위 20% 그룹보다 갑상선 질환 위험이 1.63배 더 높게 나타났어요. 특히 한국인은 요오드 섭취의 절반 이상(65.6%)을 해조류에서 얻는데, 이미 하루 섭취량 중간값(375㎍)부터가 권장량의 두 배를 넘는 상황이에요.
 
 03 · 미역국은 이렇게
 
 
-그렇다고 미역국을 완전히 끊을 필요는 없어요. 산후조리용으로도 하루 2회 정도면 충분하다는 게 의료진 권고예요. 매일 국물 요리를 즐긴다면 다시마·멸치 육수 대신 채소나 사골 육수로 번갈아 쓰는 것만으로도 요오드 섭취량을 크게 줄일 수 있어요.
+그렇다고 미역국을 식탁에서 완전히 치울 필요는 없어요. 산후조리 목적으로 먹더라도 하루 2회 정도면 충분하다는 게 의료진의 공통된 권고예요. 국물 요리를 매일같이 즐기는 편이라면, 다시마·멸치로 우린 육수 대신 채소 육수나 사골 육수를 번갈아 쓰는 것만으로도 요오드 섭취량을 눈에 띄게 낮출 수 있어요.
 
 04 · 케일·브로콜리 생스무디
 
 
-두 번째는 케일·브로콜리 같은 생채소로 만든 스무디예요. 이들 채소엔 글루코시놀레이트라는 성분이 있는데, 날것 상태에서는 미로시나아제라는 효소가 활성화되면서 요오드 흡수를 방해하는 물질(고이트린)로 분해돼요. 실제로 미국 의학저널 NEJM에 실린 사례에서, 매일 생 청경채(같은 배추과 채소)를 다량 섭취하던 여성이 갑상선 기능이 완전히 무너지는 점액수종 혼수 상태로 응급실에 실려간 일이 있었어요.
+두 번째는 케일이나 브로콜리를 생으로 갈아 마시는 그린 스무디예요. 이 채소들에는 글루코시놀레이트라는 성분이 들어있는데, 익히지 않은 상태에서는 미로시나아제라는 효소가 활발히 작동하면서 이 성분을 고이트린이라는, 요오드 흡수를 방해하는 물질로 바꿔놔요. 미국 의학저널 NEJM에는 실제 사례도 실렸어요 — 같은 배추과 채소인 생 청경채를 매일 많이 먹던 한 여성이 갑상선 기능이 급격히 무너지면서 점액수종 혼수 상태로 응급실에 실려간 일이었어요.
 
 05 · 케일·브로콜리는 이렇게
 
 
-다행히 이 효소는 열에 약해요. 조리하면 미로시나아제가 비활성화되면서 고이트린 생성 자체가 줄어드는데, 찌면 약 30%, 끓인 뒤 물을 버리면 최대 90%까지 방해 성분이 줄어든다는 연구 결과가 있어요. 생채소 스무디를 즐긴다면 살짝 데치거나 찐 케일·브로콜리로 바꿔보세요 — 식감은 달라져도 영양은 대부분 남아있어요.
+다행히도 이 효소는 열을 가하면 힘을 잃어요. 가열 조리를 하면 미로시나아제가 비활성화되면서 고이트린이 만들어지는 과정 자체가 줄어드는데, 찌기만 해도 약 30%, 끓인 다음 물을 버리면 최대 90%까지 방해 성분이 감소한다는 연구 결과가 있어요. 생채소로 스무디를 만들어 먹는 습관이 있다면 살짝 데치거나 찐 케일·브로콜리로 바꿔보세요. 식감은 조금 달라지지만 영양소는 거의 그대로 남아있어요.
 
 06 · 두유·콩제품
 
 
-세 번째는 두유 같은 콩 제품이에요. 콩에 들어있는 제니스테인·다이드제인 같은 이소플라본이 갑상선 호르몬제(레보티록신) 성분과 장에서 먼저 결합해버려서 약 흡수율을 떨어뜨릴 수 있다는 연구가 있어요. 갑상선 약을 복용 중이 아니라면 크게 걱정할 정도는 아니지만, 약을 먹는 분들은 주의가 필요해요.
+세 번째는 두유를 비롯한 콩 제품이에요. 콩 속 제니스테인·다이드제인 같은 이소플라본 성분이 장 안에서 갑상선 호르몬제(레보티록신)와 먼저 결합해버려, 정작 약 성분의 흡수율을 떨어뜨릴 수 있다는 연구 결과가 있어요. 갑상선 약을 따로 복용하지 않는다면 크게 신경 쓸 부분은 아니지만, 약을 복용 중인 분이라면 챙겨볼 필요가 있어요.
 
 07 · 두유는 이렇게
 
 
-해결법은 간단해요. 약 복용 시간과 두유·콩 제품 섭취 시간 사이에 2~4시간 간격을 두는 거예요. 실제 무작위 교차 연구에서도 이 간격만 지키면 약물 흡수에 유의미한 차이가 없는 것으로 나타났어요.
+방법은 어렵지 않아요. 약을 먹는 시간과 두유·콩 제품을 먹는 시간 사이에 2~4시간 정도 텀을 두면 돼요. 실제로 진행된 무작위 교차 연구에서도 이 시간 간격만 지키면 약물 흡수율에 별다른 차이가 나타나지 않았어요.
 
 08 · 마무리
 
 
-미역국·생채소 스무디·두유, 셋 다 무조건 끊을 필요는 없어요. 미역국은 하루 1~2회로, 케일·브로콜리는 익혀서, 두유는 약 먹고 2~4시간 뒤에 — 먹는 방법과 타이밍만 바꿔도 갑상선에 가는 부담을 크게 줄일 수 있어요.
+미역국, 생채소 스무디, 두유 세 가지 모두 식단에서 완전히 빼야 하는 건 아니에요. 미역국은 하루 1~2회 이내로, 케일·브로콜리는 익혀서 먹고, 두유는 약 복용 후 2~4시간 뒤에 마시는 것 — 먹는 양과 타이밍만 조절해도 갑상선에 걸리는 부담을 충분히 낮출 수 있어요.
 
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
+이 콘텐츠는 건강 정보 전달을 목적으로 작성됐으며, 정확한 진단과 치료는 반드시 전문 의료진과 상의하시기 바랍니다.
 
 #갑상선건강 #갑상선기능저하증 #요오드과다 #미역국 #고이트로겐 #두유 #갑상선약 #건강정보</textarea>
   <div class="card-actions">
@@ -1013,12 +1020,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

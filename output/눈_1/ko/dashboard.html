@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? 눈 건강 해치는 의외의 음식·습관 — 업로드 대시보드</title>
+<title>눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? - 눈 건강 해치는 의외의 음식·습관 — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -217,7 +221,7 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? 눈 건강 해치는 의외의 음식·습관</h1>
+  <h1>눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? - 눈 건강 해치는 의외의 음식·습관</h1>
   
 </header>
 
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="루테인" value="https://link.coupang.com/a/fSS0aGCso0" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A3%A8%ED%85%8C%EC%9D%B8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%A3%A8%ED%85%8C%EC%9D%B8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/F93DQwcj" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="오메가-3" value="https://link.coupang.com/a/fSS08Yopcy" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%98%A4%EB%A9%94%EA%B0%80-3&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%98%A4%EB%A9%94%EA%B0%80-3&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5SK2W78Z" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -477,14 +483,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg" download="눈_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? - 눈 건강 해치는 의외의 음식·습관
+  <textarea class="caption-box" id="cap-4" spellcheck="false">눈 침침함에 빛 번짐, 밤에 유독 안 보이고 뻑뻑함까지 있다면 - 눈 건강을 갉아먹는 뜻밖의 식습관·생활 습관
 
 00 · 표지
 
 
-눈이 뿌옇게 침침하고 불빛 주변에 번짐(헤일로)이 심해지는 건 백내장의 대표적인 초기 신호이고, 사물의 중심부가 흐리거나 직선이 휘어 보이는 건 황반변성의 신호예요. 여기에 밤에 유독 시야가 흐려지는 야간 시력 저하, 눈이 뻑뻑하고 시린 안구건조증까지 겹친다면 눈 건강을 해치는 생활 습관부터 점검해볼 필요가 있어요.
+눈 관련 불편함은 신호마다 의미가 달라요. 불빛 주위로 뿌옇게 번지는 헤일로 현상은 백내장이 시작될 때 흔히 나타나는 증상이고, 반듯한 선이 휘어 보이거나 시야 한가운데가 흐릿해지는 건 황반변성 쪽에 가까운 신호예요. 여기에 유독 밤에만 앞이 잘 안 보이는 야간 시력 저하, 눈이 시리고 뻑뻑한 안구건조증까지 함께 나타난다면 원인을 식탁과 일상 습관에서부터 점검해봐야 해요.
 
-단 음료나 디저트를 자주, 많이 먹으면 혈당이 빠르게 오르면서 최종당화산물(AGEs)이 체내에 쌓여요. 2020년 Antioxidants 저널에 실린 리뷰에 따르면 고혈당은 산화 스트레스를 심화시켜 당뇨병성 안질환뿐 아니라 백내장의 악화도 유도할 수 있어요. 비당뇨인이라도 가공식품·디저트·단 음료로 당을 과도하게 섭취하면 전신 염증이 늘면서 눈 건강에 영향을 줄 수 있어요.
+당 섭취와 눈 건강은 생각보다 직접 연결돼 있어요. 단 음료·디저트로 혈당이 자주 치솟으면 몸속에 최종당화산물(AGEs)이라는 물질이 쌓이는데, 이게 산화 스트레스를 키워서 백내장을 악화시키는 경로로 작용해요. 2020년 국제학술지 Antioxidants에 실린 리뷰에서도 고혈당이 당뇨병성 안질환은 물론 백내장 진행에도 영향을 미친다고 정리했어요. 당뇨가 없는 사람도 예외는 아니에요 — 가공식품과 단 음료로 당을 과다 섭취하면 전신 염증 수치가 올라가면서 눈 건강에까지 영향이 번져요.
 
 01 · 왜 이런 문제가 생길까요
 
@@ -492,7 +498,7 @@
 02 · 단 음료·디저트
 
 
-미국 버팔로대(University at Buffalo) 연구팀이 ARIC 코호트 참가자들의 식습관을 18년간 추적한 결과, 붉은 육류·가공육·튀긴 음식·정제된 곡물·고지방 유제품 위주의 '서구식 식단'을 즐긴 사람은 그렇지 않은 사람보다 후기 황반변성 위험이 3배나 높았어요. 기름진 것도 아닌 흰 빵·흰쌀 같은 정제 탄수화물까지 포함된다는 점이 의외예요.
+의외인 지점부터 짚어보면, 기름지지도 않은 흰 빵이나 흰쌀 같은 정제 탄수화물도 눈 건강을 해치는 식단에 포함돼요. 미국 버팔로대 연구진이 ARIC 코호트 참가자를 18년 동안 추적 관찰했더니, 붉은 육류·가공육·튀김·정제 곡물·고지방 유제품 위주로 먹은 '서구식 식단' 그룹은 후기 황반변성이 생길 위험이 그렇지 않은 그룹보다 3배나 높게 나타났어요.
 
 03 · 단 음료 대신
 
@@ -500,29 +506,29 @@
 04 · 기름진 튀김·가공식품
 
 
-그렇다고 무조건 끊을 필요는 없어요. 눈의 중심 시력을 담당하는 황반은 루테인과 지아잔틴이라는 카로티노이드 색소로 이루어져 있는데, 체내에서 스스로 합성되지 않아 음식으로 챙겨야 해요. 케일은 100g당 루테인 함량이 약 20~25mg으로 당근(100g당 687㎍)보다 약 25배나 많아요. AREDS2 임상시험에서는 루테인 10mg·지아잔틴 2mg을 꾸준히 보충한 그룹이 후기 황반변성 진행 위험이 약 10% 낮았다는 결과도 있어요. 시금치·브로콜리·케일 같은 녹황색 채소로 바꿔보세요.
+다만 무조건 끊기보다는 채워 넣는 방식으로 접근하는 게 더 효과적이에요. 시력의 중심부를 담당하는 황반은 루테인·지아잔틴이라는 카로티노이드 색소로 채워져 있는데, 이 성분은 몸에서 만들어지지 않아서 반드시 음식으로 섭취해야 해요. 대표적인 공급원인 케일은 100g당 루테인이 20~25mg 들어있어서, 흔히 눈에 좋다고 알려진 당근(100g당 687㎍)보다도 약 25배 많은 양이에요. 실제로 AREDS2 임상시험에서 루테인 10mg·지아잔틴 2mg을 꾸준히 섭취한 그룹은 후기 황반변성 진행 위험이 약 10% 낮게 나타났어요. 케일 외에도 시금치·브로콜리 같은 녹황색 채소를 식탁에 자주 올려보세요.
 
 05 · 튀김 대신
 
 
-오메가-3 지방산이 풍부한 고등어·연어 같은 등푸른 생선도 루테인·지아잔틴과 함께 섭취하면 황반변성 진행 위험을 낮추는 데 도움이 된다는 연구 결과가 JAMA Ophthalmology에 실렸어요. 튀김·가공식품 대신 등푸른 생선구이로 바꿔보는 것만으로도 식단의 방향이 달라져요.
+여기에 오메가-3 지방산까지 더하면 효과가 배가돼요. JAMA Ophthalmology에 실린 연구에 따르면 고등어·연어처럼 오메가-3가 풍부한 등푸른 생선을 루테인·지아잔틴과 같이 섭취한 그룹에서 황반변성 진행 위험이 낮아졌어요. 튀김이나 가공식품 대신 생선구이 한 끼로 바꾸는 것만으로도 식단의 방향 자체가 달라져요.
 
 06 · 어두운 방 스마트폰·야식
 
 
-음식만큼 습관도 중요해요. 평소엔 분당 15~20회 깜빡이던 눈이 스마트폰 화면에 집중하면 5회 이하로 줄어드는 것으로 알려져 있어요. 깜빡임이 줄면 눈물막이 불안정해지고 안구건조증으로 이어져요. 특히 어두운 방에서 스마트폰을 보면서 야식을 먹는 습관은 블루라이트가 멜라토닌 분비까지 방해해서 눈이 회복할 수면의 질도 함께 떨어뜨려요.
+식습관 못지않게 스마트폰 사용 습관도 눈에 큰 영향을 줘요. 평소 분당 15~20회였던 눈 깜빡임 횟수가 스마트폰 화면에 몰입하면 5회 이하로 뚝 떨어지는 것으로 알려져 있는데, 깜빡임이 줄면 눈물막이 고르게 퍼지지 못해 안구건조증으로 이어져요. 특히 불 꺼진 방에서 스마트폰을 보며 야식까지 먹는 습관은 이중으로 나빠요 — 블루라이트가 멜라토닌 분비를 방해해서, 눈이 회복해야 할 수면의 질까지 함께 떨어뜨려요.
 
 07 · 습관은 이렇게
 
 
-미국 검안학회(American Optometric Association)가 권장하는 '20-20-20 법칙'(20분마다 6m 이상 떨어진 곳을 20초간 바라보기)을 2주간 실천한 그룹은 디지털 눈 피로와 안구건조증 증상이 눈에 띄게 개선됐다는 2022년 연구 결과가 있어요. 6m 이상 떨어진 곳을 보면 모양체 근육이 이완되고, 의식적으로 눈을 깜빡이게 되면서 눈물막이 다시 고르게 형성돼요.
+해법은 의외로 간단해요. 미국 검안학회가 권장하는 '20-20-20 법칙' — 20분마다 6m 이상 떨어진 곳을 20초간 바라보는 것 — 을 2주간 실천한 그룹에서 디지털 눈 피로와 안구건조증 증상이 뚜렷하게 좋아졌다는 2022년 연구 결과가 있어요. 원리는 단순해요. 먼 곳을 보는 동안 초점을 조절하는 모양체 근육이 풀리고, 그 사이 자연스럽게 눈을 깜빡이게 되면서 눈물막이 다시 고르게 채워지는 거예요.
 
 08 · 마무리
 
 
-황반은 한번 손상되면 시력을 되돌리기 어려운 조직이에요. 눈이 침침하거나 빛 번짐, 야간 시력 저하, 안구건조증 같은 증상이 반복된다면 안과 검진을 받아보는 게 좋아요. 하지만 세 가지 다 무조건 끊을 필요는 없어요 — 단 음료는 녹황색 채소로, 튀김은 등푸른 생선으로 바꾸고, 스마트폰은 20-20-20 법칙만 지켜도 눈 부담을 크게 줄일 수 있어요.
+황반은 한번 손상되면 회복이 어려운 조직이라 예방이 최선이에요. 눈이 침침하거나 빛이 번지고, 밤에 유독 안 보이거나 뻑뻑한 증상이 계속된다면 안과 검진부터 받아보세요. 그렇다고 좋아하는 걸 다 포기할 필요는 없어요 — 단 음료 자리에 녹황색 채소를, 튀김 자리에 등푸른 생선을 놓고, 스마트폰을 볼 땐 20-20-20 법칙 하나만 지켜도 눈이 받는 부담을 크게 덜어낼 수 있어요.
 
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 안과 전문의와 상담하시기 바랍니다.
+이 글은 건강 정보 제공을 목적으로 하며, 정확한 진단과 치료는 안과 전문의와 상담하시기 바랍니다.
 
 #눈건강 #백내장 #황반변성 #루테인 #지아잔틴 #안구건조증 #눈피로 #건강정보</textarea>
   <div class="card-actions">
@@ -987,12 +993,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

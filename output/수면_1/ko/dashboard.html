@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="대추" value="https://link.coupang.com/a/fPlPiGwt0m" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8C%80%EC%B6%94&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8C%80%EC%B6%94&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/GZDJ2XA5" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="체리" value="https://link.coupang.com/a/fPnrl5n44i" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%B2%B4%EB%A6%AC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%B2%B4%EB%A6%AC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5T05dZV4" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="호두" value="https://link.coupang.com/a/fPlX0JSeGG" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%98%B8%EB%91%90&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%98%B8%EB%91%90&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5NecvkV5" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -496,52 +503,52 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg" download="수면_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">불면증 때문에 힘든 분들 주목! 천연 수면 음식 이야기
+  <textarea class="caption-box" id="cap-4" spellcheck="false">잠들기 힘든 밤이 계속된다면 - 수면에 도움 되는 천연 음식 3가지
 
 00 · 표지
 
 
-나이가 들수록 수면 호르몬인 멜라토닌 분비량이 자연히 줄어들고, 스트레스 호르몬인 코르티솔이 많이 분비되면 몸이 계속 긴장 상태에 머물러 있어서 잠들기 어렵고 자주 깨는 불면 증상으로 이어질 수 있어요. 카페인이나 늦은 시간 스마트폰 불빛도 멜라토닌 분비를 방해해요.
+나이가 들면서 수면을 돕는 멜라토닌 호르몬 분비량은 점점 줄어드는 반면, 스트레스를 받을 때 나오는 코르티솔은 오히려 늘어나서 몸이 늘 긴장 상태에 머물게 돼요. 이 상태가 이어지면 잠들기까지 오래 걸리고 자다가도 자주 깨는 불면 증상으로 이어져요. 카페인 섭취나 늦은 밤 스마트폰 화면 불빛도 멜라토닌 분비를 방해하는 대표적인 요인이에요.
 
 01 · 왜 잠이 안 올까요
 
 
-잠이 잘 안 와서 힘든 분들, 잠들기 전 이 세 가지 음식부터 챙겨보는 건 어떨까요?
+잠들기가 유독 힘든 날이 많다면, 자기 전에 이 세 가지 음식부터 하나씩 챙겨보는 걸 추천해요.
 
 02 · 대추
 
 
-대추에는 사포닌이라는 성분이 들어있는데, 자율신경과 중추신경을 안정시켜주는 것으로 알려져 있어요. 마그네슘 성분은 수면과 정신 안정에 관여하는 세로토닌 생성을 돕는다고도 해요.
+대추 안에는 사포닌이라는 성분이 담겨있는데, 자율신경과 중추신경을 가라앉혀 몸을 편안한 상태로 만들어주는 것으로 알려져 있어요. 여기에 함께 들어있는 마그네슘은 수면과 정서 안정에 관여하는 세로토닌이 만들어지는 과정을 돕는 역할을 해요.
 
 03 · 대추 섭취법
 
 
-저녁에 대추차 한 잔이 마음을 편안하게 해주는 데 도움이 될 수 있어요. 참고로 대추차를 끓일 때 생기는 하얀 거품은 해로운 게 아니라 사포닌 때문에 생기는 거라 그냥 마셔도 괜찮아요. 다만 말린 대추는 당분 함량이 높은 편이라 적당량만 챙기는 게 좋습니다.
+저녁 시간, 따뜻한 대추차 한 잔이 마음을 가라앉히는 데 도움을 줄 수 있어요. 대추차를 끓이다 보면 하얀 거품이 뜨는데, 이건 몸에 해로운 게 아니라 사포닌 성분 때문에 생기는 자연스러운 현상이라 걷어내지 않고 그대로 마셔도 괜찮아요. 다만 말린 대추는 당 함량이 꽤 높은 편이니 하루 섭취량은 적당히 조절하는 게 좋아요.
 
 04 · 체리 연구 결과
 
 
-체리, 그중에서도 타트체리는 실제 연구 결과가 있어요. 영국 노섬브리아대학교 연구팀이 건강한 성인 20명을 대상으로 진행한 실험에서, 7일간 매일 타트체리 주스 2잔을 마신 그룹이 그렇지 않은 그룹보다 수면 시간이 25분 늘고 침대에서 보낸 휴식 시간까지 합쳐 평균 39분 더 쉰 것으로 나타났어요. 자다가 깨거나 낮에 조는 모습도 더 적어서 수면 효율 자체가 높아졌다고 하고요(유럽영양학저널 게재).
+체리 중에서도 타트체리는 실제 논문으로 효과가 확인된 재료예요. 영국 노섬브리아대학교에서 건강한 성인 20명을 대상으로 진행한 실험을 보면, 일주일 동안 매일 타트체리 주스를 두 잔씩 마신 그룹은 그렇지 않은 그룹보다 실제 수면 시간이 25분 길었고, 침대에 누워있던 전체 휴식 시간까지 합치면 평균 39분이나 더 쉰 것으로 확인됐어요. 이 그룹은 자다가 깨는 횟수나 낮 동안 졸린 정도도 더 적어서 수면의 질 자체가 좋아진 것으로 나타났고, 이 결과는 유럽영양학저널에 실렸어요.
 
 05 · 체리 섭취법
 
 
-타트체리에 들어있는 멜라토닌과 안토시아닌, 폴리페놀이 수면-각성 주기를 조절하는 데 도움이 될 수 있다고 알려져 있어요. 취침 1~2시간 전 생과일이나 무가당 주스로 섭취하는 게 좋고, 당뇨가 있다면 주스보다는 생체리를 선택하는 게 안전해요.
+타트체리 속 멜라토닌과 안토시아닌, 폴리페놀 성분이 몸의 수면-각성 리듬을 조절하는 데 관여한다고 알려져 있어요. 잠들기 1~2시간 전에 생과일이나 무가당 주스 형태로 섭취하면 좋고, 혈당 관리가 필요한 분이라면 당분이 있는 주스 대신 생체리로 드시는 편이 안전해요.
 
 06 · 호두
 
 
-호두에는 1g당 2.5~4.5ng 정도의 멜라토닌이 들어있고, 마그네슘과 불포화지방산도 풍부해서 신경을 안정시키고 수면 리듬을 유지하는 데 도움이 될 수 있어요.
+호두 1g에는 약 2.5~4.5ng 정도의 멜라토닌이 들어있고, 마그네슘과 불포화지방산도 넉넉하게 함유돼 있어서 신경을 안정시키고 규칙적인 수면 리듬을 유지하는 데 힘을 보태요.
 
 07 · 호두 섭취법
 
 
-2025년 발표된 한 소규모 연구에서는 잠들기 전 호두 40g을 2개월간 먹은 참가자들의 수면의 질과 효율이 높아졌다는 결과도 있었는데, 멜라토닌뿐 아니라 견과류에 풍부한 비타민E의 항염 작용이 함께 작용한 것으로 추정된다고 해요. 취침 1~2시간 전 3~5알 정도를 우유나 무가당 요거트와 함께 먹으면 좋은데, 열량이 있으니 적정량만 챙기는 게 좋습니다.
+2025년에 발표된 소규모 연구에서는 두 달 동안 매일 취침 전 호두 40g을 섭취한 참가자들의 수면 질과 효율이 향상된 결과가 나왔는데, 연구진은 멜라토닌뿐 아니라 견과류에 풍부한 비타민E의 항염 효과도 함께 작용했을 가능성으로 보고 있어요. 잠들기 1~2시간 전 3~5알 정도를 우유나 무가당 요거트에 곁들이면 좋지만, 열량이 낮지 않은 만큼 양은 적당히 지키는 게 좋아요.
 
 08 · 주의할 점
 
 
-세 가지 음식 모두 도움이 될 수는 있지만, 이것만으로 불면증이 바로 해결되는 건 아니에요. 카페인 섭취를 조절하고 일정한 취침 시간을 지키는 것처럼 생활습관을 함께 개선하는 게 훨씬 중요합니다.
+이 세 가지 음식이 수면에 보탬이 되는 건 맞지만, 음식만으로 불면증이 단번에 해결되지는 않아요. 카페인 섭취량을 관리하고 매일 비슷한 시간에 잠자리에 드는 습관처럼, 생활 전반을 함께 다듬는 게 더 중요해요.
 
 09 · 마무리
 
@@ -1009,12 +1016,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

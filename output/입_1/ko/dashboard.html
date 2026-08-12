@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>대화할 때마다 입냄새가 신경 쓰인다면 주목! 구취 부르는 음식 피하는 법 — 업로드 대시보드</title>
+<title>대화할 때마다 입냄새가 신경 쓰인다면 주목! - 구취 부르는 음식 피하는 법 — 업로드 대시보드</title>
 <style>
   :root {
     --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -217,7 +221,7 @@
 <body>
 <header>
   <div class="eyebrow">업로드 대시보드</div>
-  <h1>대화할 때마다 입냄새가 신경 쓰인다면 주목! 구취 부르는 음식 피하는 법</h1>
+  <h1>대화할 때마다 입냄새가 신경 쓰인다면 주목! - 구취 부르는 음식 피하는 법</h1>
   
 </header>
 
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="사과" value="https://link.coupang.com/a/fSQH0bN1NI" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%82%AC%EA%B3%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%82%AC%EA%B3%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/GbyWx5n8" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="우유" value="https://link.coupang.com/a/fSQKWzVTDU" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9A%B0%EC%9C%A0&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9A%B0%EC%9C%A0&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/GUTVbRUb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="닭가슴살" value="https://link.coupang.com/a/fSQslYJIQK" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xZKAxyDb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -493,14 +500,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%9E%85_1_00_%ED%91%9C%EC%A7%80.jpg" download="입_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">대화할 때마다 입냄새가 신경 쓰인다면 주목! - 구취 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">말할 때마다 위축되는 입냄새, 범인은 이 세 가지 음식 습관
 
 00 · 표지
 
 
-대화하다가 상대방이 살짝 뒤로 물러나는 느낌을 받은 적 있으신가요? 무조건 양치질만 열심히 한다고 해결되지 않아요. 원인이 되는 음식 습관만 조절해도 입냄새를 크게 줄일 수 있어요.
+말하다가 상대방이 은근슬쩍 거리를 두는 걸 눈치챈 적 있나요? 양치질 횟수를 늘리는 것만으로는 근본적인 해결이 안 되는 경우가 많아요. 냄새를 만드는 음식 습관 자체를 바꿔야 진짜 효과가 나요.
 
-입안이 마르면 침 분비가 줄어들면서 세균이 번식하기 좋은 환경이 되는데, 이 세균이 입속 단백질과 아미노산을 분해하면서 휘발성 황화합물(VSC)을 만들어내요. 이게 바로 입냄새의 주범이에요. 카페인이 많거나 황 성분이 많거나 단백질이 지나치게 많은 음식을 먹으면 이 과정이 더 심해져요.
+구강 건조가 시작점이에요. 침이 줄어들면 세균이 번식하기 훨씬 쉬운 환경이 만들어지고, 이 세균이 입안의 단백질·아미노산을 분해하는 과정에서 휘발성 황화합물(VSC)을 뿜어내는데, 바로 이 물질이 냄새의 정체예요. 카페인 함량이 높거나, 황 성분이 많거나, 단백질 비중이 지나치게 큰 음식을 먹을수록 이 반응은 더 활발해져요.
 
 01 · 왜 입에서 냄새가 날까요
 
@@ -508,37 +515,37 @@
 02 · 커피
 
 
-첫 번째는 커피예요. 카페인은 이뇨작용을 촉진해서 물 대신 커피를 반복적으로 마시면 입안 수분이 빠르게 줄어드는데, 침 분비가 줄어든 구강은 세균이 번식하기 좋은 최적의 환경이 돼요.
+첫 번째 원인은 커피예요. 카페인에는 이뇨 효과가 있어서 물 대신 커피로 수분을 채우는 습관이 반복되면 입안이 금세 건조해져요. 침이 마른 구강은 세균이 자리 잡기에 딱 좋은 조건이 되고, 그만큼 냄새도 쉽게 만들어져요.
 
 03 · 커피 대신
 
 
-커피를 완전히 끊을 필요는 없어요. 커피를 마신 뒤엔 물을 같이 마셔서 입안을 촉촉하게 유지해주고, 하루 3잔 이하로 줄이면 구강건조로 인한 냄새 부담을 줄일 수 있어요.
+커피를 무조건 끊어야 하는 건 아니에요. 마신 다음 물 한 잔을 꼭 곁들여서 입안 수분을 보충해주고, 하루 섭취량을 3잔 이내로 관리하면 구강건조로 인한 냄새 부담을 상당히 낮출 수 있어요.
 
 04 · 양파
 
 
-두 번째는 양파예요. 양파에는 알릴 메틸 설파이드 같은 휘발성 황화합물이 들어있는데, 이 성분은 위에서 소화된 뒤 혈류를 타고 폐까지 이동해서 호흡을 통해 몇 시간 동안 냄새로 빠져나가요. 양치질이나 가글로는 쉽게 없어지지 않는 이유예요.
+두 번째 원인은 양파예요. 알릴 메틸 설파이드라는 휘발성 황화합물이 문제인데, 이 성분은 소화된 뒤 혈액을 타고 폐까지 이동해서 숨을 쉴 때마다 몇 시간에 걸쳐 계속 빠져나가요. 입안에서 나는 냄새가 아니라 몸속에서부터 올라오는 냄새라서, 양치나 가글로는 잘 지워지지 않아요.
 
 05 · 양파 대신
 
 
-생양파 대신 익혀서 먹으면 황화합물이 줄어들어요. 2016년 한 식품과학 연구에서는 생사과를 먹는 게 위장에서 올라오는 황 성분을 중화하는 데 효과적이라고 밝혔고, 식사 중 우유를 마시는 것도 비슷한 효과가 있다고 해요.
+생양파보다는 익힌 양파를 선택하면 황화합물 발생량 자체가 줄어들어요. 2016년의 한 식품과학 연구에 따르면 사과를 생으로 먹는 것이 위에서 올라오는 황 성분을 중화하는 데 효과적이었고, 식사 중 우유를 곁들이는 것도 비슷한 완화 효과를 보였다고 해요.
 
 06 · 가공육
 
 
-세 번째는 소시지·햄 같은 가공육이에요. 단백질에 들어있는 메티오닌 같은 황 함유 아미노산이 분해되면서 냄새 물질이 만들어지는데, 탄수화물 없이 단백질만 많이 먹으면 케톤체까지 더해져서 특유의 시큼한 냄새가 더 심해져요.
+세 번째 원인은 소시지·햄 같은 가공육이에요. 여기 든 단백질의 메티오닌 등 황 함유 아미노산이 분해되면서 냄새 물질이 생기는데, 탄수화물 섭취 없이 단백질 위주로만 식사하면 몸이 케톤체를 만들어내면서 특유의 시큼한 냄새까지 더해져요.
 
 07 · 가공육 대신
 
 
-소시지·햄 대신 닭가슴살처럼 담백한 단백질을 고르고, 탄수화물을 하루 최소 50그램 이상은 함께 챙겨서 케톤체가 과도하게 만들어지지 않게 하는 게 좋아요.
+소시지·햄 대신 닭가슴살 같은 담백한 단백질원을 선택하고, 탄수화물은 하루 50그램 이상 최소한으로라도 함께 챙겨서 케톤체가 과하게 생기지 않도록 균형을 맞추는 게 좋아요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊어야 하는 건 아니에요. 커피는 마신 뒤 물과 함께, 양파는 익히거나 사과·우유를 곁들여서, 가공육 대신 담백한 단백질과 탄수화물을 균형 있게 챙기는 것만으로도 입냄새를 크게 줄일 수 있어요. 물을 자주 마시고 식이섬유 많은 채소로 씹는 양을 늘리는 것도 침 분비에 도움이 돼요.
+세 가지 식품을 전부 끊어낼 필요는 없어요. 커피 뒤엔 물 한 잔, 양파는 익히거나 사과·우유를 곁들이고, 가공육 대신 담백한 단백질에 탄수화물을 균형 있게 더하는 것만으로 입냄새는 눈에 띄게 줄어들어요. 평소 물을 자주 마시고 식이섬유가 풍부한 채소를 오래 씹는 습관도 침 분비를 늘리는 데 도움이 돼요.
 
 #입냄새 #구취 #구강건조 #황화합물 #케톤다이어트 #저탄고단백 #건강정보</textarea>
   <div class="card-actions">
@@ -1003,12 +1010,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");

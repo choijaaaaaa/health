@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="탄산수" value="https://link.coupang.com/a/fSQyvCPp9M" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%83%84%EC%82%B0%EC%88%98&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%83%84%EC%82%B0%EC%88%98&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/FLEW8JnE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="통곡물 식품" value="https://link.coupang.com/a/fRyVkpMlNI" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%86%B5%EA%B3%A1%EB%AC%BC+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%ED%86%B5%EA%B3%A1%EB%AC%BC+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/G5kDunS0" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -288,6 +294,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="무가당 식품" value="https://link.coupang.com/a/fRjs2i4dPg" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EA%B0%80%EB%8B%B9+%EC%8B%9D%ED%92%88&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EA%B0%80%EB%8B%B9+%EC%8B%9D%ED%92%88&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -493,14 +500,14 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 표시 위치에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%9E%87%EB%AA%B8_1_00_%ED%91%9C%EC%A7%80.jpg" download="입_3_잇몸_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">양치할 때 잇몸에서 피가 자주 난다면 주목! - 잇몸출혈 부르는 음식 피하는 법
+  <textarea class="caption-box" id="cap-4" spellcheck="false">칫솔질할 때마다 피가 비친다면? 잇몸출혈을 키우는 식습관 바로잡기
 
 00 · 표지
 
 
-양치할 때 잇몸에서 피가 보이신 적 있으신가요? 대부분은 치은염 초기 신호인데, 무조건 걱정만 할 필요는 없어요. 원인이 되는 음식 습관만 조절해도 잇몸 출혈 빈도를 크게 줄일 수 있어요.
+칫솔질 후 뱉어낸 물에 붉은 기가 섞여 나온 적 있나요? 대개는 치은염 초기 단계에서 나타나는 신호인데, 지나치게 걱정할 일만은 아니에요. 원인이 되는 음식 습관을 손보는 것만으로도 출혈 빈도를 확실히 줄일 수 있거든요.
 
-당분이나 흰 빵 같은 정제 탄수화물을 자주 먹으면 입속 세균이 이걸 먹이 삼아 늘어나면서 치아 표면에 치태가 두껍게 쌓여요. 이 치태 속 세균이 만드는 산이 잇몸 경계를 계속 자극해서 염증을 일으켜요. 여기에 비타민C까지 부족하면 문제가 더 커지는데, 비타민C는 잇몸을 지탱하는 콜라겐을 만드는 효소의 필수 보조 인자라서 부족하면 콜라겐이 제대로 합성되지 않아 잇몸 조직이 약해지고 작은 자극에도 쉽게 피가 나요. 실제로 하루 500~1000mg의 비타민C를 섭취하면 7~14일 안에 잇몸 출혈이 줄어든다는 연구 결과도 있어요.
+당분이나 흰 빵 같은 정제 탄수화물을 습관적으로 먹으면 입속 세균이 이를 먹이 삼아 빠르게 늘어나고, 그 결과 치아 표면에 치태가 두텁게 쌓여요. 치태 안에서 세균이 만들어내는 산이 잇몸 경계 부위를 계속 자극하면서 염증으로 이어지는 거예요. 여기에 비타민C 부족까지 겹치면 상황이 더 나빠지는데, 비타민C는 잇몸을 지탱하는 콜라겐 합성 효소의 필수 보조 인자라서 부족하면 콜라겐이 제대로 만들어지지 않아 잇몸 조직 자체가 약해지고 작은 자극에도 쉽게 피가 나요. 하루 500~1000mg의 비타민C를 섭취했을 때 7~14일 안에 잇몸 출혈이 줄어들었다는 연구 결과도 있어요.
 
 01 · 왜 잇몸에서 피가 날까요
 
@@ -508,37 +515,37 @@
 02 · 탄산음료
 
 
-첫 번째는 탄산음료예요. 탄산음료에 든 설탕은 입속 세균의 먹이가 돼서 치태를 두껍게 만드는데, 여기에 탄산 자체의 산성 성분까지 더해져 치아 표면을 부식시켜서 세균이 더 잘 달라붙는 환경을 만들어요.
+첫 번째 원인은 탄산음료예요. 여기 든 설탕이 입속 세균의 먹이가 되어 치태를 두껍게 키우는 데다, 탄산 자체의 산성 성분이 치아 표면을 부식시켜서 세균이 더 쉽게 달라붙을 수 있는 환경까지 만들어줘요.
 
 03 · 탄산음료 대신
 
 
-탄산음료 대신 무가당 허브티나 물로 바꾸면 당분 부담을 줄일 수 있어요. 파프리카나 키위처럼 비타민C가 풍부한 과일·채소를 같이 챙기면 잇몸 콜라겐 회복에도 도움이 돼요.
+탄산음료를 무가당 허브티나 그냥 물로 바꾸는 것만으로 당분 부담이 크게 줄어요. 파프리카나 키위처럼 비타민C가 풍부한 과일·채소를 함께 챙기면 잇몸 콜라겐 회복까지 챙길 수 있어요.
 
 04 · 흰빵
 
 
-두 번째는 흰빵 같은 정제 탄수화물이에요. 정제 탄수화물은 씹는 즉시 단순당으로 분해되는데, 이 부드러운 반죽이 치아 사이 틈에 오래 달라붙어 있어서 세균이 분해하며 만드는 산에 잇몸이 더 오래 노출돼요.
+두 번째 원인은 흰빵 같은 정제 탄수화물이에요. 씹자마자 단순당으로 빠르게 분해되는 데다, 부드러운 질감 탓에 치아 사이 틈새에 오래 들러붙어 있어서 세균이 만드는 산에 잇몸이 노출되는 시간 자체가 길어져요.
 
 05 · 흰빵 대신
 
 
-흰빵 대신 통곡물빵을 고르면 식이섬유 덕분에 분해 속도가 느려져서 치태로 이어지는 당 노출 시간이 줄어들어요. 브로콜리나 오렌지처럼 비타민C가 풍부한 식품을 곁들이면 잇몸 회복에도 좋아요.
+흰빵 대신 통곡물빵을 선택하면 풍부한 식이섬유 덕분에 분해 속도가 느려지고, 그만큼 당 노출 시간도 줄어들어요. 브로콜리나 오렌지처럼 비타민C 함량이 높은 식품을 곁들이면 잇몸 회복에도 도움이 돼요.
 
 06 · 도넛
 
 
-세 번째는 도넛이에요. 정제당과 튀김 기름이 함께 들어있어서, 당분이 치태를 키우는 동안 튀김 과정에서 생기는 지방 산화물이 체내 염증 반응을 더 키워서 잇몸이 붓고 피가 잘 나는 상태를 만들어요.
+세 번째 원인은 도넛이에요. 정제당과 튀김 기름이 한꺼번에 들어있는 게 문제인데, 당분이 치태를 키우는 사이 튀기는 과정에서 생긴 지방 산화물이 몸속 염증 반응을 더 부추겨서 잇몸이 붓고 쉽게 피가 나는 상태를 만들어요.
 
 07 · 도넛 대신
 
 
-도넛 대신 견과류나 무가당 그릭요거트를 선택하면 당분과 튀김 기름 부담을 함께 줄일 수 있어요. 딸기나 구아바처럼 비타민C 함량이 높은 과일을 후식으로 챙기면 잇몸 건강에 더 도움이 돼요.
+도넛 대신 견과류나 무가당 그릭요거트로 바꾸면 당분과 튀김 기름 부담을 동시에 덜어낼 수 있어요. 딸기나 구아바처럼 비타민C가 풍부한 과일을 후식으로 곁들이면 잇몸 건강에 한층 도움이 돼요.
 
 08 · 마무리
 
 
-세 가지 다 무조건 끊어야 하는 건 아니에요. 탄산음료 대신 무가당 차, 흰빵 대신 통곡물빵, 도넛 대신 견과류나 무가당 요거트로 바꾸고 파프리카·키위·브로콜리처럼 비타민C 풍부한 채소·과일을 꾸준히 챙기면 잇몸 출혈 빈도를 크게 줄일 수 있어요. 부드러운 칫솔질과 치실 사용도 잊지 마세요.
+세 가지 식품을 전부 끊을 필요는 없어요. 탄산음료는 무가당 차로, 흰빵은 통곡물빵으로, 도넛은 견과류나 무가당 요거트로 바꾸고 파프리카·키위·브로콜리처럼 비타민C가 풍부한 채소·과일을 꾸준히 곁들이면 잇몸 출혈 빈도가 눈에 띄게 줄어들어요. 부드럽게 칫솔질하고 치실을 챙기는 습관도 함께 유지하세요.
 
 #잇몸출혈 #치은염 #잇몸건강 #비타민C #치태관리 #저당식단 #건강정보</textarea>
   <div class="card-actions">
@@ -1003,12 +1010,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
