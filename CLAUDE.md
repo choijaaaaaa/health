@@ -609,11 +609,18 @@
 ```
 python3 -m lib.content_review <topic> [lang]   # 논리 오류·과장·성의없는 대체재 검사
 python3 -m lib.content_review --lang-check <base_topic>   # 다국어: 진짜 독립 리서치인지
+python3 -m lib.content_review --hook-pattern <topic>   # 제목 작성 전에 먼저 — 12종 훅 패턴 중 이번 topic이 뭔지 확인
 ```
 
 - **새 topic은 narration.txt/card_news_spec.json 완성 시점에 `content_review` 통과가
   완료 조건**(다른 언어 추가 시 `--lang-check`도 함께). 플래그된 문제는 자동
   수정 안 됨 — 사람/세션이 판단해서 직접 고칠 것.
+- ⚠️ **`--hook-pattern`은 title을 쓰기 전에 먼저 돌릴 것(2026-08-12 재확인)** —
+  "훅은 핵심 키워드로 시작" 규칙(아래 "콘텐츠 톤" 절)만 적용하고 이 명령은
+  건너뛴 채 4개 topic 전부 "[키워드], ~다면 - OO 습관" 한 패턴으로 제목이
+  획일화된 사고 발생. content_review/--lang-check와 나란히 여기 QA 체크리스트에
+  있어야 실제로 매번 돌아간다 — "콘텐츠 톤" 절에만 적혀 있으면 다른 톤 규칙에
+  묻혀 누락되기 쉬움.
 - 권장 순서: `content_review`/`--lang-check` 통과를 TTS 호출 **전에** 끝내면
   사후 재생성 자체가 필요 없어진다 — 다만 TTS 이후에 실제 오류가 발견되면
   재생성한다(위 "콘텐츠 톤" 절 TTS 규칙 참고, 절대 규칙은 아니고 권장 순서).
