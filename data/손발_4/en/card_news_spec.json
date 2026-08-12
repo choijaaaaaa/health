@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Heel pain isn't just",
+    "from being on your feet -",
+    "it happens while you sleep too",
+    "Heel-Saving Habits"
+  ],
+  "eyebrow": "Plantar Fasciitis Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneakers",
+    "슬리퍼_illust.jpg": "Flat Slippers",
+    "자명종_illust.jpg": "Morning"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Heel pain isn't just from",
+        "being on your feet all day",
+        "",
+        "Your plantar fascia sits",
+        "shortened all night - three",
+        "habits pile more strain",
+        "on top of that"
+      ]
+    },
+    {
+      "name": "Ramping Up Too Fast",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "First, ramping up your",
+        "running or walking mileage",
+        "too fast",
+        "",
+        "Your fascia needs weeks to",
+        "adapt - skip that window and",
+        "microtears pile up fast"
+      ]
+    },
+    {
+      "name": "Build Up Gradually",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Increase your mileage or",
+        "time on your feet just",
+        "a little each week",
+        "",
+        "That gives your fascia time",
+        "to adapt before it's overloaded"
+      ]
+    },
+    {
+      "name": "Cushionless Shoes, Hard Floors",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Second, standing for hours",
+        "in flat, cushionless shoes",
+        "on hard floors",
+        "",
+        "With no shock absorption,",
+        "every step's impact lands",
+        "straight on that tissue"
+      ]
+    },
+    {
+      "name": "Choose Supportive Shoes",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Pick shoes with real arch",
+        "support and cushioning",
+        "for long standing days",
+        "",
+        "Let your footwear absorb",
+        "the impact, not your fascia"
+      ]
+    },
+    {
+      "name": "That First Step Out of Bed",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Finally, that very first",
+        "step out of bed",
+        "",
+        "Your foot points down all night,",
+        "so the fascia heals shortened -",
+        "then your weight yanks it straight open"
+      ]
+    },
+    {
+      "name": "Stretch Before You Stand",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Before you swing your legs",
+        "out of bed, circle your ankles",
+        "and stretch your calves",
+        "",
+        "That alone eases the",
+        "shock of that first step"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Heel pain builds up from overload,",
+        "worn-out support, and a stiff morning step"
+      ],
+      [
+        "If pain sticks around for weeks,",
+        "it's worth seeing a doctor"
+      ]
+    ],
+    "tip": [
+      "Build mileage slowly, wear supportive shoes,",
+      "and stretch before that first step"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

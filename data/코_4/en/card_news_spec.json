@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Thick yellow-green mucus,",
+    "and your nose just won't clear?",
+    "Sinus-Clearing Habits"
+  ],
+  "eyebrow": "Sinusitis Relief",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "휴지_illust.jpg": "Tissue",
+    "비강스프레이_illust.jpg": "Nasal Spray",
+    "가습기_illust.jpg": "Humidifier"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "휴지_illust.jpg",
+      "body": [
+        "Swollen, blocked sinus",
+        "openings trap fluid inside",
+        "and fuel inflammation",
+        "",
+        "Three everyday habits",
+        "make that blockage worse"
+      ]
+    },
+    {
+      "name": "Blowing your nose too hard",
+      "char_file": "휴지_illust.jpg",
+      "body": [
+        "A hard blow creates about",
+        "10x more pressure than a cough",
+        "",
+        "That pressure pushes mucus",
+        "straight into your sinus cavities"
+      ]
+    },
+    {
+      "name": "Blow gently, one side at a time",
+      "char_file": "휴지_illust.jpg",
+      "body": [
+        "Blow one nostril",
+        "at a time, gently",
+        "",
+        "Lower pressure keeps mucus",
+        "out of your sinuses"
+      ]
+    },
+    {
+      "name": "Overusing decongestant spray",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Decongestant spray shrinks",
+        "blood vessels fast",
+        "",
+        "Push past 3 days and your nasal",
+        "lining rebounds, swelling worse"
+      ]
+    },
+    {
+      "name": "Cap spray use at 3 days",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Limit decongestant spray",
+        "to 3 days, no more",
+        "",
+        "That alone prevents",
+        "rebound congestion"
+      ]
+    },
+    {
+      "name": "Dry indoor air",
+      "char_file": "가습기_illust.jpg",
+      "body": [
+        "Low humidity thickens mucus",
+        "and slows the cilia that clear it",
+        "",
+        "That backs up drainage",
+        "in your sinuses"
+      ]
+    },
+    {
+      "name": "Humidify and hydrate",
+      "char_file": "가습기_illust.jpg",
+      "body": [
+        "Keep indoor humidity",
+        "around 40 to 50 percent",
+        "",
+        "Drink plenty of water",
+        "to thin the mucus out"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gentle nose-blowing, a 3-day spray limit,",
+        "and balanced humidity all help drainage"
+      ],
+      [
+        "If yellow-green congestion lasts",
+        "more than 10 days, see a doctor"
+      ]
+    ],
+    "tip": [
+      "Blow gently, cap the spray,",
+      "and keep the air humid"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

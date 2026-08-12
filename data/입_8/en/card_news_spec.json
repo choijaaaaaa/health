@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Think brushing alone",
+    "keeps tartar away?",
+    "It doesn't.",
+    "Tartar-Fighting Habits"
+  ],
+  "eyebrow": "Tartar Risk Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "치실_illust.jpg": "Floss",
+    "칫솔_illust.jpg": "Toothbrush",
+    "사탕_illust.jpg": "Sweets"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Plaque left on your teeth",
+        "picks up calcium and",
+        "phosphate from saliva",
+        "",
+        "It can harden into tartar",
+        "in as little as 24 hours -",
+        "three gaps in a normal",
+        "routine let it happen"
+      ]
+    },
+    {
+      "name": "The reach gap",
+      "char_file": "치실_illust.jpg",
+      "body": [
+        "Your toothbrush never reaches",
+        "the tight spaces between teeth",
+        "",
+        "Plaque sits there undisturbed",
+        "until it hardens into tartar"
+      ]
+    },
+    {
+      "name": "The overnight gap",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Saliva flow drops up to 90%",
+        "while you sleep",
+        "",
+        "Skip the pre-bed brush, and",
+        "bacteria sit for 6-8 hours"
+      ]
+    },
+    {
+      "name": "The snacking gap",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Every sugar hit drops your",
+        "mouth's pH within minutes",
+        "",
+        "The more often you snack,",
+        "the thicker plaque builds up"
+      ]
+    },
+    {
+      "name": "Close the reach gap",
+      "char_file": "치실_illust.jpg",
+      "body": [
+        "Add floss or an interdental",
+        "brush every time you brush",
+        "",
+        "It clears out what your",
+        "toothbrush alone leaves behind"
+      ]
+    },
+    {
+      "name": "Close the overnight gap",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Never let the night brush slide,",
+        "no matter how tired you are",
+        "",
+        "It clears out what",
+        "built up over the day"
+      ]
+    },
+    {
+      "name": "Close the snacking gap",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Cut back on how often",
+        "you reach for something sweet",
+        "",
+        "Rinse with water after -",
+        "it washes the sugar off your teeth"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Brushing isn't pointless -",
+        "it just needs backup"
+      ],
+      [
+        "Close these three gaps early,",
+        "and tartar never gets a foothold"
+      ]
+    ],
+    "tip": [
+      "Floss daily, never skip the night brush,",
+      "and cut back on sugary snacking"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
