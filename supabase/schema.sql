@@ -11,12 +11,7 @@ create table if not exists topics (
   thumbnail text,
   ad_tag boolean not null default false,
   tracks text[] not null default '{}',
-  updated_at timestamptz not null default now(),
-  -- WHY(2026-08-12, "냉방병 온열질환 이런것도 계절/시즌으로 넣으면되겠다"):
-  -- 원인이 계절/환경 자체인 topic만 태깅(냉방병·온열질환·미세먼지 등) —
-  -- 땀띠·자외선·식중독처럼 여름에 흔하지만 원인이 계절 자체는 아닌 topic은
-  -- 제외. platform_captions.json의 "season" 필드를 그대로 실어나름.
-  season text[] not null default '{}'
+  updated_at timestamptz not null default now()
 );
 
 -- WHY (base_topic, track) 복합키인지(2026-08-09, "숏츠 탭이랑 카드뉴스 탭이

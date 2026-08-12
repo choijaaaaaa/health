@@ -1141,12 +1141,6 @@ def _update_topics_index(out_path: str):
         # 신규 포맷이라는거 구분 가능하게"): 영상 우상단 광고 태그 오버레이가
         # 적용된 topic인지를 목록에서 바로 구분할 수 있어야 한다.
         ad_tag_applied = False
-        # WHY season도 여기서 같이 읽는지(2026-08-12, "냉방병 온열질환 이런것도
-        # 계절/시즌으로 넣으면되겠다" — 계절/환경 자체가 원인인 topic만 대상,
-        # 땀띠·자외선·식중독처럼 여름에 흔하지만 원인이 계절 자체는 아닌
-        # topic은 제외하기로 확정): platform_captions.json의 "season"
-        # 필드(문자열 배열, 예: ["여름"]) 그대로 실어나른다 — 없으면 빈 배열.
-        season: list[str] = []
         # WHY tracks를 저장 필드 대신 여기서 파생하는지(2026-08-07, "쇼츠 부문 /
         # 카드뉴스 부문" 목록 분리): 수동 플래그는 언젠가 빠뜨리거나 실제
         # 콘텐츠와 어긋나는 사고로 이어진다(이 프로젝트에서 network/
@@ -1164,7 +1158,6 @@ def _update_topics_index(out_path: str):
                 caption_spec = json.loads(caption_path.read_text())
                 title = caption_spec.get("title", topic)
                 ad_tag_applied = bool(caption_spec.get("ad_tag"))
-                season = caption_spec.get("season", []) or []
                 platform_types = {p.get("type") for p in caption_spec.get("platforms", [])}
                 if "video" in platform_types:
                     tracks.append("shorts")
@@ -1189,7 +1182,6 @@ def _update_topics_index(out_path: str):
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
             "thumbnail": thumbnail, "ad_tag": ad_tag_applied, "tracks": tracks,
-            "season": season,
         })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))

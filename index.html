@@ -125,19 +125,6 @@
   <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
     style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:14px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
 
-  <!-- WHY 계절 필터(2026-08-12, "냉방병 온열질환 이런것도 계절/시즌으로
-       넣으면되겠다"): 원인이 계절/환경 자체인 topic(냉방병·온열질환·미세먼지
-       등)만 태깅 대상이라 아직 개수는 적지만, topics.season(Supabase)을
-       기준으로 미리 필터 UI를 만들어둔다 — 검색창과 같은 자리, AND 조건으로
-       같이 적용(둘 다 만족해야 표시). -->
-  <div id="seasonFilter" role="group" aria-label="계절 필터" style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap;">
-    <button type="button" class="season-filter-btn active" data-season="" style="border:1px solid var(--rule);background:var(--accent);color:#fff;border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;">전체</button>
-    <button type="button" class="season-filter-btn" data-season="봄" style="border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;">🌸 봄</button>
-    <button type="button" class="season-filter-btn" data-season="여름" style="border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;">☀️ 여름</button>
-    <button type="button" class="season-filter-btn" data-season="가을" style="border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;">🍂 가을</button>
-    <button type="button" class="season-filter-btn" data-season="겨울" style="border:1px solid var(--rule);background:var(--panel);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:12px;font-weight:700;cursor:pointer;">❄️ 겨울</button>
-  </div>
-
   <!-- WHY 탭 제거(2026-08-09, "카드뉴스 탭이랑 숏츠 탭 나눌 필요 없겠다...
        걍 한데 모으고 탭 선택 필요없도록하자" — 채널·언어 축소로 목록 자체가
        작아져서 트랙별로 나눠 볼 실익이 없어짐): 숏츠/카드뉴스를 하나의
@@ -355,7 +342,6 @@ document.getElementById("importLogInput").addEventListener("change", (e) => {
 // 이유로 이 파일 아래, 그리고 lib/dashboard.py가 생성하는 topic별 대시보드에서도
 // 전부 Supabase로 전환했다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
-const SEASON_EMOJI = { "봄": "🌸", "여름": "☀️", "가을": "🍂", "겨울": "❄️" };
 
 Promise.all([
   sb.from("topics").select("*").then(r => r.data || []),
@@ -406,7 +392,7 @@ Promise.all([
       const baseTopic = slashIdx === -1 ? t.topic : t.topic.slice(0, slashIdx);
       const langSeg = slashIdx === -1 ? null : t.topic.slice(slashIdx + 1);
       if (!groups.has(baseTopic)) groups.set(baseTopic, []);
-      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, tracks: t.tracks || [], season: t.season || [] });
+      groups.get(baseTopic).push({ topic: t.topic, title: t.title, url: t.url, thumbnail: t.thumbnail, langSeg, adTag: t.ad_tag, tracks: t.tracks || [] });
       if (t.updated_at) {
         const prev = topicUpdatedAt.get(baseTopic);
         if (!prev || t.updated_at < prev) topicUpdatedAt.set(baseTopic, t.updated_at);
@@ -457,10 +443,6 @@ Promise.all([
       // 한다 — 언어 하나라도 그 트랙 콘텐츠가 있으면 그룹 전체가 그 트랙에도
       // 속한다(adTagApplied와 같은 "하나라도 있으면" 집계 원칙).
       const groupTracks = ["shorts", "card_news"].filter(t => variants.some(v => v.tracks.includes(t)));
-      // WHY(2026-08-12, "냉방병 온열질환 이런것도 계절/시즌으로 넣으면되겠다"):
-      // 언어별로 season이 갈릴 일은 없지만(같은 topic이면 같은 계절) tracks와
-      // 동일하게 variants 전체에서 합집합으로 모아 그룹 단위로 취급한다.
-      const groupSeasons = Array.from(new Set(variants.flatMap(v => v.season)));
 
       // WHY 배지 하나가 소속된 트랙 전부를 한번에 처리하는지(2026-08-09,
       // "카드뉴스 탭이랑 숏츠 탭 나눌 필요 없겠다... 배지 하나가 둘 다
@@ -490,8 +472,12 @@ Promise.all([
           await sb.from("completed_topics").upsert(groupTracks.map(t => ({ base_topic: baseTopic, track: t })));
           groupTracks.forEach(t => completed.add(`${baseTopic}|${t}`));
         }
+        const q = searchInput.value;
         renderAll();
-        applyFilters();
+        if (q) {
+          searchInput.value = q;
+          searchInput.dispatchEvent(new Event("input"));
+        }
       });
 
       const adTagBadge = document.createElement("span");
@@ -500,14 +486,6 @@ Promise.all([
         adTagBadge.title = "영상 우상단 광고 태그 적용됨";
         adTagBadge.setAttribute("aria-label", "광고 태그 적용됨");
         adTagBadge.style.cssText = "width:16px;flex:0 0 auto;font-size:13px;line-height:1;";
-      }
-
-      const seasonBadge = document.createElement("span");
-      if (groupSeasons.length) {
-        seasonBadge.textContent = groupSeasons.map(s => SEASON_EMOJI[s] || "").join("");
-        seasonBadge.title = groupSeasons.join(", ");
-        seasonBadge.setAttribute("aria-label", groupSeasons.join(", ") + " 계절 topic");
-        seasonBadge.style.cssText = "width:16px;flex:0 0 auto;font-size:13px;line-height:1;";
       }
 
       const thumb = document.createElement("div");
@@ -600,7 +578,6 @@ Promise.all([
 
       row.appendChild(badge);
       row.appendChild(adTagBadge);
-      row.appendChild(seasonBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
       row.appendChild(buttonWrap);
@@ -618,7 +595,7 @@ Promise.all([
       } else {
         targetList.appendChild(row);
       }
-      rows.push({ row, topic: baseTopic, list: targetList, season: groupSeasons });
+      rows.push({ row, topic: baseTopic, list: targetList });
     });
     refreshDoneWrap();
     currentRows = rows;
@@ -631,33 +608,17 @@ Promise.all([
     // 배지 토글 도입): renderAll()이 배지 클릭마다 목록 DOM을 통째로 새로
     // 그리므로, 이 리스너가 만들어질 때 한 번 캡처한 옛 노드를 계속 붙잡고
     // 있으면 재검색 시 빈 화면을 가리키게 된다.
-    let activeSeason = "";
-    function applyFilters() {
+    searchInput.addEventListener("input", () => {
       const q = searchInput.value.trim().toLowerCase();
       const topicsListEl = document.getElementById("topicsList");
       const topicsEmptyEl = document.getElementById("topicsEmpty");
       let visibleCount = 0;
-      currentRows.forEach(({ row, topic, list, season }) => {
-        const textMatch = topic.toLowerCase().includes(q);
-        const seasonMatch = !activeSeason || (season || []).includes(activeSeason);
-        const match = textMatch && seasonMatch;
+      currentRows.forEach(({ row, topic, list }) => {
+        const match = topic.toLowerCase().includes(q);
         row.style.display = match ? "flex" : "none";
         if (match && row.parentElement === list && list === topicsListEl) visibleCount++;
       });
       topicsEmptyEl.style.display = visibleCount === 0 ? "block" : "none";
-    }
-    searchInput.addEventListener("input", applyFilters);
-    document.querySelectorAll(".season-filter-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        activeSeason = btn.dataset.season;
-        document.querySelectorAll(".season-filter-btn").forEach(b => {
-          const isActive = b === btn;
-          b.classList.toggle("active", isActive);
-          b.style.background = isActive ? "var(--accent)" : "var(--panel)";
-          b.style.color = isActive ? "#fff" : "var(--ink)";
-        });
-        applyFilters();
-      });
     });
   })
   .catch(() => {});

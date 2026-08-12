@@ -45,7 +45,6 @@ def main():
             "thumbnail": t.get("thumbnail"),
             "ad_tag": bool(t.get("ad_tag", False)),
             "tracks": t.get("tracks", []),
-            "season": t.get("season", []),
         }
         for t in topics
     ])
