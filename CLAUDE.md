@@ -705,6 +705,13 @@ python3 -m lib.content_review --hook-pattern <topic>   # 제목 작성 전에 �
   언어 이상 있는 topic이면 영상 훅 비교(ko 기준) 결과 아래에 블로그 제목 비교도
   같이 출력된다. blog_seo엔 ko가 없어(8개 언어 전용) 기준점은 ko가 아니라
   존재하는 언어 중 이름순 첫 언어로 대체된다.
+- ⚠️ **blog_seo 기계적 검사는 `test_content_rules.py`가 `pytest` 실행마다
+  자동으로 돈다(2026-08-13, LLM 호출 없음)** — 필수 필드 누락·
+  meta_description 글자수(120~160, seo-blog `ingest_health_shorts.py`의
+  `META_DESCRIPTION_RANGE`와 값 동기화 필수)·본문에 `<img>` 최소 1장·HTML
+  태그 밸런스·slug 형식·title=meta_description 완전 동일 여부. 위
+  `content_review`(LLM 판단형)와 역할이 다르다 — 이쪽은 새 topic 작성 시
+  수동 호출 없이도 매번 자동으로 걸린다.
 - ⚠️ **`card_news_spec.json`의 `title` 배열 마지막 줄 = 카드뉴스 표지·영상
   오프닝 타이틀 화면에서 자동으로 떼어내는 "독립 라벨"이다**(2026-08-08,
   "썸네일 글 이상하게 나오는 현상... 짤려서 만들어지는애들이 많아" — 실측

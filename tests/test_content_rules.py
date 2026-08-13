@@ -90,6 +90,18 @@ def _content_platforms(spec: dict) -> list[dict]:
     return [p for p in spec.get("platforms", []) if "name" in p]
 
 
+def _blog_seo_platforms(spec: dict) -> list[dict]:
+    """spec["platforms"] 중 blog_seo 항목만 낸다(_content_platforms()의 반대).
+
+    WHY(2026-08-13, blog_seo 결정론적 회귀 테스트 추가): review_blog_seo()
+    (content_review.py)는 LLM 판단형이라 세션이 수동으로 호출해야만 돈다 —
+    필수 필드 누락·본문에 이미지가 아예 없음 같은 기계적 실수는 narration/
+    card_news처럼 매 pytest 실행마다 자동으로 잡히지 않는다. blog_seo는
+    오늘 처음 생긴 스키마라(narration 쪽 규칙들과 달리) 소급 적용 부담이
+    없다 — 지금 테스트를 추가해도 깨질 기존 topic이 없다(피부_1이 유일)."""
+    return [p for p in spec.get("platforms", []) if p.get("platform") == "blog_seo"]
+
+
 def _iter_strings(obj):
     """JSON 구조를 재귀적으로 순회하며 모든 leaf 문자열을 낸다.
     card_news_spec.json은 title/items[].body/closing.tip 외에 items[].name,
@@ -318,6 +330,115 @@ def test_products_no_middle_dot(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
     bad = [prod for prod in spec.get("products", []) if "·" in prod]
     assert not bad, f"{topic}: products에 '·'로 두 품목을 이어붙인 항목 있음 — {bad}"
+
+
+# ---------------------------------------------------------------------------
+# 규칙 11: blog_seo 결정론적 검사 (2026-08-13) — _blog_seo_platforms() 참고.
+# review_blog_seo()(content_review.py)의 LLM 판단형 검사와 달리 매 pytest
+# 실행마다 자동으로 도는 기계적 검사만 여기 둔다.
+# ---------------------------------------------------------------------------
+
+BLOG_SEO_REQUIRED_FIELDS = ("title", "meta_description", "slug", "hero_image_url", "body_html")
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_required_fields_present(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    missing = []
+    for p in _blog_seo_platforms(spec):
+        for field in BLOG_SEO_REQUIRED_FIELDS:
+            if not p.get(field):
+                missing.append(field)
+    assert not missing, f"{topic}: blog_seo 필수 필드 누락 — {missing}"
+
+
+# WHY 120~160(2026-08-13): seo-blog scripts/ingest_health_shorts.py의
+# META_DESCRIPTION_RANGE와 반드시 같은 값이어야 한다 — 저장소가 달라 상수를
+# 공유할 수 없으므로 값이 어긋나면 두 검사 기준이 조용히 갈린다. 한쪽만
+# 바꾸면 안 되고, 바꿀 땐 두 파일 모두 갱신할 것.
+BLOG_SEO_META_DESCRIPTION_RANGE = (120, 160)
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_meta_description_length(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    problems = []
+    for p in _blog_seo_platforms(spec):
+        meta = p.get("meta_description", "")
+        length = len(meta)
+        if not (BLOG_SEO_META_DESCRIPTION_RANGE[0] <= length <= BLOG_SEO_META_DESCRIPTION_RANGE[1]):
+            problems.append(f"meta_description {length}자")
+    assert not problems, f"{topic}: {problems} — {BLOG_SEO_META_DESCRIPTION_RANGE[0]}~{BLOG_SEO_META_DESCRIPTION_RANGE[1]}자 필요"
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_body_has_inline_image(topic):
+    """블로그 서브트랙 설계 문서(CLAUDE.md "블로그 SEO 서브트랙" 절)의 "본문
+    안에 <img> 최소 1장 직접 삽입" 요구사항을 실제로 강제하는 검사 —
+    hero_image_url은 seo-blog 페이지에서 본문에 시각적으로 렌더링되지 않으므로
+    (OG/JSON-LD 전용) 본문 자체에 이미지가 없으면 독자에게 사진이 하나도
+    안 보인다."""
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    missing = [p["platform"] for p in _blog_seo_platforms(spec) if "<img" not in p.get("body_html", "")]
+    assert not missing, f"{topic}: 본문(body_html)에 <img> 태그가 하나도 없음 — {missing}"
+
+
+# WHY 스택 기반 태그 매칭인지: body_html은 seo-blog에서
+# dangerouslySetInnerHTML로 그대로 렌더링된다(마크다운 변환 없음) — 태그가
+# 안 맞으면 페이지 레이아웃이 깨질 수 있는데 사용자가 8개 언어 페이지를
+# 매번 직접 눈으로 확인할 수 없다. self-closing 취급 태그(img/br)만 예외.
+_HTML_TAG_RE = re.compile(r"<(/?)([a-zA-Z0-9]+)[^>]*>")
+_HTML_VOID_TAGS = {"img", "br"}
+
+
+def _html_tag_balance_issues(html: str) -> list[str]:
+    stack: list[str] = []
+    issues: list[str] = []
+    for closing, tag in _HTML_TAG_RE.findall(html):
+        tag = tag.lower()
+        if tag in _HTML_VOID_TAGS:
+            continue
+        if closing:
+            if not stack or stack[-1] != tag:
+                issues.append(f"닫는 태그 순서/짝 불일치: </{tag}>")
+                continue
+            stack.pop()
+        else:
+            stack.append(tag)
+    if stack:
+        issues.append(f"닫히지 않은 태그: {stack}")
+    return issues
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_body_html_tags_balanced(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    problems = {}
+    for p in _blog_seo_platforms(spec):
+        issues = _html_tag_balance_issues(p.get("body_html", ""))
+        if issues:
+            problems[p["platform"]] = issues
+    assert not problems, f"{topic}: {problems}"
+
+
+_SLUG_RE = re.compile(r"^[a-z0-9-]+$")
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_slug_format(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    bad = [p["slug"] for p in _blog_seo_platforms(spec) if not _SLUG_RE.match(p.get("slug", ""))]
+    assert not bad, f"{topic}: slug이 URL 안전 형식(소문자 영숫자+하이픈)이 아님 — {bad}"
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_blog_seo_title_not_identical_to_meta_description(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    bad = [
+        p["title"] for p in _blog_seo_platforms(spec)
+        if p.get("title") and p.get("title") == p.get("meta_description")
+    ]
+    assert not bad, f"{topic}: title과 meta_description이 완전히 동일함 — {bad}"
 
 
 # ---------------------------------------------------------------------------

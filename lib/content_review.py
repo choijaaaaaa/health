@@ -126,6 +126,20 @@ BLOG_REGULATORY_CRITERION = """8. {lang_desc}권 건강/식품 광고 규제상 
 BLOG_TITLE_SEARCHABILITY_CRITERION = """9. 제목(title)이 실제 검색될 법한 핵심 증상/키워드로 시작하지 않고
    원인 나열·부연설명으로 문장을 시작해 핵심 키워드가 뒤로 밀려 있는 경우"""
 
+# WHY 신설(2026-08-13, "QA 자동화 더 디테일하게"): 기존 criterion 3(과장된
+# 의학적 주장)·5(기전 설명이 두루뭉술함)는 방향이 반대다 — 이 기준이 잡는
+# 패턴은 "숫자는 아주 구체적인데 어느 기관/연구인지 확인할 방법이 없는"
+# 경우로, 앞의 두 기준 어디에도 안 걸린다(과장도 아니고 모호하지도 않으니).
+# 블로그 본문은 나레이션보다 통계 인용 밀도가 훨씬 높아서("실제 연구 수치와
+# 함께 설명" 원칙, CLAUDE.md "콘텐츠 톤" 절) 이 리스크가 blog_seo에서 특히
+# 크다 — 기관명·연구명이 실제로 붙어있으면 통과, "연구에 따르면 73.2%가"처럼
+# 출처 없이 소수점까지 정밀한 수치만 있으면 걸린다.
+BLOG_FABRICATED_PRECISION_CRITERION = """10. 의학적으로 그럴듯해 보이지만 실제로 검증이 불가능한 과도하게 정밀한
+    수치·연구 인용(예: 출처 기관명·연구명 없이 "연구에 따르면 73.2%가
+    개선됐다"처럼 소수점 단위 수치만 등장하는 경우). 기관명·연구명·연도
+    등 확인 가능한 출처가 함께 있으면 문제 삼지 말 것 — "출처 없이 정밀한
+    숫자만" 있는 경우만 지적."""
+
 # WHY 하드코딩(2026-08-13) — data/global_research_rules.md의 "표현 주의" 절을
 # 파싱하는 대신 손으로 압축해 복제한다. 마크다운 절 경계를 파싱하면 문서
 # 포맷이 조금만 바뀌어도 에러 없이 조용히 엉뚱한 텍스트가 프롬프트에 섞여
@@ -191,7 +205,7 @@ def _build_blog_prompt(lang: str, title: str, meta_description: str, body_html: 
         # blog_seo는 현재 8개 비한국어 언어 전용(CLAUDE.md "블로그 SEO 서브트랙"
         # 절, 한국 제외)이라 실제로는 안 타는 분기 — 방어적으로만 남겨둠.
         lang_desc = "한국어"
-        criteria = BASE_CRITERIA + "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION
+        criteria = BASE_CRITERIA + "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION + "\n" + BLOG_FABRICATED_PRECISION_CRITERION
     else:
         lang_desc = lang
         criteria = (
@@ -201,7 +215,7 @@ def _build_blog_prompt(lang: str, title: str, meta_description: str, body_html: 
         regulatory_note = REGULATORY_NOTES_BY_LANG.get(_lang_code(lang))
         if regulatory_note:
             criteria += "\n" + BLOG_REGULATORY_CRITERION.format(lang_desc=lang_desc, regulatory_note=regulatory_note)
-        criteria += "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION
+        criteria += "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION + "\n" + BLOG_FABRICATED_PRECISION_CRITERION
     return BLOG_REVIEW_PROMPT.format(
         lang_desc=lang_desc, criteria=criteria,
         title=title, meta_description=meta_description, body_text=body_text,

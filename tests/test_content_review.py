@@ -376,6 +376,16 @@ def test_build_blog_prompt_strips_html_tags_from_body():
     assert "본문 문장." in prompt
 
 
+def test_build_blog_prompt_includes_fabricated_precision_criterion_for_all_langs():
+    # 이 기준(출처 없는 과도하게 정밀한 수치)은 kor/비kor 둘 다에 적용돼야 함
+    # — BLOG_NATIVE_FLUENCY_CRITERION/BLOG_REGULATORY_CRITERION과 달리 언어
+    # 무관한 팩트체크 문제라서.
+    non_kor_prompt = _build_blog_prompt("es", "제목", "메타", "<p>본문</p>")
+    kor_prompt = _build_blog_prompt("kor", "제목", "메타", "<p>본문</p>")
+    assert "검증이 불가능한 과도하게 정밀한" in non_kor_prompt
+    assert "검증이 불가능한 과도하게 정밀한" in kor_prompt
+
+
 # ---------------------------------------------------------------------------
 # check_blog_title_independence — ko가 없는 blog_seo 전용 언어독립성 검사
 # ---------------------------------------------------------------------------
