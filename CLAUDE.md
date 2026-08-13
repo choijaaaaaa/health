@@ -775,11 +775,13 @@ git 히스토리에서 복원.
 - ⚠️ **완료 기준 = 8개 언어 `blog_seo` 전부** — "ko만 만들고 끝났다고
   보고하지 말 것" 원칙(위 "세션 운영" 절)을 8개 언어로 확장 적용, 일부
   언어만 만들고 완료 보고하는 사고 방지.
-- ⚠️ **이미지 호스팅 주의**: `output/`는 health-shorts 자체 Vercel 배포에서
-  Basic Auth(`middleware.js`, matcher 전체)로 잠겨있어 크롤러가
-  `hero_image_url`을 그대로 못 읽는다 — seo-blog Supabase Storage 퍼블릭
-  버킷 연동 전까지 `hero_image_url`은 플레이스홀더로 둘 것(연동 작업은
-  seo-blog 쪽, 진행 상황은 그쪽 CLAUDE.md 참고).
+- **이미지 호스팅(2026-08-13 해결)**: `output/`는 health-shorts 자체 Vercel
+  배포에서 Basic Auth로 잠겨있어 크롤러가 못 읽지만, seo-blog 인입 스크립트
+  (`scripts/ingest_health_shorts.py`)가 `--commit` 시 카드뉴스 커버를
+  Supabase Storage 퍼블릭 버킷(`blog-images`)에 자동 업로드하고
+  `hero_image_url`·본문 `<img src>`의 `PENDING_SUPABASE_STORAGE_UPLOAD`
+  플레이스홀더를 실제 URL로 치환해준다 — health-shorts 쪽에서는 계속
+  플레이스홀더 그대로 작성만 하면 됨, 추가 조치 불필요.
 
 ## 대시보드 (`lib/dashboard.py`)
 
