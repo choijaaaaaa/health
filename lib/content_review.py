@@ -15,11 +15,25 @@
 # 지역에서 실제로 흔한지)도 이때만 추가된다 — 한국 콘텐츠는 애초에 한국 소싱
 # 기준이라 해당 없음.
 #
+# WHY blog_seo도 여기서 검사하는지(2026-08-13, "글로벌 자료는 내가 검증이
+# 불가하단말이야 한국사람이니까... 언어별로 어떤식으로 검증이 필요할지 정말
+# 정확히 판단해서 검증 방식을 만들어내야만해"): 블로그 서브트랙(platform_captions.json의
+# blog_seo 항목, 8개 비한국어 언어) 도입 이후 review_topic()이 narration.txt+
+# card_news_spec.json만 보고 blog_seo는 완전히 사각지대였다 — ko/es/ja/sv
+# 제목이 검색 키워드를 뒤로 미루는 구조였던 문제도 이 사각지대 때문에 사람이
+# 우연히 발견한 것. review_blog_seo()가 review_topic() 안에서 자동 실행되며,
+# 기존 기준(논리오류·과장·지역재료적합성) 외에 블로그 전용으로 3개 더 본다:
+# 번역투/직역투 표현(짧은 훅과 달리 500자+ 긴 산문이라 훨씬 두드러짐), 그
+# 언어권 광고/표시규제 위험 표현(REGULATORY_NOTES_BY_LANG, data/global_research_rules.md
+# 요약), 제목의 검색 키워드 전진배치 여부.
+#
 # 사용법:
-#   python3 -m lib.content_review <topic> [lang]  — topic 하나만 리뷰(lang 생략 시 한국어)
+#   python3 -m lib.content_review <topic> [lang]  — topic 하나만 리뷰(lang 생략 시 한국어,
+#     blog_seo 항목이 있으면 title/meta_description/body_html도 자동 포함)
 #   python3 -m lib.content_review --all            — data/ 밑 모든 topic 배치 리뷰(한국어 전용)
 #   python3 -m lib.content_review --lang-check <base_topic>  — 언어별 훅/제목이 진짜
-#     독립 리서치인지(번역 아닌지) 검사(아래 check_language_independence 참고)
+#     독립 리서치인지(번역 아닌지) 검사(아래 check_language_independence 참고).
+#     blog_seo 제목이 2개 언어 이상 있으면 그 비교도 같이 출력됨(check_blog_title_independence).
 #   python3 -m lib.content_review --lang-check --all         — data/ 밑 다국어 topic 전체 검사
 from __future__ import annotations
 
@@ -96,6 +110,104 @@ def _build_prompt(lang: str, narration: str, card_text: str) -> str:
     return REVIEW_PROMPT.format(lang_desc=lang_desc, criteria=criteria, narration=narration, card_text=card_text)
 
 
+# WHY 번역투 기준 신설(2026-08-13): 기존 BASE_CRITERIA/REGIONAL_CRITERION은 전부
+# "내용이 맞는가"만 본다 — "그 언어 원어민에게 자연스럽게 읽히는가"는 아무 기준도
+# 없었다. narration.txt/card_news_spec.json은 문장이 짧아서 티가 덜 나지만,
+# blog_seo.body_html은 500~1000자+ 산문이라 번역투가 훨씬 두드러진다.
+BLOG_NATIVE_FLUENCY_CRITERION = """7. 번역투/직역투 표현 — 문장 구조나 관용구가 한국어를 그대로 옮긴 것처럼
+   부자연스러운 경우({lang_desc} 원어민이라면 다른 어순·다른 관용구를 쓸
+   법한 문장). 문법 오류가 아니라 "번역한 티가 나는" 어색함을 찾을 것."""
+
+BLOG_REGULATORY_CRITERION = """8. {lang_desc}권 건강/식품 광고 규제상 위험한 확정적 효능 주장 —
+   참고 기준: {regulatory_note}
+   위 기준에 해당하는 단정적 표현(예: "낫는다/치료한다"류)이 완화되지 않은
+   채 쓰였는지 확인할 것."""
+
+BLOG_TITLE_SEARCHABILITY_CRITERION = """9. 제목(title)이 실제 검색될 법한 핵심 증상/키워드로 시작하지 않고
+   원인 나열·부연설명으로 문장을 시작해 핵심 키워드가 뒤로 밀려 있는 경우"""
+
+# WHY 하드코딩(2026-08-13) — data/global_research_rules.md의 "표현 주의" 절을
+# 파싱하는 대신 손으로 압축해 복제한다. 마크다운 절 경계를 파싱하면 문서
+# 포맷이 조금만 바뀌어도 에러 없이 조용히 엉뚱한 텍스트가 프롬프트에 섞여
+# 들어갈 위험이 있다 — 아래 GLOBAL_LANG_LABELS_FALLBACK과 같은 "작은 참조
+# 데이터는 로컬에 복제" 선례를 따른다.
+# ⚠️ 새 블로그 언어 추가·규제 변경 시 이 dict와 global_research_rules.md
+# 둘 다 갱신할 것 — 여기 없는 언어 코드는 이 검사 자체가 프롬프트에서 통째로
+# 빠진다(GLOBAL_LANG_LABELS_FALLBACK의 "코드 그대로 표시"류 사소한 성능저하이
+# 아니라 실질적 검사 공백).
+REGULATORY_NOTES_BY_LANG = {
+    "en": 'FTC 가이드라인 — "cures"/"treats"/"prevents [disease]" 같은 명시적 '
+          '질병 치료·예방 주장 금지, "may support"류 완화 표현 사용',
+    "ja": '健康増進法/景品表示法 — トクホ 인증 없이 "○○を治す"류 명시적 효능 '
+          '단정 금지, "○○に良いと言われています"류 전언형 표현 사용',
+    "de": 'HWG(Heilmittelwerbegesetz)+EU 건강강조표시규정(EC 1924/2006) — '
+          '"heilen"(고친다)/"vorbeugen"(예방한다) 등 확정적 의학 효능 주장 금지',
+    "fr": 'DGCCRF 단속 — "guérit"/"soigne"/"effet immédiat garanti" 등 실제 '
+          '적발된 금지 문구, EU 건강강조표시규정상 EFSA 미승인 건강주장 금지',
+    "it": 'EU 건강강조표시규정(EC 1924/2006) — 질병 예방·치료("cura") 단정 표현, '
+          '체중감량 보장, 특정 의사 실명 인용 전부 금지',
+    "es": 'EU 건강강조표시규정(EC 1924/2006)+AESAN — "cura"류 단정 표현 대신 '
+          '"puede ayudar a"(도움이 될 수 있어요)류 완화 표현',
+    "nl": 'EU 건강강조표시규정(EC 1924/2006), NVWA 감독 — 질병 예방·치료·완치 '
+          '단정 표현 금지',
+    "sv": 'EU 건강강조표시규정(EC 1924/2006), Livsmedelsverket 승인 — 질병 '
+          '예방·치료·완치("bota") 관련 주장 전면 금지',
+}
+
+BLOG_REVIEW_PROMPT = """당신은 {lang_desc} SEO 블로그 건강 정보 콘텐츠를 검수하는 깐깐한
+{lang_desc} 원어민 편집자입니다. 아래는 한 topic의 블로그 글입니다
+({lang_desc}로 작성됨, 본문은 HTML 태그를 제거한 순수 텍스트 — HTML 구조
+자체는 검사 대상이 아니니 신경 쓰지 말 것). 다음 기준으로 문제 있는 부분만
+찾아주세요:
+
+{criteria}
+
+문제가 없으면 빈 배열 []만 반환하세요. 문제가 있으면 아래 JSON 배열 형식
+으로만 답하세요(설명 문장이나 코드블록 표시 없이 JSON만) — quote는 원문
+({lang_desc}) 그대로, issue 설명은 한국어 화자인 검수자를 위해 반드시
+한국어로 쓸 것:
+[{{"quote": "문제 문장/구절 원문 그대로", "issue": "무엇이 문제인지 한국어 한 줄 설명"}}]
+
+--- 제목 ---
+{title}
+
+--- 메타 설명 ---
+{meta_description}
+
+--- 본문 ---
+{body_text}
+"""
+
+
+def _strip_html(html: str) -> str:
+    """body_html을 리뷰 프롬프트에 넣기 전 태그 제거 — HTML 구조 자체는
+    이 리뷰의 관심사가 아니라 순수 텍스트만 LLM에 전달한다."""
+    return re.sub(r"<[^>]+>", " ", html)
+
+
+def _build_blog_prompt(lang: str, title: str, meta_description: str, body_html: str) -> str:
+    body_text = _strip_html(body_html)
+    if lang == "kor":
+        # blog_seo는 현재 8개 비한국어 언어 전용(CLAUDE.md "블로그 SEO 서브트랙"
+        # 절, 한국 제외)이라 실제로는 안 타는 분기 — 방어적으로만 남겨둠.
+        lang_desc = "한국어"
+        criteria = BASE_CRITERIA + "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION
+    else:
+        lang_desc = lang
+        criteria = (
+            BASE_CRITERIA + "\n" + REGIONAL_CRITERION + "\n"
+            + BLOG_NATIVE_FLUENCY_CRITERION.format(lang_desc=lang_desc)
+        )
+        regulatory_note = REGULATORY_NOTES_BY_LANG.get(_lang_code(lang))
+        if regulatory_note:
+            criteria += "\n" + BLOG_REGULATORY_CRITERION.format(lang_desc=lang_desc, regulatory_note=regulatory_note)
+        criteria += "\n" + BLOG_TITLE_SEARCHABILITY_CRITERION
+    return BLOG_REVIEW_PROMPT.format(
+        lang_desc=lang_desc, criteria=criteria,
+        title=title, meta_description=meta_description, body_text=body_text,
+    )
+
+
 def _headers() -> dict:
     return {"x-goog-api-key": os.environ["GEMINI_API_KEY"], "Content-Type": "application/json"}
 
@@ -113,12 +225,17 @@ def _topic_dir(topic: str, lang: str = "kor") -> Path:
     코드 폴더를 본다. 중첩 폴더가 없으면(가정: 예전 단일 언어 구조 topic 대비)
     topic 폴더 자체로 폴백한다."""
     base = ROOT / "data" / topic
-    if lang == "kor":
-        code = "ko"
-    else:
-        code = next((k for k, v in GLOBAL_LANG_LABELS_FALLBACK.items() if v == lang), lang)
-    nested = base / code
+    nested = base / _lang_code(lang)
     return nested if nested.exists() else base
+
+
+def _lang_code(lang: str) -> str:
+    """lang(예: "kor", "영어", "es")를 폴더 코드(예: "ko", "en", "es")로
+    정규화한다. _topic_dir()에 인라인으로 있던 역방향 조회를 REGULATORY_NOTES_BY_LANG
+    조회에도 재사용하려고 공용 헬퍼로 뺐다."""
+    if lang == "kor":
+        return "ko"
+    return next((k for k, v in GLOBAL_LANG_LABELS_FALLBACK.items() if v == lang), lang)
 
 
 def _card_news_text(topic: str, lang: str = "kor") -> str:
@@ -276,23 +393,13 @@ def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
     }]
 
 
-def review_topic(topic: str, lang: str = "kor") -> list[dict]:
-    title_issues = (
-        check_title_truncation(topic, lang)
-        + check_title_closing(topic, lang)
-        + check_blog_title_length(topic, lang)
-    )
-    narration_path = _topic_dir(topic, lang) / "narration.txt"
-    narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
-    card_text = _card_news_text(topic, lang)
-    if not narration and not card_text:
-        return title_issues
-
-    prompt = _build_prompt(lang, narration, card_text)
-    # WHY 재시도(2026-08-03 버그 수정): --all로 전체 topic을 순회하다가 Gemini
-    # 503(일시적 서버 과부하) 한 번에 스크립트 전체가 죽어서 뒤 topic들이 하나도
-    # 리뷰가 안 된 채 끝난 적이 있다 — 5xx는 일시적일 확률이 높으니 지수 백오프로
-    # 최대 3번 재시도하고, 그래도 안 되면 그 topic만 건너뛴다(전체를 죽이지 않음).
+# WHY 공용 헬퍼로 추출(2026-08-13): review_topic()/check_language_independence()에
+# 거의 동일한 재시도(3회 지수 백오프)+코드펜스 제거+JSON 파싱 로직이 중복돼
+# 있었다 — review_blog_seo()/check_blog_title_independence() 추가로 세 번째·
+# 네 번째 호출부가 생기는 시점이라 지금 추출한다. topic_label은 실패 시
+# 진단 메시지에만 쓰인다(review_all()/check_language_independence_all()처럼
+# 여러 topic을 무인 순회할 때 어느 topic이 실패했는지 구분하려면 필요).
+def _call_gemini_json(topic_label: str, prompt: str) -> list | dict:
     last_error: requests.exceptions.HTTPError | None = None
     resp = None
     for attempt in range(3):
@@ -306,20 +413,52 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         last_error = requests.exceptions.HTTPError(f"{resp.status_code} 서버 오류", response=resp)
         time.sleep(2 ** attempt)
     else:
-        print(f"[content_review] ⚠️ {topic}: 서버 오류로 3회 재시도 후 실패 — 건너뜀 ({last_error})")
-        return title_issues
+        print(f"[content_review] ⚠️ {topic_label}: 서버 오류로 3회 재시도 후 실패 — 건너뜀 ({last_error})")
+        return []
     resp.raise_for_status()
-    data = resp.json()
-    text = data["candidates"][0]["content"]["parts"][0]["text"].strip()
+    text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
     # WHY 코드블록 벗기기: 지시했는데도 가끔 ```json ... ``` 로 감싸서 올 때가 있어서
     # (Gemini 응답 관성) json.loads 전에 벗겨낸다.
     text = re.sub(r"^```(?:json)?\n?|\n?```$", "", text.strip())
     try:
-        issues = json.loads(text)
+        return json.loads(text)
     except json.JSONDecodeError:
-        print(f"[content_review] ⚠️ {topic}: 응답 파싱 실패 — {text[:200]}")
-        return title_issues
-    return title_issues + (issues if isinstance(issues, list) else [])
+        print(f"[content_review] ⚠️ {topic_label}: 응답 파싱 실패 — {text[:200]}")
+        return []
+
+
+def review_blog_seo(topic: str, lang: str) -> list[dict]:
+    """platform_captions.json에 blog_seo 항목이 있으면 title/meta_description/
+    body_html을 리뷰한다. 없으면 API 호출 없이 빈 리스트 — blog_seo가 없는
+    topic/언어는 이 함수 때문에 비용이 늘지 않는다."""
+    captions_path = _topic_dir(topic, lang) / "platform_captions.json"
+    if not captions_path.exists():
+        return []
+    spec = json.loads(captions_path.read_text(encoding="utf-8"))
+    blog = next((p for p in spec.get("platforms", []) if p.get("platform") == "blog_seo"), None)
+    if not blog:
+        return []
+    prompt = _build_blog_prompt(lang, blog.get("title", ""), blog.get("meta_description", ""), blog.get("body_html", ""))
+    result = _call_gemini_json(f"{topic}(blog_seo)", prompt)
+    return result if isinstance(result, list) else []
+
+
+def review_topic(topic: str, lang: str = "kor") -> list[dict]:
+    title_issues = (
+        check_title_truncation(topic, lang)
+        + check_title_closing(topic, lang)
+        + check_blog_title_length(topic, lang)
+    )
+    narration_path = _topic_dir(topic, lang) / "narration.txt"
+    narration = narration_path.read_text(encoding="utf-8") if narration_path.exists() else ""
+    card_text = _card_news_text(topic, lang)
+    narration_issues: list[dict] = []
+    if narration or card_text:
+        prompt = _build_prompt(lang, narration, card_text)
+        result = _call_gemini_json(topic, prompt)
+        narration_issues = result if isinstance(result, list) else []
+    blog_issues = review_blog_seo(topic, lang)
+    return title_issues + narration_issues + blog_issues
 
 
 # WHY 별도 함수(2026-08-03, "그게 어쨌든 한국이랑 글로벌의 유튜브 숏츠 영상 제목이
@@ -378,30 +517,73 @@ def check_language_independence(base_topic: str) -> dict[str, dict]:
             ko_text=ko_title,
             other_text=other_title,
         )
-        resp = None
-        last_error: requests.exceptions.HTTPError | None = None
-        for attempt in range(3):
-            resp = requests.post(
-                f"{BASE_URL}/models/{MODEL}:generateContent",
-                headers=_headers(),
-                json={"contents": [{"parts": [{"text": prompt}]}]},
-            )
-            if resp.status_code < 500:
-                break
-            last_error = requests.exceptions.HTTPError(f"{resp.status_code} 서버 오류", response=resp)
-            time.sleep(2 ** attempt)
-        else:
-            print(f"[content_review] ⚠️ {base_topic}/{lang}: 서버 오류로 3회 재시도 후 실패 — 건너뜀 ({last_error})")
+        verdict = _call_gemini_json(f"{base_topic}/{lang}", prompt)
+        if verdict:
+            results[lang] = verdict
+    return results
+
+
+# WHY blog_seo용 별도 함수(2026-08-13, check_language_independence()를 안
+# 건드리고 새로 추가): blog_seo는 ko가 없는 8개 언어 전용(위 "글로벌 확장" 절
+# 참고)이라 "ko 기준 비교" 구조를 그대로 못 쓴다 — 대신 그 topic에 존재하는
+# blog_seo 언어 중 코드명 사전순 첫 언어를 기준점으로 삼는다(select_hook_pattern과
+# 같은 결정론적 시드 철학, 진짜 원본은 아니지만 재현 가능한 고정 기준점).
+# 반환 모양은 check_language_independence()와 동일(dict[lang, {is_translation,
+# reason}]) — 기존 함수 반환 모양을 안 건드리고 그대로 CLI 출력 로직을 재사용
+# 하기 위함. N×N 전수비교(topic당 최대 28회 호출)가 아니라 기준점 1개 대비
+# 비교(최대 7회)라 "기준점이 아닌 두 언어끼리만 번역"인 경우는 못 잡는 한계가
+# 있지만, 일회성 감사 도구 성격상 비용 대비 적절한 절충으로 판단.
+BLOG_LANG_INDEPENDENCE_PROMPT = """당신은 다국어 SEO 블로그 콘텐츠의 현지화 품질을 감사하는 편집자입니다.
+아래는 같은 topic을 다루는 두 언어권 블로그 글의 제목입니다({anchor_label}
+버전과 {lang_label} 버전 — 어느 쪽도 번역 원본이 아니라 각각 독립적으로
+현지 리서치해서 쓰기로 되어 있습니다).
+
+{anchor_label} 버전 제목:
+{anchor_text}
+
+{lang_label} 버전 제목:
+{other_text}
+
+{lang_label} 버전이 {anchor_label} 버전을 사실상 번역한 것인지, 아니면
+독립적으로 다른 각도(다른 상황·다른 예시·다른 프레이밍)로 쓰여진 것인지
+판단하세요. 문장 구조·예시·강조점이 서로 거의 1:1로 대응되면 "번역"으로
+판단합니다.
+
+아래 JSON 형식으로만 답하세요(설명 문장이나 코드블록 표시 없이):
+{{"is_translation": true 또는 false, "reason": "판단 근거 한국어로 한 줄"}}
+"""
+
+
+def check_blog_title_independence(base_topic: str) -> dict[str, dict]:
+    """base_topic의 blog_seo.title이 언어 간 진짜 독립 리서치인지(번역이 아닌지)
+    LLM으로 판단한다. 반환값은 check_language_independence()와 동일한 모양."""
+    topic_dir = ROOT / "data" / base_topic
+    if not topic_dir.is_dir():
+        return {}
+    blog_titles: dict[str, str] = {}
+    for lang_dir in sorted(p for p in topic_dir.iterdir() if p.is_dir()):
+        captions_path = lang_dir / "platform_captions.json"
+        if not captions_path.exists():
             continue
-        resp.raise_for_status()
-        text = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
-        text = re.sub(r"^```(?:json)?\n?|\n?```$", "", text.strip())
-        try:
-            verdict = json.loads(text)
-        except json.JSONDecodeError:
-            print(f"[content_review] ⚠️ {base_topic}/{lang}: 응답 파싱 실패 — {text[:200]}")
+        spec = json.loads(captions_path.read_text(encoding="utf-8"))
+        blog = next((p for p in spec.get("platforms", []) if p.get("platform") == "blog_seo"), None)
+        if blog and blog.get("title"):
+            blog_titles[lang_dir.name] = blog["title"]
+    if len(blog_titles) < 2:
+        return {}
+    anchor_code = min(blog_titles)
+    anchor_label = GLOBAL_LANG_LABELS_FALLBACK.get(anchor_code, anchor_code)
+    results: dict[str, dict] = {}
+    for lang_code, title in blog_titles.items():
+        if lang_code == anchor_code:
             continue
-        results[lang] = verdict
+        prompt = BLOG_LANG_INDEPENDENCE_PROMPT.format(
+            anchor_label=anchor_label, lang_label=GLOBAL_LANG_LABELS_FALLBACK.get(lang_code, lang_code),
+            anchor_text=blog_titles[anchor_code], other_text=title,
+        )
+        verdict = _call_gemini_json(f"{base_topic}/{lang_code}(blog)", prompt)
+        if verdict:
+            results[lang_code] = verdict
     return results
 
 
@@ -435,6 +617,23 @@ def check_language_independence_all() -> dict[str, dict[str, dict]]:
         for lang, v in verdicts.items():
             mark = "⚠️ 번역 의심" if v.get("is_translation") else "✅ 독립적"
             print(f"[{base_topic}/{lang}] {mark} — {v.get('reason', '')}")
+    return results
+
+
+def check_blog_title_independence_all() -> dict[str, dict[str, dict]]:
+    """data/ 밑 blog_seo가 2개 언어 이상 있는 topic을 순회하며
+    check_blog_title_independence()를 돌린다 — check_language_independence_all()과
+    달리 "ko/platform_captions.json 존재"가 아니라 "blog_seo 항목이 2개 언어
+    이상"으로 topic을 고른다(blog_seo는 ko가 없는 8개 언어 전용이라 기준이 다름)."""
+    results: dict[str, dict[str, dict]] = {}
+    for topic_dir in sorted(p for p in (ROOT / "data").iterdir() if p.is_dir()):
+        verdicts = check_blog_title_independence(topic_dir.name)
+        if not verdicts:
+            continue
+        results[topic_dir.name] = verdicts
+        for lang, v in verdicts.items():
+            mark = "⚠️ 번역 의심" if v.get("is_translation") else "✅ 독립적"
+            print(f"[{topic_dir.name}/{lang}(blog)] {mark} — {v.get('reason', '')}")
     return results
 
 
@@ -513,10 +712,18 @@ if __name__ == "__main__":
     elif len(sys.argv) > 1 and sys.argv[1] == "--lang-check":
         if len(sys.argv) > 2 and sys.argv[2] == "--all":
             check_language_independence_all()
+            check_blog_title_independence_all()
         elif len(sys.argv) > 2:
-            for lang, v in check_language_independence(sys.argv[2]).items():
+            base_topic = sys.argv[2]
+            for lang, v in check_language_independence(base_topic).items():
                 mark = "⚠️ 번역 의심" if v.get("is_translation") else "✅ 독립적"
                 print(f"[{lang}] {mark} — {v.get('reason', '')}")
+            blog_results = check_blog_title_independence(base_topic)
+            if blog_results:
+                print("\n[블로그 제목]")
+                for lang, v in blog_results.items():
+                    mark = "⚠️ 번역 의심" if v.get("is_translation") else "✅ 독립적"
+                    print(f"[{lang}] {mark} — {v.get('reason', '')}")
         else:
             print("사용법: python3 -m lib.content_review --lang-check <base_topic> 또는 --all")
     elif len(sys.argv) > 1 and sys.argv[1] == "--all":

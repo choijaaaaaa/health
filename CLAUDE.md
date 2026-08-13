@@ -695,6 +695,16 @@ python3 -m lib.content_review --hook-pattern <topic>   # 제목 작성 전에 �
   재생성한다(위 "콘텐츠 톤" 절 TTS 규칙 참고, 절대 규칙은 아니고 권장 순서).
 - `--lang-check`에서 `is_translation: true`가 나오면 그 세션이 스스로 판단해서
   그 언어권 상황에 맞는 진짜 다른 각도로 다시 쓸 것(번역 금지 원칙, 아래 참고).
+- ⚠️ **`blog_seo`도 `review_topic()` 안에서 자동 검사됨(2026-08-13)** — topic/lang의
+  `platform_captions.json`에 `blog_seo` 항목이 있으면 title/meta_description/
+  body_html도 같은 호출(`content_review <topic> <lang>`) 안에서 함께 LLM 리뷰된다
+  (번역투 표현·그 언어권 광고규제 위험 표현·제목의 검색 키워드 전진배치 여부 포함).
+  별도 명령 없음 — narration.txt/card_news_spec.json과 동일하게 이 호출 하나가
+  완료 조건.
+- ⚠️ **`--lang-check`도 blog_seo 제목을 비교함(2026-08-13)** — blog_seo가 2개
+  언어 이상 있는 topic이면 영상 훅 비교(ko 기준) 결과 아래에 블로그 제목 비교도
+  같이 출력된다. blog_seo엔 ko가 없어(8개 언어 전용) 기준점은 ko가 아니라
+  존재하는 언어 중 이름순 첫 언어로 대체된다.
 - ⚠️ **`card_news_spec.json`의 `title` 배열 마지막 줄 = 카드뉴스 표지·영상
   오프닝 타이틀 화면에서 자동으로 떼어내는 "독립 라벨"이다**(2026-08-08,
   "썸네일 글 이상하게 나오는 현상... 짤려서 만들어지는애들이 많아" — 실측

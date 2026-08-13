@@ -13,7 +13,15 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import lib.content_review as content_review  # noqa: E402
-from lib.content_review import _build_prompt, _card_news_text, _topic_dir, review_topic  # noqa: E402
+from lib.content_review import (  # noqa: E402
+    _build_blog_prompt,
+    _build_prompt,
+    _card_news_text,
+    _topic_dir,
+    check_blog_title_independence,
+    review_blog_seo,
+    review_topic,
+)
 
 
 class _FakeResponse:
@@ -256,3 +264,147 @@ def test_review_all_continues_past_one_topic_erroring(tmp_path, monkeypatch, cap
     results = content_review.review_all()
     assert results == {}
     assert "건너뜀" in capsys.readouterr().out
+
+
+# ---------------------------------------------------------------------------
+# review_blog_seo / _build_blog_prompt — 2026-08-13 blog_seo QA 커버리지 추가
+# ---------------------------------------------------------------------------
+
+def _write_blog_topic(tmp_path, monkeypatch, topic: str, lang_code: str,
+                       blog: dict | None, extra_platforms: list[dict] | None = None):
+    monkeypatch.setattr(content_review, "ROOT", tmp_path)
+    data_dir = tmp_path / "data" / topic / lang_code
+    data_dir.mkdir(parents=True)
+    platforms = list(extra_platforms or [])
+    if blog is not None:
+        platforms.append({"platform": "blog_seo", **blog})
+    spec = {"topic": f"{topic}_{lang_code}", "title": "영상 훅 제목", "platforms": platforms}
+    (data_dir / "platform_captions.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+
+
+def test_review_blog_seo_missing_file_returns_empty_without_api_call(tmp_path, monkeypatch):
+    monkeypatch.setattr(content_review, "ROOT", tmp_path)
+    (tmp_path / "data" / "테스트토픽_1" / "es").mkdir(parents=True)
+
+    def fake_post(*args, **kwargs):
+        raise AssertionError("platform_captions.json이 없으면 API를 호출하면 안 됨")
+
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+    assert review_blog_seo("테스트토픽_1", "es") == []
+
+
+def test_review_blog_seo_no_blog_entry_returns_empty_without_api_call(tmp_path, monkeypatch):
+    _write_blog_topic(tmp_path, monkeypatch, "테스트토픽_1", "es", blog=None,
+                       extra_platforms=[{"name": "YouTube Shorts", "caption": "영상 캡션"}])
+
+    def fake_post(*args, **kwargs):
+        raise AssertionError("blog_seo 항목이 없으면 API를 호출하면 안 됨")
+
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+    assert review_blog_seo("테스트토픽_1", "es") == []
+
+
+def test_review_blog_seo_sends_title_meta_body_and_parses_result(tmp_path, monkeypatch):
+    blog = {
+        "title": "문제되는 제목",
+        "meta_description": "문제되는 메타 설명",
+        "body_html": "<p>문제되는 본문 문장.</p>",
+    }
+    _write_blog_topic(tmp_path, monkeypatch, "테스트토픽_1", "es", blog=blog)
+    fake_issues = [{"quote": "문제되는 본문 문장.", "issue": "테스트용 이슈"}]
+    captured = {}
+
+    def fake_post(*args, **kwargs):
+        captured["prompt"] = kwargs["json"]["contents"][0]["parts"][0]["text"]
+        return _FakeResponse(json.dumps(fake_issues, ensure_ascii=False))
+
+    monkeypatch.setenv("GEMINI_API_KEY", "fake-key")
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+
+    result = review_blog_seo("테스트토픽_1", "es")
+    assert result == fake_issues
+    assert "문제되는 제목" in captured["prompt"]
+    assert "문제되는 메타 설명" in captured["prompt"]
+    assert "문제되는 본문 문장." in captured["prompt"]
+    assert "<p>" not in captured["prompt"]  # HTML 태그는 제거돼야 함
+
+
+def test_review_topic_includes_blog_seo_issues(tmp_path, monkeypatch):
+    """review_topic()이 narration/card_news 리뷰뿐 아니라 blog_seo도 자동으로
+    합쳐서 반환하는지(단일 CLI 명령으로 전부 커버되는 게 이번 변경의 핵심)."""
+    _write_nested_topic(tmp_path, monkeypatch, "테스트토픽_1", "es", narration="정상 문장.")
+    blog = {"title": "t", "meta_description": "m", "body_html": "<p>블로그 문제 문장.</p>"}
+    caption_path = tmp_path / "data" / "테스트토픽_1" / "es" / "platform_captions.json"
+    caption_path.write_text(
+        json.dumps({"topic": "t_es", "title": "훅", "platforms": [{"platform": "blog_seo", **blog}]}, ensure_ascii=False),
+        encoding="utf-8",
+    )
+    narration_issues = []
+    blog_issues = [{"quote": "블로그 문제 문장.", "issue": "블로그 이슈"}]
+
+    def fake_post(*args, **kwargs):
+        prompt = kwargs["json"]["contents"][0]["parts"][0]["text"]
+        body = blog_issues if "블로그" in prompt else narration_issues
+        return _FakeResponse(json.dumps(body, ensure_ascii=False))
+
+    monkeypatch.setenv("GEMINI_API_KEY", "fake-key")
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+
+    result = review_topic("테스트토픽_1", "es")
+    assert blog_issues[0] in result
+
+
+def test_build_blog_prompt_includes_regulatory_note_for_known_lang():
+    prompt = _build_blog_prompt("es", "제목", "메타", "<p>본문</p>")
+    assert "AESAN" in prompt
+    assert "번역투" in prompt  # BLOG_NATIVE_FLUENCY_CRITERION
+    assert "검색될 법한 핵심 증상" in prompt  # BLOG_TITLE_SEARCHABILITY_CRITERION
+
+
+def test_build_blog_prompt_omits_regulatory_note_for_unknown_lang_code():
+    # "xx"는 REGULATORY_NOTES_BY_LANG에 없는 코드 — 프롬프트 생성 자체는
+    # 에러 없이 되고, 규제 기준 문구만 빠져야 한다(GLOBAL_LANG_LABELS_FALLBACK도
+    # 모르는 코드라 _lang_code가 그대로 "xx"를 반환하는 경로).
+    prompt = _build_blog_prompt("xx", "제목", "메타", "<p>본문</p>")
+    assert "광고/표시규제" not in prompt
+
+
+def test_build_blog_prompt_strips_html_tags_from_body():
+    prompt = _build_blog_prompt("es", "제목", "메타", "<h2>소제목</h2><p>본문 문장.</p>")
+    assert "<h2>" not in prompt
+    assert "<p>" not in prompt
+    assert "본문 문장." in prompt
+
+
+# ---------------------------------------------------------------------------
+# check_blog_title_independence — ko가 없는 blog_seo 전용 언어독립성 검사
+# ---------------------------------------------------------------------------
+
+def test_check_blog_title_independence_returns_empty_for_fewer_than_two_langs(tmp_path, monkeypatch):
+    _write_blog_topic(tmp_path, monkeypatch, "테스트토픽_1", "es", blog={"title": "t"})
+    assert check_blog_title_independence("테스트토픽_1") == {}
+
+
+def test_check_blog_title_independence_uses_alphabetically_first_as_anchor(tmp_path, monkeypatch):
+    """blog_seo는 ko가 없으니 기준점은 코드명 사전순 첫 언어(예: de/es/ja 중 de)여야
+    하고, 기준점 언어 자신은 결과 키에 없어야 한다(자기 자신과 비교 안 함)."""
+    monkeypatch.setattr(content_review, "ROOT", tmp_path)
+    for lang_code, title in [("ja", "日本語のタイトル"), ("de", "Deutscher Titel"), ("es", "Título en español")]:
+        data_dir = tmp_path / "data" / "테스트토픽_1" / lang_code
+        data_dir.mkdir(parents=True)
+        spec = {"topic": f"t_{lang_code}", "title": "훅", "platforms": [{"platform": "blog_seo", "title": title}]}
+        (data_dir / "platform_captions.json").write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+
+    captured_prompts = []
+
+    def fake_post(*args, **kwargs):
+        prompt = kwargs["json"]["contents"][0]["parts"][0]["text"]
+        captured_prompts.append(prompt)
+        return _FakeResponse(json.dumps({"is_translation": False, "reason": "독립적"}, ensure_ascii=False))
+
+    monkeypatch.setenv("GEMINI_API_KEY", "fake-key")
+    monkeypatch.setattr(content_review.requests, "post", fake_post)
+
+    results = check_blog_title_independence("테스트토픽_1")
+    assert set(results.keys()) == {"es", "ja"}  # "de"가 기준점이라 결과 키에 없음
+    assert all("Deutscher Titel" in p for p in captured_prompts)  # 모든 비교가 기준점(de) 대비
