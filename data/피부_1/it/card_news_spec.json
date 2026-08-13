@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Stai perdendo collagene",
+    "più in fretta di quanto pensi?",
+    "Fermati e controlla prima.",
+    "3 abitudini che invecchiano la pelle"
+  ],
+  "eyebrow": "Protezione del Collagene",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "topic_word": "Perdita di Collagene",
+  "cover_scrim_color": "#0E7C7B",
+  "char_display_names": {
+    "담배_illust.jpg": "Fumo",
+    "태양_illust.jpg": "Sole",
+    "사탕_illust.jpg": "Zucchero"
+  },
+  "items": [
+    {
+      "name": "Perché Succede",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Tre abitudini rovinano",
+        "il collagene ogni giorno,",
+        "senza che tu te ne accorga",
+        "",
+        "Ecco cosa c'è",
+        "davvero dietro"
+      ]
+    },
+    {
+      "name": "Causa 1: Il Fumo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Il fumo iperattiva enzimi",
+        "chiamati MMP che demoliscono",
+        "il collagene esistente",
+        "",
+        "Riduce anche la sintesi",
+        "di nuovo collagene"
+      ]
+    },
+    {
+      "name": "Smettere Fa Ripartire il Collagene",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Smettere di fumare",
+        "fa ripartire la produzione",
+        "naturale di collagene",
+        "",
+        "La pelle appare più",
+        "elastica già in poche settimane"
+      ]
+    },
+    {
+      "name": "Causa 2: Sole Senza Protezione",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "I raggi UVA penetrano",
+        "nel derma e attivano",
+        "le stesse MMP del fumo",
+        "",
+        "Il fotoinvecchiamento spiega",
+        "fino all'80-90% dei segni"
+      ]
+    },
+    {
+      "name": "Crema Solare Ogni Giorno",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "In uno studio di un anno,",
+        "la protezione solare quotidiana",
+        "ha migliorato la pelle",
+        "nella maggior parte dei casi",
+        "",
+        "Bastano pochi secondi ogni mattina"
+      ]
+    },
+    {
+      "name": "Causa 3: Troppo Zucchero",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Lo zucchero in eccesso si lega",
+        "al collagene per glicazione",
+        "",
+        "Si formano legami rigidi",
+        "che rovinano la struttura"
+      ]
+    },
+    {
+      "name": "Meno Zucchero Aggiunto",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Ridurre zucchero e bevande",
+        "zuccherate rallenta la glicazione",
+        "",
+        "Una dieta mediterranea equilibrata",
+        "aiuta a proteggere la pelle"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Fumo, sole",
+        "e zucchero"
+      ],
+      [
+        "logorano il collagene",
+        "senza far rumore"
+      ]
+    ],
+    "tip": [
+      "Smetti di fumare, usa la protezione solare ogni giorno,",
+      "e riduci lo zucchero aggiunto"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti, metti mi piace e segui!"
+  }
+}

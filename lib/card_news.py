@@ -13,6 +13,39 @@ FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 W, H = 1080, 1350
 MARGIN = 72
 
+# WHY 언어별 폰트 매핑(2026-08-13, 블로그 SEO 서브트랙 파일럿 — 처음으로 ja
+# 카드뉴스를 실제 렌더링하다 발견): 지금까지 FONT_PATH(한국어 시스템 폰트
+# AppleSDGothicNeo.ttc) 하나만 모든 언어에 썼다 — "글로벌 topic은 카드뉴스 없이
+# 숏츠만"(CLAUDE.md) 규칙 때문에 지금까지 비한국어로 실제 렌더링된 적이 없어서
+# 안 드러났던 잠재 버그. ja 렌더링 시 이 폰트에 없는 한자(増·気·焼 등)가 빈
+# 네모(tofu box)로 나오고 폭 계산도 어긋나 텍스트가 잘려 보였다. 라틴 문자권
+# (de/fr/it/es/nl/sv)은 이 폰트의 라틴 커버리지가 넓어서 우연히 문제가 안 보였을
+# 뿐 — video_assembler.py가 이미 겪고 고친 것과 같은 종류의 버그라 그쪽의
+# `_title_font_for_lang` 매핑을 그대로 재사용한다(폰트 실측 검증 완료된 값).
+_FONTS_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "fonts"
+_FONT_PATH_BY_LANG: dict[str, str] = {
+    "ar": str(_FONTS_DIR / "NotoSansArabic-Bold.ttf"),
+    "bn": str(_FONTS_DIR / "NotoSansBengali-Bold.ttf"),
+    "hi": str(_FONTS_DIR / "NotoSansDevanagari-Bold.ttf"),
+    "th": str(_FONTS_DIR / "NotoSansThai-Bold.ttf"),
+    "ja": str(_FONTS_DIR / "NotoSansJP-Bold.ttf"),
+    "zh-TW": str(_FONTS_DIR / "NotoSansTC-Bold.ttf"),
+}
+_FONT_PATH_LATIN_CYRILLIC = str(_FONTS_DIR / "NotoSans-Bold.ttf")
+_WEIGHT_TO_TTC_INDEX = {"light": 8, "regular": 0, "medium": 2, "semibold": 4, "bold": 6}
+
+# WHY 전역 변수로 언어를 넘기는지: _font()가 10곳 넘는 함수에서 호출되는데,
+# 전부에 lang 파라미터를 새로 추가하면 diff가 과도하게 커진다. card_news.py는
+# CLI로 매번 topic 하나·언어 하나만 처리하는 단발성 스크립트라(동시성 없음)
+# generate() 시작 시 한 번 set_lang()으로 정하고 끝까지 그 값을 쓰는 것으로
+# 충분히 안전하다.
+_CURRENT_LANG = "kor"
+
+
+def set_lang(lang: str) -> None:
+    global _CURRENT_LANG
+    _CURRENT_LANG = lang
+
 BG_TOP = (253, 249, 245)
 BG_BOTTOM = (246, 237, 230)
 INK = (43, 35, 31)
@@ -27,8 +60,12 @@ SHADOW = (60, 45, 35)
 
 
 def _font(size, weight="regular"):
-    idx = {"light": 8, "regular": 0, "medium": 2, "semibold": 4, "bold": 6}[weight]
-    return ImageFont.truetype(FONT_PATH, size, index=idx)
+    if _CURRENT_LANG == "kor":
+        return ImageFont.truetype(FONT_PATH, size, index=_WEIGHT_TO_TTC_INDEX[weight])
+    # 비한국어 폰트는 굵기별 별도 파일이 없는 Bold 단일 파일이라(Noto Sans 계열)
+    # weight 구분 없이 index=0 고정 — video_assembler.py의 동일 폴백과 같은 원칙.
+    font_path = _FONT_PATH_BY_LANG.get(_CURRENT_LANG, _FONT_PATH_LATIN_CYRILLIC)
+    return ImageFont.truetype(font_path, size, index=0)
 
 
 def _vertical_gradient(top, bottom):
@@ -304,17 +341,13 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
     font = _font(font_size, "bold")
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
-    words, lines, cur = hook_text.split(), [], ""
-    for w in words:
-        test = (cur + " " + w).strip()
-        bbox = draw.textbbox((0, 0), test, font=font)
-        if bbox[2] - bbox[0] > max_text_w and cur:
-            lines.append(cur)
-            cur = w
-        else:
-            cur = test
-    if cur:
-        lines.append(cur)
+    # WHY _wrap_line_to_width 재사용(2026-08-13, ja 실측 — 위 언어별 폰트 매핑
+    # WHY 참고): 이전엔 여기서 hook_text.split()(공백 기준)으로 직접 줄바꿈을
+    # 했는데, 일본어는 띄어쓰기가 없어 전체가 "단어 하나"로 잡혀 한 줄로도
+    # 안 잘리고 캔버스 밖까지 그대로 넘쳐흘렀다. _wrap_line_to_width는 공백이
+    # 없으면 글자 단위로 자동 폴백하는 로직이 이미 있어(아래 함수 정의 WHY
+    # 참고) 그대로 재사용하면 한글·영어·일본어 전부 안전하게 줄바꿈된다.
+    lines = _wrap_line_to_width(draw, hook_text, font, max_text_w)
 
     line_h = font_size + 28
     total_h = line_h * len(lines)
@@ -572,7 +605,8 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
     img.save(out_path, quality=95)
 
 
-def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None):
+def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None,
+             lang: str = "kor"):
     """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
 
     WHY topic_prefix 파라미터(2026-08-03, 글로벌 확장 — data/<topic>/<lang>/ 중첩
@@ -581,7 +615,11 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     (output/가슴쓰림_1/en/card_news) out_dir.parent.name이 "en"이 되어버려 추론이
     깨진다. topic_prefix를 명시하면 그대로 쓰고(중첩 topic 호출부는 항상 명시할
     것 — 빈 문자열 ""을 주면 접두어 없이 저장, 폴더 자체가 이미 topic+lang을
-    구분해주므로), 안 주면(기존 flat topic 전부) 기존 추론 그대로 하위호환."""
+    구분해주므로), 안 주면(기존 flat topic 전부) 기존 추론 그대로 하위호환.
+
+    WHY lang 파라미터(2026-08-13): 위 FONT_PATH 언어별 매핑 절 참고 — 기본값
+    "kor"라 기존 호출부(전부 한국어)는 그대로 동작, 비한국어는 호출 시 명시할 것."""
+    set_lang(lang)
     spec = json.loads(Path(spec_path).read_text())
     char_dir = Path(char_dir)
     out_dir = Path(out_dir)
@@ -667,4 +705,5 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
 if __name__ == "__main__":
     spec_path, char_dir, out_dir = sys.argv[1], sys.argv[2], sys.argv[3]
     prefix = sys.argv[4] if len(sys.argv) > 4 else None
-    generate(spec_path, char_dir, out_dir, topic_prefix=prefix)
+    lang_arg = sys.argv[5] if len(sys.argv) > 5 else "kor"
+    generate(spec_path, char_dir, out_dir, topic_prefix=prefix, lang=lang_arg)

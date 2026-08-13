@@ -79,6 +79,17 @@ def _load_json(path: Path, topic: str, filename: str) -> dict:
         pytest.fail(f"{topic}/{filename}: 유효하지 않은 JSON — {e}")
 
 
+def _content_platforms(spec: dict) -> list[dict]:
+    """spec["platforms"] 중 "name" 키를 쓰는 기존(캡션 기반) 플랫폼 항목만 낸다.
+
+    WHY(2026-08-13, 블로그 SEO 서브트랙 도입): seo-blog에 넣는 `blog_seo` 항목은
+    "platform": "blog_seo" 키를 쓰고 caption/name 자체가 없는 다른 스키마다(제목·
+    본문 필드명도 다름) — 아래 규칙들(해시태그·네이버 중복 금지·network/rich_paste
+    플래그 등)은 전부 캡션 기반 한국어 플랫폼 얘기라 blog_seo엔 적용 대상이 아니다.
+    이 필터 없이 p["name"]을 그대로 쓰면 blog_seo 항목에서 KeyError로 죽는다."""
+    return [p for p in spec.get("platforms", []) if "name" in p]
+
+
 def _iter_strings(obj):
     """JSON 구조를 재귀적으로 순회하며 모든 leaf 문자열을 낸다.
     card_news_spec.json은 title/items[].body/closing.tip 외에 items[].name,
@@ -144,7 +155,7 @@ def test_platform_captions_is_valid_json(topic):
 @pytest.mark.parametrize("topic", TOPICS)
 def test_all_captions_have_hashtags(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
-    missing = [p["name"] for p in spec.get("platforms", []) if "#" not in p.get("caption", "")]
+    missing = [p["name"] for p in _content_platforms(spec) if "#" not in p.get("caption", "")]
     assert not missing, (
         f"{topic}: 아래 플랫폼 caption에 해시태그(#)가 없음 — {missing}"
     )
@@ -160,7 +171,7 @@ NAVER_BLOG_MIN_LENGTH = 1000
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_blog_min_length(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
-    for p in spec.get("platforms", []):
+    for p in _content_platforms(spec):
         if p["name"] == "네이버 블로그":
             length = len(p.get("caption", ""))
             assert length >= NAVER_BLOG_MIN_LENGTH, (
@@ -179,7 +190,7 @@ def test_naver_blog_min_length(topic):
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_blog_and_tistory_not_duplicated(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
-    platforms = {p["name"]: p for p in spec.get("platforms", [])}
+    platforms = {p["name"]: p for p in _content_platforms(spec)}
     naver = platforms.get("네이버 블로그")
     tistory = platforms.get("티스토리")
     if not naver or not tistory:
@@ -244,7 +255,7 @@ def test_platform_captions_no_jeonwoncheol_ending(topic):
 def test_naver_network_flag(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
     problems = []
-    for p in spec.get("platforms", []):
+    for p in _content_platforms(spec):
         name = p["name"]
         should_have_flag = name in NAVER_NETWORK_PLATFORMS
         has_flag = p.get("network") == "naver"
@@ -263,7 +274,7 @@ def test_naver_network_flag(topic):
 def test_rich_paste_flag(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
     problems = []
-    for p in spec.get("platforms", []):
+    for p in _content_platforms(spec):
         name = p["name"]
         should_have = name in RICH_PASTE_PLATFORMS
         has_it = p.get("rich_paste") is True
@@ -288,7 +299,7 @@ _BAD_IMAGE_MARKER_RE = re.compile(r"📷|\[[^\]]*\]|삽입")
 def test_naver_blog_and_tistory_image_marker_format(topic):
     spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
     problems = []
-    for p in spec.get("platforms", []):
+    for p in _content_platforms(spec):
         if p["name"] not in ("네이버 블로그", "티스토리"):
             continue
         hits = _BAD_IMAGE_MARKER_RE.findall(p.get("caption", ""))

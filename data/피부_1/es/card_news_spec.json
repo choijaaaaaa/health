@@ -1,0 +1,118 @@
+{
+  "title": [
+    "¿Estás perdiendo colágeno",
+    "más rápido de lo normal?",
+    "Frena antes de que sea tarde.",
+    "3 Hábitos Que Envejecen tu Piel"
+  ],
+  "eyebrow": "Protección del Colágeno",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "topic_word": "Pérdida de Colágeno",
+  "cover_scrim_color": "#0E7C7B",
+  "char_display_names": {
+    "담배_illust.jpg": "Tabaco",
+    "태양_illust.jpg": "Exposición Solar",
+    "사탕_illust.jpg": "Azúcar"
+  },
+  "items": [
+    {
+      "name": "Por Qué Sucede Esto",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Hay 3 hábitos que rompen",
+        "el colágeno de tu piel",
+        "todos los días, sin que lo notes",
+        "",
+        "Te contamos cuáles son",
+        "y por qué pasa"
+      ]
+    },
+    {
+      "name": "Causa 1: El Tabaco",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "El humo del tabaco activa",
+        "las MMP, enzimas que",
+        "destruyen el colágeno",
+        "",
+        "Las mujeres fumadoras tienen",
+        "casi el triple de arrugas"
+      ]
+    },
+    {
+      "name": "Dejar de Fumar Ayuda a Recuperarlo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Al dejar de fumar mejora",
+        "la circulación de la piel",
+        "",
+        "La producción de colágeno",
+        "empieza a recuperarse",
+        "en pocas semanas"
+      ]
+    },
+    {
+      "name": "Causa 2: El Sol Sin Protección",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Los rayos UVA llegan",
+        "hasta la dermis profunda",
+        "",
+        "Activan las mismas MMP",
+        "incluso sin quemadura visible"
+      ]
+    },
+    {
+      "name": "Usa Protector Solar a Diario",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "El fotoenvejecimiento explica",
+        "hasta el 80-90% de los signos",
+        "visibles de la edad",
+        "",
+        "Un SPF 30 diario frena",
+        "buena parte de ese daño"
+      ]
+    },
+    {
+      "name": "Causa 3: El Exceso de Azúcar",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "El azúcar se une al colágeno",
+        "en un proceso llamado glicación",
+        "",
+        "Forma estructuras rígidas",
+        "que sustituyen al colágeno sano"
+      ]
+    },
+    {
+      "name": "Reduce el Azúcar Añadido",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La OMS recomienda limitar",
+        "el azúcar añadido a diario",
+        "",
+        "Menos azúcar,",
+        "menos glicación en tu piel"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El tabaco, el sol",
+        "y el azúcar"
+      ],
+      [
+        "deterioran tu colágeno",
+        "poco a poco"
+      ]
+    ],
+    "tip": [
+      "Deja de fumar, usa protector solar a diario",
+      "y reduce el azúcar añadido"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos!"
+  }
+}
