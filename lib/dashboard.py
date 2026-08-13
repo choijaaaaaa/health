@@ -21,11 +21,6 @@ def _esc(text: str) -> str:
 
 
 TYPE_LABEL = {"video": "영상", "cards": "카드뉴스", "text": "텍스트"}
-TYPE_SECTION_TITLE = {
-    "video": "영상 업로드 플랫폼",
-    "cards": "카드뉴스(캐러셀) 플랫폼",
-    "text": "텍스트 게시 플랫폼",
-}
 TYPE_ORDER = ["video", "cards", "text"]
 
 # WHY 이 플랫폼들은 대시보드 UI에서 아예 뺀다(2026-08-04, "틱톡 플랫폼 배제하고
@@ -251,18 +246,6 @@ PAGE_TEMPLATE = """<!doctype html>
     .quick-dock {{ position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }}
   }}
 
-  .platform-section + .platform-section {{ margin-top: 6px; }}
-
-  .platform-tabs {{ display: flex; gap: 8px; margin-bottom: 18px; }}
-  .platform-tab-btn {{
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }}
-  .platform-tab-btn.active {{ background: var(--accent); color: #fff; border-color: var(--accent); }}
-  .platform-tab-pane {{ display: none; }}
-  .platform-tab-pane.active {{ display: block; }}
-
   .grid {{
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }}
@@ -380,33 +363,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {{
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }}
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {{
-  btn.addEventListener("click", () => {{
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  }});
-}});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {{
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-}})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
@@ -1643,20 +1599,15 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         platforms_by_type["video"].extend(fb_platforms)
 
     idx = 0
-    # WHY 영상/카드뉴스+텍스트 두 탭으로 나누는지(2026-08-07, "숏츠형태랑
-    # 카드뉴스형태의 콘텐츠 내용이 다 들어가있는데... 어떤 주제에 해당하는
-    # 콘텐츠들이 다 만들어져있다고 그게 모두 한곳에 모여있을 필요 없어졌어"):
-    # 숏츠·카드뉴스가 이제 독립 트랙(위 index.html 목록 분리와 동일 원칙)이라
-    # 한 topic이 둘 다 갖고 있어도 페이지 안에서까지 섞여 보일 필요가 없다 —
-    # video 타입은 "숏츠" 탭, cards+text 타입은 "카드뉴스" 탭으로 분리.
-    shorts_sections_html = ""
-    cardnews_sections_html = ""
+    # WHY type별 섹션·숏츠/카드뉴스 탭 분리를 없앴는지(2026-08-13, "텍스트 쪽
+    # 플랫폼이랑 숏츠 쪽 플랫폼이랑 버튼으로 나눠놓은거 없애고 걍 네이버
+    # 블로그도 합치자"): 티스토리 폐기로 텍스트 그룹이 네이버 블로그 하나만
+    # 남으면서 별도 섹션·탭으로 나눌 실익이 없어졌다 — 모든 플랫폼 카드를
+    # type 순서(video→cards→text)대로 하나의 그리드에 이어붙인다. 카드별
+    # type 배지(TYPE_LABEL)는 그대로 남겨 어떤 종류인지는 계속 구분 가능.
+    cards_html = ""
     for t in TYPE_ORDER:
-        group = platforms_by_type.get(t, [])
-        if not group:
-            continue
-        cards_html = ""
-        for p in group:
+        for p in platforms_by_type.get(t, []):
             cards_html += CARD_TEMPLATE.format(
                 name=_esc(p["name"]),
                 url=p["url"],
@@ -1689,29 +1640,12 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 ),
             )
             idx += 1
-        section_html = SECTION_TEMPLATE.format(section_title=TYPE_SECTION_TITLE[t], cards=cards_html)
-        if t == "video":
-            shorts_sections_html += section_html
-        else:
-            cardnews_sections_html += section_html
 
     card_image_names_js = json.dumps([quote(p.name) for p in card_imgs])
 
     ad_tag_badge = '<span class="ad-tag-badge">🏷️ 광고표시 적용</span>' if spec.get("ad_tag") else ""
 
-    # WHY 둘 다 있을 때만 탭 버튼을 보여주는지: 하나만 있으면(카드뉴스 전용
-    # topic 등) 탭 자체가 무의미 — 있는 쪽만 그대로 보여준다.
-    if shorts_sections_html and cardnews_sections_html:
-        platform_sections = (
-            '<div class="platform-tabs" id="topicTrackTabButtons">'
-            '<button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button>'
-            '<button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button>'
-            "</div>"
-            f'<div class="platform-tab-pane active" data-tab-pane="shorts">{shorts_sections_html}</div>'
-            f'<div class="platform-tab-pane" data-tab-pane="cardnews">{cardnews_sections_html}</div>'
-        )
-    else:
-        platform_sections = shorts_sections_html or cardnews_sections_html
+    platform_sections = SECTION_TEMPLATE.format(section_title="업로드 플랫폼", cards=cards_html) if cards_html else ""
 
     # WHY 상대경로로 계산하는지(2026-08-08, "index에 목록 아예 안보이는데?" —
     # GitHub Pages는 choijaaaaaa.github.io/health/처럼 서브경로에서 서빙되는데

@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%98%88%EC%95%95_1_00_%ED%91%9C%EC%A7%80.jpg" download="순환_5_혈압_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">갑자기 두근거리고 뒷목이 뻐근하면서 머리가 지끈거린다면 - 혈압을 순간적으로 올리는 뜻밖의 음식들
-
-00 · 표지
-
-
-심장이 갑자기 쿵쾅거리고 뒷목이 뻣뻣해지면서 머리까지 지끈거리는 증상을 그냥 피곤해서 그런가 보다 넘기기 쉽지만, 사실은 혈압이 순간적으로 급등했다는 신호일 수 있어요. 의학적으로 수축기 혈압 180mmHg, 이완기 혈압 110mmHg를 넘으면 '고혈압 위기'라는 상태로 분류되는데, 이 구간에서는 두통이나 두근거림, 메스꺼움 같은 증상이 함께 나타날 수 있어요. 그런데 이런 급격한 혈압 상승은 짠 음식만이 아니라 평소엔 의심조차 안 했던 식품이나 습관에서도 비롯돼요.
-
-카페인과 감초, 나트륨이 혈관과 호르몬을 함께 건드리면 혈압이 짧은 시간 안에 크게 요동칠 수 있어요. 특히 평소 혈압이 이미 높은 편이라면 더 위험한 수치까지 치솟을 수 있으니, 아래 세 가지는 꼭 챙겨서 확인해보세요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-02 · 에너지드링크
-
-
-첫 번째로 짚어볼 건 에너지드링크예요. 카페인은 혈관을 넓혀주는 아데노신의 기능을 막아버려서 혈관을 좁히고, 동시에 아드레날린 계열 호르몬인 노르에피네프린 분비량을 끌어올려요. 실제 연구 결과를 보면 에너지드링크를 마신 그룹의 수축기 혈압이 평균 108.4mmHg에서 115.0mmHg로 약 6.4% 뛰었고 이완기 혈압도 6.8% 올랐으며, 혈중 노르에피네프린 수치는 150~250pg/mL나 늘어났어요. 이 연구는 미국의학협회지(JAMA)에 실린 내용이에요.
-
-03 · 에너지드링크 대신
-
-
-커피나 차를 완전히 끊어야 하는 건 아니에요. 디카페인 커피로 바꿔 마시면 카페인으로 인한 혈관 수축 걱정 없이 커피 본연의 풍미는 그대로 즐길 수 있어요. 비트즙도 괜찮은 선택이에요 — 비트에 풍부한 질산염이 몸속에서 산화질소로 바뀌면서 혈관을 자연스럽게 넓혀주는 작용을 하거든요.
-
-04 · 감초
-
-
-두 번째 의외의 주범은 감초예요. 감초에 들어있는 글리시리진산이 코르티솔이 분해되는 과정을 억제하면서 알도스테론 호르몬과 비슷하게 작동하는데, 그 결과 신장이 나트륨은 붙잡고 칼륨은 밖으로 내보내면서 체내 수분량이 늘어나요. 이렇게 되면 부종과 함께 혈압도 함께 오를 수 있는데, 하루 5g 이상을 2주 넘게 먹으면 고혈압 위험이 3.5배까지 뛴다는 결과가 나와 있어요. 감초차나 감초 사탕은 물론 일부 한방 재료 안에도 은근히 자주 들어가 있으니 성분표를 확인하는 습관이 필요해요.
-
-05 · 감초 대신
-
-
-달달한 감초차가 생각난다면 카페인도 글리시리진산도 들어있지 않은 캐모마일차나 둥굴레차로 바꿔보세요. 은은한 향과 단맛은 비슷하게 즐기면서도 혈압에 주는 부담은 덜어낼 수 있어요.
-
-06 · 라면 국물
-
-
-세 번째는 라면 국물이에요. 국물이 있는 라면 한 봉지의 나트륨 함량은 평균 1,693mg 수준인데, 세계보건기구가 권장하는 하루 나트륨 섭취량(2,000mg)의 85%에 해당하는 양이에요. 국물까지 싹 비우고 김치 같은 짠 반찬까지 곁들이면 한 끼만으로 하루 권장량을 넘기는 경우도 흔해요. 나트륨을 한꺼번에 많이 섭취하면 혈액 속 나트륨 농도를 낮추려고 혈관 쪽으로 수분이 몰리면서 혈압이 일시적으로 오르게 돼요.
-
-07 · 라면은 이렇게
-
-
-라면을 식단에서 완전히 빼버릴 필요는 없어요. 국물은 절반 정도만 남기고, 수프 가루도 절반만 넣어서 끓여보세요. 감자나 시금치처럼 칼륨이 풍부한 채소를 곁들이면 몸속 나트륨을 내보내는 데도 도움이 되는데, 저나트륨-고칼륨 식단을 실천한 고혈압 환자의 수축기 혈압이 평균 11mmHg 낮아졌다는 연구 결과도 있어요.
-
-08 · 마무리
-
-
-혈압은 서서히 오르는 경우도 있지만, 특정 음식이나 성분 때문에 순식간에 위험한 수준까지 치솟기도 해요. 에너지드링크, 감초, 라면 국물 이 세 가지 전부를 완전히 끊을 필요는 없어요. 디카페인 커피나 비트즙, 카페인이 없는 허브차, 저나트륨 조미료로 하나씩 바꿔주는 것만으로도 혈압에 걸리는 부담을 크게 덜어낼 수 있어요.
-
-이 콘텐츠는 건강 정보 전달을 목적으로 하며, 정확한 진단과 치료는 반드시 의료 전문가와 상담하시기 바랍니다.
-
-#고혈압 #혈압관리 #에너지드링크 #감초부작용 #나트륨 #디카페인 #저나트륨 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs4dknEtw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">캐모마일차</span><a href="https://www.coupang.com/np/search?component=&q=%EC%BA%90%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs5fmwGpU" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FuN8VAgO" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

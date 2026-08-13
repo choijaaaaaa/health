@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1_00_%ED%91%9C%EC%A7%80.jpg" download="피로_1_ko_만성피로_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">충분히 자도 계속 피곤하다면, 만성피로 부르는 습관부터 확인하세요
-
-00 · 표지
-
-
-아침에 눈을 떠도 개운하지 않고, 오후만 되면 축 처져서 커피로 겨우 버티는 날이 반복되나요? 특별한 병이 없어도 매일 반복하는 습관이 만성피로의 원인일 수 있어요. 아래 세 가지 습관부터 점검해보세요.
-
-01 · 왜 자도 피곤할까요
-
-
-만성피로는 뚜렷한 질환 없이도 식습관과 생활습관만으로 충분히 나타날 수 있어요. 영양소가 부족하거나 혈당이 자주 요동치거나 밤잠의 질이 떨어지면, 다음날 하루 종일 무기력한 상태가 이어지는 것으로 알려져 있어요.
-
-02 · 식사 중 커피
-
-
-첫 번째는 식사할 때 커피를 함께 마시는 습관이에요. 커피 속 탄닌 성분이 철분 흡수를 방해하는데, 철분이 부족해지면 온몸으로 산소를 나르는 능력이 떨어져 쉽게 지치고 무기력해질 수 있어요.
-
-03 · 식사 중 커피는 이렇게
-
-
-커피는 식사 후 한 시간 정도 지나서 마셔보세요. 소고기·시금치처럼 철분이 풍부한 음식을 비타민C가 많은 채소·과일과 같이 먹으면 흡수율을 더 높일 수 있어요.
-
-04 · 탄산음료
-
-
-두 번째는 탄산음료 같은 단순당 음료를 습관적으로 마시는 것이에요. 단순당은 혈당을 빠르게 끌어올리고, 이를 낮추려는 인슐린 과다 분비로 혈당이 다시 급격히 떨어지는데, 이런 오르내림이 반복되면 몸이 늘 지친 상태로 굳어질 수 있어요.
-
-05 · 탄산음료는 이렇게
-
-
-탄산음료 대신 물이나 무가당 음료로 바꿔보는 게 현실적이에요. 혈당 변동폭을 줄이면 만성적인 무기력에서 벗어나는 데 도움이 돼요.
-
-06 · 저녁 에너지드링크
-
-
-세 번째는 저녁 무렵 에너지드링크로 피로를 버티는 습관이에요. 카페인 반감기는 서너 시간에서 길게는 일곱 시간까지 이어지기 때문에, 늦은 시간 섭취는 밤잠의 질을 떨어뜨리고 다음날 피로가 그대로 쌓이는 악순환으로 이어질 수 있어요.
-
-07 · 저녁 에너지드링크는 이렇게
-
-
-카페인은 오후 두세 시 이후엔 피해보세요. 피로할 땐 가벼운 스트레칭이나 짧은 산책으로 대신하면 밤잠의 질을 지키는 데 도움이 돼요.
-
-08 · 마무리
-
-
-세 가지 습관을 한 번에 다 바꿀 필요는 없어요. 식사 중 커피는 시간을 미루고, 탄산음료는 무가당 음료로, 저녁 카페인은 줄이는 것부터 하나씩 시도해보세요. 다만 충분히 쉬어도 2주 이상 피로가 이어지거나 일상생활이 힘들 정도라면 다른 원인이 있을 수 있으니 병원 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#만성피로 #피로회복 #철분부족 #혈당스파이크 #카페인 #수면의질 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">소고기</span><a href="https://www.coupang.com/np/search?component=&q=%EC%86%8C%EA%B3%A0%EA%B8%B0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f2QLM6dXa0" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xLNhFTSZ" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">견과류</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B2%AC%EA%B3%BC%EB%A5%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSuka3GsC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xjYCNGNS" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">무가당음료</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EA%B0%80%EB%8B%B9%EC%9D%8C%EB%A3%8C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f2QOpb11pc" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

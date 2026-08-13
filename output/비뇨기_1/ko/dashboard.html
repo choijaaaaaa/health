@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%B0%A9%EA%B4%91%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg" download="비뇨기_1_ko_방광염_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">다녀온 지 얼마 안 됐는데 또 소변이 마렵고 따끔거리신다면, 방광염일 수 있어요 - 방광염 키우는 음식 피하는 법
-
-00 · 표지
-
-
-분명 화장실을 다녀왔는데 얼마 안 지나 또 소변이 마렵고, 볼일을 볼 때마다 따끔거리는 느낌이 든다면 방광염일 가능성이 높아요. 그런데 이 증상이 유독 심한 날을 잘 보면, 그날 먹은 음식과 관련 있는 경우가 꽤 많아요.
-
-01 · 왜 증상이 심해질까요
-
-
-방광 안쪽 벽은 자극에 상당히 예민한 조직이에요. 특정 음식 성분이 소변에 섞여 배출되면서 방광벽을 자극하면 염증 반응이 심해지고, 요의를 평소보다 자주 느끼게 될 수 있어요.
-
-02 · 카페인
-
-
-첫 번째는 커피 같은 카페인 음료예요. 카페인은 방광을 직접 자극하는 동시에 이뇨 작용으로 소변량도 늘리기 때문에, 마신 뒤 화장실을 더 자주 찾게 되는 경우가 많아요.
-
-03 · 카페인은 이렇게
-
-
-커피 대신 물이나 보리차로 바꿔보세요. 카페인 없는 음료로 수분을 보충하면 방광 자극을 줄이면서도 갈증을 해소할 수 있어요.
-
-04 · 매운 음식
-
-
-두 번째는 떡볶이·청양고추 같은 매운 음식이에요. 매운맛을 내는 캡사이신 성분이 방광 내벽을 자극해서, 볼일을 볼 때 따끔거림이나 요의가 더 심해질 수 있어요.
-
-05 · 매운 음식은 이렇게
-
-
-매운 음식 대신 된장국처럼 자극이 적은 음식으로 바꿔보는 게 좋아요.
-
-06 · 탄산음료
-
-
-세 번째는 탄산음료예요. 설탕과 탄산 성분이 함께 작용해 방광을 자극하는 조합이 되기 쉬워서, 자주 마시면 방광염 증상이 더 오래갈 수 있어요.
-
-07 · 탄산음료는 이렇게
-
-
-탄산음료 대신 옥수수수염차로 바꿔보세요. 이뇨 작용이 있으면서도 방광 자극은 덜한 편이에요.
-
-08 · 마무리
-
-
-카페인·매운 음식·탄산음료를 전부 끊어야 하는 건 아니에요. 먹는 양을 줄이고 대체 식품으로 바꾸는 것만으로도 증상이 눈에 띄게 가벼워질 수 있어요. 수분을 넉넉히 챙기는 습관도 방광 안 세균을 씻어내는 데 도움이 될 수 있고요. 다만 증상이 3일 넘게 이어지거나 열이 동반된다면 항생제 치료가 필요할 수 있으니 병원 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#방광염 #요로감염 #방광염음식 #방광건강 #빈뇨 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">옥수수수염차</span><a href="https://www.coupang.com/np/search?component=&q=%EC%98%A5%EC%88%98%EC%88%98%EC%88%98%EC%97%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS2x5mgq4" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5zU1JqK1" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">보리차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B3%B4%EB%A6%AC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRvp1GDwyG" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xxohMhmP" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

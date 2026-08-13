@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -406,12 +394,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -483,81 +466,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호·소제목 위치에 해당 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%94%BC%EB%B6%80_2_00_%ED%91%9C%EC%A7%80.jpg" download="피부_2_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">턱과 볼에 여드름이 반복해서 올라온다면 - 성인 여드름 유발하는 음식 습관 바로잡기
-
-00 · 표지
-
-
-턱선이나 볼 쪽에 여드름이 반복해서 올라와서 스트레스받은 적 있으신가요? 참거나 피부과만 의지할 필요 없이, 먹는 습관을 조금만 바꿔도 여드름이 올라오는 빈도 자체를 줄일 수 있어요.
-
-성인 여드름의 상당수는 혈당 변화, 호르몬, 염증이 서로 맞물려서 생겨요. 혈당지수가 높은 음식을 먹으면 혈당이 빠르게 치솟고 이를 낮추려고 인슐린이 과도하게 분비되는데, 이 인슐린이 IGF-1이라는 성장호르몬 수치까지 함께 끌어올려서 피지선을 자극하고 모공 주변 각질을 두껍게 만들어요. 유제품은 이와는 별개의 경로로 IGF-1을 자극하고, 튀긴 음식은 여기에 염증 반응까지 얹어서 여드름을 더 키워요.
-
-01 · 왜 여드름이 자꾸 날까요
-
-
-02 · 흰쌀밥
-
-
-첫 번째 주의할 음식은 흰쌀밥이에요. 도정 과정에서 껍질과 배아가 제거된 정제 탄수화물이라 소화·흡수가 빨라서 혈당을 급하게 밀어 올려요. 혈당지수가 높을수록 인슐린도 큰 폭으로 튀어 오르는데, 이 패턴이 매 끼니 반복되면 피지선이 자극받아서 턱이나 볼 라인에 여드름이 잘 생겨요.
-
-03 · 흰쌀밥 대신
-
-
-현미나 귀리처럼 혈당지수가 낮은 잡곡으로 밥을 바꾸면 혈당이 완만하게 오르면서 인슐린이 급격히 튀는 걸 막을 수 있어요. 한 번에 다 바꾸기 부담스럽다면 흰쌀과 잡곡을 반씩 섞는 것부터 시작해도 충분해요.
-
-04 · 그릭요거트
-
-
-두 번째는 그릭요거트를 비롯한 유제품이에요. 당을 첨가하지 않은 제품이라도 유제품 자체에 들어있는 성분이 IGF-1 수치를 끌어올리고 안드로겐 수용체까지 자극하는 것으로 확인됐어요. 실제로 성인 여드름을 겪는 사람들의 혈중 IGF-1 수치는 그렇지 않은 사람보다 유의하게 높게 측정됐어요.
-
-05 · 그릭요거트 대신
-
-
-유제품 대신 두유 같은 식물성 음료로 바꿔보는 것도 방법이고, 그릭요거트를 꼭 먹고 싶다면 한 번에 먹는 양을 줄여서 섭취량 자체를 조절해보세요.
-
-06 · 도넛
-
-
-세 번째는 도넛이에요. 기름에 튀기는 과정에서 트랜스지방과 산화 물질이 새로 생겨나고, 여기에 설탕까지 많이 들어가서 인슐린 스파이크와 염증 반응이 동시에 일어나요. 정제당을 많이 먹는 사람은 그렇지 않은 사람보다 여드름이 생길 위험이 30% 더 높다는 연구 결과도 있어요.
-
-07 · 도넛 대신
-
-
-에어프라이어로 구운 고구마처럼 담백한 간식으로 바꿔보고, 튀김이 정말 먹고 싶은 날엔 기름을 최소한으로 쓰는 조리법을 골라보세요.
-
-08 · 마무리
-
-
-세 가지 음식을 전부 끊어낼 필요는 없어요. 흰쌀밥은 저GI 잡곡으로, 그릭요거트는 두유 같은 식물성 대안으로, 도넛은 담백하게 구운 간식으로 바꾸는 것만으로도 여드름이 올라오는 빈도를 눈에 띄게 줄일 수 있어요.
-
-#성인여드름 #턱여드름 #혈당스파이크 #IGF1 #저GI식단 #피부트러블 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">현미</span><a href="https://www.coupang.com/np/search?component=&q=%ED%98%84%EB%AF%B8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSP6lbm8Ki" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FbVZBxlp" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두유</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRinwfLYw8" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">고구마</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B3%A0%EA%B5%AC%EB%A7%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQaeQxBDM" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/G4duIqG7" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -580,33 +491,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

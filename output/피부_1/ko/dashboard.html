@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -489,81 +472,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg" download="피부_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">잔주름 늘고 피부가 칙칙해졌다면, 매일 먹는 이 음식들부터 의심해보세요 - 콜라겐을 갉아먹는 식습관 3가지
-
-00 · 표지
-
-
-거울 속 얼굴이 유독 푸석해 보이고, 눈가와 입가 잔주름이 도드라지고, 예전보다 칙칙해진 것 같다면 단순히 나이가 들어서만은 아니에요. 피부 탄력을 책임지는 콜라겐은 20대 중반을 지나면서 서서히 줄어드는 게 정상이지만, 매일 먹는 몇 가지 음식이 이 감소 속도를 눈에 띄게 앞당길 수 있어요. 콜라겐을 무너뜨리는 대표적인 식습관 세 가지, 그리고 각각을 대신할 수 있는 현실적인 방법을 살펴볼게요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-02 · 단 음료·디저트
-
-
-먼저 살펴볼 건 당화반응, 영어로는 글리케이션이라고 부르는 현상이에요. 혈당이 높은 상태가 이어지면 여분의 당분자가 콜라겐 섬유에 달라붙어서 최종당화산물, 줄여서 AGEs라는 물질을 만들어내요. 마치 빵을 구울 때 겉면이 갈색으로 변하며 딱딱해지는 마이야르 반응과 비슷한 원리인데, 피부 속에서 이 반응이 일어나면 콜라겐 섬유끼리 서로 엉겨붙어서 말랑했던 구조가 뻣뻣하게 바뀌어요. 미국 국립심폐혈연구소가 30대 여성 342명을 조사한 연구에서는 하루 설탕 섭취량이 1g씩 늘어날 때마다 피부의 생물학적 나이가 일주일가량 더 든 것으로 나타났고, 50대 피부에 쌓인 AGEs 양은 20대의 3배를 훌쩍 넘는 수준이었어요.
-
-03 · 단 음료·디저트 대신
-
-
-그렇다고 단 음식을 완전히 포기할 필요는 없어요. 블루베리 같은 저당 베리류를 선택하면 당분 섭취량은 줄이면서도 안토시아닌이라는 항산화 성분을 함께 챙길 수 있어요. 안토시아닌은 당화 과정에서 생기는 산화 스트레스를 억제하는 데 도움을 줘요. 실제로 혈당지수가 낮은 식단을 12주 동안 유지한 그룹은 피부 속 AGEs 농도가 11% 가량 낮아진 것으로 확인됐어요. 탄산음료나 케이크가 당길 때 베리류로 바꿔보는 것만으로도 당화 속도에 제동을 걸 수 있어요.
-
-04 · 도넛·마가린빵
-
-
-두 번째로 짚어볼 건 트랜스지방이에요. 도넛이나 크루아상, 마가린을 넣고 구운 빵에는 부분경화유가 들어가는 경우가 많은데, 이 트랜스지방이 몸속 염증 반응을 부추기는 대표적인 성분으로 꼽혀요. 염증 상태가 오래 이어지면 피부 세포가 스스로 재생하는 힘이 떨어지고 자외선에도 더 취약해지면서 콜라겐 분해 속도가 빨라져요. 세계보건기구는 트랜스지방을 하루 총 섭취 열량의 1% 미만으로 제한하라고 권고하는데, 2000kcal를 기준으로 계산하면 약 2.2g이에요. 식약처가 조사한 국내 도넛의 평균 트랜스지방 함량은 개당 0.2g으로 예전보다 많이 줄었지만, 온라인에서 파는 일부 제품은 개당 2.7g까지 검출돼서 한 개만 먹어도 하루 권장량을 넘길 수 있어요.
-
-05 · 튀긴 빵 대신
-
-
-기름진 음식을 아예 끊어야 하는 건 아니에요. 올리브오일처럼 불포화지방이 주가 되는 기름은 오히려 염증을 가라앉히는 방향으로 작용해요. 빵을 살 때는 마가린이나 쇼트닝 대신 버터나 올리브오일을 쓴 제품을 고르고, 튀김 조리법보다는 에어프라이어나 오븐을 활용해보세요. '트랜스지방 0g'이라고 표시돼 있어도 원재료명에 부분경화유가 적혀 있으면 소량 섞여 있을 수 있으니 성분표 뒷면까지 챙겨보는 습관을 들이는 게 좋아요.
-
-06 · 커피·에너지드링크 과다
-
-
-세 번째는 카페인을 지나치게 많이 마시는 습관이에요. 카페인은 교감신경을 자극해서 스트레스 호르몬인 코르티솔 분비를 늘리는데, 코르티솔 수치가 올라가면 피부 속 콜라겐이 분해되면서 수분을 붙잡는 힘도 약해져요. 여기에 더해 수면의 질에도 영향을 줘요. 깊은 잠에 빠져 있는 동안 뇌하수체는 하루 성장호르몬 분비량의 상당 부분, 많게는 75%까지를 이 시간에 내보내는데, 이 호르몬이 진피 속 섬유아세포를 자극해서 콜라겐을 새로 만들어내게 해요. 늦은 시간 마신 카페인 때문에 깊은 잠을 못 이루면 이 콜라겐 합성 과정 자체가 느려져요.
-
-07 · 저녁 커피 대신
-
-
-커피를 완전히 끊을 필요까지는 없어요. 성인 기준 하루 카페인 권장 섭취 한도는 400mg인데, 국내 성인의 하루 평균 섭취량은 65.7mg 정도라 아직 여유가 있는 편이에요. 문제는 오후 늦게까지 여러 잔을 몰아 마시거나 에너지드링크까지 더해지는 경우예요. 오후 2~3시를 넘긴 뒤로는 디카페인 커피나 보리차, 둥굴레차처럼 카페인이 없는 음료로 바꿔서 밤잠을 방해하지 않도록 해보세요.
-
-08 · 마무리
-
-
-한번 무너진 콜라겐은 되돌리기 어려운 만큼, 무너지기 전에 관리하는 게 가장 확실한 방법이에요. 다만 세 가지 습관을 한꺼번에 끊어낼 필요는 없어요. 단 음료·디저트는 저당 베리류로, 도넛이나 튀긴 빵은 올리브오일 조리법으로, 늦은 시간의 커피는 보리차로 바꾸는 것만으로도 콜라겐이 무너지는 속도를 충분히 늦출 수 있어요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 피부 상태 진단은 피부과 전문의와 상담하시기 바랍니다.
-
-#피부노화 #콜라겐 #당독소 #당화반응 #트랜스지방 #카페인 #저당간식 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">저당 베리류</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%8B%B9%20%EB%B2%A0%EB%A6%AC%EB%A5%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRvmRk2G7M" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xvC90Ra3" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">올리브오일</span><a href="https://www.coupang.com/np/search?component=&q=%EC%98%AC%EB%A6%AC%EB%B8%8C%EC%98%A4%EC%9D%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRvo77v0RE" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/x7ewHktr" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">보리차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B3%B4%EB%A6%AC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRvp1GDwyG" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xxohMhmP" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -586,33 +497,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

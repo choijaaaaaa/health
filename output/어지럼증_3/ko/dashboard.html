@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_3_ko_이석증_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">돌아눕거나 고개를 젖힐 때마다 핑 도신다면, 이석증일 수 있어요 - 이석증 위험 높이는 생활습관 3가지
-
-00 · 표지
-
-
-누워서 돌아눕거나 고개를 젖히는 순간 갑자기 천장이 핑 도는 느낌, 몇 초 뒤엔 가라앉지만 자꾸 반복된 적 있나요? 생각보다 매일의 생활습관이 이 증상에 영향을 줄 수 있어요.
-
-01 · 왜 어지러울까요
-
-
-이런 증상은 이석증(양성발작성두위현훈)일 가능성이 있어요. 귓속 평형기관에 붙어 있던 작은 칼슘 결정인 이석이 제자리를 벗어나 반고리관으로 흘러들어가면서 자세를 바꿀 때마다 어지럼이 생기는 질환이에요.
-
-02 · 비타민D 부족
-
-
-첫 번째 요인은 비타민D 부족이에요. 이석은 칼슘으로 이루어져 있는데, 햇빛을 충분히 쬐지 못해 비타민D가 부족해지면 칼슘 대사가 흐트러지면서 이석증 위험이 높아질 수 있다고 보고돼 있어요. 실제로 이석증 환자군에서 골다공증·비타민D 결핍 비율이 정상군보다 높게 나타난 연구도 있어요.
-
-03 · 비타민D는 이렇게
-
-
-하루 20~30분 정도 햇빛을 쬐고, 등푸른생선이나 달걀노른자처럼 비타민D가 든 음식을 식단에 챙겨보세요.
-
-04 · 나트륨 과다
-
-
-두 번째 요인은 나트륨 과다 섭취예요. 짠 음식을 많이 먹으면 귓속 림프액이 늘어나 내이 압력이 높아지면서 어지럼 증상이 더 심해질 수 있어요.
-
-05 · 나트륨은 이렇게
-
-
-국물 요리나 짠 반찬 섭취를 조금씩 줄이고, 국물은 다 마시지 않는 습관부터 만들어보세요.
-
-06 · 카페인 과다
-
-
-세 번째 요인은 카페인 과다 섭취예요. 커피 같은 카페인을 많이 마시면 내이 혈류와 신경 반응에 영향을 줘서 어지럼이 심해질 수 있어요.
-
-07 · 카페인은 이렇게
-
-
-커피는 하루 한두 잔 이내로 조절하고, 필요하다면 디카페인으로 바꿔보는 것도 방법이에요.
-
-08 · 마무리
-
-
-나트륨과 카페인은 줄이고 비타민D는 꾸준히 챙기는 것, 이 정도 습관 변화만으로도 이석증 위험을 낮추는 데 도움이 될 수 있어요. 다만 어지럼이 몇 초 넘게 지속되거나 자주 반복된다면 이비인후과 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#이석증 #어지럼증 #양성발작성두위현훈 #비타민D #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">비타민D 영양제</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B9%84%ED%83%80%EB%AF%BCD%20%EC%98%81%EC%96%91%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs4dknEtw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

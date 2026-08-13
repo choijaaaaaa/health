@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -293,7 +281,7 @@
 
 
 <section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
@@ -368,80 +356,6 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  
-  <textarea class="caption-box" id="cap-1" spellcheck="false">머리가 핑 돌고 휘청거리는 어지럼증이 반복되신다면, 이 음식·습관부터 확인하세요 - 어지럼증을 악화시키는 음식·습관 3가지
-
-00 · 표지
-
-
-지하철에서 서 있다가, 혹은 계단을 오르다가 갑자기 세상이 빙 도는 느낌을 받은 적 있으신가요? 어지럼증은 귀 안쪽 평형기관 문제나 혈압 이상처럼 검사가 필요한 원인도 있지만, 매일 반복하는 식습관 세 가지가 증상을 부추기거나 악화시키는 경우도 흔해요. 아래에서 그 이유와 각각의 대처법을 정리해봤어요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-밥때를 자꾸 놓치고 단 음식으로 때우거나, 커피·술을 즐기고, 여기에 짠 음식까지 습관처럼 먹으면 어지럼증이 잦아질 수 있어요. 세 가지 습관이 몸속에서 각각 어떤 식으로 균형감각을 흔드는지 짚어볼게요.
-
-02 · 식사 거르고 단 음식 급하게
-
-
-한동안 아무것도 안 먹다가 단 음식을 몰아서 먹으면 혈당이 순식간에 치솟았다가 인슐린이 과다 분비되면서 오히려 정상보다 더 낮게 뚝 떨어지는 현상이 생겨요. 이게 바로 반응성 저혈당이에요. 뇌는 포도당이 없으면 제대로 작동하지 못하는 기관이라, 혈당이 급격히 떨어지면 머리가 핑 도는 느낌과 함께 식은땀, 손 떨림이 동반되곤 해요.
-
-03 · 저혈당엔 이렇게
-
-
-제일 확실한 방법은 세 끼를 거르지 않는 거예요. 그래도 출출할 땐 사탕·초콜릿보다는 아몬드 같은 견과류나 삶은 달걀처럼 단백질·식이섬유가 든 간식을 먼저 먹어보세요. 혈당이 천천히 오르내리면서 급격한 저혈당으로 이어질 확률이 줄어들어요.
-
-04 · 커피·술이 부르는 어지럼증
-
-
-커피 속 카페인은 뇌혈관을 좁히는 작용을 하는데, 한 연구에서는 카페인 섭취 후 뇌로 가는 혈류량이 평균 27%나 감소했다는 결과가 나왔어요. 술은 눈과 귀의 균형 신호를 조율하는 전정안반사 기능을 둔하게 만들어서 몸이 기울어진 걸 늦게 감지하게 해요. 카페인과 알코올 둘 다 소변량을 늘리는 이뇨 작용이 있어서 몸속 수분이 빠져나가고, 이 탈수가 어지럼증을 더 키워요.
-
-05 · 카페인·알코올은 이렇게
-
-
-하루 중간중간 보리차나 카페인 없는 차를 챙겨 마시면서 수분을 놓치지 않는 게 도움이 돼요. 술자리에서는 술 한 잔마다 물 한 잔을 곁들이면서 천천히, 빈속을 피해서 마시는 습관을 들여보세요. 커피는 하루 1~2잔으로 줄이는 것만으로도 어지럼증이 확 줄었다는 분들이 많아요.
-
-06 · 짠 음식이 흔드는 균형감각
-
-
-짠 음식을 많이 먹으면 나트륨이 몸속 수분을 붙잡아 두면서 혈액량이 늘어나고, 이 변화는 귀 안쪽 평형기관인 전정기관 속 림프액(내림프)의 압력에도 영향을 줄 수 있어요. 어지럼증이 반복되는 대표 질환인 메니에르병 환자들에게 저염식이 권장되는 것도 이 때문인데, 나트륨이 내림프 부종을 키워 어지럼증·이명·청력 변동을 악화시킬 수 있다는 연구가 있어요. 다만 짠 음식이 어지럼증을 직접 유발한다고 단정할 만큼 근거가 충분한 건 아니라서, 이미 있는 어지럼증을 심해지게 만들 수 있는 요인 정도로 받아들이는 게 맞아요.
-
-07 · 짠 음식은 이렇게
-
-
-라면 국물처럼 나트륨이 진한 국물은 절반만 먹고 건더기 위주로 드셔보세요. 짠 음식을 먹은 날엔 칼륨이 풍부한 바나나나 시금치를 곁들이면 나트륨 배출에 도움이 돼요. 소스·조미료를 줄이고 재료 본연의 맛을 살리는 조리법으로 조금씩 입맛을 바꿔가는 것도 방법이에요.
-
-08 · 마무리
-
-
-식사를 규칙적으로 챙기고, 카페인·알코올은 적당히, 짠 음식은 칼륨이 풍부한 채소·과일과 함께 먹는 것만으로도 어지럼증이 나타나는 빈도를 줄일 수 있어요. 하지만 어지럼증이 자주 반복되거나 귀울림, 청력 변화, 두통, 시야 이상까지 함께 나타난다면 식습관만으로는 설명되지 않는 다른 원인이 있을 수 있으니 이비인후과나 신경과 진료를 받아보시길 권해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 전문의와 상담하시기 바랍니다.
-
-#어지럼증 #저혈당 #카페인 #탈수 #나트륨 #메니에르병 #균형감각 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
 
@@ -467,33 +381,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

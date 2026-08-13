@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -406,12 +394,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -483,81 +466,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 📷 주석 위치에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%8B%A4%EB%A6%AC%EC%A5%90_1_00_%ED%91%9C%EC%A7%80.jpg" download="근골격_3_다리쥐_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">밤마다 종아리에 쥐가 나서 깨시나요 - 야간 다리 경련 줄이는 식습관 가이드
-
-00 · 표지
-
-
-자다가 종아리 근육이 갑자기 뭉치면서 통증에 잠을 깬 경험, 다들 한 번쯤 있으실 거예요. 억지로 참아 넘길 일이 아니라, 원인이 되는 식습관 몇 가지만 손봐도 빈도를 눈에 띄게 줄일 수 있어요.
-
-근육이 정상적으로 이완되려면 마그네슘·칼륨·칼슘 같은 전해질이 충분해야 하는데, 이게 부족해지면 근육이 갑작스럽게 수축하면서 쥐가 나요. 카페인이나 술, 짠 음식을 많이 드시면 이런 전해질이 평소보다 빨리 몸 밖으로 빠져나가서 밤에 유독 쥐가 잘 나는 상태가 돼요.
-
-01 · 왜 다리에 쥐가 날까요
-
-
-02 · 커피
-
-
-첫 번째 원인은 커피예요. 카페인은 이뇨작용을 통해 소변으로 빠져나가는 칼슘의 양을 늘리는데, 커피 한 잔당 대략 4~6mg의 칼슘이 함께 배출되는 것으로 추정돼요. 하루 세 잔 넘게 드시는 습관이 있다면 마그네슘과 칼슘 모두 평소보다 빠른 속도로 소실되고 있는 셈이에요.
-
-03 · 커피 대신
-
-
-디카페인 커피나 카페인이 없는 보리차로 바꾸시면 이뇨작용으로 인한 전해질 손실 부담을 덜 수 있어요. 커피를 완전히 끊기 힘드시다면 하루 세 잔 이내로 줄이시고, 마신 만큼 물도 넉넉히 챙겨 드시는 게 좋아요.
-
-04 · 맥주
-
-
-두 번째는 맥주를 비롯한 술이에요. 알코올 역시 카페인 못지않은 이뇨작용으로 마그네슘과 칼슘을 빠르게 몸 밖으로 내보내는데, 특히 잠들기 직전의 음주는 야간 다리 경련을 일으키는 대표적인 습관 중 하나로 꼽혀요.
-
-05 · 맥주 대신
-
-
-술을 드셨다면 마신 양과 비슷한 만큼의 물을 함께 드셔서 수분과 전해질 손실을 채워주세요. 잠자리에 들기 3~4시간 전에는 음주를 끝내두시는 게 야간 경련을 예방하는 데 도움이 돼요.
-
-06 · 가공식품
-
-
-세 번째는 소시지·햄처럼 나트륨이 많은 가공식품이에요. 나트륨을 지나치게 많이 섭취하면 체내 전해질 균형이 무너지는데, 이렇게 깨진 균형이 근육을 평소보다 예민하게 만들어서 경련이 더 잘 일어나게 돼요.
-
-07 · 가공식품 대신
-
-
-소시지나 햄 대신 저나트륨 표시가 붙은 제품, 또는 닭가슴살이나 두부처럼 나트륨이 적은 단백질 식품으로 바꿔보세요. 바나나나 시금치처럼 칼륨이 풍부한 식품을 함께 챙기시면 전해질 균형을 맞추는 데 도움이 돼요.
-
-08 · 마무리
-
-
-세 가지 음식 모두 아예 끊으실 필요는 없어요. 커피는 하루 세 잔 이내로, 술을 드신 날은 물을 꼭 같이, 가공식품 대신 저나트륨 제품과 칼륨이 풍부한 음식으로 바꾸는 것만으로도 다리쥐가 나는 빈도를 크게 줄일 수 있어요. 잠들기 전 물 한 컵과 가벼운 종아리 스트레칭도 함께 챙겨보세요.
-
-#다리쥐 #근육경련 #야간다리경련 #전해질 #마그네슘 #저나트륨 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">보리차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B3%B4%EB%A6%AC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRvp1GDwyG" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xxohMhmP" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두부</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EB%B6%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQgumfszs" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">닭가슴살</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQslYJIQK" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xZKAxyDb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -580,33 +491,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

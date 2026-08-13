@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -406,12 +394,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -483,81 +466,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 표시 위치에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg" download="코_3_코골이_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">자면서 숨이 턱 막히고 코골이가 심하다면? 기도를 좁히는 식습관부터 점검하기
-
-00 · 표지
-
-
-옆에서 자던 사람이 코골이 소리에 깨거나, 스스로 숨이 턱 막히는 느낌에 잠에서 깬 적 있나요? 그냥 참고 넘길 문제만은 아니에요. 원인이 되는 음식과 생활 습관을 조절하는 것만으로도 코골이 빈도를 크게 낮출 수 있어요.
-
-01 · 왜 코를 골게 될까요
-
-
-코골이 소리의 정체는 잠든 사이 좁아진 기도로 공기가 지나가면서 주변 조직이 떨리는 진동이에요. 목 근육이 축 처지거나 기도 안쪽에 지방과 점액이 쌓이면 이 좁아짐이 훨씬 심해지는데, 흥미롭게도 술·유제품·야식이 각기 다른 경로로 이 좁아짐을 만들어내요.
-
-02 · 맥주
-
-
-첫 번째 원인은 맥주 같은 술이에요. 알코올이 중추신경을 억제하면서 인두(목 안쪽) 근육이 평소보다 훨씬 더 축 늘어지는 것으로 알려져 있는데, 근육이 늘어질수록 기도는 좁아지고 코골이는 심해져요. 음주 후에는 코골이 소리가 더 커지고 수면무호흡까지 함께 나타나는 경우가 많다는 보고도 있어요.
-
-03 · 맥주 대신
-
-
-취침 3~4시간 전까지는 음주를 끝내두는 게 목 근육이 과하게 늘어지는 걸 막는 데 효과적이에요. 술자리 자체를 피하기 어렵다면 무알코올 맥주로 바꿔서 마시는 분위기와 습관만 유지하는 것도 좋은 대안이에요.
-
-04 · 치즈
-
-
-두 번째 원인은 치즈 같은 유제품이에요. 유제품이 목과 기도 점막의 점액 분비량을 늘린다는 이야기는 예전부터 알려져 있었는데, 이 점액이 기도 안쪽에 끈끈하게 들러붙으면 공기 통로가 더 비좁아지고 코 고는 소리도 커질 수 있어요.
-
-05 · 치즈 대신
-
-
-잠들기 전이라면 유제품 대신 두유를 마시는 쪽이 더 나아요. 그래도 유제품이 꼭 먹고 싶다면 저지방 제품을 골라서 점액 부담을 조금이라도 낮추는 게 좋아요.
-
-06 · 라면
-
-
-세 번째 원인은 라면 같은 취침 전 고칼로리 야식이에요. 늦은 밤 짜고 기름진 음식을 먹는 습관은 체중 증가로 이어지기 쉽고, 목 주변에 지방이 쌓이면 기도 벽이 두꺼워지면서 공간이 좁아져요. 여기에 배부른 상태로 바로 눕기까지 하면 위산이 식도로 역류하기 좋은 조건이 만들어져 기도를 더 자극한다는 연구 결과도 있어요.
-
-07 · 라면 대신
-
-
-취침 2~3시간 전부터는 음식을 먹지 않는 게 위산 역류와 체중 증가를 동시에 막는 방법이에요. 배가 출출하다면 두부나 닭가슴살처럼 짜지 않고 담백한 단백질로 가볍게 배를 채우는 게 좋아요.
-
-08 · 마무리
-
-
-세 가지를 전부 끊어낼 필요는 없어요. 술은 취침 3~4시간 전까지만 마시고 술자리에선 무알코올 맥주로, 치즈는 두유나 저지방 유제품으로, 라면은 두부·닭가슴살 같은 담백한 야식으로 바꾸는 것만으로 코골이 부담이 크게 줄어들어요. 옆으로 누워 자는 자세를 함께 시도하면 기도를 확보하는 데도 도움이 돼요.
-
-#코골이 #수면무호흡 #기도확보 #무알코올맥주 #저지방유제품 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">무알코올 맥주</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQfk8IuyW" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두유</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRinwfLYw8" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두부</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EB%B6%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQgumfszs" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -580,33 +491,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

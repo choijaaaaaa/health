@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -245,9 +233,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -339,12 +327,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -411,76 +394,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg" download="혈당_4_당뇨_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">먹고 나면 유독 졸리고 축 처진다면 - 혈당 급등시키는 음식 4가지 알아보기
-
-00 · 표지
-
-
-식사나 간식을 먹은 뒤에 유독 졸리고 몸이 축 처지는 증상, 단순히 졸려서가 아니라 혈당이 갑자기 치솟았다가 뚝 떨어지는 혈당 스파이크의 신호일 수 있어요. 나도 모르게 혈당을 급하게 밀어 올리는 음식 네 가지부터 짚어볼게요.
-
-01 · 왜 이렇게 졸릴까요
-
-
-식후 졸음의 원인은 혈당이 롤러코스터처럼 오르내리기 때문이에요. 정제된 탄수화물과 당분을 많이 먹으면 혈당이 순식간에 치솟고, 이를 낮추려고 췌장이 인슐린을 한꺼번에 쏟아내면서 오히려 정상 수치보다 더 아래로 떨어지는 반응성 저혈당이 나타나요. 이때 뇌에 공급되는 포도당이 부족해지면서 몰려오는 졸음을 느끼게 돼요.
-
-02 · 흑당 버블티
-
-
-먼저 흑당 버블티예요. 쫀득한 식감 때문에 자꾸 손이 가는 이 음료 한 잔에는 설탕이 40g 넘게 들어있는 경우가 많은데, 각설탕으로 치면 14개 정도를 그대로 먹는 셈이에요. 액체 형태라 소화 과정을 거의 거치지 않고 혈액으로 바로 흡수되기 때문에 혈당을 순식간에 끌어올려요.
-
-03 · 단팥빵
-
-
-두 번째는 단팥빵이에요. 누구나 좋아하는 간식이지만 부드러운 빵 반죽 자체가 이미 혈당을 올리는 정제 탄수화물 덩어리인 데다, 속을 채운 팥소에도 설탕이 듬뿍 들어가 있어요. 단팥빵 한 개를 먹으면 밥 한 공기 반을 먹었을 때보다 혈당이 더 가파르게 올라가요.
-
-04 · 찹쌀떡
-
-
-세 번째는 찹쌀떡이에요. 찹쌀은 일반 멥쌀보다 소화와 흡수가 훨씬 빠른 곡물이라 혈당지수(GI)가 82에 달할 정도로 높아요. 여기에 달콤한 소까지 더해지면 혈당에 가해지는 부담이 두 배로 커져요.
-
-05 · 양념갈비
-
-
-네 번째는 양념갈비예요. 고기 위주라 안심하기 쉽지만, 문제는 윤기와 단맛을 내려고 듬뿍 넣는 물엿과 설탕이에요. 이 양념 성분이 고기 단백질과 결합하면 당독소 생성량이 무려 10배 넘게 늘어나요.
-
-06 · 그래도 방법은 있어요
-
-
-그렇다고 이 음식들을 무조건 끊어야 하는 건 아니에요. 채소나 단백질 반찬을 먼저 먹고 탄수화물을 나중에 먹는 순서만 바꿔도 혈당이 오르는 속도를 늦출 수 있고, 식사 후 10~15분 정도만 가볍게 걸어도 근육이 혈액 속 포도당을 써버려서 혈당 변동 폭을 줄일 수 있어요.
-
-07 · 마무리
-
-
-이 네 가지 음식을 한 번 먹었다고 곧바로 당뇨로 이어지는 건 아니지만, 자주 반복해서 먹으면 혈당에 가해지는 부담이 차곡차곡 쌓여요. 순간의 달콤함에만 익숙해지기보다, 먹는 순서를 바꾸고 식후에 가볍게 움직이는 습관을 만드는 것부터 시작해보세요.
-
-#당뇨부르는음식 #혈당스파이크 #식후졸음 #흑당버블티 #단팥빵 #찹쌀떡 #양념갈비 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 
 
@@ -503,33 +419,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

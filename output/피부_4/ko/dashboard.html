@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -293,7 +281,7 @@
 
 
 <section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
@@ -368,80 +356,6 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/ko_00_%ED%91%9C%EC%A7%80.jpg" download="피부_4_ko_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-1" spellcheck="false">먹고 나서 피부가 부풀고 심하게 가려운 팽진이 생긴다면, 두드러기를 의심해보세요 - 두드러기 부르는 음식 3가지
-
-00 · 표지
-
-
-팔이나 배 같은 데를 만져보면 벌겋게 부풀어 오른 팽진이 만져지고, 긁을수록 더 번지면서 참기 힘들 만큼 가려운 날이 있어요. 이런 급성 두드러기는 특정 음식을 먹은 직후에 자주 나타나는데, 세브란스병원 자료를 보면 원인 식품 중에서도 몇 가지가 유독 자주 겹쳐요. 오늘은 그 세 가지와 각각의 대안을 정리해봤어요.
-
-01 · 왜 두드러기가 날까요
-
-
-피부 아래 비만세포 속에는 히스타민이라는 물질이 잔뜩 저장돼 있어요. 평소엔 조용히 있다가 특정 자극을 받으면 한꺼번에 풀려나오는데, 이때 혈관이 넓어지고 혈장이 새어 나오면서 피부가 부풀고 가려운 팽진이 생겨요. 이 히스타민을 분해하는 DAO라는 효소가 부족하거나 억제되면 반응이 더 심해지고요. 같은 음식을 먹어도 사람마다 반응이 다른 이유가 여기 있어요.
-
-02 · 새우·게 등 갑각류
-
-
-가장 먼저 꼽히는 게 새우·게·조개류예요. 신선한 상태라도 갑각류에 들어있는 성분이 비만세포를 자극해서 히스타민을 방출시키는 경우가 있고, 갑각류 단백질 자체가 알레르기 항원으로 작용하는 사람도 많아요. 그래서 두드러기 진료에서 원인 식품을 물어볼 때 빠지지 않고 나오는 게 새우·게예요.
-
-03 · 갑각류 대신
-
-
-갑각류를 먹고 반응이 있었다면, 잡은 지 얼마 안 된 흰살생선을 바로 익혀 먹는 쪽으로 바꿔보고 처음엔 적은 양부터 시도해보세요.
-
-04 · 치즈·젓갈 같은 숙성식품
-
-
-두 번째는 치즈·젓갈·훈제육처럼 오래 숙성하거나 발효시킨 음식이에요. 단백질 속 히스티딘이라는 아미노산이 숙성 과정에서 세균에 의해 서서히 히스타민으로 바뀌는데, 숙성 기간이 길수록 그 양이 계속 늘어나요. 실제로 파르메산이나 블루치즈처럼 오래 숙성된 치즈는 갓 만든 치즈보다 히스타민 함량이 훨씬 높다고 알려져 있어요.
-
-05 · 숙성식품 대신
-
-
-숙성치즈나 젓갈 대신 두부·두유처럼 발효를 거치지 않은 신선한 단백질로 바꿔보면 도움이 돼요.
-
-06 · 레드와인·맥주 등 술
-
-
-세 번째는 레드와인·맥주·샴페인 같은 발효주예요. 알코올은 히스타민을 분해하는 DAO 효소의 움직임 자체를 억제하고, 발효 과정에서 만들어진 술이라 히스타민이 원래부터 많이 들어있어요. 두 가지가 겹치니 두드러기가 있는 사람에게는 특히 부담스러운 조합이에요.
-
-07 · 술은 이렇게
-
-
-알코올 자체가 효소 활동을 억제하는 건 술 종류와 상관없으니 양부터 줄이는 게 먼저예요. 그래도 마신다면 레드와인·맥주보다 소주·보드카 같은 증류주가 히스타민은 더 적어요.
-
-08 · 마무리
-
-
-새우·게, 숙성치즈·젓갈, 레드와인·맥주를 완전히 끊어야만 하는 건 아니에요. 신선한 재료로 바꾸고 양을 줄이는 것만으로도 증상이 한결 가벼워질 수 있어요. 다만 두드러기가 자꾸 반복된다면 알레르기내과 진료를 받아보는 게 좋고, 입술·눈꺼풀이 붓고 숨쉬기 힘든 증상까지 같이 나타난다면 아나필락시스일 수 있으니 지체하지 말고 바로 응급실로 가보세요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#두드러기 #담마진 #히스타민 #두드러기음식 #알레르기 #피부발진 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
 
@@ -467,33 +381,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -406,12 +394,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -483,81 +466,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9E%85_1_00_%ED%91%9C%EC%A7%80.jpg" download="입_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">말할 때마다 위축되는 입냄새, 범인은 이 세 가지 음식 습관
-
-00 · 표지
-
-
-말하다가 상대방이 은근슬쩍 거리를 두는 걸 눈치챈 적 있나요? 양치질 횟수를 늘리는 것만으로는 근본적인 해결이 안 되는 경우가 많아요. 냄새를 만드는 음식 습관 자체를 바꿔야 진짜 효과가 나요.
-
-구강 건조가 시작점이에요. 침이 줄어들면 세균이 번식하기 훨씬 쉬운 환경이 만들어지고, 이 세균이 입안의 단백질·아미노산을 분해하는 과정에서 휘발성 황화합물(VSC)을 뿜어내는데, 바로 이 물질이 냄새의 정체예요. 카페인 함량이 높거나, 황 성분이 많거나, 단백질 비중이 지나치게 큰 음식을 먹을수록 이 반응은 더 활발해져요.
-
-01 · 왜 입에서 냄새가 날까요
-
-
-02 · 커피
-
-
-첫 번째 원인은 커피예요. 카페인에는 이뇨 효과가 있어서 물 대신 커피로 수분을 채우는 습관이 반복되면 입안이 금세 건조해져요. 침이 마른 구강은 세균이 자리 잡기에 딱 좋은 조건이 되고, 그만큼 냄새도 쉽게 만들어져요.
-
-03 · 커피 대신
-
-
-커피를 무조건 끊어야 하는 건 아니에요. 마신 다음 물 한 잔을 꼭 곁들여서 입안 수분을 보충해주고, 하루 섭취량을 3잔 이내로 관리하면 구강건조로 인한 냄새 부담을 상당히 낮출 수 있어요.
-
-04 · 양파
-
-
-두 번째 원인은 양파예요. 알릴 메틸 설파이드라는 휘발성 황화합물이 문제인데, 이 성분은 소화된 뒤 혈액을 타고 폐까지 이동해서 숨을 쉴 때마다 몇 시간에 걸쳐 계속 빠져나가요. 입안에서 나는 냄새가 아니라 몸속에서부터 올라오는 냄새라서, 양치나 가글로는 잘 지워지지 않아요.
-
-05 · 양파 대신
-
-
-생양파보다는 익힌 양파를 선택하면 황화합물 발생량 자체가 줄어들어요. 2016년의 한 식품과학 연구에 따르면 사과를 생으로 먹는 것이 위에서 올라오는 황 성분을 중화하는 데 효과적이었고, 식사 중 우유를 곁들이는 것도 비슷한 완화 효과를 보였다고 해요.
-
-06 · 가공육
-
-
-세 번째 원인은 소시지·햄 같은 가공육이에요. 여기 든 단백질의 메티오닌 등 황 함유 아미노산이 분해되면서 냄새 물질이 생기는데, 탄수화물 섭취 없이 단백질 위주로만 식사하면 몸이 케톤체를 만들어내면서 특유의 시큼한 냄새까지 더해져요.
-
-07 · 가공육 대신
-
-
-소시지·햄 대신 닭가슴살 같은 담백한 단백질원을 선택하고, 탄수화물은 하루 50그램 이상 최소한으로라도 함께 챙겨서 케톤체가 과하게 생기지 않도록 균형을 맞추는 게 좋아요.
-
-08 · 마무리
-
-
-세 가지 식품을 전부 끊어낼 필요는 없어요. 커피 뒤엔 물 한 잔, 양파는 익히거나 사과·우유를 곁들이고, 가공육 대신 담백한 단백질에 탄수화물을 균형 있게 더하는 것만으로 입냄새는 눈에 띄게 줄어들어요. 평소 물을 자주 마시고 식이섬유가 풍부한 채소를 오래 씹는 습관도 침 분비를 늘리는 데 도움이 돼요.
-
-#입냄새 #구취 #구강건조 #황화합물 #케톤다이어트 #저탄고단백 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">사과</span><a href="https://www.coupang.com/np/search?component=&q=%EC%82%AC%EA%B3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQH0bN1NI" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GbyWx5n8" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">우유</span><a href="https://www.coupang.com/np/search?component=&q=%EC%9A%B0%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQKWzVTDU" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GUTVbRUb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">닭가슴살</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8B%AD%EA%B0%80%EC%8A%B4%EC%82%B4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQslYJIQK" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xZKAxyDb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -580,33 +491,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%B9%98%EC%95%84_1_00_%ED%91%9C%EC%A7%80.jpg" download="입_4_ko_치아_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">열심히 양치해도 이가 시리고 충치가 자꾸 생긴다면, 음식이 원인일 수 있어요 - 치아 상하게 하는 음식 피하는 법
-
-00 · 표지
-
-
-하루 세 번 꼬박꼬박 양치하는데도 이가 시리고 충치가 자꾸 생긴 적 있나요? 양치 습관보다 매일 마시고 먹는 음식이 원인일 수 있어요.
-
-01 · 왜 치아가 상할까요
-
-
-치아 표면인 법랑질은 산성 환경에 약해서, 입안 pH가 5.5 이하로 내려가면 서서히 녹기 시작해요. 산도가 높거나 당분이 많은 음식을 자주 먹으면 이 표면이 계속 자극받아 손상이 쌓여요.
-
-02 · 탄산음료
-
-
-첫 번째는 콜라 같은 탄산음료예요. pH 2.5~3.0으로 산도가 꽤 강한 편이라, 마실 때마다 치아 표면이 살짝씩 녹는 미세 손상이 쌓일 수 있어요.
-
-03 · 탄산음료는 이렇게
-
-
-마신 직후엔 바로 양치하지 말고 물로 입을 헹궈보세요. 산에 노출돼 무른 상태의 법랑질을 바로 칫솔질하면 오히려 더 손상될 수 있어요.
-
-04 · 과일주스
-
-
-두 번째는 오렌지주스 같은 신맛 과일주스예요. pH 3.0~4.0 수준으로 탄산음료 못지않게 산도가 높아서 치아 표면을 부식시킬 수 있어요.
-
-05 · 과일주스는 이렇게
-
-
-빨대로 마시면 주스가 치아 표면에 직접 닿는 양을 줄일 수 있어요.
-
-06 · 단 음식
-
-
-세 번째는 사탕·젤리 같은 단 음식이에요. 입안 세균이 당분을 분해하면서 산을 만들어내는데, 이 산이 치아를 직접 부식시켜요.
-
-07 · 단 음식은 이렇게
-
-
-단 음식은 산성 음료와 달리 먹은 뒤 바로 양치해도 괜찮아요.
-
-08 · 마무리
-
-
-탄산음료·과일주스·단 음식을 전부 끊어야 하는 건 아니에요. 먹는 방법만 바꿔줘도 치아 손상을 줄일 수 있어요. 특히 탄산음료·과일주스를 마신 직후엔 바로 양치하지 말고 30분 정도 지난 뒤 닦는 습관이 도움이 돼요. 다만 이가 시린 증상이 오래가거나 통증까지 동반된다면 치과 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#충치 #치아건강 #치아부식 #법랑질 #치아관리 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">무불소 치약</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EB%B6%88%EC%86%8C%20%EC%B9%98%EC%95%BD&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f1fteQECm4" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xdMB6sl8" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">치실</span><a href="https://www.coupang.com/np/search?component=&q=%EC%B9%98%EC%8B%A4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f1fu7LIwrQ" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GO6V09ln" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저당 간식</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%8B%B9%20%EA%B0%84%EC%8B%9D&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

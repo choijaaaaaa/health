@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -383,12 +371,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -462,83 +445,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%A0%84%EB%A6%BD%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg" download="비뇨기_3_ko_전립선_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">40대 이상 상당수가 겪는다는 야간뇨, 전립선 편하게 하는 음식부터 확인하세요
-
-00 · 표지
-
-
-잠들기 전엔 괜찮았는데 한밤중에 소변 때문에 눈이 떠지고, 그렇게 한 번 깨면 다시 잠들기까지 한참 걸리는 밤이 있으신가요? 이게 며칠이 아니라 몇 주, 몇 달째 반복된다면 그냥 나이가 들어서 그런가보다 하고 넘기기보다 저녁에 먹는 음식을 한번 되짚어볼 만해요.
-
-01 · 왜 자꾸 깰까요
-
-
-나이가 들면서 전립선이 커지면 방광 바로 아래를 눌러 소변 길을 좁히기 때문에, 한 번에 시원하게 비우지 못하고 방광 안에 소변이 남아요. 게다가 방광 근육 자체도 예민해져서 평소보다 적은 양만 차도 신호를 보내는 상태가 돼요. 여기에 저녁 시간에 방광을 자극하거나 소변량을 늘리는 음식이 더해지면, 이 신호가 훨씬 자주, 훨씬 강하게 와요.
-
-02 · 매운 음식
-
-
-첫 번째 요인은 매운 음식이에요. 캡사이신 같은 자극 성분은 방광과 요도 점막을 직접 자극해서, 방광이 실제로는 다 차지 않았는데도 소변이 마려운 느낌을 만들어내요. 매운 음식을 즐기는 사람일수록 과민성 방광이나 요실금 증상을 호소하는 비율이 높다는 보도가 있었고, 전립선에 문제가 있는 남성은 이 자극에 특히 예민하게 반응해요. 저녁에 얼큰한 요리를 먹으면 그 여운이 잠든 뒤까지 이어지는 셈이에요.
-
-03 · 매운 음식 대신
-
-
-매운 음식을 완전히 포기할 필요는 없고, 먹는 시간만 조정해보세요. 점심때 얼큰한 메뉴를 즐기고 저녁엔 자극이 덜한 국물 요리나 나물류로 바꾸면 밤 동안의 방광 자극을 줄일 수 있어요.
-
-04 · 커피
-
-
-두 번째는 커피예요. 카페인은 항이뇨호르몬 생성을 억제하는 성분으로 알려져 있는데, 이 호르몬이 줄면 신장이 수분을 다시 흡수하는 기능이 떨어져서 소변이 더 많이, 더 묽게 만들어져요. 게다가 카페인 자체가 갈증을 유발해서 물을 더 찾게 만드는 이중 효과까지 있어요. 저녁 늦게까지 커피를 마시는 습관이 있는 사람은 마시기 전보다 마신 뒤 몇 시간 사이에 화장실 가는 빈도가 확실히 늘어나는 경향을 보여요.
-
-05 · 커피 대신
-
-
-늦은 오후부터는 디카페인 커피나 카페인이 없는 보리차로 바꿔보는 게 좋아요. 커피를 마시는 습관 자체를 버리지 않고도 카페인으로 인한 이뇨 효과만 피할 수 있는 방법이에요.
-
-06 · 맥주
-
-
-세 번째는 맥주예요. 알코올도 항이뇨호르몬 분비를 억제해 소변량을 늘리는 데다, 방광을 직접 자극·팽창시키고 전립선의 수축과 부종까지 유발해서 전립선비대증 증상을 더 악화시키는 요인으로 꼽혀요. 술을 마신 날은 소변 줄기가 약해지고 화장실을 찾는 횟수도 눈에 띄게 늘어나요.
-
-07 · 맥주 대신
-
-
-술자리가 있는 날은 무알코올 맥주로 바꿔보거나, 마시더라도 잠들기 3~4시간 전에는 끝내는 습관을 들여보세요. 물도 저녁에 한꺼번에 많이 마시기보다 낮 동안 나눠서 마시면 도움이 돼요.
-
-08 · 마무리
-
-
-야간뇨의 많은 부분은 결국 저녁 시간에 무엇을 얼마나 먹고 마시는지에 좌우돼요. 매운 음식과 커피, 술을 완전히 끊어야 하는 건 아니고, 먹는 시간과 양을 조절하는 것만으로도 밤에 깨는 횟수를 줄일 수 있어요. 그래도 증상이 나아지지 않거나 소변 줄기가 계속 약하다면, 전립선비대증 등 다른 원인이 있는지 비뇨기과 진료로 확인해보시는 게 좋아요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#전립선건강 #야간뇨 #전립선비대증 #카페인 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs4dknEtw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">무알코올 맥주</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQfk8IuyW" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -561,33 +470,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

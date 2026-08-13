@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg" download="대사_1_지방간_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">오른쪽 윗배가 묵직하고 쉬어도 계속 피곤하다면 - 지방간을 키우는 냉장고 속 흔한 음식들
-
-00 · 표지
-
-
-간은 70~80% 정도 손상되기 전까지는 별다른 증상을 안 보이는 탓에 '침묵의 장기'로 불려요. 그래도 아예 신호가 없는 건 아니라서, 만성적인 피로감이나 오른쪽 윗배가 뻐근하고 팽팽하게 부은 느낌, 식후 소화불량 같은 증상으로 나타나기도 해요. 국내 비알코올성 지방간 유병률은 약 30%에 달해서, 성인 3명 중 1명꼴로 겪을 만큼 흔한 질환이에요.
-
-흔히 지방간은 술 때문에 생긴다고 생각하지만, 실제로는 냉장고와 식탁 위에 늘 놓여있는 세 가지 익숙한 음식이 간에 지방을 꾸준히 쌓는 주범이에요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-02 · 과일주스·과일농축음료
-
-
-첫 번째는 과일주스예요. '몸에 좋은 음료'라는 이미지와 다르게, 과일주스에 든 과당은 포도당과 대사 경로가 완전히 달라요. 포도당은 온몸 세포가 나눠 쓰지만 과당은 거의 전량 간으로 직행해서 곧바로 중성지방으로 바뀌어요. 시중에서 파는 생과일주스 한 잔에 각설탕 10개, 약 40g에 달하는 당류가 들어있는 제품도 있는데, WHO가 권고하는 하루 당류 섭취 기준(2000kcal 기준 50g)에 육박하는 수치예요. 같은 과일이라도 갈아서 주스로 만드는 순간 식이섬유 구조가 깨지면서 혈당을 늦춰주던 역할을 잃고, 오히려 혈당이 더 빠르고 높게 치솟게 돼요.
-
-03 · 과일주스 대신
-
-
-과일 자체를 멀리할 필요는 없어요. 갈지 않고 그대로 씹어 먹으면 식이섬유가 온전히 살아있어서 당 흡수 속도가 훨씬 느려요. 갈증 날 때는 과일주스 대신 생과일이나 무가당 탄산수로 바꿔보세요.
-
-04 · 흰쌀밥·정제탄수화물
-
-
-두 번째는 흰쌀밥 중심의 식습관, 즉 정제 탄수화물이에요. 기름진 음식도 아닌데 의아할 수 있지만, 흰쌀밥의 혈당지수(GI)는 84로 고GI 식품군에 속해요. 혈당이 빠르게 치솟으면 인슐린도 그만큼 급격히 분비되고, 다 소비되지 못한 여분의 당분은 간에서 중성지방 형태로 저장돼요. 일본에서 진행한 코호트 연구를 보면, 흰쌀을 가장 많이 먹은 여성 그룹의 지방간 유병률이 가장 적게 먹은 그룹보다 1.87배 높게 나타났어요.
-
-05 · 흰쌀밥 대신
-
-
-밥을 끊을 필요까지는 없어요. 현미밥의 혈당지수는 56으로 흰쌀밥보다 28포인트나 낮고, 식이섬유도 풍부해서 소화·흡수 속도 자체가 느려요. 매일 먹는 흰쌀밥의 일부를 현미밥이나 잡곡밥으로 바꾸는 것만으로도 혈당과 인슐린에 걸리는 부담이 줄어들어요.
-
-06 · 가공육(소시지·햄)
-
-
-세 번째는 소시지·햄·베이컨 같은 가공육이에요. WHO 산하 국제암연구소는 가공육을 담배·석면과 나란히 1군 발암물질로, 적색육은 2A군으로 분류하고 있어요. 가공육은 포화지방과 나트륨이 높은 부위로 만들어지는 경우가 많아서 간에 지방이 쌓이는 속도를 앞당겨요. 999명을 대상으로 한 연구에서는 가공육을 많이 먹는 그룹이 적게 먹는 그룹보다 지방간 위험이 2.4~3.3배, 적색육을 가장 많이 섭취한 그룹은 최대 3.7배까지 높게 나타났어요.
-
-07 · 가공육 대신
-
-
-가공육을 완전히 끊기 어렵다면 일부를 살코기나 두부·콩류 같은 단백질로 대체해보세요. 적색육·가공육 섭취를 콩류로 바꿨을 때 지방간 위험이 낮아졌다는 연구 결과도 있어요. 가공 과정에서 추가되는 나트륨과 지방이 없다는 점만으로도 간이 받는 부담이 훨씬 줄어들어요.
-
-08 · 마무리
-
-
-지방간을 그대로 방치하면 지방간염, 간경변, 나아가 간암으로까지 진행돼요. 실제로 국내 비알코올성 지방간 환자 수는 최근 10년 사이 5.5배나 늘었어요. 그렇다고 세 가지를 다 끊어낼 필요는 없어요 — 과일주스는 생과일로, 흰쌀밥은 현미밥으로, 가공육은 살코기나 두부로 바꾸는 것만으로도 간이 받는 부담을 크게 덜어낼 수 있어요.
-
-이 글은 건강 정보 제공을 목적으로 하며, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#지방간 #비알코올성지방간 #간건강 #과당 #혈당지수 #현미밥 #가공육 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">생과일</span><a href="https://www.coupang.com/np/search?component=&q=%EC%83%9D%EA%B3%BC%EC%9D%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRzB7NMhWK" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GGGxhjaJ" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">현미밥</span><a href="https://www.coupang.com/np/search?component=&q=%ED%98%84%EB%AF%B8%EB%B0%A5&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRzC8q335o" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5imhz58j" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두부</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EB%B6%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQgumfszs" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

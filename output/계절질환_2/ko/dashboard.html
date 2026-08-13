@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -293,7 +281,7 @@
 
 
 <section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
@@ -368,80 +356,6 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_2_00_%ED%91%9C%EC%A7%80.jpg" download="계절질환_2_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-1" spellcheck="false">더운 날 어지럽고 기운이 쭉 빠진다면, 온열질환일 수 있어요 - 탈수 예방 습관
-
-00 · 표지
-
-
-폭염 속에서 유독 어지럽고 기운이 축 처진다면, 단순히 체력이 약해서만은 아니에요. 땀을 많이 흘리면 수분뿐 아니라 나트륨·칼륨 같은 전해질도 함께 빠져나가는데, 평소 습관 몇 가지가 이 탈수를 더 심하게 만들고 있을 가능성이 커요. 놓치기 쉬운 세 가지를 짚어봤어요.
-
-01 · 왜 자꾸 어지럽고 기운이 없을까요
-
-
-확인할 건 카페인, 술, 물만 마시기 세 가지예요. 땀으로 수분과 전해질을 잃은 상태에서 이 세 습관이 겹치면 탈수가 더 빠르게 진행돼요.
-
-02 · 카페인
-
-
-커피 같은 카페인 음료부터가 문제예요. 카페인은 이뇨 작용을 일으켜서 마신 양보다 더 많은 수분이 몸 밖으로 빠져나가게 만들어요.
-
-03 · 카페인은 이렇게
-
-
-더운 날엔 커피 대신 시원한 물이나 보리차를 선택해보세요. 카페인을 마셨다면 그만큼 물을 더 챙겨 마시는 게 좋아요.
-
-04 · 술
-
-
-술도 위험해요. 알코올은 혈관을 확장시켜 체온 조절 능력을 떨어뜨리고, 이뇨 작용으로 수분까지 더 빠르게 내보내거든요.
-
-05 · 술은 이렇게
-
-
-더운 날 야외 활동 전후로는 음주를 피하는 게 안전해요. 꼭 마셔야 한다면 물을 충분히 같이 챙겨주세요.
-
-06 · 물만 마시기
-
-
-물만 계속 마시는 것도 놓치기 쉬운 습관이에요. 땀으로 빠진 전해질은 채우지 않고 물만 과도하게 마시면 혈중 나트륨 농도가 오히려 낮아질 수 있어요.
-
-07 · 물만 마시기는 이렇게
-
-
-땀을 많이 흘렸다면 이온음료나 전해질 음료를 같이 챙겨보세요. 물과 전해질을 함께 채워야 탈수 예방 효과가 제대로 나타나요.
-
-08 · 마무리
-
-
-카페인, 술, 물만 마시기 이 세 가지만 신경 써도 도움이 될 수 있어요. 어지럼증이 심하다면 시원한 곳에서 충분히 쉬어주세요. 물과 전해질 함께 챙기기 — 오늘부터 하나씩 실천해보세요.
-
-의식이 흐려지거나 체온이 높게 오르는 등 증상이 심하다면 즉시 시원한 곳으로 옮기고 병원 진료나 119에 연락하세요. 이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#온열질환 #열사병 #탈수예방 #폭염 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-1">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-1">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
 
@@ -467,33 +381,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

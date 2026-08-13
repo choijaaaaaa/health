@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -410,12 +398,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -487,81 +470,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%BD%A9%ED%8C%A5_1_00_%ED%91%9C%EC%A7%80.jpg" download="비뇨기_2_콩팥_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">콩팥이 보내는 경고, 얼굴 부기와 거품뇨 - 나트륨 많은 국물음식 현명하게 고르는 법
-
-00 · 표지
-
-
-한국인의 하루 평균 나트륨 섭취량은 2,500mg으로, 세계보건기구(WHO) 권장 기준인 2,000mg을 이미 넘어선 상태예요. 문제는 나트륨을 걸러내는 콩팥이 한번 손상되면 원래대로 되돌리기 어려운 장기라는 점이에요. 국물 중심의 한식 식단은 이 나트륨 초과 섭취를 더 부추기는 구조라 콩팥에 꾸준히 부담을 줘요.
-
-01 · 왜 붓고 거품뇨가 생길까요
-
-
-몸속 나트륨 농도가 올라가면 우리 몸은 삼투압 균형을 맞추려고 수분을 내보내지 않고 붙잡아 두는 쪽을 택해요. 그 결과가 얼굴과 발의 부기로 나타나요. 이 상태가 계속 반복되면 콩팥의 여과 기능에도 영향이 가는데, 정상이라면 걸러지지 않고 몸에 남아있어야 할 단백질이 소변으로 빠져나가면서 거품뇨로 이어져요.
-
-02 · 설렁탕·곰탕
-
-
-뼈와 고기를 몇 시간씩 우려내는 설렁탕·곰탕은 나트륨만의 문제가 아니에요. 오래 끓이는 조리법 특성상 뼈 속 인(P) 성분까지 국물로 녹아 나오는데, 콩팥 기능이 이미 저하된 상태에서 인을 과다 섭취하면 혈중 인 농도가 오르고, 이를 조절하려고 부갑상선 호르몬이 과도하게 분비돼요. 이 상태가 이어지면 뼈가 약해지는 이차성 부갑상선기능항진증으로 진행할 수 있어요.
-
-03 · 설렁탕·곰탕 대신
-
-
-직접 우려내지 않아도 방법은 있어요. 시중에 나온 사골육수 제품을 비교해보면 같은 100g 기준으로 나트륨 함량이 17.89mg인 제품부터 238.29mg인 제품까지 13배 넘게 차이가 나요. 집에서 오래 끓인 국물을 그대로 먹는 대신, 구매 전 영양성분표의 나트륨 수치를 확인하고 낮은 쪽을 고르는 습관이 훨씬 효율적이에요.
-
-04 · 김치찌개
-
-
-김치찌개가 짠 이유는 한 가지가 아니에요. 찌개에 넣는 소금과 액젓, 그리고 김치 자체에 이미 배어있는 염분까지 층층이 쌓이는 구조예요. 1인분 400g을 기준으로 하면 나트륨 함량이 약 1,900~1,964mg에 이른다는 조사 결과가 있는데, 한 끼 식사만으로 하루 권장 섭취량에 거의 도달하는 수준이에요.
-
-05 · 김치찌개 대신
-
-
-김치찌개의 나트륨을 줄이는 가장 쉬운 방법은 재료가 되는 김치부터 바꾸는 거예요. 시판 포장김치는 제품에 따라 나트륨 함량이 최대 1.5배까지 차이가 나고, 일반 제품 평균의 절반 이하로 낮춘 저염김치도 이미 나와 있어요. 찌개를 끓일 때 이런 저염김치로 바꾸기만 해도 국물 전체의 나트륨이 자연스럽게 낮아져요.
-
-06 · 라면
-
-
-라면 한 봉지의 나트륨은 대부분 스프에서 나오는데, 면을 끓이는 동안 이 나트륨이 거의 그대로 국물에 녹아들어요. 봉지라면 한 개에 든 나트륨이 하루 권장량의 최대 95%에 이르는 경우도 있고, 이 중 70~80%가 국물 쪽에 몰려 있어요.
-
-07 · 라면 대신
-
-
-그렇다면 국물이 없는 라면은 어떨까요. 비교해보면 국물형 라면의 나트륨은 평균 1,693mg인 반면 볶음면·비빔면 같은 비국물형은 평균 1,160mg으로 더 낮은 편이에요. 건면이나 비국물형 제품으로 바꾸고, 국물용 스프를 넣더라도 절반만 사용하면 나트륨 섭취량을 크게 낮출 수 있어요.
-
-08 · 마무리
-
-
-이미 만성콩팥병을 앓고 있다면 이야기가 달라져요. 신장 기능이 떨어진 상태에서는 나트륨 배출 자체가 어려워 혈압이 오르고 부종 위험도 함께 커지기 때문에, 1~2기는 하루 나트륨 2,300mg 이하, 3~4기부터는 1,500mg 이하로 제한하고 국물 자체를 줄이는 게 권장돼요. 반면 특별한 질환이 없는 건강한 성인이라면 설렁탕·곰탕, 김치찌개, 라면을 완전히 끊기보다 나트륨 표시를 확인하는 습관만으로도 콩팥에 가는 부담을 충분히 낮출 수 있어요.
-
-#콩팥건강 #신장건강 #나트륨 #저염식 #만성콩팥병 #저염김치 #사골육수 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저염 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%97%BC%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRxzLKGB6O" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xF4Rpl7A" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">비국물라면</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B9%84%EA%B5%AD%EB%AC%BC%EB%9D%BC%EB%A9%B4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fPudmigYSa" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/x8ke7zs7" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -584,33 +495,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

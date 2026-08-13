@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -383,12 +371,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -453,74 +436,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%98%88%EB%8B%B9_1_00_%ED%91%9C%EC%A7%80.jpg" download="혈당_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">혈당 조절이 잘 안 된다면 눈여겨볼 것 - 돼지감자차 제대로 알아보기
-
-00 · 표지
-
-
-흰쌀밥, 빵, 단 음료같이 정제된 탄수화물 위주 식단을 계속 이어가면 식사 후 혈당이 확 올랐다가 뚝 떨어지는 패턴, 이른바 혈당 스파이크가 반복돼요. 식이섬유 섭취가 부족하면 이 흡수 속도를 조절해줄 장치가 없는 셈이라서, 이런 상태가 오래가면 결국 인슐린 저항성으로까지 번질 수 있어요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-돼지감자는 겉모습은 감자와 비슷해도 성분은 전혀 다른데, 이눌린이라는 식이섬유가 풍부하게 들어있어서 예로부터 말려서 차로 끓여 마시는 식재료로 쓰여왔어요.
-
-03 · 돼지감자란?
-
-
-이눌린은 물에 녹는 수용성 식이섬유의 한 종류로, 식후 혈당이 가파르게 오르는 걸 누그러뜨리는 데 도움이 될 가능성을 두고 연구가 이어지고 있어요. 대장에서는 유익균이 먹고 자라는 먹이, 즉 프리바이오틱스로도 작용한다고 알려져 있고요. 다만 돼지감자차 한 잔으로 혈당을 조절하거나 당뇨를 치료할 수 있다고 보기는 어려워요. 동물을 대상으로 한 실험에서는 의미 있는 결과가 나온 적이 있는데, 당뇨를 유발시킨 쥐에게 돼지감자 복합물을 급여했더니 대조군에 비해 혈당이 최대 50%까지 떨어졌어요. 다만 이건 쥐를 대상으로 한 결과라 사람에게 그대로 적용해서 당뇨 개선 효과를 입증했다고 보기엔 근거가 아직 충분치 않아요. 서울아산병원 뉴스룸에서도 돼지감자를 '천연 인슐린'이라고 부르는 건 과장된 표현이며 실제 인슐린과 같은 작용을 한다고 볼 근거는 없다고 밝힌 바 있어요. 극적인 효과를 기대하기보다는 평소 식이섬유 섭취를 늘리는 습관 중 하나 정도로 받아들이는 편이 현실적이에요.
-
-02 · 혈당 관리와의 관계
-
-
-이눌린 말고도 식이섬유, 칼륨, 여러 종류의 폴리페놀 성분까지 함께 들어있어서, 평소 식단에 곁들이면 전반적인 영양 균형을 잡는 데 보탬이 돼요.
-
-04 · 함께 들어있는 영양성분
-
-
-만드는 방법은 어렵지 않아요. 말린 돼지감자 조각을 물에 살짝 헹궈낸 다음, 물을 붓고 약불에서 천천히 우려내면 은근하고 구수한 맛이 우러나요.
-
-06 · 끓이는 법
-
-
-다만 주의할 부분도 있어요. 이눌린을 한꺼번에 많이 먹으면 장에 가스가 차거나 속이 더부룩해질 수 있고, 이미 혈당강하제를 복용하고 있다면 마시기 전에 담당 의료진과 상의하는 게 안전해요.
-
-05 · 주의할 점
-
-
-달달한 음료 대신 돼지감자차를 선택하면 당 섭취량을 줄이는 데는 분명 도움이 돼요. 다만 이 차 하나가 혈당 문제를 근본적으로 해결해주는 건 아니라는 점은 분명히 해둬야 해요. 결국 꾸준한 운동과 균형 잡힌 식사가 훨씬 더 중요한 역할을 해요.
-
-07 · 마무리
-
-
-#돼지감자차 #혈당관리 #이눌린 #건강정보 #혈당관리음식</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">돼지감자</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fOgEeWHAk0" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GbyXPJCb" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">돼지감자차</span><a href="https://www.coupang.com/np/search?component=&q=%EB%8F%BC%EC%A7%80%EA%B0%90%EC%9E%90%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fOgIPXLTem" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/x0O9bfmi" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -543,33 +461,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

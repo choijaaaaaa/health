@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -383,12 +371,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -462,83 +445,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9E%85_8_00_%ED%91%9C%EC%A7%80.jpg" download="입_8_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">양치를 열심히 해도 치석이 낀다면, 이 습관부터 점검해보세요 - 치석 막는 습관
-
-00 · 표지
-
-
-양치를 꼬박꼬박 하는데도 치석이 자꾸 낀다는 분들 많으실 텐데요. 단순히 양치가 부족해서만은 아니에요. 치아 표면에 남은 플라크는 24~72시간 안에 침 속 칼슘 성분과 만나 딱딱하게 굳어서 치석이 되는데, 평소 습관 몇 가지가 그 시간을 앞당기고 있을 가능성이 커요. 놓치기 쉬운 세 가지를 짚어봤어요.
-
-01 · 왜 자꾸 치석이 낄까요
-
-
-확인할 건 치실·치간칫솔 사용 여부, 자기 전 양치 여부, 단 음식·간식 섭취 빈도 세 가지예요. 치아 표면에 남은 플라크는 24~72시간 안에 침 속 칼슘과 만나 굳어서 치석이 되는데, 이 세 가지가 그 시간을 앞당겨요.
-
-02 · 치실·치간칫솔 없이 칫솔질만
-
-
-치실이나 치간칫솔 없이 칫솔질만 하는 것부터가 문제예요. 칫솔모가 닿지 않는 치아 사이 틈에 플라크가 그대로 남아서 굳어버리거든요.
-
-03 · 치실·치간칫솔로 마무리하기
-
-
-칫솔질 후엔 치실이나 치간칫솔로 치아 사이까지 마무리해주세요. 칫솔모가 못 닿는 틈까지 닦아내야 플라크가 굳기 전에 없앨 수 있어요.
-
-04 · 자기 전 양치 거르기
-
-
-자기 전 양치를 거르는 것도 놓치기 쉬워요. 자는 동안 침 분비가 크게 줄어드는데, 세균이 씻겨나가지 못하고 오래 머무르면서 플라크가 더 빨리 굳거든요.
-
-05 · 자기 전 양치 꼭 하기
-
-
-자기 전 양치는 절대 거르지 마세요. 침 분비가 줄어드는 밤 동안 세균이 머무를 시간을 줄여줘요.
-
-06 · 단 음식·간식 자주 먹기
-
-
-단 음식이나 간식을 자주 먹는 것도 원인이 돼요. 당분과 전분이 들어올 때마다 플라크 속 세균이 활동을 시작해서, 먹는 횟수가 잦을수록 플라크가 두껍게 쌓이거든요.
-
-07 · 먹은 뒤 물로 헹구기
-
-
-단 음식은 횟수를 줄이고, 먹은 뒤엔 물로 입을 헹궈보세요. 간단한 습관만으로도 플라크가 쌓이는 속도를 늦출 수 있어요.
-
-08 · 마무리
-
-
-치실·치간칫솔, 자기 전 양치, 간식 횟수 이 세 가지만 신경 써도 도움이 될 수 있어요. 치석이 잇몸 아래까지 진행됐다면 치과에서 스케일링을 받는 게 좋아요. 치실 습관 들이기, 자기 전 양치 지키기 — 오늘부터 하나씩 실천해보세요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#치석 #플라크 #치아관리 #구강건강 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">치실</span><a href="https://www.coupang.com/np/search?component=&q=%EC%B9%98%EC%8B%A4&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f1fu7LIwrQ" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GO6V09ln" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">치간칫솔</span><a href="https://www.coupang.com/np/search?component=&q=%EC%B9%98%EA%B0%84%EC%B9%AB%EC%86%94&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -561,33 +470,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

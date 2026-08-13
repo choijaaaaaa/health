@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -406,12 +394,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -483,81 +466,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg" download="근골격_6_통풍_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">엄지발가락이나 무릎이 갑자기 붉게 부어오르며 아프다면 - 통풍 유발하는 식습관 바로잡기
-
-00 · 표지
-
-
-국내 통풍 환자 수는 2018년 43만 명에서 2022년 51만 명으로 5년 만에 18% 이상 증가했고, 특히 20~30대의 증가 폭이 다른 연령대를 훨씬 웃돌고 있어요. 그렇다고 관련 음식을 다 끊을 필요는 없고, 무엇을 얼마나 먹느냐만 조절해도 발작 위험을 상당히 낮출 수 있어요.
-
-퓨린 함량이 높은 음식을 섭취하면 체내에서 대사되는 과정에서 요산이 만들어져요. 이 요산이 혈액 속에 쌓이다가 체온이 낮은 관절 부위에서 결정 형태로 침착되면 급성 염증 반응이 일어나는데, 엄지발가락은 몸에서 온도가 가장 낮고 혈류량도 적은 부위라 요산 결정이 유독 잘 쌓이는 자리예요.
-
-01 · 왜 통풍이 생길까요
-
-
-02 · 고등어
-
-
-첫 번째 주의할 식품은 고등어예요. 정어리나 꽁치 같은 등푸른생선은 100g당 퓨린이 150mg을 넘는 대표적인 고퓨린 식품인데, 생 고등어는 약 194mg, 통조림 형태는 최대 246mg까지 올라간다고 알려져 있어요. 이렇게 섭취한 퓨린이 체내에서 요산으로 전환되면서 혈중 요산 농도를 빠르게 밀어올려요.
-
-03 · 고등어 대신
-
-
-동태·가자미·광어 같은 흰살생선은 퓨린 함량이 훨씬 낮아서 상대적으로 부담이 적어요. 등푸른생선을 완전히 포기하기 어려우시다면 한 번에 드시는 양을 절반 정도로 줄이시고, 국물째 드시기보다는 구이나 찜으로 조리해 드시는 편이 나아요.
-
-04 · 맥주
-
-
-두 번째는 맥주예요. 맥주는 다른 주류에 비해 퓨린 함량 자체가 높은 데다, 알코올이 분해될 때 생기는 젖산이 콩팥의 요산 배출을 방해하면서 요산이 이중으로 쌓이게 만들어요. 이런 이유로 통풍 발작을 유발하는 술 중 위험도가 가장 높다고 알려져 있어요.
-
-05 · 맥주 대신
-
-
-무알코올 맥주나 탄산수로 바꾸시면 이뇨·젖산 부담 없이 비슷한 만족감을 느끼실 수 있어요. 술자리를 피하기 힘드시다면 마신 술과 같은 양의 물을 함께 드셔서 요산이 원활히 배출되도록 도와주세요.
-
-06 · 양념갈비
-
-
-세 번째는 양념갈비 같은 붉은고기예요. 소고기·돼지고기는 100g당 퓨린이 150mg을 넘는 고퓨린 식품이라 자주, 많이 드시면 요산 수치가 계속 높게 유지돼요. 특히 내장류는 퓨린 함량이 이보다 훨씬 더 높아서 통풍이 있으신 분들에게는 더 조심스러운 부위예요.
-
-07 · 양념갈비 대신
-
-
-두부·계란·닭가슴살처럼 퓨린이 적은 단백질로 바꾸시면 부담을 크게 낮출 수 있어요. 고기를 아예 안 드시기 어렵다면 살코기 위주로 소량만 드시고, 국물 요리보다는 구이 형태로 드시는 게 좋아요.
-
-08 · 마무리
-
-
-세 가지 음식 모두 완전히 끊으실 필요는 없어요. 고등어는 흰살생선으로, 맥주는 무알코올 맥주나 물로, 양념갈비는 두부·계란 같은 단백질로 바꾸시는 것만으로도 통풍 발작 위험을 충분히 낮출 수 있어요. 하루 2리터 이상 물을 드시고 체중 관리도 함께 신경 써주시면 더 도움이 돼요.
-
-#통풍 #요산 #퓨린 #통풍음식 #고요산혈증 #관절염 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">흰살생선</span><a href="https://www.coupang.com/np/search?component=&q=%ED%9D%B0%EC%82%B4%EC%83%9D%EC%84%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQesbZCIC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FM9jUPhx" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">무알코올 맥주</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQfk8IuyW" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두부</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EB%B6%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQgumfszs" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -580,33 +491,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

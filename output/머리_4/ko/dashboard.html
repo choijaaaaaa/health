@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EA%B8%B0%EC%96%B5%EB%A0%A5_1_00_%ED%91%9C%EC%A7%80.jpg" download="머리_4_ko_기억력_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">방금 둔 물건이 기억 안 나고 할 말이 자꾸 맴도신다면, 음식이 원인일 수 있어요 - 기억력 흐리는 음식 피하는 법
-
-00 · 표지
-
-
-분명 방금 손에 들고 있었는데 어디 뒀는지 기억이 안 나거나, 하고 싶은 말이 혀끝에서만 맴돌고 안 나온 적 있나요? 나이 탓이라고 넘기기 전에, 매일 먹는 음식부터 한번 점검해볼 만해요.
-
-01 · 왜 흐릿해질까요
-
-
-뇌는 우리 몸의 장기 중에서도 혈당과 혈류 변화에 유독 예민하게 반응해요. 그래서 이 두 가지를 크게 흔드는 음식을 자주 먹으면 기억력·집중력에 비교적 빠르게 티가 날 수 있어요.
-
-02 · 트랜스지방
-
-
-첫 번째는 마가린·쇼트닝이 들어간 시판 빵·과자류예요. 트랜스지방은 혈관 벽에 안 좋은 영향을 줘서 뇌로 가는 혈류를 방해할 수 있어요. PLOS ONE에 실린 연구에서는 45세 이하 남성 중 트랜스지방 최다 섭취군이 최소 섭취군보다 기억해낸 단어 개수가 12개 적게 나온 결과가 있었어요.
-
-03 · 트랜스지방은 이렇게
-
-
-시판 과자보다는 견과류나 삶은 고구마를 간식으로 골라보세요. 빵을 살 땐 트랜스지방 0g 표기를 확인하는 습관도 도움이 돼요.
-
-04 · 단 음식
-
-
-두 번째는 케이크·탄산음료 같은 정제된 단 음식이에요. 혈당을 순간적으로 확 올렸다가 빠르게 떨어뜨리는데, 이 오르내림이 반복되면 인슐린 저항성이 커지고 뇌세포 에너지 공급에도 영향을 줄 수 있어요.
-
-05 · 단 음식은 이렇게
-
-
-단 음식이 당긴다면 과일이나 무가당 요거트로 바꿔보세요. 혈당이 천천히 올라가서 급격한 오르내림 자체를 줄일 수 있어요.
-
-06 · 술
-
-
-세 번째는 맥주·와인 같은 술이에요. 술을 마시면 그날뿐 아니라 다음 날까지도 집중력과 기억력이 떨어지는 걸 느끼는 사람이 많아요. 잦은 과음은 기억을 저장하는 뇌 부위인 해마 기능에도 영향을 줄 수 있어요.
-
-07 · 술은 이렇게
-
-
-술자리에서는 물을 중간중간 같이 마셔서 자연스럽게 술의 양을 줄여보세요.
-
-08 · 마무리
-
-
-트랜스지방·단 음식·술을 전부 끊어야 하는 건 아니에요. 양을 줄이고 대체 식품으로 바꾸는 것만으로도 머리가 한결 맑아지는 걸 느낄 수 있어요. 등푸른생선 같은 오메가3가 풍부한 식품을 평소 식단에 챙겨두면 뇌세포를 보호하는 데 도움이 된다는 연구도 있고요. 다만 건망증이 일상생활에 지장을 줄 정도로 심하다면 병원 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#기억력 #건망증 #뇌안개 #기억력저하 #뇌건강 #집중력 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">견과류</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B2%AC%EA%B3%BC%EB%A5%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSuka3GsC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xjYCNGNS" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">고구마</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B3%A0%EA%B5%AC%EB%A7%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQaeQxBDM" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/G4duIqG7" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">등푸른생선</span><a href="https://www.coupang.com/np/search?component=&q=%EB%93%B1%ED%91%B8%EB%A5%B8%EC%83%9D%EC%84%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

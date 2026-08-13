@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1_00_%ED%91%9C%EC%A7%80.jpg" download="수면_2_ko_하지불안증후군_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">누우면 다리 속이 스멀스멀 근질거려 자꾸 움직이고 싶다면, 하지불안증후군일 수 있어요 - 하지불안증후군 키우는 음식 피하는 법
-
-00 · 표지
-
-
-분명 피곤한데 누우면 다리 속이 스멀스멀 근질거리고 자꾸 움직이고 싶어져서 잠을 설친 적 있나요? 하지불안증후군일 가능성이 높은데, 그런데 이 증상이 유독 심한 날을 잘 보면 그날 먹은 음식과 관련 있는 경우가 꽤 많아요.
-
-01 · 왜 다리가 불편할까요
-
-
-하지불안증후군은 뇌에서 움직임을 조절하는 신경전달물질인 도파민 신호와 관련이 깊다고 알려져 있어요. 이 신호를 방해하거나 신경을 과도하게 자극하는 음식을 자주 먹으면 증상이 더 심해질 수 있어요.
-
-02 · 카카오·초콜릿
-
-
-첫 번째는 다크초콜릿 같은 카카오 식품이에요. 테오브로민과 카페인 성분이 함께 들어있어 신경을 과하게 자극하고, 철분 흡수도 방해할 수 있어요. 철분은 도파민 합성에 관여하는 영양소라 부족해지면 증상이 심해질 수 있어요.
-
-03 · 초콜릿은 이렇게
-
-
-초콜릿이 당긴다면 견과류로 바꿔보세요. 비슷한 만족감은 주면서 신경 자극은 상대적으로 덜해요.
-
-04 · 술
-
-
-두 번째는 맥주·와인 같은 술이에요. 마실 때는 나른해지면서 잠이 잘 올 것 같지만, 수면 후반부로 갈수록 오히려 각성 반응이 일어나서 다리 증상을 더 심하게 느끼게 만들 수 있어요.
-
-05 · 술은 이렇게
-
-
-술자리는 잠들기 3~4시간 전에는 마무리해보세요. 알코올이 어느 정도 대사된 상태로 잠자리에 드는 게 증상 완화에 도움이 돼요.
-
-06 · 정제 탄수화물
-
-
-세 번째는 빵·과자 같은 정제 탄수화물이에요. 혈당을 순간적으로 확 올렸다가 빠르게 떨어뜨리면서 신경계에 부담을 줘서, 다리 불편감을 더 키울 수 있어요.
-
-07 · 정제 탄수화물은 이렇게
-
-
-빵·과자 대신 삶은 달걀이나 두유로 바꿔보는 게 도움이 돼요.
-
-08 · 마무리
-
-
-초콜릿·술·정제 탄수화물을 전부 끊어야 하는 건 아니에요. 양을 줄이고 대체 식품으로 바꾸는 것만으로도 다리가 한결 편해지는 걸 느낄 수 있어요. 철분이 부족하면 증상이 심해질 수 있으니 붉은 살코기나 시금치 같은 철분 식품도 평소에 챙겨두세요. 다만 증상이 매일 밤 반복되고 일상생활에 지장을 줄 정도로 심하다면 병원 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#하지불안증후군 #다리저림 #수면장애 #하지불안증후군음식 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">견과류</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B2%AC%EA%B3%BC%EB%A5%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSuka3GsC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xjYCNGNS" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두유</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRinwfLYw8" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">시금치</span><a href="https://www.coupang.com/np/search?component=&q=%EC%8B%9C%EA%B8%88%EC%B9%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f2x3spUWOq" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5LQkILHW" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

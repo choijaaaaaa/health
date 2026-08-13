@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -383,12 +371,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -462,83 +445,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%88%88_6_00_%ED%91%9C%EC%A7%80.jpg" download="눈_6_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">눈이 자꾸 빨갛고 간지럽다면, 결막염을 의심해보세요 - 눈 지키는 습관
-
-00 · 표지
-
-
-눈이 자꾸 빨갛고 간지럽고 눈곱이 끼는 분들 많으실 텐데요. 단순히 피곤해서만은 아니에요. 눈을 덮고 있는 결막에 세균이나 바이러스가 옮으면 염증이 생기는데, 평소 습관 몇 가지가 그 전염을 더 키우고 있을 가능성이 커요. 놓치기 쉬운 세 가지를 짚어봤어요.
-
-01 · 왜 자꾸 눈이 빨갛고 간지러울까요
-
-
-확인할 건 눈 만지는 습관, 렌즈 관리 방식, 수건·베개 공유 여부 세 가지예요. 결막에 세균이나 바이러스가 옮으면 염증이 생기는데, 이 세 가지가 그 전염을 더 키워요.
-
-02 · 손으로 눈 만지거나 비비기
-
-
-손으로 눈을 자주 만지거나 비비는 것부터가 문제예요. 눈 분비물이 묻은 손으로 다시 눈을 만지면, 세균이나 바이러스가 계속 눈 안에서 돌고 돌거든요.
-
-03 · 눈 만지기 전 손 씻기
-
-
-눈을 만지기 전엔 반드시 손을 씻으세요. 간단한 습관이지만 전염을 확실히 줄여줘요.
-
-04 · 렌즈 위생 소홀히 하기
-
-
-렌즈를 낀 채로 자거나 세척을 제대로 안 하는 것도 놓치기 쉬워요. 렌즈 표면에 세균이 쌓인 채로 눈에 밀착되면, 결막이 그 세균에 그대로 노출되거든요.
-
-05 · 자기 전 렌즈 빼고 세척하기
-
-
-렌즈는 자기 전에 꼭 빼고 매일 세척액으로 관리하세요. 렌즈 표면의 세균을 매일 없애주는 셈이에요.
-
-06 · 수건·베개 같이 쓰기
-
-
-수건이나 베개를 다른 사람과 같이 쓰는 것도 원인이 돼요. 눈 분비물이 묻은 수건을 같이 쓰면, 그 세균이나 바이러스가 그대로 옮아가거든요.
-
-07 · 수건·베개 따로 쓰기
-
-
-수건과 베개는 따로 쓰세요. 그것만으로도 전염을 확실히 줄일 수 있어요.
-
-08 · 마무리
-
-
-손 씻고 만지기, 렌즈 관리, 수건 따로 쓰기 이 세 가지만 신경 써도 도움이 될 수 있어요. 눈이 심하게 붓거나 시력에 영향이 있다면 병원 진료를 받는 게 좋아요. 눈 만지기 전 손 씻기, 렌즈 매일 세척하기 — 오늘부터 하나씩 실천해보세요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#결막염 #눈충혈 #눈간지러움 #눈건강 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">렌즈 세척액</span><a href="https://www.coupang.com/np/search?component=&q=%EB%A0%8C%EC%A6%88%20%EC%84%B8%EC%B2%99%EC%95%A1&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">핸드워시</span><a href="https://www.coupang.com/np/search?component=&q=%ED%95%B8%EB%93%9C%EC%9B%8C%EC%8B%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -561,33 +470,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

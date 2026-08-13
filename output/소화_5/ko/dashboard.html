@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -268,9 +256,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -366,12 +354,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -443,81 +426,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9C%84_1_00_%ED%91%9C%EC%A7%80.jpg" download="소화_5_위_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">식후 배 빵빵, 잦은 트림·방귀의 원인은 반찬이 아니라 따로 있어요 - 더부룩함을 만드는 뜻밖의 습관 3가지
-
-00 · 표지
-
-
-먹고 나면 배가 땡땡해지고 트림이나 방귀가 자꾸 나온다면, 사실 그 원인은 밥상 위 반찬이 아니라 매일 별생각 없이 하는 행동에 숨어있는 경우가 많아요. 가스를 잘 만드는 음료나 채소를 즐겨 먹으면서 동시에 급하게 식사를 마치는 습관까지 겹치면, 위와 장 안에 가스가 계속 고이면서 배가 부풀어 오르는 느낌이 더 심해져요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-첫 번째 원인은 탄산음료나 에너지드링크예요. 병 안에서는 가만히 있던 이산화탄소가 몸속으로 들어가 체온(약 36.5도) 수준으로 데워지면 순식간에 녹아있던 양이 줄어들면서 다시 기체로 빠져나오려 해요. 이렇게 생긴 작은 기포들이 위 속에서 하나둘 뭉쳐 커다란 가스 덩어리가 되고, 위벽이 눌리면서 트림으로 밀려 나오는 거예요. 여기에 탄산 특유의 산성 성분까지 위 점막을 자극하면서 복부 팽만 증상을 더 키워요.
-
-02 · 탄산음료·에너지드링크
-
-
-03 · 탄산 대신 페퍼민트차
-
-
-톡 쏘는 탄산이 생각날 땐 페퍼민트차로 갈아타 보세요. 페퍼민트 잎에 들어있는 멘톨과 정유 성분이 위장 근육의 긴장을 풀어주고 위산이 과하게 나오지 않도록 조절해줘서 속쓰림이나 더부룩함을 가라앉히는 데 도움이 된다고 알려져 있어요. 과민성 장 증후군을 앓는 환자들을 대상으로 한 연구에서도 페퍼민트 오일을 섭취한 그룹에서 복통이 줄고 가스 배출이 원활해졌다는 결과가 나왔어요.
-
-두 번째로 의외의 주범은 양파와 마늘이에요. 몸에 좋다는 채소인데 왜 문제가 될까 싶겠지만, 이 두 재료엔 프럭탄이라는 올리고당(FODMAP 성분)이 다량 들어있어요. 사람 몸은 프럭탄을 소장에서 거의 분해하지 못해서 그대로 대장까지 흘려보내는데, 대장에서는 이 성분이 삼투압으로 수분을 끌어들이는 동시에 장내 세균의 발효 먹이가 되면서 가스를 대량으로 만들어내요. 호주 모나쉬대학교가 진행한 연구에서는 저포드맵 식단을 지킨 과민성 장 증후군 환자 4명 중 3명꼴(약 75%)로 복통과 복부팽만 증상이 나아졌고, 이런 변화는 대개 2주에서 6주 사이에 나타났어요.
-
-04 · 양파·마늘 (생으로 듬뿍)
-
-
-05 · 양파·마늘 대신 마늘기름
-
-
-그렇다고 양파와 마늘을 식단에서 아예 빼버릴 필요는 없어요. 프럭탄은 물에는 녹아도 기름에는 잘 녹지 않는 성질을 가지고 있어서, 올리브유에 마늘을 넣고 약한 불에서 향만 우려낸 뒤 건더기를 건져내는 마늘기름 방식을 쓰면 감칠맛은 그대로 살리면서 장을 자극하는 프럭탄은 상당 부분 걸러낼 수 있어요. 다만 마늘 건더기를 기름 속에 오래 남겨두면 프럭탄이 다시 서서히 빠져나올 수 있으니, 향이 우러나면 바로 건져내는 걸 잊지 마세요.
-
-세 번째 원인은 음식이 아니라 먹는 방식, 바로 빨리 먹는 습관이에요. 의학적으로는 공기연하증(aerophagia)이라고 부르는데, 사람은 원래 숨을 쉬거나 밥을 먹을 때도 10~15ml 정도의 공기를 함께 삼켜요. 그런데 급하게 먹거나 대화를 나누면서 식사하면 이렇게 삼키는 공기량이 확 늘어나요. 보통 하루 25~30회 정도 트림을 하는 게 정상이지만, 공기연하증이 심하면 1분에 20회까지 트림이 이어지는 사례도 보고돼요. 강북삼성병원이 2007년부터 2009년까지 1만893명을 대상으로 진행한 국내 연구를 보면, 식사 시간이 15분이 안 되는 사람은 15분 넘게 먹는 사람보다 위염 발생 확률이 1.9배나 높았어요.
-
-06 · 빨리 먹는 습관
-
-
-07 · 천천히 꼭꼭 씹기
-
-
-해결책은 의외로 단순해요. 한 입 먹을 때마다 30번 넘게 씹고, 식사하는 데 20분 이상을 들이는 것만으로도 함께 삼키는 공기량이 줄고 위장이 느끼는 소화 부담도 눈에 띄게 가벼워져요. 오래 씹을수록 침에 있는 소화효소가 음식을 미리 잘게 분해해주는 효과까지 더해져서 일석이조예요.
-
-08 · 마무리
-
-
-더부룩함은 무조건 참아야 하는 증상이 아니라, 원인만 정확히 짚으면 얼마든지 줄일 수 있는 문제예요. 탄산음료 대신 페퍼민트차를, 생양파·생마늘 대신 마늘기름을 선택하고, 식사할 때 30번 이상 천천히 씹는 습관만 들여도 훨씬 편안해져요. 그래도 증상이 자주 반복되거나 심하게 느껴진다면 전문의를 찾아 상담받는 걸 추천해요.
-
-이 콘텐츠는 건강 정보 제공을 목적으로 하며, 정확한 진단과 치료는 반드시 의료 전문가와 상의하시기 바랍니다.
-
-#위장건강 #더부룩함 #복부팽만 #가스참 #저포드맵 #페퍼민트차 #마늘기름 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">페퍼민트차</span><a href="https://www.coupang.com/np/search?component=&q=%ED%8E%98%ED%8D%BC%EB%AF%BC%ED%8A%B8%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSd1LjND2" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GB3gInfH" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -540,33 +451,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

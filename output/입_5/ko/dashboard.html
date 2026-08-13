@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -268,9 +256,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -366,12 +354,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -445,83 +428,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%9D%B4%EA%B0%88%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg" download="입_5_ko_이갈이_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">자고 일어나면 턱이 뻐근하고 어금니가 시큰거리신다면, 이갈이일 수 있어요 - 이갈이 심해지는 습관 3가지
-
-00 · 표지
-
-
-아침에 눈을 뜨자마자 턱이 뻐근하고 어금니가 시큰거리는 느낌, 받아본 적 있나요? 단순히 잘못 잔 탓이 아니라 잠들기 전 습관이 이갈이를 더 키우고 있을 수도 있어요.
-
-01 · 이갈이, 왜 심해질까요
-
-
-이갈이를 악화시키는 대표적인 요인으로 꼽히는 건 카페인, 알코올, 스트레스예요. 이 세 가지는 공통적으로 수면의 질을 떨어뜨리고, 잠든 동안 뇌를 더 자주 깨우면서 턱 근육 움직임을 늘리는 방식으로 이갈이에 영향을 줘요.
-
-02 · 카페인
-
-
-첫 번째 요인은 커피 같은 카페인 음료예요. 카페인은 신경을 계속 각성된 상태로 유지시켜서, 잠든 뒤에도 뇌가 완전히 휴식하지 못하고 얕은 잠에서 자주 깨어나는 미세각성이 늘어나요. 이 과정에서 턱 근육이 반복적으로 움직이며 이갈이로 이어질 수 있다고 알려져 있어요.
-
-03 · 카페인은 이렇게
-
-
-잠들기 적어도 6시간 전부터는 커피나 카페인 음료 섭취를 줄여보세요. 오후 시간대에는 디카페인 커피나 허브차로 바꿔 마시는 것도 좋은 대안이에요.
-
-04 · 알코올
-
-
-두 번째는 맥주·와인 같은 술이에요. 알코올은 수면의 구조 자체를 얕게 만들고 밤사이 깨어나는 횟수를 늘리는 성질이 있어요. 실제로 술을 마시는 사람이 그렇지 않은 사람보다 이갈이를 겪을 가능성이 약 두 배 더 높다는 연구 결과도 나와 있어요.
-
-05 · 알코올은 이렇게
-
-
-술을 마셔야 한다면 잠자리에 들기 3~4시간 전까지만 마시고, 그 이후 시간대에는 물을 충분히 마시며 대신해보세요.
-
-06 · 스트레스
-
-
-세 번째 요인은 심리적 스트레스예요. 긴장과 불안이 쌓이면 잠든 동안에도 뇌의 각성 시스템이 계속 활발하게 작동해서, 턱 근육에 힘이 들어가는 빈도 자체가 늘어날 수 있어요.
-
-07 · 스트레스는 이렇게
-
-
-잠들기 전 가벼운 스트레칭이나 심호흡으로 몸과 마음의 긴장을 풀어주면 턱 근육을 이완하는 데 도움이 돼요.
-
-08 · 마무리
-
-
-카페인·알코올·스트레스, 이 세 가지 습관을 잠들기 전 시간대만이라도 조금씩 조절해주면 턱 근육이 한결 편안해질 수 있어요. 잠들기 직전까지 스마트폰 화면을 들여다보는 습관도 긴장을 키울 수 있으니 취침 전 화면 시간을 줄이는 것도 함께 신경 써보세요. 다만 증상이 심하거나 아침마다 두통과 턱 통증이 반복된다면 치과에서 마우스가드 상담을 받아보는 것도 좋은 방법이에요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#이갈이 #이갈이원인 #턱관절 #수면습관 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">디카페인 커피</span><a href="https://www.coupang.com/np/search?component=&q=%EB%94%94%EC%B9%B4%ED%8E%98%EC%9D%B8%20%EC%BB%A4%ED%94%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRs4dknEtw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FoX8x8fV" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -544,33 +453,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

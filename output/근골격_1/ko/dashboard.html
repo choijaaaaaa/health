@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg" download="근골격_1_관절_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">무릎에서 시큰거리는 느낌, 아침마다 뻣뻣함이 반복된다면 - 관절 염증을 키우는 식습관 점검법
-
-00 · 표지
-
-
-계단을 내려올 때 무릎 안쪽에서 시큰거리는 느낌이 들거나, 아침에 일어나면 무릎이 뻣뻣하다가 조금 움직이고 나서야 풀리는 패턴이 반복되고 있다면 관절에 염증이 진행 중이라는 신호일 수 있어요. 여기에 무릎이 붓고 열감까지 느껴진다면 활액이 과다하게 분비되면서 관절 안쪽에 염증이 생겼다는 뜻이에요. 관절 통증의 원인을 단순히 나이 탓으로만 돌리기 쉽지만, 실제로는 매일 먹는 음식이 염증 반응을 계속 부추기고 있는 경우도 많아요.
-
-어떤 음식을 자주, 많이 먹느냐에 따라 몸속 염증 물질의 양이 달라져요. 이 염증 물질들이 관절 주변 조직을 자극하면서 통증과 뻣뻣함으로 이어지는데, 여기서는 뜻밖에도 관절 염증을 부추기는 음식 세 가지와 그 대신 먹을 만한 대체 식품을 하나씩 짚어볼게요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-02 · 튀김·라면류
-
-
-첫 번째로 볼 건 튀김이나 라면처럼 정제된 식용유가 많이 들어간 음식이에요. 여기 풍부한 오메가6 지방산 중 리놀레산은 체내에서 아라키돈산으로 전환되고, 이 아라키돈산은 염증을 유발하는 프로스타글란딘과 류코트리엔을 만드는 재료가 돼요. 핵심은 섭취 비율이에요. 전통적인 식단에서는 오메가6와 오메가3의 비율이 1대 1에서 4대 1 사이로 유지됐지만, 튀김이나 가공식품 위주로 바뀐 요즘 식단에서는 이 비율이 15대 1, 심하면 20대 1까지 벌어진다고 해요. 이 비율이 벌어질수록 염증 관련 수치도 같이 높아지는 경향이 확인됐어요.
-
-03 · 튀김 대신
-
-
-기름진 음식이라고 해서 무조건 안 드셔야 하는 건 아니에요. 오메가3가 풍부한 호두, 등푸른생선, 들기름 쪽으로 바꿔보시길 권해요. 2012년 영국 케임브리지대학 연구팀이 진행한 연구에서는 오메가3를 꾸준히 섭취한 관절염 환자들에게서 무릎 부종·통증, 아침 뻣뻣함이 지속되는 시간이 짧아지는 결과가 나타났어요. 재미있는 부분은 무릎 관절염 환자를 대상으로 한 다른 연구에서 저용량 어유를 섭취한 쪽이 고용량보다 18개월·24개월 시점의 통증 개선 효과가 더 좋았다는 점이에요 — 많이 먹는 것보다 얼마나 꾸준히 챙기느냐가 더 중요하다는 뜻이에요.
-
-04 · 탄산음료·가당음료
-
-
-두 번째는 탄산음료를 비롯한 가당 음료예요. 한 연구를 보면 가당 탄산음료를 하루 한 번 이상 마시는 여성이 한 달에 한 번도 안 마시는 여성보다 관절염 위험이 더 높게 나타났고, 특히 55세 이상에서 그 차이가 더 크게 벌어졌어요. 원리는 이래요 — 혈당이 급격히 오르면 산화 스트레스가 발생하고, 이게 최종당화산물(AGEs) 생성과 지질 과산화로 이어지면서 염증 관련 유전자를 자극해요. 실제로 염증성 관절염 환자들은 일반인보다 체내 AGEs 수치가 더 높게 측정돼요.
-
-05 · 탄산음료 대신
-
-
-탄산이 생각날 땐 무가당 탄산수나 그냥 물로 바꿔보시고, 단맛이 당길 땐 블루베리 같은 베리류를 챙겨 드세요. 블루베리에 많이 든 안토시아닌은 대표적인 항산화 물질로 항염 작용에 도움이 된다고 알려져 있어요. 정제당이 많은 간식을 베리류로 바꾸는 것만으로도 혈당이 급격히 오르는 횟수를 줄일 수 있어요.
-
-06 · 소시지 등 가공육
-
-
-세 번째는 소시지나 베이컨 같은 가공육, 그리고 붉은 고기예요. 붉은 고기 섭취량이 많을수록 류마티스 관절염 위험이 커진다는 연구 결과가 있고, 가공육은 염증 지표인 인터루킨-6(IL-6), C-반응단백질(CRP), 호모시스테인 수치를 끌어올리는 경향이 있어요. CRP는 류마티스 관절염에서 실제로 질병 활성도를 판단하는 지표로 쓰이는 만큼, 이 수치가 높다는 건 관절 통증이 더 심해질 가능성이 있다는 신호예요.
-
-07 · 가공육 대신
-
-
-영국 워릭대학 연구팀이 기존 연구 2,962건을 종합 분석한 결과, 식물성 식단을 실천한 그룹의 CRP 수치가 일반 식단 그룹보다 평균 1.13mg/L 더 낮게 나타났어요. 두부나 템페 같은 콩 기반 식품에는 이소플라본이라는 항산화·항염 성분이 풍부하고, 렌틸콩 한 컵만으로도 단백질을 약 18g 섭취할 수 있어서 붉은 고기를 대신하기에 충분해요. 가공육 대신 두부나 콩류로 바꿔보시는 걸 추천해요.
-
-08 · 마무리
-
-
-관절에 쌓인 염증은 한번 자리 잡으면 되돌리기 쉽지 않은 만큼, 평소 식습관 관리가 정말 중요해요. 그렇다고 튀김·탄산음료·가공육을 아예 끊을 필요는 없어요 — 튀김은 호두로, 탄산음료는 블루베리로, 가공육은 두부로만 바꿔도 관절에 가는 염증 부담을 충분히 줄일 수 있어요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#관절건강 #무릎통증 #관절염 #오메가3 #항염식품 #가공육 #관절염식단 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">호두</span><a href="https://www.coupang.com/np/search?component=&q=%ED%98%B8%EB%91%90&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fPlX0JSeGG" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5NecvkV5" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">블루베리</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B8%94%EB%A3%A8%EB%B2%A0%EB%A6%AC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fPuk2xXxmu" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5JqLw7cQ" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두부</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EB%B6%80&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQgumfszs" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/58qASCPc" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

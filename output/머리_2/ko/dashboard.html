@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -383,12 +371,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -476,97 +459,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%83%88%EC%B9%98_1_00_%ED%91%9C%EC%A7%80.jpg" download="머리_2_새치_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">또래보다 흰머리가 유독 빨리 늘어난다면, 새치 부르는 음식부터 확인하세요
-
-00 · 표지
-
-
-친구들보다 흰머리가 유독 많다는 말을 들어본 적 있으신가요? 흔히 스트레스나 유전으로만 넘기지만, 실제로는 평소 즐겨 먹는 음식이 새치를 앞당기는 숨은 원인일 수 있어요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-검은 머리색을 만드는 멜라닌 색소는 모낭 안의 멜라닌 세포에서 만들어져요. 문제는 몸속 활성산소가 늘어나 산화 스트레스 상태가 되면 이 색소세포가 제일 먼저 타격을 입는다는 점이에요. 연구팀이 흰머리 모낭을 분석했더니, 활성산소를 없애는 항산화 효소(카탈레이스)의 활성이 검은 머리 모낭보다 눈에 띄게 떨어져 있었어요.
-
-▶ Before → After: 검은 머리 모낭의 카탈레이스 활성을 100%로 봤을 때 → 흰머리가 자란 모낭에서는 40~60% 수준까지 떨어지고, 그만큼 과산화수소가 쌓여 멜라닌 세포를 손상시켜요.
-
-거기에 비타민B12·엽산·구리·아연 같은 영양소마저 부족하면 멜라닌을 만들 재료가 아예 없어지는 셈이라 새치가 더 쉽게 나요.
-
-02 · 가공육
-
-
-첫 번째 주의할 음식은 햄이나 소시지 같은 가공육이에요. 색을 선명하게 하고 부패를 막으려고 넣는 아질산나트륨은 체내에서 나이트로소 화합물로 전환되는데, 이 과정이 산화 스트레스를 높이는 요인 중 하나로 지목돼요.
-
-▶ Before → After: 가공육을 안 먹었을 때 대장암 위험을 1%로 잡으면 → 하루 50g씩(소시지 2~3개 분량) 매일 먹었을 때는 위험이 1.18%까지 올라가요. 상대적으로 18% 늘어나는 수치예요.
-
-이 때문에 세계보건기구 산하 국제암연구기관(IARC)은 가공육을 담배·석면과 같은 등급인 1군 발암물질로 분류해뒀어요.
-
-03 · 가공육 대신
-
-
-가공육을 아예 안 먹을 필요까지는 없어요. 무아질산 인증이 붙은 제품을 고르거나, 나트륨과 첨가물이 적은 닭가슴살·두부로 단백질을 채워보세요. 가공육을 먹는 날은 채소를 넉넉히 곁들여서 산화 스트레스 부담을 낮추는 것도 방법이에요.
-
-04 · 탄산음료
-
-
-두 번째는 탄산음료예요. UCSF(캘리포니아대 샌프란시스코) 연구진이 5천 명이 넘는 성인의 텔로미어(세포 노화 지표)를 살펴봤더니, 탄산음료를 하루 20온스(약 600ml)씩 매일 마신 사람들은 생물학적 나이가 평균 4.6년 더 많게 나타났어요.
-
-몸 전체의 노화 속도가 빨라진다는 건 모낭 노화도 같이 빨라진다는 의미라, 결국 멜라닌 생산 기능이 더 이르게 떨어질 수 있어요.
-
-05 · 탄산음료 대신
-
-
-탄산음료가 습관이었다면 저당·무가당 음료나 그냥 탄산수로 바꿔보세요. 레몬이나 과일 조각을 띄운 무가당 탄산수는 청량감은 그대로 살리면서 당분은 뺄 수 있어요. 한 번에 끊기 힘들면 마시는 횟수를 반으로 줄이는 것부터 시작해보세요.
-
-06 · 다크초콜릿
-
-
-세 번째는 뜻밖에도 다크초콜릿이에요. 카카오 함량이 높아질수록 항산화 성분인 플라바놀도 늘지만, 동시에 탄닌·피트산 같은 성분도 함께 많아져요. 이 성분들은 철분·아연 같은 미네랄과 결합해서 몸이 흡수하지 못하게 막는 것으로 알려져 있어요.
-
-▶ Before → After: 피트산을 2mg 섭취했을 때는 철분 흡수율이 18% 줄어드는 정도지만 → 250mg 이상 섭취하면 흡수율이 82%까지 떨어진다는 연구 결과가 있어요. 구리 흡수도 비슷하게 영향받을 수 있다고 보고돼요.
-
-여기에 다크초콜릿에 들어있는 카페인은 이뇨작용으로 비타민B군을 더 빨리 배출시켜서, 멜라닌을 만드는 데 필요한 영양소가 한꺼번에 부족해지는 결과로 이어질 수 있어요.
-
-07 · 다크초콜릿 대신
-
-
-다크초콜릿도 완전히 끊지 않아도 돼요. 다크초콜릿은 하루 한두 조각으로만 즐기고, 캐슈넛처럼 구리·아연이 풍부한 견과류를 간식으로 곁들이면 부족해진 미네랄을 보충하는 데 도움이 돼요.
-
-08 · 마무리
-
-
-새치는 순전히 유전 문제가 아니라 산화 스트레스와 영양 부족이 겹쳐서 생기는 경우가 많아요. 가공육은 무아질산 제품이나 신선한 단백질로, 탄산음료는 저당 음료로, 다크초콜릿은 하루 한두 조각으로만 바꿔도 새치가 느는 속도를 늦추는 데 도움이 될 수 있어요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#새치 #흰머리 #산화스트레스 #멜라닌 #가공육 #탄산음료 #다크초콜릿 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">저당 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%8B%B9%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS5gVQFwq" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/FWTbJIYt" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">견과류</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B2%AC%EA%B3%BC%EB%A5%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSuka3GsC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xjYCNGNS" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -589,33 +484,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

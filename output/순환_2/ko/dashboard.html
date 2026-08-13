@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -408,12 +396,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -487,83 +470,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg" download="순환_2_부종_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">아침엔 얼굴, 저녁엔 다리가 무겁게 붓는다면, 부종 부르는 음식부터 확인하세요
-
-00 · 표지
-
-
-자고 일어났는데 눈두덩이가 유난히 부어 있거나, 하루 일과를 마칠 때쯤 다리가 코끼리처럼 무겁게 느껴진 적 있으신가요? 이런 부기가 자꾸 반복된다면 원인은 생각보다 가까운 곳, 매일의 식탁에 있을 수 있어요.
-
-01 · 왜 부종이 생길까요
-
-
-몸속 나트륨 농도는 항상 일정하게 유지되려는 성질이 있어요. 나트륨을 많이 먹으면 이 농도를 희석시키기 위해 몸이 수분을 세포 바깥 공간에 붙잡아두는데, 이게 삼투압으로 설명되는 부종의 기본 원리예요. 여기서 더 나아가 일부 성분은 콩팥이 나트륨을 재흡수하도록 만드는 호르몬 신호 체계 자체에 관여해서, 나트륨을 딱히 많이 안 먹은 날에도 몸이 계속 붓는 상태를 만들기도 해요.
-
-02 · 감초
-
-
-첫 번째 주범은 감초예요. 감초 속 글리시르히진(체내에서 글리시레틴산으로 분해)은 코르티솔을 비활성화하는 효소(11β-HSD2)의 작용을 방해해요. 효소가 제 역할을 못 하면 코르티솔이 계속 활성 상태로 남아 알도스테론 수용체에 결합하고, 콩팥은 나트륨·수분은 붙잡고 칼륨은 내보내는 작업을 계속 반복해요. Before → After로 보면 더 확실한데, 매일 감초차 2리터를 1년간 마신 40대 여성의 경우 — 섭취 전: 정상 혈압, 정상 범위 칼륨 → 섭취 후: 혈압 170/90mmHg, 혈중 칼륨 2.3mmol/L까지 급락해 중증 저칼륨혈증 판정을 받았어요.
-
-03 · 감초 대신
-
-
-매일 감초차를 다량으로 마시거나 감초가 많이 들어간 한약재를 장기 복용하고 있다면 섭취량부터 조절하는 게 우선이에요. 부기 때문에 마시는 차라면 글리시르히진이 없는 옥수수수염차 같은 이뇨 작용 차로 바꿔보고, 건강식품을 구매할 땐 감초 함량 표시를 미리 확인하는 습관을 들여보세요.
-
-04 · 라면
-
-
-두 번째는 라면이에요. 국물라면 한 봉지에는 평균 1,700mg 안팎의 나트륨이 들어있는데, 이는 하루 나트륨 섭취 기준치인 2,000mg의 80% 이상에 해당하는 양이에요. 특히 이 나트륨의 70~80%가 스프와 국물에 집중돼 있어서, 국물까지 다 마시면 한 끼에 하루치 나트륨을 거의 다 채우게 돼요. 섭취 전 정상이던 체내 나트륨 농도가 섭취 후 급격히 치솟으면서 몸이 수분을 붙잡기 시작하고, 이 상태가 다음날 아침 얼굴 부종으로 이어지는 경우가 많아요.
-
-05 · 라면 대신
-
-
-국물은 최대한 남기고 면 위주로 먹는 것만으로도 섭취 나트륨을 크게 줄일 수 있어요. 국물을 꼭 먹고 싶다면 물을 더 넣어 농도를 희석하는 것도 방법이고, 바나나나 감자처럼 칼륨이 풍부한 음식을 함께 챙기면 나트륨 배출에 도움이 돼요.
-
-06 · 치즈
-
-
-세 번째는 치즈예요. 치즈는 나트륨과 포화지방을 동시에 갖고 있는 대표적인 식품인데, 일반적인 체다 슬라이스 치즈 1장(20g) 열량의 약 70%가 포화지방에서 나올 정도예요. 나트륨이 수분을 붙잡는 동안 포화지방은 혈액을 끈적하게 만들어 순환을 늦추기 때문에, 두 작용이 겹치면 부기가 잘 안 빠지고 오래 남을 수 있어요.
-
-07 · 치즈 대신
-
-
-치즈를 아예 끊지 않아도 저염·저지방 표시가 붙은 제품으로 바꾸고 하루 1~2장 정도로 양을 조절하면 부담을 줄일 수 있어요. 치즈를 먹은 날엔 평소보다 물을 넉넉히 마셔서 나트륨 농도를 빨리 낮추고, 시금치 같은 채소를 곁들이면 순환 개선에 도움이 돼요.
-
-08 · 마무리
-
-
-결국 부종의 상당수는 나트륨과 호르몬 균형이 흐트러져서 생기는 현상이에요. 감초·라면·치즈를 완전히 끊기보다 먹는 양과 빈도를 조금씩 줄이는 것만으로도 충분히 나아질 수 있어요. 잠들기 전 물 한 컵을 마시고 다리를 심장보다 높은 위치에 두고 자면 아침 부기를 줄이는 데 도움이 돼요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#부종 #얼굴부종 #다리부종 #나트륨 #감초 #저염식 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">옥수수수염차</span><a href="https://www.coupang.com/np/search?component=&q=%EC%98%A5%EC%88%98%EC%88%98%EC%88%98%EC%97%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS2x5mgq4" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5zU1JqK1" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">바나나</span><a href="https://www.coupang.com/np/search?component=&q=%EB%B0%94%EB%82%98%EB%82%98&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSRAO5pNbo" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5eDdmgh6" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저염 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%97%BC%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRxzLKGB6O" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xF4Rpl7A" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -586,33 +495,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

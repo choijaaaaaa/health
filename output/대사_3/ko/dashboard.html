@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg" download="대사_3_ko_갑상선_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">괜히 피곤하고 유난히 춥고 목이 살짝 부어 보인다면 - 갑상선 기능을 떨어뜨리는 의외의 음식들
-
-00 · 표지
-
-
-특별한 이유 없이 몸이 축 처지고, 남들보다 유독 추위를 못 견디고, 거울을 보니 목 앞쪽이 살짝 부어 보이는 증상 — 흔히 '나이 들어서 그런가' '요즘 좀 무리했나' 하고 넘기지만 실제로는 갑상선 기능 저하의 전형적인 신호예요. 살이 잘 안 빠지고, 변비가 생기고, 손발이나 얼굴이 붓고, 피부가 푸석해지는 증상까지 함께 나타난다면 병원에서 TSH·Free T4 수치를 확인해보는 게 안전해요. 이 질환이 무서운 건 증상이 워낙 서서히 진행돼서, 본인은 그저 나이 들거나 피곤해서라고 착각하기 쉽다는 점이에요.
-
-그런데 우리가 별생각 없이 매일 먹는 음식·습관 중에도 갑상선 기능의 발목을 잡는 것들이 숨어있어요. 대표적인 세 가지를 정리해볼게요.
-
-01 · 갑상선이 보내는 신호
-
-
-02 · 미역국·해조류
-
-
-첫 번째 주범은 다름 아닌 미역국과 해조류예요. 미역 100g 안에 들어있는 요오드는 무려 8,730㎍인데, 이는 한국인 하루 요오드 상한섭취량인 2,400㎍의 3배를 훌쩍 넘는 수치예요. 가톨릭대 식품영양학과와 서울대병원 내분비내과가 함께 국민건강영양조사(2007~2009년) 데이터로 성인 9,998명을 분석했더니, 요오드를 하루 1,154㎍씩 섭취하는 상위 20% 그룹이 139㎍만 섭취하는 하위 20% 그룹보다 갑상선 질환 위험이 1.63배 더 높게 나타났어요. 특히 한국인은 요오드 섭취의 절반 이상(65.6%)을 해조류에서 얻는데, 이미 하루 섭취량 중간값(375㎍)부터가 권장량의 두 배를 넘는 상황이에요.
-
-03 · 미역국은 이렇게
-
-
-그렇다고 미역국을 식탁에서 완전히 치울 필요는 없어요. 산후조리 목적으로 먹더라도 하루 2회 정도면 충분하다는 게 의료진의 공통된 권고예요. 국물 요리를 매일같이 즐기는 편이라면, 다시마·멸치로 우린 육수 대신 채소 육수나 사골 육수를 번갈아 쓰는 것만으로도 요오드 섭취량을 눈에 띄게 낮출 수 있어요.
-
-04 · 케일·브로콜리 생스무디
-
-
-두 번째는 케일이나 브로콜리를 생으로 갈아 마시는 그린 스무디예요. 이 채소들에는 글루코시놀레이트라는 성분이 들어있는데, 익히지 않은 상태에서는 미로시나아제라는 효소가 활발히 작동하면서 이 성분을 고이트린이라는, 요오드 흡수를 방해하는 물질로 바꿔놔요. 미국 의학저널 NEJM에는 실제 사례도 실렸어요 — 같은 배추과 채소인 생 청경채를 매일 많이 먹던 한 여성이 갑상선 기능이 급격히 무너지면서 점액수종 혼수 상태로 응급실에 실려간 일이었어요.
-
-05 · 케일·브로콜리는 이렇게
-
-
-다행히도 이 효소는 열을 가하면 힘을 잃어요. 가열 조리를 하면 미로시나아제가 비활성화되면서 고이트린이 만들어지는 과정 자체가 줄어드는데, 찌기만 해도 약 30%, 끓인 다음 물을 버리면 최대 90%까지 방해 성분이 감소한다는 연구 결과가 있어요. 생채소로 스무디를 만들어 먹는 습관이 있다면 살짝 데치거나 찐 케일·브로콜리로 바꿔보세요. 식감은 조금 달라지지만 영양소는 거의 그대로 남아있어요.
-
-06 · 두유·콩제품
-
-
-세 번째는 두유를 비롯한 콩 제품이에요. 콩 속 제니스테인·다이드제인 같은 이소플라본 성분이 장 안에서 갑상선 호르몬제(레보티록신)와 먼저 결합해버려, 정작 약 성분의 흡수율을 떨어뜨릴 수 있다는 연구 결과가 있어요. 갑상선 약을 따로 복용하지 않는다면 크게 신경 쓸 부분은 아니지만, 약을 복용 중인 분이라면 챙겨볼 필요가 있어요.
-
-07 · 두유는 이렇게
-
-
-방법은 어렵지 않아요. 약을 먹는 시간과 두유·콩 제품을 먹는 시간 사이에 2~4시간 정도 텀을 두면 돼요. 실제로 진행된 무작위 교차 연구에서도 이 시간 간격만 지키면 약물 흡수율에 별다른 차이가 나타나지 않았어요.
-
-08 · 마무리
-
-
-미역국, 생채소 스무디, 두유 세 가지 모두 식단에서 완전히 빼야 하는 건 아니에요. 미역국은 하루 1~2회 이내로, 케일·브로콜리는 익혀서 먹고, 두유는 약 복용 후 2~4시간 뒤에 마시는 것 — 먹는 양과 타이밍만 조절해도 갑상선에 걸리는 부담을 충분히 낮출 수 있어요.
-
-이 콘텐츠는 건강 정보 전달을 목적으로 작성됐으며, 정확한 진단과 치료는 반드시 전문 의료진과 상의하시기 바랍니다.
-
-#갑상선건강 #갑상선기능저하증 #요오드과다 #미역국 #고이트로겐 #두유 #갑상선약 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">저요오드 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EC%9A%94%EC%98%A4%EB%93%9C%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRiis40BG0" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GvWVjyCp" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">케일</span><a href="https://www.coupang.com/np/search?component=&q=%EC%BC%80%EC%9D%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQvKcIkDc" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/GjyfW5P4" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">두유</span><a href="https://www.coupang.com/np/search?component=&q=%EB%91%90%EC%9C%A0&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fRinwfLYw8" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5Yo9yEFE" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

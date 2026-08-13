@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -314,9 +302,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -412,12 +400,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -491,83 +474,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EC%B9%98%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg" download="소화_7_ko_치질_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">볼일 볼 때마다 항문이 따갑고 화장지에 피가 묻어난다면, 치질을 의심해보세요 - 치질 키우는 음식 피하는 법
-
-00 · 표지
-
-
-볼일을 보고 나서 화장지에 피가 살짝 묻어나오거나, 항문이 따갑고 화끈거린 적 있나요? 치질일 가능성이 높은데, 그런데 이 증상이 유독 심한 날을 잘 보면 그날 먹은 음식과 관련 있는 경우가 꽤 많아요.
-
-01 · 왜 증상이 심해질까요
-
-
-항문 주변 정맥은 배변할 때 힘을 주는 압력에 특히 예민한 조직이에요. 이 압력을 키우거나 항문 점막을 직접 자극하는 음식을 자주 먹으면 증상이 더 심해지기 쉬워요.
-
-02 · 매운 음식
-
-
-첫 번째는 청양고추 같은 매운 음식이에요. 캡사이신이 항문 점막을 직접 자극해서, 배변할 때 따갑고 화끈거리는 느낌이 더 심해질 수 있어요.
-
-03 · 매운 음식은 이렇게
-
-
-매운 양념 대신 순한 양념으로 바꿔보는 게 도움이 돼요.
-
-04 · 술
-
-
-두 번째는 맥주·와인 같은 술이에요. 알코올은 몸을 탈수시켜서 대변을 딱딱하게 만들고, 혈관을 확장시켜서 출혈과 통증을 더 악화시킬 수 있어요.
-
-05 · 술은 이렇게
-
-
-술을 마신다면 물과 번갈아 마시면서 양을 자연스럽게 줄여보세요.
-
-06 · 섬유질 적은 음식
-
-
-세 번째는 가공육처럼 섬유질이 부족한 음식이에요. 섬유질이 적으면 변비가 생기기 쉬운데, 배변할 때 힘을 주면 항문 정맥에 가해지는 압력이 커지면서 증상이 심해질 수 있어요.
-
-07 · 가공육은 이렇게
-
-
-가공육 대신 채소나 잡곡을 식단에 늘려보세요.
-
-08 · 마무리
-
-
-매운 음식·술·가공육을 전부 끊어야 하는 건 아니에요. 먹는 양을 줄이고 대체 식품으로 바꾸는 것만으로도 증상이 눈에 띄게 가벼워질 수 있어요. 물을 충분히 마시는 습관도 대변을 부드럽게 만드는 데 도움이 되고요. 다만 출혈이 계속되거나 덩어리가 만져진다면 대장항문외과 진료를 받아보는 게 안전해요.
-
-이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
-
-#치질 #치핵 #항문출혈 #치질음식 #변비 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">고섬유질 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EA%B3%A0%EC%84%AC%EC%9C%A0%EC%A7%88%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/f0WO5K5ggC" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">잡곡</span><a href="https://www.coupang.com/np/search?component=&q=%EC%9E%A1%EA%B3%A1&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSSrajKQxw" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xSBojbL9" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">저나트륨 식품</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%80%EB%82%98%ED%8A%B8%EB%A5%A8%20%EC%8B%9D%ED%92%88&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><a href="https://naver.me/5OlijsAL" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -590,33 +499,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {

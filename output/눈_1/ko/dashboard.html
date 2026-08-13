@@ -139,18 +139,6 @@
     .quick-dock { position: static; transform: none; width: auto; max-height: none; margin: 0 24px 24px; }
   }
 
-  .platform-section + .platform-section { margin-top: 6px; }
-
-  .platform-tabs { display: flex; gap: 8px; margin-bottom: 18px; }
-  .platform-tab-btn {
-    font-family: inherit; font-size: 14px; font-weight: 700; padding: 10px 20px;
-    border-radius: 999px; border: 1px solid var(--rule); background: var(--panel);
-    color: var(--ink-soft); cursor: pointer;
-  }
-  .platform-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
-  .platform-tab-pane { display: none; }
-  .platform-tab-pane.active { display: block; }
-
   .grid {
     display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px;
   }
@@ -291,9 +279,9 @@
   </div>
 </section>
 
-<div class="platform-tabs" id="topicTrackTabButtons"><button type="button" class="platform-tab-btn active" data-tab-target="shorts">🎬 숏츠</button><button type="button" class="platform-tab-btn" data-tab-target="cardnews">🗞 카드뉴스</button></div><div class="platform-tab-pane active" data-tab-pane="shorts">
+
 <section class="platform-section">
-  <h2>영상 업로드 플랫폼</h2>
+  <h2>업로드 플랫폼</h2>
   <div class="grid">
 <div class="platform-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4" data-no-caption-link="1" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="1" data-link-in-comment="">
   <div class="platform-head">
@@ -389,12 +377,7 @@
     
   </div>
 </div>
-</div>
-</section>
-</div><div class="platform-tab-pane" data-tab-pane="cardnews">
-<section class="platform-section">
-  <h2>텍스트 게시 플랫폼</h2>
-  <div class="grid">
+
 <div class="platform-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8" data-no-caption-link="" data-naver-button="1" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
   <div class="platform-head">
     <div class="platform-name-wrap">
@@ -466,81 +449,9 @@
     
   </div>
 </div>
-
-<div class="platform-card" data-done-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-no-caption-link="" data-naver-button="" data-profile-note="" data-comment-dm="" data-suppress-product-block="" data-link-in-comment="">
-  <div class="platform-head">
-    <div class="platform-name-wrap">
-      <span class="type-badge badge-text">텍스트</span>
-      <h3>티스토리</h3>
-    </div>
-    <div class="head-actions">
-      <label class="done-check">
-        <input type="checkbox" class="done-toggle" data-key="%ED%8B%B0%EC%8A%A4%ED%86%A0%EB%A6%AC" data-name="티스토리">
-        <span>완료</span>
-      </label>
-      <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    </div>
-  </div>
-  <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
-  <a class="asset-link" href="card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg" download="눈_1_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-4" spellcheck="false">눈 침침함에 빛 번짐, 밤에 유독 안 보이고 뻑뻑함까지 있다면 - 눈 건강을 갉아먹는 뜻밖의 식습관·생활 습관
-
-00 · 표지
-
-
-눈 관련 불편함은 신호마다 의미가 달라요. 불빛 주위로 뿌옇게 번지는 헤일로 현상은 백내장이 시작될 때 흔히 나타나는 증상이고, 반듯한 선이 휘어 보이거나 시야 한가운데가 흐릿해지는 건 황반변성 쪽에 가까운 신호예요. 여기에 유독 밤에만 앞이 잘 안 보이는 야간 시력 저하, 눈이 시리고 뻑뻑한 안구건조증까지 함께 나타난다면 원인을 식탁과 일상 습관에서부터 점검해봐야 해요.
-
-당 섭취와 눈 건강은 생각보다 직접 연결돼 있어요. 단 음료·디저트로 혈당이 자주 치솟으면 몸속에 최종당화산물(AGEs)이라는 물질이 쌓이는데, 이게 산화 스트레스를 키워서 백내장을 악화시키는 경로로 작용해요. 2020년 국제학술지 Antioxidants에 실린 리뷰에서도 고혈당이 당뇨병성 안질환은 물론 백내장 진행에도 영향을 미친다고 정리했어요. 당뇨가 없는 사람도 예외는 아니에요 — 가공식품과 단 음료로 당을 과다 섭취하면 전신 염증 수치가 올라가면서 눈 건강에까지 영향이 번져요.
-
-01 · 왜 이런 문제가 생길까요
-
-
-02 · 단 음료·디저트
-
-
-의외인 지점부터 짚어보면, 기름지지도 않은 흰 빵이나 흰쌀 같은 정제 탄수화물도 눈 건강을 해치는 식단에 포함돼요. 미국 버팔로대 연구진이 ARIC 코호트 참가자를 18년 동안 추적 관찰했더니, 붉은 육류·가공육·튀김·정제 곡물·고지방 유제품 위주로 먹은 '서구식 식단' 그룹은 후기 황반변성이 생길 위험이 그렇지 않은 그룹보다 3배나 높게 나타났어요.
-
-03 · 단 음료 대신
-
-
-04 · 기름진 튀김·가공식품
-
-
-다만 무조건 끊기보다는 채워 넣는 방식으로 접근하는 게 더 효과적이에요. 시력의 중심부를 담당하는 황반은 루테인·지아잔틴이라는 카로티노이드 색소로 채워져 있는데, 이 성분은 몸에서 만들어지지 않아서 반드시 음식으로 섭취해야 해요. 대표적인 공급원인 케일은 100g당 루테인이 20~25mg 들어있어서, 흔히 눈에 좋다고 알려진 당근(100g당 687㎍)보다도 약 25배 많은 양이에요. 실제로 AREDS2 임상시험에서 루테인 10mg·지아잔틴 2mg을 꾸준히 섭취한 그룹은 후기 황반변성 진행 위험이 약 10% 낮게 나타났어요. 케일 외에도 시금치·브로콜리 같은 녹황색 채소를 식탁에 자주 올려보세요.
-
-05 · 튀김 대신
-
-
-여기에 오메가-3 지방산까지 더하면 효과가 배가돼요. JAMA Ophthalmology에 실린 연구에 따르면 고등어·연어처럼 오메가-3가 풍부한 등푸른 생선을 루테인·지아잔틴과 같이 섭취한 그룹에서 황반변성 진행 위험이 낮아졌어요. 튀김이나 가공식품 대신 생선구이 한 끼로 바꾸는 것만으로도 식단의 방향 자체가 달라져요.
-
-06 · 어두운 방 스마트폰·야식
-
-
-식습관 못지않게 스마트폰 사용 습관도 눈에 큰 영향을 줘요. 평소 분당 15~20회였던 눈 깜빡임 횟수가 스마트폰 화면에 몰입하면 5회 이하로 뚝 떨어지는 것으로 알려져 있는데, 깜빡임이 줄면 눈물막이 고르게 퍼지지 못해 안구건조증으로 이어져요. 특히 불 꺼진 방에서 스마트폰을 보며 야식까지 먹는 습관은 이중으로 나빠요 — 블루라이트가 멜라토닌 분비를 방해해서, 눈이 회복해야 할 수면의 질까지 함께 떨어뜨려요.
-
-07 · 습관은 이렇게
-
-
-해법은 의외로 간단해요. 미국 검안학회가 권장하는 '20-20-20 법칙' — 20분마다 6m 이상 떨어진 곳을 20초간 바라보는 것 — 을 2주간 실천한 그룹에서 디지털 눈 피로와 안구건조증 증상이 뚜렷하게 좋아졌다는 2022년 연구 결과가 있어요. 원리는 단순해요. 먼 곳을 보는 동안 초점을 조절하는 모양체 근육이 풀리고, 그 사이 자연스럽게 눈을 깜빡이게 되면서 눈물막이 다시 고르게 채워지는 거예요.
-
-08 · 마무리
-
-
-황반은 한번 손상되면 회복이 어려운 조직이라 예방이 최선이에요. 눈이 침침하거나 빛이 번지고, 밤에 유독 안 보이거나 뻑뻑한 증상이 계속된다면 안과 검진부터 받아보세요. 그렇다고 좋아하는 걸 다 포기할 필요는 없어요 — 단 음료 자리에 녹황색 채소를, 튀김 자리에 등푸른 생선을 놓고, 스마트폰을 볼 땐 20-20-20 법칙 하나만 지켜도 눈이 받는 부담을 크게 덜어낼 수 있어요.
-
-이 글은 건강 정보 제공을 목적으로 하며, 정확한 진단과 치료는 안과 전문의와 상담하시기 바랍니다.
-
-#눈건강 #백내장 #황반변성 #루테인 #지아잔틴 #안구건조증 #눈피로 #건강정보</textarea>
-  <div class="card-actions">
-    <button class="btn-copy" data-target="cap-4">캡션 복사</button>
-    <a class="btn-go" href="https://www.tistory.com/" target="_blank" rel="noopener" data-copy-target="cap-4">열기(캡션 자동복사) →</a>
-    <span class="edit-hint">직접 수정 가능</span>
-    
-  </div>
-</div>
 </div>
 </section>
-</div>
+
 
 <section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">루테인</span><a href="https://www.coupang.com/np/search?component=&q=%EB%A3%A8%ED%85%8C%EC%9D%B8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS0aGCso0" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/F93DQwcj" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">오메가-3</span><a href="https://www.coupang.com/np/search?component=&q=%EC%98%A4%EB%A9%94%EA%B0%80-3&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSS08Yopcy" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/5SK2W78Z" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
@@ -563,33 +474,6 @@ const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABA
 function _withTopicPrefix(name) {
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }
-
-document.querySelectorAll(".platform-tab-btn").forEach(btn => {
-  btn.addEventListener("click", () => {
-    const target = btn.dataset.tabTarget;
-    document.querySelectorAll(".platform-tab-btn").forEach(b => b.classList.toggle("active", b === btn));
-    document.querySelectorAll(".platform-tab-pane").forEach(
-      p => p.classList.toggle("active", p.dataset.tabPane === target)
-    );
-  });
-});
-
-// WHY 링크의 ?tab=으로 들어온 경우 탭 전환 UI 자체를 없애는지(2026-08-07,
-// "카드뉴스 탭으로 들어가서 대시보드 들어가는 경우엔 숏츠는 안 보이고,
-// 숏츠 탭으로 들어가서 대시보드 들어가는 경우엔 카드뉴스형태 콘텐츠는 안
-// 보여야지"): index.html 목록에서 어느 탭을 눌러 들어왔는지에 따라 그
-// 트랙만 보이게 강제 — 전환 가능한 탭 버튼이 남아있으면 결국 다른 트랙도
-// 볼 수 있어버리므로 버튼째로 숨긴다.
-(function () {
-  const tabParam = new URLSearchParams(location.search).get("tab");
-  const target = tabParam === "card_news" ? "cardnews" : tabParam;
-  if (!target) return;
-  const panes = document.querySelectorAll(".platform-tab-pane");
-  const hasTarget = Array.from(panes).some(p => p.dataset.tabPane === target);
-  if (!hasTarget) return;
-  document.getElementById("topicTrackTabButtons")?.remove();
-  panes.forEach(p => p.classList.toggle("active", p.dataset.tabPane === target));
-})();
 
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {
