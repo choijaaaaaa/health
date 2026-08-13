@@ -105,6 +105,10 @@
     padding: 7px 9px; font-size: 12px; font-family: inherit; color: var(--ink); box-sizing: border-box;
   }
   .product-link-input:focus { outline: 2px solid var(--accent-soft); }
+  .link-error {
+    display: none; color: #d33; font-size: 11px; margin: 2px 0 6px; line-height: 1.4;
+  }
+  .link-error.show { display: block; }
   .copy-product-link {
     flex: 0 0 auto; font-size: 11px; font-weight: 700;
     background: var(--cards-soft); color: var(--cards); border: none;
@@ -244,6 +248,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="그릭요거트" value="https://link.coupang.com/a/fSTxOMNRGS" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EA%B7%B8%EB%A6%AD%EC%9A%94%EA%B1%B0%ED%8A%B8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/FXnqyp8y" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -266,6 +271,7 @@
       <input type="text" class="product-link-input" data-market="coupang" data-product="녹차" value="https://link.coupang.com/a/f2QYkbGUXA" placeholder="쿠팡 링크 붙여넣고 Enter">
       <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
     </div>
+    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%85%B9%EC%B0%A8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%85%B9%EC%B0%A8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xUZcCyyI" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -379,7 +385,7 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호가 붙은 소제목 아래에 해당 번호 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/ko_00_%ED%91%9C%EC%A7%80.jpg" download="피부_3_ko_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-1" spellcheck="false">식사만 하면 얼굴이며 등까지 땀이 비 오듯 쏟아지신다면 - 땀을 유독 많이 나게 하는 음식·음료
+  <textarea class="caption-box" id="cap-1" spellcheck="false">밥만 먹으면 얼굴·등까지 땀이 비 오듯 쏟아진다면, 음식·음료부터 점검해보세요 - 땀을 유독 많이 나게 하는 음식·음료
 
 00 · 표지
 
@@ -891,12 +897,44 @@ function applyProductLinks() {
     if (saved) {
       inp.value = saved;
       row.classList.add("linked");
+      // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
+      // 이미 검색/목록 링크로 잘못 저장된 항목들이 있어서, 새로 입력할 때만
+      // 막으면 그 기존 값들은 계속 숨어있는다 — 열자마자 바로 눈에 띄게 한다.
+      if (inp.dataset.market === "coupang" && !/^https:\/\/link\.coupang\.com\/a\//.test(saved)) {
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 저장된 링크가 쿠팡 검색/목록 링크예요 — 파트너스 변환 링크로 다시 넣어주세요";
+          err.classList.add("show");
+        }
+      }
     }
     inp.addEventListener("input", () => {
-      if (inp.value.trim()) {
-        localStorage.setItem(storageKey, inp.value.trim());
+      const val = inp.value.trim();
+      // WHY 쿠팡만 형식 검증하는지(2026-08-08, "쿠팡 목록 검색 링크가 파트너스
+      // 변환 없이 그대로 들어가있는게 있다"): coupang.com/np/search 같은 일반
+      // 검색·목록 링크는 파트너스 수수료가 안 붙는 무효 링크인데, 실수로
+      // "🔎 복사"한 검색 링크를 그대로 여기 붙여넣는 경우가 있었다 — 실제
+      // 파트너스 변환 링크(link.coupang.com/a/...)만 통과시킨다. 네이버는
+      // 브랜드커넥트 링크 형식이 다양해서(리다이렉트·단축 등) 아직 강제하지 않음.
+      if (inp.dataset.market === "coupang" && val && !/^https:\/\/link\.coupang\.com\/a\//.test(val)) {
+        inp.value = "";
+        const err = row.querySelector('.link-error[data-for="coupang"]');
+        if (err) {
+          err.textContent = "⚠️ 쿠팡 검색/목록 링크는 안 돼요 — 파트너스 변환 링크(link.coupang.com/a/...)를 넣어주세요";
+          err.classList.add("show");
+        }
+        localStorage.removeItem(storageKey);
+        row.classList.remove("linked");
+        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        applyProductLinks();
+        return;
+      }
+      const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
+      if (err) err.classList.remove("show");
+      if (val) {
+        localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: inp.value.trim() });
+        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
