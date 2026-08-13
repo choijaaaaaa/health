@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Tappar du kollagen",
+    "snabbare än du borde?",
+    "Kolla detta först.",
+    "3 vanor som åldrar din hud"
+  ],
+  "cover_scrim_color": "#0E7C7B",
+  "eyebrow": "Kollagenskydd",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "topic_word": "Kollagenförlust",
+  "char_display_names": {
+    "담배_illust.jpg": "Rökning",
+    "태양_illust.jpg": "Solexponering",
+    "사탕_illust.jpg": "Socker"
+  },
+  "items": [
+    {
+      "name": "Varför det här händer",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Tre vanor bryter ner",
+        "kollagen snabbare än",
+        "någon kräm kan reparera",
+        "",
+        "Så här ligger det till",
+        "egentligen"
+      ]
+    },
+    {
+      "name": "Orsak 1: Rökning",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Cigarettrök aktiverar",
+        "enzymer som kallas MMP",
+        "som bryter ner kollagen",
+        "",
+        "Långvariga rökare har",
+        "lägre kollagenhalt i huden"
+      ]
+    },
+    {
+      "name": "Rökstopp låter kollagenet återhämta sig",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Att sluta röka låter",
+        "kollagenproduktionen",
+        "återhämta sig",
+        "",
+        "Märkbar förbättring redan",
+        "efter några veckor"
+      ]
+    },
+    {
+      "name": "Orsak 2: Oskyddad sol",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "UV-strålning aktiverar",
+        "samma MMP-enzymer",
+        "",
+        "Även molnigt väder släpper",
+        "igenom skadlig UVA-strålning"
+      ]
+    },
+    {
+      "name": "Använd solskydd varje dag",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Strålsäkerhetsmyndigheten",
+        "rekommenderar SPF 30",
+        "för bästa skydd",
+        "",
+        "En enkel vana,",
+        "verkligt skydd"
+      ]
+    },
+    {
+      "name": "Orsak 3: Mycket socker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Överskottssocker binder",
+        "till kollagen via glykering",
+        "",
+        "Det bildar stela AGEs som",
+        "ersätter friskt kollagen"
+      ]
+    },
+    {
+      "name": "Minska det tillsatta sockret",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Mindre tillsatt socker",
+        "bromsar glykeringen",
+        "",
+        "innan den hinner",
+        "sätta sig i huden"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Rökning, sol",
+        "och socker"
+      ],
+      [
+        "bryter tyst ner",
+        "ditt kollagen"
+      ]
+    ],
+    "tip": [
+      "Sluta röka, använd solskydd dagligen,",
+      "och minska det tillsatta sockret"
+    ],
+    "cta": "Vill du ha fler hälsotips som det här? Följ och gilla!"
+  }
+}

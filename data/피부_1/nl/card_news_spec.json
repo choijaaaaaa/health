@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Verlies je collageen",
+    "sneller dan zou moeten?",
+    "Eerst checken,",
+    "dan pas actie.",
+    "3 Gewoontes Die Je Huid Sneller Doen Verouderen"
+  ],
+  "cover_scrim_color": "#0E7C7B",
+  "eyebrow": "Collageenbescherming",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "topic_word": "Collageenverlies",
+  "char_display_names": {
+    "담배_illust.jpg": "Roken",
+    "태양_illust.jpg": "Zonblootstelling",
+    "사탕_illust.jpg": "Suiker"
+  },
+  "items": [
+    {
+      "name": "Waarom Dit Gebeurt",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Drie gewoontes breken",
+        "collageen sneller af",
+        "dan een crème herstelt",
+        "",
+        "Dit zit er",
+        "echt achter"
+      ]
+    },
+    {
+      "name": "Oorzaak 1: Roken",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Sigarettenrook activeert",
+        "MMP-enzymen die",
+        "collageen afbreken",
+        "",
+        "Na de zon is roken",
+        "oorzaak nummer twee"
+      ]
+    },
+    {
+      "name": "Stoppen Laat Collageen Herstellen",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Na stoppen komt de",
+        "aanmaak weer op gang",
+        "",
+        "Na 3 tot 6 maanden",
+        "is dit goed merkbaar"
+      ]
+    },
+    {
+      "name": "Oorzaak 2: Onbeschermde Zon",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "UV-straling activeert",
+        "dezelfde afbraakenzymen",
+        "",
+        "Ook zonder verbranding",
+        "blijft dit proces actief"
+      ]
+    },
+    {
+      "name": "Smeer Dagelijks Zonnebrandcrème",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "RIVM adviseert SPF 30",
+        "met UVA-filter",
+        "",
+        "Ook door wolken en",
+        "ramen dringt UV-A door"
+      ]
+    },
+    {
+      "name": "Oorzaak 3: Suikerrijk Dieet",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Suiker hecht zich via",
+        "glycatie aan collageen",
+        "",
+        "Er ontstaan stugge AGEs",
+        "die de huid verstijven"
+      ]
+    },
+    {
+      "name": "Minder Toegevoegde Suiker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Minder suiker vertraagt",
+        "het glycatieproces",
+        "",
+        "Voordat het zich",
+        "in de huid vastzet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Roken, zon",
+        "en suiker"
+      ],
+      [
+        "breken je collageen",
+        "sluipenderwijs af"
+      ]
+    ],
+    "tip": [
+      "Stop met roken, smeer dagelijks SPF 30",
+      "en eet minder toegevoegde suiker"
+    ],
+    "cta": "Wil je meer van dit soort gezondheidstips? Volg, like en deel!"
+  }
+}

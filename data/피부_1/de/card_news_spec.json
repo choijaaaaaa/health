@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Verlierst du Kollagen",
+    "schneller als du solltest?",
+    "Erst prüfen,",
+    "dann handeln.",
+    "3 Gewohnheiten, die deine Haut altern lassen"
+  ],
+  "cover_scrim_color": "#0E7C7B",
+  "eyebrow": "Kollagenschutz",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "topic_word": "Kollagenverlust",
+  "char_display_names": {
+    "담배_illust.jpg": "Rauchen",
+    "태양_illust.jpg": "Sonneneinstrahlung",
+    "사탕_illust.jpg": "Zucker"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Drei Gewohnheiten bauen",
+        "Kollagen schneller ab,",
+        "als jede Creme reparieren kann",
+        "",
+        "Das steckt wirklich",
+        "dahinter"
+      ]
+    },
+    {
+      "name": "Ursache 1: Rauchen",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Zigarettenrauch aktiviert",
+        "Enzyme namens MMPs,",
+        "die Kollagen abbauen",
+        "",
+        "Raucherhaut wirkt im Schnitt",
+        "10 Jahre älter"
+      ]
+    },
+    {
+      "name": "Rauchstopp lässt Kollagen sich erholen",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Rauchstopp lässt",
+        "die Kollagenproduktion",
+        "sich erholen",
+        "",
+        "Messbare Besserung zeigt sich",
+        "schon nach 4 bis 8 Wochen"
+      ]
+    },
+    {
+      "name": "Ursache 2: UV-Strahlung ohne Schutz",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "UV-Strahlen aktivieren",
+        "dieselben MMP-Enzyme",
+        "",
+        "Auch ohne Sonnenbrand",
+        "bleibt der Prozess aktiv"
+      ]
+    },
+    {
+      "name": "Täglich Sonnencreme auftragen",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Tägliche Sonnencreme kann",
+        "laut Studien Hautalterung",
+        "deutlich verlangsamen",
+        "",
+        "Eine einfache Gewohnheit,",
+        "die wirklich hilft"
+      ]
+    },
+    {
+      "name": "Ursache 3: Zuckerreiche Ernährung",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Überschüssiger Zucker bindet",
+        "sich per Glykation an Kollagen",
+        "",
+        "Es entstehen starre Strukturen,",
+        "die gesundes Kollagen ersetzen"
+      ]
+    },
+    {
+      "name": "Weniger Zucker essen",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Weniger Zucker",
+        "verlangsamt die Glykation,",
+        "",
+        "bevor sie sich",
+        "in der Haut festsetzt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Rauchen, Sonne",
+        "und Zucker"
+      ],
+      [
+        "bauen dein Kollagen",
+        "still ab"
+      ]
+    ],
+    "tip": [
+      "Rauchstopp, täglicher Sonnenschutz",
+      "und weniger Zucker helfen wirklich"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  }
+}

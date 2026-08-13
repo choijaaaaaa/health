@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Collagène : vous en perdez",
+    "plus vite que la normale ?",
+    "Trois habitudes du quotidien en sont responsables.",
+    "Le trio qui abîme votre collagène"
+  ],
+  "eyebrow": "Protection du collagène",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "topic_word": "Perte de collagène",
+  "cover_scrim_color": "#0E7C7B",
+  "char_display_names": {
+    "담배_illust.jpg": "Tabac",
+    "태양_illust.jpg": "Soleil",
+    "사탕_illust.jpg": "Sucre"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Trois habitudes abîment",
+        "le collagène plus vite",
+        "qu'aucune crème ne répare",
+        "",
+        "Voici ce qui se cache",
+        "vraiment derrière"
+      ]
+    },
+    {
+      "name": "Cause n°1 : le tabac",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "La fumée de cigarette active",
+        "des enzymes MMP qui",
+        "détruisent le collagène",
+        "",
+        "Chez les grands fumeurs,",
+        "le risque de rides grimpe",
+        "jusqu'à 4,7 fois"
+      ]
+    },
+    {
+      "name": "Arrêter relance la production",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Arrêter de fumer relance",
+        "la production de collagène",
+        "",
+        "Quelques semaines sans tabac",
+        "suffisent à voir une différence"
+      ]
+    },
+    {
+      "name": "Cause n°2 : le soleil sans protection",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Les rayons UV activent",
+        "les mêmes enzymes MMP",
+        "",
+        "Environ 90% des signes",
+        "visibles du vieillissement",
+        "viennent du soleil"
+      ]
+    },
+    {
+      "name": "La crème solaire, tous les jours",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Une protection solaire",
+        "quotidienne limite les dégâts",
+        "",
+        "Une étude sur 903 adultes",
+        "montre 24% de dommages",
+        "cutanés en moins"
+      ]
+    },
+    {
+      "name": "Cause n°3 : trop de sucre",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Le sucre en excès se fixe",
+        "sur le collagène : la glycation",
+        "",
+        "Il forme des ponts rigides",
+        "qui figent la peau"
+      ]
+    },
+    {
+      "name": "Moins de sucre ajouté",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Réduire le sucre ajouté",
+        "ralentit la glycation",
+        "",
+        "avant qu'elle ne s'installe",
+        "durablement dans la peau"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tabac, soleil",
+        "et sucre"
+      ],
+      [
+        "abîment discrètement",
+        "votre collagène"
+      ]
+    ],
+    "tip": [
+      "Arrêtez de fumer, protégez votre peau chaque jour,",
+      "et limitez le sucre ajouté"
+    ],
+    "cta": "Envie d'autres conseils santé comme celui-ci ? Abonnez-vous et suivez-nous !"
+  }
+}
