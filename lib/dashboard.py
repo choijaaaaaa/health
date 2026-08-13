@@ -1207,6 +1207,7 @@ GLOBAL_LANG_LABELS = {
     "de": "독일어 Deutsch", "ru": "러시아어 Русский", "vi": "베트남어 Tiếng Việt",
     "ar": "아랍어 العربية", "bn": "벵골어 বাংলা", "tr": "터키어 Türkçe",
     "th": "태국어 ไทย", "id": "인도네시아어 Indonesia", "hi": "힌디어 हिन्दी",
+    "it": "이탈리아어 Italiano", "nl": "네덜란드어 Nederlands", "sv": "스웨덴어 Svenska",
 }
 
 # WHY 통합 대시보드를 별도 파일이 아니라 "언어별 dashboard.html을 그대로 iframe으로
