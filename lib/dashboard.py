@@ -1512,7 +1512,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
             ko_cards = "".join(
                 _light_platform_card(base_topic, lang, p, idx)
                 for idx, p in enumerate(spec.get("platforms", []))
-                if p["name"] not in _UI_EXCLUDED_PLATFORMS
+                if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
             )
             if ko_cards:
                 sections += (
@@ -1528,7 +1528,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
         global_cards += "".join(
             _light_platform_card(base_topic, lang, p, idx)
             for idx, p in enumerate(spec.get("platforms", []))
-            if p["name"] not in _UI_EXCLUDED_PLATFORMS
+            if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
         )
 
     if global_cards:
@@ -1581,7 +1581,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
     # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
-    spec["platforms"] = [p for p in spec.get("platforms", []) if p["name"] not in _UI_EXCLUDED_PLATFORMS]
+    spec["platforms"] = [
+        p for p in spec.get("platforms", [])
+        if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
+    ]
 
     # WHY 자동 경고(2026-07-31): 해시태그가 한 플랫폼만 빠진 채로 넘어간 적이 있었다
     # ("전반적으로 해시태그 있어야하는건 자동으로 넣어줘야하지않을까" 지적) — 매번
