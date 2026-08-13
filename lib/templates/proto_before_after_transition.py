@@ -21,13 +21,24 @@ _REPO_ROOT = Path(__file__).resolve().parents[2]
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from lib.bgm import mix_bgm  # noqa: E402
+from lib.bgm import bgm_filter_segment  # noqa: E402
 from lib.video_assembler import (  # noqa: E402
-    _title_font_for_lang, _wrap_text_for_lang, draw_ad_tag_overlay,
+    _accent_color_for_seed, _make_title_card_png, _text_y_bias_for_seed,
+    _title_card_style_for_seed, _title_font_for_lang, _wrap_text_for_lang,
+    draw_ad_tag_overlay,
 )
 
 W, H = 1080, 1920
 FPS = 30
+# WHY 별도 타이틀 카드(2026-08-13, "썸네일만 나오고 그다음 영상 쭉 가는게
+# 아니고 첫 이미지가 그대로 가는 느낌" 사용자 지적 — 실측 확인 결과 훅
+# 화면이 첫 SRT 구간 길이(수 초) 그대로 프레임 0=썸네일 역할까지 겸하고
+# 있었다): 판서형(video_assembler.py의 assemble())이 이미 쓰는 패턴 그대로
+# — 나레이션과 무관한 짧은 무음 타이틀 카드를 맨 앞에 붙이고, 그 뒤에 실제
+# 훅 화면(나레이션 길이만큼 유지)이 이어지게 한다. 프레임 0(=썸네일)의
+# 역할을 훅 화면에서 분리해서 짧고 확실하게 만든다 — 판서형과 동일한
+# 1.3초로 맞춤(이미 검증된 값, 새로 정할 이유 없음).
+TITLE_CARD_DURATION = 1.3
 
 _ILLUST_DIR = _REPO_ROOT / "assets_library" / "illust"
 
@@ -677,10 +688,28 @@ def _render_closing_screen(theme: dict, lang: str, closing: dict, char_chromas: 
 
 # ── 영상 조립 ─────────────────────────────────────────────────────────
 
+# WHY 미세 줌(2026-08-13, "첫 이미지가 그대로 가는 느낌" 실측 확인 —
+# 소화_9에서 기전 화면이 13초 동안 완전히 정지, 원인 화면들도 5~8초씩
+# 아무 변화 없이 그대로): beat 하나가 나레이션 길이만큼(길면 10초 이상)
+# 그대로 떠 있는데 캐릭터 모션도 없어서(2026-08-05 결정, 모션 생성 중단)
+# 화면 안에서 아무것도 안 바뀐다. _build_background()가 실사진 슬라이드쇼에
+# 이미 쓰는 zoompan과 같은 원리로 미세 확대를 건다 — 다만 증분을 duration
+# 역산으로 매번 다시 계산해서, beat 길이와 무관하게 항상 처음부터 끝까지
+# 줄곧 서서히 확대되게 한다(고정 증분이면 짧은 beat는 목표치를 못 채우고
+# 긴 beat는 일찍 다 확대돼버려서 남은 시간이 다시 정지 상태가 됨).
+_SEGMENT_ZOOM_TARGET = 1.045
+
+
 def _build_segment(png_path: Path, duration: float, out_path: Path) -> None:
+    frames = max(int(duration * FPS), 1)
+    zoom_step = (_SEGMENT_ZOOM_TARGET - 1.0) / frames
+    vf = (
+        f"zoompan=z='min(zoom+{zoom_step:.8f},{_SEGMENT_ZOOM_TARGET})':"
+        f"d={frames}:s={W}x{H}:fps={FPS}"
+    )
     subprocess.run(
         ["ffmpeg", "-y", "-loop", "1", "-i", str(png_path), "-t", f"{duration:.4f}",
-         "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
+         "-vf", vf, "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(out_path)],
         check=True, capture_output=True,
     )
 
@@ -871,9 +900,10 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         # 0(=사실상 썸네일)이 그 크기와 맞아야 피드에서 잘 읽힌다. 안전영역
         # 초과 시엔 _fit_text_block이 이 값을 상한으로 자동으로 줄이므로
         # (min_size=34) 짧은 훅 문장은 88 그대로, 긴 문장만 자동 축소된다.
+        hook_char_file = spec.get("cover_char_file") or mechanism_item.get("char_file")
         screens.append({
             "tone": "before", "label": None, "body": hook_lines,
-            "char": chroma_for(spec.get("cover_char_file") or mechanism_item.get("char_file")),
+            "char": chroma_for(hook_char_file),
             "dur": hook_duration, "headline_size": 88,
         })
         screens.append({
@@ -963,13 +993,68 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             )
             chained = padded
 
-        mixed_audio = mix_bgm(audio_path, str(tmp_path / "mixed_audio.m4a"), audio_duration, seed_str)
+        # WHY 판서형(video_assembler.py assemble())과 동일한 패턴: 나레이션과
+        # 무관한 무음 타이틀 카드를 여기서 별도로 만들어 chained 앞에 하드컷으로
+        # 붙인다 — 훅 화면(=chained[0])은 그대로 나레이션 길이만큼 유지하되,
+        # 프레임 0(=사실상 썸네일) 역할은 이 짧고 확실한 카드가 전담한다.
+        title_card_png = tmp_path / "title_card.png"
+        _make_title_card_png(
+            " ".join(hook_lines), title_card_png,
+            char_path=str(_ILLUST_DIR / hook_char_file) if hook_char_file else None,
+            lang=lang, accent_color=_accent_color_for_seed(seed_str),
+            y_bias=_text_y_bias_for_seed(seed_str), style=_title_card_style_for_seed(seed_str),
+        )
+        if ad_tag:
+            title_card_img = draw_ad_tag_overlay(Image.open(title_card_png).convert("RGB"), lang)
+            title_card_img.save(title_card_png)
+        title_card_out = tmp_path / "title_card.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-t", f"{TITLE_CARD_DURATION}", "-r", str(FPS),
+             "-i", str(title_card_png), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(title_card_out)],
+            check=True, capture_output=True,
+        )
+
+        # WHY concat demuxer -c copy(2026-08-13): title_card_out과 chained
+        # 둘 다 이미 같은 코덱/픽셀포맷/fps(libx264/yuv420p/30)로 렌더링돼 있어
+        # 재인코딩 없이 그대로 이어붙일 수 있다 — 판서형 assemble()의
+        # scene_files concat과 동일한 패턴.
+        combined = tmp_path / "combined.mp4"
+        concat_list = tmp_path / "concat_list.txt"
+        concat_list.write_text(
+            f"file '{title_card_out.resolve()}'\nfile '{chained.resolve()}'\n"
+        )
+        subprocess.run(
+            ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
+             "-c", "copy", str(combined)],
+            check=True, capture_output=True,
+        )
+
+        # WHY mix_bgm(단순 케이스) 대신 bgm_filter_segment+adelay(복합 케이스)로
+        # 전환(2026-08-13): 타이틀 카드가 붙으면서 영상 전체 길이가
+        # audio_duration보다 TITLE_CARD_DURATION만큼 길어졌다 — BGM은 그 무음
+        # 구간에서도 끊기지 않고 계속 깔려야 자연스럽고(판서형과 동일 원칙),
+        # 나레이션만 그만큼 뒤로(adelay) 밀어야 훅 화면 시작과 나레이션 시작이
+        # 정확히 맞는다. lib/bgm.py의 "복합 케이스" 가이드 그대로.
+        video_total_duration = TITLE_CARD_DURATION + audio_duration
+        offset_ms = int(TITLE_CARD_DURATION * 1000)
+        bgm_result = bgm_filter_segment(seed_str, video_total_duration, in_label="2:a", out_label="bgm")
+        if bgm_result is not None:
+            bgm_frag, bgm_track = bgm_result
+            narr_frag = f"[1:a]adelay={offset_ms}|{offset_ms}[narr]"
+            filter_complex = (
+                f"{narr_frag};{bgm_frag};"
+                f"[narr][bgm]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]"
+            )
+            mux_inputs = ["-i", str(combined), "-i", audio_path, "-i", str(bgm_track)]
+        else:
+            filter_complex = f"[1:a]adelay={offset_ms}|{offset_ms}[a]"
+            mux_inputs = ["-i", str(combined), "-i", audio_path]
 
         Path(out_path).parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(
-            ["ffmpeg", "-y", "-i", str(chained), "-i", mixed_audio,
-             "-map", "0:v", "-map", "1:a", "-c:v", "libx264", "-pix_fmt", "yuv420p",
-             "-c:a", "aac", "-b:a", "192k", "-t", f"{audio_duration:.4f}", "-shortest", str(out_path)],
+            ["ffmpeg", "-y", *mux_inputs, "-filter_complex", filter_complex,
+             "-map", "0:v", "-map", "[a]", "-c:v", "copy",
+             "-c:a", "aac", "-b:a", "192k", "-t", f"{video_total_duration:.4f}", str(out_path)],
             check=True, capture_output=True,
         )
 
