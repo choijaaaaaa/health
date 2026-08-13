@@ -351,7 +351,7 @@ Promise.all([
   // completed_topics가 (base_topic, track) 복합키로 바뀌어서(supabase/schema.sql
   // 참고) "topic1|shorts" 형태 문자열로 합쳐 Set에 넣어야 트랙별로 독립적으로
   // 완료 여부를 판정할 수 있다.
-  sb.from("completed_topics").select("base_topic,track").then(r => (r.data || []).map(x => `${x.base_topic}|${x.track}`)),
+  sb.from("completed_topics").select("base_topic,track,completed_at").then(r => r.data || []),
   // WHY youtube_uploaded 별도 조회(2026-08-02, "유튜브 숏츠"만" 완료되었는지를
   // 해당 라인에서 확인할 수 있게"): completed_topics(콘텐츠 전체 완료)과는
   // 독립적인 기준 — 유튜브 업로드+썸네일+재생목록 등록까지 끝나면(예약 게시여도
@@ -359,9 +359,19 @@ Promise.all([
   // 자동 기록한다(_mark_youtube_uploaded).
   sb.from("youtube_uploaded").select("topic").then(r => (r.data || []).map(x => x.topic)),
 ])
-  .then(([topics, completedList, youtubeList]) => {
+  .then(([topics, completedRows, youtubeList]) => {
     if (!topics.length) return;
-    const completed = new Set(completedList);
+    const completed = new Set(completedRows.map(r => `${r.base_topic}|${r.track}`));
+    // WHY completedAt 별도 맵(2026-08-13, "완료목록도 업데이트 순서대로 들어가고
+    // 있는거 맞아?" — 실제로는 topics.updated_at(생성 시각)을 그대로 뒤집어
+    // 쓰고 있어서, 오래전에 만든 topic을 방금 완료 체크해도 목록 맨 위로 안
+    // 올라가는 버그였다): base_topic 하나가 여러 track(숏츠+카드뉴스)을 가질 수
+    // 있어 각각 completed_at이 다를 수 있으므로 가장 늦은(최근) 값을 쓴다.
+    const completedAt = new Map();
+    for (const r of completedRows) {
+      const prev = completedAt.get(r.base_topic);
+      if (!prev || r.completed_at > prev) completedAt.set(r.base_topic, r.completed_at);
+    }
     const youtubeDone = new Set(youtubeList);
     const searchInput = document.getElementById("topicSearch");
     let currentRows = [];
@@ -408,6 +418,7 @@ Promise.all([
     topicsList.innerHTML = "";
     doneList.innerHTML = "";
     const rows = [];
+    const doneRowsPending = [];
 
     function refreshDoneWrap() {
       const n = doneList.children.length;
@@ -417,10 +428,12 @@ Promise.all([
 
     // WHY 정렬 기준(2026-08-11, "기존꺼가 위로 오게 해. 완료 목록은 새로운게
     // 위로 오게 하고"): 미완료 목록은 topics.updated_at 오름차순(오래된
-    // topic이 위, 위 topicUpdatedAt WHY 참고) — 값이 없으면 맨 아래. 완료
-    // 목록은 같은 정렬을 그대로 쓰되 각 행을 뒤에 붙이지 않고 맨 앞에
-    // 꽂아서(prepend) 결과적으로 최신순(내림차순)이 되게 한다 — 정렬을 두
-    // 번 따로 하지 않아도 된다.
+    // topic이 위, 위 topicUpdatedAt WHY 참고) — 값이 없으면 맨 아래. **완료
+    // 목록은 이 정렬을 재사용하지 않는다**(2026-08-13 수정, "완료목록도
+    // 업데이트 순서대로 들어가고 있는거 맞아?" 확인 중 발견 — topics.updated_at
+    // 을 뒤집어 쓰면 "언제 만들었는지"가 기준이 돼서, 오래전에 만든 topic을
+    // 방금 완료 체크해도 목록 맨 위로 안 올라가는 버그였다) — 아래
+    // doneRowsPending을 completedAt(실제 완료 처리 시각) 기준으로 별도 정렬.
     const sortKey = baseTopic => topicUpdatedAt.get(baseTopic) || "￿";
     const sortedGroups = [...groups.entries()].sort((a, b) => {
       const ta = sortKey(a[0]);
@@ -585,18 +598,28 @@ Promise.all([
       }
 
       // WHY topic당 행 하나만: 목록에 트랙 구분이 없어졌으니(위 배지 WHY 참고)
-      // 완료면 doneList, 아니면 topicsList 하나에만 넣는다. doneList는
-      // appendChild 대신 맨 앞에 꽂아서(prepend) 오름차순 순회 결과를
-      // 최신순으로 뒤집는다 — 바로 위 sortedGroups WHY 참고.
+      // 완료면 doneList, 아니면 topicsList 하나에만 넣는다. 완료 목록은
+      // topics.updated_at이 아니라 completedAt(실제 완료 체크 시각) 기준으로
+      // 따로 정렬해야 해서(2026-08-13, 위 completedAt WHY 참고) 바로 넣지
+      // 않고 doneRowsPending에 모아뒀다가 루프 끝나고 한 번에 정렬해서 넣는다.
       const row = buildRow();
-      const targetList = done ? doneList : topicsList;
       if (done) {
-        targetList.insertBefore(row, targetList.firstChild);
+        doneRowsPending.push({ row, baseTopic });
       } else {
-        targetList.appendChild(row);
+        topicsList.appendChild(row);
       }
-      rows.push({ row, topic: baseTopic, list: targetList });
+      rows.push({ row, topic: baseTopic, list: done ? doneList : topicsList });
     });
+    // WHY completedAt 없는 항목은 맨 뒤로: 데이터가 없으면(예: 아주 옛날에
+    // completed_topics만 있고 completed_at이 비어있는 레거시 행) 최신순 정렬
+    // 의미가 없으니 안전하게 뒤로 보낸다.
+    doneRowsPending
+      .sort((a, b) => {
+        const ta = completedAt.get(a.baseTopic) || "";
+        const tb = completedAt.get(b.baseTopic) || "";
+        return ta < tb ? 1 : ta > tb ? -1 : 0;
+      })
+      .forEach(({ row }) => doneList.appendChild(row));
     refreshDoneWrap();
     currentRows = rows;
     } // end renderAll
