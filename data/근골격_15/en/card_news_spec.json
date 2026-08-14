@@ -1,0 +1,136 @@
+{
+  "title": [
+    "ACL Tears:",
+    "Female Athletes Are Up To",
+    "8 Times More Likely To Get One —",
+    "Here's Why"
+  ],
+  "eyebrow": "ACL Injury Risk",
+  "cover_char_file": "무릎_illust.jpg",
+  "cover_scrim_color": "#D9480F",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "무릎_illust.jpg": "Knee",
+    "운동화_illust.jpg": "Sport",
+    "아령_illust.jpg": "Strength",
+    "냉찜질_illust.jpg": "Ice"
+  },
+  "items": [
+    {
+      "name": "What your ACL actually does",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Your ACL connects your",
+        "thigh bone to your shin bone",
+        "and keeps your knee",
+        "from twisting too far",
+        "",
+        "Plant your foot and pivot",
+        "or land from a jump wrong,",
+        "and it can tear",
+        "",
+        "Most people who tear it",
+        "feel or hear a pop"
+      ]
+    },
+    {
+      "name": "Female athletes face a much higher risk",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Female athletes are up to",
+        "8 times more likely to tear",
+        "an ACL than male athletes",
+        "",
+        "At the last two Women's",
+        "World Cups, 12.5% of players",
+        "had already had ACL surgery —",
+        "nearly double the men's rate"
+      ]
+    },
+    {
+      "name": "Why the risk is so different",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Women's ACLs tend to be",
+        "smaller, and the notch",
+        "the ligament passes through",
+        "is narrower",
+        "",
+        "Hip and knee alignment,",
+        "plus hormonal shifts during",
+        "the menstrual cycle,",
+        "add to the risk"
+      ]
+    },
+    {
+      "name": "This is when it usually happens",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Cutting, pivoting, jumping,",
+        "and landing in soccer,",
+        "basketball, and volleyball",
+        "",
+        "Most ACL tears happen",
+        "with no contact at all —",
+        "just a bad landing or turn"
+      ]
+    },
+    {
+      "name": "2 things that matter most",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Knowing how to respond",
+        "if an injury happens,",
+        "",
+        "and neuromuscular training",
+        "that changes how you",
+        "land and pivot beforehand"
+      ]
+    },
+    {
+      "name": "First, protect the knee right away",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Stay off it, ice it,",
+        "and keep it elevated",
+        "above your heart",
+        "",
+        "Don't just wait out the pain —",
+        "get it checked within days,",
+        "not weeks"
+      ]
+    },
+    {
+      "name": "Second, train how you land",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Structured programs cut ACL",
+        "injuries by up to 88% in",
+        "young female soccer players",
+        "",
+        "Strengthen your quads and",
+        "hamstrings, and practice",
+        "landing softly with your",
+        "knee tracking over your toes"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Train how you land",
+        "and pivot beforehand,"
+      ],
+      [
+        "and your ACL tear risk",
+        "drops significantly"
+      ]
+    ],
+    "tip": [
+      "Heard a pop or felt sudden swelling after a pivot or landing? Get it checked within days, not weeks",
+      "Structured landing and strength training can cut ACL injury risk dramatically, especially for female athletes"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
