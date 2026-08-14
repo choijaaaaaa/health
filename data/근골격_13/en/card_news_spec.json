@@ -1,0 +1,57 @@
+{
+  "title": ["Torn Meniscus - If Your Knee", "Buckles or Gives Way", "Going Down Stairs, Are You Brushing It Off?", "How to Protect Your Knee"],
+  "eyebrow": "Meniscus Tear Signs",
+  "cover_scrim_color": "#3D6B4F",
+  "cover_char_file": "무릎_illust.jpg",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "무릎_illust.jpg": "Knee",
+    "운동화_illust.jpg": "Sports Injury",
+    "노화_illust.jpg": "Aging",
+    "냉찜질_illust.jpg": "Ice Therapy",
+    "아령_illust.jpg": "Strength Training"
+  },
+  "items": [
+    {
+      "name": "What a Torn Meniscus Actually Is",
+      "char_file": "무릎_illust.jpg",
+      "body": ["Between your thighbone and shinbone", "sits a C-shaped cushion of cartilage", "called the meniscus", "", "A tear happens when", "that cartilage rips"]
+    },
+    {
+      "name": "Watch For These Warning Signs",
+      "char_file": "무릎_illust.jpg",
+      "body": ["Your knee buckling or giving way", "on stairs, plus catching or clicking", "", "About 850,000 meniscus procedures", "happen in the US every year"]
+    },
+    {
+      "name": "Two Very Different Causes",
+      "char_file": "운동화_illust.jpg",
+      "body": ["In young, active people, it's usually", "a forceful twist with the foot planted -", "common in soccer, basketball, football", "", "In older adults, cartilage wears down", "over time with no injury at all"]
+    },
+    {
+      "name": "Ignoring It Speeds Up Arthritis",
+      "char_file": "노화_illust.jpg",
+      "body": ["A torn meniscus can't cushion", "the joint anymore, so bone", "grinds against bone", "", "That accelerates cartilage loss", "and knee osteoarthritis"]
+    },
+    {
+      "name": "First, Rest and Ice the Knee",
+      "char_file": "냉찜질_illust.jpg",
+      "body": ["Ice for 15 to 20 minutes,", "every 3 to 4 hours for a few days", "", "Skip deep squats and twisting", "movements until swelling calms down"]
+    },
+    {
+      "name": "Second, Build Quad Strength",
+      "char_file": "아령_illust.jpg",
+      "body": ["Sit with your leg straight,", "tighten your thigh muscle,", "hold for 5 seconds", "", "Stronger quads take pressure", "off the joint itself"]
+    },
+    {
+      "name": "See a Doctor If You Notice This",
+      "char_file": "무릎_illust.jpg",
+      "body": ["A knee stuck bent or straight", "and you can't move it", "", "Can't bear weight, or swelling", "gets worse fast - don't wait"]
+    }
+  ],
+  "closing": {
+    "headline": [["A torn meniscus isn't pain", "you can just push through"], ["Rest and ice first, then", "rebuild strength around the joint"]],
+    "tip": ["If your knee locks or can't bear weight,", "see a doctor right away"],
+    "cta": "Follow for more health tips like this"
+  }
+}
