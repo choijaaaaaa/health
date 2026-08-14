@@ -46,6 +46,17 @@ def set_lang(lang: str) -> None:
     global _CURRENT_LANG
     _CURRENT_LANG = lang
 
+
+# WHY(2026-08-14, á/é 깨짐 버그 조사 중 추가 발견): "→"(U+2192)가
+# NotoSans-Bold.ttf/NotoSansArabic·Bengali·Devanagari·Thai-Bold.ttf 전부에
+# 없어 스와이프 힌트("Desliza para ver más  →" 등) 끝의 화살표만 별도로 tofu
+# box로 깨진다 — AppleSDGothicNeo(kor)·NotoSansJP/TC(ja/zh-TW)엔 있어서 그동안
+# 안 드러났었다. "»"는 지금 쓰는 모든 폰트(6개 전부 실측 확인)에 있어 언어
+# 분기 없이 안전하게 치환 가능 — 화살표를 쓰는 자리(스와이프 힌트) 전부
+# 렌더링 직전에 이 함수를 거칠 것.
+def _safe_arrow(text: str) -> str:
+    return text.replace("→", "»")
+
 BG_TOP = (253, 249, 245)
 BG_BOTTOM = (246, 237, 230)
 INK = (43, 35, 31)
@@ -358,7 +369,7 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
         draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255))
         y += line_h
 
-    _draw_centered(draw, [swipe_label], H - 110, 0, 34, (255, 214, 224), "semibold")
+    _draw_centered(draw, [_safe_arrow(swipe_label)], H - 110, 0, 34, (255, 214, 224), "semibold")
     img.save(out_path, quality=95)
 
 
@@ -393,7 +404,7 @@ def _make_cover_flat(title_lines, char_paths, out_path):
     y = _draw_centered(draw, title_lines[:-1], y, 66, 46, INK_SOFT, "medium")
     y = _draw_centered(draw, [title_lines[-1]], y + 4, 70, 60, INK, "bold")
     _diamond_divider(draw, y + 50)
-    _draw_centered(draw, ["넘겨서 확인하기  →"], y + 90, 40, 32, ACCENT, "semibold")
+    _draw_centered(draw, [_safe_arrow("넘겨서 확인하기  →")], y + 90, 40, 32, ACCENT, "semibold")
     img.save(out_path, quality=95)
 
 
@@ -459,7 +470,7 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
         y += gap_med_hint
 
     draw = ImageDraw.Draw(img)
-    _draw_centered(draw, ["넘겨서 확인하기  →"], y, 0, 34, (255, 214, 224), "semibold")
+    _draw_centered(draw, [_safe_arrow("넘겨서 확인하기  →")], y, 0, 34, (255, 214, 224), "semibold")
 
     img.convert("RGB").save(out_path, quality=95)
 
