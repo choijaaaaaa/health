@@ -1,0 +1,126 @@
+{
+  "title": [
+    "Ovulation Pain:",
+    "More Than 40% Of Women",
+    "Get It, And For Many",
+    "It's Almost Every Month —",
+    "How To Tell If It's Normal"
+  ],
+  "eyebrow": "Ovulation Pain Guide",
+  "cover_char_file": "근육경련_illust.jpg",
+  "cover_scrim_color": "#8C1F3D",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "근육경련_illust.jpg": "Cramping",
+    "달력_illust.jpg": "Cycle Tracking",
+    "온찜질_illust.jpg": "Heat Therapy",
+    "이부프로펜_illust.jpg": "NSAID"
+  },
+  "items": [
+    {
+      "name": "What's actually causing the pain",
+      "char_file": "근육경련_illust.jpg",
+      "body": [
+        "Right before an egg",
+        "is released, the growing",
+        "follicle stretches the",
+        "surface of the ovary",
+        "",
+        "Fluid released when it",
+        "ruptures then irritates",
+        "the lining of your",
+        "abdomen — prostaglandins",
+        "drive both steps"
+      ]
+    },
+    {
+      "name": "It's more common than you'd think",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "More than 40% of women",
+        "of reproductive age",
+        "get this at some point —",
+        "and for many, it shows",
+        "up almost every cycle",
+        "",
+        "It's usually felt on",
+        "one side only and lasts",
+        "anywhere from a few",
+        "minutes to about 48 hours"
+      ]
+    },
+    {
+      "name": "Start with heat",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "A heating pad or hot",
+        "water bottle on your",
+        "lower belly relaxes",
+        "the muscles",
+        "",
+        "and takes the edge",
+        "off the ache fast"
+      ]
+    },
+    {
+      "name": "NSAIDs work well too",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Taking ibuprofen at the",
+        "first sign of pain blocks",
+        "the same prostaglandins",
+        "that are causing it",
+        "",
+        "It's one of the most",
+        "reliable ways to take",
+        "the edge off"
+      ]
+    },
+    {
+      "name": "Track your cycle so you're not caught off guard",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Mark the days you expect",
+        "ovulation on a calendar",
+        "or period-tracking app",
+        "",
+        "so you can keep meds",
+        "on hand before the",
+        "pain even starts"
+      ]
+    },
+    {
+      "name": "When it's not just ovulation pain",
+      "char_file": "근육경련_illust.jpg",
+      "body": [
+        "See a doctor if the pain",
+        "lasts more than 48 hours,",
+        "or comes with nausea,",
+        "vomiting, or dizziness",
+        "",
+        "Sudden, severe one-sided",
+        "pain needs urgent care —",
+        "it could be ovarian",
+        "torsion or a ruptured cyst"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Heat and an NSAID handle",
+        "most ovulation pain"
+      ],
+      [
+        "Tracking your cycle",
+        "keeps you a step ahead"
+      ]
+    ],
+    "tip": [
+      "Pain lasting more than 48 hours, or sudden severe one-sided pain, needs medical attention right away",
+      "If it happens around the same time every month, it's very likely ovulation — tracking it takes the guesswork out"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
