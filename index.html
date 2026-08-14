@@ -131,6 +131,16 @@
      될 사이즈로"): 원본 카드뉴스 그리드(120px)와 같은 크기 — 너무 작으면
      어떤 사진인지 확인이 안 돼서 결국 원본을 또 열어봐야 하고, 그러면
      "번호별로 바로 확인" 이라는 요청 취지가 무색해진다. */
+  /* WHY 영상을 세로 짧은 폭(220px)으로 캡핑하는지: 9:16 쇼츠 영상이라
+     카드 폭(250px 안팎) 그대로 두면 세로로 너무 길어져서 카드 그리드가
+     깨진다 — 다운로드 버튼은 재생 컨트롤 아래 별도 줄로 폭 전체를 채움. */
+  .cnh-video-block { display: flex; flex-direction: column; gap: 6px; align-items: center; }
+  .cnh-video { width: 100%; max-width: 220px; aspect-ratio: 9/16; border-radius: 10px; background: #000; }
+  .cnh-video-block .cnh-btn-open {
+    display: block; width: 100%; text-align: center; box-sizing: border-box;
+    border: none; border-radius: 999px; padding: 8px 10px; font-size: 12px;
+    font-weight: 700; text-decoration: none; font-family: inherit;
+  }
   .cnh-image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; }
   .cnh-image-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
   .cnh-image-item a { display: block; width: 100%; }
@@ -315,6 +325,34 @@
     title.className = "cnh-card-title";
     title.textContent = item.title;
     card.appendChild(title);
+
+    // WHY 영상을 이미지 그리드보다도 위에 두는지(2026-08-14, jp_review
+    // 버티컬 도입 — "게시물은 딱 영상 하나만 맨위에?"): 영상 기반 콘텐츠는
+    // 네이버 블로그 포스팅도 "영상을 글 맨 위에 먼저 넣고, 그 아래 번호별
+    // 이미지+본문으로 디테일을 풀어주는" 구조가 표준 — 영상이 카드뉴스보다
+    // 먼저 눈에 들어와야 발행 순서(영상 업로드 → 캡션 복사 → 번호별 이미지
+    // 삽입)와도 맞는다. 카드뉴스만 있는 다른 버티컬은 item.video_path가
+    // 항상 null이라 이 블록 자체가 안 그려짐.
+    if (item.video_path) {
+      const videoBlock = document.createElement("div");
+      videoBlock.className = "cnh-video-block";
+
+      const video = document.createElement("video");
+      video.src = item.video_path;
+      video.controls = true;
+      video.preload = "metadata";
+      video.className = "cnh-video";
+      videoBlock.appendChild(video);
+
+      const dlLink = document.createElement("a");
+      dlLink.href = item.video_path;
+      dlLink.download = "";
+      dlLink.className = "cnh-btn-open";
+      dlLink.textContent = "영상 다운로드";
+      videoBlock.appendChild(dlLink);
+
+      card.appendChild(videoBlock);
+    }
 
     // WHY 이미지 그리드를 캡션 미리보기보다 먼저 두는지(2026-08-14, "각
     // 블로그에서 어떤 번호에 어떤 사진 넣어놓고 발행만 하면 손쉽게 될

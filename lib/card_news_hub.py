@@ -28,12 +28,20 @@ ROOT = Path(__file__).resolve().parent.parent
 # ("계정이 없으면 그룹에 안 넣는다"). 두 버티컬용 계정이 나중에 생기면
 # VERTICAL_REPOS에 다시 추가할 것 — 레포 자체(cerulem-content/
 # nookery-content)는 안 건드렸으니 데이터는 그대로 있다.
-# (레포 디렉터리명, 한글 표시 라벨, 네이버 계정 그룹명)
-VERTICAL_REPOS: dict[str, tuple[str | None, str, str]] = {
-    "health":      (None,                 "건강",     "건강"),
-    "littlebrook": ("littlebrook-content", "육아",     "육아+반려동물"),
-    "pawnest":     ("pawnest-content",     "반려동물", "육아+반려동물"),
-    "fiscallo":    ("fiscallo-content",    "경제",     "경제"),
+# (레포 디렉터리명, 한글 표시 라벨, 네이버 계정 그룹명, 영상 파일명(있으면))
+#
+# ⚠️ jp_review는 카드뉴스 이미지 렌더링 파이프라인이 없는 대신 실제 촬영
+# 영상(output/<topic>/demo_preview.mp4)이 있다(2026-08-14, "게시물은 딱
+# 영상 하나만 맨위에?" 확인 후 도입) — 네 번째 튜플 원소로 영상 파일명을
+# 넣으면 collect_items()가 그 파일을 찾아 item["video_path"]에 채워주고,
+# index.html이 이미지 그리드보다 위에 영상 미리보기+다운로드 블록을 그린다.
+# 다른 버티컬은 영상이 없으니 네 번째 원소를 생략(기본값 None).
+VERTICAL_REPOS: dict[str, tuple[str | None, str, str] | tuple[str | None, str, str, str]] = {
+    "health":      (None,                 "건강",       "건강"),
+    "littlebrook": ("littlebrook-content", "육아",       "육아+반려동물"),
+    "pawnest":     ("pawnest-content",     "반려동물",   "육아+반려동물"),
+    "fiscallo":    ("fiscallo-content",    "경제",       "경제"),
+    "jp_review":   ("jp-review-shorts",    "일본상품리뷰", "건강", "demo_preview.mp4"),
 }
 
 # 그룹 표시 순서 고정(dict 삽입 순서에 기대지 않고 명시).
@@ -95,21 +103,37 @@ def _naver_blog_caption(captions_path: Path) -> str | None:
     return None
 
 
-def _naver_images(images_path: Path) -> list[dict]:
+def _naver_images(images_path: Path, repo_root: Path, topic: str) -> list[dict]:
     """번호 마커별 이미지 목록(2026-08-14, "이미지도 카드뉴스처럼 번호별로
     관리되게" 요청). 건강은 이 파일이 없다(card_news 폴더의 실제 렌더링된
     jpg를 쓰므로 collect_items()에서 별도 처리) — 3개 신규 버티컬(fiscallo/
     littlebrook/pawnest)은 카드뉴스 렌더링 파이프라인 자체가 없어(각 레포
     CLAUDE.md "이 프로젝트가 아닌 것" 절) 대신 Pexels 실사진 URL을 마커별로
     매핑해둔 이 JSON을 쓴다. 파일이 없으면(아직 이미지 소싱 전인 topic)
-    빈 리스트 — index.html 쪽에서 "이미지 없음"으로 자연스럽게 처리된다."""
+    빈 리스트 — index.html 쪽에서 "이미지 없음"으로 자연스럽게 처리된다.
+
+    ⚠️ url이 http(s)로 시작 안 하면 로컬 파일명으로 보고 그 topic의
+    output 디렉터리 기준 상대경로로 변환한다(2026-08-14, jp_review처럼
+    Pexels 대신 실제 영상에서 뽑은 프레임 이미지를 쓰는 버티컬 대응) —
+    naver_images.json엔 파일명만 적으면 되고, ROOT 기준 상대경로 계산은
+    여기서 자동으로 처리된다."""
     if not images_path.exists():
         return []
     try:
         data = json.loads(images_path.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
         return []
-    return [{"marker": d.get("marker", ""), "url": d.get("url", "")} for d in data if d.get("url")]
+    images = []
+    for d in data:
+        url = d.get("url", "")
+        if not url:
+            continue
+        if url.startswith("http://") or url.startswith("https://"):
+            images.append({"marker": d.get("marker", ""), "url": url})
+        else:
+            local_path = _topic_output_dir(repo_root, topic) / url
+            images.append({"marker": d.get("marker", ""), "url": os.path.relpath(local_path, ROOT)})
+    return images
 
 
 def _health_card_news_images(repo_root: Path, topic: str) -> list[dict]:
@@ -149,7 +173,9 @@ def collect_items() -> dict:
     # 둘 다 자동으로 맞다 — repo마다 분기할 필요 없음.
 
     groups: dict[str, dict[str, dict]] = {g: {} for g in GROUP_ORDER}
-    for key, (dir_name, label, group_name) in VERTICAL_REPOS.items():
+    for key, repo_spec in VERTICAL_REPOS.items():
+        dir_name, label, group_name = repo_spec[0], repo_spec[1], repo_spec[2]
+        video_filename = repo_spec[3] if len(repo_spec) > 3 else None
         groups.setdefault(group_name, {})
         groups[group_name][key] = {"key": key, "label": label, "items": []}
 
@@ -165,11 +191,18 @@ def collect_items() -> dict:
             if not caption:
                 continue
 
-            dashboard = _topic_output_dir(repo_root, topic) / "dashboard.html"
+            topic_output_dir = _topic_output_dir(repo_root, topic)
+            dashboard = topic_output_dir / "dashboard.html"
             dashboard_path = os.path.relpath(dashboard, ROOT) if dashboard.exists() else None
-            images = _naver_images(captions_path.parent / "naver_images.json")
+            images = _naver_images(captions_path.parent / "naver_images.json", repo_root, topic)
             if not images and dir_name is None:
                 images = _health_card_news_images(repo_root, topic)
+
+            video_path = None
+            if video_filename:
+                video_file = topic_output_dir / video_filename
+                if video_file.exists():
+                    video_path = os.path.relpath(video_file, ROOT)
 
             title = caption.split("\n", 1)[0].strip()
             groups[group_name][key]["items"].append({
@@ -178,6 +211,7 @@ def collect_items() -> dict:
                 "caption": caption,
                 "dashboard_path": dashboard_path,
                 "images": images,
+                "video_path": video_path,
             })
 
     return {
