@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Sarcopenia: stairs or jars feel",
+    "harder than before?",
+    "3 Habits That Protect Your Muscle"
+  ],
+  "eyebrow": "Muscle Health Alert",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "cover_scrim_color": "#7A5C3E",
+  "char_display_names": {
+    "계란_illust.jpg": "Eggs",
+    "운동화_illust.jpg": "Walking Shoes",
+    "아령_illust.jpg": "Dumbbells",
+    "소고기_illust.jpg": "Tough Meat",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Muscle mass drops about 6%",
+        "every decade after midlife",
+        "",
+        "Left unchecked, it raises risk of",
+        "falls, fractures, even heart disease"
+      ]
+    },
+    {
+      "name": "A Low-Protein Breakfast",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Muscle-building needs about",
+        "25g of protein in one sitting",
+        "",
+        "Cereal and toast barely cover",
+        "a fraction of that"
+      ]
+    },
+    {
+      "name": "Fix Your Breakfast",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Add 2 eggs, Greek yogurt,",
+        "or a glass of milk",
+        "",
+        "Spread protein evenly across",
+        "all three meals, not just dinner"
+      ]
+    },
+    {
+      "name": "Cardio-Only Workouts",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Walking is great for your heart",
+        "but barely challenges muscle",
+        "",
+        "Daily walkers can still",
+        "lose strength over time"
+      ]
+    },
+    {
+      "name": "Add Resistance Training",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Bands or dumbbells,",
+        "twice a week",
+        "",
+        "Improves grip strength,",
+        "walking speed, and muscle mass"
+      ]
+    },
+    {
+      "name": "Soft Carbs Instead of Protein",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Skipping tough meat is natural",
+        "when chewing gets harder",
+        "",
+        "But swapping it for rice or pasta",
+        "alone deepens the gap"
+      ]
+    },
+    {
+      "name": "Swap to Soft Protein",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Try ground meat, scrambled eggs,",
+        "silken tofu, or white fish",
+        "",
+        "Easy to chew,",
+        "still protein-rich"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sarcopenia isn't",
+        "just about age"
+      ],
+      [
+        "Three habits can meaningfully",
+        "slow muscle loss"
+      ]
+    ],
+    "tip": [
+      "Fix breakfast, add resistance training,",
+      "and choose protein you can chew"
+    ],
+    "cta": "Want more health tips like this? Follow along"
+  }
+}
