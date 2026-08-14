@@ -127,6 +127,19 @@
     padding: 14px; display: flex; flex-direction: column; gap: 8px;
   }
   .cnh-card-title { font-size: 14px; font-weight: 700; line-height: 1.4; margin: 0; }
+  /* WHY 썸네일을 120px 안팎으로 키우는지(2026-08-14, "발행만 하면 손쉽게
+     될 사이즈로"): 원본 카드뉴스 그리드(120px)와 같은 크기 — 너무 작으면
+     어떤 사진인지 확인이 안 돼서 결국 원본을 또 열어봐야 하고, 그러면
+     "번호별로 바로 확인" 이라는 요청 취지가 무색해진다. */
+  .cnh-image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; }
+  .cnh-image-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+  .cnh-image-item a { display: block; width: 100%; }
+  .cnh-image-item img {
+    width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 8px;
+    border: 1px solid var(--rule); display: block; background: var(--rule);
+  }
+  .cnh-image-marker { font-size: 10px; color: var(--ink-soft); text-align: center; line-height: 1.3; }
+  .cnh-card-no-images { font-size: 12px; color: var(--ink-soft); margin: 0; }
   .cnh-card-caption-preview {
     font-size: 12px; color: var(--ink-soft); line-height: 1.5;
     max-height: 4.5em; overflow: hidden; white-space: pre-wrap; margin: 0;
@@ -302,6 +315,46 @@
     title.className = "cnh-card-title";
     title.textContent = item.title;
     card.appendChild(title);
+
+    // WHY 이미지 그리드를 캡션 미리보기보다 먼저 두는지(2026-08-14, "각
+    // 블로그에서 어떤 번호에 어떤 사진 넣어놓고 발행만 하면 손쉽게 될
+    // 사이즈로"): 발행 작업 순서 자체가 "몇 번 사진을 어디에 넣을지 먼저
+    // 확인 → 캡션 복사"라 시각 자료를 텍스트보다 위에 둔다. 원본 클릭 시
+    // 새 탭으로 열려서(로컬 jpg든 Pexels URL이든 동일) 그대로 저장하거나
+    // 네이버 에디터에 드래그해 넣을 수 있다.
+    if (item.images && item.images.length) {
+      const imgGrid = document.createElement("div");
+      imgGrid.className = "cnh-image-grid";
+      for (const img of item.images) {
+        const cell = document.createElement("div");
+        cell.className = "cnh-image-item";
+
+        const link = document.createElement("a");
+        link.href = img.url;
+        link.target = "_blank";
+        link.rel = "noopener";
+
+        const thumb = document.createElement("img");
+        thumb.src = img.url;
+        thumb.alt = `${item.title} - ${img.marker}`;
+        thumb.loading = "lazy";
+        link.appendChild(thumb);
+        cell.appendChild(link);
+
+        const marker = document.createElement("span");
+        marker.className = "cnh-image-marker";
+        marker.textContent = img.marker;
+        cell.appendChild(marker);
+
+        imgGrid.appendChild(cell);
+      }
+      card.appendChild(imgGrid);
+    } else {
+      const noImages = document.createElement("p");
+      noImages.className = "cnh-card-no-images";
+      noImages.textContent = "이미지 준비 안 됨";
+      card.appendChild(noImages);
+    }
 
     const preview = document.createElement("p");
     preview.className = "cnh-card-caption-preview";
