@@ -411,11 +411,11 @@
         const postedAt = new Date().toISOString();
         localStorage.setItem(storageKey, JSON.stringify({ topic: item.topic, platform: "네이버 블로그", postedAt }));
         card.classList.add("is-done");
-        sb.from("posting_log").upsert({ topic: item.topic, platform: "네이버 블로그", posted_at: postedAt });
+        hsWrite("/api/posting-log", "POST", { topic: item.topic, platform: "네이버 블로그", posted_at: postedAt });
       } else {
         localStorage.removeItem(storageKey);
         card.classList.remove("is-done");
-        sb.from("posting_log").delete().eq("topic", item.topic).eq("platform", "네이버 블로그");
+        hsWrite("/api/posting-log", "DELETE", { topic: item.topic, platform: "네이버 블로그" });
       }
     });
 
@@ -751,6 +751,22 @@ document.getElementById("importLogInput").addEventListener("change", (e) => {
 // 전부 Supabase로 전환했다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
 
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`${path} ${method} 실패: ${await res.text()}`);
+}
+
 Promise.all([
   sb.from("topics").select("*").then(r => r.data || []),
   // WHY base_topic만이 아니라 track도 같이 가져오는지(2026-08-09, "숏츠쪽
@@ -887,10 +903,12 @@ Promise.all([
         ev.stopPropagation();
         badge.disabled = true;
         if (done) {
-          await sb.from("completed_topics").delete().eq("base_topic", baseTopic);
+          await hsWrite("/api/completed-topics", "DELETE", { base_topic: baseTopic });
           groupTracks.forEach(t => completed.delete(`${baseTopic}|${t}`));
         } else {
-          await sb.from("completed_topics").upsert(groupTracks.map(t => ({ base_topic: baseTopic, track: t })));
+          await hsWrite("/api/completed-topics", "POST", {
+            rows: groupTracks.map(t => ({ base_topic: baseTopic, track: t })),
+          });
           groupTracks.forEach(t => completed.add(`${baseTopic}|${t}`));
         }
         const q = searchInput.value;
@@ -1169,7 +1187,7 @@ Promise.all([
             return;
           }
           saved.className = "missing-link-saved";
-          await sb.from("global_product_links").upsert({ market, product, url });
+          await hsWrite("/api/global-product-links", "POST", { market, product, url });
           have.add(market + "|" + product);
           saved.textContent = "저장됨 ✓";
         });

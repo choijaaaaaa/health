@@ -70,14 +70,19 @@ alter table product_links enable row level security;
 alter table global_product_links enable row level security;
 alter table youtube_uploaded enable row level security;
 
--- WHY anon 롤에 전체 권한을 주는지: 이 프로젝트는 다수 사용자를 상대하는
--- 공개 서비스가 아니라 index.html이 Vercel Basic Auth로 페이지 자체를 가린
--- 1인 운영 관리 도구다 — anon key는 클라이언트에 그대로 노출되는 게 전제라
--- RLS로 세밀한 사용자별 권한을 나눌 대상이 없다. 실제 접근 제어는 Vercel
--- 미들웨어의 비밀번호 게이트가 담당한다.
-create policy "anon full access" on topics for all to anon using (true) with check (true);
-create policy "anon full access" on completed_topics for all to anon using (true) with check (true);
-create policy "anon full access" on posting_log for all to anon using (true) with check (true);
-create policy "anon full access" on product_links for all to anon using (true) with check (true);
-create policy "anon full access" on global_product_links for all to anon using (true) with check (true);
-create policy "anon full access" on youtube_uploaded for all to anon using (true) with check (true);
+-- WHY anon이 읽기 전용으로 바뀌었는지(2026-08-14, 이전엔 "anon 전체 허용"):
+-- 이 Supabase 프로젝트를 vernhaven-blog 계열(공유 Supabase, 퍼블릭 사이트)과
+-- 나눠 쓰게 되면서, 그쪽 앱들의 anon key가 브라우저에 그대로 노출된다는
+-- 사실이 이 프로젝트에도 그대로 적용된다 — "anon 전체 허용"을 유지하면
+-- 그 공유 anon key로 아무나 이 관리 테이블을 읽고 쓰고 지울 수 있는 구멍이
+-- 생긴다(Vercel Basic Auth는 index.html 페이지 자체만 가릴 뿐, Supabase REST
+-- API는 그 게이트를 우회해서 직접 두드릴 수 있음). 그래서 실제 쓰기는 전부
+-- service_role 키를 쓰는 /api/*.js 서버 함수로 옮기고(그 함수들은
+-- middleware.js의 matcher("/(.*)")가 이미 Basic Auth로 막아준다), anon은
+-- index.html이 대시보드를 그리는 데 필요한 select만 남긴다.
+create policy "anon read" on topics for select to anon using (true);
+create policy "anon read" on completed_topics for select to anon using (true);
+create policy "anon read" on posting_log for select to anon using (true);
+create policy "anon read" on product_links for select to anon using (true);
+create policy "anon read" on global_product_links for select to anon using (true);
+create policy "anon read" on youtube_uploaded for select to anon using (true);

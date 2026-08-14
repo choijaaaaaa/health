@@ -861,10 +861,43 @@ git 히스토리에서 복원.
     방향, Supabase에 새로 채운 값이 이 로컬 json에 자동으로 안 내려옴 —
     두 값이 어긋날 수 있다는 뜻, 필요 시 수동 확인).
 
-## GitHub Pages
+## 배포 플랫폼 — Vercel (⚠️ 2026-08-14 정정, 예전 "GitHub Pages/서버 로직
+불가" 서술은 낡은 정보)
 
-`index.html`은 정적 에디터 — 실제 생성(PIL/TTS/ffmpeg)은 전부 로컬 세션에서.
-서버 로직 불가 전제.
+`index.html`은 정적 에디터이고 실제 콘텐츠 생성(PIL/TTS/ffmpeg)은 전부 로컬
+세션에서 하는 게 맞지만, **배포 자체는 GitHub Pages가 아니라 Vercel**이고
+`middleware.js`(Edge Middleware, Basic Auth 게이트)가 이미 실제 서버 로직으로
+돌아가고 있다 — "서버 로직 불가"는 틀린 전제였다. `/api/*.js`(Node 서버리스
+함수, service_role 키로 Supabase 쓰기 전담 — 아래 "Supabase 쓰기 경로" 절)도
+같은 이유로 추가 가능했다. `middleware.js`의 matcher가 `/(.*)`(전체 경로)라
+`/api/*`도 자동으로 같은 Basic Auth 게이트 안에 들어간다 — 새 API 함수에
+인증을 따로 구현할 필요 없음.
+
+### Supabase 쓰기 경로 — anon 직접 쓰기 폐기(2026-08-14)
+
+⚠️ **`index.html`/`lib/dashboard.py`의 JS가 `sb.from(...).upsert()/delete()`로
+anon key를 써서 직접 쓰던 걸 전부 `/api/*.js` 서버 함수(service_role 키) 경유로
+바꿨다** — 이유: 이 프로젝트 Supabase를 vernhaven-blog 계열(공유 Supabase,
+퍼블릭 사이트)과 나눠 쓰게 되면서 anon key가 그쪽 브라우저 번들에도 그대로
+노출된다. RLS가 "anon 전체 허용"이면 그 노출된 키로 아무나 이 관리 테이블
+(topics/completed_topics/posting_log/product_links/global_product_links/
+youtube_uploaded)을 읽고 쓰고 지울 수 있었다 — Vercel Basic Auth는
+`index.html` 페이지 자체만 가리지 Supabase REST API를 직접 두드리는 건 못
+막는다.
+
+- **읽기(select)는 그대로 anon key + `sb.from()`** — 안전(RLS `anon read`
+  정책, `supabase/schema.sql`).
+- **쓰기(insert/upsert/delete)는 `/api/posting-log.js`,
+  `/api/completed-topics.js`, `/api/global-product-links.js`,
+  `/api/product-links.js`로 이동** — `api/_supabase.js`가 공용 헬퍼(service_role
+  키로 PostgREST 직접 호출, SDK 의존성 추가 안 함 — 이 프로젝트는 빌드 스텝이
+  없는 정적 배포라 package.json/node_modules 자체가 없어서 fetch만 씀).
+- **`topics` 테이블 쓰기는 원래도 안전했음** — Python 스크립트가 서버 측에서
+  service_role 키로 upsert하는 구조라(위 "Supabase `topics` upsert" 절)
+  클라이언트 anon 쓰기가 애초에 없었다, 이번 변경 대상 아님.
+- Vercel 프로젝트 env var에 `SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY` 추가
+  필요(로컬 스크립트용 `.env`에는 이미 있었지만 Vercel엔 `HS_ADMIN_PASSWORD`만
+  있었음) — 이 함수들이 실행되는 서버 환경에서 읽는다.
 
 ## 테스트
 
