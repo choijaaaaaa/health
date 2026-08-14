@@ -51,6 +51,68 @@
     ]
   },
   {
+    "topic": "고령_2/en",
+    "title": "Stairs or jars feel harder than before? - 3 Habits That Protect Your Muscle",
+    "url": "output/%EA%B3%A0%EB%A0%B9_2/en/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_2/en/card_news/%EA%B3%A0%EB%A0%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_2/ja",
+    "title": "階段や瓶のふたがきつくなったなら - 貯筋できる習慣3つ",
+    "url": "output/%EA%B3%A0%EB%A0%B9_2/ja/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_2/ja/card_news/%EA%B3%A0%EB%A0%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_2/ko",
+    "title": "근감소증, 계단 오를 때 유독 힘들다면 - 근육 지키는 습관 3가지",
+    "url": "output/%EA%B3%A0%EB%A0%B9_2/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_2/ko/card_news/%EA%B3%A0%EB%A0%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "고령_3/en",
+    "title": "Skipping Walks Because You're Afraid of Falling? - 3 Habits That Break the Cycle",
+    "url": "output/%EA%B3%A0%EB%A0%B9_3/en/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_3/en/card_news/%EA%B3%A0%EB%A0%B9_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_3/ja",
+    "title": "転倒、片足立ち15秒でわかるサイン - 転倒を防ぐ習慣3つ",
+    "url": "output/%EA%B3%A0%EB%A0%B9_3/ja/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_3/ja/card_news/%EA%B3%A0%EB%A0%B9_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_3/ko",
+    "title": "낙상, 요즘 자주 휘청거리신다면 - 낙상 막는 습관 3가지",
+    "url": "output/%EA%B3%A0%EB%A0%B9_3/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_3/ko/card_news/%EA%B3%A0%EB%A0%B9_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "귀_1/en",
     "title": "Ringing in your ears after the range, vaping, or turning 50? - The Causes Most People Miss",
     "url": "output/%EA%B7%80_1/en/dashboard.html",
@@ -116,6 +178,37 @@
     "title": "중이염, 귀가 먹먹한 거 사실 이 습관 때문이에요 - 귀 지키는 습관",
     "url": "output/%EA%B7%80_3/ko/dashboard.html",
     "thumbnail": "output/%EA%B7%80_3/ko/card_news/%EA%B7%80_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "귀_4/en",
+    "title": "Sudden Hearing Loss, could loud headphones or high blood pressure put you at risk? - Noise, Blood Pressure, and the 72-Hour Window",
+    "url": "output/%EA%B7%80_4/en/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_4/en/card_news/%EA%B7%80_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "귀_4/ja",
+    "title": "突発性難聴、寝不足や血糖値の乱れに心当たりありませんか？ - 生活習慣と48時間の壁",
+    "url": "output/%EA%B7%80_4/ja/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_4/ja/card_news/%EA%B7%80_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "귀_4/ko",
+    "title": "돌발성 난청, 혹시 갑자기 한쪽 귀가 안 들리지 않나요? - 72시간 골든타임과 위험 신호",
+    "url": "output/%EA%B7%80_4/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_4/ko/card_news/%EA%B7%80_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts",
@@ -340,6 +433,37 @@
     ]
   },
   {
+    "topic": "근골격_8/en",
+    "title": "\"Texting Thumb\" or \"Mommy Thumb\"? What's Really Behind Wrist Pain",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/en/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/en/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "근골격_8/ja",
+    "title": "手首の親指側が痛むドケルバン病、産後の女性に多い理由",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/ja/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/ja/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "근골격_8/ko",
+    "title": "손목건초염, 엄지 쪽 손목 시큰거림 사실 이 습관 때문이에요 - 힘줄 지키는 습관",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/ko/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "냄새_1/en",
     "title": "Notice people take a small step back mid-conversation, even hours after your shower? - Foods That Make Body Odor Worse",
     "url": "output/%EB%83%84%EC%83%88_1/en/dashboard.html",
@@ -364,6 +488,68 @@
     "title": "샤워를 깨끗이 했는데도 땀 냄새가 유독 진하게 느껴진다면 - 체취 진하게 하는 음식 피하는 법",
     "url": "output/%EB%83%84%EC%83%88_1/ko/dashboard.html",
     "thumbnail": "output/%EB%83%84%EC%83%88_1/ko/card_news/%EC%B2%B4%EC%B7%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "냄새_2/en",
+    "title": "Scalp Odor After Skipping a Wash for Dry Shampoo? Pause First",
+    "url": "output/%EB%83%84%EC%83%88_2/en/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_2/en/card_news/%EB%83%84%EC%83%88_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "냄새_2/ja",
+    "title": "頭皮のにおいが消えない？知らずにやってる習慣3つ",
+    "url": "output/%EB%83%84%EC%83%88_2/ja/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_2/ja/card_news/%EB%83%84%EC%83%88_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "냄새_2/ko",
+    "title": "두피 냄새, 머리 자주 감고 계셨다면 잠깐 - 두피 냄새 줄이는 습관 3가지",
+    "url": "output/%EB%83%84%EC%83%88_2/ko/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_2/ko/card_news/%EB%83%84%EC%83%88_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "냄새_3/en",
+    "title": "Bad breath, if mints and mouthwash never last long — stop guessing - 3 Hidden Causes and Fixes",
+    "url": "output/%EB%83%84%EC%83%88_3/en/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_3/en/card_news/%EB%83%84%EC%83%88_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "냄새_3/ja",
+    "title": "口臭、朝は特にひどいなら 歯磨きのせいじゃないかも - 本当の原因と対策",
+    "url": "output/%EB%83%84%EC%83%88_3/ja/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_3/ja/card_news/%EB%83%84%EC%83%88_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "냄새_3/ko",
+    "title": "구취, 양치질만 열심히 하고 계셨다면 이제 그만 - 진짜 원인 짚는 법",
+    "url": "output/%EB%83%84%EC%83%88_3/ko/dashboard.html",
+    "thumbnail": "output/%EB%83%84%EC%83%88_3/ko/card_news/%EB%83%84%EC%83%88_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts",
@@ -525,6 +711,37 @@
     ]
   },
   {
+    "topic": "눈_8/en",
+    "title": "Eye Floaters, If The Number Suddenly Jumps - Warning Signs To Know",
+    "url": "output/%EB%88%88_8/en/dashboard.html",
+    "thumbnail": "output/%EB%88%88_8/en/card_news/%EB%88%88_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "눈_8/ja",
+    "title": "飛蚊症、数が急に増えたら - 危険サインの見分け方",
+    "url": "output/%EB%88%88_8/ja/dashboard.html",
+    "thumbnail": "output/%EB%88%88_8/ja/card_news/%EB%88%88_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "눈_8/ko",
+    "title": "비문증, 눈앞에 날파리나 번쩍임이 하나라도 있다면 - 위험 신호 구분법",
+    "url": "output/%EB%88%88_8/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_8/ko/card_news/%EB%88%88_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "대사_1/en",
     "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
     "url": "output/%EB%8C%80%EC%82%AC_1/en/dashboard.html",
@@ -624,6 +841,37 @@
     "thumbnail": "output/%EB%8C%80%EC%82%AC_4/ko/card_news/%EB%8C%80%EC%82%AC_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_5/en",
+    "title": "Insulin Resistance: More Than 2 in 5 US Adults Have It",
+    "url": "output/%EB%8C%80%EC%82%AC_5/en/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_5/en/card_news/%EB%8C%80%EC%82%AC_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_5/ja",
+    "title": "インスリン抵抗性、その土台になるメタボは男性の2人に1人?",
+    "url": "output/%EB%8C%80%EC%82%AC_5/ja/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_5/ja/card_news/%EB%8C%80%EC%82%AC_5__00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_5/ko",
+    "title": "인슐린저항성, 성인 10명 중 4명이 겪는다는데 혹시 나도? - 인슐린 둔감도 낮추는 습관",
+    "url": "output/%EB%8C%80%EC%82%AC_5/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_5/ko/card_news/%EB%8C%80%EC%82%AC_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -803,6 +1051,37 @@
     ]
   },
   {
+    "topic": "미세먼지_2/en",
+    "title": "Poor Air Quality Days: 3 Habits That Backfire Indoors",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/en/dashboard.html",
+    "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/en/card_news/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "미세먼지_2/ja",
+    "title": "室内の空気を守る3つの習慣 - 窓を閉めるだけでは足りません",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/ja/dashboard.html",
+    "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/ja/card_news/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "미세먼지_2/ko",
+    "title": "미세먼지 나쁜 날, 밖이 아니라 오히려 집 안 공기가 더 나빠요 - 실내 공기 지키는 습관",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/ko/dashboard.html",
+    "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/ko/card_news/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "비뇨기_1/en",
     "title": "Up for the third time before 2 a.m. just to pee, and it burns worse each time? - Foods That Make Bladder Irritation Worse",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/en/dashboard.html",
@@ -916,6 +1195,37 @@
     ]
   },
   {
+    "topic": "비뇨기_6/en",
+    "title": "Stress Incontinence: 3 Habits That Make Leaks Worse",
+    "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/en/dashboard.html",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/en/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "비뇨기_6/ja",
+    "title": "産後の尿もれ、咳やくしゃみで漏れることはありませんか？ - 改善に効く習慣",
+    "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/ja/dashboard.html",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/ja/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "비뇨기_6/ko",
+    "title": "요실금, 기침하거나 웃을 때 혹시 소변이 새지 않으셨나요 - 새는 양 줄이는 습관 3가지",
+    "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/ko/dashboard.html",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/ko/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "소화_1/en",
     "title": "Waking up at 3am with a sour, burning taste in your throat? - Foods That Trigger Heartburn",
     "url": "output/%EC%86%8C%ED%99%94_1/en/dashboard.html",
@@ -973,6 +1283,37 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_10/ko/card_news/%EB%94%B8%EA%BE%B9%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "소화_11/en",
+    "title": "IBS: If Bloating or Diarrhea Keep Coming Back - 3 Habits Worth Checking",
+    "url": "output/%EC%86%8C%ED%99%94_11/en/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_11/en/card_news/%EC%86%8C%ED%99%94_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "소화_11/ja",
+    "title": "過敏性腸症候群、通勤中の腹痛や会議前の下痢が続くなら - 腸を整える習慣3つ",
+    "url": "output/%EC%86%8C%ED%99%94_11/ja/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_11/ja/card_news/%EC%86%8C%ED%99%94_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "소화_11/ko",
+    "title": "과민성대장증후군, 변비, 설사 중 하나라도 해당된다면 - 장 편하게 하는 습관 3가지",
+    "url": "output/%EC%86%8C%ED%99%94_11/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_11/ko/card_news/%EC%86%8C%ED%99%94_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -1317,6 +1658,37 @@
     ]
   },
   {
+    "topic": "손발_6/en",
+    "title": "Bunions Affect Nearly 1 in 4 Adults - Here's What Speeds Yours Up",
+    "url": "output/%EC%86%90%EB%B0%9C_6/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "손발_6/ja",
+    "title": "外反母趾、靴のせいだけだと思っていませんか - 進行を早める習慣",
+    "url": "output/%EC%86%90%EB%B0%9C_6/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "손발_6/ko",
+    "title": "무지외반증, 엄지발가락 뿌리가 튀어나온다면 - 변형 늦추는 습관",
+    "url": "output/%EC%86%90%EB%B0%9C_6/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C_6/ko/card_news/%EC%86%90%EB%B0%9C_6__00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "수면_1/en",
     "title": "Revenge Bedtime Procrastination Is Costing Americans Sleep — Try These 3 Foods",
     "url": "output/%EC%88%98%EB%A9%B4_1/en/dashboard.html",
@@ -1403,6 +1775,68 @@
     "title": "수면무호흡증, 자다가 숨 막히셨다면 잠깐 - 숨 편히 쉬는 습관",
     "url": "output/%EC%88%98%EB%A9%B4_3/ko/dashboard.html",
     "thumbnail": "output/%EC%88%98%EB%A9%B4_3/ko/card_news/%EC%88%98%EB%A9%B4_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "수면_4/en",
+    "title": "Delayed Sleep Phase Syndrome: 3 Habits to Reset Your Body Clock",
+    "url": "output/%EC%88%98%EB%A9%B4_4/en/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_4/en/card_news/%EC%88%98%EB%A9%B4_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "수면_4/ja",
+    "title": "睡眠相後退症候群、朝起きられないのは「甘え」ではありません - 体内時計を整える3つの習慣",
+    "url": "output/%EC%88%98%EB%A9%B4_4/ja/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_4/ja/card_news/%EC%88%98%EB%A9%B4_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "수면_4/ko",
+    "title": "수면위상지연증후군, 취침 시간이 자꾸 밀린다면 - 생체시계 되돌리는 법",
+    "url": "output/%EC%88%98%EB%A9%B4_4/ko/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_4/ko/card_news/%EC%88%98%EB%A9%B4_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "수면_5/en",
+    "title": "Sleep Paralysis Isn't a Sign Something's Wrong - What Actually Triggers It",
+    "url": "output/%EC%88%98%EB%A9%B4_5/en/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_5/en/card_news/%EC%88%98%EB%A9%B4_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "수면_5/ja",
+    "title": "金縛りは実は珍しくない現象です - 起こりやすくなる習慣",
+    "url": "output/%EC%88%98%EB%A9%B4_5/ja/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_5/ja/card_news/%EC%88%98%EB%A9%B4_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "수면_5/ko",
+    "title": "가위눌림, 자다가 눈은 떠지는데 몸이 안 움직였다면 잠깐 - 가위눌림 줄이는 습관 3가지",
+    "url": "output/%EC%88%98%EB%A9%B4_5/ko/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_5/ko/card_news/%EC%88%98%EB%A9%B4_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts",
@@ -1565,6 +1999,37 @@
     ]
   },
   {
+    "topic": "순환_6/en",
+    "title": "Raynaud's Phenomenon Affects 3-5% of People, and Most Miss These 3 Hidden Factors",
+    "url": "output/%EC%88%9C%ED%99%98_6/en/dashboard.html",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_6/en/card_news/%EC%88%9C%ED%99%98_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "순환_6/ja",
+    "title": "レイノー現象、冷え性との違いは境界のはっきりした色の変化です - 見分け方と対策3つ",
+    "url": "output/%EC%88%9C%ED%99%98_6/ja/dashboard.html",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_6/ja/card_news/%EC%88%9C%ED%99%98_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "순환_6/ko",
+    "title": "레이노 증후군, 손끝이 파랗게 변한다면 이제 그만 - 발작 줄이는 습관 3가지",
+    "url": "output/%EC%88%9C%ED%99%98_6/ko/dashboard.html",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_6/ko/card_news/%EC%88%9C%ED%99%98_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "어지럼증_1/ko",
     "title": "머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/dashboard.html",
@@ -1653,6 +2118,37 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_5/ko/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "어지럼증_6/en",
+    "title": "Vestibular migraine, dizzy spells with zero headache? The weather app might explain it - 3 Habits That Ease the Dizziness",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/en/dashboard.html",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/en/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "어지럼증_6/ja",
+    "title": "前庭性片頭痛、頭痛はないのにめまいが続くなら実は好きな食べ物が引き金かもしれません - めまいを減らす習慣3つ",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/ja/dashboard.html",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/ja/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "어지럼증_6/ko",
+    "title": "전정편두통, 두통 없이 어지럽다면 사실 이 습관 때문이에요 - 어지럼증 줄이는 습관 3가지",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/ko/dashboard.html",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/ko/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -1766,6 +2262,37 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_5/ko/card_news/%EC%97%AC%EC%84%B1_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "여성_6/en",
+    "title": "Fibroid Risk Isn't Just Genetics: What Actually Raises It",
+    "url": "output/%EC%97%AC%EC%84%B1_6/en/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_6/en/card_news/%EC%97%AC%EC%84%B1_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_6/ja",
+    "title": "子宮筋腫は「体質」だと思っていませんか？リスクを下げる習慣",
+    "url": "output/%EC%97%AC%EC%84%B1_6/ja/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_6/ja/card_news/%EC%97%AC%EC%84%B1_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "여성_6/ko",
+    "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
+    "url": "output/%EC%97%AC%EC%84%B1_6/ko/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_6/ko/card_news/%EC%97%AC%EC%84%B1_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -2150,6 +2677,37 @@
     ]
   },
   {
+    "topic": "피로_2/en",
+    "title": "3 Food Coma Myths - What Actually Causes That Afternoon Slump",
+    "url": "output/%ED%94%BC%EB%A1%9C_2/en/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_2/en/card_news/%ED%94%BC%EB%A1%9C_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피로_2/ja",
+    "title": "食後の眠気に関するよくある3つの勘違い - 本当の原因と対策",
+    "url": "output/%ED%94%BC%EB%A1%9C_2/ja/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_2/ja/card_news/%ED%94%BC%EB%A1%9C_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피로_2/ko",
+    "title": "점심 먹고 나면 밀려오는 나른함 - 식후 졸음 줄이는 법",
+    "url": "output/%ED%94%BC%EB%A1%9C_2/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_2/ko/card_news/%ED%94%BC%EB%A1%9C_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "피부_1/en",
     "title": "Losing Collagen Fast? 3 Daily Habits That Age Your Skin Faster",
     "url": "output/%ED%94%BC%EB%B6%80_1/en/dashboard.html",
@@ -2272,6 +2830,37 @@
     ]
   },
   {
+    "topic": "피부_9/en",
+    "title": "Still Picking at Breakouts With Melasma? Stop - The Everyday Habits That Quietly Worsen Melasma",
+    "url": "output/%ED%94%BC%EB%B6%80_9/en/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_9/en/card_news/%ED%94%BC%EB%B6%80_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_9/ja",
+    "title": "そのマスク、頬をこすっていませんか? 今すぐやめてください - 肝斑を悪化させる摩擦習慣",
+    "url": "output/%ED%94%BC%EB%B6%80_9/ja/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_9/ja/card_news/%ED%94%BC%EB%B6%80_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_9/ko",
+    "title": "기미가 자꾸 진해지고 있다면 이 습관부터 이제 그만 - 번지는 걸 막는 생활습관 4가지",
+    "url": "output/%ED%94%BC%EB%B6%80_9/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_9/ko/card_news/%ED%94%BC%EB%B6%80_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "혈당_1/en",
     "title": "Refined Carbs Spike Your Blood Sugar - One Pantry Staple That Can Help",
     "url": "output/%ED%98%88%EB%8B%B9_1/en/dashboard.html",
@@ -2369,6 +2958,37 @@
     "url": "output/%ED%98%88%EB%8B%B9_4/ko/dashboard.html",
     "thumbnail": "output/%ED%98%88%EB%8B%B9_4/ko/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "혈당_5/en",
+    "title": "Low blood sugar after meals, the shaking and cold sweats have a real cause - 3 Triggers Behind Reactive Hypoglycemia",
+    "url": "output/%ED%98%88%EB%8B%B9_5/en/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_5/en/card_news/%ED%98%88%EB%8B%B9_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "혈당_5/ja",
+    "title": "反応性低血糖、パニック発作と間違われやすい理由 - 低血糖を招く食べ方2つ",
+    "url": "output/%ED%98%88%EB%8B%B9_5/ja/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_5/ja/card_news/%ED%98%88%EB%8B%B9_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "혈당_5/ko",
+    "title": "저혈당, 사실 당뇨병 없어도 식후에 이렇게 와요 - 반응성 저혈당 부르는 습관 3가지",
+    "url": "output/%ED%98%88%EB%8B%B9_5/ko/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_5/ko/card_news/%ED%98%88%EB%8B%B9_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
     "tracks": [
       "shorts",
       "card_news"
