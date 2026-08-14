@@ -20,6 +20,16 @@
     ]
   },
   {
+    "topic": "계절질환_3/ko",
+    "title": "열대야, 밤에도 25도 안 내려가 잠들기 힘들다면 - 숙면 방해 습관 3가지",
+    "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_3/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_3/ko/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_3_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
@@ -109,6 +119,26 @@
     "ad_tag": true,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "고령_4/ko",
+    "title": "노인성 난청, 자꾸 남 말이 웅얼거리게 들리신다면 - 청력 신호 자가진단법",
+    "url": "output/%EA%B3%A0%EB%A0%B9_4/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_4/ko/card_news/%EA%B3%A0%EB%A0%B9_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "고령_5/ko",
+    "title": "노인 우울감, 무기력하다면 그거 사실 마음 신호예요 - 무기력 이겨내는 습관 3가지",
+    "url": "output/%EA%B3%A0%EB%A0%B9_5/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_5/ko/card_news/%EA%B3%A0%EB%A0%B9_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
@@ -216,6 +246,26 @@
     ]
   },
   {
+    "topic": "귀_5/ko",
+    "title": "청각과민증, 씹는 소리와 타이핑 소리가 유독 괴로우셨다면 잠깐 - 완화하는 습관 3가지",
+    "url": "output/%EA%B7%80_5/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_5/ko/card_news/%EA%B7%80_5_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "귀_6/ko",
+    "title": "귀지, 유독 자주 차서 귀가 먹먹하다면 - 면봉 대신 귀지 관리법",
+    "url": "output/%EA%B7%80_6/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_6/ko/card_news/%EA%B7%80_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "근골격_1/en",
     "title": "Grilled burgers and beers last night, and your big toe's throbbing this morning? - Foods That Trigger Gout Attacks",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/en/dashboard.html",
@@ -243,6 +293,36 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "근골격_10/ko",
+    "title": "척추관협착증, 걸을 때 다리가 저리고 앉으면 편해진다면 - 허리디스크와 구별법",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_10/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_10/ko/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_10_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "근골격_11/ko",
+    "title": "테니스엘보, 팔꿈치 바깥쪽 시큰거림 물건 쥘 때 아프면 - 테니스엘보 막는 습관",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_11/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_11/ko/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "근골격_12/ko",
+    "title": "거북목, 스마트폰 볼 때마다 목이 자꾸 빠진다면 - 거북목 벗어나는 법",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_12/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_12/ko/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_12_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
@@ -464,6 +544,16 @@
     ]
   },
   {
+    "topic": "근골격_9/ko",
+    "title": "회전근개파열, 팔 들 때마다 어깨 찌릿하다면 - 오십견과 구별법",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_9/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_9/ko/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "냄새_1/en",
     "title": "Notice people take a small step back mid-conversation, even hours after your shower? - Foods That Make Body Odor Worse",
     "url": "output/%EB%83%84%EC%83%88_1/en/dashboard.html",
@@ -594,6 +684,16 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "눈_10/ko",
+    "title": "안검염, 눈꺼풀 가장자리가 붉고 이물감 느껴진다면 - 눈꺼풀 염증 관리법",
+    "url": "output/%EB%88%88_10/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_10/ko/card_news/%EB%88%88_10_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
@@ -752,6 +852,16 @@
     ]
   },
   {
+    "topic": "눈_9/ko",
+    "title": "노안, 전 세계 4명 중 1명이 겪는다는데 혹시 나도? - 노안 줄이는 습관",
+    "url": "output/%EB%88%88_9/ko/dashboard.html",
+    "thumbnail": "output/%EB%88%88_9/ko/card_news/%EB%88%88_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "대사_1/en",
     "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
     "url": "output/%EB%8C%80%EC%82%AC_1/en/dashboard.html",
@@ -882,6 +992,26 @@
     "ad_tag": true,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_6/ko",
+    "title": "고요산혈증, 남성 2명 중 1명이 겪는다는데 혹시 나도? - 요산 관리 습관",
+    "url": "output/%EB%8C%80%EC%82%AC_6/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_6/ko/card_news/%EB%8C%80%EC%82%AC_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "대사_7/ko",
+    "title": "대사증후군, 성인 5명 중 1명이 겪는다는데 혹시 나도? - 동시에 관리하는 습관 3가지",
+    "url": "output/%EB%8C%80%EC%82%AC_7/ko/dashboard.html",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_7/ko/card_news/%EB%8C%80%EC%82%AC_7__00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
       "card_news"
     ]
   },
@@ -1384,6 +1514,26 @@
     "ad_tag": true,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "소화_12/ko",
+    "title": "소화불량, 위내시경은 멀쩡한데도 계속 더부룩하다면 - 기능성소화불량 다스리는 습관 3가지",
+    "url": "output/%EC%86%8C%ED%99%94_12/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_12/ko/card_news/%EC%86%8C%ED%99%94_12_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "소화_13/ko",
+    "title": "담석증, 기름진 음식 먹으면 오른쪽 윗배 아프다면 - 담석 위험 줄이는 습관 3가지",
+    "url": "output/%EC%86%8C%ED%99%94_13/ko/dashboard.html",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_13/ko/card_news/%EC%86%8C%ED%99%94_13_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
@@ -1944,6 +2094,16 @@
     ]
   },
   {
+    "topic": "수면_6/ko",
+    "title": "기면증, 낮에 못 참게 잠들고 웃을 때 힘까지 풀렸다면 잠깐 - 수면발작 줄이는 습관",
+    "url": "output/%EC%88%98%EB%A9%B4_6/ko/dashboard.html",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_6/ko/card_news/%EC%88%98%EB%A9%B4_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "순환_1/en",
     "title": "If Your Hands and Feet Feel Like Ice Indoors, These 3 Foods Could Be Why - Causes of Cold Hands and Feet",
     "url": "output/%EC%88%9C%ED%99%98_1/en/dashboard.html",
@@ -2427,6 +2587,26 @@
     ]
   },
   {
+    "topic": "여성_7/ko",
+    "title": "생리불순, 체중증가, 여드름이 함께 온다면 - 다낭성난소증후군 관리법",
+    "url": "output/%EC%97%AC%EC%84%B1_7/ko/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_7/ko/card_news/%EC%97%AC%EC%84%B1_7_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "여성_8/ko",
+    "title": "산후탈모, 관리 못 해서가 아니라 호르몬 변화 때문이에요 - 회복 앞당기는 습관",
+    "url": "output/%EC%97%AC%EC%84%B1_8/ko/dashboard.html",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_8/ko/card_news/%EC%97%AC%EC%84%B1_8_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "입_1/en",
     "title": "It's not garlic or coffee - 3 Everyday Habits Behind Bad Breath",
     "url": "output/%EC%9E%85_1/en/dashboard.html",
@@ -2454,6 +2634,26 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "입_10/ko",
+    "title": "구강작열감증후군, 혹시 이유 없이 혀나 입천장이 화끈거리지 않나요? - 증상 줄이는 습관",
+    "url": "output/%EC%9E%85_10/ko/dashboard.html",
+    "thumbnail": "output/%EC%9E%85_10/ko/card_news/%EC%9E%85_10_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "입_11/ko",
+    "title": "미각장애, 입맛이 예전 같지 않다면 - 미각 되찾는 습관 3가지",
+    "url": "output/%EC%9E%85_11/ko/dashboard.html",
+    "thumbnail": "output/%EC%9E%85_11/ko/card_news/%EC%9E%85_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
       "card_news"
     ]
   },
@@ -2868,6 +3068,16 @@
     ]
   },
   {
+    "topic": "피로_3/ko",
+    "title": "번아웃, 일에 대한 마음이 식어버렸다면 - 심리적 소진 신호와 회복 습관",
+    "url": "output/%ED%94%BC%EB%A1%9C_3/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_3/ko/card_news/%ED%94%BC%EB%A1%9C_3__00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
     "topic": "피부_1/en",
     "title": "Losing Collagen Fast? 3 Daily Habits That Age Your Skin Faster",
     "url": "output/%ED%94%BC%EB%B6%80_1/en/dashboard.html",
@@ -2895,6 +3105,26 @@
     "ad_tag": false,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피부_10/ko",
+    "title": "지루성피부염, 두피 각질을 긁고 계셨다면 이제 그만 - 자극 줄이는 습관 세 가지",
+    "url": "output/%ED%94%BC%EB%B6%80_10/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_10/ko/card_news/%ED%94%BC%EB%B6%80_10_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피부_11/ko",
+    "title": "건선, 팔꿈치·무릎에 각질 붉은 반점이 있다면 - 증상 완화하는 관리법",
+    "url": "output/%ED%94%BC%EB%B6%80_11/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_11/ko/card_news/%ED%94%BC%EB%B6%80_11_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   },
@@ -3151,6 +3381,16 @@
     "ad_tag": true,
     "tracks": [
       "shorts",
+      "card_news"
+    ]
+  },
+  {
+    "topic": "혈당_6/ko",
+    "title": "당화혈색소, 공복혈당 정상인데 당뇨 전단계라면 - 당화혈색소 관리법",
+    "url": "output/%ED%98%88%EB%8B%B9_6/ko/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_6/ko/card_news/%ED%98%88%EB%8B%B9_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
       "card_news"
     ]
   }
