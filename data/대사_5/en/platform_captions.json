@@ -1,0 +1,34 @@
+{
+  "topic": "대사_5_en",
+  "title": "Insulin Resistance: More Than 2 in 5 US Adults Have It",
+  "products": [],
+  "ad_tag": true,
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Insulin Resistance - More Than 2 in 5 US Adults Have It\n\nDescription:\nMore than 2 in 5 US adults have insulin resistance or prediabetes, and most don't know it. Three habits make it worse: visceral fat releases fatty acids and inflammatory chemicals that block insulin, sugary drinks trigger fat production in the liver even in moderate doses, and chronic stress raises cortisol, which builds more visceral fat in a vicious cycle. Losing just 5-7% of body weight can cut diabetes risk in half — cut back on sugary drinks and take short stress breaks to help insulin work better.\n\n#insulinresistance #prediabetes #bloodsugar #metabolichealth #healthtips",
+      "suppress_product_block": true
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "More than 2 in 5 US adults have insulin resistance — are you one of them? 🤔\n\nVisceral fat, added sugar, and chronic stress quietly blunt your insulin sensitivity. Losing 5-7% of body weight, cutting back on sugary drinks, and taking short stress breaks all help.\n\nMore useful health tips? Follow along 👆\n\n#insulinresistance #prediabetes #bloodsugar #metabolichealth #wellness"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=61592893302063",
+      "type": "video",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "More than 2 in 5 US adults have insulin resistance — are you one of them? 🤔\n\nVisceral fat, added sugar, and chronic stress quietly blunt your insulin sensitivity. Losing 5-7% of body weight, cutting back on sugary drinks, and taking short stress breaks all help.\n\nMore useful health tips? Follow along 👆\n\n#insulinresistance #prediabetes #bloodsugar #metabolichealth #wellness"
+    }
+  ]
+}
