@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Patulous Eustachian Tube,",
+    "could a diuretic or",
+    "birth control pill be behind that echo?",
+    "Medications and Relief Habits"
+  ],
+  "eyebrow": "Patulous Eustachian Tube Autophony",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#8A5A3C",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Takeaway",
+  "char_display_names": {
+    "체중계_illust.jpg": "Scale",
+    "이뇨제_illust.jpg": "Medication",
+    "이불_illust.jpg": "Lying Down",
+    "비강스프레이_illust.jpg": "Saline Spray"
+  },
+  "items": [
+    {
+      "name": "What is a patulous Eustachian tube",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Could a diuretic or",
+        "birth control pill be behind",
+        "that strange echo in your ear",
+        "",
+        "It happens when the Eustachian",
+        "tube stays open instead of",
+        "closing the way it normally does"
+      ]
+    },
+    {
+      "name": "Rapid weight loss",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Weight loss is the risk factor",
+        "doctors mention most often",
+        "",
+        "A fat pad around the tube",
+        "thins out, so it loses",
+        "the support that keeps it closed",
+        "",
+        "About one in five patients",
+        "after bariatric surgery",
+        "report symptoms like this"
+      ]
+    },
+    {
+      "name": "Certain medications",
+      "char_file": "이뇨제_illust.jpg",
+      "body": [
+        "A less talked about cause:",
+        "certain medications",
+        "",
+        "Diuretics and estrogen-based",
+        "birth control pills",
+        "have both been linked to it",
+        "",
+        "If symptoms started around",
+        "a new prescription,",
+        "mention that timing to your doctor"
+      ]
+    },
+    {
+      "name": "Stress and exercise make it worse",
+      "char_file": "이뇨제_illust.jpg",
+      "body": [
+        "Stress and exercise",
+        "tend to make symptoms worse",
+        "",
+        "Ask your doctor whether",
+        "an alternative medication",
+        "makes sense for you"
+      ]
+    },
+    {
+      "name": "Relief when lying down, worse standing",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Lying down or bending forward",
+        "often brings quick relief",
+        "",
+        "Blood flow shifts toward your head",
+        "and swells tissue around the tube,",
+        "narrowing it again"
+      ]
+    },
+    {
+      "name": "Saline spray and seeing a doctor",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Try saline nasal spray",
+        "with your head tilted down",
+        "for quick relief",
+        "",
+        "If symptoms stick around",
+        "or affect your daily life,",
+        "book a visit with",
+        "an ENT doctor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Knowing your risk factors",
+        "and the lying-down relief pattern —"
+      ],
+      [
+        "these are the clearest ways",
+        "to make sense of patulous Eustachian tube"
+      ]
+    ],
+    "tip": [
+      "If your own voice keeps echoing,",
+      "try saline nasal spray first,",
+      "and see a doctor if it doesn't improve"
+    ],
+    "cta": "Follow for more useful health tips"
+  }
+}
