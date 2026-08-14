@@ -333,6 +333,30 @@ def test_products_no_middle_dot(topic):
 
 
 # ---------------------------------------------------------------------------
+# 규칙 12: products 필드에 설명형 수식어(편한 신발·위 진정 소화제류) 금지
+# (2026-08-14) — CLAUDE.md "products 필드" 절 참고. 4개 topic에서 동시에
+# 재발한 뒤 CLAUDE.md 텍스트만으로는 세션이 매번 걸러내지 못한다는 게
+# 확인돼서 기계적 검사로 옮김. 실제 상품명에 포함되는 정상 수식어(가정용·
+# 휴대용·저나트륨·무알코올 등)는 목록에 없음 — 전부 "검색창에 그대로 안 치는
+# 주관적 효능/감상 표현"만 모았다.
+# ---------------------------------------------------------------------------
+
+_PRODUCTS_DESCRIPTIVE_PATTERN = re.compile(
+    "편한|충분한|진정|좋은|도움|부드러운|시원한|촉촉한|안전한|건강한|깨끗한|"
+    "가벼운|산뜻한|든든한|맛있는|저렴한|훌륭한|완벽한|이상적인|섭취용|케어용"
+)
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_products_no_descriptive_adjective(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    bad = [prod for prod in spec.get("products", []) if _PRODUCTS_DESCRIPTIVE_PATTERN.search(prod)]
+    assert not bad, (
+        f"{topic}: products에 설명형 수식어 붙은 항목 있음(실제 검색어로 단순화할 것) — {bad}"
+    )
+
+
+# ---------------------------------------------------------------------------
 # 규칙 11: blog_seo 결정론적 검사 (2026-08-13) — _blog_seo_platforms() 참고.
 # review_blog_seo()(content_review.py)의 LLM 판단형 검사와 달리 매 pytest
 # 실행마다 자동으로 도는 기계적 검사만 여기 둔다.
