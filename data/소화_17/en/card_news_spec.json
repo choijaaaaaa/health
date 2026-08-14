@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Up to 90% of Asian Americans",
+    "Can't Fully Digest Milk —",
+    "Is That You?",
+    "3 Ways to Still Enjoy Dairy"
+  ],
+  "eyebrow": "Lactose Intolerance",
+  "cover_char_file": "우유_illust.jpg",
+  "cover_scrim_color": "#A9762F",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "우유_illust.jpg": "Milk",
+    "치즈_illust.jpg": "Cheese",
+    "알약_illust.jpg": "Enzyme"
+  },
+  "items": [
+    {
+      "name": "Why milk leaves you bloated and running to the bathroom",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Your small intestine uses",
+        "an enzyme called lactase",
+        "to break down lactose",
+        "",
+        "Without enough of it, lactose",
+        "reaches your colon undigested",
+        "and gut bacteria ferment it",
+        "into gas, cramping, diarrhea",
+        "",
+        "The NIH estimates 30 to 50",
+        "million Americans deal with it —",
+        "far more in some groups"
+      ]
+    },
+    {
+      "name": "It hits some groups much harder",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Up to 90% of Asian Americans",
+        "and 80% of Black Americans",
+        "have lactose intolerance",
+        "",
+        "Compared to as little as 15%",
+        "of people with Northern",
+        "European ancestry"
+      ]
+    },
+    {
+      "name": "Choose the right dairy",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Fresh milk keeps its",
+        "lactose fully intact",
+        "",
+        "Hard, aged cheeses like cheddar,",
+        "parmesan, and gouda test under",
+        "0.1g of lactose per serving"
+      ]
+    },
+    {
+      "name": "How you eat it matters",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Your body can only break down",
+        "so much lactose at once",
+        "",
+        "A full glass on an empty",
+        "stomach overwhelms it fast"
+      ]
+    },
+    {
+      "name": "Change your eating pattern like this",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Spread dairy across the day,",
+        "pair it with other food,",
+        "skip drinking it on an empty stomach"
+      ]
+    },
+    {
+      "name": "Replace the missing enzyme",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Lactase supplements supply",
+        "the enzyme your gut",
+        "isn't making enough of"
+      ]
+    },
+    {
+      "name": "Use supplements like this",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Take 1 to 3 caplets right",
+        "with your first bite of dairy —",
+        "each dose covers about 30 to 45 minutes"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Switch up the type of dairy",
+        "and how you eat it"
+      ],
+      [
+        "and lactose intolerance",
+        "gets a lot easier to live with"
+      ]
+    ],
+    "tip": [
+      "Start with Greek yogurt or an aged cheese, and spread milk across meals instead of one big glass",
+      "Unexplained weight loss or blood in your stool points to something beyond lactose intolerance — see a doctor"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
