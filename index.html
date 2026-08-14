@@ -134,21 +134,19 @@
     background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
     padding: 14px; display: flex; flex-direction: column; gap: 8px;
   }
+  .cnh-card-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
   .cnh-card-title { font-size: 14px; font-weight: 700; line-height: 1.4; margin: 0; }
+  .cnh-done-check {
+    display: flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 700;
+    color: var(--ink-soft); cursor: pointer; user-select: none; flex-shrink: 0;
+  }
+  .cnh-done-check input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+  .cnh-card.is-done { opacity: 0.55; border-color: var(--gold); background: var(--gold-soft); }
+  .cnh-card.is-done .cnh-done-check { color: var(--gold); }
   /* WHY 썸네일을 120px 안팎으로 키우는지(2026-08-14, "발행만 하면 손쉽게
      될 사이즈로"): 원본 카드뉴스 그리드(120px)와 같은 크기 — 너무 작으면
      어떤 사진인지 확인이 안 돼서 결국 원본을 또 열어봐야 하고, 그러면
      "번호별로 바로 확인" 이라는 요청 취지가 무색해진다. */
-  /* WHY 영상을 세로 짧은 폭(220px)으로 캡핑하는지: 9:16 쇼츠 영상이라
-     카드 폭(250px 안팎) 그대로 두면 세로로 너무 길어져서 카드 그리드가
-     깨진다 — 다운로드 버튼은 재생 컨트롤 아래 별도 줄로 폭 전체를 채움. */
-  .cnh-video-block { display: flex; flex-direction: column; gap: 6px; align-items: center; }
-  .cnh-video { width: 100%; max-width: 220px; aspect-ratio: 9/16; border-radius: 10px; background: #000; }
-  .cnh-video-block .cnh-btn-open {
-    display: block; width: 100%; text-align: center; box-sizing: border-box;
-    border: none; border-radius: 999px; padding: 8px 10px; font-size: 12px;
-    font-weight: 700; text-decoration: none; font-family: inherit;
-  }
   .cnh-image-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(108px, 1fr)); gap: 8px; }
   .cnh-image-item { display: flex; flex-direction: column; align-items: center; gap: 3px; }
   .cnh-image-item a { display: block; width: 100%; }
@@ -172,6 +170,11 @@
   .cnh-btn-copy.copied { background: var(--gold); }
   .cnh-btn-open { background: var(--accent-soft); color: var(--accent-deep); }
   .cnh-btn-open.disabled { background: var(--rule); color: var(--ink-soft); pointer-events: none; }
+  .jp-topic-row {
+    display: block; padding: 14px 16px; border: 1px solid var(--rule); border-radius: 12px;
+    background: var(--panel); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 700;
+  }
+  .jp-topic-row:hover { border-color: var(--accent); }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="supabase_client.js"></script>
@@ -211,9 +214,11 @@
      스크립트 상단 주석 참고). index.html 쪽은 어떤 그룹 이름이 오든 JSON을
      그대로 렌더링할 뿐이라 그룹 구성이 또 바뀌어도 여기는 안 고쳐도 된다.
      새 페이지로 안 옮기고 이 안에서 탭 전환만 한다. -->
-<div id="mainTabs" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;">
-  <button type="button" id="tabBtnShorts" class="main-tab-btn active">🎬 숏츠·전체 목록</button>
-  <button type="button" id="tabBtnCardNews" class="main-tab-btn">🗞 카드뉴스 허브</button>
+<div id="mainTabs" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;">
+  <button type="button" class="main-tab-btn active" data-tab="health">🩺 건강</button>
+  <button type="button" class="main-tab-btn" data-tab="family">👶 육아·반려동물</button>
+  <button type="button" class="main-tab-btn" data-tab="finance">💰 경제</button>
+  <button type="button" class="main-tab-btn" data-tab="jp_review">🇯🇵 일본상품리뷰</button>
 </div>
 
 <!-- WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
@@ -284,9 +289,27 @@
      lib/card_news_hub.py가 미리 5개 레포를 스캔해서 health-shorts 안에 이
      파일 하나로 합쳐둔다(위 topicsSection이 읽는 output/all_products.json과
      동일한 사전 집계 패턴). -->
-<div id="cardNewsHubSection" class="cnh-tab-hidden">
-  <div id="cardNewsHubStatus">불러오는 중…</div>
-  <div id="cardNewsHubGroups"></div>
+<div id="familyHubSection" class="cnh-tab-hidden">
+  <div id="familyHubStatus">불러오는 중…</div>
+  <div id="familyHubGroups"></div>
+</div>
+
+<div id="financeHubSection" class="cnh-tab-hidden">
+  <div id="financeHubStatus">불러오는 중…</div>
+  <div id="financeHubGroups"></div>
+</div>
+
+<!-- WHY jp_review는 카드뉴스 허브(육아·경제와 같은 방식)가 아니라 topic
+     목록 링크 방식인지(2026-08-14, "카드뉴스허브자체가 내가 원하던
+     바랑 다르게 들어갔네... jp review 쪽은 카드뉴스 탭 말고 탭을 하나
+     더 만들어서"): jp-review-shorts는 health-shorts처럼 topic마다 이미
+     완전한 자체 dashboard.html(플랫폼 카드+완료 체크+영상 미리보기)이
+     있어서, 그 콘텐츠를 여기 다시 그려 넣지 않고 topic 이름만 나열해서
+     각자의 dashboard.html로 보내는 게 맞다 — "숏츠·전체 목록"(건강) 탭이
+     health 자신의 topic을 그렇게 보여주는 것과 동일한 패턴. -->
+<div id="jpReviewSection" class="cnh-tab-hidden">
+  <div id="jpReviewStatus">불러오는 중…</div>
+  <div id="jpReviewList" style="display:flex;flex-direction:column;gap:8px;"></div>
 </div>
 
 <script>
@@ -294,30 +317,43 @@
 // 600여 줄짜리 기존 스크립트(완료 체크·포스팅로그·상품링크)는 전혀 안
 // 건드리고, 탭 전환 + 카드뉴스 허브 렌더링만 독립적으로 추가한다.
 (function () {
-  const tabShorts = document.getElementById("tabBtnShorts");
-  const tabCardNews = document.getElementById("tabBtnCardNews");
-  const cardNewsSection = document.getElementById("cardNewsHubSection");
-  let cardNewsLoaded = false;
+  // WHY 4탭 구조로 재편(2026-08-14, "카드뉴스허브자체가 내가 원하던 바랑
+  // 다르게 들어갔네... 부문별로 탭을 나눠서 하는게 나을듯"): 건강/육아+
+  // 반려동물/경제/일본상품리뷰 네이버 계정 부문마다 독립 탭으로 분리 —
+  // "건강"은 health 자신의 기존 topic 목록(구 숏츠 탭)을 이름만 바꿔
+  // 그대로 쓰고, 육아·경제는 card_news_hub.json을 부문별로 필터링해서
+  // 보여주고(+완료 체크박스 신규 추가), 일본상품리뷰는 카드뉴스식 집계가
+  // 아니라 topic 목록→각자 dashboard.html 링크 방식(아래 jpReviewSection
+  // 주석 참고).
+  const TAB_KEYS = ["health", "family", "finance", "jp_review"];
+  const tabButtons = {};
+  document.querySelectorAll(".main-tab-btn").forEach(btn => { tabButtons[btn.dataset.tab] = btn; });
+  const sectionsByTab = {
+    health: [document.getElementById("missingLinksDock"), document.getElementById("topicsSection")],
+    family: [document.getElementById("familyHubSection")],
+    finance: [document.getElementById("financeHubSection")],
+    jp_review: [document.getElementById("jpReviewSection")],
+  };
+  const loadedByTab = { family: false, finance: false, jp_review: false };
 
   function showTab(which) {
-    const isShorts = which === "shorts";
-    tabShorts.classList.toggle("active", isShorts);
-    tabCardNews.classList.toggle("active", !isShorts);
-    // WHY classList(.cnh-tab-hidden)만 쓰고 style.display는 직접 안 건드리는지:
-    // topicsSection/missingLinksDock의 인라인 style은 기존 스크립트가 계속
-    // 갱신한다 — !important 클래스로 숨기면 그 스크립트가 나중에 style을
-    // 바꿔도 탭이 꺼져있는 동안은 계속 안 보인다(경합 없음).
-    document.getElementById("missingLinksDock").classList.toggle("cnh-tab-hidden", !isShorts);
-    document.getElementById("topicsSection").classList.toggle("cnh-tab-hidden", !isShorts);
-    cardNewsSection.classList.toggle("cnh-tab-hidden", isShorts);
-    if (!isShorts && !cardNewsLoaded) {
-      cardNewsLoaded = true;
-      loadCardNewsHub();
+    for (const key of TAB_KEYS) {
+      const isActive = key === which;
+      tabButtons[key].classList.toggle("active", isActive);
+      // WHY classList(.cnh-tab-hidden)만 쓰고 style.display는 직접 안 건드리는지:
+      // topicsSection/missingLinksDock의 인라인 style은 기존 스크립트가 계속
+      // 갱신한다 — !important 클래스로 숨기면 그 스크립트가 나중에 style을
+      // 바꿔도 탭이 꺼져있는 동안은 계속 안 보인다(경합 없음).
+      for (const el of sectionsByTab[key]) el.classList.toggle("cnh-tab-hidden", !isActive);
+    }
+    if (which !== "health" && !loadedByTab[which]) {
+      loadedByTab[which] = true;
+      if (which === "family" || which === "finance") loadGroupHub(which);
+      else if (which === "jp_review") loadJpReview();
     }
   }
 
-  tabShorts.addEventListener("click", () => showTab("shorts"));
-  tabCardNews.addEventListener("click", () => showTab("card_news"));
+  for (const key of TAB_KEYS) tabButtons[key].addEventListener("click", () => showTab(key));
 
   function cnhEscapeHtml(s) {
     const div = document.createElement("div");
@@ -329,38 +365,59 @@
     const card = document.createElement("div");
     card.className = "cnh-card";
 
+    const head = document.createElement("div");
+    head.className = "cnh-card-head";
+
     const title = document.createElement("p");
     title.className = "cnh-card-title";
     title.textContent = item.title;
-    card.appendChild(title);
+    head.appendChild(title);
 
-    // WHY 영상을 이미지 그리드보다도 위에 두는지(2026-08-14, jp_review
-    // 버티컬 도입 — "게시물은 딱 영상 하나만 맨위에?"): 영상 기반 콘텐츠는
-    // 네이버 블로그 포스팅도 "영상을 글 맨 위에 먼저 넣고, 그 아래 번호별
-    // 이미지+본문으로 디테일을 풀어주는" 구조가 표준 — 영상이 카드뉴스보다
-    // 먼저 눈에 들어와야 발행 순서(영상 업로드 → 캡션 복사 → 번호별 이미지
-    // 삽입)와도 맞는다. 카드뉴스만 있는 다른 버티컬은 item.video_path가
-    // 항상 null이라 이 블록 자체가 안 그려짐.
-    if (item.video_path) {
-      const videoBlock = document.createElement("div");
-      videoBlock.className = "cnh-video-block";
+    // WHY 완료 체크박스 추가(2026-08-14, "그냥 사진 다올려놓고 완료된게
+    // 뭔지 올려야되는게 뭔지도 파악하기 힘들게 되어있네") — 기존 topic
+    // dashboard.html(CARD_TEMPLATE)의 done-toggle과 완전히 같은 방식
+    // (hs_done_<topic>_<key> localStorage + Supabase posting_log 테이블)을
+    // 재사용해서, 여기서 체크한 것도 같은 posting_log에 쌓여 CSV
+    // 내보내기·다른 대시보드와 일관되게 집계된다. 네이버 블로그 캡션
+    // 하나만 다루는 카드라 플랫폼은 "네이버 블로그" 고정.
+    const doneLabel = document.createElement("label");
+    doneLabel.className = "cnh-done-check";
+    const doneCb = document.createElement("input");
+    doneCb.type = "checkbox";
+    const doneSpan = document.createElement("span");
+    doneSpan.textContent = "완료";
+    doneLabel.appendChild(doneCb);
+    doneLabel.appendChild(doneSpan);
+    head.appendChild(doneLabel);
+    card.appendChild(head);
 
-      const video = document.createElement("video");
-      video.src = item.video_path;
-      video.controls = true;
-      video.preload = "metadata";
-      video.className = "cnh-video";
-      videoBlock.appendChild(video);
-
-      const dlLink = document.createElement("a");
-      dlLink.href = item.video_path;
-      dlLink.download = "";
-      dlLink.className = "cnh-btn-open";
-      dlLink.textContent = "영상 다운로드";
-      videoBlock.appendChild(dlLink);
-
-      card.appendChild(videoBlock);
+    const storageKey = `hs_done_${item.topic}_naver_blog`;
+    if (localStorage.getItem(storageKey)) {
+      doneCb.checked = true;
+      card.classList.add("is-done");
     }
+    (async () => {
+      try {
+        const { data } = await sb.from("posting_log").select("platform")
+          .eq("topic", item.topic).eq("platform", "네이버 블로그");
+        if (data && data.length) {
+          doneCb.checked = true;
+          card.classList.add("is-done");
+        }
+      } catch (err) { /* Supabase 조회 실패해도 localStorage 값으로 계속 동작 */ }
+    })();
+    doneCb.addEventListener("change", () => {
+      if (doneCb.checked) {
+        const postedAt = new Date().toISOString();
+        localStorage.setItem(storageKey, JSON.stringify({ topic: item.topic, platform: "네이버 블로그", postedAt }));
+        card.classList.add("is-done");
+        sb.from("posting_log").upsert({ topic: item.topic, platform: "네이버 블로그", posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        sb.from("posting_log").delete().eq("topic", item.topic).eq("platform", "네이버 블로그");
+      }
+    });
 
     // WHY 이미지 그리드를 캡션 미리보기보다 먼저 두는지(2026-08-14, "각
     // 블로그에서 어떤 번호에 어떤 사진 넣어놓고 발행만 하면 손쉽게 될
@@ -444,50 +501,86 @@
     return card;
   }
 
-  async function loadCardNewsHub() {
-    const statusEl = document.getElementById("cardNewsHubStatus");
-    const groupsEl = document.getElementById("cardNewsHubGroups");
+  const GROUP_NAME_BY_TAB = { family: "육아+반려동물", finance: "경제" };
+  let hubCache = null;
+  async function fetchHub() {
+    if (hubCache) return hubCache;
+    const res = await fetch("output/card_news_hub.json");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    hubCache = await res.json();
+    return hubCache;
+  }
+
+  async function loadGroupHub(tabKey) {
+    const statusEl = document.getElementById(tabKey === "family" ? "familyHubStatus" : "financeHubStatus");
+    const groupsEl = document.getElementById(tabKey === "family" ? "familyHubGroups" : "financeHubGroups");
     let hub;
     try {
-      const res = await fetch("output/card_news_hub.json");
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      hub = await res.json();
+      hub = await fetchHub();
     } catch (err) {
       statusEl.textContent = "output/card_news_hub.json을 못 불러왔습니다 — 먼저 터미널에서 python3 -m lib.card_news_hub 를 실행하세요.";
       statusEl.classList.add("error");
       return;
     }
-
-    const totalItems = hub.groups.reduce((sum, g) => sum + g.verticals.reduce((s, v) => s + v.items.length, 0), 0);
+    const group = hub.groups.find(g => g.group_name === GROUP_NAME_BY_TAB[tabKey]);
+    const totalItems = group ? group.verticals.reduce((s, v) => s + v.items.length, 0) : 0;
     if (totalItems === 0) {
-      statusEl.textContent = "아직 어느 버티컬에도 네이버 블로그용 카드뉴스 콘텐츠가 없습니다.";
+      statusEl.textContent = "아직 콘텐츠가 없습니다.";
       return;
     }
     statusEl.remove();
-
-    for (const group of hub.groups) {
-      const groupCount = group.verticals.reduce((s, v) => s + v.items.length, 0);
-      const section = document.createElement("div");
-      section.innerHTML = `<div class="cnh-group-title">${cnhEscapeHtml(group.group_name)} <span class="cnh-group-count">(${groupCount}건)</span></div>`;
-
-      for (const vertical of group.verticals) {
-        const block = document.createElement("div");
-        block.className = "cnh-vertical-block";
-        if (vertical.items.length === 0) {
-          block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)}</span><div class="cnh-vertical-empty">아직 콘텐츠 없음</div>`;
-          section.appendChild(block);
-          continue;
-        }
-        const grid = document.createElement("div");
-        grid.className = "cnh-card-grid";
-        for (const item of vertical.items) grid.appendChild(cnhBuildCard(item));
-        block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)} (${vertical.items.length})</span>`;
-        block.appendChild(grid);
-        section.appendChild(block);
+    for (const vertical of group.verticals) {
+      const block = document.createElement("div");
+      block.className = "cnh-vertical-block";
+      if (vertical.items.length === 0) {
+        block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)}</span><div class="cnh-vertical-empty">아직 콘텐츠 없음</div>`;
+        groupsEl.appendChild(block);
+        continue;
       }
-      groupsEl.appendChild(section);
+      const grid = document.createElement("div");
+      grid.className = "cnh-card-grid";
+      for (const item of vertical.items) grid.appendChild(cnhBuildCard(item));
+      block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)} (${vertical.items.length})</span>`;
+      block.appendChild(grid);
+      groupsEl.appendChild(block);
     }
   }
+
+  // WHY 별도 fetch 경로인지: jp-review-shorts는 카드뉴스 렌더링이 아니라
+  // topic마다 완전한 자체 dashboard.html이 있는 쪽이라(위 jpReviewSection
+  // 주석 참고), lib/jp_review_hub.py(jp-review-shorts 쪽 신규 스크립트)가
+  // 만드는 output/topics_hub.json(topic·title·dashboard_path만 담음)을
+  // 그대로 목록으로 뿌린다 — card_news_hub.json과는 별개 파일.
+  async function loadJpReview() {
+    const statusEl = document.getElementById("jpReviewStatus");
+    const listEl = document.getElementById("jpReviewList");
+    let data;
+    try {
+      const res = await fetch("../verticals/jp-review-shorts/output/topics_hub.json");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      data = await res.json();
+    } catch (err) {
+      statusEl.textContent = "일본상품리뷰 topic 목록을 못 불러왔습니다 — jp-review-shorts에서 python3 -m lib.jp_review_hub 를 먼저 실행하세요.";
+      statusEl.classList.add("error");
+      return;
+    }
+    if (!data.topics || data.topics.length === 0) {
+      statusEl.textContent = "아직 topic이 없습니다.";
+      return;
+    }
+    statusEl.remove();
+    for (const t of data.topics) {
+      const row = document.createElement("a");
+      row.href = "../verticals/jp-review-shorts/" + t.dashboard_path;
+      row.target = "_blank";
+      row.rel = "noopener";
+      row.className = "jp-topic-row";
+      row.textContent = t.title || t.topic;
+      listEl.appendChild(row);
+    }
+  }
+
+  showTab("health");
 })();
 </script>
 
