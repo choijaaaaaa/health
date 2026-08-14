@@ -109,7 +109,15 @@
      로 항상 이기게 한다. */
   .cnh-tab-hidden { display: none !important; }
 
-  #cardNewsHubSection { max-width: 1000px; margin: 20px auto 0; padding: 0 24px 60px; display: none; }
+  /* WHY display:none을 여기서 빼는지(2026-08-14 버그 수정, "카드뉴스
+     허브탭에 아무것도안보임"): 이 레이아웃 규칙이 #cardNewsHubSection에
+     display:none을 무조건 걸어놓고 있어서, 탭 전환 JS가 .cnh-tab-hidden
+     클래스를 지워도(visible 의도) 이 ID 규칙이 그대로 남아 계속 안 보였다
+     — 탭 전환은 .cnh-tab-hidden(!important) 클래스 하나로만 제어해야
+     하는데 레이아웃 규칙에 display까지 같이 박아놓은 게 원인. 처음
+     페이지 로드 시 안 보여야 하는 건 HTML의 class="cnh-tab-hidden" 초기값이
+     이미 담당하므로 이 규칙엔 display를 넣지 않아도 된다. */
+  #cardNewsHubSection { max-width: 1000px; margin: 20px auto 0; padding: 0 24px 60px; }
   #cardNewsHubStatus { text-align: center; color: var(--ink-soft); padding: 30px 0; font-size: 14px; }
   #cardNewsHubStatus.error { color: var(--accent-deep); }
   .cnh-group-title { font-size: 17px; font-weight: 800; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
