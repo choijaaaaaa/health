@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Stress Incontinence,",
+    "Ever Leaked a Little",
+    "When You Cough or Laugh?",
+    "3 Habits That Make It Worse"
+  ],
+  "eyebrow": "Stress Incontinence Prevention",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "골반저근_illust.jpg": "Pelvic Floor",
+    "비만_illust.jpg": "Weight",
+    "커피_illust.jpg": "Caffeine"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "골반저근_illust.jpg",
+      "body": [
+        "Ever leaked a little",
+        "when you cough or laugh?",
+        "",
+        "A weak pelvic floor and",
+        "urethral sphincter can't",
+        "hold back that pressure —",
+        "three habits make it worse"
+      ]
+    },
+    {
+      "name": "Carrying Extra Weight",
+      "char_file": "비만_illust.jpg",
+      "body": [
+        "First is carrying",
+        "extra weight",
+        "",
+        "Every extra pound adds",
+        "pressure on the bladder,",
+        "so even a small cough",
+        "is enough to cause a leak"
+      ]
+    },
+    {
+      "name": "Weight — the fix",
+      "char_file": "비만_illust.jpg",
+      "body": [
+        "Losing just 8% of",
+        "body weight cuts weekly",
+        "leaks nearly in half"
+      ]
+    },
+    {
+      "name": "Heavy Caffeine Intake",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Second is drinking a lot",
+        "of coffee or caffeinated drinks",
+        "",
+        "Caffeine increases urine output",
+        "and irritates the bladder,",
+        "adding to the load your",
+        "pelvic floor has to hold back"
+      ]
+    },
+    {
+      "name": "Caffeine — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Swap coffee for",
+        "water or herbal tea"
+      ]
+    },
+    {
+      "name": "Skipping Pelvic Floor Exercise",
+      "char_file": "골반저근_illust.jpg",
+      "body": [
+        "Last is skipping",
+        "pelvic floor exercise",
+        "",
+        "Like any other muscle,",
+        "it weakens without use —",
+        "its ability to hold back",
+        "pressure keeps declining"
+      ]
+    },
+    {
+      "name": "Kegels — the fix",
+      "char_file": "골반저근_illust.jpg",
+      "body": [
+        "Squeeze for 3-5 seconds,",
+        "release for 3-5 seconds,",
+        "10 reps, 3 times a day",
+        "",
+        "Most women notice a real",
+        "difference within 1-3 months"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Small habits,",
+        "real relief"
+      ],
+      [
+        "Manage weight and caffeine,",
+        "and train your pelvic floor"
+      ]
+    ],
+    "tip": [
+      "Consistency matters more than intensity —",
+      "a few minutes a day adds up"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Stress Incontinence"
+}
