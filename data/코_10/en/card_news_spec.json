@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Nasal polyps, if congestion and smell loss",
+    "keep coming back, check this now",
+    "3 Habits That Fuel Nasal Polyps"
+  ],
+  "eyebrow": "Nasal Polyp Alert",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "cover_scrim_color": "#2D5F8A",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Takeaway",
+  "topic_word": "Nasal Polyps",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Saline Rinse",
+    "아스피린_illust.jpg": "Aspirin / NSAIDs",
+    "알약_illust.jpg": "Pain Reliever Swap",
+    "담배_illust.jpg": "Smoke & Irritants",
+    "공기청정기_illust.jpg": "Air Purifier",
+    "긴장_illust.jpg": "Ignoring Symptoms"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Nasal polyps are soft growths",
+        "from long-term inflammation",
+        "in your nasal and sinus lining",
+        "",
+        "They're more common in people",
+        "with asthma, allergies, or a",
+        "sensitivity to certain pain relievers"
+      ]
+    },
+    {
+      "name": "Taking Aspirin Or Ibuprofen Freely",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "First, taking aspirin, ibuprofen,",
+        "or naproxen without knowing",
+        "your sensitivity",
+        "",
+        "Some people have a reaction called AERD,",
+        "where these drugs suddenly",
+        "worsen congestion"
+      ]
+    },
+    {
+      "name": "Ask About A Safer Pain Reliever",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Talk to your doctor about",
+        "acetaminophen instead,",
+        "and mention any drug reactions",
+        "",
+        "This can help you avoid",
+        "a sudden flare-up"
+      ]
+    },
+    {
+      "name": "Breathing In Smoke And Irritants",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Second, breathing in tobacco smoke,",
+        "chemical fumes, or dust",
+        "without protection",
+        "",
+        "These irritants keep the swelling",
+        "and inflammation going"
+      ]
+    },
+    {
+      "name": "Limit Airborne Irritants",
+      "char_file": "공기청정기_illust.jpg",
+      "body": [
+        "Try an air purifier indoors",
+        "and a mask around fumes or dust",
+        "",
+        "Less exposure may mean",
+        "less swelling over time"
+      ]
+    },
+    {
+      "name": "Skipping Saline Rinse",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Last, skipping saline rinse",
+        "and letting mucus sit",
+        "",
+        "Trapped mucus and irritation",
+        "can keep polyps growing"
+      ]
+    },
+    {
+      "name": "Rinse With Saline Regularly",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Use a saline rinse once or twice a day",
+        "and run a humidifier at home",
+        "",
+        "This may help clear irritants",
+        "and ease congestion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Watching pain reliever choices, limiting irritants,",
+        "and saline rinsing may genuinely help"
+      ],
+      [
+        "If congestion or smell loss lasts more than 2 weeks,",
+        "an ENT visit is worth considering"
+      ]
+    ],
+    "tip": [
+      "Symptoms can worsen quietly over time,",
+      "so check in on your nose regularly"
+    ],
+    "cta": "Want more health tips like this? Follow along"
+  }
+}
