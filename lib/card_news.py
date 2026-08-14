@@ -1,11 +1,13 @@
 # 건강정보 카드뉴스 생성기. WHY: 카드뉴스는 텍스트+이미지 합성뿐이라 AI 불필요 —
 # 순수 PIL 스크립트로 자동화해서 Claude 세션 없이 반복 생산 가능하게 분리함.
 # 폰트 웨이트(Apple SD Gothic Neo ttc index)로 타이포 위계, 그림자/패널로 입체감을 준다.
+import functools
 import json
 import random
 import sys
 from pathlib import Path
 
+from fontTools.ttLib import TTFont
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -70,13 +72,89 @@ PANEL = (255, 253, 250)
 SHADOW = (60, 45, 35)
 
 
-def _font(size, weight="regular"):
+def _current_font_path() -> str:
+    """현재 언어(_CURRENT_LANG)가 실제로 쓰는 폰트 파일 경로 — _font()와
+    글리프 커버리지 검사(_font_cmap 이하)가 이 함수 하나로 언어→폰트 매핑을
+    공유한다. WHY 공유가 필요한지(2026-08-14): 두 곳이 각자 이 매핑을 따로
+    들고 있으면 나중에 언어를 추가/변경할 때 한쪽만 고치고 다른 쪽을 빠뜨리는
+    사고가 나기 쉽다 — 실제로 오늘 고친 á/é 버그도 매핑 로직이 여러 군데
+    흩어져 있었던 게 원인 중 하나였다."""
     if _CURRENT_LANG == "kor":
-        return ImageFont.truetype(FONT_PATH, size, index=_WEIGHT_TO_TTC_INDEX[weight])
+        return FONT_PATH
+    return _FONT_PATH_BY_LANG.get(_CURRENT_LANG, _FONT_PATH_LATIN_CYRILLIC)
+
+
+def _font(size, weight="regular"):
+    font_path = _current_font_path()
+    if font_path == FONT_PATH:
+        return ImageFont.truetype(font_path, size, index=_WEIGHT_TO_TTC_INDEX[weight])
     # 비한국어 폰트는 굵기별 별도 파일이 없는 Bold 단일 파일이라(Noto Sans 계열)
     # weight 구분 없이 index=0 고정 — video_assembler.py의 동일 폴백과 같은 원칙.
-    font_path = _FONT_PATH_BY_LANG.get(_CURRENT_LANG, _FONT_PATH_LATIN_CYRILLIC)
     return ImageFont.truetype(font_path, size, index=0)
+
+
+@functools.lru_cache(maxsize=None)
+def _font_cmap(font_path: str) -> frozenset[int]:
+    """그 폰트 파일이 실제로 그릴 수 있는 유니코드 코드포인트 집합.
+    WHY fontTools인지(2026-08-14, á/é tofu box 사고 조사 중 확인): Pillow의
+    ImageFont.getmask()는 지원 안 하는 글리프도 .notdef(빈 네모, 사각형 bbox가
+    실제로 있음)를 조용히 그려서 bbox 존재 여부로는 "글리프가 있다"와 "없어서
+    tofu box가 나온다"를 구분할 수 없다 — 폰트의 cmap 테이블을 직접 읽는
+    fontTools만 정확하게 판별 가능하다. lru_cache로 폰트당 한 번만 파싱한다."""
+    tt = TTFont(font_path, fontNumber=0, lazy=True)
+    codepoints: set[int] = set()
+    for table in tt["cmap"].tables:
+        codepoints |= set(table.cmap.keys())
+    return frozenset(codepoints)
+
+
+def _missing_glyphs(text: str) -> str:
+    """text 안에서 현재 언어 폰트가 못 그리는 문자만 중복 없이 뽑아 반환
+    (빈 문자열이면 전부 지원). 공백은 애초에 안 그려지므로 검사 대상에서 뺀다."""
+    cmap = _font_cmap(_current_font_path())
+    return "".join(sorted({ch for ch in text if not ch.isspace() and ord(ch) not in cmap}))
+
+
+def _assert_glyph_coverage(label: str, text: str) -> None:
+    """text에 현재 언어 폰트가 못 그리는 문자가 있으면 즉시 에러로 막는다.
+    WHY(2026-08-14, es/fr/it/nl 커버 이미지에서 á/é/í/ñ/ó/ú가 tofu box(□)로
+    조용히 깨진 채 커밋된 사고 재발 방지): 렌더링 자체는 에러 없이 "성공"하기
+    때문에, 그동안은 사람이 이미지를 하나하나 육안으로 확인해야만 발견됐다.
+    generate() 시작 시 실제로 그릴 텍스트 전부를 미리 이 함수로 검사해서,
+    깨진 이미지가 아예 만들어지기 전에 막는다."""
+    missing = _missing_glyphs(text)
+    if missing:
+        raise ValueError(
+            f"[lang={_CURRENT_LANG}] {label}에 현재 폰트가 그리지 못하는 문자 발견: "
+            f"{missing!r} (원문: {text!r}) — 폰트 매핑(_FONT_PATH_BY_LANG)을 확인하거나 "
+            f"해당 언어에 이 문자가 실제로 필요한지 다시 검토할 것."
+        )
+
+
+def _validate_spec_glyphs(spec: dict, eyebrow: str, swipe_label: str, closing_label: str,
+                           char_display_names: dict) -> None:
+    """generate()가 실제로 화면에 그릴 텍스트 전부를 렌더링 시작 전에 한 번에 검사한다.
+    카드 여러 장 중 하나에서만 깨지면 그 전에 만든 정상 이미지들이 디스크에 남아 다음
+    커밋에 섞여 들어가기 쉽다 — 아예 첫 장도 안 그려지게 앞단에서 막는 게 안전하다."""
+    hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
+    checks = [
+        ("표지 훅", hook_text),
+        ("스와이프 라벨", _safe_arrow(swipe_label)),
+        ("마무리 칩 라벨", closing_label),
+    ]
+    for item in spec["items"]:
+        char_key = Path(item["char_file"]).name
+        char_label = char_display_names.get(char_key, Path(item["char_file"]).stem.replace("_illust", ""))
+        checks.append((f"{item['name']} eyebrow", eyebrow))
+        checks.append((f"{item['name']} 제목", item["name"]))
+        checks.append((f"{item['name']} 본문", " ".join(item["body"])))
+        checks.append((f"{item['name']} 캐릭터 라벨", char_label))
+    closing = spec["closing"]
+    checks.append(("마무리 헤드라인", " ".join(ln for block in closing["headline"] for ln in block)))
+    checks.append(("마무리 팁", " ".join(closing["tip"])))
+    checks.append(("마무리 CTA", closing["cta"]))
+    for label, text in checks:
+        _assert_glyph_coverage(label, text)
 
 
 def _vertical_gradient(top, bottom):
@@ -693,6 +771,11 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     swipe_label = spec.get("swipe_label", "넘겨서 확인하기  →")
     char_display_names = spec.get("char_display_names", {})
     closing_label = spec.get("closing_label", "마무리")
+
+    # WHY 렌더링 시작 전에 검사(2026-08-14): 카드 한 장이라도 그린 뒤에 에러가 나면
+    # 그 전까지 만든 정상 이미지들이 output_dir에 남아 다음 커밋에 섞여 들어가기
+    # 쉽다 — 아예 첫 장도 안 그려지게 여기서 먼저 전부 확인한다.
+    _validate_spec_glyphs(spec, eyebrow, swipe_label, closing_label, char_display_names)
 
     hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
     make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path,
