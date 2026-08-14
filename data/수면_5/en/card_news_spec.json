@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Sleep Paralysis Isn't",
+    "a Sign Something's",
+    "Wrong with You",
+    "What Actually Triggers It"
+  ],
+  "eyebrow": "How to Prevent Sleep Paralysis",
+  "cover_char_file": "이불_illust.jpg",
+  "cover_scrim_color": "#2B2450",
+  "items": [
+    {
+      "name": "You're not alone",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Woken up unable to move",
+        "and thought something was wrong with you?",
+        "",
+        "You're not alone —",
+        "and you're not imagining it",
+        "",
+        "English has no everyday word for it,",
+        "so many people go through it",
+        "without ever hearing it has a name:",
+        "sleep paralysis",
+        "",
+        "It's a well-documented part",
+        "of how REM sleep works,",
+        "not a sign anything's broken"
+      ]
+    },
+    {
+      "name": "An irregular sleep schedule",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "One factor: an irregular",
+        "sleep schedule",
+        "",
+        "It throws off your REM cycle,",
+        "making that switch-off glitch more likely"
+      ]
+    },
+    {
+      "name": "Sleeping flat on your back",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Another factor: sleeping",
+        "flat on your back",
+        "",
+        "Research ties it to over four times",
+        "as many episodes as side sleeping",
+        "",
+        "It raises airway resistance",
+        "and fragments your REM cycle further"
+      ]
+    },
+    {
+      "name": "Anxiety and mental health",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Anxiety and other mental",
+        "health conditions are linked too",
+        "",
+        "Going to bed tense keeps",
+        "your nervous system on alert,",
+        "",
+        "making it harder for your body",
+        "to power down during REM sleep"
+      ]
+    },
+    {
+      "name": "What actually helps",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "None of that means",
+        "something's wrong with you",
+        "",
+        "A steadier schedule,",
+        "sleeping on your side,",
+        "and managing stress before bed —",
+        "",
+        "all three make episodes",
+        "less frequent"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A steady schedule, side sleeping,",
+        "and managing stress before bed —",
+        "these habits cut down how often it happens"
+      ],
+      [
+        "If episodes are frequent,",
+        "mention it to a doctor —",
+        "it can sometimes point to narcolepsy"
+      ]
+    ],
+    "tip": [
+      "Tonight, try just one change:",
+      "sleep on your side"
+    ],
+    "cta": "Want more health tips? Follow for more"
+  }
+}
