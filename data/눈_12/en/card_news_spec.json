@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Subconjunctival hemorrhage:",
+    "your eye looks like it's bleeding, but check this first",
+    "The Valsalva Effect and When It's Actually Serious"
+  ],
+  "eyebrow": "Eye Health Alert",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "topic_word": "Eye Health",
+  "cover_char_file": "손가락_illust.jpg",
+  "char_display_names": {
+    "손가락_illust.jpg": "Rubbing",
+    "인공눈물_illust.jpg": "Artificial Tears",
+    "변기_illust.jpg": "Straining",
+    "아스피린_illust.jpg": "Blood Thinners",
+    "혈압계_illust.jpg": "Check-Up"
+  },
+  "cover_scrim_color": "#4A7C59",
+  "items": [
+    {
+      "name": "Here's the surprising part",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "A blood vessel breaks",
+        "under the clear surface",
+        "of your eye",
+        "",
+        "and most people notice it",
+        "in the mirror - not from pain"
+      ]
+    },
+    {
+      "name": "It's called the Valsalva effect",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Straining that suddenly raises",
+        "pressure in your chest",
+        "",
+        "pushes that pressure right",
+        "into the vessels around your eyes"
+      ]
+    },
+    {
+      "name": "Coughing, sneezing, and more",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "A hard cough, a sneeze,",
+        "vomiting, heavy lifting,",
+        "even straining on the toilet",
+        "",
+        "any of these can be enough",
+        "to break a fragile vessel"
+      ]
+    },
+    {
+      "name": "Rubbing and contact lenses",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Rubbing itchy or tired eyes,",
+        "or pressing hard when you",
+        "put in contacts,",
+        "",
+        "adds direct pressure",
+        "of its own"
+      ]
+    },
+    {
+      "name": "Ease up like this",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Swap rubbing for",
+        "preservative-free artificial tears",
+        "",
+        "and handle your lenses",
+        "gently going in and out"
+      ]
+    },
+    {
+      "name": "On aspirin or blood thinners",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "These keep your blood",
+        "from clotting normally",
+        "",
+        "so a small break bleeds",
+        "more and clears more slowly"
+      ]
+    },
+    {
+      "name": "Here's the safe way to handle it",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Don't stop them on your own -",
+        "check with your doctor first",
+        "",
+        "and reach for acetaminophen,",
+        "not aspirin, for eye discomfort"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "It looks dramatic,",
+        "but there's usually no pain or vision change"
+      ],
+      [
+        "Pain, vision changes, or repeat",
+        "episodes are worth an eye exam"
+      ]
+    ],
+    "tip": [
+      "Cold compress for 10-15 minutes,",
+      "then switch to warm after a few days"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
