@@ -28,24 +28,25 @@ ROOT = Path(__file__).resolve().parent.parent
 # ("계정이 없으면 그룹에 안 넣는다"). 두 버티컬용 계정이 나중에 생기면
 # VERTICAL_REPOS에 다시 추가할 것 — 레포 자체(cerulem-content/
 # nookery-content)는 안 건드렸으니 데이터는 그대로 있다.
-# (레포 디렉터리명, 한글 표시 라벨, 네이버 계정 그룹명, 영상 파일명(있으면))
+# (레포 디렉터리명, 한글 표시 라벨, 네이버 계정 그룹명)
 #
-# ⚠️ jp_review는 카드뉴스 이미지 렌더링 파이프라인이 없는 대신 실제 촬영
-# 영상(output/<topic>/demo_preview.mp4)이 있다(2026-08-14, "게시물은 딱
-# 영상 하나만 맨위에?" 확인 후 도입) — 네 번째 튜플 원소로 영상 파일명을
-# 넣으면 collect_items()가 그 파일을 찾아 item["video_path"]에 채워주고,
-# index.html이 이미지 그리드보다 위에 영상 미리보기+다운로드 블록을 그린다.
-# 다른 버티컬은 영상이 없으니 네 번째 원소를 생략(기본값 None).
-VERTICAL_REPOS: dict[str, tuple[str | None, str, str] | tuple[str | None, str, str, str]] = {
-    "health":      (None,                 "건강",       "건강"),
-    "littlebrook": ("littlebrook-content", "육아",       "육아+반려동물"),
-    "pawnest":     ("pawnest-content",     "반려동물",   "육아+반려동물"),
-    "fiscallo":    ("fiscallo-content",    "경제",       "경제"),
-    "jp_review":   ("jp-review-shorts",    "일본상품리뷰", "건강", "demo_preview.mp4"),
+# ⚠️ health/jp_review는 여기서 뺐다(2026-08-14, "카드뉴스허브자체가 내가
+# 원하던 바랑 다르게 들어갔네... 부문별로 탭을 나눠서 하는게 나을듯") —
+# 건강은 이미 자기 topic마다 완전한 대시보드(완료 체크·플랫폼 카드)가
+# 있어서 "숏츠·전체 목록" 탭(건강으로 개명)이 그대로 그 역할을 하고,
+# jp_review도 같은 이유로 자기 전용 대시보드+탭을 새로 만들어 완전히
+# 분리했다(자세한 내용은 jp-review-shorts CLAUDE.md 참고) — 이 스크립트는
+# 이제 "완전한 대시보드가 없는" 신규 버티컬(littlebrook/pawnest/fiscallo)만
+# 담당한다. 영상 지원(video_path)도 그 두 버티컬과 함께 제거 — 실제로 쓰던
+# 버티컬이 없어져서 죽은 코드로 남기지 않음.
+VERTICAL_REPOS: dict[str, tuple[str | None, str, str]] = {
+    "littlebrook": ("littlebrook-content", "육아",     "육아+반려동물"),
+    "pawnest":     ("pawnest-content",     "반려동물", "육아+반려동물"),
+    "fiscallo":    ("fiscallo-content",    "경제",     "경제"),
 }
 
 # 그룹 표시 순서 고정(dict 삽입 순서에 기대지 않고 명시).
-GROUP_ORDER = ["건강", "육아+반려동물", "경제"]
+GROUP_ORDER = ["육아+반려동물", "경제"]
 
 
 def _find_sibling_project(name: str) -> Path:
