@@ -92,6 +92,55 @@
     flex-direction: column; gap: 8px;
   }
   #missingLinksPanel.open { display: flex; }
+
+  /* WHY 여기 새로 추가하는지(2026-08-14, 카드뉴스 허브 탭): :root 변수는
+     이미 위에 있어 그대로 재사용, 탭 버튼·카드뉴스 그리드 전용 클래스만
+     추가한다. */
+  .main-tab-btn {
+    border: 1px solid var(--rule); border-radius: 999px; padding: 8px 16px;
+    font-size: 13px; font-weight: 700; font-family: inherit; cursor: pointer;
+    background: var(--panel); color: var(--ink-soft);
+  }
+  .main-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+  /* WHY !important: topicsSection/missingLinksDock의 display는 기존
+     600여 줄 스크립트가 데이터 로딩 시점에 계속 인라인 style로 바꾼다 —
+     탭 전환 로직이 인라인 style을 직접 건드리면 그 스크립트가 나중에
+     덮어써서 탭이 꺼져있어도 다시 나타나는 경합이 생긴다. 클래스+!important
+     로 항상 이기게 한다. */
+  .cnh-tab-hidden { display: none !important; }
+
+  #cardNewsHubSection { max-width: 1000px; margin: 20px auto 0; padding: 0 24px 60px; display: none; }
+  #cardNewsHubStatus { text-align: center; color: var(--ink-soft); padding: 30px 0; font-size: 14px; }
+  #cardNewsHubStatus.error { color: var(--accent-deep); }
+  .cnh-group-title { font-size: 17px; font-weight: 800; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
+  .cnh-group-count { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+  .cnh-vertical-block { margin: 14px 0; }
+  .cnh-vertical-badge {
+    display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
+    padding: 4px 10px; border-radius: 999px; background: var(--gold-soft); color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .cnh-vertical-empty { font-size: 13px; color: var(--ink-soft); padding: 4px 2px 0; }
+  .cnh-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+  .cnh-card {
+    background: var(--panel); border: 1px solid var(--rule); border-radius: 14px;
+    padding: 14px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .cnh-card-title { font-size: 14px; font-weight: 700; line-height: 1.4; margin: 0; }
+  .cnh-card-caption-preview {
+    font-size: 12px; color: var(--ink-soft); line-height: 1.5;
+    max-height: 4.5em; overflow: hidden; white-space: pre-wrap; margin: 0;
+  }
+  .cnh-card-actions { display: flex; gap: 8px; margin-top: auto; }
+  .cnh-card-actions button, .cnh-card-actions a {
+    flex: 1; text-align: center; border: none; border-radius: 999px;
+    padding: 8px 10px; font-size: 12px; font-weight: 700; cursor: pointer;
+    text-decoration: none; font-family: inherit;
+  }
+  .cnh-btn-copy { background: var(--accent); color: #fff; }
+  .cnh-btn-copy.copied { background: var(--gold); }
+  .cnh-btn-open { background: var(--accent-soft); color: var(--accent-deep); }
+  .cnh-btn-open.disabled { background: var(--rule); color: var(--ink-soft); pointer-events: none; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="supabase_client.js"></script>
@@ -118,9 +167,28 @@
   <p>완성된 topic 목록 확인, 포스팅 상태 관리, 상품 링크 등록.</p>
 </header>
 
+<!-- WHY 탭 부활(2026-08-14, "index를 나눠달라는게 아니라 dashboard 안에
+     예전에 있던 구조 그대로하라는건데... 거기 원래 카드뉴스랑 숏츠 카테고리
+     분리되어있었잖아"): 2026-08-09에 "숏츠/카드뉴스를 하나의 목록으로
+     합친다"고 없앴던 바로 그 탭 구조(아래 topicsSection 안 주석 참고)를
+     되살린다 — 다만 이번엔 카드뉴스 탭 쪽이 health 자신의 topics.json이
+     아니라 lib/card_news_hub.py가 5개 버티컬(건강/뷰티/육아/홈리빙/
+     반려동물)을 모아 만든 output/card_news_hub.json을 보여준다(네이버 계정
+     2개 — 건강+뷰티 / 육아+홈리빙+반려동물 — 기준 그룹핑). 새 페이지로
+     안 옮기고 이 안에서 탭 전환만 한다. -->
+<div id="mainTabs" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;">
+  <button type="button" id="tabBtnShorts" class="main-tab-btn active">🎬 숏츠·전체 목록</button>
+  <button type="button" id="tabBtnCardNews" class="main-tab-btn">🗞 카드뉴스 허브</button>
+</div>
+
 <!-- WHY(2026-07-31): 매번 output/<topic>/dashboard.html 전체 경로를 외워서 들어가야
      했다는 피드백 — output/topics.json(dashboard.py가 생성할 때마다 자동 갱신)을
-     읽어서 완성된 콘텐츠 목록을 루트에서 바로 보여준다. -->
+     읽어서 완성된 콘텐츠 목록을 루트에서 바로 보여준다.
+     WHY 탭 제거(2026-08-09, "카드뉴스 탭이랑 숏츠 탭 나눌 필요 없겠다")로
+     한때 이 목록 안에서 숏츠/카드뉴스를 합쳤었지만, 위 mainTabs로 다시
+     최상위에서 분리됐다 — 이 섹션 자체는 그 통합 로직 그대로 유지(health
+     자신의 숏츠+카드뉴스 topic이 다 여기 나옴), 순수 "카드뉴스만 여러
+     버티컬"을 보고 싶을 때만 위 탭으로 전환. -->
 <div id="topicsSection" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:none;">
   <input type="text" id="topicSearch" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="완성된 콘텐츠 폴더명 검색"
     style="width:100%;box-sizing:border-box;padding:10px 14px;margin-bottom:14px;border:1px solid var(--rule);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--panel);">
@@ -175,6 +243,150 @@
     <span id="linksSyncMsg" style="font-size:12px;color:var(--ink-soft);align-self:center;"></span>
   </div>
 </div>
+
+<!-- WHY output/card_news_hub.json을 fetch하는지: 각 버티컬(cerulem-content
+     등)이 완전히 독립된 형제 레포라 브라우저가 그 데이터를 직접 못 읽는다 —
+     lib/card_news_hub.py가 미리 5개 레포를 스캔해서 health-shorts 안에 이
+     파일 하나로 합쳐둔다(위 topicsSection이 읽는 output/all_products.json과
+     동일한 사전 집계 패턴). -->
+<div id="cardNewsHubSection" class="cnh-tab-hidden">
+  <div id="cardNewsHubStatus">불러오는 중…</div>
+  <div id="cardNewsHubGroups"></div>
+</div>
+
+<script>
+// WHY 별도 함수/즉시실행 없이 하단 메인 스크립트와 나란히 두는지: 아래
+// 600여 줄짜리 기존 스크립트(완료 체크·포스팅로그·상품링크)는 전혀 안
+// 건드리고, 탭 전환 + 카드뉴스 허브 렌더링만 독립적으로 추가한다.
+(function () {
+  const tabShorts = document.getElementById("tabBtnShorts");
+  const tabCardNews = document.getElementById("tabBtnCardNews");
+  const cardNewsSection = document.getElementById("cardNewsHubSection");
+  let cardNewsLoaded = false;
+
+  function showTab(which) {
+    const isShorts = which === "shorts";
+    tabShorts.classList.toggle("active", isShorts);
+    tabCardNews.classList.toggle("active", !isShorts);
+    // WHY classList(.cnh-tab-hidden)만 쓰고 style.display는 직접 안 건드리는지:
+    // topicsSection/missingLinksDock의 인라인 style은 기존 스크립트가 계속
+    // 갱신한다 — !important 클래스로 숨기면 그 스크립트가 나중에 style을
+    // 바꿔도 탭이 꺼져있는 동안은 계속 안 보인다(경합 없음).
+    document.getElementById("missingLinksDock").classList.toggle("cnh-tab-hidden", !isShorts);
+    document.getElementById("topicsSection").classList.toggle("cnh-tab-hidden", !isShorts);
+    cardNewsSection.classList.toggle("cnh-tab-hidden", isShorts);
+    if (!isShorts && !cardNewsLoaded) {
+      cardNewsLoaded = true;
+      loadCardNewsHub();
+    }
+  }
+
+  tabShorts.addEventListener("click", () => showTab("shorts"));
+  tabCardNews.addEventListener("click", () => showTab("card_news"));
+
+  function cnhEscapeHtml(s) {
+    const div = document.createElement("div");
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function cnhBuildCard(item) {
+    const card = document.createElement("div");
+    card.className = "cnh-card";
+
+    const title = document.createElement("p");
+    title.className = "cnh-card-title";
+    title.textContent = item.title;
+    card.appendChild(title);
+
+    const preview = document.createElement("p");
+    preview.className = "cnh-card-caption-preview";
+    preview.textContent = item.caption;
+    card.appendChild(preview);
+
+    const actions = document.createElement("div");
+    actions.className = "cnh-card-actions";
+
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "cnh-btn-copy";
+    copyBtn.type = "button";
+    copyBtn.textContent = "복사";
+    copyBtn.setAttribute("aria-label", `${item.title} 캡션 복사`);
+    copyBtn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(item.caption);
+        copyBtn.textContent = "복사됨";
+        copyBtn.classList.add("copied");
+        setTimeout(() => { copyBtn.textContent = "복사"; copyBtn.classList.remove("copied"); }, 1500);
+      } catch (err) {
+        copyBtn.textContent = "복사 실패";
+      }
+    });
+    actions.appendChild(copyBtn);
+
+    const openLink = document.createElement("a");
+    if (item.dashboard_path) {
+      openLink.className = "cnh-btn-open";
+      openLink.href = item.dashboard_path;
+      openLink.target = "_blank";
+      openLink.rel = "noopener";
+      openLink.textContent = "열기";
+    } else {
+      openLink.className = "cnh-btn-open disabled";
+      openLink.textContent = "대시보드 없음";
+    }
+    actions.appendChild(openLink);
+
+    card.appendChild(actions);
+    return card;
+  }
+
+  async function loadCardNewsHub() {
+    const statusEl = document.getElementById("cardNewsHubStatus");
+    const groupsEl = document.getElementById("cardNewsHubGroups");
+    let hub;
+    try {
+      const res = await fetch("output/card_news_hub.json");
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      hub = await res.json();
+    } catch (err) {
+      statusEl.textContent = "output/card_news_hub.json을 못 불러왔습니다 — 먼저 터미널에서 python3 -m lib.card_news_hub 를 실행하세요.";
+      statusEl.classList.add("error");
+      return;
+    }
+
+    const totalItems = hub.groups.reduce((sum, g) => sum + g.verticals.reduce((s, v) => s + v.items.length, 0), 0);
+    if (totalItems === 0) {
+      statusEl.textContent = "아직 어느 버티컬에도 네이버 블로그용 카드뉴스 콘텐츠가 없습니다.";
+      return;
+    }
+    statusEl.remove();
+
+    for (const group of hub.groups) {
+      const groupCount = group.verticals.reduce((s, v) => s + v.items.length, 0);
+      const section = document.createElement("div");
+      section.innerHTML = `<div class="cnh-group-title">${cnhEscapeHtml(group.group_name)} <span class="cnh-group-count">(${groupCount}건)</span></div>`;
+
+      for (const vertical of group.verticals) {
+        const block = document.createElement("div");
+        block.className = "cnh-vertical-block";
+        if (vertical.items.length === 0) {
+          block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)}</span><div class="cnh-vertical-empty">아직 콘텐츠 없음</div>`;
+          section.appendChild(block);
+          continue;
+        }
+        const grid = document.createElement("div");
+        grid.className = "cnh-card-grid";
+        for (const item of vertical.items) grid.appendChild(cnhBuildCard(item));
+        block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)} (${vertical.items.length})</span>`;
+        block.appendChild(grid);
+        section.appendChild(block);
+      }
+      groupsEl.appendChild(section);
+    }
+  }
+})();
+</script>
 
 <script>
 // WHY completed_topics.json으로 전환(2026-08-02, "완성된 콘텐츠 목록 로컬스토리지로
