@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Heart pounding or",
+    "skipping a beat",
+    "while you're just",
+    "sitting still?",
+    "3 habits that calm heart palpitations"
+  ],
+  "eyebrow": "Heart Palpitations Alert",
+  "cover_char_file": "긴장_illust.jpg",
+  "cover_scrim_color": "#8B3A42",
+  "items": [
+    {
+      "name": "Not the Same as Arrhythmia",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Palpitations mean you",
+        "notice your heartbeat",
+        "more than usual",
+        "",
+        "Arrhythmia is an actual",
+        "electrical problem",
+        "confirmed on an EKG"
+      ]
+    },
+    {
+      "name": "Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Coffee and energy drinks",
+        "stimulate your",
+        "central nervous system",
+        "",
+        "Sensitive people feel",
+        "a racing, jittery",
+        "heartbeat from just a little"
+      ]
+    },
+    {
+      "name": "Caffeine: try this",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cut back to 1-2 cups a day",
+        "Switch to decaf or",
+        "herbal tea in the afternoon"
+      ]
+    },
+    {
+      "name": "Stress",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Tension activates your",
+        "sympathetic nervous system",
+        "and releases adrenaline",
+        "",
+        "Your heart beats",
+        "faster and harder"
+      ]
+    },
+    {
+      "name": "Stress: try this",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Inhale gently, then",
+        "exhale for twice as long",
+        "for a few minutes"
+      ]
+    },
+    {
+      "name": "Sleep Deprivation",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Poor sleep disrupts your",
+        "autonomic nervous system",
+        "",
+        "Your heartbeat can feel",
+        "irregular even at rest,",
+        "worse right before bed"
+      ]
+    },
+    {
+      "name": "Sleep: try this",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Keep a consistent",
+        "sleep and wake schedule",
+        "every day"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cutting caffeine, calming stress,",
+        "and sleeping on schedule"
+      ],
+      [
+        "noticeably reduce",
+        "palpitations"
+      ]
+    ],
+    "tip": [
+      "Low magnesium is linked to palpitations -",
+      "nuts and leafy greens help close the gap"
+    ],
+    "cta": "Want more health tips like this? Subscribe and follow"
+  }
+}
