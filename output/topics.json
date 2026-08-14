@@ -2313,7 +2313,7 @@
     "topic": "어지럼증_1/ko",
     "title": "머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": null,
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3104,6 +3104,16 @@
     "url": "output/%ED%94%BC%EB%A1%9C_3/ko/dashboard.html",
     "thumbnail": "output/%ED%94%BC%EB%A1%9C_3/ko/card_news/%ED%94%BC%EB%A1%9C_3__00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피로_4/ko",
+    "title": "피로, 물은 마시는데도 몸이 계속 무겁고 졸리다면 - 여름철 탈수 피로 줄이는 수분 습관",
+    "url": "output/%ED%94%BC%EB%A1%9C_4/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_4/ko/card_news/%ED%94%BC%EB%A1%9C_4_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
     "tracks": [
       "card_news"
     ]
