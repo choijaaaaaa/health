@@ -1,0 +1,137 @@
+{
+  "title": [
+    "Cortisol Belly:",
+    "Everyone's Talking About It,",
+    "But Is It Even Real?",
+    "What Actually Raises Cortisol"
+  ],
+  "eyebrow": "Cortisol & Visceral Fat",
+  "cover_char_file": "긴장_illust.jpg",
+  "cover_scrim_color": "#3E6B6B",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "긴장_illust.jpg": "Stress",
+    "아령_illust.jpg": "Hard Training",
+    "운동화_illust.jpg": "Recovery Walk",
+    "자명종_illust.jpg": "Sleep Schedule",
+    "이불_illust.jpg": "Consistent Sleep",
+    "냉찜질_illust.jpg": "Trendy Fixes",
+    "헤드폰_illust.jpg": "Guided Breathing"
+  },
+  "items": [
+    {
+      "name": "Why cortisol targets belly fat",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Cortisol belly and cortisol face",
+        "are all over your feed —",
+        "here's what endocrinologists",
+        "actually say",
+        "",
+        "Cortisol dysregulation can",
+        "contribute to abdominal fat,",
+        "since visceral fat carries",
+        "a high density of",
+        "cortisol-activating receptors"
+      ]
+    },
+    {
+      "name": "Stacking hard workouts without recovery",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "First, stacking high-intensity",
+        "workouts without recovery days",
+        "",
+        "Exercise should raise cortisol",
+        "briefly, then let it drop",
+        "as you recover",
+        "",
+        "Repeating hard sessions without",
+        "rest keeps resting cortisol",
+        "elevated for weeks"
+      ]
+    },
+    {
+      "name": "Build in a recovery day",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Build in at least one",
+        "lower-intensity recovery day",
+        "between hard sessions",
+        "",
+        "Instead of pushing through",
+        "every single day"
+      ]
+    },
+    {
+      "name": "A sleep schedule that shifts daily",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Second, a sleep schedule",
+        "that shifts wildly",
+        "from day to day",
+        "",
+        "Cortisol spikes 30-45 minutes",
+        "after you wake up, then",
+        "tapers off by night",
+        "",
+        "Different bed and wake times",
+        "disrupt that rhythm"
+      ]
+    },
+    {
+      "name": "Keep a consistent wake time",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Getting enough total sleep",
+        "matters, and so does",
+        "a consistent wake time —",
+        "even on weekends"
+      ]
+    },
+    {
+      "name": "Chasing trendy fixes over real evidence",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Third, chasing whatever's",
+        "trending — cold plunges,",
+        "detox teas",
+        "",
+        "Instead of stress techniques",
+        "that actually have",
+        "trial data behind them"
+      ]
+    },
+    {
+      "name": "Pick evidence-based stress techniques",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Mindfulness-based programs",
+        "measurably lower cortisol",
+        "in randomized trials",
+        "",
+        "A short daily practice like",
+        "guided breathing beats",
+        "a supplement stack"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Space out hard workouts, keep a consistent wake time,",
+        "and pick stress techniques backed by real trials"
+      ],
+      [
+        "and your cortisol will thank you",
+        "more than any thirty-day cleanse"
+      ]
+    ],
+    "tip": [
+      "If you're seeing rapid weight gain with muscle weakness or new purple stretch marks,",
+      "that points to Cushing's syndrome — get an actual cortisol test from a doctor"
+    ],
+    "cta": "Want more evidence-based health tips? Follow, like, and subscribe"
+  }
+}
