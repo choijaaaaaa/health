@@ -1,0 +1,11 @@
+[
+  { "name": "元気な女性", "gender": "여", "tone": "밝고 활기참", "reference_id": "5161d41404314212af1254556477c17d" },
+  { "name": "元気な女性v2", "gender": "여", "tone": "밝고 친근함", "reference_id": "63bc41e652214372b15d9416a30a60b4" },
+  { "name": "落ち着いた女性", "gender": "여", "tone": "차분하고 명료함", "reference_id": "0089dce5fefb4c6ba9b9f2f0debe1ddc" },
+  { "name": "女性アナウンサー（ベテラン）", "gender": "여", "tone": "명료하고 전문적인 아나운서톤", "reference_id": "f1d92c18f84e47c6b5bc0cebb80ddaf5" },
+  { "name": "女性ナレーション", "gender": "여", "tone": "차분한 내레이션", "reference_id": "825c9e9870494118ad93b6853a22d5e7" },
+  { "name": "落ち着いた男性", "gender": "남", "tone": "차분하고 자연스러움", "reference_id": "45c5d3723c9c42f598e4776dcfd5f02d" },
+  { "name": "男性ナレーター", "gender": "남", "tone": "안정적인 내레이션, 저음", "reference_id": "bb3bf6a073cb48c1a5b6c436053ce243" },
+  { "name": "冷静な男性", "gender": "남", "tone": "침착하고 신뢰감 있음", "reference_id": "7e334489f5394184a32c667134be0221" },
+  { "name": "日本人渋い声の男性", "gender": "남", "tone": "묵직하고 중후함", "reference_id": "9600581739c44a9c8bd1401faae802ae" }
+]
