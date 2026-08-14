@@ -1,0 +1,124 @@
+{
+  "title": [
+    "Weight Loss Stalled?",
+    "Dieters Underestimate",
+    "Their Calories by 47%",
+    "Habits That Break the Plateau"
+  ],
+  "eyebrow": "Weight Loss Plateau Guide",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Weight Loss Plateau",
+  "cover_scrim_color": "#4E6B8E",
+  "cover_char_file": "비만_illust.jpg",
+  "char_display_names": {
+    "비만_illust.jpg": "Metabolism",
+    "다이어트도시락_illust.jpg": "Food Tracking",
+    "아령_illust.jpg": "Strength Training"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "비만_illust.jpg",
+      "body": [
+        "Weight loss stalled?",
+        "Up to 85% of dieters hit",
+        "this wall at some point",
+        "",
+        "It's not a failure —",
+        "here's what's really going on"
+      ]
+    },
+    {
+      "name": "Cause 1: Eating More Than You Think",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "A classic NEJM study found",
+        "dieters who reported eating",
+        "1,028 calories a day",
+        "",
+        "actually ate 2,081 —",
+        "a 47% gap between reported",
+        "and actual intake"
+      ]
+    },
+    {
+      "name": "Track Honestly for 1-2 Weeks",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Weigh and log everything,",
+        "including bites, sauces,",
+        "and drinks, for a week or two",
+        "",
+        "Portions creep up gradually —",
+        "an honest log resets your baseline"
+      ]
+    },
+    {
+      "name": "Cause 2: Your Metabolism Adapts",
+      "char_file": "비만_illust.jpg",
+      "body": [
+        "As you lose weight,",
+        "you lose some muscle too",
+        "",
+        "Mayo Clinic notes muscle loss",
+        "slows your resting metabolism,",
+        "even at the same calorie intake"
+      ]
+    },
+    {
+      "name": "Prioritize Protein and Strength Training",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Add strength training",
+        "and eat enough protein",
+        "",
+        "Preserving muscle keeps",
+        "your resting metabolism",
+        "from dropping as much"
+      ]
+    },
+    {
+      "name": "Cause 3: Hunger Hormones Shift",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "A landmark NEJM study",
+        "tracked hormone levels",
+        "a full year after weight loss",
+        "",
+        "Leptin and ghrelin still hadn't",
+        "returned to baseline —",
+        "hunger stayed elevated"
+      ]
+    },
+    {
+      "name": "Be Patient — Consider a Diet Break",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "A week or two at maintenance",
+        "calories can ease hunger",
+        "and support adherence",
+        "",
+        "Plateaus are your body",
+        "catching up, not the end"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Under-tracked calories, adapting metabolism,",
+        "and shifting hunger hormones"
+      ],
+      [
+        "all quietly stall",
+        "weight loss over time"
+      ]
+    ],
+    "tip": [
+      "Track honestly, train for strength,",
+      "and give yourself an occasional diet break"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
