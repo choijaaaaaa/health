@@ -102,6 +102,24 @@ def _detect_lang(topic: str) -> str:
     return "kor"
 
 
+def _data_dir(topic: str) -> Path:
+    """topic의 data/ 원고 디렉토리를 찾는다. WHY 폴백이 필요한지(2026-08-14,
+    fish_tts.py 도입 이후 신규 topic 파일럿 — 여성_6/순환_6 영상 조립 중 실제
+    발견): fish_tts.py는 ko를 topic 문자열 그대로(중첩 없이) output/<topic>/에
+    쓰는 옛 관례를 그대로 따르지만, 이 신규 topic들의 data/ 원고는 en/ja와
+    대칭으로 ko도 data/<topic>/ko/ 아래 중첩해서 저장했다(작성 세션이 en/ja
+    작성 패턴을 ko에도 그대로 적용) — output/은 flat, data/는 nested로 서로
+    다른 규칙이 된 상태. topic에 "/"가 없는(=ko) 호출에서 flat 경로가 없으면
+    ko/ 하위 중첩 경로로 폴백한다 — en/ja(이미 "/"를 포함해 명시적으로
+    가리킴)와 옛 flat-ko topic은 기존 동작 그대로 영향 없음."""
+    flat = ROOT / "data" / topic
+    if "/" not in topic and not (flat / "card_news_spec.json").exists():
+        nested = flat / "ko"
+        if (nested / "card_news_spec.json").exists():
+            return nested
+    return flat
+
+
 def _resolve_output_file(topic_dir: Path, suffix: str) -> Path:
     """WHY glob으로 찾는지(2026-08-03, <topic>/<lang>/ 중첩 구조에서 실제 발견):
     파일명 규칙이 폴더 구조와 안 맞는 경우가 실제로 있었다 — output/가슴쓰림_1/ko/는
@@ -429,7 +447,7 @@ def build_motion_schedule(
 
 
 def derive(topic: str) -> dict:
-    spec = json.loads((ROOT / "data" / topic / "card_news_spec.json").read_text())
+    spec = json.loads((_data_dir(topic) / "card_news_spec.json").read_text())
     items = spec["items"]
     hook = " ".join(spec["title"][:-1])
     subject = spec["title"][-1]
@@ -553,7 +571,7 @@ def derive(topic: str) -> dict:
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
     else:
         srt_entries = _parse_srt(str(srt))
-        narration_txt = (ROOT / "data" / topic / "narration.txt").read_text()
+        narration_txt = (_data_dir(topic) / "narration.txt").read_text()
         kwargs["motion_path"] = None
         kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
@@ -572,7 +590,7 @@ def rebuild(topic: str):
         # 유무·언어 감지 같은 derive()의 경로 유도 로직이 그대로 필요하다 —
         # 중복 구현하는 대신 derive()가 이미 계산해둔 audio/srt/out/lang을
         # 재사용하고, 새 템플릿 시그니처에 맞는 spec_path만 추가로 계산한다.
-        spec_path = ROOT / "data" / topic / "card_news_spec.json"
+        spec_path = _data_dir(topic) / "card_news_spec.json"
         try:
             _TEMPLATE_RENDERERS[fmt](
                 topic_dir=str(ROOT / "output" / topic),
