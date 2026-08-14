@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Thumb-side wrist pain?",
+    "Doctors call it \"texting thumb\"",
+    "or \"mommy thumb\" — here's why",
+    "3 Habits That Protect Your Wrist Tendons"
+  ],
+  "eyebrow": "De Quervain's Tenosynovitis",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Wrist Tendon Strain",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#9C3848",
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Doctors nicknamed it", "\"texting thumb\" and", "\"mommy thumb\" for a reason", "", "Two tendons running through", "a narrow tunnel at your wrist", "get irritated by the same motion"
+      ]
+    },
+    {
+      "name": "Cause 1: Scrolling With Your Thumb",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Gripping your phone one-handed", "and scrolling with just your thumb", "", "That repeated spreading and", "bending motion inflames", "the tendon sheath"
+      ]
+    },
+    {
+      "name": "Use Both Hands Instead",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Hold your phone with both hands", "and use more than just your thumb", "", "Switch your grip every", "20 to 30 minutes, and", "gently stretch your thumb"
+      ]
+    },
+    {
+      "name": "Cause 2: A Repeated Gripping Motion",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Racquet sports, weightlifting,", "or yard work with the", "same gripping motion", "", "again and again", "strains those same tendons"
+      ]
+    },
+    {
+      "name": "Warm Up and Switch Grips",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Warm up your wrist before", "gripping activities, and", "switch hand positions often", "", "A brace can help once", "the tendon's already irritated"
+      ]
+    },
+    {
+      "name": "Cause 3: Lifting a Baby With Your Thumb",
+      "char_file": "아기_illust.jpg",
+      "body": [
+        "Lifting and holding a baby", "with your thumb propping up", "the weight", "", "Do that dozens of times a day,", "and the same tendons take the strain"
+      ]
+    },
+    {
+      "name": "Support the Weight With Your Palm",
+      "char_file": "아기_illust.jpg",
+      "body": [
+        "Support the baby's weight", "with your whole palm and forearm,", "not just your thumb", "", "A thumb-spica wrist brace", "helps once it already hurts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Phone scrolling, gripping sports,",
+        "and holding a baby"
+      ],
+      [
+        "Press your thumb into your palm and",
+        "bend your wrist — sharp pain there",
+        "is a self-check sign"
+      ]
+    ],
+    "tip": [
+      "See a doctor if the pain lasts more",
+      "than two weeks or swelling gets heavy"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
