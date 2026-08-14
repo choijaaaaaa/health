@@ -93,12 +93,14 @@ def _content_platforms(spec: dict) -> list[dict]:
 def _blog_seo_platforms(spec: dict) -> list[dict]:
     """spec["platforms"] 중 blog_seo 항목만 낸다(_content_platforms()의 반대).
 
-    WHY(2026-08-13, blog_seo 결정론적 회귀 테스트 추가): review_blog_seo()
-    (content_review.py)는 LLM 판단형이라 세션이 수동으로 호출해야만 돈다 —
-    필수 필드 누락·본문에 이미지가 아예 없음 같은 기계적 실수는 narration/
-    card_news처럼 매 pytest 실행마다 자동으로 잡히지 않는다. blog_seo는
-    오늘 처음 생긴 스키마라(narration 쪽 규칙들과 달리) 소급 적용 부담이
-    없다 — 지금 테스트를 추가해도 깨질 기존 topic이 없다(피부_1이 유일)."""
+    WHY(2026-08-13, blog_seo 결정론적 회귀 테스트 추가): 논리/과장 같은
+    판단형 검사는 세션이 직접 읽고 판단해야 하는 영역이라(2026-08-15부로
+    content_review.py는 외부 LLM API를 전혀 안 씀, 파일 상단 WHY 참고)
+    자동으로 안 걸린다 — 필수 필드 누락·본문에 이미지가 아예 없음 같은
+    기계적 실수만 narration/card_news처럼 매 pytest 실행마다 자동으로
+    잡는다. blog_seo는 오늘 처음 생긴 스키마라(narration 쪽 규칙들과 달리)
+    소급 적용 부담이 없다 — 지금 테스트를 추가해도 깨질 기존 topic이
+    없다(피부_1이 유일)."""
     return [p for p in spec.get("platforms", []) if p.get("platform") == "blog_seo"]
 
 
@@ -358,8 +360,8 @@ def test_products_no_descriptive_adjective(topic):
 
 # ---------------------------------------------------------------------------
 # 규칙 11: blog_seo 결정론적 검사 (2026-08-13) — _blog_seo_platforms() 참고.
-# review_blog_seo()(content_review.py)의 LLM 판단형 검사와 달리 매 pytest
-# 실행마다 자동으로 도는 기계적 검사만 여기 둔다.
+# 논리/과장 같은 판단형 검사(2026-08-15부로 세션이 직접 판단, content_review.py
+# WHY 참고)와 달리 매 pytest 실행마다 자동으로 도는 기계적 검사만 여기 둔다.
 # ---------------------------------------------------------------------------
 
 BLOG_SEO_REQUIRED_FIELDS = ("title", "meta_description", "slug", "hero_image_url", "body_html")

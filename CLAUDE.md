@@ -671,10 +671,10 @@
     `estimate_duration(text, lang)`으로 **작성 전에** 예상 길이를 가늠해서
     애초에 적당한 분량으로 쓴다 — `data/tts_pacing.json`은 `synthesize()`
     호출마다 자동 갱신되는 경험 기반 데이터라 손대지 말 것.
-  - **허용(권장)**: `content_review`/`--lang-check`가 실제 사실관계·논리
-    오류·과장을 잡아냈으면 narration.txt를 고치고 TTS를 다시 호출한다 —
-    오디오와 텍스트가 어긋난 채(=녹음에 실제 오류가 남은 채) 두지 말 것.
-    가능하면 **TTS 호출 전에** `content_review`를 먼저 통과시켜서 애초에
+  - **허용(권장)**: 작성 세션이 직접 재검토(아래 "콘텐츠 QA" 절)해서 실제
+    사실관계·논리 오류·과장을 발견했으면 narration.txt를 고치고 TTS를 다시
+    호출한다 — 오디오와 텍스트가 어긋난 채(=녹음에 실제 오류가 남은 채)
+    두지 말 것. 가능하면 **TTS 호출 전에** 이 재검토를 먼저 끝내서 애초에
     사후 재생성이 필요 없게 만드는 게 최선(길이 때문이 아니라 "틀려서"
     고치는 것이므로 위 금지 규칙과 무관).
 - 콘텐츠 작성 순서: 자료조사 → 네이버 블로그(마스터, 1000자+) 완성 →
@@ -685,44 +685,47 @@
 
 ## 콘텐츠 QA — 완료 전 필수
 
+⚠️ **Gemini API는 일러스트 생성(`lib/gemini_illust.py`)에만 쓴다(2026-08-15
+확정)** — `content_review.py`가 예전엔 논리 오류·과장·번역독립성까지 Gemini로
+자동 판단했지만 전부 제거했다. 판단형 검사는 이제 **작성한 세션/에이전트가
+직접 비판적으로 재검토**해서 판단한다 — 외부 API를 대신 부르지 않는다.
+
 ```
-python3 -m lib.content_review <topic> [lang]   # 논리 오류·과장·성의없는 대체재 검사
-python3 -m lib.content_review --lang-check <base_topic>   # 다국어: 진짜 독립 리서치인지
+python3 -m lib.content_review <topic> [lang]   # 기계적 검사만(제목 잘림·CTA 문구·글자수)
 python3 -m lib.content_review --hook-pattern <topic>   # 제목 작성 전에 먼저 — 12종 훅 패턴 중 이번 topic이 뭔지 확인
 ```
 
 - **새 topic은 (전체 기준: narration.txt+card_news_spec.json / 카드뉴스만:
-  card_news_spec.json만) 완성 시점에 `content_review` 통과가 완료 조건**(다른
-  언어 추가 시 `--lang-check`도 함께). 플래그된 문제는 자동 수정 안 됨 —
-  사람/세션이 판단해서 직접 고칠 것.
+  card_news_spec.json만) 완성 시점에 아래 두 가지가 완료 조건**:
+  1. `content_review` 통과(기계적 검사 — 제목 잘림·CTA 문구·블로그 제목 글자수)
+  2. **세션이 직접** `lib/content_review.py` 상단 `MANUAL_REVIEW_CHECKLIST`
+     항목(논리 오류·과장·모순·기전 모호함·지역 재료 적합성·번역투·번역독립성 등)을
+     읽고 콘텐츠를 재검토 — 문제 있으면 직접 판단해서 고칠 것. 자동 수정 안 됨.
 - ⚠️ **`--hook-pattern`은 title을 쓰기 전에 먼저 돌릴 것(2026-08-12 재확인)** —
   "훅은 핵심 키워드로 시작" 규칙(아래 "콘텐츠 톤" 절)만 적용하고 이 명령은
   건너뛴 채 4개 topic 전부 "[키워드], ~다면 - OO 습관" 한 패턴으로 제목이
-  획일화된 사고 발생. content_review/--lang-check와 나란히 여기 QA 체크리스트에
-  있어야 실제로 매번 돌아간다 — "콘텐츠 톤" 절에만 적혀 있으면 다른 톤 규칙에
-  묻혀 누락되기 쉬움.
-- 권장 순서: `content_review`/`--lang-check` 통과를 TTS 호출 **전에** 끝내면
-  사후 재생성 자체가 필요 없어진다 — 다만 TTS 이후에 실제 오류가 발견되면
-  재생성한다(위 "콘텐츠 톤" 절 TTS 규칙 참고, 절대 규칙은 아니고 권장 순서).
-- `--lang-check`에서 `is_translation: true`가 나오면 그 세션이 스스로 판단해서
-  그 언어권 상황에 맞는 진짜 다른 각도로 다시 쓸 것(번역 금지 원칙, 아래 참고).
-- ⚠️ **`blog_seo`도 `review_topic()` 안에서 자동 검사됨(2026-08-13)** — topic/lang의
-  `platform_captions.json`에 `blog_seo` 항목이 있으면 title/meta_description/
-  body_html도 같은 호출(`content_review <topic> <lang>`) 안에서 함께 LLM 리뷰된다
-  (번역투 표현·그 언어권 광고규제 위험 표현·제목의 검색 키워드 전진배치 여부 포함).
-  별도 명령 없음 — narration.txt/card_news_spec.json과 동일하게 이 호출 하나가
-  완료 조건.
-- ⚠️ **`--lang-check`도 blog_seo 제목을 비교함(2026-08-13)** — blog_seo가 2개
-  언어 이상 있는 topic이면 영상 훅 비교(ko 기준) 결과 아래에 블로그 제목 비교도
-  같이 출력된다. blog_seo엔 ko가 없어(8개 언어 전용) 기준점은 ko가 아니라
-  존재하는 언어 중 이름순 첫 언어로 대체된다.
+  획일화된 사고 발생. `content_review`와 나란히 여기 QA 체크리스트에 있어야
+  실제로 매번 돌아간다 — "콘텐츠 톤" 절에만 적혀 있으면 다른 톤 규칙에 묻혀
+  누락되기 쉬움.
+- 권장 순서: 위 두 QA를 TTS 호출 **전에** 끝내면 사후 재생성 자체가 필요
+  없어진다 — 다만 TTS 이후에 실제 오류가 발견되면 재생성한다(위 "콘텐츠 톤"
+  절 TTS 규칙 참고, 절대 규칙은 아니고 권장 순서).
+- 다국어 topic은 언어 간 제목/훅이 사실상 번역인지(번역 금지 원칙, 아래
+  "글로벌 확장" 절) 세션이 직접 비교해서 판단할 것 — 문장 구조·예시·강조점이
+  거의 1:1로 대응되면 번역으로 간주하고 그 언어권 독자에게 맞춘 진짜 다른
+  각도로 다시 쓸 것.
+- **blog_seo도 위 두 QA 대상**(2026-08-13 도입) — `platform_captions.json`에
+  `blog_seo` 항목이 있으면 title/meta_description/body_html도 세션이 직접
+  재검토(번역투 표현·그 언어권 광고규제 위험 표현·제목의 검색 키워드
+  전진배치 여부·출처 없는 정밀 수치 포함, `MANUAL_REVIEW_CHECKLIST` 7번 항목).
+  blog_seo가 2개 언어 이상 있으면 제목 간 번역 여부도 세션이 직접 비교.
 - ⚠️ **blog_seo 기계적 검사는 `test_content_rules.py`가 `pytest` 실행마다
-  자동으로 돈다(2026-08-13, LLM 호출 없음)** — 필수 필드 누락·
+  자동으로 돈다(2026-08-13, API 호출 없음)** — 필수 필드 누락·
   meta_description 글자수(120~160, seo-blog `ingest_health_shorts.py`의
   `META_DESCRIPTION_RANGE`와 값 동기화 필수)·본문에 `<img>` 최소 1장·HTML
   태그 밸런스·slug 형식·title=meta_description 완전 동일 여부. 위
-  `content_review`(LLM 판단형)와 역할이 다르다 — 이쪽은 새 topic 작성 시
-  수동 호출 없이도 매번 자동으로 걸린다.
+  `content_review`(기계적) + 세션 직접 재검토(판단형)와 역할이 다르다 —
+  이쪽은 새 topic 작성 시 수동 호출 없이도 매번 자동으로 걸린다.
 - ⚠️ **`card_news_spec.json`의 `title` 배열 마지막 줄 = 카드뉴스 표지·영상
   오프닝 타이틀 화면에서 자동으로 떼어내는 "독립 라벨"이다**(2026-08-08,
   "썸네일 글 이상하게 나오는 현상... 짤려서 만들어지는애들이 많아" — 실측
