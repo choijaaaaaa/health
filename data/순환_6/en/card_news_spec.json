@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Raynaud's phenomenon",
+    "affects 3-5% of people,",
+    "yet most people miss",
+    "what's driving their attacks",
+    "3 hidden factors behind Raynaud's"
+  ],
+  "eyebrow": "Raynaud's Phenomenon Alert",
+  "cover_char_file": "찬바람_illust.jpg",
+  "cover_scrim_color": "#B44D4D",
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Unlike ordinary",
+        "cold hands, Raynaud's",
+        "makes blood vessels",
+        "spasm suddenly",
+        "",
+        "White, then blue,",
+        "then red - in a sharp,",
+        "well-defined pattern"
+      ]
+    },
+    {
+      "name": "Caffeine & Stimulants",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Coffee, energy drinks,",
+        "and even ADHD medication",
+        "narrow blood vessels",
+        "",
+        "Patient groups say",
+        "this gets missed",
+        "constantly"
+      ]
+    },
+    {
+      "name": "Caffeine: try this",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cut back to 1-2 cups a day",
+        "Ask your doctor if a",
+        "medication is contributing"
+      ]
+    },
+    {
+      "name": "Nicotine",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Nicotine is a stronger",
+        "vasoconstrictor than caffeine",
+        "",
+        "It narrows blood vessels",
+        "even further, making",
+        "attacks worse"
+      ]
+    },
+    {
+      "name": "Nicotine: try this",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Cut back one cigarette",
+        "at a time, or talk to",
+        "your doctor about a quit plan"
+      ]
+    },
+    {
+      "name": "Low Magnesium",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Magnesium helps",
+        "blood vessels relax",
+        "",
+        "Studies found lower levels",
+        "in women with Raynaud's",
+        "than those without it"
+      ]
+    },
+    {
+      "name": "Magnesium: try this",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "Add nuts, leafy greens,",
+        "and whole grains",
+        "to close the gap"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cutting back on caffeine and nicotine,",
+        "and closing your magnesium gap,"
+      ],
+      [
+        "meaningfully reduces",
+        "how often attacks happen"
+      ]
+    ],
+    "tip": [
+      "Thermal biofeedback training helped 57%",
+      "of patients feel better a year later"
+    ],
+    "cta": "Want more health tips like this? Subscribe and follow"
+  }
+}
