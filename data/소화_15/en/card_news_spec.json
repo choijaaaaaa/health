@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Diverticulitis: Think it's only",
+    "your grandparents' problem?",
+    "Younger adults are catching up fast",
+    "3 Habits That Lower Your Risk"
+  ],
+  "cover_char_file": "게실_illust.jpg",
+  "cover_scrim_color": "#5C4033",
+  "eyebrow": "DIVERTICULITIS",
+  "swipe_label": "Swipe to see more  >>",
+  "closing_label": "Takeaway",
+  "char_display_names": {
+    "게실_illust.jpg": "Diverticulum",
+    "소화불량_illust.jpg": "Stomach Ache",
+    "호두_illust.jpg": "Walnut",
+    "귀리_illust.jpg": "Oats",
+    "물컵_illust.jpg": "Water Glass",
+    "운동화_illust.jpg": "Sneakers"
+  },
+  "items": [
+    {
+      "name": "Not Just an Older Adult's Disease",
+      "char_file": "게실_illust.jpg",
+      "body": [
+        "Complicated cases in Americans under 50",
+        "rose from 18.5% to 28.2% (2005 to 2020)",
+        "",
+        "Doctors are seeing it show up",
+        "decades earlier than they used to expect"
+      ]
+    },
+    {
+      "name": "What's Actually Driving It",
+      "char_file": "소화불량_illust.jpg",
+      "body": [
+        "A low-fiber, red-meat-heavy diet",
+        "is the single biggest driver",
+        "",
+        "It causes constipation that raises pressure",
+        "and pushes weak spots in your colon outward"
+      ]
+    },
+    {
+      "name": "Women Are Affected More",
+      "char_file": "소화불량_illust.jpg",
+      "body": [
+        "About 228 per 100,000 women vs.",
+        "118 per 100,000 men after age 40",
+        "",
+        "Watch for sharp pain low in your left abdomen,",
+        "fever, chills, or bloating"
+      ]
+    },
+    {
+      "name": "The Nuts and Seeds Myth",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Doctors once warned nuts and seeds",
+        "could get stuck and trigger inflammation",
+        "",
+        "Harvard, Mayo Clinic, and Cleveland Clinic",
+        "now call that a myth"
+      ]
+    },
+    {
+      "name": "Load Up on Fiber",
+      "char_file": "귀리_illust.jpg",
+      "body": [
+        "Aim for 25 to 35 grams a day from",
+        "vegetables, fruit, whole grains, legumes",
+        "",
+        "That alone cuts diverticulitis risk",
+        "by about 40% versus a low-fiber diet"
+      ]
+    },
+    {
+      "name": "Water and Movement Matter Too",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Fiber doesn't work well without",
+        "enough water alongside it",
+        "",
+        "Add vigorous exercise like jogging",
+        "to keep your colon moving"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Diverticulitis is climbing fastest",
+        "among younger adults, and diet is why"
+      ],
+      [
+        "Skip the fear around nuts and seeds —",
+        "fiber, hydration, and exercise are what count"
+      ]
+    ],
+    "tip": [
+      "Aim for 25 to 35 grams of fiber a day,",
+      "drink enough water, and stay active"
+    ],
+    "cta": "Want more health tips like this? Follow along"
+  }
+}
