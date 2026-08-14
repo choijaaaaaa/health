@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Nose Picking:",
+    "That Habit Could Be Doing",
+    "More Damage Than You Think",
+    "Why It's Risky and Safer Alternatives"
+  ],
+  "eyebrow": "Nose Picking Risks",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#5C3D2E",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger",
+    "긴장_illust.jpg": "Worried",
+    "비강스프레이_illust.jpg": "Saline Spray",
+    "가습기_illust.jpg": "Humidifier"
+  },
+  "items": [
+    {
+      "name": "A more common habit than you'd guess",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Most adults do it",
+        "occasionally, some do it",
+        "several times a day",
+        "",
+        "It feels harmless, but it can",
+        "open the door to infections"
+      ]
+    },
+    {
+      "name": "It can trigger nasal vestibulitis",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Picking can break the skin",
+        "just inside your nostril",
+        "",
+        "That small injury gives",
+        "bacteria an easy way in —",
+        "red, swollen, tender skin"
+      ]
+    },
+    {
+      "name": "About 30% of people carry staph in the nose",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "A large-scale nasal microbiome",
+        "study (Sanger Institute/",
+        "Cambridge/Imperial College London)",
+        "",
+        "confirmed ~30% of people",
+        "carry S. aureus with",
+        "no symptoms — until it",
+        "enters a wound"
+      ]
+    },
+    {
+      "name": "Why the urge keeps coming back",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Usually it's dryness",
+        "",
+        "When the lining dries out,",
+        "mucus hardens and that",
+        "crusty feeling makes you",
+        "want to dig it out"
+      ]
+    },
+    {
+      "name": "Try a saline spray first",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Saline loosens dried mucus",
+        "with no decongestant —",
+        "safe to use as often",
+        "as you need"
+      ]
+    },
+    {
+      "name": "Keep indoor humidity at 40-60%",
+      "char_file": "가습기_illust.jpg",
+      "body": [
+        "Especially in air-conditioned",
+        "or heated rooms",
+        "",
+        "A humidifier keeps the lining",
+        "from drying out in the first place"
+      ]
+    },
+    {
+      "name": "If you must, wash your hands first",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Treat allergies or a lingering",
+        "cold behind the congestion",
+        "",
+        "Use a tissue, not a bare finger —",
+        "one hand alone carries",
+        "tens of thousands of bacteria"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A saline spray and 40-60% humidity",
+        "cut the dryness that drives the urge —"
+      ],
+      [
+        "washing your hands first",
+        "cuts the infection risk when you do touch it"
+      ]
+    ],
+    "tip": [
+      "See a doctor if the area stays swollen, red, or painful for more than a couple of days",
+      "Treating the underlying allergy or congestion reduces the urge more than anything else"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
