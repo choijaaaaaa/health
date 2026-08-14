@@ -1,0 +1,129 @@
+{
+  "title": [
+    "Nocturia: more than half of",
+    "adults over 55 deal with this",
+    "3 Causes Beyond An Enlarged Prostate"
+  ],
+  "eyebrow": "Nocturia Alert",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "topic_word": "Nocturia",
+  "char_display_names": {
+    "시계_illust.jpg": "Night Waking",
+    "신장_illust.jpg": "Kidneys",
+    "맥주_illust.jpg": "Alcohol",
+    "이뇨제_illust.jpg": "Medication Timing",
+    "코골이_illust.jpg": "Sleep Apnea",
+    "물컵_illust.jpg": "Fluid Timing"
+  },
+  "cover_scrim_color": "#5A3D5C",
+  "items": [
+    {
+      "name": "Ever Wake Up To Pee At Night?",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Waking up to urinate",
+        "two or more times",
+        "a night isn't just",
+        "",
+        "a normal part of aging -",
+        "it's called nocturia,",
+        "and it's worth checking"
+      ]
+    },
+    {
+      "name": "It's Not Always The Prostate",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "An enlarged prostate",
+        "is only one",
+        "possible cause",
+        "",
+        "evening drinks,",
+        "medication timing, and",
+        "how well you sleep",
+        "all play a role too"
+      ]
+    },
+    {
+      "name": "Evening Alcohol And Caffeine",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "First, alcohol and",
+        "caffeine in the evening",
+        "",
+        "Both act as diuretics",
+        "and blunt the hormone",
+        "that concentrates urine,",
+        "",
+        "so more fluid",
+        "leaves your body overnight"
+      ]
+    },
+    {
+      "name": "Blood Pressure Or Diuretic Meds",
+      "char_file": "이뇨제_illust.jpg",
+      "body": [
+        "Second, taking blood",
+        "pressure or diuretic",
+        "medication close to bedtime",
+        "",
+        "It's still working",
+        "while you sleep,",
+        "pushing urine output up",
+        "",
+        "ask your doctor about",
+        "an earlier dose instead"
+      ]
+    },
+    {
+      "name": "Untreated Sleep Apnea",
+      "char_file": "코골이_illust.jpg",
+      "body": [
+        "Third, loud snoring",
+        "or sleep apnea",
+        "",
+        "Each pause in breathing",
+        "changes the pressure",
+        "in your chest,",
+        "",
+        "triggering a hormone",
+        "that ramps up",
+        "urine production"
+      ]
+    },
+    {
+      "name": "What Actually Helps",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Cut alcohol and",
+        "caffeine 2 to 3 hours",
+        "before bed",
+        "",
+        "Ask your doctor about",
+        "taking BP or diuretic",
+        "meds earlier in the day",
+        "",
+        "If you snore loudly,",
+        "ask about a sleep study"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this alone",
+        "means something's wrong"
+      ],
+      [
+        "But if it keeps happening,",
+        "it's worth tracking down why"
+      ]
+    ],
+    "tip": [
+      "Watch your evening drinks,",
+      "medication timing, and snoring"
+    ],
+    "cta": "Want more health tips like this? Follow along!"
+  }
+}
