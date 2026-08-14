@@ -83,6 +83,52 @@ def _naver_blog_caption(captions_path: Path) -> str | None:
     return None
 
 
+def _naver_images(images_path: Path) -> list[dict]:
+    """번호 마커별 이미지 목록(2026-08-14, "이미지도 카드뉴스처럼 번호별로
+    관리되게" 요청). 건강은 이 파일이 없다(card_news 폴더의 실제 렌더링된
+    jpg를 쓰므로 collect_items()에서 별도 처리) — 3개 신규 버티컬(fiscallo/
+    littlebrook/pawnest)은 카드뉴스 렌더링 파이프라인 자체가 없어(각 레포
+    CLAUDE.md "이 프로젝트가 아닌 것" 절) 대신 Pexels 실사진 URL을 마커별로
+    매핑해둔 이 JSON을 쓴다. 파일이 없으면(아직 이미지 소싱 전인 topic)
+    빈 리스트 — index.html 쪽에서 "이미지 없음"으로 자연스럽게 처리된다."""
+    if not images_path.exists():
+        return []
+    try:
+        data = json.loads(images_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    return [{"marker": d.get("marker", ""), "url": d.get("url", "")} for d in data if d.get("url")]
+
+
+def _health_card_news_images(repo_root: Path, topic: str) -> list[dict]:
+    """건강 topic의 실제 렌더링된 카드뉴스 jpg(00_표지, 01_..., ...)를
+    번호 마커 목록으로 변환 — 신규 버티컬의 _naver_images()와 같은 모양
+    ({marker, url})으로 맞춰서 index.html이 포맷 구분 없이 같은 렌더러로
+    보여줄 수 있게 한다. url은 http(s)가 아니라 ROOT 기준 상대경로(로컬
+    파일) — dashboard_path와 동일한 원리로 index.html이 file:// 또는 로컬
+    서버에서 열리는 걸 전제한다."""
+    card_news_dir = _topic_output_dir(repo_root, topic) / "card_news"
+    if not card_news_dir.is_dir():
+        return []
+    images = []
+    for jpg in sorted(card_news_dir.glob("*.jpg")):
+        # "<topic>_00_표지.jpg" 또는 "00_표지.jpg" 둘 다 지원 — 파일명에서
+        # 숫자_라벨 부분만 마커로 뽑는다(접두어 유무 무관하게 정규식 없이
+        # "마지막에 나오는 NN_라벨" 패턴만 사용).
+        stem = jpg.stem
+        parts = stem.split("_")
+        # 두 자리 숫자 조각(00, 01, ...)을 찾아 그 지점부터를 "NN · 라벨"
+        # 마커로 삼는다 — naver_images.json의 마커 형식과 동일하게 맞춰서
+        # index.html이 포맷 구분 없이 같은 방식으로 렌더링할 수 있게 한다.
+        marker = stem
+        for i, part in enumerate(parts):
+            if len(part) == 2 and part.isdigit():
+                marker = f"{part} · {'_'.join(parts[i + 1:])}"
+                break
+        images.append({"marker": marker, "url": os.path.relpath(jpg, ROOT)})
+    return images
+
+
 def collect_items() -> dict:
     # WHY os.path.relpath 한 줄로 충분한지: health 자신(repo_root == ROOT)은
     # "output/<topic>/ko/dashboard.html"이, 형제 레포는
@@ -109,6 +155,9 @@ def collect_items() -> dict:
 
             dashboard = _topic_output_dir(repo_root, topic) / "dashboard.html"
             dashboard_path = os.path.relpath(dashboard, ROOT) if dashboard.exists() else None
+            images = _naver_images(captions_path.parent / "naver_images.json")
+            if not images and dir_name is None:
+                images = _health_card_news_images(repo_root, topic)
 
             title = caption.split("\n", 1)[0].strip()
             groups[group_name][key]["items"].append({
@@ -116,6 +165,7 @@ def collect_items() -> dict:
                 "title": title,
                 "caption": caption,
                 "dashboard_path": dashboard_path,
+                "images": images,
             })
 
     return {
