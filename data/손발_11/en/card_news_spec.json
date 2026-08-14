@@ -1,0 +1,133 @@
+{
+  "title": [
+    "Trigger Finger:",
+    "People With Diabetes Are",
+    "Up To 4 Times More Likely To Get One —",
+    "Here's Why"
+  ],
+  "eyebrow": "Trigger Finger Risk",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#B34700",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger",
+    "마우스_illust.jpg": "Repetitive Use",
+    "온찜질_illust.jpg": "Warm Soak"
+  },
+  "items": [
+    {
+      "name": "What's actually happening in your finger",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "The tendon that bends",
+        "your finger runs through",
+        "a narrow tunnel",
+        "",
+        "When that tunnel gets",
+        "irritated, a small nodule",
+        "forms on the tendon",
+        "and catches every time",
+        "you bend or straighten"
+      ]
+    },
+    {
+      "name": "Diabetes raises your risk a lot",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "People with diabetes are",
+        "up to 4 times more likely",
+        "to develop trigger finger",
+        "than people without it",
+        "",
+        "It's also more common",
+        "after age 45 and in people",
+        "with rheumatoid arthritis"
+      ]
+    },
+    {
+      "name": "Repetitive gripping is a trigger too",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Heavy manual work,",
+        "tools that need a strong grip,",
+        "even long hours on a",
+        "keyboard and mouse",
+        "",
+        "can irritate that tendon",
+        "sheath over time"
+      ]
+    },
+    {
+      "name": "How to spot it",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "The finger gets stuck bent",
+        "and may snap straight",
+        "with a pop",
+        "",
+        "Usually worse first thing",
+        "in the morning, easing up",
+        "as you move it",
+        "",
+        "The ring finger and thumb",
+        "are hit the most"
+      ]
+    },
+    {
+      "name": "Start simple: rest and OTC meds",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "For mild cases, an OTC",
+        "anti-inflammatory for",
+        "about 2 weeks",
+        "",
+        "plus gentle finger stretches,",
+        "is often enough"
+      ]
+    },
+    {
+      "name": "Next step: a night splint",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "If the finger is actually",
+        "locking, a splint that",
+        "keeps it straight",
+        "while you sleep",
+        "",
+        "is the next step —",
+        "no needles, no surgery"
+      ]
+    },
+    {
+      "name": "A steroid shot works for most people",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "If it keeps catching,",
+        "a steroid injection into",
+        "the tendon sheath calms",
+        "the swelling directly",
+        "",
+        "Surgery only comes in",
+        "when that doesn't help —",
+        "a quick outpatient procedure"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Treat it early —"
+      ],
+      [
+        "trigger finger",
+        "responds well to care"
+      ]
+    ],
+    "tip": [
+      "If your finger is locking in a bent position, get it checked within weeks, not months",
+      "People with diabetes have a much higher risk — don't brush off a catching or popping finger"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
