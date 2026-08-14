@@ -43,11 +43,23 @@ GROUP_ORDER = ["건강", "육아+반려동물", "경제"]
 def _find_sibling_project(name: str) -> Path:
     """seo-blog/scripts/ingest_health_shorts.py의 동명 함수와 동일한 로직
     (조상 디렉터리 순회) — 이 파일도 워크트리에서 실행될 수 있어 고정 깊이
-    계산은 위험하다."""
+    계산은 위험하다.
+
+    WHY verticals/ 폴백이 필요한지(2026-08-14, "헬스숏츠 빼고는 전부 다
+    한번 병합좀 해봐"): pawnest-content 등 형제 버티컬 레포들이
+    `~/Desktop/project/`에서 `~/Desktop/project/verticals/`로 한 단계
+    더 들어갔다 — health-shorts 자신은 옮기지 않았으므로(사용자 명시
+    제외) 이 스크립트의 조상 경로엔 `verticals` 세그먼트가 전혀 없어
+    위 조상 순회만으론 못 찾는다(반대 방향, 즉 옮겨진 레포가 옮기지 않은
+    health-shorts를 찾는 경우는 옮겨진 쪽 조상 체인에 verticals가 이미
+    포함돼 있어 그대로 잘 찾아진다 — 이 쪽만 별도 처리 필요)."""
     for ancestor in Path(__file__).resolve().parents:
         candidate = ancestor.parent / name
         if candidate.is_dir():
             return candidate
+        verticals_candidate = ancestor.parent / "verticals" / name
+        if verticals_candidate.is_dir():
+            return verticals_candidate
     return Path(__file__).resolve().parent.parent.parent / name
 
 
