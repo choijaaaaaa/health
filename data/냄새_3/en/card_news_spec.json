@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Bad breath,",
+    "if mints and mouthwash",
+    "never last long — stop guessing",
+    "3 Hidden Causes and Fixes"
+  ],
+  "eyebrow": "Bad Breath Alert",
+  "cover_char_file": "잇몸출혈_illust.jpg",
+  "cover_scrim_color": "#A34B28",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "잇몸출혈_illust.jpg": "Gum Disease",
+    "입마름_illust.jpg": "Dry Mouth",
+    "후비루_illust.jpg": "Postnasal Drip"
+  },
+  "items": [
+    {
+      "name": "Why surface fixes fall short",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "Mints and mouthwash",
+        "only mask it briefly",
+        "",
+        "Gum disease, dry mouth, and",
+        "postnasal drip start deeper —",
+        "where a quick fix can't reach"
+      ]
+    },
+    {
+      "name": "Gum Disease",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "Plaque below the gumline",
+        "traps bacteria that break",
+        "down tissue and release",
+        "sulfur compounds",
+        "",
+        "Dentists call that smell",
+        "\"perio breath\""
+      ]
+    },
+    {
+      "name": "Gum Disease — the fix",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "Floss daily and get",
+        "a professional cleaning"
+      ]
+    },
+    {
+      "name": "Dry Mouth",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Over 1,000 medications,",
+        "including antihistamines",
+        "and antidepressants,",
+        "cut down saliva",
+        "",
+        "Less saliva means bacteria",
+        "build up faster"
+      ]
+    },
+    {
+      "name": "Dry Mouth — the fix",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Stay hydrated and",
+        "try sugar-free gum"
+      ]
+    },
+    {
+      "name": "Postnasal Drip",
+      "char_file": "후비루_illust.jpg",
+      "body": [
+        "Allergies or sinus issues send",
+        "mucus down your throat",
+        "instead of out your nose",
+        "",
+        "That trapped mucus mixes",
+        "with bacteria and smells"
+      ]
+    },
+    {
+      "name": "Postnasal Drip — the fix",
+      "char_file": "후비루_illust.jpg",
+      "body": [
+        "Use a saline rinse",
+        "and a humidifier"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gum disease, dry mouth,",
+        "and postnasal drip"
+      ],
+      [
+        "None of them go away",
+        "from brushing alone"
+      ]
+    ],
+    "tip": [
+      "Treat the actual source and",
+      "the smell gets noticeably better"
+    ],
+    "cta": "Want more useful health tips? Follow along"
+  }
+}
