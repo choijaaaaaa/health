@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Low blood sugar after meals,",
+    "the shaking and cold sweats have a real cause",
+    "3 Triggers Behind Reactive Hypoglycemia"
+  ],
+  "eyebrow": "Blood Sugar Alert",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "topic_word": "Blood Sugar",
+  "char_display_names": {
+    "혈당계_illust.jpg": "Blood Sugar",
+    "흰빵_illust.jpg": "White Bread",
+    "사탕_illust.jpg": "Candy",
+    "샐러드_illust.jpg": "Veggies First"
+  },
+  "cover_scrim_color": "#8E3B46",
+  "items": [
+    {
+      "name": "Ever felt this after eating?",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Shaky, sweaty, or lightheaded",
+        "2 to 4 hours after a meal?",
+        "",
+        "That's a classic sign of",
+        "reactive hypoglycemia -",
+        "even without diabetes"
+      ]
+    },
+    {
+      "name": "Why It Happens",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "A fast blood sugar spike",
+        "triggers too much insulin",
+        "",
+        "Glucose drops below normal,",
+        "your brain runs short on fuel,",
+        "and adrenaline kicks in -",
+        "that's the shaking and sweats"
+      ]
+    },
+    {
+      "name": "White Rice, Pasta, and Bread",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "These refined carbs",
+        "digest fast and spike",
+        "blood sugar quickly",
+        "",
+        "which can trigger",
+        "an oversized insulin response"
+      ]
+    },
+    {
+      "name": "Candy and Sugary Drinks",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Soda, juice, and candy",
+        "hit your bloodstream",
+        "even faster than solid food",
+        "",
+        "making the crash",
+        "that much sharper"
+      ]
+    },
+    {
+      "name": "Past Stomach Surgery",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "For some people,",
+        "past gastric bypass or",
+        "other stomach surgery",
+        "",
+        "changes how fast sugar",
+        "reaches the bloodstream -",
+        "making this more likely,",
+        "even years later"
+      ]
+    },
+    {
+      "name": "What Actually Helps",
+      "char_file": "샐러드_illust.jpg",
+      "body": [
+        "Pair carbs with protein",
+        "and healthy fat to",
+        "slow digestion",
+        "",
+        "Eating smaller meals every",
+        "3 to 4 hours keeps blood sugar",
+        "steadier all day"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "you already have diabetes"
+      ],
+      [
+        "But repeated crashes",
+        "are worth paying attention to"
+      ]
+    ],
+    "tip": [
+      "Pair carbs with protein and fat,",
+      "and eat smaller meals more often"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
