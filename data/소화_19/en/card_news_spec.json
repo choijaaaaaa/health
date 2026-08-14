@@ -1,0 +1,129 @@
+{
+  "title": [
+    "Bloating After You Eat,",
+    "If It Happens Every Time",
+    "You Eat Fast, There's A Reason",
+    "5 Ways To Help It Pass Faster"
+  ],
+  "eyebrow": "Indigestion Relief",
+  "cover_char_file": "소화불량_illust.jpg",
+  "cover_scrim_color": "#1B5E20",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "소화불량_illust.jpg": "Indigestion",
+    "시계_illust.jpg": "Eating Fast",
+    "운동화_illust.jpg": "Take A Walk",
+    "식후눕기_illust.jpg": "Stay Upright",
+    "생강_illust.jpg": "Ginger Tea",
+    "알약_illust.jpg": "Antacid"
+  },
+  "items": [
+    {
+      "name": "What's actually happening in your stomach",
+      "char_file": "소화불량_illust.jpg",
+      "body": [
+        "After a big or fast meal,",
+        "your stomach's ability",
+        "to relax and stretch",
+        "gets overwhelmed",
+        "",
+        "Up to half of people with",
+        "recurring stomach discomfort",
+        "show this exact problem"
+      ]
+    },
+    {
+      "name": "Eating fast makes it worse",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Your brain needs time",
+        "to register that",
+        "you're full",
+        "",
+        "A meal that's over",
+        "in 10 minutes means you",
+        "eat past what your stomach",
+        "can comfortably handle"
+      ]
+    },
+    {
+      "name": "A short walk helps more than you'd think",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Walking helps move food",
+        "through your stomach",
+        "and eases bloating",
+        "",
+        "Even 10 minutes",
+        "makes a real difference"
+      ]
+    },
+    {
+      "name": "Skip the couch right after eating",
+      "char_file": "식후눕기_illust.jpg",
+      "body": [
+        "Lying down lets stomach acid",
+        "creep back up",
+        "your esophagus",
+        "",
+        "Stay upright for",
+        "at least 3 hours",
+        "before you lie down"
+      ]
+    },
+    {
+      "name": "Ginger and peppermint tea can help",
+      "char_file": "생강_illust.jpg",
+      "body": [
+        "Two of the most",
+        "commonly recommended",
+        "home remedies",
+        "",
+        "Peppermint can worsen",
+        "heartburn for some people —",
+        "drop it if that happens"
+      ]
+    },
+    {
+      "name": "An OTC antacid is a reasonable option",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Brings relief for",
+        "occasional indigestion",
+        "",
+        "Staying hydrated helps too —",
+        "your gut needs extra water",
+        "for a big meal's workload"
+      ]
+    },
+    {
+      "name": "When it's more than just a big meal",
+      "char_file": "소화불량_illust.jpg",
+      "body": [
+        "Indigestion for weeks,",
+        "weight loss, vomiting,",
+        "or black stools",
+        "",
+        "See a doctor to rule out",
+        "something else going on"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Eat a little slower,"
+      ],
+      [
+        "and give your stomach",
+        "time to catch up"
+      ]
+    ],
+    "tip": [
+      "A short walk and staying upright after eating are two of the simplest ways to ease indigestion",
+      "Indigestion that keeps coming back with weight loss or vomiting needs a doctor, not home remedies"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
