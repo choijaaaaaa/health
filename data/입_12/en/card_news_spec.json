@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Not every wisdom tooth",
+    "needs to come out —",
+    "check this before you decide",
+    "The Two Signs That Actually Matter"
+  ],
+  "eyebrow": "Wisdom Tooth Extraction Guide",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Wisdom Teeth",
+  "cover_char_file": "사랑니_illust.jpg",
+  "cover_scrim_color": "#4A7A6B",
+  "char_display_names": {
+    "사랑니_illust.jpg": "Wisdom Tooth",
+    "잇몸출혈_illust.jpg": "Gum Flap",
+    "턱관절_illust.jpg": "Tilted Growth",
+    "치실_illust.jpg": "Clean & Upright",
+    "소금_illust.jpg": "Home Care"
+  },
+  "items": [
+    {
+      "name": "The Old Rule Is Gone",
+      "char_file": "사랑니_illust.jpg",
+      "body": [
+        "Dentists used to pull wisdom",
+        "teeth out just as a precaution",
+        "",
+        "Current guidance says",
+        "that's not automatic anymore —",
+        "two signs actually decide it"
+      ]
+    },
+    {
+      "name": "Sign 1: The Gum Flap Trap",
+      "char_file": "잇몸출혈_illust.jpg",
+      "body": [
+        "A flap of gum often covers",
+        "part of an emerging tooth,",
+        "trapping food and bacteria",
+        "",
+        "That's pericoronitis —",
+        "throbbing pain, bad breath,",
+        "and red, swollen gums"
+      ]
+    },
+    {
+      "name": "Sign 2: Growing In Tilted",
+      "char_file": "턱관절_illust.jpg",
+      "body": [
+        "When a tooth leans",
+        "on the molar next to it",
+        "",
+        "That pressure wears down",
+        "the neighboring root and",
+        "opens a gap for cavities"
+      ]
+    },
+    {
+      "name": "When You Can Just Watch It",
+      "char_file": "치실_illust.jpg",
+      "body": [
+        "No infection, a clean bite,",
+        "easy to brush around?",
+        "",
+        "Regular dental checkups",
+        "are all you need"
+      ]
+    },
+    {
+      "name": "When Removal Is the Call",
+      "char_file": "사랑니_illust.jpg",
+      "body": [
+        "Recurring infection, or damage",
+        "to the tooth beside it —",
+        "either one tips the decision",
+        "",
+        "It's simplest in your",
+        "early twenties, while healing is fast"
+      ]
+    },
+    {
+      "name": "While You Wait It Out",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Warm salt water rinses and a",
+        "cold compress for 20 minutes",
+        "take the edge off",
+        "",
+        "Pain past a day or two?",
+        "Trouble opening your mouth?",
+        "Get seen, don't ride it out"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No infection and a clean bite —",
+        "monitor it. Recurring infection or"
+      ],
+      [
+        "damage to the next tooth — remove it"
+      ]
+    ],
+    "tip": [
+      "Not sure which one you're dealing with?",
+      "A dental checkup gives you the real answer"
+    ],
+    "cta": "Want more useful health tips? Subscribe, like, and follow!"
+  }
+}
