@@ -1,0 +1,124 @@
+{
+  "title": [
+    "1 in 5 Podiatry Visits",
+    "Are for Ingrown Toenails —",
+    "and It's Not Just Seniors",
+    "Trim and Shoe Habits to Fix"
+  ],
+  "eyebrow": "Ingrown Toenail Prevention",
+  "cover_char_file": "손톱깎이_illust.jpg",
+  "cover_scrim_color": "#6B4E3D",
+  "swipe_label": "Swipe to see more  >>",
+  "closing_label": "Takeaway",
+  "char_display_names": {
+    "손톱깎이_illust.jpg": "Nail Clipper",
+    "운동화_illust.jpg": "Sneakers",
+    "물방울_illust.jpg": "Water"
+  },
+  "items": [
+    {
+      "name": "Not Just an Older-Adult Problem",
+      "char_file": "손톱깎이_illust.jpg",
+      "body": [
+        "Ingrown toenails send about",
+        "1 in 5 podiatry patients",
+        "through the door",
+        "",
+        "They show up most in kids,",
+        "young adults, and people",
+        "in their 50s — check this first"
+      ]
+    },
+    {
+      "name": "Tight, Narrow-Toed Shoes",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Tight or narrow-toed shoes",
+        "are one of the two",
+        "leading causes",
+        "",
+        "Constant pressure from the sides",
+        "pushes the nail's growth path",
+        "inward instead of straight out"
+      ]
+    },
+    {
+      "name": "Choose a Wide Toe Box",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Choose shoes with",
+        "a wide toe box",
+        "",
+        "Give your toes room",
+        "so nothing presses",
+        "on the nail's edges"
+      ]
+    },
+    {
+      "name": "Rounding the Corners Too Short",
+      "char_file": "손톱깎이_illust.jpg",
+      "body": [
+        "The other leading cause",
+        "is how you're trimming",
+        "",
+        "Rounding the corners or cutting",
+        "too short lets the skin puff up",
+        "over the nail bed"
+      ]
+    },
+    {
+      "name": "Trim Straight Across",
+      "char_file": "손톱깎이_illust.jpg",
+      "body": [
+        "Trim straight across and",
+        "leave the corners visible",
+        "past the skin",
+        "",
+        "Never round them or",
+        "cut them too short"
+      ]
+    },
+    {
+      "name": "Waiting Out Spreading Redness",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Once redness spreads or",
+        "pus shows up, that's",
+        "not a sign to wait it out",
+        "",
+        "The skin is already infected —",
+        "with diabetes or poor circulation,",
+        "it can escalate fast"
+      ]
+    },
+    {
+      "name": "Soak, Lift With Cotton, See a Doctor",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Soak your foot in warm water",
+        "for 15 to 20 minutes",
+        "",
+        "Tuck a wisp of clean cotton",
+        "under the corner to lift it,",
+        "and see a doctor if it doesn't improve"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A wide toe box,",
+        "straight-across trimming,"
+      ],
+      [
+        "and catching redness early —",
+        "that alone cuts your risk"
+      ]
+    ],
+    "tip": [
+      "Check how your toenails",
+      "are trimmed right now"
+    ],
+    "cta": "Want more health tips like this? Follow along"
+  }
+}
