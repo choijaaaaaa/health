@@ -935,7 +935,12 @@ python3 -m pytest tests/ -v
 
 - `assets_library/{illust,real,motion,music}/` 전부
 - `output/**/*.mp4`(원본·인스타그램 안전여백 버전 둘 다)
-- `output/**/card_news/*.jpg` 중 표지(`*_00_표지.jpg`)를 제외한 나머지
+
+⚠️ **카드뉴스 이미지(`output/**/card_news/*.jpg`)는 표지만 빼고 gitignore하려던
+계획이 2026-08-08에 뒤집혀서, 지금은 전체가 git에 추적된다** — 실제 `.gitignore`
+기준. 이 문서에 예전 "표지만 추적" 문구가 최근까지 남아있어서 여러 세션이
+반복 발견했다(2026-08-14 정정) — 새 topic 작업 시 카드뉴스 이미지는 표지 포함
+전체를 그냥 커밋하면 된다, 별도 필터링 불필요.
 
 영상·이미지 생성 코드는 그대로다 — 파일은 여전히 로컬에 정상적으로 만들어지고,
 git이 추적만 안 할 뿐이다. `assets_library/{backgrounds,fonts,
