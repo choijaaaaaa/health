@@ -898,6 +898,28 @@ youtube_uploaded)을 읽고 쓰고 지울 수 있었다 — Vercel Basic Auth는
   필요(로컬 스크립트용 `.env`에는 이미 있었지만 Vercel엔 `HS_ADMIN_PASSWORD`만
   있었음) — 이 함수들이 실행되는 서버 환경에서 읽는다.
 
+### GitHub Pages 비활성화(2026-08-15) — 절대 다시 켜지 말 것
+
+⚠️ 이 저장소는 GitHub Pages도 동시에 켜져 있었다(`main` 브랜치 루트를
+그대로 정적 서빙, `choijaaaaaa.github.io/health/`) — Vercel과 완전히
+별개의 무료 배포 경로라 존재를 잊기 쉽다. 두 가지 문제가 겹쳐서
+비활성화했다:
+
+1. **인증 완전 우회**: `middleware.js`(Basic Auth)는 Vercel Edge
+   Middleware라 Vercel 배포에만 적용된다 — GitHub Pages는 순수 정적
+   호스팅이라 이 게이트가 아예 안 걸린다. 비밀번호 없이 미공개 topic
+   목록·상품 링크가 그대로 보이는 상태로 몇 시간~며칠 방치됐을 수 있다.
+2. **위 "Supabase 쓰기 경로" 변경과 충돌**: 체크박스 등 쓰기 동작이
+   `/api/*.js` 서버 함수를 호출하는데, GitHub Pages는 서버 함수 자체를
+   지원하지 않아 그 요청이 전부 404로 조용히 실패 — 사용자 입장에선
+   "체크해도 저장이 안 됨"으로 보였다.
+
+`gh api repos/choijaaaaaa/health/pages -X DELETE`로 비활성화 완료.
+**앞으로 대시보드는 항상 Vercel URL(`health-shorts.vercel.app`)로만
+접속할 것** — 북마크·자동화 스크립트에 github.io 링크가 남아있으면
+갱신할 것. Pages를 다시 켜려면(Settings → Pages) 반드시 이 두 문제를
+먼저 해결한 뒤에만 — 지금 상태로 재활성화하면 두 문제 다 즉시 재발한다.
+
 ## 테스트
 
 ```bash
