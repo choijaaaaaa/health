@@ -338,8 +338,8 @@ def test_products_no_middle_dot(topic):
 # 규칙 12: products 필드에 설명형 수식어(편한 신발·위 진정 소화제류) 금지
 # (2026-08-14) — CLAUDE.md "products 필드" 절 참고. 4개 topic에서 동시에
 # 재발한 뒤 CLAUDE.md 텍스트만으로는 세션이 매번 걸러내지 못한다는 게
-# 확인돼서 기계적 검사로 옮김. 실제 상품명에 포함되는 정상 수식어(가정용·
-# 휴대용·저나트륨·무알코올 등)는 목록에 없음 — 전부 "검색창에 그대로 안 치는
+# 확인돼서 기계적 검사로 옮김. 실제 상품명에 포함되는 정상 수식어(휴대용·
+# 저나트륨·무알코올 등)는 목록에 없음 — 전부 "검색창에 그대로 안 치는
 # 주관적 효능/감상 표현"만 모았다.
 # ---------------------------------------------------------------------------
 
@@ -355,6 +355,28 @@ def test_products_no_descriptive_adjective(topic):
     bad = [prod for prod in spec.get("products", []) if _PRODUCTS_DESCRIPTIVE_PATTERN.search(prod)]
     assert not bad, (
         f"{topic}: products에 설명형 수식어 붙은 항목 있음(실제 검색어로 단순화할 것) — {bad}"
+    )
+
+
+# ---------------------------------------------------------------------------
+# 규칙 13: products 필드에 실제 쿠팡 카테고리 체계에 없는 수식어 금지
+# (2026-08-15) — CLAUDE.md "products 필드" 절 참고. "가정용 혈압계"를 예전엔
+# 정상 예시로 들었으나, 실제 쿠팡 검색을 확인해보니(고농도 산소캔 사례)
+# 카테고리는 "휴대용"·"의료용"·"반려동물용" 등으로 나뉘지 "가정용"·"고농도"
+# 단위로는 안 갈린다는 게 드러나 뒤집힘 — 규칙 12(주관적 효능/감상 표현)와는
+# 다른 종류의 문제(객관적으로 들리지만 실제 쿠팡 카테고리 분류엔 없는 조어)라
+# 별도 패턴으로 관리. 새 항목 추가는 실제 쿠팡 검색으로 확인 후에만.
+# ---------------------------------------------------------------------------
+
+_PRODUCTS_UNSEARCHABLE_PREFIX_PATTERN = re.compile("가정용|고농도")
+
+
+@pytest.mark.parametrize("topic", TOPICS)
+def test_products_no_unsearchable_prefix(topic):
+    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    bad = [prod for prod in spec.get("products", []) if _PRODUCTS_UNSEARCHABLE_PREFIX_PATTERN.search(prod)]
+    assert not bad, (
+        f"{topic}: products에 실제 쿠팡 카테고리에 없는 수식어 붙은 항목 있음 — {bad}"
     )
 
 
