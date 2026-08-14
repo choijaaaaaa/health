@@ -1054,14 +1054,35 @@ def _write_all_products(output_root: Path, data_root: Path) -> None:
     바뀌는 "상태"가 아니라 "지금 뭐가 있는지" 정적 목록이라 topics.json과
     같은 패턴(git 추적 정적 파일, 매 generate() 호출마다 자동 갱신)으로
     둔다 — 굳이 Supabase 테이블·스키마 변경 없이 기존 하이브리드 구조 그대로
-    확장."""
-    products: set[str] = set()
+    확장.
+
+    WHY 상품명 → 출처 topic 목록 매핑으로 바뀌었는지(2026-08-15, "이 창에서
+    각 항목별로 대시보드로 넘어가는 링크좀 넣어주라 — 문맥상 어떤게 필요해서
+    넣었는지가 확인되어야할 경우가 좀 많아서"): 예전엔 상품명 문자열 배열뿐이라
+    index.html의 미등록 링크 패널에서 "이 상품이 대체 어느 topic에서 왜
+    나왔는지" 확인할 방법이 없었다 — 상품명 하나가 여러 topic에서 재사용될
+    수 있어(global_product_links가 애초에 topic 무관 캐시인 이유) 단순 문자열
+    하나로는 안 되고 목록이어야 한다. 프론트에서 URL을 다시 조립하지 않게
+    dashboard 경로까지 여기서 미리 계산해서 넣는다."""
+    products: dict[str, list[dict[str, str]]] = {}
+
+    def add(product: str, topic_id: str, title: str, dashboard_url: str) -> None:
+        entries = products.setdefault(product, [])
+        if any(e["topic"] == topic_id for e in entries):
+            return
+        entries.append({"topic": topic_id, "title": title, "url": dashboard_url})
+
     for fp in sorted(data_root.glob("*/ko/platform_captions.json")):
         try:
             spec = json.loads(fp.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        products.update(spec.get("products", []))
+        topic, lang = fp.parent.parent.name, fp.parent.name
+        topic_id = f"{topic}/{lang}"
+        dashboard_url = f"output/{quote(topic)}/{lang}/dashboard.html"
+        title = spec.get("title", topic_id)
+        for p in spec.get("products", []):
+            add(p, topic_id, title, dashboard_url)
     # WHY 언어 하위 폴더 없는(2단계 아닌 flat) topic도 포함하는지: 위 glob은
     # "<topic>/ko/platform_captions.json"만 잡아서, 다국어 확장 이전에 만든
     # flat topic("<topic>/platform_captions.json")의 상품명이 누락된다.
@@ -1070,9 +1091,13 @@ def _write_all_products(output_root: Path, data_root: Path) -> None:
             spec = json.loads(fp.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        products.update(spec.get("products", []))
+        topic_id = fp.parent.name
+        dashboard_url = f"output/{quote(topic_id)}/dashboard.html"
+        title = spec.get("title", topic_id)
+        for p in spec.get("products", []):
+            add(p, topic_id, title, dashboard_url)
     (output_root / "all_products.json").write_text(
-        json.dumps(sorted(products), ensure_ascii=False, indent=2)
+        json.dumps(products, ensure_ascii=False, indent=2, sort_keys=True)
     )
 
 

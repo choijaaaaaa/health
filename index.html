@@ -49,6 +49,12 @@
     padding: 10px 14px; display: flex; flex-direction: column; gap: 6px;
   }
   .missing-link-row b { font-size: 13px; }
+  .missing-link-topics { display: flex; flex-wrap: wrap; gap: 6px; }
+  .missing-link-topic-chip {
+    font-size: 11px; color: var(--ink-soft); text-decoration: none;
+    background: var(--accent-soft); border-radius: 999px; padding: 3px 9px;
+  }
+  .missing-link-topic-chip:hover { color: var(--accent-deep); }
   .missing-link-field { display: flex; align-items: center; gap: 8px; }
   .missing-link-field label { margin: 0; width: 74px; flex: 0 0 auto; font-size: 12px; }
   .missing-link-input {
@@ -1076,13 +1082,14 @@ Promise.all([
 // 갱신 시점이 같지만(dashboard.py가 매번 함께 씀) 실패해도 위 topic 목록
 // 렌더링에 영향을 주면 안 된다 — 이 섹션은 실패해도 그냥 숨겨진 채로 둔다.
 Promise.all([
-  fetch("output/all_products.json").then(r => r.ok ? r.json() : []).catch(() => []),
+  fetch("output/all_products.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
   sb.from("global_product_links").select("market,product,url").then(r => r.data || []),
 ])
   .then(([products, linkRows]) => {
-    if (!products.length) return;
+    const productNames = Object.keys(products);
+    if (!productNames.length) return;
     const have = new Set(linkRows.map(r => r.market + "|" + r.product));
-    const missing = products.filter(p => !have.has("coupang|" + p) || !have.has("naver|" + p));
+    const missing = productNames.filter(p => !have.has("coupang|" + p) || !have.has("naver|" + p));
     const dock = document.getElementById("missingLinksDock");
     const toggle = document.getElementById("missingLinksToggle");
     const panel = document.getElementById("missingLinksPanel");
@@ -1119,6 +1126,28 @@ Promise.all([
       const title = document.createElement("b");
       title.textContent = product;
       row.appendChild(title);
+
+      // WHY(2026-08-15, "각 항목별로 대시보드로 넘어가는 링크좀 넣어주라 —
+      // 문맥상 어떤게 필요해서 넣었는지가 확인되어야할 경우가 좀 많아서"):
+      // 상품명 하나만 보고는 어느 topic 대본에서 왜 이 상품이 나왔는지 알
+      // 방법이 없었다 — all_products.json이 이제 상품명별 출처 topic 목록을
+      // 같이 주므로(_write_all_products) 그 topic의 대시보드로 바로 넘어가는
+      // 칩을 붙인다. 한 상품이 여러 topic에서 재사용됐으면 전부 나열.
+      const sources = products[product] || [];
+      if (sources.length) {
+        const topicsRow = document.createElement("div");
+        topicsRow.className = "missing-link-topics";
+        sources.forEach(src => {
+          const chip = document.createElement("a");
+          chip.className = "missing-link-topic-chip";
+          chip.href = src.url;
+          chip.target = "_blank";
+          chip.rel = "noopener";
+          chip.textContent = "📄 " + src.title;
+          topicsRow.appendChild(chip);
+        });
+        row.appendChild(topicsRow);
+      }
       ["coupang", "naver"].forEach(market => {
         if (have.has(market + "|" + product)) return;
         const searchUrl = market === "coupang"
