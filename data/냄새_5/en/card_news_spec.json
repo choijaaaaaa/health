@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Morning breath,",
+    "if brushing before bed",
+    "never crossed your mind, pay attention",
+    "The Saliva Drop Behind It, and Why Timing Fixes It"
+  ],
+  "eyebrow": "Morning Breath Alert",
+  "cover_char_file": "입마름_illust.jpg",
+  "cover_scrim_color": "#1F7A8C",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "입마름_illust.jpg": "Dry Mouth"
+  },
+  "items": [
+    {
+      "name": "Why It's So Bad Right When You Wake Up",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Saliva production drops",
+        "sharply while you sleep",
+        "",
+        "letting odor-causing",
+        "bacteria take over"
+      ]
+    },
+    {
+      "name": "What Happens When Saliva Drops",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Bacteria on the back of",
+        "your tongue break down proteins",
+        "",
+        "into sulfur compounds —",
+        "that's the smell you notice"
+      ]
+    },
+    {
+      "name": "Timing Matters More Than You'd Think",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Brushing and scraping your tongue",
+        "right before bed, not just morning,",
+        "",
+        "can cut morning breath",
+        "by roughly half"
+      ]
+    },
+    {
+      "name": "Mouth Breathing Makes It Worse",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Sleeping with your mouth open,",
+        "from congestion or snoring,",
+        "",
+        "dries out your mouth",
+        "all night long"
+      ]
+    },
+    {
+      "name": "Mouth Breathing — the fix",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Try a saline rinse before bed",
+        "and 40-60% bedroom humidity",
+        "",
+        "If congestion keeps coming back,",
+        "get it checked out"
+      ]
+    },
+    {
+      "name": "Dehydration Adds to It Too",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Not enough water, or alcohol",
+        "before bed,",
+        "",
+        "means even less saliva",
+        "to begin with"
+      ]
+    },
+    {
+      "name": "Dehydration — the fix",
+      "char_file": "입마름_illust.jpg",
+      "body": [
+        "Spread your water intake",
+        "through the evening",
+        "",
+        "A cup of green tea helps too —",
+        "its polyphenols neutralize the odor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Saliva naturally drops",
+        "while you sleep — that part's normal"
+      ],
+      [
+        "Time your routine right,",
+        "and it gets noticeably better"
+      ]
+    ],
+    "tip": [
+      "Brush and scrape your tongue before bed,",
+      "not just in the morning"
+    ],
+    "cta": "Want more useful health tips? Follow along"
+  }
+}
