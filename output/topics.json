@@ -4467,5 +4467,36 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "혈당_9/en",
+    "title": "The 'Glucose Goddess' TikTok Hack Has Real Science Behind It",
+    "url": "output/%ED%98%88%EB%8B%B9_9/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "혈당_9/ja",
+    "title": "給食で習った「三角食べ」、血糖値的には実は注意点があります",
+    "url": "output/%ED%98%88%EB%8B%B9_9/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "혈당_9/ko",
+    "title": "저속노화 식사법, 사실 순서 때문이에요 - 혈당 안 오르는 식사 순서법",
+    "url": "output/%ED%98%88%EB%8B%B9_9/ko/dashboard.html",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_9/ko/card_news/%ED%98%88%EB%8B%B9_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
   }
 ]
