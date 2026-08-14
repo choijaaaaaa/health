@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Delayed Sleep Phase Syndrome:",
+    "If your bedtime keeps slipping",
+    "later and later, pay attention",
+    "3 Habits to Reset Your Body Clock"
+  ],
+  "eyebrow": "Body Clock Reset Tips",
+  "swipe_label": "Swipe to see more  »",
+  "closing_label": "Wrap-up",
+  "topic_word": "Delayed Sleep Phase",
+  "cover_char_file": "시계_illust.jpg",
+  "cover_scrim_color": "#1B2A4A",
+  "char_display_names": {
+    "시계_illust.jpg": "Body Clock",
+    "스마트폰_illust.jpg": "Phone Screen",
+    "자명종_illust.jpg": "Wake Time",
+    "태양_illust.jpg": "Morning Light"
+  },
+  "items": [
+    {
+      "name": "Why does bedtime keep slipping",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Delayed sleep phase syndrome",
+        "isn't about being lazy",
+        "",
+        "It's your body clock itself",
+        "running later than the real clock"
+      ]
+    },
+    {
+      "name": "Bright screens at night",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Bright screens late at night",
+        "suppress melatonin",
+        "",
+        "right when your brain",
+        "should be winding down"
+      ]
+    },
+    {
+      "name": "Fix: dim the lights before bed",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Dim the lights an hour",
+        "before bed",
+        "",
+        "Less light signal means",
+        "melatonin arrives on time"
+      ]
+    },
+    {
+      "name": "Sleeping in on weekends",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Staying up late, then",
+        "sleeping in on weekends",
+        "",
+        "creates social jetlag —",
+        "your wake time keeps shifting"
+      ]
+    },
+    {
+      "name": "Fix: wake up at the same time",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Wake up at the same time",
+        "every day, even weekends",
+        "",
+        "A steady wake time keeps",
+        "your clock from drifting"
+      ]
+    },
+    {
+      "name": "Not enough morning light",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Morning light tells your clock",
+        "a new day has started",
+        "",
+        "Skip it, and your rhythm",
+        "never resets"
+      ]
+    },
+    {
+      "name": "Fix: get outside after waking",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Get outside within 30",
+        "minutes of waking",
+        "",
+        "A stronger morning signal",
+        "resets your clock faster"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dim lights at night, a steady wake time,",
+        "morning light — these three habits help"
+      ],
+      [
+        "If your bedtime keeps drifting no matter what,",
+        "a sleep specialist can help"
+      ]
+    ],
+    "tip": [
+      "Wake up at the same time daily, get morning light —",
+      "start with just one today"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
