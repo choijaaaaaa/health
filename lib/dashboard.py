@@ -1155,8 +1155,7 @@ def _update_topics_index(out_path: str):
 
 # WHY 이 딕셔너리를 여기 두는지: data/global_channels.json과 값 형식이 다르다(그
 # 파일은 code->메타 정보 dict이고 여기는 순서가 있는 표시용 라벨) — 이 페이지
-# 전용이라 별도로 관리해도 두 파일이 어긋날 위험이 없다(코드만 겹치면 됨, 코드
-# 자체의 출처는 typecast_voices_global.json이 정본).
+# 전용이라 별도로 관리해도 두 파일이 어긋날 위험이 없다(코드만 겹치면 됨).
 GLOBAL_LANG_LABELS = {
     "en": "영어 English", "ja": "일본어 日本語", "zh-TW": "대만어 繁體中文",
     "es": "스페인어 Español", "pt": "포르투갈어 Português", "fr": "프랑스어 Français",

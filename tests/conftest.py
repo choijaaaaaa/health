@@ -1,6 +1,6 @@
 # pytest 공통 픽스처. WHY: 매 테스트 모듈이 각자 임시 이미지/영상을 만들면 중복이 심하고
 # 느려진다 — 여기서 가볍고 빠른 합성 소스만 한 번 정의해서 공유한다. 실제 유료 API
-# (Gemini/Kling/Typecast)는 어떤 테스트에서도 호출하지 않는다(비용+네트워크 의존 회피).
+# (Gemini/Kling/Fish Audio)는 어떤 테스트에서도 호출하지 않는다(비용+네트워크 의존 회피).
 from __future__ import annotations
 
 import subprocess

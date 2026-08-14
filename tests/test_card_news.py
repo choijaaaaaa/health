@@ -1,5 +1,5 @@
 # lib/card_news.py 카드뉴스 생성 파이프라인 테스트.
-# WHY: 실제 Gemini/Kling/Typecast 없이도 PIL 순수 로직만으로 파일 개수·이름 규칙·
+# WHY: 실제 Gemini/Kling/Fish Audio 없이도 PIL 순수 로직만으로 파일 개수·이름 규칙·
 # 이미지 유효성·예외 처리를 검증할 수 있는 모듈이라 실제 API 호출 없이 전부 커버 가능.
 from __future__ import annotations
 

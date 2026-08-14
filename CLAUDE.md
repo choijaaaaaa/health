@@ -299,7 +299,7 @@
   포맷 상관없이 항상 같이 만들 것** — "칠판 포맷일 때만"으로 오해해서 신규
   포맷 영상 다수(47개)에서 누락됐던 적이 있음.
 - output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
-  `--out`은 직접 지정, `typecast_tts.py` 결과는 필요시 rename).
+  `--out`은 직접 지정, `fish_tts.py` 결과는 필요시 rename).
 
 ## 배경음악(BGM) (`lib/bgm.py`)
 
@@ -429,20 +429,19 @@
 
 ⚠️ **Fish Audio로 전환(2026-08-14, Typecast 완전 폐기)** — Typecast 음성
 품질 불만으로 교체 결정. `TYPECAST_API_KEY`는 `.env`에서 제거됐고
-`lib/typecast_tts.py`/`data/typecast_voices*.json`은 과거 산출물 참고용으로만
-남아있음 — **새 topic엔 절대 호출하지 말 것**, 새 코드는 전부 `fish_tts.py`
-기준으로 작성한다. 2026-08-14 이전에 이미 Typecast로 생성된 오디오는 sunk
-cost로 그대로 둔다(재생성 안 함).
+`lib/typecast_tts.py`/`data/typecast_voices*.json`도 삭제됨(2026-08-14) —
+2026-08-14 이전에 이미 Typecast로 생성된 오디오는 sunk cost로 그대로 둔다
+(재생성 안 함).
 
-- `synthesize(topic, text, voice_name=None, lang="kor")` — typecast_tts.py와
-  동일한 반환 모양(`audio_path`/`srt_path`/`duration`/`word_count`/`words`)이라
+- `synthesize(topic, text, voice_name=None, lang="kor")` — 반환 모양은
+  `audio_path`/`srt_path`/`duration`/`word_count`/`words`이고, 호출 관례도
   호출 관례도 그대로: `topic` 인자에 언어 세그먼트를 포함시켜서 넘긴다
   (`"눈_8"`→ko, `"눈_8/en"`→en, `"눈_8/ja"`→ja — output 경로가 topic 문자열
   그대로 `output/<topic>/narration.*`가 되므로). CLI:
   `python3 lib/fish_tts.py <topic> <text> [voice_name]`.
 - 보이스 미지정 시 언어별 풀(`data/fish_audio_voices.json`(kor)/
   `_en.json`/`_ja.json`)에서 랜덤 선택. **캐릭터 여러 명 topic도 항상 단일
-  보이스** — typecast 시절과 동일 원칙, 멀티보이스 세그먼트 방식은 안 씀.
+  보이스** — 멀티보이스 세그먼트 방식은 안 씀.
 - ⚠️ **보이스 풀 큐레이션 기준(중요)** — Fish Audio `/model` 목록은 자체
   큐레이션이 아니라 사용자 업로드 보이스 클로닝 마켓플레이스라 실존 인물
   (연예인·정치인 등)·저작권 캐릭터 클론이 섞여 있다. 세 JSON 파일 모두
@@ -773,7 +772,7 @@ git 히스토리에서 복원.
   접미사 필수(localStorage 키 충돌 방지).
 - 언어별 리서치 체크리스트는 `data/global_research_rules.md`(1차 타겟 국가,
   광고법·종교적 금기 식품 등) — 작성 전 필독. TTS 보이스는
-  `data/typecast_voices_global.json`, 채널 인프라 상태는
+  `data/fish_audio_voices_en.json`/`_ja.json`, 채널 인프라 상태는
   `data/global_channels.json`(언어별 `instagram_url` 포함 — Instagram Reels
   platform_captions.json의 `url` 필드는 항상 이 값으로 채울 것, 한국어 계정
   URL을 재사용하지 말 것).
