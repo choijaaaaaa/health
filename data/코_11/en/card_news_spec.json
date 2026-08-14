@@ -1,0 +1,125 @@
+{
+  "title": [
+    "Parosmia, If Fried Food Or Eggs",
+    "Suddenly Smell Like They've Gone Bad",
+    "Straight Out Of The Pan",
+    "The Smell Retraining Method To Reverse It"
+  ],
+  "eyebrow": "Parosmia Signs",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#8B5A2B",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "소고기_illust.jpg": "Meat",
+    "계란_illust.jpg": "Eggs",
+    "레몬_illust.jpg": "Smell Training",
+    "비강스프레이_illust.jpg": "Symptom",
+    "영양제_illust.jpg": "Zinc Check"
+  },
+  "items": [
+    {
+      "name": "Why coffee or meat can suddenly smell wrong",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Researchers have traced about",
+        "fifteen high-potency odor compounds",
+        "as the main culprits in parosmia",
+        "",
+        "One or two of them dominate and",
+        "get read as burnt, sulfurous, or rotten —",
+        "coffee, meat, onion, and garlic",
+        "show up most often in patient reports"
+      ]
+    },
+    {
+      "name": "Eating trigger foods the same hot way",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "First is eating meals",
+        "the same hot way you always have",
+        "",
+        "Heat releases more of these",
+        "trigger compounds through steam,",
+        "so a dish that's tolerable cold",
+        "can turn overwhelming off the stove"
+      ]
+    },
+    {
+      "name": "Let it cool first",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Let food cool closer",
+        "to room temperature",
+        "",
+        "before it hits your nose",
+        "full force"
+      ]
+    },
+    {
+      "name": "Skipping smell retraining",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Second is skipping",
+        "smell retraining",
+        "",
+        "Regrowing olfactory nerves",
+        "need repeated, focused",
+        "stimulation to reconnect correctly"
+      ]
+    },
+    {
+      "name": "How smell retraining works",
+      "char_file": "레몬_illust.jpg",
+      "body": [
+        "Sniff four distinct scents —",
+        "rose, lemon, clove, and eucalyptus —",
+        "",
+        "for about twenty seconds each,",
+        "twice daily, for several months"
+      ]
+    },
+    {
+      "name": "Not knowing when to get checked",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Third is not knowing",
+        "when to get checked",
+        "",
+        "Post-viral parosmia recovery",
+        "often stretches past a year —",
+        "some need fourteen to sixteen months"
+      ]
+    },
+    {
+      "name": "When it's time for an ENT visit",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "If it's dragging on with no improvement,",
+        "or making it hard to eat enough,",
+        "",
+        "an ENT visit rules out other causes",
+        "and points you toward options",
+        "like zinc testing"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Eating meals a little cooler,",
+        "daily smell retraining,"
+      ],
+      [
+        "and knowing when to loop in an ENT —",
+        "make the recovery stretch easier"
+      ]
+    ],
+    "tip": [
+      "Sniff rose, lemon, clove, and eucalyptus for about 20 seconds each, twice a day",
+      "If it's dragging on with no improvement, an ENT visit can check things like zinc levels"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
