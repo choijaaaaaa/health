@@ -1,0 +1,51 @@
+{
+  "title": ["Still Picking at Breakouts", "With Melasma? Stop -", "The Everyday Habits That Quietly Worsen Melasma"],
+  "eyebrow": "Melasma Habit Check",
+  "cover_scrim_color": "#9C5B6D",
+  "cover_char_file": "피부반점_illust.jpg",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "피부반점_illust.jpg": "Melasma",
+    "태양_illust.jpg": "Sun Exposure",
+    "손가락_illust.jpg": "Picking",
+    "귤_illust.jpg": "Citrus Fruit"
+  },
+  "items": [
+    {
+      "name": "Why Melasma Keeps Coming Back",
+      "char_file": "피부반점_illust.jpg",
+      "body": ["UV exposure triggers melanocytes", "to overproduce pigment", "", "Melasma affects an estimated", "5 to 6 million women in the US"]
+    },
+    {
+      "name": "Skipping Sunscreen Reapplication",
+      "char_file": "태양_illust.jpg",
+      "body": ["Applying sunscreen once", "in the morning and stopping there", "", "Sun protection fades over hours,", "leaving melanocytes exposed again"]
+    },
+    {
+      "name": "Reapply Every 2 Hours (Tinted, Too)",
+      "char_file": "태양_illust.jpg",
+      "body": ["The AAD recommends SPF 30+,", "reapplied every 2 hours outdoors", "", "A tinted mineral sunscreen with iron oxide", "also blocks visible light"]
+    },
+    {
+      "name": "Picking, Popping, or Scrubbing Your Skin",
+      "char_file": "손가락_illust.jpg",
+      "body": ["Picking at breakouts", "or scrubbing irritated skin", "", "66.8% of melasma patients", "develop dark marks after acne"]
+    },
+    {
+      "name": "Try a Pimple Patch, Skip the Harsh Scrub",
+      "char_file": "손가락_illust.jpg",
+      "body": ["Swap picking for a pimple patch", "and a gentle, fragrance-free cleanser", "", "Save exfoliating acids", "for skin that isn't already irritated"]
+    },
+    {
+      "name": "Antioxidant Foods That Help From Inside",
+      "char_file": "귤_illust.jpg",
+      "body": ["Vitamin C and E support skin's repair", "from UV damage", "", "Citrus, kiwi, almonds, colorful vegetables,", "flaxseed, and salmon are good sources"]
+    }
+  ],
+  "closing": {
+    "headline": [["Melasma builds up from UV exposure,", "hormones, and skin irritation together"], ["You don't have to fix everything at once -", "reapplying sunscreen is the easiest place to start"]],
+    "tip": ["Set a 2-hour reminder to reapply sunscreen", "and switch to a gentle, fragrance-free cleanser"],
+    "cta": "Follow for more health tips like this"
+  }
+}
