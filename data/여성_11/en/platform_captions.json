@@ -1,0 +1,24 @@
+{
+  "topic": "여성_11_en",
+  "title": "PMS: What the Clinical Evidence Actually Supports",
+  "ad_tag": true,
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: PMS: What the Evidence Actually Supports\n\nDescription:\nPMS mood symptoms are linked to a drop in allopregnanolone (a progesterone byproduct) during the luteal phase, while shifting aldosterone causes bloating. Calcium (about 1,200mg/day) has the strongest evidence for easing symptoms, vitamin B6 evidence is mixed with a safety caveat at high doses, and regular aerobic exercise consistently helps with fatigue and low mood.\n\nIf symptoms disrupt work or relationships most months, that may be PMDD — worth discussing with an OB-GYN.\n\n#PMS #premenstrualsyndrome #womenshealth #healthtips #Shorts"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Most PMS advice online is guesswork. Here's what clinical research actually backs 🔬\n\nA drop in a progesterone byproduct and shifting aldosterone are behind the mood dips and bloating. Calcium-rich meals, checking your vitamin B6 dose, and staying active are the evidence-backed ways to manage it.\n\nMore useful health tips? Follow along 👆\n\n#PMS #premenstrualsyndrome #womenshealth #wellness"
+    }
+  ]
+}
