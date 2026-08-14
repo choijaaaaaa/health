@@ -128,6 +128,23 @@ def _resolve_output_file(topic_dir: Path, suffix: str) -> Path:
 def _strip_lang_prefix(topic: str, lang: str) -> str:
     return topic[len(lang) + 1:] if lang != "kor" and topic.startswith(f"{lang}_") else topic
 
+
+def _resolve_data_topic(topic: str) -> str:
+    """data/ 아래 실제 콘텐츠가 있는 경로로 topic 문자열을 보정한다.
+    WHY(2026-08-14, 피로_2/고령_2 영상 조립 중 실제 발견): fish_tts.py 관례상
+    kor는 언어 세그먼트 없이 bare topic으로 호출하고 output/도 그렇게 flat하게
+    쌓이지만, data/는 최근 topic부터 en/ja와 동일하게 ko도 하위 폴더로 중첩해서
+    쓴다(data/<topic>/ko/card_news_spec.json) — bare topic으로 data/<topic>/
+    바로 밑을 찾으면 존재하지 않아 FileNotFoundError가 난다. bare topic 자리에
+    파일이 없고 "<topic>/ko" 자리에 있으면 그쪽으로 폴백한다(select_format·
+    output 경로 유도 등 다른 곳은 여전히 원래 bare topic 문자열을 그대로 쓴다 —
+    이 폴백은 data/ 읽기 전용)."""
+    if "/" not in topic and not (ROOT / "data" / topic / "card_news_spec.json").exists():
+        nested = ROOT / "data" / topic / "ko"
+        if (nested / "card_news_spec.json").exists():
+            return f"{topic}/ko"
+    return topic
+
 BG_CANDIDATES = [
     ("0x00FF00", (0, 255, 0)),
     ("0x0000FF", (0, 0, 255)),
@@ -429,7 +446,8 @@ def build_motion_schedule(
 
 
 def derive(topic: str) -> dict:
-    spec = json.loads((ROOT / "data" / topic / "card_news_spec.json").read_text())
+    data_topic = _resolve_data_topic(topic)
+    spec = json.loads((ROOT / "data" / data_topic / "card_news_spec.json").read_text())
     items = spec["items"]
     hook = " ".join(spec["title"][:-1])
     subject = spec["title"][-1]
@@ -553,7 +571,7 @@ def derive(topic: str) -> dict:
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
     else:
         srt_entries = _parse_srt(str(srt))
-        narration_txt = (ROOT / "data" / topic / "narration.txt").read_text()
+        narration_txt = (ROOT / "data" / data_topic / "narration.txt").read_text()
         kwargs["motion_path"] = None
         kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
@@ -572,7 +590,7 @@ def rebuild(topic: str):
         # 유무·언어 감지 같은 derive()의 경로 유도 로직이 그대로 필요하다 —
         # 중복 구현하는 대신 derive()가 이미 계산해둔 audio/srt/out/lang을
         # 재사용하고, 새 템플릿 시그니처에 맞는 spec_path만 추가로 계산한다.
-        spec_path = ROOT / "data" / topic / "card_news_spec.json"
+        spec_path = ROOT / "data" / _resolve_data_topic(topic) / "card_news_spec.json"
         try:
             _TEMPLATE_RENDERERS[fmt](
                 topic_dir=str(ROOT / "output" / topic),
