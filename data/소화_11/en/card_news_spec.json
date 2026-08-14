@@ -1,0 +1,117 @@
+{
+    "title": [
+        "IBS:",
+        "Bloating, Diarrhea, or",
+        "Constipation Keep Coming Back?",
+        "3 Habits Worth Checking"
+    ],
+    "eyebrow": "IBS Prevention",
+    "swipe_label": "Swipe to see more  →",
+    "closing_label": "Wrap-up",
+    "topic_word": "IBS",
+    "char_display_names": {
+        "긴장_illust.jpg": "Stress",
+        "감자칩_illust.jpg": "Fried Food",
+        "맥주_illust.jpg": "Alcohol"
+    },
+    "items": [
+        {
+            "name": "Why This Happens",
+            "char_file": "긴장_illust.jpg",
+            "body": [
+                "Stuck in traffic or mid-meeting",
+                "and your stomach suddenly",
+                "cramps or sends you running",
+                "",
+                "A disrupted gut-brain axis",
+                "is usually behind it"
+            ]
+        },
+        {
+            "name": "Cause 1: Chronic Stress",
+            "char_file": "긴장_illust.jpg",
+            "body": [
+                "Ongoing stress sends",
+                "abnormal signals from",
+                "the brain to the gut",
+                "",
+                "Gut motility swings and",
+                "pain sensitivity rises"
+            ]
+        },
+        {
+            "name": "Calm Your Gut-Brain Axis",
+            "char_file": "긴장_illust.jpg",
+            "body": [
+                "Just 5 minutes of slow,",
+                "deep breathing can help",
+                "",
+                "If symptoms keep returning,",
+                "talk to a doctor about it"
+            ]
+        },
+        {
+            "name": "Cause 2: Fatty, Fried Foods",
+            "char_file": "감자칩_illust.jpg",
+            "body": [
+                "High-fat foods slow",
+                "stomach emptying and",
+                "trigger stronger gut contractions",
+                "",
+                "That means more cramping",
+                "and urgency after eating"
+            ]
+        },
+        {
+            "name": "Cut Back on Fried Food",
+            "char_file": "감자칩_illust.jpg",
+            "body": [
+                "Swap fried, greasy meals",
+                "for grilled or baked options",
+                "",
+                "Smaller portions per meal",
+                "also ease the gut's workload"
+            ]
+        },
+        {
+            "name": "Cause 3: Alcohol",
+            "char_file": "맥주_illust.jpg",
+            "body": [
+                "Alcohol speeds up",
+                "gut motility and",
+                "irritates the intestinal lining",
+                "",
+                "That combination often",
+                "triggers diarrhea and cramping"
+            ]
+        },
+        {
+            "name": "Cut Back on Alcohol",
+            "char_file": "맥주_illust.jpg",
+            "body": [
+                "Space out drinks and",
+                "stay hydrated with water",
+                "",
+                "Fewer, smaller drinks",
+                "means an easier next day"
+            ]
+        }
+    ],
+    "closing": {
+        "headline": [
+            [
+                "Stress, fried food, and alcohol",
+                "all make IBS symptoms worse"
+            ],
+            [
+                "If symptoms last for months or",
+                "come with weight loss, see a doctor"
+            ]
+        ],
+        "tip": [
+            "Try slow breathing, smaller portions,",
+            "and fewer drinks — one at a time"
+        ],
+        "cta": "Want more health tips like this? Subscribe, like, and follow!"
+    }
+}
