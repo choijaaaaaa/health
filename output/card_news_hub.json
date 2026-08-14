@@ -1,8 +1,8 @@
 {
-  "generated_at": "2026-08-14T00:41:38.552548+00:00",
+  "generated_at": "2026-08-14T01:26:19.329506+00:00",
   "groups": [
     {
-      "group_name": "건강+뷰티",
+      "group_name": "건강",
       "verticals": [
         {
           "key": "health",
@@ -591,16 +591,11 @@
               "dashboard_path": "output/혈당_4/ko/dashboard.html"
             }
           ]
-        },
-        {
-          "key": "cerulem",
-          "label": "뷰티",
-          "items": []
         }
       ]
     },
     {
-      "group_name": "육아+홈리빙+반려동물",
+      "group_name": "육아+반려동물",
       "verticals": [
         {
           "key": "littlebrook",
@@ -608,13 +603,18 @@
           "items": []
         },
         {
-          "key": "nookery",
-          "label": "홈리빙",
-          "items": []
-        },
-        {
           "key": "pawnest",
           "label": "반려동물",
+          "items": []
+        }
+      ]
+    },
+    {
+      "group_name": "경제",
+      "verticals": [
+        {
+          "key": "fiscallo",
+          "label": "경제",
           "items": []
         }
       ]

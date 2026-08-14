@@ -1,10 +1,12 @@
 # 네이버 블로그 운영용 카드뉴스 허브 집계 스크립트. WHY(2026-08-14, "기존 헬스
-# 숏츠 업로드용 UI에다가 고도화좀 해봐" — 건강/뷰티/육아/홈리빙/반려동물 5개
-# 버티컬을 네이버 계정 2개(건강+뷰티, 육아+홈리빙+반려동물)로 묶어 운영할
-# 계획): 각 버티컬은 독립 레포(`<이름>-content`)라 브라우저 fetch()로 형제
-# 디렉터리를 직접 못 읽는다 — output/all_products.json을 index.html이 읽는
-# 기존 패턴처럼, 이 스크립트가 5개 레포를 미리 스캔해 health-shorts
-# output/card_news_hub.json 하나로 합쳐두고 card_news_hub.html이 그것만 읽는다.
+# 숏츠 업로드용 UI에다가 고도화좀 해봐" → 이어서 "건강 / 육아+반려동물 / 경제
+# 이렇게 세 쌍으로 네이버 블로그 계정 세 개로 운영하기로 결정" — 최초엔
+# 건강+뷰티 / 육아+홈리빙+반려동물 2개 계정 기준으로 짰다가 계정 구성이
+# 3개로 바뀌면서 그룹을 다시 나눔): 각 버티컬은 독립 레포(`<이름>-content`)라
+# 브라우저 fetch()로 형제 디렉터리를 직접 못 읽는다 — output/all_products.json을
+# index.html이 읽는 기존 패턴처럼, 이 스크립트가 형제 레포들을 미리 스캔해
+# health-shorts output/card_news_hub.json 하나로 합쳐두고 index.html의
+# "카드뉴스 허브" 탭이 그것만 읽는다.
 #
 # 사용법: python3 -m lib.card_news_hub
 from __future__ import annotations
@@ -16,21 +18,26 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# WHY dir_name=None이 health 자신인지: health-shorts는 다른 4개와 달리 형제
-# 디렉터리가 아니라 이 스크립트가 실행되는 레포 자체다 — _find_sibling_project()
-# 호출 없이 ROOT를 바로 쓴다.
+# WHY dir_name=None이 health 자신인지: health-shorts는 다른 버티컬과 달리
+# 형제 디렉터리가 아니라 이 스크립트가 실행되는 레포 자체다 —
+# _find_sibling_project() 호출 없이 ROOT를 바로 쓴다.
+#
+# ⚠️ 뷰티(cerulem)·홈리빙(nookery)은 지금 활성 네이버 계정 3개
+# (건강/육아+반려동물/경제) 어디에도 배정되지 않아 이 dict에서 제외했다 —
+# 재테크(fiscallo)가 2번째 라운드까지 계정 없이 빠져있던 것과 같은 원칙
+# ("계정이 없으면 그룹에 안 넣는다"). 두 버티컬용 계정이 나중에 생기면
+# VERTICAL_REPOS에 다시 추가할 것 — 레포 자체(cerulem-content/
+# nookery-content)는 안 건드렸으니 데이터는 그대로 있다.
 # (레포 디렉터리명, 한글 표시 라벨, 네이버 계정 그룹명)
 VERTICAL_REPOS: dict[str, tuple[str | None, str, str]] = {
-    "health":      (None,                 "건강",     "건강+뷰티"),
-    "cerulem":     ("cerulem-content",     "뷰티",     "건강+뷰티"),
-    "littlebrook": ("littlebrook-content", "육아",     "육아+홈리빙+반려동물"),
-    "nookery":     ("nookery-content",     "홈리빙",   "육아+홈리빙+반려동물"),
-    "pawnest":     ("pawnest-content",     "반려동물", "육아+홈리빙+반려동물"),
+    "health":      (None,                 "건강",     "건강"),
+    "littlebrook": ("littlebrook-content", "육아",     "육아+반려동물"),
+    "pawnest":     ("pawnest-content",     "반려동물", "육아+반려동물"),
+    "fiscallo":    ("fiscallo-content",    "경제",     "경제"),
 }
 
-# 그룹 표시 순서 고정(dict 삽입 순서에 기대지 않고 명시) — 화면에서 항상
-# 건강+뷰티가 먼저 나오게.
-GROUP_ORDER = ["건강+뷰티", "육아+홈리빙+반려동물"]
+# 그룹 표시 순서 고정(dict 삽입 순서에 기대지 않고 명시).
+GROUP_ORDER = ["건강", "육아+반려동물", "경제"]
 
 
 def _find_sibling_project(name: str) -> Path:

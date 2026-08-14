@@ -172,10 +172,14 @@
      분리되어있었잖아"): 2026-08-09에 "숏츠/카드뉴스를 하나의 목록으로
      합친다"고 없앴던 바로 그 탭 구조(아래 topicsSection 안 주석 참고)를
      되살린다 — 다만 이번엔 카드뉴스 탭 쪽이 health 자신의 topics.json이
-     아니라 lib/card_news_hub.py가 5개 버티컬(건강/뷰티/육아/홈리빙/
-     반려동물)을 모아 만든 output/card_news_hub.json을 보여준다(네이버 계정
-     2개 — 건강+뷰티 / 육아+홈리빙+반려동물 — 기준 그룹핑). 새 페이지로
-     안 옮기고 이 안에서 탭 전환만 한다. -->
+     아니라 lib/card_news_hub.py가 형제 버티컬 레포들을 모아 만든
+     output/card_news_hub.json을 보여준다. 그룹핑 기준(네이버 계정)은
+     lib/card_news_hub.py의 VERTICAL_REPOS/GROUP_ORDER가 정본 — 처음엔
+     건강+뷰티/육아+홈리빙+반려동물 2개 계정이었다가 "건강 / 육아+반려동물 /
+     경제" 3개 계정으로 바뀌었다(뷰티·홈리빙은 지금 계정이 없어 제외, 그
+     스크립트 상단 주석 참고). index.html 쪽은 어떤 그룹 이름이 오든 JSON을
+     그대로 렌더링할 뿐이라 그룹 구성이 또 바뀌어도 여기는 안 고쳐도 된다.
+     새 페이지로 안 옮기고 이 안에서 탭 전환만 한다. -->
 <div id="mainTabs" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;">
   <button type="button" id="tabBtnShorts" class="main-tab-btn active">🎬 숏츠·전체 목록</button>
   <button type="button" id="tabBtnCardNews" class="main-tab-btn">🗞 카드뉴스 허브</button>
