@@ -358,6 +358,21 @@ const TOPIC_NAME = {topic_name_js};
 // 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
 // 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {{
+  const res = await fetch(path, {{
+    method,
+    headers: {{ "Content-Type": "application/json" }},
+    body: JSON.stringify(body),
+  }});
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}}
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {{
@@ -794,7 +809,7 @@ function applyProductLinks() {{
         }}
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
-        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        hsWrite("/api/product-links", "DELETE", {{ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product }});
         applyProductLinks();
         return;
       }}
@@ -803,11 +818,11 @@ function applyProductLinks() {{
       if (val) {{
         localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({{ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val }});
+        hsWrite("/api/product-links", "POST", {{ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val }});
       }} else {{
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
-        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        hsWrite("/api/product-links", "DELETE", {{ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product }});
       }}
       applyProductLinks();
     }});
@@ -842,11 +857,11 @@ const STORAGE_PREFIX = "hs_done_{topic}_";
         const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt }};
         localStorage.setItem(storageKey, JSON.stringify(record));
         card.classList.add("is-done");
-        sb.from("posting_log").upsert({{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
+        hsWrite("/api/posting-log", "POST", {{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
       }} else {{
         localStorage.removeItem(storageKey);
         card.classList.remove("is-done");
-        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+        hsWrite("/api/posting-log", "DELETE", {{ topic: TOPIC_NAME, platform: cb.dataset.name }});
       }}
     }});
   }});
@@ -1343,6 +1358,21 @@ document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {{
 // 내보내기가 언어 상관없이 전부 픽업하게 한다.
 const TOPIC_NAME = {topic_name_js};
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {{
+  const res = await fetch(path, {{
+    method,
+    headers: {{ "Content-Type": "application/json" }},
+    body: JSON.stringify(body),
+  }});
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}}
 const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
 (async () => {{
   const {{ data: dbPosted }} = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
@@ -1361,11 +1391,11 @@ const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
         const record = {{ topic: TOPIC_NAME, platform: cb.dataset.name, postedAt }};
         localStorage.setItem(storageKey, JSON.stringify(record));
         card.classList.add("is-done");
-        sb.from("posting_log").upsert({{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
+        hsWrite("/api/posting-log", "POST", {{ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt }});
       }} else {{
         localStorage.removeItem(storageKey);
         card.classList.remove("is-done");
-        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+        hsWrite("/api/posting-log", "DELETE", {{ topic: TOPIC_NAME, platform: cb.dataset.name }});
       }}
     }});
   }});
