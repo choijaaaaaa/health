@@ -1,0 +1,24 @@
+{
+  "topic": "냄새_2_en",
+  "title": "Scalp Odor After Skipping a Wash for Dry Shampoo? Pause First",
+  "ad_tag": true,
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Scalp Odor After Dry Shampoo? Pause Before Your Next Wash\n\nDescription:\nYour scalp has more oil glands than your face, and that oil starts oxidizing within 4-12 hours of washing. Three everyday habits speed that up: relying on dry shampoo instead of a real wash, rinsing shampoo too fast, and using a dirty hairbrush that can hold thousands of bacteria colonies per square inch.\n\nWash dry shampoo out with a real shampoo every few uses, rinse a full minute right at the scalp, and wash your hairbrush weekly — that's usually enough to clear it up.\n\n#scalpcare #scalpodor #hairtips #haircare #healthtips"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Reaching for dry shampoo instead of a real wash? 🤔\n\nThree habits speed up scalp odor: relying on dry shampoo instead of a real wash, rinsing shampoo too fast, and using a dirty hairbrush (it can hold thousands of bacteria colonies per square inch).\n\nWash dry shampoo out with a real shampoo every few uses, rinse a full minute right at the scalp, and wash your hairbrush weekly.\n\nMore useful health tips? Follow along 👆\n\n#scalpcare #scalpodor #hairtips #haircare #wellness"
+    }
+  ]
+}
