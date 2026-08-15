@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Ever feel dizzy or faint",
+    "after standing in the heat too long?",
+    "3 Habits Behind Heat Syncope"
+  ],
+  "eyebrow": "Heat Syncope Prevention",
+  "cover_char_file": "혈압계_illust.jpg",
+  "cover_scrim_color": "#B23A5E",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Why do you suddenly feel dizzy or faint?",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Dizzy or faint after",
+        "standing in the heat?",
+        "",
+        "Heat widens your skin's blood vessels to cool you down,",
+        "pulling blood flow away from your brain -",
+        "these three habits make it drop even faster"
+      ]
+    },
+    {
+      "name": "Standing up too fast",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "First, standing up quickly",
+        "after sitting or lying down",
+        "",
+        "Your vessels are already widened from the heat,",
+        "so they can't keep up with the sudden change"
+      ]
+    },
+    {
+      "name": "Stand up like this instead",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Pause for a few seconds",
+        "before you stand up",
+        "",
+        "Once you're up, stay put for a moment",
+        "before you start walking"
+      ]
+    },
+    {
+      "name": "Standing in direct sun too long",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Second, standing in direct sun",
+        "for long stretches (graduations, concerts, parades)",
+        "",
+        "Blood pools in your legs instead of",
+        "circulating back to your brain"
+      ]
+    },
+    {
+      "name": "In the heat, do this",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Move to shade every",
+        "20 to 30 minutes",
+        "",
+        "Still have to stand? Pump your calves -",
+        "shift your weight or rock on your feet"
+      ]
+    },
+    {
+      "name": "Pushing through the warning signs",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Third, ignoring lightheadedness,",
+        "tunnel vision, or a cold sweat",
+        "",
+        "That's your brain's blood flow",
+        "already dropping - pushing through raises your risk"
+      ]
+    },
+    {
+      "name": "When the signs hit, do this",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Sit or lie down right away and",
+        "raise your legs above heart level",
+        "",
+        "Move somewhere cooler and",
+        "sip water or a sports drink slowly"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Stand up slowly, take shade breaks,",
+        "and listen to the warning signs -"
+      ],
+      [
+        "manage those three and heat syncope becomes far less likely"
+      ]
+    ],
+    "tip": [
+      "Pause before standing, and rest in the shade often -",
+      "start with one habit today"
+    ],
+    "cta": "Follow for more health tips like this"
+  }
+}
