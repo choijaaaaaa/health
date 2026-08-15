@@ -40,9 +40,9 @@ ROOT = Path(__file__).resolve().parent.parent
 # 담당한다. 영상 지원(video_path)도 그 두 버티컬과 함께 제거 — 실제로 쓰던
 # 버티컬이 없어져서 죽은 코드로 남기지 않음.
 VERTICAL_REPOS: dict[str, tuple[str | None, str, str]] = {
-    "littlebrook": ("littlebrook-content", "육아",     "육아+반려동물"),
-    "pawnest":     ("pawnest-content",     "반려동물", "육아+반려동물"),
-    "fiscallo":    ("fiscallo-content",    "경제",     "경제"),
+    "babbleroot": ("babbleroot-content", "육아",     "육아+반려동물"),
+    "furrowly":   ("furrowly-content",   "반려동물", "육아+반려동물"),
+    "sparelow":   ("sparelow-content",   "경제",     "경제"),
 }
 
 # 그룹 표시 순서 고정(dict 삽입 순서에 기대지 않고 명시).
