@@ -1,0 +1,135 @@
+{
+  "title": [
+    "Allergic Rhinitis:",
+    "If Ragweed Season Has Your Nose",
+    "Running Nonstop, Check This First",
+    "4 Things That Actually Cut Ragweed Symptoms"
+  ],
+  "eyebrow": "Ragweed Season Allergy Relief",
+  "cover_char_file": "꽃가루_illust.jpg",
+  "cover_scrim_color": "#B08D2E",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "꽃가루_illust.jpg": "Pollen",
+    "달력_illust.jpg": "Calendar",
+    "꿀_illust.jpg": "Honey",
+    "면역세포_illust.jpg": "Immune cell",
+    "비강스프레이_illust.jpg": "Nasal spray",
+    "공기청정기_illust.jpg": "Air purifier",
+    "알약_illust.jpg": "Pill"
+  },
+  "items": [
+    {
+      "name": "Ragweed season is starting right now",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ragweed pollen allergy hits",
+        "23 million+ people in the US,",
+        "almost 50 million feel",
+        "symptoms from it",
+        "",
+        "Season starts early August,",
+        "peaks mid-September",
+        "through October"
+      ]
+    },
+    {
+      "name": "The local honey myth, debunked",
+      "char_file": "꿀_illust.jpg",
+      "body": [
+        "Bees collect large,",
+        "heavy flower pollen —",
+        "it barely goes airborne",
+        "",
+        "Ragweed pollen is small",
+        "and wind-blown,",
+        "a completely different pollen",
+        "",
+        "A controlled study found",
+        "no real improvement",
+        "over a placebo"
+      ]
+    },
+    {
+      "name": "How the histamine reaction works",
+      "char_file": "면역세포_illust.jpg",
+      "body": [
+        "Pollen lands on your",
+        "nasal lining, your immune",
+        "system misreads it",
+        "as a threat",
+        "",
+        "It releases histamine,",
+        "widening blood vessels",
+        "and irritating nerves —",
+        "sneezing, runny nose,",
+        "congestion, itchy eyes"
+      ]
+    },
+    {
+      "name": "Nasal saline irrigation",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "First, nasal",
+        "saline irrigation",
+        "",
+        "Hypertonic saline rinses",
+        "physically flush",
+        "pollen out",
+        "",
+        "studies show lower symptom",
+        "scores and less need",
+        "for rescue antihistamines"
+      ]
+    },
+    {
+      "name": "A HEPA filter, with realistic expectations",
+      "char_file": "공기청정기_illust.jpg",
+      "body": [
+        "Second, a HEPA filter —",
+        "keep expectations realistic",
+        "",
+        "cuts airborne particles",
+        "by close to 70%",
+        "",
+        "some studies found it",
+        "didn't fully stop sneezing",
+        "alone — pair it",
+        "with saline rinses"
+      ]
+    },
+    {
+      "name": "The right antihistamine, and when to see a doctor",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Third, a non-drowsy",
+        "OTC antihistamine",
+        "works for most people",
+        "",
+        "symptoms lasting weeks,",
+        "or costing you sleep?",
+        "",
+        "ask about a prescription",
+        "nasal steroid spray instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Saline irrigation, a HEPA filter as backup,",
+        "and the right antihistamine —"
+      ],
+      [
+        "these genuinely cut",
+        "your ragweed symptoms down"
+      ]
+    ],
+    "tip": [
+      "Symptoms dragging on past a month? Don't wait it out — see an allergist and get tested",
+      "Symptoms wrecking your sleep or focus? Ask about a prescription option instead of pushing through it"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
