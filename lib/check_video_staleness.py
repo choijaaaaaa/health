@@ -18,6 +18,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from lib.mission_control_log import report_issue
 from lib.rebuild_video import ROOT, select_format
 from lib.youtube_upload import _is_already_uploaded, _sb_fetch_uploaded
 
@@ -73,14 +74,23 @@ def find_stale_topics() -> list[dict]:
             src_mtime = _source_mtime(fmt)
             video_mtime = video_file.stat().st_mtime
             if src_mtime > video_mtime:
+                gap_hours = round((src_mtime - video_mtime) / 3600, 1)
                 stale.append({
                     "topic": topic,
                     "format": fmt,
                     "video_path": str(video_file),
                     "video_mtime": video_mtime,
                     "code_mtime": src_mtime,
-                    "gap_hours": round((src_mtime - video_mtime) / 3600, 1),
+                    "gap_hours": gap_hours,
                 })
+                # mission-control에도 보고 — 미설정 세션이 대부분이라 실패해도
+                # 조용히 넘어간다(lib/mission_control_log.py 상단 WHY 참고).
+                report_issue(
+                    severity="warning",
+                    category="video_staleness",
+                    entity=topic,
+                    message=f"{topic} [{fmt}] 영상이 코드보다 {gap_hours}시간 오래됨(재생성 검토 대상)",
+                )
     stale.sort(key=lambda x: -x["gap_hours"])
     return stale
 

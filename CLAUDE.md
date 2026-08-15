@@ -867,6 +867,10 @@ git 히스토리에서 복원.
     `scripts/supabase_backfill.py`는 로컬 json → Supabase 1회 백필용(반대
     방향, Supabase에 새로 채운 값이 이 로컬 json에 자동으로 안 내려옴 —
     두 값이 어긋날 수 있다는 뜻, 필요 시 수동 확인).
+- 이슈는 `lib/mission_control_log.py`의 `report_issue()`로 mission-control
+  (`../mission-control`)에도 보고됨(2026-08-15, `check_video_staleness.py`/
+  `youtube_upload.py` 연동 — `MISSION_CONTROL_INGEST_URL`/`_SECRET` 미설정
+  시 조용히 스킵).
 
 ## 배포 플랫폼 — Vercel (⚠️ 2026-08-14 정정, 예전 "GitHub Pages/서버 로직
 불가" 서술은 낡은 정보)

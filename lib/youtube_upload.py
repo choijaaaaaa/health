@@ -24,6 +24,8 @@ from googleapiclient.discovery import build
 from googleapiclient.errors import HttpError
 from googleapiclient.http import MediaFileUpload
 
+from lib.mission_control_log import report_issue
+
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -696,6 +698,12 @@ def upload_backlog(langs: list[str] | None = None, privacy_status: str = "privat
                 uploaded.append(r)
                 print(f"[youtube_upload] [{lang}] {topic} → {publish_at} 업로드 완료")
             except Exception as e:
+                # mission-control에도 보고 — 미설정 세션이 대부분이라 실패해도
+                # 조용히 넘어간다(lib/mission_control_log.py 상단 WHY 참고).
+                report_issue(
+                    severity="error", category="upload_failure",
+                    entity=topic, message=str(e),
+                )
                 if _is_upload_limit_error(e):
                     print(f"[youtube_upload] [{lang}] 하루 업로드 한도 도달 — {topic}부터 다음날로 미룸")
                     limit_hit = True
