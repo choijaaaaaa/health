@@ -3141,7 +3141,7 @@
     "topic": "어지럼증_1/ko",
     "title": "머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -4343,6 +4343,16 @@
     "title": "피로, 마그네슘 부족으로 무기력하다면 - 식습관 3가지",
     "url": "output/%ED%94%BC%EB%A1%9C_6/ko/dashboard.html",
     "thumbnail": "output/%ED%94%BC%EB%A1%9C_6/ko/card_news/%ED%94%BC%EB%A1%9C_6_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피로_7/ko",
+    "title": "부신피로, 커피 없인 못 버틴다면 - 코르티솔 리듬 회복법",
+    "url": "output/%ED%94%BC%EB%A1%9C_7/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_7/ko/card_news/%ED%94%BC%EB%A1%9C_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
