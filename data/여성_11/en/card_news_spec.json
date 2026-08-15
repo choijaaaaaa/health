@@ -1,0 +1,129 @@
+{
+  "title": [
+    "PMS Symptoms Every Month?",
+    "Check This Before Your Next Cycle —",
+    "Calcium, B6, and Exercise That Actually Help"
+  ],
+  "eyebrow": "PMS Relief, Backed by Research",
+  "cover_char_file": "달력_illust.jpg",
+  "cover_scrim_color": "#8E3B65",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "달력_illust.jpg": "Cycle",
+    "우유_illust.jpg": "Dairy",
+    "치즈_illust.jpg": "Calcium",
+    "영양제_illust.jpg": "Supplement",
+    "알약_illust.jpg": "Vitamin B6",
+    "의자_illust.jpg": "Inactivity",
+    "운동화_illust.jpg": "Exercise"
+  },
+  "items": [
+    {
+      "name": "Why PMS symptoms show up before your period",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "During the luteal phase —",
+        "the two weeks before",
+        "your period — progesterone drops",
+        "",
+        "So does allopregnanolone,",
+        "a byproduct linked to",
+        "more anxiety and irritability",
+        "",
+        "Shifting aldosterone also makes",
+        "your body hold onto sodium",
+        "and water, which shows up as bloating"
+      ]
+    },
+    {
+      "name": "Skipping calcium-rich foods",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Not getting enough calcium",
+        "makes both the physical",
+        "and mood symptoms of PMS",
+        "harder to manage"
+      ]
+    },
+    {
+      "name": "Get calcium like this",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Clinical trials point to about",
+        "1,200mg of calcium a day —",
+        "roughly 3 to 4 servings of",
+        "dairy or fortified alternatives",
+        "",
+        "Spread it across meals",
+        "instead of one big dose at once"
+      ]
+    },
+    {
+      "name": "Taking high-dose vitamin B6 without checking",
+      "char_file": "영양제_illust.jpg",
+      "body": [
+        "The evidence for B6",
+        "helping PMS symptoms is mixed",
+        "",
+        "Doses much above 100mg a day",
+        "have been linked to",
+        "nerve damage over time"
+      ]
+    },
+    {
+      "name": "Use vitamin B6 like this",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "If you try it,",
+        "stick to a lower dose",
+        "and check the label —",
+        "",
+        "more isn't automatically better"
+      ]
+    },
+    {
+      "name": "Skipping exercise because you feel drained",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Feeling too drained to move",
+        "is common before your period",
+        "",
+        "But staying inactive makes",
+        "fatigue and low mood",
+        "harder to shake"
+      ]
+    },
+    {
+      "name": "Move like this instead",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Regular aerobic activity —",
+        "even just brisk walking",
+        "most days — eases fatigue",
+        "and low mood tied to PMS",
+        "",
+        "likely by supporting the same",
+        "brain chemicals that dip",
+        "during the luteal phase"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Calcium, vitamin B6,",
+        "and staying active —"
+      ],
+      [
+        "these three make PMS symptoms",
+        "far more manageable"
+      ]
+    ],
+    "tip": [
+      "Aim for about 1,200mg of calcium a day, spread across meals rather than one big dose",
+      "If symptoms disrupt work or relationships most months, that may be PMDD — worth discussing with an OB-GYN"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
