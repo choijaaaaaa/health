@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Rhinitis Medicamentosa —",
+    "If You've Used Decongestant Spray",
+    "Every Day for Over a Week, Check This Now",
+    "Breaking the Rebound Cycle for Good"
+  ],
+  "eyebrow": "Nasal Spray Dependency",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "cover_scrim_color": "#A85C3E",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Spray",
+    "긴장_illust.jpg": "Withdrawal",
+    "점비약_illust.jpg": "Steroid Spray"
+  },
+  "items": [
+    {
+      "name": "Why your nose stops responding to the spray",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "If you've reached for that",
+        "decongestant spray every day",
+        "for over a week,",
+        "your nose isn't failing you",
+        "",
+        "Oxymetazoline and similar sprays",
+        "force nasal blood vessels",
+        "to constrict on contact",
+        "",
+        "Push past three to five days",
+        "and the vessels stop responding",
+        "the same way — swelling snaps back",
+        "harder the moment the drug wears off"
+      ]
+    },
+    {
+      "name": "Quitting outright",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Quitting outright is the hardest",
+        "part most people underestimate",
+        "",
+        "Congestion typically spikes",
+        "for the first several days",
+        "after your last spray",
+        "",
+        "That spike alone sends most people",
+        "reaching for it again",
+        "before their nose gets a chance to reset"
+      ]
+    },
+    {
+      "name": "Switch to a steroid spray instead",
+      "char_file": "점비약_illust.jpg",
+      "body": [
+        "A steroid nasal spray",
+        "changes that math",
+        "",
+        "It works on inflammation directly",
+        "instead of squeezing blood vessels,",
+        "so it doesn't cause rebound",
+        "even with daily use",
+        "",
+        "Starting one before your last dose",
+        "of decongestant cushions",
+        "the rough patch considerably"
+      ]
+    },
+    {
+      "name": "Still stuck after weeks of tapering?",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "If steroid sprays and tapering",
+        "still aren't cutting it",
+        "after weeks of trying,",
+        "in-office procedures exist",
+        "specifically for this",
+        "",
+        "One published study found",
+        "the large majority of",
+        "long-term users were able to",
+        "stop for good after",
+        "a single outpatient visit"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Talk to your doctor about",
+        "a steroid spray first —"
+      ],
+      [
+        "there are more options",
+        "than most people realize"
+      ]
+    ],
+    "tip": [
+      "Brace for a rough few days once you stop the decongestant — that congestion spike is temporary, not a sign it's not working",
+      "Don't assume you're stuck if tapering alone doesn't work — in-office procedures exist specifically for long-term users"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
