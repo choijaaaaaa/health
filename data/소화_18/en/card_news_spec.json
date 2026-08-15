@@ -1,0 +1,111 @@
+{
+  "title": [
+    "H. Pylori Bacteria,",
+    "Did You Know 1 in 3 US Adults",
+    "Carry It Without Realizing?",
+    "Why Treatment Guidelines Just Changed"
+  ],
+  "eyebrow": "H. Pylori Guide",
+  "cover_char_file": "헬리코박터균_illust.jpg",
+  "cover_scrim_color": "#1F6F5C",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "헬리코박터균_illust.jpg": "H. Pylori",
+    "알약_illust.jpg": "Treatment",
+    "가족력_illust.jpg": "Risk Factors"
+  },
+  "items": [
+    {
+      "name": "Why H. pylori is more common than you think",
+      "char_file": "헬리코박터균_illust.jpg",
+      "body": [
+        "H. pylori infection is",
+        "far more common than",
+        "most people realize",
+        "",
+        "About one in three adults",
+        "in the US carries this bacteria",
+        "",
+        "Most never know it until an ulcer",
+        "or chronic stomach pain",
+        "sends them to a doctor"
+      ]
+    },
+    {
+      "name": "What it actually does to your stomach",
+      "char_file": "헬리코박터균_illust.jpg",
+      "body": [
+        "H. pylori burrows into",
+        "the stomach lining and can trigger",
+        "chronic gastritis, ulcers, and",
+        "in some cases stomach cancer",
+        "",
+        "Infection rates run highest among",
+        "older adults, minority populations,",
+        "and first-generation immigrants"
+      ]
+    },
+    {
+      "name": "Why the standard treatment just changed",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Standard antibiotic treatment",
+        "is getting harder to rely on",
+        "",
+        "Resistance to clarithromycin,",
+        "metronidazole, and levofloxacin",
+        "has climbed above 30% in the US",
+        "",
+        "Gastroenterologists updated",
+        "their guidelines to start with",
+        "bismuth quadruple therapy instead"
+      ]
+    },
+    {
+      "name": "What bismuth quadruple therapy involves",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "It combines a stomach-acid reducer,",
+        "bismuth, and two antibiotics,",
+        "taken together for fourteen days",
+        "",
+        "It works around the resistant strains",
+        "that single- or double-antibiotic",
+        "regimens increasingly miss"
+      ]
+    },
+    {
+      "name": "When it's worth getting tested",
+      "char_file": "가족력_illust.jpg",
+      "body": [
+        "A stomach ulcer, unexplained",
+        "stomach pain that won't quit, or a",
+        "family history of stomach cancer",
+        "",
+        "That's worth bringing up with your doctor",
+        "",
+        "A simple breath, stool, or blood test",
+        "can confirm whether",
+        "H. pylori is behind it"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Getting tested and treated isn't",
+        "just about clearing up discomfort now"
+      ],
+      [
+        "It's the one step that lowers your",
+        "long-term risk of ulcers and stomach cancer"
+      ]
+    ],
+    "tip": [
+      "Had a stomach ulcer, ongoing pain, or a family history of stomach cancer? Ask your doctor about a breath, stool, or blood test",
+      "Antibiotic resistance is now above 30% for older regimens — ask specifically about bismuth quadruple therapy"
+    ],
+    "cta": "Want more useful health tips? Follow, like, and subscribe"
+  }
+}
