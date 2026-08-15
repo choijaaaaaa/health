@@ -24,6 +24,8 @@ import tempfile
 from pathlib import Path
 
 import requests
+
+from lib.mission_control_log import report_issue
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -394,9 +396,18 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
         voice_name = _random_voice_name(lang)
         print(f"[fish_tts] 보이스 랜덤 선택({lang}): {voice_name}")
 
-    audio_bytes, words = _call_tts_batched(text, voice_name, lang)
-    if not words:
-        raise RuntimeError("[fish_tts] 응답에 word timestamp가 없음 — API 응답 형식이 바뀌었을 수 있음")
+    try:
+        audio_bytes, words = _call_tts_batched(text, voice_name, lang)
+        if not words:
+            raise RuntimeError("[fish_tts] 응답에 word timestamp가 없음 — API 응답 형식이 바뀌었을 수 있음")
+    except Exception as e:
+        # mission-control에도 보고 — 미설정 세션이 대부분이라 실패해도
+        # 조용히 넘어간다(lib/mission_control_log.py 상단 WHY 참고).
+        report_issue(
+            severity="error", category="tts_failure",
+            entity=topic, message=str(e),
+        )
+        raise
     audio_bytes, words = _insert_sentence_pauses(text, audio_bytes, words)
     audio_bytes, words = _apply_tempo(audio_bytes, words, AUDIO_TEMPO)
 
