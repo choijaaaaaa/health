@@ -1,8 +1,9 @@
 # 이미 유튜브에 올라가 있는 영상들을 카테고리 재생목록에 소급 정리한다.
 # WHY: youtube_upload.py의 upload_short()는 업로드 시점에 바로 재생목록에 추가하지만,
 # 그 경로를 안 거치고(수동 테스트 업로드 등) 이미 올라간 영상은 재생목록에 없다 —
-# output/youtube_uploaded.json도 업로드 시점에만 기록되므로 이미 올라간 영상의
-# video_id를 알 방법이 없어서, 채널 업로드 목록을 직접 조회해서 topic과 매칭한다.
+# Supabase youtube_uploaded 테이블도 upload_short() 경로로만 기록되므로 이미
+# 올라간 영상의 video_id를 알 방법이 없어서, 채널 업로드 목록을 직접 조회해서
+# topic과 매칭한다.
 from __future__ import annotations
 
 import json
@@ -14,7 +15,8 @@ from lib.youtube_upload import (
     _get_credentials,
     _parse_title_description,
     _add_to_category_playlist,
-    _mark_youtube_uploaded,
+    _lang_from_topic,
+    _sb_record_existing_upload,
     ROOT,
 )
 
@@ -71,7 +73,7 @@ def organize():
     for topic, video in matched:
         print(f"  {topic} -> {video['title']} ({video['video_id']})")
         _add_to_category_playlist(youtube, topic, video["video_id"])
-        _mark_youtube_uploaded(topic)
+        _sb_record_existing_upload(topic, _lang_from_topic(topic), video["video_id"])
 
     if unmatched:
         print("\n미매칭 영상(topic을 못 찾음 — 제목이 캡션과 다르게 수정됐을 수 있음):")
