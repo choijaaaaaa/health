@@ -848,9 +848,18 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     # 사고였지만 같은 근본 원인 클래스) — 같은 문장에서 아직 못 찾은 다른
     # 원인도 비슷한 점수로 걸리면 "여러 원인을 동시에 언급하는 문장"으로
     # 보고 건너뛴다.
+    # WHY search_from을 0이 아니라 1부터 시작하는지(2026-08-15 실측 확인,
+    # 소화_11 — ffmpeg에 음수 duration이 그대로 들어가 렌더링이 죽는 사고):
+    # entries[0]은 훅 화면(hook_duration = entries[0][1])이 이미 통째로
+    # 소비한 구간이라 원인 매칭 후보가 될 수 없다. 그런데 훅 문장이 원인을
+    # 예고하며 그 이름 단어를 미리 한 번 쓰는 topic(예: "스트레스만 받으면
+    # ~"으로 시작하고 cause0 name이 "스트레스")이 실제로 있어서, entries[0]
+    # 안에서 cause0가 먼저 걸려버리면 cause_starts_real[0] < hook_duration이
+    # 되어 mechanism_dur가 음수로 계산된다. 훅 문장 자체는 애초에 매칭 대상이
+    # 아니므로 1부터 시작해 원천 차단한다.
     HIT_THRESHOLD = 0.5
     cause_starts_real: list[float | None] = []
-    search_from = 0
+    search_from = 1
     for ci, c in enumerate(causes):
         name = c.get("name", "")
         found_start = None
@@ -895,6 +904,15 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             else cause_starts_real[-1] + cause_durs[-1]
         )
         cause_durs[-1] = max(last_cause_end - cause_starts_real[-1], min_dur)
+        # WHY 여기서 한 번 더 min_dur 하한을 강제하는지(2026-08-15,
+        # 소화_11 사고 재발 방지용 방어막): 위 실제 타임스탬프 기반 재계산은
+        # 이론상 양수여야 하지만, 예상 못 한 나레이션 패턴(SRT 큐 경계가
+        # 비정상적으로 촘촘한 경우 등)이 또 나오면 음수·0에 가까운 duration이
+        # 그대로 ffmpeg 커맨드에 들어가 렌더링 자체가 죽는다(exit 222 실측).
+        # 화면 하나가 min_dur보다 짧아지는 정도의 근사 오차는 눈에 잘 안
+        # 띄지만, 렌더링이 아예 죽는 건 훨씬 나쁘다 — 항상 안전한 쪽으로.
+        mechanism_dur = max(mechanism_dur, min_dur)
+        cause_durs = [max(d, min_dur) for d in cause_durs]
 
     # 클로징(요약+팁) 화면 — 해결책 항목별 화면이 없어졌으므로 mechanism+원인
     # 이후 남는 시간 전부가 이 화면 하나로 간다. 최소 읽기 시간
