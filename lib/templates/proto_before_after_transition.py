@@ -741,6 +741,23 @@ def _xfade_chain(seg_paths: list[Path], raw_durs: list[float], transitions: list
     )
 
 
+def _fuzzy_name_hit(name: str, text: str) -> float:
+    """항목 name이 SRT 문장에 토씨 하나까지 완전히 똑같이는 안 나오는 경우가
+    실제로 흔하다(예: name="그늘 없이 뙤약볕에 오래 서 있기" vs 실제 나레이션
+    "그늘 없이 뙤약볕에 오래 서 있는 거예요" — 어미만 다름). 전체 문자열
+    포함 여부 대신 공백 기준 단어 겹침 비율로 판단해 어미 활용차만으로
+    실제 원인 문장을 못 찾는 것을 방지한다."""
+    if not name:
+        return 0.0
+    if name in text:
+        return 1.0
+    words = [w for w in name.split() if len(w) >= 2]
+    if not words:
+        return 0.0
+    hits = sum(1 for w in words if w in text)
+    return hits / len(words)
+
+
 def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path: str, out_path: str,
            ad_tag: bool = False) -> None:
     """card_news_spec.json(mechanism → N쌍의 원인/해결 → closing)을 읽어 풀블리드
@@ -820,17 +837,37 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
     # 타임스탬프를 그대로 쓰는 게 비례-배분 추정보다 훨씬 정확하다 — 못
     # 찾은 원인이 하나라도 있으면 안전하게 비례-배분 결과를 그대로
     # 유지한다(원래 동작 그대로, 회귀 없음).
+    # WHY 완전 문자열 포함 대신 _fuzzy_name_hit + 모호 문장 배제인지(2026-08-15
+    # 실측 확인, 계절질환_8 — "화면이 나레이션보다 뒤처진다" 사고): name이
+    # SRT에 토씨까지 완전히 똑같이 안 나오면(어미 활용차) 원래 로직은 그
+    # 원인을 아예 못 찾은 걸로 처리해 전체가 비례-배분 폴백으로 빠졌다.
+    # _fuzzy_name_hit로 어미차는 흡수하되, "확인해야 할 습관은 A, B, C
+    # 이예요" 같은 예고 문장은 원인 여러 개의 키워드를 한 문장에 동시에
+    # 담고 있어서 그대로 매치를 허용하면 그 예고 문장에서 먼저 걸려버려
+    # 원인 화면이 실제 설명보다 훨씬 일찍 뜬다(이번엔 반대로 너무 늦게 뜨는
+    # 사고였지만 같은 근본 원인 클래스) — 같은 문장에서 아직 못 찾은 다른
+    # 원인도 비슷한 점수로 걸리면 "여러 원인을 동시에 언급하는 문장"으로
+    # 보고 건너뛴다.
+    HIT_THRESHOLD = 0.5
     cause_starts_real: list[float | None] = []
     search_from = 0
-    for c in causes:
+    for ci, c in enumerate(causes):
         name = c.get("name", "")
         found_start = None
         if name:
             for idx in range(search_from, len(entries)):
-                if name in entries[idx][2]:
-                    found_start = entries[idx][0]
-                    search_from = idx + 1
-                    break
+                text = entries[idx][2]
+                if _fuzzy_name_hit(name, text) < HIT_THRESHOLD:
+                    continue
+                ambiguous = any(
+                    oi != ci and _fuzzy_name_hit(o.get("name", ""), text) >= HIT_THRESHOLD
+                    for oi, o in enumerate(causes)
+                )
+                if ambiguous:
+                    continue
+                found_start = entries[idx][0]
+                search_from = idx + 1
+                break
         cause_starts_real.append(found_start)
 
     if all(s is not None for s in cause_starts_real):
@@ -848,7 +885,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         fix0_start_real = None
         if fix0_name:
             for idx in range(search_from, len(entries)):
-                if fix0_name in entries[idx][2]:
+                if _fuzzy_name_hit(fix0_name, entries[idx][2]) >= HIT_THRESHOLD:
                     fix0_start_real = entries[idx][0]
                     break
         if fix0_start_real is None and entries and entries[-1][0] > cause_starts_real[-1]:
