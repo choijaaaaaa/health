@@ -58,9 +58,26 @@ create table if not exists global_product_links (
   primary key (market, product)
 );
 
+-- WHY 컬럼 확장(2026-08-15, lib/youtube_upload.py 재작성과 함께): 이전엔
+-- topic/uploaded_at 두 컬럼뿐이라 "이미 올렸다/안 올렸다"만 표현했는데, 그
+-- 판단 근거가 로컬 output/youtube_uploaded.json(git 추적 파일)이었다가 실제로
+-- 두 번 사고(무관한 커밋이 기록 유실 → backlog 재업로드, 동시 세션 경쟁)가
+-- 나서 이 테이블을 Python 업로드 스크립트의 실제 판단 근거로 승격했다 —
+-- video_id/privacy_status/publish_at은 그 근거로 쓰기 위한 실제 업로드 결과,
+-- status는 'pending'(예약만 됨, API 호출 전/중)|'confirmed'(업로드 완료) 두
+-- 값 — topic이 PRIMARY KEY라 이 테이블 자체가 유일성을 보장하고,
+-- `_sb_reserve_upload()`가 실제 업로드 API를 부르기 전에 여기 INSERT를
+-- 먼저 시도해서(PK 충돌 시 조용히 실패) 두 세션이 같은 topic을 동시에
+-- 올리는 경쟁 조건을 막는다 — 상세는 lib/youtube_upload.py 상단 WHY,
+-- health-shorts CLAUDE.md "유튜브 쇼츠 자동 업로드" 절 참고.
 create table if not exists youtube_uploaded (
   topic text primary key,
-  uploaded_at timestamptz not null default now()
+  uploaded_at timestamptz not null default now(),
+  video_id text,
+  lang text,
+  privacy_status text,
+  publish_at timestamptz,
+  status text not null default 'confirmed'
 );
 
 alter table topics enable row level security;

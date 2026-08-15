@@ -960,11 +960,32 @@ python3 -m pytest tests/ -v
     전자는 채널당 하루 2개로 고정해 backlog가 쌓이면 못 따라가고, 후자는
     언어 확장 전 한국어 단일 채널 시절 로직이라 6개 채널 체제에 안 맞는다.
 - 업로드 성공 시 자동으로: 카테고리 재생목록에 추가(중복 삽입 방지 확인 후),
-  `output/youtube_uploaded.json`에 기록. 커스텀 썸네일 자동 설정은 하지 않음
+  Supabase `youtube_uploaded` 테이블에 기록. 커스텀 썸네일 자동 설정은 하지 않음
   (2026-08-08 재확인: `thumbnails().set()` API 자체는 정상 작동하고 채널
   그리드·검색·구독피드엔 반영되지만, 조회수 대부분이 나오는 스와이프 쇼츠
   재생 화면엔 유튜브 플랫폼 자체 한계로 절대 반영 안 됨 — 자동화 가치 없어
   보류) — 유튜브 자동 제안 또는 Studio 수동.
+- ⚠️ **업로드 추적은 Supabase `youtube_uploaded`가 유일한 근거 — 로컬
+  `output/youtube_uploaded.json`은 폐기(2026-08-15)** — 예전엔 이 git 추적
+  파일이 "이미 올렸는지"의 유일한 판단 근거였는데, 실제로 두 번 사고가 났다:
+  ①무관한 커밋(대시보드 재생성 버그)이 실수로 기록 67건을 날려서, 그 사이
+  `--backlog`가 이미 올라간 topic을 재업로드(vernhaven ko 채널에서 10개+
+  topic 중복 실측). ②동시 세션 경쟁 — 두 세션이 비슷한 시각에 `--backlog`를
+  돌리면 로컬 파일 읽기-쓰기 사이에 락이 없어 같은 topic을 동시에 집을 수
+  있음. Supabase `youtube_uploaded`는 `topic`이 PRIMARY KEY라 DB 자체가
+  유일성을 보장하고, `upload_short()`가 **실제 YouTube API를 부르기 전에**
+  `_sb_reserve_upload(topic, lang)`으로 그 topic을 `status='pending'`으로
+  원자적 INSERT 시도한다 — 이미 누가 예약/확정해뒀으면(PK 충돌) 조용히
+  실패하고 `upload_short()`가 그 즉시 RuntimeError로 끝난다(API 호출 자체를
+  안 함, 경쟁 조건이 물리적으로 닫히는 지점). 성공하면 업로드 진행 후
+  `_sb_finalize_upload()`로 `status='confirmed'`+실제 `video_id` 기록,
+  실패하면 `_sb_release_upload()`로 예약 행을 지워서 나중에 재시도 가능하게
+  한다. `select_daily_topics*()`의 후보 조회도 매번 Supabase를 새로
+  읽는다(로컬 캐시 없음 — 다른 세션이 방금 올린 것까지 즉시 반영돼야 함).
+  `lib/youtube_organize_playlists.py`(채널 스캔으로 소급 정리)는 예약 단계가
+  필요 없어 `_sb_record_existing_upload()`(즉시 upsert)를 쓴다. `index.html`은
+  원래도(2026-08-08 스키마 도입 시점부터) Supabase를 직접 읽었으므로 이번
+  변경 대상 아님 — Python 스크립트 쪽만 로컬 파일에서 Supabase로 옮겼다.
 - OAuth 1회 설정은 archive의 "유튜브 쇼츠 자동 업로드" 절 참고(사용자가 직접
   해야 하는 단계 포함).
 - ⚠️ **리프레시 토큰은 ~7일마다 만료됨(OAuth 앱이 "테스트" 상태라 구글 정책상

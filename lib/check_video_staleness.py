@@ -16,20 +16,19 @@
 # (이미 다른 곳에 게시된 콘텐츠를 조용히 덮어쓰면 위험하기 때문).
 from __future__ import annotations
 
-import json
 from pathlib import Path
 
 from lib.rebuild_video import ROOT, select_format
-from lib.youtube_upload import _is_already_uploaded
+from lib.youtube_upload import _is_already_uploaded, _sb_fetch_uploaded
 
 _VIDEO_ASSEMBLER_SOURCES = [ROOT / "lib" / "video_assembler.py", ROOT / "lib" / "rebuild_video.py"]
 
 
 def _uploaded_topics() -> set[str]:
-    path = ROOT / "output" / "youtube_uploaded.json"
-    if not path.exists():
-        return set()
-    return set(json.loads(path.read_text(encoding="utf-8")))
+    """WHY Supabase(2026-08-15): 로컬 output/youtube_uploaded.json은 더 이상
+    쓰지 않는다(lib/youtube_upload.py 상단 WHY 참고) — 업로드된 topic은
+    이제 그 테이블이 유일한 근거."""
+    return _sb_fetch_uploaded()
 
 
 def _source_mtime(fmt: str) -> float:

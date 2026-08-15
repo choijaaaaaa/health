@@ -16,6 +16,7 @@ from datetime import datetime, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import requests
 from dotenv import load_dotenv
 from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
@@ -26,6 +27,100 @@ from googleapiclient.http import MediaFileUpload
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
+# WHY 업로드 추적을 Supabase로(2026-08-15, 중복 업로드 사고 재발 방지):
+# 예전엔 output/youtube_uploaded.json(git 추적 플랫 리스트)이 "이미 올렸는지"
+# 판단의 유일한 근거였는데, 두 가지로 실제 사고가 났다 — ①이 파일을 git이
+# 추적하다 보니 무관한 커밋(대시보드 재생성 버그)이 실수로 67건을 날려버려서
+# 그 사이 backlog가 같은 topic을 재업로드(중복 10개+ 발생, vernhaven 채널
+# 실측). ②동시 세션 경쟁 — 두 세션이 거의 같은 시각에 --backlog를 돌리면
+# 둘 다 "아직 안 올림" 스냅샷을 읽고 동시에 업로드해버릴 수 있음(로컬 파일
+# 읽기-쓰기 사이에 락이 없음). Supabase `youtube_uploaded` 테이블은 `topic`이
+# PRIMARY KEY라 DB 자체가 유일성을 보장하고, 업로드 "직전"에 이 키로 원자적
+# INSERT를 먼저 시도해서(성공해야만 실제 업로드 진행) 경쟁 조건을 근본적으로
+# 닫는다 — 상세는 아래 _sb_reserve_upload/_sb_finalize_upload/_sb_release_upload.
+# 로컬 output/youtube_uploaded.json은 더 이상 쓰지 않는다(레거시, index.html도
+# 이미 Supabase를 직접 읽음 — 2026-08-08 스키마 도입 시점부터).
+SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+_SB_HEADERS = {
+    "apikey": SUPABASE_SERVICE_ROLE_KEY,
+    "Authorization": f"Bearer {SUPABASE_SERVICE_ROLE_KEY}",
+    "Content-Type": "application/json",
+}
+
+
+def _sb_fetch_uploaded() -> set[str]:
+    """지금 시점 기준 "이미 올라간" topic 집합을 Supabase에서 매번 새로
+    조회한다(로컬 캐시 없음 — 동시 세션이 방금 올린 것까지 반영돼야 후보
+    선정이 정확함). status='pending'(예약만 되고 아직 확정 안 된 것)도 함께
+    후보에서 빼야 다른 세션이 지금 업로드 중인 topic을 또 집지 않는다."""
+    resp = requests.get(
+        f"{SUPABASE_URL}/rest/v1/youtube_uploaded",
+        headers=_SB_HEADERS,
+        params={"select": "topic"},
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return {row["topic"] for row in resp.json()}
+
+
+def _sb_reserve_upload(topic: str, lang: str) -> bool:
+    """실제 업로드 API를 부르기 직전에 호출 — topic을 PK로 하는 행을
+    status='pending'으로 원자적 INSERT 시도한다. 이미 그 topic이 있으면
+    (다른 세션이 먼저 예약했거나 이미 확정됐거나) PostgREST가 충돌을
+    조용히 무시하고 빈 배열을 반환하므로, 그걸로 "예약 실패 = 이미 누가
+    처리 중/처리 완료"를 판별한다. 여기서 True가 나와야만 실제 YouTube
+    업로드로 진행할 것 — 이 체크 없이 업로드하면 경쟁 조건이 다시 열린다."""
+    resp = requests.post(
+        f"{SUPABASE_URL}/rest/v1/youtube_uploaded?on_conflict=topic",
+        headers={**_SB_HEADERS, "Prefer": "resolution=ignore-duplicates,return=representation"},
+        json=[{"topic": topic, "lang": lang, "status": "pending"}],
+        timeout=30,
+    )
+    resp.raise_for_status()
+    return len(resp.json()) > 0
+
+
+def _sb_finalize_upload(topic: str, video_id: str, privacy_status: str, publish_at: str | None) -> None:
+    """업로드 성공 후 예약 행을 실제 결과로 확정한다."""
+    resp = requests.patch(
+        f"{SUPABASE_URL}/rest/v1/youtube_uploaded",
+        headers=_SB_HEADERS,
+        params={"topic": f"eq.{topic}"},
+        json={
+            "video_id": video_id, "privacy_status": privacy_status,
+            "publish_at": publish_at, "status": "confirmed",
+        },
+        timeout=30,
+    )
+    resp.raise_for_status()
+
+
+def _sb_record_existing_upload(topic: str, lang: str, video_id: str) -> None:
+    """이미 유튜브에 올라가 있는(이 스크립트가 만든 게 아닌) 영상을 사후에
+    기록할 때 쓴다(`lib/youtube_organize_playlists.py` — 수동 테스트 업로드 등
+    upload_short()를 안 거친 영상을 채널 스캔으로 찾아 소급 정리하는 경우).
+    이런 영상은 이미 존재가 확정된 상태라 예약 단계가 필요 없어 바로
+    upsert(merge-duplicates)로 confirmed 처리한다."""
+    resp = requests.post(
+        f"{SUPABASE_URL}/rest/v1/youtube_uploaded?on_conflict=topic",
+        headers={**_SB_HEADERS, "Prefer": "resolution=merge-duplicates,return=minimal"},
+        json=[{"topic": topic, "lang": lang, "video_id": video_id, "status": "confirmed"}],
+        timeout=30,
+    )
+    resp.raise_for_status()
+
+
+def _sb_release_upload(topic: str) -> None:
+    """업로드가 실패하면 예약을 풀어(행 삭제) 나중에(같은 세션 재시도든 다른
+    세션이든) 다시 후보로 잡힐 수 있게 한다 — status='pending'인 것만 지워서
+    이미 확정된(status='confirmed') 행을 실수로 건드리지 않는다."""
+    requests.delete(
+        f"{SUPABASE_URL}/rest/v1/youtube_uploaded",
+        headers=_SB_HEADERS,
+        params={"topic": f"eq.{topic}", "status": "eq.pending"},
+        timeout=30,
+    ).raise_for_status()
 # WHY youtube.upload 대신 전체 관리 스코프(2026-08-02): 재생목록 생성·채널 조회 등을
 # 쓰려면 youtube.upload만으로는 부족해서 범위를 넓혔다 — OAuth 동의 화면에도 이
 # 스코프를 미리 등록해둬야 한다(Google Cloud Console > 데이터 액세스).
@@ -336,23 +431,6 @@ def _add_to_category_playlist(youtube, topic: str, video_id: str, lang: str = "k
         print(f"[youtube_upload] ⚠️ 재생목록 추가 실패(영상 업로드 자체는 성공함): {e}")
 
 
-def _mark_youtube_uploaded(topic: str) -> None:
-    """WHY(2026-08-02, "완성된 콘텐츠 목록에서 유튜브 숏츠"만" 완료되었는지를 해당
-    라인에서 확인할 수 있게"): output/completed_topics.json(콘텐츠 제작 전체 완료)과
-    별개로, 유튜브 업로드가 끝난 topic만 index.html에서 따로 표시할 수 있게
-    output/youtube_uploaded.json에 기록한다. WHY 예약 게시(publish_at)여도 여기서
-    바로 기록하는지: "완전히 업로드가 완료되는게 기준이 아니라 예약 설정해서
-    업로드를 완료한 경우에 확인할 수 있게 해주면 된다" — 실제 공개 전환 시각까지
-    기다리지 않고, 업로드+재생목록 등록까지 끝나면(이 함수가 호출되는 시점)
-    완료로 본다."""
-    path = ROOT / "output" / "youtube_uploaded.json"
-    uploaded = json.loads(path.read_text(encoding="utf-8")) if path.exists() else []
-    if topic not in uploaded:
-        uploaded.append(topic)
-        uploaded.sort()
-        path.write_text(json.dumps(uploaded, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-
-
 def _topics_posted_elsewhere() -> set[str]:
     """output/posting_log.csv(위 "포스팅 기록" 절 — 사용자가 다른 플랫폼에 올린
     기록을 CSV로 내보내서 git에 커밋해두는 파일)에서 유튜브 쇼츠가 아닌 다른
@@ -415,8 +493,7 @@ def select_daily_topics(n: int = len(DAILY_UPLOAD_HOURS)) -> list[str]:
     사용자 의도를 그대로 반영."""
     topics_path = ROOT / "output" / "topics.json"
     all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
-    uploaded_path = ROOT / "output" / "youtube_uploaded.json"
-    uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
+    uploaded = _sb_fetch_uploaded()
     candidates = [t for t in all_topics if not _is_already_uploaded(t, uploaded) and _has_video(t)]
 
     posted_elsewhere = _topics_posted_elsewhere()
@@ -458,8 +535,7 @@ def select_daily_topics_for_lang(lang: str, n: int) -> list[str]:
     topics_path = ROOT / "output" / "topics.json"
     all_topics = [t["topic"] for t in json.loads(topics_path.read_text(encoding="utf-8"))]
     lang_topics = [t for t in all_topics if _lang_from_topic(t) == lang]
-    uploaded_path = ROOT / "output" / "youtube_uploaded.json"
-    uploaded = set(json.loads(uploaded_path.read_text(encoding="utf-8"))) if uploaded_path.exists() else set()
+    uploaded = _sb_fetch_uploaded()
     candidates = [t for t in lang_topics if not _is_already_uploaded(t, uploaded) and _has_video(t)]
 
     posted_elsewhere = _topics_posted_elsewhere()
@@ -663,8 +739,31 @@ def upload_short(
     시각에 유튜브가 자동으로 공개 전환한다. WHY privacy_status를 강제로 "private"로
     덮어쓰는지: YouTube API 자체 제약으로, publishAt이 설정된 영상은 업로드 시점의
     privacyStatus가 반드시 "private"여야 한다(그래야 예약 개념이 성립) — public이나
-    unlisted로 두면 API가 아예 거부한다."""
+    unlisted로 두면 API가 아예 거부한다.
+
+    ⚠️ Supabase 원자적 예약(2026-08-15) — 실제 YouTube 업로드를 시작하기 전에
+    `_sb_reserve_upload()`로 이 topic을 먼저 "선점"한다. 이미 다른 세션이
+    먼저 예약(또는 확정)해뒀으면 여기서 바로 RuntimeError로 끝나고 API 호출
+    자체를 안 한다 — 중복 업로드가 물리적으로 불가능해지는 지점. 이후 어떤
+    단계에서든 실패하면(캡션 없음, 영상 파일 없음, YouTube API 에러 등)
+    반드시 예약을 풀어야(`_sb_release_upload`) 나중에 재시도할 수 있다."""
     lang = _lang_from_topic(topic)
+    if not _sb_reserve_upload(topic, lang):
+        raise RuntimeError(f"{topic}: 이미 예약/업로드된 topic — 중복 방지로 건너뜀")
+    try:
+        return _upload_short_inner(topic, lang, video_path, privacy_status, category_id, publish_at)
+    except Exception:
+        _sb_release_upload(topic)
+        raise
+
+
+def _upload_short_inner(
+    topic: str, lang: str, video_path: str | None, privacy_status: str,
+    category_id: str, publish_at: str | None,
+) -> dict:
+    """upload_short()의 실제 업로드 로직 — 예약 성공 후에만 호출된다(위 WHY
+    참고). 실패 시 upload_short()가 예약을 풀어주므로 이 함수 안에서는
+    별도 예외 처리 없이 그냥 실패해도 된다."""
     captions_path = ROOT / "data" / topic / "platform_captions.json"
     spec = json.loads(captions_path.read_text(encoding="utf-8"))
     platform_name = YOUTUBE_PLATFORM_NAMES.get(lang, YOUTUBE_PLATFORM_NAMES["ko"])
@@ -736,7 +835,7 @@ def upload_short(
 
     video_id = response["id"]
     _add_to_category_playlist(youtube, topic, video_id, lang)
-    _mark_youtube_uploaded(topic)
+    _sb_finalize_upload(topic, video_id, privacy_status, publish_at)
     if publish_at:
         print(f"[youtube_upload] 업로드 완료(예약 게시 {publish_at}): https://youtube.com/shorts/{video_id}")
     else:

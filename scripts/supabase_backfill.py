@@ -65,8 +65,12 @@ def main():
     global_rows += [{"market": "naver", "product": k, "url": v} for k, v in naver.items()]
     upsert("global_product_links", global_rows)
 
-    youtube_done = json.loads((ROOT / "output" / "youtube_uploaded.json").read_text(encoding="utf-8"))
-    upsert("youtube_uploaded", [{"topic": t} for t in youtube_done])
+    # WHY youtube_uploaded는 여기서 더 이상 백필 안 함(2026-08-15): 이 테이블은
+    # 이제 lib/youtube_upload.py가 업로드 시점에 직접 쓰는 게 유일한 근거라(위
+    # 파일 상단 WHY, health-shorts CLAUDE.md "유튜브 쇼츠 자동 업로드" 절
+    # 참고), 로컬 output/youtube_uploaded.json(더 이상 갱신 안 되는 정지된
+    # 파일)에서 이 테이블로 백필하면 최신 Supabase 상태를 오히려 오래된
+    # 스냅샷으로 되돌릴 위험이 있다.
 
 
 if __name__ == "__main__":

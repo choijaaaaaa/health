@@ -23,13 +23,33 @@ from lib.youtube_upload import (  # noqa: E402
     _category_label,
     _env_prefix,
     _lang_from_topic,
-    _mark_youtube_uploaded,
     _next_daily_schedule,
     _parse_title_description,
     _playlist_title_for_category,
+    _sb_fetch_uploaded,
+    _sb_finalize_upload,
+    _sb_release_upload,
+    _sb_reserve_upload,
     _topics_posted_elsewhere,
     select_daily_topics,
 )
+
+
+class _FakeResponse:
+    """requests 응답 흉내 — Supabase REST 호출을 실제 네트워크 없이 검증한다
+    (WHY: 유료 API뿐 아니라 외부 네트워크 의존 로직 전부 테스트에서 격리하는
+    이 프로젝트 기존 원칙과 동일하게 적용, 위 파일 상단 WHY 참고)."""
+
+    def __init__(self, json_data=None, status_code=200):
+        self._json_data = json_data if json_data is not None else []
+        self.status_code = status_code
+
+    def json(self):
+        return self._json_data
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise RuntimeError(f"fake http error {self.status_code}")
 
 
 def test_parse_title_description_happy_path():
@@ -160,25 +180,68 @@ def test_category_label_missing_spec_file_returns_none(tmp_path, monkeypatch):
     assert _category_label("어떤주제_1/ja", "ja") is None
 
 
-# WHY(2026-08-02): "완성된 콘텐츠 목록에서 유튜브 숏츠"만" 완료되었는지를 해당
-# 라인에서 확인할 수 있게" — 실제 output/youtube_uploaded.json을 건드리면 안 되니
-# youtube_upload.ROOT를 tmp_path로 monkeypatch해서 격리한다.
-def test_mark_youtube_uploaded_creates_file_when_missing(tmp_path, monkeypatch):
-    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
-    (tmp_path / "output").mkdir()
-    _mark_youtube_uploaded("눈_1")
-    data = json.loads((tmp_path / "output" / "youtube_uploaded.json").read_text(encoding="utf-8"))
-    assert data == ["눈_1"]
+# WHY Supabase 기반 예약/확정/해제 테스트(2026-08-15, 중복 업로드 사고 재발
+# 방지로 로컬 output/youtube_uploaded.json 방식을 대체): 실제 Supabase는 절대
+# 안 두드리고 requests.post/patch/delete를 monkeypatch해서 호출 형태와 반환값
+# 해석 로직만 검증한다 — PostgREST의 "충돌 시 빈 배열 반환" 계약이 이 모듈의
+# 유일한 진짜 신뢰 지점(_sb_reserve_upload)이라 그 해석이 맞는지가 핵심.
+def test_sb_reserve_upload_success_returns_true(monkeypatch):
+    monkeypatch.setattr(youtube_upload, "SUPABASE_URL", "https://fake.supabase.co")
+    monkeypatch.setattr(
+        "lib.youtube_upload.requests.post",
+        lambda *a, **kw: _FakeResponse([{"topic": "눈_1", "status": "pending"}]),
+    )
+    assert _sb_reserve_upload("눈_1", "ko") is True
 
 
-def test_mark_youtube_uploaded_is_idempotent(tmp_path, monkeypatch):
-    monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
-    out_dir = tmp_path / "output"
-    out_dir.mkdir()
-    (out_dir / "youtube_uploaded.json").write_text(json.dumps(["다리쥐_1"]), encoding="utf-8")
-    _mark_youtube_uploaded("다리쥐_1")
-    data = json.loads((out_dir / "youtube_uploaded.json").read_text(encoding="utf-8"))
-    assert data == ["다리쥐_1"]
+def test_sb_reserve_upload_conflict_returns_false(monkeypatch):
+    """WHY 빈 배열이 곧 '이미 존재해서 무시됨'인지: PostgREST가
+    resolution=ignore-duplicates일 때 충돌한 행은 결과에서 빠진다 — 다른
+    세션이 먼저 예약/확정해둔 topic이라는 뜻이라 여기서 False가 나와야
+    upload_short()가 실제 API 호출 전에 멈춘다(경쟁 조건 차단 지점)."""
+    monkeypatch.setattr(youtube_upload, "SUPABASE_URL", "https://fake.supabase.co")
+    monkeypatch.setattr("lib.youtube_upload.requests.post", lambda *a, **kw: _FakeResponse([]))
+    assert _sb_reserve_upload("눈_1", "ko") is False
+
+
+def test_sb_fetch_uploaded_returns_topic_set(monkeypatch):
+    monkeypatch.setattr(youtube_upload, "SUPABASE_URL", "https://fake.supabase.co")
+    monkeypatch.setattr(
+        "lib.youtube_upload.requests.get",
+        lambda *a, **kw: _FakeResponse([{"topic": "눈_1"}, {"topic": "다리쥐_1"}]),
+    )
+    assert _sb_fetch_uploaded() == {"눈_1", "다리쥐_1"}
+
+
+def test_sb_finalize_upload_sends_patch_with_confirmed_status(monkeypatch):
+    captured = {}
+
+    def fake_patch(url, headers=None, params=None, json=None, timeout=None):
+        captured["params"] = params
+        captured["json"] = json
+        return _FakeResponse()
+
+    monkeypatch.setattr(youtube_upload, "SUPABASE_URL", "https://fake.supabase.co")
+    monkeypatch.setattr("lib.youtube_upload.requests.patch", fake_patch)
+    _sb_finalize_upload("눈_1", "abc123", "private", "2026-08-20T01:00:00Z")
+    assert captured["params"] == {"topic": "eq.눈_1"}
+    assert captured["json"]["video_id"] == "abc123"
+    assert captured["json"]["status"] == "confirmed"
+
+
+def test_sb_release_upload_only_targets_pending_rows(monkeypatch):
+    captured = {}
+
+    def fake_delete(url, headers=None, params=None, timeout=None):
+        captured["params"] = params
+        return _FakeResponse()
+
+    monkeypatch.setattr(youtube_upload, "SUPABASE_URL", "https://fake.supabase.co")
+    monkeypatch.setattr("lib.youtube_upload.requests.delete", fake_delete)
+    _sb_release_upload("눈_1")
+    # WHY status=eq.pending도 같이 필터: 이미 confirmed된 행을 실수로 지우면
+    # 안 되므로(실패한 예약만 풀어야 함) 이 조건이 항상 같이 나가야 한다.
+    assert captured["params"] == {"topic": "eq.눈_1", "status": "eq.pending"}
 
 
 # WHY(2026-08-02, "10시, 11시, 14시, 17시 이렇게 네 개 토픽에 대해 영상 네 개
@@ -224,10 +287,10 @@ def _write_topics_json(out_dir, topic_names):
 
 def test_select_daily_topics_prioritizes_posted_elsewhere(tmp_path, monkeypatch):
     monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    monkeypatch.setattr(youtube_upload, "_sb_fetch_uploaded", lambda: set())
     out_dir = tmp_path / "output"
     out_dir.mkdir()
     _write_topics_json(out_dir, ["눈_1", "다리쥐_1", "장_1", "장_2"])
-    (out_dir / "youtube_uploaded.json").write_text("[]", encoding="utf-8")
     (out_dir / "posting_log.csv").write_text(
         'topic,platform,postedAt\n"장_2","인스타그램","2026-08-01T10:00:00Z"\n',
         encoding="utf-8",
@@ -239,10 +302,10 @@ def test_select_daily_topics_prioritizes_posted_elsewhere(tmp_path, monkeypatch)
 
 def test_select_daily_topics_excludes_already_uploaded(tmp_path, monkeypatch):
     monkeypatch.setattr(youtube_upload, "ROOT", tmp_path)
+    monkeypatch.setattr(youtube_upload, "_sb_fetch_uploaded", lambda: {"눈_1"})
     out_dir = tmp_path / "output"
     out_dir.mkdir()
     _write_topics_json(out_dir, ["눈_1", "다리쥐_1"])
-    (out_dir / "youtube_uploaded.json").write_text(json.dumps(["눈_1"]), encoding="utf-8")
     selected = select_daily_topics(n=4)
     assert selected == ["다리쥐_1"]
 
