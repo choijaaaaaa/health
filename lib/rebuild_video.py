@@ -453,6 +453,21 @@ def derive(topic: str) -> dict:
     hook = " ".join(spec["title"][:-1])
     subject = spec["title"][-1]
 
+    # WHY summary_card(2026-08-16, "결론을 먼저 던지자" 요청) — 이 topic의
+    # closing(요약+팁)을 훅 직후 무음 미리보기 카드 문구로 그대로 재사용한다.
+    # `proto_before_after_transition.py`의 CLOSING_READ_MIN과 동일한 공식
+    # (텍스트 길이 비례, 2.4~5.0초 범위)으로 읽기 시간을 잡아 두 포맷의
+    # 미리보기 카드가 같은 원칙으로 움직이게 한다.
+    closing = spec.get("closing", {})
+    summary_card_text = " ".join(
+        ln for block in closing.get("headline", []) for ln in block
+    ) or hook
+    summary_weight = (
+        sum(len(ln) for block in closing.get("headline", []) for ln in block)
+        + sum(len(ln) for ln in closing.get("tip", []) if ln)
+    )
+    summary_card_duration = min(5.0, max(2.4, summary_weight * 0.045))
+
     lead_name = _char_name(items[0]["char_file"])
     banner_photo = find_real_photo(lead_name)
     if banner_photo is None:
@@ -551,6 +566,8 @@ def derive(topic: str) -> dict:
         title=f"{hook} {subject}",
         title_card_text=hook,
         title_card_char_path=str(ILLUST_DIR / cover_char_file),
+        summary_card_text=summary_card_text,
+        summary_card_duration=summary_card_duration,
         title_banner_photo_path=banner_photo,
         end_card_text=end_card_text,
         end_card_char_path=str(ILLUST_DIR / cover_char_file),
