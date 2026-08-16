@@ -1,0 +1,107 @@
+{
+  "title": [
+    "¿Manos y pies fríos",
+    "aunque haga calor en casa?",
+    "Tres hábitos comunes",
+    "Guía manos y pies fríos"
+  ],
+  "eyebrow": "Manos y Pies Fríos",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Bebidas Frías",
+    "커피_illust.jpg": "Cafeína",
+    "돼지껍질튀김_illust.jpg": "Fritos"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Que llegue poca sangre",
+        "hasta manos y pies",
+        "es la causa principal",
+        "",
+        "El café, las bebidas frías",
+        "y los fritos pueden influir"
+      ]
+    },
+    {
+      "name": "Causa: la cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La cafeína puede aumentar",
+        "la resistencia vascular",
+        "periférica",
+        "",
+        "Varias tazas al día pueden",
+        "notarse más en manos y pies"
+      ]
+    },
+    {
+      "name": "Reducir la cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Limitar el café a",
+        "1-2 tazas al día"
+      ]
+    },
+    {
+      "name": "Causa: las bebidas frías",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "El frío baja la",
+        "temperatura interna",
+        "",
+        "El cuerpo contrae los vasos",
+        "de manos y pies",
+        "para conservar el calor"
+      ]
+    },
+    {
+      "name": "Cambiar por algo caliente",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Cambiar las bebidas frías",
+        "por infusión de jengibre"
+      ]
+    },
+    {
+      "name": "Causa: los fritos",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "El pollo frito y las patatas",
+        "son ricos en grasas saturadas",
+        "",
+        "Pueden estrechar las arterias",
+        "con el tiempo"
+      ]
+    },
+    {
+      "name": "Cambiar de cocción",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Optar por la plancha",
+        "o el vapor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La cafeína, las bebidas frías",
+        "y los fritos"
+      ],
+      [
+        "no hace falta eliminarlos —",
+        "con reducirlos ya ayuda"
+      ]
+    ],
+    "tip": [
+      "Una infusión de jengibre",
+      "puede ayudar a la circulación"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos!"
+  }
+}

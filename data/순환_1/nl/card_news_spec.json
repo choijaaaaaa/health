@@ -1,0 +1,107 @@
+{
+  "title": [
+    "Koude handen en voeten,",
+    "ook bij de kachel aan?",
+    "Drie gewone gewoontes",
+    "Gids tegen koude handen en voeten"
+  ],
+  "eyebrow": "Koude Handen & Voeten",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Koude Drankjes",
+    "커피_illust.jpg": "Cafeïne",
+    "돼지껍질튀김_illust.jpg": "Frituursnacks"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Te weinig bloed dat tot",
+        "in je vingers en tenen komt",
+        "is de kern van het probleem",
+        "",
+        "Koffie, koude drankjes",
+        "en frituursnacks spelen mee"
+      ]
+    },
+    {
+      "name": "Oorzaak: cafeïne",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cafeïne kan bloedvaten",
+        "doen vernauwen",
+        "",
+        "Meerdere kopjes per dag",
+        "kunnen dit effect",
+        "langer laten aanhouden"
+      ]
+    },
+    {
+      "name": "Minder cafeïne",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Beperk koffie tot",
+        "1-2 kopjes per dag"
+      ]
+    },
+    {
+      "name": "Oorzaak: koude drankjes",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Koude drankjes verlagen",
+        "kortstondig je lichaamstemperatuur",
+        "",
+        "Je lichaam trekt dan de",
+        "bloedvaten in handen",
+        "en voeten samen"
+      ]
+    },
+    {
+      "name": "Kies voor warm",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Vervang koude drankjes",
+        "door gemberthee"
+      ]
+    },
+    {
+      "name": "Oorzaak: frituursnacks",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Gefrituurde kip en patat",
+        "bevatten veel verzadigd vet",
+        "",
+        "Dat kan het LDL-cholesterol",
+        "verhogen en vaatwanden belasten"
+      ]
+    },
+    {
+      "name": "Anders bereiden",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Kies voor grillen",
+        "of stomen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cafeïne, koude drankjes",
+        "en frituursnacks"
+      ],
+      [
+        "hoeven niet helemaal weg —",
+        "minderen helpt al"
+      ]
+    ],
+    "tip": [
+      "Gemberthee in plaats van",
+      "koude drankjes kan helpen"
+    ],
+    "cta": "Wil je meer van dit soort gezondheidstips? Volg, like en deel!"
+  }
+}

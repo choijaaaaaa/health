@@ -1,67 +1,110 @@
 {
   "title": [
     "If your hands and feet",
-    "feel like ice even indoors,",
-    "it's not just the weather"
+    "stay ice-cold indoors,",
+    "even under a blanket",
+    "Cold Hands & Feet Guide"
   ],
   "eyebrow": "Cold Hands & Feet Alert",
   "swipe_label": "Swipe to see why  →",
   "closing_label": "Wrap-up",
+  "cover_char_file": "냉음료_illust.jpg",
   "char_display_names": {
+    "냉음료_illust.jpg": "Cold Drinks",
     "커피_illust.jpg": "Caffeine",
-    "소금_illust.jpg": "Sodium",
     "돼지껍질튀김_illust.jpg": "Fried Food"
   },
   "items": [
     {
-      "name": "Coffee & Energy Drinks",
-      "char_file": "커피_illust.jpg",
+      "name": "Why Hands and Feet Get Cold",
+      "char_file": "냉음료_illust.jpg",
       "body": [
-        "A 2013 study found caffeine",
-        "blunts your fingers' natural",
-        "rewarming response to cold",
+        "Not enough blood reaching",
+        "your fingers and toes",
+        "is the main cause",
         "",
-        "Try capping coffee at",
-        "one or two cups a day"
+        "Some everyday habits",
+        "narrow blood vessels",
+        "or lower body temperature"
       ]
     },
     {
-      "name": "Salt",
-      "char_file": "소금_illust.jpg",
+      "name": "Caffeine",
+      "char_file": "커피_illust.jpg",
       "body": [
-        "Most Americans get too much",
-        "sodium before they even",
-        "touch a salt shaker",
+        "Caffeine in coffee and",
+        "energy drinks can narrow",
+        "blood vessels",
         "",
-        "Mostly from processed food,",
-        "and it can damage",
-        "blood vessel walls",
+        "Several cups a day may",
+        "reduce blood flow to",
+        "your hands and feet"
+      ]
+    },
+    {
+      "name": "Ease Up on Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Try capping coffee",
+        "at 1-2 cups a day"
+      ]
+    },
+    {
+      "name": "Cold Drinks & Ice Cream",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Iced drinks and ice cream",
+        "briefly lower your",
+        "core temperature",
         "",
-        "Check labels and reach for",
-        "low-sodium options"
+        "Your body responds by",
+        "constricting vessels near",
+        "your hands and feet first"
+      ]
+    },
+    {
+      "name": "Swap for Something Warm",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Try warm water or",
+        "ginger tea instead"
       ]
     },
     {
       "name": "Fried Food",
       "char_file": "돼지껍질튀김_illust.jpg",
       "body": [
-        "One high-fat meal can",
-        "temporarily cut blood flow",
-        "through your arteries",
+        "Fried chicken and fries",
+        "are high in saturated fat",
         "",
-        "Swap fried chicken or fries for",
-        "grilled or baked versions"
+        "Over time, that can narrow",
+        "arteries and strain",
+        "circulation"
+      ]
+    },
+    {
+      "name": "Choose Grilled or Steamed",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Swap fried food for",
+        "grilled or steamed dishes"
       ]
     }
   ],
   "closing": {
     "headline": [
-      ["None of these need to", "disappear completely"],
-      ["Cutting back can help warm up", "cold hands and feet"]
+      [
+        "Caffeine, cold drinks,",
+        "and fried food"
+      ],
+      [
+        "don't need to disappear —",
+        "just cut back a little"
+      ]
     ],
     "tip": [
-      "Ginger or a pinch of cayenne pepper",
-      "is linked to better blood flow"
+      "Warm water or ginger tea",
+      "can help support blood flow"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
   }

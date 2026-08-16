@@ -1,0 +1,107 @@
+{
+  "title": [
+    "Mani e piedi freddi",
+    "anche in casa riscaldata?",
+    "Tre abitudini comuni",
+    "Guida mani e piedi freddi"
+  ],
+  "eyebrow": "Mani e Piedi Freddi",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Bevande Ghiacciate",
+    "커피_illust.jpg": "Caffeina",
+    "돼지껍질튀김_illust.jpg": "Fritti"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Poco sangue che arriva",
+        "fino a mani e piedi",
+        "è la causa principale",
+        "",
+        "Caffè, bevande ghiacciate",
+        "e fritti possono influire"
+      ]
+    },
+    {
+      "name": "Causa: la caffeina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caffeina è vasocostrittrice",
+        "e può restringere",
+        "i vasi sanguigni",
+        "",
+        "Più tazze al giorno possono",
+        "mantenere questo effetto"
+      ]
+    },
+    {
+      "name": "Ridurre la caffeina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Limitare il caffè a",
+        "1-2 tazze al giorno"
+      ]
+    },
+    {
+      "name": "Causa: le bevande ghiacciate",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Il freddo abbassa",
+        "la temperatura corporea",
+        "",
+        "Il corpo restringe i vasi",
+        "di mani e piedi",
+        "per proteggere il calore interno"
+      ]
+    },
+    {
+      "name": "Scegliere il caldo",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Sostituire le bevande ghiacciate",
+        "con una tisana allo zenzero"
+      ]
+    },
+    {
+      "name": "Causa: i fritti",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Pollo fritto e patatine",
+        "sono ricchi di grassi saturi",
+        "",
+        "Favoriscono l'accumulo",
+        "di colesterolo nelle arterie"
+      ]
+    },
+    {
+      "name": "Cambiare cottura",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Preferire la griglia",
+        "o la cottura al vapore"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caffeina, bevande ghiacciate",
+        "e fritti"
+      ],
+      [
+        "non serve eliminarli del tutto —",
+        "basta ridurli"
+      ]
+    ],
+    "tip": [
+      "Una tisana allo zenzero",
+      "può aiutare la circolazione"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti, metti mi piace e segui!"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Kalte Hände und Füße,",
+    "obwohl die Heizung läuft?",
+    "Nicht nur Veranlagung",
+    "Ratgeber gegen kalte Hände & Füße"
+  ],
+  "eyebrow": "Kalte Hände & Füße",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Kalte Getränke",
+    "커피_illust.jpg": "Koffein",
+    "돼지껍질튀김_illust.jpg": "Frittiertes"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Drei alltägliche Gewohnheiten",
+        "können die Durchblutung",
+        "von Händen und Füßen",
+        "beeinflussen",
+        "",
+        "Kaffee, kalte Getränke",
+        "und frittiertes Essen"
+      ]
+    },
+    {
+      "name": "Ursache: Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein gilt als",
+        "Vasokonstriktor und kann",
+        "Gefäße kurzzeitig verengen",
+        "",
+        "Bei manchen Menschen",
+        "belastet das die",
+        "Durchblutung zusätzlich"
+      ]
+    },
+    {
+      "name": "Koffein reduzieren",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein auf",
+        "1-2 Tassen am Tag",
+        "begrenzen"
+      ]
+    },
+    {
+      "name": "Ursache: Kalte Getränke",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Kaltes kühlt den Körper",
+        "kurzzeitig von innen",
+        "",
+        "Der Körper verengt dann",
+        "gezielt die Gefäße",
+        "in Händen und Füßen"
+      ]
+    },
+    {
+      "name": "Wärmer trinken",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Kalte Getränke durch",
+        "Ingwertee ersetzen"
+      ]
+    },
+    {
+      "name": "Ursache: Frittiertes",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Pommes und frittiertes Hähnchen",
+        "enthalten viel gesättigtes Fett",
+        "",
+        "Das kann LDL-Cholesterin erhöhen",
+        "und die Gefäßwände belasten"
+      ]
+    },
+    {
+      "name": "Anders zubereiten",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Frittiertes durch",
+        "Gegrilltes oder Gedämpftes",
+        "ersetzen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Koffein, kalte Getränke",
+        "und Frittiertes"
+      ],
+      [
+        "müssen nicht ganz weg —",
+        "schon weniger hilft"
+      ]
+    ],
+    "tip": [
+      "Ingwertee statt kalter Getränke",
+      "kann die Durchblutung unterstützen"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  }
+}
