@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Ont i knät i trappor,",
+    "stela knän varje morgon?",
+    "Mat som eldar på ledinflammation"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Varning för dina leder",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "라면_illust.jpg": "Friterad mat",
+    "호두_illust.jpg": "Valnötter",
+    "탄산음료_illust.jpg": "Läsk",
+    "블루베리_illust.jpg": "Blåbär",
+    "소시지_illust.jpg": "Charkprodukter",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Varför händer detta",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Viss vardagsmat gör att",
+        "inflammatoriska ämnen",
+        "byggs upp i kroppen",
+        "",
+        "Den inflammationen retar",
+        "leden och visar sig som",
+        "smärta och stelhet"
+      ]
+    },
+    {
+      "name": "Friterad mat och snabbnudlar",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Oljor rika på omega-6",
+        "omvandlas till ämnen som",
+        "eldar på inflammation",
+        "",
+        "I västvärlden ligger kvoten",
+        "ofta mellan 10 och 20 till 1"
+      ]
+    },
+    {
+      "name": "Byt friterad mat mot",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Valnötter ger växtbaserat",
+        "omega-3 (ALA) som hjälper",
+        "till att jämna ut kvoten",
+        "",
+        "En handfull om dagen",
+        "gör redan skillnad"
+      ]
+    },
+    {
+      "name": "Läsk och söta drycker",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "En snabb sockertopp bildar",
+        "AGEs som gör brosket",
+        "i knät stelare",
+        "",
+        "Fruktos i läsk bidrar",
+        "extra mycket till detta"
+      ]
+    },
+    {
+      "name": "Byt läsk mot",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Blåbär är rika på",
+        "antocyaniner som motverkar",
+        "den oxidativa stressen",
+        "",
+        "Ett enkelt byte med",
+        "verklig effekt"
+      ]
+    },
+    {
+      "name": "Korv och charkprodukter",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Mättat fett, salt och",
+        "nitriter driver upp CRP,",
+        "kroppens inflammationsmått",
+        "",
+        "Ju högre värde,",
+        "desto mer värker leden"
+      ]
+    },
+    {
+      "name": "Byt korv mot",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Tofu ger protein utan",
+        "det mättade fettet och",
+        "nitriterna som höjer CRP",
+        "",
+        "Ett enkelt byte, några",
+        "gånger i veckan räcker"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ledinflammation byggs upp",
+        "och är svår att vända"
+      ],
+      [
+        "Du behöver inte sluta helt -",
+        "det räcker att välja smartare"
+      ]
+    ],
+    "tip": [
+      "Börja med mindre friterat,",
+      "läsk och charkprodukter"
+    ],
+    "cta": "Vill du ha fler hälsotips? Följ och gilla sidan!"
+  }
+}

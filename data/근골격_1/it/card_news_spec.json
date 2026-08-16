@@ -1,0 +1,124 @@
+{
+  "title": [
+    "Il ginocchio tira sulle scale,",
+    "al mattino e rigido e dolente?",
+    "Cibi che infiammano le articolazioni"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Allerta infiammazione articolare",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "라면_illust.jpg": "Fritti",
+    "호두_illust.jpg": "Noci",
+    "탄산음료_illust.jpg": "Bibite gassate",
+    "블루베리_illust.jpg": "Mirtilli",
+    "소시지_illust.jpg": "Salumi",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Perché succede questo",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Alcuni cibi di ogni giorno",
+        "fanno aumentare le sostanze",
+        "infiammatorie nel corpo",
+        "",
+        "Questa infiammazione irrita",
+        "l'articolazione e si manifesta",
+        "come dolore e rigidità"
+      ]
+    },
+    {
+      "name": "Fritti e noodles istantanei",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Gli oli ricchi di omega-6",
+        "si trasformano in molecole",
+        "che alimentano l'infiammazione",
+        "",
+        "La dieta occidentale supera",
+        "spesso un rapporto di 5 a 1"
+      ]
+    },
+    {
+      "name": "Al posto dei fritti",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Le noci sono tra le migliori",
+        "fonti vegetali di omega-3 (ALA)",
+        "e aiutano a riequilibrare",
+        "",
+        "Una manciata al giorno",
+        "fa già la differenza"
+      ]
+    },
+    {
+      "name": "Bibite gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Un picco glicemico forma AGE",
+        "che irrigidiscono",
+        "la cartilagine del ginocchio",
+        "",
+        "Chi ne beve ogni giorno ha",
+        "un rischio più alto di",
+        "problemi articolari"
+      ]
+    },
+    {
+      "name": "Al posto delle bibite gassate",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "I mirtilli, ricchi di",
+        "antocianine, contrastano",
+        "lo stress ossidativo degli AGE",
+        "",
+        "Un'alternativa semplice",
+        "e già efficace"
+      ]
+    },
+    {
+      "name": "Salumi come le salsicce",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Grassi saturi, sale e nitriti",
+        "fanno salire la CRP,",
+        "il marcatore dell'infiammazione",
+        "",
+        "Più alto è questo valore,",
+        "più il ginocchio fa male"
+      ]
+    },
+    {
+      "name": "Al posto dei salumi",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Il tofu dà proteine senza",
+        "i grassi saturi e i nitriti",
+        "che alzano la CRP",
+        "",
+        "Un cambio semplice,",
+        "in linea con la dieta mediterranea"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "L'infiammazione articolare",
+        "si accumula ed è difficile da correggere"
+      ],
+      [
+        "Non serve eliminare tutto -",
+        "basta scegliere meglio"
+      ]
+    ],
+    "tip": [
+      "Riducete fritti, bibite gassate",
+      "e salumi, poco alla volta"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e metti mi piace!"
+  }
+}

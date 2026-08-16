@@ -1,0 +1,124 @@
+{
+  "title": [
+    "Genou qui tire dans les escaliers,",
+    "raideur au reveil chaque matin ?",
+    "Ces aliments qui irritent vos genoux"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Alerte inflammation articulaire",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "라면_illust.jpg": "Fritures",
+    "호두_illust.jpg": "Noix",
+    "탄산음료_illust.jpg": "Soda",
+    "블루베리_illust.jpg": "Myrtilles",
+    "소시지_illust.jpg": "Charcuterie",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ce phénomène",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Certains aliments du quotidien",
+        "font grimper les substances",
+        "inflammatoires dans le corps",
+        "",
+        "Cette inflammation irrite",
+        "l'articulation et provoque",
+        "douleur et raideur"
+      ]
+    },
+    {
+      "name": "Fritures et nouilles instantanées",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Les huiles riches en oméga-6",
+        "se transforment en molécules",
+        "pro-inflammatoires",
+        "",
+        "Le régime occidental atteint",
+        "souvent un ratio de 15 pour 1"
+      ]
+    },
+    {
+      "name": "À la place des fritures",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Les noix apportent de l'oméga-3",
+        "végétal (ALA) et aident à",
+        "rééquilibrer ce ratio",
+        "",
+        "Une poignée par jour",
+        "fait une vraie différence"
+      ]
+    },
+    {
+      "name": "Soda et boissons sucrées",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Un pic de glycémie forme des",
+        "AGE qui rigidifient",
+        "le cartilage du genou",
+        "",
+        "Boire du soda 5 fois par",
+        "semaine double le risque",
+        "de dégradation du cartilage"
+      ]
+    },
+    {
+      "name": "À la place du soda",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Les myrtilles, riches en",
+        "anthocyanes, aident à",
+        "contrer ce stress oxydatif",
+        "",
+        "Un verre d'eau ou une",
+        "poignée de myrtilles suffit"
+      ]
+    },
+    {
+      "name": "Charcuterie et saucisses",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Le sel, le gras saturé et",
+        "les nitrites font grimper",
+        "la CRP, marqueur d'inflammation",
+        "",
+        "Plus ce marqueur est élevé,",
+        "plus l'articulation en souffre"
+      ]
+    },
+    {
+      "name": "À la place de la charcuterie",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Le tofu apporte des protéines",
+        "sans le sel ni les nitrites",
+        "qui font grimper la CRP",
+        "",
+        "Un remplacement simple,",
+        "trois fois par semaine suffit"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "L'inflammation articulaire",
+        "s'accumule et se corrige mal"
+      ],
+      [
+        "Pas besoin de tout arrêter -",
+        "juste de mieux choisir"
+      ]
+    ],
+    "tip": [
+      "Réduisez fritures, soda et charcuterie,",
+      "remplacez-les progressivement"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous et likez !"
+  }
+}

@@ -1,119 +1,121 @@
 {
   "title": [
-    "Grilled burgers and beers last night,",
-    "and your big toe's throbbing this morning?",
-    "Foods That Trigger Gout Attacks"
+    "Knees ache going down stairs,",
+    "stiff first thing in the morning?",
+    "Foods That Feed Joint Inflammation"
   ],
-  "eyebrow": "Gout Risk Alert",
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Joint Health Alert",
   "swipe_label": "Swipe to see more  →",
   "closing_label": "Wrap-up",
-  "topic_word": "Gout",
   "char_display_names": {
-    "맥주_illust.jpg": "Beer",
-    "양념갈비_illust.jpg": "Red Meat",
+    "라면_illust.jpg": "Fried Food",
+    "호두_illust.jpg": "Walnuts",
     "탄산음료_illust.jpg": "Soda",
-    "체리_illust.jpg": "Cherries",
-    "두부_illust.jpg": "Tofu",
-    "보리차_illust.jpg": "Unsweetened Tea"
+    "블루베리_illust.jpg": "Blueberries",
+    "소시지_illust.jpg": "Processed Meat",
+    "두부_illust.jpg": "Tofu"
   },
   "items": [
     {
-      "name": "Why does this happen",
-      "char_file": "맥주_illust.jpg",
+      "name": "Why This Happens",
+      "char_file": "라면_illust.jpg",
       "body": [
-        "Purine-rich foods break",
-        "down into uric acid",
-        "that forms sharp crystals",
+        "Certain everyday foods make",
+        "inflammatory compounds",
+        "build up in your body",
         "",
-        "Those crystals settle right",
-        "in the joint - that's a gout attack"
+        "That inflammation irritates",
+        "the joint tissue and shows up",
+        "as pain and stiffness"
       ]
     },
     {
-      "name": "Beer & alcohol",
-      "char_file": "맥주_illust.jpg",
+      "name": "Fried Food & Ramen",
+      "char_file": "라면_illust.jpg",
       "body": [
-        "Alcoholic beer alone can",
-        "raise uric acid by over 6%",
+        "Oils high in omega-6 turn",
+        "into inflammatory molecules",
+        "once inside your body",
         "",
-        "Just two beers can double",
-        "your flare risk within 24 hours"
+        "A typical Western diet hits",
+        "a 15 to 1 omega-6 ratio"
       ]
     },
     {
-      "name": "Instead of beer",
-      "char_file": "체리_illust.jpg",
+      "name": "Instead of Fried Food",
+      "char_file": "호두_illust.jpg",
       "body": [
-        "A Boston University study",
-        "linked eating cherries to a",
-        "35% lower risk of gout attacks",
+        "Walnuts are rich in ALA,",
+        "a plant form of omega-3",
         "",
-        "Swap beer for water, and",
-        "snack on cherries instead"
+        "They help pull that skewed",
+        "ratio back toward balance"
       ]
     },
     {
-      "name": "Red meat",
-      "char_file": "양념갈비_illust.jpg",
-      "body": [
-        "Red meat is loaded with",
-        "purines your body breaks",
-        "down into uric acid",
-        "",
-        "The more you eat, the more",
-        "it builds up in your joints"
-      ]
-    },
-    {
-      "name": "Instead of red meat",
-      "char_file": "두부_illust.jpg",
-      "body": [
-        "Swap in tofu or beans",
-        "a few times a week",
-        "",
-        "Plant protein means far",
-        "fewer purines to process"
-      ]
-    },
-    {
-      "name": "Sugary soda",
+      "name": "Sugary Soda",
       "char_file": "탄산음료_illust.jpg",
       "body": [
-        "Men who drink 2+ sugary",
-        "sodas a day have an 85%",
-        "higher risk of gout",
+        "A blood sugar spike forms",
+        "AGEs that stiffen the",
+        "cartilage in your knee",
         "",
-        "Fructose pushes your body to",
-        "make more uric acid, like alcohol does"
+        "Women who drink it daily",
+        "face a higher joint risk"
       ]
     },
     {
-      "name": "Instead of soda",
-      "char_file": "보리차_illust.jpg",
+      "name": "Instead of Soda",
+      "char_file": "블루베리_illust.jpg",
       "body": [
-        "Swap sugary soda for",
-        "unsweetened iced tea",
-        "or plain sparkling water",
+        "Blueberries are rich in",
+        "anthocyanins that help",
+        "counter that oxidative stress",
         "",
-        "Small swap, real difference",
-        "for your uric acid levels"
+        "A simple swap with a",
+        "real effect over time"
+      ]
+    },
+    {
+      "name": "Processed Meat Like Sausage",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Saturated fat, sodium, and",
+        "nitrites push up CRP,",
+        "an inflammation marker",
+        "",
+        "The higher that marker,",
+        "the more your joints ache"
+      ]
+    },
+    {
+      "name": "Instead of Processed Meat",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Tofu delivers protein without",
+        "the saturated fat, sodium,",
+        "and nitrites that raise CRP",
+        "",
+        "An easy swap a few",
+        "times a week"
       ]
     }
   ],
   "closing": {
     "headline": [
       [
-        "Gout attacks build up",
-        "from everyday choices"
+        "Joint inflammation builds up",
+        "and gets hard to undo"
       ],
       [
         "You don't have to quit these foods -",
-        "just watch how often and swap in better ones"
+        "just know what to swap in"
       ]
     ],
     "tip": [
-      "Cut back on beer, red meat, and soda,",
-      "and bring in cherries, tofu, and unsweetened tea"
+      "Start with fried food, soda, and",
+      "processed meat - swap them in"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
   }

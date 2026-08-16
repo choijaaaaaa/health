@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Kniepijn bij het traplopen,",
+    "stijve knieën elke ochtend?",
+    "Voeding die je gewrichten prikkelt"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Waarschuwing voor je gewrichten",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "라면_illust.jpg": "Gefrituurd eten",
+    "호두_illust.jpg": "Walnoten",
+    "탄산음료_illust.jpg": "Frisdrank",
+    "블루베리_illust.jpg": "Bosbessen",
+    "소시지_illust.jpg": "Worst",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Waarom gebeurt dit",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Bepaalde dagelijkse voeding",
+        "laat ontstekingsstoffen",
+        "in je lichaam oplopen",
+        "",
+        "Die ontsteking prikkelt het",
+        "gewricht en uit zich als",
+        "pijn en stijfheid"
+      ]
+    },
+    {
+      "name": "Gefrituurd eten en noedels",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Oliën vol omega-6 zetten",
+        "zich om in stoffen die",
+        "ontstekingen aanwakkeren",
+        "",
+        "In westerse landen loopt",
+        "die verhouding op tot 30 op 1"
+      ]
+    },
+    {
+      "name": "In plaats van gefrituurd",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Walnoten leveren plantaardig",
+        "omega-3 (ALA) en helpen",
+        "de balans te herstellen",
+        "",
+        "Een handjevol per dag",
+        "maakt al verschil"
+      ]
+    },
+    {
+      "name": "Frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Een snelle bloedsuikerpiek",
+        "vormt AGEs die het",
+        "kraakbeen stugger maken",
+        "",
+        "Een hogere inname hangt samen",
+        "met meer risico op knieartrose"
+      ]
+    },
+    {
+      "name": "In plaats van frisdrank",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Bosbessen zitten vol",
+        "anthocyanen die de",
+        "oxidatieve stress tegengaan",
+        "",
+        "Een simpele omwisseling",
+        "met echt effect"
+      ]
+    },
+    {
+      "name": "Worst en bewerkt vlees",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Verzadigd vet, zout en",
+        "conserveringsmiddelen",
+        "verhogen je CRP-waarde",
+        "",
+        "Hoe hoger deze waarde,",
+        "hoe meer je gewricht voelt"
+      ]
+    },
+    {
+      "name": "In plaats van worst",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Tofu levert eiwit zonder",
+        "het verzadigde vet en de",
+        "middelen die CRP verhogen",
+        "",
+        "Een simpele stap richting",
+        "minder ontstekingsdruk"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gewrichtsontsteking bouwt op",
+        "en is moeilijk terug te draaien"
+      ],
+      [
+        "Je hoeft niet alles te schrappen -",
+        "de juiste keuze is al genoeg"
+      ]
+    ],
+    "tip": [
+      "Begin met minder gefrituurd,",
+      "frisdrank en worst"
+    ],
+    "cta": "Meer gezondheidstips? Volg en like deze pagina!"
+  }
+}
