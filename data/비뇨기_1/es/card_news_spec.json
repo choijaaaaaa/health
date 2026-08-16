@@ -1,0 +1,110 @@
+{
+  "title": [
+    "¿La vejiga sigue irritada",
+    "hagas lo que hagas?",
+    "Revisa antes estos 3 hábitos.",
+    "3 hábitos alimentarios que empeoran la cistitis"
+  ],
+  "eyebrow": "Salud de la Vejiga",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "topic_word": "Cistitis",
+  "char_display_names": {
+    "커피_illust.jpg": "Cafeína",
+    "고추_illust.jpg": "Picante",
+    "탄산음료_illust.jpg": "Refrescos"
+  },
+  "items": [
+    {
+      "name": "Por qué empeora",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La mucosa de la vejiga",
+        "reacciona a lo que",
+        "termina en la orina",
+        "",
+        "Ciertos alimentos",
+        "intensifican esa irritación"
+      ]
+    },
+    {
+      "name": "La cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "El café tiene efecto diurético",
+        "y puede estimular",
+        "el músculo detrusor",
+        "",
+        "El resultado: ganas de orinar",
+        "más frecuentes y urgentes"
+      ]
+    },
+    {
+      "name": "La cafeína — la solución",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cambiar el café por",
+        "agua o una infusión"
+      ]
+    },
+    {
+      "name": "Lo picante",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina de la guindilla",
+        "se elimina en parte",
+        "por la orina",
+        "",
+        "Irrita la mucosa vesical",
+        "ya sensibilizada"
+      ]
+    },
+    {
+      "name": "Lo picante — la solución",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Optar por un caldo",
+        "suave en su lugar"
+      ]
+    },
+    {
+      "name": "Los refrescos",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El azúcar alimenta bacterias,",
+        "el gas carbónico presiona",
+        "una vejiga ya irritada",
+        "",
+        "Esa combinación puede",
+        "alargar las molestias"
+      ]
+    },
+    {
+      "name": "Los refrescos — la solución",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Elegir agua en lugar",
+        "de refresco"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta eliminarlos",
+        "por completo"
+      ],
+      [
+        "Reducirlos y cambiarlos ya",
+        "marca una diferencia real"
+      ]
+    ],
+    "tip": [
+      "Beber suficiente agua ayuda a arrastrar",
+      "bacterias y sustancias irritantes"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos y suscríbete!"
+  }
+}
