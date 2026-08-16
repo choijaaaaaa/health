@@ -1,95 +1,113 @@
 {
   "title": [
-    "Headlights turning into starbursts",
-    "on your drive home at night?",
-    "The Everyday Habits Hurting Your Eyes"
+    "Blurry vision, halos around lights,",
+    "and eyes drier than they used to be?",
+    "Everyday Habits Hurting Your Eyes"
   ],
   "eyebrow": "Eye Health Alert",
   "swipe_label": "Swipe to see more  →",
   "closing_label": "Wrap-up",
-  "topic_word": "Vision",
+  "cover_char_file": "케일_illust.jpg",
   "char_display_names": {
     "탄산음료_illust.jpg": "Soda",
     "케일_illust.jpg": "Kale",
     "라면_illust.jpg": "Fried Food",
-    "연어_illust.jpg": "Salmon",
+    "고등어_illust.jpg": "Mackerel",
     "스마트폰_illust.jpg": "Phone"
   },
   "items": [
     {
-      "name": "Soda",
+      "name": "Why This Happens",
       "char_file": "탄산음료_illust.jpg",
       "body": [
-        "It spikes your blood sugar,",
+        "Sugary drinks, fried food,",
+        "and scrolling in the dark",
         "",
-        "and the byproducts that build up",
-        "are linked to cataracts",
-        "and macular degeneration"
+        "all build up oxidative stress",
+        "and cut your blink rate"
       ]
     },
     {
-      "name": "Cut back, and add this",
+      "name": "Sugary Drinks & Desserts",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Blood sugar spikes fast,",
+        "building up AGEs in your eyes",
+        "",
+        "They stiffen the lens and fuel",
+        "cataracts and macular damage"
+      ]
+    },
+    {
+      "name": "Swap Soda For This",
       "char_file": "케일_illust.jpg",
       "body": [
-        "Add lutein-rich kale",
-        "to your plate",
+        "Kale is packed with lutein",
+        "and zeaxanthin",
         "",
-        "It has about 25 times more",
-        "of that pigment than carrots do"
+        "These pigments build",
+        "the eye's protective shield"
       ]
     },
     {
-      "name": "Fried & processed food",
+      "name": "Fried & Ultra-Processed Food",
       "char_file": "라면_illust.jpg",
       "body": [
-        "A U.S. study tracking people",
-        "for 18 years found this pattern",
+        "A diet heavy in fried food",
+        "and processed meat",
         "",
-        "tripled the risk of",
-        "late-stage macular degeneration"
+        "tripled the risk of late-stage",
+        "macular degeneration in one study"
       ]
     },
     {
-      "name": "Cut back, and add this too",
-      "char_file": "연어_illust.jpg",
+      "name": "Swap Fried Food For This",
+      "char_file": "고등어_illust.jpg",
       "body": [
-        "Add salmon",
-        "to your plate",
+        "Oily fish like mackerel",
+        "bring omega-3s",
         "",
-        "Its omega-3s are linked to",
-        "slower disease progression"
+        "Paired with lutein, they help",
+        "slow macular degeneration"
       ]
     },
     {
-      "name": "Late-night phone scrolling",
+      "name": "Scrolling in a Dark Room",
       "char_file": "스마트폰_illust.jpg",
       "body": [
-        "Screen time in the dark cuts",
-        "your blink rate from 20 a minute",
-        "to under 8",
+        "Your blink rate drops from",
+        "15 times a minute",
+        "to just 5-7",
         "",
-        "raising your dry eye risk"
+        "leaving eyes dry and gritty"
       ]
     },
     {
-      "name": "Try this habit instead",
+      "name": "Build This Habit Instead",
       "char_file": "스마트폰_illust.jpg",
       "body": [
-        "The 20-20-20 rule:",
-        "every 20 minutes, look at",
+        "Every 20 minutes, look at",
         "something 20 feet away",
-        "for 20 seconds"
+        "for 20 seconds",
+        "",
+        "It resets your blink rate"
       ]
     }
   ],
   "closing": {
     "headline": [
-      ["Macular damage is", "hard to reverse"],
-      ["So start with what you eat,", "and give your eyes a screen break"]
+      [
+        "Once damaged, your macula",
+        "is hard to restore"
+      ],
+      [
+        "You don't have to cut it all out —",
+        "just know what to swap in"
+      ]
     ],
     "tip": [
-      "Cut back on soda and fried food,",
-      "add kale and salmon, try 20-20-20"
+      "Swap soda and fried food first,",
+      "and try the 20-20-20 rule for screens"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
   }

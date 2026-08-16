@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Dimmig syn och ljusringar",
+    "runt lampor i mörkret?",
+    "Vanor som skadar dina ögon"
+  ],
+  "eyebrow": "Ögonhälsa",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Socker",
+    "케일_illust.jpg": "Grönkål",
+    "라면_illust.jpg": "Friterad mat",
+    "고등어_illust.jpg": "Makrill",
+    "스마트폰_illust.jpg": "Mobilen"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Socker, friterad mat och",
+        "mobilen i mörker",
+        "",
+        "ökar oxidativ stress",
+        "i dina ögon"
+      ]
+    },
+    {
+      "name": "Socker och godis",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Blodsockret stiger snabbt",
+        "och AGEs bildas",
+        "",
+        "Linsen blir grumlig —",
+        "en orsak till grå starr"
+      ]
+    },
+    {
+      "name": "Byt sockret mot detta",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Grönkål är rikt på",
+        "lutein och zeaxantin",
+        "",
+        "Dessa pigment skyddar",
+        "gula fläcken"
+      ]
+    },
+    {
+      "name": "Friterad och processad mat",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Mycket friterad mat och",
+        "processat kött i kosten",
+        "",
+        "ökar risken tydligt för",
+        "makuladegeneration"
+      ]
+    },
+    {
+      "name": "Byt friteringen mot detta",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Makrill och fet fisk",
+        "ger omega-3",
+        "",
+        "Det kan minska risken för",
+        "makuladegeneration"
+      ]
+    },
+    {
+      "name": "Mobilen i mörkret",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Framför skärmen",
+        "blinkar du 66 procent",
+        "mer sällan",
+        "",
+        "ögonen blir torra",
+        "och irriterade"
+      ]
+    },
+    {
+      "name": "Den här vanan hjälper",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Titta var 20:e minut",
+        "20 sekunder på något",
+        "minst 6 meter bort",
+        "",
+        "Det återställer din",
+        "blinkfrekvens"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Skadas gula fläcken,",
+        "är det svårt att återställa"
+      ],
+      [
+        "Du behöver inte sluta helt —",
+        "det räcker att välja smartare"
+      ]
+    ],
+    "tip": [
+      "Minska socker och friterat,",
+      "och testa 20-20-20-regeln"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera och gilla!"
+  }
+}

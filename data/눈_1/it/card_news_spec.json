@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Vista offuscata di sera e",
+    "occhi secchi che bruciano?",
+    "Le abitudini che danneggiano gli occhi"
+  ],
+  "eyebrow": "Salute degli occhi",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Zucchero",
+    "케일_illust.jpg": "Cavolo riccio",
+    "라면_illust.jpg": "Fritti",
+    "고등어_illust.jpg": "Sgombro",
+    "스마트폰_illust.jpg": "Smartphone"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Zucchero, fritti e smartphone",
+        "al buio",
+        "",
+        "aumentano lo stress",
+        "ossidativo negli occhi"
+      ]
+    },
+    {
+      "name": "Zucchero e dolci",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La glicemia sale in fretta",
+        "e si formano gli AGE",
+        "",
+        "Il cristallino si opacizza —",
+        "un meccanismo della cataratta"
+      ]
+    },
+    {
+      "name": "Al posto dello zucchero",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Il cavolo riccio è ricco",
+        "di luteina e zeaxantina",
+        "",
+        "Questi pigmenti proteggono",
+        "la macula"
+      ]
+    },
+    {
+      "name": "Fritti e cibi processati",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Una dieta ricca di fritti",
+        "e carne processata",
+        "",
+        "triplica il rischio di",
+        "degenerazione maculare avanzata"
+      ]
+    },
+    {
+      "name": "Al posto dei fritti",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Sgombro e pesce azzurro",
+        "portano omega-3",
+        "",
+        "Aiutano a ridurre il rischio",
+        "di degenerazione maculare"
+      ]
+    },
+    {
+      "name": "Smartphone al buio",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Davanti allo schermo",
+        "si sbatte le palpebre",
+        "molto meno",
+        "",
+        "gli occhi si seccano",
+        "e si irritano"
+      ]
+    },
+    {
+      "name": "L'abitudine che aiuta",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Ogni 20 minuti, guarda",
+        "un punto a 6 metri",
+        "per 20 secondi",
+        "",
+        "L'ammiccamento torna",
+        "alla normalità"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Una volta danneggiata, la macula",
+        "è difficile da recuperare"
+      ],
+      [
+        "Non serve eliminare tutto —",
+        "basta scegliere meglio"
+      ]
+    ],
+    "tip": [
+      "Riduci zucchero e fritti,",
+      "e applica la regola del 20-20-20"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e metti mi piace!"
+  }
+}

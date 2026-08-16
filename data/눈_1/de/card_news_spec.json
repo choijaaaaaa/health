@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Verschwommenes Sehen und",
+    "trockene Augen am Abend?",
+    "Gewohnheiten, die den Augen schaden"
+  ],
+  "eyebrow": "Augengesundheit",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Zucker",
+    "케일_illust.jpg": "Grünkohl",
+    "라면_illust.jpg": "Frittiertes",
+    "고등어_illust.jpg": "Makrele",
+    "스마트폰_illust.jpg": "Handy"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Zucker, Frittiertes und",
+        "Handynutzung im Dunkeln",
+        "",
+        "belasten die Augen mit",
+        "oxidativem Stress"
+      ]
+    },
+    {
+      "name": "Zucker und Süßes",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Der Blutzucker steigt schnell",
+        "und AGEs lagern sich ab",
+        "",
+        "Die Linse verliert Klarheit —",
+        "ein Faktor beim grauen Star"
+      ]
+    },
+    {
+      "name": "Statt Süßem",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Grünkohl liefert reichlich",
+        "Lutein und Zeaxanthin",
+        "",
+        "Diese schützen die Makula",
+        "vor oxidativem Stress"
+      ]
+    },
+    {
+      "name": "Frittiertes & Fertigprodukte",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Wer oft Frittiertes und",
+        "verarbeitete Lebensmittel isst,",
+        "",
+        "hat laut einer Studie ein",
+        "3-fach höheres Risiko für AMD"
+      ]
+    },
+    {
+      "name": "Statt Frittiertem",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Fetter Fisch wie Makrele",
+        "liefert Omega-3",
+        "",
+        "Das wirkt entzündungshemmend",
+        "und schützt die Netzhaut"
+      ]
+    },
+    {
+      "name": "Handy im Dunkeln",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Beim Scrollen sinkt die",
+        "Blinzelrate deutlich",
+        "",
+        "Der Tränenfilm wird instabil —",
+        "die Augen brennen und trocknen aus"
+      ]
+    },
+    {
+      "name": "Diese Gewohnheit hilft",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Alle 20 Minuten für 20 Sekunden",
+        "auf einen Punkt in 6m Entfernung",
+        "",
+        "Das stabilisiert den",
+        "Tränenfilm wieder"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ist die Makula geschädigt,",
+        "lässt sich das kaum rückgängig machen"
+      ],
+      [
+        "Man muss nicht alles streichen —",
+        "es reicht, bewusster auszuwählen"
+      ]
+    ],
+    "tip": [
+      "Weniger Zucker und Frittiertes,",
+      "beim Handy die 20-20-20-Regel beachten"
+    ],
+    "cta": "Mehr Gesundheitstipps? Jetzt abonnieren, liken und folgen!"
+  }
+}

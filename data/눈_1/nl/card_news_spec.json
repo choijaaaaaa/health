@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Wazig zicht en lichtkransen",
+    "rond lampen in het donker?",
+    "Gewoontes die je ogen aantasten"
+  ],
+  "eyebrow": "Oogzorg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Suiker",
+    "케일_illust.jpg": "Boerenkool",
+    "라면_illust.jpg": "Frituur",
+    "고등어_illust.jpg": "Makreel",
+    "스마트폰_illust.jpg": "Telefoon"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Suiker, frituur en",
+        "je telefoon in het donker",
+        "",
+        "verhogen oxidatieve stress",
+        "in je ogen"
+      ]
+    },
+    {
+      "name": "Suiker en snoep",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Je bloedsuiker piekt snel",
+        "en er ontstaan AGE's",
+        "",
+        "De ooglens wordt troebel —",
+        "een oorzaak van staar"
+      ]
+    },
+    {
+      "name": "In plaats van suiker",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Boerenkool zit vol",
+        "luteïne en zeaxanthine",
+        "",
+        "Deze bouwstenen beschermen",
+        "de macula"
+      ]
+    },
+    {
+      "name": "Gefrituurd en bewerkt eten",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Een voedingspatroon vol",
+        "frituur en bewerkt vlees",
+        "",
+        "verhoogt het risico op",
+        "maculadegeneratie flink"
+      ]
+    },
+    {
+      "name": "In plaats van frituur",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Makreel en vette vis",
+        "leveren omega-3",
+        "",
+        "Dat verlaagt het risico op",
+        "maculadegeneratie"
+      ]
+    },
+    {
+      "name": "Je telefoon in het donker",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Bij schermgebruik",
+        "knipper je veel minder",
+        "",
+        "je ogen worden droog",
+        "en geïrriteerd"
+      ]
+    },
+    {
+      "name": "Deze gewoonte helpt",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Kijk elke 20 minuten",
+        "20 seconden naar iets",
+        "op 6 meter afstand",
+        "",
+        "Dat herstelt je",
+        "knipperfrequentie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Is de macula beschadigd,",
+        "dan is dat moeilijk te herstellen"
+      ],
+      [
+        "Je hoeft niet alles te schrappen —",
+        "kies gewoon bewuster"
+      ]
+    ],
+    "tip": [
+      "Minder suiker en frituur,",
+      "en pas de 20-20-20-regel toe"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer je en like dit!"
+  }
+}

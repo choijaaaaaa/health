@@ -1,0 +1,115 @@
+{
+  "title": [
+    "¿Ves halos de luz por la noche",
+    "y sientes los ojos secos?",
+    "Hábitos que dañan tu vista"
+  ],
+  "eyebrow": "Salud ocular",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Azúcar",
+    "케일_illust.jpg": "Col rizada",
+    "라면_illust.jpg": "Fritos",
+    "고등어_illust.jpg": "Caballa",
+    "스마트폰_illust.jpg": "Móvil"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El azúcar, los fritos y",
+        "el móvil a oscuras",
+        "",
+        "aumentan el estrés",
+        "oxidativo en los ojos"
+      ]
+    },
+    {
+      "name": "Azúcar y dulces",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La glucosa sube rápido",
+        "y se forman AGEs",
+        "",
+        "El cristalino se opacifica —",
+        "un mecanismo de la catarata"
+      ]
+    },
+    {
+      "name": "En vez de azúcar",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "La col rizada es rica",
+        "en luteína y zeaxantina",
+        "",
+        "Estos pigmentos protegen",
+        "la mácula"
+      ]
+    },
+    {
+      "name": "Fritos y ultraprocesados",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Una dieta rica en fritos",
+        "y carne procesada",
+        "",
+        "eleva notablemente el riesgo",
+        "de degeneración macular avanzada"
+      ]
+    },
+    {
+      "name": "En vez de fritos",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "El salmón y la caballa",
+        "aportan omega-3",
+        "",
+        "Ayudan a reducir el riesgo",
+        "de degeneración macular"
+      ]
+    },
+    {
+      "name": "El móvil en la oscuridad",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Frente a la pantalla",
+        "parpadeas mucho menos",
+        "",
+        "los ojos se secan",
+        "y se irritan"
+      ]
+    },
+    {
+      "name": "El hábito que ayuda",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Cada 20 minutos, mira",
+        "un punto a 6 metros",
+        "durante 20 segundos",
+        "",
+        "El parpadeo vuelve",
+        "a la normalidad"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Una vez dañada, la mácula",
+        "es difícil de recuperar"
+      ],
+      [
+        "No hace falta eliminarlo todo —",
+        "basta con elegir mejor"
+      ]
+    ],
+    "tip": [
+      "Reduce azúcar y fritos,",
+      "y aplica la regla del 20-20-20"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete y dale like!"
+  }
+}

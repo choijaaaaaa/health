@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Vue qui se trouble, halos le soir,",
+    "et yeux secs en fin de journée ?",
+    "Ce qui abîme vraiment vos yeux"
+  ],
+  "eyebrow": "Santé des yeux",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Sucre",
+    "케일_illust.jpg": "Chou frisé",
+    "라면_illust.jpg": "Fritures",
+    "고등어_illust.jpg": "Maquereau",
+    "스마트폰_illust.jpg": "Smartphone"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sucre, fritures et écran",
+        "dans le noir",
+        "",
+        "entretiennent un stress",
+        "oxydatif dans les yeux"
+      ]
+    },
+    {
+      "name": "Sucre et sucreries",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La glycémie grimpe vite",
+        "et forme des AGE",
+        "",
+        "Le cristallin s'opacifie —",
+        "un mécanisme de la cataracte"
+      ]
+    },
+    {
+      "name": "À la place du sucre",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Le chou frisé est riche",
+        "en lutéine et zéaxanthine",
+        "",
+        "Ces pigments protègent",
+        "la macula"
+      ]
+    },
+    {
+      "name": "Fritures et plats industriels",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Un régime riche en fritures",
+        "et viandes transformées",
+        "",
+        "triple le risque de DMLA",
+        "tardive selon une étude"
+      ]
+    },
+    {
+      "name": "À la place des fritures",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Le maquereau et le saumon",
+        "apportent des oméga-3",
+        "",
+        "Ils réduisent le risque",
+        "de progression de la DMLA"
+      ]
+    },
+    {
+      "name": "Smartphone dans le noir",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Le clignement chute",
+        "de 21 à moins de 9 par minute",
+        "",
+        "Les yeux s'assèchent",
+        "et s'irritent"
+      ]
+    },
+    {
+      "name": "L'habitude qui aide",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Toutes les 20 minutes,",
+        "regardez à 6 mètres",
+        "pendant 20 secondes",
+        "",
+        "Le clignement revient",
+        "à la normale"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Une fois abîmée, la macula",
+        "est difficile à réparer"
+      ],
+      [
+        "Pas besoin de tout arrêter —",
+        "juste de mieux choisir"
+      ]
+    ],
+    "tip": [
+      "Réduisez sucre et fritures,",
+      "et appliquez la règle des 20-20-20"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous et likez !"
+  }
+}
