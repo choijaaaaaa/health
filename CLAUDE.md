@@ -885,6 +885,34 @@ git 히스토리에서 복원.
   `youtube_upload.py` 연동 — `MISSION_CONTROL_INGEST_URL`/`_SECRET` 미설정
   시 조용히 스킵).
 
+## 카드뉴스 허브 (`lib/card_news_hub.py`)
+
+네이버 블로그 운영용 — 이 프로젝트가 못 다루는 3개 신규 버티컬(육아=
+babbleroot/반려동물=furrowly/경제=sparelow, `VERTICAL_REPOS` 상수)의
+콘텐츠 저장소(`<이름>-content`)를 스캔해 `output/card_news_hub.json`으로
+합친다(건강 자신과 일본상품리뷰는 각자 완전한 자체 대시보드가 있어 제외 —
+파일 상단 주석 참고). `index.html`의 "카드뉴스 허브" 탭이 로컬에서 이
+JSON을 읽어 캡션 복사·네이버 계정 열기 UI를 보여준다.
+
+```
+python3 -m lib.card_news_hub          # output/card_news_hub.json만 갱신(로컬)
+python3 -m lib.card_news_hub --commit # 위에 더해 공유 Supabase에도 push
+```
+
+⚠️ **`--commit`은 vernhaven-blog 등 6개 형제 블로그가 쓰는 별도 공유
+Supabase 프로젝트(`BLOG_NETWORK_SUPABASE_URL`/`_SERVICE_ROLE_KEY`, `.env` —
+이 프로젝트 자신의 `SUPABASE_*`와는 다른 프로젝트)에 `naver_card_news`
+테이블로 upsert한다(2026-08-16, "카드뉴스 허브를 vernhaven admin 페이지
+하나에 탭으로 진짜 통합하고 싶다" 요청)** — vernhaven-blog `/admin?tab=naver`가
+이 테이블을 읽어서 배포 환경에서도 같은 데이터를 캡션 복사·업로드완료
+토글과 함께 보여준다(스키마·상세는 `vernhaven-blog/CLAUDE.md` "관리자
+대시보드 `/admin`" 절 "네이버 카드뉴스 탭" 참고, 원본은 그쪽 문서). 이
+프로젝트 쪽에서 신경 쓸 건 하나뿐 — **`posted`(업로드 완료 여부) 컬럼은
+`push_to_supabase()`가 의도적으로 payload에서 뺀다**, 그래야 이 스크립트를
+재실행해도 admin에서 사람이 이미 체크해둔 업로드 완료 상태가 안 지워진다.
+새 topic을 만들거나 캡션·네이버 URL을 고친 뒤엔 `--commit`을 다시 돌려야
+admin 쪽에 반영된다(자동 트리거 없음, 수동 재실행 필요).
+
 ## 배포 플랫폼 — Vercel (⚠️ 2026-08-14 정정, 예전 "GitHub Pages/서버 로직
 불가" 서술은 낡은 정보)
 
