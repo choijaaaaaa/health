@@ -257,11 +257,13 @@ class TestAssembleFpsRegression:
             title="테스트 제목",
             bg_color="0x00FF00",
             title_card_duration=title_card_duration,
-            # WHY end_card_duration=0(2026-08-02): 이 테스트는 title 카드/본편 fps
-            # 불일치 버그 재발만 좁게 검증하는 테스트라, 엔딩 카드(기본 켜짐, 2026-08-02
-            # 추가)까지 길이에 섞이면 이 테스트의 관심사가 아닌 변수가 늘어난다 —
-            # 엔딩 카드 자체는 별도 테스트(TestAssembleEndCard)에서 검증한다.
+            # WHY end_card_duration=0/summary_card_duration=0(2026-08-02, 2026-08-16):
+            # 이 테스트는 title 카드/본편 fps 불일치 버그 재발만 좁게 검증하는
+            # 테스트라, 엔딩 카드·결론 미리보기 카드(둘 다 기본 켜짐)까지 길이에
+            # 섞이면 이 테스트의 관심사가 아닌 변수가 늘어난다 — 각각 별도
+            # 테스트(TestAssembleEndCard/TestAssembleSummaryCard)에서 검증한다.
             end_card_duration=0,
+            summary_card_duration=0,
         )
 
         assert out_path.exists()
@@ -290,7 +292,10 @@ class TestAssembleEndCard:
         assemble(
             images=[str(img)], motion_path=str(motion), audio_path=str(audio),
             srt_path=str(srt), out_path=str(out_path), title="테스트 제목",
-            bg_color="0x00FF00", title_card_duration=1.0, **kwargs,
+            # WHY summary_card_duration=0(2026-08-16): 이 클래스는 end_card만
+            # 좁게 검증한다 — 결론 미리보기 카드(기본 켜짐)는
+            # TestAssembleSummaryCard에서 별도 검증.
+            bg_color="0x00FF00", title_card_duration=1.0, summary_card_duration=0, **kwargs,
         )
         return out_path
 
@@ -341,7 +346,7 @@ class TestAssembleEndCard:
             images=[str(img)], motion_path=str(motion), audio_path=str(audio),
             srt_path=str(srt), out_path=str(out_path), title="테스트 제목",
             bg_color="0x00FF00", title_card_duration=title_card_duration,
-            end_card_duration=end_card_duration,
+            end_card_duration=end_card_duration, summary_card_duration=0,
         )
         expected = title_card_duration + audio_duration + end_card_duration
         actual = _ffprobe_duration(out_path)
@@ -349,6 +354,49 @@ class TestAssembleEndCard:
             f"expected ~{expected}s, got {actual}s — SRT가 오디오보다 길 때 "
             "엔딩 카드 영역까지 침범해서 영상이 늘어난 것으로 보임(클램프 회귀)"
         )
+
+
+class TestAssembleSummaryCard:
+    """2026-08-16 추가: 제목 카드 바로 뒤에 붙는 '결론 미리보기' 카드
+    (summary_card_duration, 기본 2.4초 켜짐 — "결론을 먼저 던지자" 요청).
+    길이가 정확히 그만큼 늘어나는지, 0으로 주면 완전히 꺼지는지 검증."""
+
+    def _assemble(self, tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio, **kwargs):
+        img = make_solid_jpg("bg.jpg", color=(120, 90, 60))
+        motion = make_tiny_clip("char.mp4", duration=1.0, color="0x00FF00")
+        audio = make_silent_audio("narration.mp3", duration=2.0)
+        srt = _write_srt(tmp_path, [("00:00:00,200", "00:00:01,500", "테스트 문장")])
+        out_path = tmp_path / "out.mp4"
+        assemble(
+            images=[str(img)], motion_path=str(motion), audio_path=str(audio),
+            srt_path=str(srt), out_path=str(out_path), title="테스트 제목",
+            # WHY end_card_duration=0(2026-08-16): 이 클래스는 summary_card만
+            # 좁게 검증한다 — end_card는 TestAssembleEndCard에서 이미 커버.
+            bg_color="0x00FF00", title_card_duration=1.0, end_card_duration=0, **kwargs,
+        )
+        return out_path
+
+    def test_summary_card_extends_duration_by_exact_amount(
+        self, make_solid_jpg, make_tiny_clip, make_silent_audio, tmp_path,
+    ):
+        out_path = self._assemble(
+            tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio,
+            summary_card_duration=1.8, summary_card_text="이런 증상엔 이 3가지가 필요해요",
+        )
+        expected = 1.0 + 2.0 + 1.8  # title_card_duration + audio_duration + summary_card_duration
+        actual = _ffprobe_duration(out_path)
+        assert actual == pytest.approx(expected, abs=0.5)
+
+    def test_summary_card_duration_zero_disables_it(
+        self, make_solid_jpg, make_tiny_clip, make_silent_audio, tmp_path,
+    ):
+        out_path = self._assemble(
+            tmp_path, make_solid_jpg, make_tiny_clip, make_silent_audio,
+            summary_card_duration=0,
+        )
+        expected = 1.0 + 2.0  # title_card_duration + audio_duration만, 미리보기 카드 없음
+        actual = _ffprobe_duration(out_path)
+        assert actual == pytest.approx(expected, abs=0.5)
 
 
 class TestInstagramSafeVideo:

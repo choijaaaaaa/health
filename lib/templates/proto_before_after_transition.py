@@ -620,12 +620,21 @@ def _render_screen(tone: str, theme: dict, lang: str, label: str | None, body_li
 
 
 def _render_closing_screen(theme: dict, lang: str, closing: dict, char_chromas: list[Image.Image],
-                            progress_style: str, progress_index: int, progress_total: int) -> Image.Image:
+                            progress_style: str, progress_index: int, progress_total: int,
+                            show_progress: bool = True) -> Image.Image:
     palette = theme["after"]
     img = _vertical_gradient(palette["top"], palette["bottom"]).convert("RGB")
     draw = ImageDraw.Draw(img)
     accent = palette["accent"]
-    _draw_progress(draw, progress_style, progress_index, progress_total, SAFE_CX, SAFE_TOP + 10, accent)
+    # WHY show_progress=False 분기(2026-08-16, "결론 먼저 던지기" 요청 —
+    # 이 화면을 훅 직후 미리보기 카드로도 재사용하게 되면서 추가): 진행
+    # 표시는 "실제로 몇 번째 화면인지"를 알려주는 용도라, 영상 맨 앞
+    # 미리보기에서 마지막 인덱스(progress_index=total-1) 점을 그대로
+    # 찍으면 방금 시작한 영상인데 "거의 끝났다"는 잘못된 신호를 준다 —
+    # 훅 화면이 진행 표시를 아예 빼는 것과 같은 원칙(_render_hook_screen
+    # WHY 참고), 실제 클로징(맨 끝)에서만 그대로 그린다.
+    if show_progress:
+        _draw_progress(draw, progress_style, progress_index, progress_total, SAFE_CX, SAFE_TOP + 10, accent)
 
     y_cursor = SAFE_TOP + 60
     dummy = Image.new("RGBA", (1, 1))
@@ -940,6 +949,29 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             return char_cache[char_file]
 
         total_beats = 2 + n_pairs + 1  # hook + mechanism + N cause + closing(해결책 개별 화면 없음)
+
+        # WHY 클로징 화면을 여기서 미리 렌더링(2026-08-16, "결론을 먼저
+        # 던지자 — 훅 다음에 요약 페이지 하나 더" 요청): 이 화면(요약+팁)이
+        # 곧 훅 직후에도 미리보기로 한 번 더 쓰인다 — 미리보기는 진행 표시가
+        # 없는 것만 다르고(show_progress=False, 위 _render_closing_screen
+        # WHY 참고) 나머지 내용은 실제 클로징과 완전히 동일해서, 같은
+        # closing_chromas로 두 번 렌더링해 두 PNG를 만들어둔다(캐릭터 목록이
+        # screens 루프보다 먼저 필요해져서 이 시점으로 끌어올림 — causes만
+        # 참조하므로 screens 구성과 무관하게 독립적으로 계산 가능).
+        closing_char_files = list(dict.fromkeys(c.get("char_file") for c in causes if c.get("char_file")))
+        closing_chromas = [chroma_for(f) for f in closing_char_files]
+        closing_img = _render_closing_screen(
+            theme, lang, spec["closing"], closing_chromas, progress_style, total_beats - 1, total_beats,
+        )
+        if ad_tag:
+            closing_img = draw_ad_tag_overlay(closing_img, lang)
+        preview_img = _render_closing_screen(
+            theme, lang, spec["closing"], closing_chromas, progress_style, total_beats - 1, total_beats,
+            show_progress=False,
+        )
+        if ad_tag:
+            preview_img = draw_ad_tag_overlay(preview_img, lang)
+
         screens: list[dict] = []
         # WHY mechanism_item 폴백(2026-08-05, 코골이_1 실측 확인 — 오프닝
         # 화면이 캐릭터 하나 없이 텍스트만 덩그러니 뜨는 문제 발견): spec에
@@ -994,13 +1026,6 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             png_paths.append(p)
             target_durs.append(s["dur"])
 
-        closing_char_files = list(dict.fromkeys(c.get("char_file") for c in causes if c.get("char_file")))
-        closing_chromas = [chroma_for(f) for f in closing_char_files]
-        closing_img = _render_closing_screen(
-            theme, lang, spec["closing"], closing_chromas, progress_style, total_beats - 1, total_beats,
-        )
-        if ad_tag:
-            closing_img = draw_ad_tag_overlay(closing_img, lang)
         closing_png = tmp_path / f"scr_{len(screens):02d}.png"
         closing_img.save(closing_png)
         png_paths.append(closing_png)
@@ -1069,14 +1094,37 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             check=True, capture_output=True,
         )
 
-        # WHY concat demuxer -c copy(2026-08-13): title_card_out과 chained
-        # 둘 다 이미 같은 코덱/픽셀포맷/fps(libx264/yuv420p/30)로 렌더링돼 있어
-        # 재인코딩 없이 그대로 이어붙일 수 있다 — 판서형 assemble()의
-        # scene_files concat과 동일한 패턴.
+        # WHY 훅 다음에 무음 "결론 미리보기" 씬 추가(2026-08-16, "결론을 먼저
+        # 던지자 — 예를 들어 '이런 증상엔 3가지 음식이 필요하다'부터 던지고
+        # 시작하는 게 낫다" 요청): 훅(=썸네일 역할, 프레임 0)까지는 이미 2개
+        # 화면(무음 타이틀 카드+나레이션 길이만큼의 훅 화면)인데, 그 직후
+        # 바로 원인/기전 설명으로 들어가지 말고 이 영상이 결론으로 뭘 줄지
+        # (요약+팁 — preview_img, 위에서 미리 렌더링해둔 클로징 화면과 동일한
+        # 내용) 먼저 보여줘서 시청자를 붙잡는다. 이 화면도 title_card처럼
+        # 나레이션과 무관한 무음 구간이라(그 시점 나레이션은 아직 훅 문장을
+        # 막 끝낸 참이라 요약 내용과 안 맞음) chained 안이 아니라 title_card
+        # 처럼 별도 세그먼트로 앞에 붙인다 — 길이는 CLOSING_READ_MIN(이미
+        # 클로징 화면 최소 읽기 시간으로 계산해둔 값, 텍스트 길이 비례)을
+        # 그대로 재사용해 요약 분량과 무관하게 항상 다 읽을 시간을 준다.
+        summary_card_png = tmp_path / "summary_card.png"
+        preview_img.save(summary_card_png)
+        summary_card_out = tmp_path / "summary_card.mp4"
+        subprocess.run(
+            ["ffmpeg", "-y", "-loop", "1", "-t", f"{CLOSING_READ_MIN}", "-r", str(FPS),
+             "-i", str(summary_card_png), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(summary_card_out)],
+            check=True, capture_output=True,
+        )
+
+        # WHY concat demuxer -c copy(2026-08-13): title_card_out/summary_card_out/
+        # chained 셋 다 이미 같은 코덱/픽셀포맷/fps(libx264/yuv420p/30)로
+        # 렌더링돼 있어 재인코딩 없이 그대로 이어붙일 수 있다 — 판서형
+        # assemble()의 scene_files concat과 동일한 패턴.
         combined = tmp_path / "combined.mp4"
         concat_list = tmp_path / "concat_list.txt"
         concat_list.write_text(
-            f"file '{title_card_out.resolve()}'\nfile '{chained.resolve()}'\n"
+            f"file '{title_card_out.resolve()}'\n"
+            f"file '{summary_card_out.resolve()}'\n"
+            f"file '{chained.resolve()}'\n"
         )
         subprocess.run(
             ["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", str(concat_list),
@@ -1085,13 +1133,14 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         )
 
         # WHY mix_bgm(단순 케이스) 대신 bgm_filter_segment+adelay(복합 케이스)로
-        # 전환(2026-08-13): 타이틀 카드가 붙으면서 영상 전체 길이가
-        # audio_duration보다 TITLE_CARD_DURATION만큼 길어졌다 — BGM은 그 무음
-        # 구간에서도 끊기지 않고 계속 깔려야 자연스럽고(판서형과 동일 원칙),
-        # 나레이션만 그만큼 뒤로(adelay) 밀어야 훅 화면 시작과 나레이션 시작이
-        # 정확히 맞는다. lib/bgm.py의 "복합 케이스" 가이드 그대로.
-        video_total_duration = TITLE_CARD_DURATION + audio_duration
-        offset_ms = int(TITLE_CARD_DURATION * 1000)
+        # 전환(2026-08-13): 타이틀 카드+요약 미리보기 카드가 붙으면서 영상
+        # 전체 길이가 audio_duration보다 그 둘의 합만큼 길어졌다 — BGM은 그
+        # 무음 구간에서도 끊기지 않고 계속 깔려야 자연스럽고(판서형과 동일
+        # 원칙), 나레이션만 그만큼 뒤로(adelay) 밀어야 훅 화면 시작과
+        # 나레이션 시작이 정확히 맞는다. lib/bgm.py의 "복합 케이스" 가이드 그대로.
+        intro_offset = TITLE_CARD_DURATION + CLOSING_READ_MIN
+        video_total_duration = intro_offset + audio_duration
+        offset_ms = int(intro_offset * 1000)
         bgm_result = bgm_filter_segment(seed_str, video_total_duration, in_label="2:a", out_label="bgm")
         if bgm_result is not None:
             bgm_frag, bgm_track = bgm_result
