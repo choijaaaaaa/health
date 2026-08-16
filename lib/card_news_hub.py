@@ -91,7 +91,14 @@ def _topic_output_dir(repo_root: Path, topic: str) -> Path:
     return nested if nested.exists() else base
 
 
-def _naver_blog_caption(captions_path: Path) -> str | None:
+def _naver_blog_entry(captions_path: Path) -> tuple[str, str] | None:
+    """(caption, url) 튜플을 반환한다 — url은 계정 URL이 아직 안 채워진
+    topic이면 빈 문자열일 수 있다(index.html/topic-detail.html 쪽에서
+    빈 문자열이면 이동 버튼을 숨긴다). WHY 예전엔 caption만 반환했는지
+    (2026-08-16, "왜 링크로 바로 넘어가는 열기 버튼은 없지" 실측 지적):
+    처음엔 캡션 복사만 지원했는데, url 필드(각 topic의 네이버 계정
+    URL)를 그냥 버리고 있었다 — 캡션 복사 후 실제로 어디에 붙여넣을지
+    한 번 더 찾아가야 하는 불편이 있었다."""
     if not captions_path.exists():
         return None
     try:
@@ -100,7 +107,10 @@ def _naver_blog_caption(captions_path: Path) -> str | None:
         return None
     for p in data.get("platforms", []):
         if p.get("name") == "네이버 블로그":
-            return p.get("caption") or None
+            caption = p.get("caption")
+            if not caption:
+                return None
+            return caption, (p.get("url") or "")
     return None
 
 
@@ -188,9 +198,10 @@ def collect_items() -> dict:
         for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
             topic = topic_dir.name
             captions_path = _topic_data_dir(repo_root, topic) / "platform_captions.json"
-            caption = _naver_blog_caption(captions_path)
-            if not caption:
+            naver_entry = _naver_blog_entry(captions_path)
+            if not naver_entry:
                 continue
+            caption, naver_url = naver_entry
 
             topic_output_dir = _topic_output_dir(repo_root, topic)
             dashboard = topic_output_dir / "dashboard.html"
@@ -214,6 +225,7 @@ def collect_items() -> dict:
                 "images": images,
                 "video_path": video_path,
                 "local_path": str(captions_path.parent),
+                "naver_url": naver_url,
             })
 
     return {

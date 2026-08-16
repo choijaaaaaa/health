@@ -86,6 +86,7 @@
       <p class="caption-box" id="captionBox"></p>
       <div class="btn-row">
         <button type="button" class="btn btn-primary" id="copyBtn">캡션 복사</button>
+        <a class="btn btn-ghost" id="naverLinkBtn" href="#" target="_blank" rel="noopener">네이버 블로그로 이동 ↗</a>
       </div>
     </div>
 
@@ -222,6 +223,21 @@ async function hsWrite(path, method, body) {
       copyBtn.textContent = "복사 실패";
     }
   });
+
+  // WHY 이 버튼(2026-08-16, "왜 링크로 바로 넘어가는 열기 버튼은 없지"
+  // 실측 지적): 캡션만 복사해두고 실제로 어디에 붙여넣을지는 매번 따로
+  // 찾아가야 했다 — platform_captions.json의 네이버 계정 url을
+  // lib/card_news_hub.py가 이제 naver_url로 같이 넘겨준다. 계정 URL이
+  // 아직 안 채워진 topic(빈 문자열)은 버튼 자체를 숨긴다(예: sparelow는
+  // 계정이 아직 생성 전이라 URL이 있어도 실제로 안 열림 — 하지만 그건
+  // 계정 자체 문제라 이 페이지가 판단할 일은 아니고, url이 아예 없는
+  // 경우만 숨긴다).
+  const naverLinkBtn = document.getElementById("naverLinkBtn");
+  if (item.naver_url) {
+    naverLinkBtn.href = item.naver_url;
+  } else {
+    naverLinkBtn.remove();
+  }
 
   // 로컬 폴더 경로 복사
   document.getElementById("pathBox").textContent = item.local_path || "(경로 정보 없음)";
