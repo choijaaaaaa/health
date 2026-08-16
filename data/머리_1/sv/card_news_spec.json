@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Kliande hårbotten och mjäll",
+    "som inte försvinner,",
+    "trots rätt schampo?",
+    "Boven kan finnas på tallriken"
+  ],
+  "eyebrow": "Hårbottenlarm",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Munk",
+    "우유_illust.jpg": "Mjölkprodukter",
+    "돼지껍질튀김_illust.jpg": "Friterad mat"
+  },
+  "items": [
+    {
+      "name": "Varför det kliar och mjällar",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Även hårbotten har",
+        "talgkörtlar, precis som huden",
+        "",
+        "Viss mat ökar talgproduktionen",
+        "- favoritmaten för jästen",
+        "Malassezia"
+      ]
+    },
+    {
+      "name": "Socker",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Munkar och godis får",
+        "blodsockret att stiga snabbt",
+        "",
+        "Det höjer insulin och IGF-1",
+        "- hormoner som ökar",
+        "talgproduktionen"
+      ]
+    },
+    {
+      "name": "Istället för socker",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Byt sötsug mot nötter",
+        "eller färsk frukt"
+      ]
+    },
+    {
+      "name": "Mjölkprodukter",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Mjölk och glass innehåller",
+        "hormoner som i vissa studier",
+        "kopplas till mer talg",
+        "",
+        "Sambandet diskuteras",
+        "dock fortfarande"
+      ]
+    },
+    {
+      "name": "Istället för mjölk",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Testa sojamjölk",
+        "istället för komjölk"
+      ]
+    },
+    {
+      "name": "Friterad mat",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Pommes och friterad kyckling",
+        "lagas i olja rik",
+        "på omega-6",
+        "",
+        "Oxiderad olja ökar",
+        "inflammation och försvagar",
+        "hudbarriären"
+      ]
+    },
+    {
+      "name": "Istället för friterat",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Välj grillat eller",
+        "ångkokt istället"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Socker, mjölk och friterat -",
+        "du behöver inte utesluta allt"
+      ],
+      [
+        "Att minska och byta ut räcker",
+        "för att lugna hårbotten"
+      ]
+    ],
+    "tip": [
+      "Fet fisk som lax ger omega-3",
+      "som hjälper till att dämpa inflammation"
+    ],
+    "cta": "Följ för fler användbara hälsotips"
+  }
+}

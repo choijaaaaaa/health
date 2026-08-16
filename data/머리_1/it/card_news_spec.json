@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Prurito al cuoio capelluto",
+    "e forfora che non passano",
+    "nonostante lo shampoo?",
+    "Il problema è a tavola"
+  ],
+  "eyebrow": "Allerta cuoio capelluto",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Donut",
+    "우유_illust.jpg": "Latticini",
+    "돼지껍질튀김_illust.jpg": "Fritti"
+  },
+  "items": [
+    {
+      "name": "Perché prude e desquama",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Anche il cuoio capelluto",
+        "ha ghiandole sebacee",
+        "",
+        "Alcuni cibi stimolano il sebo,",
+        "il nutrimento preferito",
+        "della Malassezia"
+      ]
+    },
+    {
+      "name": "Zuccheri",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Ciambelle e dolci fanno",
+        "salire subito la glicemia",
+        "",
+        "Questo stimola insulina",
+        "e IGF-1, che attivano",
+        "le ghiandole sebacee"
+      ]
+    },
+    {
+      "name": "Al posto dei dolci",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Quando viene voglia,",
+        "meglio frutta secca o fresca"
+      ]
+    },
+    {
+      "name": "Latticini",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Latte e gelato contengono",
+        "ormoni collegati",
+        "al sebo in alcuni studi",
+        "",
+        "Il legame resta comunque",
+        "dibattuto tra i ricercatori"
+      ]
+    },
+    {
+      "name": "Al posto dei latticini",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Prova il latte di soia",
+        "al posto del latte vaccino"
+      ]
+    },
+    {
+      "name": "I fritti",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Patatine e pollo fritto",
+        "usano oli ricchi",
+        "di omega-6",
+        "",
+        "L'olio ossidato alimenta",
+        "l'infiammazione e indebolisce",
+        "la barriera cutanea"
+      ]
+    },
+    {
+      "name": "Al posto dei fritti",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Meglio alla griglia",
+        "o al vapore"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Zuccheri, latticini e fritti -",
+        "non serve eliminarli del tutto"
+      ],
+      [
+        "Ridurli e sostituirli basta",
+        "per calmare il cuoio capelluto"
+      ]
+    ],
+    "tip": [
+      "Il pesce azzurro come il salmone",
+      "apporta omega-3 anti-infiammatori"
+    ],
+    "cta": "Segui il profilo per altri consigli di salute"
+  }
+}

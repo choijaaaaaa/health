@@ -1,0 +1,109 @@
+{
+  "title": [
+    "¿Te pica el cuero cabelludo",
+    "y la caspa no desaparece",
+    "aunque cambies de champú?",
+    "El origen puede estar en el plato"
+  ],
+  "eyebrow": "Alerta de cuero cabelludo",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Dónut",
+    "우유_illust.jpg": "Lácteos",
+    "돼지껍질튀김_illust.jpg": "Fritos"
+  },
+  "items": [
+    {
+      "name": "Por qué pica y hay caspa",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "El cuero cabelludo también",
+        "tiene glándulas sebáceas",
+        "",
+        "Ciertos alimentos estimulan",
+        "el sebo, el alimento",
+        "favorito de Malassezia"
+      ]
+    },
+    {
+      "name": "El azúcar",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Dónuts y dulces suben",
+        "rápido el azúcar en sangre",
+        "",
+        "Eso dispara insulina",
+        "e IGF-1, que activan",
+        "las glándulas sebáceas"
+      ]
+    },
+    {
+      "name": "En vez de dulces",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Cambia los dulces por",
+        "frutos secos o fruta fresca"
+      ]
+    },
+    {
+      "name": "Lácteos",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "La leche y el helado",
+        "contienen hormonas ligadas",
+        "al sebo en varios estudios",
+        "",
+        "El vínculo sigue siendo",
+        "un tema debatido"
+      ]
+    },
+    {
+      "name": "En vez de lácteos",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Prueba la leche de soja",
+        "en vez de la de vaca"
+      ]
+    },
+    {
+      "name": "Los fritos",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Patatas y pollo frito",
+        "usan aceites ricos",
+        "en omega-6",
+        "",
+        "El aceite oxidado alimenta",
+        "la inflamación y debilita",
+        "la barrera cutánea"
+      ]
+    },
+    {
+      "name": "En vez de fritos",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Elige a la plancha",
+        "o al vapor en su lugar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dulces, lácteos y fritos -",
+        "no hace falta eliminarlos del todo"
+      ],
+      [
+        "Reducirlos y cambiarlos basta",
+        "para calmar el cuero cabelludo"
+      ]
+    ],
+    "tip": [
+      "El pescado azul como el salmón",
+      "aporta omega-3 antiinflamatorio"
+    ],
+    "cta": "Sigue la cuenta para más consejos de salud"
+  }
+}
