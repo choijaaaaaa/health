@@ -1,0 +1,110 @@
+{
+  "title": [
+    "La vescica continua",
+    "a bruciare",
+    "nonostante tutto?",
+    "3 abitudini alimentari che peggiorano la cistite"
+  ],
+  "eyebrow": "Salute della Vescica",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "topic_word": "Cistite",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeina",
+    "고추_illust.jpg": "Cibi Piccanti",
+    "탄산음료_illust.jpg": "Bevande Gassate"
+  },
+  "items": [
+    {
+      "name": "Perché peggiora",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La mucosa della vescica",
+        "reagisce a ciò che",
+        "finisce nelle urine",
+        "",
+        "Alcuni alimenti amplificano",
+        "questa irritazione"
+      ]
+    },
+    {
+      "name": "La caffeina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Il caffè ha effetto diuretico",
+        "e stimola direttamente",
+        "il muscolo della vescica",
+        "",
+        "Il risultato: stimolo più",
+        "frequente e urgente"
+      ]
+    },
+    {
+      "name": "La caffeina — il rimedio",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Sostituire il caffè con",
+        "acqua o una tisana"
+      ]
+    },
+    {
+      "name": "Cibi piccanti",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina del peperoncino",
+        "viene in parte eliminata",
+        "con le urine",
+        "",
+        "Irrita la mucosa vescicale",
+        "già infiammata"
+      ]
+    },
+    {
+      "name": "Cibi piccanti — il rimedio",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Preferire un brodo",
+        "leggero e delicato"
+      ]
+    },
+    {
+      "name": "Bevande gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Lo zucchero alimenta i batteri,",
+        "l'anidride carbonica irrita",
+        "la parete vescicale",
+        "",
+        "Questa combinazione può",
+        "prolungare il fastidio"
+      ]
+    },
+    {
+      "name": "Bevande gassate — il rimedio",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Scegliere acqua naturale",
+        "o una tisana"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Non serve eliminare",
+        "tutto per sempre"
+      ],
+      [
+        "Ridurre e sostituire",
+        "fa già una grande differenza"
+      ]
+    ],
+    "tip": [
+      "Bere abbastanza acqua aiuta a eliminare",
+      "batteri e sostanze irritanti dalla vescica"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti e seguici!"
+  }
+}

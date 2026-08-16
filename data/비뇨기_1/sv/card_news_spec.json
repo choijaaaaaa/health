@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Blåsan lugnar sig inte,",
+    "vad du än provar?",
+    "Kolla dessa 3 vanor först.",
+    "3 vardagsvanor som förvärrar blåskatarr"
+  ],
+  "eyebrow": "Blåshälsa",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "topic_word": "Blåskatarr",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffein",
+    "고추_illust.jpg": "Kryddstark Mat",
+    "탄산음료_illust.jpg": "Läsk"
+  },
+  "items": [
+    {
+      "name": "Varför det förvärras",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Urinblåsans slemhinna reagerar",
+        "på det som hamnar",
+        "i urinen",
+        "",
+        "Vissa livsmedel förstärker",
+        "den irritationen"
+      ]
+    },
+    {
+      "name": "Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kaffe är vätskedrivande",
+        "och kan irritera",
+        "blåsmuskeln direkt",
+        "",
+        "Resultatet: starkare och",
+        "tätare trängningar"
+      ]
+    },
+    {
+      "name": "Koffein — så gör du",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Byt kaffe mot vatten",
+        "eller örtte"
+      ]
+    },
+    {
+      "name": "Kryddstark mat",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Kapsaicin i chili utsöndras",
+        "delvis oförändrat",
+        "i urinen",
+        "",
+        "Det förstärker sveda och",
+        "trängningskänsla"
+      ]
+    },
+    {
+      "name": "Kryddstark mat — så gör du",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Välj en mild soppa",
+        "istället"
+      ]
+    },
+    {
+      "name": "Läsk",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sockret ger bakterier näring,",
+        "kolsyran irriterar",
+        "blåsan",
+        "",
+        "Kombinationen kan göra att",
+        "besvären dröjer kvar längre"
+      ]
+    },
+    {
+      "name": "Läsk — så gör du",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Välj vatten istället",
+        "för läsk"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Inget av detta behöver",
+        "försvinna helt"
+      ],
+      [
+        "Att minska och byta ut",
+        "gör redan stor skillnad"
+      ]
+    ],
+    "tip": [
+      "Att dricka tillräckligt med vatten hjälper till",
+      "att spola ut bakterier och irriterande ämnen"
+    ],
+    "cta": "Vill du ha fler hälsotips som detta? Följ oss och prenumerera!"
+  }
+}

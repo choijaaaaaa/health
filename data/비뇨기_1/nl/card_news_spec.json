@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Blaas blijft prikkelen,",
+    "wat je ook probeert?",
+    "Check eerst deze 3 gewoontes.",
+    "3 alledaagse gewoontes die blaasontsteking verergeren"
+  ],
+  "eyebrow": "Blaasgezondheid",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "topic_word": "Blaasontsteking",
+  "char_display_names": {
+    "커피_illust.jpg": "Cafeïne",
+    "고추_illust.jpg": "Pittig Eten",
+    "탄산음료_illust.jpg": "Frisdrank"
+  },
+  "items": [
+    {
+      "name": "Waarom het erger wordt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Het blaasslijmvlies reageert",
+        "op wat er in de urine",
+        "terechtkomt",
+        "",
+        "Bepaalde voeding versterkt",
+        "die irritatie"
+      ]
+    },
+    {
+      "name": "Cafeïne",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffie werkt vochtafdrijvend",
+        "en kan de blaasspier",
+        "rechtstreeks prikkelen",
+        "",
+        "Het gevolg: vaker en",
+        "dringender moeten plassen"
+      ]
+    },
+    {
+      "name": "Cafeïne — de oplossing",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vervang koffie door water",
+        "of kruidenthee"
+      ]
+    },
+    {
+      "name": "Pittig eten",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaïcine uit chili wordt",
+        "deels onveranderd",
+        "via de urine uitgescheiden",
+        "",
+        "Dat prikkelt de al",
+        "geïrriteerde blaaswand"
+      ]
+    },
+    {
+      "name": "Pittig eten — de oplossing",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Kies voor een milde",
+        "soep of bouillon"
+      ]
+    },
+    {
+      "name": "Frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Suiker voedt bacteriën,",
+        "koolzuur prikkelt",
+        "de blaaswand",
+        "",
+        "Die combinatie kan klachten",
+        "langer laten duren"
+      ]
+    },
+    {
+      "name": "Frisdrank — de oplossing",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Kies water in plaats",
+        "van frisdrank"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Niets hoeft helemaal",
+        "van tafel"
+      ],
+      [
+        "Minderen en vervangen",
+        "helpt al merkbaar"
+      ]
+    ],
+    "tip": [
+      "Voldoende water drinken helpt bacteriën en",
+      "prikkelende stoffen uit de blaas te spoelen"
+    ],
+    "cta": "Meer van dit soort gezondheidstips? Volg ons en abonneer je!"
+  }
+}

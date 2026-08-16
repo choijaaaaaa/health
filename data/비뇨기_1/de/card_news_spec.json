@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Blase brennt trotz Behandlung",
+    "einfach nicht auf?",
+    "Erst diese 3 Gewohnheiten prüfen.",
+    "3 Alltagsgewohnheiten, die die Blase reizen"
+  ],
+  "eyebrow": "Blasengesundheit",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "topic_word": "Blasenreizung",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffein",
+    "고추_illust.jpg": "Scharfes Essen",
+    "탄산음료_illust.jpg": "Limonade"
+  },
+  "items": [
+    {
+      "name": "Warum sich das verschlimmert",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Die Blasenschleimhaut reagiert",
+        "empfindlich auf das,",
+        "was im Urin landet",
+        "",
+        "Bestimmte Lebensmittel",
+        "verstärken diese Reizung"
+      ]
+    },
+    {
+      "name": "Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kaffee wirkt harntreibend",
+        "und reizt zugleich direkt",
+        "den Blasenmuskel",
+        "",
+        "Das Ergebnis: häufigerer,",
+        "dringenderer Harndrang"
+      ]
+    },
+    {
+      "name": "Koffein — so hilft's",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kaffee gegen Wasser",
+        "oder Kräutertee tauschen"
+      ]
+    },
+    {
+      "name": "Scharfes Essen",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaicin aus Chili und",
+        "Curry wird teils unverändert",
+        "über den Urin ausgeschieden",
+        "",
+        "Das reizt die empfindliche",
+        "Blasenschleimhaut zusätzlich"
+      ]
+    },
+    {
+      "name": "Scharfes Essen — so hilft's",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Auf eine milde Brühe",
+        "oder Suppe umsteigen"
+      ]
+    },
+    {
+      "name": "Limonade",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Der Zucker ernährt Bakterien,",
+        "die Kohlensäure reizt",
+        "die Blasenwand",
+        "",
+        "Diese Kombination kann",
+        "die Beschwerden verlängern"
+      ]
+    },
+    {
+      "name": "Limonade — so hilft's",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Zu stillem Wasser",
+        "oder Kräutertee greifen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nichts davon muss",
+        "komplett verschwinden"
+      ],
+      [
+        "Reduzieren und ersetzen",
+        "hilft schon spürbar"
+      ]
+    ],
+    "tip": [
+      "Ausreichend Wasser hilft, Bakterien und",
+      "Reizstoffe aus der Blase zu spülen"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  }
+}

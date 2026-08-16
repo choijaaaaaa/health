@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Vessie irritée",
+    "qui ne se calme pas,",
+    "quoi que vous fassiez ?",
+    "3 habitudes alimentaires qui aggravent la cystite"
+  ],
+  "eyebrow": "Santé de la vessie",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0A5E7A",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "topic_word": "Irritation de la vessie",
+  "char_display_names": {
+    "커피_illust.jpg": "Caféine",
+    "고추_illust.jpg": "Épices",
+    "탄산음료_illust.jpg": "Soda"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça s'aggrave",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La paroi de la vessie réagit",
+        "à ce qui se retrouve",
+        "dans les urines",
+        "",
+        "Certains aliments amplifient",
+        "cette irritation"
+      ]
+    },
+    {
+      "name": "La caféine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Le café stimule directement",
+        "le muscle de la vessie",
+        "et augmente la diurèse",
+        "",
+        "Résultat : des envies",
+        "plus fréquentes et pressantes"
+      ]
+    },
+    {
+      "name": "La caféine — la solution",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Remplacer le café par",
+        "de l'eau ou une infusion"
+      ]
+    },
+    {
+      "name": "Les épices",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaïcine du piment",
+        "est en partie éliminée",
+        "dans les urines",
+        "",
+        "Elle irrite la muqueuse",
+        "déjà sensibilisée"
+      ]
+    },
+    {
+      "name": "Les épices — la solution",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Opter pour un bouillon",
+        "léger à la place"
+      ]
+    },
+    {
+      "name": "Le soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Le sucre nourrit les bactéries,",
+        "le gaz carbonique irrite",
+        "la paroi de la vessie",
+        "",
+        "Cette combinaison peut",
+        "prolonger l'inconfort"
+      ]
+    },
+    {
+      "name": "Le soda — la solution",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Préférer l'eau plate",
+        "ou une infusion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il n'est pas nécessaire",
+        "de tout bannir"
+      ],
+      [
+        "Réduire et remplacer suffit",
+        "à faire une vraie différence"
+      ]
+    ],
+    "tip": [
+      "Boire assez d'eau aide à éliminer bactéries",
+      "et substances irritantes de la vessie"
+    ],
+    "cta": "Envie de plus d'astuces santé comme celle-ci ? Abonnez-vous et suivez-nous !"
+  }
+}

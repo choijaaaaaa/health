@@ -1,80 +1,92 @@
 {
   "title": [
-    "Up for the third time",
-    "before 2 a.m. just to pee,",
-    "and it burns worse each time?"
+    "Bladder won't calm down,",
+    "burning a little more",
+    "every time you go?",
+    "3 Everyday Foods That Worsen Cystitis"
   ],
   "eyebrow": "Bladder Health Alert",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Bladder Health",
   "char_display_names": {
     "커피_illust.jpg": "Caffeine",
-    "탄산음료_illust.jpg": "Diet Soda",
-    "귤_illust.jpg": "Citrus Fruit"
+    "고추_illust.jpg": "Spicy Food",
+    "탄산음료_illust.jpg": "Soda"
   },
   "items": [
     {
       "name": "Why this happens",
       "char_file": "커피_illust.jpg",
       "body": [
-        "The bladder wall reacts to",
-        "what's concentrated in urine",
+        "The bladder lining reacts",
+        "to what ends up in urine",
         "",
-        "Some everyday foods make",
-        "that reaction - and the",
-        "burning - noticeably worse"
+        "Certain foods and drinks",
+        "make that irritation",
+        "and burning worse"
       ]
     },
     {
       "name": "Caffeine",
       "char_file": "커피_illust.jpg",
       "body": [
-        "Coffee and tea stimulate",
-        "the bladder directly and",
-        "increase urine output"
+        "Coffee and other caffeinated",
+        "drinks stimulate the bladder",
+        "and increase urine output",
+        "",
+        "That means more trips",
+        "to the bathroom, more often"
       ]
     },
     {
       "name": "Caffeine — the fix",
       "char_file": "커피_illust.jpg",
       "body": [
-        "Swap for water or",
-        "herbal tea"
+        "Swap coffee for water",
+        "or herbal tea"
       ]
     },
     {
-      "name": "Diet Soda",
-      "char_file": "탄산음료_illust.jpg",
+      "name": "Spicy Food",
+      "char_file": "고추_illust.jpg",
       "body": [
-        "Artificial sweeteners can",
-        "aggravate an already",
-        "inflamed bladder lining"
-      ]
-    },
-    {
-      "name": "Diet Soda — the fix",
-      "char_file": "탄산음료_illust.jpg",
-      "body": [
-        "Try plain still",
-        "water instead"
-      ]
-    },
-    {
-      "name": "Citrus Fruit",
-      "char_file": "귤_illust.jpg",
-      "body": [
-        "Orange juice and other",
-        "citrus are high in",
-        "citric acid",
+        "Capsaicin in chili and",
+        "spicy dishes gets excreted",
+        "in urine",
         "",
-        "That acidity can directly",
-        "irritate the bladder lining"
+        "It irritates the bladder",
+        "lining directly, making",
+        "burning and urgency worse"
       ]
     },
     {
-      "name": "Citrus — the fix",
-      "char_file": "귤_illust.jpg",
+      "name": "Spicy Food — the fix",
+      "char_file": "고추_illust.jpg",
       "body": [
-        "Try a lower-acid fruit",
-        "like banana instead"
+        "Try a mild broth",
+        "or soup instead"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Soda's sugar feeds bacteria",
+        "while the carbonation",
+        "irritates the bladder",
+        "",
+        "That combination can make",
+        "symptoms last longer"
+      ]
+    },
+    {
+      "name": "Soda — the fix",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Try plain water or",
+        "herbal tea instead"
       ]
     }
   ],
@@ -85,15 +97,14 @@
         "to disappear for good"
       ],
       [
-        "Small swaps make",
-        "a real difference"
+        "Cutting back and swapping",
+        "still makes a real difference"
       ]
     ],
     "tip": [
-      "Drinking plenty of plain water helps",
-      "dilute urine and ease the irritation"
+      "Drinking enough water helps flush",
+      "bacteria and irritants from the bladder"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
-  },
-  "topic_word": "Bladder Health"
+  }
 }
