@@ -213,6 +213,7 @@ def collect_items() -> dict:
                 "dashboard_path": dashboard_path,
                 "images": images,
                 "video_path": video_path,
+                "local_path": str(captions_path.parent),
             })
 
     return {

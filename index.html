@@ -181,6 +181,44 @@
     background: var(--panel); color: var(--ink); text-decoration: none; font-size: 14px; font-weight: 700;
   }
   .jp-topic-row:hover { border-color: var(--accent); }
+
+  /* WHY 검색창을 3개 더 추가하는지(2026-08-16, "건강처럼 한줄한줄 확인할
+     수 있게"): #topicSearch(건강 탭)와 완전히 같은 시각 스타일을 공유
+     클래스로 뽑아서 family/finance/jp_review 탭에도 그대로 붙인다. */
+  .cnh-search-input {
+    width: 100%; box-sizing: border-box; padding: 10px 14px; margin-bottom: 14px;
+    border: 1px solid var(--rule); border-radius: 10px; font-family: inherit;
+    font-size: 14px; color: var(--ink); background: var(--panel);
+  }
+  /* WHY 카드 그리드(cnh-card-grid)를 대체하는 한줄 행 목록인지(2026-08-16,
+     "건강처럼 한줄한줄 토픽에 대한거 확인할수있게 하고 버튼눌러 대시보드
+     들어가게해"): 기존엔 topic마다 이미지 그리드+캡션 전문을 전부 인라인
+     으로 펼쳐서 20개 topic이면 페이지 하나가 감당 못 할 만큼 길어졌다 —
+     건강 탭(#topicsSection)과 동일하게 행 하나=topic 하나로 압축하고,
+     상세(이미지·캡션 복사)는 topic-detail.html로 분리했다. */
+  .cnh-topic-row {
+    display: flex; align-items: center; gap: 10px; background: var(--panel);
+    border: 1px solid var(--rule); border-radius: 12px; padding: 10px 18px;
+    text-decoration: none; color: var(--ink); margin-bottom: 8px;
+  }
+  .cnh-topic-row:hover { border-color: var(--accent); }
+  .cnh-topic-row.is-done { opacity: 0.55; background: var(--gold-soft); border-color: var(--gold); }
+  .cnh-topic-row-thumb {
+    flex: 0 0 auto; width: 42px; height: 52px; border-radius: 6px; overflow: hidden;
+    background: var(--bg-bottom);
+  }
+  .cnh-topic-row-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cnh-topic-row-text { flex: 1; min-width: 0; }
+  .cnh-topic-row-title { display: block; font-size: 14px; font-weight: 700; }
+  .cnh-topic-row.is-done .cnh-topic-row-title { text-decoration: line-through; }
+  .cnh-topic-row-caption {
+    font-size: 12px; color: var(--ink-soft); margin-top: 2px; overflow: hidden;
+    text-overflow: ellipsis; white-space: nowrap;
+  }
+  .cnh-topic-row-open {
+    flex: 0 0 auto; font-size: 13px; font-weight: 700; padding: 8px 16px;
+    border-radius: 999px; background: var(--accent); color: #fff;
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <script src="supabase_client.js"></script>
@@ -296,11 +334,13 @@
      파일 하나로 합쳐둔다(위 topicsSection이 읽는 output/all_products.json과
      동일한 사전 집계 패턴). -->
 <div id="familyHubSection" class="cnh-tab-hidden">
+  <input type="text" id="familySearch" class="cnh-search-input" placeholder="폴더명으로 검색 (예: 수면음식)" aria-label="육아·반려동물 topic 검색">
   <div id="familyHubStatus">불러오는 중…</div>
   <div id="familyHubGroups"></div>
 </div>
 
 <div id="financeHubSection" class="cnh-tab-hidden">
+  <input type="text" id="financeSearch" class="cnh-search-input" placeholder="폴더명으로 검색" aria-label="경제 topic 검색">
   <div id="financeHubStatus">불러오는 중…</div>
   <div id="financeHubGroups"></div>
 </div>
@@ -314,6 +354,7 @@
      각자의 dashboard.html로 보내는 게 맞다 — "숏츠·전체 목록"(건강) 탭이
      health 자신의 topic을 그렇게 보여주는 것과 동일한 패턴. -->
 <div id="jpReviewSection" class="cnh-tab-hidden">
+  <input type="text" id="jpReviewSearch" class="cnh-search-input" placeholder="폴더명으로 검색" aria-label="일본상품리뷰 topic 검색">
   <div id="jpReviewStatus">불러오는 중…</div>
   <div id="jpReviewList" style="display:flex;flex-direction:column;gap:8px;"></div>
 </div>
@@ -367,144 +408,81 @@
     return div.innerHTML;
   }
 
-  function cnhBuildCard(item) {
-    const card = document.createElement("div");
-    card.className = "cnh-card";
+  // WHY topic-detail.html로 넘어가는 링크를 만드는지(2026-08-16): 예전엔
+  // 여기서 이미지 그리드+캡션 전문을 카드로 통째로 그렸는데, 그 카드
+  // 렌더링 로직(이미지·복사·완료 체크)을 그대로 topic-detail.html로
+  // 옮겼다 — 여기 index.html은 목록(행)만 그린다.
+  function cnhDetailUrl(vertical, item) {
+    return `topic-detail.html?vertical=${encodeURIComponent(vertical.key)}&topic=${encodeURIComponent(item.topic)}`;
+  }
 
-    const head = document.createElement("div");
-    head.className = "cnh-card-head";
-
-    const title = document.createElement("p");
-    title.className = "cnh-card-title";
-    title.textContent = item.title;
-    head.appendChild(title);
-
-    // WHY 완료 체크박스 추가(2026-08-14, "그냥 사진 다올려놓고 완료된게
-    // 뭔지 올려야되는게 뭔지도 파악하기 힘들게 되어있네") — 기존 topic
-    // dashboard.html(CARD_TEMPLATE)의 done-toggle과 완전히 같은 방식
-    // (hs_done_<topic>_<key> localStorage + Supabase posting_log 테이블)을
-    // 재사용해서, 여기서 체크한 것도 같은 posting_log에 쌓여 CSV
-    // 내보내기·다른 대시보드와 일관되게 집계된다. 네이버 블로그 캡션
-    // 하나만 다루는 카드라 플랫폼은 "네이버 블로그" 고정.
-    const doneLabel = document.createElement("label");
-    doneLabel.className = "cnh-done-check";
-    const doneCb = document.createElement("input");
-    doneCb.type = "checkbox";
-    const doneSpan = document.createElement("span");
-    doneSpan.textContent = "완료";
-    doneLabel.appendChild(doneCb);
-    doneLabel.appendChild(doneSpan);
-    head.appendChild(doneLabel);
-    card.appendChild(head);
+  function cnhBuildRow(vertical, item) {
+    const row = document.createElement("a");
+    row.className = "cnh-topic-row";
+    row.href = cnhDetailUrl(vertical, item);
+    row.target = "_blank";
+    row.rel = "noopener";
 
     const storageKey = `hs_done_${item.topic}_naver_blog`;
-    if (localStorage.getItem(storageKey)) {
-      doneCb.checked = true;
-      card.classList.add("is-done");
-    }
-    (async () => {
-      try {
-        const { data } = await sb.from("posting_log").select("platform")
-          .eq("topic", item.topic).eq("platform", "네이버 블로그");
-        if (data && data.length) {
-          doneCb.checked = true;
-          card.classList.add("is-done");
-        }
-      } catch (err) { /* Supabase 조회 실패해도 localStorage 값으로 계속 동작 */ }
-    })();
-    doneCb.addEventListener("change", () => {
-      if (doneCb.checked) {
+    const done = !!localStorage.getItem(storageKey);
+    if (done) row.classList.add("is-done");
+
+    const badge = document.createElement("button");
+    badge.type = "button";
+    badge.textContent = done ? "✅" : "⬜";
+    badge.style.cssText = "width:22px;height:22px;flex:0 0 auto;font-size:14px;line-height:1;padding:0;border:none;background:transparent;cursor:pointer;";
+    badge.title = done ? "클릭하면 완료 표시를 해제합니다" : "클릭하면 완료로 표시합니다";
+    badge.setAttribute("aria-label", item.title + (done ? " 완료 표시 해제" : " 완료로 표시"));
+    badge.addEventListener("click", async (ev) => {
+      ev.preventDefault();
+      ev.stopPropagation();
+      badge.disabled = true;
+      const nowDone = !row.classList.contains("is-done");
+      if (nowDone) {
         const postedAt = new Date().toISOString();
         localStorage.setItem(storageKey, JSON.stringify({ topic: item.topic, platform: "네이버 블로그", postedAt }));
-        card.classList.add("is-done");
+        row.classList.add("is-done");
+        badge.textContent = "✅";
         hsWrite("/api/posting-log", "POST", { topic: item.topic, platform: "네이버 블로그", posted_at: postedAt });
       } else {
         localStorage.removeItem(storageKey);
-        card.classList.remove("is-done");
+        row.classList.remove("is-done");
+        badge.textContent = "⬜";
         hsWrite("/api/posting-log", "DELETE", { topic: item.topic, platform: "네이버 블로그" });
       }
+      badge.disabled = false;
     });
+    row.appendChild(badge);
 
-    // WHY 이미지 그리드를 캡션 미리보기보다 먼저 두는지(2026-08-14, "각
-    // 블로그에서 어떤 번호에 어떤 사진 넣어놓고 발행만 하면 손쉽게 될
-    // 사이즈로"): 발행 작업 순서 자체가 "몇 번 사진을 어디에 넣을지 먼저
-    // 확인 → 캡션 복사"라 시각 자료를 텍스트보다 위에 둔다. 원본 클릭 시
-    // 새 탭으로 열려서(로컬 jpg든 Pexels URL이든 동일) 그대로 저장하거나
-    // 네이버 에디터에 드래그해 넣을 수 있다.
+    const thumb = document.createElement("div");
+    thumb.className = "cnh-topic-row-thumb";
     if (item.images && item.images.length) {
-      const imgGrid = document.createElement("div");
-      imgGrid.className = "cnh-image-grid";
-      for (const img of item.images) {
-        const cell = document.createElement("div");
-        cell.className = "cnh-image-item";
-
-        const link = document.createElement("a");
-        link.href = img.url;
-        link.target = "_blank";
-        link.rel = "noopener";
-
-        const thumb = document.createElement("img");
-        thumb.src = img.url;
-        thumb.alt = `${item.title} - ${img.marker}`;
-        thumb.loading = "lazy";
-        link.appendChild(thumb);
-        cell.appendChild(link);
-
-        const marker = document.createElement("span");
-        marker.className = "cnh-image-marker";
-        marker.textContent = img.marker;
-        cell.appendChild(marker);
-
-        imgGrid.appendChild(cell);
-      }
-      card.appendChild(imgGrid);
-    } else {
-      const noImages = document.createElement("p");
-      noImages.className = "cnh-card-no-images";
-      noImages.textContent = "이미지 준비 안 됨";
-      card.appendChild(noImages);
+      const img = document.createElement("img");
+      img.src = item.images[0].url;
+      img.alt = "";
+      img.loading = "lazy";
+      thumb.appendChild(img);
     }
+    row.appendChild(thumb);
 
-    const preview = document.createElement("p");
-    preview.className = "cnh-card-caption-preview";
-    preview.textContent = item.caption;
-    card.appendChild(preview);
+    const textWrap = document.createElement("div");
+    textWrap.className = "cnh-topic-row-text";
+    const titleSpan = document.createElement("span");
+    titleSpan.className = "cnh-topic-row-title";
+    titleSpan.textContent = item.title;
+    const captionLine = document.createElement("div");
+    captionLine.className = "cnh-topic-row-caption";
+    captionLine.textContent = item.topic;
+    textWrap.appendChild(titleSpan);
+    textWrap.appendChild(captionLine);
+    row.appendChild(textWrap);
 
-    const actions = document.createElement("div");
-    actions.className = "cnh-card-actions";
+    const openSpan = document.createElement("span");
+    openSpan.className = "cnh-topic-row-open";
+    openSpan.textContent = "열기";
+    row.appendChild(openSpan);
 
-    const copyBtn = document.createElement("button");
-    copyBtn.className = "cnh-btn-copy";
-    copyBtn.type = "button";
-    copyBtn.textContent = "복사";
-    copyBtn.setAttribute("aria-label", `${item.title} 캡션 복사`);
-    copyBtn.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(item.caption);
-        copyBtn.textContent = "복사됨";
-        copyBtn.classList.add("copied");
-        setTimeout(() => { copyBtn.textContent = "복사"; copyBtn.classList.remove("copied"); }, 1500);
-      } catch (err) {
-        copyBtn.textContent = "복사 실패";
-      }
-    });
-    actions.appendChild(copyBtn);
-
-    const openLink = document.createElement("a");
-    if (item.dashboard_path) {
-      openLink.className = "cnh-btn-open";
-      openLink.href = item.dashboard_path;
-      openLink.target = "_blank";
-      openLink.rel = "noopener";
-      openLink.textContent = "열기";
-    } else {
-      openLink.className = "cnh-btn-open disabled";
-      openLink.textContent = "대시보드 없음";
-    }
-    actions.appendChild(openLink);
-
-    card.appendChild(actions);
-    return card;
+    return row;
   }
 
   const GROUP_NAME_BY_TAB = { family: "육아+반려동물", finance: "경제" };
@@ -520,6 +498,7 @@
   async function loadGroupHub(tabKey) {
     const statusEl = document.getElementById(tabKey === "family" ? "familyHubStatus" : "financeHubStatus");
     const groupsEl = document.getElementById(tabKey === "family" ? "familyHubGroups" : "financeHubGroups");
+    const searchInput = document.getElementById(tabKey === "family" ? "familySearch" : "financeSearch");
     let hub;
     try {
       hub = await fetchHub();
@@ -532,9 +511,15 @@
     const totalItems = group ? group.verticals.reduce((s, v) => s + v.items.length, 0) : 0;
     if (totalItems === 0) {
       statusEl.textContent = "아직 콘텐츠가 없습니다.";
+      searchInput.style.display = "none";
       return;
     }
     statusEl.remove();
+    // WHY 행 요소를 미리 다 만들어서 배열에 쌓아두는지: 검색어 입력마다
+    // JSON을 다시 훑거나 DOM을 다시 만들지 않고, 이미 만든 행의
+    // display만 토글하면 돼서 타이핑이 끊기지 않는다(건강 탭의
+    // #topicSearch와 동일 원칙).
+    const allRows = [];
     for (const vertical of group.verticals) {
       const block = document.createElement("div");
       block.className = "cnh-vertical-block";
@@ -543,13 +528,20 @@
         groupsEl.appendChild(block);
         continue;
       }
-      const grid = document.createElement("div");
-      grid.className = "cnh-card-grid";
-      for (const item of vertical.items) grid.appendChild(cnhBuildCard(item));
+      const list = document.createElement("div");
+      for (const item of vertical.items) {
+        const row = cnhBuildRow(vertical, item);
+        list.appendChild(row);
+        allRows.push({ row, haystack: (item.topic + " " + item.title).toLowerCase() });
+      }
       block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)} (${vertical.items.length})</span>`;
-      block.appendChild(grid);
+      block.appendChild(list);
       groupsEl.appendChild(block);
     }
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      for (const { row, haystack } of allRows) row.style.display = (!q || haystack.includes(q)) ? "" : "none";
+    });
   }
 
   // WHY 별도 fetch 경로인지: jp-review-shorts는 카드뉴스 렌더링이 아니라
@@ -560,6 +552,7 @@
   async function loadJpReview() {
     const statusEl = document.getElementById("jpReviewStatus");
     const listEl = document.getElementById("jpReviewList");
+    const searchInput = document.getElementById("jpReviewSearch");
     let data;
     try {
       const res = await fetch("../verticals/jp-review-shorts/output/topics_hub.json");
@@ -572,9 +565,11 @@
     }
     if (!data.topics || data.topics.length === 0) {
       statusEl.textContent = "아직 topic이 없습니다.";
+      searchInput.style.display = "none";
       return;
     }
     statusEl.remove();
+    const allRows = [];
     for (const t of data.topics) {
       const row = document.createElement("a");
       row.href = "../verticals/jp-review-shorts/" + t.dashboard_path;
@@ -583,7 +578,12 @@
       row.className = "jp-topic-row";
       row.textContent = t.title || t.topic;
       listEl.appendChild(row);
+      allRows.push({ row, haystack: (t.topic + " " + (t.title || "")).toLowerCase() });
     }
+    searchInput.addEventListener("input", () => {
+      const q = searchInput.value.trim().toLowerCase();
+      for (const { row, haystack } of allRows) row.style.display = (!q || haystack.includes(q)) ? "" : "none";
+    });
   }
 
   showTab("health");
