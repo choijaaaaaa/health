@@ -211,16 +211,55 @@ async function hsWrite(path, method, body) {
   }
 
   // 캡션 + 복사
-  document.getElementById("captionBox").textContent = item.caption;
+  // WHY 소제목 줄만 파란색 굵게 서식을 입혀서 복사하는지(2026-08-16, "블로그
+  // 발행할 때 따로 작업 안 해도 되게 중요한 포인트를 색으로 차별화해달라"
+  // 요청): 캡션 자체가 이미 "NN · 소제목" 마커로 각 항목의 핵심을 구분해
+  // 놓은 구조라, 별도 판단 없이 이 줄만 강조하면 "중요 포인트"가 자연스럽게
+  // 걸러진다. 일반 텍스트 클립보드(writeText)는 서식이 없어서, 대신
+  // text/html도 함께 쓰는 clipboard.write()로 바꾼다 — 네이버 스마트에디터
+  // 같은 contenteditable 기반 에디터는 붙여넣기 시 브라우저가 넘겨주는
+  // text/html을 그대로 반영하는 게 일반적이지만(Word/타 웹페이지 붙여넣기와
+  // 동일 경로), 실제로 이 에디터에서 색이 유지되는지는 아직 실사용 확인 전 —
+  // 안 먹히면 이 서식 규칙(정규식)만 조정하면 됨. text/plain도 함께 넣어서
+  // clipboard.write 자체가 막힌 구형 브라우저에서도 기존처럼 최소한 텍스트
+  // 복사는 되게 한다(둘 다 실패하면 writeText로 최종 폴백).
+  function escapeHtml(s) {
+    return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+  function captionToHtml(caption) {
+    return escapeHtml(caption)
+      .split("\n")
+      .map(line => /^\d{2}\s*·\s*.+/.test(line)
+        ? `<span style="color:#1a56db;font-weight:700">${line}</span>`
+        : line)
+      .join("<br>");
+  }
+  const captionHtml = captionToHtml(item.caption);
+  document.getElementById("captionBox").innerHTML = captionHtml;
   const copyBtn = document.getElementById("copyBtn");
   copyBtn.addEventListener("click", async () => {
     try {
-      await navigator.clipboard.writeText(item.caption);
+      if (window.ClipboardItem) {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            "text/plain": new Blob([item.caption], { type: "text/plain" }),
+            "text/html": new Blob([captionHtml], { type: "text/html" }),
+          }),
+        ]);
+      } else {
+        await navigator.clipboard.writeText(item.caption);
+      }
       copyBtn.textContent = "복사됨";
       copyBtn.classList.add("copied");
       setTimeout(() => { copyBtn.textContent = "캡션 복사"; copyBtn.classList.remove("copied"); }, 1500);
     } catch (err) {
-      copyBtn.textContent = "복사 실패";
+      try {
+        await navigator.clipboard.writeText(item.caption);
+        copyBtn.textContent = "복사됨(서식 없이)";
+      } catch (err2) {
+        copyBtn.textContent = "복사 실패";
+      }
+      setTimeout(() => { copyBtn.textContent = "캡션 복사"; copyBtn.classList.remove("copied"); }, 1500);
     }
   });
 
