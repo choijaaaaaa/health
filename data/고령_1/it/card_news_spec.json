@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Mani e piedi gonfi",
+    "o intorpiditi? Non è solo l'età",
+    "3 abitudini da rivedere"
+  ],
+  "eyebrow": "Allarme circolazione",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "설렁탕곰탕_illust.jpg": "Brodo grasso",
+    "믹스커피_illust.jpg": "Panna vegetale nel caffè",
+    "과일즙_illust.jpg": "Succo di frutta"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "I grassi saturi si accumulano",
+        "sulle pareti dei vasi",
+        "e rallentano il flusso",
+        "",
+        "Troppo sale spinge il corpo",
+        "a trattenere acqua —",
+        "ecco perché ci si gonfia"
+      ]
+    },
+    {
+      "name": "Brodo grasso",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Più cuoce a lungo,",
+        "più grasso si scioglie",
+        "nel brodo",
+        "",
+        "Raffreddato, in superficie",
+        "si forma uno strato bianco di grasso"
+      ]
+    },
+    {
+      "name": "Per il brodo grasso",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Mettetelo in frigo una notte",
+        "e togliete lo strato",
+        "di grasso con un cucchiaio",
+        "",
+        "I LARN raccomandano di restare",
+        "sotto il 10% di grassi saturi"
+      ]
+    },
+    {
+      "name": "Panna vegetale nel caffè",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Spesso non è latte,",
+        "ma olio di palma —",
+        "ricco di grassi saturi",
+        "",
+        "Poche tazze al giorno",
+        "e il totale sale in fretta"
+      ]
+    },
+    {
+      "name": "Per la panna vegetale",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Passate al latte",
+        "o a una bevanda di soia",
+        "non zuccherata",
+        "",
+        "Oppure provate",
+        "il caffè senza aggiunte"
+      ]
+    },
+    {
+      "name": "Succo di frutta",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Spremere elimina le fibre —",
+        "lo zucchero arriva",
+        "più in fretta nel sangue",
+        "",
+        "Uno studio Harvard su oltre 187.000 adulti:",
+        "il frutto intero riduce il rischio di diabete,",
+        "il succo lo aumenta"
+      ]
+    },
+    {
+      "name": "Per il succo di frutta",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Mangiate il frutto intero,",
+        "o frullatelo con la polpa",
+        "",
+        "Così restano le fibre",
+        "che rallentano l'assorbimento"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nessuna di queste tre abitudini",
+        "va eliminata del tutto"
+      ],
+      [
+        "Basta conoscere le scelte giuste",
+        "per alleggerire la circolazione"
+      ]
+    ],
+    "tip": [
+      "Controllate le etichette: scegliete",
+      "opzioni magre e senza zuccheri aggiunti"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti mi piace e segui!"
+  }
+}

@@ -1,114 +1,116 @@
 {
   "title": [
-    "A few everyday foods could be",
-    "behind that numb, cold, swollen feeling",
-    "3 Foods Hurting Your Circulation"
+    "Numb, cold, or swollen",
+    "hands and feet? Not just aging",
+    "3 Everyday Habits to Rethink"
   ],
   "eyebrow": "Circulation Alert",
   "swipe_label": "Swipe to see more  →",
   "closing_label": "Wrap-up",
   "char_display_names": {
-    "가공육_illust.jpg": "Deli Meat",
-    "가라아게_illust.jpg": "Fried Food",
-    "탄산음료_illust.jpg": "Soda"
+    "설렁탕곰탕_illust.jpg": "Bone Broth",
+    "믹스커피_illust.jpg": "Instant Coffee Creamer",
+    "과일즙_illust.jpg": "Fruit Juice"
   },
   "items": [
     {
       "name": "Why does this happen",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "설렁탕곰탕_illust.jpg",
       "body": [
-        "High sodium makes your body",
-        "hold onto extra fluid",
+        "Saturated fat builds up",
+        "along vessel walls and",
+        "slows blood flow",
         "",
-        "Saturated and trans fat",
-        "build up along vessel walls",
-        "and slow blood flow"
+        "Too much sodium makes your",
+        "body hold onto fluid —",
+        "which shows up as swelling"
       ]
     },
     {
-      "name": "Deli Meat",
-      "char_file": "가공육_illust.jpg",
+      "name": "Bone Broth",
+      "char_file": "설렁탕곰탕_illust.jpg",
       "body": [
-        "2 oz of deli turkey has",
-        "about 570mg of sodium",
+        "The longer it simmers,",
+        "the more fat renders",
+        "into the broth",
         "",
-        "That's over a third of the",
-        "AHA's 1,500mg daily goal"
+        "Chill it and the white layer",
+        "on top is mostly saturated fat"
       ]
     },
     {
-      "name": "Deli Meat — try this instead",
-      "char_file": "가공육_illust.jpg",
+      "name": "Bone Broth — try this instead",
+      "char_file": "설렁탕곰탕_illust.jpg",
       "body": [
-        "Ask for freshly roasted",
-        "chicken breast at the counter",
+        "AHA caps saturated fat at",
+        "about 13g a day (2,000-cal diet)",
         "",
-        "Buying packaged? Check for",
-        "\"low-sodium\" or \"no-salt-added\""
+        "Skim the fat after chilling,",
+        "or choose a lower-fat broth"
       ]
     },
     {
-      "name": "Fried Food",
-      "char_file": "가라아게_illust.jpg",
+      "name": "Coffee Creamer",
+      "char_file": "믹스커피_illust.jpg",
       "body": [
-        "A study of over a million people",
-        "linked fried food to more heart",
-        "disease, stroke, and heart failure",
+        "Powdered creamer is often",
+        "made from palm oil —",
+        "nearly half saturated fat",
         "",
-        "Trans fat raises LDL and",
-        "damages artery walls"
+        "A few cups a day",
+        "adds up fast"
       ]
     },
     {
-      "name": "Fried Food — try this instead",
-      "char_file": "가라아게_illust.jpg",
+      "name": "Coffee Creamer — try this instead",
+      "char_file": "믹스커피_illust.jpg",
       "body": [
-        "Air-fry or bake at home",
-        "instead of deep frying",
+        "Swap creamer for low-fat milk",
+        "or unsweetened soy milk",
         "",
-        "Eating out? Go grilled",
-        "or roasted instead"
+        "Or go simple —",
+        "try it black"
       ]
     },
     {
-      "name": "Soda",
-      "char_file": "탄산음료_illust.jpg",
+      "name": "Fruit Juice",
+      "char_file": "과일즙_illust.jpg",
       "body": [
-        "1 sugary drink a day is linked",
-        "to ~20% higher heart disease risk",
+        "Juicing strips away fiber —",
+        "sugar hits your bloodstream fast",
         "",
-        "Over 12oz a day nearly doubles",
-        "the odds of low \"good\" cholesterol"
+        "A Harvard study of 187,000+ adults",
+        "found whole fruit lowered diabetes risk,",
+        "but juice raised it"
       ]
     },
     {
-      "name": "Soda — try this instead",
-      "char_file": "탄산음료_illust.jpg",
+      "name": "Fruit Juice — try this instead",
+      "char_file": "과일즙_illust.jpg",
       "body": [
-        "Swap for sparkling water with",
-        "real fruit juice, or unsweetened tea",
+        "Eat the whole fruit,",
+        "or blend it with the pulp",
         "",
-        "AHA caps added sugar at",
-        "~25g (women) / 36g (men) a day"
+        "Whole fruit keeps the fiber",
+        "that slows sugar absorption"
       ]
     }
   ],
   "closing": {
     "headline": [
       [
-        "None of these need to",
-        "disappear completely"
+        "None of these habits",
+        "need to disappear"
       ],
       [
-        "Just swap what you can,",
-        "when you can"
+        "Small swaps make a",
+        "real difference over time"
       ]
     ],
     "tip": [
-      "Your circulation will thank you",
-      "one small change at a time"
+      "Check labels for low-fat",
+      "and no-sugar-added options"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
-  },
-  "topic_word": "Circulation"
+  }
 }

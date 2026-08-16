@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Domningar eller svullna",
+    "händer och fötter? Inte bara åldern",
+    "3 vanor värda att se över"
+  ],
+  "eyebrow": "Cirkulationslarm",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "설렁탕곰탕_illust.jpg": "Fet buljong",
+    "믹스커피_illust.jpg": "Kaffevitare",
+    "과일즙_illust.jpg": "Fruktjuice"
+  },
+  "items": [
+    {
+      "name": "Varför händer det",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Mättat fett byggs upp",
+        "i kärlväggarna och",
+        "bromsar blodflödet",
+        "",
+        "För mycket salt gör att",
+        "kroppen håller kvar vätska —",
+        "det syns som svullnad"
+      ]
+    },
+    {
+      "name": "Fet buljong",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Ju längre den kokar,",
+        "desto mer fett löses",
+        "upp i buljongen",
+        "",
+        "Kyld stelnar ett ljust",
+        "fettlager ovanpå"
+      ]
+    },
+    {
+      "name": "Vid fet buljong",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Ställ kallt över natten och",
+        "skumma av fettlagret",
+        "med en sked",
+        "",
+        "NNR 2023 rekommenderar",
+        "max 10% mättat fett"
+      ]
+    },
+    {
+      "name": "Kaffevitare",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Sällan riktig mjölk,",
+        "oftast härdat vegetabiliskt",
+        "fett som palmolja",
+        "",
+        "Några koppar om dagen",
+        "blir snabbt mycket"
+      ]
+    },
+    {
+      "name": "Istället för kaffevitare",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Byt till lättmjölk eller",
+        "osötad sojadryck",
+        "",
+        "Eller testa kaffet",
+        "helt svart"
+      ]
+    },
+    {
+      "name": "Fruktjuice",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Pressning tar bort fibrerna —",
+        "sockret når blodet",
+        "mycket snabbare",
+        "",
+        "En Harvard-studie på 187 000+ vuxna:",
+        "hel frukt sänkte diabetesrisken,",
+        "juice ökade den"
+      ]
+    },
+    {
+      "name": "Istället för fruktjuice",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Ät frukten hel,",
+        "eller mixa den med fruktköttet",
+        "",
+        "Då behålls fibrerna",
+        "som bromsar sockerupptaget"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ingen av dessa tre vanor",
+        "behöver strykas helt"
+      ],
+      [
+        "Att veta vad du väljer räcker",
+        "för att avlasta cirkulationen"
+      ]
+    ],
+    "tip": [
+      "Kolla etiketten: välj magra och",
+      "osockrade alternativ"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}
