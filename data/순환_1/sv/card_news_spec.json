@@ -1,0 +1,107 @@
+{
+  "title": [
+    "Kalla händer och fötter",
+    "trots varmt inomhus?",
+    "Tre vanliga vanor",
+    "Guide mot kalla händer och fötter"
+  ],
+  "eyebrow": "Kalla Händer & Fötter",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Kalla Drycker",
+    "커피_illust.jpg": "Koffein",
+    "돼지껍질튀김_illust.jpg": "Friterad Mat"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Att för lite blod når",
+        "ända ut i fingrar och tår",
+        "är den vanligaste orsaken",
+        "",
+        "Kaffe, kalla drycker och",
+        "friterad mat kan bidra"
+      ]
+    },
+    {
+      "name": "Orsak: koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein kan öka",
+        "kärlsammandragning",
+        "",
+        "Flera koppar om dagen",
+        "kan hålla kärlen",
+        "sammandragna längre"
+      ]
+    },
+    {
+      "name": "Mindre koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Begränsa kaffet till",
+        "1-2 koppar om dagen"
+      ]
+    },
+    {
+      "name": "Orsak: kalla drycker",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Kall dryck sänker",
+        "kroppstemperaturen tillfälligt",
+        "",
+        "Kroppen drar då samman",
+        "kärlen i händer och fötter",
+        "för att bevara värmen"
+      ]
+    },
+    {
+      "name": "Välj något varmt",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Byt kalla drycker mot",
+        "ingefärste"
+      ]
+    },
+    {
+      "name": "Orsak: friterad mat",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Friterad kyckling och pommes",
+        "innehåller mycket mättat fett",
+        "",
+        "Det kan höja LDL-kolesterolet",
+        "och belasta blodkärlen"
+      ]
+    },
+    {
+      "name": "Ändra tillagningssätt",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Välj grillat eller",
+        "ångat istället"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Koffein, kalla drycker",
+        "och friterad mat"
+      ],
+      [
+        "behöver inte försvinna helt —",
+        "det räcker att minska"
+      ]
+    ],
+    "tip": [
+      "Ingefärste kan hjälpa",
+      "blodcirkulationen"
+    ],
+    "cta": "Vill du ha fler hälsotips som det här? Följ och gilla!"
+  }
+}

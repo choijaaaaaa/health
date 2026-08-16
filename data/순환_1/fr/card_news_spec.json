@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Mains et pieds froids",
+    "même quand il fait chaud ?",
+    "Trois habitudes en cause",
+    "Guide mains et pieds froids"
+  ],
+  "eyebrow": "Mains et Pieds Froids",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Boissons Glacées",
+    "커피_illust.jpg": "Caféine",
+    "돼지껍질튀김_illust.jpg": "Fritures"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Trois habitudes courantes",
+        "peuvent influencer",
+        "le sang qui arrive",
+        "jusqu'aux doigts et orteils",
+        "",
+        "Café, boissons glacées",
+        "et fritures"
+      ]
+    },
+    {
+      "name": "Cause : la caféine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine a un effet",
+        "vasoconstricteur qui peut",
+        "resserrer les vaisseaux",
+        "",
+        "Plusieurs tasses par jour",
+        "peuvent maintenir",
+        "ce resserrement"
+      ]
+    },
+    {
+      "name": "Limiter la caféine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Limiter le café à",
+        "1-2 tasses par jour"
+      ]
+    },
+    {
+      "name": "Cause : les boissons glacées",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Le froid fait baisser",
+        "la température interne",
+        "",
+        "Le corps resserre alors",
+        "les vaisseaux des mains",
+        "et des pieds en priorité"
+      ]
+    },
+    {
+      "name": "Remplacer par du chaud",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Remplacer les boissons glacées",
+        "par une tisane au gingembre"
+      ]
+    },
+    {
+      "name": "Cause : les fritures",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Poulet frit et frites sont",
+        "riches en graisses saturées",
+        "",
+        "Elles favorisent l'accumulation",
+        "de cholestérol sur les artères"
+      ]
+    },
+    {
+      "name": "Changer de cuisson",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Privilégier la grillade",
+        "ou la cuisson vapeur"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caféine, boissons glacées",
+        "et fritures"
+      ],
+      [
+        "pas besoin de tout arrêter —",
+        "réduire suffit déjà"
+      ]
+    ],
+    "tip": [
+      "Une tisane au gingembre",
+      "peut aider la circulation"
+    ],
+    "cta": "Envie d'autres conseils santé comme celui-ci ? Abonnez-vous et suivez-nous !"
+  }
+}
