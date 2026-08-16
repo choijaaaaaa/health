@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Trötthet som inte går över,",
+    "tyngd under höger revben?",
+    "3 vardagsmatvaror som belastar levern"
+  ],
+  "eyebrow": "Varning för fettlever",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Fruktjuice",
+    "흰쌀밥_illust.jpg": "Vitt ris",
+    "가공육_illust.jpg": "Charkuterier"
+  },
+  "items": [
+    {
+      "name": "Varför det här händer",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Levern ger sällan tidiga",
+        "symtom —",
+        "trötthet och tyngd",
+        "kan vara tidiga tecken",
+        "",
+        "Dessa 3 livsmedel bygger",
+        "tyst upp fett i levern"
+      ]
+    },
+    {
+      "name": "Fruktjuice & koncentrat",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Fruktos tar en annan väg",
+        "än glukos —",
+        "nästan bara via levern",
+        "",
+        "Ett glas juice kan ha",
+        "40g socker, nästan",
+        "10 sockerbitar"
+      ]
+    },
+    {
+      "name": "Istället för juice",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Hel frukt har fiber",
+        "som saktar ner upptaget",
+        "",
+        "Juice saknar den fibern,",
+        "sockret verkar snabbare"
+      ]
+    },
+    {
+      "name": "Vitt ris & raffinerade kolhydrater",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Vitt ris har ett glykemiskt",
+        "index ofta över 70-80",
+        "",
+        "Överskottssocker omvandlas",
+        "till fett i levern"
+      ]
+    },
+    {
+      "name": "Istället för vitt ris",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Fullkornsris har ett lägre",
+        "glykemiskt index",
+        "och mer fiber",
+        "",
+        "Mindre press på blodsocker",
+        "och lever"
+      ]
+    },
+    {
+      "name": "Charkuterier (korv, skinka)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Mycket mättat fett och salt",
+        "påskyndar fettinlagring",
+        "i levern",
+        "",
+        "Storätare har upp till",
+        "2-3 gånger högre risk"
+      ]
+    },
+    {
+      "name": "Istället för charkuterier",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Magert kött, fågel eller tofu",
+        "ger samma protein",
+        "",
+        "Utan extra salt och nitrit,",
+        "mindre belastning för levern"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Levern är tyst,",
+        "skadan är lätt att missa"
+      ],
+      [
+        "Du behöver inte sluta med allt —",
+        "rätt val räcker redan"
+      ]
+    ],
+    "tip": [
+      "Byt juice mot hel frukt, vitt ris mot fullkornsris",
+      "och charkuterier mot magert kött eller tofu"
+    ],
+    "cta": "Vill du ha fler hälsotips som det här? Följ och gilla!"
+  }
+}

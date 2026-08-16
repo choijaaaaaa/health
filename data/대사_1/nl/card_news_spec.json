@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Vermoeidheid die niet wegtrekt,",
+    "druk onder je rechterribben?",
+    "3 gewone producten die je lever belasten"
+  ],
+  "eyebrow": "Let op: vetlever",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Vruchtensap",
+    "흰쌀밥_illust.jpg": "Witte rijst",
+    "가공육_illust.jpg": "Vleeswaren"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Je lever geeft zelden",
+        "vroege klachten —",
+        "vermoeidheid en druk",
+        "kunnen vroege signalen zijn",
+        "",
+        "Deze 3 producten laten",
+        "in stilte vet opstapelen"
+      ]
+    },
+    {
+      "name": "Vruchtensap & concentraten",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Fructose volgt een andere",
+        "route dan glucose —",
+        "bijna alleen via de lever",
+        "",
+        "Eén glas sap bevat al",
+        "zo'n 40g suiker, bijna",
+        "10 suikerklontjes"
+      ]
+    },
+    {
+      "name": "In plaats van vruchtensap",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Heel fruit heeft vezels",
+        "die de opname vertragen",
+        "",
+        "Sap mist die vezels,",
+        "suiker werkt sneller in"
+      ]
+    },
+    {
+      "name": "Witte rijst & geraffineerde koolhydraten",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Witte rijst heeft een",
+        "glycemische index rond de 80",
+        "",
+        "Overtollige suiker wordt",
+        "vet in je lever"
+      ]
+    },
+    {
+      "name": "In plaats van witte rijst",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Zilvervliesrijst heeft een",
+        "lagere glycemische index",
+        "en meer vezels",
+        "",
+        "Minder druk op bloedsuiker",
+        "en lever"
+      ]
+    },
+    {
+      "name": "Vleeswaren (worst, ham)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Veel verzadigd vet en zout",
+        "versterken vetopslag",
+        "in de lever",
+        "",
+        "Wie veel eet heeft tot",
+        "2 à 3 keer meer risico"
+      ]
+    },
+    {
+      "name": "In plaats van vleeswaren",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Mager vlees, gevogelte of tofu",
+        "geven dezelfde eiwitten",
+        "",
+        "Zonder extra zout en nitriet,",
+        "minder belasting voor je lever"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Je lever blijft stil,",
+        "schade valt nauwelijks op"
+      ],
+      [
+        "Je hoeft niet alles te laten —",
+        "goed kiezen helpt al"
+      ]
+    ],
+    "tip": [
+      "Vervang sap door heel fruit, witte rijst door zilvervliesrijst",
+      "en vleeswaren door mager vlees of tofu"
+    ],
+    "cta": "Wil je meer van dit soort gezondheidstips? Volg, like en deel!"
+  }
+}

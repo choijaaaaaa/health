@@ -1,0 +1,117 @@
+{
+  "title": [
+    "¿Cansancio que no se va",
+    "y molestia bajo las costillas derechas?",
+    "3 alimentos cotidianos que cargan el hígado"
+  ],
+  "eyebrow": "Alerta de hígado graso",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Zumo de fruta",
+    "흰쌀밥_illust.jpg": "Arroz blanco",
+    "가공육_illust.jpg": "Embutidos"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "El hígado rara vez da",
+        "síntomas al principio —",
+        "cansancio y molestia",
+        "pueden ser señales tempranas",
+        "",
+        "Estos 3 alimentos acumulan",
+        "grasa en el hígado en silencio"
+      ]
+    },
+    {
+      "name": "Zumo de fruta y concentrados",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "La fructosa sigue un camino",
+        "distinto a la glucosa —",
+        "la procesa casi solo el hígado",
+        "",
+        "Un vaso de zumo puede tener",
+        "40g de azúcar, casi",
+        "10 terrones"
+      ]
+    },
+    {
+      "name": "En lugar de zumo",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "La fruta entera tiene fibra",
+        "que frena la absorción",
+        "",
+        "El zumo pierde esa fibra,",
+        "el azúcar actúa más rápido"
+      ]
+    },
+    {
+      "name": "Arroz blanco y carbohidratos refinados",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "El índice glucémico del arroz blanco",
+        "suele superar 70-80",
+        "",
+        "El azúcar sobrante se convierte",
+        "en grasa en el hígado"
+      ]
+    },
+    {
+      "name": "En lugar de arroz blanco",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "El arroz integral tiene un índice",
+        "glucémico más bajo",
+        "y más fibra",
+        "",
+        "Menos presión sobre la glucosa",
+        "y el hígado"
+      ]
+    },
+    {
+      "name": "Embutidos (salchichón, jamón)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Ricos en grasas saturadas",
+        "y sodio, favorecen",
+        "la acumulación de grasa",
+        "",
+        "Quienes más comen tienen",
+        "hasta 2-3 veces más riesgo"
+      ]
+    },
+    {
+      "name": "En lugar de embutidos",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Carne magra, aves o tofu",
+        "dan la misma proteína",
+        "",
+        "Sin sodio ni nitritos extra,",
+        "menos carga para el hígado"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El hígado calla,",
+        "el daño pasa desapercibido"
+      ],
+      [
+        "No hace falta dejarlo todo —",
+        "elegir bien ya ayuda"
+      ]
+    ],
+    "tip": [
+      "Cambia el zumo por fruta entera, el arroz blanco por integral",
+      "y los embutidos por carne magra o tofu"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos!"
+  }
+}

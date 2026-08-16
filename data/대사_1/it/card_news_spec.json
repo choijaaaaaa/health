@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Stanchezza che non passa,",
+    "peso sotto le costole a destra?",
+    "3 alimenti comuni che affaticano il fegato"
+  ],
+  "eyebrow": "Fegato sotto pressione",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Succo di frutta",
+    "흰쌀밥_illust.jpg": "Riso bianco",
+    "가공육_illust.jpg": "Affettati"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Il fegato raramente dà",
+        "sintomi nelle fasi iniziali —",
+        "stanchezza e peso",
+        "possono essere segnali precoci",
+        "",
+        "Questi 3 alimenti accumulano",
+        "grasso nel fegato in silenzio"
+      ]
+    },
+    {
+      "name": "Succo di frutta e concentrati",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Il fruttosio segue un percorso",
+        "diverso dal glucosio —",
+        "gestito quasi solo dal fegato",
+        "",
+        "Un bicchiere di succo può avere",
+        "40g di zucchero, quasi",
+        "10 zollette"
+      ]
+    },
+    {
+      "name": "Al posto del succo",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "La frutta intera ha fibre",
+        "che rallentano l'assorbimento",
+        "",
+        "Il succo perde queste fibre,",
+        "lo zucchero agisce più in fretta"
+      ]
+    },
+    {
+      "name": "Riso bianco e carboidrati raffinati",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "L'indice glicemico del riso bianco",
+        "supera spesso 70-90",
+        "",
+        "Lo zucchero in eccesso diventa",
+        "grasso nel fegato"
+      ]
+    },
+    {
+      "name": "Al posto del riso bianco",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Il riso integrale ha un indice",
+        "glicemico più basso",
+        "e più fibre",
+        "",
+        "Meno pressione su glicemia",
+        "e fegato"
+      ]
+    },
+    {
+      "name": "Affettati (salame, prosciutto)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Ricchi di grassi saturi",
+        "e sodio, favoriscono",
+        "l'accumulo di grasso nel fegato",
+        "",
+        "Chi ne mangia molto ha un rischio",
+        "fino a 2-3 volte più alto"
+      ]
+    },
+    {
+      "name": "Al posto degli affettati",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Carne magra, pollame o tofu",
+        "danno le stesse proteine",
+        "",
+        "Senza sodio e nitriti extra,",
+        "meno lavoro per il fegato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il fegato resta silenzioso,",
+        "i danni passano inosservati"
+      ],
+      [
+        "Non serve eliminare tutto —",
+        "scegliere bene già aiuta"
+      ]
+    ],
+    "tip": [
+      "Sostituisci il succo con frutta intera, il riso bianco con quello integrale",
+      "e gli affettati con carne magra o tofu"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti, metti mi piace e segui!"
+  }
+}

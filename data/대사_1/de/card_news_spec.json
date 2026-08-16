@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Ständige Müdigkeit trotz Schlaf,",
+    "Druckgefühl im rechten Oberbauch?",
+    "3 Alltagslebensmittel, die die Leber belasten"
+  ],
+  "eyebrow": "Fettleber im Fokus",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Fruchtsaft",
+    "흰쌀밥_illust.jpg": "Weißer Reis",
+    "가공육_illust.jpg": "Wurstwaren"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Die Leber zeigt Probleme",
+        "meist erst spät —",
+        "aber Müdigkeit und Druckgefühl",
+        "können frühe Anzeichen sein",
+        "",
+        "Diese 3 Lebensmittel lagern",
+        "still Fett in der Leber ein"
+      ]
+    },
+    {
+      "name": "Fruchtsaft & Fruchtkonzentrate",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Fruktose wird anders",
+        "verarbeitet als Traubenzucker —",
+        "fast nur in der Leber",
+        "",
+        "Ein Glas Saft kann rund",
+        "40g Zucker enthalten,",
+        "etwa 10 Zuckerwürfel"
+      ]
+    },
+    {
+      "name": "Statt Fruchtsaft",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Ganzes Obst enthält Ballaststoffe,",
+        "die die Zuckeraufnahme bremsen",
+        "",
+        "Gepresster Saft verliert diese",
+        "Bremse — der Zucker wirkt schneller"
+      ]
+    },
+    {
+      "name": "Weißer Reis & raffinierte Kohlenhydrate",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Weißer Reis hat einen",
+        "glykämischen Index von 70 bis über 80",
+        "",
+        "Überschüssiger Zucker wird",
+        "in der Leber zu Fett"
+      ]
+    },
+    {
+      "name": "Statt weißem Reis",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Naturreis hat einen",
+        "niedrigeren glykämischen Index",
+        "und mehr Ballaststoffe",
+        "",
+        "Das entlastet Blutzucker",
+        "und die Leber spürbar"
+      ]
+    },
+    {
+      "name": "Wurstwaren (Salami, Schinken)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Viel gesättigtes Fett und Salz",
+        "fördern die Fetteinlagerung",
+        "in der Leber",
+        "",
+        "Vielesser haben ein bis zu",
+        "3-fach höheres Risiko"
+      ]
+    },
+    {
+      "name": "Statt Wurstwaren",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Mageres Fleisch oder Tofu",
+        "liefern Eiweiß ohne die Last",
+        "",
+        "Kein Nitritpökelsalz, kein",
+        "zusätzlicher Druck auf die Leber"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Die Leber bleibt stumm,",
+        "Schäden fallen kaum auf"
+      ],
+      [
+        "Nicht alles muss weg —",
+        "die richtige Wahl reicht schon"
+      ]
+    ],
+    "tip": [
+      "Tausche Fruchtsaft gegen ganzes Obst, weißen Reis gegen Naturreis",
+      "und Wurstwaren gegen mageres Fleisch oder Tofu"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  }
+}

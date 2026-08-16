@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Fatigue qui ne passe pas,",
+    "poids sous les côtes à droite ?",
+    "3 aliments du quotidien qui chargent le foie"
+  ],
+  "eyebrow": "Foie sous surveillance",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Jus de fruits",
+    "흰쌀밥_illust.jpg": "Riz blanc",
+    "가공육_illust.jpg": "Charcuterie"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Le foie montre rarement",
+        "des symptômes tôt —",
+        "fatigue et pesanteur",
+        "peuvent être des signes précoces",
+        "",
+        "Ces 3 aliments chargent",
+        "le foie en graisse en silence"
+      ]
+    },
+    {
+      "name": "Jus de fruits & concentrés",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Le fructose suit un chemin",
+        "différent du glucose —",
+        "traité presque que par le foie",
+        "",
+        "Un verre de jus peut contenir",
+        "40g de sucre, près de",
+        "10 morceaux de sucre"
+      ]
+    },
+    {
+      "name": "À la place du jus",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Le fruit entier a des fibres",
+        "qui ralentissent l'absorption",
+        "",
+        "Le jus perd ces fibres,",
+        "le sucre agit plus vite"
+      ]
+    },
+    {
+      "name": "Riz blanc & glucides raffinés",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "L'index glycémique du riz blanc",
+        "dépasse souvent 60 à 80",
+        "",
+        "Le sucre en trop se transforme",
+        "en graisse dans le foie"
+      ]
+    },
+    {
+      "name": "À la place du riz blanc",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Le riz complet a un index",
+        "glycémique plus bas",
+        "et plus de fibres",
+        "",
+        "Moins de pression sur",
+        "la glycémie et le foie"
+      ]
+    },
+    {
+      "name": "Charcuterie (saucisson, jambon)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Riche en graisses saturées",
+        "et en sel, elle favorise",
+        "le stockage de graisse",
+        "",
+        "Les gros consommateurs ont",
+        "un risque jusqu'à 2 à 3 fois plus élevé"
+      ]
+    },
+    {
+      "name": "À la place de la charcuterie",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Viande maigre, volaille ou tofu",
+        "apportent les mêmes protéines",
+        "",
+        "Sans le sel ni les nitrites,",
+        "moins de charge pour le foie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le foie reste silencieux,",
+        "les dégâts passent inaperçus"
+      ],
+      [
+        "Pas besoin de tout arrêter —",
+        "bien choisir suffit déjà"
+      ]
+    ],
+    "tip": [
+      "Remplacez le jus par du fruit entier, le riz blanc par du riz complet,",
+      "et la charcuterie par de la viande maigre ou du tofu"
+    ],
+    "cta": "Envie d'autres conseils santé comme celui-ci ? Abonnez-vous et suivez-nous !"
+  }
+}
