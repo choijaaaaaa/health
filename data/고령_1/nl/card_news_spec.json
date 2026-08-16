@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Tintelende of gezwollen",
+    "handen en voeten? Niet alleen leeftijd",
+    "3 gewoontes om te checken"
+  ],
+  "eyebrow": "Bloedcirculatie alert",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "설렁탕곰탕_illust.jpg": "Vette bouillon",
+    "믹스커피_illust.jpg": "Koffiecreamer",
+    "과일즙_illust.jpg": "Vruchtensap"
+  },
+  "items": [
+    {
+      "name": "Waarom gebeurt dit",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Verzadigd vet hoopt zich op",
+        "in de vaatwand en",
+        "remt de doorbloeding",
+        "",
+        "Te veel zout laat je lichaam",
+        "vocht vasthouden —",
+        "dat zie je als zwelling"
+      ]
+    },
+    {
+      "name": "Vette bouillon",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Hoe langer het trekt,",
+        "hoe meer vet oplost",
+        "in de bouillon",
+        "",
+        "Koud gezet stolt er boven",
+        "een lichte, vaste vetlaag"
+      ]
+    },
+    {
+      "name": "Bij vette bouillon",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Zet een nacht in de koelkast",
+        "en schep de vetlaag",
+        "eraf met een lepel",
+        "",
+        "Het Voedingscentrum adviseert",
+        "max. 10 energieprocent verzadigd vet"
+      ]
+    },
+    {
+      "name": "Koffiecreamer",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Vaak geen melk,",
+        "maar gehard plantaardig vet",
+        "zoals kokosolie",
+        "",
+        "Een paar kopjes per dag",
+        "telt al snel flink op"
+      ]
+    },
+    {
+      "name": "In plaats van koffiecreamer",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Kies halfvolle melk of",
+        "ongezoete sojadrink",
+        "",
+        "Of probeer je koffie",
+        "gewoon zwart"
+      ]
+    },
+    {
+      "name": "Vruchtensap",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Persen haalt de vezels eruit —",
+        "suiker komt sneller",
+        "in je bloed terecht",
+        "",
+        "Een Harvard-onderzoek onder 187.000+",
+        "volwassenen: heel fruit verlaagde diabetesrisico,",
+        "sap verhoogde het juist"
+      ]
+    },
+    {
+      "name": "In plaats van vruchtensap",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Eet het fruit heel op,",
+        "of mix het met het vruchtvlees",
+        "",
+        "Zo blijven de vezels behouden",
+        "die de suikeropname vertragen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Geen van deze drie gewoontes",
+        "hoeft helemaal te verdwijnen"
+      ],
+      [
+        "Weten wat je kiest is genoeg",
+        "om de bloedsomloop te ontlasten"
+      ]
+    ],
+    "tip": [
+      "Check het etiket: kies vetarme en",
+      "suikervrije opties"
+    ],
+    "cta": "Meer gezondheidstips zoals dit? Abonneer, like en volg!"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Manos y pies hinchados",
+    "o entumecidos? No es solo la edad",
+    "3 hábitos a revisar"
+  ],
+  "eyebrow": "Alerta de circulación",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "설렁탕곰탕_illust.jpg": "Caldo graso",
+    "믹스커피_illust.jpg": "Leche en polvo del café",
+    "과일즙_illust.jpg": "Zumo de fruta"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Las grasas saturadas se acumulan",
+        "en las paredes de los vasos",
+        "y frenan la circulación",
+        "",
+        "El exceso de sal hace que",
+        "el cuerpo retenga agua —",
+        "y eso se nota como hinchazón"
+      ]
+    },
+    {
+      "name": "Caldo graso",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Cuanto más tiempo cuece,",
+        "más grasa se disuelve",
+        "en el caldo",
+        "",
+        "Al enfriarlo, arriba se forma",
+        "una capa blanca de grasa saturada"
+      ]
+    },
+    {
+      "name": "Para el caldo graso",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Métalo en la nevera una noche",
+        "y retire la grasa",
+        "con una cuchara",
+        "",
+        "La AESAN recomienda mantener",
+        "las grasas saturadas bajo el 10%"
+      ]
+    },
+    {
+      "name": "Leche en polvo del café",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "No siempre es leche real,",
+        "suele ser aceite de palma —",
+        "rico en grasas saturadas",
+        "",
+        "Unas pocas tazas al día",
+        "y ya suma bastante"
+      ]
+    },
+    {
+      "name": "Para la leche en polvo",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Cambie a leche semidesnatada",
+        "o bebida de soja",
+        "sin azúcar",
+        "",
+        "O pruebe el café",
+        "solo, sin nada"
+      ]
+    },
+    {
+      "name": "Zumo de fruta",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Al exprimir se pierde la fibra —",
+        "el azúcar llega",
+        "más rápido a la sangre",
+        "",
+        "Un estudio de Harvard con más de",
+        "187.000 adultos: la fruta entera bajó",
+        "el riesgo de diabetes, el zumo lo subió"
+      ]
+    },
+    {
+      "name": "Para el zumo de fruta",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Coma la fruta entera,",
+        "o tritúrela con la pulpa",
+        "",
+        "Así conserva la fibra",
+        "que frena la absorción de azúcar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ninguno de estos tres hábitos",
+        "hay que eliminarlo del todo"
+      ],
+      [
+        "Conocer qué elegir basta",
+        "para aliviar la circulación"
+      ]
+    ],
+    "tip": [
+      "Revise las etiquetas: elija opciones",
+      "bajas en grasa y sin azúcar añadido"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  }
+}

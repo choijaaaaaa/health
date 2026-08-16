@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Kribbelnde, kalte oder",
+    "geschwollene Hände und Füße?",
+    "3 Gewohnheiten im Check"
+  ],
+  "eyebrow": "Durchblutung im Fokus",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "설렁탕곰탕_illust.jpg": "Knochenbrühe",
+    "믹스커피_illust.jpg": "Kaffeeweißer",
+    "과일즙_illust.jpg": "Fruchtsaft"
+  },
+  "items": [
+    {
+      "name": "Warum passiert das?",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Gesättigte Fettsäuren lagern",
+        "sich an den Gefäßwänden ab",
+        "und bremsen den Blutfluss",
+        "",
+        "Zu viel Salz lässt den Körper",
+        "Wasser einlagern —",
+        "das zeigt sich als Schwellung"
+      ]
+    },
+    {
+      "name": "Knochenbrühe",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Je länger sie kocht,",
+        "desto mehr Fett löst sich",
+        "aus den Knochen",
+        "",
+        "Kaltgestellt bildet sich oben",
+        "eine feste, helle Fettschicht"
+      ]
+    },
+    {
+      "name": "Bei Knochenbrühe hilft",
+      "char_file": "설렁탕곰탕_illust.jpg",
+      "body": [
+        "Über Nacht kalt stellen und",
+        "die feste Fettschicht",
+        "mit einem Löffel abheben",
+        "",
+        "Die DGE empfiehlt maximal",
+        "7–10% der Energie aus Fett"
+      ]
+    },
+    {
+      "name": "Kaffeeweißer",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Meist kein Milchprodukt,",
+        "sondern gehärtetes",
+        "Pflanzenfett wie Palmöl",
+        "",
+        "Mehrere Tassen am Tag",
+        "summieren sich schnell"
+      ]
+    },
+    {
+      "name": "Statt Kaffeeweißer",
+      "char_file": "믹스커피_illust.jpg",
+      "body": [
+        "Fettarme Milch oder",
+        "ungesüßte Hafer-/Sojamilch",
+        "",
+        "Oder einfach mal",
+        "schwarzen Kaffee probieren"
+      ]
+    },
+    {
+      "name": "Fruchtsaft",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Beim Pressen gehen die",
+        "Ballaststoffe verloren —",
+        "der Zucker wirkt schneller",
+        "",
+        "Bei über 187.000 Erwachsenen zeigte",
+        "eine Harvard-Studie: ganzes Obst senkte",
+        "das Diabetesrisiko, Saft erhöhte es"
+      ]
+    },
+    {
+      "name": "Statt Fruchtsaft",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Das Obst ganz essen",
+        "oder mit Fruchtfleisch",
+        "zum Smoothie pürieren",
+        "",
+        "So bleiben die Ballaststoffe",
+        "erhalten, die den Zucker bremsen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Keine dieser drei Gewohnheiten",
+        "muss komplett verschwinden"
+      ],
+      [
+        "Schon kleine Änderungen",
+        "entlasten den Kreislauf spürbar"
+      ]
+    ],
+    "tip": [
+      "Achten Sie auf fettarme und",
+      "ungesüßte Alternativen"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}
