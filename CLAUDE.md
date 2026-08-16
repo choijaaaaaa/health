@@ -234,6 +234,24 @@
 
 ## 에셋 라이브러리
 
+⚠️ **`assets_library/{illust,real,motion,music}/`는 로컬 유일본, 백업 없음 —
+이 경로 대상 `rm`류 명령은 항상 절대경로 + 실행 직전 `pwd` 확인 필수
+(2026-08-16 사고 확정)** — 다른 작업(워크트리 간 비교) 도중 `cd`로 이동한 채
+잊고 상대경로로 `rm -rf assets_library`를 실행해 메인 디렉토리의 실제
+자산(726MB)이 삭제됐다. git엔 원래도 안 올라가는 경로라(대용량 미디어 정책)
+git으로 복구 불가, Time Machine·iCloud 동기화도 이 기기엔 없어서 대부분
+유실 확정. `illust`는 `output/**/card_news/*.jpg`(안 지워짐)의 fact card
+배지를 크롭해서 231/255개 저해상도로 복구했다(`data/illust_recovery_manifest.json`에
+목록·사용빈도 기록 — 고사용 캐릭터부터 Gemini로 고화질 재생성 권장, 이
+manifest 파일이 재생성 우선순위 판단 근거). `real`/`motion`/`music`은
+복구 안 됨 — `real`은 `real_photo_sourcing.py`로 재소싱 가능(무료 API라
+손실 크지 않음), `motion`은 8/5부로 이미 신규 생성 중단 정책이라 실질
+영향 적음, `music`은 유튜브 오디오 보관함에서 수동 재다운로드 필요.
+**앞으로 규칙**: 이 4개 폴더(또는 그 상위 `assets_library/`) 대상
+삭제·덮어쓰기 명령은 (1) 상대경로 대신 항상 절대경로 사용, (2) 명령
+직전에 `pwd`로 위치 재확인, (3) 정말 필요한 삭제가 아니면 삭제 대신
+이름 바꿔서 보관 후 나중에 지우는 방식을 우선한다.
+
 - `assets_library/{illust,real,motion}/<품목>_*` — 캐릭터 일러스트/실사진/모션
   루프. 새 캐릭터 만들기 전 `ls assets_library/illust/`로 비슷한 시각 카테고리
   기존 파일 있는지 먼저 `Read`로 확인 — 있으면 그대로 재사용, 새로 만들지 말 것.
