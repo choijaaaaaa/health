@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Ohrensausen wird abends lauter?",
+    "Nicht immer nur Stress",
+    "3 Gewohnheiten, die Tinnitus verstärken"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Tinnitus-Warnung",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alkohol",
+    "에너지드링크_illust.jpg": "Energy-Drinks",
+    "김치찌개_illust.jpg": "Salzige Wurstwaren"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Durchblutung oder Flüssigkeitsdruck",
+        "im Innenohr geraten aus dem Takt",
+        "",
+        "Alkohol, Koffein und Salz",
+        "bringen das gleichzeitig durcheinander"
+      ]
+    },
+    {
+      "name": "Ursache 1: Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Blutgefäße schwellen kurz an",
+        "und ziehen sich dann zusammen",
+        "",
+        "Die entwässernde Wirkung",
+        "bringt den Flüssigkeitshaushalt durcheinander"
+      ]
+    },
+    {
+      "name": "Alkohol: Was hilft",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Zu jedem Glas Alkohol",
+        "ein Glas Wasser trinken",
+        "",
+        "Das federt die Schwankungen",
+        "der Durchblutung ab"
+      ]
+    },
+    {
+      "name": "Ursache 2: Koffein",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Energy-Drinks liefern oft",
+        "mehr Koffein als eine Tasse Kaffee",
+        "",
+        "Dazu kommt viel Zucker,",
+        "der kleine Blutgefäße belastet"
+      ]
+    },
+    {
+      "name": "Koffein: Was hilft",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Auf koffeinfreie Alternativen",
+        "umsteigen",
+        "",
+        "Mineralwasser oder Früchtetee",
+        "wirken erfrischend ohne den Reiz"
+      ]
+    },
+    {
+      "name": "Ursache 3: Salzige Wurstwaren",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Wurst und Aufschnitt liefern",
+        "oft über 1,5 g Salz pro 100 g",
+        "",
+        "Überschüssiges Natrium erhöht",
+        "den Druck in der Endolymphe"
+      ]
+    },
+    {
+      "name": "Wurstwaren: Was hilft",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Vor dem Kauf",
+        "die Nährwerttabelle prüfen",
+        "",
+        "Natriumärmere Varianten senken",
+        "die Salzzufuhr spürbar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alkohol, Koffein und Salz",
+        "beeinflussen dein Innenohr"
+      ],
+      [
+        "Kleine Änderungen beim Trinken und Essen",
+        "können viel bewirken"
+      ]
+    ],
+    "tip": [
+      "Zu Alkohol immer Wasser trinken",
+      "und Etiketten öfter checken"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  },
+  "topic_word": "Tinnitus"
+}

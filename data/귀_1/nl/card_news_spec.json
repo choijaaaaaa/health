@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Wordt je oorsuizen erger",
+    "zodra het stil wordt?",
+    "Het is niet altijd alleen stress",
+    "3 gewoontes die oorsuizen verergeren"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Waarschuwing oorsuizen",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "에너지드링크_illust.jpg": "Cafeïne",
+    "김치찌개_illust.jpg": "Zout uit vleeswaren"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Bloedcirculatie of vochtdruk",
+        "in je binnenoor raakt verstoord",
+        "",
+        "Alcohol, cafeïne en zout",
+        "kunnen dat tegelijk beïnvloeden"
+      ]
+    },
+    {
+      "name": "Oorzaak 1: alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Verwijdt de bloedvaten",
+        "in je binnenoor",
+        "",
+        "Beïnvloedt ook hoe je hersenen",
+        "prikkels verwerken"
+      ]
+    },
+    {
+      "name": "Alcohol: wat helpt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Drink bij elk glas alcohol",
+        "ook een glas water",
+        "",
+        "Beperkt de schommelingen",
+        "in je bloedcirculatie"
+      ]
+    },
+    {
+      "name": "Oorzaak 2: cafeïne",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Energiedrankjes bevatten vaak",
+        "meer cafeïne dan een kop koffie",
+        "",
+        "De hoge dosis suiker",
+        "laat je bloedsuiker snel schommelen"
+      ]
+    },
+    {
+      "name": "Cafeïne: wat helpt",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Vervang het energiedrankje",
+        "door een cafeïnevrij alternatief",
+        "",
+        "Bruisend water of lichte thee",
+        "geven net zo goed een oppepper"
+      ]
+    },
+    {
+      "name": "Oorzaak 3: zout uit vleeswaren",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Vleeswaren zijn goed voor",
+        "zo'n 10% van je zoutinname",
+        "",
+        "Te veel zout verandert",
+        "de druk in je binnenoor"
+      ]
+    },
+    {
+      "name": "Zout: wat helpt",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Check het etiket voordat",
+        "je vleeswaren of kaas koopt",
+        "",
+        "Een zoutarmere variant scheelt",
+        "merkbaar in je dagelijkse inname"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol, cafeïne en zout",
+        "beïnvloeden allemaal je binnenoor"
+      ],
+      [
+        "Kleine, structurele aanpassingen",
+        "verminderen het effect"
+      ]
+    ],
+    "tip": [
+      "Een glas water bij elk glaasje alcohol,",
+      "en check vaker het etiket"
+    ],
+    "cta": "Meer van dit soort gezondheidstips? Volg ons en like deze post!"
+  },
+  "topic_word": "Oorsuizen"
+}

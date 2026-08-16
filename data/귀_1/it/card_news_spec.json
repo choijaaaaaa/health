@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Il tuo acufene peggiora",
+    "quando cala il silenzio della sera?",
+    "Non è sempre solo lo stress",
+    "3 abitudini che peggiorano l'acufene"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Allerta acufene",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcol",
+    "에너지드링크_illust.jpg": "Caffeina",
+    "김치찌개_illust.jpg": "Sale nascosto"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "I vasi sanguigni dell'orecchio interno",
+        "si restringono o la pressione cambia",
+        "",
+        "Alcol, caffeina e sale",
+        "possono farlo insieme"
+      ]
+    },
+    {
+      "name": "Causa 1: l'alcol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Restringe i vasi sanguigni",
+        "dell'orecchio interno",
+        "",
+        "Riduce l'ossigeno",
+        "che arriva alle cellule uditive"
+      ]
+    },
+    {
+      "name": "Alcol: cosa aiuta",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alterna ogni bicchiere",
+        "con un bicchiere d'acqua",
+        "",
+        "Sostiene l'idratazione",
+        "e la microcircolazione"
+      ]
+    },
+    {
+      "name": "Causa 2: la caffeina",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Una lattina energetica ha spesso",
+        "più caffeina di un espresso",
+        "",
+        "Lo zucchero che la accompagna",
+        "mette sotto stress i vasi piccoli"
+      ]
+    },
+    {
+      "name": "Caffeina: cosa aiuta",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Sostituiscila con",
+        "un'alternativa senza caffeina",
+        "",
+        "Acqua frizzante o tisana leggera",
+        "danno energia senza restringere i vasi"
+      ]
+    },
+    {
+      "name": "Causa 3: il sale nascosto",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Circa il 64% del sale in Italia",
+        "arriva da pane, formaggi e salumi",
+        "",
+        "L'eccesso di sodio alza la pressione",
+        "nei vasi dell'orecchio interno"
+      ]
+    },
+    {
+      "name": "Sale: cosa aiuta",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Controlla l'etichetta prima",
+        "di comprare salumi o formaggi stagionati",
+        "",
+        "Le versioni a ridotto contenuto di sale",
+        "riducono facilmente l'apporto"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcol, caffeina e sale",
+        "restringono i vasi dell'orecchio interno"
+      ],
+      [
+        "Piccoli aggiustamenti costanti",
+        "riducono il fastidio"
+      ]
+    ],
+    "tip": [
+      "Un bicchiere d'acqua per ogni alcolico,",
+      "e controlla sempre l'etichetta"
+    ],
+    "cta": "Vuoi altri consigli sulla salute come questo? Iscriviti e metti like!"
+  },
+  "topic_word": "Acufene"
+}

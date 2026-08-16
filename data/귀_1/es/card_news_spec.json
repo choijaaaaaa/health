@@ -1,0 +1,115 @@
+{
+  "title": [
+    "¿Tus acúfenos empeoran",
+    "cuando todo se queda en silencio?",
+    "No siempre es solo estrés",
+    "3 hábitos que empeoran los acúfenos"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Alerta de acúfenos",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "에너지드링크_illust.jpg": "Cafeína",
+    "김치찌개_illust.jpg": "Sal oculta"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El flujo sanguíneo o la presión",
+        "de líquidos del oído interno se altera",
+        "",
+        "Alcohol, cafeína y sal",
+        "pueden alterarlo a la vez"
+      ]
+    },
+    {
+      "name": "Causa 1: el alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Reduce el flujo de sangre",
+        "que llega al oído interno",
+        "",
+        "Afecta a las células ciliadas",
+        "que convierten el sonido en señales"
+      ]
+    },
+    {
+      "name": "Alcohol: qué ayuda",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alterna cada copa",
+        "con un vaso de agua",
+        "",
+        "Ayuda a mantener",
+        "una circulación más estable"
+      ]
+    },
+    {
+      "name": "Causa 2: la cafeína",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Las bebidas energéticas llevan",
+        "mucho más azúcar que un café normal",
+        "",
+        "Ese vaivén de glucosa",
+        "estresa los vasos pequeños del oído"
+      ]
+    },
+    {
+      "name": "Cafeína: qué ayuda",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Cámbiala por",
+        "una opción sin cafeína",
+        "",
+        "Agua con gas o infusión suave",
+        "dan energía sin la constricción"
+      ]
+    },
+    {
+      "name": "Causa 3: la sal oculta",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Los embutidos son la principal",
+        "fuente de sodio en España",
+        "",
+        "El exceso de sal retiene líquido",
+        "y altera la presión del oído interno"
+      ]
+    },
+    {
+      "name": "Sal: qué ayuda",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Revisa la etiqueta antes",
+        "de comprar embutidos o quesos curados",
+        "",
+        "Las versiones bajas en sodio",
+        "reducen mucho el aporte diario"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol, cafeína y sal",
+        "alteran la circulación del oído interno"
+      ],
+      [
+        "Pequeños cambios constantes",
+        "pueden suavizar el zumbido"
+      ]
+    ],
+    "tip": [
+      "Un vaso de agua por cada copa,",
+      "y revisa siempre la etiqueta"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos y dale like!"
+  },
+  "topic_word": "Acúfenos"
+}

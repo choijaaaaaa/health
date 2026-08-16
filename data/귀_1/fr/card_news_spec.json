@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Vos acouphènes sont plus forts",
+    "une fois le calme installé ?",
+    "Ce n'est pas toujours le stress",
+    "3 habitudes qui aggravent les acouphènes"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Alerte acouphènes",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcool",
+    "에너지드링크_illust.jpg": "Caféine",
+    "김치찌개_illust.jpg": "Sel"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "La circulation ou la pression",
+        "des liquides de l'oreille interne se dérègle",
+        "",
+        "Alcool, caféine et sel",
+        "peuvent perturber ça en même temps"
+      ]
+    },
+    {
+      "name": "Cause 1 : l'alcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Il dilate les vaisseaux",
+        "de l'oreille interne",
+        "",
+        "Son effet diurétique",
+        "déséquilibre l'hydratation"
+      ]
+    },
+    {
+      "name": "Alcool : ce qui aide",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alternez chaque verre",
+        "avec un verre d'eau",
+        "",
+        "Ça limite les variations",
+        "d'hydratation de la nuit"
+      ]
+    },
+    {
+      "name": "Cause 2 : la caféine",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Les boissons énergisantes concentrent",
+        "bien plus de caféine qu'un café classique",
+        "",
+        "Le sucre qui l'accompagne",
+        "irrite aussi les petits vaisseaux"
+      ]
+    },
+    {
+      "name": "Caféine : ce qui aide",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Remplacez-la par",
+        "une alternative sans caféine",
+        "",
+        "Eau pétillante ou thé léger",
+        "donnent un regain sans le pic"
+      ]
+    },
+    {
+      "name": "Cause 3 : le sel",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "En France, le pain et la charcuterie",
+        "sont les premières sources de sel",
+        "",
+        "L'excès de sodium fait monter",
+        "la pression dans l'oreille interne"
+      ]
+    },
+    {
+      "name": "Sel : ce qui aide",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Vérifiez l'étiquette avant",
+        "d'acheter charcuterie ou plats préparés",
+        "",
+        "Une version moins salée réduit",
+        "nettement les apports du jour"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcool, caféine et sel",
+        "perturbent tous l'oreille interne"
+      ],
+      [
+        "De petits ajustements",
+        "peuvent calmer le bourdonnement"
+      ]
+    ],
+    "tip": [
+      "Un verre d'eau pour chaque verre d'alcool,",
+      "et lisez les étiquettes"
+    ],
+    "cta": "Envie de plus de conseils santé comme celui-ci ? Abonnez-vous et likez !"
+  },
+  "topic_word": "Acouphènes"
+}

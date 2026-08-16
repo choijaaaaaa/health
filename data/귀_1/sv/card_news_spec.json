@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Blir din tinnitus värre",
+    "när det blir tyst omkring dig?",
+    "Det är inte alltid bara stress",
+    "3 vanor som kan förvärra tinnitus"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Tinnitusvarning",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alkohol",
+    "에너지드링크_illust.jpg": "Koffein",
+    "김치찌개_illust.jpg": "Salt från chark och bröd"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Blodcirkulationen eller trycket",
+        "i innerörat påverkas",
+        "",
+        "Alkohol, koffein och salt",
+        "kan störa det samtidigt"
+      ]
+    },
+    {
+      "name": "Orsak 1: alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vidgar blodkärlen",
+        "i innerörat",
+        "",
+        "Många märker det tydligast",
+        "dagen efter"
+      ]
+    },
+    {
+      "name": "Alkohol: vad som hjälper",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Håll nere mängden alkohol,",
+        "särskilt sent på kvällen",
+        "",
+        "Regelbunden motion förbättrar",
+        "blodcirkulationen i övrigt"
+      ]
+    },
+    {
+      "name": "Orsak 2: koffein",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Energidrycker innehåller ofta",
+        "mer koffein än en kopp kaffe",
+        "",
+        "Sockret som följer med",
+        "belastar kroppens minsta blodkärl"
+      ]
+    },
+    {
+      "name": "Koffein: vad som hjälper",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Byt energidrycken mot",
+        "ett koffeinfritt alternativ",
+        "",
+        "Kolsyrat vatten eller milt te",
+        "ger energi utan belastningen"
+      ]
+    },
+    {
+      "name": "Orsak 3: salt från chark och bröd",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Runt 30% av saltet i svensk kost",
+        "kommer från kött och chark",
+        "",
+        "Det höjda saltintaget kan",
+        "påverka trycket i innerörat"
+      ]
+    },
+    {
+      "name": "Salt: vad som hjälper",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Läs innehållsförteckningen innan",
+        "du köper chark eller färdigmat",
+        "",
+        "En saltsnålare variant sänker",
+        "dagsintaget märkbart"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alkohol, koffein och salt",
+        "orsakar inte tinnitus"
+      ],
+      [
+        "Men de kan göra ett",
+        "befintligt öronsus värre"
+      ]
+    ],
+    "tip": [
+      "Ett glas vatten till varje alkoholhaltig dryck,",
+      "och läs innehållsförteckningen"
+    ],
+    "cta": "Vill du ha fler såna här hälsotips? Följ oss och gilla gärna!"
+  },
+  "topic_word": "Tinnitus"
+}
