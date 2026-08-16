@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Kopfhaut juckt und",
+    "Schuppen bleiben trotz",
+    "neuem Shampoo?",
+    "Ursachen auf dem Teller"
+  ],
+  "eyebrow": "Kopfhaut-Alarm",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Donut",
+    "우유_illust.jpg": "Milchprodukte",
+    "돼지껍질튀김_illust.jpg": "Frittiertes"
+  },
+  "items": [
+    {
+      "name": "Warum es juckt und schuppt",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Auch die Kopfhaut hat",
+        "Talgdrüsen wie die Haut",
+        "",
+        "Manche Lebensmittel regen",
+        "sie an und füttern damit",
+        "den Hefepilz Malassezia"
+      ]
+    },
+    {
+      "name": "Süßes",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Donuts & Süßes lassen",
+        "den Blutzucker schnell steigen",
+        "",
+        "Das treibt Insulin und IGF-1",
+        "hoch - sie kurbeln die",
+        "Talgproduktion an"
+      ]
+    },
+    {
+      "name": "Süßes ersetzen",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Bei Heißhunger lieber",
+        "zu Nüssen oder Obst greifen"
+      ]
+    },
+    {
+      "name": "Milchprodukte",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Milch & Eis enthalten",
+        "Hormone, die laut Studien",
+        "die Talgproduktion anregen",
+        "",
+        "Der Zusammenhang wird",
+        "aber noch diskutiert"
+      ]
+    },
+    {
+      "name": "Milch ersetzen",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Kuhmilch mal gegen",
+        "Sojamilch tauschen"
+      ]
+    },
+    {
+      "name": "Frittiertes",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Pommes & Frittiertes nutzen",
+        "Öl mit viel Omega-6",
+        "",
+        "Oxidiertes Öl fördert",
+        "Entzündungen und schwächt",
+        "die Hautbarriere"
+      ]
+    },
+    {
+      "name": "Frittiertes ersetzen",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Lieber gegrillt oder",
+        "gedämpft zubereiten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Süßes, Milch und Frittiertes -",
+        "kompletter Verzicht ist nicht nötig"
+      ],
+      [
+        "Weniger davon und die richtigen",
+        "Tauschpartner beruhigen die Kopfhaut"
+      ]
+    ],
+    "tip": [
+      "Fettreicher Fisch wie Lachs liefert",
+      "Omega-3, das Entzündungen ausgleicht"
+    ],
+    "cta": "Für mehr hilfreiche Gesundheitstipps folgen"
+  }
+}

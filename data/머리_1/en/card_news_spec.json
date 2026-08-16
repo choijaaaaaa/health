@@ -1,51 +1,109 @@
 {
-  "title": ["Been through 2-3 anti-dandruff", "shampoos and the flakes", "still keep coming back?"],
+  "title": [
+    "Tried every anti-dandruff",
+    "shampoo but the itch and",
+    "flakes keep coming back?",
+    "Scalp Care Guide"
+  ],
   "eyebrow": "Scalp Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "도넛_illust.jpg",
   "char_display_names": {
-    "단과자빵_illust.jpg": "Sweets",
+    "도넛_illust.jpg": "Donut",
     "우유_illust.jpg": "Dairy",
     "돼지껍질튀김_illust.jpg": "Fried Food"
   },
   "items": [
     {
-      "name": "Why the Itch and Flakes",
-      "char_file": "단과자빵_illust.jpg",
-      "body": ["A yeast called Malassezia", "lives on your scalp's oil", "", "It breaks down sebum into", "oleic acid, which irritates", "sensitive skin"]
+      "name": "Why It Itches and Flakes",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Your scalp has oil glands",
+        "too, just like your skin",
+        "",
+        "Foods that boost oil output",
+        "feed the yeast behind",
+        "dandruff and itching"
+      ]
     },
     {
-      "name": "Sweets",
-      "char_file": "단과자빵_illust.jpg",
-      "body": ["Donuts and cookies spike", "blood sugar fast", "", "That raises insulin and IGF-1,", "a hormone that tells oil glands", "to make more sebum"]
+      "name": "Sugary Snacks",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Donuts and sweets spike",
+        "blood sugar fast",
+        "",
+        "That raises insulin and IGF-1,",
+        "hormones that tell oil",
+        "glands to make more sebum"
+      ]
     },
     {
       "name": "Instead of Sweets",
-      "char_file": "단과자빵_illust.jpg",
-      "body": ["Reach for berries or", "a handful of nuts instead"]
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Swap sweets for nuts",
+        "or fresh fruit instead"
+      ]
     },
     {
       "name": "Dairy",
       "char_file": "우유_illust.jpg",
-      "body": ["Whole milk and ice cream", "were among the foods most", "linked to flare-ups", "in one clinical study", "", "Hormones in milk may push", "oil glands into overdrive"]
+      "body": [
+        "Milk and ice cream contain",
+        "hormones linked to sebum",
+        "in some studies",
+        "",
+        "The link is real but still",
+        "debated - effects vary",
+        "by person"
+      ]
     },
     {
       "name": "Instead of Dairy",
       "char_file": "우유_illust.jpg",
-      "body": ["Swap in unsweetened", "soy milk instead"]
+      "body": [
+        "Try swapping in",
+        "unsweetened soy milk"
+      ]
     },
     {
       "name": "Fried Food",
       "char_file": "돼지껍질튀김_illust.jpg",
-      "body": ["French fries and fried chicken", "use oils heavy in omega-6 fats", "", "That may drive inflammation", "and shift your sebum's makeup"]
+      "body": [
+        "Fried chicken and fries",
+        "use oils high in omega-6",
+        "",
+        "Reused oil oxidizes and",
+        "fuels inflammation, weakening",
+        "your scalp's barrier"
+      ]
     },
     {
       "name": "Instead of Fried",
       "char_file": "돼지껍질튀김_illust.jpg",
-      "body": ["Try oven-roasted potatoes", "or grilled chicken breast"]
+      "body": [
+        "Swap in grilled or steamed",
+        "dishes instead"
+      ]
     }
   ],
   "closing": {
-    "headline": [["Sweets, dairy, and fried food -", "you don't have to cut them out completely"], ["Cutting back and swapping in", "can ease scalp irritation"]],
-    "tip": ["Fatty fish like salmon,", "rich in omega-3s, can help too"],
+    "headline": [
+      [
+        "Sweets, dairy, and fried food -",
+        "you don't have to cut them out completely"
+      ],
+      [
+        "Moderating and swapping in",
+        "can calm an irritated scalp"
+      ]
+    ],
+    "tip": [
+      "Oily fish like salmon add omega-3s",
+      "that help balance out inflammation"
+    ],
     "cta": "Follow for more useful health tips"
   }
 }

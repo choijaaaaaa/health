@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Jeukende hoofdhuid en roos",
+    "die maar niet overgaan,",
+    "ondanks een nieuwe shampoo?",
+    "Wat er op je bord ligt"
+  ],
+  "eyebrow": "Hoofdhuidalarm",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Donut",
+    "우유_illust.jpg": "Zuivel",
+    "돼지껍질튀김_illust.jpg": "Gefrituurd eten"
+  },
+  "items": [
+    {
+      "name": "Waarom het jeukt en schilfert",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Ook je hoofdhuid heeft",
+        "talgklieren, net als je huid",
+        "",
+        "Bepaalde voeding stimuleert",
+        "talg, het lievelingseten",
+        "van de gist Malassezia"
+      ]
+    },
+    {
+      "name": "Suiker",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Donuts en snoep laten",
+        "je bloedsuiker snel stijgen",
+        "",
+        "Dat verhoogt insuline",
+        "en IGF-1, die de talgklieren",
+        "extra activeren"
+      ]
+    },
+    {
+      "name": "In plaats van suiker",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Kies bij trek liever",
+        "voor noten of vers fruit"
+      ]
+    },
+    {
+      "name": "Zuivel",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Melk en ijs bevatten",
+        "hormonen die volgens",
+        "onderzoek talg verhogen",
+        "",
+        "Het verband staat echter",
+        "nog ter discussie"
+      ]
+    },
+    {
+      "name": "In plaats van zuivel",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Probeer sojamelk",
+        "in plaats van koemelk"
+      ]
+    },
+    {
+      "name": "Gefrituurd eten",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Patat en gefrituurde kip",
+        "gebruiken olie rijk",
+        "aan omega-6",
+        "",
+        "Geoxideerde olie voedt",
+        "ontstekingen en verzwakt",
+        "de huidbarrière"
+      ]
+    },
+    {
+      "name": "In plaats van frituren",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Kies liever voor",
+        "gegrild of gestoomd"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Suiker, zuivel en gefrituurd -",
+        "je hoeft het niet helemaal te schrappen"
+      ],
+      [
+        "Minderen en vervangen is genoeg",
+        "om je hoofdhuid rustiger te maken"
+      ]
+    ],
+    "tip": [
+      "Vette vis zoals zalm levert omega-3",
+      "dat ontstekingen helpt afremmen"
+    ],
+    "cta": "Volg voor meer handige gezondheidstips"
+  }
+}

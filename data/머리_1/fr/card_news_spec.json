@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Cuir chevelu qui gratte",
+    "et pellicules qui reviennent",
+    "malgré le shampooing ?",
+    "3 aliments à surveiller"
+  ],
+  "eyebrow": "Alerte cuir chevelu",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "도넛_illust.jpg": "Donut",
+    "우유_illust.jpg": "Produits laitiers",
+    "돼지껍질튀김_illust.jpg": "Fritures"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça gratte",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Le cuir chevelu a aussi",
+        "des glandes sébacées",
+        "",
+        "Certains aliments stimulent",
+        "le sébum, la nourriture",
+        "préférée de Malassezia"
+      ]
+    },
+    {
+      "name": "Le sucre",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Donuts et sucreries font",
+        "grimper la glycémie vite",
+        "",
+        "Cela stimule insuline",
+        "et IGF-1, qui activent",
+        "les glandes sébacées"
+      ]
+    },
+    {
+      "name": "À la place du sucre",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Remplacez le sucre par",
+        "des fruits secs ou frais"
+      ]
+    },
+    {
+      "name": "Produits laitiers",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Le lait et les glaces",
+        "contiennent des hormones",
+        "liées au sébum",
+        "",
+        "Le lien reste débattu",
+        "par les chercheurs"
+      ]
+    },
+    {
+      "name": "À la place des laitages",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Essayez le lait de soja",
+        "à la place du lait de vache"
+      ]
+    },
+    {
+      "name": "Les fritures",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Frites et poulet frit",
+        "utilisent des huiles riches",
+        "en oméga-6",
+        "",
+        "L'huile oxydée entretient",
+        "l'inflammation et affaiblit",
+        "la barrière cutanée"
+      ]
+    },
+    {
+      "name": "À la place des fritures",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Optez pour grillé",
+        "ou vapeur à la place"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sucre, laitages et fritures -",
+        "pas besoin de tout supprimer"
+      ],
+      [
+        "Réduire et remplacer suffit",
+        "à apaiser le cuir chevelu"
+      ]
+    ],
+    "tip": [
+      "Le poisson gras comme le saumon",
+      "apporte des oméga-3 anti-inflammatoires"
+    ],
+    "cta": "Suivez-nous pour plus d'astuces santé"
+  }
+}
