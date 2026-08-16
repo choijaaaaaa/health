@@ -1,0 +1,96 @@
+{
+  "title": [
+    "Café, sodas, dîner gras :",
+    "que dit vraiment la science ?",
+    "Comprendre vos brûlures d'estomac"
+  ],
+  "eyebrow": "Reflux gastrique",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "탄산음료_illust.jpg": "Boissons gazeuses",
+    "도넛_illust.jpg": "Repas gras tardif"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça brûle",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un muscle entre l'estomac",
+        "et l'œsophage se relâche",
+        "",
+        "et laisse l'acide",
+        "remonter"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine peut relâcher ce muscle",
+        "et stimuler l'acidité gastrique",
+        "",
+        "Un effet réel, mais pas systématique"
+      ]
+    },
+    {
+      "name": "Café — le bon réflexe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "À prendre après un repas,",
+        "plutôt qu'à jeun"
+      ]
+    },
+    {
+      "name": "Boissons gazeuses",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Le gaz se dilate dans l'estomac",
+        "et augmente la pression",
+        "",
+        "Un lien direct avec le reflux",
+        "reste à confirmer"
+      ]
+    },
+    {
+      "name": "Boissons gazeuses — le bon réflexe",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Observez votre propre sensibilité",
+        "avant de les bannir d'office"
+      ]
+    },
+    {
+      "name": "Dîner gras tardif",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Les graisses ralentissent",
+        "la vidange de l'estomac",
+        "",
+        "C'est le facteur",
+        "le plus solidement établi"
+      ]
+    },
+    {
+      "name": "Dîner gras — le bon réflexe",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Terminez le dîner",
+        "2 à 3 heures avant le coucher"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Des brûlures fréquentes", "peuvent devenir chroniques"],
+      ["Ajuster ces trois habitudes", "soulage déjà beaucoup"]
+    ],
+    "tip": [
+      "Ne vous allongez pas juste après manger",
+      "restez debout 2 à 3 heures"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez, suivez !"
+  }
+}

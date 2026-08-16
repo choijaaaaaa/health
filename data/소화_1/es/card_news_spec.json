@@ -1,0 +1,97 @@
+{
+  "title": [
+    "¿Ardor de estómago por la noche?",
+    "Esto dice la evidencia real",
+    "Café, refrescos y cena copiosa"
+  ],
+  "eyebrow": "Reflujo y ardor",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "탄산음료_illust.jpg": "Refrescos con gas",
+    "도넛_illust.jpg": "Cena copiosa"
+  },
+  "items": [
+    {
+      "name": "Por qué arde",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un músculo entre el estómago",
+        "y el esófago se relaja",
+        "",
+        "y deja subir",
+        "el ácido"
+      ]
+    },
+    {
+      "name": "Café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Podría relajar ese músculo",
+        "y aumentar el ácido gástrico",
+        "",
+        "Pero la evidencia aún",
+        "no es concluyente"
+      ]
+    },
+    {
+      "name": "Café — qué ayuda",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tómalo después de comer,",
+        "no en ayunas"
+      ]
+    },
+    {
+      "name": "Refrescos con gas",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El gas se expande en el estómago",
+        "y aumenta la presión interna",
+        "",
+        "El vínculo mejor",
+        "demostrado de los tres"
+      ]
+    },
+    {
+      "name": "Refrescos — qué ayuda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Cámbialos por",
+        "agua sin gas"
+      ]
+    },
+    {
+      "name": "Cena copiosa y grasa",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "La grasa ralentiza",
+        "el vaciado del estómago",
+        "",
+        "Y favorece el reflujo",
+        "por la noche"
+      ]
+    },
+    {
+      "name": "Cena copiosa — qué ayuda",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Cena 2-3 horas",
+        "antes de acostarte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["El ardor frecuente", "puede volverse crónico"],
+      ["Ajustar solo estos tres", "alivia mucho el malestar"]
+    ],
+    "tip": [
+      "No te acuestes justo tras comer —",
+      "espera 2-3 horas antes"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  }
+}

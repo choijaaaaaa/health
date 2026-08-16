@@ -1,0 +1,97 @@
+{
+  "title": [
+    "Vaknar du av halsbränna",
+    "mitt i natten?",
+    "Det som faktiskt triggar halsbränna"
+  ],
+  "eyebrow": "Halsbränna",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "탄산음료_illust.jpg": "Läsk",
+    "도넛_illust.jpg": "Fet kvällsmat"
+  },
+  "items": [
+    {
+      "name": "Varför det bränner",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "En ringmuskel mellan magsäck",
+        "och matstrupe slappnar av",
+        "",
+        "och släpper upp",
+        "magsyra"
+      ]
+    },
+    {
+      "name": "Kaffe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kan slappna av muskeln",
+        "och öka magsyraproduktionen",
+        "",
+        "Effekten varierar",
+        "mellan olika personer"
+      ]
+    },
+    {
+      "name": "Kaffe — vad som hjälper",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drick det till frukost,",
+        "inte på fastande mage"
+      ]
+    },
+    {
+      "name": "Läsk",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Koldioxidbubblorna vidgas",
+        "och trycker upp magsäcken",
+        "",
+        "Det tydligast belagda",
+        "av de tre"
+      ]
+    },
+    {
+      "name": "Läsk — vad som hjälper",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Byt mot",
+        "vanligt vatten"
+      ]
+    },
+    {
+      "name": "Fet mat sent på kvällen",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Fett gör att maten",
+        "stannar längre i magsäcken",
+        "",
+        "Den tydligaste boven",
+        "av de tre"
+      ]
+    },
+    {
+      "name": "Fet kvällsmat — vad som hjälper",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Ät klart 2-3 timmar",
+        "före sänggåendet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Återkommande halsbränna", "kan bli kronisk"],
+      ["Justera bara dessa tre", "och besvären lättar"]
+    ],
+    "tip": [
+      "Lägg dig inte ner direkt efter maten —",
+      "sitt upprätt i 2-3 timmar"
+    ],
+    "cta": "Vill du ha fler hälsotips som detta? Följ, gilla och prenumerera!"
+  }
+}

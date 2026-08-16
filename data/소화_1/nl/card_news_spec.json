@@ -1,0 +1,96 @@
+{
+  "title": [
+    "'s Avonds wakker van",
+    "een brandend gevoel?",
+    "Wat echt bijdraagt aan brandend maagzuur"
+  ],
+  "eyebrow": "Brandend maagzuur",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "탄산음료_illust.jpg": "Koolzuurhoudende drank",
+    "도넛_illust.jpg": "Vet avondeten"
+  },
+  "items": [
+    {
+      "name": "Waarom het brandt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Een kringspier tussen maag",
+        "en slokdarm ontspant",
+        "",
+        "en laat maagzuur",
+        "omhoog komen"
+      ]
+    },
+    {
+      "name": "Koffie",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Een bekende trigger, maar het",
+        "mechanisme is niet eenduidig",
+        "",
+        "Erger op een lege maag"
+      ]
+    },
+    {
+      "name": "Koffie — wat helpt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drink het na het eten,",
+        "niet op een lege maag"
+      ]
+    },
+    {
+      "name": "Koolzuurhoudende drank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Het koolzuurgas zet uit",
+        "en verhoogt de druk in je maag",
+        "",
+        "Het duidelijkst",
+        "bewezen van de drie"
+      ]
+    },
+    {
+      "name": "Koolzuur — wat helpt",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Vervang het door",
+        "plat water"
+      ]
+    },
+    {
+      "name": "Vet avondeten",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Vette maaltijden blijven",
+        "langer in je maag zitten",
+        "",
+        "Nederlandse bronnen zijn",
+        "hier het meest eenduidig"
+      ]
+    },
+    {
+      "name": "Vet avondeten — wat helpt",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Sluit de keuken",
+        "2 tot 3 uur voor het slapengaan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Regelmatig maagzuur", "kan chronisch worden"],
+      ["Pas alleen deze drie aan", "en de klachten nemen af"]
+    ],
+    "tip": [
+      "Ga niet direct liggen na het eten —",
+      "blijf 2-3 uur rechtop"
+    ],
+    "cta": "Wil je meer gezondheidstips zoals deze? Volg, like en abonneer!"
+  }
+}

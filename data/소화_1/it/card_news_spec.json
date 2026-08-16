@@ -1,0 +1,96 @@
+{
+  "title": [
+    "Bruciore di stomaco la sera?",
+    "Ecco cosa dice davvero la scienza",
+    "Caffè, bibite gassate e cena pesante"
+  ],
+  "eyebrow": "Reflusso e bruciore",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "탄산음료_illust.jpg": "Bibite gassate",
+    "도넛_illust.jpg": "Cena grassa"
+  },
+  "items": [
+    {
+      "name": "Perché brucia",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un muscolo tra stomaco",
+        "ed esofago si rilassa",
+        "",
+        "e lascia risalire",
+        "l'acido"
+      ]
+    },
+    {
+      "name": "Caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caffeina può rilassare questo",
+        "muscolo e aumentare l'acido",
+        "",
+        "L'effetto varia da persona a persona"
+      ]
+    },
+    {
+      "name": "Caffè — cosa aiuta",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Bevilo dopo un pasto,",
+        "non a stomaco vuoto"
+      ]
+    },
+    {
+      "name": "Bibite gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "L'anidride carbonica si espande",
+        "e aumenta la pressione nello stomaco",
+        "",
+        "Il punto su cui le fonti",
+        "italiane sono più concordi"
+      ]
+    },
+    {
+      "name": "Bibite gassate — cosa aiuta",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sostituiscile con",
+        "acqua naturale"
+      ]
+    },
+    {
+      "name": "Cena grassa e tardiva",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "I grassi rallentano",
+        "lo svuotamento dello stomaco",
+        "",
+        "Il fattore più chiaro",
+        "tra i tre"
+      ]
+    },
+    {
+      "name": "Cena grassa — cosa aiuta",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Chiudi la cucina",
+        "2-3 ore prima di coricarti"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Il bruciore frequente", "può diventare cronico"],
+      ["Basta correggere questi tre", "per sentirsi molto meglio"]
+    ],
+    "tip": [
+      "Non sdraiarti subito dopo i pasti —",
+      "resta seduto per 2-3 ore"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti mi piace e segui!"
+  }
+}

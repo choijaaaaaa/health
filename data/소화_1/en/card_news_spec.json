@@ -1,35 +1,37 @@
 {
   "title": [
     "Waking up at 3am",
-    "with a sour, burning taste in your throat?",
-    "Foods That Trigger Heartburn"
+    "with a burning taste in your throat?",
+    "Foods That Trigger Nighttime Heartburn"
   ],
   "eyebrow": "Acid Reflux Alert",
-  "swipe_label": "Swipe to see more  →",
+  "swipe_label": "Swipe for more  →",
   "closing_label": "Wrap-up",
+  "cover_char_file": "도넛_illust.jpg",
   "char_display_names": {
     "커피_illust.jpg": "Coffee",
-    "고추_illust.jpg": "Spicy",
-    "토마토_illust.jpg": "Tomato"
+    "탄산음료_illust.jpg": "Soda",
+    "도넛_illust.jpg": "Greasy Food"
   },
   "items": [
     {
       "name": "Why does this happen",
       "char_file": "커피_illust.jpg",
       "body": [
-        "A loose muscle between your",
+        "A ring of muscle between your",
         "stomach and esophagus",
         "",
-        "lets stomach acid",
-        "push back up"
+        "loosens and lets",
+        "acid push back up"
       ]
     },
     {
       "name": "Coffee",
       "char_file": "커피_illust.jpg",
       "body": [
-        "Caffeine relaxes that muscle",
-        "and boosts acid production",
+        "It's not just the caffeine —",
+        "chlorogenic acids in coffee",
+        "ramp up acid production",
         "",
         "Worse on an empty stomach"
       ]
@@ -38,59 +40,57 @@
       "name": "Coffee — how to fix it",
       "char_file": "커피_illust.jpg",
       "body": [
-        "Have it with a meal, and cut off",
-        "a few hours before bed"
+        "Even decaf still has this effect,",
+        "so have it with a meal instead"
       ]
     },
     {
-      "name": "Spicy food",
-      "char_file": "고추_illust.jpg",
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
       "body": [
-        "Nearly half of reflux sufferers",
-        "say spicy food makes it worse",
+        "CO2 bubbles expand in your",
+        "stomach and raise the pressure",
         "",
-        "Capsaicin irritates the esophagus",
-        "going down, and slows digestion"
+        "That pressure pushes",
+        "acid upward too"
       ]
     },
     {
-      "name": "Spicy food — try this instead",
-      "char_file": "고추_illust.jpg",
+      "name": "Soda — how to fix it",
+      "char_file": "탄산음료_illust.jpg",
       "body": [
-        "Cut hot sauce to a small drizzle,",
-        "or season with basil or oregano"
+        "Swap it for still water",
+        "to keep that pressure from building"
       ]
     },
     {
-      "name": "Tomato sauce",
-      "char_file": "토마토_illust.jpg",
+      "name": "Greasy late-night food",
+      "char_file": "도넛_illust.jpg",
       "body": [
-        "Pizza, pasta, ketchup —",
-        "tomatoes are naturally acidic",
+        "High-fat food digests slowly",
+        "and lingers in your stomach",
         "",
-        "About 1 in 10 reflux sufferers",
-        "point to tomato dishes"
+        "Pressure stays elevated",
+        "for hours after"
       ]
     },
     {
-      "name": "Tomato sauce — try this instead",
-      "char_file": "토마토_illust.jpg",
+      "name": "Greasy food — how to fix it",
+      "char_file": "도넛_illust.jpg",
       "body": [
-        "A pinch of baking soda in the sauce",
-        "neutralizes a good chunk of the acid",
-        "",
-        "Before it ever hits your stomach"
+        "Close the kitchen 2-3 hours",
+        "before you lie down"
       ]
     }
   ],
   "closing": {
     "headline": [
-      ["None of these need to", "disappear completely"],
-      ["Just watch the timing", "and the portions"]
+      ["Heartburn that flares up often", "tends to turn chronic"],
+      ["Adjust just these three", "and the burn eases up"]
     ],
     "tip": [
-      "Pay attention to what your body",
-      "tells you after each meal"
+      "Don't lie flat right after eating —",
+      "stay upright for 2-3 hours"
     ],
     "cta": "Want more health tips like this? Subscribe, like, and follow!"
   }

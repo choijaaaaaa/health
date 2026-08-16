@@ -1,0 +1,96 @@
+{
+  "title": [
+    "Nachts wach vom Brennen",
+    "in der Speiseröhre?",
+    "Diese 3 Auslöser von Sodbrennen"
+  ],
+  "eyebrow": "Sodbrennen im Fokus",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee",
+    "탄산음료_illust.jpg": "Limonade",
+    "도넛_illust.jpg": "Fettiges Spätessen"
+  },
+  "items": [
+    {
+      "name": "Warum es brennt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ein Ringmuskel zwischen Magen",
+        "und Speiseröhre entspannt sich",
+        "",
+        "und lässt Magensäure",
+        "nach oben durch"
+      ]
+    },
+    {
+      "name": "Kaffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein kann den Muskel entspannen",
+        "und die Säureproduktion steigern",
+        "",
+        "Aber nicht bei jedem gleich stark"
+      ]
+    },
+    {
+      "name": "Kaffee — was hilft",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Nach dem Essen trinken,",
+        "nicht auf nüchternen Magen"
+      ]
+    },
+    {
+      "name": "Limonade",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Kohlendioxid dehnt sich im Magen",
+        "aus und erhöht den Innendruck",
+        "",
+        "Der Druck drückt",
+        "Richtung Speiseröhre"
+      ]
+    },
+    {
+      "name": "Limonade — was hilft",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Durch stilles Wasser ersetzen",
+        "verhindert den Druckanstieg"
+      ]
+    },
+    {
+      "name": "Fettiges Spätessen",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Fettreiche Speisen bleiben",
+        "länger im Magen liegen",
+        "",
+        "Der Druck bleibt",
+        "stundenlang erhöht"
+      ]
+    },
+    {
+      "name": "Fettiges Essen — was hilft",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Mit dem Essen 2-3 Stunden",
+        "vor dem Schlafengehen fertig sein"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Sodbrennen, das oft auftritt,", "wird schnell chronisch"],
+      ["Schon diese drei anpassen", "senkt die Beschwerden spürbar"]
+    ],
+    "tip": [
+      "Nicht direkt nach dem Essen hinlegen —",
+      "2-3 Stunden aufrecht bleiben"
+    ],
+    "cta": "Mehr Gesundheitstipps wie diesen? Abonnieren, liken, folgen!"
+  }
+}
