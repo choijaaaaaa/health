@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Slaap je moeilijker in",
+    "dan vroeger?",
+    "3 voedingsmiddelen met onderzoek"
+  ],
+  "eyebrow": "Slaaptip",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "키위_illust.jpg": "Kiwi",
+    "체리_illust.jpg": "Zure kers",
+    "호두_illust.jpg": "Walnoot"
+  },
+  "items": [
+    {
+      "name": "Waarom inslapen lastiger wordt",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "De melatonineproductie neemt",
+        "van nature af met de leeftijd",
+        "",
+        "Het ligt niet alleen",
+        "aan stress"
+      ]
+    },
+    {
+      "name": "Kiwi",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Een studie liet volwassenen",
+        "met slaapklachten vier weken",
+        "lang twee kiwi's per avond eten",
+        "",
+        "De inslaaptijd daalde met 35%,",
+        "de slaapduur steeg met 13%"
+      ]
+    },
+    {
+      "name": "Kiwi, zo pas je het toe",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Twee kiwi's, ongeveer een uur",
+        "voor het slapengaan"
+      ]
+    },
+    {
+      "name": "Zure kers onder de loep",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Bevat van nature de hoogste",
+        "hoeveelheid melatonine",
+        "van alle kersensoorten",
+        "",
+        "Het bewijs is gemengd -",
+        "niet elke studie vond effect"
+      ]
+    },
+    {
+      "name": "Zure kers, zo pas je het toe",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Geconcentreerd sap,",
+        "ochtend en avond",
+        "",
+        "Verkrijgbaar bij",
+        "natuurwinkels"
+      ]
+    },
+    {
+      "name": "Walnoot",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Bevat melatonine, serotonine",
+        "en magnesium",
+        "",
+        "25 gram walnoten levert",
+        "176 kcal en 4g eiwit"
+      ]
+    },
+    {
+      "name": "Walnoot, zo pas je het toe",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Een handjevol (25g)",
+        "als avondsnack"
+      ]
+    },
+    {
+      "name": "Iets om te onthouden",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Geen van deze voedingsmiddelen",
+        "vervangt medische behandeling",
+        "",
+        "Vooral bij consistent gebruik",
+        "zie je het meeste effect"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Kiwi, zure kers en walnoot",
+        "vervangen geen slaapmedicatie"
+      ],
+      [
+        "Ze ondersteunen mechanismen",
+        "die je lichaam al heeft"
+      ]
+    ],
+    "tip": [
+      "Probeer er vanavond een,",
+      "en houd een vast slaapritme aan"
+    ],
+    "cta": "Meer gezondheidstips zoals dit? Abonneer, like en volg!"
+  }
+}

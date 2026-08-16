@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Tar det längre tid att",
+    "somna än det brukade?",
+    "3 livsmedel med forskningsstöd"
+  ],
+  "eyebrow": "Sömntips",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "바나나_illust.jpg": "Banan",
+    "체리_illust.jpg": "Surkörsbär",
+    "호두_illust.jpg": "Valnötter"
+  },
+  "items": [
+    {
+      "name": "Varför det blir svårare att somna",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Melatoninproduktionen minskar",
+        "naturligt med åldern",
+        "",
+        "Efter 55 stiger ofta kortisol",
+        "samtidigt som melatoninet sjunker"
+      ]
+    },
+    {
+      "name": "Banan",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Innehåller tryptofan,",
+        "ett förstadie till melatonin",
+        "",
+        "Magnesium och kalium hjälper",
+        "muskler och nerver slappna av"
+      ]
+    },
+    {
+      "name": "Banan, så använder du det",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "En banan på kvällen -",
+        "det enklaste alternativet"
+      ]
+    },
+    {
+      "name": "Surkörsbär i forskningen",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Studier på Montmorency-",
+        "surkörsbär har visat",
+        "ökade melatoninnivåer",
+        "",
+        "och förbättrad sömn efter",
+        "regelbunden användning"
+      ]
+    },
+    {
+      "name": "Surkörsbär, så använder du det",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Juice, cirka 2 dl",
+        "morgon och kväll",
+        "",
+        "Finns i",
+        "hälsokostbutiker"
+      ]
+    },
+    {
+      "name": "Valnötter",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Innehåller tryptofan och",
+        "melatonin, samt magnesium",
+        "och kalium",
+        "",
+        "Behövs för kroppens egen",
+        "melatoninsyntes"
+      ]
+    },
+    {
+      "name": "Valnötter, så använder du det",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "En näve en timme",
+        "innan läggdags"
+      ]
+    },
+    {
+      "name": "Bra att veta",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Inget av detta ersätter",
+        "medicinsk behandling",
+        "",
+        "Regelbundenhet spelar större",
+        "roll än en enstaka portion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Banan, surkörsbär och valnötter",
+        "ersätter ingen sömnmedicin"
+      ],
+      [
+        "De stödjer mekanismer",
+        "kroppen redan har"
+      ]
+    ],
+    "tip": [
+      "Testa en ikväll,",
+      "och håll en jämn sömnrutin"
+    ],
+    "cta": "Vill du ha fler hälsotips som det här? Följ och gilla!"
+  }
+}

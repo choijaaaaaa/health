@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Liegst du abends länger wach",
+    "als früher?",
+    "3 Lebensmittel mit echter Schlafstudie"
+  ],
+  "eyebrow": "Schlaf-Tipp",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "키위_illust.jpg": "Kiwi",
+    "체리_illust.jpg": "Sauerkirsche",
+    "호두_illust.jpg": "Walnuss"
+  },
+  "items": [
+    {
+      "name": "Warum das Einschlafen schwerer wird",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Die Melatoninproduktion sinkt",
+        "mit dem Alter ganz natürlich",
+        "",
+        "Laut RKI sind Schlafstörungen",
+        "bei älteren Erwachsenen häufiger"
+      ]
+    },
+    {
+      "name": "Kiwi",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Eine Studie der Taipei Medical",
+        "University ließ Erwachsene",
+        "vier Wochen lang Kiwis essen",
+        "",
+        "Die Einschlafzeit sank um 35%,",
+        "die Schlafdauer stieg um 13%"
+      ]
+    },
+    {
+      "name": "Kiwi — so geht's",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Zwei Kiwis, etwa eine Stunde",
+        "vor dem Schlafengehen"
+      ]
+    },
+    {
+      "name": "Sauerkirsche im Test",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "In einer Studie stieg der",
+        "Melatoninspiegel im Urin",
+        "um 15 bis 16 Prozent",
+        "",
+        "Die Schlafdauer verlängerte sich",
+        "dabei um etwa 40 Minuten"
+      ]
+    },
+    {
+      "name": "Sauerkirsche — so geht's",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Konzentrat, zweimal täglich",
+        "über mehrere Tage",
+        "",
+        "Erhältlich in der Apotheke,",
+        "nicht im normalen Supermarkt"
+      ]
+    },
+    {
+      "name": "Walnuss",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Walnüsse enthalten Melatonin,",
+        "Tryptophan und Magnesium",
+        "",
+        "Magnesium unterstützt laut EFSA",
+        "die normale Nervenfunktion"
+      ]
+    },
+    {
+      "name": "Walnuss — so geht's",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Eine Handvoll am Abend,",
+        "roh und ungesalzen"
+      ]
+    },
+    {
+      "name": "Was du wissen solltest",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Keines dieser Lebensmittel",
+        "wirkt wie ein Schlafmittel",
+        "",
+        "Der Effekt zeigt sich erst",
+        "nach Tagen regelmäßiger Einnahme"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Kiwi, Sauerkirsche und Walnuss",
+        "ersetzen kein Schlafmittel"
+      ],
+      [
+        "Regelmäßigkeit zählt mehr",
+        "als eine einzelne Portion"
+      ]
+    ],
+    "tip": [
+      "Am besten abends testen,",
+      "und dabei am Schlafrhythmus festhalten"
+    ],
+    "cta": "Noch mehr Gesundheitstipps wie diesen? Folge uns und abonniere!"
+  }
+}

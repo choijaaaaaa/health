@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Addormentarsi è diventato",
+    "più difficile di prima?",
+    "3 alimenti studiati per dormire meglio"
+  ],
+  "eyebrow": "Consiglio Sonno",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "카모마일_illust.jpg": "Camomilla",
+    "체리_illust.jpg": "Amarena",
+    "호두_illust.jpg": "Noci"
+  },
+  "items": [
+    {
+      "name": "Perché si fatica ad addormentarsi",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "La produzione di melatonina",
+        "diminuisce naturalmente con l'età",
+        "",
+        "Non è solo una questione",
+        "di stress"
+      ]
+    },
+    {
+      "name": "La camomilla",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "L'infuso serale più radicato",
+        "nella tradizione italiana",
+        "",
+        "Contiene apigenina, che si lega",
+        "a recettori cerebrali calmanti"
+      ]
+    },
+    {
+      "name": "La camomilla, come usarla",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Una tazza, mezz'ora prima",
+        "di coricarsi - 2g di fiori essiccati"
+      ]
+    },
+    {
+      "name": "L'amarena sotto studio",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Uno studio randomizzato",
+        "in doppio cieco su 20 volontari",
+        "",
+        "Ha mostrato un aumento significativo",
+        "del tempo totale di sonno"
+      ]
+    },
+    {
+      "name": "L'amarena, come usarla",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Succo concentrato,",
+        "30g due volte al giorno",
+        "",
+        "Come nello studio citato,",
+        "mattina e sera"
+      ]
+    },
+    {
+      "name": "Le noci",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Contengono tracce di melatonina,",
+        "triptofano e magnesio",
+        "",
+        "Il magnesio agisce come",
+        "\"rilassante\" naturale"
+      ]
+    },
+    {
+      "name": "Le noci, come usarle",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Una manciata (28-30g)",
+        "come spuntino serale"
+      ]
+    },
+    {
+      "name": "Cosa tenere a mente",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Nessuno di questi alimenti",
+        "sostituisce una terapia medica",
+        "",
+        "La costanza conta più",
+        "di un'assunzione isolata"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Camomilla, amarena e noci",
+        "non sostituiscono un sonnifero"
+      ],
+      [
+        "Sostengono meccanismi naturali",
+        "già presenti nel corpo"
+      ]
+    ],
+    "tip": [
+      "Provane uno stasera,",
+      "mantenendo un orario di sonno regolare"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti e seguici!"
+  }
+}
