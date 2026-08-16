@@ -1,112 +1,121 @@
 {
   "title": [
-    "Can't put your phone down",
-    "at night? That's revenge",
-    "bedtime procrastination"
+    "Lying awake more",
+    "than you used to?",
+    "3 Foods With Real Sleep Research"
   ],
-  "eyebrow": "Health Tip",
+  "eyebrow": "Sleep Tip",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
   "char_display_names": {
-    "키위_illust.jpg": "Kiwi",
-    "피스타치오_illust.jpg": "Pistachios",
-    "우유_illust.jpg": "Warm Milk"
+    "대추_illust.jpg": "Jujube",
+    "체리_illust.jpg": "Tart Cherry",
+    "호두_illust.jpg": "Walnuts"
   },
   "items": [
     {
-      "name": "Why can't you fall asleep?",
-      "char_file": "키위_illust.jpg",
+      "name": "Why sleep gets harder",
+      "char_file": "대추_illust.jpg",
       "body": [
-        "Revenge bedtime procrastination -",
-        "most American adults do it",
+        "Melatonin naturally declines",
+        "as you get older",
         "",
-        "Blue light delays melatonin,",
-        "and low magnesium keeps",
-        "your nervous system wired"
+        "Disrupted sleep can throw",
+        "cortisol out of balance too"
       ]
     },
     {
-      "name": "Kiwi",
-      "char_file": "키위_illust.jpg",
+      "name": "Jujube",
+      "char_file": "대추_illust.jpg",
       "body": [
-        "Eating kiwi before bed",
-        "is backed by real research",
+        "A 2020 study found jujube",
+        "extract helped people",
+        "fall asleep 15 minutes faster",
         "",
-        "It may help you fall asleep",
-        "faster and sleep longer"
+        "Its saponins act on the same",
+        "calming pathway as sleep meds"
       ]
     },
     {
-      "name": "How to eat kiwi",
-      "char_file": "키위_illust.jpg",
+      "name": "How to take jujube",
+      "char_file": "대추_illust.jpg",
       "body": [
-        "Two kiwis, about",
-        "an hour before bed",
-        "",
-        "Stick with it most nights -",
-        "the study ran for 4 weeks"
+        "Steep dried jujube in hot water",
+        "as a tea, 1-2 hours before bed"
       ]
     },
     {
-      "name": "Pistachios",
-      "char_file": "피스타치오_illust.jpg",
+      "name": "Tart Cherry Research",
+      "char_file": "체리_illust.jpg",
       "body": [
-        "Pistachios naturally contain",
-        "melatonin, tryptophan,",
-        "and magnesium",
+        "Tart cherry is one of the few",
+        "whole foods with real melatonin",
         "",
-        "All three support your body's",
-        "own wind-down process"
+        "Studies link regular juice intake",
+        "to longer, more efficient sleep"
       ]
     },
     {
-      "name": "How to eat pistachios",
-      "char_file": "피스타치오_illust.jpg",
+      "name": "How to take tart cherry",
+      "char_file": "체리_illust.jpg",
       "body": [
-        "A small handful,",
-        "about 30 minutes before bed",
+        "Drink the juice or concentrate",
+        "daily for at least a week",
         "",
-        "Unsalted is the better choice",
-        "for a calmer night"
+        "One dose alone won't do much -",
+        "consistency is what matters"
       ]
     },
     {
-      "name": "Warm milk",
-      "char_file": "우유_illust.jpg",
+      "name": "Walnuts",
+      "char_file": "호두_illust.jpg",
       "body": [
-        "Not just an old story",
+        "A 2025 trial had adults eat",
+        "40g of walnuts with dinner",
+        "for eight weeks",
         "",
-        "Casein peptides formed",
-        "as milk digests have a",
-        "calming effect on your body"
+        "Sleep got easier, and daytime",
+        "sleepiness dropped too"
       ]
     },
     {
-      "name": "How to drink it",
-      "char_file": "우유_illust.jpg",
+      "name": "How to eat walnuts",
+      "char_file": "호두_illust.jpg",
       "body": [
-        "One warm cup,",
-        "30 to 60 minutes before bed",
+        "A small handful, about 40g,",
+        "eaten with dinner",
         "",
-        "A consistent bedtime still",
-        "matters more than any one food"
+        "More isn't shown to help -",
+        "no need to overdo it"
+      ]
+    },
+    {
+      "name": "One thing to know",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "None of these foods work",
+        "like a sedative",
+        "",
+        "They support processes your body",
+        "already has - consistency matters"
       ]
     }
   ],
   "closing": {
     "headline": [
       [
-        "These foods won't undo",
-        "bedtime procrastination alone"
+        "These foods alone won't",
+        "cure insomnia overnight"
       ],
       [
-        "But paired with a set",
-        "phone cutoff time, they help"
+        "A steady sleep and wake",
+        "schedule matters just as much"
       ]
     ],
     "tip": [
       "Try one tonight,",
-      "and set a bedtime alarm too"
+      "and keep your sleep schedule steady"
     ],
-    "cta": "Want more health tips? Subscribe and like the channel"
-  },
-  "topic_word": "Revenge Bedtime Procrastination"
+    "cta": "Want more health tips like this? Subscribe and follow!"
+  }
 }

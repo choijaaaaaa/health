@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Le sommeil devient plus difficile",
+    "qu'avant ?",
+    "3 aliments étudiés pour mieux dormir"
+  ],
+  "eyebrow": "Astuce Sommeil",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "대추_illust.jpg": "Jujube",
+    "체리_illust.jpg": "Griotte",
+    "호두_illust.jpg": "Noix"
+  },
+  "items": [
+    {
+      "name": "Pourquoi le sommeil se dégrade",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "La production de mélatonine",
+        "diminue naturellement avec l'âge",
+        "",
+        "Ce n'est pas qu'une question",
+        "de stress"
+      ]
+    },
+    {
+      "name": "Le jujube",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "Une étude sur 120 adultes",
+        "souffrant d'insomnie a montré",
+        "une nette amélioration du sommeil",
+        "",
+        "Ses saponines agissent sur",
+        "les mêmes récepteurs que les somnifères"
+      ]
+    },
+    {
+      "name": "Le jujube, comment faire",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "En tisane, 1 à 2 heures",
+        "avant le coucher"
+      ]
+    },
+    {
+      "name": "La griotte à l'étude",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "L'un des rares fruits à contenir",
+        "naturellement de la mélatonine",
+        "",
+        "Un jus concentré pris 2 fois par jour",
+        "a amélioré le sommeil en 7 jours"
+      ]
+    },
+    {
+      "name": "La griotte, comment faire",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Jus concentré, matin et soir",
+        "",
+        "L'effet demande une prise",
+        "répétée sur plusieurs jours"
+      ]
+    },
+    {
+      "name": "La noix",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Mélatonine végétale, tryptophane",
+        "et magnésium réunis",
+        "",
+        "Le magnésium contribue au",
+        "fonctionnement normal du système nerveux"
+      ]
+    },
+    {
+      "name": "La noix, comment faire",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Une poignée (environ 30g)",
+        "en collation après le dîner"
+      ]
+    },
+    {
+      "name": "À garder en tête",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "Aucun de ces aliments",
+        "ne remplace un traitement médical",
+        "",
+        "La régularité compte plus",
+        "qu'une prise isolée"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Jujube, griotte et noix",
+        "ne remplacent pas un somnifère"
+      ],
+      [
+        "Ils soutiennent des mécanismes",
+        "déjà présents dans le corps"
+      ]
+    ],
+    "tip": [
+      "Essayez-en un ce soir,",
+      "et gardez un horaire de sommeil régulier"
+    ],
+    "cta": "Envie de plus de conseils santé comme celui-ci ? Abonnez-vous et likez !"
+  }
+}

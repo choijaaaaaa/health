@@ -1,0 +1,119 @@
+{
+  "title": [
+    "¿Te cuesta dormir",
+    "más que antes?",
+    "3 alimentos con respaldo científico"
+  ],
+  "eyebrow": "Consejo de Sueño",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "카모마일_illust.jpg": "Manzanilla",
+    "체리_illust.jpg": "Cereza ácida",
+    "호두_illust.jpg": "Nueces"
+  },
+  "items": [
+    {
+      "name": "Por qué cuesta más dormir",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "La producción de melatonina",
+        "disminuye de forma natural",
+        "con la edad",
+        "",
+        "No es solo cuestión",
+        "de estrés"
+      ]
+    },
+    {
+      "name": "La manzanilla",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "La infusión nocturna más",
+        "arraigada en España",
+        "",
+        "Contiene apigenina, que ayuda",
+        "a reducir el cortisol"
+      ]
+    },
+    {
+      "name": "La manzanilla, cómo tomarla",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Una infusión, 30 minutos",
+        "antes de dormir"
+      ]
+    },
+    {
+      "name": "La cereza ácida a examen",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Un estudio aleatorizado",
+        "doble ciego mostró un aumento",
+        "significativo del sueño total",
+        "",
+        "Con zumo concentrado tomado",
+        "dos veces al día"
+      ]
+    },
+    {
+      "name": "La cereza ácida, cómo tomarla",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Zumo concentrado,",
+        "mañana y noche",
+        "",
+        "Disponible en herbolarios,",
+        "no en el súper habitual"
+      ]
+    },
+    {
+      "name": "Las nueces",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Un estudio de la Universitat",
+        "de Barcelona respalda su efecto",
+        "en el sueño",
+        "",
+        "Aportan triptófano, melatonina",
+        "vegetal y magnesio"
+      ]
+    },
+    {
+      "name": "Las nueces, cómo tomarlas",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Un puñado (5-7 unidades)",
+        "como merienda de tarde"
+      ]
+    },
+    {
+      "name": "Algo que conviene saber",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Ninguno de estos alimentos",
+        "sustituye un tratamiento médico",
+        "",
+        "La constancia importa más",
+        "que una sola toma"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Manzanilla, cereza ácida y nueces",
+        "no sustituyen un somnífero"
+      ],
+      [
+        "Apoyan mecanismos naturales",
+        "que el cuerpo ya tiene"
+      ]
+    ],
+    "tip": [
+      "Prueba uno esta noche,",
+      "y mantén un horario de sueño constante"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? ¡Síguenos!"
+  }
+}
