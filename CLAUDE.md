@@ -315,7 +315,24 @@ manifest 파일이 재생성 우선순위 판단 근거). `real`/`motion`/`music
   자동으로 찾아서 인스타그램 릴스 카드에만 연결한다(원본 `_shorts.mp4`는
   유튜브 자동 업로드용으로 그대로 둠). **영상을 새로 만들거나 재생성할 때마다
   포맷 상관없이 항상 같이 만들 것** — "칠판 포맷일 때만"으로 오해해서 신규
-  포맷 영상 다수(47개)에서 누락됐던 적이 있음.
+  포맷 영상 다수(47개)에서 누락됐던 적이 있음. ⚠️ **2026-08-17 훨씬 큰
+  규모(156개)로 재발 확인·백필 완료** — 원인 특정은 못 했으나(재조립
+  파이프라인의 특정 단계가 조용히 이 스텝을 건너뛴 것으로 추정) `shorts.mp4`는
+  있는데 짝이 되는 `_instagram.mp4`가 없는 영상이 전체의 1/3 넘게 쌓여있었음.
+  기존 `shorts.mp4`를 재렌더링할 필요 없이 `build_instagram_safe_video()`만
+  단독 재호출해서 누락분을 채우면 된다(입력이 완성된 최종 영상 하나뿐이라
+  narration/spec 의존성이 없음) — 새 topic 작업 후 다음 커맨드로 주기적으로
+  스캔·백필할 것:
+  ```python
+  from pathlib import Path
+  from lib.video_assembler import build_instagram_safe_video
+  for f in Path("output").glob("*/**/*shorts.mp4"):
+      if "_instagram" in f.name:
+          continue
+      sibling = f.with_name(f.stem + "_instagram" + f.suffix)
+      if not sibling.exists():
+          build_instagram_safe_video(str(f), sibling)
+  ```
 - output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
   `--out`은 직접 지정, `fish_tts.py` 결과는 필요시 rename).
 
@@ -1019,6 +1036,19 @@ python3 -m pytest tests/ -v
 
 ## 유튜브 쇼츠 자동 업로드 (`lib/youtube_upload.py`)
 
+- ⚠️ **ko topic 경로는 flat이 원칙이지만 코드가 flat/`ko/` 서브폴더 둘 다
+  지원함(2026-08-17)** — "topic 폴더명" 절 원칙대로 ko는 언어 하위 폴더 없이
+  `output/<topic>/`·`data/<topic>/`에 바로 있는 게 정상이다. 그런데 실측
+  발견: 귀_7/소화_15/순환_9/어지럼증_8/여성_6/여성_9/피로_2 7개 topic이 한
+  세션의 실수로 `output/<topic>/ko/`·`data/<topic>/ko/`에도 콘텐츠가 통째로
+  재생성된 채 남아있었다(구버전 flat 산출물은 시각적으로도 색상 등이 달라
+  발견됨 — 구버전은 삭제, 새 버전인 `ko/`는 그대로 둠). 업로드 코드
+  (`_has_video`/`_upload_short_inner`)는 원래 flat만 봐서 이 7개 topic이
+  "영상 없음"으로 판정돼 업로드 후보에서 조용히 빠지고 있었다 — `_content_dir`/
+  `_content_data_dir` 헬퍼를 추가해 flat을 먼저 보고 없으면 `ko/`로 폴백하게
+  고쳤다. **새 topic 작업 시 ko 콘텐츠를 실수로 `ko/` 하위 폴더에 만들지 말
+  것**(다른 언어와 헷갈리기 쉬움) — 이미 만들어져 있어도 위 폴백 덕에
+  업로드는 되지만, `data/`·`output/` 둘 다 flat이 원칙이라는 걸 잊지 말 것.
 - 단일 topic: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]`
 - ⚠️ **일괄 업로드 표준은 `--backlog`(2026-08-07, `--daily-per-channel`
   대체) — "유튜브에 올려줘"/"업로드해" 등 트리거 문구 하나로 요청하면 이걸로

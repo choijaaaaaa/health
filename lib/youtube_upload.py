@@ -474,6 +474,37 @@ def _is_already_uploaded(topic: str, uploaded: set[str]) -> bool:
     return False
 
 
+def _content_dir(topic: str) -> Path:
+    """topic의 실제 영상 폴더를 찾는다. 원칙은 flat(output/<topic>/, CLAUDE.md
+    "topic 폴더명" 절 — ko는 언어 하위 폴더 없이 flat 유지)이지만, 2026-08-17
+    실측 발견: 귀_7/소화_15/순환_9/어지럼증_8/여성_6/여성_9/피로_2 7개 topic이
+    한 세션의 실수로 output/<topic>/ko/에도 콘텐츠가 통째로 재생성된 채
+    남아있었다(원래 flat 산출물은 구버전이라 삭제, CLAUDE.md "알려진 함정" 절
+    참고). flat에 영상이 없으면 ko/ 서브폴더로 폴백 — 두 구조 다 지원해서
+    이런 topic이 있어도 업로드가 조용히 후보에서 빠지지 않게 한다. topic이
+    이미 "<topic>/<lang>"(비-ko) 형태면 flat 경로 자체가 이미 그 언어 폴더를
+    가리키므로 폴백은 자연히 아무 효과가 없다(해당 없는 ko/ 하위경로를 찾다
+    못 찾고 그대로 flat 반환)."""
+    flat = ROOT / "output" / topic
+    if any(flat.glob("*shorts.mp4")):
+        return flat
+    nested = flat / "ko"
+    if any(nested.glob("*shorts.mp4")):
+        return nested
+    return flat
+
+
+def _content_data_dir(topic: str) -> Path:
+    """_content_dir와 동일 원칙 — data/ 쪽(platform_captions.json 위치)."""
+    flat = ROOT / "data" / topic
+    if (flat / "platform_captions.json").exists():
+        return flat
+    nested = flat / "ko"
+    if (nested / "platform_captions.json").exists():
+        return nested
+    return flat
+
+
 def _has_video(topic: str) -> bool:
     """WHY(2026-08-07, 실제 사고로 발견): topics.json은 콘텐츠만 완성돼도(영상
     조립 전, light-card 폴백 대시보드만 있어도) topic을 등록한다 — daily 선택
@@ -481,7 +512,7 @@ def _has_video(topic: str) -> bool:
     FileNotFoundError를 던지고, upload_daily_per_channel()의 언어별 통짜
     try/except 때문에 그 뒤로 예정돼있던 같은 언어의 나머지 topic까지 전부
     스킵돼버린다(실측: ko 배치에서 비염_1/질염_1이 영상 없이 뽑혀서 발견)."""
-    video_dir = ROOT / "output" / topic
+    video_dir = _content_dir(topic)
     if not video_dir.exists():
         return False
     return any(m for m in video_dir.glob("*shorts.mp4") if "instagram" not in m.name)
@@ -772,7 +803,7 @@ def _upload_short_inner(
     """upload_short()의 실제 업로드 로직 — 예약 성공 후에만 호출된다(위 WHY
     참고). 실패 시 upload_short()가 예약을 풀어주므로 이 함수 안에서는
     별도 예외 처리 없이 그냥 실패해도 된다."""
-    captions_path = ROOT / "data" / topic / "platform_captions.json"
+    captions_path = _content_data_dir(topic) / "platform_captions.json"
     spec = json.loads(captions_path.read_text(encoding="utf-8"))
     platform_name = YOUTUBE_PLATFORM_NAMES.get(lang, YOUTUBE_PLATFORM_NAMES["ko"])
     platform = next((p for p in spec["platforms"] if p["name"] == platform_name), None)
@@ -800,8 +831,8 @@ def _upload_short_inner(
         # 공복_1/en, 고령_1/en, 갑상선_1/en 전부 "shorts.mp4") — 그래서 정확한
         # 이름을 조립하는 대신 그 디렉터리의 유일한 "*shorts.mp4"(밑줄 없이,
         # 접두사가 없는 파일도 매치하도록)를 찾는다.
-        video_dir = ROOT / "output" / topic
-        candidates = list(video_dir.glob("*shorts.mp4"))
+        video_dir = _content_dir(topic)
+        candidates = [c for c in video_dir.glob("*shorts.mp4") if "instagram" not in c.name]
         if not candidates:
             raise FileNotFoundError(f"영상 파일 없음: {video_dir}/*shorts.mp4")
         video_path = str(candidates[0])
