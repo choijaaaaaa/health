@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Knie zieht beim Treppabsteigen,",
+    "morgens steif und unbeweglich?",
+    "Lebensmittel, die Gelenke reizen"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Warnung für die Gelenke",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "라면_illust.jpg": "Frittiertes",
+    "호두_illust.jpg": "Walnüsse",
+    "탄산음료_illust.jpg": "Limonade",
+    "블루베리_illust.jpg": "Blaubeeren",
+    "소시지_illust.jpg": "Wurst",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Warum passiert das",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Bestimmte Lebensmittel lassen",
+        "Entzündungsstoffe im Körper",
+        "immer weiter ansteigen",
+        "",
+        "Diese reizen das Gelenkgewebe",
+        "und zeigen sich als Schmerz",
+        "und Morgensteifigkeit"
+      ]
+    },
+    {
+      "name": "Frittiertes & Nudeln",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Öl-reiche Speisen verschieben",
+        "das Omega-6-Verhältnis",
+        "immer weiter aus der Balance",
+        "",
+        "Westliche Ernährung erreicht",
+        "oft ein Verhältnis von 15 zu 1"
+      ]
+    },
+    {
+      "name": "Statt Frittiertem",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Walnüsse liefern pflanzliches",
+        "Omega-3 (ALA) und helfen,",
+        "das Verhältnis auszugleichen",
+        "",
+        "Eine Handvoll am Tag reicht",
+        "für einen spürbaren Unterschied"
+      ]
+    },
+    {
+      "name": "Limonade & Softdrinks",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Ein schneller Zuckeranstieg",
+        "bildet AGEs, die den",
+        "Gelenkknorpel versteifen",
+        "",
+        "Frauen mit täglichem Konsum",
+        "zeigen ein höheres Risiko"
+      ]
+    },
+    {
+      "name": "Statt Limonade",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Blaubeeren liefern Anthocyane,",
+        "die den oxidativen Stress",
+        "durch AGEs abfedern können",
+        "",
+        "Ein einfacher Tausch mit",
+        "spürbarem Effekt auf Dauer"
+      ]
+    },
+    {
+      "name": "Wurst & verarbeitetes Fleisch",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Gesättigtes Fett, Salz und",
+        "Nitrite in Wurstwaren",
+        "lassen den CRP-Wert steigen",
+        "",
+        "Je höher dieser Wert,",
+        "desto stärker die Gelenkschmerzen"
+      ]
+    },
+    {
+      "name": "Statt Wurst",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Tofu liefert Eiweiß ohne",
+        "das gesättigte Fett und",
+        "die Nitrite von Wurst",
+        "",
+        "Eine einfache Möglichkeit,",
+        "den CRP-Wert zu senken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gelenkentzündungen lassen sich",
+        "schwer rückgängig machen"
+      ],
+      [
+        "Nicht alles muss verschwinden -",
+        "schon die richtige Wahl hilft"
+      ]
+    ],
+    "tip": [
+      "Bei Frittiertem, Limonade und Wurst",
+      "zuerst auf Alternativen umsteigen"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "title": [
+    "Dolor de rodilla al bajar escaleras",
+    "y rigidez matutina en las articulaciones?",
+    "Alimentos que inflaman tus rodillas"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Alerta de inflamación articular",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "라면_illust.jpg": "Fritos",
+    "호두_illust.jpg": "Nueces",
+    "탄산음료_illust.jpg": "Refrescos",
+    "블루베리_illust.jpg": "Arándanos",
+    "소시지_illust.jpg": "Embutidos",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre esto",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Ciertos alimentos habituales",
+        "hacen que aumenten las",
+        "sustancias inflamatorias",
+        "",
+        "Esa inflamación irrita la",
+        "articulación y aparece como",
+        "dolor y rigidez"
+      ]
+    },
+    {
+      "name": "Fritos y fideos instantáneos",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Los aceites ricos en omega-6",
+        "se transforman en moléculas",
+        "que alimentan la inflamación",
+        "",
+        "En España la proporción",
+        "media llega a 12 a 1"
+      ]
+    },
+    {
+      "name": "En vez de fritos",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Las nueces aportan omega-3",
+        "vegetal (ALA) y ayudan a",
+        "reequilibrar esa proporción",
+        "",
+        "Un puñado al día ya",
+        "marca la diferencia"
+      ]
+    },
+    {
+      "name": "Refrescos azucarados",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Un pico de glucosa forma AGEs",
+        "que rigidizan el cartílago",
+        "de la rodilla",
+        "",
+        "Quienes los beben a diario",
+        "tienen más riesgo de",
+        "problemas articulares"
+      ]
+    },
+    {
+      "name": "En vez de refrescos",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Los arándanos, ricos en",
+        "antocianinas, contrarrestan",
+        "el estrés oxidativo de los AGEs",
+        "",
+        "Un cambio sencillo con",
+        "efecto real"
+      ]
+    },
+    {
+      "name": "Embutidos como las salchichas",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Grasas saturadas, sodio y",
+        "nitratos elevan la PCR,",
+        "el marcador de inflamación",
+        "",
+        "Cuanto más alta esta cifra,",
+        "más duele la articulación"
+      ]
+    },
+    {
+      "name": "En vez de embutidos",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "El tofu da proteína sin",
+        "las grasas saturadas ni",
+        "los nitratos que suben la PCR",
+        "",
+        "Un cambio sencillo,",
+        "propio de la dieta mediterránea"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La inflamación articular",
+        "se acumula y cuesta revertir"
+      ],
+      [
+        "No hace falta eliminarlo todo -",
+        "basta con elegir mejor"
+      ]
+    ],
+    "tip": [
+      "Reduce fritos, refrescos y embutidos,",
+      "poco a poco cada semana"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos y dale like!"
+  }
+}
