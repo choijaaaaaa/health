@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  /* WHY main이 row-wrap 플렉스인지(2026-08-05, "글로벌도 영상 쪽에 한국이랑
+     병렬로 나열되게 해"): 한국어(iframe)와 글로벌(카드) 섹션을 위아래로 쌓지
+     않고 나란히 두 칼럼으로 배치 — 좁은 화면에서는 flex-wrap으로 자연스럽게
+     아래로 떨어진다. */
+  main {
+    max-width: 1400px; margin: 0 auto; padding: 16px 20px 40px;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+  }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; flex: 1 1 420px; min-width: 320px; }
+  .lang-heading {
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  /* WHY 고정 650px을 버렸는지(2026-08-14, "얘 봐봐 뭐 콘텐츠를 안넣은건가?" —
+     실제로는 플랫폼 카드가 다 있었는데 650px 안에 다 안 들어가서 iframe
+     내부 스크롤 없이는 안 보였다. 2026-08-05엔 정반대 문제(80vh라 아래
+     글로벌 카드가 안 보임)를 고치려고 650px로 줄였는데, topic마다 실제
+     콘텐츠 길이가 다 달라서(플랫폼 개수·캡션 길이 편차 큼) 고정값 자체가
+     구조적으로 틀렸다 — 아래 JS가 iframe 로드 후 실제 콘텐츠 높이
+     (contentDocument.body.scrollHeight)를 읽어서 그 값으로 다시 맞춘다.
+     min-height는 JS가 못 돌 때(구형 브라우저 등)의 안전망일 뿐. */
+  iframe.dash-frame { width: 100%; min-height: 300px; border: 0; border-radius: 16px; background: var(--panel); display: block; }
+  .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
+  .plat-card {
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
+  }
+  .plat-card.is-done { opacity: 0.55; border-color: var(--accent); background: var(--accent-soft); }
+  .plat-lang {
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }
+  .plat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .plat-card h3 { margin: 0; font-size: 14px; }
+  .plat-done-check {
+    display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-soft);
+    white-space: nowrap; cursor: pointer; flex: 0 0 auto;
+  }
+  .plat-done-check input { width: 13px; height: 13px; accent-color: var(--accent); cursor: pointer; }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../../supabase_client.js"></script>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관</h1>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+</header>
+<main>
+<section class="lang-section"><h2 class="lang-heading">한국어</h2><div class="lang-body">
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 블로그</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-name="네이버 블로그 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-0" spellcheck="false">이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관
+
+00 · 표지
+
+
+말하거나 숨을 쉴 때마다 내 목소리가 귀 안에서 유독 크게 울려 들린다면, 단순한 피로나 이명이 아니라 이관개방증일 수 있어요. 평소엔 닫혀 있어야 할 귀와 코 사이의 통로가 계속 열려 있어서 생기는 증상인데, 특히 짧은 기간에 체중이 많이 빠졌다면 더 주의 깊게 살펴볼 필요가 있어요. 원인과 완화하는 습관을 함께 알아볼게요.
+
+01 · 이관개방증이 뭘까요
+
+
+이관은 귀와 코 뒤쪽을 연결하는 통로로, 평소에는 닫혀 있다가 침을 삼키거나 하품을 할 때만 잠깐 열려서 귀 안의 압력을 맞춰줘요. 이관개방증은 이 통로가 계속 열린 채로 있는 상태를 말하는데, 그러면 숨을 쉬거나 말을 할 때 소리가 이관을 타고 그대로 고막에 전달돼서 자기 목소리나 숨소리가 크게 울려 들리는 자가강청이 나타나요. 귀가 물속에 있는 것처럼 먹먹하게 느껴지기도 해요. 이런 증상을 만드는 배경을 확인해보세요.
+
+02 · 급격한 체중감소
+
+
+먼저 짧은 기간에 체중이 많이 빠졌을 때예요. 이관 주변에는 오스트만 지방체라는 지방 조직이 있어서 평소 이관을 감싸고 닫아주는 역할을 하는데, 급격한 다이어트나 질병으로 체중이 빠지면 이 지방층이 얇아지면서 이관을 지지하는 힘이 약해지고, 그래서 이관이 계속 벌어진 상태로 남아요. 실제로 위 수술 등으로 체중이 급격히 줄어든 환자 다섯 명 중 한 명꼴로 이런 증상을 겪는다는 조사 결과도 있어요.
+
+03 · 체중은 천천히 관리하기
+
+
+체중을 줄이는 중이었다면 감량 속도를 조금 늦추고, 이미 증상이 시작됐다면 무리하게 더 빼기보다는 체중을 서서히 되돌리는 쪽이 회복에 도움이 돼요. 짧은 기간 안에 몸무게를 큰 폭으로 줄이는 다이어트보다는, 몇 주에서 몇 달에 걸쳐 천천히 줄여가는 방식이 이관 주변 지방층에도 부담이 적어요.
+
+04 · 탈수와 자율신경 불균형
+
+
+두 번째로는 몸에 수분이 부족하거나 자율신경 균형이 흐트러졌을 때예요. 이관 안쪽 점막은 평소 촉촉하게 부풀어 있으면서 통로를 자연스럽게 좁혀주는데, 탈수 상태가 되면 이 점막이 마르고 얇아지면서 이관이 계속 열린 상태로 남아요. 땀을 많이 흘린 뒤나 건조한 계절에 증상이 심해진다면 이 때문일 가능성이 커요.
+
+05 · 충분한 수분 섭취하기
+
+
+평소보다 물을 자주, 충분히 마셔서 몸과 점막이 마르지 않게 해주세요. 운동을 하거나 땀을 많이 흘린 날에는 평소보다 더 신경 써서 수분을 채워주시고, 카페인이나 알코올처럼 이뇨 작용이 있는 음료를 마셨다면 그 뒤에 물로 한 번 더 보충해주는 게 좋아요.
+
+06 · 누우면 편해지고 서면 심해진다면
+
+
+이관개방증에는 다른 귀 질환과 구분되는 특징적인 신호가 있어요. 누워 있거나 고개를 앞으로 숙이면 증상이 옅어지고, 다시 일어서거나 운동을 하면 심해지는 패턴이에요. 머리 쪽으로 혈류가 몰리면서 이관 주변 점막이 일시적으로 부풀어 통로를 좁혀주기 때문인데, 평소 증상이 이 패턴과 비슷하다면 이관개방증을 의심해볼 만한 힌트가 돼요.
+
+07 · 생리식염수 스프레이와 진료받기
+
+
+고개를 숙인 자세에서 생리식염수 스프레이를 코 안에 뿌리면 점막이 일시적으로 부풀어 증상이 잦아드는 데 도움이 돼요. 다만 이 방법은 임시로 편해지는 정도라, 증상이 반복되거나 일상생활이 불편할 만큼 심하다면 이비인후과에서 고막 움직임 검사나 비내시경으로 정확한 원인을 확인받으세요. 원인이 되는 요인만 제거해도 상당수는 자연스럽게 좋아져요.
+
+08 · 마무리
+
+
+급격한 체중감소를 피하고 천천히 관리하는 습관, 충분한 수분 섭취, 그리고 누우면 편해지는 특징적인 신호를 기억해두는 것 — 이 두 가지가 이관개방증 증상을 줄이는 데 도움이 되는 습관이에요. 목소리 울림이 계속된다면 생리식염수 스프레이로 우선 완화해보고, 나아지지 않으면 이비인후과 진료를 받아보세요.
+
+이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
+
+#이관개방증 #자가강청 #귀먹먹함 #귀울림 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-0">캡션 복사</button>
+    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="g-cap-ko-0">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>인스타그램 릴스</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-name="인스타그램 릴스 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-1" spellcheck="false">이관개방증, 혹시 말하거나 숨 쉴 때마다 내 목소리가 귀 안에서 유독 크게 울려 들리시나요? 🤔
+
+급격한 체중감소, 탈수와 자율신경 불균형이 이관개방증 위험을 키워요. 누우면 편해지고 서면 심해지는 패턴이 있다면 의심해볼 만해요. 생리식염수 스프레이로 완화해보고, 나아지지 않으면 이비인후과 진료를 받으세요.
+
+더 유용한 건강정보 궁금하면 팔로우 👆
+
+#이관개방증 #자가강청 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="g-cap-ko-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 클립</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-name="네이버 클립 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-4" spellcheck="false">이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요
+
+급격한 체중감소, 탈수가 위험을 키워요. 누우면 편해지고 서면 심해지는 패턴이 있다면 이관개방증을 의심해보세요!
+
+#이관개방증 #자가강청 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-4">캡션 복사</button>
+    <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="g-cap-ko-4">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>페이스북</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-name="페이스북 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-7" spellcheck="false">이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관
+
+급격한 체중감소, 탈수와 자율신경 불균형이 이관개방증 위험을 키워요. 누우면 편해지고 서면 심해지는 특징적인 패턴이 있다면 의심해볼 만해요. 생리식염수 스프레이로 완화해보고, 증상이 계속되면 이비인후과 진료를 받으세요.
+
+#이관개방증 #자가강청 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-7">캡션 복사</button>
+    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="g-cap-ko-7">열기 →</a>
+  </div>
+</div>
+</div></section>
+<section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28EN%29" data-name="Instagram Reels (EN)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-en-1" spellcheck="false">Could a diuretic or your birth control pill be behind that strange echo in your ear? 🤔
+
+Rapid weight loss is the most commonly cited risk factor for patulous Eustachian tube, but diuretics and birth control pills can be linked to it too. Lying down or bending forward often brings quick relief, while stress and exercise make it worse. Try saline nasal spray, and see an ENT doctor if symptoms stick around.
+
+More useful health tips? Follow along 👆
+
+#patulouseustachiantube #eustachiantube #earhealth #healthtips #wellness</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-en-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="g-cap-en-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28JA%29" data-name="Instagram Reels (JA)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ja-1" spellcheck="false">話したり呼吸するたびに自分の声が耳の中で響いていませんか? 🤔
+
+耳管開放症は原因がひとつに絞れないことが多く、体重減少・妊娠・顎関節症などさまざまな要因が関係します。横になると楽になり、立ち上がると強まる特徴があるなら、自己判断せず耳鼻咽喉科で確認するのがおすすめです。
+
+もっと役立つ健康情報はフォローしてね 👆
+
+#耳管開放症 #自声強聴 #耳の健康 #健康情報</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ja-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="g-cap-ja-1">열기 →</a>
+  </div>
+</div>
+</div></section>
+
+</main>
+<script>
+// WHY 이 블록이 필요한지(2026-08-14, "콘텐츠를 안넣은건가?" 오인 방지) —
+// 위 .dash-frame CSS의 WHY 참고. 같은 오리진(health-shorts 자체 배포)이라
+// contentDocument 접근에 CORS 제약이 없다 — load 이벤트에서 실제 body
+// 높이를 재서 iframe.style.height에 그대로 반영한다. 로드 직후 폰트가 아직
+// 안 그려졌거나 이미지 크기로 레이아웃이 한 번 더 바뀌는 경우가 있어
+// 300ms 뒤 한 번 더 재측정(리사이즈 옵저버 대신 단순 setTimeout으로 충분 —
+// 이 페이지는 로드 후 사용자가 카드를 펼치는 등 레이아웃이 계속 바뀌는
+// 인터랙션이 없다).
+document.querySelectorAll("iframe.dash-frame").forEach(frame => {
+  function resize() {
+    try {
+      const h = frame.contentDocument.body.scrollHeight;
+      if (h > 0) frame.style.height = h + "px";
+    } catch (err) { /* 다른 오리진이면 접근 불가 — min-height로 폴백 */ }
+  }
+  frame.addEventListener("load", () => { resize(); setTimeout(resize, 300); });
+});
+</script>
+<script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
+})();
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+// WHY 글로벌 카드에도 완료 체크를 다는지(2026-08-05, "인스타그램 릴스
+// 글로벌꺼도 선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko
+// dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
+// hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
+// 내보내기가 언어 상관없이 전부 픽업하게 한다.
+const TOPIC_NAME = "\uadc0_7";
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}
+const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
+      card.classList.add("is-done");
+    }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        hsWrite("/api/posting-log", "POST", { topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        hsWrite("/api/posting-log", "DELETE", { topic: TOPIC_NAME, platform: cb.dataset.name });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

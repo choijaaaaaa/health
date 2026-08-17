@@ -30,6 +30,14 @@
     ]
   },
   {
+    "topic": "계절질환_4",
+    "title": "계절질환_4",
+    "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_4/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "계절질환_5/ko",
     "title": "열사병, 대처 못하면 5명 중 4명에게 치명적인데 - 놓치기 쉬운 위험 신호 3가지",
     "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_5/ko/dashboard.html",
@@ -74,7 +82,7 @@
     "topic": "고령_1/en",
     "title": "Hands and feet numb, cold, or swollen by evening? - 3 Foods Hurting Your Circulation",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/en/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -84,7 +92,7 @@
     "topic": "고령_1/ja",
     "title": "元気な高齢者の10人に2人が「かくれ脱水」？ - 見落としがちな飲み物・食べ方",
     "url": "output/%EA%B3%A0%EB%A0%B9_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/ja/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -227,7 +235,7 @@
     "topic": "귀_1/en",
     "title": "Ringing in your ears after the range, vaping, or turning 50? - The Causes Most People Miss",
     "url": "output/%EA%B7%80_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B7%80_1/en/card_news/%EA%B7%80_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -237,7 +245,7 @@
     "topic": "귀_1/ja",
     "title": "耳の奥でキーンと鳴る音 - 実は首や肩のコリが関係しているかもしれません",
     "url": "output/%EA%B7%80_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B7%80_1/ja/card_news/%EA%B7%80_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -367,6 +375,14 @@
     ]
   },
   {
+    "topic": "귀_7",
+    "title": "귀_7",
+    "url": "output/%EA%B7%80_7/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "귀_8/ko",
     "title": "이어폰 소음성 난청, 먹먹함 자주 느낀다면 - 청력 지키는 이어폰 습관 3가지",
     "url": "output/%EA%B7%80_8/ko/dashboard.html",
@@ -390,7 +406,7 @@
     "topic": "근골격_1/en",
     "title": "Grilled burgers and beers last night, and your big toe's throbbing this morning? - Foods That Trigger Gout Attacks",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/en/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -400,7 +416,7 @@
     "topic": "근골격_1/ja",
     "title": "指の関節がこわばって、指輪が抜けにくくなっていませんか？ - 更年期の関節痛を招く食習慣",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/ja/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -446,6 +462,14 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "근골격_13",
+    "title": "근골격_13",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_13/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "근골격_14/ko",
@@ -860,6 +884,14 @@
     ]
   },
   {
+    "topic": "냄새_5",
+    "title": "냄새_5",
+    "url": "output/%EB%83%84%EC%83%88_5/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "냄새_6/ko",
     "title": "가령취, 안 씻어서 나는 냄새라고 생각하셨다면 오해예요 - 나이 냄새 줄이는 습관 3가지",
     "url": "output/%EB%83%84%EC%83%88_6/ko/dashboard.html",
@@ -903,7 +935,7 @@
     "topic": "눈_1/en",
     "title": "Headlights turning into starbursts on your drive home at night? - Everyday Habits Hurting Your Eyes",
     "url": "output/%EB%88%88_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%88%88_1/en/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -913,7 +945,7 @@
     "topic": "눈_1/ja",
     "title": "スマホを見た後、遠くのピントがすぐ合わないことはありませんか？ - それ「スマホ老眼」かもしれません",
     "url": "output/%EB%88%88_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%88%88_1/ja/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1222,7 +1254,7 @@
     "topic": "대사_1/en",
     "title": "1 in 4 US Adults Has Fatty Liver — 3 Diet Triggers to Know",
     "url": "output/%EB%8C%80%EC%82%AC_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_1/en/card_news/%EB%8C%80%EC%82%AC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1232,7 +1264,7 @@
     "topic": "대사_1/ja",
     "title": "健診で脂肪肝と言われた人の8割はお酒を飲まない人 - 肝臓を弱らせる食習慣3つ",
     "url": "output/%EB%8C%80%EC%82%AC_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_1/ja/card_news/%EB%8C%80%EC%82%AC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1476,10 +1508,26 @@
     ]
   },
   {
+    "topic": "대사_8",
+    "title": "대사_8",
+    "url": "output/%EB%8C%80%EC%82%AC_8/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
+    "topic": "대사_9",
+    "title": "대사_9",
+    "url": "output/%EB%8C%80%EC%82%AC_9/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "머리_1/en",
     "title": "Been Through 2-3 Anti-Dandruff Shampoos and the Flakes Still Keep Coming Back? - Foods That Fight Your Shampoo",
     "url": "output/%EB%A8%B8%EB%A6%AC_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_1/en/card_news/%EB%A8%B8%EB%A6%AC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1489,7 +1537,7 @@
     "topic": "머리_1/ja",
     "title": "コンビニで菓子パンとカフェオレを買うのが習慣になっているなら - 頭皮を悪化させる意外な食習慣3つ",
     "url": "output/%EB%A8%B8%EB%A6%AC_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_1/ja/card_news/%EB%A8%B8%EB%A6%AC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1505,6 +1553,14 @@
       "shorts",
       "card_news"
     ]
+  },
+  {
+    "topic": "머리_10",
+    "title": "머리_10",
+    "url": "output/%EB%A8%B8%EB%A6%AC_10/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "머리_11/en",
@@ -1776,7 +1832,7 @@
     "topic": "비뇨기_1/en",
     "title": "Up for the third time before 2 a.m. just to pee, and it burns worse each time? - Foods That Make Bladder Irritation Worse",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/en/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts"
@@ -1786,7 +1842,7 @@
     "topic": "비뇨기_1/ja",
     "title": "会議中に何度もトイレに行きたくなり、そのたびに痛みがあるなら - 膀胱炎を悪化させる食べ物",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/ja/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts"
@@ -1978,10 +2034,18 @@
     ]
   },
   {
+    "topic": "비뇨기_9",
+    "title": "비뇨기_9",
+    "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_9/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "소화_1/en",
     "title": "Waking up at 3am with a sour, burning taste in your throat? - Foods That Trigger Heartburn",
     "url": "output/%EC%86%8C%ED%99%94_1/en/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_1/en/card_news/en_heartburn_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_1/en/card_news/%EC%86%8C%ED%99%94_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -1991,7 +2055,7 @@
     "topic": "소화_1/ja",
     "title": "飲み会のあと、いつも胸が焼けるような感じがする？ - 逆流性食道炎を招く食べ物",
     "url": "output/%EC%86%8C%ED%99%94_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%86%8C%ED%99%94_1/ja/card_news/%EC%86%8C%ED%99%94_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -2098,6 +2162,22 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "소화_15",
+    "title": "소화_15",
+    "url": "output/%EC%86%8C%ED%99%94_15/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
+    "topic": "소화_16",
+    "title": "소화_16",
+    "url": "output/%EC%86%8C%ED%99%94_16/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "소화_17/en",
@@ -2686,10 +2766,18 @@
     ]
   },
   {
+    "topic": "손발_9",
+    "title": "손발_9",
+    "url": "output/%EC%86%90%EB%B0%9C_9/dashboard.html",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C_9/card_news/%EC%86%90%EB%B0%9C_9_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "수면_1/en",
     "title": "Revenge Bedtime Procrastination Is Costing Americans Sleep — Try These 3 Foods",
     "url": "output/%EC%88%98%EB%A9%B4_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_1/en/card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -2699,7 +2787,7 @@
     "topic": "수면_1/ja",
     "title": "朝起きても体がだるいなら、それは睡眠負債のサイン - GABAで整える食習慣",
     "url": "output/%EC%88%98%EB%A9%B4_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_1/ja/card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -2894,7 +2982,7 @@
     "topic": "순환_1/en",
     "title": "If Your Hands and Feet Feel Like Ice Indoors, These 3 Foods Could Be Why - Causes of Cold Hands and Feet",
     "url": "output/%EC%88%9C%ED%99%98_1/en/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%88%9C%ED%99%98_1/en/card_news/%EC%88%9C%ED%99%98_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -2904,7 +2992,7 @@
     "topic": "순환_1/ja",
     "title": "厚着しても手足の先だけ氷のように冷たいなら - 冷え性を悪化させる3つの食習慣",
     "url": "output/%EC%88%9C%ED%99%98_1/ja/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%EC%88%9C%ED%99%98_1/ja/card_news/%EC%88%9C%ED%99%98_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -3190,10 +3278,18 @@
     ]
   },
   {
+    "topic": "순환_9",
+    "title": "순환_9",
+    "url": "output/%EC%88%9C%ED%99%98_9/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "어지럼증_1/ko",
     "title": "머리가 핑 돌고 순간 휘청거리는 어지럼증이 자꾸 반복된다면 - 어지럼증을 악화시키는 음식·습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_1/ko/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": null,
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3383,6 +3479,14 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "어지럼증_8",
+    "title": "어지럼증_8",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_8/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "어지럼증_9/en",
@@ -3683,6 +3787,14 @@
     ]
   },
   {
+    "topic": "여성_9",
+    "title": "여성_9",
+    "url": "output/%EC%97%AC%EC%84%B1_9/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
+  },
+  {
     "topic": "입_1/en",
     "title": "It's not garlic or coffee - 3 Everyday Habits Behind Bad Breath",
     "url": "output/%EC%9E%85_1/en/dashboard.html",
@@ -3732,6 +3844,14 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "입_12",
+    "title": "입_12",
+    "url": "output/%EC%9E%85_12/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "입_13/en",
@@ -3979,6 +4099,14 @@
       "shorts",
       "card_news"
     ]
+  },
+  {
+    "topic": "코_10",
+    "title": "코_10",
+    "url": "output/%EC%BD%94_10/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "코_11/en",
@@ -4414,7 +4542,7 @@
     "topic": "피부_1/en",
     "title": "Losing Collagen Fast? 3 Daily Habits That Age Your Skin Faster",
     "url": "output/%ED%94%BC%EB%B6%80_1/en/dashboard.html",
-    "thumbnail": "output/%ED%94%BC%EB%B6%80_1/en/card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_1/en/card_news/%ED%94%BC%EB%B6%80_1__00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "shorts"
@@ -4424,7 +4552,7 @@
     "topic": "피부_1/ja",
     "title": "肌のくすみや小じわが気になる方へ - コラーゲンを壊す意外な「焼き色」習慣",
     "url": "output/%ED%94%BC%EB%B6%80_1/ja/dashboard.html",
-    "thumbnail": "output/%ED%94%BC%EB%B6%80_1/ja/card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_1/ja/card_news/%ED%94%BC%EB%B6%80_1__00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "shorts"
@@ -4460,6 +4588,14 @@
     "tracks": [
       "card_news"
     ]
+  },
+  {
+    "topic": "피부_12",
+    "title": "피부_12",
+    "url": "output/%ED%94%BC%EB%B6%80_12/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": []
   },
   {
     "topic": "피부_13/ko",

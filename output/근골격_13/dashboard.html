@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  /* WHY main이 row-wrap 플렉스인지(2026-08-05, "글로벌도 영상 쪽에 한국이랑
+     병렬로 나열되게 해"): 한국어(iframe)와 글로벌(카드) 섹션을 위아래로 쌓지
+     않고 나란히 두 칼럼으로 배치 — 좁은 화면에서는 flex-wrap으로 자연스럽게
+     아래로 떨어진다. */
+  main {
+    max-width: 1400px; margin: 0 auto; padding: 16px 20px 40px;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+  }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; flex: 1 1 420px; min-width: 320px; }
+  .lang-heading {
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  /* WHY 고정 650px을 버렸는지(2026-08-14, "얘 봐봐 뭐 콘텐츠를 안넣은건가?" —
+     실제로는 플랫폼 카드가 다 있었는데 650px 안에 다 안 들어가서 iframe
+     내부 스크롤 없이는 안 보였다. 2026-08-05엔 정반대 문제(80vh라 아래
+     글로벌 카드가 안 보임)를 고치려고 650px로 줄였는데, topic마다 실제
+     콘텐츠 길이가 다 달라서(플랫폼 개수·캡션 길이 편차 큼) 고정값 자체가
+     구조적으로 틀렸다 — 아래 JS가 iframe 로드 후 실제 콘텐츠 높이
+     (contentDocument.body.scrollHeight)를 읽어서 그 값으로 다시 맞춘다.
+     min-height는 JS가 못 돌 때(구형 브라우저 등)의 안전망일 뿐. */
+  iframe.dash-frame { width: 100%; min-height: 300px; border: 0; border-radius: 16px; background: var(--panel); display: block; }
+  .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
+  .plat-card {
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
+  }
+  .plat-card.is-done { opacity: 0.55; border-color: var(--accent); background: var(--accent-soft); }
+  .plat-lang {
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }
+  .plat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .plat-card h3 { margin: 0; font-size: 14px; }
+  .plat-done-check {
+    display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-soft);
+    white-space: nowrap; cursor: pointer; flex: 0 0 auto;
+  }
+  .plat-done-check input { width: 13px; height: 13px; accent-color: var(--accent); cursor: pointer; }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../../supabase_client.js"></script>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법</h1>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+</header>
+<main>
+<section class="lang-section"><h2 class="lang-heading">한국어</h2><div class="lang-body">
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 블로그</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-name="네이버 블로그 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-0" spellcheck="false">반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법
+
+무릎을 삐끗한 뒤로 걸을 때마다 뭔가 걸리는 느낌이 드신 적 있으신가요? 단순히 삔 거려니 하고 넘기기 쉬운데, 방치하면 퇴행성관절염으로 이어질 수 있는 신호예요. 반월판연골파열이 뭔지부터 원인, 방치했을 때 위험성, 관리법까지 정리해봤어요.
+
+00 · 표지
+
+
+반월판연골파열, 무릎을 삐끗한 뒤로 걸을 때마다 뭔가 걸리는 느낌이 든다면, 혹시 그냥 넘기고 계시지 않나요?
+
+01 · 반월판연골파열이 뭔가요
+
+
+무릎뼈, 그러니까 허벅지뼈(대퇴골)와 정강이뼈(경골) 사이에는 반달 모양의 연골인 반월판이 안쪽과 바깥쪽에 하나씩 자리하고 있어요. 이 연골은 무릎이 받는 충격을 흡수하고 관절을 안정시키는 쿠션 역할을 하는데, 이 반월판이 찢어지는 게 반월판연골파열이에요.
+
+02 · 이런 느낌이면 의심하세요
+
+
+대표적인 증상은 통증과 붓기, 뻣뻣함이에요. 여기에 걸을 때 무릎에서 걸리거나 딸깍하는 느낌이 들고, 심하면 무릎이 갑자기 구부러지지도 펴지지도 않는 잠김 현상까지 나타나요. 계단을 내려가거나 뛰어내릴 때 무릎에 힘이 탁 풀리는 느낌이 든다면 이것도 의심해볼 신호예요.
+
+03 · 원인은 두 가지예요
+
+
+젊은 층에서는 대부분 외상이 원인이에요. 발은 땅에 고정된 채 무릎에 회전력이 가해지는 순간 찢어지는 경우가 많아서, 축구·농구처럼 방향 전환이 잦은 운동 중에 다치는 일이 흔해요. 반대로 중장년층 이상에서는 특별한 외상 없이도 생겨요. 나이가 들면서 연골 조직 자체가 서서히 약해지는 퇴행성 변화가 누적되다가, 평평하지 않은 바닥을 밟는 정도의 사소한 동작에도 찢어져요.
+
+04 · 방치하면 퇴행성관절염으로 이어져요
+
+
+반월판을 파열된 상태로 오래 방치하면 파열 범위가 더 넓어지고 관절이 불안정해져요. 반월판이 제 역할을 못 하면 무릎 관절 사이의 충격 흡수 기능이 떨어지면서 뼈와 연골이 직접 마모되기 시작하고, 이 과정이 이어지면 퇴행성관절염으로 진행해요. 흥미로운 건, 반월판 절제술을 받은 경우를 10년간 추적한 연구에서 절제술군이 위약 수술군보다 오히려 통증이 더 크고 관절염 진행도 더 많이 나타났다는 결과도 있어요 — 그만큼 초기에 방치하지 않고 적절히 관리하는 게 중요하다는 뜻이에요.
+
+05 · 먼저, 급성기엔 무릎부터 쉬어주세요
+
+
+다친 직후 급성기에는 무릎을 쉬게 하고 얼음찜질로 통증과 붓기를 가라앉혀주세요. 15~20분씩, 2~3일 동안 통증과 부기가 가라앉을 때까지 반복하는 게 도움이 돼요. 이 시기엔 쪼그려 앉기나 무릎을 비트는 동작처럼 부담을 주는 자세는 당분간 피해주세요.
+
+06 · 두 번째로는, 허벅지 근력을 키우세요
+
+
+급성기가 지나면 무릎을 지지하는 허벅지 근력(대퇴사두근)을 키우는 운동이 중요해요. 다리를 편 채로 누워 허벅지 앞쪽 근육에 힘을 주고 5초씩 버텼다가 힘을 빼는 동작을 반복해보세요. 실내자전거나 수영, 엘립티컬처럼 무릎에 충격이 적은 유산소 운동도 관절 부담 없이 근력을 유지하는 데 도움이 돼요.
+
+07 · 이런 신호면 바로 병원에 가세요
+
+
+무릎이 굽혀지거나 펴지지 않고 잠긴 상태가 지속되거나, 다친 다리에 체중을 실을 수 없을 만큼 통증이 심하거나, 붓기가 빠르게 심해진다면 자가 관리로 넘기지 말고 바로 병원 진료를 받아야 해요. 이런 잠김·불안정 증상은 물리치료만으로는 잘 해결되지 않는 경우가 많아서, 관절경 검사가 필요한지 전문의와 확인해보는 게 안전해요.
+
+반월판연골파열은 그냥 넘길 통증이 아니에요. 급성기엔 무릎을 쉬어주고 얼음찜질로 붓기부터 가라앉힌 다음, 허벅지 근력 운동으로 무릎을 받쳐주는 근육을 채워보세요. 무릎이 잠기거나 체중을 못 버틸 정도로 심하다면 자가 관리보다 병원 진료가 먼저예요.
+
+이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
+
+#반월판연골파열 #반월상연골파열 #무릎통증 #퇴행성관절염 #무릎건강 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-0">캡션 복사</button>
+    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="g-cap-ko-0">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>인스타그램 릴스</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-name="인스타그램 릴스 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-1" spellcheck="false">무릎을 삐끗한 뒤로 걸을 때마다 뭔가 걸리는 느낌, 혹시 그냥 넘기고 계시지 않나요? 😳
+
+젊은 층은 운동 중 무릎을 비트는 외상, 중장년층은 외상 없이도 누적된 부하로 반월판이 찢어져요. 방치하면 퇴행성관절염으로 이어질 수 있어요.
+
+급성기엔 무릎을 쉬고 얼음찜질부터, 이후엔 허벅지 근력 운동으로 무릎을 받쳐주세요.
+
+더 유용한 건강정보 궁금하면 팔로우 👆
+
+#반월판연골파열 #무릎통증 #퇴행성관절염 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="g-cap-ko-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 클립</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-name="네이버 클립 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-3" spellcheck="false">무릎을 삐끗한 뒤로 걸을 때마다 뭔가 걸리는 느낌
+
+젊은 층은 운동 중 외상, 중장년층은 누적된 부하로 반월판이 찢어져요. 방치하면 퇴행성관절염으로 이어질 수 있어요.
+
+급성기엔 무릎을 쉬고 얼음찜질부터, 이후엔 허벅지 근력 운동을 해보세요!
+
+#반월판연골파열 #무릎통증 #퇴행성관절염</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-3">캡션 복사</button>
+    <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="g-cap-ko-3">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>페이스북</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-name="페이스북 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-6" spellcheck="false">반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법
+
+젊은 층은 운동 중 외상, 중장년층은 누적된 부하로 반월판이 찢어져요. 방치하면 퇴행성관절염으로 이어질 수 있어요.
+
+급성기엔 무릎을 쉬고 얼음찜질부터, 이후엔 허벅지 근력 운동으로 무릎을 받쳐주세요.
+
+#반월판연골파열 #무릎통증 #퇴행성관절염 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-6">캡션 복사</button>
+    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="g-cap-ko-6">열기 →</a>
+  </div>
+</div>
+</div></section>
+<section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28EN%29" data-name="Instagram Reels (EN)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-en-1" spellcheck="false">Your knee buckles or gives way going down stairs - are you brushing it off? 😳
+
+A torn meniscus can come from a sports twist (common in soccer, basketball, football) or from cartilage simply wearing down with age - no injury needed. Left alone, it speeds up knee osteoarthritis.
+
+Ice it for 15-20 min every few hours, skip deep squats and twisting, then build quad strength with straight-leg holds. See a doctor if your knee locks or you can't bear weight.
+
+Follow for more health tips like this!
+
+#meniscustear #kneepain #kneeinjury #kneehealth #healthtips</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-en-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="g-cap-en-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28JA%29" data-name="Instagram Reels (JA)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ja-1" spellcheck="false">しゃがんだ後に膝が急にロックして動かなくなる、見逃していませんか?😳
+
+若い人はスポーツ中の外傷、中高年は加齢による劣化で半月板が損傷します。放置すると変形性膝関節症につながると言われています。
+
+急性期はアイシングと安静、そのあとは大腿四頭筋を鍛えて膝を支えましょう。
+
+もっと役立つ健康情報はフォローで👆
+
+#半月板損傷 #膝の痛み #変形性膝関節症 #膝ケア #健康情報</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ja-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="g-cap-ja-1">열기 →</a>
+  </div>
+</div>
+</div></section>
+
+</main>
+<script>
+// WHY 이 블록이 필요한지(2026-08-14, "콘텐츠를 안넣은건가?" 오인 방지) —
+// 위 .dash-frame CSS의 WHY 참고. 같은 오리진(health-shorts 자체 배포)이라
+// contentDocument 접근에 CORS 제약이 없다 — load 이벤트에서 실제 body
+// 높이를 재서 iframe.style.height에 그대로 반영한다. 로드 직후 폰트가 아직
+// 안 그려졌거나 이미지 크기로 레이아웃이 한 번 더 바뀌는 경우가 있어
+// 300ms 뒤 한 번 더 재측정(리사이즈 옵저버 대신 단순 setTimeout으로 충분 —
+// 이 페이지는 로드 후 사용자가 카드를 펼치는 등 레이아웃이 계속 바뀌는
+// 인터랙션이 없다).
+document.querySelectorAll("iframe.dash-frame").forEach(frame => {
+  function resize() {
+    try {
+      const h = frame.contentDocument.body.scrollHeight;
+      if (h > 0) frame.style.height = h + "px";
+    } catch (err) { /* 다른 오리진이면 접근 불가 — min-height로 폴백 */ }
+  }
+  frame.addEventListener("load", () => { resize(); setTimeout(resize, 300); });
+});
+</script>
+<script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
+})();
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+// WHY 글로벌 카드에도 완료 체크를 다는지(2026-08-05, "인스타그램 릴스
+// 글로벌꺼도 선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko
+// dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
+// hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
+// 내보내기가 언어 상관없이 전부 픽업하게 한다.
+const TOPIC_NAME = "\uadfc\uace8\uaca9_13";
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}
+const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
+      card.classList.add("is-done");
+    }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        hsWrite("/api/posting-log", "POST", { topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        hsWrite("/api/posting-log", "DELETE", { topic: TOPIC_NAME, platform: cb.dataset.name });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

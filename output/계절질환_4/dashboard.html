@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 - 예방 습관 3가지 — 업로드 대시보드</title>
+<style>
+  :root {
+    --bg-top: #fdf9f5; --bg-bottom: #f6ede6;
+    --ink: #2b231f; --ink-soft: #8b7c6e;
+    --accent: #c84a62; --accent-deep: #a3344a; --accent-soft: #fadee3;
+    --panel: #fffdfa; --rule: #e9ddd0;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; font-family: "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", -apple-system, sans-serif;
+    background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+    color: var(--ink);
+  }
+  header { padding: 32px 24px 8px; text-align: center; }
+  header h1 { margin: 0 0 6px; font-size: 22px; }
+  header p { margin: 0; color: var(--ink-soft); font-size: 13px; }
+  .back { display: inline-block; margin: 18px 0 0 20px; color: var(--ink-soft); font-size: 13px; text-decoration: none; }
+  /* WHY main이 row-wrap 플렉스인지(2026-08-05, "글로벌도 영상 쪽에 한국이랑
+     병렬로 나열되게 해"): 한국어(iframe)와 글로벌(카드) 섹션을 위아래로 쌓지
+     않고 나란히 두 칼럼으로 배치 — 좁은 화면에서는 flex-wrap으로 자연스럽게
+     아래로 떨어진다. */
+  main {
+    max-width: 1400px; margin: 0 auto; padding: 16px 20px 40px;
+    display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px;
+  }
+  .lang-section { display: flex; flex-direction: column; gap: 10px; flex: 1 1 420px; min-width: 320px; }
+  .lang-heading {
+    margin: 0; font-size: 13px; font-weight: 700; color: var(--ink-soft);
+    text-transform: uppercase; letter-spacing: 0.04em;
+  }
+  /* WHY 고정 650px을 버렸는지(2026-08-14, "얘 봐봐 뭐 콘텐츠를 안넣은건가?" —
+     실제로는 플랫폼 카드가 다 있었는데 650px 안에 다 안 들어가서 iframe
+     내부 스크롤 없이는 안 보였다. 2026-08-05엔 정반대 문제(80vh라 아래
+     글로벌 카드가 안 보임)를 고치려고 650px로 줄였는데, topic마다 실제
+     콘텐츠 길이가 다 달라서(플랫폼 개수·캡션 길이 편차 큼) 고정값 자체가
+     구조적으로 틀렸다 — 아래 JS가 iframe 로드 후 실제 콘텐츠 높이
+     (contentDocument.body.scrollHeight)를 읽어서 그 값으로 다시 맞춘다.
+     min-height는 JS가 못 돌 때(구형 브라우저 등)의 안전망일 뿐. */
+  iframe.dash-frame { width: 100%; min-height: 300px; border: 0; border-radius: 16px; background: var(--panel); display: block; }
+  .lang-body { display: flex; gap: 16px; flex-wrap: wrap; }
+  .plat-card {
+    flex: 1 1 280px; background: var(--panel); border: 1px solid var(--rule); border-radius: 12px;
+    padding: 14px;
+  }
+  .plat-card.is-done { opacity: 0.55; border-color: var(--accent); background: var(--accent-soft); }
+  .plat-lang {
+    display: block; font-size: 11px; font-weight: 700; color: var(--accent-deep);
+    text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 2px;
+  }
+  .plat-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+  .plat-card h3 { margin: 0; font-size: 14px; }
+  .plat-done-check {
+    display: flex; align-items: center; gap: 4px; font-size: 11px; color: var(--ink-soft);
+    white-space: nowrap; cursor: pointer; flex: 0 0 auto;
+  }
+  .plat-done-check input { width: 13px; height: 13px; accent-color: var(--accent); cursor: pointer; }
+  .plat-card textarea {
+    width: 100%; min-height: 120px; border: 1px solid var(--rule); border-radius: 8px; padding: 8px;
+    font-size: 12px; font-family: inherit; resize: vertical;
+  }
+  .plat-actions { display: flex; gap: 8px; margin-top: 8px; }
+  .plat-actions button, .plat-actions a {
+    font-size: 12px; font-weight: 700; padding: 6px 12px; border-radius: 20px; border: none;
+    text-decoration: none; cursor: pointer;
+  }
+  .btn-copy { background: var(--accent-soft); color: var(--accent-deep); }
+  .btn-go { background: var(--accent); color: #fff; }
+  .empty { text-align: center; padding: 60px 20px; color: var(--ink-soft); }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<script src="../../supabase_client.js"></script>
+</head>
+<body>
+<a class="back" href="../../index.html">← 목록으로</a>
+<header>
+  <h1>열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 - 예방 습관 3가지</h1>
+  <p>언어별로 캡션·영상을 확인·업로드하세요 — 한 언어씩 완료해도 그대로 나머지가 이어집니다</p>
+</header>
+<main>
+<section class="lang-section"><h2 class="lang-heading">한국어</h2><div class="lang-body">
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 블로그</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%EB%B8%94%EB%A1%9C%EA%B7%B8%20%28KO%29" data-name="네이버 블로그 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-0" spellcheck="false">열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 - 예방 습관 3가지
+
+00 · 표지
+
+
+더운 날 땀을 흠뻑 흘린 뒤 다리나 배 근육이 갑자기 뻣뻣하게 조여온 경험, 한 번쯤 있으실 거예요. 단순히 오래 걸어서 생긴 쥐라고 넘기기 쉽지만, 사실은 땀으로 빠져나간 전해질이 근육 신호를 흐트러뜨려서 생기는 열경련일 수 있어요. 원인을 알면 예방은 훨씬 쉬워져요.
+
+01 · 왜 갑자기 조여올까요
+
+
+더운 날 땀을 많이 흘리면 수분과 함께 나트륨 같은 전해질도 몸 밖으로 빠져나가요. 전해질은 근육이 수축했다가 이완하는 신호를 전달하는 역할을 하는데, 이 신호 체계가 흔들리면 근육이 스스로 조절력을 잃고 갑자기 뻣뻣하게 조여요. 주로 다리(특히 종아리)나 허벅지, 복부 근육에서 나타나고, 온열질환처럼 어지럽거나 기운이 빠지는 전신 증상과 달리 특정 근육 부위에서만 통증이 느껴지는 게 특징이에요.
+
+02 · 준비운동 없이 갑자기
+
+
+확인해야 할 습관은 준비운동, 전해질, 몸이 보내는 신호 이 세 가지예요. 먼저 준비운동 없이 갑자기 격한 운동이나 활동을 이어가는 경우예요. 평소 안 쓰던 근육에 갑자기 무리한 힘이 실리면, 근육이 스스로 수축과 이완을 조절하는 능력을 순간적으로 잃기 쉬워요.
+
+03 · 준비운동은 이렇게
+
+
+운동이나 야외 활동 전후로 5~10분 정도 가볍게 스트레칭해주세요. 특히 종아리와 허벅지 뒤쪽 근육을 충분히 늘려주는 게 도움이 돼요. 강도는 처음부터 세게 시작하지 말고 몸을 서서히 데운 뒤 높여가는 게 좋아요.
+
+04 · 땀은 많이, 염분은 적게
+
+
+두 번째는 땀은 많이 흘리는데 평소 식습관은 짜지 않게 드시는 경우예요. 저염식이 나쁜 건 아니지만, 가뜩이나 나트륨 섭취가 적은 상태에서 땀으로 나트륨이 더 많이 빠져나가면 근육이 더 예민하게 반응해서 경련이 생기기 쉬워져요.
+
+05 · 전해질은 이렇게
+
+
+땀을 많이 흘린 날에는 물만 마시기보다 이온음료나 전해질 음료를 함께 챙겨주세요. 이온음료가 없다면 약간 짠 간식이나 소금 한 꼬집, 칼륨이 풍부한 바나나를 곁들이는 것도 전해질 보충에 도움이 돼요.
+
+06 · 뻐근해도 계속 움직이면
+
+
+마지막은 근육이 뻐근하거나 찌릿한 느낌이 드는데도 그 신호를 무시하고 계속 움직이는 경우예요. 이미 피로가 쌓인 근육은 신경과 근육 사이 신호 전달이 둔해지면서 경련으로 이어지기 훨씬 쉬워져요.
+
+07 · 경련이 나면 이렇게
+
+
+근육이 뻐근하다고 느껴지면 강도를 낮추고 잠시 쉬어주세요. 이미 경련이 났다면 그 근육을 천천히 늘리는 방향으로 스트레칭하면서 부드럽게 마사지하고, 시원한 곳으로 옮겨 수분과 전해질을 함께 보충해주세요.
+
+08 · 마무리
+
+
+열경련은 준비운동, 전해질, 몸이 보내는 신호 이 세 가지를 챙기면 충분히 예방할 수 있는 증상이에요. 운동 전 스트레칭하고 땀을 많이 흘린 날엔 전해질까지 챙기는 습관, 오늘부터 하나씩 실천해보세요.
+
+경련이 자주 반복되거나 오래 지속된다면, 혹은 경련과 함께 심한 통증·부종이 동반된다면 병원 진료를 받아보시는 게 좋아요. 이 글은 건강 정보를 위한 것으로, 정확한 진단과 치료는 의료 전문가와 상담하시기 바랍니다.
+
+#열경련 #다리쥐 #근육경련 #전해질보충 #여름건강 #폭염 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-0">캡션 복사</button>
+    <a class="btn-go" href="https://blog.naver.com/chlwjddms16" target="_blank" rel="noopener" data-copy-target="g-cap-ko-0">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>인스타그램 릴스</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EC%9D%B8%EC%8A%A4%ED%83%80%EA%B7%B8%EB%9E%A8%20%EB%A6%B4%EC%8A%A4%20%28KO%29" data-name="인스타그램 릴스 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-1" spellcheck="false">열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 🦵
+
+준비운동 없이 갑자기 움직이거나, 땀은 많이 흘리는데 짜지 않게 먹거나, 뻐근한 신호를 무시하고 계속 움직이면 열경련이 생기기 쉬워요. 스트레칭과 전해질 보충, 오늘부터 챙겨보세요.
+
+더 유용한 건강정보 궁금하면 팔로우 👆
+
+#열경련 #다리쥐 #근육경련 #전해질보충 #여름건강 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping/" target="_blank" rel="noopener" data-copy-target="g-cap-ko-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>네이버 클립</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%EB%84%A4%EC%9D%B4%EB%B2%84%20%ED%81%B4%EB%A6%BD%20%28KO%29" data-name="네이버 클립 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-3" spellcheck="false">열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요
+
+준비운동 없이 갑자기 움직이거나 땀은 많은데 짜지 않게 먹거나 뻐근한 신호를 무시하면 열경련이 생기기 쉬워요. 스트레칭과 전해질 보충 챙겨보세요!
+
+#열경련 #다리쥐 #근육경련 #전해질보충 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-3">캡션 복사</button>
+    <a class="btn-go" href="https://clipcreators.naver.com/web/contents/clips" target="_blank" rel="noopener" data-copy-target="g-cap-ko-3">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-plat-type="text">
+  <div class="plat-head">
+    <h3><span class="plat-lang">KO</span>페이스북</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="%ED%8E%98%EC%9D%B4%EC%8A%A4%EB%B6%81%20%28KO%29" data-name="페이스북 (KO)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ko-6" spellcheck="false">열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 - 예방 습관 3가지
+
+더운 날 땀을 많이 흘리면 나트륨 같은 전해질이 빠져나가면서 근육이 스스로 신호를 잘못 보내 다리·복부 근육이 조여와요. 준비운동, 전해질 보충, 몸이 보내는 신호까지 세 가지만 챙기면 충분히 예방할 수 있어요.
+
+#열경련 #다리쥐 #근육경련 #전해질보충 #건강정보</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ko-6">캡션 복사</button>
+    <a class="btn-go" href="https://www.facebook.com/profile.php?id=61588741213431" target="_blank" rel="noopener" data-copy-target="g-cap-ko-6">열기 →</a>
+  </div>
+</div>
+</div></section>
+<section class="lang-section"><h2 class="lang-heading">글로벌</h2><div class="lang-body">
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28EN%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">영어 English</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28EN%29" data-name="Instagram Reels (EN)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-en-1" spellcheck="false">Legs or stomach cramping up after a heavy sweat session? 🥵
+
+Heat cramps come from a mix of salt loss, fluid loss, and muscle fatigue - not just tight muscles. If you're a heavy, salty sweater, drink only plain water, or push through tired muscles, your risk goes up.
+
+Add electrolytes instead of relying on plain water alone, and stretch + massage the muscle the moment a cramp hits.
+
+More health tips like this - follow along!
+
+#heatcramps #musclecramps #electrolytes #summerhealth #legcramps #wellness</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-en-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_en" target="_blank" rel="noopener" data-copy-target="g-cap-en-1">열기 →</a>
+  </div>
+</div>
+
+<div class="plat-card" data-done-key="Instagram%20Reels%20%28JA%29" data-plat-type="video">
+  <div class="plat-head">
+    <h3><span class="plat-lang">일본어 日本語</span>Instagram Reels</h3>
+    <label class="plat-done-check">
+      <input type="checkbox" class="plat-done-toggle" data-key="Instagram%20Reels%20%28JA%29" data-name="Instagram Reels (JA)">
+      <span>완료</span>
+    </label>
+  </div>
+  <textarea id="g-cap-ja-1" spellcheck="false">汗をたくさんかいた後、水だけ飲んでいませんか？🥵
+
+それ、熱けいれんのもとかもしれません。汗で失われた塩分を水だけで薄めてしまうと、ふくらはぎやお腹の筋肉が急にこわばりやすくなります。
+
+塩分補給、ストレッチ、睡眠・体調管理の3つを意識してみてください。
+
+もっと役立つ健康情報が気になる方はフォローしてください 👆
+
+#熱けいれん #こむら返り #足がつる #熱中症対策 #電解質補給 #健康情報</textarea>
+  <div class="plat-actions">
+    <button class="btn-copy" data-target="g-cap-ja-1">캡션 복사</button>
+    <a class="btn-go" href="https://www.instagram.com/worthitshopping_ja" target="_blank" rel="noopener" data-copy-target="g-cap-ja-1">열기 →</a>
+  </div>
+</div>
+</div></section>
+
+</main>
+<script>
+// WHY 이 블록이 필요한지(2026-08-14, "콘텐츠를 안넣은건가?" 오인 방지) —
+// 위 .dash-frame CSS의 WHY 참고. 같은 오리진(health-shorts 자체 배포)이라
+// contentDocument 접근에 CORS 제약이 없다 — load 이벤트에서 실제 body
+// 높이를 재서 iframe.style.height에 그대로 반영한다. 로드 직후 폰트가 아직
+// 안 그려졌거나 이미지 크기로 레이아웃이 한 번 더 바뀌는 경우가 있어
+// 300ms 뒤 한 번 더 재측정(리사이즈 옵저버 대신 단순 setTimeout으로 충분 —
+// 이 페이지는 로드 후 사용자가 카드를 펼치는 등 레이아웃이 계속 바뀌는
+// 인터랙션이 없다).
+document.querySelectorAll("iframe.dash-frame").forEach(frame => {
+  function resize() {
+    try {
+      const h = frame.contentDocument.body.scrollHeight;
+      if (h > 0) frame.style.height = h + "px";
+    } catch (err) { /* 다른 오리진이면 접근 불가 — min-height로 폴백 */ }
+  }
+  frame.addEventListener("load", () => { resize(); setTimeout(resize, 300); });
+});
+</script>
+<script>
+// WHY 이 페이지(다국어 topic 통합 허브)의 ?tab=도 ko iframe에 그대로
+// 전달하는지(2026-08-07, 위 개별 topic dashboard.html과 같은 이유):
+// index.html에서 "카드뉴스"/"숏츠" 탭을 눌러 들어왔으면, 이 허브 페이지 안의
+// 한국어 iframe도 같은 트랙만 보여야 한다 — 빌드 시점엔 어느 탭에서 올지
+// 알 수 없으므로(iframe src가 고정 문자열) 런타임에 현재 URL을 보고 붙인다.
+(function () {
+  const tabParam = new URLSearchParams(location.search).get("tab");
+  if (!tabParam) return;
+  const frame = document.querySelector("iframe.dash-frame");
+  if (frame) frame.src += (frame.src.includes("?") ? "&" : "?") + "tab=" + tabParam;
+  // WHY 글로벌 라이트카드도 같이 필터링하는지(2026-08-08, "쇼츠쪽이랑
+  // 카드뉴스쪽이랑 글로벌 인스타 릴스는 둘다 들어가있잖아" 버그 리포트): 위
+  // iframe.src 갱신은 ko dashboard.html(iframe 내부)에만 적용되고, 글로벌
+  // 언어의 라이트카드(_light_platform_card)는 필터링이 없어서 ?tab=으로
+  // 뭘 눌러 들어와도 항상 전체 플랫폼을 그대로 보여줬다 — 카드뉴스 탭인데
+  // 글로벌의 "Instagram Reels"(영상, video 타입)가 그대로 섞여 나오는 게
+  // 문제였다. ko iframe 쪽과 같은 원칙(video → 숏츠, cards/text →
+  // 카드뉴스)으로 plat-card를 개별 필터링하고, 카드가 전부 숨어서 빈
+  // 섹션이 된 .lang-section은 통째로 숨긴다(글로벌은 현재 전부
+  // shorts-only라 card_news 탭에서는 "글로벌" 섹션 자체가 사라짐).
+  const wantVideo = tabParam === "shorts";
+  document.querySelectorAll(".plat-card[data-plat-type]").forEach(card => {
+    const isVideo = card.dataset.platType === "video";
+    card.style.display = (isVideo === wantVideo) ? "" : "none";
+  });
+  document.querySelectorAll(".lang-section").forEach(section => {
+    const cards = section.querySelectorAll(".plat-card");
+    if (cards.length === 0) return;
+    const anyVisible = Array.from(cards).some(c => c.style.display !== "none");
+    section.style.display = anyVisible ? "" : "none";
+  });
+})();
+document.querySelectorAll(".btn-copy").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.target);
+    navigator.clipboard.writeText(ta.value).then(() => {
+      const orig = btn.textContent;
+      btn.textContent = "복사됨 ✓";
+      setTimeout(() => btn.textContent = orig, 1500);
+    });
+  });
+});
+document.querySelectorAll(".btn-go[data-copy-target]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const ta = document.getElementById(btn.dataset.copyTarget);
+    navigator.clipboard.writeText(ta.value);
+  });
+});
+// WHY 글로벌 카드에도 완료 체크를 다는지(2026-08-05, "인스타그램 릴스
+// 글로벌꺼도 선택할 수 있게 해주고 그거 export할때도 확인가능하게"): ko
+// dashboard.html(iframe 속, CARD_TEMPLATE)의 done-toggle과 정확히 같은
+// hs_done_<topic>_<key> localStorage 키 스킴을 써서, index.html의 CSV
+// 내보내기가 언어 상관없이 전부 픽업하게 한다.
+const TOPIC_NAME = "\uacc4\uc808\uc9c8\ud658_4";
+const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}
+const STORAGE_PREFIX = "hs_done_" + encodeURIComponent(TOPIC_NAME) + "_";
+(async () => {
+  const { data: dbPosted } = await sb.from("posting_log").select("platform").eq("topic", TOPIC_NAME);
+  const dbPostedSet = new Set((dbPosted || []).map(r => r.platform));
+
+  document.querySelectorAll(".plat-done-toggle").forEach(cb => {
+    const storageKey = STORAGE_PREFIX + cb.dataset.key;
+    const card = cb.closest(".plat-card");
+    if (localStorage.getItem(storageKey) || dbPostedSet.has(cb.dataset.name)) {
+      cb.checked = true;
+      card.classList.add("is-done");
+    }
+    cb.addEventListener("change", () => {
+      if (cb.checked) {
+        const postedAt = new Date().toISOString();
+        const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
+        localStorage.setItem(storageKey, JSON.stringify(record));
+        card.classList.add("is-done");
+        hsWrite("/api/posting-log", "POST", { topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+      } else {
+        localStorage.removeItem(storageKey);
+        card.classList.remove("is-done");
+        hsWrite("/api/posting-log", "DELETE", { topic: TOPIC_NAME, platform: cb.dataset.name });
+      }
+    });
+  });
+})();
+</script>
+</body>
+</html>

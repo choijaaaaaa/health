@@ -1609,6 +1609,22 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         # (_esc()가 .replace()를 호출하므로 리스트면 그대로 크래시) — 공백으로
         # 합쳐서 단일 문자열로 정규화, 아래 모든 title 사용처가 그대로 재사용.
         spec["title"] = " ".join(spec["title"])
+    # WHY "platforms" 키 자체 부재를 별도로 잡는지(2026-08-17, "카드뉴스만"
+    # 트랙 topic 50개가 "업로드 플랫폼" 섹션 전체가 통째로 빠져있던 사고 —
+    # card_news_spec.json(카드뉴스 레이아웃 스펙, platforms 키 없음)을
+    # platform_captions.json(실제 캡션+버튼 데이터) 대신 spec_path로 잘못 넘겨서
+    # 발생했다. spec.get("platforms", [])는 키가 없어도 조용히 빈 리스트를 반환해
+    # cards_html이 빈 문자열이 되고 platform_sections 자체가 생략되는데, 에러도
+    # 경고도 없어서 대시보드를 직접 열어보지 않으면 몇 주가 지나도 못 알아챈다 —
+    # 실제로 50개 topic이 이 상태로 방치돼있었다. "platforms" 키가 아예 없으면
+    # 잘못된 파일을 넘긴 것으로 간주해 여기서 바로 크래시시킨다(진짜로 플랫폼이
+    # 0개인 topic은 있을 수 없음 — 카드뉴스만 트랙도 최소 네이버 블로그 하나는
+    # 항상 있어야 함).
+    if "platforms" not in spec:
+        raise ValueError(
+            f"{spec_path}에 'platforms' 키가 없습니다 — card_news_spec.json이 아니라 "
+            f"platform_captions.json을 spec_path로 넘겼는지 확인하세요."
+        )
     # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
     # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
