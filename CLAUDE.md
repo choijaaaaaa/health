@@ -471,7 +471,35 @@ manifest 파일이 재생성 우선순위 판단 근거). `real`/`motion`/`music
   `checklist`에서 항목별 fact/fix, 헤더 문구 두 곳 모두 이 문제였음
   (2026-08-05 수정). 새 텍스트 전환 로직 추가 시 이 패턴 적용.
 
-## TTS (`lib/fish_tts.py`)
+## TTS
+
+⚠️ **한국어는 Voicebox로 전환(2026-08-17)** — `lib/voicebox_tts.py`,
+Fish Audio 한국어 보이스 품질 불만족으로 로컬 Voicebox.app(Qwen3-TTS MLX,
+클론 보이스 "한국어1")과 실측 비교(같은 대본으로 생성해서 직접 청취) 후
+교체 확정. **en/ja는 대상 밖 — 계속 `lib/fish_tts.py`**(아래 그대로).
+새 한국어 topic은 반드시 `python3 lib/voicebox_tts.py <topic> <text>` 사용.
+
+- ⚠️ **Voicebox.app이 이 컴퓨터에서 항상 켜져 있어야 함** — 클라우드 API가
+  아니라 로컬 추론(기본 포트 17493). 꺼져 있으면 `synthesize()`가 바로
+  에러(연결 실패 메시지로 원인 명확히 표시, 조용히 실패하지 않음).
+- ⚠️ **생성이 느림** — 문장 단위로 API를 호출해서 이어붙이는 구조라(아래
+  WHY), 실측 700자 나레이션 기준 총 100초 안팎. 여러 topic 한 번에 돌릴
+  땐 이 배속을 감안할 것.
+- ⚠️ **word-level alignment가 없어서 문장 단위로 쪼개 호출**(fish_tts.py의
+  `_MAX_SENTENCES_PER_CALL=1`과 발상은 같으나 원인은 다름 — Fish는 응답
+  안정성 때문, Voicebox는 애초에 정렬 타임스탬프 자체를 안 줌): 문장 하나당
+  호출 하나 → 결과 오디오 길이(ffprobe 실측)를 그 문장 구간으로 그대로 씀 →
+  narration.srt는 문장 단위 엔트리(fish_tts.py의 `_build_srt` 결과와 동일한
+  granularity라 하류 파이프라인엔 차이 없음).
+- **보이스는 지금 "한국어1" 프로필 하나로 고정**(`PROFILE_ID_KOR` 상수) —
+  fish_tts.py처럼 topic마다 랜덤 선택하지 않음. 보이스를 더 늘리기로
+  하면 풀 방식으로 바꿀 것.
+- `synthesize(topic, text, voice_name=None, lang="kor")` 반환 모양은
+  fish_tts.py와 동일(`audio_path`/`srt_path`/`duration`/`word_count`/
+  `words`) — 호출부는 어느 TTS를 쓰는지 신경 쓸 필요 없음. `lang="kor"`
+  외 값을 넘기면 즉시 에러(en/ja를 실수로 여기로 보내는 걸 막음).
+
+### Fish Audio (`lib/fish_tts.py`, en/ja 전용)
 
 ⚠️ **Fish Audio로 전환(2026-08-14, Typecast 완전 폐기)** — Typecast 음성
 품질 불만으로 교체 결정. `TYPECAST_API_KEY`는 `.env`에서 제거됐고
