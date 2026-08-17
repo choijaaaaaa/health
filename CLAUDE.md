@@ -193,6 +193,17 @@
     "카드뉴스"(`lib/dashboard.py`의 `_update_topics_index()`가 매번 재계산해서
     `output/topics.json`에 기록, `index.html`이 이 값으로 "🎬 숏츠"/"🗞 카드뉴스"
     두 섹션으로 나눠 보여줌). 새 필드를 손으로 추가·관리할 필요 없음.
+  - ⚠️ **`dashboard.py generate()`의 `spec_path`는 반드시 `platform_captions.json`
+    (2026-08-17, "카드뉴스만" topic 50개 "업로드 플랫폼" 섹션 통째로 누락 사고)** —
+    `card_news_spec.json`(카드뉴스 레이아웃 스펙, `platforms` 키 없음)을 실수로
+    넘기면 `spec.get("platforms", [])`가 조용히 빈 리스트가 되어 네이버 블로그
+    "열기(캡션 자동복사)" 버튼을 포함한 "업로드 플랫폼" 섹션 전체가 대시보드에서
+    사라진다 — 에러도 경고도 없어서 대시보드를 직접 열어보기 전까진 못 알아챈다.
+    50개 topic이 이 상태로 방치됐다가 사용자가 직접 발견(`눈_9`). 지금은
+    `generate()`가 `"platforms"` 키 자체가 없으면 바로 크래시하도록 가드가
+    걸려있어 같은 실수를 하면 즉시 드러난다 — 그래도 CLI 호출 시
+    `platform_captions.json` 경로를 넘기는 게 기본, `card_news_spec.json`은
+    `card_news.py`(이미지 렌더링)에만 쓴다는 걸 헷갈리지 말 것.
 - ⚠️ **카드뉴스 표지 배경색은 매 topic 다르게(2026-08-12)** — `card_news_spec.json`에
   `cover_scrim_color`(hex 문자열)를 안 넣으면 기본값인 브랜드 ACCENT(로즈핑크)로
   전부 동일하게 나온다("왜 죄다 빨간바탕만 해놨냐" 지적, 실측 14개 topic 전부
