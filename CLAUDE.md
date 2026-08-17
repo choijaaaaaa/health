@@ -924,6 +924,11 @@ git 히스토리에서 복원.
   `output/youtube_uploaded.json`, 상품 링크는 `output/product_links.json`
   (쿠팡)·`output/naver_product_links.json`(네이버 커넥트), 포스팅 기록은
   `output/posting_log.csv`(브라우저 CSV 내보내기 → 커밋).
+  - ⚠️ **입력값 "-"는 링크 없음과 동일 취급(2026-08-17)** — 캡션에
+    "상품명 구매: -"가 그대로 노출된 사고. `lib/dashboard.py`의
+    `_isRealLink()`가 저장/로드/캡션삽입 전 구간에서 빈 문자열과 "-"를
+    똑같이 "링크 없음"으로 처리한다 — 기존에 이미 "-"로 잘못 저장된
+    값도 DB 수정 없이 다음 로드부터 자동으로 정상 처리됨.
   - ⚠️ **상품 링크는 Supabase 직접 연동(2026-08-08, CSV 왕복 폐기)**:
     개별 topic 대시보드의 `.product-link-input`은 이제 Supabase
     `product_links`(topic·market·product·url) 테이블에 직접 upsert/delete —
