@@ -318,6 +318,21 @@ const TOPIC_NAME = "\uc190\ubc1c_6_en";
 // 읽으므로 건드리지 않음), Supabase는 기기가 바뀌어도 안 사라지는 진짜 기록으로
 // 병행 저장한다 — 초기 로드 시 localStorage에 없으면 Supabase 값으로 채운다.
 const sb = window.supabase.createClient(window.HS_SUPABASE_URL, window.HS_SUPABASE_ANON_KEY);
+// WHY 쓰기는 sb.from()이 아니라 이 헬퍼(서버 API 경유)를 쓰는지(2026-08-14):
+// Supabase 프로젝트를 다른 프로젝트(vernhaven-blog 계열)와 공유하게 되면서
+// 그쪽 퍼블릭 사이트 브라우저 번들에도 같은 anon key가 노출된다 — anon에
+// "전체 허용" RLS를 계속 걸어두면 아무나 이 관리 테이블을 쓰고 지울 수
+// 있는 구멍이 생긴다. 그래서 실제 쓰기는 service_role 키를 쓰는 /api/*
+// 서버 함수로 옮겼다 — 인증은 이 fetch가 아니라 middleware.js의
+// matcher("/(.*)")가 /api/*까지 포함해서 이미 Basic Auth로 막는다.
+async function hsWrite(path, method, body) {
+  const res = await fetch(path, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
+}
 // WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
 // topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
 function _withTopicPrefix(name) {
@@ -494,6 +509,19 @@ const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const COMMENT_KEYWORD = "";
 const LINK_STORAGE_PREFIX = "hs_link_%EC%86%90%EB%B0%9C_6_en_";
+// WHY "-"를 빈 값과 동일 취급하는지(2026-08-17, "링크 -로 넣은거는 그게
+// 아예 안나오도록 해 ~ 구매 : - 이런식으로 나오게 하지말고" 지적 — 실제로
+// 눈_9 "돋보기 안경" 링크가 "-"로 저장돼서 캡션에 "🔗 돋보기 안경 구매: -"가
+// 그대로 나갔다): "-"는 다른 프로젝트(vernhaven-blog 등)의 입력창
+// placeholder 관례("없으면 -")에서 온 습관적 입력으로 보이는데, 여기 코드는
+// 빈 문자열만 "링크 없음"으로 보고 "-"는 평범한 유효 링크값처럼 그대로
+// truthy 취급해왔다 — 저장/로드/캡션 삽입 전 구간 전부 이 헬퍼를 거치게
+// 해서 기존에 이미 "-"로 저장된 값도(DB 마이그레이션 없이) 다음 로드
+// 시점부터 자동으로 "링크 없음"과 동일하게 처리된다.
+function _isRealLink(v) {
+  const t = (v || "").trim();
+  return t !== "" && t !== "-";
+}
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
 // 끝에 붙는 경우에만 안전했다 — 그런데 공정위 표시광고 지침상 고지문이 "게시물
@@ -555,7 +583,7 @@ function _buildLinkBlock(hasNaverButton) {
     const lines = [];
     document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {
       const url = inp.value.trim();
-      lines.push(url ? "🔗 " + inp.dataset.product + " 구매: " + url : "🔵 상품: " + inp.dataset.product);
+      lines.push(_isRealLink(url) ? "🔗 " + inp.dataset.product + " 구매: " + url : "🔵 상품: " + inp.dataset.product);
     });
     if (lines.length === 0) return null;
     return {text: lines.join("\n"), disclosure: NAVER_DISCLOSURE};
@@ -563,7 +591,7 @@ function _buildLinkBlock(hasNaverButton) {
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {
     const url = inp.value.trim();
-    if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
+    if (_isRealLink(url)) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   });
   if (lines.length === 0) return null;
   return {text: lines.join("\n"), disclosure: COUPANG_DISCLOSURE};
@@ -723,7 +751,7 @@ function applyProductLinks() {
     const linkKey = inp.dataset.market + "_" + inp.dataset.product;
     const storageKey = LINK_STORAGE_PREFIX + linkKey;
     const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || globalLinkMap.get(linkKey) || "";
-    if (saved) {
+    if (_isRealLink(saved)) {
       inp.value = saved;
       row.classList.add("linked");
       // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
@@ -754,20 +782,20 @@ function applyProductLinks() {
         }
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
-        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        hsWrite("/api/product-links", "DELETE", { topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product });
         applyProductLinks();
         return;
       }
       const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
       if (err) err.classList.remove("show");
-      if (val) {
+      if (_isRealLink(val)) {
         localStorage.setItem(storageKey, val);
         row.classList.add("linked");
-        sb.from("product_links").upsert({ topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
+        hsWrite("/api/product-links", "POST", { topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
       } else {
         localStorage.removeItem(storageKey);
         row.classList.remove("linked");
-        sb.from("product_links").delete().eq("topic", TOPIC_NAME).eq("market", inp.dataset.market).eq("product", inp.dataset.product);
+        hsWrite("/api/product-links", "DELETE", { topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product });
       }
       applyProductLinks();
     });
@@ -802,11 +830,11 @@ const STORAGE_PREFIX = "hs_done_%EC%86%90%EB%B0%9C_6_en_";
         const record = { topic: TOPIC_NAME, platform: cb.dataset.name, postedAt };
         localStorage.setItem(storageKey, JSON.stringify(record));
         card.classList.add("is-done");
-        sb.from("posting_log").upsert({ topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
+        hsWrite("/api/posting-log", "POST", { topic: TOPIC_NAME, platform: cb.dataset.name, posted_at: postedAt });
       } else {
         localStorage.removeItem(storageKey);
         card.classList.remove("is-done");
-        sb.from("posting_log").delete().eq("topic", TOPIC_NAME).eq("platform", cb.dataset.name);
+        hsWrite("/api/posting-log", "DELETE", { topic: TOPIC_NAME, platform: cb.dataset.name });
       }
     });
   });

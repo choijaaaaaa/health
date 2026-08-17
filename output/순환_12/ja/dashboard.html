@@ -478,6 +478,19 @@ const COUPANG_DISCLOSURE = "\uc774 \uac8c\uc2dc\ubb3c\uc740 \ucfe0\ud321 \ud30c\
 const NAVER_DISCLOSURE = "\ubcf8 \ud3ec\uc2a4\ud305\uc740 \ub124\uc774\ubc84 \uc1fc\ud551 \ucee4\ub125\ud2b8 \ud65c\ub3d9\uc758 \uc77c\ud658\uc73c\ub85c \ud310\ub9e4 \ubc1c\uc0dd \uc2dc \uc218\uc218\ub8cc\ub97c \uc81c\uacf5\ubc1b\uc2b5\ub2c8\ub2e4.";
 const COMMENT_KEYWORD = "";
 const LINK_STORAGE_PREFIX = "hs_link_%EC%88%9C%ED%99%98_12_ja_";
+// WHY "-"를 빈 값과 동일 취급하는지(2026-08-17, "링크 -로 넣은거는 그게
+// 아예 안나오도록 해 ~ 구매 : - 이런식으로 나오게 하지말고" 지적 — 실제로
+// 눈_9 "돋보기 안경" 링크가 "-"로 저장돼서 캡션에 "🔗 돋보기 안경 구매: -"가
+// 그대로 나갔다): "-"는 다른 프로젝트(vernhaven-blog 등)의 입력창
+// placeholder 관례("없으면 -")에서 온 습관적 입력으로 보이는데, 여기 코드는
+// 빈 문자열만 "링크 없음"으로 보고 "-"는 평범한 유효 링크값처럼 그대로
+// truthy 취급해왔다 — 저장/로드/캡션 삽입 전 구간 전부 이 헬퍼를 거치게
+// 해서 기존에 이미 "-"로 저장된 값도(DB 마이그레이션 없이) 다음 로드
+// 시점부터 자동으로 "링크 없음"과 동일하게 처리된다.
+function _isRealLink(v) {
+  const t = (v || "").trim();
+  return t !== "" && t !== "-";
+}
 // WHY 눈에 안 보이는 문자(zero-width space/non-joiner) 두 개로 구간의 시작·끝을
 // 표시: 이전엔 마커 하나로 "여기부터 끝까지"만 표시해서 자동추가 블록이 캡션 맨
 // 끝에 붙는 경우에만 안전했다 — 그런데 공정위 표시광고 지침상 고지문이 "게시물
@@ -539,7 +552,7 @@ function _buildLinkBlock(hasNaverButton) {
     const lines = [];
     document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {
       const url = inp.value.trim();
-      lines.push(url ? "🔗 " + inp.dataset.product + " 구매: " + url : "🔵 상품: " + inp.dataset.product);
+      lines.push(_isRealLink(url) ? "🔗 " + inp.dataset.product + " 구매: " + url : "🔵 상품: " + inp.dataset.product);
     });
     if (lines.length === 0) return null;
     return {text: lines.join("\n"), disclosure: NAVER_DISCLOSURE};
@@ -547,7 +560,7 @@ function _buildLinkBlock(hasNaverButton) {
   const lines = [];
   document.querySelectorAll('.product-link-input[data-market="coupang"]').forEach(inp => {
     const url = inp.value.trim();
-    if (url) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
+    if (_isRealLink(url)) lines.push("🔗 " + inp.dataset.product + " 구매: " + url);
   });
   if (lines.length === 0) return null;
   return {text: lines.join("\n"), disclosure: COUPANG_DISCLOSURE};
@@ -707,7 +720,7 @@ function applyProductLinks() {
     const linkKey = inp.dataset.market + "_" + inp.dataset.product;
     const storageKey = LINK_STORAGE_PREFIX + linkKey;
     const saved = localStorage.getItem(storageKey) || dbLinkMap.get(linkKey) || globalLinkMap.get(linkKey) || "";
-    if (saved) {
+    if (_isRealLink(saved)) {
       inp.value = saved;
       row.classList.add("linked");
       // WHY 기존 저장값도 로드 시 검증하는지(2026-08-08): 검증 로직 도입 전에
@@ -744,7 +757,7 @@ function applyProductLinks() {
       }
       const err = row.querySelector('.link-error[data-for="' + inp.dataset.market + '"]');
       if (err) err.classList.remove("show");
-      if (val) {
+      if (_isRealLink(val)) {
         localStorage.setItem(storageKey, val);
         row.classList.add("linked");
         hsWrite("/api/product-links", "POST", { topic: TOPIC_NAME, market: inp.dataset.market, product: inp.dataset.product, url: val });
