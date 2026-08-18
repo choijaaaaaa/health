@@ -19,7 +19,6 @@ bin/
 # "로컬에서만 쓴다"는 전제였는데, 이제 Vercel에 실제로 배포해서 원격으로도 보는
 # 용도가 생겼다 — mp4(수백 MB~GB급)와 달리 카드뉴스 jpg 전체는 609장에 79.6MB
 # 수준이라 git·Vercel 둘 다 무리 없는 용량. mp4/에셋 원본은 여전히 로컬 전용.
-assets_library/illust/
 assets_library/real/
 assets_library/motion/
 assets_library/music/

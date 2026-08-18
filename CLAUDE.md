@@ -251,17 +251,34 @@
 잊고 상대경로로 `rm -rf assets_library`를 실행해 메인 디렉토리의 실제
 자산(726MB)이 삭제됐다. git엔 원래도 안 올라가는 경로라(대용량 미디어 정책)
 git으로 복구 불가, Time Machine·iCloud 동기화도 이 기기엔 없어서 대부분
-유실 확정. `illust`는 `output/**/card_news/*.jpg`(안 지워짐)의 fact card
-배지를 크롭해서 231/255개 저해상도로 복구했다(`data/illust_recovery_manifest.json`에
-목록·사용빈도 기록 — 고사용 캐릭터부터 Gemini로 고화질 재생성 권장, 이
-manifest 파일이 재생성 우선순위 판단 근거). `real`/`motion`/`music`은
-복구 안 됨 — `real`은 `real_photo_sourcing.py`로 재소싱 가능(무료 API라
-손실 크지 않음), `motion`은 8/5부로 이미 신규 생성 중단 정책이라 실질
-영향 적음, `music`은 유튜브 오디오 보관함에서 수동 재다운로드 필요.
+유실 확정.
+
+⚠️ **일러스트 저해상도 복구분 전량 폐기(2026-08-18)** — 사고 직후
+`output/**/card_news/*.jpg`의 fact card 배지를 크롭해 231/255개를
+복구했었지만(`data/illust_recovery_manifest.json`), 실제 화질이 원본
+640px 대비 약 130px 수준으로 확대 시 심하게 깨져 재사용 가치가 없다고
+판단 — 231개 전부 삭제, 매니페스트 파일도 삭제(재생성 우선순위 판단
+근거로서의 용도가 없어짐). **앞으로는 새 topic 작업 때마다 필요한
+캐릭터를 그때그때 다시 생성해서 자연스럽게 다시 쌓는다** — 일괄 복구
+재시도는 안 함. `real`/`motion`/`music`은 복구 안 됨 — `real`은
+`real_photo_sourcing.py`로 재소싱 가능(무료 API라 손실 크지 않음),
+`motion`은 8/5부로 이미 신규 생성 중단 정책이라 실질 영향 적음, `music`은
+유튜브 오디오 보관함에서 수동 재다운로드 필요.
+
 **앞으로 규칙**: 이 4개 폴더(또는 그 상위 `assets_library/`) 대상
 삭제·덮어쓰기 명령은 (1) 상대경로 대신 항상 절대경로 사용, (2) 명령
 직전에 `pwd`로 위치 재확인, (3) 정말 필요한 삭제가 아니면 삭제 대신
 이름 바꿔서 보관 후 나중에 지우는 방식을 우선한다.
+
+⚠️ **재발 방지 — `assets_library/illust/`는 이제 git에 커밋한다
+(2026-08-18, 정책 전환)** — 예전엔 "대용량 미디어는 git에 안 올림" 원칙으로
+4개 폴더 전부 gitignore했지만, 실제 사고를 겪어보니 일러스트만큼은 파일당
+수십 KB 수준(실측 232개/7.7MB, jpg 캐릭터 아트)이라 용량 부담이 사실상
+없고 git이 유일한 백업 경로가 된다 — `.gitignore`에서 `assets_library/illust/`
+제거 완료, `real`/`motion`/`music`은 그대로 gitignore 유지(real도 작지만
+지금은 illust만 범위로 좁힘, motion/music은 여전히 대용량). 새 캐릭터
+일러스트를 만들 때마다 다른 산출물과 마찬가지로 그 즉시 커밋할 것 —
+로컬에만 두고 넘어가지 말 것.
 
 - `assets_library/{illust,real,motion}/<품목>_*` — 캐릭터 일러스트/실사진/모션
   루프. 새 캐릭터 만들기 전 `ls assets_library/illust/`로 비슷한 시각 카테고리
@@ -1208,8 +1225,13 @@ python3 -m pytest tests/ -v
 레포 용량 문제로 아래는 **로컬에만 유지하고 git엔 커밋하지 않는다**
 (`.gitignore`에 이미 반영 — `git add`해도 자동으로 무시됨):
 
-- `assets_library/{illust,real,motion,music}/` 전부
+- `assets_library/{real,motion,music}/` 전부
 - `output/**/*.mp4`(원본·인스타그램 안전여백 버전 둘 다)
+
+⚠️ **`assets_library/illust/`는 예외 — 2026-08-18부로 git 추적**(위 "에셋
+라이브러리" 절 재발 방지 대책 참고) — 파일당 수십 KB급이라 용량 부담이
+없고, 삭제 사고를 실제로 겪어본 뒤 git을 유일한 백업 경로로 삼기로 함.
+새 캐릭터 일러스트는 만드는 즉시 커밋할 것.
 
 ⚠️ **카드뉴스 이미지(`output/**/card_news/*.jpg`)는 표지만 빼고 gitignore하려던
 계획이 2026-08-08에 뒤집혀서, 지금은 전체가 git에 추적된다** — 실제 `.gitignore`
