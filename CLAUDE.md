@@ -499,6 +499,39 @@ Fish Audio 한국어 보이스 품질 불만족으로 로컬 Voicebox.app(Qwen3-
   `words`) — 호출부는 어느 TTS를 쓰는지 신경 쓸 필요 없음. `lang="kor"`
   외 값을 넘기면 즉시 에러(en/ja를 실수로 여기로 보내는 걸 막음).
 
+### 나레이션 TTS 검증 도구 2종 (2026-08-18 도입 — 필수)
+
+⚠️ jp-review-shorts 콜라겐씨젤리_JP_1 한국어 나레이션 "미용 성분이
+7종에서 10종으로"가 TTS에서 "칠곱종"/"셥종"처럼 한자어(칠·십)와
+순우리말(일곱·열) 숫자 읽기가 뒤섞여 깨지는 사고를 사용자가 직접
+청취로 발견 — health-shorts 나레이션 412개를 같은 패턴으로 전수
+스캔했더니 **25개 topic이 동일 위험군**으로 확인됨(2026-08-18,
+`data/*/narration.txt`/`data/*/ko/narration.txt` 대상). 사용자가
+"한국어는 내가 들을 수 있지만 en/ja는 뭐가 문제인지도 모르겠다"고
+지적 — 이 두 도구로 대응한다:
+
+- **`lib/narration_qa.py`** — "작은 수+순우리말 카운터"(개/명/종/가지/
+  번/살/마리 등) 패턴을 정규식으로 미리 잡아내는 텍스트 레벨 체크.
+  **한국어 narration.txt를 다 쓴 직후, TTS 호출 전에 항상
+  `python3 -m lib.narration_qa data/<topic>/[ko/]narration.txt` 실행할
+  것.** 연도·만/천 단위 큰 수·정수 퍼센트는 검사 대상 아님(이미 자연스럽게
+  읽힘) — `COUNTERS` 목록 참고.
+- **`lib/tts_audio_qa.py`** — TTS 오디오를 Voicebox 내장 Whisper로
+  재전사해 원문과 비교하는 **언어 무관** 검증 도구. 세션은 오디오를
+  못 듣지만 전사된 "텍스트"는 en/ja든 뭐든 읽고 원문과 비교할 수 있다는
+  게 핵심 — jp-review-shorts en 나레이션에서 이 방법으로 "MS 1500"이
+  "Mississippi 1500"으로 읽히는 실제 오독을 찾아낸 전례 있음. 사용법:
+  `python3 -m lib.tts_audio_qa <audio_path> <narration.txt 경로>
+  <lang(ko/en/ja)>`. ⚠️ 자동 pass/fail 게이트 아님 — Whisper 자체가
+  숫자 표기를 정규화하므로(예: "일곱 종"을 다시 "7종"으로 씀) 완전
+  일치를 기대하면 안 되고, 원문에 없는 엉뚱한 단어·뜻 없이 뭉개진 구간
+  (특히 브랜드명·고유명사·약어)만 의심 신호로 볼 것.
+- ⚠️ **25개 영향 topic 잔여 처리는 아직 안 함** — 텍스트 수정 자체는
+  안전하지만(narration.txt만 고치면 됨), 이미 발행된 영상까지 재렌더링·
+  재업로드할지는 규모(412개 중 25개, 다수가 이미 유튜브에 라이브)를
+  감안해 사용자와 범위를 먼저 정한 뒤 진행할 것 — 무단으로 대량
+  재업로드하지 말 것.
+
 ### Fish Audio (`lib/fish_tts.py`, en/ja 전용)
 
 ⚠️ **Fish Audio로 전환(2026-08-14, Typecast 완전 폐기)** — Typecast 음성
