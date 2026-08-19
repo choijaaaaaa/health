@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Ongles cassants,",
+    "qui se dédoublent",
+    "ou marqués de stries ?",
+    "Le guide pratique"
+  ],
+  "eyebrow": "Santé des ongles",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcool",
+    "커피_illust.jpg": "Café",
+    "라면_illust.jpg": "Plats instantanés"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Les ongles sont composés",
+        "presque uniquement de kératine",
+        "",
+        "Certaines boissons et aliments",
+        "peuvent freiner sa production"
+      ]
+    },
+    {
+      "name": "L'alcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vin et bière font souvent",
+        "baisser le niveau de biotine",
+        "",
+        "La biotine est essentielle",
+        "à la fabrication de kératine"
+      ]
+    },
+    {
+      "name": "Le bon réflexe",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alterner avec de l'eau",
+        "et réduire les quantités"
+      ]
+    },
+    {
+      "name": "Le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Les polyphénols du café",
+        "freinent l'absorption",
+        "du fer et du zinc",
+        "",
+        "Deux minéraux indispensables",
+        "aux nouveaux tissus de l'ongle"
+      ]
+    },
+    {
+      "name": "Le bon réflexe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Décaler le café",
+        "par rapport aux repas"
+      ]
+    },
+    {
+      "name": "Les plats instantanés",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Nouilles instantanées et plats",
+        "préparés apportent peu de protéines",
+        "",
+        "Le matériau de base manque",
+        "pour reconstruire l'ongle"
+      ]
+    },
+    {
+      "name": "Le bon réflexe",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Ajouter plus souvent",
+        "œufs et légumineuses"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vin, café et plats instantanés",
+        "n'ont pas besoin d'être supprimés"
+      ],
+      [
+        "Ajuster la quantité et le moment",
+        "suffit déjà dans bien des cas"
+      ]
+    ],
+    "tip": [
+      "Bien s'hydrater et porter des gants",
+      "pour la vaisselle aide aussi les ongles"
+    ],
+    "cta": "Envie d'autres conseils santé ? Abonnez-vous et suivez-nous !"
+  }
+}

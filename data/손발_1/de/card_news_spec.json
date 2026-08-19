@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Brüchige Nägel,",
+    "die immer wieder splittern",
+    "oder Rillen bekommen?",
+    "Nagelpflege-Guide"
+  ],
+  "eyebrow": "Nagelgesundheit",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alkohol",
+    "커피_illust.jpg": "Kaffee",
+    "라면_illust.jpg": "Fertignudeln"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Nägel bestehen fast",
+        "vollständig aus Keratin",
+        "",
+        "Bestimmte Getränke und",
+        "Lebensmittel können den",
+        "Nachschub stören"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Wein und Bier senken",
+        "häufig den Biotinspiegel",
+        "",
+        "Biotin ist für den Aufbau",
+        "von Keratin entscheidend"
+      ]
+    },
+    {
+      "name": "Das hilft bei Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Wasser und Wein abwechseln",
+        "und die Menge bewusst reduzieren"
+      ]
+    },
+    {
+      "name": "Kaffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Pflanzenstoffe im Kaffee",
+        "bremsen die Eisen- und",
+        "Zinkaufnahme",
+        "",
+        "Beides braucht der Körper",
+        "für neues Nagelgewebe"
+      ]
+    },
+    {
+      "name": "Das hilft bei Kaffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kaffee zeitversetzt",
+        "zu den Mahlzeiten trinken"
+      ]
+    },
+    {
+      "name": "Fertignudeln",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Instant-Fertiggerichte liefern",
+        "wenig Protein und Mineralstoffe",
+        "",
+        "Das Baumaterial für die",
+        "Nägel fehlt auf Dauer"
+      ]
+    },
+    {
+      "name": "Das hilft bei Fertiggerichten",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Eier oder Hülsenfrüchte",
+        "öfter einbauen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wein, Kaffee und Fertiggerichte",
+        "muss niemand ganz streichen"
+      ],
+      [
+        "Menge und Zeitpunkt anzupassen",
+        "reicht oft schon aus"
+      ]
+    ],
+    "tip": [
+      "Ausreichend trinken und beim Abwasch",
+      "Handschuhe tragen hilft den Nägeln zusätzlich"
+    ],
+    "cta": "Mehr Gesundheitstipps? Jetzt abonnieren und folgen!"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Unghie fragili,",
+    "che si sfaldano",
+    "o si rigano spesso?",
+    "La guida pratica"
+  ],
+  "eyebrow": "Salute delle unghie",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcol",
+    "커피_illust.jpg": "Caffè",
+    "라면_illust.jpg": "Piatti pronti"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Le unghie sono fatte",
+        "quasi solo di cheratina",
+        "",
+        "Alcune bevande e alimenti",
+        "possono ostacolarne la sintesi"
+      ]
+    },
+    {
+      "name": "L'alcol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vino e birra abbassano",
+        "spesso i livelli di biotina",
+        "",
+        "La biotina è essenziale",
+        "per costruire la cheratina"
+      ]
+    },
+    {
+      "name": "Cosa fare",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alternare acqua e vino",
+        "e ridurre le quantità"
+      ]
+    },
+    {
+      "name": "Il caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "I polifenoli del caffè",
+        "ostacolano l'assorbimento",
+        "di ferro e zinco",
+        "",
+        "Entrambi servono per",
+        "costruire nuova unghia"
+      ]
+    },
+    {
+      "name": "Cosa fare",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Distanziare il caffè",
+        "dai pasti principali"
+      ]
+    },
+    {
+      "name": "I piatti pronti",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Noodles istantanei e piatti",
+        "pronti danno poche proteine",
+        "",
+        "Manca il materiale",
+        "per rinforzare l'unghia"
+      ]
+    },
+    {
+      "name": "Cosa fare",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Aggiungere più spesso",
+        "uova e legumi"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vino, caffè e piatti pronti",
+        "non vanno eliminati del tutto"
+      ],
+      [
+        "Basta spesso regolare",
+        "quantità e momento giusto"
+      ]
+    ],
+    "tip": [
+      "Bere abbastanza acqua e usare guanti",
+      "per i piatti aiuta ulteriormente le unghie"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e seguici!"
+  }
+}

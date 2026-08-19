@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Uñas que se parten,",
+    "se debilitan",
+    "o tienen estrías?",
+    "Guía práctica"
+  ],
+  "eyebrow": "Salud de las uñas",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "커피_illust.jpg": "Café",
+    "라면_illust.jpg": "Comida instantánea"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Las uñas están hechas",
+        "casi solo de queratina",
+        "",
+        "Algunas bebidas y alimentos",
+        "pueden frenar su formación"
+      ]
+    },
+    {
+      "name": "El alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El vino y la cerveza bajan",
+        "a menudo los niveles de biotina",
+        "",
+        "La biotina es clave",
+        "para fabricar queratina"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alternar con agua",
+        "y reducir la cantidad"
+      ]
+    },
+    {
+      "name": "El café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Los polifenoles del café",
+        "frenan la absorción",
+        "de hierro y zinc",
+        "",
+        "Ambos son necesarios",
+        "para el tejido nuevo de la uña"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Separar el café",
+        "de las comidas principales"
+      ]
+    },
+    {
+      "name": "La comida instantánea",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Los fideos instantáneos aportan",
+        "poca proteína y minerales",
+        "",
+        "Falta el material base",
+        "para reconstruir la uña"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Añadir más a menudo",
+        "huevos y legumbres"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vino, café y comida instantánea",
+        "no hace falta eliminarlos del todo"
+      ],
+      [
+        "Ajustar la cantidad y el momento",
+        "ya marca la diferencia"
+      ]
+    ],
+    "tip": [
+      "Beber suficiente agua y usar guantes",
+      "al fregar también ayuda a las uñas"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete y síguenos!"
+  }
+}
