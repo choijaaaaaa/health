@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Blutzuckerspitzen nach",
+    "dem Essen im Griff?",
+    "Topinambur und Inulin im Fokus"
+  ],
+  "eyebrow": "Blutzucker-Tipp",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Topinambur"
+  },
+  "items": [
+    {
+      "name": "Warum Blutzucker schwankt",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Weißbrot, Süßes und Limo",
+        "lassen den Blutzucker",
+        "",
+        "schnell steigen und",
+        "genauso schnell wieder fallen"
+      ]
+    },
+    {
+      "name": "Die Diabetikerkartoffel",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Topinambur enthält viel Inulin —",
+        "einen löslichen Ballaststoff,",
+        "",
+        "der im Dünndarm",
+        "kaum verdaut wird"
+      ]
+    },
+    {
+      "name": "Was die Forschung zeigt",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Die Uni Wien fand: Inulin",
+        "verändert die Darmflora",
+        "",
+        "und kann die Insulin-",
+        "empfindlichkeit verbessern"
+      ]
+    },
+    {
+      "name": "Kurzkettige Fettsäuren",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Inulin-Bakterien produzieren",
+        "Butyrat im Darm —",
+        "",
+        "das wirkt sich positiv",
+        "auf den Blutzucker aus"
+      ]
+    },
+    {
+      "name": "So probierst du es",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Als Tee, geröstet",
+        "oder in der Suppe",
+        "",
+        "am besten langsam",
+        "die Menge steigern"
+      ]
+    },
+    {
+      "name": "Worauf du achten solltest",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Zu viel auf einmal kann",
+        "Blähungen auslösen",
+        "",
+        "bei Diabetes-Medikamenten:",
+        "vorher ärztlich abklären"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Topinambur ersetzt keine",
+        "Diabetesbehandlung"
+      ],
+      [
+        "Als Teil einer ballaststoff-",
+        "reichen Ernährung kann sie helfen"
+      ]
+    ],
+    "tip": [
+      "Bewegung und ausgewogene",
+      "Ernährung bleiben am wichtigsten"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

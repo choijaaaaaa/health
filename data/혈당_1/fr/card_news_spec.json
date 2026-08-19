@@ -1,0 +1,97 @@
+{
+  "title": [
+    "La glycémie grimpe",
+    "après les repas ?",
+    "Le topinambour en 3 points"
+  ],
+  "eyebrow": "Astuce glycémie",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Topinambour"
+  },
+  "items": [
+    {
+      "name": "Pourquoi la glycémie grimpe",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Pain blanc, sodas et pâtisseries",
+        "font grimper la glycémie",
+        "",
+        "puis la font retomber",
+        "tout aussi vite"
+      ]
+    },
+    {
+      "name": "16% d'inuline",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Le topinambour contient",
+        "une fibre soluble",
+        "",
+        "peu métabolisée,",
+        "index glycémique bas"
+      ]
+    },
+    {
+      "name": "Effet chez les diabétiques",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Certaines études suggèrent",
+        "une glycémie à jeun plus basse",
+        "",
+        "et un cholestérol",
+        "réduit chez les diabétiques"
+      ]
+    },
+    {
+      "name": "Un prébiotique aussi",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "L'inuline nourrit",
+        "les bifidobactéries",
+        "",
+        "de la flore intestinale"
+      ]
+    },
+    {
+      "name": "Comment le préparer",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "En soupe, purée",
+        "ou poêlé",
+        "",
+        "un classique des marchés",
+        "d'automne et d'hiver"
+      ]
+    },
+    {
+      "name": "À savoir avant d'en manger",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Commencer par de",
+        "petites portions",
+        "",
+        "en cas de traitement:",
+        "en parler à son médecin"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le topinambour ne remplace",
+        "aucun traitement"
+      ],
+      [
+        "Intégré à une alimentation",
+        "équilibrée, il peut aider"
+      ]
+    ],
+    "tip": [
+      "L'activité physique régulière",
+      "reste le plus important"
+    ],
+    "cta": "Envie d'autres astuces santé ? Abonnez-vous et suivez la page !"
+  }
+}
