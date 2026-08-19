@@ -1,0 +1,95 @@
+{
+  "title": [
+    "Candidiasis vaginal:",
+    "¿es solo cuestión de higiene?",
+    "3 hábitos alimentarios a vigilar"
+  ],
+  "eyebrow": "Salud femenina",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Dulces",
+    "흰빵_illust.jpg": "Pan y arroz blancos",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La Candida albicans usa",
+        "la glucosa como",
+        "fuente de energía"
+      ]
+    },
+    {
+      "name": "Dulces",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Elevan la glucosa",
+        "en sangre con rapidez"
+      ]
+    },
+    {
+      "name": "Dulces — la alternativa",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Frutos secos o",
+        "un huevo cocido"
+      ]
+    },
+    {
+      "name": "Pan y arroz blancos",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Los carbohidratos refinados",
+        "tienen un efecto",
+        "similar"
+      ]
+    },
+    {
+      "name": "Mejor: integrales",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Elegir pan y arroz",
+        "integrales"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Cerveza y vino dulce combinan",
+        "azúcar y alcohol",
+        "",
+        "Puede afectar la respuesta",
+        "inmunitaria"
+      ]
+    },
+    {
+      "name": "En vez de alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alternar con",
+        "agua con gas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ningún alimento necesita",
+        "eliminarse por completo"
+      ],
+      [
+        "Moderar las cantidades",
+        "puede marcar la diferencia"
+      ]
+    ],
+    "tip": [
+      "La ropa interior de algodón",
+      "transpirable también ayuda"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  },
+  "topic_word": "Salud femenina"
+}

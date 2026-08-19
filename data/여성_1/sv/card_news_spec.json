@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Svamp i underlivet:",
+    "beror det verkligen bara på hygien?",
+    "3 vanor värda att se över"
+  ],
+  "eyebrow": "Kvinnohälsa",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Sockerrik mat",
+    "흰빵_illust.jpg": "Tajta syntetkläder"
+  },
+  "items": [
+    {
+      "name": "Myten om socker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "1177 och TV4:s faktagranskning:",
+        "inget vetenskapligt samband",
+        "mellan socker och svamp"
+      ]
+    },
+    {
+      "name": "Vad som faktiskt spelar roll",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Förhöjt blodsocker,",
+        "till exempel vid diabetes,",
+        "ökar risken tydligt"
+      ]
+    },
+    {
+      "name": "Så håller du blodsockret",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "God blodsockerkontroll",
+        "minskar risken"
+      ]
+    },
+    {
+      "name": "Andra riskfaktorer",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Hormonella förändringar,",
+        "antibiotika och friktion",
+        "mot underlivet"
+      ]
+    },
+    {
+      "name": "Tajta syntetkläder",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Bidrar till fukt",
+        "och friktion"
+      ]
+    },
+    {
+      "name": "Bättre: bomull",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Bomullstrosor och",
+        "andningsbara material"
+      ]
+    },
+    {
+      "name": "Byt snabbt ur våta kläder",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Badkläder och svettiga",
+        "träningskläder"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Du behöver inte skära bort",
+        "socker för att förebygga svamp"
+      ],
+      [
+        "Blodsockerkontroll och andningsbara",
+        "kläder gör större skillnad"
+      ]
+    ],
+    "tip": [
+      "Vid återkommande besvär,",
+      "kontakta vårdcentralen"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  },
+  "topic_word": "Kvinnohälsa"
+}

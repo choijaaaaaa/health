@@ -1,0 +1,96 @@
+{
+  "title": [
+    "Mycose vaginale :",
+    "est-ce vraiment juste une question d'hygiène ?",
+    "3 habitudes alimentaires à connaître"
+  ],
+  "eyebrow": "Santé féminine",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Sucreries",
+    "흰빵_illust.jpg": "Pain & riz blancs",
+    "맥주_illust.jpg": "Alcool"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Le Candida albicans se",
+        "développe dans un milieu",
+        "riche en sucre"
+      ]
+    },
+    {
+      "name": "Sucreries",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Gâteaux et bonbons font",
+        "grimper rapidement",
+        "la glycémie"
+      ]
+    },
+    {
+      "name": "Sucreries — l'alternative",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Fruits à coque ou",
+        "œuf dur à la place"
+      ]
+    },
+    {
+      "name": "Pain & riz blancs",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Les glucides raffinés ont",
+        "un effet similaire",
+        "sur la glycémie"
+      ]
+    },
+    {
+      "name": "Mieux : le pain complet",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Préférer le pain",
+        "complet au pain blanc"
+      ]
+    },
+    {
+      "name": "Alcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Bière et vin sucré cumulent",
+        "sucre et alcool",
+        "",
+        "Cela peut fragiliser",
+        "les défenses immunitaires"
+      ]
+    },
+    {
+      "name": "Plutôt que l'alcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alterner avec de",
+        "l'eau pétillante"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Aucun de ces aliments n'a besoin",
+        "de disparaître complètement"
+      ],
+      [
+        "Réduire les quantités",
+        "peut déjà faire la différence"
+      ]
+    ],
+    "tip": [
+      "Des probiotiques ciblés peuvent",
+      "aussi aider selon plusieurs études"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous et suivez la page !"
+  },
+  "topic_word": "Santé féminine"
+}

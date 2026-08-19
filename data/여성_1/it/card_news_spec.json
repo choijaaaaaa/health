@@ -1,0 +1,95 @@
+{
+  "title": [
+    "Candida vaginale:",
+    "è davvero solo questione di igiene?",
+    "3 abitudini alimentari da conoscere"
+  ],
+  "eyebrow": "Salute femminile",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Dolci",
+    "흰빵_illust.jpg": "Pane e riso bianchi",
+    "맥주_illust.jpg": "Alcol"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La Candida albicans si sviluppa",
+        "in un ambiente ricco",
+        "di zuccheri"
+      ]
+    },
+    {
+      "name": "Dolci",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Fanno salire rapidamente",
+        "la glicemia"
+      ]
+    },
+    {
+      "name": "Dolci — l'alternativa",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Frutta secca o",
+        "un uovo sodo"
+      ]
+    },
+    {
+      "name": "Pane e riso bianchi",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "I carboidrati raffinati",
+        "hanno un effetto simile",
+        "sulla glicemia"
+      ]
+    },
+    {
+      "name": "Meglio: gli integrali",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Scegliere pane e riso",
+        "integrali"
+      ]
+    },
+    {
+      "name": "Alcol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Birra e vini dolci uniscono",
+        "zucchero e alcol",
+        "",
+        "Può indebolire",
+        "le difese immunitarie"
+      ]
+    },
+    {
+      "name": "Invece dell'alcol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alternare con",
+        "acqua frizzante"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nessuno di questi alimenti",
+        "va eliminato del tutto"
+      ],
+      [
+        "Ridurre le quantità",
+        "può fare la differenza"
+      ]
+    ],
+    "tip": [
+      "Un indice glicemico più basso",
+      "aiuta l'equilibrio generale"
+    ],
+    "cta": "Vuoi altri consigli per la salute? Iscriviti, metti like e segui!"
+  },
+  "topic_word": "Salute femminile"
+}
