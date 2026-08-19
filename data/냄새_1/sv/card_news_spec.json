@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Precis duschat, men",
+    "kroppslukten kommer",
+    "snabbt tillbaka?",
+    "Guide mot kroppslukt"
+  ],
+  "eyebrow": "Fokus på kroppslukt",
+  "cover_char_file": "마늘기름_illust.jpg",
+  "char_display_names": {
+    "마늘기름_illust.jpg": "Vitlök & lök",
+    "소고기_illust.jpg": "Rött kött",
+    "맥주_illust.jpg": "Alkohol"
+  },
+  "items": [
+    {
+      "name": "Varför blir lukten starkare",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Kroppslukt uppstår när ämnen",
+        "från maten frigörs",
+        "via svett och andedräkt",
+        "",
+        "Vissa livsmedel bildar",
+        "mycket mer av dessa ämnen"
+      ]
+    },
+    {
+      "name": "Vitlök & lök",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Svavelföreningar som",
+        "allicin tas upp i blodet",
+        "",
+        "och frigörs i flera timmar",
+        "via svett och",
+        "andedräkt"
+      ]
+    },
+    {
+      "name": "Vitlök & lök — det här hjälper",
+      "char_file": "마늘기름_illust.jpg",
+      "body": [
+        "Tillagat i stället för rått",
+        "minskar lukten"
+      ]
+    },
+    {
+      "name": "Rött kött",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Nötkött tar längre tid",
+        "att smälta än",
+        "andra proteiner",
+        "",
+        "Det ger mer",
+        "luktbildande ämnen"
+      ]
+    },
+    {
+      "name": "Rött kött — det här hjälper",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Byt ibland ut det mot",
+        "fisk eller kycklingfilé"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Öl och vin bryts ned",
+        "till ättiksyra,",
+        "",
+        "som frigörs via svetten",
+        "med en syrlig ton"
+      ]
+    },
+    {
+      "name": "Alkohol — det här hjälper",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Drick vatten",
+        "samtidigt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vitlök, kött och alkohol",
+        "behöver inte strykas helt"
+      ],
+      [
+        "Tillaga, byt ut och drick vatten",
+        "räcker ofta"
+      ]
+    ],
+    "tip": [
+      "Färska grönsaker och örter som tillbehör",
+      "kan också dämpa lukten"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  },
+  "topic_word": "Kroppslukt"
+}
