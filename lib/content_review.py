@@ -271,6 +271,29 @@ def select_hook_pattern(topic: str) -> tuple[str, str]:
     return HOOK_PATTERNS[seed_val % len(HOOK_PATTERNS)]
 
 
+# WHY 블로그 제목 아키타입도 topic-seeded인지(2026-08-13, CLAUDE.md "블로그 SEO
+# 서브트랙" 절): 영상 훅과 같은 topic·언어라도 블로그 제목은 다른 문패턴을 써야
+# 하는데(제목/카드뉴스 표지 문구와 겹치지 않게), select_hook_pattern과 똑같은
+# 문제(세션이 매번 편한 패턴으로 회귀)가 생길 수 있어 동일한 결정론적 시드
+# 원칙을 재사용한다 — 시드 문자열에 "blog"를 더해 같은 topic이라도 hook과
+# 다른 시드값이 나오게 한다.
+BLOG_TITLE_ARCHETYPES = [
+    ("질문형", '"~이신가요?"/"~때문일까요?" 형태로 독자에게 직접 묻는 제목'),
+    ("숫자리스트형", '"OO를 부르는 N가지 습관" 처럼 개수를 명시하는 제목'),
+    ("원인지목형", '"~의 진짜 원인은 OO" 처럼 원인을 직접 지목하는 제목'),
+    ("통념반박형", '"~은 OO 때문이 아니다" 처럼 흔한 오해를 반박하는 제목'),
+    ("비교형", '"OO가 아니라 XX 때문" 처럼 두 대상을 대조하는 제목'),
+]
+
+
+def select_blog_title_archetype(topic: str, lang: str) -> tuple[str, str]:
+    """blog_seo title 아키타입을 (topic, lang, "blog") 시드로 결정론적으로
+    고른다 — select_hook_pattern과 동일 공식, 시드 문자열만 다르다."""
+    seed_str = f"{topic}|{lang}|blog"
+    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
+    return BLOG_TITLE_ARCHETYPES[seed_val % len(BLOG_TITLE_ARCHETYPES)]
+
+
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--hook-pattern":
         if len(sys.argv) > 2:
@@ -278,6 +301,12 @@ if __name__ == "__main__":
             print(f"{name} — {desc}")
         else:
             print("사용법: python3 -m lib.content_review --hook-pattern <topic>")
+    elif len(sys.argv) > 1 and sys.argv[1] == "--blog-title-archetype":
+        if len(sys.argv) > 3:
+            name, desc = select_blog_title_archetype(sys.argv[2], sys.argv[3])
+            print(f"{name} — {desc}")
+        else:
+            print("사용법: python3 -m lib.content_review --blog-title-archetype <topic> <lang>")
     elif len(sys.argv) > 1 and sys.argv[1] == "--all":
         review_all()
     elif len(sys.argv) > 1:

@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Mal aliento aunque te cepilles —",
+    "¿te lo has preguntado alguna vez?",
+    "Café y dieta low-carb bajo la lupa"
+  ],
+  "eyebrow": "Alerta de aliento",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "베이컨에그_illust.jpg": "Dieta low-carb"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Menos saliva significa",
+        "más bacterias activas",
+        "que descomponen proteínas",
+        "",
+        "en compuestos de azufre,",
+        "responsables del mal olor"
+      ]
+    },
+    {
+      "name": "El café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La cafeína y la acidez",
+        "del café resecan",
+        "la boca rápidamente",
+        "",
+        "Menos saliva deja",
+        "más espacio a las bacterias"
+      ]
+    },
+    {
+      "name": "Para el café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un vaso de agua",
+        "por cada taza",
+        "",
+        "Ayuda a mantener",
+        "la boca hidratada"
+      ]
+    },
+    {
+      "name": "La dieta low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Con pocos carbohidratos,",
+        "el hígado produce",
+        "cuerpos cetónicos",
+        "",
+        "La acetona se elimina",
+        "al respirar"
+      ]
+    },
+    {
+      "name": "Para el low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Hidratarse bien",
+        "ayuda a eliminarlos",
+        "",
+        "El olor se suaviza",
+        "tras unas semanas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El mal aliento suele deberse",
+        "a boca seca y cetonas"
+      ],
+      [
+        "Pequeños ajustes suelen",
+        "bastar para reducirlo"
+      ]
+    ],
+    "tip": [
+      "Bebe agua con regularidad",
+      "a lo largo del día"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  }
+}
