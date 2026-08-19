@@ -966,11 +966,31 @@ git 히스토리에서 복원.
   본문 안에 `<img>` 최소 1장 직접 삽입할 것 — seo-blog 페이지가
   `hero_image_url`을 본문에 시각적으로 렌더링하지 않기 때문(OG/JSON-LD
   전용).
+- ⚠️ **핵심 문구는 `<strong>`으로 감쌀 것(2026-08-19, "너무 줄줄줄 적혀있어서
+  잘 읽히지가 않아... 중요한 부분에는 강조를" 피드백)** — seo-blog 쪽
+  CSS가 `<strong>`에 색상 대비까지 주도록 바뀌어서, 이제 본문에 강조
+  태그가 얼마나 있는지가 실제 가독성에 직결된다. 문단마다 핵심
+  수치·결론·행동지침(예: "하루 2리터", "금연이 유일한 방법입니다") 중
+  1개 안팎을 `<strong>`으로 감쌀 것 — 문장 전체나 접속사까지 감싸지 말고
+  진짜 핵심 어구만, 한 문단에 여러 개 몰아넣지 말 것(전부 강조되면
+  아무것도 강조 안 되는 것과 같음).
 - **제목·메타디스크립션**: 같은 topic·언어라도 유튜브 제목/카드뉴스 표지
-  문구와 다른 문패턴을 쓸 것 — 기존 `select_hook_pattern`(영상 훅 패턴
-  topic-seeded 결정론적 선택)과 동일한 원리로, title 아키타입(질문형/
-  숫자리스트형/원인지목형/통념반박형/비교형)을 `(topic, lang, "blog")`
-  시드로 고정 선택. `meta_description`은 title 요약이 아니라 별도 작성.
+  문구와 다른 문패턴을 쓸 것 — `lib/content_review.py`의
+  `select_title_archetype(topic, lang)`이 `select_hook_pattern`(영상 훅
+  패턴)과 동일한 원리로 title 아키타입(질문형/숫자·리스트형/원인지목형/
+  통념반박형/비교형) 중 하나를 topic+lang 합산 시드로 고정 선택한다.
+  `meta_description`은 title 요약이 아니라 별도 작성.
+  - ⚠️ **본문 작성 전 반드시 확인할 것(2026-08-19 신설)** — 제목 쓰기 전
+    `python3 -m lib.content_review --title-archetype <topic> <lang>`, 클로징
+    쓰기 전 `python3 -m lib.content_review --closing-archetype <topic> <lang>`
+    로 나온 아키타입/전략대로 작성할 것. H2 "실제 해결책" 섹션 헤더도
+    `select_section_header_archetype(topic, lang, "actual_fix")`(CLI 없음,
+    직접 import해서 호출)로 확인할 것. 2026-08-19 감사에서 16개 topic 중
+    94%가 동일 H2 헤더("What Actually Helps"), 75%가 동일 클로징 오프너
+    ("None of this means...")로 수렴한 게 발견돼 이 장치를 새로 도입했다 —
+    "title 아키타입을 시드로 고정 선택한다"는 문장은 예전부터 이 문서에
+    있었지만 실제로는 `select_title_archetype` 자체가 구현돼 있지 않았다
+    (문서만 있고 코드가 없던 상태).
 - ⚠️ **완료 기준 = 8개 언어 `blog_seo` 전부** — "ko만 만들고 끝났다고
   보고하지 말 것" 원칙(위 "세션 운영" 절)을 8개 언어로 확장 적용, 일부
   언어만 만들고 완료 보고하는 사고 방지.

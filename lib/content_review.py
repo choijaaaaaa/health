@@ -14,6 +14,11 @@
 #   python3 -m lib.content_review --all            — data/ 밑 모든 topic 배치 검사(한국어 전용)
 #   python3 -m lib.content_review --hook-pattern <topic>  — 제목 쓰기 전에 먼저,
 #     12종 훅 패턴 중 이번 topic이 뭔지 확인(결정론적 시드, API 호출 없음)
+#   python3 -m lib.content_review --title-archetype <topic> <lang>    — blog_seo
+#     제목 쓰기 전에 먼저(topic+lang 시드, 아래 "blog_seo 전용 다양화 장치" 참고)
+#   python3 -m lib.content_review --closing-archetype <topic> <lang>  — blog_seo
+#     클로징 문단 쓰기 전에 먼저. select_section_header_archetype()은 CLI 없이
+#     함수를 직접 import해서 쓸 것(section 인자를 받으므로 CLI 매핑 생략)
 from __future__ import annotations
 
 import json
@@ -271,27 +276,99 @@ def select_hook_pattern(topic: str) -> tuple[str, str]:
     return HOOK_PATTERNS[seed_val % len(HOOK_PATTERNS)]
 
 
-# WHY 블로그 제목 아키타입도 topic-seeded인지(2026-08-13, CLAUDE.md "블로그 SEO
-# 서브트랙" 절): 영상 훅과 같은 topic·언어라도 블로그 제목은 다른 문패턴을 써야
-# 하는데(제목/카드뉴스 표지 문구와 겹치지 않게), select_hook_pattern과 똑같은
-# 문제(세션이 매번 편한 패턴으로 회귀)가 생길 수 있어 동일한 결정론적 시드
-# 원칙을 재사용한다 — 시드 문자열에 "blog"를 더해 같은 topic이라도 hook과
-# 다른 시드값이 나오게 한다.
-BLOG_TITLE_ARCHETYPES = [
-    ("질문형", '"~이신가요?"/"~때문일까요?" 형태로 독자에게 직접 묻는 제목'),
-    ("숫자리스트형", '"OO를 부르는 N가지 습관" 처럼 개수를 명시하는 제목'),
-    ("원인지목형", '"~의 진짜 원인은 OO" 처럼 원인을 직접 지목하는 제목'),
-    ("통념반박형", '"~은 OO 때문이 아니다" 처럼 흔한 오해를 반박하는 제목'),
-    ("비교형", '"OO가 아니라 XX 때문" 처럼 두 대상을 대조하는 제목'),
+# ══════════════════════ blog_seo 전용 다양화 장치(2026-08-19) ══════════════════════
+# WHY 이 3개가 별도로 필요한지: 2026-08-19 blog_seo(en/ja/de/fr/it/es/nl/sv)
+# 품질 감사 결과, 16개 topic 중 94%가 H2 "실제 해결책" 섹션 헤더로 동일 문구
+# ("What Actually Helps"류)를, 75%가 클로징 문단 오프너로 동일 문구("None of
+# this means...")를 재사용하고 있었다. CLAUDE.md "블로그 SEO 서브트랙" 절엔
+# "select_hook_pattern과 동일한 원리로 title 아키타입을 (topic, lang, 'blog')
+# 시드로 고정 선택한다"고 적혀 있었지만, 실제로는 이 함수 자체가 구현된 적이
+# 없었다(문서만 있고 코드가 없던 상태 — 문서-실태 괴리의 원인).
+#
+# WHY 이 절이 `select_blog_title_archetype`(topic·lang을 "|"로 구분한 시드,
+# --blog-title-archetype CLI)를 대체하는지: 같은 날 다른 세션이 거의 동일한
+# 기능(제목 아키타입만, closing/section-header는 없음)을 독립적으로 먼저
+# 커밋해 병합됐다(동시 세션이 lib/*.py를 동시 편집할 수 있다는 기존 위험이
+# 실제로 발생) — 사실상 같은 문제의 같은 해법이 이름만 다르게 중복 생성된
+# 상태라, "이미 있는 것을 중복 생성하지 않는다" 원칙에 따라 하나로 합친다.
+# 사용처가 이 파일 안에서 방금 추가된 CLI 분기뿐이고(다른 코드·문서·데이터에
+# 참조 없음, grep으로 확인) 실제 topic 콘텐츠는 이미 텍스트로 확정 발행된
+# 상태라 함수 이름을 바꿔도 과거 산출물엔 영향 없다.
+#
+# WHY seed에 lang까지 합치는지(자매 프로젝트 furrowly-content/sparelow-content의
+# select_title_archetype(topic)과 다른 점): 그쪽 함수는 topic 문자열만으로
+# 시드를 걸어서 같은 topic의 8개 언어 전부가 항상 같은 아키타입을 뽑는
+# 버그가 있다 — 이번 감사에서 "제목이 topic별로 8개 언어 전체가 같은 수사
+# 패턴으로 수렴"한 원인으로 추정된다. topic+lang을 합친 문자열로 시드를
+# 걸면 같은 topic이라도 언어마다 다른 아키타입이 나온다(select_hook_pattern과
+# 동일한 시드 공식, 축만 하나 늘림).
+
+
+TITLE_ARCHETYPES = [
+    ("질문형", '"Why Does ~ Happen?" 류 질문형 — 예: "Why Does Your Blood Sugar Spike Right After Lunch?"'),
+    ("숫자·리스트형", '"N Things/Signs/Habits ~" 류 숫자 명시형 — 예: "3 Habits That Are Quietly Wrecking Your Sleep"'),
+    ("원인지목형", '"~ Is Secretly Behind ~" / "~ Might Be Causing ~" 류 원인 직접 지목형 — 예: "Your Afternoon Coffee Might Be Behind That 3 P.M. Crash"'),
+    ("통념반박형", '"~ Isn\'t What You Think" / "The Truth About ~" 류 통념 반박형 — 예: "Dry Eyes Aren\'t Just About Screen Time"'),
+    ("비교형", '"~ vs ~" 또는 "It\'s Not ~ — It\'s ~" 류 대조형 — 예: "It\'s Not Your Age — It\'s This One Habit"'),
 ]
 
 
-def select_blog_title_archetype(topic: str, lang: str) -> tuple[str, str]:
-    """blog_seo title 아키타입을 (topic, lang, "blog") 시드로 결정론적으로
-    고른다 — select_hook_pattern과 동일 공식, 시드 문자열만 다르다."""
-    seed_str = f"{topic}|{lang}|blog"
+def select_title_archetype(topic: str, lang: str) -> tuple[str, str]:
+    """select_hook_pattern과 동일한 시드 공식이되, topic+lang을 합친 문자열로
+    시드를 걸어 같은 topic이라도 언어마다 다른 아키타입이 나오게 한다(위 WHY
+    참고). (이름, 설명) 튜플 반환 — 완성 문구가 아니라 "이번 topic·언어는 이
+    수사 패턴으로 쓰라"는 지시이므로, 실제 제목 문장은 이 패턴에 맞춰 그
+    언어로 직접 새로 쓸 것(번역·직역 금지 원칙과 별개로, 예시 문구를 그대로
+    베끼지 말 것)."""
+    seed_str = f"{topic}_{lang}"
     seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
-    return BLOG_TITLE_ARCHETYPES[seed_val % len(BLOG_TITLE_ARCHETYPES)]
+    return TITLE_ARCHETYPES[seed_val % len(TITLE_ARCHETYPES)]
+
+
+CLOSING_ARCHETYPES = [
+    ("핵심 팁 재요약형", "앞서 나온 팁 중 가장 중요한 것 하나를 한 문장으로 다시 짚고 끝낸다 — \"~것 다 끊을 필요 없다\"류 안심 문구 반복 금지."),
+    ("다음 행동 제안형", "지금 당장 할 수 있는 작은 행동 하나를 구체적으로 제안하며 끝낸다(예: \"오늘 저녁부터 이것 하나만 바꿔보세요\")."),
+    ("체크리스트 회고형", "글 앞부분에서 짚은 원인/증상 항목들을 짧게 체크리스트처럼 훑어보며 끝낸다."),
+    ("질문 던지기형", "독자가 스스로 점검해볼 질문 하나를 던지며 끝낸다(예: \"오늘 하루, 몇 개나 해당됐나요?\")."),
+    ("전문가 상담 안내 강조형", "증상이 지속·악화되면 병원 방문을 권하는 문구를 자연스럽게 마무리에 녹인다(YMYL 규칙과 겹쳐도 무방, 오히려 강화)."),
+]
+
+
+def select_closing_archetype(topic: str, lang: str) -> tuple[str, str]:
+    """클로징 문단의 문구 자체가 아니라 "어떤 방식으로 마무리할지" 구조적
+    전략을 topic+lang 시드로 결정론적으로 고른다 — 작성자가 그 전략을 그
+    언어로 자기 문장으로 풀어 쓰라는 것이지, 위 설명 문구를 그대로 옮기라는
+    뜻이 아니다. 지금 75%가 수렴한 "None of this means you need to cut out
+    X, Y, Z entirely"류 안심형 오프너는 옵션 중 하나로만 남기고 강제하지
+    않기 위함."""
+    seed_str = f"{topic}_{lang}"
+    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
+    return CLOSING_ARCHETYPES[seed_val % len(CLOSING_ARCHETYPES)]
+
+
+SECTION_HEADER_ARCHETYPES = {
+    # "actual_fix" = H2 "실제 해결책" 섹션(94%가 "What Actually Helps"로 고정돼 있던 그 섹션)
+    "actual_fix": [
+        ("행동 동사형", "동사로 바로 시작하는 소제목 — 예: \"Cut Back on Late-Night Screens\", \"Swap Soda for Sparkling Water\""),
+        ("질문형", "\"그럼 뭘 하면 될까?\"류 질문형 소제목 — 예: \"So What Actually Works?\""),
+        ("결과 제시형", "이렇게 하면 어떻게 좋아지는지 결과를 먼저 제시하는 소제목 — 예: \"What Happens When You Fix This\""),
+        ("숫자형", "\"N가지 방법\" 같은 숫자 명시형 소제목 — 예: \"3 Changes That Actually Move the Needle\""),
+        ("대조형", "\"문제 vs 실제 해결책\" 대조 구조 소제목 — 예: \"Skip the Myths — Here's What Helps\""),
+    ],
+}
+
+
+def select_section_header_archetype(topic: str, lang: str, section: str) -> tuple[str, str]:
+    """H2 섹션 헤더의 완성 문구가 아니라 문패턴 스타일을 topic+lang+section
+    시드로 결정론적으로 고른다. section 인자는 최소 "actual_fix"(H2 "실제
+    해결책" 섹션) 지원 — 필요하면 SECTION_HEADER_ARCHETYPES에 다른 섹션
+    키를 추가할 것. CLI 없이 blog_seo 작성 세션이 직접 import해서 쓰는
+    용도라 사용 시 SECTION_HEADER_ARCHETYPES에 없는 section을 넘기면
+    KeyError로 바로 드러난다(조용히 기본값 폴백하지 않음)."""
+    seed_str = f"{topic}_{lang}_{section}"
+    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
+    options = SECTION_HEADER_ARCHETYPES[section]
+    return options[seed_val % len(options)]
 
 
 if __name__ == "__main__":
@@ -301,12 +378,18 @@ if __name__ == "__main__":
             print(f"{name} — {desc}")
         else:
             print("사용법: python3 -m lib.content_review --hook-pattern <topic>")
-    elif len(sys.argv) > 1 and sys.argv[1] == "--blog-title-archetype":
+    elif len(sys.argv) > 1 and sys.argv[1] == "--title-archetype":
         if len(sys.argv) > 3:
-            name, desc = select_blog_title_archetype(sys.argv[2], sys.argv[3])
+            name, desc = select_title_archetype(sys.argv[2], sys.argv[3])
             print(f"{name} — {desc}")
         else:
-            print("사용법: python3 -m lib.content_review --blog-title-archetype <topic> <lang>")
+            print("사용법: python3 -m lib.content_review --title-archetype <topic> <lang>")
+    elif len(sys.argv) > 1 and sys.argv[1] == "--closing-archetype":
+        if len(sys.argv) > 3:
+            name, desc = select_closing_archetype(sys.argv[2], sys.argv[3])
+            print(f"{name} — {desc}")
+        else:
+            print("사용법: python3 -m lib.content_review --closing-archetype <topic> <lang>")
     elif len(sys.argv) > 1 and sys.argv[1] == "--all":
         review_all()
     elif len(sys.argv) > 1:
@@ -319,4 +402,4 @@ if __name__ == "__main__":
             print("문제 없음(기계적 검사만) — 아래 체크리스트는 직접 확인하세요:")
         print(f"\n{MANUAL_REVIEW_CHECKLIST}")
     else:
-        print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all 또는 --hook-pattern <topic>")
+        print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all 또는 --hook-pattern <topic> 또는 --title-archetype <topic> <lang> 또는 --closing-archetype <topic> <lang>")
