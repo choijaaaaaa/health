@@ -1,0 +1,84 @@
+{
+  "title": [
+    "Orecchio che prude",
+    "dopo la piscina?",
+    "Le vere cause"
+  ],
+  "eyebrow": "Perché l'orecchio reagisce dopo il nuoto",
+  "cover_char_file": "물방울_illust.jpg",
+  "cover_scrim_color": "#A63D5A",
+  "items": [
+    {
+      "name": "Perché succede di nuovo?",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Orecchio tappato e che prude,",
+        "giorni dopo la piscina?",
+        "",
+        "Due abitudini quotidiane",
+        "spiegano spesso il perché"
+      ]
+    },
+    {
+      "name": "L'umidità intrappolata",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "L'acqua che ristagna",
+        "nel condotto uditivo",
+        "",
+        "lava via lo strato",
+        "protettivo naturale"
+      ]
+    },
+    {
+      "name": "Asciugare bene l'orecchio",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Inclinare la testa dopo",
+        "piscina o doccia",
+        "",
+        "asciugare solo l'esterno -",
+        "niente cotton fioc"
+      ]
+    },
+    {
+      "name": "Cotton fioc e cuffiette",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "I cotton fioc graffiano",
+        "la pelle sottile del condotto",
+        "",
+        "le cuffiette intrappolano",
+        "calore e umidità"
+      ]
+    },
+    {
+      "name": "Concedere una pausa",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Evitare i cotton fioc,",
+        "il cerume fa il suo lavoro",
+        "",
+        "pause alle cuffiette",
+        "durante le chiamate lunghe"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Umidità, cotton fioc, cuffiette -",
+        "piccole abitudini si sommano"
+      ],
+      [
+        "Correggere asciugatura e pulizia",
+        "può davvero aiutare"
+      ]
+    ],
+    "tip": [
+      "Dolore o secrezione persistenti?",
+      "Vale la pena sentire un medico"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Segui la pagina"
+  }
+}
