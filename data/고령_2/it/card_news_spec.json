@@ -1,0 +1,91 @@
+{
+  "title": [
+    "Sarcopenia: le scale o aprire",
+    "un barattolo sono più faticosi?",
+    "3 abitudini per proteggere i muscoli"
+  ],
+  "eyebrow": "Allerta salute muscolare",
+  "swipe_label": "Scorri per saperne di più  ->",
+  "closing_label": "In sintesi",
+  "cover_scrim_color": "#C4622D",
+  "char_display_names": {
+    "계란_illust.jpg": "Uova",
+    "운동화_illust.jpg": "Scarpe da passeggio",
+    "아령_illust.jpg": "Manubri"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Dopo la mezza età la massa",
+        "muscolare cala del 6-8%",
+        "ogni dieci anni",
+        "",
+        "I muscoli più anziani hanno",
+        "bisogno di più proteine a pasto"
+      ]
+    },
+    {
+      "name": "Colazione povera di proteine",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Cornetto e cappuccino danno",
+        "spesso solo 5-8g di proteine",
+        "",
+        "Per costruire muscolo servono",
+        "invece 25-30g in un solo pasto"
+      ]
+    },
+    {
+      "name": "Migliorare la colazione",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Un uovo, ricotta o yogurt",
+        "greco, oppure un bicchiere di latte",
+        "",
+        "Distribuire le proteine sui",
+        "tre pasti, non solo a cena"
+      ]
+    },
+    {
+      "name": "Solo camminare",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fa bene al cuore, ma",
+        "chiede poco ai muscoli",
+        "",
+        "Anche chi cammina ogni giorno",
+        "può perdere forza col tempo"
+      ]
+    },
+    {
+      "name": "Aggiungere forza",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Elastici o manubri,",
+        "bastano due volte a settimana",
+        "",
+        "Migliora chiaramente la presa",
+        "e la velocità del passo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La sarcopenia non è",
+        "solo colpa dell'età"
+      ],
+      [
+        "Cambiare due abitudini rallenta",
+        "in modo evidente la perdita"
+      ]
+    ],
+    "tip": [
+      "Colazione più proteica e",
+      "due sedute di forza a settimana"
+    ],
+    "cta": "Vuoi altri consigli di salute come questo? Iscriviti e seguici"
+  }
+}

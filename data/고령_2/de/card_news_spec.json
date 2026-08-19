@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Sarkopenie: Treppen oder",
+    "Schraubverschlüsse fallen schwerer?",
+    "3 Gewohnheiten für starke Muskeln"
+  ],
+  "eyebrow": "Muskelgesundheit im Fokus",
+  "swipe_label": "Wischen für mehr  ->",
+  "closing_label": "Zusammenfassung",
+  "cover_scrim_color": "#9E6F21",
+  "char_display_names": {
+    "계란_illust.jpg": "Eier",
+    "운동화_illust.jpg": "Wanderschuhe",
+    "아령_illust.jpg": "Kurzhanteln"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Ab der Lebensmitte sinkt die",
+        "Muskelmasse pro Jahrzehnt",
+        "um etwa 6 bis 8 Prozent",
+        "",
+        "Ältere Muskeln brauchen mehr",
+        "Eiweiß pro Mahlzeit, um",
+        "überhaupt aufzubauen"
+      ]
+    },
+    {
+      "name": "Eiweißarmes Frühstück",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Brötchen mit Marmelade",
+        "liefern oft nur 5 bis 10g Eiweiß",
+        "",
+        "Muskelaufbau braucht aber",
+        "rund 25 bis 30g in einer Mahlzeit"
+      ]
+    },
+    {
+      "name": "Frühstück aufwerten",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Ein Ei, etwas Quark oder",
+        "ein Glas Milch dazugeben",
+        "",
+        "Eiweiß auf alle drei Mahlzeiten",
+        "verteilen, nicht nur abends"
+      ]
+    },
+    {
+      "name": "Nur Ausdauertraining",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Gehen tut dem Herzen gut,",
+        "fordert die Muskeln aber kaum",
+        "",
+        "Auch tägliche Spaziergänger",
+        "verlieren so an Kraft"
+      ]
+    },
+    {
+      "name": "Krafttraining ergänzen",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Theraband oder Kurzhanteln,",
+        "zweimal pro Woche reichen",
+        "",
+        "Verbessert Griffkraft und",
+        "Gehgeschwindigkeit spürbar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Muskelschwund liegt",
+        "nicht nur an den Jahren"
+      ],
+      [
+        "Zwei Gewohnheiten ändern",
+        "bremst den Verlust spürbar"
+      ]
+    ],
+    "tip": [
+      "Eiweißreicheres Frühstück und",
+      "zweimal Krafttraining pro Woche"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Folgen Sie uns für mehr davon"
+  }
+}

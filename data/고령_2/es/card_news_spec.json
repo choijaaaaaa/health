@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Sarcopenia: ¿subir escaleras o abrir",
+    "un tarro cuesta más que antes?",
+    "3 hábitos para proteger tus músculos"
+  ],
+  "eyebrow": "Alerta de salud muscular",
+  "swipe_label": "Desliza para ver más  ->",
+  "closing_label": "En resumen",
+  "cover_scrim_color": "#6F4E7C",
+  "char_display_names": {
+    "계란_illust.jpg": "Huevos",
+    "운동화_illust.jpg": "Zapatillas para caminar",
+    "아령_illust.jpg": "Mancuernas"
+  },
+  "items": [
+    {
+      "name": "Por qué ocurre",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "A partir de la mediana edad,",
+        "el músculo baja 6-8% cada década",
+        "",
+        "Los músculos mayores necesitan",
+        "más proteína por comida"
+      ]
+    },
+    {
+      "name": "Desayuno bajo en proteína",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Tostada con café con leche",
+        "suele dar solo 5-10g de proteína",
+        "",
+        "Para crear músculo hacen falta",
+        "25-30g en una sola comida"
+      ]
+    },
+    {
+      "name": "Mejorar el desayuno",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Un huevo, yogur griego",
+        "o un vaso de leche",
+        "",
+        "Repartir la proteína en las",
+        "tres comidas, no solo en la cena"
+      ]
+    },
+    {
+      "name": "Solo caminar",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Bueno para el corazón, pero",
+        "exige poco a los músculos",
+        "",
+        "Incluso caminando a diario",
+        "se puede perder fuerza"
+      ]
+    },
+    {
+      "name": "Sumar fuerza",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Bandas elásticas o mancuernas,",
+        "dos veces por semana bastan",
+        "",
+        "Mejora claramente el agarre",
+        "y la velocidad al caminar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La sarcopenia no depende",
+        "solo de la edad"
+      ],
+      [
+        "Cambiar dos hábitos frena",
+        "notablemente la pérdida muscular"
+      ]
+    ],
+    "tip": [
+      "Desayuno con más proteína y",
+      "dos sesiones de fuerza por semana"
+    ],
+    "cta": "¿Quieres más consejos de salud como este? Síguenos y suscríbete"
+  }
+}
