@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Hoofdhuidgeur ondanks",
+    "regelmatig wassen?",
+    "3 gewoontes die het verergeren"
+  ],
+  "eyebrow": "Hoofdhuidgeur onder de loep",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#5E7A3D",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Wasgewoonte",
+    "베개_illust.jpg": "Nat haar",
+    "모자_illust.jpg": "Muts"
+  },
+  "items": [
+    {
+      "name": "Waarom de geur blijft",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "De hoofdhuid heeft",
+        "veel talgklieren",
+        "",
+        "Een gist breekt talg af",
+        "tot geurstoffen —",
+        "niet de talg zelf ruikt"
+      ]
+    },
+    {
+      "name": "Te vaak wassen",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Agressieve shampoo",
+        "verwijdert de beschermlaag",
+        "",
+        "De hoofdhuid maakt",
+        "als compensatie",
+        "nog meer talg aan"
+      ]
+    },
+    {
+      "name": "Zo was je goed",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Elke 2 à 3 dagen,",
+        "met milde shampoo"
+      ]
+    },
+    {
+      "name": "Met nat haar slapen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Vochtige hoofdhuid",
+        "de hele nacht",
+        "",
+        "warme, vochtige omgeving",
+        "waarin bacteriën",
+        "zich vermenigvuldigen"
+      ]
+    },
+    {
+      "name": "Zo droog je goed",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Hoofdhuid volledig drogen",
+        "voor het slapengaan"
+      ]
+    },
+    {
+      "name": "Muts zonder ventilatie",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Vocht kan",
+        "niet verdampen",
+        "",
+        "zweet en talg blijven",
+        "tegen de hoofdhuid",
+        "gevangen zitten"
+      ]
+    },
+    {
+      "name": "Zo draag je een muts",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Regelmatig afzetten",
+        "om lucht te laten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wasfrequentie, drogen, muts —",
+        "kleine aanpassingen"
+      ],
+      [
+        "zijn vaak genoeg om",
+        "de geur te verminderen"
+      ]
+    ],
+    "tip": [
+      "Bij aanhoudende jeuk of roodheid",
+      "is een bezoek aan de huidarts aan te raden"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer je en volg de pagina!"
+  }
+}

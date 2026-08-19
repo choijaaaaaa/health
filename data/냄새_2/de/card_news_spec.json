@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Kopfhautgeruch trotz",
+    "täglichem Waschen?",
+    "3 Gewohnheiten, die ihn befeuern"
+  ],
+  "eyebrow": "Kopfhautgeruch im Fokus",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#3F5C76",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Waschgewohnheit",
+    "베개_illust.jpg": "Nasses Haar",
+    "모자_illust.jpg": "Mütze"
+  },
+  "items": [
+    {
+      "name": "Warum der Geruch bleibt",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Die Kopfhaut hat besonders",
+        "viele Talgdrüsen",
+        "",
+        "Ein Hefepilz zersetzt den Talg",
+        "zu riechenden Fettsäuren —",
+        "nicht der Talg selbst riecht"
+      ]
+    },
+    {
+      "name": "Zu häufiges Waschen",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Aggressives Shampoo",
+        "zerstört den Schutzmantel",
+        "",
+        "Die Kopfhaut produziert",
+        "als Gegenreaktion",
+        "noch mehr Talg"
+      ]
+    },
+    {
+      "name": "So wäscht man richtig",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Jeden 2. Tag statt täglich,",
+        "mit mildem Shampoo waschen"
+      ]
+    },
+    {
+      "name": "Nass einschlafen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Feuchte Kopfhaut",
+        "über Nacht",
+        "",
+        "schafft ein warmes,",
+        "feuchtes Klima für",
+        "Pilze und Bakterien"
+      ]
+    },
+    {
+      "name": "So trocknet man richtig",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Vor dem Schlafengehen",
+        "die Kopfhaut vollständig trocknen"
+      ]
+    },
+    {
+      "name": "Mütze ohne Belüftung",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Schweiß kann",
+        "nicht verdunsten",
+        "",
+        "Bakterien vermehren sich",
+        "auf der Kopfhaut",
+        "ungehemmt weiter"
+      ]
+    },
+    {
+      "name": "So trägt man Mützen richtig",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Zwischendurch abnehmen",
+        "und Kopfhaut lüften lassen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Waschfrequenz, Trocknen, Mütze —",
+        "schon kleine Anpassungen"
+      ],
+      [
+        "reichen oft aus, um",
+        "den Geruch zu reduzieren"
+      ]
+    ],
+    "tip": [
+      "Bei anhaltendem Juckreiz oder Rötung",
+      "lohnt sich der Weg zur Dermatologie"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

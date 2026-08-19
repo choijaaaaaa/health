@@ -1,0 +1,104 @@
+{
+  "title": [
+    "Cuoio capelluto che puzza",
+    "anche dopo lo shampoo?",
+    "3 abitudini che peggiorano l'odore"
+  ],
+  "eyebrow": "Odore del cuoio capelluto",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#C1793D",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Abitudine di lavaggio",
+    "베개_illust.jpg": "Capelli bagnati",
+    "모자_illust.jpg": "Cappello"
+  },
+  "items": [
+    {
+      "name": "La vera causa",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Il cuoio capelluto ha",
+        "molte ghiandole sebacee",
+        "",
+        "Un lievito scompone il sebo",
+        "in composti maleodoranti —",
+        "non è il sebo fresco a puzzare"
+      ]
+    },
+    {
+      "name": "Lavaggi troppo frequenti",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Uno shampoo aggressivo",
+        "rimuove il film protettivo",
+        "",
+        "e il cuoio capelluto produce",
+        "ancora più sebo per reazione"
+      ]
+    },
+    {
+      "name": "Come lavare bene",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "2-3 volte a settimana,",
+        "con uno shampoo delicato"
+      ]
+    },
+    {
+      "name": "Dormire con capelli bagnati",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Il cuoio capelluto umido",
+        "per ore",
+        "",
+        "crea un microclima caldo",
+        "ideale per lieviti",
+        "e batteri"
+      ]
+    },
+    {
+      "name": "Come asciugare bene",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Asciugare completamente",
+        "prima di dormire"
+      ]
+    },
+    {
+      "name": "Cappello senza ventilazione",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "L'ambiente umido",
+        "e poco ventilato",
+        "",
+        "favorisce la sudorazione",
+        "e la proliferazione batterica"
+      ]
+    },
+    {
+      "name": "Come indossarlo bene",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Toglierlo ogni due o",
+        "tre ore per arieggiare"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lavaggio, asciugatura, copricapo —",
+        "piccoli aggiustamenti"
+      ],
+      [
+        "bastano spesso a",
+        "ridurre l'odore"
+      ]
+    ],
+    "tip": [
+      "In caso di prurito o arrossamento persistenti,",
+      "meglio rivolgersi a un dermatologo"
+    ],
+    "cta": "Vuoi altri consigli per la salute? Iscriviti e segui la pagina!"
+  }
+}

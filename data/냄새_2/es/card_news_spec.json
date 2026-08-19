@@ -1,0 +1,106 @@
+{
+  "title": [
+    "¿Mal olor en el cuero cabelludo",
+    "aunque te laves el pelo?",
+    "No es falta de higiene, es esto"
+  ],
+  "eyebrow": "Cuero cabelludo bajo la lupa",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#2F7A63",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Hábito de lavado",
+    "베개_illust.jpg": "Cabello mojado",
+    "모자_illust.jpg": "Gorro"
+  },
+  "items": [
+    {
+      "name": "La causa real",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "El cuero cabelludo tiene",
+        "muchas glándulas sebáceas",
+        "",
+        "Una levadura descompone",
+        "el sebo en ácido oleico —",
+        "eso es lo que huele"
+      ]
+    },
+    {
+      "name": "Dormir con el pelo mojado",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "El cuero cabelludo húmedo",
+        "toda la noche",
+        "",
+        "altera el microambiente",
+        "y favorece hongos",
+        "y bacterias"
+      ]
+    },
+    {
+      "name": "Cómo secarlo bien",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Secar el cuero cabelludo",
+        "antes de acostarse"
+      ]
+    },
+    {
+      "name": "Secar mal tras lavarlo",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Dejar las raíces",
+        "húmedas mucho tiempo",
+        "",
+        "crea un ambiente propicio",
+        "para hongos y bacterias"
+      ]
+    },
+    {
+      "name": "Lavado excesivo",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Un champú muy agresivo",
+        "",
+        "provoca un efecto rebote:",
+        "más producción de sebo"
+      ]
+    },
+    {
+      "name": "Cómo lavarlo bien",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Espaciar los lavados",
+        "y usar agua tibia"
+      ]
+    },
+    {
+      "name": "Resultado",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Secar bien, lavar",
+        "con menos frecuencia",
+        "",
+        "y evitar el agua caliente",
+        "reduce el mal olor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Secado, frecuencia de lavado,",
+        "agua tibia —"
+      ],
+      [
+        "pequeños cambios que",
+        "reducen el mal olor"
+      ]
+    ],
+    "tip": [
+      "Si hay picor o enrojecimiento persistente,",
+      "conviene consultar a un dermatólogo"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete y síguenos!"
+  }
+}
