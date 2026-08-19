@@ -1,0 +1,103 @@
+{
+  "title": [
+    "Illaluktande hårbotten",
+    "trots regelbunden tvätt?",
+    "3 vanor som gör det värre"
+  ],
+  "eyebrow": "Hårbotten under lupp",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#8B4A62",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Tvättvana",
+    "베개_illust.jpg": "Blött hår",
+    "모자_illust.jpg": "Mössa"
+  },
+  "items": [
+    {
+      "name": "Varför lukten kommer tillbaka",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Hårbotten har",
+        "gott om talgkörtlar",
+        "",
+        "En jästsvamp bryter ner talg",
+        "till luktande fettsyror —",
+        "inte talgen själv luktar"
+      ]
+    },
+    {
+      "name": "Tvättar för ofta",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Starkt schampo",
+        "torkar ut hårbotten",
+        "",
+        "som svarar med att",
+        "producera ännu mer talg"
+      ]
+    },
+    {
+      "name": "Så tvättar du rätt",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Varannan till var tredje dag,",
+        "med milt schampo"
+      ]
+    },
+    {
+      "name": "Sover med blött hår",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Fuktig hårbotten",
+        "hela natten",
+        "",
+        "skapar en varm, fuktig miljö",
+        "där bakterier och jäst",
+        "trivs extra bra"
+      ]
+    },
+    {
+      "name": "Så torkar du rätt",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Torka hårbotten ordentligt",
+        "innan läggdags"
+      ]
+    },
+    {
+      "name": "Mössa utan ventilation",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Ingen luftcirkulation",
+        "",
+        "svett och talg stannar kvar",
+        "mot hårbotten"
+      ]
+    },
+    {
+      "name": "Så bär du mössan rätt",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Ta av den då och då",
+        "för att vädra hårbotten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tvättfrekvens, torkning, mössa —",
+        "små justeringar"
+      ],
+      [
+        "räcker ofta för att",
+        "minska lukten"
+      ]
+    ],
+    "tip": [
+      "Vid ihållande klåda eller rodnad",
+      "är det värt att kontakta en hudläkare"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera och följ sidan!"
+  }
+}

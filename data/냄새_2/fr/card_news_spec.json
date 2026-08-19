@@ -1,0 +1,104 @@
+{
+  "title": [
+    "Odeur du cuir chevelu,",
+    "même après le shampoing ?",
+    "La vraie cause n'est pas le lavage"
+  ],
+  "eyebrow": "Cuir chevelu sous surveillance",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#7A4B8C",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Habitude de lavage",
+    "베개_illust.jpg": "Cheveux mouillés",
+    "모자_illust.jpg": "Bonnet"
+  },
+  "items": [
+    {
+      "name": "La vraie cause",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Le cuir chevelu a",
+        "beaucoup de glandes sébacées",
+        "",
+        "Une levure décompose le sébum",
+        "en composés odorants —",
+        "pas le sébum frais lui-même"
+      ]
+    },
+    {
+      "name": "Lavage trop fréquent",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Un shampoing agressif",
+        "décape le cuir chevelu",
+        "",
+        "qui réagit en produisant",
+        "encore plus de sébum"
+      ]
+    },
+    {
+      "name": "Comment bien laver",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "2 à 3 lavages par semaine,",
+        "avec un shampoing doux"
+      ]
+    },
+    {
+      "name": "Cheveux mouillés au coucher",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Un cuir chevelu humide",
+        "toute la nuit",
+        "",
+        "crée un environnement",
+        "chaud et confiné pour",
+        "les micro-organismes"
+      ]
+    },
+    {
+      "name": "Comment bien sécher",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sécher complètement le",
+        "cuir chevelu avant de dormir"
+      ]
+    },
+    {
+      "name": "Bonnet sans aération",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Sans circulation d'air",
+        "",
+        "la sueur et le sébum",
+        "restent piégés contre",
+        "le cuir chevelu"
+      ]
+    },
+    {
+      "name": "Comment bien le porter",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Retirer le bonnet",
+        "quelques minutes régulièrement"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lavage, séchage, bonnet —",
+        "de petits ajustements"
+      ],
+      [
+        "suffisent souvent à",
+        "atténuer l'odeur"
+      ]
+    ],
+    "tip": [
+      "En cas de démangeaisons persistantes,",
+      "mieux vaut consulter un dermatologue"
+    ],
+    "cta": "Envie d'autres conseils santé ? Abonnez-vous et suivez la page !"
+  }
+}
