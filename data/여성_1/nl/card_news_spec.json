@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Schimmelinfectie in de vagina:",
+    "ligt het echt alleen aan hygiëne?",
+    "3 gewoontes om op te letten"
+  ],
+  "eyebrow": "Vrouwengezondheid",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Suikerhoudend eten",
+    "흰빵_illust.jpg": "Strakke kleding"
+  },
+  "items": [
+    {
+      "name": "De mythe over suiker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Suiker in je eten staat",
+        "niet als bewezen oorzaak",
+        "bij Thuisarts.nl"
+      ]
+    },
+    {
+      "name": "Wat wel een rol speelt",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Een hoge bloedsuikerspiegel,",
+        "zoals bij diabetes,",
+        "verhoogt het risico wel"
+      ]
+    },
+    {
+      "name": "Zo help je bloedsuiker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Houd je bloedsuiker",
+        "goed onder controle"
+      ]
+    },
+    {
+      "name": "Zeep en medicijnen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Zeep in het intieme gebied",
+        "en antibiotica kunnen",
+        "schimmelgroei bevorderen"
+      ]
+    },
+    {
+      "name": "Beter: alleen water",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Was het intieme gebied",
+        "alleen met water"
+      ]
+    },
+    {
+      "name": "Strakke kleding",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Strakke, niet-katoenen kleding",
+        "houdt vocht en warmte vast"
+      ]
+    },
+    {
+      "name": "Beter: katoen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Katoenen, luchtdoorlatend",
+        "ondergoed dragen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Een schimmelinfectie komt niet",
+        "zomaar door suiker alleen"
+      ],
+      [
+        "Zeep, medicijnen en bloedsuiker",
+        "spelen een grotere rol"
+      ]
+    ],
+    "tip": [
+      "Bij twijfel is een streng dieet",
+      "niet wetenschappelijk onderbouwd"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg!"
+  },
+  "topic_word": "Vrouwengezondheid"
+}

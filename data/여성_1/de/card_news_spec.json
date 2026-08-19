@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Scheidenpilz:",
+    "liegt es wirklich nur an mangelnder Hygiene?",
+    "3 Ernährungsgewohnheiten im Blick"
+  ],
+  "eyebrow": "Frauengesundheit",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Süßigkeiten",
+    "흰빵_illust.jpg": "Weißbrot & Reis",
+    "맥주_illust.jpg": "Alkohol"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Candida albicans ernährt",
+        "sich bevorzugt von Zucker",
+        "",
+        "Eine zuckerreiche Ernährung",
+        "kann das Risiko erhöhen"
+      ]
+    },
+    {
+      "name": "Süßigkeiten",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Kekse, Kuchen und Bonbons",
+        "lassen den Blutzucker",
+        "schnell ansteigen"
+      ]
+    },
+    {
+      "name": "Süßes — so geht's besser",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Nüsse oder ein gekochtes",
+        "Ei statt Süßigkeiten"
+      ]
+    },
+    {
+      "name": "Weißbrot & Reis",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Raffinierte Kohlenhydrate",
+        "wirken ähnlich schnell",
+        "wie Zucker"
+      ]
+    },
+    {
+      "name": "Besser: Vollkorn",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Vollkornbrot statt",
+        "Weißbrot wählen"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Bier und lieblicher Wein",
+        "vereinen Zucker und Alkohol",
+        "",
+        "Das kann die Immunabwehr",
+        "zusätzlich schwächen"
+      ]
+    },
+    {
+      "name": "Statt Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Zwischendurch ein Glas",
+        "Wasser trinken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Zucker, Weißmehl und Alkohol",
+        "müssen nicht komplett verschwinden"
+      ],
+      [
+        "Kleine Änderungen können",
+        "das Risiko spürbar senken"
+      ]
+    ],
+    "tip": [
+      "Atmungsaktive Baumwollunterwäsche",
+      "hilft zusätzlich"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "topic_word": "Frauengesundheit"
+}
