@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Glicemia alta",
+    "dopo i pasti?",
+    "Il topinambur sotto la lente"
+  ],
+  "eyebrow": "Consiglio glicemia",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Topinambur"
+  },
+  "items": [
+    {
+      "name": "Perché la glicemia sale",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Pane bianco e dolci",
+        "alzano la glicemia in fretta",
+        "",
+        "poi la fanno",
+        "scendere altrettanto in fretta"
+      ]
+    },
+    {
+      "name": "Inulina fino al 60%",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Il topinambur ne è",
+        "ricchissimo —",
+        "",
+        "una fibra solubile",
+        "poco calorica"
+      ]
+    },
+    {
+      "name": "Cosa succede nel colon",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Non digerita nell'intestino",
+        "tenue, arriva al colon",
+        "",
+        "e abbassa l'indice",
+        "glicemico del pasto"
+      ]
+    },
+    {
+      "name": "Studi sugli animali",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Migliora la sensibilità",
+        "insulinica",
+        "",
+        "riduce l'accumulo",
+        "di trigliceridi"
+      ]
+    },
+    {
+      "name": "Dove trovarlo",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Mercati contadini",
+        "e negozi bio",
+        "",
+        "arrosto o in",
+        "vellutata"
+      ]
+    },
+    {
+      "name": "Da tenere a mente",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Iniziare con",
+        "piccole quantità",
+        "",
+        "farmaci in corso?",
+        "parlarne col medico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il topinambur non sostituisce",
+        "le terapie per il diabete"
+      ],
+      [
+        "In una dieta ricca di fibre",
+        "può essere un alleato utile"
+      ]
+    ],
+    "tip": [
+      "Attività fisica regolare",
+      "resta la più importante"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e seguici!"
+  }
+}

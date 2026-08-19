@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Bloedsuikerpiek",
+    "na het eten?",
+    "De vergeten aardpeer"
+  ],
+  "eyebrow": "Bloedsuiker-tip",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Aardpeer"
+  },
+  "items": [
+    {
+      "name": "Waarom bloedsuiker piekt",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Wit brood en snoep",
+        "laten bloedsuiker",
+        "",
+        "snel stijgen en",
+        "net zo snel dalen"
+      ]
+    },
+    {
+      "name": "De vergeten aardpeer",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Rijk aan inuline —",
+        "een oplosbare vezel",
+        "",
+        "die het lichaam",
+        "niet kan verteren"
+      ]
+    },
+    {
+      "name": "Hoe inuline werkt",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Bindt koolhydraten",
+        "in de darm",
+        "",
+        "en vertraagt",
+        "de vertering"
+      ]
+    },
+    {
+      "name": "Rauw eten telt het meest",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Koken zet inuline",
+        "deels om in fructose",
+        "",
+        "rauw geraspt behoud",
+        "je het meeste effect"
+      ]
+    },
+    {
+      "name": "Waar te vinden",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Boerenmarkt en",
+        "natuurvoedingswinkel",
+        "",
+        "herfst- en",
+        "wintergroente"
+      ]
+    },
+    {
+      "name": "Let hierop",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Rustig opbouwen",
+        "tegen een opgeblazen gevoel",
+        "",
+        "medicatie? overleg",
+        "eerst met je arts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Aardpeer vervangt geen",
+        "diabetesbehandeling"
+      ],
+      [
+        "Als onderdeel van vezelrijke",
+        "voeding kan het wel helpen"
+      ]
+    ],
+    "tip": [
+      "Regelmatige beweging blijft",
+      "het allerbelangrijkst"
+    ],
+    "cta": "Meer gezondheidstips? Volg ons en abonneer je!"
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "title": [
+    "La glucemia sube",
+    "tras las comidas?",
+    "La alcachofa de Jerusalén"
+  ],
+  "eyebrow": "Consejo de glucemia",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Alcachofa de Jerusalén"
+  },
+  "items": [
+    {
+      "name": "Por qué sube la glucemia",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Pan blanco, bollería",
+        "y refrescos",
+        "",
+        "disparan la glucosa",
+        "y luego la hacen caer"
+      ]
+    },
+    {
+      "name": "70-80% de inulina",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "La alcachofa de Jerusalén",
+        "destaca por su fibra",
+        "",
+        "que ralentiza la",
+        "absorción de carbohidratos"
+      ]
+    },
+    {
+      "name": "Efecto en la insulina",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Puede mejorar la",
+        "sensibilidad a la insulina",
+        "",
+        "incluso en",
+        "personas con prediabetes"
+      ]
+    },
+    {
+      "name": "Un tubérculo poco conocido",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Recomendado por",
+        "profesionales de nutrición",
+        "",
+        "aunque poco común",
+        "en supermercados españoles"
+      ]
+    },
+    {
+      "name": "Cómo prepararla",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Asada o en infusión",
+        "de raíz seca",
+        "",
+        "sabor similar",
+        "a la alcachofa común"
+      ]
+    },
+    {
+      "name": "Antes de tomarla",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Empezar con",
+        "poca cantidad",
+        "",
+        "medicación para diabetes:",
+        "consultar con el médico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No sustituye ningún",
+        "tratamiento para la diabetes"
+      ],
+      [
+        "Como parte de una dieta",
+        "rica en fibra, puede ayudar"
+      ]
+    ],
+    "tip": [
+      "El ejercicio regular sigue",
+      "siendo lo más importante"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos y suscríbete!"
+  }
+}

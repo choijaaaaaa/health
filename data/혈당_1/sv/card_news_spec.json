@@ -1,0 +1,98 @@
+{
+  "title": [
+    "Blodsocker stiger",
+    "snabbt efter maten?",
+    "Jordärtskockan i fokus"
+  ],
+  "eyebrow": "Blodsockertips",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "돼지감자_v3_illust.jpg": "Jordärtskocka"
+  },
+  "items": [
+    {
+      "name": "Varför blodsockret stiger",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Vitt bröd och godis",
+        "ger snabba toppar",
+        "",
+        "som sedan sjunker",
+        "lika snabbt igen"
+      ]
+    },
+    {
+      "name": "Inulin i jordärtskocka",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "En kostfiber som",
+        "kroppen inte kan bryta ner",
+        "",
+        "minimal påverkan",
+        "på blodsockret"
+      ]
+    },
+    {
+      "name": "Stabilare blodsocker",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Fiberrik mat ger",
+        "långsammare matsmältning",
+        "",
+        "och längre",
+        "mättnadskänsla"
+      ]
+    },
+    {
+      "name": "Studie från 2019",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Inulintillskott kan",
+        "förbättra insulinresistens",
+        "",
+        "vid typ 2-diabetes",
+        "och fetma"
+      ]
+    },
+    {
+      "name": "En nordisk klassiker",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Säljs på marknader",
+        "under hösten",
+        "",
+        "perfekt i soppa",
+        "eller ugnsrostad"
+      ]
+    },
+    {
+      "name": "Tänk på detta",
+      "char_file": "돼지감자_v3_illust.jpg",
+      "body": [
+        "Öka mängden",
+        "gradvis",
+        "",
+        "läkemedel mot diabetes?",
+        "prata med din läkare"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Jordärtskocka ersätter ingen",
+        "diabetesbehandling"
+      ],
+      [
+        "Som del av en fiberrik kost",
+        "kan den vara ett bra tillskott"
+      ]
+    ],
+    "tip": [
+      "Regelbunden motion är",
+      "fortfarande det viktigaste"
+    ],
+    "cta": "Vill du ha fler hälsotips? Följ oss och prenumerera!"
+  }
+}
