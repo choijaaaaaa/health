@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Trött ändå, även om",
+    "du sov gott?",
+    "3 vanor värda att se över"
+  ],
+  "eyebrow": "Kronisk trötthet",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe till maten",
+    "탄산음료_illust.jpg": "Läsk",
+    "에너지드링크_illust.jpg": "Energidryck"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tre vardagsvanor kan bromsa",
+        "energin — oavsett",
+        "hur mycket du sover",
+        "",
+        "Järnbrist, blodsockersvängningar och",
+        "störd sömn belastar",
+        "nästa dag"
+      ]
+    },
+    {
+      "name": "Kaffe till maten",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tanniner i kaffe binder",
+        "järn i magen och",
+        "bromsar upptaget",
+        "",
+        "Sämre järnupptag ger mindre",
+        "syretransport i kroppen —",
+        "det gör dig trött"
+      ]
+    },
+    {
+      "name": "Vid kaffe till maten hjälper",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vänta ungefär en timme",
+        "mellan kaffe och en",
+        "järnrik måltid",
+        "",
+        "Kombinera järnrik mat",
+        "med C-vitamin"
+      ]
+    },
+    {
+      "name": "Läsk",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sockrad läsk får blodsockret",
+        "att stiga snabbt —",
+        "och sjunka lika snabbt igen",
+        "",
+        "Den energikraschen ger",
+        "trötthet och irritabilitet"
+      ]
+    },
+    {
+      "name": "Istället för läsk",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Välj vatten eller",
+        "osötade drycker",
+        "",
+        "Livsmedelsverket rekommenderar",
+        "högst 50-75 gram",
+        "tillsatt socker om dagen"
+      ]
+    },
+    {
+      "name": "Energidryck på kvällen",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Koffein har en halveringstid",
+        "på 5 till 7 timmar",
+        "",
+        "Livsmedelsverket rekommenderar",
+        "max 400 mg koffein",
+        "om dagen"
+      ]
+    },
+    {
+      "name": "Vid energidryck på kvällen hjälper",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Undvik koffein minst",
+        "6 till 10 timmar före sänggåendet",
+        "",
+        "En kort promenad eller stretch",
+        "hjälper mer än koffein"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ingen av dessa tre vanor",
+        "behöver strykas helt"
+      ],
+      [
+        "Små justeringar räcker",
+        "för att lätta på tröttheten"
+      ]
+    ],
+    "tip": [
+      "Flytta kaffet, minska läsken,",
+      "sluta med koffein tidigt"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Stanco anche dopo",
+    "una notte di sonno?",
+    "3 abitudini da rivedere"
+  ],
+  "eyebrow": "Stanchezza cronica",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "Riepilogo",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè ai pasti",
+    "탄산음료_illust.jpg": "Bibite gassate",
+    "에너지드링크_illust.jpg": "Energy drink"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tre abitudini quotidiane possono",
+        "frenare l'energia —",
+        "indipendentemente dalle ore di sonno",
+        "",
+        "Carenza di ferro, altalena glicemica",
+        "e sonno disturbato pesano",
+        "sul giorno dopo"
+      ]
+    },
+    {
+      "name": "Caffè ai pasti",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "I tannini del caffè",
+        "si legano al ferro",
+        "e ne riducono l'assorbimento",
+        "",
+        "Il caffè può ridurre",
+        "l'assorbimento del ferro",
+        "fino al 39%"
+      ]
+    },
+    {
+      "name": "Per il caffè ai pasti",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Aspettare 60-90 minuti",
+        "dopo il pasto prima",
+        "di bere il caffè",
+        "",
+        "Abbinare cibi ricchi di ferro",
+        "a fonti di vitamina C"
+      ]
+    },
+    {
+      "name": "Bibite gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Le bibite zuccherate fanno",
+        "salire rapidamente la glicemia —",
+        "poi crollare altrettanto in fretta",
+        "",
+        "Questo \"crash da zucchero\"",
+        "causa stanchezza e irritabilità"
+      ]
+    },
+    {
+      "name": "Al posto delle bibite gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Preferire acqua o bevande",
+        "senza zuccheri aggiunti",
+        "",
+        "L'OMS raccomanda non più di",
+        "25 grammi di zuccheri liberi",
+        "al giorno per benefici extra"
+      ]
+    },
+    {
+      "name": "Energy drink la sera",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "L'emivita della caffeina è",
+        "in media di 3-5 ore",
+        "",
+        "Un caffè alle 16 —",
+        "alle 22 metà della caffeina",
+        "è ancora attiva nel sangue"
+      ]
+    },
+    {
+      "name": "Per l'energy drink la sera",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Evitare la caffeina almeno",
+        "8-10 ore prima di dormire",
+        "",
+        "Uno stretching leggero o",
+        "una passeggiata aiutano di più"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nessuna di queste tre abitudini",
+        "va eliminata del tutto"
+      ],
+      [
+        "Bastano piccoli aggiustamenti",
+        "per alleggerire la stanchezza"
+      ]
+    ],
+    "tip": [
+      "Spostare il caffè, ridurre le bibite,",
+      "smettere presto con la caffeina"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti like e segui!"
+  }
+}

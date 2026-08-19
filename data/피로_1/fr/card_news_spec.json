@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Fatigué·e même après",
+    "une bonne nuit de sommeil ?",
+    "3 habitudes à revoir"
+  ],
+  "eyebrow": "Fatigue chronique",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "char_display_names": {
+    "커피_illust.jpg": "Café pendant le repas",
+    "탄산음료_illust.jpg": "Soda",
+    "에너지드링크_illust.jpg": "Boissons énergisantes"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Trois habitudes du quotidien",
+        "peuvent freiner l'énergie —",
+        "peu importe les heures de sommeil",
+        "",
+        "Manque de fer, montagnes russes",
+        "glycémiques et sommeil perturbé",
+        "pèsent sur le lendemain"
+      ]
+    },
+    {
+      "name": "Café pendant le repas",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Les tanins du café",
+        "se lient au fer",
+        "et freinent son absorption",
+        "",
+        "Moins de fer veut dire",
+        "moins d'oxygène transporté —",
+        "et plus de fatigue"
+      ]
+    },
+    {
+      "name": "Pour le café pendant le repas",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Espacez le café d'au moins",
+        "une heure des repas riches en fer",
+        "",
+        "Les tanins du thé réduisent",
+        "l'absorption du fer non héminique",
+        "de moitié"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Les boissons sucrées font",
+        "grimper la glycémie rapidement —",
+        "puis chuter tout aussi vite",
+        "",
+        "Cette hypoglycémie réactionnelle",
+        "provoque fatigue et irritabilité"
+      ]
+    },
+    {
+      "name": "À la place du soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Préférez l'eau ou",
+        "des boissons non sucrées",
+        "",
+        "L'OMS recommande un maximum",
+        "de 25 grammes de sucres",
+        "libres par jour"
+      ]
+    },
+    {
+      "name": "Boissons énergisantes le soir",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "La caféine a une demi-vie",
+        "de 4 à 6 heures selon l'ANSES",
+        "",
+        "L'Inserm recommande d'éviter le café",
+        "après 16 heures pour bien",
+        "s'endormir vers 22-23 heures"
+      ]
+    },
+    {
+      "name": "Pour les boissons énergisantes le soir",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Évitez la caféine au moins",
+        "6 à 8 heures avant le coucher",
+        "",
+        "Une pause étirement ou une",
+        "marche aide plus que la caféine"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Aucune de ces trois habitudes",
+        "n'est à bannir totalement"
+      ],
+      [
+        "De petits ajustements suffisent",
+        "à alléger la fatigue"
+      ]
+    ],
+    "tip": [
+      "Décalez le café, réduisez le soda,",
+      "arrêtez la caféine tôt"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez !"
+  }
+}
