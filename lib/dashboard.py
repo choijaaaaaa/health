@@ -768,7 +768,16 @@ function applyProductLinks() {{
     }} else if (linkInComment) {{
       withTop = stripped;
     }} else {{
-      const topWrapped = AUTO_LINKS_START + result.disclosure + (blockText ? "\\n\\n" + blockText : "") + AUTO_LINKS_END;
+      // WHY 네이버 블로그만 맨 위 blockText(상품 링크 목록)를 빼는지
+      // (2026-08-19, "고지문구 남기고 링크 없애고 중간중간 인라인에
+      // 삽입되게" 확정 — 위 [[LINK:상품명]] 인라인 치환 추가에 이어지는
+      // 결정): 인라인 토큰으로 각 상품 링크를 본문 중간에 흩뿌리게 됐으니
+      // 맨 위에 전체 목록을 또 몰아넣을 이유가 없어졌다 — 다만 고지
+      // 문구(disclosure)는 공정위 "게시물 첫 부분에 보여야" 요건 때문에
+      // 그대로 남긴다. 쿠팡 등 다른 플랫폼은 인라인 토큰 기능이 없어서
+      // (아직 요청받지 않음) 기존처럼 맨 위에도 blockText를 그대로 둔다.
+      const topBlockText = (hasNaverButton && !linkInComment) ? "" : blockText;
+      const topWrapped = AUTO_LINKS_START + result.disclosure + (topBlockText ? "\\n\\n" + topBlockText : "") + AUTO_LINKS_END;
       const firstBreak = stripped.indexOf("\\n");
       withTop = firstBreak === -1
         ? stripped + "\\n\\n" + topWrapped
