@@ -1,0 +1,87 @@
+{
+  "title": [
+    "Benhälsa handlar om mer än",
+    "kalciumintag -",
+    "Salt, koffein och D-vitamin"
+  ],
+  "eyebrow": "Benhälsa i fokus",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Salt & koffein",
+    "우유_illust.jpg": "D-vitamin"
+  },
+  "items": [
+    {
+      "name": "Varför händer det här?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Salt och koffein ökar",
+        "kalciumförlust via urinen",
+        "",
+        "och vintersolen räcker",
+        "inte till D-vitamin"
+      ]
+    },
+    {
+      "name": "Salt & koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Livsmedelsverket varnar för",
+        "högt intag av båda",
+        "",
+        "kalciumupptaget påverkas",
+        "negativt"
+      ]
+    },
+    {
+      "name": "Salt & koffein — det här hjälper",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Håll koll på salt i",
+        "chark och färdigmat",
+        "",
+        "Begränsa kaffe till",
+        "några koppar om dagen"
+      ]
+    },
+    {
+      "name": "D-vitaminbrist",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Ca en femtedel av Sveriges",
+        "befolkning får för lite",
+        "",
+        "D-vitamin på vintern"
+      ]
+    },
+    {
+      "name": "D-vitamin — det här hjälper",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Berikad mjölk, fil",
+        "och yoghurt äta dagligen",
+        "",
+        "Överväg tillskott",
+        "under vintermånaderna"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Benhälsa handlar inte bara",
+        "om kalciumintag"
+      ],
+      [
+        "Salt, koffein och D-vitamin",
+        "spelar också in"
+      ]
+    ],
+    "tip": [
+      "Berikade mjölkprodukter hjälper",
+      "särskilt under vintern"
+    ],
+    "cta": "Fler hälsotips? Följ, gilla och prenumerera!"
+  },
+  "cover_scrim_color": "#1F5C7A"
+}

@@ -1,0 +1,85 @@
+{
+  "title": [
+    "Je botten verliezen dichtheid,",
+    "en het is niet alleen leeftijd -",
+    "Frisdrank en zout spelen mee"
+  ],
+  "eyebrow": "Botgezondheid",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Frisdrank",
+    "가공육_illust.jpg": "Zout"
+  },
+  "items": [
+    {
+      "name": "Waarom gebeurt dit?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Fosforzuur in frisdrank en",
+        "te veel zout",
+        "",
+        "onttrekken allebei calcium",
+        "aan je botten"
+      ]
+    },
+    {
+      "name": "Frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Fosforzuur bindt calcium",
+        "in de darm",
+        "",
+        "tot 5x meer kans",
+        "op botbreuken"
+      ]
+    },
+    {
+      "name": "Frisdrank — dit helpt",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Water of bruisend water",
+        "in plaats van cola",
+        "",
+        "Geen fosforzuur, wel bubbels"
+      ]
+    },
+    {
+      "name": "Zout",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Te veel zout betekent",
+        "meer calciumverlies",
+        "",
+        "via de urine"
+      ]
+    },
+    {
+      "name": "Zout — dit helpt",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Let op verstopt zout in",
+        "kant-en-klare maaltijden",
+        "",
+        "Max 6 gram zout per dag"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Frisdrank en zout hoeven niet",
+        "helemaal te verdwijnen"
+      ],
+      [
+        "De hoeveelheid en genoeg calcium",
+        "maken het verschil"
+      ]
+    ],
+    "tip": [
+      "Zuivel en groene groenten",
+      "leveren dagelijks calcium"
+    ],
+    "cta": "Meer gezondheidstips? Volg, like en abonneer je!"
+  },
+  "cover_scrim_color": "#8C4A6B"
+}

@@ -1,0 +1,88 @@
+{
+  "title": [
+    "Knochen verlieren an Dichte,",
+    "und es ist nicht nur das Alter -",
+    "Calcium-Räuber im Alltag"
+  ],
+  "eyebrow": "Knochengesundheit im Fokus",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Cola",
+    "가공육_illust.jpg": "Wurst & Schinken"
+  },
+  "items": [
+    {
+      "name": "Warum passiert das?",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Phosphorsäure in Cola und",
+        "Natrium in Wurst ziehen",
+        "",
+        "beide auf ihre Weise",
+        "Calcium aus den Knochen"
+      ]
+    },
+    {
+      "name": "Cola",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Die Framingham-Studie fand",
+        "bei täglichem Colakonsum",
+        "",
+        "bis zu 5,4% geringere",
+        "Knochendichte in der Hüfte"
+      ]
+    },
+    {
+      "name": "Cola — das hilft",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Calciumreiches Mineralwasser",
+        "statt Cola wählen",
+        "",
+        "Auf dem Etikett nach",
+        "Calciumgehalt schauen"
+      ]
+    },
+    {
+      "name": "Wurst & Schinken",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "760-1.000mg Natrium",
+        "pro Portion Wurst",
+        "",
+        "Natrium zieht beim Ausscheiden",
+        "Calcium mit sich"
+      ]
+    },
+    {
+      "name": "Wurst — das hilft",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Nicht täglich, sondern",
+        "gelegentlich einplanen",
+        "",
+        "Mageres Fleisch oder",
+        "Hülsenfrüchte als Alternative"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cola und Wurst müssen",
+        "nicht ganz verschwinden"
+      ],
+      [
+        "Menge und Calciumausgleich",
+        "machen den Unterschied"
+      ]
+    ],
+    "tip": [
+      "Milchprodukte und Blattgemüse",
+      "regelmäßig einplanen"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "cover_scrim_color": "#2E6B55"
+}
