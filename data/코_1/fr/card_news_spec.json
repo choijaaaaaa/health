@@ -1,0 +1,91 @@
+{
+  "title": [
+    "Le nez qui coule après",
+    "un verre de vin ou un plat épicé ?",
+    "Histamine & capsaïcine décryptées"
+  ],
+  "eyebrow": "Réaction nasale au menu",
+  "cover_char_file": "고추_illust.jpg",
+  "cover_scrim_color": "#2E8B6E",
+  "char_display_names": {
+    "가공육_illust.jpg": "Aliments riches en histamine",
+    "고추_illust.jpg": "Plats épicés"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive ?",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Le nez coule ou se bouche",
+        "juste après un repas ?",
+        "",
+        "Deux réactions bien différentes",
+        "peuvent en être la cause"
+      ]
+    },
+    {
+      "name": "Histamine : fromage, charcuterie, vin",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Fromage affiné, charcuterie",
+        "et vin rouge sont riches",
+        "en histamine",
+        "",
+        "Mal digérée, elle peut",
+        "déclencher éternuements",
+        "et nez bouché"
+      ]
+    },
+    {
+      "name": "Le bon réflexe",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Éviter de cumuler fromage,",
+        "charcuterie et vin rouge",
+        "au même repas",
+        "",
+        "Préférer un fromage frais",
+        "et un vin blanc"
+      ]
+    },
+    {
+      "name": "Plats épicés (capsaïcine)",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaïcine du piment",
+        "stimule les nerfs du nez",
+        "",
+        "Le corps réagit en",
+        "produisant plus de mucus"
+      ]
+    },
+    {
+      "name": "Le bon réflexe pour le piquant",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Laisser le plat tiédir",
+        "avant la première bouchée",
+        "",
+        "Une réaction bénigne,",
+        "sans gravité"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Fromage, vin et épices n'ont",
+        "pas besoin de disparaître"
+      ],
+      [
+        "De petits ajustements suffisent",
+        "à soulager le nez"
+      ]
+    ],
+    "tip": [
+      "Si les symptômes sont fréquents",
+      "ou sévères, consultez un ORL"
+    ],
+    "cta": "Envie d'autres astuces santé ? Abonnez-vous et suivez-nous !"
+  }
+}

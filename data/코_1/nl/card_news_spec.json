@@ -1,0 +1,91 @@
+{
+  "title": [
+    "Verstopte neus of loopneus",
+    "na wijn of pittig eten?",
+    "Histamine & capsaïcine uitgelegd"
+  ],
+  "eyebrow": "Neusreactie op tafel",
+  "cover_char_file": "고추_illust.jpg",
+  "cover_scrim_color": "#7A2E5E",
+  "char_display_names": {
+    "가공육_illust.jpg": "Histaminerijk voedsel",
+    "고추_illust.jpg": "Pittig eten"
+  },
+  "items": [
+    {
+      "name": "Waarom gebeurt dit?",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Neus verstopt of loopt",
+        "vlak na het eten?",
+        "",
+        "Twee verschillende reacties",
+        "kunnen dit verklaren"
+      ]
+    },
+    {
+      "name": "Histamine in kaas en wijn",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Belegen kaas, vleeswaren",
+        "en rode wijn bevatten",
+        "veel histamine",
+        "",
+        "Kan het lichaam dit niet",
+        "goed afbreken, reageert",
+        "de neus"
+      ]
+    },
+    {
+      "name": "Wat echt helpt",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Combineer kaas, vleeswaren",
+        "en rode wijn niet",
+        "in één maaltijd",
+        "",
+        "Kies verse kaas",
+        "en witte wijn"
+      ]
+    },
+    {
+      "name": "Pittig eten (capsaïcine)",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaïcine in pepers",
+        "prikkelt zenuwen in neus en mond",
+        "",
+        "Het lichaam maakt",
+        "meer slijm aan"
+      ]
+    },
+    {
+      "name": "Zo verminder je de reactie",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Laat pittig eten",
+        "even afkoelen",
+        "",
+        "Een onschuldige,",
+        "natuurlijke reactie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Kaas, wijn en pittig eten hoeven",
+        "niet helemaal te verdwijnen"
+      ],
+      [
+        "Kleine aanpassingen verlichten",
+        "de neus al merkbaar"
+      ]
+    ],
+    "tip": [
+      "Bij vaak terugkerende, hevige klachten",
+      "is een bezoek aan de KNO-arts de moeite waard"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg!"
+  }
+}
