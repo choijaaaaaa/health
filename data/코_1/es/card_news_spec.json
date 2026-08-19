@@ -1,0 +1,91 @@
+{
+  "title": [
+    "¿Nariz tapada o moqueando",
+    "después del vino o el picante?",
+    "Histamina y capsaicina, al detalle"
+  ],
+  "eyebrow": "Reacción nasal en la mesa",
+  "cover_char_file": "고추_illust.jpg",
+  "cover_scrim_color": "#3E6E2E",
+  "char_display_names": {
+    "가공육_illust.jpg": "Alimentos ricos en histamina",
+    "고추_illust.jpg": "Comida picante"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "¿Nariz tapada o moqueando",
+        "justo después de comer?",
+        "",
+        "Dos reacciones distintas",
+        "pueden explicarlo"
+      ]
+    },
+    {
+      "name": "Histamina en quesos y vino",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Quesos curados, embutidos",
+        "y vino tinto son ricos",
+        "en histamina",
+        "",
+        "Si el cuerpo no la",
+        "degrada bien, la nariz",
+        "reacciona"
+      ]
+    },
+    {
+      "name": "Lo que realmente ayuda",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Evitar mezclar queso curado,",
+        "embutidos y vino tinto",
+        "en la misma comida",
+        "",
+        "Elegir quesos frescos",
+        "y vino blanco"
+      ]
+    },
+    {
+      "name": "Comida picante (capsaicina)",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "La capsaicina del picante",
+        "estimula nervios de boca y nariz",
+        "",
+        "El cuerpo produce más",
+        "moco como defensa"
+      ]
+    },
+    {
+      "name": "Cómo suavizar la reacción",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Dejar enfriar un poco",
+        "los platos picantes",
+        "",
+        "Es una reacción",
+        "totalmente benigna"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Queso, vino y picante no",
+        "tienen que desaparecer del todo"
+      ],
+      [
+        "Pequeños ajustes bastan",
+        "para aliviar la nariz"
+      ]
+    ],
+    "tip": [
+      "Si los síntomas son frecuentes",
+      "o intensos, conviene consultar a un especialista"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  }
+}

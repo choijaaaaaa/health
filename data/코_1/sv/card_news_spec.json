@@ -1,0 +1,91 @@
+{
+  "title": [
+    "Täppt eller rinnande näsa",
+    "efter vin eller stark mat?",
+    "Histamin & capsaicin förklarat"
+  ],
+  "eyebrow": "Näsreaktion vid matbordet",
+  "cover_char_file": "고추_illust.jpg",
+  "cover_scrim_color": "#2E5E8A",
+  "char_display_names": {
+    "가공육_illust.jpg": "Histaminrik mat",
+    "고추_illust.jpg": "Stark mat"
+  },
+  "items": [
+    {
+      "name": "Varför händer det här?",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Täppt eller rinnande näsa",
+        "direkt efter maten?",
+        "",
+        "Två olika reaktioner",
+        "kan ligga bakom"
+      ]
+    },
+    {
+      "name": "Histamin i ost, chark och vin",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Lagrad ost, charkuterier",
+        "och rött vin innehåller",
+        "mycket histamin",
+        "",
+        "Hinner kroppen inte",
+        "bryta ner det, reagerar",
+        "näsan"
+      ]
+    },
+    {
+      "name": "Det här hjälper faktiskt",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Undvik att kombinera ost,",
+        "chark och rött vin",
+        "i samma måltid",
+        "",
+        "Välj färskost",
+        "och vitt vin"
+      ]
+    },
+    {
+      "name": "Stark mat (capsaicin)",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaicin i chili",
+        "stimulerar nerver i näsan",
+        "",
+        "Kroppen producerar",
+        "mer slem som försvar"
+      ]
+    },
+    {
+      "name": "Så mildrar du reaktionen",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Låt starkt kryddad mat",
+        "svalna lite",
+        "",
+        "En helt ofarlig,",
+        "naturlig reaktion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ost, vin och stark mat behöver",
+        "inte försvinna helt"
+      ],
+      [
+        "Små justeringar lindrar",
+        "besvären märkbart"
+      ]
+    ],
+    "tip": [
+      "Vid täta eller kraftiga besvär",
+      "kan det vara värt att söka vård"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}
