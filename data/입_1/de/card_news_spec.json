@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Mundgeruch trotz Zähneputzen —",
+    "haben Sie sich das schon gefragt?",
+    "Kaffee und Low-Carb im Check"
+  ],
+  "eyebrow": "Mundgeruch im Fokus",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee",
+    "베이컨에그_illust.jpg": "Low-Carb-Ernährung"
+  },
+  "items": [
+    {
+      "name": "Warum passiert das?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Weniger Speichel bedeutet",
+        "mehr Bakterien im Mund —",
+        "sie zersetzen Eiweiß zu",
+        "",
+        "Schwefelverbindungen,",
+        "die den Geruch verursachen"
+      ]
+    },
+    {
+      "name": "Kaffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein und die Säure",
+        "im Kaffee trocknen",
+        "die Mundschleimhaut aus",
+        "",
+        "Weniger Speichel heißt",
+        "mehr Raum für Bakterien"
+      ]
+    },
+    {
+      "name": "Bei Kaffee hilft",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Zu jeder Tasse Kaffee",
+        "ein Glas Wasser trinken",
+        "",
+        "Das hält den Mund feucht",
+        "und spült Bakterien weg"
+      ]
+    },
+    {
+      "name": "Low-Carb-Diäten",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Bei wenig Kohlenhydraten",
+        "bildet die Leber Ketonkörper",
+        "aus Fettsäuren",
+        "",
+        "Aceton wird über die Lunge",
+        "ausgeatmet — der \"Keto-Atem\""
+      ]
+    },
+    {
+      "name": "Bei Low-Carb hilft",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Viel Wasser trinken",
+        "beschleunigt die Ausscheidung",
+        "",
+        "Der Geruch lässt meist",
+        "nach ein paar Wochen nach"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Mundgeruch hat oft mit",
+        "Mundtrockenheit und Ketonen zu tun"
+      ],
+      [
+        "Kleine Anpassungen reichen",
+        "meist schon aus"
+      ]
+    ],
+    "tip": [
+      "Trinken Sie über den Tag verteilt",
+      "ausreichend Wasser"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Alito cattivo anche dopo esservi lavati i denti —",
+    "ve lo siete mai chiesti?",
+    "Caffè e dieta low-carb sotto la lente"
+  ],
+  "eyebrow": "Focus alito",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "Riepilogo",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "베이컨에그_illust.jpg": "Dieta low-carb"
+  },
+  "items": [
+    {
+      "name": "Perché succede?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Meno saliva significa",
+        "più batteri attivi",
+        "che scompongono le proteine",
+        "",
+        "in composti solforati,",
+        "responsabili del cattivo odore"
+      ]
+    },
+    {
+      "name": "Il caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeina e acidità",
+        "del caffè seccano",
+        "la bocca rapidamente",
+        "",
+        "Meno saliva lascia",
+        "più spazio ai batteri"
+      ]
+    },
+    {
+      "name": "Per il caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un bicchiere d'acqua",
+        "per ogni tazza",
+        "",
+        "Aiuta a mantenere",
+        "la bocca idratata"
+      ]
+    },
+    {
+      "name": "La dieta low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Con pochi carboidrati,",
+        "il fegato produce",
+        "corpi chetonici",
+        "",
+        "L'acetone viene eliminato",
+        "con la respirazione"
+      ]
+    },
+    {
+      "name": "Per il low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Idratarsi bene",
+        "aiuta a smaltirli",
+        "",
+        "L'odore si attenua",
+        "dopo alcune settimane"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "L'alito cattivo spesso dipende",
+        "da bocca secca e chetoni"
+      ],
+      [
+        "Bastano piccoli accorgimenti",
+        "per attenuarlo"
+      ]
+    ],
+    "tip": [
+      "Bevi acqua regolarmente",
+      "durante tutta la giornata"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti mi piace e segui!"
+  }
+}

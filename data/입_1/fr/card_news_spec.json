@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Mauvaise haleine malgré le brossage —",
+    "vous êtes-vous déjà demandé pourquoi ?",
+    "Café et régime low-carb en cause"
+  ],
+  "eyebrow": "Focus haleine",
+  "swipe_label": "Balayez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "베이컨에그_illust.jpg": "Régime low-carb"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive ?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Moins de salive veut dire",
+        "plus de bactéries actives",
+        "qui décomposent les protéines",
+        "",
+        "en composés soufrés,",
+        "responsables de l'odeur"
+      ]
+    },
+    {
+      "name": "Le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine et l'acidité",
+        "du café assèchent",
+        "la bouche rapidement",
+        "",
+        "Moins de salive laisse",
+        "plus de place aux bactéries"
+      ]
+    },
+    {
+      "name": "Pour le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un verre d'eau",
+        "avec chaque tasse",
+        "",
+        "Cela aide à garder",
+        "la bouche hydratée"
+      ]
+    },
+    {
+      "name": "Le régime low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Avec peu de glucides,",
+        "le foie produit des",
+        "corps cétoniques",
+        "",
+        "L'acétone est évacuée",
+        "par la respiration"
+      ]
+    },
+    {
+      "name": "Pour le low-carb",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Bien s'hydrater",
+        "aide à l'éliminer",
+        "",
+        "L'odeur s'atténue",
+        "après quelques semaines"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La mauvaise haleine vient souvent",
+        "de la bouche sèche et des cétones"
+      ],
+      [
+        "De petits ajustements suffisent",
+        "généralement à l'atténuer"
+      ]
+    ],
+    "tip": [
+      "Buvez de l'eau régulièrement",
+      "tout au long de la journée"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, aimez et suivez !"
+  }
+}

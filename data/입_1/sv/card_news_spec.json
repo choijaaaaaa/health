@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Dålig andedräkt trots tandborstning —",
+    "har du undrat varför?",
+    "Kaffe och low carb i fokus"
+  ],
+  "eyebrow": "Andedräkt i fokus",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "베이컨에그_illust.jpg": "Lågkolhydratkost"
+  },
+  "items": [
+    {
+      "name": "Varför händer det här?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Mindre saliv betyder",
+        "fler aktiva bakterier",
+        "som bryter ner protein",
+        "",
+        "till svavelföreningar,",
+        "orsaken till lukten"
+      ]
+    },
+    {
+      "name": "Kaffe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein och syra",
+        "i kaffe torkar ut",
+        "munnen snabbt",
+        "",
+        "Mindre saliv ger",
+        "bakterier mer utrymme"
+      ]
+    },
+    {
+      "name": "Vid kaffe hjälper",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ett glas vatten",
+        "till varje kopp",
+        "",
+        "Det håller munnen",
+        "fuktig och fräsch"
+      ]
+    },
+    {
+      "name": "Lågkolhydratkost",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Vid låg kolhydratnivå",
+        "börjar levern bilda",
+        "ketonkroppar",
+        "",
+        "Aceton lämnar kroppen",
+        "via andningen"
+      ]
+    },
+    {
+      "name": "Vid low carb hjälper",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Att dricka tillräckligt",
+        "hjälper till att",
+        "eliminera dem",
+        "",
+        "Lukten avtar",
+        "efter några veckor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dålig andedräkt beror ofta på",
+        "torr mun och ketoner"
+      ],
+      [
+        "Små justeringar räcker",
+        "oftast för att minska det"
+      ]
+    ],
+    "tip": [
+      "Drick vatten regelbundet",
+      "under hela dagen"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}

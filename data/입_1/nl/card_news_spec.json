@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Slechte adem ondanks poetsen —",
+    "heb je je dat weleens afgevraagd?",
+    "Koffie en low-carb onder de loep"
+  ],
+  "eyebrow": "Adem in beeld",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "베이컨에그_illust.jpg": "Koolhydraatarm dieet"
+  },
+  "items": [
+    {
+      "name": "Waarom gebeurt dit?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Minder speeksel betekent",
+        "meer actieve bacteriën",
+        "die eiwitten afbreken",
+        "",
+        "tot zwavelverbindingen,",
+        "de oorzaak van de geur"
+      ]
+    },
+    {
+      "name": "Koffie",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cafeïne en zuurgraad",
+        "van koffie drogen",
+        "de mond snel uit",
+        "",
+        "Minder speeksel geeft",
+        "bacteriën meer ruimte"
+      ]
+    },
+    {
+      "name": "Bij koffie helpt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Een glas water",
+        "bij elke kop koffie",
+        "",
+        "Dat houdt de mond",
+        "vochtig en fris"
+      ]
+    },
+    {
+      "name": "Koolhydraatarm dieet",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Bij weinig koolhydraten",
+        "maakt de lever",
+        "ketonlichamen aan",
+        "",
+        "Aceton verlaat het lichaam",
+        "via de ademhaling"
+      ]
+    },
+    {
+      "name": "Bij low-carb helpt",
+      "char_file": "베이컨에그_illust.jpg",
+      "body": [
+        "Genoeg water drinken",
+        "helpt bij de afvoer",
+        "",
+        "De geur neemt af",
+        "na een paar weken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Slechte adem komt vaak door",
+        "een droge mond en ketonen"
+      ],
+      [
+        "Kleine aanpassingen zijn",
+        "vaak al genoeg"
+      ]
+    ],
+    "tip": [
+      "Drink de hele dag door",
+      "voldoende water"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg!"
+  }
+}
