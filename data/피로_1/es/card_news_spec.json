@@ -1,0 +1,119 @@
+{
+  "title": [
+    "¿Cansancio incluso tras",
+    "dormir bien toda la noche?",
+    "3 hábitos a revisar"
+  ],
+  "eyebrow": "Fatiga crónica",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "char_display_names": {
+    "커피_illust.jpg": "Café con las comidas",
+    "탄산음료_illust.jpg": "Refrescos",
+    "에너지드링크_illust.jpg": "Bebidas energéticas"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tres hábitos cotidianos pueden",
+        "frenar tu energía —",
+        "sin importar cuánto duermas",
+        "",
+        "Falta de hierro, subidas y bajadas",
+        "de glucosa y mal sueño",
+        "pesan al día siguiente"
+      ]
+    },
+    {
+      "name": "Café con las comidas",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Los polifenoles del café",
+        "se unen al hierro",
+        "y frenan su absorción",
+        "",
+        "Pueden reducir la absorción",
+        "del hierro no hemo",
+        "hasta un 60%"
+      ]
+    },
+    {
+      "name": "Para el café con las comidas",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Separar el café al menos",
+        "una hora de las comidas",
+        "ricas en hierro",
+        "",
+        "Combinar hierro vegetal con",
+        "alimentos ricos en vitamina C"
+      ]
+    },
+    {
+      "name": "Refrescos",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Los refrescos azucarados suben",
+        "la glucosa muy rápido —",
+        "y luego caen igual de rápido",
+        "",
+        "Esa hipoglucemia reactiva",
+        "provoca fatiga y mareo"
+      ]
+    },
+    {
+      "name": "En vez de refrescos",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Elegir agua o bebidas",
+        "sin azúcares añadidos",
+        "",
+        "La OMS recomienda no superar",
+        "los 25 gramos de azúcares",
+        "libres al día"
+      ]
+    },
+    {
+      "name": "Bebidas energéticas por la noche",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "La cafeína tiene una vida media",
+        "de unas 4 horas (2 a 8)",
+        "",
+        "La EFSA considera seguros hasta",
+        "400 mg de cafeína al día",
+        "para adultos sanos"
+      ]
+    },
+    {
+      "name": "Para las bebidas energéticas por la noche",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Evitar la cafeína al menos",
+        "6 horas antes de acostarse",
+        "",
+        "Un estiramiento suave o un paseo",
+        "ayudan más que la cafeína"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ninguno de estos tres hábitos",
+        "hay que eliminarlo del todo"
+      ],
+      [
+        "Pequeños ajustes bastan",
+        "para aligerar el cansancio"
+      ]
+    ],
+    "tip": [
+      "Retrasar el café, reducir refrescos,",
+      "cortar la cafeína temprano"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  }
+}

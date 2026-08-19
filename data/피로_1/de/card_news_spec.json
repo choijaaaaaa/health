@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Ständig müde, obwohl",
+    "der Schlaf stimmt?",
+    "3 Alltagsgewohnheiten im Check"
+  ],
+  "eyebrow": "Chronische Müdigkeit",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee zum Essen",
+    "탄산음료_illust.jpg": "Limonade",
+    "에너지드링크_illust.jpg": "Energy-Drinks"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drei alltägliche Gewohnheiten",
+        "können die Energie bremsen —",
+        "unabhängig von der Schlafdauer",
+        "",
+        "Eisenmangel, Blutzucker-Achterbahn",
+        "und schlechter Schlaf zehren",
+        "am nächsten Tag"
+      ]
+    },
+    {
+      "name": "Kaffee zum Essen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tannine im Kaffee binden",
+        "Eisen im Magen und",
+        "bremsen die Aufnahme",
+        "",
+        "Bei Eisenmangel sinkt die",
+        "Sauerstoffversorgung im Körper —",
+        "das macht müde"
+      ]
+    },
+    {
+      "name": "Bei Kaffee zum Essen hilft",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "30 bis 60 Minuten Abstand",
+        "zu eisenreichen Mahlzeiten halten",
+        "",
+        "Die DGE empfiehlt außerdem,",
+        "Eisen mit Vitamin C",
+        "zu kombinieren"
+      ]
+    },
+    {
+      "name": "Limonade",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Zuckerhaltige Limo lässt den",
+        "Blutzucker rasant steigen —",
+        "und genauso schnell wieder fallen",
+        "",
+        "Dieser Achterbahn-Effekt macht",
+        "müde und antriebslos"
+      ]
+    },
+    {
+      "name": "Statt Limonade",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Wasser oder ungesüßte",
+        "Getränke bevorzugen",
+        "",
+        "Die WHO empfiehlt maximal",
+        "25 Gramm freien Zucker",
+        "pro Tag"
+      ]
+    },
+    {
+      "name": "Energy-Drinks am Abend",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Koffein hat eine Halbwertszeit",
+        "von 5 bis 6 Stunden",
+        "",
+        "Ein Kaffee um 16 Uhr —",
+        "um 22 Uhr ist noch",
+        "die Hälfte im Blut"
+      ]
+    },
+    {
+      "name": "Bei Energy-Drinks am Abend hilft",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Koffein spätestens 8 Stunden",
+        "vor dem Schlafengehen meiden",
+        "",
+        "Bei Müdigkeit helfen",
+        "Dehnen oder ein Spaziergang",
+        "mehr als Koffein"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Keine der drei Gewohnheiten",
+        "muss komplett verschwinden"
+      ],
+      [
+        "Schon kleine Anpassungen",
+        "verändern spürbar die Energie"
+      ]
+    ],
+    "tip": [
+      "Kaffee zeitlich versetzen,",
+      "Limo reduzieren, Koffein früh beenden"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Toch moe, ook al",
+    "sliep je goed?",
+    "3 gewoontes onder de loep"
+  ],
+  "eyebrow": "Chronische vermoeidheid",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie bij de maaltijd",
+    "탄산음료_illust.jpg": "Frisdrank",
+    "에너지드링크_illust.jpg": "Energiedrankjes"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drie alledaagse gewoontes kunnen",
+        "je energie afremmen —",
+        "ongeacht hoeveel je slaapt",
+        "",
+        "IJzertekort, schommelende bloedsuiker",
+        "en verstoorde slaap wegen",
+        "de volgende dag door"
+      ]
+    },
+    {
+      "name": "Koffie bij de maaltijd",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenolen in koffie binden",
+        "ijzer in de maag",
+        "en remmen de opname",
+        "",
+        "Volgens het Voedingscentrum kan",
+        "koffie de opname van",
+        "ijzer verminderen"
+      ]
+    },
+    {
+      "name": "Bij koffie bij de maaltijd helpt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Twee uur afstand houden",
+        "tussen koffie en",
+        "een ijzerrijke maaltijd",
+        "",
+        "Combineer ijzerrijk voedsel",
+        "met vitamine C"
+      ]
+    },
+    {
+      "name": "Frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Suikerhoudende frisdrank laat",
+        "je bloedsuiker snel stijgen —",
+        "en net zo snel dalen",
+        "",
+        "Die dip maakt je",
+        "moe en futloos"
+      ]
+    },
+    {
+      "name": "In plaats van frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Kies voor water of",
+        "suikervrije dranken",
+        "",
+        "De WHO adviseert niet meer dan",
+        "25 gram vrije suikers",
+        "per dag voor extra voordeel"
+      ]
+    },
+    {
+      "name": "Energiedrankjes in de avond",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Cafeïne heeft een halfwaardetijd",
+        "van 5 tot 7 uur",
+        "",
+        "Het Voedingscentrum adviseert",
+        "uiterlijk rond 14:00 te stoppen",
+        "met cafeïne"
+      ]
+    },
+    {
+      "name": "Bij energiedrankjes in de avond helpt",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Stop met cafeïne uiterlijk",
+        "vroeg in de middag",
+        "",
+        "Een korte wandeling of stretch",
+        "helpt beter dan cafeïne"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Geen van deze drie gewoontes",
+        "hoeft helemaal te verdwijnen"
+      ],
+      [
+        "Kleine aanpassingen maken",
+        "al merkbaar verschil"
+      ]
+    ],
+    "tip": [
+      "Koffie later drinken, minder frisdrank,",
+      "vroeg stoppen met cafeïne"
+    ],
+    "cta": "Zin in meer gezondheidstips? Abonneer, like en volg!"
+  }
+}
