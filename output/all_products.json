@@ -579,6 +579,13 @@
       "url": "output/%EC%88%98%EB%A9%B4_1/ko/dashboard.html"
     }
   ],
+  "덤벨": [
+    {
+      "title": "완경기 골다공증, 사실 폐경 후 5-7년 사이 다 정해져요 - 급속 소실기 관리법",
+      "topic": "여성_18/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_18/ko/dashboard.html"
+    }
+  ],
   "데오드란트": [
     {
       "title": "액취증, 매일 씻어도 냄새 그대로라면 - 겨드랑이 냄새 줄이는 법",
@@ -1921,6 +1928,11 @@
       "title": "자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지",
       "topic": "어지럼증_3/ko",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3/ko/dashboard.html"
+    },
+    {
+      "title": "완경기 골다공증, 사실 폐경 후 5-7년 사이 다 정해져요 - 급속 소실기 관리법",
+      "topic": "여성_18/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_18/ko/dashboard.html"
     },
     {
       "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
@@ -3956,6 +3968,11 @@
       "url": "output/%EC%86%8C%ED%99%94_20/ko/dashboard.html"
     },
     {
+      "title": "완경기 골다공증, 사실 폐경 후 5-7년 사이 다 정해져요 - 급속 소실기 관리법",
+      "topic": "여성_18/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_18/ko/dashboard.html"
+    },
+    {
       "title": "조기폐경, 단순 생리불순이 아니라 - 난소 기능 저하 확인법",
       "topic": "여성_9/ko",
       "url": "output/%EC%97%AC%EC%84%B1_9/ko/dashboard.html"
@@ -4068,18 +4085,18 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_8/ko/dashboard.html"
     }
   ],
-  "클라이밍 초크": [
-    {
-      "title": "손가락 활차 손상, 크림프 자세로 잡을 때마다 찌릿하다면 - 손가락 지키는 클라이밍 습관",
-      "topic": "근골격_21/ko",
-      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_21/ko/dashboard.html"
-    }
-  ],
   "크레아틴": [
     {
       "title": "크레아틴, 헬스인 10명 중 4명이 챙긴다는데 - 신장 수치 오해 부르는 습관 3가지",
       "topic": "비뇨기_16/ko",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_16/ko/dashboard.html"
+    }
+  ],
+  "클라이밍 초크": [
+    {
+      "title": "손가락 활차 손상, 크림프 자세로 잡을 때마다 찌릿하다면 - 손가락 지키는 클라이밍 습관",
+      "topic": "근골격_21/ko",
+      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_21/ko/dashboard.html"
     }
   ],
   "키위": [
