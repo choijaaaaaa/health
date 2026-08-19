@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Duizelig en moe",
+    "zodra het warm wordt?",
+    "3 gewoontes om te checken"
+  ],
+  "eyebrow": "Uitdroging bij hitte voorkomen",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#3F9DA6",
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Duizelig en moe",
+        "zodra het warm wordt?",
+        "",
+        "Dat ligt niet altijd",
+        "alleen aan de temperatuur -",
+        "drie gewoontes maken het erger"
+      ]
+    },
+    {
+      "name": "Cafeïne",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Een grote ijskoffie",
+        "of energiedrank",
+        "",
+        "kan het vochtverlies",
+        "flink verhogen"
+      ]
+    },
+    {
+      "name": "Cafeïne: de oplossing",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Zweet u veel,",
+        "maak water dan de hoofdmoot",
+        "",
+        "Bewaar de ijskoffie",
+        "voor als het afkoelt"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alcohol remt het vermogen",
+        "van het lichaam om af te koelen",
+        "",
+        "en onttrekt meer vocht",
+        "dan het aanvult"
+      ]
+    },
+    {
+      "name": "Alcohol: de oplossing",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vermijd het voor en tijdens",
+        "lange tijd buiten in de hitte",
+        "",
+        "Eerst bijvullen,",
+        "dan genieten als het afkoelt"
+      ]
+    },
+    {
+      "name": "Alleen water is niet altijd genoeg",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Na uren stevig zweten",
+        "kan alleen water drinken",
+        "",
+        "het natriumgehalte",
+        "in uw bloed verdunnen"
+      ]
+    },
+    {
+      "name": "Dit helpt echt",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Na flink zweten",
+        "grijp naar ORS",
+        "of een sportdrank",
+        "",
+        "Water en zouten,",
+        "samen aanvullen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cafeïne, alcohol en alleen water -",
+        "deze drie zijn het overdenken waard"
+      ],
+      [
+        "Duizelig of verward door de hitte?",
+        "Zoek meteen een koele plek op"
+      ]
+    ],
+    "tip": [
+      "Pas uw drinken aan op uw zweten -",
+      "water op een normale dag, zouten erbij als u flink zweet"
+    ],
+    "cta": "Zin in meer gezondheidstips? Abonneer, like en volg!"
+  }
+}

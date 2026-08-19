@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Mareos y cansancio",
+    "¿cada vez que hace calor?",
+    "3 hábitos que conviene revisar"
+  ],
+  "eyebrow": "Prevenir la deshidratación",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#D4A017",
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Mareos y cansancio",
+        "¿cuando hace calor?",
+        "",
+        "No siempre es",
+        "solo la temperatura -",
+        "tres hábitos pueden agravarlo"
+      ]
+    },
+    {
+      "name": "La cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un café helado grande",
+        "o una bebida energética",
+        "",
+        "pueden aumentar",
+        "la pérdida de líquidos"
+      ]
+    },
+    {
+      "name": "La cafeína: la solución",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Si sudas mucho,",
+        "haz que el agua sea prioridad",
+        "",
+        "Disfruta el café helado",
+        "cuando refresque"
+      ]
+    },
+    {
+      "name": "El alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El alcohol reduce la capacidad",
+        "del cuerpo de regular su temperatura",
+        "",
+        "y hace perder más líquido",
+        "del que aporta"
+      ]
+    },
+    {
+      "name": "El alcohol: la solución",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Evítalo antes y durante",
+        "las horas largas al aire libre",
+        "",
+        "Rehidrátate primero,",
+        "disfrútalo cuando refresque"
+      ]
+    },
+    {
+      "name": "El agua sola no siempre basta",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Tras horas de sudoración",
+        "intensa,",
+        "",
+        "beber solo agua",
+        "puede diluir el sodio en sangre"
+      ]
+    },
+    {
+      "name": "Esto ayuda de verdad",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Tras sudar mucho,",
+        "mejor una bebida isotónica",
+        "o un suero de rehidratación",
+        "",
+        "Agua y sales minerales,",
+        "juntos"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cafeína, alcohol y agua sola -",
+        "tres hábitos que merece la pena revisar"
+      ],
+      [
+        "Si hay mareo o confusión con el calor,",
+        "busca un lugar fresco de inmediato"
+      ]
+    ],
+    "tip": [
+      "Ajusta lo que bebes a lo que sudas -",
+      "agua en un día normal, sales minerales si sudas mucho"
+    ],
+    "cta": "¿Quieres más consejos de salud? Suscríbete, dale like y síguenos"
+  }
+}
