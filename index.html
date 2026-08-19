@@ -129,6 +129,12 @@
   .cnh-group-title { font-size: 17px; font-weight: 800; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
   .cnh-group-count { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
   .cnh-vertical-block { margin: 14px 0; }
+  /* WHY 2단 컬럼(2026-08-18, "육아/결혼이랑 반려동물이 위아래로 스택되는데
+     양쪽으로, 어쨌든 다른 카테고리니까"): 카테고리(vertical)마다 독립된
+     .cnh-vertical-block이라 폭 지정만 추가하면 되는 구조 — 루프 자체는
+     안 건드림. flex-wrap을 둬서 좁은 화면에선 자연히 다시 세로 스택된다. */
+  #familyHubGroups, #financeHubGroups { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+  #familyHubGroups .cnh-vertical-block, #financeHubGroups .cnh-vertical-block { flex: 1 1 320px; min-width: 280px; margin: 14px 0; }
   .cnh-vertical-badge {
     display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700;
     padding: 4px 10px; border-radius: 999px; background: var(--gold-soft); color: var(--gold);
@@ -416,7 +422,14 @@
     return `topic-detail.html?vertical=${encodeURIComponent(vertical.key)}&topic=${encodeURIComponent(item.topic)}`;
   }
 
-  function cnhBuildRow(vertical, item) {
+  // WHY onToggle 콜백(2026-08-18, "선택하면 접혀있는 완료된 목록으로
+  // 넘어가는 형태로... 지금은 걍 완료 색상처리만 하고있는데"): 건강 탭
+  // (topicsSection의 renderAll())은 완료 시 topic을 topicsList → doneList
+  // (별도 <details>)로 실제로 옮기는데, 여긴 지금까지 row.classList만
+  // 토글해서 자리는 그대로였다 — 호출부(loadGroupHub)가 완료 목록
+  // <details>를 갖고 있으므로, 실제 DOM 이동은 호출부에 맡기고 여긴 상태
+  // 변경 시점만 알려준다.
+  function cnhBuildRow(vertical, item, onToggle) {
     const row = document.createElement("a");
     row.className = "cnh-topic-row";
     row.href = cnhDetailUrl(vertical, item);
@@ -451,6 +464,7 @@
         hsWrite("/api/posting-log", "DELETE", { topic: item.topic, platform: "네이버 블로그" });
       }
       badge.disabled = false;
+      if (onToggle) onToggle(nowDone);
     });
     row.appendChild(badge);
 
@@ -528,14 +542,45 @@
         groupsEl.appendChild(block);
         continue;
       }
+      const badgeEl = document.createElement("span");
+      badgeEl.className = "cnh-vertical-badge";
+      badgeEl.textContent = `${vertical.label} (${vertical.items.length})`;
+      block.appendChild(badgeEl);
+
       const list = document.createElement("div");
+      block.appendChild(list);
+
+      // WHY 건강 탭의 #topicsDoneWrap과 동일한 <details> 접힘 구조를
+      // vertical(카테고리)마다 하나씩 두는지: 육아·반려동물처럼 서로 다른
+      // 카테고리가 나란히 있는데 완료 목록을 하나로 합치면 반려동물 완료
+      // 항목이 육아 완료 항목 사이에 섞여버린다 — 카테고리별로 따로 접는다.
+      const doneWrap = document.createElement("details");
+      doneWrap.style.cssText = "margin-top:12px;display:none;";
+      const doneSummary = document.createElement("summary");
+      doneSummary.style.cssText = "cursor:pointer;font-size:13px;color:var(--ink-soft);font-weight:700;";
+      const doneCountEl = document.createElement("span");
+      doneSummary.append("완료된 콘텐츠 (", doneCountEl, ")");
+      const doneList = document.createElement("div");
+      doneList.style.cssText = "display:flex;flex-direction:column;gap:8px;margin-top:8px;";
+      doneWrap.appendChild(doneSummary);
+      doneWrap.appendChild(doneList);
+      block.appendChild(doneWrap);
+
+      function refreshDoneWrap() {
+        const n = doneList.children.length;
+        doneCountEl.textContent = n;
+        doneWrap.style.display = n > 0 ? "block" : "none";
+      }
+
       for (const item of vertical.items) {
-        const row = cnhBuildRow(vertical, item);
-        list.appendChild(row);
+        const row = cnhBuildRow(vertical, item, (nowDone) => {
+          (nowDone ? doneList : list).appendChild(row);
+          refreshDoneWrap();
+        });
+        (row.classList.contains("is-done") ? doneList : list).appendChild(row);
         allRows.push({ row, haystack: (item.topic + " " + item.title).toLowerCase() });
       }
-      block.innerHTML = `<span class="cnh-vertical-badge">${cnhEscapeHtml(vertical.label)} (${vertical.items.length})</span>`;
-      block.appendChild(list);
+      refreshDoneWrap();
       groupsEl.appendChild(block);
     }
     searchInput.addEventListener("input", () => {

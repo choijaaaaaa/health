@@ -710,8 +710,30 @@ function applyProductLinks() {{
     // 코멘트만 있으면 되는 linkInComment 케이스인데, 위 라인은 linkInComment면
     // 무조건 COUPANG_DISCLOSURE를 썼다 — 네이버 클립(hasNaverButton)엔 네이버
     // 고지문구가 붙어야 한다.
+    let stripped = _stripAutoLinks(box.value);
+    // WHY 인라인 [[LINK:상품명]] 치환(2026-08-19, "브랜드커넥트 링크를 그
+    // 제품 설명 아래에 사이사이 끼워넣는게 노출에 용이할거같다" — 지금까지
+    // applyProductLinks는 전체 상품 링크를 제목 바로 다음과 맨 끝, 딱
+    // 두 군데에만 번들로 몰아넣었다): 아래 top/bottom 번들 블록(공정위
+    // "게시물 첫 부분에 고지가 보여야 함" 요건 충족용, 그대로 유지)과는
+    // 별개로, 작성 시점에 캡션 본문 안 그 상품을 설명한 문단 바로 아래에
+    // [[LINK:상품명]] 토큰을 심어두면 여기서 실제 링크 줄로 치환한다 —
+    // 상품별로 그 상품이 언급된 자리 바로 옆에서 노출시키기 위함. 아직
+    // 링크가 등록 안 된 상품의 토큰은 조용히 지운다(캡션에 미해결
+    // 플레이스홀더가 그대로 남아 발행되는 사고 방지). 기존 topic 캡션엔
+    // 이 토큰이 없으니 동작에 변화 없음 — 새로 쓰는 캡션부터 적용.
+    if (hasNaverButton && !linkInComment) {{
+      const linkByProduct = new Map();
+      document.querySelectorAll('.product-link-input[data-market="naver"]').forEach(inp => {{
+        const url = inp.value.trim();
+        if (_isRealLink(url)) linkByProduct.set(inp.dataset.product, url);
+      }});
+      stripped = stripped.replace(/\[\[LINK:([^\]]+)\]\]/g, (match, name) => {{
+        const url = linkByProduct.get(name.trim());
+        return url ? ("🔗 " + name.trim() + " 구매: " + url) : "";
+      }});
+    }}
     const result = suppressBlock ? null : (linkInComment ? {{text: "", disclosure: hasNaverButton ? NAVER_DISCLOSURE : COUPANG_DISCLOSURE}} : (noCaptionLink ? _buildCtaBlock(hasCommentDm) : _buildLinkBlock(hasNaverButton)));
-    const stripped = _stripAutoLinks(box.value);
     if (!result) {{
       box.value = stripped;
       return;
