@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Yr och trött",
+    "så fort det blir varmt?",
+    "3 vanor värda att se över"
+  ],
+  "eyebrow": "Förebygg vätskebrist i värmen",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#7A4FA0",
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Yr och trött",
+        "så fort det blir varmt?",
+        "",
+        "Det beror inte alltid",
+        "bara på temperaturen -",
+        "tre vanor kan förvärra det"
+      ]
+    },
+    {
+      "name": "Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "En stor iskaffe",
+        "eller energidryck",
+        "",
+        "kan öka",
+        "vätskeförlusten"
+      ]
+    },
+    {
+      "name": "Koffein: lösningen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Svettas du mycket,",
+        "gör vatten till förstahandsvalet",
+        "",
+        "Spara iskaffet",
+        "till när det svalnat"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alkohol dämpar kroppens",
+        "förmåga att reglera temperaturen",
+        "",
+        "och tar mer vätska",
+        "än den tillför"
+      ]
+    },
+    {
+      "name": "Alkohol: lösningen",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Undvik det före och under",
+        "långa stunder utomhus i värmen",
+        "",
+        "Fyll på vätska först,",
+        "njut av det när det svalnat"
+      ]
+    },
+    {
+      "name": "Bara vatten räcker inte alltid",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Efter timmar av kraftig",
+        "svettning",
+        "",
+        "kan bara vatten",
+        "späda ut natriumet i blodet"
+      ]
+    },
+    {
+      "name": "Det här hjälper faktiskt",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Efter kraftig svettning,",
+        "ta vätskeersättning",
+        "eller sportdryck",
+        "",
+        "Vatten och salter,",
+        "tillsammans"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Koffein, alkohol och bara vatten -",
+        "tre vanor värda att se över"
+      ],
+      [
+        "Yr eller förvirrad i värmen?",
+        "Sök svalka direkt"
+      ]
+    ],
+    "tip": [
+      "Anpassa vätskan efter svettningen -",
+      "vatten en vanlig dag, salter när du svettas mycket"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}

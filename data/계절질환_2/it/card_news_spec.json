@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Vertigini e stanchezza",
+    "ogni volta che fa caldo?",
+    "3 abitudini da controllare"
+  ],
+  "eyebrow": "Prevenire la disidratazione",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#A13D6B",
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Vertigini e stanchezza",
+        "quando fa caldo?",
+        "",
+        "Non dipende solo",
+        "dalla temperatura -",
+        "tre abitudini possono peggiorarlo"
+      ]
+    },
+    {
+      "name": "Il caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un caffè freddo grande",
+        "o una bevanda energetica",
+        "",
+        "possono aumentare",
+        "la perdita di liquidi"
+      ]
+    },
+    {
+      "name": "Il caffè: la soluzione",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Quando si suda molto,",
+        "l'acqua deve restare la priorità",
+        "",
+        "Il caffè va bene",
+        "quando fa più fresco"
+      ]
+    },
+    {
+      "name": "L'alcol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "L'alcol rallenta la capacità",
+        "del corpo di regolare la temperatura",
+        "",
+        "e fa perdere più liquidi",
+        "di quanti ne fornisce"
+      ]
+    },
+    {
+      "name": "L'alcol: la soluzione",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Evitatelo prima e durante",
+        "le lunghe ore all'aperto",
+        "",
+        "Reidratatevi prima,",
+        "godetevelo quando fa più fresco"
+      ]
+    },
+    {
+      "name": "L'acqua da sola non basta",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Dopo ore di sudorazione",
+        "intensa,",
+        "",
+        "bere solo acqua",
+        "può diluire il sodio nel sangue"
+      ]
+    },
+    {
+      "name": "Ecco cosa aiuta",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Dopo una forte sudorazione,",
+        "meglio una soluzione reidratante",
+        "o una bevanda isotonica",
+        "",
+        "Acqua e sali minerali,",
+        "insieme"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caffè, alcol e acqua da sola -",
+        "tre abitudini che vale la pena rivedere"
+      ],
+      [
+        "Vertigini o confusione con il caldo?",
+        "Subito in un posto fresco"
+      ]
+    ],
+    "tip": [
+      "Adattate i liquidi alla sudorazione -",
+      "acqua nei giorni normali, sali minerali quando si suda molto"
+    ],
+    "cta": "Volete altri consigli sulla salute? Iscrivetevi, mettete like e seguiteci"
+  }
+}

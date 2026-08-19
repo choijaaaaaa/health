@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Schwindel und Erschöpfung",
+    "an heißen Tagen?",
+    "3 Trinkgewohnheiten im Check"
+  ],
+  "eyebrow": "Dehydrierung bei Hitze vorbeugen",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#C77B2E",
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Schwindel und Erschöpfung",
+        "bei Hitze liegen nicht",
+        "nur an der Temperatur",
+        "",
+        "Drei Trinkgewohnheiten",
+        "verstärken das oft zusätzlich"
+      ]
+    },
+    {
+      "name": "Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ein großer Eiskaffee",
+        "oder Energydrink",
+        "",
+        "kann die Urinausscheidung",
+        "spürbar erhöhen"
+      ]
+    },
+    {
+      "name": "Koffein: die Lösung",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Bei starkem Schwitzen",
+        "Wasser zur Hauptquelle machen",
+        "",
+        "Den Kaffee lieber genießen,",
+        "wenn es wieder kühler ist"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alkohol bremst die",
+        "Temperaturregulation des Körpers",
+        "",
+        "und entzieht mehr Flüssigkeit,",
+        "als er zuführt"
+      ]
+    },
+    {
+      "name": "Alkohol: die Lösung",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vor und während langer Zeit",
+        "in der Hitze im Freien verzichten",
+        "",
+        "Erst auffüllen,",
+        "dann in kühlerer Zeit genießen"
+      ]
+    },
+    {
+      "name": "Nur Wasser reicht nicht immer",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Nach stundenlangem",
+        "starkem Schwitzen",
+        "",
+        "kann reines Wasser allein",
+        "den Natriumspiegel verdünnen"
+      ]
+    },
+    {
+      "name": "Das hilft wirklich",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Nach starkem Schwitzen",
+        "zu natriumreichem Wasser",
+        "oder Elektrolytgetränken greifen",
+        "",
+        "Wasser und Salze",
+        "gemeinsam auffüllen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Koffein, Alkohol und reines Wasser -",
+        "diese drei Gewohnheiten lohnt sich zu überdenken"
+      ],
+      [
+        "Bei Schwindel oder Verwirrtheit",
+        "sofort einen kühlen Ort aufsuchen"
+      ]
+    ],
+    "tip": [
+      "Trinken Sie passend zum Schwitzen -",
+      "Wasser reicht meist, bei starkem Schwitzen zusätzlich Elektrolyte"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  }
+}

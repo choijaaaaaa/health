@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Vertiges et fatigue",
+    "dès qu'il fait chaud ?",
+    "3 habitudes à vérifier"
+  ],
+  "eyebrow": "Prévenir la déshydratation",
+  "cover_char_file": "햇빛_illust.jpg",
+  "cover_scrim_color": "#4B5EAA",
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Vertiges et fatigue",
+        "dès qu'il fait chaud ?",
+        "",
+        "Ce n'est pas toujours",
+        "que la température -",
+        "trois habitudes peuvent aggraver ça"
+      ]
+    },
+    {
+      "name": "Le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un grand café glacé",
+        "ou une boisson énergisante",
+        "",
+        "peut augmenter",
+        "les pertes en eau"
+      ]
+    },
+    {
+      "name": "Le café : la solution",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Quand vous transpirez beaucoup,",
+        "misez sur l'eau en priorité",
+        "",
+        "Gardez le café glacé",
+        "pour les moments plus frais"
+      ]
+    },
+    {
+      "name": "L'alcool",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "L'alcool freine la capacité",
+        "du corps à réguler sa température",
+        "",
+        "et fait perdre plus d'eau",
+        "qu'il n'en apporte"
+      ]
+    },
+    {
+      "name": "L'alcool : la solution",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Évitez-le avant et pendant",
+        "les longs moments en extérieur",
+        "",
+        "Réhydratez-vous d'abord,",
+        "profitez-en une fois au frais"
+      ]
+    },
+    {
+      "name": "L'eau seule ne suffit pas",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Après des heures",
+        "de forte transpiration,",
+        "",
+        "boire seulement de l'eau",
+        "peut diluer le sodium du sang"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Après une forte transpiration,",
+        "pensez aux boissons isotoniques",
+        "ou aux solutés de réhydratation",
+        "",
+        "Eau et sels minéraux,",
+        "à compenser ensemble"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Café, alcool et eau seule -",
+        "trois habitudes à surveiller de près"
+      ],
+      [
+        "Vertiges ou confusion avec la chaleur ?",
+        "Direction un endroit frais, sans attendre"
+      ]
+    ],
+    "tip": [
+      "Adaptez votre boisson à votre transpiration -",
+      "eau au quotidien, sels minéraux en cas de forte chaleur"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous et suivez la page !"
+  }
+}
