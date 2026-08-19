@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Höga partikelhalter idag?",
+    "Kolla dessa 3 saker",
+    "innan du går ut"
+  ],
+  "eyebrow": "Luftkvalitetsvarning",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "미세먼지_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Fuktkräm",
+    "인공눈물_illust.jpg": "Konstgjorda tårar",
+    "마스크_illust.jpg": "FFP2-mask"
+  },
+  "items": [
+    {
+      "name": "Varför just dessa 3",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Hud, ögon och luftvägar —",
+        "de tre områden som drabbas mest",
+        "",
+        "Partiklarna är små nog",
+        "att tränga in i alla tre",
+        "samtidigt"
+      ]
+    },
+    {
+      "name": "Huden",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "PM2,5 är små nog",
+        "att fastna i porerna",
+        "",
+        "Det utlöser oxidativ stress,",
+        "som bryter ner kollagenet",
+        "som håller huden spänstig"
+      ]
+    },
+    {
+      "name": "För huden",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Rengör huden noga",
+        "när du kommer hem",
+        "",
+        "och använd sedan ett",
+        "antioxidantserum och",
+        "en fuktkräm"
+      ]
+    },
+    {
+      "name": "Ögonen",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "För det andra irriterar",
+        "partiklarna körtlarna i ögonlocket,",
+        "",
+        "som håller tårfilmen stabil —",
+        "den blir instabil,",
+        "och ögonen blir torra"
+      ]
+    },
+    {
+      "name": "För ögonen",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Bär omslutande glasögon",
+        "på dagar med dålig luft",
+        "",
+        "och använd konstgjorda tårar",
+        "om ögonen känns irriterade"
+      ]
+    },
+    {
+      "name": "Luftvägarna",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Till sist når partiklar",
+        "under 2,5 mikrometer",
+        "",
+        "djupt ner i luftvägarna,",
+        "irriterar slemhinnan —",
+        "hosta och andnöd följer"
+      ]
+    },
+    {
+      "name": "För luftvägarna",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Bär en väl anpassad",
+        "FFP2-mask utomhus",
+        "",
+        "och undvik ansträngande",
+        "fysisk aktivitet på varningsdagar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Det betyder inte att du",
+        "måste stanna inne hela tiden"
+      ],
+      [
+        "Några vanor räcker långt",
+        "på de svåraste dagarna"
+      ]
+    ],
+    "tip": [
+      "Rengöring, konstgjorda tårar, mask —",
+      "på dagar med höga partikelhalter"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  }
+}

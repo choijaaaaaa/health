@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Pic de pollution",
+    "aujourd'hui ? Avant de sortir,",
+    "ces 3 choses à vérifier"
+  ],
+  "eyebrow": "Alerte pollution",
+  "swipe_label": "Swipez pour voir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "미세먼지_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Soin hydratant",
+    "인공눈물_illust.jpg": "Larmes artificielles",
+    "마스크_illust.jpg": "Masque FFP2"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ces 3 zones",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Peau, yeux et voies respiratoires —",
+        "ce sont les trois zones touchées",
+        "",
+        "Les particules fines sont assez",
+        "petites pour pénétrer",
+        "dans ces trois endroits à la fois"
+      ]
+    },
+    {
+      "name": "La peau",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Les PM2.5 sont assez fines",
+        "pour s'installer dans les pores",
+        "",
+        "Cela déclenche un stress oxydatif",
+        "qui dégrade le collagène",
+        "responsable de la fermeté"
+      ]
+    },
+    {
+      "name": "Pour la peau",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Nettoyez soigneusement",
+        "en rentrant chez vous",
+        "",
+        "puis appliquez un sérum",
+        "à la vitamine C et",
+        "une crème hydratante"
+      ]
+    },
+    {
+      "name": "Les yeux",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Ensuite, les particules fines",
+        "irritent les glandes des paupières",
+        "",
+        "qui stabilisent le film lacrymal —",
+        "il devient instable,",
+        "les yeux piquent et sèchent"
+      ]
+    },
+    {
+      "name": "Pour les yeux",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Portez des lunettes",
+        "enveloppantes dehors",
+        "",
+        "et rincez à l'eau claire ou",
+        "avec des larmes artificielles",
+        "en cas d'irritation"
+      ]
+    },
+    {
+      "name": "Les voies respiratoires",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Enfin, les particules de",
+        "moins de 2,5 micromètres",
+        "",
+        "pénètrent profondément",
+        "et irritent les muqueuses —",
+        "toux et gêne respiratoire suivent"
+      ]
+    },
+    {
+      "name": "Pour les voies respiratoires",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Portez un masque FFP2",
+        "bien ajusté au visage",
+        "",
+        "et évitez les efforts physiques",
+        "intenses les jours de pic"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cela ne veut pas dire",
+        "qu'il faut rester enfermé"
+      ],
+      [
+        "Quelques gestes suffisent",
+        "les jours difficiles"
+      ]
+    ],
+    "tip": [
+      "Nettoyage, rinçage des yeux, masque —",
+      "à adopter les jours de pic"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  }
+}
