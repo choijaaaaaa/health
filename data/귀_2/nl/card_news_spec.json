@@ -1,0 +1,84 @@
+{
+  "title": [
+    "Oor jeukt en voelt",
+    "verstopt na het zwemmen?",
+    "De echte oorzaken"
+  ],
+  "eyebrow": "Waarom je oor reageert na het zwemmen",
+  "cover_char_file": "물방울_illust.jpg",
+  "cover_scrim_color": "#7A5C99",
+  "items": [
+    {
+      "name": "Waarom gebeurt dit steeds?",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Oor jeukt en voelt verstopt,",
+        "dagen na het zwemmen?",
+        "",
+        "Twee dagelijkse gewoontes",
+        "spelen vaak mee"
+      ]
+    },
+    {
+      "name": "Vastzittend vocht",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Water blijft staan",
+        "in de gehoorgang",
+        "",
+        "en spoelt de natuurlijke",
+        "beschermlaag weg"
+      ]
+    },
+    {
+      "name": "Goed droog maken",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Kantel je hoofd na",
+        "zwemmen of douchen",
+        "",
+        "droog alleen de buitenkant -",
+        "geen wattenstaafje"
+      ]
+    },
+    {
+      "name": "Wattenstaafjes & oordopjes",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Wattenstaafjes schaven",
+        "de dunne gehoorganghuid",
+        "",
+        "oordopjes sluiten warmte",
+        "en vocht urenlang op"
+      ]
+    },
+    {
+      "name": "Geef je oor rust",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Laat het wattenstaafje staan,",
+        "oorsmeer doet zijn werk",
+        "",
+        "oordopjespauzes bij",
+        "lange gesprekken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vocht, wattenstaafjes, oordopjes -",
+        "kleine gewoontes tellen op"
+      ],
+      [
+        "Iets aanpassen in drogen en",
+        "schoonmaken kan echt helpen"
+      ]
+    ],
+    "tip": [
+      "Pijn of afscheiding die aanhoudt?",
+      "Dan is een huisartsbezoek de moeite waard"
+    ],
+    "cta": "Meer gezondheidstips? Volg ons"
+  }
+}
