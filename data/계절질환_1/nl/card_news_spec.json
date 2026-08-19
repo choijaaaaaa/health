@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Hoofdpijn of moe",
+    "na de airco?",
+    "Even pas op de plaats",
+    "3 gewoontes om te checken"
+  ],
+  "eyebrow": "Klachten door de airco",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperatuurverschil",
+    "에어컨_illust.jpg": "Filter",
+    "찬바람_illust.jpg": "Ventilatie"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Hoofdpijn of moe na de airco?",
+        "Even pas op de plaats",
+        "",
+        "Het lichaam regelt zijn temperatuur",
+        "via de bloedvaten, en 3 gewoontes",
+        "overbelasten dat systeem"
+      ]
+    },
+    {
+      "name": "Het temperatuurverschil",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Eerst: het verschil met",
+        "de buitentemperatuur",
+        "",
+        "Meer dan 5-7 graden verschil",
+        "belast de luchtwegen extra"
+      ]
+    },
+    {
+      "name": "Zo verhelp je het",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Zet de airco max 5-7 graden",
+        "kouder dan buiten",
+        "",
+        "Neem een dun vest mee",
+        "voor als je naar buiten gaat"
+      ]
+    },
+    {
+      "name": "Het vieze filter",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Ten tweede: een vies filter",
+        "",
+        "Vocht en stof worden een",
+        "broeiplaats voor schimmel,",
+        "die keel en neus irriteert"
+      ]
+    },
+    {
+      "name": "Zo verhelp je het",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Maak het filter elke",
+        "2-3 weken schoon",
+        "",
+        "Dat vermindert irritatie",
+        "en hoofdpijn flink"
+      ]
+    },
+    {
+      "name": "Te weinig ventilatie",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Ten derde: te weinig ventilatie",
+        "",
+        "Gesloten ramen laten CO2",
+        "oplopen — dat geeft hoofdpijn",
+        "en vermoeidheid"
+      ]
+    },
+    {
+      "name": "Zo verhelp je het",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Zet elke 1-2 uur",
+        "even een raam open",
+        "",
+        "Dat verlaagt de CO2",
+        "meteen merkbaar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Temperatuurverschil, vies filter",
+        "en te weinig lucht: het echte trio"
+      ],
+      [
+        "Het ligt niet aan een zwakke",
+        "conditie, maar aan gewoontes"
+      ]
+    ],
+    "tip": [
+      "Verschil onder 5-7 graden,",
+      "filter schoon, en kort ventileren"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#4C7A8A"
+}

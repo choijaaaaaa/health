@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Huvudvärk eller trött",
+    "inomhus i värmen?",
+    "Vänta lite innan du",
+    "skyller på kylan"
+  ],
+  "eyebrow": "Inneklimat på sommaren",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperaturväxling",
+    "에어컨_illust.jpg": "Filter",
+    "찬바람_illust.jpg": "Vädring"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Huvudvärk eller trött inomhus",
+        "i värmen? Vänta lite innan",
+        "du skyller på kylan",
+        "",
+        "Kroppen reglerar temperaturen",
+        "via blodkärlen, och 3 vanor",
+        "överbelastar det systemet"
+      ]
+    },
+    {
+      "name": "Plötsliga temperaturväxlingar",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Först: stora, snabba växlingar",
+        "mellan ute och inne",
+        "",
+        "Det belastar luftvägarna",
+        "och kan ge sjuka hus-symtom"
+      ]
+    },
+    {
+      "name": "Så gör du istället",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Ställ inte kylan lägre",
+        "än nödvändigt",
+        "",
+        "Ha ett tunt plagg redo",
+        "när du går ut igen"
+      ]
+    },
+    {
+      "name": "Det smutsiga filtret",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Sedan: ett smutsigt filter",
+        "",
+        "Fukt och damm blir grogrund",
+        "för mögel, som irriterar",
+        "hals och luftvägar"
+      ]
+    },
+    {
+      "name": "Så gör du istället",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Rengör filtret varannan vecka",
+        "vid flitig användning",
+        "",
+        "Det minskar risken för",
+        "mögel och irritation"
+      ]
+    },
+    {
+      "name": "Otillräcklig ventilation",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Sist: otillräcklig ventilation",
+        "",
+        "Stängda fönster höjer CO2 —",
+        "det ger huvudvärk och",
+        "trötthet"
+      ]
+    },
+    {
+      "name": "Så gör du istället",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Vädra några minuter",
+        "varje eller varannan timme",
+        "",
+        "Det sänker koldioxidhalten",
+        "märkbart"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Temperaturväxlingar, smutsigt filter",
+        "och dålig ventilation — det verkliga trion"
+      ],
+      [
+        "Det handlar inte om dålig",
+        "motståndskraft, utan om vanor"
+      ]
+    ],
+    "tip": [
+      "Undvik stora växlingar, rengör filtret",
+      "och vädra en stund då och då"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#6690A6"
+}

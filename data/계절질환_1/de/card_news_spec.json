@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Kopfschmerzen oder Müdigkeit",
+    "nach der Klimaanlage?",
+    "Halten Sie kurz inne",
+    "3 Gewohnheiten hinter der Erkältung"
+  ],
+  "eyebrow": "Erkältung durch Klimaanlage",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperaturunterschied",
+    "에어컨_illust.jpg": "Filter",
+    "찬바람_illust.jpg": "Lüften"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Kopfschmerzen oder Müdigkeit",
+        "nach der Klimaanlage?",
+        "Halten Sie kurz inne",
+        "",
+        "Der Körper reguliert sich über",
+        "die Blutgefäße, und 3 Gewohnheiten",
+        "überlasten dieses System"
+      ]
+    },
+    {
+      "name": "Der Temperaturunterschied",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Erstens: der Unterschied zur",
+        "Außentemperatur",
+        "",
+        "Mehr als 6 bis 8°C Differenz",
+        "belasten die Anpassungsfähigkeit",
+        "des Körpers stark"
+      ]
+    },
+    {
+      "name": "So beheben Sie es",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Klimaanlage höchstens 6-8°C",
+        "unter die Außentemperatur",
+        "",
+        "Eine leichte Jacke für",
+        "draußen bereithalten"
+      ]
+    },
+    {
+      "name": "Der verschmutzte Filter",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Zweitens: ein verschmutzter Filter",
+        "",
+        "Feuchtigkeit und Staub werden",
+        "zum Nährboden für Schimmel,",
+        "der die Atemwege reizt"
+      ]
+    },
+    {
+      "name": "So beheben Sie es",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Filter alle 2 bis 4 Wochen",
+        "reinigen",
+        "",
+        "Das senkt das Risiko für",
+        "Halsschmerzen und Kopfschmerzen"
+      ]
+    },
+    {
+      "name": "Zu wenig Lüften",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Drittens: zu seltenes Lüften",
+        "",
+        "Geschlossene Fenster lassen",
+        "CO2 ansteigen — das macht",
+        "müde und löst Kopfschmerzen aus"
+      ]
+    },
+    {
+      "name": "So beheben Sie es",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Alle 1-2 Stunden kurz",
+        "stoßlüften",
+        "",
+        "Das senkt die CO2-Konzentration",
+        "spürbar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Temperaturunterschied, Filter",
+        "und Lüften machen den Unterschied"
+      ],
+      [
+        "Es liegt nicht an einer",
+        "Erkältung, sondern an Gewohnheiten"
+      ]
+    ],
+    "tip": [
+      "Unterschied unter 6-8°C halten,",
+      "Filter reinigen, regelmäßig lüften"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#35547E"
+}

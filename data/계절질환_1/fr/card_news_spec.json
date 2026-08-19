@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Maux de tête ou fatigue",
+    "après la climatisation ?",
+    "Ce n'est pas le froid",
+    "3 vraies causes à connaître"
+  ],
+  "eyebrow": "Malaises liés à la climatisation",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Écart de température",
+    "에어컨_illust.jpg": "Filtre",
+    "찬바람_illust.jpg": "Aération"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ce malaise",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Maux de tête ou fatigue",
+        "après la climatisation ?",
+        "Ce n'est pas le froid en soi",
+        "",
+        "Le corps régule sa température",
+        "via les vaisseaux sanguins,",
+        "et 3 habitudes surchargent ce système"
+      ]
+    },
+    {
+      "name": "L'écart de température",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "D'abord, l'écart avec",
+        "la température extérieure",
+        "",
+        "Au-delà de 6 à 8°C d'écart,",
+        "le corps peine à s'adapter"
+      ]
+    },
+    {
+      "name": "La vraie solution",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Réglez la clim à 6-8°C max",
+        "sous la température extérieure",
+        "",
+        "Gardez un vêtement léger",
+        "à portée de main"
+      ]
+    },
+    {
+      "name": "Le filtre encrassé",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Ensuite, un filtre encrassé",
+        "",
+        "Humidité et poussière créent",
+        "un terrain propice aux moisissures,",
+        "qui irritent la gorge"
+      ]
+    },
+    {
+      "name": "La vraie solution",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Nettoyez le filtre toutes",
+        "les 2 à 4 semaines",
+        "",
+        "Cela réduit fortement",
+        "irritations et maux de tête"
+      ]
+    },
+    {
+      "name": "Le manque d'aération",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Enfin, le manque d'aération",
+        "",
+        "Fenêtres fermées, le CO2",
+        "s'accumule — d'où maux de tête",
+        "et somnolence"
+      ]
+    },
+    {
+      "name": "La vraie solution",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Aérez 5 à 10 minutes",
+        "toutes les 1-2 heures",
+        "",
+        "Cela fait redescendre",
+        "le taux de CO2"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Écart de température, filtre sale",
+        "et manque d'air : le vrai trio en cause"
+      ],
+      [
+        "Ce n'est pas un manque",
+        "de résistance, ce sont des habitudes"
+      ]
+    ],
+    "tip": [
+      "Écart sous 6-8°C, filtre propre,",
+      "et quelques minutes d'aération"
+    ],
+    "cta": "Envie d'autres conseils santé pratiques ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#5C7A99"
+}
