@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Voel je je vaak duizelig",
+    "zonder duidelijke reden?",
+    "Let op deze 3 gewoontes"
+  ],
+  "eyebrow": "Duizeligheid Alert",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Maaltijd overslaan + suiker,",
+        "koffie en alcohol,",
+        "",
+        "zout eten",
+        "werken elk anders op duizeligheid"
+      ]
+    },
+    {
+      "name": "Maaltijd overslaan + suiker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Bloedsuiker stijgt en daalt dan",
+        "sneller dan het lichaam bijstuurt",
+        "",
+        "de hersenen krijgen even",
+        "te weinig energie"
+      ]
+    },
+    {
+      "name": "Zo help je bij reactieve hypoglykemie",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Eet op regelmatige tijden",
+        "en kies amandelen",
+        "",
+        "in plaats van snoep",
+        "als je tussendoor honger hebt"
+      ]
+    },
+    {
+      "name": "Koffie & alcohol",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cafeïne vernauwt",
+        "bloedvaten in de hersenen",
+        "",
+        "alcohol verstoort het evenwicht",
+        "en beide drogen je uit"
+      ]
+    },
+    {
+      "name": "Zo help je bij koffie & alcohol",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Vervang koffie door",
+        "kruidenthee zonder cafeïne",
+        "",
+        "en drink water",
+        "tussen glazen alcohol door"
+      ]
+    },
+    {
+      "name": "Zout brengt de balans in de war",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Veel natrium laat het lichaam",
+        "meer water vasthouden",
+        "",
+        "wat de druk in het binnenoor",
+        "kan verhogen"
+      ]
+    },
+    {
+      "name": "Zo help je bij zout eten",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Laat wat bouillon staan",
+        "en combineer een banaan",
+        "",
+        "rijk aan kalium",
+        "met een zoute maaltijd"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Komt duizeligheid vaak terug",
+        "met oorsuizen of gehoorveranderingen"
+      ],
+      [
+        "raadpleeg dan een arts"
+      ]
+    ],
+    "tip": [
+      "Regelmatig eten, minder koffie",
+      "en alcohol, kalium bij zout eten",
+      "vermindert hoe vaak duizeligheid optreedt"
+    ],
+    "cta": "Meer gezondheidstips? Volg ons en abonneer je!"
+  }
+}

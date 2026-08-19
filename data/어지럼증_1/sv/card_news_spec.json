@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Inte bara",
+    "lågt blodtryck",
+    "3 vardagsvanor som utlöser yrsel"
+  ],
+  "eyebrow": "Yrselvarning",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Utebliven måltid + socker,",
+        "kaffe och alkohol,",
+        "",
+        "salt mat",
+        "påverkar yrsel på olika sätt"
+      ]
+    },
+    {
+      "name": "Utebliven måltid + socker",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Blodsockret stiger och sjunker",
+        "snabbare än kroppen hinner reglera",
+        "",
+        "hjärnan får för lite energi",
+        "och yrsel uppstår"
+      ]
+    },
+    {
+      "name": "Så motverkar du reaktiv hypoglykemi",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Ät på regelbundna tider",
+        "och välj mandlar",
+        "",
+        "istället för godis",
+        "när du blir hungrig mellan måltider"
+      ]
+    },
+    {
+      "name": "Kaffe & alkohol",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein drar samman",
+        "blodkärl i hjärnan",
+        "",
+        "alkohol stör balansen",
+        "och båda torkar ut dig"
+      ]
+    },
+    {
+      "name": "Så hanterar du kaffe & alkohol",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Byt kaffe mot",
+        "koffeinfritt örtte",
+        "",
+        "och drick vatten",
+        "mellan glasen alkohol"
+      ]
+    },
+    {
+      "name": "Salt rubbar balansen",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Mycket natrium får kroppen",
+        "att hålla kvar mer vatten",
+        "",
+        "vilket kan öka trycket",
+        "i innerörat"
+      ]
+    },
+    {
+      "name": "Så hanterar du salt mat",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Lämna lite av buljongen",
+        "och kombinera en banan",
+        "",
+        "rik på kalium",
+        "med en salt måltid"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Om yrseln ofta återkommer",
+        "med tinnitus eller hörselförändringar"
+      ],
+      [
+        "är det värt att uppsöka läkare"
+      ]
+    ],
+    "tip": [
+      "Regelbundna måltider, mindre kaffe",
+      "och alkohol, kalium med salt mat",
+      "minskar hur ofta yrsel uppstår"
+    ],
+    "cta": "Vill du ha fler hälsotips? Följ och prenumerera!"
+  }
+}
