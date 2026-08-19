@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Sarcopenie: worden trappen of",
+    "potten opendraaien zwaarder?",
+    "3 gewoontes die je spieren beschermen"
+  ],
+  "eyebrow": "Waarschuwing spiergezondheid",
+  "swipe_label": "Swipe voor meer  ->",
+  "closing_label": "Samenvatting",
+  "cover_scrim_color": "#3E7C9E",
+  "char_display_names": {
+    "계란_illust.jpg": "Eieren",
+    "운동화_illust.jpg": "Wandelschoenen",
+    "아령_illust.jpg": "Halters"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Vanaf middelbare leeftijd daalt",
+        "spiermassa met 6-8% per decennium",
+        "",
+        "Oudere spieren hebben meer",
+        "eiwit per maaltijd nodig"
+      ]
+    },
+    {
+      "name": "Eiwitarm ontbijt",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Brood met hagelslag geeft",
+        "vaak maar 5-10g eiwit",
+        "",
+        "Voor spieropbouw is juist",
+        "25-30g in één maaltijd nodig"
+      ]
+    },
+    {
+      "name": "Ontbijt verbeteren",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Een ei, een schaal kwark",
+        "of een glas melk erbij",
+        "",
+        "Verdeel eiwit over alle drie",
+        "maaltijden, niet enkel 's avonds"
+      ]
+    },
+    {
+      "name": "Alleen wandelen",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Goed voor het hart, maar",
+        "vraagt weinig van je spieren",
+        "",
+        "Ook dagelijkse wandelaars",
+        "verliezen zo kracht"
+      ]
+    },
+    {
+      "name": "Krachttraining toevoegen",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Weerstandsbanden of halters,",
+        "twee keer per week is genoeg",
+        "",
+        "Verbetert knijpkracht en",
+        "loopsnelheid merkbaar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Spierverlies komt niet",
+        "enkel door de leeftijd"
+      ],
+      [
+        "Twee gewoontes aanpassen remt",
+        "het verlies merkbaar af"
+      ]
+    ],
+    "tip": [
+      "Eiwitrijker ontbijt en",
+      "twee keer per week krachttraining"
+    ],
+    "cta": "Meer van dit soort gezondheidstips? Volg ons voor meer"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "title": [
+    "Sarcopénie : monter les escaliers",
+    "devient plus difficile qu'avant ?",
+    "3 habitudes qui protègent vos muscles"
+  ],
+  "eyebrow": "Alerte santé musculaire",
+  "swipe_label": "Glissez pour en savoir plus  ->",
+  "closing_label": "En résumé",
+  "cover_scrim_color": "#2D8659",
+  "char_display_names": {
+    "계란_illust.jpg": "Œufs",
+    "운동화_illust.jpg": "Chaussures de marche",
+    "아령_illust.jpg": "Haltères"
+  },
+  "items": [
+    {
+      "name": "Pourquoi cela arrive",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Passé la quarantaine, la masse",
+        "musculaire baisse de 6 à 8%",
+        "par décennie",
+        "",
+        "Les muscles âgés ont besoin",
+        "de plus de protéines par repas"
+      ]
+    },
+    {
+      "name": "Un petit-déjeuner pauvre",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Tartines et confiture n'apportent",
+        "souvent que 5 à 10g de protéines",
+        "",
+        "Il en faut pourtant 25 à 30g",
+        "en un seul repas pour bâtir du muscle"
+      ]
+    },
+    {
+      "name": "Enrichir le petit-déjeuner",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Un œuf, du fromage blanc",
+        "ou un verre de lait",
+        "",
+        "Répartir les protéines sur les",
+        "trois repas, pas juste le soir"
+      ]
+    },
+    {
+      "name": "La marche seule",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Bonne pour le cœur, mais",
+        "sollicite à peine les muscles",
+        "",
+        "Même en marchant chaque jour,",
+        "la force peut diminuer"
+      ]
+    },
+    {
+      "name": "Ajouter du renforcement",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Élastiques ou haltères,",
+        "deux fois par semaine suffisent",
+        "",
+        "Améliore nettement la force",
+        "de préhension et la marche"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La sarcopénie n'est pas",
+        "qu'une question d'âge"
+      ],
+      [
+        "Changer deux habitudes ralentit",
+        "sensiblement la perte musculaire"
+      ]
+    ],
+    "tip": [
+      "Petit-déjeuner protéiné et",
+      "deux séances de renforcement par semaine"
+    ],
+    "cta": "Envie d'autres conseils santé comme celui-ci ? Abonnez-vous et suivez-nous"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Sarkopeni: känns trappor eller",
+    "burklock tyngre än förr?",
+    "3 vanor som skyddar dina muskler"
+  ],
+  "eyebrow": "Varning för muskelhälsa",
+  "swipe_label": "Svep för mer  ->",
+  "closing_label": "Sammanfattning",
+  "cover_scrim_color": "#7C3E5C",
+  "char_display_names": {
+    "계란_illust.jpg": "Ägg",
+    "운동화_illust.jpg": "Promenadskor",
+    "아령_illust.jpg": "Hantlar"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Efter medelåldern minskar",
+        "muskelmassan 6-8% per decennium",
+        "",
+        "Äldre muskler behöver mer",
+        "protein per måltid"
+      ]
+    },
+    {
+      "name": "Proteinfattig frukost",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "En smörgåsfrukost ger",
+        "ofta bara 5-10g protein",
+        "",
+        "Muskeluppbyggnad kräver",
+        "25-30g i en enda måltid"
+      ]
+    },
+    {
+      "name": "Förbättra frukosten",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Ett ägg, keso eller",
+        "ett glas mjölk räcker",
+        "",
+        "Fördela protein över alla",
+        "tre måltider, inte bara middagen"
+      ]
+    },
+    {
+      "name": "Bara promenader",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Bra för hjärtat, men",
+        "utmanar musklerna knappt",
+        "",
+        "Även dagliga promenerare",
+        "kan tappa styrka"
+      ]
+    },
+    {
+      "name": "Lägg till styrketräning",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Träningsband eller hantlar,",
+        "två gånger i veckan räcker",
+        "",
+        "Förbättrar greppstyrka och",
+        "gånghastighet märkbart"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Muskelförlust beror inte",
+        "bara på åldern"
+      ],
+      [
+        "Att ändra två vanor bromsar",
+        "förlusten märkbart"
+      ]
+    ],
+    "tip": [
+      "Proteinrikare frukost och",
+      "styrketräning två gånger i veckan"
+    ],
+    "cta": "Vill du ha fler hälsotips som detta? Följ oss för mer"
+  }
+}
