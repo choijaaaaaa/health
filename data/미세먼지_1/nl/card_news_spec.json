@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Hoge fijnstofwaarden vandaag?",
+    "Check deze 3 dingen",
+    "voordat je naar buiten gaat"
+  ],
+  "eyebrow": "Fijnstofwaarschuwing",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "미세먼지_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Hydraterende crème",
+    "인공눈물_illust.jpg": "Kunsttranen",
+    "마스크_illust.jpg": "FFP2-mondkapje"
+  },
+  "items": [
+    {
+      "name": "Waarom deze 3 dingen",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Huid, ogen en luchtwegen —",
+        "deze drie krijgen het zwaarst",
+        "",
+        "Fijnstofdeeltjes zijn klein genoeg",
+        "om in alle drie",
+        "tegelijk door te dringen"
+      ]
+    },
+    {
+      "name": "Huid",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "PM2.5 is klein genoeg",
+        "om zich in je poriën te nestelen",
+        "",
+        "Dat veroorzaakt oxidatieve stress,",
+        "die het collageen afbreekt",
+        "dat je huid stevig houdt"
+      ]
+    },
+    {
+      "name": "Voor je huid",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Reinig je huid grondig",
+        "zodra je binnen bent",
+        "",
+        "en gebruik daarna een",
+        "antioxidant serum en",
+        "een hydraterende crème"
+      ]
+    },
+    {
+      "name": "Ogen",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Ten tweede irriteert fijnstof",
+        "de kliertjes in je ooglid,",
+        "",
+        "die de traanfilm stabiel houden —",
+        "die film wordt onstabiel,",
+        "je ogen worden droog"
+      ]
+    },
+    {
+      "name": "Voor je ogen",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Draag een omsluitende bril",
+        "op dagen met slechte lucht",
+        "",
+        "en gebruik kunsttranen",
+        "bij een branderig gevoel"
+      ]
+    },
+    {
+      "name": "Luchtwegen",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Ten slotte dringen deeltjes",
+        "kleiner dan 2,5 micrometer",
+        "",
+        "diep door in je luchtwegen,",
+        "irriteren het slijmvlies —",
+        "hoesten en kortademigheid volgen"
+      ]
+    },
+    {
+      "name": "Voor je luchtwegen",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Draag een goed passend",
+        "FFP2-mondkapje buiten",
+        "",
+        "en vermijd zware inspanning",
+        "op dagen met hoge waarden"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dat betekent niet dat je",
+        "altijd binnen moet blijven"
+      ],
+      [
+        "Een paar gewoontes maken",
+        "op de lastige dagen al verschil"
+      ]
+    ],
+    "tip": [
+      "Reinigen, kunsttranen, mondkapje —",
+      "op dagen met hoge fijnstofwaarden"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  }
+}

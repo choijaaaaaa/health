@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Hohe Feinstaubwerte heute?",
+    "Bevor du rausgehst,",
+    "diese 3 Dinge prüfen"
+  ],
+  "eyebrow": "Feinstaub-Warnung",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "미세먼지_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Feuchtigkeitspflege",
+    "인공눈물_illust.jpg": "Künstliche Tränen",
+    "마스크_illust.jpg": "FFP2-Maske"
+  },
+  "items": [
+    {
+      "name": "Warum genau diese drei",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Haut, Augen und Atemwege —",
+        "sie bekommen es zuerst ab",
+        "",
+        "Feinstaubpartikel sind klein genug,",
+        "um in alle drei Bereiche",
+        "einzudringen"
+      ]
+    },
+    {
+      "name": "Haut",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "PM2.5 ist klein genug,",
+        "um sich in den Poren festzusetzen",
+        "",
+        "Das löst oxidativen Stress aus,",
+        "der das Kollagen abbaut,",
+        "das die Haut straff hält"
+      ]
+    },
+    {
+      "name": "Für die Haut hilft das",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Nach dem Draußensein",
+        "gründlich reinigen,",
+        "",
+        "dann ein Vitamin-C-Serum",
+        "und eine Feuchtigkeitspflege",
+        "auftragen"
+      ]
+    },
+    {
+      "name": "Augen",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Zweitens reizt Feinstaub",
+        "die Lidranddrüsen,",
+        "",
+        "die den Tränenfilm stabil halten —",
+        "er wird instabil,",
+        "die Augen werden trocken"
+      ]
+    },
+    {
+      "name": "Für die Augen hilft das",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "An Tagen mit schlechter Luft",
+        "eine Schutzbrille tragen",
+        "",
+        "Bei einem Fremdkörpergefühl",
+        "mit künstlichen Tränen spülen"
+      ]
+    },
+    {
+      "name": "Atemwege",
+      "char_file": "미세먼지_illust.jpg",
+      "body": [
+        "Drittens dringen Partikel",
+        "unter 2,5 Mikrometern",
+        "",
+        "tief in die Atemwege ein,",
+        "reizen die Schleimhaut —",
+        "Husten und Enge folgen"
+      ]
+    },
+    {
+      "name": "Für die Atemwege hilft das",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "An Tagen mit hohen Werten",
+        "eine gut sitzende FFP2-Maske tragen",
+        "",
+        "und drinnen erst einmal",
+        "tief durchatmen lassen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Das heißt nicht,",
+        "dass du zu Hause bleiben musst"
+      ],
+      [
+        "Ein paar Gewohnheiten reichen",
+        "an den kritischen Tagen"
+      ]
+    ],
+    "tip": [
+      "Reinigen, Augen spülen und",
+      "Maske tragen an Feinstaubtagen"
+    ],
+    "cta": "Mehr Gesundheitstipps? Jetzt abonnieren, liken und folgen!"
+  }
+}
