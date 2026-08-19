@@ -339,6 +339,13 @@
       "url": "output/%EC%88%98%EB%A9%B4_8/ko/dashboard.html"
     }
   ],
+  "냉동 연어": [
+    {
+      "title": "아니사키스, 회나 초밥 먹고 배가 갑자기 콕콕 쑤시신가요? - 안전하게 회 즐기는 법",
+      "topic": "소화_22/ko",
+      "url": "output/%EC%86%8C%ED%99%94_22/ko/dashboard.html"
+    }
+  ],
   "냉찜질팩": [
     {
       "title": "테니스엘보, 팔꿈치 바깥쪽 시큰거림 물건 쥘 때 아프면 - 테니스엘보 막는 습관",
@@ -422,6 +429,11 @@
     }
   ],
   "단백질 보충제": [
+    {
+      "title": "근감소증, 계단 오르기 힘들고 병뚜껑도 안 열린다면 - 근육 빠지는 이유와 막는 습관",
+      "topic": "근골격_17/ko",
+      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_17/ko/dashboard.html"
+    },
     {
       "title": "위고비, 마운자로 맞고 계셨다면 잠깐 - 근손실 막고 요요 줄이는 습관",
       "topic": "대사_14/ko",
@@ -1109,14 +1121,14 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_3/ko/dashboard.html"
     },
     {
-      "title": "심방세동, 맥박이 불규칙하게 뛴다면 주목! - 뇌졸중 위험 줄이는 습관 3가지",
-      "topic": "순환_13/ko",
-      "url": "output/%EC%88%9C%ED%99%98_13/ko/dashboard.html"
-    },
-    {
       "title": "잠꼬대, 자다가 말을 한다고 가족이 얘기해주지 않나요? - 잠꼬대 줄이는 습관 3가지",
       "topic": "수면_11/ko",
       "url": "output/%EC%88%98%EB%A9%B4_11/ko/dashboard.html"
+    },
+    {
+      "title": "심방세동, 맥박이 불규칙하게 뛴다면 주목! - 뇌졸중 위험 줄이는 습관 3가지",
+      "topic": "순환_13/ko",
+      "url": "output/%EC%88%9C%ED%99%98_13/ko/dashboard.html"
     },
     {
       "title": "손발 끝이 자꾸 저리고 시린가요? - 손발 저림 부르는 음식 피하는 법",
@@ -2326,6 +2338,13 @@
       "url": "output/%EB%8C%80%EC%82%AC_13/ko/dashboard.html"
     }
   ],
+  "연어 스테이크": [
+    {
+      "title": "아니사키스, 회나 초밥 먹고 배가 갑자기 콕콕 쑤시신가요? - 안전하게 회 즐기는 법",
+      "topic": "소화_22/ko",
+      "url": "output/%EC%86%8C%ED%99%94_22/ko/dashboard.html"
+    }
+  ],
   "연하보조식품": [
     {
       "title": "연하장애, 자꾸 사레 들린다면 사실 목 근육 탓이에요 - 사레 줄이는 식사 습관 3가지",
@@ -2997,6 +3016,11 @@
       "title": "근감소증, 계단 오를 때 유독 힘들다면 - 근육 지키는 습관 3가지",
       "topic": "고령_2/ko",
       "url": "output/%EA%B3%A0%EB%A0%B9_2/ko/dashboard.html"
+    },
+    {
+      "title": "근감소증, 계단 오르기 힘들고 병뚜껑도 안 열린다면 - 근육 빠지는 이유와 막는 습관",
+      "topic": "근골격_17/ko",
+      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_17/ko/dashboard.html"
     },
     {
       "title": "다이어트 정체기, 10명 중 8명이 겪는다는데 혹시 나도? - 정체기 뚫는 습관",
