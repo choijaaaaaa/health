@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Mal di testa o stanchezza",
+    "dopo l'aria condizionata?",
+    "Fermati un attimo",
+    "3 abitudini da correggere"
+  ],
+  "eyebrow": "Malessere da aria condizionata",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Sbalzo termico",
+    "에어컨_illust.jpg": "Filtro",
+    "찬바람_illust.jpg": "Ventilazione"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Mal di testa o stanchezza",
+        "dopo l'aria condizionata?",
+        "Fermati un attimo",
+        "",
+        "Il corpo regola la temperatura",
+        "tramite i vasi sanguigni, e",
+        "3 abitudini sovraccaricano questo sistema"
+      ]
+    },
+    {
+      "name": "Lo sbalzo termico",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Primo: lo sbalzo termico",
+        "con l'esterno",
+        "",
+        "Oltre i 6-7°C di differenza,",
+        "il corpo fatica ad adattarsi"
+      ]
+    },
+    {
+      "name": "Come correggerlo",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Imposta il condizionatore",
+        "6-7°C sotto l'esterno, non di più",
+        "",
+        "Tieni a portata di mano",
+        "un maglioncino leggero"
+      ]
+    },
+    {
+      "name": "Il filtro sporco",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Secondo: il filtro sporco",
+        "",
+        "Umidità e polvere diventano",
+        "terreno fertile per la muffa,",
+        "che irrita la gola"
+      ]
+    },
+    {
+      "name": "Come correggerlo",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Pulisci il filtro ogni",
+        "2-4 settimane",
+        "",
+        "Riduce nettamente mal di gola",
+        "e mal di testa"
+      ]
+    },
+    {
+      "name": "La scarsa ventilazione",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Terzo: la scarsa ventilazione",
+        "",
+        "Finestre chiuse fanno salire",
+        "la CO2 — causa di stanchezza",
+        "e mal di testa"
+      ]
+    },
+    {
+      "name": "Come correggerlo",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Apri le finestre pochi minuti",
+        "ogni 1-2 ore",
+        "",
+        "Abbassa subito i livelli",
+        "di CO2"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sbalzo termico, filtro sporco",
+        "e poca aria: il vero trio responsabile"
+      ],
+      [
+        "Non è una questione di",
+        "resistenza fisica, ma di abitudini"
+      ]
+    ],
+    "tip": [
+      "Sbalzo sotto i 6-7°C, filtro pulito",
+      "e qualche minuto di ricambio d'aria"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#3E8299"
+}

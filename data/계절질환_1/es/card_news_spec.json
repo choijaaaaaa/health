@@ -1,0 +1,116 @@
+{
+  "title": [
+    "¿Dolor de cabeza o cansancio",
+    "tras el aire acondicionado?",
+    "Detente un momento",
+    "3 hábitos que hay que corregir"
+  ],
+  "eyebrow": "Malestar por el aire acondicionado",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Diferencia de temperatura",
+    "에어컨_illust.jpg": "Filtro",
+    "찬바람_illust.jpg": "Ventilación"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "¿Dolor de cabeza o cansancio",
+        "tras el aire acondicionado?",
+        "Detente un momento",
+        "",
+        "El cuerpo regula su temperatura",
+        "con los vasos sanguíneos, y",
+        "3 hábitos sobrecargan ese sistema"
+      ]
+    },
+    {
+      "name": "La diferencia de temperatura",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Primero: la diferencia con",
+        "la temperatura exterior",
+        "",
+        "Superar los 10-12°C de diferencia",
+        "puede provocar un choque térmico"
+      ]
+    },
+    {
+      "name": "Así se corrige",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Mantén el aire acondicionado",
+        "entre 24 y 26°C",
+        "",
+        "Lleva una prenda ligera",
+        "para cuando salgas"
+      ]
+    },
+    {
+      "name": "El filtro sucio",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Segundo: un filtro sucio",
+        "",
+        "Humedad y polvo se convierten",
+        "en caldo de cultivo para el moho,",
+        "que irrita la garganta"
+      ]
+    },
+    {
+      "name": "Así se corrige",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Limpia el filtro cada",
+        "2 a 4 semanas",
+        "",
+        "Reduce mucho la irritación",
+        "y los dolores de cabeza"
+      ]
+    },
+    {
+      "name": "La falta de ventilación",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Tercero: la falta de ventilación",
+        "",
+        "Con las ventanas cerradas",
+        "el CO2 se acumula — causando",
+        "dolor de cabeza y fatiga"
+      ]
+    },
+    {
+      "name": "Así se corrige",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Ventila unos minutos",
+        "cada 1-2 horas",
+        "",
+        "Baja rápidamente el nivel",
+        "de CO2 acumulado"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Diferencia de temperatura, filtro sucio",
+        "y poca ventilación: el verdadero trío"
+      ],
+      [
+        "No es falta de resistencia,",
+        "son hábitos que se pueden cambiar"
+      ]
+    ],
+    "tip": [
+      "Diferencia bajo 10-12°C, filtro limpio",
+      "y unos minutos de ventilación"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#1F6F8B"
+}
