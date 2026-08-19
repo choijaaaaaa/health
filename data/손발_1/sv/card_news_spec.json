@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Spröda naglar",
+    "som ständigt spricker",
+    "eller får refflor?",
+    "Praktisk guide"
+  ],
+  "eyebrow": "Nagelvård",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alkohol",
+    "커피_illust.jpg": "Kaffe",
+    "라면_illust.jpg": "Snabbmat"
+  },
+  "items": [
+    {
+      "name": "Varför det händer",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Naglar består nästan",
+        "helt av keratin",
+        "",
+        "Vissa drycker och livsmedel",
+        "kan hämma uppbyggnaden"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vin och öl sänker ofta",
+        "nivåerna av biotin",
+        "",
+        "Biotin är avgörande",
+        "för att bygga keratin"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Växla med vatten",
+        "och minska mängden"
+      ]
+    },
+    {
+      "name": "Kaffe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenolerna i kaffe",
+        "hämmar upptaget",
+        "av järn och zink",
+        "",
+        "Båda behövs för",
+        "att bygga ny nagelvävnad"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Dricka kaffet",
+        "en bit från måltiden"
+      ]
+    },
+    {
+      "name": "Snabbmat",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Nudelsoppa och färdigmat",
+        "ger lite protein och mineraler",
+        "",
+        "Byggmaterialet till",
+        "nageln saknas då"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Äta mer ägg",
+        "och baljväxter"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vin, kaffe och snabbmat",
+        "behöver inte helt bort"
+      ],
+      [
+        "Att justera mängd och tajming",
+        "räcker ofta långt"
+      ]
+    ],
+    "tip": [
+      "Drick tillräckligt med vatten och använd",
+      "handskar vid diskning för extra nagelskydd"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera och följ oss!"
+  }
+}

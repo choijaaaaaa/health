@@ -1,0 +1,104 @@
+{
+  "title": [
+    "Broze nagels,",
+    "die steeds afbreken",
+    "of ribbels krijgen?",
+    "Praktische gids"
+  ],
+  "eyebrow": "Nagelzorg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "맥주_illust.jpg",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "커피_illust.jpg": "Koffie",
+    "라면_illust.jpg": "Instantmaaltijden"
+  },
+  "items": [
+    {
+      "name": "Waarom dit gebeurt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Nagels bestaan bijna",
+        "helemaal uit keratine",
+        "",
+        "Sommige dranken en voeding",
+        "kunnen de aanmaak hiervan remmen"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Wijn en bier verlagen",
+        "vaak het biotinegehalte",
+        "",
+        "Biotine is essentieel",
+        "voor de opbouw van keratine"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Afwisselen met water",
+        "en de hoeveelheid verminderen"
+      ]
+    },
+    {
+      "name": "Koffie",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenolen in koffie remmen",
+        "de opname van ijzer en zink",
+        "",
+        "Beide zijn nodig",
+        "voor nieuw nagelweefsel"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffie los van",
+        "de maaltijden drinken"
+      ]
+    },
+    {
+      "name": "Instantmaaltijden",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Instantnoedels leveren",
+        "weinig eiwit en mineralen",
+        "",
+        "Het bouwmateriaal voor",
+        "de nagel ontbreekt dan"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Vaker eieren of",
+        "peulvruchten eten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wijn, koffie en instantmaaltijden",
+        "hoeven niet helemaal te verdwijnen"
+      ],
+      [
+        "Hoeveelheid en timing aanpassen",
+        "is vaak al genoeg"
+      ]
+    ],
+    "tip": [
+      "Genoeg water drinken en handschoenen",
+      "dragen bij de afwas helpt de nagels ook"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer en volg ons!"
+  }
+}
