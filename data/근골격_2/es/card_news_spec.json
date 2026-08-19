@@ -1,0 +1,82 @@
+{
+  "title": [
+    "La densidad ósea baja,",
+    "y no es solo por la edad -",
+    "Hábitos que conviene revisar"
+  ],
+  "eyebrow": "Salud ósea",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Sodio",
+    "커피_illust.jpg": "Cafeína"
+  },
+  "items": [
+    {
+      "name": "¿Por qué pasa esto?",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "El sodio y la cafeína en exceso",
+        "",
+        "eliminan calcio",
+        "por la orina poco a poco"
+      ]
+    },
+    {
+      "name": "El sodio",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Por cada 500mg de sodio",
+        "",
+        "unos 10mg de calcio",
+        "se eliminan también"
+      ]
+    },
+    {
+      "name": "Sodio — lo que ayuda",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Revisar etiquetas de",
+        "embutidos y conservas",
+        "",
+        "Priorizar alimentos frescos"
+      ]
+    },
+    {
+      "name": "La cafeína",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Más de 3 tazas al día",
+        "con poco calcio",
+        "",
+        "aumenta el riesgo"
+      ]
+    },
+    {
+      "name": "Cafeína — lo que ayuda",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Máximo 3 tazas al día",
+        "",
+        "Acompañar el café con leche"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El sodio y la cafeína no hay",
+        "que eliminarlos del todo"
+      ],
+      [
+        "La cantidad y el calcio",
+        "marcan la diferencia"
+      ]
+    ],
+    "tip": [
+      "Sardinas, lácteos y verduras",
+      "de hoja verde ayudan cada día"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos, dale like y suscríbete!"
+  },
+  "cover_scrim_color": "#2E6E8E"
+}

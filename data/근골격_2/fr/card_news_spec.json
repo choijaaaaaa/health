@@ -1,0 +1,86 @@
+{
+  "title": [
+    "Vos os perdent en densité,",
+    "et ce n'est pas que l'âge -",
+    "3 habitudes à revoir"
+  ],
+  "eyebrow": "Santé osseuse au quotidien",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "가공육_illust.jpg": "Charcuterie"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça arrive ?",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine et le sel",
+        "font tous deux perdre",
+        "",
+        "du calcium par les urines",
+        "un peu plus chaque jour"
+      ]
+    },
+    {
+      "name": "Le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Plus de 4 tasses par jour",
+        "avec peu de calcium",
+        "",
+        "= risque plus élevé",
+        "pour la densité osseuse"
+      ]
+    },
+    {
+      "name": "Café — ce qui aide",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Limiter à 3 tasses par jour",
+        "",
+        "Ajouter un peu de lait",
+        "pour le calcium"
+      ]
+    },
+    {
+      "name": "La charcuterie",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Jambon, saucisson, pâtés",
+        "",
+        "Parmi les premières sources",
+        "de sel caché en France"
+      ]
+    },
+    {
+      "name": "Charcuterie — ce qui aide",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Réserver aux occasions",
+        "plutôt qu'au quotidien",
+        "",
+        "Vérifier les étiquettes",
+        "des plats préparés"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Café et charcuterie n'ont pas",
+        "à disparaître complètement"
+      ],
+      [
+        "La fréquence et le calcium",
+        "font la différence"
+      ]
+    ],
+    "tip": [
+      "Un apport calcique suffisant",
+      "compense une bonne partie du risque"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, aimez et suivez !"
+  },
+  "cover_scrim_color": "#6A3E8C"
+}

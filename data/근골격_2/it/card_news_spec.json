@@ -1,0 +1,85 @@
+{
+  "title": [
+    "Le ossa perdono densità,",
+    "e non è solo colpa dell'età -",
+    "Le abitudini da rivedere"
+  ],
+  "eyebrow": "Salute delle ossa",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Sale e salumi",
+    "탄산음료_illust.jpg": "Bevande gassate"
+  },
+  "items": [
+    {
+      "name": "Perché succede?",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Sale in eccesso e bevande gassate",
+        "",
+        "sottraggono calcio",
+        "alle ossa in modi diversi"
+      ]
+    },
+    {
+      "name": "Il sale",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Ogni 2.300mg di sodio",
+        "",
+        "fino a 60mg di calcio",
+        "perso nelle urine"
+      ]
+    },
+    {
+      "name": "Sale — cosa aiuta",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Erbe aromatiche e limone",
+        "al posto del sale aggiunto",
+        "",
+        "Salumi solo poche volte",
+        "a settimana"
+      ]
+    },
+    {
+      "name": "Bevande gassate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "L'acido fosforico nella cola",
+        "",
+        "altera l'equilibrio",
+        "calcio-fosforo"
+      ]
+    },
+    {
+      "name": "Bevande gassate — cosa aiuta",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Acqua, anche frizzante,",
+        "al posto della cola",
+        "",
+        "Pesce azzurro con le lische",
+        "per il calcio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sale e bevande gassate non devono",
+        "sparire del tutto"
+      ],
+      [
+        "La quantità e il calcio",
+        "fanno la differenza"
+      ]
+    ],
+    "tip": [
+      "La dieta mediterranea aiuta",
+      "a mantenere l'equilibrio giusto"
+    ],
+    "cta": "Altri consigli per la salute? Iscriviti, metti mi piace e segui!"
+  },
+  "cover_scrim_color": "#B8542E"
+}
