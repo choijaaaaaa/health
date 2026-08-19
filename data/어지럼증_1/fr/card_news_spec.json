@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Ce n'est pas la fatigue,",
+    "c'est peut-être ce que vous buvez",
+    "3 habitudes qui aggravent les vertiges"
+  ],
+  "eyebrow": "Alerte vertiges",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Pourquoi ça arrive",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Repas sauté + sucre,",
+        "café et alcool,",
+        "",
+        "aliments salés",
+        "chacun agit différemment sur les vertiges"
+      ]
+    },
+    {
+      "name": "Repas sauté + sucre",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La glycémie grimpe puis chute",
+        "plus vite que le corps ne compense",
+        "",
+        "Le cerveau manque d'énergie",
+        "et les vertiges apparaissent"
+      ]
+    },
+    {
+      "name": "Contre l'hypoglycémie réactionnelle",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Mangez à heures régulières",
+        "et préférez des amandes",
+        "",
+        "à un bonbon",
+        "en cas de petite faim"
+      ]
+    },
+    {
+      "name": "Café & alcool",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine resserre",
+        "les vaisseaux du cerveau",
+        "",
+        "L'alcool perturbe l'équilibre",
+        "et les deux déshydratent"
+      ]
+    },
+    {
+      "name": "Contre le café & l'alcool",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Remplacez le café par",
+        "une tisane sans caféine",
+        "",
+        "et buvez de l'eau",
+        "entre deux verres d'alcool"
+      ]
+    },
+    {
+      "name": "Le sel déstabilise l'équilibre",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Trop de sodium fait retenir",
+        "l'eau au corps",
+        "",
+        "ce qui peut augmenter la pression",
+        "dans l'oreille interne"
+      ]
+    },
+    {
+      "name": "Contre les plats salés",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Laissez un peu de bouillon",
+        "et associez une banane",
+        "",
+        "riche en potassium",
+        "à un plat salé"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Si les vertiges reviennent souvent",
+        "avec acouphènes ou troubles auditifs"
+      ],
+      [
+        "mieux vaut consulter un médecin"
+      ]
+    ],
+    "tip": [
+      "Repas réguliers, moins de café",
+      "et d'alcool, potassium avec le sel",
+      "réduisent la fréquence des vertiges"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous et suivez-nous !"
+  }
+}

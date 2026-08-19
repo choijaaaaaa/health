@@ -1,0 +1,105 @@
+{
+  "title": [
+    "3 hábitos diarios",
+    "que empeoran los mareos",
+    "y qué hacer en su lugar"
+  ],
+  "eyebrow": "Alerta de mareos",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Por qué pasa esto",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Saltarte comidas + dulce,",
+        "café y alcohol,",
+        "",
+        "comida salada",
+        "cada uno afecta de forma distinta"
+      ]
+    },
+    {
+      "name": "Saltarte comidas + dulce",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La glucosa sube y luego cae",
+        "más rápido de lo que el cuerpo compensa",
+        "",
+        "el cerebro se queda sin energía",
+        "y aparece el mareo"
+      ]
+    },
+    {
+      "name": "Así se evita la hipoglucemia reactiva",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Come a horas regulares",
+        "y elige almendras",
+        "",
+        "en vez de un caramelo",
+        "cuando tengas hambre entre comidas"
+      ]
+    },
+    {
+      "name": "Café y alcohol",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La cafeína estrecha",
+        "los vasos del cerebro",
+        "",
+        "el alcohol afecta al equilibrio",
+        "y ambos deshidratan"
+      ]
+    },
+    {
+      "name": "Así se maneja el café y el alcohol",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Cambia el café por",
+        "una infusión sin cafeína",
+        "",
+        "y bebe agua",
+        "entre copa y copa de alcohol"
+      ]
+    },
+    {
+      "name": "La sal desestabiliza el equilibrio",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Demasiado sodio hace que",
+        "el cuerpo retenga agua",
+        "",
+        "y eso puede aumentar la presión",
+        "en el oído interno"
+      ]
+    },
+    {
+      "name": "Así se maneja la comida salada",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Deja parte del caldo",
+        "y combina un plátano",
+        "",
+        "rico en potasio",
+        "con un plato salado"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Si los mareos se repiten a menudo",
+        "con zumbidos o cambios en la audición"
+      ],
+      [
+        "conviene acudir al médico"
+      ]
+    ],
+    "tip": [
+      "Comidas regulares, menos café",
+      "y alcohol, potasio con lo salado",
+      "reducen cuántas veces aparece el mareo"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos y suscríbete!"
+  }
+}

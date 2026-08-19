@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Nicht immer",
+    "der Blutdruck",
+    "3 Alltagsgewohnheiten, die Schwindel auslösen"
+  ],
+  "eyebrow": "Schwindel-Warnung",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Süßes nach dem Hungern,",
+        "Kaffee und Alkohol,",
+        "",
+        "salzreiches Essen",
+        "wirken jeweils anders auf Schwindel"
+      ]
+    },
+    {
+      "name": "Ausgelassene Mahlzeit + Süßes",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Der Blutzucker steigt schnell",
+        "und fällt dann noch schneller",
+        "",
+        "Das Gehirn bekommt kurz",
+        "zu wenig Energie"
+      ]
+    },
+    {
+      "name": "So hilft es bei Unterzuckerung",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Regelmäßig essen",
+        "und bei Hunger zu Mandeln greifen",
+        "",
+        "statt zu Süßigkeiten",
+        ""
+      ]
+    },
+    {
+      "name": "Kaffee & Alkohol",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein verengt Blutgefäße",
+        "im Gehirn",
+        "",
+        "Alkohol stört das Gleichgewicht",
+        "beide entwässern zusätzlich"
+      ]
+    },
+    {
+      "name": "So hilft es bei Kaffee & Alkohol",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Kräutertee statt Kaffee",
+        "trinken",
+        "",
+        "und beim Alkohol zwischendurch",
+        "Wasser trinken"
+      ]
+    },
+    {
+      "name": "Salz bringt das Gleichgewicht durcheinander",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Viel Natrium lässt den Körper",
+        "mehr Wasser zurückhalten",
+        "",
+        "das kann den Druck",
+        "im Innenohr erhöhen"
+      ]
+    },
+    {
+      "name": "So hilft es bei salzigem Essen",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Nicht die ganze Brühe",
+        "austrinken",
+        "",
+        "und Kalium wie Bananen",
+        "dazu essen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Kommt der Schwindel oft wieder",
+        "mit Ohrgeräuschen oder Hörproblemen"
+      ],
+      [
+        "sollten Sie das ärztlich abklären lassen"
+      ]
+    ],
+    "tip": [
+      "Regelmäßig essen, weniger Kaffee",
+      "und Alkohol, Kalium zu salzigem Essen",
+      "senkt, wie oft Schwindel auftritt"
+    ],
+    "cta": "Noch mehr Gesundheitstipps? Folgen Sie uns!"
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Non è (solo)",
+    "la pressione bassa",
+    "3 abitudini che scatenano le vertigini"
+  ],
+  "eyebrow": "Allerta vertigini",
+  "cover_char_file": "소금_illust.jpg",
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Pasto saltato + zucchero,",
+        "caffè e alcol,",
+        "",
+        "cibi salati",
+        "agiscono ognuno in modo diverso"
+      ]
+    },
+    {
+      "name": "Pasto saltato + zucchero",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La glicemia sale e poi crolla",
+        "più veloce di quanto compensi il corpo",
+        "",
+        "il cervello resta senza energia",
+        "e arrivano le vertigini"
+      ]
+    },
+    {
+      "name": "Contro l'ipoglicemia reattiva",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Mangia a orari regolari",
+        "e scegli mandorle",
+        "",
+        "invece di una caramella",
+        "quando hai fame tra i pasti"
+      ]
+    },
+    {
+      "name": "Caffè & alcol",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caffeina restringe",
+        "i vasi del cervello",
+        "",
+        "l'alcol disturba l'equilibrio",
+        "ed entrambi disidratano"
+      ]
+    },
+    {
+      "name": "Contro caffè & alcol",
+      "char_file": "보리차_illust.jpg",
+      "body": [
+        "Sostituisci il caffè",
+        "con una tisana senza caffeina",
+        "",
+        "e bevi acqua",
+        "tra un bicchiere di alcol e l'altro"
+      ]
+    },
+    {
+      "name": "Il sale scuote l'equilibrio",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Troppo sodio fa trattenere",
+        "più acqua al corpo",
+        "",
+        "e può aumentare la pressione",
+        "nell'orecchio interno"
+      ]
+    },
+    {
+      "name": "Contro i cibi salati",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Lascia un po' di brodo",
+        "e abbina una banana",
+        "",
+        "ricca di potassio",
+        "a un piatto salato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Se le vertigini si ripetono spesso",
+        "con acufeni o cambi dell'udito"
+      ],
+      [
+        "è meglio consultare un medico"
+      ]
+    ],
+    "tip": [
+      "Pasti regolari, meno caffè e alcol,",
+      "potassio con i cibi salati",
+      "riducono quanto spesso arrivano le vertigini"
+    ],
+    "cta": "Vuoi altri consigli di salute? Segui e iscriviti!"
+  }
+}
