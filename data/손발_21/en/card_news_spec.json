@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Onycholysis —",
+    "If Your Nail Keeps Lifting",
+    "Away From The Nail Bed",
+    "3 Habits Behind It (And Fixes)"
+  ],
+  "eyebrow": "Gel Manicures & Nail Lifting",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#A44A6E",
+  "items": [
+    {
+      "name": "What Onycholysis Actually Is",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "The nail plate separates",
+        "from the skin underneath,",
+        "",
+        "trapping air that turns",
+        "the area white or yellow",
+        "",
+        "Three habits usually",
+        "cause it"
+      ]
+    },
+    {
+      "name": "Aggressive Buffing Before Gel",
+      "char_file": "젤네일_illust.jpg",
+      "body": [
+        "Technicians press hard",
+        "to rough up the surface",
+        "so gel sticks",
+        "",
+        "That pressure alone",
+        "can start the lift"
+      ]
+    },
+    {
+      "name": "Ask For Gentle Buffing",
+      "char_file": "젤네일_illust.jpg",
+      "body": [
+        "Ask for gentle buffing,",
+        "or skip heavy sanding",
+        "entirely"
+      ]
+    },
+    {
+      "name": "Over-Soaking In Acetone",
+      "char_file": "네일리무버_illust.jpg",
+      "body": [
+        "Long soaks dissolve the",
+        "oils holding the nail",
+        "together",
+        "",
+        "Picking at the edges",
+        "peels off healthy layers",
+        "with the polish"
+      ]
+    },
+    {
+      "name": "Have It Filed Down Instead",
+      "char_file": "네일리무버_illust.jpg",
+      "body": [
+        "Have a technician",
+        "file the gel down thin",
+        "instead of soaking"
+      ]
+    },
+    {
+      "name": "Back-To-Back Gel Sessions",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Once the plate lifts,",
+        "it doesn't reattach",
+        "on its own",
+        "",
+        "It has to grow out,",
+        "which takes months"
+      ]
+    },
+    {
+      "name": "Leave Nails Bare Between Sets",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Leave nails bare for",
+        "at least two weeks",
+        "between gel sets",
+        "",
+        "If lifting spreads or",
+        "color changes, see",
+        "a dermatologist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Aggressive buffing, over-soaking, and no breaks —",
+        "these three habits drive onycholysis"
+      ],
+      [
+        "Gentle buffing, filing instead of soaking,",
+        "and two-week breaks keep nails healthy"
+      ]
+    ],
+    "tip": [
+      "Leave nails bare for at least two weeks between gel sets"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
