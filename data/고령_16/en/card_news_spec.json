@@ -1,0 +1,139 @@
+{
+  "title": [
+    "Senile Purpura: Up To 30% of Adults Over 75",
+    "Get These Bruises With No Memory of Bumping Anything",
+    "Why It Happens And How To Manage It"
+  ],
+  "eyebrow": "Bruising With Age",
+  "cover_char_file": "노화_illust.jpg",
+  "cover_scrim_color": "#3D6B8C",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "손등_illust.jpg": "Bruising",
+    "햇빛_illust.jpg": "Sun",
+    "자외선차단제_illust.jpg": "Sunscreen",
+    "아스피린_illust.jpg": "Blood Thinners",
+    "달력_illust.jpg": "Track It",
+    "거미줄혈관_illust.jpg": "Fragile Vessels",
+    "바세린_illust.jpg": "Moisturize"
+  },
+  "items": [
+    {
+      "name": "Why does the smallest bump leave such a big bruise",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "As skin ages, the collagen",
+        "that supports your skin",
+        "and blood vessels breaks down",
+        "",
+        "On thin spots like the back",
+        "of your hands, even a light",
+        "bump can tear a vessel",
+        "",
+        "Most bruises like this fade",
+        "within one to three weeks",
+        "with no scar"
+      ]
+    },
+    {
+      "name": "Years of sun exposure",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "First, years of",
+        "cumulative sun exposure",
+        "",
+        "Skin on the hands and",
+        "forearms that's spent years",
+        "in the sun loses collagen",
+        "and grows thinner",
+        "",
+        "That leaves blood vessels",
+        "with far less support"
+      ]
+    },
+    {
+      "name": "Instead of going unprotected",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "Cover your hands and",
+        "forearms with long sleeves",
+        "or sunscreen before",
+        "you head outside",
+        "",
+        "Gloves or arm sleeves",
+        "help too"
+      ]
+    },
+    {
+      "name": "Blood thinners like aspirin",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Second, blood thinners",
+        "like aspirin",
+        "",
+        "They make it harder for",
+        "blood to clot, so once",
+        "a vessel tears, it bleeds",
+        "more before it stops",
+        "",
+        "That's why the bruise",
+        "spreads so much larger"
+      ]
+    },
+    {
+      "name": "Instead of ignoring it",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Keep track of the",
+        "medications you're taking",
+        "",
+        "If bruising gets frequent",
+        "or severe, check in",
+        "with your doctor"
+      ]
+    },
+    {
+      "name": "Dry skin left unmanaged",
+      "char_file": "거미줄혈관_illust.jpg",
+      "body": [
+        "Third, dry skin",
+        "left unmanaged",
+        "",
+        "Dry skin loses",
+        "its elasticity,",
+        "so it absorbs",
+        "even less impact"
+      ]
+    },
+    {
+      "name": "Instead of letting skin dry out",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Moisturize your hands",
+        "and arms every day",
+        "",
+        "A 12-week study found daily",
+        "retinol cream thickened skin",
+        "and boosted collagen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A bruise with no memory of bumping anything",
+        "is usually just thinner skin and vessels, from age"
+      ],
+      [
+        "Sun protection, tracking your meds, daily moisturizer —",
+        "start with these three"
+      ]
+    ],
+    "tip": [
+      "Sun protection, tracking your meds, daily moisturizer —",
+      "pick one and start today"
+    ],
+    "cta": "Want more health tips like this? Follow for more"
+  }
+}
