@@ -827,14 +827,8 @@ Promise.all([
   // 참고) "topic1|shorts" 형태 문자열로 합쳐 Set에 넣어야 트랙별로 독립적으로
   // 완료 여부를 판정할 수 있다.
   sb.from("completed_topics").select("base_topic,track,completed_at").then(r => r.data || []),
-  // WHY youtube_uploaded 별도 조회(2026-08-02, "유튜브 숏츠"만" 완료되었는지를
-  // 해당 라인에서 확인할 수 있게"): completed_topics(콘텐츠 전체 완료)과는
-  // 독립적인 기준 — 유튜브 업로드+썸네일+재생목록 등록까지 끝나면(예약 게시여도
-  // 실제 공개 전환 시각을 기다리지 않고) lib/youtube_upload.py가 이 테이블에
-  // 자동 기록한다(_mark_youtube_uploaded).
-  sb.from("youtube_uploaded").select("topic").then(r => (r.data || []).map(x => x.topic)),
 ])
-  .then(([topics, completedRows, youtubeList]) => {
+  .then(([topics, completedRows]) => {
     if (!topics.length) return;
     const completed = new Set(completedRows.map(r => `${r.base_topic}|${r.track}`));
     // WHY completedAt 별도 맵(2026-08-13, "완료목록도 업데이트 순서대로 들어가고
@@ -847,7 +841,6 @@ Promise.all([
       const prev = completedAt.get(r.base_topic);
       if (!prev || r.completed_at > prev) completedAt.set(r.base_topic, r.completed_at);
     }
-    const youtubeDone = new Set(youtubeList);
     const searchInput = document.getElementById("topicSearch");
     let currentRows = [];
 
@@ -857,8 +850,9 @@ Promise.all([
     // "가슴쓰림_1/ko"처럼 따로 나뉘면서, 이전엔 이 셋을 각각 별도 행으로 그렸다 —
     // topic이 많아질수록 같은 콘텐츠가 언어 수만큼 목록을 도배해서 찾기 어려워짐.
     // 이제 "/" 앞부분(baseTopic) 기준으로 그룹핑해서 **한 topic = 한 행**으로
-    // 그리고, 언어별 완료 여부는 그 행 안의 작은 배지(KO/EN/JA...)로 표시한다 —
-    // 배지 각각이 그 언어 대시보드로 바로 이동하는 링크를 겸한다.
+    // 그린다(2026-08-21부로 영상 트랙이 한국어 단일이라 언어별 배지 자체를
+    // 없앴지만, blog_seo가 섞인 소수 topic은 여전히 "<topic>/ko" 형태로
+    // 들어오므로 그룹핑 로직 자체는 유지).
     // WHY 정렬을 topics.updated_at 하나로 통일하는지(2026-08-11, "하나의
     // 통일된 기준을 가져가는게 더 중요하다고 생각해서" — posting_log와
     // 이중 폴백하던 걸 사용자가 단순화 요청): posting_log는 사람이 플랫폼
@@ -992,10 +986,6 @@ Promise.all([
       const textWrap = document.createElement("div");
       textWrap.style.cssText = "flex:1;min-width:0;";
 
-      // WHY <a>가 아니라 <span>인지(2026-08-03, "행 클릭할 때 들어가는 건
-      // 없애고"): 행 전체(제목 텍스트)를 눌러서 이동하던 걸 없애고, 아래
-      // 버튼으로만 이동하게 한다 — 어느 언어로 갈지 행 텍스트 클릭만으로는
-      // 애매했던 것도 같이 해결됨.
       const titleSpan = document.createElement("span");
       titleSpan.textContent = baseTopic;
       titleSpan.style.cssText = "display:block;color:var(--ink);font-size:14px;font-weight:700;";
@@ -1007,58 +997,20 @@ Promise.all([
       textWrap.appendChild(titleSpan);
       textWrap.appendChild(titleLine);
 
-      // WHY 버튼 2개(한국/Global)를 다시 1개로 합쳤는지(2026-08-04, "글로벌도
-      // 합치자 한 페이지에 같이 있고... 어차피 내가 올려야하니까 같이
-      // 관리해야하기도 하고"): ko 대시보드와 언어별 global.html이 서로 다른
-      // URL·다른 폼이라 관리자가 두 곳을 오가야 했다 — 이제 언어(ko 포함)가
-      // 있는 topic은 전부 `lib/dashboard.py`의 `_generate_unified_dashboard`가
-      // 만드는 output/<baseTopic>/dashboard.html 하나로 모인다(그 페이지
-      // 안에서 언어 탭으로 전환, 각 탭은 기존 언어별 dashboard.html을 그대로
-      // iframe으로 보여줘서 폼이 완전히 동일함). 언어가 애초에 하나뿐인(중첩
-      // 폴더가 없는) 기존 topic은 그 자체가 이미 output/<topic>/dashboard.html
-      // 이라 URL이 똑같이 유지된다 — 버튼 로직이 "중첩이냐 아니냐"만 분기하면
-      // 끝나는 이유.
-      // WHY 버튼 라벨에 "YT ✓"를 언어별로 표시하는지(2026-08-03 최초 도입 이유
-      // 그대로 유지): topic 전체 완료(행 왼쪽 ✅/⬜, completed_topics.json)와
-      // "이 언어의 유튜브 쇼츠만 업로드됐는지"(youtube_uploaded.json)는 서로
-      // 다른 트래킹이라 섞으면 안 된다 — 버튼 하나로 합쳐도 이 구분은 그대로
-      // "KO✓ EN JA" 식 언어별 배지로 유지한다.
+      // WHY 언어 버튼을 없애고 행 전체를 링크로(2026-08-21, "KO 이런 버튼도
+      // 필요없겠네 어차피 글로벌도없는데. 걍 행 눌르면 바로바로 들어가지게"):
+      // 영상 트랙이 한국어 단일이 되면서 배지가 항상 "KO"뿐이라 정보값이
+      // 없어졌다 — 예전엔(2026-08-03) 행 클릭 이동을 버튼 클릭 이동으로
+      // 바꾼 이유가 "여러 언어 중 어디로 갈지 행 텍스트만으로는 애매해서"였는데
+      // 언어가 하나뿐이니 그 이유 자체가 없어져 다시 행 전체 클릭으로 되돌린다.
+      // blog_seo가 섞인 소수 topic만 여전히 "<topic>/ko" 중첩이라 통합 wrapper
+      // (output/<baseTopic>/dashboard.html)로 보내고, 나머지는 그 topic 자체의
+      // url을 그대로 쓴다.
       const isNested = variants.some(v => v.langSeg);
       const koVariant = variants.find(v => v.langSeg === "ko" || v.langSeg === null);
-      const dashUrlBase = isNested
+      const dashUrl = isNested
         ? `output/${encodeURIComponent(baseTopic)}/dashboard.html`
         : (koVariant ? koVariant.url : variants[0].url);
-      // WHY ?tab= 안 붙이는지(2026-08-09, 목록 탭 제거와 같은 이유): 예전엔
-      // index.html에서 누른 탭을 대시보드 페이지에 강제로 전달했는데, 이제
-      // 목록에 탭 자체가 없다 — 대시보드 페이지 자체의 tab 버튼(트랙이 둘 다
-      // 있을 때만 보임)이 그 역할을 대신한다.
-      const dashUrl = dashUrlBase;
-
-      const langBadges = variants
-        .slice()
-        .sort((a, b) => {
-          const ak = (a.langSeg === "ko" || a.langSeg === null) ? "" : a.langSeg;
-          const bk = (b.langSeg === "ko" || b.langSeg === null) ? "" : b.langSeg;
-          return ak.localeCompare(bk);
-        })
-        .map(v => {
-          const code = (v.langSeg === "ko" || v.langSeg === null) ? "KO" : v.langSeg.toUpperCase();
-          const d = youtubeDone.has(v.topic) || (code === "KO" && youtubeDone.has(baseTopic));
-          return code + (d ? "✓" : "");
-        })
-        .join(" ");
-
-      const buttonWrap = document.createElement("div");
-      buttonWrap.style.cssText = "display:flex;gap:8px;flex:0 0 auto;";
-
-      const dashBtn = document.createElement("a");
-      dashBtn.textContent = langBadges;
-      dashBtn.href = dashUrl;
-      dashBtn.setAttribute("aria-label", baseTopic + " 대시보드 열기 — 언어별 유튜브 쇼츠 업로드 상태: "
-        + langBadges + "(✓ 표시는 유튜브 쇼츠 업로드만 뜻함, 다른 플랫폼 포스팅과는 별개)");
-      dashBtn.style.cssText = "font-size:14px;font-weight:700;padding:10px 18px;border-radius:22px;text-decoration:none;white-space:nowrap;background:var(--accent);color:#fff;";
-
-      buttonWrap.appendChild(dashBtn);
 
       if (done) {
         row.style.opacity = "0.45";
@@ -1066,11 +1018,27 @@ Promise.all([
         titleSpan.style.textDecoration = "line-through";
       }
 
+      // WHY role="link"+tabindex인지(네이티브 <a>로 행 전체를 감싸지 않는 이유):
+      // 행 안에 이미 상호작용 요소(완료 토글 버튼)가 있어서 <a>로 감싸면 버튼이
+      // 링크 안에 중첩되는 유효하지 않은 마크업이 된다 — 대신 div에 링크 역할과
+      // 키보드 접근성(Enter/Space)을 직접 부여한다.
+      row.style.cursor = "pointer";
+      row.setAttribute("role", "link");
+      row.tabIndex = 0;
+      row.setAttribute("aria-label", baseTopic + " 대시보드 열기 — " + primary.title);
+      const goToDashboard = () => { window.location.href = dashUrl; };
+      row.addEventListener("click", goToDashboard);
+      row.addEventListener("keydown", (ev) => {
+        if (ev.key === "Enter" || ev.key === " ") {
+          ev.preventDefault();
+          goToDashboard();
+        }
+      });
+
       row.appendChild(badge);
       row.appendChild(adTagBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
-      row.appendChild(buttonWrap);
       return row;
       }
 
