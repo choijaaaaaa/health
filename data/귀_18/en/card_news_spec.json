@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Your AirPods hearing test",
+    "came back looking fine?",
+    "Check this first",
+    "3 Things to Know About the Hearing Aid Feature"
+  ],
+  "eyebrow": "AirPods Hearing Aid Feature",
+  "cover_char_file": "무선이어폰_illust.jpg",
+  "cover_scrim_color": "#546E7A",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Takeaway",
+  "char_display_names": {
+    "무선이어폰_illust.jpg": "Earbuds"
+  },
+  "items": [
+    {
+      "name": "What is the Hearing Aid feature",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "Apple's Hearing Aid feature",
+        "got FDA clearance as the first",
+        "over-the-counter hearing aid software",
+        "",
+        "A clinical study found",
+        "self-fit users did about as well",
+        "as those fitted by a professional",
+        "",
+        "Still, three things",
+        "are worth knowing"
+      ]
+    },
+    {
+      "name": "First, who it's for",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "It's cleared only for adults",
+        "with mild-to-moderate hearing loss",
+        "",
+        "Severe loss, and any sudden",
+        "or one-sided loss,",
+        "are explicitly excluded"
+      ]
+    },
+    {
+      "name": "If loss is severe or one-sided",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "The software simply isn't",
+        "built to handle those cases",
+        "",
+        "See an ENT doctor",
+        "for a proper exam instead"
+      ]
+    },
+    {
+      "name": "Second, what the test can't catch",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "There's no professional",
+        "fitting behind it",
+        "",
+        "You calibrate it yourself",
+        "through an in-app tone test"
+      ]
+    },
+    {
+      "name": "Fine adjustments can get missed",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "Adjustments a real audiologist",
+        "would normally catch",
+        "can get missed",
+        "",
+        "An audiogram from a hearing",
+        "professional works too,",
+        "if you have one"
+      ]
+    },
+    {
+      "name": "Finally, all-day wear",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "It's not built for all-day wear",
+        "the way a real hearing aid is",
+        "",
+        "Battery runs around six hours"
+      ]
+    },
+    {
+      "name": "Wearing earbuds for hours",
+      "char_file": "무선이어폰_illust.jpg",
+      "body": [
+        "Leaving earbuds in your",
+        "ear canal for hours",
+        "raises the risk of irritation",
+        "",
+        "Give your ears a break",
+        "between long sessions"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Who it's for, what the test misses,",
+        "and all-day wear —"
+      ],
+      [
+        "knowing these three things",
+        "helps you use it safely"
+      ]
+    ],
+    "tip": [
+      "If a hearing test shows sudden",
+      "or one-sided loss, see an ENT",
+      "doctor before adjusting anything"
+    ],
+    "cta": "Follow for more useful health tips"
+  }
+}
