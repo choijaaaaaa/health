@@ -579,9 +579,19 @@
       "url": "output/%EB%8C%80%EC%82%AC_16/ko/dashboard.html"
     },
     {
+      "title": "탈모, 다이어트 주사 맞고 나서 머리숱이 줄어들고 있다면 - GLP-1 탈모 회복법",
+      "topic": "머리_16/ko",
+      "url": "output/%EB%A8%B8%EB%A6%AC_16/ko/dashboard.html"
+    },
+    {
       "title": "단백질 보충제, 근육 늘리려고 매일 드신다면 - 신장 부담 줄이는 습관",
       "topic": "비뇨기_12/ko",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_12/ko/dashboard.html"
+    },
+    {
+      "title": "다이어트 주사, 위고비나 마운자로 맞고 나서 - 어지럼증 줄이는 습관 3가지",
+      "topic": "어지럼증_15/ko",
+      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_15/ko/dashboard.html"
     },
     {
       "title": "갱년기 체중증가, 배만 나오는 게 나만 그런가 싶었다면 - 내장지방 줄이는 습관 3가지",
@@ -1410,6 +1420,11 @@
       "title": "트림·방귀가 유독 잦고 독하다면 주목! - 방귀냄새 부르는 음식 피하는 법",
       "topic": "소화_6/ko",
       "url": "output/%EC%86%8C%ED%99%94_6/ko/dashboard.html"
+    },
+    {
+      "title": "식혜, 전통 음료라 안심하고 마셨다면 - 혈당 부담 줄이는 법",
+      "topic": "혈당_13/ko",
+      "url": "output/%ED%98%88%EB%8B%B9_13/ko/dashboard.html"
     }
   ],
   "무가당 탄산수": [
@@ -2763,6 +2778,13 @@
       "url": "output/%EB%8C%80%EC%82%AC_5/ko/dashboard.html"
     }
   ],
+  "숙취해소제": [
+    {
+      "title": "몸 냄새, 술 마신 다음 날 시큼하다면 지금 확인하세요 - 냄새 오래가는 이유와 관리법",
+      "topic": "냄새_14/ko",
+      "url": "output/%EB%83%84%EC%83%88_14/ko/dashboard.html"
+    }
+  ],
   "순면 속옷": [
     {
       "title": "사타구니 냄새, 매일 씻어도 여름마다 심해진다면 이제 그만 - 냄새 줄이는 습관 3가지",
@@ -2818,6 +2840,11 @@
     }
   ],
   "스탠드조명": [
+    {
+      "title": "장마철 무기력증, 비만 오면 유독 늘어진다면 - 이기는 습관 3가지",
+      "topic": "계절질환_12/ko",
+      "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12/ko/dashboard.html"
+    },
     {
       "title": "근시, 안경 도수가 해마다 오른다면 - 진행 늦추는 습관 3가지",
       "topic": "눈_23/ko",
@@ -2934,6 +2961,11 @@
       "title": "생리불순, 체중증가, 여드름이 함께 온다면 - 다낭성난소증후군 관리법",
       "topic": "여성_7/ko",
       "url": "output/%EC%97%AC%EC%84%B1_7/ko/dashboard.html"
+    },
+    {
+      "title": "식혜, 전통 음료라 안심하고 마셨다면 - 혈당 부담 줄이는 법",
+      "topic": "혈당_13/ko",
+      "url": "output/%ED%98%88%EB%8B%B9_13/ko/dashboard.html"
     },
     {
       "title": "당화혈색소, 공복혈당 정상인데 당뇨 전단계라면 - 당화혈색소 관리법",
@@ -3062,6 +3094,11 @@
       "title": "콜라겐, 10개 중 9개가 기능성 인정 못 받았다는데 - 모발엔 이 영양소",
       "topic": "머리_14/ko",
       "url": "output/%EB%A8%B8%EB%A6%AC_14/ko/dashboard.html"
+    },
+    {
+      "title": "탈모, 다이어트 주사 맞고 나서 머리숱이 줄어들고 있다면 - GLP-1 탈모 회복법",
+      "topic": "머리_16/ko",
+      "url": "output/%EB%A8%B8%EB%A6%AC_16/ko/dashboard.html"
     },
     {
       "title": "미각장애, 입맛이 예전 같지 않다면 - 미각 되찾는 습관 3가지",
@@ -3640,6 +3677,13 @@
       "url": "output/%ED%94%BC%EB%B6%80_15/ko/dashboard.html"
     }
   ],
+  "우산": [
+    {
+      "title": "장마철 무기력증, 비만 오면 유독 늘어진다면 - 이기는 습관 3가지",
+      "topic": "계절질환_12/ko",
+      "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12/ko/dashboard.html"
+    }
+  ],
   "우유": [
     {
       "title": "허리·옆구리가 찌르듯 아프고 소변에 피가 비치신 적 있나요? - 요로결석 키우는 음식 3가지",
@@ -3858,6 +3902,11 @@
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9/ko/dashboard.html"
     },
     {
+      "title": "몸 냄새, 술 마신 다음 날 시큼하다면 지금 확인하세요 - 냄새 오래가는 이유와 관리법",
+      "topic": "냄새_14/ko",
+      "url": "output/%EB%83%84%EC%83%88_14/ko/dashboard.html"
+    },
+    {
       "title": "소변 색깔, 한국인 10명 중 6명이 물이 부족하다는데 - 색깔별로 다른 몸 상태 신호",
       "topic": "비뇨기_10/ko",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_10/ko/dashboard.html"
@@ -3896,6 +3945,11 @@
       "title": "저나트륨혈증, 물 많이 마셨는데 어지럽다면 - 물 안전하게 마시는 습관",
       "topic": "어지럼증_14/ko",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_14/ko/dashboard.html"
+    },
+    {
+      "title": "다이어트 주사, 위고비나 마운자로 맞고 나서 - 어지럼증 줄이는 습관 3가지",
+      "topic": "어지럼증_15/ko",
+      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_15/ko/dashboard.html"
     },
     {
       "title": "기립성 저혈압, 일어설 때 핑 돈다면 잠깐 - 어지럼증 줄이는 습관",
@@ -4400,6 +4454,13 @@
       "url": "output/%ED%94%BC%EB%B6%80_22/ko/dashboard.html"
     }
   ],
+  "제습기": [
+    {
+      "title": "장마철 무기력증, 비만 오면 유독 늘어진다면 - 이기는 습관 3가지",
+      "topic": "계절질환_12/ko",
+      "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12/ko/dashboard.html"
+    }
+  ],
   "제한제": [
     {
       "title": "액취증, 매일 씻어도 냄새 그대로라면 - 겨드랑이 냄새 줄이는 법",
@@ -4513,6 +4574,11 @@
     }
   ],
   "철분제": [
+    {
+      "title": "탈모, 다이어트 주사 맞고 나서 머리숱이 줄어들고 있다면 - GLP-1 탈모 회복법",
+      "topic": "머리_16/ko",
+      "url": "output/%EB%A8%B8%EB%A6%AC_16/ko/dashboard.html"
+    },
     {
       "title": "빈혈, 생리량 유독 많고 쉽게 피곤하다면 - 철분결핍성 빈혈 막는 습관 3가지",
       "topic": "여성_13/ko",
@@ -5345,6 +5411,11 @@
       "url": "output/%ED%98%88%EB%8B%B9_10/ko/dashboard.html"
     },
     {
+      "title": "식혜, 전통 음료라 안심하고 마셨다면 - 혈당 부담 줄이는 법",
+      "topic": "혈당_13/ko",
+      "url": "output/%ED%98%88%EB%8B%B9_13/ko/dashboard.html"
+    },
+    {
       "title": "혈당 스파이크, 사실 식후 이 행동 때문이라면 - 혈당 스파이크 줄이는 습관 3가지",
       "topic": "혈당_7/ko",
       "url": "output/%ED%98%88%EB%8B%B9_7/ko/dashboard.html"
@@ -5477,6 +5548,11 @@
       "title": "식후저혈압, 맵고 뜨거운 음식 먹으면 어지럽다면 - 식후 어지럼증 줄이는 습관",
       "topic": "어지럼증_13/ko",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_13/ko/dashboard.html"
+    },
+    {
+      "title": "다이어트 주사, 위고비나 마운자로 맞고 나서 - 어지럼증 줄이는 습관 3가지",
+      "topic": "어지럼증_15/ko",
+      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_15/ko/dashboard.html"
     },
     {
       "title": "기립성 저혈압, 일어설 때 핑 돈다면 잠깐 - 어지럼증 줄이는 습관",
