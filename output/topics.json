@@ -200,6 +200,37 @@
     ]
   },
   {
+    "topic": "고령_16/en",
+    "title": "Senile Purpura: Up To 30% of Adults Over 75 Get These Bruises",
+    "url": "output/%EA%B3%A0%EB%A0%B9_16/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_16/ja",
+    "title": "老人性紫斑、90歳以上では約30%に見られるというあざ",
+    "url": "output/%EA%B3%A0%EB%A0%B9_16/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "고령_16/ko",
+    "title": "노인성 자반증, 살짝 부딪혀도 멍든다면 - 멍 잘 드는 이유와 관리법",
+    "url": "output/%EA%B3%A0%EB%A0%B9_16/ko/dashboard.html",
+    "thumbnail": "output/%EA%B3%A0%EB%A0%B9_16/ko/card_news/%EA%B3%A0%EB%A0%B9_16_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "고령_2/en",
     "title": "Stairs or jars feel harder than before? - 3 Habits That Protect Your Muscle",
     "url": "output/%EA%B3%A0%EB%A0%B9_2/en/dashboard.html",
@@ -429,6 +460,37 @@
     "thumbnail": "output/%EA%B7%80_17/ko/card_news/%EA%B7%80_17_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "귀_18/en",
+    "title": "Your AirPods Hearing Test Came Back Fine? 3 Things to Know About the Hearing Aid Feature",
+    "url": "output/%EA%B7%80_18/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "귀_18/ja",
+    "title": "AirPodsの聴力チェックで「問題なし」ヒアリング補助機能の注意点3つ",
+    "url": "output/%EA%B7%80_18/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "귀_18/ko",
+    "title": "에어팟 청력테스트, 괜찮다고 나왔다면 - 보청기 기능 주의할 점 3가지",
+    "url": "output/%EA%B7%80_18/ko/dashboard.html",
+    "thumbnail": "output/%EA%B7%80_18/ko/card_news/%EA%B7%80_18_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -2255,6 +2317,37 @@
     "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_10/ko/card_news/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "미세먼지_11/en",
+    "title": "Fine Dust Reaches Your Gut, Too: 3 Ways to Protect It",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "미세먼지_11/ja",
+    "title": "PM2.5、実は腸まで届いています - 腸を守る習慣3つ",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "미세먼지_11/ko",
+    "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
+    "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ko/dashboard.html",
+    "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ko/card_news/00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },
@@ -5080,6 +5173,37 @@
     ]
   },
   {
+    "topic": "입_20/en",
+    "title": "Angular Cheilitis: If You're Licking Your Cracked Lip Corners, Stop",
+    "url": "output/%EC%9E%85_20/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "입_20/ja",
+    "title": "口角炎、口角を舐める癖、そろそろやめませんか？",
+    "url": "output/%EC%9E%85_20/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": true,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "입_20/ko",
+    "title": "구각염, 입꼬리를 자꾸 핥고 계셨다면 이제 그만하세요 - 재발 줄이는 습관 3가지",
+    "url": "output/%EC%9E%85_20/ko/dashboard.html",
+    "thumbnail": "output/%EC%9E%85_20/ko/card_news/%EC%9E%85_20_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
+      "card_news"
+    ]
+  },
+  {
     "topic": "입_3/en",
     "title": "Brushing and flossing perfectly, but gums still bleed? - 3 Habits Behind Bleeding Gums",
     "url": "output/%EC%9E%85_3/en/dashboard.html",
@@ -5980,6 +6104,37 @@
     "thumbnail": "output/%ED%94%BC%EB%B6%80_21/ko/card_news/%ED%94%BC%EB%B6%80_21_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
+      "card_news"
+    ]
+  },
+  {
+    "topic": "피부_22/en",
+    "title": "Tank top season means your underarms are out - The Habits Behind Dark Underarms",
+    "url": "output/%ED%94%BC%EB%B6%80_22/en/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_22/ja",
+    "title": "脇の黒ずみ、実はこの3つの習慣が原因かもしれません - 黒ずみを防ぐケア習慣",
+    "url": "output/%ED%94%BC%EB%B6%80_22/ja/dashboard.html",
+    "thumbnail": null,
+    "ad_tag": false,
+    "tracks": [
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_22/ko",
+    "title": "겨드랑이가 자꾸 거뭇해지는 거, 사실 이 습관 때문이에요 - 색소침착 관리법 3가지",
+    "url": "output/%ED%94%BC%EB%B6%80_22/ko/dashboard.html",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_22/ko/card_news/%ED%94%BC%EB%B6%80_22_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "shorts",
       "card_news"
     ]
   },

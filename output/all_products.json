@@ -674,6 +674,11 @@
       "title": "액취증, 매일 씻어도 냄새 그대로라면 - 겨드랑이 냄새 줄이는 법",
       "topic": "냄새_8/ko",
       "url": "output/%EB%83%84%EC%83%88_8/ko/dashboard.html"
+    },
+    {
+      "title": "겨드랑이가 자꾸 거뭇해지는 거, 사실 이 습관 때문이에요 - 색소침착 관리법 3가지",
+      "topic": "피부_22/ko",
+      "url": "output/%ED%94%BC%EB%B6%80_22/ko/dashboard.html"
     }
   ],
   "데일리렌즈": [
@@ -1488,6 +1493,13 @@
       "url": "output/%EC%9E%85_4/ko/dashboard.html"
     }
   ],
+  "무선이어폰": [
+    {
+      "title": "에어팟 청력테스트, 괜찮다고 나왔다면 - 보청기 기능 주의할 점 3가지",
+      "topic": "귀_18/ko",
+      "url": "output/%EA%B7%80_18/ko/dashboard.html"
+    }
+  ],
   "무설탕 껌": [
     {
       "title": "미각장애, 입맛이 예전 같지 않다면 - 미각 되찾는 습관 3가지",
@@ -1654,6 +1666,11 @@
   ],
   "미세먼지 마스크": [
     {
+      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
+      "topic": "미세먼지_11/ko",
+      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ko/dashboard.html"
+    },
+    {
       "title": "미세먼지 나쁜 날 실외 운동, 그냥 나가면 위험한 이유 3가지",
       "topic": "미세먼지_4/ko",
       "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_4/ko/dashboard.html"
@@ -1699,6 +1716,11 @@
   ],
   "바디로션": [
     {
+      "title": "노인성 자반증, 살짝 부딪혀도 멍든다면 - 멍 잘 드는 이유와 관리법",
+      "topic": "고령_16/ko",
+      "url": "output/%EA%B3%A0%EB%A0%B9_16/ko/dashboard.html"
+    },
+    {
       "title": "모공각화증(닭살 피부), 팔뚝에 오돌토돌 자꾸 올라온다면 - 각질 덜 쌓이게 하는 관리법",
       "topic": "피부_15/ko",
       "url": "output/%ED%94%BC%EB%B6%80_15/ko/dashboard.html"
@@ -1741,6 +1763,11 @@
     }
   ],
   "바세린": [
+    {
+      "title": "구각염, 입꼬리를 자꾸 핥고 계셨다면 이제 그만하세요 - 재발 줄이는 습관 3가지",
+      "topic": "입_20/ko",
+      "url": "output/%EC%9E%85_20/ko/dashboard.html"
+    },
     {
       "title": "비강건조증, 자면서 입으로 숨 쉬는 10명 중 6명 - 코 촉촉하게 지키는 습관 3가지",
       "topic": "코_9/ko",
@@ -1970,6 +1997,11 @@
       "url": "output/%EA%B3%A0%EB%A0%B9_4/ko/dashboard.html"
     },
     {
+      "title": "에어팟 청력테스트, 괜찮다고 나왔다면 - 보청기 기능 주의할 점 3가지",
+      "topic": "귀_18/ko",
+      "url": "output/%EA%B7%80_18/ko/dashboard.html"
+    },
+    {
       "title": "노인성 난청, 65세 이상 5명 중 2명이 겪는다면 - 청력 지키는 생활습관 3가지",
       "topic": "귀_9/ko",
       "url": "output/%EA%B7%80_9/ko/dashboard.html"
@@ -2111,6 +2143,13 @@
       "title": "산후탈모, 관리 못 해서가 아니라 호르몬 변화 때문이에요 - 회복 앞당기는 습관",
       "topic": "여성_8/ko",
       "url": "output/%EC%97%AC%EC%84%B1_8/ko/dashboard.html"
+    }
+  ],
+  "비타민B 영양제": [
+    {
+      "title": "구각염, 입꼬리를 자꾸 핥고 계셨다면 이제 그만하세요 - 재발 줄이는 습관 3가지",
+      "topic": "입_20/ko",
+      "url": "output/%EC%9E%85_20/ko/dashboard.html"
     }
   ],
   "비타민B12 영양제": [
@@ -2856,6 +2895,13 @@
       "title": "비강건조증, 자면서 입으로 숨 쉬는 10명 중 6명 - 코 촉촉하게 지키는 습관 3가지",
       "topic": "코_9/ko",
       "url": "output/%EC%BD%94_9/ko/dashboard.html"
+    }
+  ],
+  "식이섬유": [
+    {
+      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
+      "topic": "미세먼지_11/ko",
+      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ko/dashboard.html"
     }
   ],
   "식이섬유 보충제": [
@@ -3967,6 +4013,13 @@
       "url": "output/%EC%9E%85_18/ko/dashboard.html"
     }
   ],
+  "자외선 차단제": [
+    {
+      "title": "노인성 자반증, 살짝 부딪혀도 멍든다면 - 멍 잘 드는 이유와 관리법",
+      "topic": "고령_16/ko",
+      "url": "output/%EA%B3%A0%EB%A0%B9_16/ko/dashboard.html"
+    }
+  ],
   "자외선차단 선글라스": [
     {
       "title": "녹내장, 안압은 정상인데 시야가 좁아진다면 - 안압 관리법",
@@ -3994,6 +4047,11 @@
       "title": "코 필러 맞은 후, 코끝이 하얗게 질린다면 - 괴사 막는 골든타임 대처법 3가지",
       "topic": "코_23/ko",
       "url": "output/%EC%BD%94_23/ko/dashboard.html"
+    },
+    {
+      "title": "겨드랑이가 자꾸 거뭇해지는 거, 사실 이 습관 때문이에요 - 색소침착 관리법 3가지",
+      "topic": "피부_22/ko",
+      "url": "output/%ED%94%BC%EB%B6%80_22/ko/dashboard.html"
     }
   ],
   "자전거 안장": [
@@ -4333,6 +4391,13 @@
       "title": "제로슈거 음료, 혈당 안 오른다는 거 사실 감미료 나름이에요 - 제로슈거 음료 고르는 법",
       "topic": "혈당_10/ko",
       "url": "output/%ED%98%88%EB%8B%B9_10/ko/dashboard.html"
+    }
+  ],
+  "제모기": [
+    {
+      "title": "겨드랑이가 자꾸 거뭇해지는 거, 사실 이 습관 때문이에요 - 색소침착 관리법 3가지",
+      "topic": "피부_22/ko",
+      "url": "output/%ED%94%BC%EB%B6%80_22/ko/dashboard.html"
     }
   ],
   "제한제": [
@@ -4998,6 +5063,13 @@
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_24/ko/dashboard.html"
     }
   ],
+  "팔토시": [
+    {
+      "title": "노인성 자반증, 살짝 부딪혀도 멍든다면 - 멍 잘 드는 이유와 관리법",
+      "topic": "고령_16/ko",
+      "url": "output/%EA%B3%A0%EB%A0%B9_16/ko/dashboard.html"
+    }
+  ],
   "페퍼민트차": [
     {
       "title": "복부팽만, 스프링클 케이크 먹고 배 아프다면 주목! - 소화 편하게 즐기는 법 3가지",
@@ -5070,6 +5142,11 @@
       "title": "만성염증, 피로감이나 붓기, 체중정체 하나라도 있다면 - 염증 잡는 식습관 3가지",
       "topic": "대사_21/ko",
       "url": "output/%EB%8C%80%EC%82%AC_21/ko/dashboard.html"
+    },
+    {
+      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
+      "topic": "미세먼지_11/ko",
+      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/ko/dashboard.html"
     }
   ],
   "필라테스밴드": [
