@@ -1,0 +1,122 @@
+{
+  "title": [
+    "TikTok's \"Secret Menu\" Coffee Orders",
+    "Are Going Viral -",
+    "Here's What They Do To Your Blood Sugar",
+    "3 Ways To Order It Without The Spike"
+  ],
+  "eyebrow": "Secret Menu Coffee & Blood Sugar",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#6F4E37",
+  "swipe_label": "Swipe to see more  ->",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "탄산음료_illust.jpg": "Soda",
+    "생크림_illust.jpg": "Toppings",
+    "혈당계_illust.jpg": "Blood Sugar"
+  },
+  "items": [
+    {
+      "name": "\"Secret Menu\" Coffee Orders Are Everywhere",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A dozen pumps of syrup,",
+        "extra drizzle, two or three",
+        "flavor shots in one cup",
+        "",
+        "Some of these TikTok",
+        "orders get millions",
+        "of views",
+        "",
+        "But the sugar hiding",
+        "in them deserves",
+        "a closer look"
+      ]
+    },
+    {
+      "name": "More Sugar Than A Large Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "One widely covered order",
+        "was reported to pack in",
+        "more than 20 teaspoons",
+        "of added sugar",
+        "",
+        "More than a large soda -",
+        "just dressed up as coffee"
+      ]
+    },
+    {
+      "name": "Liquid Sugar Hits Your Bloodstream Fast",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "First, sugar dissolved",
+        "in liquid hits your",
+        "bloodstream faster",
+        "",
+        "There's no fiber or fat",
+        "in the drink to slow",
+        "digestion down"
+      ]
+    },
+    {
+      "name": "Stacked Pumps Are Easy To Lose Track Of",
+      "char_file": "생크림_illust.jpg",
+      "body": [
+        "Second, stacking multiple",
+        "syrups and flavor pumps",
+        "",
+        "makes it easy to lose",
+        "track of just how much",
+        "sugar you're adding"
+      ]
+    },
+    {
+      "name": "Caffeine Adds To The Spike",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Third, caffeine itself",
+        "can blunt insulin",
+        "sensitivity for a few hours",
+        "",
+        "so the spike runs higher",
+        "and lasts longer on",
+        "top of the sugar"
+      ]
+    },
+    {
+      "name": "Here's How To Still Enjoy It",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Ask for sugar-free syrup",
+        "or cut the pumps in half",
+        "",
+        "Swap extra syrup for",
+        "a splash of milk",
+        "",
+        "Skip ordering it on an",
+        "empty stomach - food",
+        "alongside it slows the hit"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Liquid sugar, stacked syrup pumps, and caffeine",
+        "all add to the spike in a \"secret menu\" order"
+      ],
+      [
+        "Cut the pumps, add milk instead of syrup,",
+        "and never order it on an empty stomach"
+      ]
+    ],
+    "tip": [
+      "Ask for sugar-free syrup or cut the pumps in half",
+      "Swap extra syrup for a splash of milk",
+      "Pair it with food instead of drinking it on an empty stomach"
+    ],
+    "cta": "Want more useful health tips? Follow and subscribe"
+  }
+}
