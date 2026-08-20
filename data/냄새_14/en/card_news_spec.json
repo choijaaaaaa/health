@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Body odor —",
+    "if you notice a sour, sharp smell",
+    "the morning after whiskey or wine, pay attention",
+    "Why the Smell Lingers, and What Actually Helps"
+  ],
+  "eyebrow": "Post-Drinking Odor Alert",
+  "cover_char_file": "위스키_illust.jpg",
+  "cover_scrim_color": "#8C5220",
+  "swipe_label": "Swipe to see more  >",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "위스키_illust.jpg": "Whiskey"
+  },
+  "items": [
+    {
+      "name": "Why It Smells So Sour",
+      "char_file": "위스키_illust.jpg",
+      "body": [
+        "Your liver converts alcohol",
+        "into acetaldehyde first",
+        "",
+        "That compound itself carries",
+        "a sharp, sour smell"
+      ]
+    },
+    {
+      "name": "Why Whiskey & Wine Hit Harder Than Vodka",
+      "char_file": "위스키_illust.jpg",
+      "body": [
+        "Dark spirits like whiskey and wine",
+        "carry far more congeners",
+        "",
+        "than clear spirits like vodka —",
+        "those extras take longer to break down"
+      ]
+    },
+    {
+      "name": "Body Chemistry Plays a Role Too",
+      "char_file": "위스키_illust.jpg",
+      "body": [
+        "Many people, especially",
+        "of East Asian background,",
+        "",
+        "carry a weaker enzyme for it —",
+        "so it lingers longer in the body"
+      ]
+    },
+    {
+      "name": "Sweating It Out? That's a Myth",
+      "char_file": "위스키_illust.jpg",
+      "body": [
+        "Sweating more",
+        "won't clear it faster",
+        "",
+        "Until your liver finishes the job,",
+        "the smell stays"
+      ]
+    },
+    {
+      "name": "So What Actually Helps",
+      "char_file": "위스키_illust.jpg",
+      "body": [
+        "Your liver processes",
+        "about one drink an hour",
+        "",
+        "Stay hydrated,",
+        "and give it that much time"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "That sour smell means",
+        "your body's still processing what you drank"
+      ],
+      [
+        "Know the cause,",
+        "and it gets much easier to manage"
+      ]
+    ],
+    "tip": [
+      "Stay hydrated,",
+      "and give your liver the time it needs"
+    ],
+    "cta": "Want more useful health tips? Follow along"
+  }
+}
