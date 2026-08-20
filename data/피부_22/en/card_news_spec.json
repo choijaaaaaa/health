@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Tank top season means",
+    "your underarms are out -",
+    "The Habits Behind Dark Underarms"
+  ],
+  "eyebrow": "Underarm Pigmentation",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Dark Underarms",
+  "cover_char_file": "면도기_illust.jpg",
+  "char_display_names": {
+    "면도기_illust.jpg": "Razor",
+    "데오드란트_illust.jpg": "Deodorant",
+    "스포츠브라_illust.jpg": "Sports Bra"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "면도기_illust.jpg",
+      "body": [
+        "Repeated irritation makes skin",
+        "produce extra melanin",
+        "",
+        "as a defense response -",
+        "the same reaction that",
+        "darkens a healing scrape"
+      ]
+    },
+    {
+      "name": "Shaving with a Dull Blade",
+      "char_file": "면도기_illust.jpg",
+      "body": [
+        "Tugging against the grain",
+        "irritates the hair follicle",
+        "",
+        "Repeated over time,",
+        "that irritation builds",
+        "into visible pigmentation"
+      ]
+    },
+    {
+      "name": "Instead of a dull blade",
+      "char_file": "면도기_illust.jpg",
+      "body": [
+        "Switch to a sharp,",
+        "single-blade razor",
+        "",
+        "and shave",
+        "with the grain"
+      ]
+    },
+    {
+      "name": "Fragrance & Dye",
+      "char_file": "데오드란트_illust.jpg",
+      "body": [
+        "Fragrance and dyes irritate",
+        "freshly shaved skin",
+        "",
+        "especially when applied",
+        "right after shaving"
+      ]
+    },
+    {
+      "name": "Instead of scented deodorant",
+      "char_file": "데오드란트_illust.jpg",
+      "body": [
+        "Pick a fragrance-free,",
+        "dye-free deodorant",
+        "",
+        "Give your skin a few minutes",
+        "before applying after shaving"
+      ]
+    },
+    {
+      "name": "Tight Workout Gear",
+      "char_file": "스포츠브라_illust.jpg",
+      "body": [
+        "Sports bras and compression tanks",
+        "trap sweat",
+        "",
+        "and rub the same spot",
+        "during every workout"
+      ]
+    },
+    {
+      "name": "Instead of tight gear",
+      "char_file": "스포츠브라_illust.jpg",
+      "body": [
+        "Choose looser,",
+        "moisture-wicking fabric",
+        "when you can",
+        "",
+        "and shower soon",
+        "after your workout"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of this means",
+        "you have to quit shaving or working out"
+      ],
+      [
+        "But small swaps in your routine",
+        "make a real difference"
+      ]
+    ],
+    "tip": [
+      "Sharper razor, fragrance-free deodorant,",
+      "and looser workout gear -",
+      "start with one and go from there"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}
