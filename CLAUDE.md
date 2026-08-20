@@ -908,14 +908,22 @@ deleted`로 실패(리프레시 토큰 만료의 `Token has been expired or revo
 - ⚠️ **en 채널이 jp-review-shorts와 공유 중인 "Vernhaven" 채널로 확인됨**
   (`YOUTUBE_EN_CLIENT_ID` 해시 일치) — 채널 통째로 삭제하지 않고 Supabase
   `youtube_uploaded` 기록을 실제 영상 제목/본문과 매칭해서 health-shorts
-  소유 영상만 골라 삭제(81개 중 60개 삭제 완료, 21개는 업로드 후 캡션이
-  많이 바뀌어 안전하게 매칭 안 돼 미처리로 남음 — 목록은 이 작업 커밋
-  히스토리 참고). **다른 프로젝트와 채널을 공유 중이면 "채널 영상 전체
-  삭제" 같은 일괄 작업을 절대 하지 말 것** — 항상 이 프로젝트가 실제로
-  올린 영상인지 개별 확인 후 삭제.
-- ja는 `.env`의 `YOUTUBE_JA_REFRESH_TOKEN`이 비어있어 API 접근 자체가
-  안 되는 상태로 남음 — `python3 lib/youtube_auth_setup.py --channel ja`
-  재인증(브라우저 로그인, 사용자 직접) 후 en과 동일한 매칭 방식으로 처리할 것.
+  소유 영상만 골라 삭제(81개 중 60개 삭제, 21개는 업로드 후 캡션이 많이
+  바뀌어 안전하게 매칭 안 돼 미처리로 남음). **다른 프로젝트와 채널을
+  공유 중이면 "채널 영상 전체 삭제" 같은 일괄 작업을 절대 하지 말 것** —
+  항상 이 프로젝트가 실제로 올린 영상인지 개별 확인 후 삭제.
+- ja(`@vernhaven_ja`)는 jp-review-shorts와 공유하지 않는 전용 채널로 확인됨
+  (jp-review-shorts `.env`에 JA 접두사 자격증명 자체가 없음) — 그래도 en과
+  동일하게 제목/본문 매칭 방식으로 89개 중 62개 삭제, 27개는 매칭 안 돼
+  미처리. ⚠️ **`.env`의 `YOUTUBE_JA_CLIENT_ID`/`_SECRET`이 통째로 비어있던
+  상태였음(2026-08-21 발견, refresh_token 만료가 아니라 원천 OAuth 클라이언트
+  자체가 없었음)** — Google Cloud Console `worthitshopping-ja` 프로젝트에서
+  클라이언트를 새로 발급받아 해결. 이후 다른 언어 채널에서도 같은 증상(만료가
+  아니라 client_id/secret 자체가 빈 값)이 나오면 재인증이 아니라 Console에서
+  클라이언트 재발급부터 해야 한다는 뜻.
+- 미처리 48개(en 21 + ja 27)는 이 커밋 히스토리에 topic 목록이 남아있음 —
+  필요하면 YouTube Studio에서 채널별로 직접 찾아 지울 것, 자동 재매칭
+  재시도는 안 함(잘못 지울 위험이 이득보다 큼).
 - Fish Audio(`lib/fish_tts.py`)는 en/ja 전용이라 이제 사실상 미사용 —
   코드는 남겨둠(다른 곳에서 참조하지 않음, 삭제 불필요).
 - 새 topic·언어는 한국어 하나로만 진행할 것 — 확장이 다시 필요해지면
