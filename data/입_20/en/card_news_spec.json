@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Angular Cheilitis:",
+    "If You're Licking Your",
+    "Cracked Lip Corners, Stop",
+    "3 Habits That Cut Flare-Ups"
+  ],
+  "eyebrow": "Angular Cheilitis Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "입술_illust.jpg": "Lips",
+    "물방울_illust.jpg": "Saliva",
+    "바세린_illust.jpg": "Petroleum Jelly",
+    "다이어트도시락_illust.jpg": "Restrictive Diet",
+    "계란_illust.jpg": "Eggs",
+    "면역세포_illust.jpg": "Immune Cells",
+    "이불_illust.jpg": "Sleep"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Saliva pooling in the corners,",
+        "a diet low in B vitamins,",
+        "and fatigue -",
+        "",
+        "these three keep the skin",
+        "damp and worn down until",
+        "it finally splits open"
+      ]
+    },
+    {
+      "name": "Saliva Pooling in the Corners",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Licking your lips or sleeping",
+        "with your mouth open",
+        "",
+        "leaves saliva sitting there,",
+        "and it dries out more",
+        "moisture than it adds"
+      ]
+    },
+    {
+      "name": "Seal It With Petroleum Jelly",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Skip the licking -",
+        "dab the area dry instead",
+        "",
+        "then seal it with a thin",
+        "layer of petroleum jelly"
+      ]
+    },
+    {
+      "name": "A Diet Low in B Vitamins",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Restrictive diets or",
+        "picky eating cut riboflavin,",
+        "or vitamin B2",
+        "",
+        "and that slows down how fast",
+        "your skin can repair itself"
+      ]
+    },
+    {
+      "name": "Eggs, Dairy, and Leafy Greens",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Work these into your meals",
+        "to close the gap",
+        "",
+        "they're some of the easiest",
+        "sources of vitamin B2"
+      ]
+    },
+    {
+      "name": "Fatigue and a Weak Immune System",
+      "char_file": "면역세포_illust.jpg",
+      "body": [
+        "Cold, dry weather plus",
+        "poor sleep thins",
+        "your skin barrier",
+        "",
+        "so even small irritation",
+        "is enough to split it open"
+      ]
+    },
+    {
+      "name": "Prioritize Consistent Sleep",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Consistent rest gives",
+        "your skin the chance",
+        "",
+        "to actually repair itself,",
+        "not just patch over the crack"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sealing the corners, adding B vitamins,",
+        "and sleeping enough -"
+      ],
+      [
+        "these three habits keep",
+        "angular cheilitis from coming back"
+      ]
+    ],
+    "tip": [
+      "Avoid picking at the crack or licking it wet -",
+      "if it doesn't heal in two weeks or keeps oozing,",
+      "see a doctor"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Angular Cheilitis"
+}
