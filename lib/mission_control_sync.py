@@ -38,7 +38,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # 쪽이 이 작은 동기화 스크립트엔 더 가볍다는 판단).
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
-    "쓰레드", "인스타그램 카드뉴스", "Threads", "Instagram Carousel",
+    "인스타그램 카드뉴스", "Instagram Carousel",
 }
 
 
