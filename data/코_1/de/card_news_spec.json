@@ -1,89 +1,91 @@
 {
-  "title": [
-    "Ständig verstopfte Nase",
-    "nach Wein, Käse oder Currywurst?",
-    "Histamin & Capsaicin im Check"
-  ],
-  "eyebrow": "Nasenreaktion im Fokus",
-  "cover_char_file": "고추_illust.jpg",
-  "cover_scrim_color": "#6E3B8A",
-  "char_display_names": {
-    "가공육_illust.jpg": "Histamin-Trigger",
-    "고추_illust.jpg": "Scharfes Essen"
+ "title": [
+  "Ständig verstopfte Nase",
+  "nach Wein, Käse oder Currywurst?",
+  "Histamin & Capsaicin im Check"
+ ],
+ "eyebrow": "Nasenreaktion im Fokus",
+ "cover_char_file": "고추_illust.jpg",
+ "cover_scrim_color": "#6E3B8A",
+ "char_display_names": {
+  "가공육_illust.jpg": "Histamin-Trigger",
+  "고추_illust.jpg": "Scharfes Essen"
+ },
+ "items": [
+  {
+   "name": "Warum passiert das?",
+   "char_file": "고추_illust.jpg",
+   "body": [
+    "Nase läuft oder ist verstopft",
+    "kurz nach dem Essen?",
+    "",
+    "Das kann an zwei ganz",
+    "unterschiedlichen Reaktionen liegen"
+   ]
   },
-  "items": [
-    {
-      "name": "Warum passiert das?",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "Nase läuft oder ist verstopft",
-        "kurz nach dem Essen?",
-        "",
-        "Das kann an zwei ganz",
-        "unterschiedlichen Reaktionen liegen"
-      ]
-    },
-    {
-      "name": "Histamin in Käse & Wein",
-      "char_file": "가공육_illust.jpg",
-      "body": [
-        "Gereifter Käse, Rotwein und",
-        "Wurstwaren enthalten viel Histamin",
-        "",
-        "Reicht der Abbau nicht aus,",
-        "kommt es zu Niesen und",
-        "verstopfter Nase"
-      ]
-    },
-    {
-      "name": "Bei Histamin hilft",
-      "char_file": "가공육_illust.jpg",
-      "body": [
-        "Käse, Wurst und Rotwein",
-        "nicht gleichzeitig kombinieren",
-        "",
-        "Frischkäse statt gereiftem Käse,",
-        "Weißwein statt Rotwein"
-      ]
-    },
-    {
-      "name": "Scharfes Essen (Capsaicin)",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "Capsaicin reizt Nerven",
-        "in Mund und Nase",
-        "",
-        "Der Körper produziert",
-        "mehr Schleim als Abwehrreaktion"
-      ]
-    },
-    {
-      "name": "Bei scharfem Essen hilft",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "Speisen etwas abkühlen lassen",
-        "vor dem ersten Bissen",
-        "",
-        "Die Reaktion ist harmlos",
-        "und meist ungefährlich"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Käse, Wein und scharfes Essen",
-        "müssen nicht komplett verschwinden"
-      ],
-      [
-        "Schon kleine Anpassungen",
-        "entlasten die Nase spürbar"
-      ]
-    ],
-    "tip": [
-      "Bei häufigen, starken Beschwerden",
-      "lohnt sich der Weg zum HNO-Arzt"
-    ],
-    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  {
+   "name": "Histamin in Käse & Wein",
+   "char_file": "가공육_illust.jpg",
+   "body": [
+    "Gereifter Käse, Rotwein und",
+    "Wurstwaren enthalten viel Histamin",
+    "",
+    "Reicht der Abbau nicht aus,",
+    "kommt es zu Niesen und",
+    "verstopfter Nase"
+   ]
+  },
+  {
+   "name": "Bei Histamin hilft",
+   "char_file": "가공육_illust.jpg",
+   "body": [
+    "Käse, Wurst und Rotwein",
+    "nicht gleichzeitig kombinieren",
+    "",
+    "Frischkäse statt gereiftem Käse,",
+    "Weißwein statt Rotwein"
+   ]
+  },
+  {
+   "name": "Scharfes Essen (Capsaicin)",
+   "char_file": "고추_illust.jpg",
+   "body": [
+    "Capsaicin reizt Nerven",
+    "in Mund und Nase",
+    "",
+    "Der Körper produziert",
+    "mehr Schleim als Abwehrreaktion"
+   ]
+  },
+  {
+   "name": "Bei scharfem Essen hilft",
+   "char_file": "고추_illust.jpg",
+   "body": [
+    "Speisen etwas abkühlen lassen",
+    "vor dem ersten Bissen",
+    "",
+    "Die Reaktion ist harmlos",
+    "und meist ungefährlich"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Käse, Wein und scharfes Essen",
+    "müssen nicht komplett verschwinden"
+   ],
+   [
+    "Schon kleine Anpassungen",
+    "entlasten die Nase spürbar"
+   ]
+  ],
+  "tip": [
+   "Bei häufigen, starken Beschwerden",
+   "lohnt sich der Weg zum HNO-Arzt"
+  ],
+  "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+ },
+ "swipe_label": "Wischen für mehr  →",
+ "closing_label": "Fazit"
 }

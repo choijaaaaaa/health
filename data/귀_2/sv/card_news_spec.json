@@ -1,84 +1,89 @@
 {
-  "title": [
-    "Öra som kliar och",
-    "känns tilltäppt efter simning?",
-    "De verkliga orsakerna"
-  ],
-  "eyebrow": "Varför örat reagerar efter simning",
-  "cover_char_file": "물방울_illust.jpg",
-  "cover_scrim_color": "#B5722F",
-  "items": [
-    {
-      "name": "Varför händer det igen?",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Öra som kliar och är tilltäppt,",
-        "dagar efter simningen?",
-        "",
-        "Två vanliga vanor",
-        "förklarar ofta varför"
-      ]
-    },
-    {
-      "name": "Instängd fukt",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Vatten som blir kvar",
-        "i hörselgången",
-        "",
-        "sköljer bort det",
-        "naturliga skyddet"
-      ]
-    },
-    {
-      "name": "Torka rätt",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Luta huvudet efter",
-        "simning eller dusch",
-        "",
-        "torka bara ytterörat -",
-        "inga bomullstops"
-      ]
-    },
-    {
-      "name": "Bomullstops & hörlurar",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Bomullstops skavar mot",
-        "den tunna hörselgångshuden",
-        "",
-        "hörlurar stänger in värme",
-        "och fukt i timmar"
-      ]
-    },
-    {
-      "name": "Ge örat en paus",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Skippa bomullstops,",
-        "låt öronvaxet göra jobbet",
-        "",
-        "hörlurspauser vid",
-        "långa samtal"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Fukt, bomullstops, hörlurar -",
-        "små vanor lägger sig på hög"
-      ],
-      [
-        "Att ändra hur man torkar och",
-        "rengör öronen kan hjälpa"
-      ]
-    ],
-    "tip": [
-      "Smärta eller flytning som dröjer sig kvar?",
-      "Då är det värt att söka vård"
-    ],
-    "cta": "Vill du ha fler hälsotips? Följ oss"
+ "title": [
+  "Öra som kliar och",
+  "känns tilltäppt efter simning?",
+  "De verkliga orsakerna"
+ ],
+ "eyebrow": "Varför örat reagerar efter simning",
+ "cover_char_file": "물방울_illust.jpg",
+ "cover_scrim_color": "#B5722F",
+ "items": [
+  {
+   "name": "Varför händer det igen?",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Öra som kliar och är tilltäppt,",
+    "dagar efter simningen?",
+    "",
+    "Två vanliga vanor",
+    "förklarar ofta varför"
+   ]
+  },
+  {
+   "name": "Instängd fukt",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Vatten som blir kvar",
+    "i hörselgången",
+    "",
+    "sköljer bort det",
+    "naturliga skyddet"
+   ]
+  },
+  {
+   "name": "Torka rätt",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Luta huvudet efter",
+    "simning eller dusch",
+    "",
+    "torka bara ytterörat -",
+    "inga bomullstops"
+   ]
+  },
+  {
+   "name": "Bomullstops & hörlurar",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Bomullstops skavar mot",
+    "den tunna hörselgångshuden",
+    "",
+    "hörlurar stänger in värme",
+    "och fukt i timmar"
+   ]
+  },
+  {
+   "name": "Ge örat en paus",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Skippa bomullstops,",
+    "låt öronvaxet göra jobbet",
+    "",
+    "hörlurspauser vid",
+    "långa samtal"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Fukt, bomullstops, hörlurar -",
+    "små vanor lägger sig på hög"
+   ],
+   [
+    "Att ändra hur man torkar och",
+    "rengör öronen kan hjälpa"
+   ]
+  ],
+  "tip": [
+   "Smärta eller flytning som dröjer sig kvar?",
+   "Då är det värt att söka vård"
+  ],
+  "cta": "Vill du ha fler hälsotips? Följ oss"
+ },
+ "swipe_label": "Svep för mer  →",
+ "closing_label": "Sammanfattning",
+ "char_display_names": {
+  "물방울_illust.jpg": "Fukt i örat"
+ }
 }

@@ -1,84 +1,89 @@
 {
-  "title": [
-    "Oreille bouchée",
-    "après la piscine ?",
-    "Les vraies raisons"
-  ],
-  "eyebrow": "Pourquoi l'oreille réagit après la baignade",
-  "cover_char_file": "물방울_illust.jpg",
-  "cover_scrim_color": "#3E6B99",
-  "items": [
-    {
-      "name": "Pourquoi ça recommence ?",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Oreille bouchée et qui gratte,",
-        "des jours après la piscine ?",
-        "",
-        "Deux habitudes du quotidien",
-        "expliquent souvent pourquoi"
-      ]
-    },
-    {
-      "name": "L'humidité piégée",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "L'eau qui reste dans",
-        "le conduit auditif",
-        "",
-        "efface la couche protectrice",
-        "naturelle de l'oreille"
-      ]
-    },
-    {
-      "name": "Bien sécher l'oreille",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Pencher la tête après",
-        "la piscine ou la douche",
-        "",
-        "sécher l'extérieur seulement -",
-        "pas de coton-tige"
-      ]
-    },
-    {
-      "name": "Coton-tiges & écouteurs",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Les coton-tiges éraflent",
-        "la peau fine du conduit",
-        "",
-        "les écouteurs emprisonnent",
-        "chaleur et humidité"
-      ]
-    },
-    {
-      "name": "Faire une pause",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Laisser tomber le coton-tige,",
-        "le cérumen fait le travail",
-        "",
-        "pauses écouteurs pendant",
-        "les longs appels"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Humidité, coton-tiges, écouteurs -",
-        "de petites habitudes s'accumulent"
-      ],
-      [
-        "Ajuster le séchage et le nettoyage",
-        "peut vraiment aider"
-      ]
-    ],
-    "tip": [
-      "Douleur ou écoulement persistant ?",
-      "Direction le médecin"
-    ],
-    "cta": "Envie de plus de conseils santé ? Abonnez-vous"
+ "title": [
+  "Oreille bouchée",
+  "après la piscine ?",
+  "Les vraies raisons"
+ ],
+ "eyebrow": "Pourquoi l'oreille réagit après la baignade",
+ "cover_char_file": "물방울_illust.jpg",
+ "cover_scrim_color": "#3E6B99",
+ "items": [
+  {
+   "name": "Pourquoi ça recommence ?",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Oreille bouchée et qui gratte,",
+    "des jours après la piscine ?",
+    "",
+    "Deux habitudes du quotidien",
+    "expliquent souvent pourquoi"
+   ]
+  },
+  {
+   "name": "L'humidité piégée",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "L'eau qui reste dans",
+    "le conduit auditif",
+    "",
+    "efface la couche protectrice",
+    "naturelle de l'oreille"
+   ]
+  },
+  {
+   "name": "Bien sécher l'oreille",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Pencher la tête après",
+    "la piscine ou la douche",
+    "",
+    "sécher l'extérieur seulement -",
+    "pas de coton-tige"
+   ]
+  },
+  {
+   "name": "Coton-tiges & écouteurs",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Les coton-tiges éraflent",
+    "la peau fine du conduit",
+    "",
+    "les écouteurs emprisonnent",
+    "chaleur et humidité"
+   ]
+  },
+  {
+   "name": "Faire une pause",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Laisser tomber le coton-tige,",
+    "le cérumen fait le travail",
+    "",
+    "pauses écouteurs pendant",
+    "les longs appels"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Humidité, coton-tiges, écouteurs -",
+    "de petites habitudes s'accumulent"
+   ],
+   [
+    "Ajuster le séchage et le nettoyage",
+    "peut vraiment aider"
+   ]
+  ],
+  "tip": [
+   "Douleur ou écoulement persistant ?",
+   "Direction le médecin"
+  ],
+  "cta": "Envie de plus de conseils santé ? Abonnez-vous"
+ },
+ "swipe_label": "Glissez pour en savoir plus  →",
+ "closing_label": "En résumé",
+ "char_display_names": {
+  "물방울_illust.jpg": "Humidité dans l'oreille"
+ }
 }

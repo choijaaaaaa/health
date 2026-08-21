@@ -1,84 +1,89 @@
 {
-  "title": [
-    "¿Oído tapado",
-    "y con picor tras nadar?",
-    "Las causas reales"
-  ],
-  "eyebrow": "Por qué reacciona el oído tras nadar",
-  "cover_char_file": "물방울_illust.jpg",
-  "cover_scrim_color": "#4F8B8B",
-  "items": [
-    {
-      "name": "¿Por qué pasa esto?",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "¿Oído tapado y con picor,",
-        "días después de nadar?",
-        "",
-        "Dos hábitos cotidianos",
-        "suelen explicar el porqué"
-      ]
-    },
-    {
-      "name": "La humedad atrapada",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "El agua que queda",
-        "en el canal auditivo",
-        "",
-        "arrastra su capa",
-        "protectora natural"
-      ]
-    },
-    {
-      "name": "Secar el oído bien",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Inclina la cabeza tras",
-        "nadar o ducharte",
-        "",
-        "seca solo el exterior -",
-        "sin bastoncillos"
-      ]
-    },
-    {
-      "name": "Bastoncillos y auriculares",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Los bastoncillos rozan",
-        "la piel fina del canal",
-        "",
-        "los auriculares atrapan",
-        "calor y humedad"
-      ]
-    },
-    {
-      "name": "Dale un descanso al oído",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Evita los bastoncillos,",
-        "deja que el cerumen actúe",
-        "",
-        "descansos de auriculares",
-        "en llamadas largas"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Humedad, bastoncillos, auriculares -",
-        "pequeños hábitos se acumulan"
-      ],
-      [
-        "Ajustar el secado y la limpieza",
-        "puede ayudar de verdad"
-      ]
-    ],
-    "tip": [
-      "¿Dolor o secreción que persiste?",
-      "Vale la pena ver a un médico"
-    ],
-    "cta": "¿Quieres más consejos de salud? Síguenos"
+ "title": [
+  "¿Oído tapado",
+  "y con picor tras nadar?",
+  "Las causas reales"
+ ],
+ "eyebrow": "Por qué reacciona el oído tras nadar",
+ "cover_char_file": "물방울_illust.jpg",
+ "cover_scrim_color": "#4F8B8B",
+ "items": [
+  {
+   "name": "¿Por qué pasa esto?",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "¿Oído tapado y con picor,",
+    "días después de nadar?",
+    "",
+    "Dos hábitos cotidianos",
+    "suelen explicar el porqué"
+   ]
+  },
+  {
+   "name": "La humedad atrapada",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "El agua que queda",
+    "en el canal auditivo",
+    "",
+    "arrastra su capa",
+    "protectora natural"
+   ]
+  },
+  {
+   "name": "Secar el oído bien",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Inclina la cabeza tras",
+    "nadar o ducharte",
+    "",
+    "seca solo el exterior -",
+    "sin bastoncillos"
+   ]
+  },
+  {
+   "name": "Bastoncillos y auriculares",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Los bastoncillos rozan",
+    "la piel fina del canal",
+    "",
+    "los auriculares atrapan",
+    "calor y humedad"
+   ]
+  },
+  {
+   "name": "Dale un descanso al oído",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Evita los bastoncillos,",
+    "deja que el cerumen actúe",
+    "",
+    "descansos de auriculares",
+    "en llamadas largas"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Humedad, bastoncillos, auriculares -",
+    "pequeños hábitos se acumulan"
+   ],
+   [
+    "Ajustar el secado y la limpieza",
+    "puede ayudar de verdad"
+   ]
+  ],
+  "tip": [
+   "¿Dolor o secreción que persiste?",
+   "Vale la pena ver a un médico"
+  ],
+  "cta": "¿Quieres más consejos de salud? Síguenos"
+ },
+ "swipe_label": "Desliza para ver más  →",
+ "closing_label": "En resumen",
+ "char_display_names": {
+  "물방울_illust.jpg": "Humedad en el oído"
+ }
 }

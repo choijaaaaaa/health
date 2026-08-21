@@ -1,107 +1,109 @@
 {
-  "title": [
-    "¿Duchado hace poco",
-    "y el olor corporal",
-    "vuelve enseguida?",
-    "Guía contra el mal olor"
-  ],
-  "eyebrow": "Alerta de olor corporal",
-  "cover_char_file": "마늘기름_illust.jpg",
-  "char_display_names": {
-    "마늘기름_illust.jpg": "Ajo y cebolla",
-    "소고기_illust.jpg": "Carne roja",
-    "맥주_illust.jpg": "Alcohol"
+ "title": [
+  "¿Duchado hace poco",
+  "y el olor corporal",
+  "vuelve enseguida?",
+  "Guía contra el mal olor"
+ ],
+ "eyebrow": "Alerta de olor corporal",
+ "cover_char_file": "마늘기름_illust.jpg",
+ "char_display_names": {
+  "마늘기름_illust.jpg": "Ajo y cebolla",
+  "소고기_illust.jpg": "Carne roja",
+  "맥주_illust.jpg": "Alcohol"
+ },
+ "items": [
+  {
+   "name": "Por qué se intensifica el olor",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "El olor corporal aparece cuando",
+    "compuestos de los alimentos",
+    "se liberan con el sudor y la respiración",
+    "",
+    "Algunos alimentos generan",
+    "muchas más moléculas de olor"
+   ]
   },
-  "items": [
-    {
-      "name": "Por qué se intensifica el olor",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "El olor corporal aparece cuando",
-        "compuestos de los alimentos",
-        "se liberan con el sudor y la respiración",
-        "",
-        "Algunos alimentos generan",
-        "muchas más moléculas de olor"
-      ]
-    },
-    {
-      "name": "Ajo y cebolla",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Compuestos sulfurados",
-        "como la alicina pasan",
-        "a la sangre",
-        "",
-        "y se liberan durante horas",
-        "a través del sudor",
-        "y la respiración"
-      ]
-    },
-    {
-      "name": "Ajo y cebolla — la solución",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Cocinarlos en vez de",
-        "comerlos crudos reduce el olor"
-      ]
-    },
-    {
-      "name": "Carne roja",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "La ternera tarda más",
-        "en digerirse que",
-        "otras proteínas",
-        "",
-        "Ese retraso genera",
-        "más compuestos olorosos"
-      ]
-    },
-    {
-      "name": "Carne roja — la solución",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Sustituirla a veces",
-        "por pescado o pollo"
-      ]
-    },
-    {
-      "name": "Alcohol",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "La cerveza y el vino se",
-        "transforman en ácido acético,",
-        "",
-        "liberado con el sudor",
-        "con un toque ácido"
-      ]
-    },
-    {
-      "name": "Alcohol — la solución",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Beber agua",
-        "a la vez"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Ajo, carne y alcohol,",
-        "no hace falta eliminarlos del todo"
-      ],
-      [
-        "Cocinar, sustituir y beber agua",
-        "suele ser suficiente"
-      ]
-    ],
-    "tip": [
-      "Verduras y hierbas frescas de acompañamiento",
-      "también pueden suavizar el olor"
-    ],
-    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale a me gusta y síguenos!"
+  {
+   "name": "Ajo y cebolla",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Compuestos sulfurados",
+    "como la alicina pasan",
+    "a la sangre",
+    "",
+    "y se liberan durante horas",
+    "a través del sudor",
+    "y la respiración"
+   ]
   },
-  "topic_word": "Olor corporal"
+  {
+   "name": "Ajo y cebolla — la solución",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Cocinarlos en vez de",
+    "comerlos crudos reduce el olor"
+   ]
+  },
+  {
+   "name": "Carne roja",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "La ternera tarda más",
+    "en digerirse que",
+    "otras proteínas",
+    "",
+    "Ese retraso genera",
+    "más compuestos olorosos"
+   ]
+  },
+  {
+   "name": "Carne roja — la solución",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Sustituirla a veces",
+    "por pescado o pollo"
+   ]
+  },
+  {
+   "name": "Alcohol",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "La cerveza y el vino se",
+    "transforman en ácido acético,",
+    "",
+    "liberado con el sudor",
+    "con un toque ácido"
+   ]
+  },
+  {
+   "name": "Alcohol — la solución",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Beber agua",
+    "a la vez"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Ajo, carne y alcohol,",
+    "no hace falta eliminarlos del todo"
+   ],
+   [
+    "Cocinar, sustituir y beber agua",
+    "suele ser suficiente"
+   ]
+  ],
+  "tip": [
+   "Verduras y hierbas frescas de acompañamiento",
+   "también pueden suavizar el olor"
+  ],
+  "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale a me gusta y síguenos!"
+ },
+ "topic_word": "Olor corporal",
+ "swipe_label": "Desliza para ver más  →",
+ "closing_label": "En resumen"
 }

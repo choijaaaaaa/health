@@ -1,107 +1,109 @@
 {
-  "title": [
-    "Doccia fatta, ma l'odore",
-    "del corpo torna",
-    "in fretta?",
-    "Guida anti-odore"
-  ],
-  "eyebrow": "Allerta odore corporeo",
-  "cover_char_file": "마늘기름_illust.jpg",
-  "char_display_names": {
-    "마늘기름_illust.jpg": "Aglio e cipolla",
-    "소고기_illust.jpg": "Carne rossa",
-    "맥주_illust.jpg": "Alcol"
+ "title": [
+  "Doccia fatta, ma l'odore",
+  "del corpo torna",
+  "in fretta?",
+  "Guida anti-odore"
+ ],
+ "eyebrow": "Allerta odore corporeo",
+ "cover_char_file": "마늘기름_illust.jpg",
+ "char_display_names": {
+  "마늘기름_illust.jpg": "Aglio e cipolla",
+  "소고기_illust.jpg": "Carne rossa",
+  "맥주_illust.jpg": "Alcol"
+ },
+ "items": [
+  {
+   "name": "Perché l'odore si intensifica",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "L'odore corporeo nasce quando",
+    "i composti del cibo vengono",
+    "rilasciati con sudore e respiro",
+    "",
+    "Alcuni alimenti ne producono",
+    "molti più di altri"
+   ]
   },
-  "items": [
-    {
-      "name": "Perché l'odore si intensifica",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "L'odore corporeo nasce quando",
-        "i composti del cibo vengono",
-        "rilasciati con sudore e respiro",
-        "",
-        "Alcuni alimenti ne producono",
-        "molti più di altri"
-      ]
-    },
-    {
-      "name": "Aglio e cipolla",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Composti solforati",
-        "come l'allicina passano",
-        "nel sangue",
-        "",
-        "e vengono rilasciati per ore",
-        "attraverso sudore",
-        "e respiro"
-      ]
-    },
-    {
-      "name": "Aglio e cipolla — il rimedio",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Cuocerli invece di",
-        "mangiarli crudi riduce l'odore"
-      ]
-    },
-    {
-      "name": "Carne rossa",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Il manzo richiede più tempo",
-        "per essere digerito",
-        "rispetto ad altre proteine",
-        "",
-        "Questo ritardo produce",
-        "più composti odorosi"
-      ]
-    },
-    {
-      "name": "Carne rossa — il rimedio",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Sostituirla ogni tanto",
-        "con pesce o pollo"
-      ]
-    },
-    {
-      "name": "Alcol",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Birra e vino si trasformano",
-        "in acido acetico,",
-        "",
-        "rilasciato con il sudore",
-        "con una nota acida"
-      ]
-    },
-    {
-      "name": "Alcol — il rimedio",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Bere acqua",
-        "in parallelo"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Aglio, carne e alcol,",
-        "non serve eliminarli del tutto"
-      ],
-      [
-        "Cuocere, sostituire e bere acqua",
-        "spesso bastano"
-      ]
-    ],
-    "tip": [
-      "Verdure ed erbe fresche come contorno",
-      "possono attenuare ulteriormente l'odore"
-    ],
-    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti like e segui!"
+  {
+   "name": "Aglio e cipolla",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Composti solforati",
+    "come l'allicina passano",
+    "nel sangue",
+    "",
+    "e vengono rilasciati per ore",
+    "attraverso sudore",
+    "e respiro"
+   ]
   },
-  "topic_word": "Odore corporeo"
+  {
+   "name": "Aglio e cipolla — il rimedio",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Cuocerli invece di",
+    "mangiarli crudi riduce l'odore"
+   ]
+  },
+  {
+   "name": "Carne rossa",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Il manzo richiede più tempo",
+    "per essere digerito",
+    "rispetto ad altre proteine",
+    "",
+    "Questo ritardo produce",
+    "più composti odorosi"
+   ]
+  },
+  {
+   "name": "Carne rossa — il rimedio",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Sostituirla ogni tanto",
+    "con pesce o pollo"
+   ]
+  },
+  {
+   "name": "Alcol",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Birra e vino si trasformano",
+    "in acido acetico,",
+    "",
+    "rilasciato con il sudore",
+    "con una nota acida"
+   ]
+  },
+  {
+   "name": "Alcol — il rimedio",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Bere acqua",
+    "in parallelo"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Aglio, carne e alcol,",
+    "non serve eliminarli del tutto"
+   ],
+   [
+    "Cuocere, sostituire e bere acqua",
+    "spesso bastano"
+   ]
+  ],
+  "tip": [
+   "Verdure ed erbe fresche come contorno",
+   "possono attenuare ulteriormente l'odore"
+  ],
+  "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti like e segui!"
+ },
+ "topic_word": "Odore corporeo",
+ "swipe_label": "Scorri per saperne di più  →",
+ "closing_label": "In sintesi"
 }

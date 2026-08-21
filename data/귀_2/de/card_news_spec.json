@@ -1,84 +1,89 @@
 {
-  "title": [
-    "Ohr juckt und ist",
-    "verstopft nach dem Schwimmen?",
-    "Die eigentlichen Gründe"
-  ],
-  "eyebrow": "Warum das Ohr nach dem Schwimmen reagiert",
-  "cover_char_file": "물방울_illust.jpg",
-  "cover_scrim_color": "#C2712E",
-  "items": [
-    {
-      "name": "Warum passiert das immer wieder?",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Ohr juckt und ist verstopft,",
-        "Tage nach dem Schwimmen?",
-        "",
-        "Zwei alltägliche Gewohnheiten",
-        "spielen oft mit rein"
-      ]
-    },
-    {
-      "name": "Feuchtigkeit im Gehörgang",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Wasser bleibt im",
-        "Gehörgang stehen",
-        "",
-        "und wäscht die natürliche",
-        "Schutzschicht aus"
-      ]
-    },
-    {
-      "name": "Richtig trocknen",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Kopf nach dem Schwimmen",
-        "oder Duschen zur Seite neigen",
-        "",
-        "nur außen abtrocknen -",
-        "keine Wattestäbchen"
-      ]
-    },
-    {
-      "name": "Wattestäbchen & Kopfhörer",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Wattestäbchen reizen",
-        "die dünne Gehörgangshaut",
-        "",
-        "Kopfhörer stauen",
-        "Wärme und Feuchtigkeit"
-      ]
-    },
-    {
-      "name": "Dem Ohr eine Pause gönnen",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Auf Wattestäbchen verzichten,",
-        "Ohrenschmalz machen lassen",
-        "",
-        "bei langen Anrufen",
-        "Kopfhörerpausen einlegen"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Feuchtigkeit, Wattestäbchen,",
-        "Kopfhörer - kleine Gewohnheiten summieren sich"
-      ],
-      [
-        "Kleine Änderungen beim Trocknen",
-        "und Reinigen können helfen"
-      ]
-    ],
-    "tip": [
-      "Schmerzen oder Ausfluss,",
-      "die nicht abklingen? Ab zum Arzt"
-    ],
-    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+ "title": [
+  "Ohr juckt und ist",
+  "verstopft nach dem Schwimmen?",
+  "Die eigentlichen Gründe"
+ ],
+ "eyebrow": "Warum das Ohr nach dem Schwimmen reagiert",
+ "cover_char_file": "물방울_illust.jpg",
+ "cover_scrim_color": "#C2712E",
+ "items": [
+  {
+   "name": "Warum passiert das immer wieder?",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Ohr juckt und ist verstopft,",
+    "Tage nach dem Schwimmen?",
+    "",
+    "Zwei alltägliche Gewohnheiten",
+    "spielen oft mit rein"
+   ]
+  },
+  {
+   "name": "Feuchtigkeit im Gehörgang",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Wasser bleibt im",
+    "Gehörgang stehen",
+    "",
+    "und wäscht die natürliche",
+    "Schutzschicht aus"
+   ]
+  },
+  {
+   "name": "Richtig trocknen",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Kopf nach dem Schwimmen",
+    "oder Duschen zur Seite neigen",
+    "",
+    "nur außen abtrocknen -",
+    "keine Wattestäbchen"
+   ]
+  },
+  {
+   "name": "Wattestäbchen & Kopfhörer",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Wattestäbchen reizen",
+    "die dünne Gehörgangshaut",
+    "",
+    "Kopfhörer stauen",
+    "Wärme und Feuchtigkeit"
+   ]
+  },
+  {
+   "name": "Dem Ohr eine Pause gönnen",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Auf Wattestäbchen verzichten,",
+    "Ohrenschmalz machen lassen",
+    "",
+    "bei langen Anrufen",
+    "Kopfhörerpausen einlegen"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Feuchtigkeit, Wattestäbchen,",
+    "Kopfhörer - kleine Gewohnheiten summieren sich"
+   ],
+   [
+    "Kleine Änderungen beim Trocknen",
+    "und Reinigen können helfen"
+   ]
+  ],
+  "tip": [
+   "Schmerzen oder Ausfluss,",
+   "die nicht abklingen? Ab zum Arzt"
+  ],
+  "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+ },
+ "swipe_label": "Wischen für mehr  →",
+ "closing_label": "Fazit",
+ "char_display_names": {
+  "물방울_illust.jpg": "Feuchtigkeit im Ohr"
+ }
 }

@@ -1,117 +1,118 @@
 {
-  "title": [
-    "Giornata di smog alto?",
-    "Prima di uscire,",
-    "controlla queste 3 cose"
-  ],
-  "eyebrow": "Allerta smog",
-  "swipe_label": "Scorri per saperne di più  →",
-  "closing_label": "In sintesi",
-  "cover_char_file": "미세먼지_illust.jpg",
-  "char_display_names": {
-    "물방울_illust.jpg": "Crema idratante",
-    "인공눈물_illust.jpg": "Lacrime artificiali",
-    "마스크_illust.jpg": "Mascherina FFP2"
+ "title": [
+  "Giornata di smog alto?",
+  "Prima di uscire,",
+  "controlla queste 3 cose"
+ ],
+ "eyebrow": "Allerta smog",
+ "swipe_label": "Scorri per saperne di più  →",
+ "closing_label": "In sintesi",
+ "cover_char_file": "미세먼지_illust.jpg",
+ "char_display_names": {
+  "물방울_illust.jpg": "Crema idratante",
+  "인공눈물_illust.jpg": "Lacrime artificiali",
+  "마스크_illust.jpg": "Mascherina FFP2",
+  "미세먼지_illust.jpg": "Polveri sottili"
+ },
+ "items": [
+  {
+   "name": "Perché proprio queste 3 zone",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "Pelle, occhi e vie respiratorie —",
+    "sono le tre zone più colpite",
+    "",
+    "Il particolato è abbastanza fine",
+    "da penetrare in tutte e tre",
+    "allo stesso tempo"
+   ]
   },
-  "items": [
-    {
-      "name": "Perché proprio queste 3 zone",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "Pelle, occhi e vie respiratorie —",
-        "sono le tre zone più colpite",
-        "",
-        "Il particolato è abbastanza fine",
-        "da penetrare in tutte e tre",
-        "allo stesso tempo"
-      ]
-    },
-    {
-      "name": "La pelle",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "Il PM2.5 è abbastanza fine",
-        "da depositarsi nei pori",
-        "",
-        "Questo genera stress ossidativo,",
-        "che degrada il collagene",
-        "che mantiene la pelle soda"
-      ]
-    },
-    {
-      "name": "Per la pelle",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Detergi bene il viso",
-        "quando rientri",
-        "",
-        "poi applica un siero",
-        "antiossidante e",
-        "una crema idratante"
-      ]
-    },
-    {
-      "name": "Gli occhi",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "In secondo luogo il particolato",
-        "irrita le ghiandole delle palpebre,",
-        "",
-        "quelle che stabilizzano il film lacrimale —",
-        "diventa instabile e",
-        "gli occhi si seccano"
-      ]
-    },
-    {
-      "name": "Per gli occhi",
-      "char_file": "인공눈물_illust.jpg",
-      "body": [
-        "Indossa occhiali avvolgenti",
-        "quando esci",
-        "",
-        "e usa lacrime artificiali",
-        "se senti bruciore o fastidio"
-      ]
-    },
-    {
-      "name": "Le vie respiratorie",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "Infine, le particelle sotto",
-        "i 2,5 micrometri",
-        "",
-        "penetrano in profondità",
-        "e irritano le mucose —",
-        "tosse e fiato corto ne seguono"
-      ]
-    },
-    {
-      "name": "Per le vie respiratorie",
-      "char_file": "마스크_illust.jpg",
-      "body": [
-        "Indossa una mascherina FFP2",
-        "ben aderente al viso",
-        "",
-        "ed evita sforzi fisici intensi",
-        "nei giorni di picco"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Non significa che devi",
-        "restare sempre in casa"
-      ],
-      [
-        "Poche abitudini bastano",
-        "nei giorni più critici"
-      ]
-    ],
-    "tip": [
-      "Detersione, colliri, mascherina —",
-      "nei giorni di smog alto"
-    ],
-    "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti like e seguici!"
+  {
+   "name": "La pelle",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "Il PM2.5 è abbastanza fine",
+    "da depositarsi nei pori",
+    "",
+    "Questo genera stress ossidativo,",
+    "che degrada il collagene",
+    "che mantiene la pelle soda"
+   ]
+  },
+  {
+   "name": "Per la pelle",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Detergi bene il viso",
+    "quando rientri",
+    "",
+    "poi applica un siero",
+    "antiossidante e",
+    "una crema idratante"
+   ]
+  },
+  {
+   "name": "Gli occhi",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "In secondo luogo il particolato",
+    "irrita le ghiandole delle palpebre,",
+    "",
+    "quelle che stabilizzano il film lacrimale —",
+    "diventa instabile e",
+    "gli occhi si seccano"
+   ]
+  },
+  {
+   "name": "Per gli occhi",
+   "char_file": "인공눈물_illust.jpg",
+   "body": [
+    "Indossa occhiali avvolgenti",
+    "quando esci",
+    "",
+    "e usa lacrime artificiali",
+    "se senti bruciore o fastidio"
+   ]
+  },
+  {
+   "name": "Le vie respiratorie",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "Infine, le particelle sotto",
+    "i 2,5 micrometri",
+    "",
+    "penetrano in profondità",
+    "e irritano le mucose —",
+    "tosse e fiato corto ne seguono"
+   ]
+  },
+  {
+   "name": "Per le vie respiratorie",
+   "char_file": "마스크_illust.jpg",
+   "body": [
+    "Indossa una mascherina FFP2",
+    "ben aderente al viso",
+    "",
+    "ed evita sforzi fisici intensi",
+    "nei giorni di picco"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Non significa che devi",
+    "restare sempre in casa"
+   ],
+   [
+    "Poche abitudini bastano",
+    "nei giorni più critici"
+   ]
+  ],
+  "tip": [
+   "Detersione, colliri, mascherina —",
+   "nei giorni di smog alto"
+  ],
+  "cta": "Vuoi altri consigli sulla salute? Iscriviti, metti like e seguici!"
+ }
 }

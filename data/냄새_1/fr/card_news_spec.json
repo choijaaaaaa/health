@@ -1,107 +1,109 @@
 {
-  "title": [
-    "Douche fraîche, mais l'odeur",
-    "corporelle revient",
-    "vite ?",
-    "Guide anti-odeurs"
-  ],
-  "eyebrow": "Alerte odeur corporelle",
-  "cover_char_file": "마늘기름_illust.jpg",
-  "char_display_names": {
-    "마늘기름_illust.jpg": "Ail et oignon",
-    "소고기_illust.jpg": "Viande rouge",
-    "맥주_illust.jpg": "Alcool"
+ "title": [
+  "Douche fraîche, mais l'odeur",
+  "corporelle revient",
+  "vite ?",
+  "Guide anti-odeurs"
+ ],
+ "eyebrow": "Alerte odeur corporelle",
+ "cover_char_file": "마늘기름_illust.jpg",
+ "char_display_names": {
+  "마늘기름_illust.jpg": "Ail et oignon",
+  "소고기_illust.jpg": "Viande rouge",
+  "맥주_illust.jpg": "Alcool"
+ },
+ "items": [
+  {
+   "name": "Pourquoi l'odeur s'intensifie",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "L'odeur corporelle apparaît quand",
+    "des composés alimentaires sont",
+    "libérés par la sueur et la respiration",
+    "",
+    "Certains aliments en produisent",
+    "beaucoup plus que d'autres"
+   ]
   },
-  "items": [
-    {
-      "name": "Pourquoi l'odeur s'intensifie",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "L'odeur corporelle apparaît quand",
-        "des composés alimentaires sont",
-        "libérés par la sueur et la respiration",
-        "",
-        "Certains aliments en produisent",
-        "beaucoup plus que d'autres"
-      ]
-    },
-    {
-      "name": "Ail et oignon",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Des composés soufrés",
-        "comme l'allicine passent",
-        "dans le sang",
-        "",
-        "et sont relâchés pendant",
-        "des heures par la sueur",
-        "et la respiration"
-      ]
-    },
-    {
-      "name": "Ail et oignon — la solution",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Les cuire plutôt que",
-        "les manger crus atténue l'odeur"
-      ]
-    },
-    {
-      "name": "Viande rouge",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Le bœuf met plus de temps",
-        "à se digérer que",
-        "les autres protéines",
-        "",
-        "Ce délai produit davantage",
-        "de composés odorants"
-      ]
-    },
-    {
-      "name": "Viande rouge — la solution",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "La remplacer parfois par",
-        "du poisson ou du poulet"
-      ]
-    },
-    {
-      "name": "Alcool",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "La bière et le vin se",
-        "transforment en acide acétique,",
-        "",
-        "relâché par la sueur",
-        "avec une note acide"
-      ]
-    },
-    {
-      "name": "Alcool — la solution",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Boire de l'eau",
-        "en parallèle"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Ail, viande et alcool,",
-        "pas besoin de tout supprimer"
-      ],
-      [
-        "Cuire, remplacer et boire de l'eau",
-        "suffit souvent"
-      ]
-    ],
-    "tip": [
-      "Des légumes et herbes frais en accompagnement",
-      "peuvent aussi atténuer l'odeur"
-    ],
-    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez !"
+  {
+   "name": "Ail et oignon",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Des composés soufrés",
+    "comme l'allicine passent",
+    "dans le sang",
+    "",
+    "et sont relâchés pendant",
+    "des heures par la sueur",
+    "et la respiration"
+   ]
   },
-  "topic_word": "Odeur corporelle"
+  {
+   "name": "Ail et oignon — la solution",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Les cuire plutôt que",
+    "les manger crus atténue l'odeur"
+   ]
+  },
+  {
+   "name": "Viande rouge",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Le bœuf met plus de temps",
+    "à se digérer que",
+    "les autres protéines",
+    "",
+    "Ce délai produit davantage",
+    "de composés odorants"
+   ]
+  },
+  {
+   "name": "Viande rouge — la solution",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "La remplacer parfois par",
+    "du poisson ou du poulet"
+   ]
+  },
+  {
+   "name": "Alcool",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "La bière et le vin se",
+    "transforment en acide acétique,",
+    "",
+    "relâché par la sueur",
+    "avec une note acide"
+   ]
+  },
+  {
+   "name": "Alcool — la solution",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Boire de l'eau",
+    "en parallèle"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Ail, viande et alcool,",
+    "pas besoin de tout supprimer"
+   ],
+   [
+    "Cuire, remplacer et boire de l'eau",
+    "suffit souvent"
+   ]
+  ],
+  "tip": [
+   "Des légumes et herbes frais en accompagnement",
+   "peuvent aussi atténuer l'odeur"
+  ],
+  "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez !"
+ },
+ "topic_word": "Odeur corporelle",
+ "swipe_label": "Glissez pour en savoir plus  →",
+ "closing_label": "En résumé"
 }

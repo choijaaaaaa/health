@@ -1,106 +1,108 @@
 {
-  "title": [
-    "Net gedoucht, maar",
-    "de lichaamsgeur is",
-    "toch terug?",
-    "Gids tegen geurtjes"
-  ],
-  "eyebrow": "Lichaamsgeur onder de loep",
-  "cover_char_file": "마늘기름_illust.jpg",
-  "char_display_names": {
-    "마늘기름_illust.jpg": "Knoflook & ui",
-    "소고기_illust.jpg": "Rood vlees",
-    "맥주_illust.jpg": "Alcohol"
+ "title": [
+  "Net gedoucht, maar",
+  "de lichaamsgeur is",
+  "toch terug?",
+  "Gids tegen geurtjes"
+ ],
+ "eyebrow": "Lichaamsgeur onder de loep",
+ "cover_char_file": "마늘기름_illust.jpg",
+ "char_display_names": {
+  "마늘기름_illust.jpg": "Knoflook & ui",
+  "소고기_illust.jpg": "Rood vlees",
+  "맥주_illust.jpg": "Alcohol"
+ },
+ "items": [
+  {
+   "name": "Waarom wordt de geur sterker",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Lichaamsgeur ontstaat wanneer",
+    "stoffen uit voeding via",
+    "zweet en adem vrijkomen",
+    "",
+    "Sommige voedingsmiddelen maken",
+    "veel meer geurmoleculen aan"
+   ]
   },
-  "items": [
-    {
-      "name": "Waarom wordt de geur sterker",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Lichaamsgeur ontstaat wanneer",
-        "stoffen uit voeding via",
-        "zweet en adem vrijkomen",
-        "",
-        "Sommige voedingsmiddelen maken",
-        "veel meer geurmoleculen aan"
-      ]
-    },
-    {
-      "name": "Knoflook & ui",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Zwavelverbindingen zoals",
-        "allicine komen in het bloed",
-        "",
-        "en worden uren later nog",
-        "via zweet en adem",
-        "afgegeven"
-      ]
-    },
-    {
-      "name": "Knoflook & ui — dit helpt",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Gaar in plaats van rauw eten",
-        "vermindert de geur"
-      ]
-    },
-    {
-      "name": "Rood vlees",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Rundvlees heeft langer nodig",
-        "om te verteren dan",
-        "andere eiwitten",
-        "",
-        "Dat zorgt voor meer",
-        "geurvormende afbraakstoffen"
-      ]
-    },
-    {
-      "name": "Rood vlees — dit helpt",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Af en toe vervangen door",
-        "vis of kipfilet"
-      ]
-    },
-    {
-      "name": "Alcohol",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Bier en wijn worden",
-        "afgebroken tot azijnzuur,",
-        "",
-        "dat via het zweet",
-        "weer vrijkomt"
-      ]
-    },
-    {
-      "name": "Alcohol — dit helpt",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Steeds water",
-        "erbij drinken"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Knoflook, vlees en alcohol",
-        "hoef je niet helemaal te schrappen"
-      ],
-      [
-        "Gaar eten, vervangen en water drinken",
-        "is vaak al genoeg"
-      ]
-    ],
-    "tip": [
-      "Verse groenten en kruiden erbij",
-      "kunnen de geur ook verzachten"
-    ],
-    "cta": "Meer gezondheidstips? Abonneer, like en volg!"
+  {
+   "name": "Knoflook & ui",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Zwavelverbindingen zoals",
+    "allicine komen in het bloed",
+    "",
+    "en worden uren later nog",
+    "via zweet en adem",
+    "afgegeven"
+   ]
   },
-  "topic_word": "Lichaamsgeur"
+  {
+   "name": "Knoflook & ui — dit helpt",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Gaar in plaats van rauw eten",
+    "vermindert de geur"
+   ]
+  },
+  {
+   "name": "Rood vlees",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Rundvlees heeft langer nodig",
+    "om te verteren dan",
+    "andere eiwitten",
+    "",
+    "Dat zorgt voor meer",
+    "geurvormende afbraakstoffen"
+   ]
+  },
+  {
+   "name": "Rood vlees — dit helpt",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Af en toe vervangen door",
+    "vis of kipfilet"
+   ]
+  },
+  {
+   "name": "Alcohol",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Bier en wijn worden",
+    "afgebroken tot azijnzuur,",
+    "",
+    "dat via het zweet",
+    "weer vrijkomt"
+   ]
+  },
+  {
+   "name": "Alcohol — dit helpt",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Steeds water",
+    "erbij drinken"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Knoflook, vlees en alcohol",
+    "hoef je niet helemaal te schrappen"
+   ],
+   [
+    "Gaar eten, vervangen en water drinken",
+    "is vaak al genoeg"
+   ]
+  ],
+  "tip": [
+   "Verse groenten en kruiden erbij",
+   "kunnen de geur ook verzachten"
+  ],
+  "cta": "Meer gezondheidstips? Abonneer, like en volg!"
+ },
+ "topic_word": "Lichaamsgeur",
+ "swipe_label": "Swipe voor meer  →",
+ "closing_label": "Samenvatting"
 }

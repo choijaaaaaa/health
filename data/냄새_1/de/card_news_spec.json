@@ -1,105 +1,107 @@
 {
-  "title": [
-    "Auch frisch geduscht,",
-    "der Schweißgeruch bleibt",
-    "hartnäckig?",
-    "Körpergeruch-Guide"
-  ],
-  "eyebrow": "Körpergeruch im Fokus",
-  "cover_char_file": "마늘기름_illust.jpg",
-  "char_display_names": {
-    "마늘기름_illust.jpg": "Knoblauch & Zwiebeln",
-    "소고기_illust.jpg": "Rotes Fleisch",
-    "맥주_illust.jpg": "Alkohol"
+ "title": [
+  "Auch frisch geduscht,",
+  "der Schweißgeruch bleibt",
+  "hartnäckig?",
+  "Körpergeruch-Guide"
+ ],
+ "eyebrow": "Körpergeruch im Fokus",
+ "cover_char_file": "마늘기름_illust.jpg",
+ "char_display_names": {
+  "마늘기름_illust.jpg": "Knoblauch & Zwiebeln",
+  "소고기_illust.jpg": "Rotes Fleisch",
+  "맥주_illust.jpg": "Alkohol"
+ },
+ "items": [
+  {
+   "name": "Warum wird der Geruch stärker?",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Körpergeruch entsteht, wenn",
+    "Stoffe aus der Nahrung über",
+    "Schweiß und Atem freigesetzt werden",
+    "",
+    "Manche Lebensmittel bilden",
+    "besonders viele Duftmoleküle"
+   ]
   },
-  "items": [
-    {
-      "name": "Warum wird der Geruch stärker?",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Körpergeruch entsteht, wenn",
-        "Stoffe aus der Nahrung über",
-        "Schweiß und Atem freigesetzt werden",
-        "",
-        "Manche Lebensmittel bilden",
-        "besonders viele Duftmoleküle"
-      ]
-    },
-    {
-      "name": "Knoblauch & Zwiebeln",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Schwefelverbindungen wie Allicin",
-        "gelangen ins Blut",
-        "",
-        "und werden über Stunden",
-        "durch Schweiß und Atem",
-        "wieder abgegeben"
-      ]
-    },
-    {
-      "name": "Knoblauch & Zwiebeln — so hilft's",
-      "char_file": "마늘기름_illust.jpg",
-      "body": [
-        "Gegart statt roh essen",
-        "verringert den Geruch"
-      ]
-    },
-    {
-      "name": "Rotes Fleisch",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Rindfleisch braucht länger",
-        "zum Verdauen als andere Proteine",
-        "",
-        "Dabei entstehen mehr",
-        "geruchsbildende Abbaustoffe"
-      ]
-    },
-    {
-      "name": "Rotes Fleisch — so hilft's",
-      "char_file": "소고기_illust.jpg",
-      "body": [
-        "Ab und zu auf Fisch",
-        "oder Hähnchenbrust umsteigen"
-      ]
-    },
-    {
-      "name": "Alkohol",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Bier und Wein werden",
-        "zu Essigsäure abgebaut,",
-        "",
-        "die über den Schweiß",
-        "wieder freigesetzt wird"
-      ]
-    },
-    {
-      "name": "Alkohol — so hilft's",
-      "char_file": "맥주_illust.jpg",
-      "body": [
-        "Dazwischen immer",
-        "Wasser trinken"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Knoblauch, Fleisch und Alkohol",
-        "müssen nicht komplett gestrichen werden"
-      ],
-      [
-        "Garen, tauschen und trinken",
-        "reicht oft schon aus"
-      ]
-    ],
-    "tip": [
-      "Frisches Obst und Kräuter",
-      "können den Geruch zusätzlich mildern"
-    ],
-    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  {
+   "name": "Knoblauch & Zwiebeln",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Schwefelverbindungen wie Allicin",
+    "gelangen ins Blut",
+    "",
+    "und werden über Stunden",
+    "durch Schweiß und Atem",
+    "wieder abgegeben"
+   ]
   },
-  "topic_word": "Körpergeruch"
+  {
+   "name": "Knoblauch & Zwiebeln — so hilft's",
+   "char_file": "마늘기름_illust.jpg",
+   "body": [
+    "Gegart statt roh essen",
+    "verringert den Geruch"
+   ]
+  },
+  {
+   "name": "Rotes Fleisch",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Rindfleisch braucht länger",
+    "zum Verdauen als andere Proteine",
+    "",
+    "Dabei entstehen mehr",
+    "geruchsbildende Abbaustoffe"
+   ]
+  },
+  {
+   "name": "Rotes Fleisch — so hilft's",
+   "char_file": "소고기_illust.jpg",
+   "body": [
+    "Ab und zu auf Fisch",
+    "oder Hähnchenbrust umsteigen"
+   ]
+  },
+  {
+   "name": "Alkohol",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Bier und Wein werden",
+    "zu Essigsäure abgebaut,",
+    "",
+    "die über den Schweiß",
+    "wieder freigesetzt wird"
+   ]
+  },
+  {
+   "name": "Alkohol — so hilft's",
+   "char_file": "맥주_illust.jpg",
+   "body": [
+    "Dazwischen immer",
+    "Wasser trinken"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Knoblauch, Fleisch und Alkohol",
+    "müssen nicht komplett gestrichen werden"
+   ],
+   [
+    "Garen, tauschen und trinken",
+    "reicht oft schon aus"
+   ]
+  ],
+  "tip": [
+   "Frisches Obst und Kräuter",
+   "können den Geruch zusätzlich mildern"
+  ],
+  "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+ },
+ "topic_word": "Körpergeruch",
+ "swipe_label": "Wischen für mehr  →",
+ "closing_label": "Fazit"
 }

@@ -1,91 +1,93 @@
 {
-  "title": [
+ "title": [
+  "Naso chiuso o che cola",
+  "dopo vino o cibo piccante?",
+  "Istamina e capsaicina spiegate"
+ ],
+ "eyebrow": "Reazione nasale a tavola",
+ "cover_char_file": "고추_illust.jpg",
+ "cover_scrim_color": "#8A3E2E",
+ "char_display_names": {
+  "가공육_illust.jpg": "Alimenti ricchi di istamina",
+  "고추_illust.jpg": "Cibo piccante"
+ },
+ "items": [
+  {
+   "name": "Perché succede?",
+   "char_file": "고추_illust.jpg",
+   "body": [
     "Naso chiuso o che cola",
-    "dopo vino o cibo piccante?",
-    "Istamina e capsaicina spiegate"
-  ],
-  "eyebrow": "Reazione nasale a tavola",
-  "cover_char_file": "고추_illust.jpg",
-  "cover_scrim_color": "#8A3E2E",
-  "char_display_names": {
-    "가공육_illust.jpg": "Alimenti ricchi di istamina",
-    "고추_illust.jpg": "Cibo piccante"
+    "subito dopo mangiato?",
+    "",
+    "Due reazioni diverse",
+    "possono spiegarlo"
+   ]
   },
-  "items": [
-    {
-      "name": "Perché succede?",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "Naso chiuso o che cola",
-        "subito dopo mangiato?",
-        "",
-        "Due reazioni diverse",
-        "possono spiegarlo"
-      ]
-    },
-    {
-      "name": "Istamina in formaggi e vino",
-      "char_file": "가공육_illust.jpg",
-      "body": [
-        "Formaggi stagionati, salumi",
-        "e vino rosso sono ricchi",
-        "di istamina",
-        "",
-        "Se il corpo non la",
-        "smaltisce bene, il naso",
-        "reagisce"
-      ]
-    },
-    {
-      "name": "Cosa aiuta davvero",
-      "char_file": "가공육_illust.jpg",
-      "body": [
-        "Evitare di combinare formaggio,",
-        "salumi e vino rosso",
-        "nello stesso pasto",
-        "",
-        "Scegliere formaggi freschi",
-        "e vino bianco"
-      ]
-    },
-    {
-      "name": "Cibo piccante (capsaicina)",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "La capsaicina del peperoncino",
-        "stimola i nervi di bocca e naso",
-        "",
-        "Il corpo produce più muco",
-        "per difesa"
-      ]
-    },
-    {
-      "name": "Come ridurre la reazione",
-      "char_file": "고추_illust.jpg",
-      "body": [
-        "Lasciare intiepidire",
-        "i piatti piccanti",
-        "",
-        "È una reazione",
-        "del tutto benigna"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Formaggio, vino e piccante",
-        "non vanno eliminati del tutto"
-      ],
-      [
-        "Piccoli accorgimenti bastano",
-        "per alleggerire il naso"
-      ]
-    ],
-    "tip": [
-      "Se i sintomi sono frequenti",
-      "o intensi, meglio sentire uno specialista"
-    ],
-    "cta": "Vuoi altri consigli per la salute? Iscriviti, metti like e seguici!"
+  {
+   "name": "Istamina in formaggi e vino",
+   "char_file": "가공육_illust.jpg",
+   "body": [
+    "Formaggi stagionati, salumi",
+    "e vino rosso sono ricchi",
+    "di istamina",
+    "",
+    "Se il corpo non la",
+    "smaltisce bene, il naso",
+    "reagisce"
+   ]
+  },
+  {
+   "name": "Cosa aiuta davvero",
+   "char_file": "가공육_illust.jpg",
+   "body": [
+    "Evitare di combinare formaggio,",
+    "salumi e vino rosso",
+    "nello stesso pasto",
+    "",
+    "Scegliere formaggi freschi",
+    "e vino bianco"
+   ]
+  },
+  {
+   "name": "Cibo piccante (capsaicina)",
+   "char_file": "고추_illust.jpg",
+   "body": [
+    "La capsaicina del peperoncino",
+    "stimola i nervi di bocca e naso",
+    "",
+    "Il corpo produce più muco",
+    "per difesa"
+   ]
+  },
+  {
+   "name": "Come ridurre la reazione",
+   "char_file": "고추_illust.jpg",
+   "body": [
+    "Lasciare intiepidire",
+    "i piatti piccanti",
+    "",
+    "È una reazione",
+    "del tutto benigna"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Formaggio, vino e piccante",
+    "non vanno eliminati del tutto"
+   ],
+   [
+    "Piccoli accorgimenti bastano",
+    "per alleggerire il naso"
+   ]
+  ],
+  "tip": [
+   "Se i sintomi sono frequenti",
+   "o intensi, meglio sentire uno specialista"
+  ],
+  "cta": "Vuoi altri consigli per la salute? Iscriviti, metti like e seguici!"
+ },
+ "swipe_label": "Scorri per saperne di più  →",
+ "closing_label": "In sintesi"
 }

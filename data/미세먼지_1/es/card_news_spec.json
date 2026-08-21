@@ -1,117 +1,118 @@
 {
-  "title": [
-    "¿Alerta por contaminación",
-    "hoy? Antes de salir",
-    "Revisa Estas 3 Cosas"
-  ],
-  "eyebrow": "Alerta por contaminación",
-  "swipe_label": "Desliza para ver más  →",
-  "closing_label": "Resumen",
-  "cover_char_file": "미세먼지_illust.jpg",
-  "char_display_names": {
-    "물방울_illust.jpg": "Crema hidratante",
-    "인공눈물_illust.jpg": "Lágrimas artificiales",
-    "마스크_illust.jpg": "Mascarilla FFP2"
+ "title": [
+  "¿Alerta por contaminación",
+  "hoy? Antes de salir",
+  "Revisa Estas 3 Cosas"
+ ],
+ "eyebrow": "Alerta por contaminación",
+ "swipe_label": "Desliza para ver más  →",
+ "closing_label": "Resumen",
+ "cover_char_file": "미세먼지_illust.jpg",
+ "char_display_names": {
+  "물방울_illust.jpg": "Crema hidratante",
+  "인공눈물_illust.jpg": "Lágrimas artificiales",
+  "마스크_illust.jpg": "Mascarilla FFP2",
+  "미세먼지_illust.jpg": "Partículas finas"
+ },
+ "items": [
+  {
+   "name": "Por qué estas 3 zonas",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "Piel, ojos y vías respiratorias —",
+    "son las tres zonas más afectadas",
+    "",
+    "Las partículas PM2.5 son tan finas",
+    "que penetran en las tres",
+    "al mismo tiempo"
+   ]
   },
-  "items": [
-    {
-      "name": "Por qué estas 3 zonas",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "Piel, ojos y vías respiratorias —",
-        "son las tres zonas más afectadas",
-        "",
-        "Las partículas PM2.5 son tan finas",
-        "que penetran en las tres",
-        "al mismo tiempo"
-      ]
-    },
-    {
-      "name": "La piel",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "El PM2.5 es tan fino",
-        "que se aloja en los poros",
-        "",
-        "Esto genera radicales libres",
-        "que dañan el colágeno",
-        "que mantiene la piel firme"
-      ]
-    },
-    {
-      "name": "Para la piel",
-      "char_file": "물방울_illust.jpg",
-      "body": [
-        "Limpia bien la piel",
-        "al volver a casa",
-        "",
-        "y aplica un sérum",
-        "antioxidante junto con",
-        "una crema hidratante"
-      ]
-    },
-    {
-      "name": "Los ojos",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "En segundo lugar, el PM2.5",
-        "irrita las glándulas del párpado",
-        "",
-        "que estabilizan la lágrima —",
-        "se vuelve inestable",
-        "y los ojos se resecan"
-      ]
-    },
-    {
-      "name": "Para los ojos",
-      "char_file": "인공눈물_illust.jpg",
-      "body": [
-        "Usa gafas envolventes",
-        "cuando salgas",
-        "",
-        "y aplica lágrimas artificiales",
-        "si sientes molestias"
-      ]
-    },
-    {
-      "name": "Las vías respiratorias",
-      "char_file": "미세먼지_illust.jpg",
-      "body": [
-        "Por último, las partículas",
-        "menores a 2,5 micrómetros",
-        "",
-        "llegan hasta lo más profundo,",
-        "irritan las mucosas —",
-        "y aparecen tos y opresión"
-      ]
-    },
-    {
-      "name": "Para las vías respiratorias",
-      "char_file": "마스크_illust.jpg",
-      "body": [
-        "Usa una mascarilla FFP2",
-        "bien ajustada a la cara",
-        "",
-        "y evita esfuerzos físicos",
-        "intensos en días de alerta"
-      ]
-    }
-  ],
-  "closing": {
-    "headline": [
-      [
-        "Esto no significa que",
-        "debas quedarte siempre en casa"
-      ],
-      [
-        "Unos pocos hábitos bastan",
-        "en los días más críticos"
-      ]
-    ],
-    "tip": [
-      "Limpieza, lágrimas artificiales,",
-      "mascarilla — en días de alerta"
-    ],
-    "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+  {
+   "name": "La piel",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "El PM2.5 es tan fino",
+    "que se aloja en los poros",
+    "",
+    "Esto genera radicales libres",
+    "que dañan el colágeno",
+    "que mantiene la piel firme"
+   ]
+  },
+  {
+   "name": "Para la piel",
+   "char_file": "물방울_illust.jpg",
+   "body": [
+    "Limpia bien la piel",
+    "al volver a casa",
+    "",
+    "y aplica un sérum",
+    "antioxidante junto con",
+    "una crema hidratante"
+   ]
+  },
+  {
+   "name": "Los ojos",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "En segundo lugar, el PM2.5",
+    "irrita las glándulas del párpado",
+    "",
+    "que estabilizan la lágrima —",
+    "se vuelve inestable",
+    "y los ojos se resecan"
+   ]
+  },
+  {
+   "name": "Para los ojos",
+   "char_file": "인공눈물_illust.jpg",
+   "body": [
+    "Usa gafas envolventes",
+    "cuando salgas",
+    "",
+    "y aplica lágrimas artificiales",
+    "si sientes molestias"
+   ]
+  },
+  {
+   "name": "Las vías respiratorias",
+   "char_file": "미세먼지_illust.jpg",
+   "body": [
+    "Por último, las partículas",
+    "menores a 2,5 micrómetros",
+    "",
+    "llegan hasta lo más profundo,",
+    "irritan las mucosas —",
+    "y aparecen tos y opresión"
+   ]
+  },
+  {
+   "name": "Para las vías respiratorias",
+   "char_file": "마스크_illust.jpg",
+   "body": [
+    "Usa una mascarilla FFP2",
+    "bien ajustada a la cara",
+    "",
+    "y evita esfuerzos físicos",
+    "intensos en días de alerta"
+   ]
   }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Esto no significa que",
+    "debas quedarte siempre en casa"
+   ],
+   [
+    "Unos pocos hábitos bastan",
+    "en los días más críticos"
+   ]
+  ],
+  "tip": [
+   "Limpieza, lágrimas artificiales,",
+   "mascarilla — en días de alerta"
+  ],
+  "cta": "¿Quieres más consejos de salud? ¡Suscríbete, dale like y síguenos!"
+ }
 }
