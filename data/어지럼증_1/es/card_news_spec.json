@@ -5,7 +5,17 @@
     "y qué hacer en su lugar"
   ],
   "eyebrow": "Alerta de mareos",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Dulces",
+    "아몬드_illust.jpg": "Almendras",
+    "커피_illust.jpg": "Café",
+    "보리차_illust.jpg": "Té de cebada",
+    "라면_illust.jpg": "Comida instantánea",
+    "바나나_illust.jpg": "Plátano"
+  },
   "items": [
     {
       "name": "Por qué pasa esto",

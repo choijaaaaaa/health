@@ -5,7 +5,17 @@
     "Let op deze 3 gewoontes"
   ],
   "eyebrow": "Duizeligheid Alert",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Suikerhoudend eten",
+    "아몬드_illust.jpg": "Amandelen",
+    "커피_illust.jpg": "Koffie",
+    "보리차_illust.jpg": "Gerstethee",
+    "라면_illust.jpg": "Instantmaaltijden",
+    "바나나_illust.jpg": "Banaan"
+  },
   "items": [
     {
       "name": "Waarom dit gebeurt",

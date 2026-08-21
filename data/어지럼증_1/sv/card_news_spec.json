@@ -5,7 +5,17 @@
     "3 vardagsvanor som utlöser yrsel"
   ],
   "eyebrow": "Yrselvarning",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Sockerrik mat",
+    "아몬드_illust.jpg": "Mandlar",
+    "커피_illust.jpg": "Kaffe",
+    "보리차_illust.jpg": "Kornte",
+    "라면_illust.jpg": "Snabbmat",
+    "바나나_illust.jpg": "Banan"
+  },
   "items": [
     {
       "name": "Varför det händer",

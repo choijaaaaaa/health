@@ -5,7 +5,17 @@
     "3 habitudes qui aggravent les vertiges"
   ],
   "eyebrow": "Alerte vertiges",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Sucreries",
+    "아몬드_illust.jpg": "Amandes",
+    "커피_illust.jpg": "Café",
+    "보리차_illust.jpg": "Thé d'orge",
+    "라면_illust.jpg": "Plats instantanés",
+    "바나나_illust.jpg": "Banane"
+  },
   "items": [
     {
       "name": "Pourquoi ça arrive",

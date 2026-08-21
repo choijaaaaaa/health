@@ -5,7 +5,17 @@
     "3 abitudini che scatenano le vertigini"
   ],
   "eyebrow": "Allerta vertigini",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "Riepilogo",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Dolci",
+    "아몬드_illust.jpg": "Mandorle",
+    "커피_illust.jpg": "Caffè",
+    "보리차_illust.jpg": "Tè d'orzo",
+    "라면_illust.jpg": "Piatti pronti",
+    "바나나_illust.jpg": "Banana"
+  },
   "items": [
     {
       "name": "Perché succede",

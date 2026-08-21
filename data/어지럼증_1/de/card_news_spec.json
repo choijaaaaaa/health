@@ -5,7 +5,17 @@
     "3 Alltagsgewohnheiten, die Schwindel auslösen"
   ],
   "eyebrow": "Schwindel-Warnung",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
   "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Süßigkeiten",
+    "아몬드_illust.jpg": "Mandeln",
+    "커피_illust.jpg": "Kaffee",
+    "보리차_illust.jpg": "Gerstentee",
+    "라면_illust.jpg": "Fertignudeln",
+    "바나나_illust.jpg": "Banane"
+  },
   "items": [
     {
       "name": "Warum das passiert",
