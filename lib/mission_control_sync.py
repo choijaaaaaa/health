@@ -85,6 +85,10 @@ def collect_rows() -> list[dict]:
                 "url": p.get("url") or "",
                 "caption": caption,
                 "no_caption_link": bool(p.get("no_caption_link")),
+                "link_in_comment": bool(p.get("link_in_comment")),
+                "comment_dm_automation": bool(p.get("comment_dm_automation")),
+                "suppress_product_block": bool(p.get("suppress_product_block")),
+                "add_profile_note": bool(p.get("add_profile_note")),
             })
     return rows
 
