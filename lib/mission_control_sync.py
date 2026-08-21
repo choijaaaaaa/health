@@ -14,6 +14,14 @@
 # mission_control 스키마)와 데이터 모양(캡션 1개 vs topic당 플랫폼 여러 개)이
 # 달라서 억지로 합치면 두 함수 다 분기투성이가 된다.
 #
+# ⚠️ 2026-08-21, "AI영상(1bite-history)·jp-review-shorts도 mission-control로
+# 통합" 요청으로 hs_platform_captions에 project 컬럼 추가(UNIQUE도
+# (project, topic, platform_name)로 갱신) — 이 스크립트는 계속
+# project="health-shorts" 고정, 다른 두 프로젝트는 각자 저장소에 이식된
+# 자기 버전의 이 스크립트가 project="jp-review-shorts"/"1bite-history"로
+# 같은 테이블에 upsert한다(같은 Supabase 프로젝트, 다른 저장소가 서로의
+# 코드를 실시간 참조하지 않는 이 워크스페이스 관례상 파일을 복사해 이식).
+#
 # 사용법: python3 -m lib.mission_control_sync [--commit]
 from __future__ import annotations
 
@@ -69,6 +77,7 @@ def collect_rows() -> list[dict]:
             if not caption:
                 continue
             rows.append({
+                "project": "health-shorts",
                 "topic": topic_dir.name,
                 "platform_name": name,
                 "network": p.get("network"),
@@ -91,7 +100,7 @@ def push_to_supabase(rows: list[dict]) -> int:
 
     body = json.dumps(rows).encode("utf-8")
     req = urllib.request.Request(
-        f"{supabase_url}/rest/v1/hs_platform_captions?on_conflict=topic,platform_name",
+        f"{supabase_url}/rest/v1/hs_platform_captions?on_conflict=project,topic,platform_name",
         data=body,
         method="POST",
         headers={
