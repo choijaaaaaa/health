@@ -89,6 +89,72 @@ def collect_rows() -> list[dict]:
     return rows
 
 
+# ⚠️ 2026-08-21, "링크 위젯도 있고 요구사항들 엄청 많았을텐데 제대로
+# 반영이 안 되어있는거같다" 지적으로 추가 — platform_captions.json
+# 최상위(topic 전체 공통, 플랫폼별이 아님)의 products/ad_tag/
+# comment_keyword를 topic당 한 행으로 mission_control.topic_meta에
+# 동기화한다. mission-control의 상품 링크 덕(dock) 위젯이 이 products
+# 목록을 기준으로 쿠팡/네이버 검색 링크를 만들고, ad_tag는 "🏷️ 광고표시
+# 적용" 배지, comment_keyword는 댓글→DM 자동화 CTA 문구에 쓰인다
+# (lib/dashboard.py의 동일 필드 사용처 그대로 — dashboard.py WHY 참고).
+def collect_topic_meta() -> list[dict]:
+    data_dir = ROOT / "data"
+    rows: list[dict] = []
+    if not data_dir.is_dir():
+        return rows
+    for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
+        captions_path = topic_dir / "platform_captions.json"
+        if not captions_path.exists():
+            continue
+        try:
+            data = json.loads(captions_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        products = data.get("products") or []
+        ad_tag = bool(data.get("ad_tag"))
+        comment_keyword = data.get("comment_keyword") or (products[0] if products else None)
+        if not products and not ad_tag and not comment_keyword:
+            continue
+        rows.append({
+            "project": "health-shorts",
+            "topic": topic_dir.name,
+            "products": products,
+            "ad_tag": ad_tag,
+            "comment_keyword": comment_keyword,
+        })
+    return rows
+
+
+def push_topic_meta(rows: list[dict]) -> int:
+    import urllib.request
+    import urllib.error
+
+    supabase_url = os.environ.get("SUPABASE_URL")
+    service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not supabase_url or not service_key:
+        raise RuntimeError("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY가 .env에 설정되어 있지 않습니다.")
+
+    body = json.dumps(rows).encode("utf-8")
+    req = urllib.request.Request(
+        f"{supabase_url}/rest/v1/topic_meta?on_conflict=project,topic",
+        data=body,
+        method="POST",
+        headers={
+            "apikey": service_key,
+            "Authorization": f"Bearer {service_key}",
+            "Content-Type": "application/json",
+            "Accept-Profile": "mission_control",
+            "Content-Profile": "mission_control",
+            "Prefer": "resolution=merge-duplicates,return=minimal",
+        },
+    )
+    try:
+        urllib.request.urlopen(req, timeout=30)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"upsert 실패: {e.code} {e.read().decode(errors='replace')}") from e
+    return len(rows)
+
+
 def push_to_supabase(rows: list[dict]) -> int:
     import urllib.request
     import urllib.error
@@ -131,6 +197,9 @@ def main() -> None:
     if len(by_topic) > 10:
         print(f"  ... 외 {len(by_topic) - 10}개 topic")
 
+    meta_rows = collect_topic_meta()
+    print(f"topic_meta {len(meta_rows)}개 topic(products/ad_tag/comment_keyword 있는 것만) 발견")
+
     if not commit:
         print("\ndry-run — DB에 쓰지 않았습니다. 실제로 넣으려면 --commit을 추가하세요.")
         return
@@ -142,6 +211,12 @@ def main() -> None:
         chunk = rows[i:i + 500]
         total += push_to_supabase(chunk)
     print(f"\n{total}개 행을 mission_control.hs_platform_captions에 upsert했습니다.")
+
+    meta_total = 0
+    for i in range(0, len(meta_rows), 500):
+        chunk = meta_rows[i:i + 500]
+        meta_total += push_topic_meta(chunk)
+    print(f"{meta_total}개 행을 mission_control.topic_meta에 upsert했습니다.")
 
 
 if __name__ == "__main__":
