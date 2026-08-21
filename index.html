@@ -972,6 +972,18 @@ Promise.all([
         adTagBadge.style.cssText = "width:16px;flex:0 0 auto;font-size:13px;line-height:1;";
       }
 
+      // WHY 트랙 배지(2026-08-21, "카드뉴스만있는지 영상까지 있는지는
+      // 확인이 되어야하는데" — 언어 배지 제거하면서 같이 없어졌던 트랙
+      // 구분을 별도 배지로 복원): groupTracks(위에서 이미 계산됨)를 그대로
+      // 아이콘으로 보여준다 — 카드뉴스만이면 🗞, 영상까지 있으면 🎬도 추가.
+      const trackLabel = { shorts: "🎬", card_news: "🗞" };
+      const trackNames = { shorts: "영상", card_news: "카드뉴스" };
+      const trackBadge = document.createElement("span");
+      trackBadge.textContent = groupTracks.map(t => trackLabel[t]).join(" ");
+      trackBadge.title = groupTracks.map(t => trackNames[t]).join(" + ");
+      trackBadge.setAttribute("aria-label", trackBadge.title);
+      trackBadge.style.cssText = "flex:0 0 auto;font-size:13px;line-height:1;white-space:nowrap;";
+
       const thumb = document.createElement("div");
       thumb.style.cssText = "flex:0 0 auto;width:42px;height:52px;border-radius:6px;overflow:hidden;background:var(--bg-bottom);";
       if (primary.thumbnail) {
@@ -1025,7 +1037,8 @@ Promise.all([
       row.style.cursor = "pointer";
       row.setAttribute("role", "link");
       row.tabIndex = 0;
-      row.setAttribute("aria-label", baseTopic + " 대시보드 열기 — " + primary.title);
+      row.setAttribute("aria-label", baseTopic + " 대시보드 열기 — " + primary.title
+        + " (" + groupTracks.map(t => trackNames[t]).join(" + ") + ")");
       const goToDashboard = () => { window.location.href = dashUrl; };
       row.addEventListener("click", goToDashboard);
       row.addEventListener("keydown", (ev) => {
@@ -1037,6 +1050,7 @@ Promise.all([
 
       row.appendChild(badge);
       row.appendChild(adTagBadge);
+      row.appendChild(trackBadge);
       row.appendChild(thumb);
       row.appendChild(textWrap);
       return row;
