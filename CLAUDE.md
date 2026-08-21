@@ -1078,6 +1078,14 @@ deleted`로 실패(리프레시 토큰 만료의 `Token has been expired or revo
 
 ## 카드뉴스 허브 (`lib/card_news_hub.py`)
 
+⚠️ **UI 진입점 제거(2026-08-21, AI영상 채널 피벗)** — `index.html`의
+육아·반려동물/경제 탭 버튼을 뺐다(SEO 블로그 9개 언어 파이프라인은
+완전히 별개라 무관, 그쪽은 그대로 운영). 이 워크플로우(babbleroot/
+furrowly/sparelow 네이버 블로그 포스팅)를 더 이상 안 하기로 한 결정 —
+아래 스크립트·`output/card_news_hub.json`·vernhaven-blog `/admin?tab=naver`
+연동 자체는 코드 그대로 남아있다(재개 가능성 대비 완전 삭제 아님), 그냥
+새로 실행/커밋할 이유가 없어졌을 뿐.
+
 네이버 블로그 운영용 — 이 프로젝트가 못 다루는 3개 신규 버티컬(육아=
 babbleroot/반려동물=furrowly/경제=sparelow, `VERTICAL_REPOS` 상수)의
 콘텐츠 저장소(`<이름>-content`)를 스캔해 `output/card_news_hub.json`으로

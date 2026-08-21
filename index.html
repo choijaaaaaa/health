@@ -265,9 +265,15 @@
      그대로 렌더링할 뿐이라 그룹 구성이 또 바뀌어도 여기는 안 고쳐도 된다.
      새 페이지로 안 옮기고 이 안에서 탭 전환만 한다. -->
 <div id="mainTabs" style="max-width:900px;margin:20px auto 0;padding:0 24px;display:flex;gap:8px;flex-wrap:wrap;">
+  <!-- WHY 육아·반려동물/경제 탭 버튼이 없는지(2026-08-21, AI영상 채널 피벗) —
+       babbleroot/furrowly/sparelow의 네이버 블로그 포스팅 워크플로우(이
+       탭들이 쓰던 lib/card_news_hub.py 스캔) 자체를 중단하기로 함. SEO
+       블로그(9개 언어) 파이프라인은 완전히 별개라 영향 없음 — 그쪽은 각
+       -content/-blog 저장소가 계속 그대로 운영된다. 버튼만 뺐고 아래
+       JS의 loadGroupHub/familyHubSection 등 관련 코드·데이터는 그대로
+       남겨뒀다(재개 가능성 대비, 완전 삭제 아님) — TAB_KEYS에서도 동일하게
+       뺐다(아래 스크립트 참고). -->
   <button type="button" class="main-tab-btn active" data-tab="health">🩺 건강</button>
-  <button type="button" class="main-tab-btn" data-tab="family">👶 육아·반려동물</button>
-  <button type="button" class="main-tab-btn" data-tab="finance">💰 경제</button>
   <button type="button" class="main-tab-btn" data-tab="jp_review">🇯🇵 일본상품리뷰</button>
 </div>
 
@@ -378,7 +384,10 @@
   // 보여주고(+완료 체크박스 신규 추가), 일본상품리뷰는 카드뉴스식 집계가
   // 아니라 topic 목록→각자 dashboard.html 링크 방식(아래 jpReviewSection
   // 주석 참고).
-  const TAB_KEYS = ["health", "family", "finance", "jp_review"];
+  // WHY family/finance가 빠졌는지: 위 버튼 제거 주석과 동일 이유
+  // (2026-08-21) — sectionsByTab/loadedByTab엔 여전히 남겨뒀지만 TAB_KEYS에
+  // 없으니 showTab()/버튼 등록 루프 둘 다 이 두 키를 아예 안 건드린다.
+  const TAB_KEYS = ["health", "jp_review"];
   const tabButtons = {};
   document.querySelectorAll(".main-tab-btn").forEach(btn => { tabButtons[btn.dataset.tab] = btn; });
   const sectionsByTab = {
