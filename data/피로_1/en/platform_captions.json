@@ -1,0 +1,43 @@
+{
+  "topic": "피로_1_en",
+  "title": "Bloodwork Clean, Still Exhausted? - 3 Habits That Don't Show Up On Tests",
+  "products": [],
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Still dragging after a full night's sleep? Check these 3 habits\n\nDescription:\nChronic low energy can build up with no diagnosed condition at all. Running low on water, falling short on magnesium, and scrolling on a bright phone before bed can each quietly wreck your energy the next day — even after eight hours in bed.\n\nWatch to see why each one matters and what to swap in instead.\n\n#chronicfatigue #dehydration #magnesium #sleepquality #healthtips #wellness",
+      "ad_tag": true
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Still dragging even after a full night's sleep? 😴\n\nRunning low on water, falling short on magnesium, and scrolling on a bright phone before bed — three habits that quietly wreck your energy the next day.\n\nCarry a water bottle, add magnesium-rich foods like spinach or almonds, and put the phone down an hour before bed.\n\n#chronicfatigue #dehydration #magnesium #sleepquality #healthtips",
+      "ad_tag": true
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=61592893302063",
+      "type": "video",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "Still dragging even after a full night's sleep? 😴\n\nRunning low on water, falling short on magnesium, and scrolling on a bright phone before bed — three habits that quietly wreck your energy the next day.\n\nCarry a water bottle, add magnesium-rich foods like spinach or almonds, and put the phone down an hour before bed.\n\n#chronicfatigue #dehydration #magnesium #sleepquality #healthtips"
+    },
+    {
+      "platform": "blog_seo",
+      "title": "Chronic Fatigue: 3 Everyday Habits That Quietly Drain Your Energy",
+      "meta_description": "Chronic fatigue isn't always about sleep. Mild dehydration, low magnesium, and late-night screen time can quietly drain your energy every day.",
+      "slug": "water-magnesium-screen-time-chronic-fatigue-habits",
+      "hero_image_url": "PENDING_SUPABASE_STORAGE_UPLOAD",
+      "body_html": "<p>When exhaustion lingers no matter how many hours you sleep, it's tempting to assume the problem is the sleep itself. But at least three ordinary daily habits can quietly drain energy regardless of how much time you spend in bed: running low on water, falling short on magnesium, and scrolling on a bright phone before sleep. Here's how each one plays a role, and what actually helps.</p><h2>Mild Dehydration and Fatigue</h2><p>Losing as little as 1.5% of body weight in fluid counts as mild dehydration, and research from the University of Connecticut found it was enough to worsen mood, raise perceived fatigue, and dull concentration in both men and women — often before anyone even felt thirsty. Coffee and soda don't rehydrate the way plain water does, since caffeine has a mild diuretic effect that can offset some of the fluid gained. <strong>Most adults reach this level of mild dehydration at least once a week</strong> without realizing it.</p><img src=\"PENDING:물방울_real_01.jpg\" alt=\"A glass of water on a desk, a reminder of the mild dehydration many adults reach without noticing\"><h2>Falling Short on Magnesium</h2><p>According to National Institutes of Health data, nearly half of American adults take in less magnesium through food than recommended, with an estimated 15% deficient enough to affect health. Magnesium is directly involved in energy metabolism, helping cells convert food into usable energy — running low leaves that process short-changed throughout the day, on top of effects on muscle function and sleep quality. <strong>Spinach, almonds, and pumpkin seeds</strong> are among the most accessible everyday sources.</p><img src=\"PENDING:아몬드_real_01.jpg\" alt=\"Spinach and almonds, two everyday sources of magnesium linked to energy metabolism\"><h2>Screen Time Before Bed</h2><p>Blue light from phones and other backlit screens suppresses melatonin, the hormone that signals it's time to sleep. Research on light exposure before bedtime has found melatonin suppression ranging from roughly 23% after one hour to as much as 38-46% after two hours of screen exposure, depending on the study population. Less melatonin means it takes longer to fall asleep and less time is spent in deep, restorative sleep stages — even after a full eight hours in bed, <strong>that sleep ends up lower quality</strong>.</p><img src=\"PENDING:스마트폰_real_01.jpg\" alt=\"A smartphone glowing in a dark bedroom, a source of blue light that can suppress melatonin before sleep\"><h2>What Actually Helps</h2><ul><li><strong>Carry a water bottle</strong> — Sipping throughout the day, before thirst sets in, helps avoid the dip in mood and focus that mild dehydration causes.</li><li><strong>Add magnesium-rich foods to a meal</strong> — Spinach, almonds, or pumpkin seeds are simple, accessible ways to close the gap.</li><li><strong>Put the phone down an hour before bed</strong> — Dimming lights and switching to a book or a low-light routine protects melatonin release.</li></ul><h2>The Bottom Line</h2><p>None of these three habits need to be eliminated completely — small, consistent changes to water intake, meals, and evening screen use can meaningfully lighten how heavy tomorrow feels. This article is for general information only and isn't medical advice. If fatigue continues for more than two weeks despite adequate sleep, it's worth checking in with a doctor to rule out other causes.</p>"
+    }
+  ]
+}

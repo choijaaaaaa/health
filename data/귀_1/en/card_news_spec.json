@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Ears ringing louder",
+    "once the house goes quiet?",
+    "It might not just be stress",
+    "3 Everyday Habits Behind Tinnitus"
+  ],
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6C4F96",
+  "eyebrow": "Tinnitus Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "에너지드링크_illust.jpg": "Energy Drinks",
+    "김치찌개_illust.jpg": "Sodium"
+  },
+  "items": [
+    {
+      "name": "Why Tinnitus Gets Worse",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Blood flow or fluid pressure",
+        "in your inner ear shifts,",
+        "and your brain fills in the sound",
+        "",
+        "Alcohol, caffeine, and sodium",
+        "can all throw that off at once"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "It dilates blood vessels,",
+        "then makes them rebound",
+        "",
+        "The diuretic effect drains fluid,",
+        "unsettling your inner ear too"
+      ]
+    },
+    {
+      "name": "Alcohol — What Helps",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Match every drink with water",
+        "to ease the fluid swings",
+        "",
+        "It softens the rebound",
+        "that follows a night out"
+      ]
+    },
+    {
+      "name": "Energy Drinks",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Caffeine tightens blood vessels,",
+        "cutting flow to the inner ear",
+        "",
+        "Many cans pack over 200mg,",
+        "plus a heavy dose of sugar"
+      ]
+    },
+    {
+      "name": "Energy Drinks — What Helps",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Swap in sparkling water",
+        "or a low-caffeine iced tea",
+        "",
+        "Same lift, without the",
+        "vessel-constricting spike"
+      ]
+    },
+    {
+      "name": "Sodium",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Deli meat and canned soup",
+        "hide sodium in every serving",
+        "",
+        "Extra sodium raises fluid",
+        "pressure inside your inner ear"
+      ]
+    },
+    {
+      "name": "Sodium — What Helps",
+      "char_file": "김치찌개_illust.jpg",
+      "body": [
+        "Check the label before",
+        "reaching for deli meat or soup",
+        "",
+        "A lower-sodium swap cuts a big",
+        "chunk of your day's intake"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol, energy drinks, and salt",
+        "all disturb your inner ear"
+      ],
+      [
+        "Small daily swaps",
+        "can turn the ringing down"
+      ]
+    ],
+    "tip": [
+      "Match drinks with water,",
+      "and check labels before you eat"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Tinnitus"
+}

@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Tired no matter how much you rest,",
+    "with a dull ache under your right ribs?",
+    "3 everyday foods behind fatty liver"
+  ],
+  "eyebrow": "Silent Liver Damage",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Fruit Juice",
+    "흰쌀밥_illust.jpg": "White Rice",
+    "가공육_illust.jpg": "Processed Meat"
+  },
+  "items": [
+    {
+      "name": "Why does this happen?",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "About 1 in 4 US adults",
+        "has fatty liver disease,",
+        "often called a 'silent epidemic'",
+        "",
+        "Fatigue or a dull ache",
+        "can be early warning signs",
+        "",
+        "These 3 everyday foods keep",
+        "adding fat to your liver"
+      ]
+    },
+    {
+      "name": "Fruit juice & concentrates",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Fructose, unlike glucose,",
+        "is processed almost only",
+        "by the liver",
+        "",
+        "One glass of juice can have",
+        "about 40g of sugar — near",
+        "10 sugar cubes worth"
+      ]
+    },
+    {
+      "name": "Instead of fruit juice",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Whole fruit has fiber",
+        "that slows sugar absorption",
+        "",
+        "Juicing breaks that fiber down,",
+        "so blood sugar rises faster"
+      ]
+    },
+    {
+      "name": "White rice & refined carbs",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "White rice's glycemic index",
+        "runs in the 70s to 80s —",
+        "a high-GI food",
+        "",
+        "Extra sugar gets converted",
+        "to fat and stored in the liver"
+      ]
+    },
+    {
+      "name": "Instead of white rice",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Brown rice has a lower",
+        "glycemic index and more fiber",
+        "",
+        "That means less blood sugar",
+        "and insulin pressure on your liver"
+      ]
+    },
+    {
+      "name": "Processed meat (sausage, ham)",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "High in saturated fat",
+        "and sodium, it speeds up",
+        "fat buildup in the liver",
+        "",
+        "Heavy eaters have up to",
+        "3 to 4 times higher odds"
+      ]
+    },
+    {
+      "name": "Instead of processed meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Try lean meat or tofu",
+        "for protein instead",
+        "",
+        "Without the sodium and fat",
+        "from processing, your liver",
+        "has far less to deal with"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "The liver stays silent,",
+        "so damage is easy to miss"
+      ],
+      [
+        "You don't have to quit everything —",
+        "knowing what to pick helps"
+      ]
+    ],
+    "tip": [
+      "Swap juice for whole fruit, white rice for brown rice,",
+      "and processed meat for lean protein or tofu"
+    ],
+    "cta": "Follow for more health tips that actually help"
+  }
+}

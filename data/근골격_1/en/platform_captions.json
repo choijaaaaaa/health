@@ -1,0 +1,40 @@
+{
+  "topic": "근골격_1_en",
+  "title": "Grilled burgers and beers last night, and your big toe's throbbing this morning? - Foods That Trigger Gout Attacks",
+  "products": [],
+  "platforms": [
+    {
+      "name": "YouTube Shorts",
+      "url": "https://studio.youtube.com/",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Open YouTube Studio → Create → Upload video",
+      "caption": "Title: Woke up with your big toe throbbing after burgers and beer? It might be gout\n\nDescription:\nIf you grilled out and had a few beers last night, and now your big toe is swollen and throbbing, that sudden pain could be a gout attack - and beer, red meat, and sugary soda are three of the biggest triggers.\n\nWatch to find out why each one raises uric acid, and what to swap in instead so you don't have to give up your favorites for good.\n\n#gout #goutdiet #jointpain #uricacid #arthritis #healthtips #antiinflammatory"
+    },
+    {
+      "name": "Instagram Reels",
+      "url": "https://www.instagram.com/worthitshopping_en",
+      "type": "video",
+      "suppress_product_block": true,
+      "action": "Copy caption → New Reel → paste in caption field",
+      "caption": "Grilled burgers and a few beers last night — and your big toe's throbbing this morning? 🦶\n\nThat sudden pain could be a gout attack. Beer, red meat, and sugary soda are three everyday triggers that raise uric acid - and each one has an easy swap.\n\nHere's why they hurt your joints, and what to eat instead.\n\n#gout #goutdiet #jointpain #uricacid #arthritis #healthtips #wellness"
+    },
+    {
+      "name": "Facebook",
+      "url": "https://www.facebook.com/profile.php?id=61592893302063",
+      "type": "video",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "Copy caption -> New post -> paste (attach cover image or video) -> after posting, add purchase link in comment",
+      "caption": "Grilled burgers and a few beers last night — and your big toe's throbbing this morning? 🦶\n\nThat sudden pain could be a gout attack. Beer, red meat, and sugary soda are three everyday triggers that raise uric acid - and each one has an easy swap.\n\nHere's why they hurt your joints, and what to eat instead.\n\n#gout #goutdiet #jointpain #uricacid #arthritis #healthtips #wellness"
+    },
+    {
+      "platform": "blog_seo",
+      "title": "Why Do Fried Food, Soda, and Deli Meat Make Knee Pain Worse?",
+      "meta_description": "Fried food, sugary soda, and processed meat each fuel knee inflammation through a different pathway. Here's what the research shows, and what to eat instead.",
+      "slug": "fried-food-soda-processed-meat-knee-pain",
+      "hero_image_url": "PENDING_SUPABASE_STORAGE_UPLOAD",
+      "body_html": "<p>If your knees ache going down stairs, or feel stiff for the first few minutes after you get out of bed, it's easy to chalk it up to age or an old injury. But joint pain isn't only mechanical wear&mdash;it's often driven by low-grade inflammation, and what you eat can turn that inflammation up or down. Fried food, sugary soda, and processed meat are three everyday staples that research links to worse joint inflammation, each through its own biological pathway.</p><h2>Fried Food and the Omega-6 Overload</h2><p>Deep-fried food and heavily processed snacks are typically cooked in oils high in omega-6 fatty acids. Once inside the body, one of those fatty acids, linoleic acid, converts into arachidonic acid, which the body then uses to build prostaglandins and leukotrienes&mdash;signaling molecules that drive inflammation. The issue isn't omega-6 itself, since the body needs some; it's the ratio. A typical Western diet now runs an omega-6 to omega-3 ratio of roughly 15 to 1, while several nutrition researchers point to a ratio closer to 4 to 1 or lower as healthier for joints. Research in people with knee osteoarthritis has linked a higher omega-6 to omega-3 ratio with more pain sensitivity and reduced function.</p><img src=\"PENDING:라면_illust.jpg\" alt=\"A bowl of fried instant noodles, a fried and heavily processed food that skews the omega-6 to omega-3 ratio and can worsen joint inflammation\"><h2>Sugary Soda and Advanced Glycation End Products</h2><p>Soda works on joints through a different route. A sharp spike in blood sugar triggers the formation of advanced glycation end products, or AGEs&mdash;compounds that stiffen cartilage and, according to research on cartilage tissue, make chondrocytes (the cells that maintain cartilage) more likely to break down the joint's cushioning matrix. Boston-area research teams studying long-running cohorts have found that women who drink sugar-sweetened soda daily face a meaningfully higher risk of joint disease than those who rarely drink it, and a separate multicenter study following participants with knee osteoarthritis found that higher soda intake tracked with faster disease progression.</p><img src=\"PENDING:탄산음료_real_01.jpg\" alt=\"Soda being poured over ice, a sugary drink linked to advanced glycation end products that stiffen cartilage\"><h2>Processed Meat and Rising CRP</h2><p>Sausage, bacon, and other processed meats bring a third mechanism into play. Their saturated fat, added sodium, and nitrites are associated with higher levels of C-reactive protein, or CRP&mdash;an inflammatory marker doctors already use to track disease activity in rheumatoid arthritis. A large UK biobank study found that people who ate more processed meat had higher inflammatory markers, including CRP, than those who ate less, even though part of that association is tied to body weight rather than the meat alone. Either way, cutting back on processed meat is one of the more direct ways to take pressure off that pathway.</p><img src=\"PENDING:소시지_real_01.jpg\" alt=\"Sausages grilling in a pan, a processed meat linked to higher CRP inflammatory markers\"><h2>What Actually Helps</h2><ul><li><strong>Swap fried food for a handful of walnuts</strong> &mdash; walnuts are one of the richest plant sources of ALA, a form of omega-3, and can help pull an omega-6-heavy diet back toward a healthier ratio.</li><li><strong>Swap soda for blueberries</strong> &mdash; blueberries are rich in anthocyanins, antioxidants that may help counter the oxidative stress AGEs create in joint tissue.</li><li><strong>Swap processed meat for tofu</strong> &mdash; tofu delivers protein without the saturated fat, sodium, and nitrites that push CRP higher.</li></ul><h2>The Bottom Line</h2><p>None of these three foods have to disappear from your diet entirely, but if knee pain and morning stiffness are becoming a regular pattern, cutting back on fried food, sugary soda, and processed meat&mdash;and swapping in walnuts, blueberries, and tofu&mdash;addresses three separate inflammatory pathways at once. This article is for general information only and is not medical advice; see an orthopedic specialist if joint pain persists.</p>"
+    }
+  ]
+}

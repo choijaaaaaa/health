@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Knees ache going down stairs,",
+    "stiff first thing in the morning?",
+    "Foods That Feed Joint Inflammation"
+  ],
+  "cover_scrim_color": "#3A5DAE",
+  "eyebrow": "Joint Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "라면_illust.jpg": "Fried Food",
+    "호두_illust.jpg": "Walnuts",
+    "탄산음료_illust.jpg": "Soda",
+    "블루베리_illust.jpg": "Blueberries",
+    "소시지_illust.jpg": "Processed Meat",
+    "두부_illust.jpg": "Tofu"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Certain everyday foods make",
+        "inflammatory compounds",
+        "build up in your body",
+        "",
+        "That inflammation irritates",
+        "the joint tissue and shows up",
+        "as pain and stiffness"
+      ]
+    },
+    {
+      "name": "Fried Food & Ramen",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Oils high in omega-6 turn",
+        "into inflammatory molecules",
+        "once inside your body",
+        "",
+        "A typical Western diet hits",
+        "a 15 to 1 omega-6 ratio"
+      ]
+    },
+    {
+      "name": "Instead of Fried Food",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Walnuts are rich in ALA,",
+        "a plant form of omega-3",
+        "",
+        "They help pull that skewed",
+        "ratio back toward balance"
+      ]
+    },
+    {
+      "name": "Sugary Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "A blood sugar spike forms",
+        "AGEs that stiffen the",
+        "cartilage in your knee",
+        "",
+        "Women who drink it daily",
+        "face a higher joint risk"
+      ]
+    },
+    {
+      "name": "Instead of Soda",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Blueberries are rich in",
+        "anthocyanins that help",
+        "counter that oxidative stress",
+        "",
+        "A simple swap with a",
+        "real effect over time"
+      ]
+    },
+    {
+      "name": "Processed Meat Like Sausage",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Saturated fat, sodium, and",
+        "nitrites push up CRP,",
+        "an inflammation marker",
+        "",
+        "The higher that marker,",
+        "the more your joints ache"
+      ]
+    },
+    {
+      "name": "Instead of Processed Meat",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Tofu delivers protein without",
+        "the saturated fat, sodium,",
+        "and nitrites that raise CRP",
+        "",
+        "An easy swap a few",
+        "times a week"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Joint inflammation builds up",
+        "and gets hard to undo"
+      ],
+      [
+        "You don't have to quit these foods -",
+        "just know what to swap in"
+      ]
+    ],
+    "tip": [
+      "Start with fried food, soda, and",
+      "processed meat - swap them in"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

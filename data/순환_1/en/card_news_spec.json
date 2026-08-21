@@ -1,0 +1,111 @@
+{
+  "title": [
+    "If your hands and feet",
+    "stay ice-cold indoors,",
+    "even under a blanket",
+    "Cold Hands & Feet Guide"
+  ],
+  "eyebrow": "Cold Hands & Feet Alert",
+  "swipe_label": "Swipe to see why  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "냉음료_illust.jpg",
+  "char_display_names": {
+    "냉음료_illust.jpg": "Cold Drinks",
+    "커피_illust.jpg": "Caffeine",
+    "돼지껍질튀김_illust.jpg": "Fried Food"
+  },
+  "items": [
+    {
+      "name": "Why Hands and Feet Get Cold",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Not enough blood reaching",
+        "your fingers and toes",
+        "is the main cause",
+        "",
+        "Some everyday habits",
+        "narrow blood vessels",
+        "or lower body temperature"
+      ]
+    },
+    {
+      "name": "Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine in coffee and",
+        "energy drinks can narrow",
+        "blood vessels",
+        "",
+        "Several cups a day may",
+        "reduce blood flow to",
+        "your hands and feet"
+      ]
+    },
+    {
+      "name": "Ease Up on Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Try capping coffee",
+        "at 1-2 cups a day"
+      ]
+    },
+    {
+      "name": "Cold Drinks & Ice Cream",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Iced drinks and ice cream",
+        "briefly lower your",
+        "core temperature",
+        "",
+        "Your body responds by",
+        "constricting vessels near",
+        "your hands and feet first"
+      ]
+    },
+    {
+      "name": "Swap for Something Warm",
+      "char_file": "냉음료_illust.jpg",
+      "body": [
+        "Try warm water or",
+        "ginger tea instead"
+      ]
+    },
+    {
+      "name": "Fried Food",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Fried chicken and fries",
+        "are high in saturated fat",
+        "",
+        "Over time, that can narrow",
+        "arteries and strain",
+        "circulation"
+      ]
+    },
+    {
+      "name": "Choose Grilled or Steamed",
+      "char_file": "돼지껍질튀김_illust.jpg",
+      "body": [
+        "Swap fried food for",
+        "grilled or steamed dishes"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caffeine, cold drinks,",
+        "and fried food"
+      ],
+      [
+        "don't need to disappear —",
+        "just cut back a little"
+      ]
+    ],
+    "tip": [
+      "Warm water or ginger tea",
+      "can help support blood flow"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

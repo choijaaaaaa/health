@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Blurry vision, halos around lights,",
+    "and eyes drier than they used to be?",
+    "Everyday Habits Hurting Your Eyes"
+  ],
+  "eyebrow": "Eye Health Alert",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "케일_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Soda",
+    "케일_illust.jpg": "Kale",
+    "라면_illust.jpg": "Fried Food",
+    "고등어_illust.jpg": "Mackerel",
+    "스마트폰_illust.jpg": "Phone"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sugary drinks, fried food,",
+        "and scrolling in the dark",
+        "",
+        "all build up oxidative stress",
+        "and cut your blink rate"
+      ]
+    },
+    {
+      "name": "Sugary Drinks & Desserts",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Blood sugar spikes fast,",
+        "building up AGEs in your eyes",
+        "",
+        "They stiffen the lens and fuel",
+        "cataracts and macular damage"
+      ]
+    },
+    {
+      "name": "Swap Soda For This",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Kale is packed with lutein",
+        "and zeaxanthin",
+        "",
+        "These pigments build",
+        "the eye's protective shield"
+      ]
+    },
+    {
+      "name": "Fried & Ultra-Processed Food",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "A diet heavy in fried food",
+        "and processed meat",
+        "",
+        "tripled the risk of late-stage",
+        "macular degeneration in one study"
+      ]
+    },
+    {
+      "name": "Swap Fried Food For This",
+      "char_file": "고등어_illust.jpg",
+      "body": [
+        "Oily fish like mackerel",
+        "bring omega-3s",
+        "",
+        "Paired with lutein, they help",
+        "slow macular degeneration"
+      ]
+    },
+    {
+      "name": "Scrolling in a Dark Room",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Your blink rate drops from",
+        "15 times a minute",
+        "to just 5-7",
+        "",
+        "leaving eyes dry and gritty"
+      ]
+    },
+    {
+      "name": "Build This Habit Instead",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Every 20 minutes, look at",
+        "something 20 feet away",
+        "for 20 seconds",
+        "",
+        "It resets your blink rate"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Once damaged, your macula",
+        "is hard to restore"
+      ],
+      [
+        "You don't have to cut it all out —",
+        "just know what to swap in"
+      ]
+    ],
+    "tip": [
+      "Swap soda and fried food first,",
+      "and try the 20-20-20 rule for screens"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

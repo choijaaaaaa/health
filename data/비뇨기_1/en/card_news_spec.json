@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Bladder won't calm down,",
+    "burning a little more",
+    "every time you go?",
+    "3 Everyday Foods That Worsen Cystitis"
+  ],
+  "eyebrow": "Bladder Health Alert",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "topic_word": "Bladder Health",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeine",
+    "고추_illust.jpg": "Spicy Food",
+    "탄산음료_illust.jpg": "Soda"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "The bladder lining reacts",
+        "to what ends up in urine",
+        "",
+        "Certain foods and drinks",
+        "make that irritation",
+        "and burning worse"
+      ]
+    },
+    {
+      "name": "Caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Coffee and other caffeinated",
+        "drinks stimulate the bladder",
+        "and increase urine output",
+        "",
+        "That means more trips",
+        "to the bathroom, more often"
+      ]
+    },
+    {
+      "name": "Caffeine — the fix",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Swap coffee for water",
+        "or herbal tea"
+      ]
+    },
+    {
+      "name": "Spicy Food",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Capsaicin in chili and",
+        "spicy dishes gets excreted",
+        "in urine",
+        "",
+        "It irritates the bladder",
+        "lining directly, making",
+        "burning and urgency worse"
+      ]
+    },
+    {
+      "name": "Spicy Food — the fix",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Try a mild broth",
+        "or soup instead"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Soda's sugar feeds bacteria",
+        "while the carbonation",
+        "irritates the bladder",
+        "",
+        "That combination can make",
+        "symptoms last longer"
+      ]
+    },
+    {
+      "name": "Soda — the fix",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Try plain water or",
+        "herbal tea instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "None of these need",
+        "to disappear for good"
+      ],
+      [
+        "Cutting back and swapping",
+        "still makes a real difference"
+      ]
+    ],
+    "tip": [
+      "Drinking enough water helps flush",
+      "bacteria and irritants from the bladder"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Most women deal with a",
+    "yeast infection at some point -",
+    "Foods That Feed It"
+  ],
+  "eyebrow": "Vaginal Health Alert",
+  "char_display_names": {
+    "사탕_illust.jpg": "Sweets",
+    "흰빵_illust.jpg": "White Bread & Rice",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Candida, one of the fungi",
+        "behind yeast infections,",
+        "thrives on sugar",
+        "",
+        "A diet heavy in sugary foods",
+        "can give it more fuel to grow"
+      ]
+    },
+    {
+      "name": "Sweets",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Cookies, cake, and candy",
+        "send blood sugar up fast",
+        "",
+        "That spike can help",
+        "candida grow more easily"
+      ]
+    },
+    {
+      "name": "Sweets — the fix",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Swap sweets for nuts",
+        "or a boiled egg"
+      ]
+    },
+    {
+      "name": "White Bread & Rice",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Refined carbs break down",
+        "into sugar quickly",
+        "",
+        "They raise blood sugar",
+        "just as fast as sweets"
+      ]
+    },
+    {
+      "name": "Refined Carbs — the fix",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Choose whole grain",
+        "bread instead"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Beer and sweet wine combine",
+        "sugar and alcohol together",
+        "",
+        "Can swing blood sugar and",
+        "strain your immune system"
+      ]
+    },
+    {
+      "name": "Alcohol — the fix",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Try sparkling water",
+        "instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Small swaps in what",
+        "you eat can help"
+      ],
+      [
+        "Nobody needs to give",
+        "everything up for good"
+      ]
+    ],
+    "tip": [
+      "Unsweetened yogurt with live cultures",
+      "may help too"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  },
+  "topic_word": "Vaginal Health"
+}

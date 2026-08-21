@@ -1,0 +1,97 @@
+{
+  "title": [
+    "Waking up at 3am",
+    "with a burning taste in your throat?",
+    "Foods That Trigger Nighttime Heartburn"
+  ],
+  "eyebrow": "Acid Reflux Alert",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "도넛_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "탄산음료_illust.jpg": "Soda",
+    "도넛_illust.jpg": "Greasy Food"
+  },
+  "items": [
+    {
+      "name": "Why does this happen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A ring of muscle between your",
+        "stomach and esophagus",
+        "",
+        "loosens and lets",
+        "acid push back up"
+      ]
+    },
+    {
+      "name": "Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "It's not just the caffeine —",
+        "chlorogenic acids in coffee",
+        "ramp up acid production",
+        "",
+        "Worse on an empty stomach"
+      ]
+    },
+    {
+      "name": "Coffee — how to fix it",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Even decaf still has this effect,",
+        "so have it with a meal instead"
+      ]
+    },
+    {
+      "name": "Soda",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "CO2 bubbles expand in your",
+        "stomach and raise the pressure",
+        "",
+        "That pressure pushes",
+        "acid upward too"
+      ]
+    },
+    {
+      "name": "Soda — how to fix it",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Swap it for still water",
+        "to keep that pressure from building"
+      ]
+    },
+    {
+      "name": "Greasy late-night food",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "High-fat food digests slowly",
+        "and lingers in your stomach",
+        "",
+        "Pressure stays elevated",
+        "for hours after"
+      ]
+    },
+    {
+      "name": "Greasy food — how to fix it",
+      "char_file": "도넛_illust.jpg",
+      "body": [
+        "Close the kitchen 2-3 hours",
+        "before you lie down"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      ["Heartburn that flares up often", "tends to turn chronic"],
+      ["Adjust just these three", "and the burn eases up"]
+    ],
+    "tip": [
+      "Don't lie flat right after eating —",
+      "stay upright for 2-3 hours"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like, and follow!"
+  }
+}

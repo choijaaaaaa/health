@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Foggy, achy, or freezing",
+    "every time you leave",
+    "an air-conditioned room?",
+    "3 Habits Behind AC Sickness"
+  ],
+  "eyebrow": "AC Sickness Prevention",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "온도차_illust.jpg",
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperature Gap",
+    "에어컨_illust.jpg": "AC Filter",
+    "찬바람_illust.jpg": "Fresh Air"
+  },
+  "items": [
+    {
+      "name": "Why You Feel This Way",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "If you feel foggy or achy",
+        "every time you leave an",
+        "air-conditioned room, pause",
+        "",
+        "Your body adjusts to heat and cold",
+        "by widening and narrowing blood vessels,",
+        "and 3 habits can overload that system"
+      ]
+    },
+    {
+      "name": "The Temperature Gap",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "First is the gap between",
+        "indoor and outdoor temperature",
+        "",
+        "A difference over about 8°C (14°F)",
+        "puts real strain on your",
+        "body's temperature control"
+      ]
+    },
+    {
+      "name": "Fix the Temperature Gap",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Keep the AC within about",
+        "8°C (14°F) of the outdoor temp",
+        "",
+        "Carry a light layer for outside —",
+        "it cuts the strain a lot"
+      ]
+    },
+    {
+      "name": "The Filter Problem",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Second is a dirty AC filter",
+        "",
+        "Trapped dust and moisture become",
+        "a breeding ground for mold,",
+        "which irritates your throat"
+      ]
+    },
+    {
+      "name": "Fix the Filter Problem",
+      "char_file": "에어컨_illust.jpg",
+      "body": [
+        "Clean the filter every",
+        "1 to 3 months",
+        "",
+        "A clean filter cuts the risk",
+        "of sore throat and headaches"
+      ]
+    },
+    {
+      "name": "The Ventilation Problem",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Third is too little fresh air",
+        "",
+        "Closed windows let CO2 build up,",
+        "which brings on headaches",
+        "and drowsiness"
+      ]
+    },
+    {
+      "name": "Fix the Ventilation Problem",
+      "char_file": "찬바람_illust.jpg",
+      "body": [
+        "Open a window for 5-10 minutes",
+        "every 1-2 hours",
+        "",
+        "Fresh air resets CO2 levels —",
+        "and your energy along with it"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Temperature gap, dirty filters,",
+        "and stale air add up quietly"
+      ],
+      [
+        "AC sickness isn't about",
+        "weak immunity — it's fixable habits"
+      ]
+    ],
+    "tip": [
+      "Keep the gap under 8°C,",
+      "clean filters, and air the room out"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#2C6E8C"
+}
