@@ -47,6 +47,7 @@ ROOT = Path(__file__).resolve().parent.parent
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
     "인스타그램 카드뉴스", "Instagram Carousel",
+    "쓰레드", "Threads",
 }
 
 

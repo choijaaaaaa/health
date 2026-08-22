@@ -37,12 +37,14 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 캡션 작성 자체를 생략하는 것과는 다른 케이스, 여기는 "UI에서만 숨기기") UI
 # 카드만 숨긴다.
 #
-# ⚠️ 쓰레드는 2026-08-21 재활성화 — 2026-08-04에 "효과가 없어서" 같이
-# 배제했었으나 mission-control 통합 작업 중 사용자가 다시 올리기로 결정
-# (부록 CLAUDE.md 참고). 카드는 그대로 뜬다 — 이 세트에서만 빼면 됨.
+# ⚠️ 쓰레드는 2026-08-22 재배제 — 2026-08-04에 "효과가 없어서" 뺐다가
+# 2026-08-21 mission-control 통합 작업 중 다시 올렸으나, 사용자가 다시
+# 안 쓰기로 확정(mission-control 업로드 탭 기준). 카드는 그대로 뜨지 않게
+# 이 세트에서 뺀다.
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
     "인스타그램 카드뉴스", "Instagram Carousel",
+    "쓰레드", "Threads",
 }
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
