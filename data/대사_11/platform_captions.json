@@ -17,15 +17,6 @@
       "network": "naver"
     },
     {
-      "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
-      "caption": "운동해도 안 빠지는 뱃살, 혹시 코르티솔 때문 아닐까요 🙋‍♀️\n\n스트레스 호르몬인 코르티솔은 내장지방을 특히 부추겨요. 공복 커피 타이밍 조절, 고강도 운동 후 회복, 규칙적인 수면 — 이 세 가지 습관으로 관리해보세요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#코르티솔 #내장지방 #스트레스호르몬 #건강정보",
-      "suppress_product_block": true
-    },
-    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -61,16 +52,6 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "운동해도 안 빠지는 뱃살, 코르티솔 때문 아닐까요 🙋‍♀️\n\n스트레스 호르몬인 코르티솔은 내장지방을 특히 부추겨요. 공복 커피 타이밍 조절, 운동 후 회복, 규칙적인 수면으로 관리해보세요!\n\n#코르티솔 #내장지방 #건강정보",
       "suppress_product_block": true
-    },
-    {
-      "name": "페이스북",
-      "url": "https://www.facebook.com/profile.php?id=61588741213431",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
-      "caption": "코르티솔, 운동해도 안 빠지는 뱃살이 신경 쓰인다면 - 내장지방 부추기는 습관 3가지\n\n스트레스 호르몬인 코르티솔은 내장지방 조직에 특히 쌓이기 쉬워요. 공복 커피 타이밍 조절, 고강도 운동 후 회복, 규칙적인 수면으로 관리해보세요.\n\n#코르티솔 #내장지방 #건강정보",
-      "suppress_product_block": false
     }
   ],
   "ad_tag": true

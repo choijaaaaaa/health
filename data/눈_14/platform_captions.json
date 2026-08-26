@@ -17,15 +17,6 @@
       "network": "naver"
     },
     {
-      "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
-      "caption": "바다나 수영장 다녀온 날 밤부터 눈이 화끈거린다면 🕶️\n\n광각막염(자외선각막염)은 자외선에 각막이 화상을 입은 신호예요. 자외선 차단 선글라스 쓰기, 증상 나타나면 인공눈물+냉찜질로 진정시키기, 반복되면 안과 진료받기 — 눈을 지키는 방법이에요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#광각막염 #자외선각막염 #눈건강 #건강정보",
-      "suppress_product_block": true
-    },
-    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -61,16 +52,6 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "물놀이 다녀온 날 밤 눈이 화끈거린다면 🕶️\n\n광각막염(자외선각막염)은 자외선에 각막이 화상을 입은 신호예요. 자외선 차단 선글라스 챙기고 반복되면 안과 진료받으세요!\n\n#광각막염 #자외선각막염 #건강정보",
       "suppress_product_block": true
-    },
-    {
-      "name": "페이스북",
-      "url": "https://www.facebook.com/profile.php?id=61588741213431",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
-      "caption": "광각막염, 물놀이 후 눈이 화끈거린다면 - 자외선 눈 손상 줄이는 습관 3가지\n\n광각막염(자외선각막염)은 강한 자외선에 각막이 화상을 입은 것처럼 손상되는 증상이에요. 자외선 차단 선글라스 쓰기, 증상 나타나면 인공눈물로 진정시키기, 반복되면 안과 진료받기로 눈을 지켜보세요.\n\n#광각막염 #자외선각막염 #건강정보",
-      "suppress_product_block": false
     }
   ],
   "ad_tag": true

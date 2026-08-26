@@ -17,15 +17,6 @@
       "network": "naver"
     },
     {
-      "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
-      "type": "video",
-      "no_caption_link": true,
-      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
-      "caption": "화장실 갈 때마다 소변 색 유심히 보시나요 🚽\n\n한국인 10명 중 6명은 하루 1리터도 물을 안 마신다는데, 소변 색은 몸 상태를 가장 쉽게 확인할 수 있는 신호예요.\n\n진한 노랑은 수분 부족, 붉은색·분홍색은 혈뇨(통증 없어도 검사 필요), 뿌옇거나 갈색이면 감염·간 문제 신호일 수 있어요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#소변색깔 #혈뇨 #요로감염 #건강정보",
-      "suppress_product_block": true
-    },
-    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -60,15 +51,6 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "화장실 갈 때마다 소변 색 유심히 보시나요 🚽\n\n진한 노랑은 수분 부족, 붉은색·분홍색은 혈뇨, 뿌옇거나 갈색이면 감염·간 문제 신호일 수 있어요.\n\n통증 없는 혈뇨일수록 미루지 말고 검사받아보세요!\n\n#소변색깔 #혈뇨 #건강정보",
       "suppress_product_block": true
-    },
-    {
-      "name": "페이스북",
-      "url": "https://www.facebook.com/profile.php?id=61588741213431",
-      "type": "text",
-      "no_caption_link": true,
-      "link_in_comment": true,
-      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
-      "caption": "소변 색깔, 한국인 10명 중 6명이 물이 부족하다는데 - 색깔별로 다른 몸 상태 신호\n\n진한 노랑은 수분 부족, 붉은색·분홍색은 혈뇨, 뿌옇거나 갈색이면 감염·간 문제 신호일 수 있어요.\n\n통증이 없어도 색 변화가 며칠 이상 반복된다면 미루지 말고 검사받아보세요.\n\n#소변색깔 #혈뇨 #건강정보"
     }
   ],
   "ad_tag": true
