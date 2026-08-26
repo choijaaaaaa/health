@@ -17,6 +17,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "찬바람 쐬거나 뜨거운 음식만 먹어도 콧물이 줄줄 흐른다면? 🤧\n\n알레르기 검사는 정상인데 이런 증상이 반복된다면 혈관운동성 비염일 수 있어요. 온도차 완충하기, 자극적인 음식 조절하기, 생리식염수로 점막 진정시키기 — 이렇게 관리해보세요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#혈관운동성비염 #비염 #온도차비염 #건강정보"
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -52,6 +61,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "찬바람 쐬거나 뜨거운 음식만 먹어도 콧물이 줄줄 흐른다면? 🤧\n\n알레르기 검사는 정상인데도 그렇다면 혈관운동성 비염일 수 있어요. 온도차 완충하기, 생리식염수로 점막 진정시키기부터 시작해보세요!\n\n#혈관운동성비염 #비염 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "혈관운동성 비염, 찬바람에 콧물 흐른다면 - 온도차 콧물 줄이는 습관 3가지\n\n알레르기 검사는 정상인데도 온도 변화나 자극적인 음식에 콧물·코막힘이 심해진다면 혈관운동성 비염일 수 있어요. 온도차 완충하기, 자극적인 음식 조절하기, 생리식염수로 점막 진정시키기로 관리해보세요.\n\n#혈관운동성비염 #비염 #건강정보",
+      "suppress_product_block": false
     }
   ],
   "ad_tag": true

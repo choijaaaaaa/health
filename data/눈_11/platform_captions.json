@@ -16,6 +16,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "녹내장, 안압은 정상인데 시야가 좁아진다면 👁️\n\n국내 녹내장 환자 70퍼센트 이상이 정작 안압 검사에서는 정상으로 나와요. 안압만 믿지 말고 시야검사·안저검사까지 함께 받아야 해요.\n\n40세 이상, 가족력, 고도근시, 당뇨병이 있다면 1년에 한 번 정기검진 챙기세요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#녹내장 #안압 #눈건강",
+      "suppress_product_block": true
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -50,6 +59,15 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "녹내장, 안압은 정상인데 시야가 좁아진다면 👁️\n\n국내 녹내장 환자 70퍼센트 이상이 정상 안압이에요. 40세 이상이라면 안압뿐 아니라 시야검사까지 챙기세요.\n\n#녹내장 #안압 #눈건강",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "녹내장, 안압은 정상인데 시야가 좁아진다면 - 안압 관리법\n\n국내 녹내장 환자 70퍼센트 이상이 정작 안압 검사에서는 정상으로 나와요. 40세 이상, 가족력, 고도근시, 당뇨병이 있다면 안압뿐 아니라 시야검사·안저검사까지 정기적으로 받아보세요.\n\n#녹내장 #안압 #눈건강"
     }
   ],
   "ad_tag": true

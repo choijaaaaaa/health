@@ -3724,6 +3724,51 @@ def assemble(
     print(f"영상 조립 완료: {out_path}")
 
 
+# WHY 인스타그램 전용 별도 파일(2026-08-04, "인스타 숏츠로 업로드할거를 양옆,
+# 상하 더 키워가지고 만들어놓으면 그대로 데스크탑에서 업로드해도 딱 맞게
+# 들어가겠는데"): 칠판 배경은 나무 프레임이 캔버스 상하좌우 가장자리에 거의
+# 여백 없이 꽉 차게 디자인돼 있다(가로는 "프레임이 폭에 딱 맞게" 의도적 설계,
+# 세로는 상단 256px 캡 외엔 여백 없음) — 인스타그램 릴스 UI(프로필·팔로우·
+# 캡션 등)가 화면 가장자리를 가리는 세이프존과 거의 정확히 겹쳐서 "칼같이
+# 짤린" 느낌을 준다. 유튜브 쇼츠는 자동 업로드라 이 문제가 없고, 같은 영상
+# 파일을 그대로 공유해서 쓰고 있어(기존 <topic>_shorts.mp4) 이걸 건드리면
+# 유튜브용까지 함께 작아진다 — 그래서 원본은 그대로 두고, 인스타그램용으로만
+# 여백을 더한 별도 파일을 새로 만든다.
+#
+# WHY 단순 레터박스(검은/흰 바) 대신 블러 채우기인지: 콘텐츠를 줄이고 남는
+# 자리를 검은 바로 채우면 "잘못 업로드된 영상"처럼 어색해 보인다 — 인스타
+# 스토리·릴스에서 세로 영상이 화면에 안 맞을 때 이미 흔하게 쓰는 "블러로 채운
+# 배경 위에 원본을 작게 얹는" 방식을 그대로 써서 위화감이 없게 한다.
+def build_instagram_safe_video(source_path: str, out_path: Path,
+                                margin_scale_x: float = 0.60, margin_scale_y: float = 0.60) -> None:
+    """source_path(1080x1920 완성 영상)를 캔버스 중앙에 축소해서 얹고, 남는
+    상하좌우 여백은 같은 영상을 확대+블러한 배경으로 채운다 — 원본 해상도
+    (1080x1920)는 그대로 유지하면서 실제 콘텐츠(나무 프레임 등) 둘레에 안전
+    여백이 생긴다.
+
+    WHY 기본값이 상하좌우 20%(0.60)인지(2026-08-04, 실기기로 직접 여러 비율을
+    테스트하며 확정): 처음엔 원본 비율(9:16)을 그대로 유지한 채 한 배율로만
+    축소했다가, 가로·세로 비대칭 비율도 몇 차례 시도해봤지만 결국 실기기에서
+    "딱이다"로 확정된 값은 상하좌우 동일 20% 여백(margin_scale 0.60)이었다 —
+    가로·세로를 따로 받는 파라미터는 남겨두되(추후 다른 배경 포맷에서 비대칭이
+    필요할 수 있어서) 기본값은 대칭으로 되돌린다."""
+    content_w = round(W * margin_scale_x / 2) * 2
+    content_h = round(H * margin_scale_y / 2) * 2
+    subprocess.run(
+        ["ffmpeg", "-y", "-i", str(source_path),
+         "-filter_complex",
+         f"[0:v]split=2[bgsrc][fgsrc];"
+         f"[bgsrc]scale={W}:{H},gblur=sigma=30[bg];"
+         f"[fgsrc]scale={content_w}:{content_h}[fg];"
+         f"[bg][fg]overlay=(W-w)/2:(H-h)/2[v]",
+         "-map", "[v]", "-map", "0:a?",
+         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "copy",
+         str(out_path)],
+        check=True, capture_output=True,
+    )
+    print(f"인스타그램용 안전 여백 영상 생성 완료: {out_path}")
+
+
 if __name__ == "__main__":
     import argparse
     p = argparse.ArgumentParser()

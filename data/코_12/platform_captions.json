@@ -17,6 +17,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "코막힘 스프레이, 5일 넘게 쓰고 계신가요? 😮‍💨\n\n혈관수축 성분은 약효가 끊기면 오히려 코막힘을 더 심하게 만드는 리바운드가 와요. 사용 기간 2~3일로 지키기, 한쪽씩 번갈아 끊기, 이비인후과에서 스테로이드 스프레이 병행하기 — 이렇게 의존에서 벗어나보세요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#약물성비염 #리바운드코막힘 #코스프레이중독 #건강정보",
+      "suppress_product_block": true
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -52,6 +61,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "코막힘 스프레이, 5일 넘게 쓰고 계신가요? 😮‍💨\n\n혈관수축 성분은 약효가 끊기면 오히려 코막힘을 더 심하게 만드는 리바운드가 와요. 사용 기간 지키고 한쪽씩 번갈아 끊어보세요!\n\n#약물성비염 #리바운드코막힘 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "약물성 비염, 코 스프레이 5일 넘게 쓰신다면 - 의존 끊는 법 3가지\n\n코막힘 스프레이의 혈관수축 성분은 약효가 끊기면 오히려 코막힘을 더 심하게 만드는 리바운드 현상을 일으켜요. 사용 기간 지키기, 한쪽씩 번갈아 끊기, 스테로이드 스프레이 병행하기로 벗어나보세요.\n\n#약물성비염 #리바운드코막힘 #건강정보",
+      "suppress_product_block": false
     }
   ],
   "ad_tag": true

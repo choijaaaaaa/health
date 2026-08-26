@@ -17,6 +17,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "헌혈하거나 목욕탕에서 갑자기 쓰러진 적 있나요? 😮‍💨\n\n전조증상 느끼면 바로 앉거나 눕기, 다리 꼬고 힘주기, 물과 소금 챙기기, 트리거 상황 미리 대비하기 — 이 네 가지로 실신 위험을 줄여보세요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#미주신경성실신 #실신 #어지럼증 #건강정보",
+      "suppress_product_block": true
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -52,6 +61,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "헌혈하거나 목욕탕에서 갑자기 쓰러진 적 있나요? 😮‍💨\n\n전조증상 느끼면 바로 앉거나 눕고, 다리에 힘주고, 물과 소금 챙겨보세요!\n\n#미주신경성실신 #실신 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "미주신경성 실신, 헌혈이나 목욕탕에서 쓰러졌다면 - 전조증상 대처법 4가지\n\n전조증상 느끼면 바로 앉거나 눕기, 다리 꼬고 힘주기, 물과 소금 챙기기로 실신 위험을 줄여보세요.\n\n#미주신경성실신 #실신 #건강정보",
+      "suppress_product_block": false
     }
   ],
   "ad_tag": true

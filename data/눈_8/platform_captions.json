@@ -16,6 +16,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "비문증, 눈앞에 날파리나 번쩍임이 있다면 👁️\n\n노화로 인한 유리체 변화가 가장 흔한 원인이지만, 번쩍임이나 시야 가림이 같이 오면 망막박리 신호일 수 있어요.\n\n스마트폰 사용 줄이고 자외선 차단하는 것만으로도 눈 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#비문증 #눈건강 #건강정보",
+      "suppress_product_block": true
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -50,6 +59,15 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "비문증, 눈앞에 날파리나 번쩍임이 있다면 👁️\n\n노화로 인한 유리체 변화가 가장 흔하지만, 번쩍임이나 시야 가림이 같이 오면 망막박리 신호일 수 있어요. 그땐 바로 안과로!\n\n#비문증 #눈건강 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "비문증, 눈앞에 날파리나 번쩍임이 있다면 - 위험 신호 구분법\n\n노화로 인한 유리체 변화가 가장 흔한 원인이지만, 번쩍임이나 시야 가림이 같이 온다면 망막박리 신호일 수 있어요. 스마트폰 사용을 줄이고 자외선을 차단하는 것만으로도 눈 부담을 줄일 수 있어요.\n\n#비문증 #눈건강 #건강정보"
     }
   ],
   "ad_tag": true

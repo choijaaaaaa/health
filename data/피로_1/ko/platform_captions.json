@@ -17,6 +17,15 @@
       "network": "naver"
     },
     {
+      "name": "인스타그램 릴스",
+      "url": "https://www.instagram.com/worthitshopping/",
+      "type": "video",
+      "no_caption_link": true,
+      "suppress_product_block": true,
+      "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",
+      "caption": "자도 자도 피곤하다면, 습관부터 점검해보세요 😮‍💨\n\n식사 중 커피(철분 흡수 방해), 탄산음료(혈당 급등락), 저녁 카페인(수면의 질 저하) — 만성피로를 부르는 뜻밖의 습관 3가지예요.\n\n한꺼번에 다 바꾸지 않아도 돼요. 하나씩 줄여보세요!\n\n더 유용한 건강정보 궁금하면 팔로우 👆\n\n#만성피로 #피로회복 #철분부족 #혈당스파이크 #건강정보"
+    },
+    {
       "name": "유튜브 쇼츠",
       "url": "https://www.youtube.com/@worthitshopping",
       "type": "video",
@@ -51,6 +60,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "자도 자도 피곤하다면 😮‍💨\n\n식사 중 커피·탄산음료·저녁 카페인 — 만성피로를 부르는 뜻밖의 습관 3가지예요.\n\n한꺼번에 다 바꾸지 않아도 하나씩 줄이면 한결 가벼워져요!\n\n#만성피로 #피로회복 #철분부족 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "자도 자도 피곤하다면 - 만성피로 부르는 습관 피하는 법\n\n식사 중 커피(철분 흡수 방해), 탄산음료(혈당 급등락), 저녁 카페인(수면의 질 저하) — 만성피로를 부르는 뜻밖의 습관이 있어요.\n\n한꺼번에 다 바꾸지 않아도 돼요. 하나씩 줄이면 컨디션이 달라질 수 있어요.\n\n#만성피로 #피로회복 #철분부족 #건강정보",
+      "suppress_product_block": false
     },
     {
       "platform": "blog_seo",
