@@ -1,5 +1,5 @@
 # 플랫폼별 업로드 결과물 대시보드 생성기. WHY: 포스팅 API가 없는 플랫폼이 대부분이라
-# 자동 업로드는 불가능 — 대신 영상/카드뉴스 미리보기 + 캡션(수정 가능)을 한 페이지에
+# 자동 업로드는 불가능 — 대신 캡션(수정 가능)을 한 페이지에
 # 모아두고, 사람이 확인·수정한 뒤 버튼 눌러 플랫폼으로 이동해서 수동 업로드하는
 # 흐름을 지원한다.
 # 2026-07-30 개편: 플랫폼마다 "뭘 첨부하고 뭘 눌러야 하는지"가 한눈에 안 보인다는
@@ -20,8 +20,8 @@ def _esc(text: str) -> str:
     )
 
 
-TYPE_LABEL = {"video": "영상", "cards": "카드뉴스", "text": "텍스트"}
-TYPE_ORDER = ["video", "cards", "text"]
+TYPE_LABEL = {"video": "영상", "text": "텍스트"}
+TYPE_ORDER = ["video", "text"]
 
 # WHY 이 플랫폼들은 대시보드 UI에서 아예 뺀다(2026-08-04, "틱톡 플랫폼 배제하고
 # 유튜브 숏츠도 이제 어차피 다 업로드해주니까 이것도 배제하자"): 유튜브 쇼츠는
@@ -30,22 +30,10 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 표시 이름이 다르므로(한국어는 "유튜브 쇼츠"/"틱톡", 그 외 전 언어는 글로벌
 # 표시용 영어 이름 "YouTube Shorts"/"TikTok"을 그대로 씀) 두 형태 모두 넣는다.
 #
-# ⚠️ 인스타그램 카드뉴스 제외(2026-08-04, "인스타 카드뉴스 없애자... 카드뉴스는
-# 일단 나중에는 쓸수도 있겠는데 릴스보다 효과가없어서 갯수 한도가 있으니
-# 릴스만 올려야할듯"): 캡션 자체는 그대로 두고(나중에 다시 쓸 가능성이 있다고
-# 했으므로 platform_captions.json에서 삭제하지 않음 — 글로벌 topic처럼 아예
-# 캡션 작성 자체를 생략하는 것과는 다른 케이스, 여기는 "UI에서만 숨기기") UI
-# 카드만 숨긴다.
-#
 # ⚠️ 쓰레드는 2026-08-22 재배제 — 2026-08-04에 "효과가 없어서" 뺐다가
 # 2026-08-21 mission-control 통합 작업 중 다시 올렸으나, 사용자가 다시
 # 안 쓰기로 확정(mission-control 업로드 탭 기준). 카드는 그대로 뜨지 않게
 # 이 세트에서 뺀다.
-# WHY 인스타그램 카드뉴스를 제외 목록에서 뺐는지(2026-08-25): 카드뉴스는
-# 네이버 블로그·인스타그램·페이스북 3곳에 올린다(맨 위 절)인데, 이 이름이 제외
-# 목록에 남아 있어서 293개 topic의 인스타그램 카드가 화면에 아예 안 떴다.
-# lib/instagram_upload.py는 릴스(영상) 전용이라 카드뉴스는 자동 업로드 대상이
-# 아니다 — 사람이 캡션을 복사해 직접 올려야 하므로 카드가 보여야 한다.
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
     "쓰레드", "Threads",
@@ -102,7 +90,6 @@ CARD_TEMPLATE = """
     </div>
   </div>
   <div class="action-line">{action}</div>
-  {asset_link}
   <textarea class="caption-box" id="cap-{idx}" spellcheck="false">{caption}</textarea>
   <div class="card-actions">
     <button class="btn-copy" data-target="cap-{idx}">캡션 복사</button>
@@ -162,17 +149,6 @@ PAGE_TEMPLATE = """<!doctype html>
     margin: 0 0 14px; display: flex; align-items: center; gap: 8px;
   }}
   section > h2::before {{ content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }}
-
-  .card-gallery {{
-    background: var(--panel); border: 1px solid var(--rule); border-radius: 18px; padding: 16px;
-    scroll-margin-top: 20px;
-  }}
-  .card-scroll {{ display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; }}
-  .card-scroll img {{
-    height: 220px; border-radius: 10px; box-shadow: 0 6px 14px rgba(60,45,35,0.15);
-    cursor: pointer; flex: 0 0 auto;
-  }}
-  .card-scroll img:hover {{ outline: 3px solid var(--accent-soft); }}
 
   .quick-dock {{
     position: fixed; top: 50%; right: 14px; transform: translateY(-50%); z-index: 9999;
@@ -342,21 +318,8 @@ PAGE_TEMPLATE = """<!doctype html>
   <div class="dock-head">
     <span>빠른 도구</span>
   </div>
-  <div class="dock-section">
-    <h4>다운로드</h4>
-    <div class="dock-links">
-      <button class="dock-links-btn" id="downloadAllCards">🖼 카드 이미지 전체 다운로드</button>
-    </div>
-  </div>
   {dock_products}
 </div>
-
-<section>
-  <h2>미리보기</h2>
-  <div class="card-gallery" id="card-gallery">
-    <div class="card-scroll">{card_thumbs}</div>
-  </div>
-</section>
 
 {platform_sections}
 
@@ -365,7 +328,6 @@ PAGE_TEMPLATE = """<!doctype html>
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
 <script>
-const CARD_IMAGE_NAMES = {card_image_names_js};
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
@@ -391,33 +353,6 @@ async function hsWrite(path, method, body) {{
   }});
   if (!res.ok) throw new Error(path + " " + method + " 실패: " + await res.text());
 }}
-// WHY 중복 접두어 방지: card_news.py가 이제 파일명에 topic을 직접 붙이므로(예전
-// topic은 안 붙어있음), 이미 붙어있으면 또 붙이지 않는다.
-function _withTopicPrefix(name) {{
-  return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
-}}
-
-const downloadAllBtn = document.getElementById("downloadAllCards");
-if (downloadAllBtn) {{
-  downloadAllBtn.addEventListener("click", () => {{
-    const originalLabel = downloadAllBtn.textContent;
-    downloadAllBtn.textContent = "다운로드 중…";
-    CARD_IMAGE_NAMES.forEach((name, i) => {{
-      setTimeout(() => {{
-        const a = document.createElement("a");
-        a.href = "card_news/" + name;
-        a.download = _withTopicPrefix(decodeURIComponent(name));
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        if (i === CARD_IMAGE_NAMES.length - 1) {{
-          setTimeout(() => {{ downloadAllBtn.textContent = originalLabel; }}, 500);
-        }}
-      }}, i * 350);
-    }});
-  }});
-}}
-
 document.querySelectorAll(".row-toggle").forEach(btn => {{
   btn.addEventListener("click", () => {{
     const row = document.getElementById(btn.dataset.row);
@@ -941,27 +876,6 @@ SECTION_TEMPLATE = """
 """
 
 
-def _prefixed(name: str, topic: str) -> str:
-    """WHY(2026-07-31): card_news.py가 이제 파일명에 topic 접두어를 직접 붙이므로,
-    다운로드 파일명을 만들 때 이미 붙어있는 접두어를 또 붙이면 중복된다
-    (예: "60대주의음식_1_60대주의음식_1_00_표지.jpg") — 이미 있으면 그대로 두고,
-    없는(접두어 없는 예전 topic) 경우에만 붙인다."""
-    return name if name.startswith(topic + "_") else f"{topic}_{name}"
-
-
-def _asset_link(platform_type: str, topic: str, cover_name: str | None) -> str:
-    # WHY video 타입엔 안내문 자체가 없는지(2026-08-05, "회색박스 텍스트
-    # 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가 git에
-    # 없어서 이 텍스트가 가리키던 다운로드/재생은 애초에 불가능했고, 로컬에서
-    # 직접 작업하는 사람에게는 그 안내 자체가 불필요한 잡음이었다.
-    topic_attr = _esc(topic)
-    if platform_type == "cards":
-        return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
-    if not cover_name:
-        return ""
-    return (f'<a class="asset-link" href="card_news/{quote(cover_name)}" '
-            f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
-
 
 def _load_product_links() -> dict[str, str]:
     """WHY(2026-08-02, "상품도 너한테 던져야겠다 이거 로컬스토리지 불안해서"):
@@ -1199,50 +1113,17 @@ def _update_topics_index(out_path: str):
         # 신규 포맷이라는거 구분 가능하게"): 영상 우상단 광고 태그 오버레이가
         # 적용된 topic인지를 목록에서 바로 구분할 수 있어야 한다.
         ad_tag_applied = False
-        # WHY tracks를 저장 필드 대신 여기서 파생하는지(2026-08-07, "쇼츠 부문 /
-        # 카드뉴스 부문" 목록 분리): 수동 플래그는 언젠가 빠뜨리거나 실제
-        # 콘텐츠와 어긋나는 사고로 이어진다(이 프로젝트에서 network/
-        # suppress_product_block 등으로 반복된 패턴) — platforms에 video 타입이
-        # 있으면 "shorts", cards/text 타입이 있으면 "card_news"를 각각 독립적으로
-        # 추가한다. WHY 리스트(둘 다 가능)인지(2026-08-07, "기존에 이미
-        # 생성되었던 카드뉴스 형태 애들도 아예 새로 만든 탭으로 넣어 전부다"):
-        # 처음엔 video 있으면 무조건 "숏츠"로만 분류했는데, 영상+카드뉴스를 같이
-        # 가진 기존 topic도 카드뉴스 탭에서 찾을 수 있어야 한다 — 한 topic이
-        # 두 탭에 동시에 나타날 수 있다(배타적 아님).
-        tracks: list[str] = []
         caption_path = data_root / rel / "platform_captions.json"
         if caption_path.exists():
             try:
                 caption_spec = json.loads(caption_path.read_text())
                 title = caption_spec.get("title", topic)
                 ad_tag_applied = bool(caption_spec.get("ad_tag"))
-                # WHY "shorts" 트랙을 더 이상 붙이지 않는지(2026-08-25): 영상 제작이
-                # 전면 중단되고 렌더된 mp4를 전부 삭제했다 — platform_captions.json에
-                # 남아있는 옛 video 플랫폼 항목만 보고 "숏츠"로 분류하면, 실제로는
-                # 존재하지 않는 영상이 목록에 계속 배지로 뜬다(mission-control에 실제로
-                # 반영이 안 돼 있던 문제). 카드뉴스 단일 트랙이 된 이상 이 파생 자체가
-                # 의미를 잃었다.
-                # WHY 페이스북 제외(2026-08-08): type이 "text"라 카드뉴스
-                # 판별에 같이 걸렸는데, 실제로는 숏츠 영상을 올리는 플랫폼이라
-                # (CLAUDE.md "영상 필요 플랫폼" 목록에 페이스북 포함) 카드뉴스
-                # 이미지와 무관하다 — 카드뉴스 탭 판별에서 페이스북은 빼고 본다.
-                card_news_types = {
-                    p.get("type") for p in caption_spec.get("platforms", [])
-                    if p.get("name") != "페이스북"
-                }
-                if card_news_types & {"cards", "text"}:
-                    tracks.append("card_news")
             except (json.JSONDecodeError, OSError):
                 pass
-        # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
-        # 피드백 — 표지 카드가 있으면 썸네일로 같이 보여준다. WHY glob(2026-08-03): topic
-        # 접두어가 없는 중첩 topic("00_표지.jpg")과 있는 flat topic(과거 관례,
-        # "<topic>_00_표지.jpg") 둘 다 와일드카드로 매칭한다.
-        cover_path = next((dash.parent / "card_news").glob("*00_표지.jpg"), None)
-        thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path else None
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
-            "thumbnail": thumbnail, "ad_tag": ad_tag_applied, "tracks": tracks,
+            "ad_tag": ad_tag_applied,
         })
     topics.sort(key=lambda t: t["topic"])
     (output_root / "topics.json").write_text(json.dumps(topics, ensure_ascii=False, indent=2))
@@ -1652,7 +1533,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
     (out_dir / "dashboard.html").write_text(html, encoding="utf-8")
 
 
-def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_path: str):
+def generate(spec_path: str, video_path: str | None, out_path: str):
     spec = json.loads(Path(spec_path).read_text())
     topic = spec.get("topic")
     if not isinstance(topic, str):
@@ -1721,13 +1602,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # WHY 다시 전체 글롭인지(2026-08-09, "지방간_1 이런건 왜 카드뉴스 형태
     # 내용물들이 다 사라졌지?"): 2026-08-05엔 표지(00_표지.jpg)만 git 추적해서
     # 전체 글롭을 쓰면 배포본에서 나머지가 깨진 이미지로 보였다 — 이후
-    # "카드뉴스 개별 이미지도 git/Vercel에 포함"(2026-08-09) 결정으로 카드
-    # 이미지 전체가 배포되므로, 이 제한이 남아있으면 "미리보기"/"카드 이미지
-    # 다운로드"가 표지 1장만 보여주는(버튼 id는 downloadAllCards인데 실제로는
-    # 1장뿐인) 불일치가 생긴다.
-    card_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
-    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in card_imgs)
-
     # WHY video_path를 받고도 대시보드에서 안 쓰는지(2026-08-05, "회색박스
     # 텍스트 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가
     # git에 안 올라가서 UI에 뭘 표시해도 실제 재생·다운로드는 안 됐고, 로컬에서
@@ -1739,7 +1613,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # WHY glob(2026-07-31): card_news.py가 이제 파일명 앞에 topic 접두어를 붙이므로
     # ("<topic>_00_표지.jpg") 정확한 이름을 하드코딩하지 않고 패턴으로 찾는다 — 접두어
     # 없는 예전 topic("00_표지.jpg")과도 둘 다 호환.
-    cover_path = next(Path(card_news_dir).glob("*00_표지.jpg"), None)
 
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
@@ -1772,7 +1645,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, topic, cover_path.name if cover_path else None),
                 done_key=quote(p["name"]),
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
@@ -1797,8 +1669,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             )
             idx += 1
 
-    card_image_names_js = json.dumps([quote(p.name) for p in card_imgs])
-
     ad_tag_badge = '<span class="ad-tag-badge">🏷️ 광고표시 적용</span>' if spec.get("ad_tag") else ""
 
     platform_sections = SECTION_TEMPLATE.format(section_title="업로드 플랫폼", cards=cards_html) if cards_html else ""
@@ -1814,10 +1684,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     asset_prefix = "../" * len(out_dir.relative_to(project_root).parts)
 
     html = PAGE_TEMPLATE.format(
-        title=_esc(spec["title"]), card_thumbs=card_thumbs, ad_tag_badge=ad_tag_badge,
+        title=_esc(spec["title"]), ad_tag_badge=ad_tag_badge,
         platform_sections=platform_sections,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
-        card_image_names_js=card_image_names_js, asset_prefix=asset_prefix,
+        asset_prefix=asset_prefix,
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
         # WHY comment_keyword 우선(2026-07-31): 상품이 없는 topic(products: [])은
@@ -1835,5 +1705,5 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
 
 
 if __name__ == "__main__":
-    spec_path, card_news_dir, video_path, out_path = sys.argv[1], sys.argv[2], sys.argv[3], sys.argv[4]
-    generate(spec_path, card_news_dir, video_path, out_path)
+    spec_path, video_path, out_path = sys.argv[1], sys.argv[2], sys.argv[3]
+    generate(spec_path, video_path, out_path)

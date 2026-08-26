@@ -1,30 +1,28 @@
 # health-shorts
 
-건강 상식 정보를 카드뉴스 + 숏폼(캐릭터 나레이션) + 플랫폼별 캡션으로 만드는 파이프라인.
+건강 상식 정보를 블로그 SEO 글로 만드는 파이프라인.
 `shopping-shorts-video`와는 완전히 별도 프로젝트.
 
-## ⚠️ 영상 제작 전면 중단 — 카드뉴스만 (2026-08-25)
+## ⚠️ 카드뉴스·인스타그램·페이스북 전면 폐지 (2026-08-26)
 
-**새 topic은 무조건 카드뉴스 트랙만 진행한다.** 영상(TTS·캐릭터 모션·
-`video_assembler.py` 조립·BGM·유튜브 업로드) 관련 아래 섹션들은 전부 비활성 —
-재개 결정 전까지 실행하지 말고, 참고용으로만 남겨둔다(재개 시 되살리기 쉽게
-삭제 대신 주석 처리 상태로 보존):
+**새 topic은 블로그 SEO 트랙만 진행한다.** 2026-08-25에 영상을 중단하고
+카드뉴스만 남겼는데, 그 카드뉴스마저 폐지되면서 남는 제작 트랙은 블로그 SEO뿐이다.
 
-- 캐릭터 모션 — 생성 중단
-- 영상 조립(`lib/video_assembler.py`)
-- 배경음악(BGM)(`lib/bgm.py`)
-- 영상 포맷 다각화(`lib/templates/`)
-- TTS(나레이션 TTS 검증 도구, Fish Audio 포함)
-- 유튜브 쇼츠 자동 업로드(`lib/youtube_upload.py`)
+폐지된 것 — 코드·데이터·산출물 모두 삭제했다(git 이력에만 남음):
 
-"새 topic 해줘"라는 요청도 이제 자동으로 **"카드뉴스만"** 모드로 처리한다(아래
-"두 트랙" 절 참고 — 예전엔 요청 문구로 선택했지만 이제 카드뉴스가 유일한
-기본값). ⚠️ **업로드 플랫폼도 변경(2026-08-25)** — 카드뉴스는 **네이버
-블로그·인스타그램·페이스북** 3곳에만 올린다(페이스북은 이제 영상 대신
-카드뉴스를 받음). `platform_captions.json`엔 이 3개만 넣고, 영상 필요
-플랫폼(유튜브쇼츠·틱톡·인스타릴스·네이버클립)과 쓰레드는 넣지 않는다(쓰레드는
-이 개편에서 명시적으로 빠짐 — 다시 포함하려면 사용자 확인 후). `narration.txt`도
-만들지 않는다.
+- 카드뉴스 생성(`lib/card_news.py`)과 형제 버티컬 허브(`lib/card_news_hub.py`)
+- 인스타그램·페이스북 업로더(`lib/instagram_upload.py`, `lib/facebook_upload.py`,
+  `lib/meta_posting_audit.py`) — Threads는 계속 쓰므로 `lib/meta_upload.py`의
+  공용 헬퍼(토큰·임시 URL·컨테이너 대기)는 남기고 인스타/페북 전용 접근자만 뺐다
+- 카드 이미지 산출물 583개 topic분(`output/<topic>/card_news/`, 767MB)
+- `platform_captions.json`의 인스타그램·페이스북 항목 148개
+
+⚠️ **`data/<topic>/card_news_spec.json`(583개)은 남겨뒀다** — 카드 렌더링용이지만
+내용은 카드별 원고 텍스트라 블로그 SEO에 재활용할 수 있는 자산이다. 렌더러가
+없으므로 새로 만들지는 않는다.
+
+영상 관련 섹션(TTS·캐릭터 모션·`video_assembler.py`·BGM·`lib/templates/`·유튜브
+업로드)은 2026-08-25 중단 상태 그대로 — 실행하지 말고 참고용으로만 볼 것.
 
 ## ⚠️ 일러스트 생성 전면 중단 — 실사진으로 대체 (2026-08-25)
 
@@ -226,65 +224,15 @@
     삭제했다 — 이미 6개 언어로 라이브된 실제 유튜브 영상과 그 Supabase
     `youtube_uploaded`/`posting_log` 기록은 그대로 둔 상태다. 나중에
     "장_2"를 찾다가 로컬에 없다고 당황하지 말 것.
-- ⚠️ **두 트랙(2026-08-07) → 카드뉴스 단일 트랙(2026-08-25)** — 영상 제작
-  전면 중단(맨 위 절 참고)으로 "요청 문구로 구분"하던 옛 방식은 끝났다.
-  **이제 "topic 해줘"든 "카드뉴스만"이든 항상 카드뉴스만 진행**: `card_news.py`만
-  실행(TTS·영상 조립 생략). `platform_captions.json`엔 네이버 블로그·
-  인스타그램·페이스북만 포함 — 유튜브쇼츠·틱톡·인스타릴스·네이버클립(영상
-  필요 플랫폼)과 쓰레드는 애초에 안 넣음. ⚠️ **`narration.txt`
-  자체를 안 만든다(2026-08-12 명확화)** — TTS를 안 호출하니 나레이션
-  파일이 최종 산출물이 아님, `data/<topic>/card_news_spec.json` +
-  `platform_captions.json` 두 개만 작성하면 됨(아래 "콘텐츠 QA" 절의
-  `content_review`도 narration.txt 없이 이 두 파일만으로 정상 동작함).
-  - 트랙 표시는 수동 플래그 없이 자동 파생됨 — `platform_captions.json`의
-    `platforms[]`에 `type: "video"`인 항목이 하나라도 있으면 "숏츠", 없으면
-    "카드뉴스"(`lib/dashboard.py`의 `_update_topics_index()`가 매번 재계산해서
-    `output/topics.json`에 기록, `index.html`이 이 값으로 "🎬 숏츠"/"🗞 카드뉴스"
-    두 섹션으로 나눠 보여줌). 새 필드를 손으로 추가·관리할 필요 없음.
-  - ⚠️ **`dashboard.py generate()`의 `spec_path`는 반드시 `platform_captions.json`
-    (2026-08-17, "카드뉴스만" topic 50개 "업로드 플랫폼" 섹션 통째로 누락 사고)** —
-    `card_news_spec.json`(카드뉴스 레이아웃 스펙, `platforms` 키 없음)을 실수로
-    넘기면 `spec.get("platforms", [])`가 조용히 빈 리스트가 되어 네이버 블로그
-    "열기(캡션 자동복사)" 버튼을 포함한 "업로드 플랫폼" 섹션 전체가 대시보드에서
-    사라진다 — 에러도 경고도 없어서 대시보드를 직접 열어보기 전까진 못 알아챈다.
-    50개 topic이 이 상태로 방치됐다가 사용자가 직접 발견(`눈_9`). 지금은
-    `generate()`가 `"platforms"` 키 자체가 없으면 바로 크래시하도록 가드가
-    걸려있어 같은 실수를 하면 즉시 드러난다 — 그래도 CLI 호출 시
-    `platform_captions.json` 경로를 넘기는 게 기본, `card_news_spec.json`은
-    `card_news.py`(이미지 렌더링)에만 쓴다는 걸 헷갈리지 말 것.
-- ⚠️ **카드뉴스 표지 배경색은 매 topic 다르게(2026-08-12)** — `card_news_spec.json`에
-  `cover_scrim_color`(hex 문자열)를 안 넣으면 기본값인 브랜드 ACCENT(로즈핑크)로
-  전부 동일하게 나온다("왜 죄다 빨간바탕만 해놨냐" 지적, 실측 14개 topic 전부
-  같은 핑크였음). 새 topic마다 다른 hex를 지정할 것 — 이미 쓰인 값은
-  `grep -rh "cover_scrim_color" data/*/ko/card_news_spec.json`으로 확인 후 안 겹치는
-  톤으로 고른다.
-
-## 동시 세션 안전장치 — 매번 필수
-
-1. **세션 락**: 작업 전 `python3 lib/session_lock.py check <topic>` →
-   `UNLOCKED` 아니면 사용자에게 확인. 진행 시 `acquire`, 끝나면 `release`.
-   락 파일명 제약상 다국어 topic도 언어 세분화 없이 `<주제>` 단위로 건다.
-2. **git worktree** — 새 작업 시작할 때마다:
-   ```
-   git worktree add ../health-shorts-worktrees/<짧은-설명> -b session/<짧은-설명> main
-   ```
-   그 안에서 작업·커밋까지 끝내고, 메인 워크트리로 돌아가
-   `git pull --ff-only && git merge session/<설명> && git push` → 정리
-   (`git worktree remove` + `git branch -d`). 다른 세션의 `git add`/`commit`과
-   완전히 격리되므로 인덱스 레이스가 안 생긴다.
-3. worktree를 못 쓰는 상황이면 커밋 직후 `git show --stat HEAD`로 의도한 파일이
-   맞는지 항상 확인 — 다른 세션 파일이 섞여 들어갔으면 데이터 손실은 아니니
-   되돌리지 말고 새 커밋으로 바로잡기만 하면 됨. **미커밋 상태로 오래 두지
-   말 것** — 다른 세션의 동시 git 작업(merge/rebase/stash 등)에 밀려 유실될
-   수 있음. 2026-08-05 실제로 CLAUDE.md 편집이 두 번 유실됐다(한 번은 미커밋
-   상태에서, 한 번은 커밋까지 했는데도 다른 세션의 히스토리 재작성으로) —
-   커밋했다고 완전히 안전한 것도 아니니 중요한 변경은 완료 직후
-   `git log --oneline -5 -- <파일>`로 실제로 히스토리에 남아있는지 재확인할 것.
-4. `assets_library/`(공용 자산) 새로 만들기 전엔 `session_lock.py list`로 활성
-   락 확인.
-
-## 배포
-
+- ⚠️ **단일 트랙 = 블로그 SEO(2026-08-26)** — 영상(2026-08-25)에 이어 카드뉴스까지
+  폐지되어 트랙 구분 자체가 없어졌다. `narration.txt`도 `card_news_spec.json`도 새로
+  만들지 않는다. 새 topic에서 작성하는 건 `platform_captions.json`(남은 발행처만)과
+  블로그 SEO 콘텐츠뿐 — 상세는 맨 위 폐지 절과 "블로그 SEO 서브트랙" 절 참고.
+  - ⚠️ **`dashboard.py generate()`의 `spec_path`는 반드시 `platform_captions.json`**
+    — `platforms` 키가 없는 파일을 넘기면 즉시 크래시하도록 가드가 걸려 있다(예전에
+    `card_news_spec.json`을 잘못 넘겨 50개 topic의 "업로드 플랫폼" 섹션이 통째로
+    사라진 사고가 있었다). ⚠️ **인자 순서 변경(2026-08-26)**: 카드뉴스 폐지로
+    `card_news_dir`이 빠져 `generate(spec_path, video_path, out_path)` 3개다.
 - 카드뉴스·캡션·영상 중 뭐든 먼저 끝나는 대로 바로 commit·push — 셋 다 끝날 때까지
   안 묶는다. `dashboard.py`가 영상 없으면 자동으로 "준비 중" placeholder 보여줌.
 - **서브에이전트로 여러 topic 병렬 생성 시**: 영상 조립(`video_assembler.py`)·
@@ -385,36 +333,8 @@ git으로 복구 불가, Time Machine·iCloud 동기화도 이 기기엔 없어�
   "시작-끝:경로,..."`(나레이션 기준 0초부터 빈틈없이).
 - 실사진 없는 topic은 `--images`에 캐릭터 일러스트를 넣지 말고
   `make_gradient_bg()`로 그라디언트 배경 사용.
-- ⚠️ **인스타그램 릴스용 안전 여백 영상 — 포맷 무관 전부 필수**: 칠판 포맷만의
-  문제가 아니라 **데스크탑에서 인스타그램 업로드 자체가 이 비율이어야 바로
-  되는 호환성 문제**다 — 3개 템플릿(판서형/`before_after_transition`/
-  `checklist`) 전부 빠짐없이 만들어야 한다(2026-08-21부로 영상 트랙은
-  한국어 단일, 아래 "글로벌 확장" 절 참고).
-  `build_instagram_safe_video(source_path, out_path)`(기본 상하좌우 20% 여백)로
-  `<원본파일명>_instagram.mp4`를 같은 폴더에 만들어두면 `dashboard.py`가
-  자동으로 찾아서 인스타그램 릴스 카드에만 연결한다(원본 `_shorts.mp4`는
-  유튜브 자동 업로드용으로 그대로 둠). **영상을 새로 만들거나 재생성할 때마다
-  포맷 상관없이 항상 같이 만들 것** — "칠판 포맷일 때만"으로 오해해서 신규
-  포맷 영상 다수(47개)에서 누락됐던 적이 있음. ⚠️ **2026-08-17 훨씬 큰
-  규모(156개)로 재발 확인·백필 완료** — 원인 특정은 못 했으나(재조립
-  파이프라인의 특정 단계가 조용히 이 스텝을 건너뛴 것으로 추정) `shorts.mp4`는
-  있는데 짝이 되는 `_instagram.mp4`가 없는 영상이 전체의 1/3 넘게 쌓여있었음.
-  기존 `shorts.mp4`를 재렌더링할 필요 없이 `build_instagram_safe_video()`만
-  단독 재호출해서 누락분을 채우면 된다(입력이 완성된 최종 영상 하나뿐이라
-  narration/spec 의존성이 없음) — 새 topic 작업 후 다음 커맨드로 주기적으로
-  스캔·백필할 것:
-  ```python
-  from pathlib import Path
-  from lib.video_assembler import build_instagram_safe_video
-  for f in Path("output").glob("*/**/*shorts.mp4"):
-      if "_instagram" in f.name:
-          continue
-      sibling = f.with_name(f.stem + "_instagram" + f.suffix)
-      if not sibling.exists():
-          build_instagram_safe_video(str(f), sibling)
-  ```
-- output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
-  `--out`은 직접 지정, `fish_tts.py` 결과는 필요시 rename).
+- output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`--out`은 직접 지정,
+  `fish_tts.py` 결과는 필요시 rename).
 
 ## 배경음악(BGM) (`lib/bgm.py`)
 
@@ -498,8 +418,7 @@ git으로 복구 불가, Time Machine·iCloud 동기화도 이 기기엔 없어�
     `before_after_transition`은 위치 지터도 추가(`checklist`는 이미 있었음).
   재조립은 `python3 -m lib.rebuild_video <topic>` 재실행(같은 topic은
   `select_format`이 결정론적이라 포맷 그대로 유지됨). mp4 재생성 후
-  인스타그램 크롭(`build_instagram_safe_video`)·`dashboard.html`도 함께
-  갱신할 것(위 "영상 조립" 절 참고).
+  `dashboard.html`도 함께 갱신할 것(위 "영상 조립" 절 참고).
 - 신규 4개 템플릿 공통 시그니처: `render(topic_dir, lang, audio_path,
   srt_path, spec_path, out_path)`. `card_news_spec.json`의 `items` 개수를
   그대로 읽어서 3개 고정 아님. 폰트는 `video_assembler.py`의
@@ -638,16 +557,16 @@ Fish Audio 한국어 보이스 품질 불만족으로 로컬 Voicebox.app(Qwen3-
 
 ## 플랫폼 캡션 (`platform_captions.json`)
 
-- **로테이션(2026-08-25 개편)**: 브런치·핀터레스트는 항상 제외. 한국어 topic은
-  **네이버 블로그·인스타그램·페이스북**만(카드뉴스 단일 트랙 — 맨 위 절 참고).
-  아래 유튜브 쇼츠·틱톡·인스타그램 릴스·네이버 클립 관련 서술은 영상 트랙
-  재개 전까지 비활성.
+- **로테이션(2026-08-26 개편)**: 브런치·핀터레스트는 항상 제외. **인스타그램·
+  페이스북은 채널 자체가 폐지**됐으므로 어떤 topic에도 넣지 않는다(맨 위 절 참고).
+  한국어 topic에 남는 발행처는 네이버 블로그이고, 실질 메인 트랙은 blog_seo다.
+  아래 유튜브 쇼츠·틱톡·네이버 클립 관련 서술은 영상 트랙 재개 전까지 비활성.
   ⚠️ **영상 트랙은 2026-08-21부로 한국어 단일 — 글로벌(en/ja) 로테이션은
   더 이상 없음**(아래 "글로벌 확장" 절 참고, blog_seo 서브트랙은 별개로
   계속 en/ja 포함 8개 언어).
 - ⚠️ **유튜브 쇼츠 로테이션 제외(2026-08-21, "트래픽이 전혀 나오지않아")** —
-  숏츠 영상 자체(mp4)는 계속 만들어서 인스타그램 릴스·틱톡·네이버 클립엔
-  그대로 쓰지만, 유튜브 업로드용 캡션·자동 업로드는 더 이상 안 한다.
+  숏츠 영상 자체(mp4)는 틱톡·네이버 클립용으로만 쓰고(인스타그램 릴스는
+  2026-08-26 채널 폐지), 유튜브 업로드용 캡션·자동 업로드는 더 이상 안 한다.
   `data/social_accounts.json`에서 제거 완료 — 새 topic은 이 파일을 그대로
   복사하므로 자동으로 빠진다. 상세는 아래 "유튜브 쇼츠 자동 업로드" 절.
 - ⚠️ **티스토리 완전 중단(2026-08-13, 소급 적용)** — 유입이 너무 저조하고
@@ -1142,42 +1061,6 @@ deleted`로 실패(리프레시 토큰 만료의 `Token has been expired or revo
   (`../mission-control`)에도 보고됨(2026-08-15, `check_video_staleness.py`/
   `youtube_upload.py` 연동 — `MISSION_CONTROL_INGEST_URL`/`_SECRET` 미설정
   시 조용히 스킵).
-
-## 카드뉴스 허브 (`lib/card_news_hub.py`)
-
-⚠️ **UI 진입점 제거(2026-08-21, AI영상 채널 피벗)** — `index.html`의
-육아·반려동물/경제 탭 버튼을 뺐다(SEO 블로그 9개 언어 파이프라인은
-완전히 별개라 무관, 그쪽은 그대로 운영). 이 워크플로우(babbleroot/
-furrowly/sparelow 네이버 블로그 포스팅)를 더 이상 안 하기로 한 결정 —
-아래 스크립트·`output/card_news_hub.json`·vernhaven-blog `/admin?tab=naver`
-연동 자체는 코드 그대로 남아있다(재개 가능성 대비 완전 삭제 아님), 그냥
-새로 실행/커밋할 이유가 없어졌을 뿐.
-
-네이버 블로그 운영용 — 이 프로젝트가 못 다루는 3개 신규 버티컬(육아=
-babbleroot/반려동물=furrowly/경제=sparelow, `VERTICAL_REPOS` 상수)의
-콘텐츠 저장소(`<이름>-content`)를 스캔해 `output/card_news_hub.json`으로
-합친다(건강 자신과 일본상품리뷰는 각자 완전한 자체 대시보드가 있어 제외 —
-파일 상단 주석 참고). `index.html`의 "카드뉴스 허브" 탭이 로컬에서 이
-JSON을 읽어 캡션 복사·네이버 계정 열기 UI를 보여준다.
-
-```
-python3 -m lib.card_news_hub          # output/card_news_hub.json만 갱신(로컬)
-python3 -m lib.card_news_hub --commit # 위에 더해 공유 Supabase에도 push
-```
-
-⚠️ **`--commit`은 vernhaven-blog 등 6개 형제 블로그가 쓰는 별도 공유
-Supabase 프로젝트(`BLOG_NETWORK_SUPABASE_URL`/`_SERVICE_ROLE_KEY`, `.env` —
-이 프로젝트 자신의 `SUPABASE_*`와는 다른 프로젝트)에 `naver_card_news`
-테이블로 upsert한다(2026-08-16, "카드뉴스 허브를 vernhaven admin 페이지
-하나에 탭으로 진짜 통합하고 싶다" 요청)** — vernhaven-blog `/admin?tab=naver`가
-이 테이블을 읽어서 배포 환경에서도 같은 데이터를 캡션 복사·업로드완료
-토글과 함께 보여준다(스키마·상세는 `vernhaven-blog/CLAUDE.md` "관리자
-대시보드 `/admin`" 절 "네이버 카드뉴스 탭" 참고, 원본은 그쪽 문서). 이
-프로젝트 쪽에서 신경 쓸 건 하나뿐 — **`posted`(업로드 완료 여부) 컬럼은
-`push_to_supabase()`가 의도적으로 payload에서 뺀다**, 그래야 이 스크립트를
-재실행해도 admin에서 사람이 이미 체크해둔 업로드 완료 상태가 안 지워진다.
-새 topic을 만들거나 캡션·네이버 URL을 고친 뒤엔 `--commit`을 다시 돌려야
-admin 쪽에 반영된다(자동 트리거 없음, 수동 재실행 필요).
 
 ## 배포 플랫폼 — Vercel (⚠️ 2026-08-14 정정, 예전 "GitHub Pages/서버 로직
 불가" 서술은 낡은 정보)

@@ -1,14 +1,14 @@
-# Instagram/Facebook/Threads 업로드 공통 헬퍼. WHY: 세 플랫폼 다 "계정별 자격증명
-# 읽기"와 "로컬 영상 파일을 공개 URL로 만들기"가 똑같이 필요해서 여기 한 곳에
-# 모은다 — lib/youtube_upload.py의 _env_prefix/_get_credentials 패턴을 그대로 따름.
+# Threads 업로드 공통 헬퍼. WHY 별도 모듈로 두는지: "계정별 자격증명 읽기"와
+# "로컬 영상 파일을 공개 URL로 만들기"는 Graph API 계열이면 공통이라 업로더와
+# 분리해둔다 — lib/youtube_upload.py의 _env_prefix/_get_credentials 패턴과 동일.
+# (2026-08-26 인스타그램·페이스북 채널 폐지로 그 전용 접근자는 제거했다.)
 #
-# WHY 영상을 Supabase Storage에 올려 공개 URL로 바꾸는지: Instagram/Threads의
-# Content Publishing API(POST /media)는 로컬 파일 직접 업로드를 지원하지 않고
+# WHY 영상을 Supabase Storage에 올려 공개 URL로 바꾸는지: Threads의 Content
+# Publishing API(POST /media)는 로컬 파일 직접 업로드를 지원하지 않고
 # video_url(공개 접근 가능한 URL)만 받는다 — 그래서 게시 직전에 소셜용 임시
 # 버킷(social-media-temp, public=true, video/mp4 전용, 50MB 제한 — Supabase
 # 프로젝트 플랜상 그 이상은 400 EntityTooLarge로 거부됨, 2026-08-22 실측)에
-# 올려 공개 URL을 얻는다. Facebook 페이지 영상(POST /{page-id}/videos)은
-# 반대로 멀티파트 직접 업로드를 지원해서 이 과정이 필요 없다.
+# 올려 공개 URL을 얻는다.
 from __future__ import annotations
 
 import os
@@ -41,27 +41,6 @@ def get_token(account: str) -> str:
     if override:
         return override
     return os.environ["META_SYSTEM_USER_TOKEN"]
-
-
-def get_page_id(account: str) -> str:
-    return os.environ[f"{_env_prefix(account)}PAGE_ID"]
-
-
-def get_ig_id(account: str) -> str:
-    return os.environ[f"{_env_prefix(account)}IG_ID"]
-
-
-def get_page_access_token(account: str) -> str:
-    """시스템 사용자/개인 토큰은 페이지 액세스 토큰이 아니라서, 페이지에
-    실제로 게시하려면 이 토큰으로 그 페이지의 access_token 필드를 한 번 더
-    조회해야 한다(GET /{page-id}?fields=access_token)."""
-    resp = requests.get(
-        f"{GRAPH_BASE}/{get_page_id(account)}",
-        params={"fields": "access_token", "access_token": get_token(account)},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    return resp.json()["access_token"]
 
 
 def upload_video_to_temp_url(video_path: str) -> str:
