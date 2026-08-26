@@ -41,11 +41,7 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 2026-08-21 mission-control 통합 작업 중 다시 올렸으나, 사용자가 다시
 # 안 쓰기로 확정(mission-control 업로드 탭 기준). 카드는 그대로 뜨지 않게
 # 이 세트에서 뺀다.
-# WHY 인스타그램 카드뉴스를 제외 목록에서 뺐는지(2026-08-25): 카드뉴스는
-# 네이버 블로그·인스타그램·페이스북 3곳에 올린다(맨 위 절)인데, 이 이름이 제외
-# 목록에 남아 있어서 293개 topic의 인스타그램 카드가 화면에 아예 안 떴다.
-# lib/instagram_upload.py는 릴스(영상) 전용이라 카드뉴스는 자동 업로드 대상이
-# 아니다 — 사람이 캡션을 복사해 직접 올려야 하므로 카드가 보여야 한다.
+# (2026-08-26 인스타그램·페이스북 채널 폐지로 그 캡션 자체가 사라져 제외 목록에서도 무의미해짐.)
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
     "쓰레드", "Threads",
@@ -1222,13 +1218,8 @@ def _update_topics_index(out_path: str):
                 # 존재하지 않는 영상이 목록에 계속 배지로 뜬다(mission-control에 실제로
                 # 반영이 안 돼 있던 문제). 카드뉴스 단일 트랙이 된 이상 이 파생 자체가
                 # 의미를 잃었다.
-                # WHY 페이스북 제외(2026-08-08): type이 "text"라 카드뉴스
-                # 판별에 같이 걸렸는데, 실제로는 숏츠 영상을 올리는 플랫폼이라
-                # (CLAUDE.md "영상 필요 플랫폼" 목록에 페이스북 포함) 카드뉴스
-                # 이미지와 무관하다 — 카드뉴스 탭 판별에서 페이스북은 빼고 본다.
                 card_news_types = {
                     p.get("type") for p in caption_spec.get("platforms", [])
-                    if p.get("name") != "페이스북"
                 }
                 if card_news_types & {"cards", "text"}:
                     tracks.append("card_news")
@@ -1744,15 +1735,6 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     platforms_by_type: dict[str, list[dict]] = {t: [] for t in TYPE_ORDER}
     for p in spec["platforms"]:
         platforms_by_type.setdefault(p.get("type", "text"), []).append(p)
-
-    # WHY 페이스북을 "video" 그룹으로 옮기는지(2026-08-08): type은 "text"지만
-    # (클립보드 붙여넣기 방식이라) 실제로는 숏츠 영상을 올리는 플랫폼이라
-    # (CLAUDE.md "영상 필요 플랫폼" 목록에 포함) 카드뉴스 탭이 아니라 숏츠
-    # 탭에 있어야 한다 — index.html의 tracks 판별 로직과 동일 원칙.
-    fb_platforms = [p for p in platforms_by_type.get("text", []) if p.get("name") == "페이스북"]
-    if fb_platforms:
-        platforms_by_type["text"] = [p for p in platforms_by_type["text"] if p.get("name") != "페이스북"]
-        platforms_by_type["video"].extend(fb_platforms)
 
     idx = 0
     # WHY type별 섹션·숏츠/카드뉴스 탭 분리를 없앴는지(2026-08-13, "텍스트 쪽

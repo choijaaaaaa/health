@@ -1,4 +1,4 @@
-# Instagram/Facebook/Threads 업로드 공통 헬퍼. WHY: 세 플랫폼 다 "계정별 자격증명
+# Threads 업로드 공통 헬퍼(2026-08-26 인스타그램·페이스북 채널 폐지로 축소). WHY: 세 플랫폼 다 "계정별 자격증명
 # 읽기"와 "로컬 영상 파일을 공개 URL로 만들기"가 똑같이 필요해서 여기 한 곳에
 # 모은다 — lib/youtube_upload.py의 _env_prefix/_get_credentials 패턴을 그대로 따름.
 #
@@ -41,27 +41,6 @@ def get_token(account: str) -> str:
     if override:
         return override
     return os.environ["META_SYSTEM_USER_TOKEN"]
-
-
-def get_page_id(account: str) -> str:
-    return os.environ[f"{_env_prefix(account)}PAGE_ID"]
-
-
-def get_ig_id(account: str) -> str:
-    return os.environ[f"{_env_prefix(account)}IG_ID"]
-
-
-def get_page_access_token(account: str) -> str:
-    """시스템 사용자/개인 토큰은 페이지 액세스 토큰이 아니라서, 페이지에
-    실제로 게시하려면 이 토큰으로 그 페이지의 access_token 필드를 한 번 더
-    조회해야 한다(GET /{page-id}?fields=access_token)."""
-    resp = requests.get(
-        f"{GRAPH_BASE}/{get_page_id(account)}",
-        params={"fields": "access_token", "access_token": get_token(account)},
-        timeout=30,
-    )
-    resp.raise_for_status()
-    return resp.json()["access_token"]
 
 
 def upload_video_to_temp_url(video_path: str) -> str:
