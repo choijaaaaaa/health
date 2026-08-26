@@ -17,7 +17,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-ILLUST_DIR = ROOT / "assets_library" / "illust"
+REAL_DIR = ROOT / "assets_library" / "real"
 COMMENT_KEYWORDS_PATH = Path.home() / ".claude" / "comment-keywords.md"
 
 # CLAUDE.md "[광고]+고지문" 절 기준(2026-08-10) — "네이버 클립"과 "네이버 블로그"
@@ -495,16 +495,24 @@ def test_blog_seo_title_not_identical_to_meta_description(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_char_files_exist(topic):
+    # WHY assets_library/real/ 대상인지(2026-08-25, 일러스트 생성 전면 중단):
+    # lib/card_news.py의 generate()가 이제 char_file(illust 이름)을 real/에서
+    # 매칭되는 실사진으로 찾아 쓰고 illust/ 파일은 아예 안 연다(_find_real_photo와
+    # 동일한 매칭 규칙 — "{품목}.jpg" 또는 "{품목}_real_NN.jpg") — 이 테스트도
+    # 실제 렌더링이 요구하는 파일이 있는지를 검증해야 하므로 같이 바꿨다.
     spec = _load_json(DATA_DIR / topic / "card_news_spec.json", topic, "card_news_spec.json")
     missing = []
     for item in spec.get("items", []):
         char_file = item.get("char_file")
         if not char_file:
             continue
-        if not (ILLUST_DIR / char_file).exists():
+        item_name = char_file.removesuffix("_illust.jpg")
+        matches = list(REAL_DIR.glob(f"{item_name}.jpg")) + list(REAL_DIR.glob(f"{item_name}_real_*.jpg"))
+        if not matches:
             missing.append(char_file)
     assert not missing, (
-        f"{topic}: card_news_spec.json items[].char_file이 assets_library/illust/에 없음 — {missing}"
+        f"{topic}: card_news_spec.json items[].char_file에 대응하는 실사진이 "
+        f"assets_library/real/에 없음 — {missing} (lib/real_photo_sourcing.py로 소싱할 것)"
     )
 
 

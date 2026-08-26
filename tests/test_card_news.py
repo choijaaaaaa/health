@@ -17,6 +17,20 @@ def _write_spec(spec_path, spec: dict) -> None:
     spec_path.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
 
 
+def _setup_real_photos(char_dir, item_names: list[str], make_solid_jpg, colors=None) -> None:
+    """char_dir과 형제 디렉터리인 real/에 item_names(접미사 "_illust.jpg" 뗀
+    이름)와 매칭되는 실사진을 만든다. WHY(2026-08-25, 일러스트 생성 중단):
+    generate()가 이제 char_dir(illust/)의 파일은 전혀 열지 않고 항상 이
+    real/ 폴더에서 사진을 찾는다 — 테스트도 실제 파이프라인과 같은 디렉터리
+    구조로 픽스처를 만들어야 한다."""
+    real_dir = char_dir.parent / "real"
+    real_dir.mkdir(exist_ok=True)
+    colors = colors or [(120, 80, 40)] * len(item_names)
+    for name, color in zip(item_names, colors):
+        src = make_solid_jpg(f"{name}_real.jpg", color=color)
+        (real_dir / f"{name}_real_01.jpg").write_bytes(src.read_bytes())
+
+
 def _minimal_spec(item_names: list[str], char_files: list[str], eyebrow: str | None = None) -> dict:
     spec = {
         "title": ["훅 줄1", "훅 줄2", "테스트 주제"],
@@ -46,13 +60,10 @@ class TestGenerate:
         topic = "테스트토픽_1"
         char_dir = tmp_path / "chars"
         char_dir.mkdir()
-        make_solid_jpg("아이템1.jpg", color=(255, 0, 0))
-        (char_dir / "아이템1.jpg").write_bytes((tmp_path / "아이템1.jpg").read_bytes())
-        make_solid_jpg("아이템2.jpg", color=(0, 0, 255))
-        (char_dir / "아이템2.jpg").write_bytes((tmp_path / "아이템2.jpg").read_bytes())
+        _setup_real_photos(char_dir, ["아이템1", "아이템2"], make_solid_jpg, colors=[(255, 0, 0), (0, 0, 255)])
 
         item_names = ["첫번째 카드", "두번째 카드"]
-        spec = _minimal_spec(item_names, ["아이템1.jpg", "아이템2.jpg"])
+        spec = _minimal_spec(item_names, ["아이템1_illust.jpg", "아이템2_illust.jpg"])
         spec_path = tmp_path / "spec.json"
         _write_spec(spec_path, spec)
 
@@ -73,12 +84,11 @@ class TestGenerate:
         topic = "사이즈검증_1"
         char_dir = tmp_path / "chars"
         char_dir.mkdir()
-        for fname, color in [("a.jpg", (10, 20, 30)), ("b.jpg", (200, 100, 50)), ("c.jpg", (0, 255, 0))]:
-            src = make_solid_jpg(fname, color=color)
-            (char_dir / fname).write_bytes(src.read_bytes())
+        _setup_real_photos(char_dir, ["a", "b", "c"], make_solid_jpg,
+                            colors=[(10, 20, 30), (200, 100, 50), (0, 255, 0)])
 
         item_names = ["카드A", "카드B", "카드C"]
-        spec = _minimal_spec(item_names, ["a.jpg", "b.jpg", "c.jpg"])
+        spec = _minimal_spec(item_names, ["a_illust.jpg", "b_illust.jpg", "c_illust.jpg"])
         spec_path = tmp_path / "spec.json"
         _write_spec(spec_path, spec)
 
@@ -101,11 +111,10 @@ class TestGenerate:
         topic = "특수문자검증_1"
         char_dir = tmp_path / "chars"
         char_dir.mkdir()
-        src = make_solid_jpg("돼지감자.jpg", color=(150, 100, 50))
-        (char_dir / "돼지감자.jpg").write_bytes(src.read_bytes())
+        _setup_real_photos(char_dir, ["돼지감자"], make_solid_jpg, colors=[(150, 100, 50)])
 
         item_names = ["돼지감자란?", "주의할 점"]
-        spec = _minimal_spec(item_names, ["돼지감자.jpg", "돼지감자.jpg"])
+        spec = _minimal_spec(item_names, ["돼지감자_illust.jpg", "돼지감자_illust.jpg"])
         spec_path = tmp_path / "spec.json"
         _write_spec(spec_path, spec)
 
@@ -119,18 +128,22 @@ class TestGenerate:
             img.load()
             assert img.size == (W, H)
 
-    def test_missing_char_file_raises_file_not_found(self, tmp_path, make_solid_jpg):
+    def test_missing_real_photo_raises_value_error(self, tmp_path, make_solid_jpg):
+        # WHY ValueError(2026-08-25, 일러스트 생성 중단): 예전엔 char_dir에
+        # 일러스트가 없으면 그 파일을 여는 시점에 FileNotFoundError가 났지만,
+        # 이제 char_dir(illust/)은 아예 안 열고 real/에서만 사진을 찾는다 —
+        # 없으면 렌더링 시작 전 사전 검사에서 ValueError로 막는다(폴백 없음).
         topic = "누락파일검증_1"
         char_dir = tmp_path / "chars"
         char_dir.mkdir()
-        # 의도적으로 char_file을 char_dir에 생성하지 않는다.
+        # 의도적으로 real/에 매칭 사진을 만들지 않는다.
 
-        spec = _minimal_spec(["카드1"], ["존재하지않음.jpg"])
+        spec = _minimal_spec(["카드1"], ["존재하지않음_illust.jpg"])
         spec_path = tmp_path / "spec.json"
         _write_spec(spec_path, spec)
 
         out_dir = tmp_path / topic / "card_news"
-        with pytest.raises(FileNotFoundError):
+        with pytest.raises(ValueError, match="실사진 없는 품목"):
             generate(str(spec_path), str(char_dir), str(out_dir))
 
 

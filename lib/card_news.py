@@ -8,7 +8,7 @@ import sys
 from pathlib import Path
 
 from fontTools.ttLib import TTFont
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
 
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
 # ttc 내부 인덱스: 0=Regular 2=Medium 4=SemiBold 6=Bold 8=Light
@@ -167,6 +167,11 @@ def _vertical_gradient(top, bottom):
     return img
 
 
+# 배경 목표 평균 밝기 — eyebrow(골드)·패널 그림자가 항상 읽히는 하한을 실측으로 잡은 값.
+BACKDROP_TARGET_L = 200
+BACKDROP_VEIL = (250, 246, 242)
+
+
 def _photo_backdrop(photo_path, seed, blur=32):
     """실사진을 블러 처리해 카드 배경(패널 바깥 테두리 영역)으로 쓴다.
     WHY(2026-08-02, "카드뉴스에 real 폴더 실사진도 흐림 처리한 배경으로 활용하자"):
@@ -198,7 +203,18 @@ def _photo_backdrop(photo_path, seed, blur=32):
     photo = photo.crop((x0, y0, x0 + crop_w, y0 + crop_h)).resize((W, H))
     if rng.random() < 0.5:
         photo = photo.transpose(Image.FLIP_LEFT_RIGHT)
-    return photo.filter(ImageFilter.GaussianBlur(blur))
+    photo = photo.filter(ImageFilter.GaussianBlur(blur))
+
+    # WHY 밝기 정규화(2026-08-25, 실사진 전환 후 실측): 일러스트 배경은 단색 크로마라
+    # 밝기가 늘 일정했는데 실사진은 사진마다 편차가 커서, 밝은 사진에선 좌상단 eyebrow
+    # (골드)와 패널 그림자가 배경에 묻혀 안 보인다. 밝은 베일을 적응적으로 덮어 평균
+    # 밝기를 일정하게 맞추고, 대비를 낮춰 흰 얼룩이 튀는 것도 눌러준다 — 색감 자체는
+    # 남겨서 topic마다 배경이 달라 보이는 효과(저품질 판정 회피)는 그대로 유지된다.
+    mean = ImageStat.Stat(photo.convert("L")).mean[0]
+    alpha = min(0.72, max(0.30, (BACKDROP_TARGET_L - mean) / (245 - mean))) if mean < 244 else 0.30
+    veil = Image.new("RGB", photo.size, BACKDROP_VEIL)
+    photo = Image.blend(photo, veil, alpha)
+    return ImageEnhance.Contrast(photo).enhance(0.85)
 
 
 def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
@@ -314,40 +330,35 @@ def _rounded_panel(canvas, box, radius, fill, shadow_offset=14, shadow_blur=28, 
     return canvas
 
 
-def _remove_chroma_bg(img: Image.Image, key=None, thresh=160) -> Image.Image:
-    """WHY(2026-07-31): Kling 모션용으로 캐릭터를 초록 크로마키 배경으로 생성하기
-    시작하면서, 카드뉴스 원형 배지에 그 초록이 그대로 보이는 문제가 생겼다(원형
-    마스크는 배경색을 안 가리고 그냥 사각형 이미지를 동그랗게 자르기만 하므로) —
-    원형으로 자르기 전에 배경색에 가까운 픽셀을 먼저 투명 처리한다.
-    WHY key=None 자동 감지(2026-08-01): 캐릭터 자체가 초록 계열(브로콜리·미역 등)이면
-    크로마키를 파란/마젠타로 바꿔서 생성하므로(gemini_illust.py bg_color_hex 참고)
-    green 하드코딩 키로는 배경이 안 지워진다 — 이미지 모서리 픽셀(항상 배경색)을
-    실제 키 색상으로 자동 채택해 어떤 배경색이든 동일하게 처리한다."""
-    img = img.convert("RGBA")
-    if key is None:
-        key = img.getpixel((2, 2))[:3]
-    kr, kg, kb = key
-    pixels = img.load()
-    for y in range(img.height):
-        for x in range(img.width):
-            r, g, b, a = pixels[x, y]
-            if abs(r - kr) + abs(g - kg) + abs(b - kb) < thresh:
-                pixels[x, y] = (r, g, b, 0)
-    return img
+def _photo_medallion(path, size, ring_color=ACCENT_SOFT, ring_w=10):
+    """원형 배지 렌더링 — 표지·팩트카드·마무리 카드에서 공통으로 쓴다.
+    WHY 크로마 제거가 없는지(2026-08-25, 일러스트 생성 중단으로 배지 소스가
+    항상 실사진으로 바뀌면서 이전 `_char_medallion`/`_remove_chroma_bg`를
+    대체): 일러스트는 초록/시안 등 단색 크로마키 배경으로 생성돼서 원형으로
+    자르기 전에 그 배경을 투명 처리해야 했지만, 실사진은 애초에 꽉 찬 사각
+    이미지라 그런 배경 자체가 없다 — 그대로 적용하면 사진 안에 크로마키로
+    오인될 색(예: 하늘색·벽지)이 있는 부분마다 엉뚱하게 구멍이 뚫린다.
+    WHY 정사각 크롭을 먼저 하는지: 일러스트는 생성 시점부터 거의 정사각이라
+    `.resize((size,size))` 직행이 티가 안 났지만, Pexels/Unsplash 실사진은
+    원본 비율이 제각각이라 그대로 리사이즈하면 눈에 띄게 눌리거나 늘어난다 —
+    중앙 기준 정사각으로 먼저 잘라낸 뒤 리사이즈한다."""
+    raw = Image.open(path).convert("RGB")
+    pw, ph = raw.size
+    # WHY 정사각의 72%로 더 좁게(2026-08-25, 실사진 전환 후 실측): 일러스트는 피사체
+    # 하나가 프레임을 꽉 채운 이미지였지만 스톡 사진은 넓은 장면이라, 정사각 크롭만으론
+    # 지름 몇백 px짜리 원 안에서 주제가 뭔지 안 읽힌다(욕실 전경이 회색 얼룩으로 보임).
+    # 스톡 사진은 대개 피사체가 중앙에 오게 구성돼 있어 중앙을 더 좁게 잘라 확대한다.
+    side = int(min(pw, ph) * 0.72)
+    left, top = (pw - side) // 2, (ph - side) // 2
+    raw = raw.crop((left, top, left + side, top + side)).resize((size, size))
 
-
-def _char_medallion(path, size, ring_color=ACCENT_SOFT, ring_w=10):
-    raw = Image.open(path).convert("RGB").resize((size, size))
-    raw = _remove_chroma_bg(raw)
     mask = Image.new("L", (size, size), 0)
     ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
-    combined_mask = ImageChops.multiply(raw.split()[3], mask)
     photo = Image.new("RGBA", (size, size), (0, 0, 0, 0))
-    photo.paste(raw, (0, 0), combined_mask)
+    photo.paste(raw, (0, 0), mask)
 
     pad = ring_w + 18
     canvas = Image.new("RGBA", (size + pad * 2, size + pad * 2), (0, 0, 0, 0))
-    # 부드러운 그림자
     shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
     sdraw = ImageDraw.Draw(shadow)
     sdraw.ellipse([pad - 4, pad + 10, pad + size + 4, pad + size + 18], fill=(*SHADOW, 70))
@@ -406,23 +417,21 @@ def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_pat
     높은데 그 때는 배경 색상 변경도 고려해줘"): cover_char_file로도 캐릭터 중복을
     못 피하는 경우(그 topic이 쓸 수 있는 다른 아이템도 이미 다 다른 곳에 쓰이고
     있을 때)의 2차 대안 — 같은 캐릭터라도 스크림 색을 바꾸면 표지 톤 자체가
-    달라진다. 기본값은 브랜드 ACCENT(로즈핑크) 그대로 유지, 필요할 때만 넘긴다."""
+    달라진다. 기본값은 브랜드 ACCENT(로즈핑크) 그대로 유지, 필요할 때만 넘긴다.
+
+    WHY 크로마 제거를 안 하는지(2026-08-25, 일러스트 생성 중단): char_path는
+    이제 항상 실사진이라 크로마키 배경 자체가 없다 — 같은 이유로 정사각이 아닌
+    원본 비율을 그대로 확대·리사이즈하면 눌리므로, 중앙 기준 정사각 크롭을
+    먼저 한다(_photo_medallion과 동일 원칙)."""
     img = Image.new("RGB", (W, H), scrim_color)
     if char_path:
-        # WHY 블러 전에 크로마 제거+scrim_color로 배경 채우기(2026-08-12,
-        # "UI 왜이렇게됐지" — 코_4 표지에서 실제로 발견): 원본 캐릭터 소스는
-        # 초록/시안 크로마키 배경으로 만들어지는데, 여기선 그 원본을 그대로
-        # 리사이즈·블러했다 — 캐릭터가 정사각 프레임을 꽉 안 채우는 소스는
-        # (예: 휴지_illust.jpg) 블러 후에도 배경의 초록이 절반 투명 스크림
-        # 밑으로 그대로 비쳐서 "초록/핑크 뒤섞인 표지"처럼 보였다. 크로마를
-        # 먼저 제거하고 불투명 scrim_color로 배경을 채운 뒤 블러하면, 어디를
-        # 블러해도 캐릭터색 아니면 scrim_color뿐이라 원본 배경색이 안 남는다.
-        raw = Image.open(char_path).convert("RGB").resize((int(H * 1.15), int(H * 1.15)))
-        chroma = _remove_chroma_bg(raw)
-        filled = Image.new("RGB", chroma.size, scrim_color)
-        filled.paste(chroma, (0, 0), chroma)
-        target = chroma.size[0]
-        char = filled.filter(ImageFilter.GaussianBlur(25))
+        raw = Image.open(char_path).convert("RGB")
+        pw, ph = raw.size
+        side = min(pw, ph)
+        left0, top0 = (pw - side) // 2, (ph - side) // 2
+        raw = raw.crop((left0, top0, left0 + side, top0 + side)).resize((int(H * 1.15), int(H * 1.15)))
+        target = raw.size[0]
+        char = raw.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
         char = char.crop((left, top, left + W, top + H))
         scrim = Image.new("RGBA", (W, H), (*scrim_color, 150))
@@ -473,7 +482,7 @@ def _make_cover_flat(title_lines, char_paths, out_path):
         row_x0 = (W - row_w) // 2
         x = row_x0 + col * (med_size + gap)
         y = y0 + row * row_h
-        m = _char_medallion(path, size)
+        m = _photo_medallion(path, size)
         img.paste(m, (x, y), m)
 
     rows = (n + cols - 1) // cols
@@ -541,7 +550,7 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
     # 캐릭터 — 중앙 공간을 글자에 내주기 위해 작은 배지로만
     unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
     if unique_paths:
-        m = _char_medallion(unique_paths[0], med_size, ring_color=(255, 255, 255), ring_w=6)
+        m = _photo_medallion(unique_paths[0], med_size, ring_color=(255, 255, 255), ring_w=6)
         img.paste(m, ((W - m.width) // 2, y), m)
         y += m.height + gap_med_hint
     else:
@@ -554,10 +563,18 @@ def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
 
 
 def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP",
-                    photo_path=None, photo_seed=None, char_label_overrides: dict[str, str] | None = None):
+                    photo_path=None, photo_seed=None, char_label_overrides: dict[str, str] | None = None,
+                    char_key: str | None = None):
     """photo_path 주면 그 실사진을 블러 배경으로 쓰고(_photo_backdrop), 없으면
     기존 그라디언트 배경 그대로. 캐릭터 배지·제목·본문 위치는 항상 동일 —
-    바뀌는 건 배경뿐이다."""
+    바뀌는 건 배경뿐이다.
+
+    WHY char_key 별도 파라미터(2026-08-25, 일러스트 생성 중단): char_path가 이제
+    실사진(예: "커피_real_01.jpg")이라 라벨을 그 파일명에서 뽑으면 "_illust"가
+    없어 치환이 안 먹고 "커피_real_01"이 그대로 노출된다 — 라벨/오버라이드 조회는
+    spec의 원래 char_file 식별자(예: "커피_illust.jpg")로 하고, 이미지 로딩만
+    char_path(실사진)를 쓰도록 분리한다. 안 주면 기존처럼 char_path 파일명에서 유도
+    (하위호환, 호출부가 늦게 갱신된 경우 대비)."""
     img = _photo_backdrop(photo_path, photo_seed or out_path) if photo_path else _vertical_gradient(BG_TOP, BG_BOTTOM)
     img = img.convert("RGB")
 
@@ -578,8 +595,10 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
 
     # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
     # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
+    # WHY _photo_medallion(2026-08-25, 일러스트 생성 중단): char_path가 이제
+    # 항상 실사진이라 크로마 제거가 필요·안전하지 않다(위 _photo_medallion WHY 참고).
     char_size = 130
-    m = _char_medallion(char_path, char_size, ring_w=8)
+    m = _photo_medallion(char_path, char_size, ring_w=8)
     badge_x = panel_box[2] - m.width - 20
     badge_y = panel_box[1] + 20
     img.paste(m, (badge_x, badge_y), m)
@@ -593,8 +612,8 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
     # 한국어(예: "고추")라 비한국어 topic에서 그대로 쓰면 영어 카드에 한글
     # 라벨이 박힌다 — spec에 char_display_names가 있으면 그 값으로 덮어쓰고,
     # 없으면(기존 한국어 topic 전부) 기존처럼 파일명 그대로 쓴다.
-    char_key = Path(char_path).name
-    char_label = (char_label_overrides or {}).get(char_key, Path(char_path).stem.replace("_illust", ""))
+    char_key = char_key or Path(char_path).name
+    char_label = (char_label_overrides or {}).get(char_key, Path(char_key).stem.replace("_illust", ""))
     label_f2 = _font(28, "bold")
     lb = draw.textbbox((0, 0), char_label, font=label_f2)
     lw, lh = lb[2] - lb[0], lb[3] - lb[1]
@@ -634,7 +653,11 @@ def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="H
 
 
 def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
-                  top_chip_label: str = "마무리", char_label_overrides: dict[str, str] | None = None):
+                  top_chip_label: str = "마무리", char_label_overrides: dict[str, str] | None = None,
+                  char_keys: list[str] | None = None):
+    """char_keys: char_paths와 같은 길이로, 라벨/오버라이드 조회용 원래 char_file
+    식별자 리스트(2026-08-25, 일러스트 생성 중단 — make_fact_card의 char_key와
+    같은 이유). 안 주면 기존처럼 char_paths 파일명에서 유도(하위호환)."""
     img = _vertical_gradient(BG_TOP, BG_BOTTOM)
     draw = ImageDraw.Draw(img)
     _top_chip(img, draw, top_chip_label, GOLD)
@@ -642,18 +665,18 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
     # 단일 캐릭터 주제면 char_paths에 같은 이미지가 여러 번 들어있을 수 있어
     # (아이템마다 char_file 지정 구조라) — 중복 제거하고, 첫 화면(표지)만큼
     # 크게 안 보여줘도 되니 작게 표시.
-    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    char_keys = char_keys or [Path(p).name for p in char_paths]
+    unique_pairs = list(dict.fromkeys(zip((str(p) for p in char_paths), char_keys)))
     size, gap = 130, 16
     med_size = size + (8 + 18) * 2
-    total_w = med_size * len(unique_paths) + gap * (len(unique_paths) - 1)
+    total_w = med_size * len(unique_pairs) + gap * (len(unique_pairs) - 1)
     start_x = (W - total_w) // 2
     label_f2 = _font(20, "semibold")
-    for j, path in enumerate(unique_paths):
-        m = _char_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
+    for j, (path, char_key) in enumerate(unique_pairs):
+        m = _photo_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
         bx = start_x + j * (med_size + gap)
         img.paste(m, (bx, 190), m)
-        char_key = Path(path).name
-        char_label = (char_label_overrides or {}).get(char_key, Path(path).stem.replace("_illust", ""))
+        char_label = (char_label_overrides or {}).get(char_key, Path(char_key).stem.replace("_illust", ""))
         lb = draw.textbbox((0, 0), char_label, font=label_f2)
         lw = lb[2] - lb[0]
         draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
@@ -694,6 +717,38 @@ def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
     img.save(out_path, quality=95)
 
 
+# WHY 공용 사진 풀(2026-08-25): 실사진을 프로젝트마다 따로 쌓으면 재사용이 안 되고,
+# 무엇보다 품목당 한 장뿐이라 같은 사진이 수십 개 topic에 반복 등장한다 — 일러스트를 버린
+# 이유("독자가 알아보고 재접근을 안 한다")가 그대로 재현된다. 품목당 여러 장을 공용 풀에
+# 모아두고 topic·슬롯별로 미리 배정한 표(assets-shared/assign.py)를 따라 꺼내 쓴다.
+SHARED_ASSETS = Path("/Users/chlwjddms16/Desktop/project/assets-shared")
+_LANG_DIRS = {"ko", "en", "ja", "de", "fr", "it", "es", "nl", "sv", "zh-TW"}
+
+
+def _shared_resolver(out_dir: Path, topic_prefix_arg):
+    """(topic, lang) 문맥을 붙여 공용 배정표에서 사진 경로를 꺼내는 함수를 돌려준다.
+    공용 풀을 못 읽으면 None — 호출부가 기존 로컬 폴백으로 내려간다."""
+    if str(SHARED_ASSETS) not in sys.path:
+        sys.path.insert(0, str(SHARED_ASSETS))
+    try:
+        import photo_library as _pl
+        import assign as _assign
+        conn = _pl.connect()
+    except Exception:
+        return None
+
+    if out_dir.parent.name in _LANG_DIRS:
+        topic, data_lang = out_dir.parent.parent.name, out_dir.parent.name
+    else:
+        topic, data_lang = (topic_prefix_arg or out_dir.parent.name), "ko"
+
+    def _resolve(slot: str):
+        path = _assign.resolve(conn, "health-shorts", topic, data_lang, slot)
+        return str(path) if path and path.exists() else None
+
+    return _resolve
+
+
 def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None,
              lang: str = "kor"):
     """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
@@ -714,14 +769,15 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     out_dir = Path(out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    char_paths = [str(char_dir / item["char_file"]) for item in spec["items"]]
     eyebrow = spec.get("eyebrow", "HEALTH TIP")
 
-    # WHY 실사진 배경 자동 매칭(2026-08-02, "카드뉴스에 real 폴더 실사진도 흐림
-    # 처리한 배경으로 활용하자"): item의 char_file(예: "커피_illust.jpg")에서
-    # 품목명을 뽑아 assets_library/real/에서 같은 품목 실사진(예: "커피_real_01.jpg"
-    # 또는 예전 명명 규칙인 "커피.jpg")을 찾아 자동으로 그 카드의 배경으로 쓴다.
-    # 없는 품목은 기존처럼 그라디언트 배경으로 자연스럽게 폴백.
+    # WHY 일러스트 대신 실사진(2026-08-25, 일러스트 생성 전면 중단) — "AI 일러스트
+    # 썸네일 패턴을 독자가 알아보고 재접근을 안 한다"는 지적 이후, 캐릭터 배지·표지
+    # 배경 전부 assets_library/real/의 실사진으로 바꿨다. spec의 char_file 필드는
+    # 하위 호환을 위해 "<품목>_illust.jpg" 이름 그대로 유지하되(char_label 등
+    # 표시용 식별자로만 쓰임), 실제로 불러오는 이미지는 이 이름에서 품목명을 뽑아
+    # real/ 폴더에서 찾은 실사진이다 — char_dir(illust/)의 파일을 직접 여는 곳은
+    # 이제 없다.
     real_dir = char_dir.parent / "real"
 
     def _find_real_photo(char_file: str) -> str | None:
@@ -734,6 +790,35 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
             return None
         matches = sorted(real_dir.glob(f"{item_name}.jpg")) + sorted(real_dir.glob(f"{item_name}_real_*.jpg"))
         return str(matches[0]) if matches else None
+
+    # WHY 렌더링 시작 전에 실사진 존재부터 검사(2026-08-25): 일러스트 폴백이
+    # 없어진 이후로 real_photo가 없는 품목은 배지를 그릴 방법 자체가 없다 — 카드
+    # 몇 장 그린 뒤 중간에 터지면 그 전까지 만든 이미지가 output_dir에 남으므로,
+    # _validate_spec_glyphs와 같은 원칙으로 첫 장도 안 그려지게 전부 미리 확인한다.
+    # 새 topic 작업 시 이 에러가 나면 `lib/real_photo_sourcing.py <영어검색어> ...`로
+    # 먼저 실사진을 소싱해둘 것.
+    shared = _shared_resolver(out_dir, topic_prefix)
+
+    def _photo_for(slot: str, char_file: str) -> str | None:
+        if shared:
+            hit = shared(slot)
+            if hit:
+                return hit
+        return _find_real_photo(char_file)
+
+    missing_photos = [
+        item["char_file"] for i, item in enumerate(spec["items"])
+        if _photo_for(f"item{i:02d}", item["char_file"]) is None
+    ]
+    if missing_photos:
+        raise ValueError(
+            f"실사진 없는 품목: {missing_photos} — lib/real_photo_sourcing.py로 "
+            f"assets_library/real/에 먼저 소싱한 뒤 다시 실행할 것(일러스트 생성 중단, "
+            f"폴백 없음)."
+        )
+
+    char_paths = [_photo_for(f"item{i:02d}", item["char_file"])
+                  for i, item in enumerate(spec["items"])]
 
     # WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하면서
     # output 폴더 안 파일명("00_표지.jpg" 등)이 topic마다 겹쳐서 구분이 안 됐다 — out_dir이
@@ -754,7 +839,9 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     # items[0]으로 폴백(하위호환). 여러 topic에 걸쳐 캐릭터가 안 겹치게 고르는
     # 판단은 세션이 topic들을 비교해서 직접 정하고 이 필드에 적어둘 것.
     cover_char_file = spec.get("cover_char_file")
-    cover_char_path = str(char_dir / cover_char_file) if cover_char_file else (char_paths[0] if char_paths else None)
+    cover_char_path = ((shared and shared("cover")) or
+                       (_find_real_photo(cover_char_file) if cover_char_file else None) or
+                       (char_paths[0] if char_paths else None))
 
     # WHY cover_scrim_color(2026-08-01, "cover_char_file로도 못 피하면 배경 색상
     # 변경도 고려해줘"): 그 topic이 쓸 수 있는 캐릭터가 이미 다 다른 topic에 쓰이고
@@ -783,16 +870,24 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
 
     n = len(spec["items"])
     for i, item in enumerate(spec["items"], start=1):
-        real_photo = _find_real_photo(item["char_file"])
-        make_fact_card(i, item["name"], char_dir / item["char_file"], item["body"], n,
+        slot = f"item{i - 1:02d}"
+        badge_photo = _photo_for(slot, item["char_file"])
+        # WHY 배경만 따로(2026-08-25, 사용자 지시): 배지는 그 카드가 말하는 품목이어야 하지만,
+        # 배경은 블러가 강해 형체가 거의 안 보이므로 품목과 일치할 필요가 없다 — 건강 관련
+        # 범용 사진이면 충분하다. 둘을 같은 사진으로 쓰면 품목별 필요 장수가 배로 늘고
+        # 배경 다양성도 품목 재고에 묶인다.
+        bg_photo = (shared and shared(f"bg:{slot}")) or badge_photo
+        make_fact_card(i, item["name"], badge_photo, item["body"], n,
                        out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow,
-                       photo_path=real_photo, photo_seed=f"{topic_prefix}{item['char_file']}",
-                       char_label_overrides=char_display_names)
+                       photo_path=bg_photo, photo_seed=f"{topic_prefix}{item['char_file']}",
+                       char_label_overrides=char_display_names, char_key=item["char_file"])
 
     closing = spec["closing"]
+    closing_char_keys = [item["char_file"] for item in spec["items"]]
     make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"],
                  out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg",
-                 top_chip_label=closing_label, char_label_overrides=char_display_names)
+                 top_chip_label=closing_label, char_label_overrides=char_display_names,
+                 char_keys=closing_char_keys)
     print(f"카드뉴스 {n+2}장 생성 완료: {out_dir}")
 
 
