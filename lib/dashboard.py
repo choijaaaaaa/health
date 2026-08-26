@@ -41,11 +41,25 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 2026-08-21 mission-control 통합 작업 중 다시 올렸으나, 사용자가 다시
 # 안 쓰기로 확정(mission-control 업로드 탭 기준). 카드는 그대로 뜨지 않게
 # 이 세트에서 뺀다.
+# WHY 인스타그램 카드뉴스를 제외 목록에서 뺐는지(2026-08-25): 카드뉴스는
+# 네이버 블로그·인스타그램·페이스북 3곳에 올린다(맨 위 절)인데, 이 이름이 제외
+# 목록에 남아 있어서 293개 topic의 인스타그램 카드가 화면에 아예 안 떴다.
+# lib/instagram_upload.py는 릴스(영상) 전용이라 카드뉴스는 자동 업로드 대상이
+# 아니다 — 사람이 캡션을 복사해 직접 올려야 하므로 카드가 보여야 한다.
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
-    "인스타그램 카드뉴스", "Instagram Carousel",
     "쓰레드", "Threads",
 }
+
+
+def _is_shown_platform(p: dict) -> bool:
+    """대시보드·mission-control에 캡션 카드로 띄울 플랫폼인지.
+    WHY type=="video"를 통째로 빼는지(2026-08-25): 영상 트랙이 중단되고 렌더된 mp4를
+    전부 삭제했다 — 올릴 영상이 없는데 "인스타그램 릴스로 이동" 같은 카드가 남아 있으면
+    UI가 실제 상태와 어긋난다. 이름 목록이 아니라 type으로 거르는 이유는, 플랫폼 이름은
+    프로젝트·언어마다 다르지만 type은 공통이라 새 플랫폼이 추가돼도 자동으로 걸리기
+    때문이다."""
+    return "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS and p.get("type") != "video"
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
@@ -1202,9 +1216,12 @@ def _update_topics_index(out_path: str):
                 caption_spec = json.loads(caption_path.read_text())
                 title = caption_spec.get("title", topic)
                 ad_tag_applied = bool(caption_spec.get("ad_tag"))
-                platform_types = {p.get("type") for p in caption_spec.get("platforms", [])}
-                if "video" in platform_types:
-                    tracks.append("shorts")
+                # WHY "shorts" 트랙을 더 이상 붙이지 않는지(2026-08-25): 영상 제작이
+                # 전면 중단되고 렌더된 mp4를 전부 삭제했다 — platform_captions.json에
+                # 남아있는 옛 video 플랫폼 항목만 보고 "숏츠"로 분류하면, 실제로는
+                # 존재하지 않는 영상이 목록에 계속 배지로 뜬다(mission-control에 실제로
+                # 반영이 안 돼 있던 문제). 카드뉴스 단일 트랙이 된 이상 이 파생 자체가
+                # 의미를 잃었다.
                 # WHY 페이스북 제외(2026-08-08): type이 "text"라 카드뉴스
                 # 판별에 같이 걸렸는데, 실제로는 숏츠 영상을 올리는 플랫폼이라
                 # (CLAUDE.md "영상 필요 플랫폼" 목록에 페이스북 포함) 카드뉴스
@@ -1591,7 +1608,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
             ko_cards = "".join(
                 _light_platform_card(base_topic, lang, p, idx)
                 for idx, p in enumerate(spec.get("platforms", []))
-                if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
+                if _is_shown_platform(p)
             )
             if ko_cards:
                 sections += (
@@ -1607,7 +1624,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
         global_cards += "".join(
             _light_platform_card(base_topic, lang, p, idx)
             for idx, p in enumerate(spec.get("platforms", []))
-            if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
+            if _is_shown_platform(p)
         )
 
     if global_cards:
@@ -1678,7 +1695,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
     spec["platforms"] = [
         p for p in spec.get("platforms", [])
-        if "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS
+        if _is_shown_platform(p)
     ]
 
     # WHY 자동 경고(2026-07-31): 해시태그가 한 플랫폼만 빠진 채로 넘어간 적이 있었다

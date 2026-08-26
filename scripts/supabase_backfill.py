@@ -50,7 +50,10 @@ def main():
     ])
 
     completed = json.loads((ROOT / "output" / "completed_topics.json").read_text(encoding="utf-8"))
-    upsert("completed_topics", [{"base_topic": t} for t in completed])
+    # WHY track을 함께 보내는지(2026-08-25): completed_topics 테이블의 track 컬럼이
+    # NOT NULL인데 base_topic만 보내고 있어서 매 실행마다 23502로 실패하고 있었다.
+    # 영상 트랙 중단 이후 완료 대상은 카드뉴스뿐이라 값이 하나로 고정된다.
+    upsert("completed_topics", [{"base_topic": t, "track": "card_news"} for t in completed])
 
     posting_rows = []
     with (ROOT / "output" / "posting_log.csv").open(encoding="utf-8-sig", newline="") as f:

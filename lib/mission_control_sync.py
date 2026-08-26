@@ -46,7 +46,6 @@ ROOT = Path(__file__).resolve().parent.parent
 # 쪽이 이 작은 동기화 스크립트엔 더 가볍다는 판단).
 _UI_EXCLUDED_PLATFORMS = {
     "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
-    "인스타그램 카드뉴스", "Instagram Carousel",
     "쓰레드", "Threads",
 }
 
@@ -72,7 +71,10 @@ def collect_rows() -> list[dict]:
 
         for p in data.get("platforms", []):
             name = p.get("name")
-            if not name or name in _UI_EXCLUDED_PLATFORMS:
+            # WHY type=="video"도 함께 제외(2026-08-25): dashboard.py의
+            # _is_shown_platform()과 같은 이유 — 영상 트랙 중단 + mp4 전량 삭제로
+            # 올릴 영상이 없는데 mission-control에 릴스·클립 캡션 카드가 남아 있었다.
+            if not name or name in _UI_EXCLUDED_PLATFORMS or p.get("type") == "video":
                 continue
             caption = p.get("caption")
             if not caption:
