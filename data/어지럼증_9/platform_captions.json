@@ -1,7 +1,11 @@
 {
   "topic": "어지럼증_9",
   "title": "메니에르병, 이명과 먹먹함까지 온다면 - 발작 줄이는 습관 3가지",
-  "products": ["저염 소금", "디카페인 커피", "수면 안대"],
+  "products": [
+    "저염 소금",
+    "디카페인 커피",
+    "수면 안대"
+  ],
   "ad_tag": true,
   "platforms": [
     {
@@ -15,7 +19,7 @@
     },
     {
       "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
+      "url": "https://www.instagram.com/1biteinfo/",
       "type": "video",
       "no_caption_link": true,
       "action": "영상 다운로드 → 릴스로 업로드 → 캡션 복사해서 붙여넣기",

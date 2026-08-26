@@ -1,7 +1,10 @@
 {
   "topic": "피로_2",
   "title": "점심 먹고 나면 밀려오는 나른함 - 식후 졸음 줄이는 법",
-  "products": ["견과류", "그릭요거트"],
+  "products": [
+    "견과류",
+    "그릭요거트"
+  ],
   "platforms": [
     {
       "name": "네이버 블로그",
@@ -14,7 +17,7 @@
     },
     {
       "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
+      "url": "https://www.instagram.com/1biteinfo/",
       "type": "video",
       "no_caption_link": true,
       "suppress_product_block": true,

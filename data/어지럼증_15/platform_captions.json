@@ -1,7 +1,11 @@
 {
   "topic": "어지럼증_15",
   "title": "다이어트 주사, 위고비나 마운자로 맞고 나서 - 어지럼증 줄이는 습관 3가지",
-  "products": ["이온음료", "혈압계", "단백질 보충제"],
+  "products": [
+    "이온음료",
+    "혈압계",
+    "단백질 보충제"
+  ],
   "ad_tag": true,
   "platforms": [
     {
@@ -15,7 +19,7 @@
     },
     {
       "name": "인스타그램 릴스",
-      "url": "https://www.instagram.com/worthitshopping/",
+      "url": "https://www.instagram.com/1biteinfo/",
       "type": "video",
       "no_caption_link": true,
       "suppress_product_block": true,
