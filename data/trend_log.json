@@ -105,430 +105,6 @@
       "momentum": -2.3
     }
   },
-  "2026-07-12": {
-    "온열질환": {
-      "recent_avg": 1.3,
-      "momentum": -1.3
-    },
-    "냉방병": {
-      "recent_avg": 2.7,
-      "momentum": 0.7
-    },
-    "땀띠": {
-      "recent_avg": 2.7,
-      "momentum": 1.3
-    },
-    "다한증": {
-      "recent_avg": 0.0,
-      "momentum": -1.3
-    },
-    "식중독": {
-      "recent_avg": 3.7,
-      "momentum": 0.0
-    },
-    "장염": {
-      "recent_avg": 77.0,
-      "momentum": 3.3
-    },
-    "수족냉증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "다래끼": {
-      "recent_avg": 27.0,
-      "momentum": 1.7
-    },
-    "환절기 비염": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "꽃가루 알레르기": {
-      "recent_avg": 0.0,
-      "momentum": -9.0
-    },
-    "피부 건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "관절통": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "환절기 탈모": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "독감": {
-      "recent_avg": 4.3,
-      "momentum": 1.7
-    },
-    "동상": {
-      "recent_avg": 12.7,
-      "momentum": 3.0
-    },
-    "안구건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "겨울철 우울감": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "노로바이러스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "춘곤증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "미세먼지": {
-      "recent_avg": 37.3,
-      "momentum": -3.3
-    },
-    "새학기 스트레스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "역류성 식도염": {
-      "recent_avg": 0.7,
-      "momentum": -0.3
-    },
-    "수면 장애": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "거북목": {
-      "recent_avg": 1.0,
-      "momentum": 0.3
-    },
-    "눈 피로": {
-      "recent_avg": 0.0,
-      "momentum": -0.3
-    },
-    "구강 건강": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    }
-  },
-  "2026-07-13": {
-    "온열질환": {
-      "recent_avg": 2.7,
-      "momentum": 0.3
-    },
-    "냉방병": {
-      "recent_avg": 2.7,
-      "momentum": 0.7
-    },
-    "땀띠": {
-      "recent_avg": 3.0,
-      "momentum": 0.7
-    },
-    "다한증": {
-      "recent_avg": 0.7,
-      "momentum": 0.0
-    },
-    "식중독": {
-      "recent_avg": 21.7,
-      "momentum": 18.3
-    },
-    "장염": {
-      "recent_avg": 75.7,
-      "momentum": 2.7
-    },
-    "수족냉증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "다래끼": {
-      "recent_avg": 26.7,
-      "momentum": -1.3
-    },
-    "환절기 비염": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "꽃가루 알레르기": {
-      "recent_avg": 0.0,
-      "momentum": -9.0
-    },
-    "피부 건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "관절통": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "환절기 탈모": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "독감": {
-      "recent_avg": 5.0,
-      "momentum": 0.3
-    },
-    "동상": {
-      "recent_avg": 14.0,
-      "momentum": 3.7
-    },
-    "안구건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "겨울철 우울감": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "노로바이러스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "춘곤증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "미세먼지": {
-      "recent_avg": 36.3,
-      "momentum": -3.0
-    },
-    "새학기 스트레스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "역류성 식도염": {
-      "recent_avg": 1.0,
-      "momentum": 0.0
-    },
-    "수면 장애": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "거북목": {
-      "recent_avg": 1.0,
-      "momentum": 0.0
-    },
-    "눈 피로": {
-      "recent_avg": 0.0,
-      "momentum": -0.3
-    },
-    "구강 건강": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    }
-  },
-  "2026-07-14": {
-    "온열질환": {
-      "recent_avg": 3.7,
-      "momentum": 2.3
-    },
-    "냉방병": {
-      "recent_avg": 2.7,
-      "momentum": 0.7
-    },
-    "땀띠": {
-      "recent_avg": 2.3,
-      "momentum": -1.7
-    },
-    "다한증": {
-      "recent_avg": 0.7,
-      "momentum": 0.0
-    },
-    "식중독": {
-      "recent_avg": 53.7,
-      "momentum": 50.3
-    },
-    "장염": {
-      "recent_avg": 64.0,
-      "momentum": -16.7
-    },
-    "수족냉증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "다래끼": {
-      "recent_avg": 27.7,
-      "momentum": 1.0
-    },
-    "환절기 비염": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "꽃가루 알레르기": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "피부 건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "관절통": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "환절기 탈모": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "독감": {
-      "recent_avg": 7.7,
-      "momentum": 3.0
-    },
-    "동상": {
-      "recent_avg": 13.3,
-      "momentum": 3.7
-    },
-    "안구건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "겨울철 우울감": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "노로바이러스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "춘곤증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "미세먼지": {
-      "recent_avg": 34.0,
-      "momentum": -4.3
-    },
-    "새학기 스트레스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "역류성 식도염": {
-      "recent_avg": 1.0,
-      "momentum": 0.0
-    },
-    "수면 장애": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "거북목": {
-      "recent_avg": 1.0,
-      "momentum": 0.0
-    },
-    "눈 피로": {
-      "recent_avg": 0.0,
-      "momentum": -0.3
-    },
-    "구강 건강": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    }
-  },
-  "2026-07-15": {
-    "온열질환": {
-      "recent_avg": 3.7,
-      "momentum": 2.3
-    },
-    "냉방병": {
-      "recent_avg": 2.7,
-      "momentum": 0.0
-    },
-    "땀띠": {
-      "recent_avg": 3.3,
-      "momentum": 0.7
-    },
-    "다한증": {
-      "recent_avg": 0.7,
-      "momentum": 0.7
-    },
-    "식중독": {
-      "recent_avg": 81.0,
-      "momentum": 77.3
-    },
-    "장염": {
-      "recent_avg": 64.7,
-      "momentum": -12.3
-    },
-    "수족냉증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "다래끼": {
-      "recent_avg": 25.7,
-      "momentum": -1.3
-    },
-    "환절기 비염": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "꽃가루 알레르기": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "피부 건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "관절통": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "환절기 탈모": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "독감": {
-      "recent_avg": 8.3,
-      "momentum": 4.0
-    },
-    "동상": {
-      "recent_avg": 12.0,
-      "momentum": -0.7
-    },
-    "안구건조증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "겨울철 우울감": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "노로바이러스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "춘곤증": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "미세먼지": {
-      "recent_avg": 32.7,
-      "momentum": -4.7
-    },
-    "새학기 스트레스": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "역류성 식도염": {
-      "recent_avg": 1.0,
-      "momentum": 0.3
-    },
-    "수면 장애": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "거북목": {
-      "recent_avg": 1.0,
-      "momentum": 0.0
-    },
-    "눈 피로": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    },
-    "구강 건강": {
-      "recent_avg": 0.0,
-      "momentum": 0.0
-    }
-  },
   "2026-07-16": {
     "온열질환": {
       "recent_avg": 1.7,
@@ -3243,6 +2819,68 @@
     "구강 건강": {
       "recent_avg": 52.7,
       "momentum": 11.7
+    }
+  },
+  "2026-08-15": {
+    "온열질환": {
+      "recent_avg": 1.0,
+      "momentum": -0.7
+    },
+    "냉방병": {
+      "recent_avg": 1.0,
+      "momentum": -0.7
+    },
+    "땀띠": {
+      "recent_avg": 1.3,
+      "momentum": -0.7
+    },
+    "다한증": {
+      "recent_avg": 1.0,
+      "momentum": 0.0
+    },
+    "식중독": {
+      "recent_avg": 2.0,
+      "momentum": -0.7
+    },
+    "장염": {
+      "recent_avg": 57.3,
+      "momentum": -1.7
+    },
+    "수족냉증": {
+      "recent_avg": 1.3,
+      "momentum": 0.0
+    },
+    "다래끼": {
+      "recent_avg": 22.3,
+      "momentum": -0.7
+    },
+    "환절기 비염": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "꽃가루 알레르기": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "새학기 스트레스": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "역류성 식도염": {
+      "recent_avg": 1.0,
+      "momentum": 0.0
+    },
+    "수면 장애": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
+    },
+    "거북목": {
+      "recent_avg": 0.7,
+      "momentum": -0.3
+    },
+    "눈 피로": {
+      "recent_avg": 0.0,
+      "momentum": 0.0
     }
   }
 }

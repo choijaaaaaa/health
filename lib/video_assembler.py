@@ -3169,7 +3169,7 @@ def assemble(
     intro_duration: float = 0,
     ad_tag: bool = False,
     bg_color: str = "0xFFFFFF",
-    title_card_duration: float = 1.3,
+    title_card_duration: float = 0.2,
     title_card_text: str | None = None,
     title_card_char_path: str | None = None,
     # WHY summary_card(2026-08-16, "결론을 먼저 던지자 — 훅 다음에 요약
@@ -3791,7 +3791,7 @@ if __name__ == "__main__":
     p.add_argument("--ad-tag", action="store_true", help="실제 제휴 링크를 쓰기로 확정한 경우에만 켠다")
     p.add_argument("--bg-color", default="0xFFFFFF",
                     help="캐릭터 모션 클립의 배경색(colorkey 대상) — 새 캐릭터는 0x00FF00 권장")
-    p.add_argument("--title-card-duration", type=float, default=1.3,
+    p.add_argument("--title-card-duration", type=float, default=0.2,
                     help="영상 맨 앞 단색 제목 카드(썸네일용) 길이(초)")
     p.add_argument("--title-card-text", default=None,
                     help="제목 카드에만 쓸 별도 문구(안 주면 --title 그대로 사용) — "

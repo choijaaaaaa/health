@@ -1,6 +1,12 @@
 # 품목명 → 캐릭터 일러스트 자동 생성 (Gemini API). WHY: 지금까지 수작업으로 만든
 # 캐릭터들(양파/사과/가지 등)과 톤을 맞추기 위해 스타일 프롬프트를 고정해둔다.
 # ⚠️ 모델명은 Gemini 쪽이 자주 바뀜 — 요청 실패 시 MODEL 상수만 교체하면 됨.
+#
+# ⚠️ 신규 호출 중단(2026-08-25) — 같은 AI 일러스트 패턴을 독자가 알아보고
+# 재접근을 안 한다는 지적으로 일러스트 생성 자체를 전면 중단했다. 새 topic은
+# `lib/real_photo_sourcing.py`로 실사진을 소싱해서 `lib/card_news.py`가 그대로
+# 쓴다(assets_library/illust/를 더 이상 참조하지 않음) — 이 파일은 삭제하지
+# 않고 재개 대비용으로만 남겨둔다, 호출하지 말 것.
 from __future__ import annotations
 
 import base64
