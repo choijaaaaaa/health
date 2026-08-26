@@ -1,0 +1,898 @@
+# 건강정보 카드뉴스 생성기. WHY: 카드뉴스는 텍스트+이미지 합성뿐이라 AI 불필요 —
+# 순수 PIL 스크립트로 자동화해서 Claude 세션 없이 반복 생산 가능하게 분리함.
+# 폰트 웨이트(Apple SD Gothic Neo ttc index)로 타이포 위계, 그림자/패널로 입체감을 준다.
+import functools
+import json
+import random
+import sys
+from pathlib import Path
+
+from fontTools.ttLib import TTFont
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
+
+FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
+# ttc 내부 인덱스: 0=Regular 2=Medium 4=SemiBold 6=Bold 8=Light
+W, H = 1080, 1350
+MARGIN = 72
+
+# WHY 언어별 폰트 매핑(2026-08-13, 블로그 SEO 서브트랙 파일럿 — 처음으로 ja
+# 카드뉴스를 실제 렌더링하다 발견): 지금까지 FONT_PATH(한국어 시스템 폰트
+# AppleSDGothicNeo.ttc) 하나만 모든 언어에 썼다 — "글로벌 topic은 카드뉴스 없이
+# 숏츠만"(CLAUDE.md) 규칙 때문에 지금까지 비한국어로 실제 렌더링된 적이 없어서
+# 안 드러났던 잠재 버그. ja 렌더링 시 이 폰트에 없는 한자(増·気·焼 등)가 빈
+# 네모(tofu box)로 나오고 폭 계산도 어긋나 텍스트가 잘려 보였다. 라틴 문자권
+# (de/fr/it/es/nl/sv)은 이 폰트의 라틴 커버리지가 넓어서 우연히 문제가 안 보였을
+# 뿐 — video_assembler.py가 이미 겪고 고친 것과 같은 종류의 버그라 그쪽의
+# `_title_font_for_lang` 매핑을 그대로 재사용한다(폰트 실측 검증 완료된 값).
+_FONTS_DIR = Path(__file__).resolve().parent.parent / "assets_library" / "fonts"
+_FONT_PATH_BY_LANG: dict[str, str] = {
+    "ar": str(_FONTS_DIR / "NotoSansArabic-Bold.ttf"),
+    "bn": str(_FONTS_DIR / "NotoSansBengali-Bold.ttf"),
+    "hi": str(_FONTS_DIR / "NotoSansDevanagari-Bold.ttf"),
+    "th": str(_FONTS_DIR / "NotoSansThai-Bold.ttf"),
+    "ja": str(_FONTS_DIR / "NotoSansJP-Bold.ttf"),
+    "zh-TW": str(_FONTS_DIR / "NotoSansTC-Bold.ttf"),
+}
+_FONT_PATH_LATIN_CYRILLIC = str(_FONTS_DIR / "NotoSans-Bold.ttf")
+_WEIGHT_TO_TTC_INDEX = {"light": 8, "regular": 0, "medium": 2, "semibold": 4, "bold": 6}
+
+# WHY 전역 변수로 언어를 넘기는지: _font()가 10곳 넘는 함수에서 호출되는데,
+# 전부에 lang 파라미터를 새로 추가하면 diff가 과도하게 커진다. card_news.py는
+# CLI로 매번 topic 하나·언어 하나만 처리하는 단발성 스크립트라(동시성 없음)
+# generate() 시작 시 한 번 set_lang()으로 정하고 끝까지 그 값을 쓰는 것으로
+# 충분히 안전하다.
+_CURRENT_LANG = "kor"
+
+
+def set_lang(lang: str) -> None:
+    global _CURRENT_LANG
+    _CURRENT_LANG = lang
+
+
+# WHY(2026-08-14, á/é 깨짐 버그 조사 중 추가 발견): "→"(U+2192)가
+# NotoSans-Bold.ttf/NotoSansArabic·Bengali·Devanagari·Thai-Bold.ttf 전부에
+# 없어 스와이프 힌트("Desliza para ver más  →" 등) 끝의 화살표만 별도로 tofu
+# box로 깨진다 — AppleSDGothicNeo(kor)·NotoSansJP/TC(ja/zh-TW)엔 있어서 그동안
+# 안 드러났었다. "»"는 지금 쓰는 모든 폰트(6개 전부 실측 확인)에 있어 언어
+# 분기 없이 안전하게 치환 가능 — 화살표를 쓰는 자리(스와이프 힌트) 전부
+# 렌더링 직전에 이 함수를 거칠 것.
+def _safe_arrow(text: str) -> str:
+    return text.replace("→", "»")
+
+BG_TOP = (253, 249, 245)
+BG_BOTTOM = (246, 237, 230)
+INK = (43, 35, 31)
+INK_SOFT = (139, 124, 110)
+ACCENT = (200, 74, 98)
+ACCENT_DEEP = (163, 52, 74)
+ACCENT_SOFT = (250, 222, 227)
+GOLD = (178, 122, 38)
+GOLD_SOFT = (241, 227, 198)
+PANEL = (255, 253, 250)
+SHADOW = (60, 45, 35)
+
+
+def _current_font_path() -> str:
+    """현재 언어(_CURRENT_LANG)가 실제로 쓰는 폰트 파일 경로 — _font()와
+    글리프 커버리지 검사(_font_cmap 이하)가 이 함수 하나로 언어→폰트 매핑을
+    공유한다. WHY 공유가 필요한지(2026-08-14): 두 곳이 각자 이 매핑을 따로
+    들고 있으면 나중에 언어를 추가/변경할 때 한쪽만 고치고 다른 쪽을 빠뜨리는
+    사고가 나기 쉽다 — 실제로 오늘 고친 á/é 버그도 매핑 로직이 여러 군데
+    흩어져 있었던 게 원인 중 하나였다."""
+    if _CURRENT_LANG == "kor":
+        return FONT_PATH
+    return _FONT_PATH_BY_LANG.get(_CURRENT_LANG, _FONT_PATH_LATIN_CYRILLIC)
+
+
+def _font(size, weight="regular"):
+    font_path = _current_font_path()
+    if font_path == FONT_PATH:
+        return ImageFont.truetype(font_path, size, index=_WEIGHT_TO_TTC_INDEX[weight])
+    # 비한국어 폰트는 굵기별 별도 파일이 없는 Bold 단일 파일이라(Noto Sans 계열)
+    # weight 구분 없이 index=0 고정 — video_assembler.py의 동일 폴백과 같은 원칙.
+    return ImageFont.truetype(font_path, size, index=0)
+
+
+@functools.lru_cache(maxsize=None)
+def _font_cmap(font_path: str) -> frozenset[int]:
+    """그 폰트 파일이 실제로 그릴 수 있는 유니코드 코드포인트 집합.
+    WHY fontTools인지(2026-08-14, á/é tofu box 사고 조사 중 확인): Pillow의
+    ImageFont.getmask()는 지원 안 하는 글리프도 .notdef(빈 네모, 사각형 bbox가
+    실제로 있음)를 조용히 그려서 bbox 존재 여부로는 "글리프가 있다"와 "없어서
+    tofu box가 나온다"를 구분할 수 없다 — 폰트의 cmap 테이블을 직접 읽는
+    fontTools만 정확하게 판별 가능하다. lru_cache로 폰트당 한 번만 파싱한다."""
+    tt = TTFont(font_path, fontNumber=0, lazy=True)
+    codepoints: set[int] = set()
+    for table in tt["cmap"].tables:
+        codepoints |= set(table.cmap.keys())
+    return frozenset(codepoints)
+
+
+def _missing_glyphs(text: str) -> str:
+    """text 안에서 현재 언어 폰트가 못 그리는 문자만 중복 없이 뽑아 반환
+    (빈 문자열이면 전부 지원). 공백은 애초에 안 그려지므로 검사 대상에서 뺀다."""
+    cmap = _font_cmap(_current_font_path())
+    return "".join(sorted({ch for ch in text if not ch.isspace() and ord(ch) not in cmap}))
+
+
+def _assert_glyph_coverage(label: str, text: str) -> None:
+    """text에 현재 언어 폰트가 못 그리는 문자가 있으면 즉시 에러로 막는다.
+    WHY(2026-08-14, es/fr/it/nl 커버 이미지에서 á/é/í/ñ/ó/ú가 tofu box(□)로
+    조용히 깨진 채 커밋된 사고 재발 방지): 렌더링 자체는 에러 없이 "성공"하기
+    때문에, 그동안은 사람이 이미지를 하나하나 육안으로 확인해야만 발견됐다.
+    generate() 시작 시 실제로 그릴 텍스트 전부를 미리 이 함수로 검사해서,
+    깨진 이미지가 아예 만들어지기 전에 막는다."""
+    missing = _missing_glyphs(text)
+    if missing:
+        raise ValueError(
+            f"[lang={_CURRENT_LANG}] {label}에 현재 폰트가 그리지 못하는 문자 발견: "
+            f"{missing!r} (원문: {text!r}) — 폰트 매핑(_FONT_PATH_BY_LANG)을 확인하거나 "
+            f"해당 언어에 이 문자가 실제로 필요한지 다시 검토할 것."
+        )
+
+
+def _validate_spec_glyphs(spec: dict, eyebrow: str, swipe_label: str, closing_label: str,
+                           char_display_names: dict) -> None:
+    """generate()가 실제로 화면에 그릴 텍스트 전부를 렌더링 시작 전에 한 번에 검사한다.
+    카드 여러 장 중 하나에서만 깨지면 그 전에 만든 정상 이미지들이 디스크에 남아 다음
+    커밋에 섞여 들어가기 쉽다 — 아예 첫 장도 안 그려지게 앞단에서 막는 게 안전하다."""
+    hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
+    checks = [
+        ("표지 훅", hook_text),
+        ("스와이프 라벨", _safe_arrow(swipe_label)),
+        ("마무리 칩 라벨", closing_label),
+    ]
+    for item in spec["items"]:
+        char_key = Path(item["char_file"]).name
+        char_label = char_display_names.get(char_key, Path(item["char_file"]).stem.replace("_illust", ""))
+        checks.append((f"{item['name']} eyebrow", eyebrow))
+        checks.append((f"{item['name']} 제목", item["name"]))
+        checks.append((f"{item['name']} 본문", " ".join(item["body"])))
+        checks.append((f"{item['name']} 캐릭터 라벨", char_label))
+    closing = spec["closing"]
+    checks.append(("마무리 헤드라인", " ".join(ln for block in closing["headline"] for ln in block)))
+    checks.append(("마무리 팁", " ".join(closing["tip"])))
+    checks.append(("마무리 CTA", closing["cta"]))
+    for label, text in checks:
+        _assert_glyph_coverage(label, text)
+
+
+def _vertical_gradient(top, bottom):
+    img = Image.new("RGB", (W, H), top)
+    draw = ImageDraw.Draw(img)
+    for y in range(H):
+        t = y / H
+        color = tuple(int(top[i] + (bottom[i] - top[i]) * t) for i in range(3))
+        draw.line([(0, y), (W, y)], fill=color)
+    return img
+
+
+# 배경 목표 평균 밝기 — eyebrow(골드)·패널 그림자가 항상 읽히는 하한을 실측으로 잡은 값.
+BACKDROP_TARGET_L = 200
+BACKDROP_VEIL = (250, 246, 242)
+
+
+def _photo_backdrop(photo_path, seed, blur=32):
+    """실사진을 블러 처리해 카드 배경(패널 바깥 테두리 영역)으로 쓴다.
+    WHY(2026-08-02, "카드뉴스에 real 폴더 실사진도 흐림 처리한 배경으로 활용하자"):
+    지금까지는 매 카드가 고정 그라디언트(BG_TOP~BG_BOTTOM) 배경이라 30개 topic
+    수백 장이 전부 똑같은 틀로 보였다 — 네이버 저품질(C-Rank/D.I.A.) 판정이 이런
+    "찍어낸 듯한" 이미지 세트를 신호로 잡는다는 우려(사용자 확인)에 대응.
+
+    WHY seed로 크롭을 결정적으로 바꾸는지: 같은 실사진이 다른 topic에서도 배경으로
+    재사용될 수 있는데, "한 게시물 안에서 같은 사진 반복은 무관하지만 게시물 간
+    유사 이미지는 저품질 신호가 된다"고 확인됨 — topic+파일명 조합을 시드로 삼아
+    확대율·크롭 위치·좌우반전을 결정적으로 바꿔서, 같은 원본이라도 topic마다 실제
+    픽셀이 달라지게 한다(같은 topic을 재생성하면 항상 같은 결과 — 재현 가능)."""
+    rng = random.Random(seed)
+    photo = Image.open(photo_path).convert("RGB")
+    pw, ph = photo.size
+    ratio = W / H
+    if pw / ph > ratio:
+        base_h = ph
+        base_w = int(ph * ratio)
+    else:
+        base_w = pw
+        base_h = int(pw / ratio)
+    zoom = rng.uniform(1.0, 1.35)
+    crop_w = max(1, int(base_w / zoom))
+    crop_h = max(1, int(base_h / zoom))
+    max_x, max_y = pw - crop_w, ph - crop_h
+    x0 = rng.randint(0, max_x) if max_x > 0 else 0
+    y0 = rng.randint(0, max_y) if max_y > 0 else 0
+    photo = photo.crop((x0, y0, x0 + crop_w, y0 + crop_h)).resize((W, H))
+    if rng.random() < 0.5:
+        photo = photo.transpose(Image.FLIP_LEFT_RIGHT)
+    photo = photo.filter(ImageFilter.GaussianBlur(blur))
+
+    # WHY 밝기 정규화(2026-08-25, 실사진 전환 후 실측): 일러스트 배경은 단색 크로마라
+    # 밝기가 늘 일정했는데 실사진은 사진마다 편차가 커서, 밝은 사진에선 좌상단 eyebrow
+    # (골드)와 패널 그림자가 배경에 묻혀 안 보인다. 밝은 베일을 적응적으로 덮어 평균
+    # 밝기를 일정하게 맞추고, 대비를 낮춰 흰 얼룩이 튀는 것도 눌러준다 — 색감 자체는
+    # 남겨서 topic마다 배경이 달라 보이는 효과(저품질 판정 회피)는 그대로 유지된다.
+    mean = ImageStat.Stat(photo.convert("L")).mean[0]
+    alpha = min(0.72, max(0.30, (BACKDROP_TARGET_L - mean) / (245 - mean))) if mean < 244 else 0.30
+    veil = Image.new("RGB", photo.size, BACKDROP_VEIL)
+    photo = Image.blend(photo, veil, alpha)
+    return ImageEnhance.Contrast(photo).enhance(0.85)
+
+
+def _draw_centered(draw, lines, y, line_height, size, color, weight="regular"):
+    f = _font(size, weight)
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=f)
+        w = bbox[2] - bbox[0]
+        draw.text(((W - w) / 2 - bbox[0], y), line, font=f, fill=color)
+        y += line_height
+    return y
+
+
+def _wrap_line_to_width(draw, text, font, max_width):
+    """한 줄이 max_width를 넘으면 공백 기준으로 먼저 쪼개고, 공백이 없거나
+    단어 하나가 그래도 넘치면 글자 단위로 강제로 쪼갠다(2026-08-12, "이거
+    말고도 또 있을거같은데" — _fit_multiline_block_size로 세로 잘림은
+    고쳤는데 실측해보니 가로로도 패널 밖까지 튀어나가는 줄이 있었다:
+    "마신 양보다 더 많은 수분을 몸 밖으로 내보내요"처럼 작성자가 줄바꿈을
+    안 넣은 긴 문장. 한글은 어절 경계가 없어도 글자 단위로 잘라도 자연스럽게
+    읽혀서 최후 폴백으로 무리 없다)."""
+    if not text:
+        return [text]
+    bbox = draw.textbbox((0, 0), text, font=font)
+    if bbox[2] - bbox[0] <= max_width:
+        return [text]
+    words = text.split(" ")
+    if len(words) > 1:
+        rough, cur = [], ""
+        for w in words:
+            test = (cur + " " + w).strip()
+            bbox = draw.textbbox((0, 0), test, font=font)
+            if bbox[2] - bbox[0] > max_width and cur:
+                rough.append(cur)
+                cur = w
+            else:
+                cur = test
+        if cur:
+            rough.append(cur)
+        result = []
+        for ln in rough:
+            bbox = draw.textbbox((0, 0), ln, font=font)
+            if bbox[2] - bbox[0] > max_width:
+                result.extend(_wrap_line_to_width(draw, ln, font, max_width))
+            else:
+                result.append(ln)
+        return result
+    lines, cur = [], ""
+    for ch in text:
+        test = cur + ch
+        bbox = draw.textbbox((0, 0), test, font=font)
+        if bbox[2] - bbox[0] > max_width and cur:
+            lines.append(cur)
+            cur = ch
+        else:
+            cur = test
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def _fit_multiline_block_size(draw, lines, max_width, max_height, size, weight, line_gap_ratio,
+                               min_size=32, step=2):
+    """WHY(2026-08-12, "짤리는거 꽤 많던데" — 실측 확인: 하지불안증후군_1의
+    "정제 탄수화물" 카드가 9줄짜리 본문인데 항상 고정 58px로 그려서 패널 밖으로
+    잘려나갔다): _fit_single_line_size는 제목(한 줄, 폭 기준)만 커버하고 본문
+    (여러 줄, 높이 기준)엔 대응하는 게 없었다. 폭·높이 둘 다 확인 — 각 후보
+    크기에서 먼저 폭 기준으로 다시 줄바꿈(_wrap_line_to_width)한 뒤, 그 결과
+    총 줄 수 × line_height가 max_height를 넘으면 크기를 줄여 재시도한다.
+    line_gap_ratio는 기존 고정값(86/58≈1.483)에서 유도 — 크기가 바뀌어도
+    줄간격 비율은 그대로 유지. 반환값의 wrapped를 실제 그릴 때 써야 폭 초과가
+    실제로 해소된다(원본 lines를 그대로 쓰면 안 됨)."""
+    while True:
+        f = _font(size, weight)
+        wrapped = []
+        for line in lines:
+            wrapped.extend(_wrap_line_to_width(draw, line, f, max_width))
+        line_height = round(size * line_gap_ratio)
+        total_h = line_height * max(len(wrapped), 1)
+        if total_h <= max_height or size <= min_size:
+            return wrapped, size, line_height
+        size -= step
+
+
+def _fit_single_line_size(draw, text, max_width, size, weight, min_size=52, step=4):
+    """WHY(2026-08-01): 카드 title(item['name'])은 title/closing headline과 달리
+    작성자가 미리 줄바꿈해서 넘기는 게 아니라 한 줄 문자열 그대로 렌더링된다 —
+    "왜 이런 문제가 생길까요"류 짧은 문구 기준으로 92px 고정값을 썼는데, 그보다
+    긴 문장(예: "왜 가슴이 쓰리고 신물이 올라올까요")이 들어오면 패널 밖으로
+    잘려나갔다(가슴쓰림유발음식_1 실제 발생). 기준 크기부터 시작해 폭이 맞을
+    때까지만 줄이므로 기존 카드들(전부 기준 크기 안에 들어감)은 그대로 92px 유지된다."""
+    f = _font(size, weight)
+    bbox = draw.textbbox((0, 0), text, font=f)
+    while bbox[2] - bbox[0] > max_width and size > min_size:
+        size -= step
+        f = _font(size, weight)
+        bbox = draw.textbbox((0, 0), text, font=f)
+    return size
+
+
+def _rounded_panel(canvas, box, radius, fill, shadow_offset=14, shadow_blur=28, shadow_opacity=55):
+    x0, y0, x1, y1 = box
+    # 그림자 레이어
+    shadow_layer = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    sdraw = ImageDraw.Draw(shadow_layer)
+    sdraw.rounded_rectangle(
+        [x0, y0 + shadow_offset, x1, y1 + shadow_offset], radius=radius,
+        fill=(*SHADOW, shadow_opacity),
+    )
+    shadow_layer = shadow_layer.filter(ImageFilter.GaussianBlur(shadow_blur))
+    canvas.paste(Image.alpha_composite(canvas.convert("RGBA"), shadow_layer).convert("RGB"), (0, 0))
+    draw = ImageDraw.Draw(canvas)
+    draw.rounded_rectangle(box, radius=radius, fill=fill)
+    return canvas
+
+
+def _photo_medallion(path, size, ring_color=ACCENT_SOFT, ring_w=10):
+    """원형 배지 렌더링 — 표지·팩트카드·마무리 카드에서 공통으로 쓴다.
+    WHY 크로마 제거가 없는지(2026-08-25, 일러스트 생성 중단으로 배지 소스가
+    항상 실사진으로 바뀌면서 이전 `_char_medallion`/`_remove_chroma_bg`를
+    대체): 일러스트는 초록/시안 등 단색 크로마키 배경으로 생성돼서 원형으로
+    자르기 전에 그 배경을 투명 처리해야 했지만, 실사진은 애초에 꽉 찬 사각
+    이미지라 그런 배경 자체가 없다 — 그대로 적용하면 사진 안에 크로마키로
+    오인될 색(예: 하늘색·벽지)이 있는 부분마다 엉뚱하게 구멍이 뚫린다.
+    WHY 정사각 크롭을 먼저 하는지: 일러스트는 생성 시점부터 거의 정사각이라
+    `.resize((size,size))` 직행이 티가 안 났지만, Pexels/Unsplash 실사진은
+    원본 비율이 제각각이라 그대로 리사이즈하면 눈에 띄게 눌리거나 늘어난다 —
+    중앙 기준 정사각으로 먼저 잘라낸 뒤 리사이즈한다."""
+    raw = Image.open(path).convert("RGB")
+    pw, ph = raw.size
+    # WHY 정사각의 72%로 더 좁게(2026-08-25, 실사진 전환 후 실측): 일러스트는 피사체
+    # 하나가 프레임을 꽉 채운 이미지였지만 스톡 사진은 넓은 장면이라, 정사각 크롭만으론
+    # 지름 몇백 px짜리 원 안에서 주제가 뭔지 안 읽힌다(욕실 전경이 회색 얼룩으로 보임).
+    # 스톡 사진은 대개 피사체가 중앙에 오게 구성돼 있어 중앙을 더 좁게 잘라 확대한다.
+    side = int(min(pw, ph) * 0.72)
+    left, top = (pw - side) // 2, (ph - side) // 2
+    raw = raw.crop((left, top, left + side, top + side)).resize((size, size))
+
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, size, size), fill=255)
+    photo = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    photo.paste(raw, (0, 0), mask)
+
+    pad = ring_w + 18
+    canvas = Image.new("RGBA", (size + pad * 2, size + pad * 2), (0, 0, 0, 0))
+    shadow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    sdraw = ImageDraw.Draw(shadow)
+    sdraw.ellipse([pad - 4, pad + 10, pad + size + 4, pad + size + 18], fill=(*SHADOW, 70))
+    shadow = shadow.filter(ImageFilter.GaussianBlur(18))
+    canvas = Image.alpha_composite(canvas, shadow)
+    cdraw = ImageDraw.Draw(canvas)
+    cdraw.ellipse([pad - ring_w, pad - ring_w, pad + size + ring_w, pad + size + ring_w], fill=ring_color)
+    canvas.paste(photo, (pad, pad), photo)
+    return canvas
+
+
+def _diamond_divider(draw, y, color=GOLD):
+    cx = W // 2
+    pts = [(cx, y - 9), (cx + 9, y), (cx, y + 9), (cx - 9, y)]
+    draw.polygon(pts, fill=color)
+    draw.line([(MARGIN + 40, y), (cx - 24, y)], fill=color, width=3)
+    draw.line([(cx + 24, y), (W - MARGIN - 40, y)], fill=color, width=3)
+
+
+def _top_chip(canvas, draw, text, fill):
+    f = _font(30, "semibold")
+    bbox = draw.textbbox((0, 0), text, font=f)
+    tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
+    pad_x, pad_y = 34, 16
+    chip_w, chip_h = tw + pad_x * 2, th + pad_y * 2
+    x0 = (W - chip_w) // 2
+    y0 = 64
+    draw.rounded_rectangle([x0, y0, x0 + chip_w, y0 + chip_h], radius=chip_h // 2, fill=fill)
+    draw.text((x0 + pad_x - bbox[0], y0 + pad_y - bbox[1]), text, font=f, fill=(255, 255, 255))
+    return y0 + chip_h
+
+
+def make_cover(title_lines, char_paths, out_path, bg_photo_path=None):
+    """bg_photo_path 주면 실사진을 풀블리드 배경으로 쓰는 임팩트있는 썸네일형 표지로,
+    안 주면 기존 플랫 그라디언트 배경 표지로 만든다."""
+    if bg_photo_path:
+        _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path)
+    else:
+        _make_cover_flat(title_lines, char_paths, out_path)
+
+
+def make_cover_titlecard(hook_text: str, out_path, font_size: int = 92, char_path: str | None = None,
+                          scrim_color: tuple[int, int, int] = ACCENT,
+                          swipe_label: str = "넘겨서 확인하기  →"):
+    """WHY 숏폼 영상 제목 카드와 완전히 동일한 스타일(2026-07-31, "카드뉴스 첫장도
+    숏폼 영상 썸네일이랑 똑같이 그냥 가져가자"): 사진·캐릭터 배지·주제 태그 다 빼고,
+    단색 배경 + 문제 제기 훅 한 줄/두 줄만 크게 — 영상 쪽 `_make_title_card_png`와
+    같은 로직(ACCENT 단색 배경, 굵은 흰 글자, 단어 단위 줄바꿈)을 카드뉴스 캔버스
+    (1080x1350)에 맞게 그대로 재사용한다.
+
+    WHY char_path(2026-07-31, "캐릭터를 큼직하고 흐리게 글자의 배경으로"): 캐릭터
+    이미지를 캔버스보다 크게 확대·크롭해서 흐리게 깐 뒤 ACCENT 스크림을 얹는다 —
+    영상 제목 카드와 동일한 처리.
+
+    WHY scrim_color 오버라이드(2026-08-01, "그렇게 하더라도 언젠가 겹치게 될 확률이
+    높은데 그 때는 배경 색상 변경도 고려해줘"): cover_char_file로도 캐릭터 중복을
+    못 피하는 경우(그 topic이 쓸 수 있는 다른 아이템도 이미 다 다른 곳에 쓰이고
+    있을 때)의 2차 대안 — 같은 캐릭터라도 스크림 색을 바꾸면 표지 톤 자체가
+    달라진다. 기본값은 브랜드 ACCENT(로즈핑크) 그대로 유지, 필요할 때만 넘긴다.
+
+    WHY 크로마 제거를 안 하는지(2026-08-25, 일러스트 생성 중단): char_path는
+    이제 항상 실사진이라 크로마키 배경 자체가 없다 — 같은 이유로 정사각이 아닌
+    원본 비율을 그대로 확대·리사이즈하면 눌리므로, 중앙 기준 정사각 크롭을
+    먼저 한다(_photo_medallion과 동일 원칙)."""
+    img = Image.new("RGB", (W, H), scrim_color)
+    if char_path:
+        raw = Image.open(char_path).convert("RGB")
+        pw, ph = raw.size
+        side = min(pw, ph)
+        left0, top0 = (pw - side) // 2, (ph - side) // 2
+        raw = raw.crop((left0, top0, left0 + side, top0 + side)).resize((int(H * 1.15), int(H * 1.15)))
+        target = raw.size[0]
+        char = raw.filter(ImageFilter.GaussianBlur(25))
+        left, top = (target - W) // 2, (target - H) // 2
+        char = char.crop((left, top, left + W, top + H))
+        scrim = Image.new("RGBA", (W, H), (*scrim_color, 150))
+        img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
+    font = _font(font_size, "bold")
+    draw = ImageDraw.Draw(img)
+    max_text_w = W - 160
+    # WHY _wrap_line_to_width 재사용(2026-08-13, ja 실측 — 위 언어별 폰트 매핑
+    # WHY 참고): 이전엔 여기서 hook_text.split()(공백 기준)으로 직접 줄바꿈을
+    # 했는데, 일본어는 띄어쓰기가 없어 전체가 "단어 하나"로 잡혀 한 줄로도
+    # 안 잘리고 캔버스 밖까지 그대로 넘쳐흘렀다. _wrap_line_to_width는 공백이
+    # 없으면 글자 단위로 자동 폴백하는 로직이 이미 있어(아래 함수 정의 WHY
+    # 참고) 그대로 재사용하면 한글·영어·일본어 전부 안전하게 줄바꿈된다.
+    lines = _wrap_line_to_width(draw, hook_text, font, max_text_w)
+
+    line_h = font_size + 28
+    total_h = line_h * len(lines)
+    y = (H - total_h) / 2 - 30
+    for line in lines:
+        bbox = draw.textbbox((0, 0), line, font=font)
+        tw = bbox[2] - bbox[0]
+        draw.text(((W - tw) / 2 - bbox[0], y - bbox[1]), line, font=font, fill=(255, 255, 255))
+        y += line_h
+
+    _draw_centered(draw, [_safe_arrow(swipe_label)], H - 110, 0, 34, (255, 214, 224), "semibold")
+    img.save(out_path, quality=95)
+
+
+def _make_cover_flat(title_lines, char_paths, out_path):
+    img = _vertical_gradient(BG_TOP, BG_BOTTOM)
+    draw = ImageDraw.Draw(img)
+    _top_chip(img, draw, "건강 카드뉴스", ACCENT)
+
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    size, gap = 200, 24
+    n = len(unique_paths)
+    cols = min(n, 3)
+    med_size = size + (10 + 18) * 2
+    total_w = med_size * cols + gap * (cols - 1)
+    start_x = (W - total_w) // 2
+    y0 = 250
+    row_h = med_size + gap
+    for idx, path in enumerate(unique_paths):
+        row, col = divmod(idx, cols)
+        remainder = n - cols * (n // cols)
+        row_items = cols if row < n // cols else remainder
+        row_w = med_size * row_items + gap * (row_items - 1)
+        row_x0 = (W - row_w) // 2
+        x = row_x0 + col * (med_size + gap)
+        y = y0 + row * row_h
+        m = _photo_medallion(path, size)
+        img.paste(m, (x, y), m)
+
+    rows = (n + cols - 1) // cols
+    y = y0 + rows * row_h + 30
+    draw = ImageDraw.Draw(img)
+    y = _draw_centered(draw, title_lines[:-1], y, 66, 46, INK_SOFT, "medium")
+    y = _draw_centered(draw, [title_lines[-1]], y + 4, 70, 60, INK, "bold")
+    _diamond_divider(draw, y + 50)
+    _draw_centered(draw, [_safe_arrow("넘겨서 확인하기  →")], y + 90, 40, 32, ACCENT, "semibold")
+    img.save(out_path, quality=95)
+
+
+def _make_cover_photo(title_lines, char_paths, out_path, bg_photo_path):
+    # WHY 사진을 크게 블러 + 전체 스크림으로 배경화(2026-07-30, 재지적): 이전엔 선명한
+    # 사진 위에 캐릭터를 큼직하게 얹고 그 아래 작은 글자를 깔아서 "감자 위에 글자
+    # 쳐박아놓은" 느낌이었다 — 후킹은 글자가 해야 하므로, 사진은 흐린 배경 무드로만
+    # 쓰고 캔버스 중앙 전체를 훅 카피가 차지하도록 레이아웃을 뒤집는다.
+    photo = Image.open(bg_photo_path).convert("RGB")
+    ratio = W / H
+    pw, ph = photo.size
+    if pw / ph > ratio:
+        new_w = int(ph * ratio)
+        photo = photo.crop(((pw - new_w) // 2, 0, (pw - new_w) // 2 + new_w, ph))
+    else:
+        new_h = int(pw / ratio)
+        photo = photo.crop((0, (ph - new_h) // 2, pw, (ph - new_h) // 2 + new_h))
+    photo = photo.resize((W, H)).filter(ImageFilter.GaussianBlur(38))
+    img = photo.convert("RGBA")
+
+    # 전체 캔버스에 고른 어두운 스크림 — 사진의 어느 부분에 글자가 와도 대비 확보
+    scrim = Image.new("RGBA", (W, H), (18, 13, 10, 158))
+    img = Image.alpha_composite(img, scrim)
+
+    draw = ImageDraw.Draw(img)
+    _top_chip(img, draw, "건강 카드뉴스", ACCENT)
+
+    # 훅 카피(마지막 줄 제외) — 캔버스 중앙을 지배하는 메인 카피, 흰색 굵게
+    hook_lines = title_lines[:-1]
+    topic_line = title_lines[-1]
+    hook_line_h = 110
+    hook_h = hook_line_h * len(hook_lines)
+    pill_h = 78
+    med_size = 92
+    med_canvas = med_size + (6 + 14) * 2
+    gap_hook_pill, gap_pill_med, gap_med_hint = 44, 40, 26
+    hint_h = 50
+    block_h = hook_h + gap_hook_pill + pill_h + gap_pill_med + med_canvas + gap_med_hint + hint_h
+    region_top, region_bottom = 150, H - 40
+    y = region_top + (region_bottom - region_top - block_h) // 2
+
+    y = _draw_centered(draw, hook_lines, y, hook_line_h, 84, (255, 255, 255), "bold")
+    y += gap_hook_pill
+
+    # 주제 태그 — 알약형 캡슐, 액센트 컬러(작은 상단 칩과 짝을 이루는 톤)
+    pf = _font(40, "bold")
+    pbbox = draw.textbbox((0, 0), topic_line, font=pf)
+    ptw, pth = pbbox[2] - pbbox[0], pbbox[3] - pbbox[1]
+    ppad_x, ppad_y = 32, 15
+    pchip_w, pchip_h = ptw + ppad_x * 2, pth + ppad_y * 2
+    px0 = (W - pchip_w) // 2
+    draw.rounded_rectangle([px0, y, px0 + pchip_w, y + pchip_h], radius=pchip_h // 2, fill=ACCENT)
+    draw.text((px0 + ppad_x - pbbox[0], y + ppad_y - pbbox[1]), topic_line, font=pf, fill=(255, 255, 255))
+    y += pchip_h + gap_pill_med
+
+    # 캐릭터 — 중앙 공간을 글자에 내주기 위해 작은 배지로만
+    unique_paths = list(dict.fromkeys(str(p) for p in char_paths))
+    if unique_paths:
+        m = _photo_medallion(unique_paths[0], med_size, ring_color=(255, 255, 255), ring_w=6)
+        img.paste(m, ((W - m.width) // 2, y), m)
+        y += m.height + gap_med_hint
+    else:
+        y += gap_med_hint
+
+    draw = ImageDraw.Draw(img)
+    _draw_centered(draw, [_safe_arrow("넘겨서 확인하기  →")], y, 0, 34, (255, 214, 224), "semibold")
+
+    img.convert("RGB").save(out_path, quality=95)
+
+
+def make_fact_card(num, name, char_path, body_lines, total, out_path, eyebrow="HEALTH TIP",
+                    photo_path=None, photo_seed=None, char_label_overrides: dict[str, str] | None = None,
+                    char_key: str | None = None):
+    """photo_path 주면 그 실사진을 블러 배경으로 쓰고(_photo_backdrop), 없으면
+    기존 그라디언트 배경 그대로. 캐릭터 배지·제목·본문 위치는 항상 동일 —
+    바뀌는 건 배경뿐이다.
+
+    WHY char_key 별도 파라미터(2026-08-25, 일러스트 생성 중단): char_path가 이제
+    실사진(예: "커피_real_01.jpg")이라 라벨을 그 파일명에서 뽑으면 "_illust"가
+    없어 치환이 안 먹고 "커피_real_01"이 그대로 노출된다 — 라벨/오버라이드 조회는
+    spec의 원래 char_file 식별자(예: "커피_illust.jpg")로 하고, 이미지 로딩만
+    char_path(실사진)를 쓰도록 분리한다. 안 주면 기존처럼 char_path 파일명에서 유도
+    (하위호환, 호출부가 늦게 갱신된 경우 대비)."""
+    img = _photo_backdrop(photo_path, photo_seed or out_path) if photo_path else _vertical_gradient(BG_TOP, BG_BOTTOM)
+    img = img.convert("RGB")
+
+    # 패널을 화면 상단 가까이까지 크게 — 이전엔 위쪽에 빈 배경이 너무 많이 남아서
+    # "짜친다"는 피드백(2026-07-30, 반복 지적)
+    panel_box = [MARGIN - 24, 130, W - MARGIN + 24, H - 140]
+    img = _rounded_panel(img, panel_box, radius=40, fill=PANEL)
+    draw = ImageDraw.Draw(img)
+
+    # 상단 라벨 — 페이지 번호는 큼직한 숫자 대신 하단 바에서 "N / total"로
+    # 작게만 보여준다(2026-07-30, 큰 숫자가 정보량 대비 공간을 너무 차지한다는 피드백)
+    # WHY 자동 축소(2026-08-01): eyebrow도 item name과 같은 "작성자가 매 topic마다
+    # 새로 쓰는 단일 문자열, 줄바꿈 없음" 유형이라 같은 클래스의 잘림 위험이 있다.
+    eyebrow_max_width = (panel_box[2] - panel_box[0]) - 80
+    eyebrow_size = _fit_single_line_size(draw, eyebrow, eyebrow_max_width, 32, "semibold", min_size=20)
+    label_f = _font(eyebrow_size, "semibold")
+    draw.text((MARGIN, 56), eyebrow, font=label_f, fill=GOLD)
+
+    # 캐릭터는 첫 화면(표지) 이후로는 크게 안 들어가도 된다는 판단 —
+    # 팩트카드는 정보가 주인공이라 캐릭터를 패널 우상단의 작은 배지로 축소.
+    # WHY _photo_medallion(2026-08-25, 일러스트 생성 중단): char_path가 이제
+    # 항상 실사진이라 크로마 제거가 필요·안전하지 않다(위 _photo_medallion WHY 참고).
+    char_size = 130
+    m = _photo_medallion(char_path, char_size, ring_w=8)
+    badge_x = panel_box[2] - m.width - 20
+    badge_y = panel_box[1] + 20
+    img.paste(m, (badge_x, badge_y), m)
+
+    # 캐릭터 이름 라벨 — 배지만 보고는 어떤 품목인지 못 알아볼 수 있어서
+    # (표지에만 이름이 있고 이후 페이지는 넘겨서 못 봄, 2026-07-30 피드백) 매 카드에 표시.
+    # WHY 알약형 배지로 강화(2026-07-31 재지적: "명칭 언급이 필요할듯" — 기존 22px
+    # 연회색 텍스트는 너무 눈에 안 띄어서 사실상 없는 것과 마찬가지였다): 액센트
+    # 색 배경 + 굵은 글자로 배지 형태를 줘서 확실히 읽히게 한다.
+    # WHY char_label_overrides(2026-08-03, 글로벌 확장): 파일명 stem은 항상
+    # 한국어(예: "고추")라 비한국어 topic에서 그대로 쓰면 영어 카드에 한글
+    # 라벨이 박힌다 — spec에 char_display_names가 있으면 그 값으로 덮어쓰고,
+    # 없으면(기존 한국어 topic 전부) 기존처럼 파일명 그대로 쓴다.
+    char_key = char_key or Path(char_path).name
+    char_label = (char_label_overrides or {}).get(char_key, Path(char_key).stem.replace("_illust", ""))
+    label_f2 = _font(28, "bold")
+    lb = draw.textbbox((0, 0), char_label, font=label_f2)
+    lw, lh = lb[2] - lb[0], lb[3] - lb[1]
+    lpad_x, lpad_y = 18, 8
+    lchip_w, lchip_h = lw + lpad_x * 2, lh + lpad_y * 2
+    badge_cx = badge_x + m.width / 2
+    lchip_y = badge_y + m.height + 8
+    lchip_x0 = badge_cx - lchip_w / 2
+    draw.rounded_rectangle(
+        [lchip_x0, lchip_y, lchip_x0 + lchip_w, lchip_y + lchip_h],
+        radius=lchip_h // 2, fill=ACCENT_SOFT,
+    )
+    draw.text((lchip_x0 + lpad_x - lb[0], lchip_y + lpad_y - lb[1]), char_label, font=label_f2, fill=ACCENT_DEEP)
+
+    # 글자 크게 — 계속 반복 지적된 부분(2026-07-30 여러 차례) — 이번엔 이전보다
+    # 한 단계가 아니라 확실히 크게: 제목 76→92, 본문 46→58. 간격도 커진 폰트
+    # 크기에 맞게 같이 늘려서 겹치지 않게 조정.
+    # WHY +50이 아니라 +80: 이름 배지가 알약형(2026-07-31)으로 커지면서 제목 첫 줄
+    # 우측 상단과 살짝 겹치던 문제 — 여유를 더 준다.
+    draw = ImageDraw.Draw(img)
+    y = panel_box[1] + m.height + 80
+    title_max_width = (panel_box[2] - panel_box[0]) - 80
+    title_size = _fit_single_line_size(draw, name, title_max_width, 92, "bold")
+    y = _draw_centered(draw, [name], y, 0, title_size, INK, "bold")
+    _diamond_divider(draw, y + 132)
+    body_y = y + 182
+    body_max_width = (panel_box[2] - panel_box[0]) - 80
+    body_max_height = panel_box[3] - body_y - 30
+    body_wrapped, body_size, body_line_h = _fit_multiline_block_size(
+        draw, body_lines, body_max_width, body_max_height, 58, "medium", line_gap_ratio=86 / 58,
+    )
+    _draw_centered(draw, body_wrapped, body_y, body_line_h, body_size, INK, "medium")
+
+    draw.rectangle([0, H - 70, W, H], fill=ACCENT)
+    _draw_centered(draw, [f"{num} / {total}"], H - 58, 0, 30, (255, 255, 255), "medium")
+    img.save(out_path, quality=95)
+
+
+def make_closing(headline_blocks, tip_lines, char_paths, cta_text, out_path,
+                  top_chip_label: str = "마무리", char_label_overrides: dict[str, str] | None = None,
+                  char_keys: list[str] | None = None):
+    """char_keys: char_paths와 같은 길이로, 라벨/오버라이드 조회용 원래 char_file
+    식별자 리스트(2026-08-25, 일러스트 생성 중단 — make_fact_card의 char_key와
+    같은 이유). 안 주면 기존처럼 char_paths 파일명에서 유도(하위호환)."""
+    img = _vertical_gradient(BG_TOP, BG_BOTTOM)
+    draw = ImageDraw.Draw(img)
+    _top_chip(img, draw, top_chip_label, GOLD)
+
+    # 단일 캐릭터 주제면 char_paths에 같은 이미지가 여러 번 들어있을 수 있어
+    # (아이템마다 char_file 지정 구조라) — 중복 제거하고, 첫 화면(표지)만큼
+    # 크게 안 보여줘도 되니 작게 표시.
+    char_keys = char_keys or [Path(p).name for p in char_paths]
+    unique_pairs = list(dict.fromkeys(zip((str(p) for p in char_paths), char_keys)))
+    size, gap = 130, 16
+    med_size = size + (8 + 18) * 2
+    total_w = med_size * len(unique_pairs) + gap * (len(unique_pairs) - 1)
+    start_x = (W - total_w) // 2
+    label_f2 = _font(20, "semibold")
+    for j, (path, char_key) in enumerate(unique_pairs):
+        m = _photo_medallion(path, size, ring_color=GOLD_SOFT, ring_w=8)
+        bx = start_x + j * (med_size + gap)
+        img.paste(m, (bx, 190), m)
+        char_label = (char_label_overrides or {}).get(char_key, Path(char_key).stem.replace("_illust", ""))
+        lb = draw.textbbox((0, 0), char_label, font=label_f2)
+        lw = lb[2] - lb[0]
+        draw.text((bx + m.width / 2 - lw / 2 - lb[0], 190 + m.height + 2), char_label, font=label_f2, fill=INK_SOFT)
+
+    # 글자 크게 — 팩트카드와 동일하게 마무리 카드도 확실히 키움(2026-07-30)
+    # WHY headline_blocks도 fit 처리(2026-08-12, "이런거 매번 고치라고 하면
+    # 그때만 괜찮아지고 다음에 또 문제 생긴다" — body_lines/tip_lines 고친
+    # 김에 이 파일의 같은 클래스(다중 줄 고정 크기 렌더) 호출부 전부 훑어서
+    # 같이 고침): headline_blocks도 topic마다 줄 수가 달라지는데 항상 고정
+    # 56px였다 — 전체 블록 줄 수 합산 기준으로 미리 크기를 맞춘 뒤 그린다.
+    # 아래 tip/cta에 쓸 공간(대략 220px)을 미리 빼고 나머지를 headline에 준다.
+    draw = ImageDraw.Draw(img)
+    y = 190 + med_size + 76
+    headline_all_lines = [ln for block in headline_blocks for ln in block]
+    headline_max_width = W - 160
+    headline_max_height = (H - 96) - y - 220
+    _, headline_size, headline_line_h = _fit_multiline_block_size(
+        draw, headline_all_lines, headline_max_width, headline_max_height, 56, "bold", line_gap_ratio=76 / 56,
+    )
+    headline_font = _font(headline_size, "bold")
+    for i, block in enumerate(headline_blocks):
+        weight = "bold" if i == 0 else "semibold"
+        color = INK if i == 0 else ACCENT_DEEP
+        block_wrapped = [w for ln in block for w in _wrap_line_to_width(draw, ln, headline_font, headline_max_width)]
+        y = _draw_centered(draw, block_wrapped, y, headline_line_h, headline_size, color, weight) + 34
+    _diamond_divider(draw, y + 6)
+    tip_y = y + 58
+    tip_max_width = W - 160
+    tip_max_height = (H - 96) - tip_y - 20
+    tip_wrapped, tip_size, tip_line_h = _fit_multiline_block_size(
+        draw, tip_lines, tip_max_width, tip_max_height, 42, "regular", line_gap_ratio=64 / 42,
+    )
+    _draw_centered(draw, tip_wrapped, tip_y, tip_line_h, tip_size, INK_SOFT, "regular")
+
+    draw.rectangle([0, H - 96, W, H], fill=ACCENT)
+    cta_size = _fit_single_line_size(draw, cta_text, W - 160, 34, "semibold", min_size=22)
+    _draw_centered(draw, [cta_text], H - 68, 0, cta_size, (255, 255, 255), "semibold")
+    img.save(out_path, quality=95)
+
+
+# WHY 공용 사진 풀(2026-08-25): 실사진을 프로젝트마다 따로 쌓으면 재사용이 안 되고,
+# 무엇보다 품목당 한 장뿐이라 같은 사진이 수십 개 topic에 반복 등장한다 — 일러스트를 버린
+# 이유("독자가 알아보고 재접근을 안 한다")가 그대로 재현된다. 품목당 여러 장을 공용 풀에
+# 모아두고 topic·슬롯별로 미리 배정한 표(assets-shared/assign.py)를 따라 꺼내 쓴다.
+SHARED_ASSETS = Path("/Users/chlwjddms16/Desktop/project/assets-shared")
+_LANG_DIRS = {"ko", "en", "ja", "de", "fr", "it", "es", "nl", "sv", "zh-TW"}
+
+
+def _shared_resolver(out_dir: Path, topic_prefix_arg):
+    """(topic, lang) 문맥을 붙여 공용 배정표에서 사진 경로를 꺼내는 함수를 돌려준다.
+    공용 풀을 못 읽으면 None — 호출부가 기존 로컬 폴백으로 내려간다."""
+    if str(SHARED_ASSETS) not in sys.path:
+        sys.path.insert(0, str(SHARED_ASSETS))
+    try:
+        import photo_library as _pl
+        import assign as _assign
+        conn = _pl.connect()
+    except Exception:
+        return None
+
+    if out_dir.parent.name in _LANG_DIRS:
+        topic, data_lang = out_dir.parent.parent.name, out_dir.parent.name
+    else:
+        topic, data_lang = (topic_prefix_arg or out_dir.parent.name), "ko"
+
+    def _resolve(slot: str):
+        path = _assign.resolve(conn, "health-shorts", topic, data_lang, slot)
+        return str(path) if path and path.exists() else None
+
+    return _resolve
+
+
+def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None,
+             lang: str = "kor"):
+    """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
+
+    WHY topic_prefix 파라미터(2026-08-03, 글로벌 확장 — data/<topic>/<lang>/ 중첩
+    구조 도입): 기존엔 out_dir.parent.name(예: output/가슴쓰림_1/card_news →
+    "가슴쓰림_1")으로 파일명 접두어를 자동 추론했는데, 언어별 하위 폴더가 생기면서
+    (output/가슴쓰림_1/en/card_news) out_dir.parent.name이 "en"이 되어버려 추론이
+    깨진다. topic_prefix를 명시하면 그대로 쓰고(중첩 topic 호출부는 항상 명시할
+    것 — 빈 문자열 ""을 주면 접두어 없이 저장, 폴더 자체가 이미 topic+lang을
+    구분해주므로), 안 주면(기존 flat topic 전부) 기존 추론 그대로 하위호환.
+
+    WHY lang 파라미터(2026-08-13): 위 FONT_PATH 언어별 매핑 절 참고 — 기본값
+    "kor"라 기존 호출부(전부 한국어)는 그대로 동작, 비한국어는 호출 시 명시할 것."""
+    set_lang(lang)
+    spec = json.loads(Path(spec_path).read_text())
+    char_dir = Path(char_dir)
+    out_dir = Path(out_dir)
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    eyebrow = spec.get("eyebrow", "HEALTH TIP")
+
+    # WHY 일러스트 대신 실사진(2026-08-25, 일러스트 생성 전면 중단) — "AI 일러스트
+    # 썸네일 패턴을 독자가 알아보고 재접근을 안 한다"는 지적 이후, 캐릭터 배지·표지
+    # 배경 전부 assets_library/real/의 실사진으로 바꿨다. spec의 char_file 필드는
+    # 하위 호환을 위해 "<품목>_illust.jpg" 이름 그대로 유지하되(char_label 등
+    # 표시용 식별자로만 쓰임), 실제로 불러오는 이미지는 이 이름에서 품목명을 뽑아
+    # real/ 폴더에서 찾은 실사진이다 — char_dir(illust/)의 파일을 직접 여는 곳은
+    # 이제 없다.
+    real_dir = char_dir.parent / "real"
+
+    def _find_real_photo(char_file: str) -> str | None:
+        # WHY 정확히 두 패턴만(2026-08-02 버그 수정): "{품목}*.jpg" 와일드카드는
+        # "돼지감자"를 찾을 때 "돼지감자차_real_01.jpg"(다른 품목)까지 접두어로
+        # 걸려서 잘못 매칭됐다 — "{품목}.jpg"(옛 명명) 또는
+        # "{품목}_real_NN.jpg"(현재 명명)로 경계를 명확히 한다.
+        item_name = char_file.removesuffix("_illust.jpg")
+        if not real_dir.exists():
+            return None
+        matches = sorted(real_dir.glob(f"{item_name}.jpg")) + sorted(real_dir.glob(f"{item_name}_real_*.jpg"))
+        return str(matches[0]) if matches else None
+
+    # WHY 렌더링 시작 전에 실사진 존재부터 검사(2026-08-25): 일러스트 폴백이
+    # 없어진 이후로 real_photo가 없는 품목은 배지를 그릴 방법 자체가 없다 — 카드
+    # 몇 장 그린 뒤 중간에 터지면 그 전까지 만든 이미지가 output_dir에 남으므로,
+    # _validate_spec_glyphs와 같은 원칙으로 첫 장도 안 그려지게 전부 미리 확인한다.
+    # 새 topic 작업 시 이 에러가 나면 `lib/real_photo_sourcing.py <영어검색어> ...`로
+    # 먼저 실사진을 소싱해둘 것.
+    shared = _shared_resolver(out_dir, topic_prefix)
+
+    def _photo_for(slot: str, char_file: str) -> str | None:
+        if shared:
+            hit = shared(slot)
+            if hit:
+                return hit
+        return _find_real_photo(char_file)
+
+    missing_photos = [
+        item["char_file"] for i, item in enumerate(spec["items"])
+        if _photo_for(f"item{i:02d}", item["char_file"]) is None
+    ]
+    if missing_photos:
+        raise ValueError(
+            f"실사진 없는 품목: {missing_photos} — lib/real_photo_sourcing.py로 "
+            f"assets_library/real/에 먼저 소싱한 뒤 다시 실행할 것(일러스트 생성 중단, "
+            f"폴백 없음)."
+        )
+
+    char_paths = [_photo_for(f"item{i:02d}", item["char_file"])
+                  for i, item in enumerate(spec["items"])]
+
+    # WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하면서
+    # output 폴더 안 파일명("00_표지.jpg" 등)이 topic마다 겹쳐서 구분이 안 됐다 — out_dir이
+    # 관례상 output/<topic>/card_news라서 out_dir.parent.name이 topic 이름이 된다.
+    topic_prefix = (topic_prefix + "_" if topic_prefix else "") if topic_prefix is not None else out_dir.parent.name + "_"
+
+    # WHY make_cover_titlecard가 기본(2026-07-31): "카드뉴스 첫장도 숏폼 영상
+    # 썸네일이랑 똑같이 그냥 가져가자" 피드백 이후 이 스타일이 표준이 됐다 —
+    # spec["title"]는 마지막 줄이 주제명(예: "돼지감자차 이야기")이고 나머지가
+    # 문제 제기 훅이라는 기존 관례를 그대로 따라 훅만 뽑아 쓴다(주제명은 표지에서
+    # 뺌, 영상 제목 카드와 동일한 처리). CLI로 바로 generate() 호출해도 예전
+    # 그라디언트 표지(make_cover)로 되돌아가지 않도록 여기서 기본값을 바꿔둔다.
+    # WHY cover_char_file 옵션(2026-08-01, "썸네일 자체가 아예 똑같은 애들도 좀
+    # 있잖아" 지적): 표지는 캐릭터 원본을 흐리게 깐 배경이라, item[0] 캐릭터가
+    # 같은 topic끼리(예: 카페인 관련 topic 여러 개가 전부 "커피"로 시작) 표지
+    # 이미지가 통째로 동일해 보이는 문제가 있었다 — items 중 어느 캐릭터를 표지에
+    # 쓸지 spec에서 "cover_char_file"로 명시할 수 있게 하고, 없으면 기존처럼
+    # items[0]으로 폴백(하위호환). 여러 topic에 걸쳐 캐릭터가 안 겹치게 고르는
+    # 판단은 세션이 topic들을 비교해서 직접 정하고 이 필드에 적어둘 것.
+    cover_char_file = spec.get("cover_char_file")
+    cover_char_path = ((shared and shared("cover")) or
+                       (_find_real_photo(cover_char_file) if cover_char_file else None) or
+                       (char_paths[0] if char_paths else None))
+
+    # WHY cover_scrim_color(2026-08-01, "cover_char_file로도 못 피하면 배경 색상
+    # 변경도 고려해줘"): 그 topic이 쓸 수 있는 캐릭터가 이미 다 다른 topic에 쓰이고
+    # 있어서 cover_char_file만으로 중복을 못 피할 때의 2차 대안 — spec에
+    # "cover_scrim_color": "#RRGGBB"를 넣으면 같은 캐릭터라도 스크림 톤이 달라진다.
+    # 없으면 기존처럼 브랜드 ACCENT(로즈핑크) 그대로.
+    cover_scrim_hex = spec.get("cover_scrim_color")
+    cover_scrim_color = tuple(int(cover_scrim_hex[i:i + 2], 16) for i in (1, 3, 5)) if cover_scrim_hex else ACCENT
+
+    # WHY swipe_label/char_display_names/closing_label(2026-08-03, 글로벌 확장):
+    # "넘겨서 확인하기", 캐릭터 파일명(예: "고추"), "마무리" 칩까지 전부 한국어
+    # 하드코딩이었다 — 비한국어 topic은 spec에 이 필드들을 넣어서 오버라이드하고,
+    # 없으면(기존 한국어 topic 전부) 기존 문구 그대로 나간다(하위호환).
+    swipe_label = spec.get("swipe_label", "넘겨서 확인하기  →")
+    char_display_names = spec.get("char_display_names", {})
+    closing_label = spec.get("closing_label", "마무리")
+
+    # WHY 렌더링 시작 전에 검사(2026-08-14): 카드 한 장이라도 그린 뒤에 에러가 나면
+    # 그 전까지 만든 정상 이미지들이 output_dir에 남아 다음 커밋에 섞여 들어가기
+    # 쉽다 — 아예 첫 장도 안 그려지게 여기서 먼저 전부 확인한다.
+    _validate_spec_glyphs(spec, eyebrow, swipe_label, closing_label, char_display_names)
+
+    hook_text = " ".join(spec["title"][:-1]) if len(spec["title"]) > 1 else spec["title"][0]
+    make_cover_titlecard(hook_text, out_dir / f"{topic_prefix}00_표지.jpg", char_path=cover_char_path,
+                          scrim_color=cover_scrim_color, swipe_label=swipe_label)
+
+    n = len(spec["items"])
+    for i, item in enumerate(spec["items"], start=1):
+        slot = f"item{i - 1:02d}"
+        badge_photo = _photo_for(slot, item["char_file"])
+        # WHY 배경만 따로(2026-08-25, 사용자 지시): 배지는 그 카드가 말하는 품목이어야 하지만,
+        # 배경은 블러가 강해 형체가 거의 안 보이므로 품목과 일치할 필요가 없다 — 건강 관련
+        # 범용 사진이면 충분하다. 둘을 같은 사진으로 쓰면 품목별 필요 장수가 배로 늘고
+        # 배경 다양성도 품목 재고에 묶인다.
+        bg_photo = (shared and shared(f"bg:{slot}")) or badge_photo
+        make_fact_card(i, item["name"], badge_photo, item["body"], n,
+                       out_dir / f"{topic_prefix}{i:02d}_{item['name']}.jpg", eyebrow=eyebrow,
+                       photo_path=bg_photo, photo_seed=f"{topic_prefix}{item['char_file']}",
+                       char_label_overrides=char_display_names, char_key=item["char_file"])
+
+    closing = spec["closing"]
+    closing_char_keys = [item["char_file"] for item in spec["items"]]
+    make_closing(closing["headline"], closing["tip"], char_paths, closing["cta"],
+                 out_dir / f"{topic_prefix}{n+1:02d}_마무리.jpg",
+                 top_chip_label=closing_label, char_label_overrides=char_display_names,
+                 char_keys=closing_char_keys)
+    print(f"카드뉴스 {n+2}장 생성 완료: {out_dir}")
+
+
+if __name__ == "__main__":
+    spec_path, char_dir, out_dir = sys.argv[1], sys.argv[2], sys.argv[3]
+    prefix = sys.argv[4] if len(sys.argv) > 4 else None
+    lang_arg = sys.argv[5] if len(sys.argv) > 5 else "kor"
+    generate(spec_path, char_dir, out_dir, topic_prefix=prefix, lang=lang_arg)

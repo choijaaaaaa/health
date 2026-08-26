@@ -25,31 +25,33 @@ def _platform(name, ptype, caption="기본 캡션 #건강 #정보", url="https:/
 
 
 def _make_dirs(tmp_path):
-    """out_path를 tmp_path 하위 서브디렉터리로 분리.
+    """card_news_dir와 out_path를 tmp_path 하위 서브디렉터리로 분리.
     WHY out_path를 tmp_path 바로 밑에 두지 않는지: generate()가 내부에서
     _update_topics_index()를 호출해 out_path의 조부모 디렉터리에 topics.json을
     쓴다 — out_path를 tmp_path/output/<topic>/dashboard.html로 두 단계 중첩해야
     topics.json도 tmp_path 안에 갇혀서 테스트끼리 서로 오염시키지 않는다."""
+    card_news_dir = tmp_path / "card_news"
+    card_news_dir.mkdir()
     out_dir = tmp_path / "output" / "테스트주제_1"
     out_dir.mkdir(parents=True)
     out_path = out_dir / "dashboard.html"
-    return out_path
+    return card_news_dir, out_path
 
 
 def test_generate_creates_html_with_all_platform_names(tmp_path):
     platforms = [
         _platform("네이버 블로그", "text", network="naver", rich_paste=True),
-        _platform("네이버 클립", "video", no_caption_link=True, comment_dm_automation=True),
+        _platform("인스타그램 릴스", "video", no_caption_link=True, comment_dm_automation=True),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
 
     assert out_path.exists()
     html = out_path.read_text(encoding="utf-8")
     assert "네이버 블로그" in html
-    assert "네이버 클립" in html
+    assert "인스타그램 릴스" in html
 
 
 def test_excluded_platforms_not_rendered(tmp_path):
@@ -61,12 +63,12 @@ def test_excluded_platforms_not_rendered(tmp_path):
         _platform("틱톡", "video"),
         _platform("YouTube Shorts", "video"),
         _platform("TikTok", "video"),
-        _platform("네이버 클립", "video"),
+        _platform("인스타그램 릴스", "video"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     # WHY 전체 html이 아니라 platform-card만 검사하는지: CARD_TEMPLATE 안에 이
@@ -74,7 +76,7 @@ def test_excluded_platforms_not_rendered(tmp_path):
     # 전체 텍스트로 검사하면 그 주석 때문에 오탐(false positive)이 난다.
     cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
     assert len(cards) == 1
-    assert "네이버 클립" in cards[0]
+    assert "인스타그램 릴스" in cards[0]
 
 
 def test_video_filename_never_rendered_regardless_of_files_present(tmp_path):
@@ -84,17 +86,17 @@ def test_video_filename_never_rendered_regardless_of_files_present(tmp_path):
     보여주지 않는다 — video_assembler.py가 만드는 <...>_shorts_instagram.mp4
     선택 로직은 이제 dashboard.py 밖(로컬 폴더)에서만 의미가 있다."""
     platforms = [
-        _platform("네이버 클립", "video"),
+        _platform("인스타그램 릴스", "video"),
         _platform("네이버 클립", "video"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
     video_dir = out_path.parent
     (video_dir / "테스트주제_1_shorts.mp4").write_bytes(b"fake original video")
     (video_dir / "테스트주제_1_shorts_instagram.mp4").write_bytes(b"fake safe-margin video")
 
-    generate(str(spec_path), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
+    generate(str(spec_path), str(card_news_dir), str(video_dir / "테스트주제_1_shorts.mp4"), str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     assert "테스트주제_1_shorts.mp4" not in html
@@ -105,9 +107,9 @@ def test_missing_hashtag_prints_warning(capsys, tmp_path):
     """회귀 1: 캡션에 '#'이 없으면 print()로 경고가 찍혀야 한다."""
     platforms = [_platform("해시태그없는플랫폼", "text", caption="해시태그가 아예 없는 캡션입니다")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
 
     captured = capsys.readouterr()
     assert "해시태그없는플랫폼" in captured.out
@@ -118,9 +120,9 @@ def test_hashtag_present_no_warning_for_that_platform(capsys, tmp_path):
     """해시태그가 있는 캡션에는 그 플랫폼 이름으로 경고가 찍히면 안 된다."""
     platforms = [_platform("해시태그있는플랫폼", "text", caption="캡션 내용 #건강 #정보")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
 
     captured = capsys.readouterr()
     assert "해시태그있는플랫폼" not in captured.out
@@ -139,9 +141,9 @@ def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_pat
         _platform("일반영상플랫폼", "video"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms, products=["돼지감자"])
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
@@ -166,9 +168,9 @@ def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path):
         _platform("텍스트D", "text"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     assert '열기(캡션 자동복사) →' in html
@@ -190,9 +192,9 @@ def test_no_video_status_ui_when_video_path_is_none(tmp_path):
     알려주는 <video> 태그나 "영상 준비 중" 문구가 나오면 안 된다."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
 
 
@@ -200,10 +202,10 @@ def test_no_video_status_ui_when_video_file_does_not_exist(tmp_path):
     """video_path 문자열은 있지만 가리키는 파일이 실제로 없어도 마찬가지."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
     missing_video = tmp_path / "없는파일_shorts.mp4"
 
-    generate(str(spec_path), str(missing_video), str(out_path))
+    generate(str(spec_path), str(card_news_dir), str(missing_video), str(out_path))
     _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
 
 
@@ -212,12 +214,34 @@ def test_no_video_status_ui_when_video_file_exists(tmp_path):
     GitHub Pages에서 재생도 안 되므로 파일 존재 여부와 무관하게 UI에 안 보여준다."""
     platforms = [_platform("영상플랫폼", "video")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
     video_path = tmp_path / "테스트주제_1_shorts.mp4"
     video_path.write_bytes(b"fake mp4 bytes")
 
-    generate(str(spec_path), str(video_path), str(out_path))
+    generate(str(spec_path), str(card_news_dir), str(video_path), str(out_path))
     _assert_no_video_status_ui(out_path.read_text(encoding="utf-8"))
+
+
+def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
+    """회귀(2026-08-05, 방향 전환): 표지(00_표지.jpg) 외 카드뉴스 상세 이미지는
+    이제 git에 안 올라가서(.gitignore) GitHub Pages에서 깨진 이미지로 보인다 —
+    갤러리에는 표지 한 장만 나와야 한다."""
+    platforms = [_platform("카드뉴스플랫폼", "cards")]
+    spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
+    card_news_dir, out_path = _make_dirs(tmp_path)
+
+    # make_solid_jpg는 자기 자신의 tmp_path(테스트와 동일한 tmp_path) 바로 밑에
+    # 파일을 만들므로, card_news_dir(하위 폴더) 경로를 이름에 포함시켜 그 안에 놓는다.
+    make_solid_jpg("card_news/00_표지.jpg")
+    make_solid_jpg("card_news/01_왜 이런 문제가 생길까요.jpg")
+    make_solid_jpg("card_news/02_본문.jpg")
+
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
+    html = out_path.read_text(encoding="utf-8")
+
+    assert html.count('<img src="card_news/') == 1
+    assert "00_표지.jpg" in html
+    assert "01_%EC%99%9C" not in html and "01_왜" not in html
 
 
 def test_caption_html_special_characters_are_escaped(tmp_path):
@@ -225,9 +249,9 @@ def test_caption_html_special_characters_are_escaped(tmp_path):
     dangerous_caption = "위험 문자 테스트 <script>alert('x')</script> & 팀 <b>강조</b> #태그"
     platforms = [_platform("이스케이프플랫폼", "text", caption=dangerous_caption)]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     assert "<script>alert" not in html
@@ -239,13 +263,13 @@ def test_caption_html_special_characters_are_escaped(tmp_path):
 def test_no_caption_link_and_comment_dm_attrs_reflected(tmp_path):
     """no_caption_link/comment_dm_automation 플래그가 카드의 data 속성에 정확히 반영되는지."""
     platforms = [
-        _platform("네이버 클립", "video", no_caption_link=True, comment_dm_automation=True),
+        _platform("인스타그램 릴스", "video", no_caption_link=True, comment_dm_automation=True),
         _platform("네이버 블로그", "text"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
-    out_path = _make_dirs(tmp_path)
+    card_news_dir, out_path = _make_dirs(tmp_path)
 
-    generate(str(spec_path), None, str(out_path))
+    generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
     cards = re.findall(r'<div class="platform-card".*?(?=<div class="platform-card"|</section>)', html, re.S)
