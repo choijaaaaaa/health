@@ -7,7 +7,7 @@
   "eyebrow": "おなかの調子",
   "swipe_label": "スワイプでつづき  →",
   "closing_label": "まとめ",
-  "cover_char_file": "흰쌀밥_illust.jpg",
+  "cover_char_file": "흰쌀밥_real_01.jpg",
   "cover_scrim_color": "#4B6A88",
   "char_display_names": {
     "흰쌀밥_illust.jpg": "朝食",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "なぜ続くのか",
-      "char_file": "흰쌀밥_illust.jpg",
+      "char_file": "흰쌀밥_real_01.jpg",
       "body": [
         "国民生活基礎調査では",
         "便秘を訴える人は3.6％",
@@ -30,7 +30,7 @@
     },
     {
       "name": "理由1　朝食抜き",
-      "char_file": "흰쌀밥_illust.jpg",
+      "char_file": "흰쌀밥_real_01.jpg",
       "body": [
         "胃・結腸反射は朝食後に",
         "もっとも起こりやすいとされます",
@@ -41,7 +41,7 @@
     },
     {
       "name": "朝食はこうする",
-      "char_file": "흰쌀밥_illust.jpg",
+      "char_file": "흰쌀밥_real_01.jpg",
       "body": [
         "食欲がない朝でも",
         "まず一口だけ胃に入れる",
@@ -52,7 +52,7 @@
     },
     {
       "name": "理由2　食物繊維不足",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "日本人の摂取量は1日14g前後",
         "目標量は22g以上（30〜64歳男性）",
@@ -63,7 +63,7 @@
     },
     {
       "name": "理由3　減らしすぎ",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "便の材料は食べたものです",
         "",
@@ -74,7 +74,7 @@
     },
     {
       "name": "食べる量はこうする",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "減らすのではなく",
         "中身を入れ替える",
@@ -85,7 +85,7 @@
     },
     {
       "name": "水分はこうする",
-      "char_file": "된장국_illust.jpg",
+      "char_file": "된장국_real_01.jpg",
       "body": [
         "食物繊維と水分はセットです",
         "",

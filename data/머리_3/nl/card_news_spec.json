@@ -8,7 +8,7 @@
   "eyebrow": "Haaruitval",
   "swipe_label": "Swipe verder  →",
   "closing_label": "Kort samengevat",
-  "cover_char_file": "긴장_illust.jpg",
+  "cover_char_file": "긴장_real_01.jpg",
   "cover_scrim_color": "#1E6B8C",
   "char_display_names": {
     "긴장_illust.jpg": "Stress en ziekte",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Hoe zit het",
-      "char_file": "긴장_illust.jpg",
+      "char_file": "긴장_real_01.jpg",
       "body": [
         "100 tot 120 haren per dag",
         "verliezen is normaal",
@@ -30,7 +30,7 @@
     },
     {
       "name": "De vertraging",
-      "char_file": "긴장_illust.jpg",
+      "char_file": "긴장_real_01.jpg",
       "body": [
         "Haren stoppen eerder",
         "met groeien en vallen",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Wat helpt",
-      "char_file": "긴장_illust.jpg",
+      "char_file": "긴장_real_01.jpg",
       "body": [
         "Eet weer normaal",
         "en gevarieerd",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Te weinig ijzer",
-      "char_file": "아몬드_illust.jpg",
+      "char_file": "아몬드_real_01.jpg",
       "body": [
         "Van heemijzer neem je 25% op,",
         "van plantaardig ijzer",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Wat helpt",
-      "char_file": "아몬드_illust.jpg",
+      "char_file": "아몬드_real_01.jpg",
       "body": [
         "Combineer ijzer",
         "met vitamine C",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Koffie bij het eten",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Polyfenolen uit thee",
         "en koffie remmen",
@@ -87,7 +87,7 @@
     },
     {
       "name": "Wat helpt",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Drink thee en koffie",
         "tussen de maaltijden door",

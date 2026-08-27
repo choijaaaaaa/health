@@ -7,7 +7,7 @@
   "eyebrow": "Järn och upptag",
   "swipe_label": "Svep för mer  →",
   "closing_label": "Sammanfattning",
-  "cover_char_file": "커피_illust.jpg",
+  "cover_char_file": "커피_real_01.jpg",
   "cover_scrim_color": "#0C4A6E",
   "char_display_names": {
     "커피_illust.jpg": "Kaffe och te",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "Så ligger det till",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Kroppens upptag av järn är lågt",
         "jämfört med andra näringsämnen",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Hemjärn och icke-hemjärn",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "Hemjärn tas upp lättast och är",
         "ungefär halva järnet i kött",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Det som bromsar",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Polyfenoler i te, kaffe och vin,",
         "fytinsyra i spannmål och nötter",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Surdeg och groddning",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "Lång jäsning bryter ner",
         "en del av fytinsyran",
@@ -64,7 +64,7 @@
     },
     {
       "name": "C-vitamin till maten",
-      "char_file": "과일즙_illust.jpg",
+      "char_file": "과일즙_real_01.jpg",
       "body": [
         "Frukt, bär, grönsaker",
         "och rotfrukter",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Kalcium – med reservation",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Ett högt kalciumintag",
         "kan verka hämmande",
@@ -86,7 +86,7 @@
     },
     {
       "name": "När tillskott inte räcker",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "Receptfria järntillskott är",
         "inte effektiva vid blodbrist",

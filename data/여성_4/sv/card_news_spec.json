@@ -1,0 +1,110 @@
+{
+  "title": [
+    "Vaknar genomsvettig",
+    "och fryser en halvtimme senare?",
+    "3 vanor att se över"
+  ],
+  "eyebrow": "Klimakteriet",
+  "cover_char_file": "커피_real_04.jpg",
+  "cover_scrim_color": "#4A6E8F",
+  "char_display_names": {
+    "커피_real_04.jpg": "Kaffe och te",
+    "와인_real_01.jpg": "Alkohol",
+    "담배_real_01.jpg": "Rökning"
+  },
+  "items": [
+    {
+      "name": "Därför kommer de",
+      "char_file": "커피_real_04.jpg",
+      "body": [
+        "Östrogenet minskar",
+        "",
+        "och kroppens styrning av",
+        "temperaturen kommer",
+        "i obalans"
+      ]
+    },
+    {
+      "name": "Kaffe och te",
+      "char_file": "커피_real_04.jpg",
+      "body": [
+        "Första vanan:",
+        "kaffe och te",
+        "",
+        "Dryckerna kan göra",
+        "vallningarna värre"
+      ]
+    },
+    {
+      "name": "Så gör du i stället",
+      "char_file": "커피_real_04.jpg",
+      "body": [
+        "Mindre mängder,",
+        "och tidigare på dagen",
+        "",
+        "Kvällen får vara fri"
+      ]
+    },
+    {
+      "name": "Alkohol",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Andra vanan: alkohol",
+        "",
+        "Vissa viner kan utlösa",
+        "en vallning — och sömnen",
+        "blir sämre"
+      ]
+    },
+    {
+      "name": "Så gör du i stället",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Ett glas färre på kvällen",
+        "",
+        "Lägg märke till om det är",
+        "ett visst vin som utlöser"
+      ]
+    },
+    {
+      "name": "Rökning",
+      "char_file": "담배_real_01.jpg",
+      "body": [
+        "Tredje vanan: rökning",
+        "",
+        "Den ökar symtomen och",
+        "minskar mängden östrogen"
+      ]
+    },
+    {
+      "name": "Det som gör skillnad",
+      "char_file": "담배_real_01.jpg",
+      "body": [
+        "Styrketräning minskar",
+        "besvären tydligt",
+        "",
+        "Svalt sovrum och",
+        "tunna lager hjälper också"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Kaffe, alkohol och rökning —",
+        "gå igenom dem en i taget"
+      ],
+      [
+        "Hälsokosttillskott är inget",
+        "att förlita sig på"
+      ]
+    ],
+    "tip": [
+      "Påverkar vallningarna din vardag",
+      "ska du kontakta en vårdcentral"
+    ],
+    "cta": "Vill du ha fler hälsotips? Följ oss!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning"
+}

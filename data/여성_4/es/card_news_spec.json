@@ -1,0 +1,113 @@
+{
+  "title": [
+    "¿Los sofocos aparecen",
+    "justo después del café",
+    "o de una copa?",
+    "Tres factores a revisar"
+  ],
+  "eyebrow": "Menopausia y sofocos",
+  "cover_char_file": "커피_real_02.jpg",
+  "cover_scrim_color": "#7A3F62",
+  "char_display_names": {
+    "커피_real_02.jpg": "Cafeína",
+    "와인_real_01.jpg": "Alcohol",
+    "물컵_real_01.jpg": "Hidratación"
+  },
+  "items": [
+    {
+      "name": "Qué es un sofoco",
+      "char_file": "커피_real_02.jpg",
+      "body": [
+        "Calor en tórax,",
+        "cuello y cara",
+        "",
+        "Suele durar menos",
+        "de cinco minutos"
+      ]
+    },
+    {
+      "name": "La cafeína",
+      "char_file": "커피_real_02.jpg",
+      "body": [
+        "Primero: la cafeína",
+        "",
+        "La guía sugiere reducirla",
+        "para no exacerbar",
+        "la sintomatología"
+      ]
+    },
+    {
+      "name": "Cómo ajustarla",
+      "char_file": "커피_real_02.jpg",
+      "body": [
+        "Reduce la cantidad",
+        "y procura un ambiente fresco",
+        "",
+        "Sustituye la infusión",
+        "muy caliente por agua"
+      ]
+    },
+    {
+      "name": "El alcohol",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Segundo: el alcohol",
+        "",
+        "Aparece junto a la cafeína",
+        "entre lo que conviene",
+        "disminuir"
+      ]
+    },
+    {
+      "name": "Cómo ajustarlo",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Menos cantidad,",
+        "y no justo antes de dormir",
+        "",
+        "El sueño lo agradece"
+      ]
+    },
+    {
+      "name": "Lo que más pesa",
+      "char_file": "물컵_real_01.jpg",
+      "body": [
+        "Recomendación fuerte:",
+        "ejercicio y no fumar",
+        "",
+        "El ejercicio actúa sobre",
+        "la sudoración nocturna"
+      ]
+    },
+    {
+      "name": "Cómo empezar",
+      "char_file": "물컵_real_01.jpg",
+      "body": [
+        "Caminar, nadar, yoga",
+        "o trabajo con pesas",
+        "",
+        "Y agua suficiente",
+        "a lo largo del día"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El café pesa menos",
+        "de lo que parece"
+      ],
+      [
+        "Mantenerte activa es",
+        "lo que la guía más respalda"
+      ]
+    ],
+    "tip": [
+      "Si los sofocos afectan a tu vida diaria,",
+      "coméntalo en tu centro de salud"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos!"
+  },
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen"
+}

@@ -7,7 +7,7 @@
   "eyebrow": "Transit et digestion",
   "swipe_label": "Faites glisser  →",
   "closing_label": "À retenir",
-  "cover_char_file": "물방울_illust.jpg",
+  "cover_char_file": "물방울_real_01.jpg",
   "cover_scrim_color": "#2F6E5C",
   "char_display_names": {
     "물방울_illust.jpg": "Hydratation",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "De quoi parle-t-on",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "Moins de trois selles par semaine,",
         "des selles plus dures,",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Côté eau",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "Au moins 1,5 litre par jour,",
         "sauf contre-indication",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Côté fibres",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "Référence Anses : 30 g par jour",
         "INCA 3 mesure 20 g chez l'adulte",
@@ -51,7 +51,7 @@
     },
     {
       "name": "L'écart réel",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "L'écart se compte en grammes",
         "de fibres, pas en litres d'eau",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Monter en douceur",
-      "char_file": "체리_illust.jpg",
+      "char_file": "체리_real_01.jpg",
       "body": [
         "Augmenter progressivement",
         "sur deux semaines",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Les légumineuses",
-      "char_file": "체리_illust.jpg",
+      "char_file": "체리_real_01.jpg",
       "body": [
         "Lentilles, pois chiches,",
         "haricots secs deux fois par semaine",
@@ -84,7 +84,7 @@
     },
     {
       "name": "L'eau magnésienne",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "L'Assurance Maladie cite leur",
         "rôle laxatif",

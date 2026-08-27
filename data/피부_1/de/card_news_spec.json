@@ -19,7 +19,7 @@
   "items": [
     {
       "name": "Warum das passiert",
-      "char_file": "담배_illust.jpg",
+      "char_file": "담배_real_01.jpg",
       "body": [
         "Drei Gewohnheiten bauen",
         "Kollagen schneller ab,",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Ursache 1: Rauchen",
-      "char_file": "담배_illust.jpg",
+      "char_file": "담배_real_01.jpg",
       "body": [
         "Zigarettenrauch aktiviert",
         "Enzyme namens MMPs,",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Rauchstopp lässt Kollagen sich erholen",
-      "char_file": "담배_illust.jpg",
+      "char_file": "담배_real_01.jpg",
       "body": [
         "Rauchstopp lässt",
         "die Kollagenproduktion",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Ursache 2: UV-Strahlung ohne Schutz",
-      "char_file": "태양_illust.jpg",
+      "char_file": "태양_real_01.jpg",
       "body": [
         "UV-Strahlen aktivieren",
         "dieselben MMP-Enzyme",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Täglich Sonnencreme auftragen",
-      "char_file": "태양_illust.jpg",
+      "char_file": "태양_real_01.jpg",
       "body": [
         "Tägliche Sonnencreme kann",
         "laut Studien Hautalterung",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Ursache 3: Zuckerreiche Ernährung",
-      "char_file": "사탕_illust.jpg",
+      "char_file": "사탕_real_01.jpg",
       "body": [
         "Überschüssiger Zucker bindet",
         "sich per Glykation an Kollagen",
@@ -89,7 +89,7 @@
     },
     {
       "name": "Weniger Zucker essen",
-      "char_file": "사탕_illust.jpg",
+      "char_file": "사탕_real_01.jpg",
       "body": [
         "Weniger Zucker",
         "verlangsamt die Glykation,",

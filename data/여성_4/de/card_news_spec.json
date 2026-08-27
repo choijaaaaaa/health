@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Kein Kaffee, kein Wein,",
+    "nichts Scharfes mehr?",
+    "Die Streichliste trifft meist daneben",
+    "Hitzewallungen"
+  ],
+  "cover_scrim_color": "#5C3E6B",
+  "eyebrow": "Wechseljahre",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz durchgehen",
+  "topic_word": "Hitzewallungen",
+  "cover_char_file": "고추_real_01.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Starker Kaffee",
+    "와인_illust.jpg": "Alkohol",
+    "고추_illust.jpg": "Scharfe Gewürze",
+    "알약_illust.jpg": "Pflanzliche Mittel"
+  },
+  "items": [
+    {
+      "name": "Wie lange das dauert",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Hitzewallungen und Schweiß-",
+        "ausbrüche sind die häufigsten",
+        "Beschwerden der Wechseljahre",
+        "",
+        "Meistens lassen sie nach",
+        "4 bis 5 Jahren von selbst nach"
+      ]
+    },
+    {
+      "name": "Was dabei passiert",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Das Gehirn weitet kurzzeitig",
+        "die Gefäße in der Haut,",
+        "der Körper gibt Wärme ab",
+        "",
+        "Eine Wallung dauert",
+        "im Schnitt etwa drei Minuten"
+      ]
+    },
+    {
+      "name": "Verdächtige 1: Kaffee und Tee",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Starker Kaffee oder Tee steht",
+        "auf der Verdachtsliste des IQWiG",
+        "",
+        "Ob der Verzicht sich lohnt,",
+        "ist allerdings unklar"
+      ]
+    },
+    {
+      "name": "Verdächtige 2: Alkohol",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Alkohol steht auf derselben",
+        "Liste wie Stress, Nervosität",
+        "und zu warme Räume",
+        "",
+        "Frauen reagieren dabei",
+        "sehr unterschiedlich"
+      ]
+    },
+    {
+      "name": "Besser als streichen: testen",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Zwei Wochen notieren, dann",
+        "einen Verdächtigen pro Woche",
+        "weglassen",
+        "",
+        "Alles gleichzeitig zu ändern",
+        "verrät nichts"
+      ]
+    },
+    {
+      "name": "Ersatz statt Lücke",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Entkoffeinierter Kaffee am",
+        "Nachmittag, Kräutertee oder",
+        "eine kalte Schorle am Abend",
+        "",
+        "Das Ritual bleibt, nur der",
+        "geprüfte Bestandteil geht raus"
+      ]
+    },
+    {
+      "name": "Aus dem Regal: realistisch bleiben",
+      "char_file": "알약_real_01.jpg",
+      "body": [
+        "Soja lindert nach bisherigen",
+        "Studien nicht zuverlässig",
+        "",
+        "Bei Traubensilberkerze berichten",
+        "etwa 5 von 100 Frauen über",
+        "Nebenwirkungen — erst ärztlich klären"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wie oft, wie stark,",
+        "und was war die Stunde davor?"
+      ],
+      [
+        "Wie warm sind Schlafzimmer",
+        "und Bettdecke wirklich?"
+      ]
+    ],
+    "tip": [
+      "Nehmen Sie ein pflanzliches Mittel ein?",
+      "Dann gehört es ins Arztgespräch"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen lohnt sich!"
+  }
+}

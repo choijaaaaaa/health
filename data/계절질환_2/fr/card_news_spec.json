@@ -22,7 +22,7 @@
     },
     {
       "name": "Le café",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Un grand café glacé",
         "ou une boisson énergisante",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Le café : la solution",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Quand vous transpirez beaucoup,",
         "misez sur l'eau en priorité",
@@ -44,7 +44,7 @@
     },
     {
       "name": "L'alcool",
-      "char_file": "맥주_illust.jpg",
+      "char_file": "맥주_real_01.jpg",
       "body": [
         "L'alcool freine la capacité",
         "du corps à réguler sa température",
@@ -55,7 +55,7 @@
     },
     {
       "name": "L'alcool : la solution",
-      "char_file": "맥주_illust.jpg",
+      "char_file": "맥주_real_01.jpg",
       "body": [
         "Évitez-le avant et pendant",
         "les longs moments en extérieur",
@@ -66,7 +66,7 @@
     },
     {
       "name": "L'eau seule ne suffit pas",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "Après des heures",
         "de forte transpiration,",

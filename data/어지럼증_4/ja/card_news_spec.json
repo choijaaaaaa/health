@@ -10,7 +10,7 @@
   "swipe_label": "スワイプでもっと見る  →",
   "closing_label": "受診の目安",
   "topic_word": "鉄不足",
-  "cover_char_file": "소고기_illust.jpg",
+  "cover_char_file": "소고기_real_01.jpg",
   "char_display_names": {
     "소고기_illust.jpg": "ヘム鉄",
     "커피_illust.jpg": "タンニン",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "なぜ起きるのか",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "体内の鉄の約70%は",
         "ヘモグロビンとミオグロビン",
@@ -31,7 +31,7 @@
     },
     {
       "name": "原因1：吸収率の差",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "ヘム鉄の吸収率は10〜30%、",
         "非ヘム鉄は1〜8%",
@@ -42,7 +42,7 @@
     },
     {
       "name": "原因2：食後すぐのお茶",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "水で飲むと吸収率21.7%が",
         "お茶では6.2%まで低下",
@@ -53,7 +53,7 @@
     },
     {
       "name": "対策1：30分以上あける",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "同時だと72.0%が27.6%に、",
         "2時間後なら64.7%まで回復",
@@ -64,7 +64,7 @@
     },
     {
       "name": "対策2：ビタミンCを添える",
-      "char_file": "과일즙_illust.jpg",
+      "char_file": "과일즙_real_01.jpg",
       "body": [
         "動物性たんぱく質や",
         "ビタミンCと一緒に摂ると",
@@ -75,7 +75,7 @@
     },
     {
       "name": "原因3：豆類のフィチン酸",
-      "char_file": "아몬드_illust.jpg",
+      "char_file": "아몬드_real_01.jpg",
       "body": [
         "豆類のフィチン酸は",
         "鉄の吸収を阻害します",
@@ -86,7 +86,7 @@
     },
     {
       "name": "対策3：鉄の鍋で作る",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "調理中にわずかながら",
         "鉄が溶け出します",

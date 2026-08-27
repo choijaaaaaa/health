@@ -7,7 +7,7 @@
   "eyebrow": "Capelli e alimentazione",
   "swipe_label": "Scorri per continuare  →",
   "closing_label": "In sintesi",
-  "cover_char_file": "탄산음료_illust.jpg",
+  "cover_char_file": "탄산음료_real_01.jpg",
   "cover_scrim_color": "#4C2F5E",
   "char_display_names": {
     "탄산음료_illust.jpg": "Bevande zuccherate",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Perché succede",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "La genetica pesa,",
         "ma non spiega tutto",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Le bevande zuccherate",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "Su 1.028 uomini 18-45 anni,",
         "un consumo elevato di bibite",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Come cambiarla",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "Acqua o acqua frizzante",
         "nei giorni feriali",
@@ -53,7 +53,7 @@
     },
     {
       "name": "La carenza di ferro",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "Nell'anemia da carenza",
         "di ferro la perdita dei capelli",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Come rimediare",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "Prima l'esame del sangue,",
         "poi eventualmente il ferro",
@@ -77,7 +77,7 @@
     },
     {
       "name": "La dieta mediterranea",
-      "char_file": "마늘_illust.jpg",
+      "char_file": "마늘_real_01.jpg",
       "body": [
         "Studio su 104 uomini",
         "con alopecia androgenetica",
@@ -89,7 +89,7 @@
     },
     {
       "name": "Come applicarla",
-      "char_file": "마늘_illust.jpg",
+      "char_file": "마늘_real_01.jpg",
       "body": [
         "Verdure crude tre volte",
         "a settimana",

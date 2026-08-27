@@ -8,7 +8,7 @@
   "eyebrow": "Cheveux et cuir chevelu",
   "swipe_label": "Faites défiler  →",
   "closing_label": "Dès ce soir",
-  "cover_char_file": "다이어트도시락_illust.jpg",
+  "cover_char_file": "다이어트도시락_real_01.jpg",
   "char_display_names": {
     "알약_illust.jpg": "Compléments",
     "다이어트도시락_illust.jpg": "Régimes stricts",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Le repère de départ",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "Nous perdons normalement",
         "50 à 100 cheveux par jour",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Cause 1 : androgénétique",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "Prédisposition génétique",
         "et action de la DHT",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Ce que cela change",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "Environ 20 % des hommes à 20 ans,",
         "30 % à 30 ans, 40 % à 40 ans",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Cause 2 : effluvium télogène",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "Jusqu'à 30 % des cheveux",
         "arrêtent leur croissance",
@@ -61,7 +61,7 @@
     },
     {
       "name": "Et elle repart seule",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "Accouchement, opération,",
         "forte fièvre, choc, arrêt de pilule",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Cause 3 : les carences",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "Fer, zinc, magnésium, calcium :",
         "les régimes extrêmes créent",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Remplir plutôt que vider",
-      "char_file": "소고기_illust.jpg",
+      "char_file": "소고기_real_01.jpg",
       "body": [
         "Référence en fer de l'Anses :",
         "11 mg par jour, 16 mg si les",

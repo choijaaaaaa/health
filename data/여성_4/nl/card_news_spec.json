@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Opvliegers en nachtelijk zweten?",
+    "Eén aanjager springt eruit",
+    "3 dingen om na te gaan"
+  ],
+  "eyebrow": "Overgang en opvliegers",
+  "cover_char_file": "맥주_real_01.jpg",
+  "cover_scrim_color": "#35706B",
+  "char_display_names": {
+    "맥주_real_01.jpg": "Alcohol",
+    "커피_real_03.jpg": "Warme drank",
+    "고추_real_01.jpg": "Gekruid eten"
+  },
+  "items": [
+    {
+      "name": "Waarom het gebeurt",
+      "char_file": "맥주_real_01.jpg",
+      "body": [
+        "Minder oestrogeen,",
+        "warmte-centrum uit balans",
+        "",
+        "Bloedvaten in je huid",
+        "gaan verder openstaan"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_real_01.jpg",
+      "body": [
+        "Eerste punt: alcohol",
+        "",
+        "Minderen kan zorgen voor",
+        "minder zweten 's nachts"
+      ]
+    },
+    {
+      "name": "Zo pak je het aan",
+      "char_file": "맥주_real_01.jpg",
+      "body": [
+        "Een glas minder",
+        "bij het avondeten",
+        "",
+        "Of een paar",
+        "alcoholvrije avonden"
+      ]
+    },
+    {
+      "name": "Warme dranken",
+      "char_file": "커피_real_03.jpg",
+      "body": [
+        "Tweede punt:",
+        "warme dranken",
+        "",
+        "Ze kunnen ervoor zorgen dat",
+        "je het opeens warm krijgt"
+      ]
+    },
+    {
+      "name": "Zo test je het",
+      "char_file": "커피_real_03.jpg",
+      "body": [
+        "Houd twee weken bij",
+        "wat eraan voorafging",
+        "",
+        "Werkt het bij jou zo?",
+        "Laat het dan staan"
+      ]
+    },
+    {
+      "name": "Gekruid eten",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Derde punt:",
+        "gekruid eten",
+        "",
+        "Niet iedereen reageert",
+        "er hetzelfde op"
+      ]
+    },
+    {
+      "name": "En verder",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Katoen, zijde of wol dragen",
+        "in dunne laagjes",
+        "",
+        "Kruidenmiddelen en",
+        "fyto-oestrogenen helpen niet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol, warme dranken,",
+        "gekruid eten: loop ze na"
+      ],
+      [
+        "Kruidenmiddelen kun je",
+        "gerust overslaan"
+      ]
+    ],
+    "tip": [
+      "Slaap je slecht of blijft de last?",
+      "Maak een afspraak bij je huisarts"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Samengevat"
+}

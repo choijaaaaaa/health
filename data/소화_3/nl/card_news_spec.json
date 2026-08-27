@@ -7,7 +7,7 @@
   "eyebrow": "Verstopping en gewoonten",
   "swipe_label": "Swipe voor meer  →",
   "closing_label": "Tot slot",
-  "cover_char_file": "흰빵_illust.jpg",
+  "cover_char_file": "흰빵_real_01.jpg",
   "char_display_names": {
     "흰빵_illust.jpg": "Witte producten",
     "물방울_illust.jpg": "Vocht",
@@ -16,7 +16,7 @@
   "items": [
     {
       "name": "Niet je darmen, wel je week",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "Minder dan 3 keer per week,",
         "harde en droge poep",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Witte producten",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "Vezels houden vocht vast",
         "in de darmen",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Kies volkoren",
-      "char_file": "흰빵_illust.jpg",
+      "char_file": "흰빵_real_01.jpg",
       "body": [
         "Vervang wit brood",
         "door volkoren",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Te weinig drinken",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "Vezels binden vocht,",
         "dus dat vocht moet er zijn",
@@ -61,7 +61,7 @@
     },
     {
       "name": "Drink 1,5 tot 2 liter",
-      "char_file": "물방울_illust.jpg",
+      "char_file": "물방울_real_01.jpg",
       "body": [
         "Acht glazen of meer,",
         "vooral water en thee",
@@ -72,7 +72,7 @@
     },
     {
       "name": "Aandrang uitstellen",
-      "char_file": "서류더미_illust.jpg",
+      "char_file": "서류더미_real_01.jpg",
       "body": [
         "Blijft de poep langer zitten,",
         "dan wordt hij droger en harder",
@@ -83,7 +83,7 @@
     },
     {
       "name": "Ga meteen",
-      "char_file": "서류더미_illust.jpg",
+      "char_file": "서류더미_real_01.jpg",
       "body": [
         "Ga naar de wc zodra",
         "je het voelt",

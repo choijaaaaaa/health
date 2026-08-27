@@ -5,7 +5,7 @@
     "Frisdrank en zout spelen mee"
   ],
   "eyebrow": "Botgezondheid",
-  "cover_char_file": "탄산음료_illust.jpg",
+  "cover_char_file": "탄산음료_real_01.jpg",
   "char_display_names": {
     "탄산음료_illust.jpg": "Frisdrank",
     "가공육_illust.jpg": "Zout"
@@ -13,7 +13,7 @@
   "items": [
     {
       "name": "Waarom gebeurt dit?",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "Fosforzuur in frisdrank en",
         "te veel zout",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Frisdrank",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "Fosforzuur bindt calcium",
         "in de darm",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Frisdrank — dit helpt",
-      "char_file": "탄산음료_illust.jpg",
+      "char_file": "탄산음료_real_01.jpg",
       "body": [
         "Water of bruisend water",
         "in plaats van cola",
@@ -45,7 +45,7 @@
     },
     {
       "name": "Zout",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Te veel zout betekent",
         "meer calciumverlies",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Zout — dit helpt",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Let op verstopt zout in",
         "kant-en-klare maaltijden",

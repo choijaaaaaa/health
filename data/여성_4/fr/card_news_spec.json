@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Vous avez supprimé le café",
+    "et les bouffées sont toujours là ?",
+    "Elles ne partent pas de l'assiette",
+    "Bouffées de chaleur"
+  ],
+  "cover_scrim_color": "#8C5A7A",
+  "eyebrow": "Ménopause",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À vous de voir",
+  "cover_char_file": "커피_real_01.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "술_illust.jpg": "Alcool",
+    "알약_illust.jpg": "Compléments"
+  },
+  "items": [
+    {
+      "name": "Le point de départ",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "La ménopause survient entre",
+        "45 et 55 ans, à 51 ans",
+        "en moyenne en France",
+        "",
+        "Les bouffées ne concernent",
+        "qu'environ la moitié des femmes"
+      ]
+    },
+    {
+      "name": "D'où part la chaleur",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Du centre de thermorégulation,",
+        "dans l'hypothalamus",
+        "",
+        "La baisse hormonale le dérègle",
+        "et déclenche une vasodilatation",
+        "de la peau"
+      ]
+    },
+    {
+      "name": "Cause 1 : le café, vraiment ?",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Le CNGOF conseille de limiter",
+        "café, sucre et alcool",
+        "",
+        "Mais c'est une règle générale :",
+        "le déclencheur, lui,",
+        "est individuel"
+      ]
+    },
+    {
+      "name": "Cause 2 : l'alcool du soir",
+      "char_file": "술_real_01.jpg",
+      "body": [
+        "Limiter l'alcool figure aussi",
+        "dans le premier réflexe",
+        "listé par Santé.fr",
+        "",
+        "Avec l'arrêt du tabac et",
+        "30 à 45 min de marche par jour"
+      ]
+    },
+    {
+      "name": "Testez, ne supprimez pas",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Deux semaines de notes,",
+        "puis un seul suspect retiré",
+        "par semaine",
+        "",
+        "Déca, tisane, eau pétillante :",
+        "le rituel reste"
+      ]
+    },
+    {
+      "name": "Avant d'acheter un complément",
+      "char_file": "알약_real_01.jpg",
+      "body": [
+        "Depuis 2012, les isoflavones",
+        "n'ont plus le droit de",
+        "promettre un soulagement",
+        "",
+        "L'Anses fixe la limite à 1 mg",
+        "par kilo et par jour"
+      ]
+    },
+    {
+      "name": "Ce qui est démontré",
+      "char_file": "알약_real_01.jpg",
+      "body": [
+        "Contre les bouffées, seules",
+        "l'hypnose et les thérapies",
+        "cognitivo-comportementales",
+        "sont décrites comme efficaces",
+        "",
+        "Le traitement hormonal se",
+        "discute avec un médecin"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sur sept jours, combien de",
+        "bouffées après un café ou un verre ?"
+      ],
+      [
+        "Et combien sont arrivées",
+        "sans rien de tout cela ?"
+      ]
+    ],
+    "tip": [
+      "Notez-le noir sur blanc :",
+      "c'est ce qui sert le plus en consultation"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  }
+}

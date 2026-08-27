@@ -7,7 +7,7 @@
   "eyebrow": "Migraña y alimentación",
   "swipe_label": "Desliza para saber más  →",
   "closing_label": "En resumen",
-  "cover_char_file": "치즈_illust.jpg",
+  "cover_char_file": "치즈_real_01.jpg",
   "cover_scrim_color": "#A34A2A",
   "char_display_names": {
     "치즈_illust.jpg": "Queso curado",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "¿Por qué ocurre?",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Tres desencadenantes concretos",
         "explican muchas crisis",
@@ -29,7 +29,7 @@
     },
     {
       "name": "1. La tiramina",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Se forma al curar",
         "y fermentar los alimentos",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Cambia curado por fresco",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Queso fresco, mozzarella",
         "o requesón no llevan curación",
@@ -51,7 +51,7 @@
     },
     {
       "name": "2. Los nitritos",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "E 249 y E 250 conservan",
         "el embutido",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Lee la etiqueta",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Busca la palabra conservador",
         "seguida de E 249 o E 250",
@@ -74,7 +74,7 @@
     },
     {
       "name": "3. La cafeína irregular",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Más de 200 mg al día",
         "durante más de dos semanas",
@@ -85,7 +85,7 @@
     },
     {
       "name": "Deja la misma cifra",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "El mismo número de cafés",
         "de lunes a domingo",

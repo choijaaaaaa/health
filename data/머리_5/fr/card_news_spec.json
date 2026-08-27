@@ -8,7 +8,7 @@
   "eyebrow": "Migraine et alimentation",
   "swipe_label": "Faites défiler  →",
   "closing_label": "Quand consulter",
-  "cover_char_file": "치즈_illust.jpg",
+  "cover_char_file": "치즈_real_01.jpg",
   "char_display_names": {
     "치즈_illust.jpg": "Fromage affiné",
     "가공육_illust.jpg": "Charcuterie",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Pourquoi le lien est flou",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "La crise arrive plusieurs heures",
         "après le repas",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Le fromage affiné",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "La tyramine se forme quand",
         "l'affinage dégrade les protéines",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Passer au frais",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Fromage blanc, ricotta,",
         "mozzarella, chèvre frais",
@@ -51,7 +51,7 @@
     },
     {
       "name": "La charcuterie",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Les nitrites ajoutés deviennent",
         "du monoxyde d'azote",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Le repère du PNNS",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Pas plus de 150 g de charcuterie",
         "par semaine, soit trois tranches",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Le café",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Ce n'est pas la tasse,",
         "c'est l'arrêt brutal",
@@ -85,7 +85,7 @@
     },
     {
       "name": "Lisser plutôt qu'arrêter",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Même quantité en semaine",
         "et le week-end",

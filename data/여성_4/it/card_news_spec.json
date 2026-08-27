@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Vampate e sudorazioni notturne",
+    "sempre nelle stesse ore?",
+    "I 3 fattori scatenanti"
+  ],
+  "eyebrow": "Menopausa e vampate",
+  "cover_char_file": "커피_real_01.jpg",
+  "cover_scrim_color": "#2A5D74",
+  "char_display_names": {
+    "커피_real_01.jpg": "Caffeina",
+    "와인_real_01.jpg": "Alcol",
+    "고추_real_01.jpg": "Piccante"
+  },
+  "items": [
+    {
+      "name": "Perché arrivano",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Le ovaie producono",
+        "meno estrogeni",
+        "",
+        "L'ISS collega a questo calo",
+        "vampate e sudorazione eccessiva"
+      ]
+    },
+    {
+      "name": "La caffeina",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Primo fattore: la caffeina",
+        "",
+        "È anche ciò che l'ISS",
+        "consiglia di evitare",
+        "contro l'insonnia"
+      ]
+    },
+    {
+      "name": "Come regolarla",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Concentra il caffè",
+        "nella prima parte del giorno",
+        "",
+        "La sera resta libera"
+      ]
+    },
+    {
+      "name": "L'alcol",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Secondo fattore: l'alcol",
+        "",
+        "Compare nell'elenco ISS",
+        "dei fattori che fanno",
+        "scattare le vampate"
+      ]
+    },
+    {
+      "name": "Come regolarlo",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Alterna il calice",
+        "a un bicchiere d'acqua fredda",
+        "",
+        "Utile anche a vampata",
+        "già iniziata"
+      ]
+    },
+    {
+      "name": "I piatti piccanti",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Terzo fattore:",
+        "i cibi piccanti",
+        "",
+        "Insieme alle bevande calde",
+        "e allo stress"
+      ]
+    },
+    {
+      "name": "Come regolarli",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "Meno peperoncino,",
+        "e meglio a pranzo",
+        "",
+        "così la sera non si somma",
+        "alle vampate notturne"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caffeina, alcol e piccante:",
+        "i fattori più citati dall'ISS"
+      ],
+      [
+        "Annota per due settimane",
+        "quali contano per te"
+      ]
+    ],
+    "tip": [
+      "Se i risvegli notturni sono importanti",
+      "o persistenti, parlane con il medico"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi"
+}

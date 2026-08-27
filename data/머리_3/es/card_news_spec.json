@@ -8,7 +8,7 @@
   "eyebrow": "Caída del cabello",
   "swipe_label": "Desliza para seguir  →",
   "closing_label": "En resumen",
-  "cover_char_file": "다이어트도시락_illust.jpg",
+  "cover_char_file": "다이어트도시락_real_01.jpg",
   "cover_scrim_color": "#8C3F5E",
   "char_display_names": {
     "다이어트도시락_illust.jpg": "Dietas exprés",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Por qué pasa",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "Perder unos 100 cabellos",
         "al día es normal",
@@ -30,7 +30,7 @@
     },
     {
       "name": "El desfase",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "Se llama efluvio telógeno",
         "",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Qué hacer",
-      "char_file": "다이어트도시락_illust.jpg",
+      "char_file": "다이어트도시락_real_01.jpg",
       "body": [
         "Baja el ritmo de la dieta",
         "",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Hierro y proteína",
-      "char_file": "달걀_illust.jpg",
+      "char_file": "달걀_real_01.jpg",
       "body": [
         "Las carencias de proteína",
         "y la anemia ferropénica",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Qué hacer",
-      "char_file": "달걀_illust.jpg",
+      "char_file": "달걀_real_01.jpg",
       "body": [
         "Junta el hierro",
         "con la vitamina C",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Ojo con la biotina",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "La AEMPS avisa:",
         "la biotina interfiere",
@@ -86,7 +86,7 @@
     },
     {
       "name": "Qué hacer",
-      "char_file": "알약_illust.jpg",
+      "char_file": "알약_real_01.jpg",
       "body": [
         "Avisa en el laboratorio",
         "si tomas suplementos",

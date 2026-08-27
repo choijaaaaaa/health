@@ -8,7 +8,7 @@
   "eyebrow": "Migraine Food Triggers",
   "swipe_label": "Swipe for more  →",
   "closing_label": "One Thing to Try",
-  "cover_char_file": "치즈_illust.jpg",
+  "cover_char_file": "치즈_real_01.jpg",
   "char_display_names": {
     "치즈_illust.jpg": "Aged Cheese",
     "가공육_illust.jpg": "Cured Meat",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Why It Is Hard to Pin Down",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "The attack starts hours after",
         "the meal, so nothing obvious",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Trigger 1 Aged Cheese",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "First is tyramine in",
         "long-ripened cheese",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Swap in Fresh Cheese",
-      "char_file": "치즈_illust.jpg",
+      "char_file": "치즈_real_01.jpg",
       "body": [
         "Mozzarella, ricotta, cottage",
         "and cream cheese barely ripen",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Trigger 2 Cured Meat",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Second is nitrite in bacon,",
         "hot dogs and salami",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Read Past the Label",
-      "char_file": "가공육_illust.jpg",
+      "char_file": "가공육_real_01.jpg",
       "body": [
         "Uncured deli meat is usually",
         "cured with celery powder,",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Trigger 3 Stop-Start Coffee",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Third is skipping caffeine",
         "on days off",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Keep the Line Flat",
-      "char_file": "커피_illust.jpg",
+      "char_file": "커피_real_01.jpg",
       "body": [
         "Same amount weekday and weekend",
         "beats quitting outright",

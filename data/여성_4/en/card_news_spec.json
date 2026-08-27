@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Kicking the covers off at 3 a.m.,",
+    "then pulling them back on?",
+    "The trigger list is shorter",
+    "Hot Flash Triggers"
+  ],
+  "cover_scrim_color": "#7A2F4E",
+  "eyebrow": "Menopause and Hot Flashes",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "This Week",
+  "cover_char_file": "커피_real_01.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeine",
+    "와인_illust.jpg": "Alcohol",
+    "고추_illust.jpg": "Spicy Food"
+  },
+  "items": [
+    {
+      "name": "How Common This Is",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "As many as 3 in 4 people",
+        "report hot flashes before",
+        "menopause",
+        "",
+        "A typical flash lasts",
+        "one to five minutes"
+      ]
+    },
+    {
+      "name": "It Starts in the Brain",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "As estrogen falls, the body's",
+        "temperature control is disrupted",
+        "",
+        "Blood vessels widen and heat",
+        "leaves the skin fast — the",
+        "flush is the response, not the cause"
+      ]
+    },
+    {
+      "name": "Trigger 1: Caffeine",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "In a Mayo Clinic survey of",
+        "1,806 women, caffeine users",
+        "rated symptoms 2.30 vs 2.15",
+        "",
+        "A real gap, but a small one —",
+        "an association, not a verdict"
+      ]
+    },
+    {
+      "name": "Move Caffeine, Don't Cut It",
+      "char_file": "커피_real_01.jpg",
+      "body": [
+        "Decaf, herbal or barley tea",
+        "after midday keeps the ritual",
+        "",
+        "It is the late dose that",
+        "reaches your night"
+      ]
+    },
+    {
+      "name": "Trigger 2: Alcohol",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "The NIA lists alcohol with",
+        "caffeine and spicy food as",
+        "things that can worsen symptoms",
+        "",
+        "With a meal and hours before bed",
+        "keeps it clear of your night"
+      ]
+    },
+    {
+      "name": "Trigger 3: Spicy Food",
+      "char_file": "고추_real_01.jpg",
+      "body": [
+        "One heat level down, and",
+        "the spicy meal at lunch",
+        "",
+        "That keeps any flush",
+        "well clear of bedtime"
+      ]
+    },
+    {
+      "name": "What the Shelf Won't Fix",
+      "char_file": "와인_real_01.jpg",
+      "body": [
+        "Black cohosh, DHEA and soy",
+        "isoflavones are not proven,",
+        "and some carry liver risks",
+        "",
+        "Hormone therapy, paroxetine",
+        "and fezolinetant are prescribed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Your own trigger list is",
+        "shorter than the standard one"
+      ],
+      [
+        "Two weeks of notes shows",
+        "which of the three is yours"
+      ]
+    ],
+    "tip": [
+      "Log the time, the trigger and how much",
+      "it bothered you — take that to your doctor"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  }
+}
