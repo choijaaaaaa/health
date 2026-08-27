@@ -1,0 +1,127 @@
+{
+  "title": [
+    "Bonzend hart, stijve nek",
+    "en hoofdpijn tegelijk?",
+    "Het is niet je koffie",
+    "Zout is niet het hele verhaal"
+  ],
+  "eyebrow": "Hoge bloeddruk",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "사탕_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Zout",
+    "사탕_illust.jpg": "Drop",
+    "에너지드링크_illust.jpg": "Energiedrank"
+  },
+  "items": [
+    {
+      "name": "Waar het misgaat",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "In het rijtje oorzaken",
+        "van Thuisarts staat cafeïne niet",
+        "",
+        "Veel zout eten en",
+        "veel drop eten staan er wel"
+      ]
+    },
+    {
+      "name": "Wat zout doet",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Te veel zout houdt vocht vast",
+        "",
+        "Meer vocht in je bloedvaten,",
+        "hogere druk, en je hart",
+        "moet harder werken"
+      ]
+    },
+    {
+      "name": "Hoeveel is te veel",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Advies: maximaal 6 gram",
+        "zout per dag",
+        "",
+        "Volwassenen krijgen gemiddeld",
+        "7 gram of meer binnen,",
+        "80 % zit al in je eten"
+      ]
+    },
+    {
+      "name": "Minderen loont",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "4,5 gram zout per dag minder",
+        "verlaagt de bovendruk",
+        "met gemiddeld 2 mmHg",
+        "",
+        "Bij hoge bloeddruk is",
+        "dat effect 2,5 keer groter"
+      ]
+    },
+    {
+      "name": "Drop en zoethout",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "In drop en zoethout zit",
+        "glycyrrizine, een stof die",
+        "de bloeddruk hoger maakt",
+        "",
+        "Ook zoethout-thee telt mee"
+      ]
+    },
+    {
+      "name": "Op het etiket",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Vanaf 4 g/kg staat er:",
+        "",
+        "\"bevat zoethout — mensen",
+        "met hoge bloeddruk dienen",
+        "overmatig gebruik te vermijden\""
+      ]
+    },
+    {
+      "name": "En cafeïne?",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Te veel cafeïne geeft hoofdpijn,",
+        "duizeligheid en hartkloppingen",
+        "",
+        "Hartkloppingen zijn geen bewijs",
+        "van een hoge bloeddruk"
+      ]
+    },
+    {
+      "name": "Wat te doen",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Kook zonder zout en",
+        "vergelijk merken brood en kaas",
+        "",
+        "Maak van drop een uitzondering",
+        "in plaats van een gewoonte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Zout krijgt de schuld,",
+        "drop glipt er stilletjes langs"
+      ],
+      [
+        "Allebei staan ze in het",
+        "rijtje van de huisarts"
+      ]
+    ],
+    "tip": [
+      "Bel dezelfde dag je huisarts bij een",
+      "bovendruk boven 180 mét klachten"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2456A6"
+}

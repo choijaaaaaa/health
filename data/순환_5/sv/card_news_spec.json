@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Hjärtat rusar, nacken stel",
+    "och huvudet värker?",
+    "Skyll inte på energidrycken",
+    "Lakritsen räknas också"
+  ],
+  "eyebrow": "Högt blodtryck",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "에너지드링크_illust.jpg",
+  "char_display_names": {
+    "사탕_illust.jpg": "Lakrits",
+    "소금_illust.jpg": "Salt",
+    "에너지드링크_illust.jpg": "Energidryck"
+  },
+  "items": [
+    {
+      "name": "Vad 1177 listar",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "På 1177:s lista över orsaker",
+        "till högt blodtryck står",
+        "varken kaffe eller energidryck",
+        "",
+        "Där står \"Du äter lakrits\""
+      ]
+    },
+    {
+      "name": "Lakrits",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Även små mängder lakrits",
+        "kan påverka blodtrycket",
+        "hos känsliga personer",
+        "",
+        "Råd från 1177: undvik lakrits"
+      ]
+    },
+    {
+      "name": "Så funkar det",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Glycyrrhetinsyran hämmar",
+        "enzymet 11-HSD2",
+        "",
+        "Natrium och vatten behålls,",
+        "kalium utsöndras"
+      ]
+    },
+    {
+      "name": "Var går gränsen",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Risk för biverkningar hos",
+        "känsliga vid ca 50 gram",
+        "lakritsgodis per dag",
+        "",
+        "Det motsvarar ungefär",
+        "100 mg glycyrrhizinsyra"
+      ]
+    },
+    {
+      "name": "Saltet",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Högst 6 gram salt per dag,",
+        "ungefär en tesked",
+        "",
+        "Var femte hjärtinfarkt och vart",
+        "tionde strokefall i Sverige",
+        "orsakas av för mycket salt"
+      ]
+    },
+    {
+      "name": "Byt saltet",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Mineralsalt byter ut en del",
+        "natrium mot kalium",
+        "och magnesium",
+        "",
+        "Välj en variant med jod"
+      ]
+    },
+    {
+      "name": "Energidrycken då?",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "80–200 mg koffein per burk",
+        "",
+        "Ger hjärtklappning, huvudvärk",
+        "och yrsel — men hjärtklappning",
+        "är inte samma sak som",
+        "högt blodtryck"
+      ]
+    },
+    {
+      "name": "När söka vård",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Kontakta vårdcentralen vid",
+        "140/90 vid upprepade tillfällen",
+        "",
+        "Genast vid 180/110 eller mer",
+        "om du mår dåligt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Energidrycken får skulden,",
+        "lakritsen slinker förbi"
+      ],
+      [
+        "Men det är lakritsen som står",
+        "på vårdens lista över orsaker"
+      ]
+    ],
+    "tip": [
+      "Trappa ner saltet stegvis och gör",
+      "lakrits till något du räknar"
+    ],
+    "cta": "Vill du ha fler konkreta hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#146B5E"
+}

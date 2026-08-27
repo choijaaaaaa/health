@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Ce n'est pas la salière",
+    "qui fait monter la tension.",
+    "3 sources qu'on oublie"
+  ],
+  "eyebrow": "Tension artérielle",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "L'essentiel",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Pain et charcuterie",
+    "사탕_illust.jpg": "Réglisse",
+    "에너지드링크_illust.jpg": "Boissons énergisantes"
+  },
+  "items": [
+    {
+      "name": "Pourquoi on ne le voit pas",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "L'hypertension est souvent",
+        "découverte par hasard,",
+        "faute de symptômes",
+        "",
+        "Trois sources du quotidien",
+        "passent inaperçues"
+      ]
+    },
+    {
+      "name": "Un : le pain et la charcuterie",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Selon l'Anses, le sel vient",
+        "d'abord du pain et des biscottes,",
+        "puis de la charcuterie",
+        "",
+        "L'essentiel est déjà dans",
+        "l'aliment au moment de l'achat"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Comparez la teneur en sel",
+        "pour 100 g de deux marques",
+        "",
+        "Sur le pain et la charcuterie",
+        "que vous achetez chaque semaine"
+      ]
+    },
+    {
+      "name": "Deux : la réglisse",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Bonbons, tisanes et pastis",
+        "sans alcool en contiennent",
+        "",
+        "L'acide glycyrrhizique mime",
+        "l'aldostérone et retient le sodium"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "La mention « contient de la",
+        "réglisse » est obligatoire",
+        "",
+        "Elle limite l'efficacité des",
+        "médicaments antihypertenseurs"
+      ]
+    },
+    {
+      "name": "Trois : les boissons énergisantes",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Une canette équivaut en moyenne",
+        "à deux expressos",
+        "",
+        "L'Anses a recueilli 257 cas,",
+        "surtout cardiovasculaires"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Ne pas les associer à l'alcool",
+        "ni à un exercice physique",
+        "",
+        "Au-delà de 150 mg/l, la mention",
+        "« teneur élevée en caféine » est là"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le pain, la réglisse et la canette",
+        "pèsent plus que la salière"
+      ],
+      [
+        "Au-delà de 180/110 avec malaise,",
+        "appelez le 15 sans attendre"
+      ]
+    ],
+    "tip": [
+      "Apportez un relevé d'automesure",
+      "à votre médecin, pas un chiffre"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#56328C"
+}

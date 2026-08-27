@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Chest pounding, neck tight,",
+    "and a headache out of nowhere?",
+    "3 Everyday Blood Pressure Triggers"
+  ],
+  "eyebrow": "Blood Pressure Basics",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "에너지드링크_illust.jpg",
+  "char_display_names": {
+    "에너지드링크_illust.jpg": "Energy Drinks",
+    "사탕_illust.jpg": "Black Licorice",
+    "소금_illust.jpg": "Hidden Sodium"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "High blood pressure usually",
+        "gives you nothing to feel",
+        "",
+        "But 3 ordinary things you",
+        "drink and eat can move a",
+        "reading within the hour"
+      ]
+    },
+    {
+      "name": "Energy Drinks",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "First is caffeine",
+        "",
+        "Across 15 studies, one energy",
+        "drink raised systolic pressure",
+        "4.4 mm Hg on average"
+      ]
+    },
+    {
+      "name": "Cap the Caffeine",
+      "char_file": "에너지드링크_illust.jpg",
+      "body": [
+        "Check the can, not the cup",
+        "",
+        "400 mg a day is the ceiling",
+        "for healthy adults —",
+        "swap the 200 mg drink first"
+      ]
+    },
+    {
+      "name": "Black Licorice",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Second is glycyrrhizin",
+        "in real black licorice",
+        "",
+        "It makes the kidneys hold",
+        "sodium and shed potassium"
+      ]
+    },
+    {
+      "name": "Read the Label",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Most US licorice candy is",
+        "anise oil, not licorice",
+        "",
+        "If licorice root is listed",
+        "and you take BP medicine, ask"
+      ]
+    },
+    {
+      "name": "Hidden Sodium",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Third is sodium you",
+        "never added yourself",
+        "",
+        "Over 70% comes from packaged,",
+        "prepared and restaurant food"
+      ]
+    },
+    {
+      "name": "Cut 1,000 mg",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Compare labels on the two",
+        "packaged foods you eat most",
+        "",
+        "The AHA says 1,000 mg less",
+        "a day already helps"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Caffeine, licorice and packaged",
+        "food each nudge the number up"
+      ],
+      [
+        "Above 180/120 with symptoms,",
+        "call 911 — do not wait it out"
+      ]
+    ],
+    "tip": [
+      "Compare sodium labels on two",
+      "packaged foods tonight"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1A4D8F"
+}

@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Der Salzstreuer ist beim",
+    "Blutdruck selten das Problem.",
+    "3 unterschätzte Treiber"
+  ],
+  "eyebrow": "Blutdruck im Alltag",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Verstecktes Salz",
+    "사탕_illust.jpg": "Lakritz",
+    "알약_illust.jpg": "Rezeptfreie Mittel"
+  },
+  "items": [
+    {
+      "name": "Warum das kaum auffällt",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Etwa 50 % der Männer und 40 %",
+        "der Frauen haben erhöhten Blutdruck,",
+        "rund 15 % wissen nichts davon",
+        "",
+        "Denn spüren lässt er sich",
+        "normalerweise nicht"
+      ]
+    },
+    {
+      "name": "Erstens: verstecktes Salz",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Die DGE nennt Brot, Käse,",
+        "Wurst und Fischkonserven",
+        "",
+        "Der Schätzwert für Erwachsene",
+        "liegt bei 1.500 mg Natrium am Tag"
+      ]
+    },
+    {
+      "name": "So gehen Sie vor",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Nährwerttabelle vergleichen —",
+        "nicht alle Sorten sind gleich",
+        "",
+        "Bei zwei Produkten pro Woche",
+        "zur salzärmeren Variante greifen"
+      ]
+    },
+    {
+      "name": "Zweitens: Lakritz",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Glycyrrhizin lagert Natrium ein",
+        "und schwemmt Kalium aus",
+        "",
+        "Das BfR empfiehlt weniger als",
+        "100 mg Glycyrrhizin pro Tag"
+      ]
+    },
+    {
+      "name": "So gehen Sie vor",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Der Süßholz-Hinweis steht direkt",
+        "unter der Zutatenliste",
+        "",
+        "Bei erhöhtem Blutdruck den",
+        "regelmäßigen Verzehr ärztlich klären"
+      ]
+    },
+    {
+      "name": "Drittens: rezeptfreie Mittel",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Laut IQWiG können Ibuprofen,",
+        "Diclofenac und abschwellende",
+        "Nasensprays den Blutdruck erhöhen",
+        "",
+        "Viele zählen sie gar nicht",
+        "als Medikament"
+      ]
+    },
+    {
+      "name": "So gehen Sie vor",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Diese Mittel beim Termin",
+        "mit auf die Liste setzen",
+        "",
+        "Verordnete Blutdruckmittel",
+        "nie eigenmächtig absetzen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Brot und Wurst, Lakritz und die",
+        "Hausapotheke zählen alle mit"
+      ],
+      [
+        "Wie viele der drei Punkte",
+        "gelten heute für Sie?"
+      ]
+    ],
+    "tip": [
+      "Über 180 zu 110 mit Atemnot",
+      "oder Sprachstörung: Notruf 112"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#3C7A85"
+}

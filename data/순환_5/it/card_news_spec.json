@@ -1,0 +1,131 @@
+{
+  "title": [
+    "Cuore che accelera,",
+    "nuca rigida, mal di testa?",
+    "Il caffè non è il colpevole",
+    "Caffeina, liquirizia e sale"
+  ],
+  "eyebrow": "Pressione arteriosa",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "커피_illust.jpg",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffeina",
+    "사탕_illust.jpg": "Liquirizia",
+    "소금_illust.jpg": "Sale"
+  },
+  "items": [
+    {
+      "name": "Cosa succede",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cuore che accelera, nuca rigida",
+        "e mal di testa insieme?",
+        "",
+        "Tre voci molto diverse agiscono",
+        "sulla pressione: caffeina,",
+        "liquirizia e sale"
+      ]
+    },
+    {
+      "name": "La caffeina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caffeina blocca l'adenosina",
+        "e stimola adrenalina",
+        "e noradrenalina",
+        "",
+        "Effetto: aumento temporaneo",
+        "della pressione e tachicardia"
+      ]
+    },
+    {
+      "name": "Quanto è troppo",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Fino a 400 mg al giorno,",
+        "cioè 3-4 espressi,",
+        "per un adulto sano va bene",
+        "",
+        "Un decaffeinato ne ha 1-3 mg"
+      ]
+    },
+    {
+      "name": "La liquirizia",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Sopra 4 g/kg nei dolciumi",
+        "l'etichetta deve avvisare:",
+        "",
+        "\"contiene liquirizia — evitare",
+        "il consumo eccessivo",
+        "in caso di ipertensione\""
+      ]
+    },
+    {
+      "name": "Dove si nasconde",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Non solo caramelle nere:",
+        "tisane, digestivi, liquori",
+        "e radici da masticare",
+        "",
+        "Gira la confezione e leggi"
+      ]
+    },
+    {
+      "name": "Il sale",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Troppo sodio fa passare",
+        "più acqua nel sangue:",
+        "sale il rischio di pressione alta",
+        "",
+        "L'OMS indica massimo",
+        "5 g di sale al giorno"
+      ]
+    },
+    {
+      "name": "Da dove arriva",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Non dalla saliera:",
+        "pane, formaggi, salumi,",
+        "snack e salse pronte",
+        "",
+        "Alto contenuto: oltre",
+        "1,5 g di sale per 100 g"
+      ]
+    },
+    {
+      "name": "Cosa fare",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Taglia il sale prima",
+        "di togliere il caffè",
+        "",
+        "Erbe e spezie al posto del sale,",
+        "5 porzioni di frutta e verdura",
+        "per il potassio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il caffè alza la pressione",
+        "solo per poco tempo"
+      ],
+      [
+        "Il sale nascosto e la liquirizia",
+        "lavorano tutti i giorni"
+      ]
+    ],
+    "tip": [
+      "Meno sale in cottura, etichette lette",
+      "e liquirizia solo ogni tanto"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#2B7A6B"
+}

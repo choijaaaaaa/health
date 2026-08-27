@@ -1,0 +1,127 @@
+{
+  "title": [
+    "¿Palpitaciones, nuca cargada",
+    "y dolor de cabeza?",
+    "Puede ser la tensión",
+    "3 fuentes de sal invisible"
+  ],
+  "eyebrow": "Tensión arterial",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Procesados",
+    "사탕_illust.jpg": "Regaliz",
+    "소금_illust.jpg": "Sal"
+  },
+  "items": [
+    {
+      "name": "El punto de partida",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "En España se toman",
+        "9,8 g de sal al día",
+        "",
+        "El máximo recomendado",
+        "por la OMS y la AESAN",
+        "son 5 g"
+      ]
+    },
+    {
+      "name": "1. La sal invisible",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Solo el 20 % de la sal",
+        "la añadimos nosotros",
+        "",
+        "El 72 % ya viene añadida",
+        "en platos preparados,",
+        "quesos y snacks"
+      ]
+    },
+    {
+      "name": "Qué provoca",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "El exceso de sal se acumula",
+        "en sangre y atrae agua",
+        "",
+        "Aumenta el volumen circulante",
+        "y el corazón trabaja más fuerte"
+      ]
+    },
+    {
+      "name": "2. El regaliz",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Su etiqueta lo avisa por ley:",
+        "",
+        "\"contiene regaliz: las personas",
+        "que padezcan hipertensión deben",
+        "evitar un consumo excesivo\""
+      ]
+    },
+    {
+      "name": "Dónde aparece",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "No solo en caramelos:",
+        "palo de regaliz, infusiones",
+        "digestivas y algunos licores",
+        "",
+        "Gira el envase y comprueba"
+      ]
+    },
+    {
+      "name": "3. Conservas y salsas",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Legumbres de bote, caldos,",
+        "kétchup y salsas preparadas",
+        "",
+        "Aportan sal sin saber",
+        "obviamente saladas"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Enjuaga las conservas",
+        "antes de usarlas",
+        "",
+        "Y pide las salsas aparte",
+        "cuando comas fuera"
+      ]
+    },
+    {
+      "name": "El cambio clave",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Compara marcas en la etiqueta",
+        "",
+        "Sal = sodio × 2,5",
+        "Entre dos productos parecidos",
+        "la diferencia puede ser grande"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hace falta quitar el salero",
+        "para bajar el sodio del día"
+      ],
+      [
+        "El 72 % de la sal ya venía puesta",
+        "antes de llegar a tu cocina"
+      ]
+    ],
+    "tip": [
+      "Esta semana cambia un producto",
+      "por la versión con menos sal"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#8E4A1F"
+}
