@@ -38,7 +38,7 @@ def _search_pexels(query: str, count: int) -> list[tuple[str, str]]:
     )
     resp.raise_for_status()
     photos = resp.json().get("photos", [])
-    return [(f"pexels_{i:02d}", p["src"]["large2x"]) for i, p in enumerate(photos, start=1)]
+    return [(f"pexels_{i:02d}", p["src"]["original"]) for i, p in enumerate(photos, start=1)]
 
 
 def _search_unsplash(query: str, count: int) -> list[tuple[str, str]]:
@@ -51,7 +51,7 @@ def _search_unsplash(query: str, count: int) -> list[tuple[str, str]]:
     )
     resp.raise_for_status()
     results = resp.json().get("results", [])
-    return [(f"unsplash_{i:02d}", r["urls"]["regular"]) for i, r in enumerate(results, start=1)]
+    return [(f"unsplash_{i:02d}", r["urls"]["full"]) for i, r in enumerate(results, start=1)]
 
 
 def search_candidates(query: str, count: int = 5, source: str = "both") -> list[str]:
