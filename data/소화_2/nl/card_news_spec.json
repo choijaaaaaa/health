@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Gezonder eten en toch",
+    "geen kilo eraf?",
+    "Niet alleen je vork"
+  ],
+  "eyebrow": "Afvallen lukt niet",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Medicijnen",
+    "과일즙_illust.jpg": "Sap en smoothies",
+    "각설탕_illust.jpg": "Verborgen suiker"
+  },
+  "items": [
+    {
+      "name": "Het spreekwoord klopt niet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "\"Elk pondje gaat door",
+        "het mondje\"?",
+        "",
+        "Voedingscentrum: nee, de oorzaak",
+        "van overgewicht is vaak",
+        "ingewikkelder dan dat"
+      ]
+    },
+    {
+      "name": "Oorzaak 1: medicijnen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Middelen tegen hoge bloeddruk",
+        "of epilepsie, corticosteroïden,",
+        "antidepressiva, antipsychotica",
+        "",
+        "Ook schildklierproblemen",
+        "kunnen meespelen"
+      ]
+    },
+    {
+      "name": "Wat je dan doet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Stop nooit zelf met een medicijn",
+        "",
+        "Vraag je huisarts: kan dit",
+        "middel meespelen, en is er",
+        "een alternatief voor mij?"
+      ]
+    },
+    {
+      "name": "Oorzaak 2: het plateau",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "De eerste weken gaat het snel",
+        "doordat je vooral vocht verliest",
+        "",
+        "Daarna gaat het langzamer —",
+        "dat hoort erbij, ook zonder",
+        "verborgen oorzaak"
+      ]
+    },
+    {
+      "name": "Oorzaak 3: wat je drinkt",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Een glas fruitsmoothie van",
+        "250 ml: al gauw 7 suikerklontjes",
+        "",
+        "Water, thee of koffie zonder",
+        "suiker scheelt calorieën zonder",
+        "dat je minder gaat eten"
+      ]
+    },
+    {
+      "name": "Niet sneller, maar langzamer",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Thuisarts: val niet te snel af",
+        "",
+        "Mensen die snel afvallen worden",
+        "daarna vaak snel weer zwaarder"
+      ]
+    },
+    {
+      "name": "Wat wél helpt",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "2,5 uur actief bewegen per week",
+        "en 2 keer per week je spieren",
+        "trainen",
+        "",
+        "Meer bewegen en gezond eten is",
+        "al goed voor je, ook zonder",
+        "gewichtsverlies"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Slaap, stress, medicijnen en",
+        "schildklier tellen net zo hard mee"
+      ],
+      [
+        "Langzaam afvallen houdt",
+        "langer stand dan snel afvallen"
+      ]
+    ],
+    "tip": [
+      "Middel 88 cm (vrouw) of 102 cm (man)",
+      "of geen verklaring? Ga naar de huisarts"
+    ],
+    "cta": "Wil je meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2B6F5B"
+}

@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Du tränar mer men",
+    "vikten står stilla?",
+    "Träning håller vikten"
+  ],
+  "eyebrow": "Vikten står stilla",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "운동화_illust.jpg",
+  "char_display_names": {
+    "운동화_illust.jpg": "Rörelse",
+    "흰빵_illust.jpg": "Snabba kolhydrater",
+    "탄산음료_illust.jpg": "Läsk och godis"
+  },
+  "items": [
+    {
+      "name": "Det du inte fick höra",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Ett träningspass till i veckan,",
+        "ändå står vikten still",
+        "",
+        "1177: att röra sig mer gör",
+        "sällan att du går ner i vikt —",
+        "men det hjälper dig hålla den"
+      ]
+    },
+    {
+      "name": "Ofta slår hårt",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Bättre att röra sig ofta och",
+        "något mindre, än att träna hårt",
+        "någon gång i veckan",
+        "",
+        "Stillasittande är en risk även",
+        "om du är aktiv andra stunder"
+      ]
+    },
+    {
+      "name": "Kroppen bromsar",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "När du minskar i vikt ökar",
+        "hungern och ämnesomsättningen",
+        "minskar",
+        "",
+        "Det kan ta många år innan",
+        "kroppen vant sig — det är",
+        "inte ett tecken på att du gör fel"
+      ]
+    },
+    {
+      "name": "Bukfettet",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Bukfettet kan öka av stress,",
+        "oregelbundna matvanor och",
+        "mycket snabba kolhydrater",
+        "",
+        "Det är fettet inuti magen som",
+        "innebär störst risk"
+      ]
+    },
+    {
+      "name": "Regelbundna tider",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Ät frukost, lunch och middag",
+        "på regelbundna tider",
+        "",
+        "Det håller dig mätt längre och",
+        "gör dig mindre sugen på",
+        "att småäta"
+      ]
+    },
+    {
+      "name": "Sömnen och klockan",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sju till nio timmars sömn",
+        "",
+        "Melatonin utsöndras oftast",
+        "klockan 22 till 23 — att lägga",
+        "sig långt efter midnatt kan",
+        "öka hungerhormonerna"
+      ]
+    },
+    {
+      "name": "Mät midjan",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Risken ökar från 80 cm för",
+        "kvinnor och 94 cm för män",
+        "",
+        "Vid 88 respektive 102 cm",
+        "ökar den ytterligare"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Träning håller vikten,",
+        "den sänker den sällan"
+      ],
+      [
+        "Regelbundna måltider, sömn och",
+        "mindre stillasittande gör mer"
+      ]
+    ],
+    "tip": [
+      "Besvär trots egna försök? Kontakta",
+      "vårdcentralen — sköldkörteln kollas där"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#35618E"
+}

@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Weniger essen, mehr bewegen –",
+    "und das Körperfett",
+    "bleibt trotzdem?",
+    "3 Gründe für den Stillstand"
+  ],
+  "eyebrow": "Körperfett und Gewicht",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "운동화_illust.jpg",
+  "char_display_names": {
+    "운동화_illust.jpg": "Muskelmasse",
+    "알약_illust.jpg": "Medikamente",
+    "호두_illust.jpg": "Ballaststoffe"
+  },
+  "items": [
+    {
+      "name": "Warum es stehen bleibt",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Die ersten Kilos gingen,",
+        "dann stand die Waage still",
+        "",
+        "Das IQWiG nennt dafür Gründe,",
+        "die nichts mit Disziplin zu tun haben"
+      ]
+    },
+    {
+      "name": "Grund 1: Der Körper bremst",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Stoffwechsel, Hormone und",
+        "Nervensystem halten das Gleichgewicht",
+        "",
+        "Mit dem Gewicht geht Muskelmasse",
+        "zurück — der Körper braucht",
+        "dann weniger Energie"
+      ]
+    },
+    {
+      "name": "Was dagegen hilft",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "5 bis 10 Prozent in",
+        "6 bis 12 Monaten anpeilen",
+        "",
+        "Der BMI muss laut IQWiG keinen",
+        "bestimmten Wert erreichen"
+      ]
+    },
+    {
+      "name": "Grund 2: Medikamente",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Manche Psychopharmaka und",
+        "einige Diabetesmedikamente",
+        "",
+        "können eine Gewichtszunahme",
+        "begünstigen — so das IQWiG"
+      ]
+    },
+    {
+      "name": "Was dagegen hilft",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Nichts eigenmächtig absetzen —",
+        "in der Praxis nachfragen",
+        "",
+        "Auch die Schilddrüsenwerte",
+        "lassen sich dort bestimmen"
+      ]
+    },
+    {
+      "name": "Grund 3: Zu wenig Ballaststoffe",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Der DGE-Richtwert liegt bei",
+        "mindestens 30 g pro Tag",
+        "",
+        "Vollkorn sättigt länger",
+        "als Weißmehlprodukte"
+      ]
+    },
+    {
+      "name": "Was dagegen hilft",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Hülsenfrüchte 1x pro Woche,",
+        "täglich eine kleine Handvoll Nüsse",
+        "",
+        "Dazu 5 Portionen Obst und Gemüse",
+        "und rund 1,5 Liter Wasser"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Stoffwechsel, Medikamente,",
+        "Ballaststoffe — drei stille Bremsen"
+      ],
+      [
+        "Der Stillstand ist erwartbar,",
+        "nicht Ihr persönliches Versagen"
+      ]
+    ],
+    "tip": [
+      "Messen Sie den Bauchumfang:",
+      "über 102 cm (Mann) / 88 cm (Frau)"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#5A4E2E"
+}

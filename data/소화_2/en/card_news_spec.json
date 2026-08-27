@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Eating less, moving more,",
+    "and the body fat still",
+    "will not move?",
+    "3 Causes Behind a Stalled Diet"
+  ],
+  "eyebrow": "Stalled Fat Loss",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Short Sleep",
+    "알약_illust.jpg": "Daily Medicines",
+    "아몬드_illust.jpg": "The Fiber Gap"
+  },
+  "items": [
+    {
+      "name": "Why the Scale Stalls",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "You cut portions and walk more,",
+        "but the body fat will not move",
+        "",
+        "NIDDK lists sleep, medicines and",
+        "health conditions as weight factors —",
+        "3 of them get missed most often"
+      ]
+    },
+    {
+      "name": "Cause 1: Short Sleep",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Adults 18 to 64 need",
+        "7 to 9 hours a night",
+        "",
+        "Too little sleep can disrupt",
+        "the hormones that control appetite,",
+        "and adds more waking hours to eat"
+      ]
+    },
+    {
+      "name": "Fix the Sleep Gap",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Count your actual hours",
+        "for one week before anything else",
+        "",
+        "If you land at 5 or 6, that is",
+        "the cheapest thing on this list to fix"
+      ]
+    },
+    {
+      "name": "Cause 2: Your Medicine Cabinet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Steroids, some antidepressants,",
+        "insulin, beta-blockers, antihistamines",
+        "",
+        "NIDDK lists all of these among",
+        "medicines that may add weight"
+      ]
+    },
+    {
+      "name": "Fix the Medication Question",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Never stop a prescription",
+        "on your own — ask instead",
+        "",
+        "\"Is weight gain a side effect of this,",
+        "and is there an alternative for me?\""
+      ]
+    },
+    {
+      "name": "Cause 3: The Fiber Gap",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Americans average about",
+        "16g of fiber a day",
+        "",
+        "The recommendation is 21 to 38g —",
+        "and fiber is what makes you",
+        "feel full faster"
+      ]
+    },
+    {
+      "name": "Fix the Fiber Gap",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "100g of cooked chickpeas:",
+        "7.6g fiber, 8.9g protein, 164 kcal",
+        "",
+        "Add fiber gradually over weeks",
+        "and drink plenty of water"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sleep, prescriptions and fiber",
+        "all move fat loss quietly"
+      ],
+      [
+        "A stalled diet is usually a missed",
+        "cause — not a missing will"
+      ]
+    ],
+    "tip": [
+      "Measure your waist too:",
+      "over 35in (women) or 40in (men) matters"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1A6E5A"
+}

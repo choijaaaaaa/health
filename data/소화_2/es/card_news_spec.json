@@ -1,0 +1,119 @@
+{
+  "title": [
+    "¿Comes menos y la grasa",
+    "sigue sin bajar?",
+    "Mira el tiempo sentado"
+  ],
+  "eyebrow": "Grasa que no baja",
+  "swipe_label": "Desliza para continuar  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "서류더미_illust.jpg",
+  "char_display_names": {
+    "서류더미_illust.jpg": "Tiempo sentado",
+    "계란_illust.jpg": "Falsos mitos",
+    "바나나_illust.jpg": "Fruta entre horas"
+  },
+  "items": [
+    {
+      "name": "El factor que falta",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Comes menos y andas más,",
+        "pero la grasa no se mueve",
+        "",
+        "Sanidad separa dos cosas:",
+        "hacer actividad física y",
+        "reducir el tiempo sentado"
+      ]
+    },
+    {
+      "name": "Actúan por separado",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "\"Solo la actividad física no",
+        "sería suficiente para reducir",
+        "los efectos del sedentarismo\"",
+        "",
+        "Media hora de ejercicio no borra",
+        "ocho horas en una silla"
+      ]
+    },
+    {
+      "name": "Rompe el rato sentado",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Pausas activas cada poco:",
+        "estiramientos, un paseo corto,",
+        "escaleras en vez de ascensor",
+        "",
+        "Ir andando o en bici parte",
+        "del trayecto también cuenta"
+      ]
+    },
+    {
+      "name": "El mito de compensar",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "\"Si hago ejercicio puedo comer",
+        "lo que quiera\" es un falso mito",
+        "",
+        "Sanidad: la alimentación no",
+        "saludable es difícilmente",
+        "compensable con ejercicio"
+      ]
+    },
+    {
+      "name": "No es cosa tuya",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Estudio ENE-COVID (AESAN):",
+        "el 55,8% de la población adulta",
+        "en España tenía exceso de peso",
+        "",
+        "Es un patrón de país,",
+        "no un fallo de carácter"
+      ]
+    },
+    {
+      "name": "Lo que sí ayuda",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "30 minutos de actividad",
+        "moderada cinco días o más",
+        "",
+        "Repartir el movimiento por la",
+        "semana da más beneficio que",
+        "concentrarlo en un día"
+      ]
+    },
+    {
+      "name": "Agua y fruta",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "De 1,5 a 2 litros de agua al día",
+        "",
+        "El agua no tiene ninguna caloría",
+        "y sacia; la fruta entre horas",
+        "desplaza dulces y snacks"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El sedentarismo suma aparte",
+        "del ejercicio que ya haces"
+      ],
+      [
+        "Antes de comer menos, revisa",
+        "cuántas horas pasas sentado"
+      ]
+    ],
+    "tip": [
+      "¿Peso cambiado de forma brusca",
+      "sin motivo? Consulta a tu médico"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#8A2B4C"
+}

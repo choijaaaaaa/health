@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Il grasso non scende",
+    "anche se mangi meno?",
+    "Bilancia o girovita?"
+  ],
+  "eyebrow": "Peso che non scende",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "다이어트도시락_illust.jpg",
+  "char_display_names": {
+    "다이어트도시락_illust.jpg": "Massa magra",
+    "체리_illust.jpg": "Fibra e sazietà",
+    "물컵_illust.jpg": "Acqua"
+  },
+  "items": [
+    {
+      "name": "Il numero che guardi",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Mangi meno, cammini di più,",
+        "ma la bilancia non si muove",
+        "",
+        "L'ISS lo scrive chiaramente:",
+        "l'IMC da solo non è una",
+        "misurazione molto accurata"
+      ]
+    },
+    {
+      "name": "Grasso o muscolo",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "L'IMC non distingue tra",
+        "massa grassa e muscolare",
+        "",
+        "Chi ha un fisico sportivo pesa",
+        "di più grazie ai muscoli,",
+        "non perché sia in sovrappeso"
+      ]
+    },
+    {
+      "name": "Cosa misurare",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Misura la circonferenza vita",
+        "",
+        "Da 94 cm negli uomini e",
+        "da 80 cm nelle donne è",
+        "probabile il grasso viscerale"
+      ]
+    },
+    {
+      "name": "Uomini e donne",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "A parità di IMC gli uomini",
+        "accumulano più grasso viscerale,",
+        "le donne più grasso sottocutaneo",
+        "",
+        "Risultati diversi con la stessa",
+        "dieta non sono poco impegno"
+      ]
+    },
+    {
+      "name": "Niente scorciatoie",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "L'ISS: non vi è alcuna",
+        "soluzione rapida",
+        "",
+        "Le diete troppo rigide intaccano",
+        "il muscolo e rallentano il",
+        "metabolismo: il calo si ferma"
+      ]
+    },
+    {
+      "name": "Cosa funziona",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Perdita lenta e graduale,",
+        "150-300 minuti di movimento",
+        "a settimana",
+        "",
+        "Più ortaggi e fibra, zuccheri",
+        "semplici sotto il 10%"
+      ]
+    },
+    {
+      "name": "Un dettaglio che sfugge",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Se mangi meno, bevi di più",
+        "",
+        "Con meno cibo arriva meno acqua:",
+        "compensala con acqua o infusi",
+        "senza calorie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il girovita dice più della bilancia",
+        "su come sta cambiando il corpo"
+      ],
+      [
+        "Un calo lento e mantenuto",
+        "vale più di un calo veloce"
+      ]
+    ],
+    "tip": [
+      "Peso salito senza motivo, stanchezza",
+      "o apnee notturne? Parlane col medico"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#14524A"
+}

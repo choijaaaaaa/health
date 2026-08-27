@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Vous mangez moins,",
+    "vous bougez plus,",
+    "et la masse grasse reste ?",
+    "3 pistes à vérifier"
+  ],
+  "eyebrow": "Masse grasse et poids",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "char_display_names": {
+    "스마트폰_illust.jpg": "Horloge interne",
+    "긴장_illust.jpg": "Stress et traitements",
+    "키위_illust.jpg": "Fibres au menu"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ça bloque",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Même régime, même effort,",
+        "et des résultats très différents",
+        "",
+        "Le dossier Obésité de l'Inserm",
+        "donne trois explications",
+        "rarement citées"
+      ]
+    },
+    {
+      "name": "Piste 1 : la part génétique",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Plus de 1 000 régions génétiques",
+        "sont associées à l'IMC",
+        "",
+        "Le risque est 2 à 8 fois plus élevé",
+        "si des proches sont concernés"
+      ]
+    },
+    {
+      "name": "Piste 2 : l'horloge interne",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Manque de sommeil, repas",
+        "irréguliers, travail de nuit",
+        "",
+        "Ils dérèglent l'horloge interne",
+        "et augmentent le risque de surpoids"
+      ]
+    },
+    {
+      "name": "Ce qu'on peut y faire",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Des horaires de repas réguliers",
+        "avant de retoucher les quantités",
+        "",
+        "Le stress et certains traitements",
+        "figurent aussi dans la liste Inserm"
+      ]
+    },
+    {
+      "name": "Piste 3 : les traitements",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Antidépresseurs, corticoïdes :",
+        "l'Inserm les cite parmi les facteurs",
+        "",
+        "On n'arrête jamais seul —",
+        "on en parle au médecin"
+      ]
+    },
+    {
+      "name": "Ce qui change vraiment",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "5 à 10 % du poids initial suffisent",
+        "pour des bénéfices cliniques",
+        "",
+        "150 min d'activité par semaine",
+        "et du renforcement 2 fois"
+      ]
+    },
+    {
+      "name": "Au menu",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Des légumes secs au moins",
+        "2 fois par semaine",
+        "",
+        "Au moins 5 fruits et légumes par jour —",
+        "le jus ne compte pas pour une portion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Génétique, horloge interne,",
+        "traitements : trois freins discrets"
+      ],
+      [
+        "Une perte de 5 à 10 % change déjà",
+        "beaucoup, bien avant le poids rêvé"
+      ]
+    ],
+    "tip": [
+      "Mesurez le tour de taille :",
+      "plus de 100 cm (homme) / 88 cm (femme)"
+    ],
+    "cta": "Envie de plus de conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#7A5E4B"
+}
