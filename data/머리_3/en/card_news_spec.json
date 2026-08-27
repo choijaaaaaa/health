@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Seeing more hair in the drain",
+    "and blaming what you ate?",
+    "One of these is fixable by diet",
+    "Shedding vs. Hair Loss"
+  ],
+  "eyebrow": "Hair Health",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Worth Checking",
+  "cover_char_file": "다이어트도시락_illust.jpg",
+  "char_display_names": {
+    "다이어트도시락_illust.jpg": "Crash Diets",
+    "알약_illust.jpg": "Supplements",
+    "소고기_illust.jpg": "Iron Foods"
+  },
+  "items": [
+    {
+      "name": "Two Problems, Not One",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Losing 50 to 100 hairs a day",
+        "is normal shedding",
+        "",
+        "Shedding follows a stressor",
+        "and reverses on its own —",
+        "hair loss stops regrowth entirely"
+      ]
+    },
+    {
+      "name": "The Shedding Timeline",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Excess shedding usually starts",
+        "a couple of months after",
+        "a specific trigger",
+        "",
+        "Fullness often returns",
+        "within six to nine months"
+      ]
+    },
+    {
+      "name": "What Diet Actually Triggers",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Sudden weight loss and",
+        "low protein intake are known",
+        "causes of temporary shedding",
+        "",
+        "Hair follicles are among the",
+        "body's most active tissue"
+      ]
+    },
+    {
+      "name": "The Supplement Trap",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Too much selenium, vitamin A",
+        "or vitamin E has been",
+        "linked to hair loss",
+        "",
+        "Biotin has no proven benefit",
+        "unless you are deficient"
+      ]
+    },
+    {
+      "name": "Test Before You Buy",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Iron deficiency is the world's",
+        "most common deficiency —",
+        "and a known cause of hair loss",
+        "",
+        "A ferritin blood test tells you",
+        "what a bottle label cannot"
+      ]
+    },
+    {
+      "name": "Eat Enough First",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Red meat, fish, eggs and beans",
+        "cover protein and iron",
+        "",
+        "Heme iron from meat absorbs",
+        "more easily than plant iron"
+      ]
+    },
+    {
+      "name": "Read the Pattern",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Diffuse thinning all over reads",
+        "differently from a receding",
+        "hairline or a bald patch",
+        "",
+        "A dermatologist can tell",
+        "shedding and loss apart"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Look back three months from",
+        "the day you first noticed it"
+      ],
+      [
+        "Name the stressor and it's shedding —",
+        "no stressor, and it's worth a visit"
+      ]
+    ],
+    "tip": [
+      "Check ferritin before buying a hair vitamin,",
+      "and eat enough before eating differently"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1F5F4B"
+}

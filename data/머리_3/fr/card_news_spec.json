@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Plus de cheveux sur la brosse",
+    "et vous accusez votre alimentation ?",
+    "Une seule des 3 causes en dépend",
+    "Chute de cheveux"
+  ],
+  "eyebrow": "Cheveux et cuir chevelu",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "Dès ce soir",
+  "cover_char_file": "다이어트도시락_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Compléments",
+    "다이어트도시락_illust.jpg": "Régimes stricts",
+    "소고기_illust.jpg": "Sources de fer"
+  },
+  "items": [
+    {
+      "name": "Le repère de départ",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Nous perdons normalement",
+        "50 à 100 cheveux par jour",
+        "",
+        "On parle de chute anormale",
+        "au-delà de 100 par jour"
+      ]
+    },
+    {
+      "name": "Cause 1 : androgénétique",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Prédisposition génétique",
+        "et action de la DHT",
+        "",
+        "Le cycle de pousse s'accélère",
+        "et le cheveu s'affine"
+      ]
+    },
+    {
+      "name": "Ce que cela change",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Environ 20 % des hommes à 20 ans,",
+        "30 % à 30 ans, 40 % à 40 ans",
+        "",
+        "Chez la femme, 80 % des chutes",
+        "durables viennent de là"
+      ]
+    },
+    {
+      "name": "Cause 2 : effluvium télogène",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Jusqu'à 30 % des cheveux",
+        "arrêtent leur croissance",
+        "",
+        "La chute arrive environ 3 mois",
+        "après le déclencheur"
+      ]
+    },
+    {
+      "name": "Et elle repart seule",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Accouchement, opération,",
+        "forte fièvre, choc, arrêt de pilule",
+        "",
+        "Elle dure 3 à 4 mois,",
+        "puis la repousse est complète"
+      ]
+    },
+    {
+      "name": "Cause 3 : les carences",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Fer, zinc, magnésium, calcium :",
+        "les régimes extrêmes créent",
+        "ces carences",
+        "",
+        "Le problème vient de ce qui manque,",
+        "pas de ce qui est en trop"
+      ]
+    },
+    {
+      "name": "Remplir plutôt que vider",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Référence en fer de l'Anses :",
+        "11 mg par jour, 16 mg si les",
+        "pertes menstruelles sont élevées",
+        "",
+        "Viande rouge, poisson, fruits de mer,",
+        "jaune d'œuf et lentilles couvrent",
+        "fer, zinc et protéines"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Remontez le calendrier de 3 mois",
+        "à partir du jour où vous l'avez remarqué"
+      ],
+      [
+        "Un événement retrouvé change",
+        "complètement la marche à suivre"
+      ]
+    ],
+    "tip": [
+      "Ce soir, notez la date de la chute",
+      "et l'événement des 3 mois précédents"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#B5533A"
+}

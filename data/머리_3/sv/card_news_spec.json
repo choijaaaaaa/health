@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Fler hårtussar i duschen",
+    "än för ett halvår sedan?",
+    "Kolla järnet först",
+    "Håravfall och kost"
+  ],
+  "eyebrow": "Håravfall",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "호두_illust.jpg",
+  "cover_scrim_color": "#B5643C",
+  "char_display_names": {
+    "호두_illust.jpg": "Järnkällor",
+    "흰빵_illust.jpg": "Surdegsbröd",
+    "대추_illust.jpg": "Torkad frukt"
+  },
+  "items": [
+    {
+      "name": "Hur det hänger ihop",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "50 till 150 hårstrån",
+        "om dagen är normalt",
+        "",
+        "Ärftligt håravfall ändras",
+        "inte av kosten — men",
+        "det tillfälliga gör det"
+      ]
+    },
+    {
+      "name": "Järnet är knepigt",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Växtbaserad mat innehåller",
+        "enbart icke-hemjärn,",
+        "som tas upp sämre",
+        "",
+        "Källa: Livsmedelsverket"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Bygg måltiden runt linser,",
+        "bönor, tofu, pumpafrön",
+        "och gröna bladgrönsaker",
+        "",
+        "Kvinnor 18-50 år:",
+        "15 mg järn om dagen"
+      ]
+    },
+    {
+      "name": "Fytinsyran",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Fullkorn innehåller järn",
+        "men också fytinsyra,",
+        "som bromsar upptaget",
+        "",
+        "Långjäsning bryter ned",
+        "en del av den"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Välj surdegsbröd",
+        "och långjäst bröd",
+        "",
+        "Grodda baljväxter",
+        "och frön fungerar likadant"
+      ]
+    },
+    {
+      "name": "C-vitaminet avgör",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "C-vitamin förbättrar",
+        "upptaget av icke-hemjärn",
+        "",
+        "Polyfenoler i te och kaffe",
+        "drar åt andra hållet"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "Något C-vitaminrikt",
+        "till varje måltid",
+        "",
+        "Och kaffet mellan",
+        "måltiderna, inte till maten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Schampot avgör inte",
+        "hur mycket hår du behåller"
+      ],
+      [
+        "Vid tillfälligt håravfall",
+        "är järnet det du rår över"
+      ]
+    ],
+    "tip": [
+      "C-vitaminrikt till varje måltid,",
+      "och kaffet mellan måltiderna"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  }
+}

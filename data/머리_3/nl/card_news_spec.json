@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Meer haren in het putje",
+    "dan een paar maanden geleden?",
+    "Kijk drie maanden terug",
+    "Haaruitval en voeding"
+  ],
+  "eyebrow": "Haaruitval",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "긴장_illust.jpg",
+  "cover_scrim_color": "#1E6B8C",
+  "char_display_names": {
+    "긴장_illust.jpg": "Stress en ziekte",
+    "아몬드_illust.jpg": "IJzer",
+    "커피_illust.jpg": "Koffie en thee"
+  },
+  "items": [
+    {
+      "name": "Hoe zit het",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "100 tot 120 haren per dag",
+        "verliezen is normaal",
+        "",
+        "Pas boven de 120,",
+        "langere tijd achter elkaar,",
+        "wordt je haar echt dunner"
+      ]
+    },
+    {
+      "name": "De vertraging",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Haren stoppen eerder",
+        "met groeien en vallen",
+        "pas na 3 tot 6 maanden uit",
+        "",
+        "Denk aan stress, koorts,",
+        "een operatie of bevalling"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Eet weer normaal",
+        "en gevarieerd",
+        "",
+        "Bij een tijdelijke oorzaak",
+        "groeit het haar terug"
+      ]
+    },
+    {
+      "name": "Te weinig ijzer",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Van heemijzer neem je 25% op,",
+        "van plantaardig ijzer",
+        "maar 1 tot 10%",
+        "",
+        "Bron: Voedingscentrum"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Combineer ijzer",
+        "met vitamine C",
+        "",
+        "Groente of fruit bij elke",
+        "maaltijd doet het werk"
+      ]
+    },
+    {
+      "name": "Koffie bij het eten",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenolen uit thee",
+        "en koffie remmen",
+        "de ijzeropname",
+        "",
+        "Fytaat uit granen",
+        "en peulvruchten ook"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drink thee en koffie",
+        "tussen de maaltijden door",
+        "",
+        "Vermoed je een tekort?",
+        "Laat prikken, niet slikken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pillen, crèmes en shampoos",
+        "tegen haaruitval helpen niet"
+      ],
+      [
+        "De oorzaak aanpakken",
+        "en tijd geven wel"
+      ]
+    ],
+    "tip": [
+      "Eet weer normaal en gevarieerd,",
+      "en geef het drie tot zes maanden"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  }
+}

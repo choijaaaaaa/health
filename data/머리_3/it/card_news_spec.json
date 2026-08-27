@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Più capelli del solito",
+    "nello scarico della doccia?",
+    "Zuccheri, ferro e tavola"
+  ],
+  "eyebrow": "Capelli e alimentazione",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "cover_scrim_color": "#4C2F5E",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Bevande zuccherate",
+    "소고기_illust.jpg": "Ferro",
+    "마늘_illust.jpg": "Dieta mediterranea"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La genetica pesa,",
+        "ma non spiega tutto",
+        "",
+        "Zuccheri liquidi e carenza",
+        "di ferro sono i due fattori",
+        "che puoi davvero cambiare"
+      ]
+    },
+    {
+      "name": "Le bevande zuccherate",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Su 1.028 uomini 18-45 anni,",
+        "un consumo elevato di bibite",
+        "si associa a più calvizie",
+        "",
+        "Associazione, non causa:",
+        "resta un dato da tenere d'occhio"
+      ]
+    },
+    {
+      "name": "Come cambiarla",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Acqua o acqua frizzante",
+        "nei giorni feriali",
+        "",
+        "La bibita resta,",
+        "ma torna a essere",
+        "un'eccezione"
+      ]
+    },
+    {
+      "name": "La carenza di ferro",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Nell'anemia da carenza",
+        "di ferro la perdita dei capelli",
+        "compare nel 30% dei casi",
+        "",
+        "Fonte: Istituto Superiore",
+        "di Sanità"
+      ]
+    },
+    {
+      "name": "Come rimediare",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Prima l'esame del sangue,",
+        "poi eventualmente il ferro",
+        "",
+        "Legumi e verdure a foglia",
+        "rendono molto di più",
+        "con la vitamina C"
+      ]
+    },
+    {
+      "name": "La dieta mediterranea",
+      "char_file": "마늘_illust.jpg",
+      "body": [
+        "Studio su 104 uomini",
+        "con alopecia androgenetica",
+        "e 108 controlli, a Roma",
+        "",
+        "Verdure crude ed erbe fresche:",
+        "rischio quasi dimezzato"
+      ]
+    },
+    {
+      "name": "Come applicarla",
+      "char_file": "마늘_illust.jpg",
+      "body": [
+        "Verdure crude tre volte",
+        "a settimana",
+        "",
+        "Prezzemolo, basilico, rosmarino",
+        "a crudo sul piatto finito"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lo shampoo non decide",
+        "quanti capelli restano"
+      ],
+      [
+        "Zuccheri, ferro e verdure crude:",
+        "qui hai margine di manovra"
+      ]
+    ],
+    "tip": [
+      "Tre porzioni di verdura cruda a settimana",
+      "e le erbe fresche sul piatto finito"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  }
+}

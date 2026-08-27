@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Mehr Haare im Abfluss",
+    "und der Scheitel wirkt breiter?",
+    "Nicht immer liegt es am Essen",
+    "Haarausfall verstehen"
+  ],
+  "eyebrow": "Haare und Kopfhaut",
+  "swipe_label": "Weiter wischen  →",
+  "closing_label": "Zum Schluss",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Präparate",
+    "소고기_illust.jpg": "Eisenquellen",
+    "아몬드_illust.jpg": "Nüsse"
+  },
+  "items": [
+    {
+      "name": "Zwei sehr verschiedene Ursachen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Haarausfall hat zwei",
+        "grundverschiedene Ausgangslagen",
+        "",
+        "Nur bei einer davon",
+        "spielt das Essen eine belegte Rolle"
+      ]
+    },
+    {
+      "name": "Nicht zu viel Testosteron",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Bis zu 70 Prozent der Männer",
+        "und 40 Prozent der Frauen",
+        "sind betroffen",
+        "",
+        "Entscheidend ist die Empfindlichkeit",
+        "der Follikel gegenüber DHT"
+      ]
+    },
+    {
+      "name": "Was dann hilft",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Je früher behandelt wird,",
+        "desto besser die Aussichten",
+        "",
+        "Die Leitlinie empfiehlt Minoxidil",
+        "bei leichtem bis moderatem Verlauf"
+      ]
+    },
+    {
+      "name": "Wann Eisen dahintersteckt",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Haarausfall zählt zu den",
+        "typischen Zeichen eines Eisenmangels",
+        "",
+        "In Europa sind etwa",
+        "5 bis 10 Prozent betroffen"
+      ]
+    },
+    {
+      "name": "Wer besonders aufpassen sollte",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Einseitige Ernährung, strenge Diäten",
+        "und Essstörungen senken die Zufuhr",
+        "",
+        "Auch vegetarisch und vegan",
+        "ist der Bedarf schwerer zu decken"
+      ]
+    },
+    {
+      "name": "Eisenreich essen",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Fleisch, Spinat, Linsen,",
+        "Kichererbsen, Thunfisch,",
+        "Haferflocken und Cashewkerne",
+        "",
+        "Vitamin C zur Mahlzeit",
+        "fördert die Aufnahme"
+      ]
+    },
+    {
+      "name": "Was das Geld nicht wert ist",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Für Präparate mit Zink, Koffein",
+        "oder Pflanzenextrakten ist keine",
+        "Wirkung gegen anlagebedingten",
+        "Haarausfall erwiesen",
+        "",
+        "Sie ersetzen kein Blutbild"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wenn Sie sich nur eine Sache merken:",
+        "erst der Eisenstatus, dann die Entscheidung"
+      ],
+      [
+        "Ein Blutbild trennt die Ernährungsursache",
+        "von der anlagebedingten Form"
+      ]
+    ],
+    "tip": [
+      "Erst das Blutbild, dann die Entscheidung –",
+      "und beides vor dem ersten Präparat"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#7A3E6B"
+}

@@ -1,0 +1,117 @@
+{
+  "title": [
+    "El pelo que hoy ves",
+    "en el cepillo dejó de crecer",
+    "hace tres meses",
+    "Caída difusa y dieta"
+  ],
+  "eyebrow": "Caída del cabello",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "다이어트도시락_illust.jpg",
+  "cover_scrim_color": "#8C3F5E",
+  "char_display_names": {
+    "다이어트도시락_illust.jpg": "Dietas exprés",
+    "달걀_illust.jpg": "Proteína y hierro",
+    "알약_illust.jpg": "Suplementos"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Perder unos 100 cabellos",
+        "al día es normal",
+        "",
+        "Cuando se cae mucho más,",
+        "el disparador suele estar",
+        "dos a cuatro meses atrás"
+      ]
+    },
+    {
+      "name": "El desfase",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Se llama efluvio telógeno",
+        "",
+        "Aparece entre dos y cuatro",
+        "meses después de la causa",
+        "y suele ser transitorio"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Baja el ritmo de la dieta",
+        "",
+        "Adelgazar muy rápido",
+        "con muy pocas calorías",
+        "es un desencadenante clásico"
+      ]
+    },
+    {
+      "name": "Hierro y proteína",
+      "char_file": "달걀_illust.jpg",
+      "body": [
+        "Las carencias de proteína",
+        "y la anemia ferropénica",
+        "están en la lista de causas",
+        "",
+        "Fuente: AEDV"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "달걀_illust.jpg",
+      "body": [
+        "Junta el hierro",
+        "con la vitamina C",
+        "",
+        "Lentejas con pimiento",
+        "o una naranja de postre"
+      ]
+    },
+    {
+      "name": "Ojo con la biotina",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "La AEMPS avisa:",
+        "la biotina interfiere",
+        "en los análisis de tiroides",
+        "",
+        "Los resultados pueden salir",
+        "falsamente altos o bajos"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Avisa en el laboratorio",
+        "si tomas suplementos",
+        "para pelo, piel y uñas",
+        "",
+        "Y pide analítica",
+        "antes de suplementar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No es el champú:",
+        "es lo que pasó hace meses"
+      ],
+      [
+        "El folículo no queda dañado,",
+        "se recupera al retirar la causa"
+      ]
+    ],
+    "tip": [
+      "Analítica antes que suplemento,",
+      "y hierro siempre con vitamina C"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  }
+}
