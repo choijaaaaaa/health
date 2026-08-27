@@ -60,7 +60,10 @@ def _discover_topics() -> list[str]:
             continue
         if (p / "platform_captions.json").exists():
             topics.append(p.name)
-            continue
+            # WHY continue하지 않는지(2026-08-28 버그 수정): 옛 flat topic에 나중에
+            # 언어 폴더를 덧붙이는 경우(blog_seo 확장)가 실제로 생겼는데, 여기서
+            # 끊으면 그 언어들이 통째로 검사 대상에서 빠진다 — 소화_3·머리_5의
+            # 15개 조합이 "pytest 전부 통과"인 채로 미검증 상태였다.
         for sub in sorted(p.iterdir()):
             if sub.is_dir() and (sub / "platform_captions.json").exists():
                 topics.append(f"{p.name}/{sub.name}")
