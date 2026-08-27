@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Le caviglie si gonfiano",
+    "e le urine fanno schiuma?",
+    "Non è ancora una diagnosi.",
+    "Il sale nel piatto"
+  ],
+  "eyebrow": "Sale e reni",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Il sodio",
+    "흰빵_illust.jpg": "Pane e pizza",
+    "치즈_illust.jpg": "Salumi e formaggi"
+  },
+  "items": [
+    {
+      "name": "Cosa stai vedendo",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Caviglie gonfie la sera,",
+        "schiuma nel water",
+        "",
+        "Il sodio fa trattenere acqua",
+        "a quasi chiunque: è una reazione,",
+        "non una diagnosi"
+      ]
+    },
+    {
+      "name": "Il segnale che manca",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "All'inizio la malattia renale",
+        "non dà disturbi evidenti",
+        "",
+        "Solo un esame del sangue",
+        "o delle urine può mostrarla"
+      ]
+    },
+    {
+      "name": "Quanto sale è troppo",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Il limite OMS è 5 g al giorno,",
+        "circa 2 g di sodio",
+        "",
+        "In Italia la media è 9,3 g",
+        "negli uomini e 7,1 g nelle donne"
+      ]
+    },
+    {
+      "name": "Dov'è il sale",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Pane 30%, salumi 19%,",
+        "formaggi 13%",
+        "",
+        "Pane e prodotti da forno",
+        "da soli fanno il 42% del totale"
+      ]
+    },
+    {
+      "name": "I numeri in tavola",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "1 fetta di pane da 50 g: 0,75 g",
+        "50 g di prosciutto crudo: 3 g",
+        "1 pizza margherita: 6 g",
+        "",
+        "Una pizza copre l'intera giornata"
+      ]
+    },
+    {
+      "name": "Il confronto in etichetta",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Tra due marche dello stesso",
+        "prodotto la differenza è enorme",
+        "",
+        "Sodio x 2,5 = grammi di sale,",
+        "il conto si fa in tre secondi"
+      ]
+    },
+    {
+      "name": "Attenzione al sale dietetico",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Il sale iposodico sostituisce",
+        "il sodio con potassio",
+        "",
+        "Va usato solo su parere medico:",
+        "con i reni affaticati il potassio",
+        "può accumularsi nel sangue"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La malattia renale cronica",
+        "resta a lungo senza sintomi"
+      ],
+      [
+        "Si riconosce con sangue e urine,",
+        "non guardandosi le caviglie"
+      ]
+    ],
+    "tip": [
+      "Alla prossima spesa confronta il sale",
+      "per 100 g su due confezioni di pane"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#276B84"
+}

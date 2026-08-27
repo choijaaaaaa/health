@@ -1,0 +1,113 @@
+{
+  "title": [
+    "¿Tobillos hinchados",
+    "y orina con espuma?",
+    "El riñón no avisa así.",
+    "Dónde está la sal"
+  ],
+  "eyebrow": "Sal y salud renal",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "El sodio",
+    "가공육_illust.jpg": "Embutidos",
+    "치즈_illust.jpg": "Quesos y snacks"
+  },
+  "items": [
+    {
+      "name": "Lo que estás viendo",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "El exceso de sal se acumula",
+        "en la sangre y atrae agua",
+        "",
+        "Sube el volumen circulante",
+        "y con él la presión arterial"
+      ]
+    },
+    {
+      "name": "El mito que rompe",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Solo 1 de cada 10 personas",
+        "con enfermedad renal lo sabe",
+        "",
+        "Es asintomática hasta",
+        "fases avanzadas"
+      ]
+    },
+    {
+      "name": "Cómo se detecta",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Análisis de sangre para el",
+        "filtrado y de orina para la",
+        "albúmina, repetidos en el tiempo",
+        "",
+        "Una sola analítica no diagnostica"
+      ]
+    },
+    {
+      "name": "Dónde está la sal",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Sal visible: 20%",
+        "Sal invisible: 80%",
+        "",
+        "Un 72% viene de alimentos",
+        "transformados, no del salero"
+      ]
+    },
+    {
+      "name": "Las cifras",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "España: 9,8 g de sal al día",
+        "OMS: máximo 5 g",
+        "",
+        "Casi el doble de lo recomendado"
+      ]
+    },
+    {
+      "name": "Leer la etiqueta",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Mucha sal: 1,25 g por 100 g",
+        "Poca sal: 0,25 g por 100 g",
+        "",
+        "Si figura el sodio,",
+        "multiplícalo por 2,5"
+      ]
+    },
+    {
+      "name": "Ojo con la sal de régimen",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Cambia el sodio por potasio",
+        "",
+        "El consenso español no la",
+        "recomienda si hay enfermedad",
+        "renal: consúltalo antes"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La hinchazón y la espuma",
+        "no son un diagnóstico"
+      ],
+      [
+        "El riñón se mira en la analítica,",
+        "no en el espejo"
+      ]
+    ],
+    "tip": [
+      "De lo que comiste ayer, ¿de cuántos",
+      "productos sabrías los gramos de sal?"
+    ],
+    "cta": "¿Quieres más consejos de salud aplicables? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#8A3F2E"
+}

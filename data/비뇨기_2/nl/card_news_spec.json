@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Schoenen knellen 's avonds",
+    "en schuim in de wc?",
+    "Wat je ziet is niet de test.",
+    "Zout onder de loep"
+  ],
+  "eyebrow": "Zout en je nieren",
+  "swipe_label": "Veeg verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Brood",
+    "소시지_illust.jpg": "Vleeswaren",
+    "치즈_illust.jpg": "Kaas"
+  },
+  "items": [
+    {
+      "name": "Wat je merkt",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Te veel zout laat je lichaam",
+        "vocht vasthouden",
+        "",
+        "Meer vocht in de bloedvaten,",
+        "hogere druk, hart pompt harder"
+      ]
+    },
+    {
+      "name": "Wat je niet merkt",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Beginnende nierschade merk",
+        "je zelf vaak nog niet",
+        "",
+        "In bloed en urine is het",
+        "in het lab al wel te zien"
+      ]
+    },
+    {
+      "name": "Schatten of meten",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Geschat: gemiddeld 7 gram",
+        "zout per dag",
+        "",
+        "Gemeten in 24-uursurine:",
+        "de helft zit op 9,3 gram of meer"
+      ]
+    },
+    {
+      "name": "Waar het zout zit",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "80% zit al in je eten,",
+        "20% voeg je zelf toe",
+        "",
+        "Brood, vleeswaren en kaas:",
+        "niet het zoutst, wel dagelijks"
+      ]
+    },
+    {
+      "name": "De cijfers",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Pizza margherita 350 g: 3,8 g",
+        "Kant-en-klare nasi: 3,2 g",
+        "Kop kippensoep: 2,0 g",
+        "",
+        "Advies: maximaal 6 g per dag"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Vergelijk twee verpakkingen",
+        "voordat er één in je mandje gaat",
+        "",
+        "Kruiden, knoflook en gember",
+        "in plaats van zout"
+      ]
+    },
+    {
+      "name": "Let op kaliumzout",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "In LoSalt-achtig zout zit",
+        "kalium in plaats van natrium",
+        "",
+        "Bij slechte nieren of bepaalde",
+        "plaspillen liever niet: overleg",
+        "met je huisarts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dikke enkels en schuim zijn",
+        "geen uitslag"
+      ],
+      [
+        "Nierschade blijkt uit bloed-",
+        "en urineonderzoek"
+      ]
+    ],
+    "tip": [
+      "Houden klachten aan of zit er bloed",
+      "in je urine? Bel je huisarts"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2A4C7D"
+}

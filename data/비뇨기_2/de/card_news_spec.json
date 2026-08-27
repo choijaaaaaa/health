@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Abends drücken die Schuhe,",
+    "morgens sind die Lider",
+    "schwer?",
+    "Salz im Alltag nachrechnen"
+  ],
+  "eyebrow": "Salz & Nieren",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "소시지_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Salz",
+    "흰빵_illust.jpg": "Brot",
+    "소시지_illust.jpg": "Wurst & Käse"
+  },
+  "items": [
+    {
+      "name": "Warum es anschwillt",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Enge Ringe, schwere Lider,",
+        "Abdrücke der Socken",
+        "",
+        "Salz bindet Wasser im Körper —",
+        "sichtbar wird das zuerst dort,",
+        "wo das Gewebe locker ist"
+      ]
+    },
+    {
+      "name": "Ursache 1: Die Menge",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Empfohlen sind höchstens",
+        "6 g Salz pro Tag",
+        "",
+        "Das ist etwa ein Teelöffel —",
+        "bei Nierenkrankheit gelten",
+        "nicht mehr als 5 g"
+      ]
+    },
+    {
+      "name": "Ursache 1: Was hilft",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Umstellung über",
+        "2 bis 3 Wochen strecken",
+        "",
+        "So gewöhnt sich der Geschmack —",
+        "abrupter Verzicht hält selten"
+      ]
+    },
+    {
+      "name": "Ursache 2: Das Brot",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "1 Scheibe Graubrot: 0,6 g Salz",
+        "1 Brötchen: 0,8 g",
+        "",
+        "Zum Vergleich: 13 kg Tomaten",
+        "enthalten zusammen 1 g Salz"
+      ]
+    },
+    {
+      "name": "Ursache 2: Was hilft",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Salzgehalt zweier Packungen",
+        "direkt nebeneinander vergleichen",
+        "",
+        "Innerhalb einer Produktgruppe",
+        "liegen Marken weit auseinander"
+      ]
+    },
+    {
+      "name": "Ursache 3: Wurst & Käse",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "1 Wiener Würstchen: knapp 2 g",
+        "1 Stück Pizza: über 4 g",
+        "1 Portion Matjes: rund 5 g",
+        "",
+        "Zwei belegte Brote und Pizza",
+        "reichen für den Tagesrichtwert"
+      ]
+    },
+    {
+      "name": "Ursache 3: Was hilft",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Mit Kräutern, Zwiebeln,",
+        "Zitrone und Essig würzen",
+        "",
+        "Kaliumsalz nur nach ärztlichem Rat —",
+        "bei Nierenerkrankung ist es",
+        "nicht automatisch die bessere Wahl"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nierenkrankheiten verlaufen lange",
+        "ohne Beschwerden"
+      ],
+      [
+        "Erkennbar nur über Blut- und",
+        "Urintests, nicht im Spiegel"
+      ]
+    ],
+    "tip": [
+      "Beim nächsten Einkauf den Salzgehalt",
+      "auf zwei Brotpackungen vergleichen"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#3A5F4B"
+}

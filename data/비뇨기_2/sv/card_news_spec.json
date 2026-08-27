@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Tunga ben på kvällen",
+    "och urin som skummar?",
+    "Så tolkar du tecknen.",
+    "Saltet i vardagen"
+  ],
+  "eyebrow": "Salt och njurar",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Saltet",
+    "소시지_illust.jpg": "Chark",
+    "치즈_illust.jpg": "Ost och färdigmat"
+  },
+  "items": [
+    {
+      "name": "Det du märker",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Salt får nästan vem som helst",
+        "att hålla kvar vatten",
+        "",
+        "Blodtrycket stiger, och med det",
+        "risken för njurskador"
+      ]
+    },
+    {
+      "name": "Det du inte märker",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Kronisk njursjukdom utvecklas",
+        "ofta under 10 till 30 år",
+        "",
+        "Många lever länge med den",
+        "utan att veta om det"
+      ]
+    },
+    {
+      "name": "Så tas svaret fram",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Urinprov, helst morgonurin,",
+        "och blodprov på vårdcentralen",
+        "",
+        "Kreatinin och cystatin C visar",
+        "hur njurarna fungerar"
+      ]
+    },
+    {
+      "name": "Var saltet finns",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Korv, bacon, skinka, bröd,",
+        "ost, soppor och färdigrätter",
+        "",
+        "Industrin står för tre fjärdedelar",
+        "av allt salt vi får i oss"
+      ]
+    },
+    {
+      "name": "Siffrorna",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Rekommendation: max 6 g per dag",
+        "Faktiskt intag: 10-12 g",
+        "",
+        "Kroppen behöver bara 1,5 g"
+      ]
+    },
+    {
+      "name": "Fyra enkla steg",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Jämför två förpackningar",
+        "Salta på tallriken, inte i grytan",
+        "Krydda i stället för att salta",
+        "",
+        "Trappa ner stegvis"
+      ]
+    },
+    {
+      "name": "Undantaget: mineralsalt",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Ett bra byte för de flesta,",
+        "eftersom kalium ersätter natrium",
+        "",
+        "Men vid nedsatt njurfunktion",
+        "ska det inte användas —",
+        "fråga läkare eller dietist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Svullnad och skum är",
+        "inga provsvar"
+      ],
+      [
+        "Njurarna syns i blodprov",
+        "och urinprov"
+      ]
+    ],
+    "tip": [
+      "Svullnar benen och du går upp flera",
+      "kilo på några dagar? Ring vårdcentralen"
+    ],
+    "cta": "Vill du ha fler konkreta hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#16536B"
+}

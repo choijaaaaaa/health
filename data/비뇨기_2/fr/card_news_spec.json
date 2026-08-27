@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Vous surveillez la soupe",
+    "et le bouillon,",
+    "mais pas le pain ?",
+    "Le vrai classement du sel"
+  ],
+  "eyebrow": "Sel et santé des reins",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "L'essentiel",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Le sodium",
+    "흰빵_illust.jpg": "Pain et biscottes",
+    "가공육_illust.jpg": "Charcuterie"
+  },
+  "items": [
+    {
+      "name": "Ce que fait le sodium",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Paupières lourdes le matin,",
+        "chevilles marquées le soir",
+        "",
+        "Le sodium régule l'équilibre",
+        "hydrique et s'élimine par les",
+        "urines : ce sont les reins qui trient"
+      ]
+    },
+    {
+      "name": "Cause 1 : la quantité",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "L'OMS préconise moins de 5 g",
+        "de sel de table par jour",
+        "",
+        "L'étude INCA 3 estime les adultes",
+        "français à environ 8,0 g par jour"
+      ]
+    },
+    {
+      "name": "Cause 1 : ce qui aide",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Salez en fin de cuisson,",
+        "dans l'assiette plutôt que",
+        "dans la casserole",
+        "",
+        "À quantité égale, le goût",
+        "ressort davantage"
+      ]
+    },
+    {
+      "name": "Cause 2 : le pain",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "En France, le pain et les",
+        "biscottes arrivent en tête",
+        "des apports en sel",
+        "",
+        "Rien dans leur goût ne le signale"
+      ]
+    },
+    {
+      "name": "Cause 2 : ce qui aide",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Comparez la ligne « sel »",
+        "de deux paquets du même rayon",
+        "",
+        "L'écart entre marques est",
+        "souvent bien plus grand qu'attendu"
+      ]
+    },
+    {
+      "name": "Cause 3 : charcuterie",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Viennent ensuite la charcuterie,",
+        "les condiments et sauces,",
+        "puis les plats cuisinés",
+        "",
+        "Les soupes arrivent après eux"
+      ]
+    },
+    {
+      "name": "Cause 3 : ce qui aide",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Herbes, citron, vinaigre, épices",
+        "à la place d'une partie des sauces",
+        "",
+        "Les substituts au potassium,",
+        "eux, se discutent avec un médecin"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La maladie rénale chronique reste",
+        "longtemps sans symptôme"
+      ],
+      [
+        "Elle se repère par une analyse",
+        "de sang et d'urine, pas au miroir"
+      ]
+    ],
+    "tip": [
+      "Ce soir : comparez la teneur en sel",
+      "de deux paquets de pain"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#52356E"
+}

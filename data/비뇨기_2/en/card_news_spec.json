@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Puffy ankles and foam",
+    "in the toilet after a",
+    "salty week?",
+    "What Sodium Really Does"
+  ],
+  "eyebrow": "Sodium & Kidney Health",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "소금_illust.jpg",
+  "char_display_names": {
+    "소금_illust.jpg": "Sodium",
+    "가공육_illust.jpg": "Packaged Foods",
+    "라면_illust.jpg": "Instant Meals"
+  },
+  "items": [
+    {
+      "name": "What You're Seeing",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Tight rings, puffy ankles,",
+        "extra foam in the bowl",
+        "",
+        "Both have ordinary explanations",
+        "before they have alarming ones —",
+        "here is how to tell them apart"
+      ]
+    },
+    {
+      "name": "Salt Holds Water",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Too much sodium makes your",
+        "blood retain fluid",
+        "",
+        "That raises blood pressure",
+        "and causes swelling — a normal",
+        "response, not a diagnosis"
+      ]
+    },
+    {
+      "name": "Know Your Number",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Adults and teens 14+:",
+        "no more than 2,300 mg a day",
+        "",
+        "Nine out of ten Americans",
+        "take in more than they need"
+      ]
+    },
+    {
+      "name": "It's Not the Shaker",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Most sodium comes from canned",
+        "and frozen foods, deli meats,",
+        "chips, sauces and dressings",
+        "",
+        "None of it tastes as salty",
+        "as the number suggests"
+      ]
+    },
+    {
+      "name": "Check the %DV",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "5% Daily Value or less = low",
+        "20% or more = high",
+        "",
+        "Comparing two labels on the",
+        "same shelf does most of the work"
+      ]
+    },
+    {
+      "name": "Soups and Instant Meals",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Instant flavored rice and noodles",
+        "sit in the same high-sodium group",
+        "",
+        "Brands differ widely, so the",
+        "label beats guessing by taste"
+      ]
+    },
+    {
+      "name": "Swap, Rinse, Season",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Rinse canned beans and vegetables,",
+        "season with herbs and lemon",
+        "",
+        "Skip salt substitutes — many are",
+        "high in potassium, which matters",
+        "if your kidneys are strained"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Early kidney disease is usually",
+        "silent — symptoms come late"
+      ],
+      [
+        "Only a blood test for GFR and a",
+        "urine albumin test can tell you"
+      ]
+    ],
+    "tip": [
+      "Foam lasting days, swelling, dark or",
+      "bloody urine? Call a provider"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1E4D6B"
+}
