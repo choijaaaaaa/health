@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Manchas en el rostro:",
+    "¿de verdad son las hormonas?",
+    "Lo que dice la evidencia"
+  ],
+  "eyebrow": "Melasma y fotoprotección",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "알약_illust.jpg",
+  "cover_scrim_color": "#6B3D1F",
+  "char_display_names": {
+    "알약_illust.jpg": "Medicación",
+    "태양_illust.jpg": "Sol",
+    "물컵_illust.jpg": "Rutina diaria"
+  },
+  "items": [
+    {
+      "name": "El punto de partida",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Se le llama máscara del embarazo",
+        "y aparece con los anticonceptivos",
+        "",
+        "Pero la AEDV matiza que la evidencia",
+        "no lo asocia a niveles hormonales"
+      ]
+    },
+    {
+      "name": "Qué hacer con eso",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Si aparece al iniciar",
+        "anticonceptivos, consúltalo",
+        "",
+        "Nunca suspendas la medicación",
+        "por tu cuenta"
+      ]
+    },
+    {
+      "name": "Lo que pasa en la piel",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Melanocitos biológicamente",
+        "más activos, no más numerosos",
+        "",
+        "La exposición solar es el factor",
+        "de riesgo más descrito"
+      ]
+    },
+    {
+      "name": "También la luz visible",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "No basta un FPS alto:",
+        "la luz visible también induce",
+        "la formación de melasma",
+        "",
+        "Por eso, amplio espectro"
+      ]
+    },
+    {
+      "name": "El resultado de la rutina",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Fotoprotector diario, gorro",
+        "y gafas de sol",
+        "",
+        "Y evitar la franja",
+        "de 12 a 16 horas"
+      ]
+    },
+    {
+      "name": "Los días nublados",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Descuido frecuente:",
+        "saltarse la crema sin sol",
+        "",
+        "La radiación UV se refleja en",
+        "agua, arena, hierba y nieve"
+      ]
+    },
+    {
+      "name": "Cómo aplicarlo",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Cantidad generosa sobre piel seca,",
+        "media hora antes de salir",
+        "",
+        "Repetir cada dos horas",
+        "y tras sudar o bañarse"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El foco no está en las hormonas,",
+        "sino en la luz que recibe la piel"
+      ],
+      [
+        "No solo en verano: las manchas",
+        "se previenen los doce meses"
+      ]
+    ],
+    "tip": [
+      "Si una mancha cambia de color, forma",
+      "o tamaño, consulta con un especialista"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  }
+}

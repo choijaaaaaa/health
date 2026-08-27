@@ -1,0 +1,126 @@
+{
+  "title": [
+    "Le mélasma se forme aussi",
+    "derrière une vitre,",
+    "au volant, au bureau",
+    "Masque de grossesse et lumière"
+  ],
+  "eyebrow": "Mélasma et protection solaire",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À vérifier",
+  "cover_char_file": "태양_illust.jpg",
+  "char_display_names": {
+    "태양_illust.jpg": "Lumière du soleil",
+    "알약_illust.jpg": "Médicaments"
+  },
+  "items": [
+    {
+      "name": "Même à travers une vitre",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Le masque de grossesse apparaît",
+        "sous l'action directe de la lumière",
+        "du soleil, même à travers une vitre",
+        "",
+        "Un trajet en voiture compte",
+        "autant qu'une heure de plage"
+      ]
+    },
+    {
+      "name": "Qui est concerné",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "50 à 75 % des femmes enceintes,",
+        "surtout teint mat et cheveux bruns",
+        "",
+        "Les taches se posent sur le nez,",
+        "les joues et le front"
+      ]
+    },
+    {
+      "name": "Ce n'est pas toujours passager",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Le masque persiste une à deux",
+        "années après l'accouchement",
+        "",
+        "Il devient parfois permanent",
+        "chez celles qui prennent la pilule"
+      ]
+    },
+    {
+      "name": "Le parfum avant le soleil",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Évitez produits de beauté et parfum",
+        "avant l'exposition au soleil",
+        "",
+        "Certaines substances laissent",
+        "des traces pigmentées définitives"
+      ]
+    },
+    {
+      "name": "Parlez de vos traitements",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Certains médicaments exposent à",
+        "un risque de photosensibilisation",
+        "",
+        "Prévenez votre médecin avant",
+        "un séjour au soleil"
+      ]
+    },
+    {
+      "name": "Le vêtement d'abord",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "La meilleure protection contre",
+        "le soleil est vestimentaire",
+        "",
+        "Manches longues, tissus épais",
+        "et chapeau à bords larges"
+      ]
+    },
+    {
+      "name": "Ensuite la crème",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Un FPS supérieur à 30 sur le visage,",
+        "renouvelé toutes les deux heures",
+        "et après chaque baignade",
+        "",
+        "N'oubliez pas le nez, les pommettes",
+        "et les oreilles"
+      ]
+    },
+    {
+      "name": "Ce que la crème ne fait pas",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Une crème solaire n'autorise pas",
+        "une exposition prolongée",
+        "",
+        "Passez la tranche 12 h – 16 h",
+        "à l'ombre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Hier : combien d'heures près",
+        "d'une fenêtre ou au volant ?"
+      ],
+      [
+        "Un parfum avant de sortir ?",
+        "Une crème renouvelée l'après-midi ?"
+      ]
+    ],
+    "tip": [
+      "C'est souvent là, et pas au bord de la mer,",
+      "que se joue l'évolution des taches"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#6E2C4F"
+}

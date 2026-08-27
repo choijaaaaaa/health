@@ -1,0 +1,112 @@
+{
+  "title": [
+    "Pigmentfläckar i ansiktet",
+    "som blir tydligare?",
+    "Solen året runt"
+  ],
+  "eyebrow": "Solfläckar och UV-strålning",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "태양_illust.jpg",
+  "cover_scrim_color": "#2A6B4C",
+  "char_display_names": {
+    "태양_illust.jpg": "UV-strålning",
+    "알약_illust.jpg": "Läkemedel"
+  },
+  "items": [
+    {
+      "name": "Varför de kommer",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Släta bruna fläckar",
+        "på händer och i ansiktet",
+        "",
+        "1177: solfläckar orsakas av",
+        "solens ultravioletta strålning"
+      ]
+    },
+    {
+      "name": "Vintersolen",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Första förbisedda faktorn:",
+        "snö och fjällsol",
+        "",
+        "Snö reflekterar solstrålarna",
+        "mycket — smörj även på vintern"
+      ]
+    },
+    {
+      "name": "Så skyddar du dig",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Hög solskyddsfaktor,",
+        "och använd rikligt",
+        "",
+        "Annars når du inte den faktor",
+        "som anges på förpackningen"
+      ]
+    },
+    {
+      "name": "Graviditet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Andra faktorn: huden får",
+        "mer färg under graviditet",
+        "",
+        "Solen gör fläckarna tydligare,",
+        "men de brukar blekna efteråt"
+      ]
+    },
+    {
+      "name": "Läkemedel och produkter",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Tredje faktorn: en del läkemedel",
+        "ökar hudens känslighet för solen",
+        "",
+        "Parfymer i brun utan sol kan ge",
+        "pigmentförändringar vid solning"
+      ]
+    },
+    {
+      "name": "Missade ställen",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Glöm inte nacken, pannan,",
+        "läpparna och bakom öronen",
+        "",
+        "Smörj om efter bad, och",
+        "varannan timme om du badar mycket"
+      ]
+    },
+    {
+      "name": "Mitt på dagen",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Var inte i solen mellan",
+        "klockan 11 och 15",
+        "",
+        "Sök skugga eller sätt upp",
+        "ett parasoll på stranden"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vintersol, läkemedel och för tunt",
+        "solskydd — tre saker som glöms bort"
+      ],
+      [
+        "Fläckarna är ofarliga, men",
+        "de går att bromsa"
+      ]
+    ],
+    "tip": [
+      "Kontakta vårdcentralen om en fläck",
+      "blöder, ändras eller inte läker"
+    ],
+    "cta": "Vill du ha fler hälsotips som det här? Följ och gilla!"
+  }
+}

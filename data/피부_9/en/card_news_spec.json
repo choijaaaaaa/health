@@ -1,0 +1,128 @@
+{
+  "title": [
+    "SPF every morning,",
+    "and the patches still",
+    "look deeper than last year?",
+    "Melasma: The Gaps SPF Misses"
+  ],
+  "eyebrow": "Melasma and Daily Sun Care",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "태양_illust.jpg",
+  "char_display_names": {
+    "태양_illust.jpg": "Sunlight",
+    "스마트폰_illust.jpg": "LED Screens",
+    "욕조_illust.jpg": "Heat"
+  },
+  "items": [
+    {
+      "name": "Why This Keeps Happening",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Melasma appears when the cells",
+        "that color your skin go into overdrive",
+        "",
+        "Cleveland Clinic puts it at 5% to 33%",
+        "of the population, about 90% women"
+      ]
+    },
+    {
+      "name": "The Trigger List",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "The AAD names sunlight, pregnancy",
+        "hormones, birth control pills,",
+        "thyroid disease and tanning beds",
+        "",
+        "One third to one half also have",
+        "a relative with melasma"
+      ]
+    },
+    {
+      "name": "Gap 1: Visible Light",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Visible light has been shown",
+        "to worsen melasma, the AAD says,",
+        "especially on darker skin tones",
+        "",
+        "A clear sunscreen filters UV,",
+        "not the visible part of daylight"
+      ]
+    },
+    {
+      "name": "Close Gap 1: Go Tinted",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Choose a tinted sunscreen with",
+        "iron oxide, SPF 30 or higher",
+        "",
+        "Apply 15 minutes before you go out,",
+        "reapply at least every two hours"
+      ]
+    },
+    {
+      "name": "Gap 2: LED Screens",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Cleveland Clinic lists LED light",
+        "from TVs, laptops, phones and tablets",
+        "among possible causes",
+        "",
+        "Newer evidence than sunlight —",
+        "worth watching, not panicking over"
+      ]
+    },
+    {
+      "name": "Close Gap 2: Watch the Pattern",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "If the patches sit worst on the side",
+        "you hold your phone to, test it",
+        "",
+        "Cutting screen time is in Cleveland",
+        "Clinic's own self-care advice"
+      ]
+    },
+    {
+      "name": "Gap 3: Heat and Irritation",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Infrared, meaning heat, sits beside",
+        "UV and visible light on the same list",
+        "",
+        "And if a product stings, the AAD says",
+        "that irritation can darken the spots"
+      ]
+    },
+    {
+      "name": "Close Gap 3: Cool and Gentle",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Shorten hot showers and saunas,",
+        "and keep products fragrance-free",
+        "",
+        "Prescription creams take 3 to 12 months,",
+        "so sun protection has to hold"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Visible light, screens and heat",
+        "all slip past a clear morning SPF"
+      ],
+      [
+        "Melasma answers to consistency,",
+        "not intensity"
+      ]
+    ],
+    "tip": [
+      "Change one thing: a tinted iron-oxide SPF 30+,",
+      "reapplied every two hours"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#4E2A84"
+}

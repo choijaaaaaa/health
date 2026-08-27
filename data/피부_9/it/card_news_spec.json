@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Macchie scure sul viso",
+    "che tornano ogni estate?",
+    "Il sole che non senti"
+  ],
+  "eyebrow": "Macchie scure e raggi UV",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "태양_illust.jpg",
+  "cover_scrim_color": "#5A2E3E",
+  "char_display_names": {
+    "태양_illust.jpg": "Raggi UV",
+    "알약_illust.jpg": "Ormoni",
+    "키위_illust.jpg": "Vitamina C"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Le macchie si accentuano",
+        "anche senza scottature",
+        "",
+        "Per l'ISS il calore è infrarosso:",
+        "gli ultravioletti sono freddi",
+        "e non si avvertono"
+      ]
+    },
+    {
+      "name": "Il cielo coperto",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Primo inganno:",
+        "la giornata nuvolosa",
+        "",
+        "Le nubi diffondono i raggi UV,",
+        "che colpiscono comunque la pelle"
+      ]
+    },
+    {
+      "name": "Come proteggersi",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Crema ad alto fattore,",
+        "almeno 30, contro UVA e UVB",
+        "",
+        "In quantità generosa,",
+        "riapplicata ogni due ore"
+      ]
+    },
+    {
+      "name": "Le superfici riflettenti",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Secondo inganno:",
+        "l'ombrellone",
+        "",
+        "Sabbia, acqua e neve riflettono,",
+        "e l'acqua fa da lente"
+      ]
+    },
+    {
+      "name": "Come rimediare",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Evita la fascia",
+        "fra le 10 e le 16",
+        "",
+        "Cappello a larghe falde",
+        "e tessuti non troppo sottili"
+      ]
+    },
+    {
+      "name": "Le fasi ormonali",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Terzo fattore:",
+        "gravidanza e menopausa",
+        "",
+        "L'ISS segnala più sensibilità",
+        "al sole e più tendenza",
+        "alle macchie scure"
+      ]
+    },
+    {
+      "name": "Cosa aiuta a tavola",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Vitamina C ed E, beta-carotene,",
+        "zinco, selenio, potassio",
+        "",
+        "Agrumi, kiwi, pomodori,",
+        "peperoni, spinaci, olio d'oliva"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Raggi che non si sentono, superfici",
+        "che riflettono, ormoni che amplificano"
+      ],
+      [
+        "La protezione va resa quotidiana,",
+        "non riservata alla giornata al mare"
+      ]
+    ],
+    "tip": [
+      "Se una macchia cambia colore, forma",
+      "o dimensione, falla vedere al medico"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  }
+}

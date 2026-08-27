@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Bruine vlekken in het gezicht",
+    "die maar niet weggaan?",
+    "Melasma en medicijnen"
+  ],
+  "eyebrow": "Melasma en zonlicht",
+  "swipe_label": "Veeg verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "알약_illust.jpg",
+  "cover_scrim_color": "#3E2A5C",
+  "char_display_names": {
+    "알약_illust.jpg": "Medicijnen",
+    "태양_illust.jpg": "Zonkracht"
+  },
+  "items": [
+    {
+      "name": "Hoe het ontstaat",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Donkerbruine vlekken op",
+        "voorhoofd, wangen en bovenlip",
+        "",
+        "Thuisarts.nl: het kan geen kwaad,",
+        "maar de oorzaak is vaak onduidelijk"
+      ]
+    },
+    {
+      "name": "Hormonen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Eerste oorzaak:",
+        "verandering van hormonen",
+        "",
+        "In de zwangerschap heet het",
+        "ook wel zwangerschapsmasker"
+      ]
+    },
+    {
+      "name": "Medicijnen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Tweede oorzaak: de pil",
+        "of de plaspil spironolacton",
+        "",
+        "Stop nooit zelf — vraag uw arts",
+        "of er een alternatief is"
+      ]
+    },
+    {
+      "name": "Zonlicht",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Derde factor: zonlicht",
+        "maakt de vlekken donkerder",
+        "",
+        "Vanaf UV-index 5 verbrandt",
+        "de huid makkelijker"
+      ]
+    },
+    {
+      "name": "Wat wél helpt",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Factor 50 of hoger,",
+        "niet te dun smeren",
+        "",
+        "Minstens elke twee uur opnieuw,",
+        "ook als u in de schaduw zit"
+      ]
+    },
+    {
+      "name": "Weren, kleren en smeren",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Het RIVM: eerst uit de zon,",
+        "dan kleding, dan crème",
+        "",
+        "Pet met brede rand en",
+        "zonnebril met UV-filter"
+      ]
+    },
+    {
+      "name": "Bedekken of behandelen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Make-up op waterbasis dekt af",
+        "",
+        "De huisarts kan azelaïnezuur",
+        "of tretinoïne bespreken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Hormonen, medicijnen en zonlicht:",
+        "samen maken ze de vlekken donkerder"
+      ],
+      [
+        "Onschuldig, maar wel te beperken",
+        "met goede bescherming"
+      ]
+    ],
+    "tip": [
+      "Twijfelt u of het melasma is?",
+      "Laat de plek bekijken door de huisarts"
+    ],
+    "cta": "Wil je meer praktische gezondheidstips? Volg ons!"
+  }
+}

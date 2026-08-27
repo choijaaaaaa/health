@@ -1,0 +1,131 @@
+{
+  "title": [
+    "Jeden Morgen eingecremt,",
+    "und die Flecken werden",
+    "trotzdem dunkler?",
+    "Melasma und die Crememenge"
+  ],
+  "eyebrow": "Melasma und UV-Schutz",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Kurz durchgegangen",
+  "cover_char_file": "태양_illust.jpg",
+  "char_display_names": {
+    "태양_illust.jpg": "UV-Strahlung",
+    "물방울_illust.jpg": "Baden",
+    "알약_illust.jpg": "Behandlung"
+  },
+  "items": [
+    {
+      "name": "Was ein Melasma ist",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Dunkle, fleckige Areale auf",
+        "beiden Gesichtshälften durch",
+        "zu viel Melanin",
+        "",
+        "Am häufigsten in der Schwangerschaft",
+        "und unter oralen Kontrazeptiva"
+      ]
+    },
+    {
+      "name": "Der UV-Index sagt es Ihnen",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Das BfS rät: ab UV-Index 3",
+        "mittags in den Schatten,",
+        "ab UV-Index 8 möglichst ins Haus",
+        "",
+        "Schnee, Wasser und helle Fassaden",
+        "erhöhen die Belastung zusätzlich"
+      ]
+    },
+    {
+      "name": "Die Menge macht den Faktor",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Der Lichtschutzfaktor gilt für",
+        "2 mg pro Quadratzentimeter Haut",
+        "",
+        "Das sind vier gehäufte Esslöffel",
+        "für den ganzen Körper"
+      ]
+    },
+    {
+      "name": "Die Probe aufs Exempel",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Eine 200-ml-Flasche sollte nach",
+        "etwa fünf Ganzkörper-Anwendungen",
+        "leer sein",
+        "",
+        "Nur die Hälfte aufgetragen kostet",
+        "bis zu zwei Drittel des Schutzes"
+      ]
+    },
+    {
+      "name": "Nachcremen erhält, nicht verlängert",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Eine halbe Stunde vor dem",
+        "Rausgehen auftragen, mehrmals",
+        "täglich nachcremen",
+        "",
+        "Das kauft aber keine zusätzliche",
+        "Zeit in der Sonne"
+      ]
+    },
+    {
+      "name": "Kleidung zuerst",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Das BfS nennt Kleidung und",
+        "Kopfbedeckung den besten",
+        "und einfachsten Schutz",
+        "",
+        "Die Creme ist für das,",
+        "was unbedeckt bleibt"
+      ]
+    },
+    {
+      "name": "Bei Melasma: LSF 50+ und getönt",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Betroffenen wird LSF 50+ und",
+        "Kleidung mit UPF 50+ empfohlen",
+        "",
+        "Getönte Produkte mit Zinkoxid",
+        "blocken auch sichtbares Licht"
+      ]
+    },
+    {
+      "name": "Behandlung gehört in die Praxis",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Hydrochinon nur unter",
+        "ärztlicher Aufsicht — Langzeit-",
+        "anwendung kann selbst Flecken machen",
+        "",
+        "In der Schwangerschaft gelten",
+        "Azelainsäure und Glykolsäure als sicher"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Menge, Zeitpunkt, Nachcremen,",
+        "Kleidung, UV-Index"
+      ],
+      [
+        "Wer hier drei Haken setzen kann,",
+        "hat den größten Teil erledigt"
+      ]
+    ],
+    "tip": [
+      "Prüfen Sie zuerst die Menge:",
+      "vier gehäufte Esslöffel pro Ganzkörper"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#35526B"
+}
