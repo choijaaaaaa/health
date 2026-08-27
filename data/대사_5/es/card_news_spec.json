@@ -1,0 +1,115 @@
+{
+  "title": [
+    "¿Analítica casi normal",
+    "y cintura que crece?",
+    "3 factores a revisar"
+  ],
+  "eyebrow": "Resistencia a la insulina",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "La lista",
+  "cover_char_file": "서류더미_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Grasa abdominal",
+    "서류더미_illust.jpg": "Sedentarismo",
+    "베개_illust.jpg": "Sueño"
+  },
+  "items": [
+    {
+      "name": "Por qué no lo notas",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "La diabetes tipo 2 puede estar",
+        "presente con muy pocos síntomas",
+        "durante mucho tiempo",
+        "",
+        "Ministerio de Sanidad: por cada",
+        "caso conocido hay otro sin",
+        "diagnosticar"
+      ]
+    },
+    {
+      "name": "1. La grasa abdominal",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Primero: dónde se acumula",
+        "la grasa, no cuánto pesas",
+        "",
+        "redGDPS: 102 cm en hombres",
+        "y 88 cm en mujeres"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Basta con perder",
+        "entre un 3 y un 5%",
+        "",
+        "El estilo de vida reduce",
+        "la progresión al menos un 40%"
+      ]
+    },
+    {
+      "name": "2. El sedentarismo",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Segundo: las horas de silla",
+        "",
+        "redGDPS: interrumpe la",
+        "sedestación prolongada",
+        "cada 30 minutos"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Media hora al día,",
+        "cinco días a la semana",
+        "",
+        "Es la pauta que el Ministerio",
+        "asocia a una reducción drástica",
+        "del riesgo"
+      ]
+    },
+    {
+      "name": "3. El sueño",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Tercero: la apnea del sueño",
+        "",
+        "La hipoxia intermitente y la",
+        "fragmentación del sueño llevan",
+        "a resistencia a la insulina"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "¿Ronquidos, pausas al respirar",
+        "o sueño durante el día?",
+        "",
+        "Coméntalo en tu centro de salud"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cintura, silla y sueño:",
+        "la lista cabe en cuatro líneas"
+      ],
+      [
+        "La cinta métrica avisa,",
+        "la analítica confirma"
+      ]
+    ],
+    "tip": [
+      "A partir de los 45, una glucemia",
+      "en ayunas cada tres años"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#0F4C81"
+}

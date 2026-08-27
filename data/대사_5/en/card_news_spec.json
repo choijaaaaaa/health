@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Blood sugar creeping up",
+    "while you feel completely fine?",
+    "3 Drivers of Insulin Resistance"
+  ],
+  "eyebrow": "Insulin Resistance Basics",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "The Checklist",
+  "cover_char_file": "서류더미_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Belly Fat",
+    "서류더미_illust.jpg": "Sitting",
+    "베개_illust.jpg": "Short Sleep"
+  },
+  "items": [
+    {
+      "name": "Why This Happens Quietly",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Insulin resistance usually",
+        "causes no symptoms at all",
+        "",
+        "Cells in muscle, fat and liver",
+        "stop answering insulin, so the",
+        "pancreas has to push out more"
+      ]
+    },
+    {
+      "name": "Driver 1: Belly Fat",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "First is fat around the middle",
+        "",
+        "NHLBI flags a waist over",
+        "40 inches in men or 35 in women",
+        "as raised risk for type 2 diabetes"
+      ]
+    },
+    {
+      "name": "Fix 1: A Modest 5 to 7%",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "NIDDK points to losing",
+        "5 to 7% of your starting weight",
+        "",
+        "On a 200-pound frame that is",
+        "10 to 14 pounds — not a",
+        "transformation"
+      ]
+    },
+    {
+      "name": "Driver 2: Sitting Still",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Second is uninterrupted sitting",
+        "",
+        "Muscle only pulls glucose in",
+        "when it works, and the benefit",
+        "of a workout expires"
+      ]
+    },
+    {
+      "name": "Fix 2: 30 Minutes, 5 Days",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "30 minutes of activity",
+        "5 days a week, and stand up",
+        "every 30 minutes of sitting",
+        "",
+        "Insulin action improves even",
+        "without any weight loss"
+      ]
+    },
+    {
+      "name": "Driver 3: Short Nights",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Third is short sleep",
+        "",
+        "Across 482,502 people, diabetes",
+        "risk was lowest at 7 to 8 hours",
+        "and rose below seven"
+      ]
+    },
+    {
+      "name": "Fix 3: Defend 7 Hours",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Protect seven hours in bed",
+        "",
+        "In a 2024 trial, cutting sleep",
+        "by 1.5 hours for six weeks",
+        "raised insulin resistance",
+        "without any change in body fat"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Waist, chair and bedtime —",
+        "three levers, none of them exotic"
+      ],
+      [
+        "A tape measure suggests;",
+        "only a blood test settles it"
+      ]
+    ],
+    "tip": [
+      "Ask about an A1C or fasting glucose test",
+      "if you are 35 or older"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#12496B"
+}

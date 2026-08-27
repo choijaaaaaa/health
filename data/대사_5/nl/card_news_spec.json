@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Je voelt niets.",
+    "En toch stijgt je bloedsuiker.",
+    "3 dingen om te checken"
+  ],
+  "eyebrow": "Insulineresistentie",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Buikomtrek",
+    "운동화_illust.jpg": "Bewegen",
+    "베개_illust.jpg": "Slaap"
+  },
+  "items": [
+    {
+      "name": "Waarom je niets merkt",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Een te hoge bloedsuiker",
+        "merk je meestal niet",
+        "",
+        "Het lichaam reageert minder",
+        "goed op insuline, en suikers",
+        "blijven in je bloed zitten"
+      ]
+    },
+    {
+      "name": "1. Buikomtrek",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Ten eerste: waar het vet zit",
+        "",
+        "Te groot vanaf 102 cm bij mannen",
+        "en 88 cm bij vrouwen",
+        "(Diabetes Fonds)"
+      ]
+    },
+    {
+      "name": "Wat je doet",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Een paar kilo is al genoeg",
+        "om mee te beginnen",
+        "",
+        "Thuisarts.nl noemt het voorbeeld:",
+        "van 90 naar 85 kilo"
+      ]
+    },
+    {
+      "name": "2. Stilzitten",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Ten tweede: te lang stilzitten",
+        "",
+        "Thuisarts.nl noemt te weinig",
+        "bewegen als een van de dingen",
+        "die je kans vergroten"
+      ]
+    },
+    {
+      "name": "Wat je doet",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Minimaal 2,5 uur per week",
+        "actief bewegen",
+        "",
+        "Vijf dagen dertig minuten,",
+        "en twee keer per week",
+        "iets voor spieren en botten"
+      ]
+    },
+    {
+      "name": "3. Slaap",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Ten derde: rust en slaap",
+        "",
+        "Thuisarts.nl zet ontspanning",
+        "en goed slapen in hetzelfde",
+        "rijtje als gezond eten"
+      ]
+    },
+    {
+      "name": "Wat je doet",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bescherm je nachtrust",
+        "net zo goed als je ontbijt",
+        "",
+        "Structureel korte nachten horen",
+        "hier thuis, niet in de marge"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Buikomtrek, stilzitten en slaap —",
+        "drie knoppen, geen wondermiddel"
+      ],
+      [
+        "Een meetlint geeft een signaal,",
+        "je bloed geeft de uitslag"
+      ]
+    ],
+    "tip": [
+      "Grotere kans? Laat één keer per drie jaar",
+      "je bloedsuiker meten bij de huisarts"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#5A2E7A"
+}

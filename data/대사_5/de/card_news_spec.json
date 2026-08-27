@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Nicht zu wenig Insulin —",
+    "sondern Insulin,",
+    "das nicht mehr wirkt",
+    "3 Treiber der Insulinresistenz"
+  ],
+  "eyebrow": "Insulinresistenz verstehen",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "운동화_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Bauchfett",
+    "운동화_illust.jpg": "Muskelarbeit",
+    "베개_illust.jpg": "Schlaf"
+  },
+  "items": [
+    {
+      "name": "Warum es niemand merkt",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Insulinresistenz verursacht",
+        "selbst keine Symptome",
+        "",
+        "Bis daraus zu hohe Blutzuckerwerte",
+        "werden, können Jahre bis",
+        "Jahrzehnte vergehen"
+      ]
+    },
+    {
+      "name": "Treiber 1: Bauchfett",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Erstens das Fett am Bauch",
+        "",
+        "Fettzellen im Bauchbereich",
+        "setzen Botenstoffe frei,",
+        "die die Insulinwirkung bremsen"
+      ]
+    },
+    {
+      "name": "Was hilft: messen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Bauchumfang über 102 cm",
+        "bei Männern, 88 cm bei Frauen",
+        "",
+        "Der BMI allein sagt nichts",
+        "über die Fettverteilung"
+      ]
+    },
+    {
+      "name": "Treiber 2: Muskelarbeit",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Zweitens fehlende Muskelarbeit",
+        "",
+        "Die Skelettmuskulatur nimmt",
+        "über 80 Prozent des Zuckers",
+        "aus dem Blut auf"
+      ]
+    },
+    {
+      "name": "Was hilft: 30 Minuten",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Etwa 30 Minuten am Tag",
+        "zügig gehen, radeln, schwimmen",
+        "",
+        "Das verbessert die",
+        "Insulinempfindlichkeit",
+        "der Muskelzellen"
+      ]
+    },
+    {
+      "name": "Treiber 3: kurze Nächte",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Drittens der Schlaf",
+        "",
+        "Jede zweite erwachsene Person",
+        "in Deutschland kommt auf",
+        "höchstens 6 Stunden pro Nacht"
+      ]
+    },
+    {
+      "name": "Was hilft: 7 Stunden",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Den meisten Erwachsenen",
+        "reichen 7 bis 9 Stunden",
+        "",
+        "Zwei Stunden vor dem Schlafen",
+        "keine Bildschirme mehr"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Bauchumfang, Muskelarbeit, Schlaf —",
+        "drei Stellschrauben statt einer Diät"
+      ],
+      [
+        "Ein Maßband stellt keine Diagnose:",
+        "das kann nur eine Blutuntersuchung"
+      ]
+    ],
+    "tip": [
+      "Erhöhte Nüchternwerte in der Hausarztpraxis",
+      "ansprechen — Bereitschaftsdienst: 116117"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#245C4F"
+}

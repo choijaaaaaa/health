@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Vous faites vos 30 minutes",
+    "mais restez assis toute la journée ?",
+    "3 causes de l'insulinorésistance"
+  ],
+  "eyebrow": "Comprendre l'insulinorésistance",
+  "swipe_label": "Faites glisser  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "서류더미_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Alimentation",
+    "서류더미_illust.jpg": "Sédentarité",
+    "운동화_illust.jpg": "Bouger"
+  },
+  "items": [
+    {
+      "name": "Pourquoi c'est silencieux",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "On peut être actif",
+        "et sédentaire en même temps",
+        "",
+        "Les cellules du foie, du muscle",
+        "et du tissu adipeux perdent",
+        "en sensibilité à l'insuline"
+      ]
+    },
+    {
+      "name": "Cause 1 : l'alimentation",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "D'abord une alimentation",
+        "trop grasse et trop sucrée",
+        "",
+        "Elle nourrit des bactéries",
+        "produisant des LPS,",
+        "qui favorisent l'insulinorésistance"
+      ]
+    },
+    {
+      "name": "Le seuil à connaître",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "À jeun, entre 1,10 et 1,25 g/L,",
+        "on parle de prédiabète",
+        "",
+        "Seul un dosage en laboratoire",
+        "permet de le savoir"
+      ]
+    },
+    {
+      "name": "Cause 2 : la sédentarité",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Ensuite le temps passé assis",
+        "",
+        "On peut être physiquement actif",
+        "et sédentaire : 30 minutes le matin",
+        "puis assis toute la journée"
+      ]
+    },
+    {
+      "name": "Le réflexe des 2 heures",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Marchez quelques minutes",
+        "toutes les 2 heures",
+        "",
+        "C'est une recommandation",
+        "distincte des 30 minutes",
+        "d'activité quotidienne"
+      ]
+    },
+    {
+      "name": "Cause 3 : le sommeil",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Enfin les nuits trop courtes",
+        "",
+        "36 % des 18-75 ans dorment",
+        "moins de 6 heures par nuit,",
+        "pour 7 heures recommandées"
+      ]
+    },
+    {
+      "name": "Viser 7 heures",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Le manque de sommeil dérègle",
+        "cortisol et hormone de croissance",
+        "",
+        "Ce qui favoriserait l'intolérance",
+        "au glucose, indépendamment",
+        "de la prise de poids"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alimentation, temps assis, sommeil —",
+        "trois leviers du mode de vie"
+      ],
+      [
+        "S'il ne fallait en retenir qu'un :",
+        "marcher un peu toutes les 2 heures"
+      ]
+    ],
+    "tip": [
+      "Après 45 ans avec un facteur de risque,",
+      "parlez d'un dosage à votre médecin traitant"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Suivez-nous !"
+  },
+  "cover_scrim_color": "#3A2E6E"
+}

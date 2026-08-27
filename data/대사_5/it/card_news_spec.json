@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Ti senti bene",
+    "ma la glicemia sale?",
+    "I 3 fattori da guardare"
+  ],
+  "eyebrow": "Insulino-resistenza",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "Il punto",
+  "cover_char_file": "단과자빵_illust.jpg",
+  "char_display_names": {
+    "단과자빵_illust.jpg": "Girovita",
+    "스마트폰_illust.jpg": "Sedentarietà",
+    "베개_illust.jpg": "Sonno"
+  },
+  "items": [
+    {
+      "name": "Perché non te ne accorgi",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "I segni del diabete di tipo 2",
+        "sono poco evidenti",
+        "",
+        "Le cellule rispondono meno",
+        "all'insulina e il pancreas",
+        "ne produce sempre di più"
+      ]
+    },
+    {
+      "name": "1. Il girovita",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Primo: il grasso viscerale",
+        "",
+        "ISSalute indica 94 cm negli uomini",
+        "e 80 cm nelle donne come segnale",
+        "di accumulo nell'addome"
+      ]
+    },
+    {
+      "name": "Come intervenire",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Circa il 5% di peso in meno,",
+        "insieme a esercizio regolare",
+        "",
+        "ISSalute: il rischio di diabete",
+        "può scendere di oltre il 50%"
+      ]
+    },
+    {
+      "name": "2. La sedentarietà",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Secondo: le ore da fermi",
+        "",
+        "Fra chi ha il diabete il 49%",
+        "è sedentario, contro il 36%",
+        "di chi non ce l'ha (PASSI)"
+      ]
+    },
+    {
+      "name": "Come intervenire",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "150 minuti a settimana",
+        "di attività moderata",
+        "",
+        "L'attività fisica riduce il rischio",
+        "di diabete di tipo 2 del 35-50%"
+      ]
+    },
+    {
+      "name": "3. Il sonno",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Terzo: il riposo",
+        "",
+        "L'ISS mette la qualità del sonno",
+        "tra le strategie di prevenzione",
+        "della sindrome metabolica"
+      ]
+    },
+    {
+      "name": "Come intervenire",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Se russi molto e ti svegli",
+        "già stanco, parlane col medico",
+        "",
+        "Le apnee ostruttive possono",
+        "favorire l'insulino-resistenza"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Girovita, movimento e sonno:",
+        "tre leve, nessuna esotica"
+      ],
+      [
+        "Il metro segnala,",
+        "solo il sangue conferma"
+      ]
+    ],
+    "tip": [
+      "Chiedi al medico di famiglia un controllo",
+      "della glicemia se non lo fai da anni"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#1C5E4A"
+}

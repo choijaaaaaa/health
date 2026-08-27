@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Normalt BMI,",
+    "men växande midjemått?",
+    "3 saker att se över"
+  ],
+  "eyebrow": "Insulinresistens",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "각설탕_illust.jpg",
+  "char_display_names": {
+    "각설탕_illust.jpg": "Bukfett",
+    "서류더미_illust.jpg": "Stress",
+    "베개_illust.jpg": "Sömn"
+  },
+  "items": [
+    {
+      "name": "Varför du inte känner det",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Typ 2-diabetes utvecklas",
+        "långsamt, och symtomen är",
+        "svåra att lägga märke till",
+        "",
+        "Cellerna blir mindre känsliga",
+        "för insulin och bukspottkörteln",
+        "får tillverka mer"
+      ]
+    },
+    {
+      "name": "1. Bukfettet",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Först: var fettet sitter",
+        "",
+        "Risken ökar redan vid 80 cm",
+        "för kvinnor och 94 cm för män",
+        "(1177 Vårdguiden)"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Mät midjan mitt mellan",
+        "nedersta revbenet och höftkammen",
+        "",
+        "Du kan ha högt midjemått",
+        "trots lågt BMI"
+      ]
+    },
+    {
+      "name": "2. Stressen",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Sedan: den långvariga stressen",
+        "",
+        "1177: stress gör kroppen",
+        "mindre känslig för insulin",
+        "och blodsockret stiger"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Skydda återhämtningen",
+        "",
+        "Med tid för vila klarar kroppen",
+        "stressiga perioder utan",
+        "att ta skada"
+      ]
+    },
+    {
+      "name": "3. Sömnen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Till sist: sömnen och vilan",
+        "",
+        "1177: att minska stress och få",
+        "bättre sömn förbättrar hälsan",
+        "oavsett hur högt BMI du har"
+      ]
+    },
+    {
+      "name": "Så gör du",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Ge sömnen samma plats",
+        "som kost och rörelse",
+        "",
+        "Och rör på dig en halvtimme",
+        "om dagen — effekten",
+        "kommer direkt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Midjemått, stress och sömn —",
+        "inte bara vad du äter"
+      ],
+      [
+        "Måttbandet ger en signal,",
+        "blodprovet ger svaret"
+      ]
+    ],
+    "tip": [
+      "Kontakta en vårdcentral om du känner igen",
+      "dig i flera av riskfaktorerna"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#7A2E3B"
+}
