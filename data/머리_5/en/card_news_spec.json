@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Throbbing on one side,",
+    "hours after a meal",
+    "you cannot quite place?",
+    "3 Migraine Triggers to Track"
+  ],
+  "eyebrow": "Migraine Food Triggers",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "One Thing to Try",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "치즈_illust.jpg": "Aged Cheese",
+    "가공육_illust.jpg": "Cured Meat",
+    "커피_illust.jpg": "Coffee Habit"
+  },
+  "items": [
+    {
+      "name": "Why It Is Hard to Pin Down",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "The attack starts hours after",
+        "the meal, so nothing obvious",
+        "connects the two",
+        "",
+        "About 3 in 4 people with migraine",
+        "can name a trigger, and 3 of them",
+        "sit in an ordinary kitchen"
+      ]
+    },
+    {
+      "name": "Trigger 1 Aged Cheese",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "First is tyramine in",
+        "long-ripened cheese",
+        "",
+        "It prompts a release of",
+        "norepinephrine, and blood vessels",
+        "narrow before widening again"
+      ]
+    },
+    {
+      "name": "Swap in Fresh Cheese",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Mozzarella, ricotta, cottage",
+        "and cream cheese barely ripen",
+        "",
+        "Unripened styles test at the",
+        "bottom of the tyramine range,",
+        "so the cheese board stays"
+      ]
+    },
+    {
+      "name": "Trigger 2 Cured Meat",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Second is nitrite in bacon,",
+        "hot dogs and salami",
+        "",
+        "Part of it becomes nitric oxide,",
+        "which widens blood vessels",
+        "within minutes to a few hours"
+      ]
+    },
+    {
+      "name": "Read Past the Label",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Uncured deli meat is usually",
+        "cured with celery powder,",
+        "which still yields nitrite",
+        "",
+        "Roast chicken or beef sliced",
+        "at home is the cleaner test"
+      ]
+    },
+    {
+      "name": "Trigger 3 Stop-Start Coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Third is skipping caffeine",
+        "on days off",
+        "",
+        "Above 200 mg a day for 2 weeks,",
+        "stopping can bring a headache",
+        "within 24 hours"
+      ]
+    },
+    {
+      "name": "Keep the Line Flat",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Same amount weekday and weekend",
+        "beats quitting outright",
+        "",
+        "Cutting back by about 25 percent",
+        "a week gets you lower without",
+        "the withdrawal dip"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cheese, cured meat and coffee gaps",
+        "all act hours after the fact"
+      ],
+      [
+        "Nothing here needs to be banned",
+        "to make the pattern easier to see"
+      ]
+    ],
+    "tip": [
+      "Log the 24 hours before each attack",
+      "for 2 weeks, then cut only repeats"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#8C2F39"
+}

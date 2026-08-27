@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Mal di testa sempre",
+    "dopo la stessa cena?",
+    "Tiramina, nitriti e caffeina"
+  ],
+  "eyebrow": "Emicrania e tavola",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "치즈_illust.jpg",
+  "cover_scrim_color": "#6D214F",
+  "char_display_names": {
+    "치즈_illust.jpg": "Formaggi stagionati",
+    "가공육_illust.jpg": "Salumi",
+    "커피_illust.jpg": "Caffè"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Non è il latte il problema,",
+        "ma la stagionatura",
+        "",
+        "Fermentazione, nitriti e caffeina",
+        "irregolare agiscono su vasi",
+        "e terminazioni del dolore"
+      ]
+    },
+    {
+      "name": "La tiramina",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Più un formaggio invecchia,",
+        "più tiramina accumula",
+        "",
+        "Le MAO la smaltiscono:",
+        "se lavorano poco,",
+        "la vulnerabilità aumenta"
+      ]
+    },
+    {
+      "name": "Scegli il formaggio giusto",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Mozzarella, ricotta, stracchino",
+        "non hanno stagionatura",
+        "",
+        "Restano un'opzione anche",
+        "nelle giornate a rischio"
+      ]
+    },
+    {
+      "name": "I nitriti dei salumi",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Rilasciano ossido nitrico,",
+        "che dilata i vasi",
+        "",
+        "In uno studio su 13 persone,",
+        "8 hanno avuto cefalea dopo i",
+        "nitriti e nessuna col placebo"
+      ]
+    },
+    {
+      "name": "Come gestire i salumi",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Una o due volte a settimana,",
+        "porzioni da circa 50 g",
+        "",
+        "Controlla i conservanti",
+        "in etichetta"
+      ]
+    },
+    {
+      "name": "Il caffè saltato",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Interrompere di colpo",
+        "l'abitudine quotidiana",
+        "",
+        "innesca la cosiddetta",
+        "cefalea da weekend"
+      ]
+    },
+    {
+      "name": "Tieni la caffeina costante",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Stessa quantità, stessa ora,",
+        "weekend compreso",
+        "",
+        "Per ridurla, scala in una",
+        "o due settimane"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Stagionatura, nitriti e caffè irregolare:",
+        "tre vie diverse, un solo dolore"
+      ],
+      [
+        "Non serve eliminare tutto,",
+        "serve sapere cosa scegliere"
+      ]
+    ],
+    "tip": [
+      "Un diario alimentare di qualche settimana",
+      "dice più di ogni lista di cibi vietati"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e seguici!"
+  }
+}

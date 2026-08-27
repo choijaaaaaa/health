@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Migrän: räcker det",
+    "att stryka osten och rödvinet?",
+    "Regelbundenhet väger tyngre"
+  ],
+  "eyebrow": "Migrän och maten",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "와인_illust.jpg",
+  "cover_scrim_color": "#5D4E8C",
+  "char_display_names": {
+    "와인_illust.jpg": "Rödvin",
+    "가공육_illust.jpg": "Chark",
+    "커피_illust.jpg": "Kaffe"
+  },
+  "items": [
+    {
+      "name": "Så ligger det till",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Att undvika vissa livsmedel",
+        "kan hjälpa för en del",
+        "",
+        "men listan gäller inte alla —",
+        "din egen vecka avgör"
+      ]
+    },
+    {
+      "name": "Testa ett i taget",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Stryk inte tio livsmedel",
+        "på en gång",
+        "",
+        "En huvudvärksdagbok i några",
+        "veckor ger säkrare svar"
+      ]
+    },
+    {
+      "name": "Kaffet du inte drack",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Mindre kaffe än du brukar",
+        "hör till det som ger huvudvärk",
+        "",
+        "Upp till 400 mg per dag räknas",
+        "som ofarligt för en vuxen"
+      ]
+    },
+    {
+      "name": "Håll mängden jämn",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Samma antal koppar på lördagen",
+        "som på tisdagen",
+        "",
+        "Ska du dra ner,",
+        "gör det stegvis"
+      ]
+    },
+    {
+      "name": "Nitrit i charken",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Nitrat och nitrit kan omvandlas",
+        "till kväveoxid i kroppen,",
+        "som vidgar blodkärlen",
+        "",
+        "Sänkta maximihalter gäller",
+        "inom EU sedan 9 oktober 2025"
+      ]
+    },
+    {
+      "name": "Läs förteckningen",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Konserveringsmedel följt av",
+        "E-nummer står på förpackningen",
+        "",
+        "Kostrådet: högst 350 g tillagat",
+        "rött kött i veckan, lite chark"
+      ]
+    },
+    {
+      "name": "Räkna värktabletterna",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Receptfria smärtstillande",
+        "högst två till tre gånger i veckan",
+        "",
+        "annars kan de ge fler dagar",
+        "med huvudvärk"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Osten får skulden,",
+        "men regelbundenheten avgör oftare"
+      ],
+      [
+        "Jämn kaffemängd, mat och sömn",
+        "på ungefär samma tider"
+      ]
+    ],
+    "tip": [
+      "Tätare eller annorlunda attacker",
+      "är värda ett besök i vården"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera och följ sidan!"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Une crise quelques heures",
+    "après le repas,",
+    "sans lien évident ?",
+    "Ce n'est pas que le fromage"
+  ],
+  "eyebrow": "Migraine et alimentation",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "Quand consulter",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "치즈_illust.jpg": "Fromage affiné",
+    "가공육_illust.jpg": "Charcuterie",
+    "커피_illust.jpg": "Caféine"
+  },
+  "items": [
+    {
+      "name": "Pourquoi le lien est flou",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "La crise arrive plusieurs heures",
+        "après le repas",
+        "",
+        "L'Inserm parle d'un changement",
+        "lié à l'alimentation : repas sauté,",
+        "repas lourd, alcool"
+      ]
+    },
+    {
+      "name": "Le fromage affiné",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "La tyramine se forme quand",
+        "l'affinage dégrade les protéines",
+        "",
+        "Plus le fromage a vieilli,",
+        "plus sa teneur est élevée"
+      ]
+    },
+    {
+      "name": "Passer au frais",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Fromage blanc, ricotta,",
+        "mozzarella, chèvre frais",
+        "",
+        "L'affinage y est quasi absent,",
+        "donc la tyramine aussi"
+      ]
+    },
+    {
+      "name": "La charcuterie",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Les nitrites ajoutés deviennent",
+        "du monoxyde d'azote",
+        "",
+        "Ce vasodilatateur explique le",
+        "surnom de hot dog headache"
+      ]
+    },
+    {
+      "name": "Le repère du PNNS",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Pas plus de 150 g de charcuterie",
+        "par semaine, soit trois tranches",
+        "",
+        "L'Anses recommande de réduire",
+        "l'exposition aux nitrites"
+      ]
+    },
+    {
+      "name": "Le café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ce n'est pas la tasse,",
+        "c'est l'arrêt brutal",
+        "",
+        "Au-delà de 200 mg par jour pendant",
+        "2 semaines, l'arrêt déclenche une",
+        "céphalée en 24 heures"
+      ]
+    },
+    {
+      "name": "Lisser plutôt qu'arrêter",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Même quantité en semaine",
+        "et le week-end",
+        "",
+        "Pour réduire, descendre",
+        "progressivement sur plusieurs jours"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le rythme des repas et du café",
+        "pèse plus que la liste d'aliments"
+      ],
+      [
+        "Un agenda des crises vaut mieux",
+        "que le souvenir du dernier repas"
+      ]
+    ],
+    "tip": [
+      "Notez les 24 heures avant chaque crise",
+      "et parlez-en à votre médecin traitant"
+    ],
+    "cta": "Envie d'autres conseils santé pratiques ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#A3563A"
+}

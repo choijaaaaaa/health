@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Käse, Rotwein, Wurst",
+    "stehen auf jeder Verbotsliste",
+    "und trotzdem bleibt die Attacke?",
+    "3 Migräne-Mythen im Check"
+  ],
+  "eyebrow": "Migräne und Ernährung",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz gefragt",
+  "cover_char_file": "치즈_illust.jpg",
+  "char_display_names": {
+    "치즈_illust.jpg": "Gereifter Käse",
+    "소시지_illust.jpg": "Wurstwaren",
+    "커피_illust.jpg": "Koffein"
+  },
+  "items": [
+    {
+      "name": "Warum Listen wenig bringen",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Die DMKG sagt es deutlich:",
+        "eine Migräne-Diät gibt es nicht",
+        "",
+        "Triggerfaktoren sind nicht die",
+        "Ursache, sondern nur der Auslöser",
+        "einer Attacke"
+      ]
+    },
+    {
+      "name": "Mythos 1 Der Käse",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Beim Reifen entsteht Tyramin,",
+        "das Noradrenalin freisetzt",
+        "",
+        "Nur reagiert längst nicht jeder",
+        "darauf, und Schokoladenhunger",
+        "kann schon Teil der Vorphase sein"
+      ]
+    },
+    {
+      "name": "Greifen Sie zu Frischkäse",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Falls Käse im Tagebuch",
+        "wiederholt auftaucht",
+        "",
+        "Mozzarella, Ricotta und Hüttenkäse",
+        "reifen kaum und liegen beim",
+        "Tyramin am unteren Ende"
+      ]
+    },
+    {
+      "name": "Mythos 2 Die Wurst",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Nitrat und Nitrit in Würstchen",
+        "werden von der DMKG genannt",
+        "",
+        "Daraus entsteht Stickstoffmonoxid,",
+        "das Blutgefäße weitstellt"
+      ]
+    },
+    {
+      "name": "Lesen Sie das Etikett genau",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Mit Selleriepulver gepökelt",
+        "heißt am Ende trotzdem Nitrit",
+        "",
+        "Das BfR rät nicht pauschal vom",
+        "Nitritpökelsalz ab, weil es",
+        "Listerien und Salmonellen hemmt"
+      ]
+    },
+    {
+      "name": "Mythos 3 Der Kaffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Nicht die Tasse, der Entzug",
+        "am freien Wochenende",
+        "",
+        "Über 200 mg täglich für mehr als",
+        "2 Wochen, dann abgesetzt: Kopfschmerz",
+        "binnen 24 Stunden"
+      ]
+    },
+    {
+      "name": "Reduzieren Sie schrittweise",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Unter vier Tassen am Tag bleiben",
+        "und die Menge gleich halten",
+        "",
+        "Wer weniger will, geht über",
+        "mehrere Tage herunter statt abrupt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht die Liste entscheidet,",
+        "sondern Ihr eigenes Tagebuch"
+      ],
+      [
+        "Nahrungsmittel gelten als eher",
+        "über- als unterschätzte Auslöser"
+      ]
+    ],
+    "tip": [
+      "Zwei Wochen notieren, was am Vortag",
+      "auf dem Teller lag, dann gezielt streichen"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#1E6F8C"
+}
