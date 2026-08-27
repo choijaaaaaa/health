@@ -1,0 +1,105 @@
+{
+  "title": [
+    "Bullrar magen efter",
+    "ett glas mjölk?",
+    "Gränsen är personlig",
+    "Laktos gram för gram"
+  ],
+  "eyebrow": "Laktosintolerans",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Mjölk",
+    "치즈_illust.jpg": "Lagrad hårdost",
+    "알약_illust.jpg": "Laktastabletter"
+  },
+  "items": [
+    {
+      "name": "Vad som händer",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Bullrar magen efter",
+        "ett glas mjölk?",
+        "",
+        "Utan tillräckligt med laktas",
+        "passerar mjölksockret",
+        "vidare till tjocktarmen"
+      ]
+    },
+    {
+      "name": "Två saker samtidigt",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Bakterier bildar gas av laktosen",
+        "",
+        "och laktosen gör att mindre",
+        "vatten tas upp — därav diarrén"
+      ]
+    },
+    {
+      "name": "Ovanligare än du tror",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "I Sverige räknar man med",
+        "4–10 procent av de vuxna",
+        "",
+        "I Finland 15–20 procent,",
+        "i medelhavsområdet 30–60"
+      ]
+    },
+    {
+      "name": "Så mycket tål de flesta",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "De flesta klarar laktosen",
+        "i en deciliter mjölk dagligen",
+        "",
+        "Flera tål tolv gram till en måltid,",
+        "en del reagerar redan på tre"
+      ]
+    },
+    {
+      "name": "Byt ut, stryk inte allt",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Lagrad hårdost, yoghurt, fil,",
+        "creme fraiche och smör",
+        "går oftast bra",
+        "",
+        "Mesost, messmör, mjölkchoklad",
+        "och glass ligger högst"
+      ]
+    },
+    {
+      "name": "När du ska söka vård",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Laktas finns receptfritt",
+        "på apotek till undantagen",
+        "",
+        "Blod i avföringen eller diarré",
+        "i mer än två veckor:",
+        "kontakta vårdcentralen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Byt ut några få produkter",
+        "i stället för hela mejerihyllan"
+      ],
+      [
+        "Gränsen är personlig —",
+        "genomsnittet säger inget om dig"
+      ]
+    ],
+    "tip": [
+      "Flytta glaset mjölk till måltiden och byt mesosten mot lagrad hårdost",
+      "Blod i avföringen eller diarré i mer än två veckor: vårdcentral, eller ring 1177"
+    ],
+    "cta": "Vill du ha fler konkreta hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#0B5563"
+}

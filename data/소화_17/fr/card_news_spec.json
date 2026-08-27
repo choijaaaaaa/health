@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Ballonnements après",
+    "un verre de lait ?",
+    "Ce n'est pas toujours le lactose",
+    "Le test de deux semaines"
+  ],
+  "eyebrow": "Intolérance au lactose",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Lait",
+    "흰빵_illust.jpg": "FODMAPs",
+    "치즈_illust.jpg": "Produits fermentés"
+  },
+  "items": [
+    {
+      "name": "Ce qui se passe",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Ballonnements, gaz, diarrhée",
+        "après un verre de lait ?",
+        "",
+        "Faute de lactase, le lactose reste",
+        "dans l'intestin, fermente",
+        "et retient l'eau dans les selles"
+      ]
+    },
+    {
+      "name": "La question de la quantité",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Le lait devient difficile",
+        "à digérer surtout au-delà",
+        "de 250 ml en une seule fois",
+        "",
+        "La quantité compte autant",
+        "que le produit lui-même"
+      ]
+    },
+    {
+      "name": "Pas toujours le lactose",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Les ballonnements touchent",
+        "20 à 40 % de la population",
+        "",
+        "Blé, choux, oignon, pomme,",
+        "édulcorants et chewing-gums",
+        "fermentent eux aussi"
+      ]
+    },
+    {
+      "name": "Une piste temporaire",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Après une gastro-entérite,",
+        "l'intolérance peut n'être",
+        "que passagère",
+        "",
+        "Elle disparaît avec la guérison —",
+        "inutile de bannir le lait à vie"
+      ]
+    },
+    {
+      "name": "Le test de deux semaines",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Arrêtez les aliments riches",
+        "en lactose deux semaines",
+        "",
+        "Si le lactose seul est en cause,",
+        "l'amélioration arrive vite.",
+        "Sinon, inutile de prolonger"
+      ]
+    },
+    {
+      "name": "Réintroduire, pas supprimer",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Les cultures vivantes des yaourts",
+        "améliorent la digestion du lactose",
+        "de ces produits",
+        "",
+        "Ajustez les quantités plutôt",
+        "que de tout retirer"
+      ]
+    },
+    {
+      "name": "Quand consulter",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Sang et glaires dans les selles,",
+        "amaigrissement important,",
+        "transit modifié depuis des semaines",
+        "",
+        "Médecin traitant, 116 117 de garde,",
+        "15 en cas d'urgence vitale"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Deux semaines d'éviction en disent plus",
+        "que deux ans de suppression au hasard"
+      ],
+      [
+        "Tester, puis réintroduire",
+        "en ajustant les quantités"
+      ]
+    ],
+    "tip": [
+      "Si rien ne change en deux semaines, inutile de poursuivre l'éviction",
+      "Sang dans les selles ou amaigrissement : consultez, n'ajustez pas l'assiette"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#8C3A5E"
+}

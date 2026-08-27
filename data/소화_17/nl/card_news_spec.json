@@ -1,0 +1,106 @@
+{
+  "title": [
+    "Buikpijn en diarree",
+    "na een glas melk?",
+    "Zuivel schrappen hoeft niet",
+    "10 tot 15 gram per dag"
+  ],
+  "eyebrow": "Lactose-intolerantie",
+  "swipe_label": "Veeg verder  →",
+  "closing_label": "Checklist",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Melk",
+    "치즈_illust.jpg": "Harde kaas",
+    "흰빵_illust.jpg": "Brood"
+  },
+  "items": [
+    {
+      "name": "Wat er misgaat",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Buikpijn en diarree",
+        "na een glas melk?",
+        "",
+        "Te weinig lactase: de lactose",
+        "belandt onverteerd",
+        "in je dikke darm"
+      ]
+    },
+    {
+      "name": "Twee oorzaken tegelijk",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Bacteriën maken er gassen van,",
+        "en de lactose trekt water aan",
+        "",
+        "Vandaar het opgeblazen gevoel",
+        "én de waterige ontlasting"
+      ]
+    },
+    {
+      "name": "Hoeveel kan wel",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Gemiddeld 10 tot 15 gram",
+        "lactose per dag zonder klachten",
+        "",
+        "Dat is ongeveer één grote",
+        "mok melk, verdeeld over de dag"
+      ]
+    },
+    {
+      "name": "Dit kun je houden",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Nederlandse harde gele kaas,",
+        "yoghurt, karnemelk, kwark",
+        "en lactosevrije zuivel",
+        "",
+        "Rijpen en fermenteren breken",
+        "de lactose al af"
+      ]
+    },
+    {
+      "name": "Brood en koek",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "In brood, margarine en koekjes",
+        "zit vaak wat lactose",
+        "",
+        "Meestal zo weinig dat je ze",
+        "niet hoeft te vermijden"
+      ]
+    },
+    {
+      "name": "Eerst de huisarts",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Schrap lactose niet op eigen",
+        "houtje — er kan iets anders",
+        "achter zitten",
+        "",
+        "Bloed bij je poep of erge",
+        "buikpijn? Bel dezelfde dag"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Niet schrappen maar herschikken:",
+        "dat scheelt de meeste klachten"
+      ],
+      [
+        "Kaas, yoghurt en kwark",
+        "mogen gewoon blijven staan"
+      ]
+    ],
+    "tip": [
+      "Halveer vanavond je glas melk en houd een week een voedingsdagboek bij",
+      "Bloed bij je poep of aanhoudende buikpijn? Bel dezelfde dag je huisarts"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2C6B4F"
+}

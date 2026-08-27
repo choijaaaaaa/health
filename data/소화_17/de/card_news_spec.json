@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Blähungen nach dem Essen,",
+    "obwohl Sie kaum Milch trinken?",
+    "Versteckte Laktose zählt mit",
+    "Die 12-Gramm-Grenze"
+  ],
+  "eyebrow": "Laktoseintoleranz im Alltag",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Checkliste",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Milch",
+    "소시지_illust.jpg": "Versteckte Laktose",
+    "치즈_illust.jpg": "Hartkäse"
+  },
+  "items": [
+    {
+      "name": "Warum der Bauch spannt",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Blähungen, Völlegefühl,",
+        "Durchfall nach dem Essen?",
+        "",
+        "Was die Laktase im Dünndarm",
+        "nicht spaltet, zersetzen",
+        "Bakterien im Dickdarm"
+      ]
+    },
+    {
+      "name": "Das Zeitfenster",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Beschwerden frühestens",
+        "eine halbe Stunde danach",
+        "",
+        "Am stärksten nach etwa",
+        "1,5 bis 2 Stunden — passt das",
+        "nicht, war es vielleicht anders"
+      ]
+    },
+    {
+      "name": "Die 12-Gramm-Grenze",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "In der Regel verträglich:",
+        "bis zu 12 g Laktose auf einmal",
+        "(rund 250 ml Milch)",
+        "",
+        "und bis zu 24 g über",
+        "den Tag verteilt"
+      ]
+    },
+    {
+      "name": "Versteckte Laktose",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Auch Backwaren, Süßigkeiten,",
+        "Wurst und Fertiggerichte",
+        "enthalten Milchzucker",
+        "",
+        "Ein Latte macchiato bringt",
+        "5,4 g pro 125 ml mit"
+      ]
+    },
+    {
+      "name": "Etiketten richtig lesen",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Dass Laktose enthalten ist,",
+        "muss auf die Zutatenliste —",
+        "die Menge aber nicht",
+        "",
+        "„Laktosefrei\" heißt: unter",
+        "0,1 g pro 100 g"
+      ]
+    },
+    {
+      "name": "Besser tauschen",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Parmesan, Bergkäse, Emmentaler,",
+        "Gouda: 0 g pro 30-g-Portion",
+        "",
+        "Und Milchprodukte am besten",
+        "zusammen mit einer Mahlzeit"
+      ]
+    },
+    {
+      "name": "Erst die Diagnose",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Vor der Umstellung abklären",
+        "lassen — Standard ist der Atemtest",
+        "",
+        "Bei Blut im Stuhl oder",
+        "Kreislaufproblemen sofort",
+        "ärztlichen Rat einholen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht nur das Milchglas zählt —",
+        "Wurst und Kaffee zählen mit"
+      ],
+      [
+        "Wer seine 12-Gramm-Grenze kennt,",
+        "muss selten ganz verzichten"
+      ]
+    ],
+    "tip": [
+      "Milchprodukte zur Mahlzeit statt auf leeren Magen, Hartkäse statt frischer Milch",
+      "Blut im Stuhl oder Kreislaufprobleme? Hausarztpraxis, 116117 oder im Notfall 112"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#6B3FA0"
+}

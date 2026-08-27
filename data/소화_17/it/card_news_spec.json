@@ -1,0 +1,108 @@
+{
+  "title": [
+    "Gonfiore e borborigmi",
+    "dopo il cappuccino?",
+    "La soglia è personale",
+    "Il lattosio, dose per dose"
+  ],
+  "eyebrow": "Intolleranza al lattosio",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Latte",
+    "커피_illust.jpg": "Caffè macchiato",
+    "치즈_illust.jpg": "Stagionati"
+  },
+  "items": [
+    {
+      "name": "Cosa succede nel colon",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Gonfiore e borborigmi",
+        "dopo il cappuccino?",
+        "",
+        "Il lattosio che la lattasi",
+        "non riesce a scindere",
+        "fermenta nel colon"
+      ]
+    },
+    {
+      "name": "Da cosa dipende",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "La gravità dipende da due cose",
+        "insieme: quanto lattosio hai",
+        "ingerito e quanto enzima ti manca",
+        "",
+        "Per questo la stessa diagnosi",
+        "dà reazioni molto diverse"
+      ]
+    },
+    {
+      "name": "La soglia personale",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "C'è chi non tollera nemmeno",
+        "il latte per macchiare il caffè",
+        "",
+        "e chi beve un bicchiere intero",
+        "senza alcun problema"
+      ]
+    },
+    {
+      "name": "Il lattosio nascosto",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Pane, biscotti, margarina,",
+        "insaccati, minestre precotte,",
+        "corn-flakes e caramelle",
+        "",
+        "Conta la somma della giornata,",
+        "non il singolo prodotto"
+      ]
+    },
+    {
+      "name": "Cosa scegliere",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Parmigiano, grana, pecorino,",
+        "provolone, taleggio: la lunga",
+        "stagionatura scinde il lattosio",
+        "",
+        "Lo yogurt lo digerisce in parte",
+        "grazie ai suoi batteri"
+      ]
+    },
+    {
+      "name": "Prima la visita",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Il medico di famiglia prima",
+        "di togliere i latticini,",
+        "non dopo",
+        "",
+        "Sangue nelle feci, calo di peso",
+        "o diarrea notturna: si va dal medico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Non è il latticino a decidere,",
+        "è la dose che arriva insieme"
+      ],
+      [
+        "Chi conosce la propria soglia",
+        "raramente deve rinunciare a tutto"
+      ]
+    ],
+    "tip": [
+      "Formaggi stagionati e yogurt per primi, e occhio alla somma del lattosio nascosto",
+      "Sangue nelle feci o perdita di peso? Medico di famiglia, in emergenza il 112"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#9C4A3E"
+}

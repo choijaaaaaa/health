@@ -1,0 +1,107 @@
+{
+  "title": [
+    "¿«Sin lactosa» o",
+    "«bajo en lactosa»?",
+    "No son lo mismo",
+    "Leer la etiqueta"
+  ],
+  "eyebrow": "Intolerancia a la lactosa",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Leche",
+    "소시지_illust.jpg": "Embutidos",
+    "흰빵_illust.jpg": "Bollería"
+  },
+  "items": [
+    {
+      "name": "Qué ocurre dentro",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "¿Gases e hinchazón",
+        "después de los lácteos?",
+        "",
+        "La lactosa que el intestino",
+        "delgado no desdobla",
+        "llega al intestino grueso"
+      ]
+    },
+    {
+      "name": "No es una alergia",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "La intolerancia no es lo mismo",
+        "que la alergia a las proteínas",
+        "de la leche",
+        "",
+        "Quien es alérgico tampoco puede",
+        "tomar productos «sin lactosa»"
+      ]
+    },
+    {
+      "name": "Las dos etiquetas",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "«Sin lactosa»: por debajo",
+        "del 0,01 % de lactosa",
+        "",
+        "«Bajo contenido en lactosa»:",
+        "generalmente por debajo del 1 %"
+      ]
+    },
+    {
+      "name": "Dónde se esconde",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Embutidos, sopas, salsas",
+        "y bollería llevan lactosa",
+        "más veces de lo que parece",
+        "",
+        "La lista de ingredientes debe",
+        "destacar leche y derivados"
+      ]
+    },
+    {
+      "name": "«Puede contener»",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "«Puede contener leche o lactosa»",
+        "no es un ingrediente",
+        "",
+        "Avisa de una posible",
+        "contaminación cruzada"
+      ]
+    },
+    {
+      "name": "Antes de la dieta",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Diarrea crónica, pérdida de peso,",
+        "anemia sin explicación o fatiga",
+        "crónica: consulta primero",
+        "",
+        "Pueden apuntar a celiaquía,",
+        "no a intolerancia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Antes de retirar lácteos,",
+        "dedica una compra a leer etiquetas"
+      ],
+      [
+        "«Sin lactosa» y «bajo contenido»",
+        "no protegen lo mismo"
+      ]
+    ],
+    "tip": [
+      "Lee la lista de ingredientes: embutidos, salsas y bollería suman lactosa sin avisar",
+      "Pérdida de peso o anemia sin explicación: centro de salud; reacción aguda, 112"
+    ],
+    "cta": "¿Quieres más consejos de salud prácticos? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#A85236"
+}

@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Milk leaves you bloated",
+    "but aged cheddar",
+    "goes down fine?",
+    "The Lactose Threshold, Explained"
+  ],
+  "eyebrow": "Lactose Intolerance",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "우유_illust.jpg",
+  "char_display_names": {
+    "우유_illust.jpg": "Milk",
+    "치즈_illust.jpg": "Aged Cheese",
+    "알약_illust.jpg": "Lactase"
+  },
+  "items": [
+    {
+      "name": "Why It Happens",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Milk leaves you bloated,",
+        "but aged cheddar doesn't?",
+        "",
+        "Your small intestine runs low",
+        "on lactase, so undigested lactose",
+        "reaches the colon and ferments"
+      ]
+    },
+    {
+      "name": "It's a Dose, Not a Ban",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "About 36% of people in the U.S.",
+        "have lactose malabsorption",
+        "",
+        "But many still handle about 12 g",
+        "of lactose — roughly one cup",
+        "of milk — with mild or no symptoms"
+      ]
+    },
+    {
+      "name": "Size the Serving",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Drink smaller amounts,",
+        "and drink them with a meal",
+        "",
+        "Then add lactose back gradually",
+        "to find where your own",
+        "threshold actually sits"
+      ]
+    },
+    {
+      "name": "Milk vs. Hard Cheese",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "One cup of milk carries",
+        "about 11 to 13 g of lactose",
+        "",
+        "A 43 g serving of mature",
+        "hard cheese carries",
+        "less than 1 g"
+      ]
+    },
+    {
+      "name": "Swap the Dairy",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Start with yogurt and hard",
+        "cheeses like cheddar or Swiss",
+        "",
+        "Draining the whey and long aging",
+        "take most of the lactose out",
+        "before it reaches your plate"
+      ]
+    },
+    {
+      "name": "When Enzymes Help",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Lactase tablets and drops",
+        "break the lactose down",
+        "before your gut has to"
+      ]
+    },
+    {
+      "name": "Use Lactase Right",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Take them with the dairy,",
+        "not hours before or after",
+        "",
+        "Check with a doctor first —",
+        "young children and people who are",
+        "pregnant may not be able to use them"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lactose intolerance is about the dose,",
+        "not about giving up dairy for good"
+      ],
+      [
+        "Size the serving, pair it with food,",
+        "and find your own threshold"
+      ]
+    ],
+    "tip": [
+      "Smaller servings with a meal beat one large glass on an empty stomach",
+      "Black or bloody stools, fever, or weight loss? See a doctor, not a diet"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#2B5F4A"
+}
