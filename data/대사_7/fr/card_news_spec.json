@@ -1,0 +1,119 @@
+{
+  "topic": "대사_7_fr",
+  "title": [
+    "Ce n'est pas la balance",
+    "qui décide, c'est le",
+    "mètre ruban",
+    "Le syndrome de la bedaine"
+  ],
+  "eyebrow": "Syndrome métabolique",
+  "swipe_label": "Balayez pour la suite  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Tour de taille",
+    "알약_illust.jpg": "Bilan sanguin",
+    "소금_illust.jpg": "Sel caché",
+    "운동화_illust.jpg": "30 minutes"
+  },
+  "items": [
+    {
+      "name": "L'idée reçue",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Le syndrome métabolique",
+        "n'est pas qu'une histoire de kilos",
+        "",
+        "En France, près d'une personne",
+        "sur cinq serait concernée,",
+        "et cela reste longtemps silencieux"
+      ]
+    },
+    {
+      "name": "Ce que l'IMC ne dit pas",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "La graisse abdominale augmente",
+        "le risque indépendamment de l'IMC",
+        "",
+        "Le tissu adipeux n'est pas inerte :",
+        "il communique avec le foie,",
+        "les muscles et les vaisseaux"
+      ]
+    },
+    {
+      "name": "Sortez le mètre ruban",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Plus de 94 cm chez l'homme,",
+        "plus de 80 cm chez la femme",
+        "",
+        "Puis au moins deux anomalies :",
+        "glycémie, triglycérides,",
+        "HDL bas ou tension trop haute"
+      ]
+    },
+    {
+      "name": "Un piège silencieux",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "L'hypertension touche près d'un",
+        "adulte sur trois en France",
+        "",
+        "Et un hypertendu sur deux l'ignore"
+      ]
+    },
+    {
+      "name": "Demandez une glycémie",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Glycémie veineuse à jeun :",
+        "1,10 à 1,25 g/L, prédiabète",
+        "1,26 g/L sur deux dosages, diabète",
+        "",
+        "Systématique après 45 ans",
+        "en cas de facteur de risque"
+      ]
+    },
+    {
+      "name": "Traquez le sel caché",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Pas plus de 5 g de sel par jour",
+        "",
+        "Environ 1 g dans un bol de soupe,",
+        "quatre tranches de pain",
+        "ou une part de pizza"
+      ]
+    },
+    {
+      "name": "Bougez 30 minutes",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Au moins 30 minutes d'activité",
+        "dynamique par jour",
+        "",
+        "Plus deux séances hebdomadaires",
+        "de renforcement et d'équilibre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tour de taille, glycémie, triglycérides,",
+        "HDL, tension : cinq repères, un seul mécanisme"
+      ],
+      [
+        "Le diagnostic ne se pose pas",
+        "devant un miroir, mais avec un bilan"
+      ]
+    ],
+    "tip": [
+      "Sur ces cinq repères, combien avez-vous",
+      "vérifiés au cours des douze derniers mois ?"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#6B2E5C"
+}

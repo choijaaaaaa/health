@@ -1,0 +1,121 @@
+{
+  "topic": "대사_7_es",
+  "title": [
+    "Tres análisis rozando el límite",
+    "pesan más que uno solo",
+    "por las nubes. ¿Por qué?",
+    "Síndrome metabólico"
+  ],
+  "eyebrow": "Síndrome metabólico",
+  "swipe_label": "Desliza para continuar  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Bebidas azucaradas",
+    "알약_illust.jpg": "Dos definiciones",
+    "아몬드_illust.jpg": "Frutos secos",
+    "운동화_illust.jpg": "150 a 300 minutos"
+  },
+  "items": [
+    {
+      "name": "Uno de cada tres adultos",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Alrededor del 31%",
+        "de los adultos en España,",
+        "según el estudio DARIOS",
+        "",
+        "32% en varones",
+        "y 29% en mujeres"
+      ]
+    },
+    {
+      "name": "El riesgo se acumula",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El riesgo cardiovascular",
+        "depende más de la acumulación",
+        "de factores que de la obesidad",
+        "en sí misma",
+        "",
+        "Por eso las cifras se leen juntas"
+      ]
+    },
+    {
+      "name": "Dos definiciones",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "ATP-III: al menos tres",
+        "de los cinco criterios",
+        "",
+        "IDF: cintura obligatoria",
+        "y al menos dos criterios más"
+      ]
+    },
+    {
+      "name": "Dónde están las líneas",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Cintura por encima de 102 cm",
+        "en hombres, 88 cm en mujeres,",
+        "triglicéridos desde 150 mg/dl,",
+        "c-HDL bajo 40 o 50 mg/dl,",
+        "tensión sobre 130/85 mmHg,",
+        "glucemia sobre 100 mg/dl"
+      ]
+    },
+    {
+      "name": "Menos silla, más pasos",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Cualquier aumento de actividad",
+        "física, aunque sea leve,",
+        "ya produce beneficios",
+        "",
+        "Ministerio de Sanidad, 2023"
+      ]
+    },
+    {
+      "name": "150 a 300 minutos",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "De actividad aeróbica moderada",
+        "a la semana, o 75 a 150",
+        "de actividad vigorosa",
+        "",
+        "Y dos días de fuerza",
+        "con grandes grupos musculares"
+      ]
+    },
+    {
+      "name": "Frutos secos y aceite de oliva",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Verdura, legumbres,",
+        "cereales integrales",
+        "en lugar de refinados",
+        "",
+        "Menos embutido, bollería",
+        "y bebidas azucaradas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Cintura, tensión, glucemia,",
+        "triglicéridos y HDL se leen en bloque"
+      ],
+      [
+        "La cinta métrica no diagnostica:",
+        "tres criterios necesitan analítica y tensiómetro"
+      ]
+    ],
+    "tip": [
+      "Si te quedas con una sola idea:",
+      "moverse un poco más ya cuenta, aunque sea poco"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#264C7A"
+}

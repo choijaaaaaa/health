@@ -1,0 +1,119 @@
+{
+  "topic": "대사_7_de",
+  "title": [
+    "Vier leicht auffällige Werte",
+    "auf einem Laborzettel —",
+    "und trotzdem eine Diagnose?",
+    "Das tödliche Quartett"
+  ],
+  "eyebrow": "Metabolisches Syndrom",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "소시지_illust.jpg",
+  "char_display_names": {
+    "소시지_illust.jpg": "Bauchfett",
+    "알약_illust.jpg": "Fünf Grenzwerte",
+    "아몬드_illust.jpg": "Mediterran essen",
+    "운동화_illust.jpg": "150 Minuten"
+  },
+  "items": [
+    {
+      "name": "Warum der drastische Name",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Mindestens jeder Vierte in",
+        "Deutschland hat ein",
+        "Metabolisches Syndrom",
+        "",
+        "Vier Risikofaktoren zusammen —",
+        "daher „tödliches Quartett“"
+      ]
+    },
+    {
+      "name": "Ursache: Insulinresistenz",
+      "char_file": "소시지_illust.jpg",
+      "body": [
+        "Muskel-, Leber- und Fettzellen",
+        "reagieren weniger empfindlich",
+        "auf Insulin",
+        "",
+        "Die Bauchspeicheldrüse gleicht",
+        "das mit mehr Insulin aus"
+      ]
+    },
+    {
+      "name": "Statt Diätmythen",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "5 bis 10 % Gewichtsabnahme",
+        "in 6 bis 12 Monaten",
+        "",
+        "Nicht ein bestimmter BMI-Wert",
+        "ist das Ziel, sondern die Richtung"
+      ]
+    },
+    {
+      "name": "Drei von fünf Werten",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Taille ab 102 cm (Männer)",
+        "oder ab 88 cm (Frauen),",
+        "Triglyzeride ab 150 mg/dl,",
+        "HDL unter 40 bzw. 50 mg/dl,",
+        "Blutdruck ab 130/85 mmHg,",
+        "Nüchternzucker ab 100 mg/dl"
+      ]
+    },
+    {
+      "name": "Mediterran statt streng",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Gemüse, Obst, Vollkorn,",
+        "Hülsenfrüchte, Nüsse, Olivenöl",
+        "",
+        "Fleisch und Wurst zusammen",
+        "höchstens 300 Gramm pro Woche"
+      ]
+    },
+    {
+      "name": "Oft unbemerkt",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Etwa 50 % der Männer und 40 %",
+        "der Frauen haben erhöhten Blutdruck",
+        "",
+        "Rund 15 % der Betroffenen",
+        "wissen nichts davon"
+      ]
+    },
+    {
+      "name": "150 Minuten pro Woche",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fünfmal 30 Minuten zügig gehen,",
+        "Rad fahren oder schwimmen",
+        "",
+        "Dazu an mindestens 2 Tagen",
+        "muskelstärkende Übungen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Taille, Blutdruck, Nüchternzucker,",
+        "Triglyzeride, HDL — kurz durchgehen"
+      ],
+      [
+        "Gemessen oder nur geschätzt?",
+        "Das ist schon der halbe Befund"
+      ]
+    ],
+    "tip": [
+      "Check-up 35: ab 35 alle drei Jahre,",
+      "Blutdruck, Blutfette und Zucker inklusive"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#45356B"
+}

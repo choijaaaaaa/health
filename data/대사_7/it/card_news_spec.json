@@ -1,0 +1,121 @@
+{
+  "topic": "대사_7_it",
+  "title": [
+    "Dopo i 50 anni",
+    "il girovita cresce",
+    "anche senza mangiare di più?",
+    "Sindrome metabolica"
+  ],
+  "eyebrow": "Sindrome metabolica",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Cereali raffinati",
+    "알약_illust.jpg": "Cinque valori",
+    "호두_illust.jpg": "Dieta mediterranea",
+    "운동화_illust.jpg": "150-300 minuti"
+  },
+  "items": [
+    {
+      "name": "Quanto è diffusa",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Nella fascia over 50",
+        "riguarda tra il 45%",
+        "e il 60% della popolazione",
+        "",
+        "Dati dell'Istituto",
+        "Superiore di Sanità"
+      ]
+    },
+    {
+      "name": "Perché i valori si muovono insieme",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Le cellule rispondono meno",
+        "all'insulina e il pancreas",
+        "compensa producendone di più",
+        "",
+        "Col tempo non basta più",
+        "e la glicemia sale"
+      ]
+    },
+    {
+      "name": "Il ruolo dell'età",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Dopo la menopausa il calo",
+        "degli estrogeni favorisce",
+        "il grasso addominale",
+        "",
+        "Prima, il grasso è più",
+        "sottocutaneo e meno rischioso"
+      ]
+    },
+    {
+      "name": "Tre criteri su cinque",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vita da 94 cm (uomini)",
+        "o da 80 cm (donne),",
+        "trigliceridi da 150 mg/dl,",
+        "HDL sotto 40 o 50 mg/dl,",
+        "pressione da 130/80 mmHg,",
+        "glicemia da 100 mg/dl"
+      ]
+    },
+    {
+      "name": "Nessun criterio obbligatorio",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Dal consenso del 2009",
+        "nessun singolo valore",
+        "è più indispensabile",
+        "",
+        "Conta la combinazione,",
+        "terapie in corso incluse"
+      ]
+    },
+    {
+      "name": "Mediterraneo, non diete lampo",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Verdura, legumi, integrali,",
+        "frutta secca, olio d'oliva",
+        "",
+        "Meno sale: erbe aromatiche",
+        "e spezie al suo posto"
+      ]
+    },
+    {
+      "name": "150-300 minuti a settimana",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Attività aerobica moderata,",
+        "oppure 75-150 minuti intensi",
+        "",
+        "Più rafforzamento muscolare",
+        "almeno due volte a settimana"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Girovita, pressione, glicemia,",
+        "trigliceridi, HDL: cinque righe da rivedere"
+      ],
+      [
+        "Il metro da sarto non basta —",
+        "tre dei cinque criteri passano dal prelievo"
+      ]
+    ],
+    "tip": [
+      "Misurati o solo immaginati?",
+      "Chiedere il profilo completo al medico di famiglia"
+    ],
+    "cta": "Altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#1F5A4E"
+}

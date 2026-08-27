@@ -1,0 +1,121 @@
+{
+  "topic": "대사_7_en",
+  "title": [
+    "Four numbers circled",
+    "on one lab report,",
+    "and you feel fine?",
+    "Metabolic Syndrome, Explained"
+  ],
+  "eyebrow": "Metabolic Syndrome Basics",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Belly Fat",
+    "흰빵_illust.jpg": "The Five Numbers",
+    "알약_illust.jpg": "Silent Risk",
+    "운동화_illust.jpg": "150 Minutes"
+  },
+  "items": [
+    {
+      "name": "Why It Matters",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "About 1 in 3 US adults",
+        "have metabolic syndrome",
+        "",
+        "It is not one disease but",
+        "three or more risk factors",
+        "showing up at the same time"
+      ]
+    },
+    {
+      "name": "Belly Fat Starts It",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Fat in the abdomen raises",
+        "free fatty acids in the blood",
+        "",
+        "That blunts how your body",
+        "responds to insulin, and",
+        "inflammation makes it worse"
+      ]
+    },
+    {
+      "name": "What Helps First",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Losing 3 to 5% of current",
+        "weight already helps manage",
+        "cholesterol and blood sugar",
+        "",
+        "The DPP trial aimed at 7%"
+      ]
+    },
+    {
+      "name": "Where the Lines Fall",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Waist over 40 in (men) or 35 in (women),",
+        "BP 130/85 or higher,",
+        "fasting sugar 100 mg/dL or higher,",
+        "triglycerides over 150,",
+        "HDL under 40 (men) or 50 (women)",
+        "",
+        "Three of five is the threshold"
+      ]
+    },
+    {
+      "name": "Eat the DASH Way",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Fruits, vegetables, whole grains",
+        "",
+        "Limit saturated fat, sodium,",
+        "added sugars and alcohol —",
+        "NHLBI's first-line advice here"
+      ]
+    },
+    {
+      "name": "Mostly Silent",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "High BP, high triglycerides and",
+        "low HDL usually cause no symptoms",
+        "",
+        "Blurred vision, extra thirst or",
+        "night urination can signal high",
+        "blood sugar — raise them at a visit"
+      ]
+    },
+    {
+      "name": "150 Minutes a Week",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "The DPP paired 150 minutes of",
+        "weekly exercise with a 7% weight goal",
+        "",
+        "Result: 58% lower chance of",
+        "type 2 diabetes over 3 years"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Waist, blood pressure, sugar, triglycerides, HDL —",
+        "one process moves all five"
+      ],
+      [
+        "Which is why fixing the process",
+        "moves all five back"
+      ]
+    ],
+    "tip": [
+      "Take the pairing the DPP tested:",
+      "a 7% weight goal plus 150 minutes a week"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1E5A8A"
+}

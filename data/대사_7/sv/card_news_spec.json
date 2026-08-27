@@ -1,0 +1,120 @@
+{
+  "topic": "대사_7_sv",
+  "title": [
+    "Timmarna du sitter still",
+    "väger tyngre än passet",
+    "du faktiskt hann med",
+    "Metabola syndromet"
+  ],
+  "eyebrow": "Metabola syndromet",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "서류더미_illust.jpg",
+  "char_display_names": {
+    "서류더미_illust.jpg": "Stillasittande",
+    "알약_illust.jpg": "Insulinresistens",
+    "호두_illust.jpg": "Nötter och fullkorn",
+    "운동화_illust.jpg": "150 minuter"
+  },
+  "items": [
+    {
+      "name": "Timmarna du sitter still",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Att begränsa mängden",
+        "stillasittande tid kan vara",
+        "lika avgörande som att öka",
+        "mängden fysisk aktivitet",
+        "",
+        "Ur FYSS-underlaget"
+      ]
+    },
+    {
+      "name": "Två huvudsymtom",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Bukfetma och sänkt",
+        "känslighet för insulin",
+        "",
+        "Insulinresistens kan uppkomma",
+        "när fettsyrorna i blodet ökar"
+      ]
+    },
+    {
+      "name": "Navet, inte en punkt bland flera",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Först konstateras diabetes",
+        "eller försämrat insulinsvar",
+        "",
+        "Sedan ska något av dessa ingå:",
+        "högt blodtryck, förhöjda blodfetter,",
+        "fetma, bukfetma eller njurpåverkan"
+      ]
+    },
+    {
+      "name": "Måttbandet räcker inte",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Risken ökar redan vid 80 cm",
+        "för kvinnor och 94 cm för män,",
+        "ännu mer vid 88 och 102 cm",
+        "",
+        "Men måttet skiljer inte på",
+        "underhudsfett och bukfett"
+      ]
+    },
+    {
+      "name": "150 minuter i veckan",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Måttlig intensitet, tre till",
+        "sju gånger i veckan",
+        "",
+        "Eller minst 75 minuter",
+        "på hög intensitet"
+      ]
+    },
+    {
+      "name": "Tio minuter tre gånger",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Kan vara lika effektivt som",
+        "ett pass på trettio minuter",
+        "",
+        "Styrketräning 2-3 gånger",
+        "i veckan, 8-10 övningar"
+      ]
+    },
+    {
+      "name": "Grönsaker, nötter, fullkorn",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Raps- och olivolja, frön",
+        "och nötter samt fullkorn",
+        "har skyddande effekt",
+        "",
+        "De vanliga svenska kostråden",
+        "räcker, ingen specialkost"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Midjemått, blodtryck, blodfetter",
+        "och fasteblodsocker hör ihop"
+      ],
+      [
+        "Måttbandet ställer ingen diagnos —",
+        "resten mäts på vårdcentralen"
+      ]
+    ],
+    "tip": [
+      "Den femte siffran står inte i journalen:",
+      "hur många timmar om dagen sitter du still?"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#4E3B5C"
+}

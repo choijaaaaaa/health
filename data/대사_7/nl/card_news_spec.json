@@ -1,0 +1,121 @@
+{
+  "topic": "대사_7_nl",
+  "title": [
+    "Buikvet werkt anders",
+    "dan vet op je heupen",
+    "en dat merk je pas laat",
+    "Metabool syndroom"
+  ],
+  "eyebrow": "Metabool syndroom",
+  "swipe_label": "Veeg voor meer  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "단과자빵_illust.jpg",
+  "char_display_names": {
+    "단과자빵_illust.jpg": "Snelle suikers",
+    "알약_illust.jpg": "Twee van de vier",
+    "치즈_illust.jpg": "Verzadigd vet",
+    "운동화_illust.jpg": "150 minuten"
+  },
+  "items": [
+    {
+      "name": "Vóór diabetes type 2",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Veel mensen met diabetes",
+        "hebben de problemen al",
+        "vóórdat ze diabetes krijgen",
+        "",
+        "Die combinatie heet",
+        "het metabool syndroom"
+      ]
+    },
+    {
+      "name": "Buikvet werkt anders",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Vetcellen in de buikholte",
+        "kunnen ontstekingsreacties",
+        "veroorzaken en zo andere",
+        "organen beschadigen",
+        "",
+        "Vet rond de heupen bijna niet"
+      ]
+    },
+    {
+      "name": "Eerst de buikomvang",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Meer dan 94 cm bij mannen,",
+        "meer dan 80 cm bij vrouwen",
+        "",
+        "Pas daarna tellen de",
+        "andere punten mee"
+      ]
+    },
+    {
+      "name": "Dan twee van de vier",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Hoge bloeddruk,",
+        "verhoogde triglyceriden,",
+        "te laag HDL-cholesterol,",
+        "verhoogde nuchtere bloedsuiker",
+        "",
+        "Twee of meer is genoeg"
+      ]
+    },
+    {
+      "name": "Het gebied ertussen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "94 tot 102 cm bij mannen",
+        "en 80 tot 88 cm bij vrouwen",
+        "heet al verhoogd",
+        "",
+        "Grenswaarden verschillen",
+        "per bevolkingsgroep"
+      ]
+    },
+    {
+      "name": "Minder verzadigd vet",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Minder verzadigd vet",
+        "en snelle suikers,",
+        "meer groente en volkoren",
+        "",
+        "Dezelfde gewoonten raken",
+        "alle vier de waarden"
+      ]
+    },
+    {
+      "name": "150 minuten per week",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Matig intensief bewegen,",
+        "wandelen en fietsen tellen mee",
+        "",
+        "Plus tweemaal per week",
+        "spier- en botversterkend"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Buikomvang, bloeddruk, triglyceriden,",
+        "HDL en nuchtere bloedsuiker even nalopen"
+      ],
+      [
+        "Een meetlint stelt geen diagnose —",
+        "de rest komt uit bloedonderzoek bij de huisarts"
+      ]
+    ],
+    "tip": [
+      "Van hoeveel van die vijf ken je het getal,",
+      "en hoeveel schat je alleen maar in?"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#3A5A40"
+}
