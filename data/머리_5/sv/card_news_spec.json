@@ -7,7 +7,7 @@
   "eyebrow": "Migrän och maten",
   "swipe_label": "Svep för mer  →",
   "closing_label": "Sammanfattning",
-  "cover_char_file": "와인_real_01.jpg",
+  "cover_char_file": "와인_illust.jpg",
   "cover_scrim_color": "#5D4E8C",
   "char_display_names": {
     "와인_illust.jpg": "Rödvin",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Så ligger det till",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Att undvika vissa livsmedel",
         "kan hjälpa för en del",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Testa ett i taget",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Stryk inte tio livsmedel",
         "på en gång",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Kaffet du inte drack",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Mindre kaffe än du brukar",
         "hör till det som ger huvudvärk",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Håll mängden jämn",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Samma antal koppar på lördagen",
         "som på tisdagen",
@@ -61,7 +61,7 @@
     },
     {
       "name": "Nitrit i charken",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Nitrat och nitrit kan omvandlas",
         "till kväveoxid i kroppen,",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Läs förteckningen",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Konserveringsmedel följt av",
         "E-nummer står på förpackningen",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Räkna värktabletterna",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Receptfria smärtstillande",
         "högst två till tre gånger i veckan",

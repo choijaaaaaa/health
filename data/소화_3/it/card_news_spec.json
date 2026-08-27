@@ -7,7 +7,7 @@
   "eyebrow": "Stitichezza e abitudini",
   "swipe_label": "Scorri per saperne di più  →",
   "closing_label": "In sintesi",
-  "cover_char_file": "흰빵_real_01.jpg",
+  "cover_char_file": "흰빵_illust.jpg",
   "char_display_names": {
     "흰빵_illust.jpg": "Cereali raffinati",
     "물방울_illust.jpg": "Acqua",
@@ -16,7 +16,7 @@
   "items": [
     {
       "name": "Non è pigrizia dell'intestino",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Meno di tre evacuazioni",
         "a settimana, feci dure e sforzo",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Cereali raffinati",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Le fibre accrescono il peso",
         "delle feci e ne velocizzano",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Cosa cambiare a tavola",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Sostituisci un cereale",
         "raffinato al giorno",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Poca acqua",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Più a lungo le feci",
         "restano nel colon,",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Come bere di più",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Un bicchiere d'acqua",
         "accanto a ogni pasto",
@@ -74,7 +74,7 @@
     },
     {
       "name": "Stimolo rimandato",
-      "char_file": "서류더미_real_01.jpg",
+      "char_file": "서류더미_illust.jpg",
       "body": [
         "L'ISS elenca tra le cause",
         "ignorare lo stimolo",
@@ -86,7 +86,7 @@
     },
     {
       "name": "Come recuperare la routine",
-      "char_file": "서류더미_real_01.jpg",
+      "char_file": "서류더미_illust.jpg",
       "body": [
         "Rispondi allo stimolo",
         "appena arriva",

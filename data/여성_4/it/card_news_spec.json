@@ -5,7 +5,7 @@
     "I 3 fattori scatenanti"
   ],
   "eyebrow": "Menopausa e vampate",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "cover_scrim_color": "#2A5D74",
   "char_display_names": {
     "커피_real_01.jpg": "Caffeina",
@@ -15,7 +15,7 @@
   "items": [
     {
       "name": "Perché arrivano",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Le ovaie producono",
         "meno estrogeni",
@@ -26,7 +26,7 @@
     },
     {
       "name": "La caffeina",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Primo fattore: la caffeina",
         "",
@@ -37,7 +37,7 @@
     },
     {
       "name": "Come regolarla",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Concentra il caffè",
         "nella prima parte del giorno",
@@ -47,7 +47,7 @@
     },
     {
       "name": "L'alcol",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Secondo fattore: l'alcol",
         "",
@@ -58,7 +58,7 @@
     },
     {
       "name": "Come regolarlo",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Alterna il calice",
         "a un bicchiere d'acqua fredda",
@@ -69,7 +69,7 @@
     },
     {
       "name": "I piatti piccanti",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Terzo fattore:",
         "i cibi piccanti",
@@ -80,7 +80,7 @@
     },
     {
       "name": "Come regolarli",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Meno peperoncino,",
         "e meglio a pranzo",

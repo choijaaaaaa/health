@@ -1,0 +1,111 @@
+{
+  "title": [
+    "Ont i magen som strålar",
+    "mot ryggen efter maten?",
+    "Bukspottkörteln kan vara orsaken"
+  ],
+  "eyebrow": "Bukspottkörteln",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#6B3F73",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alkohol",
+    "탄산음료_illust.jpg": "Läsk",
+    "단과자빵_illust.jpg": "Bullar"
+  },
+  "items": [
+    {
+      "name": "Vad som händer",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Enzymerna läcker ut",
+        "och bryter ner körteln själv",
+        "",
+        "Ofta gör det mer ont när du",
+        "har ätit eller druckit alkohol"
+      ]
+    },
+    {
+      "name": "Alkoholen",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Vanligaste orsaken till",
+        "kronisk inflammation",
+        "",
+        "Rökning ökar risken,",
+        "särskilt om du också dricker"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Skadorna som redan finns",
+        "går inte att läka",
+        "",
+        "Men de går att bromsa —",
+        "varje glas mindre räknas"
+      ]
+    },
+    {
+      "name": "Söta drycker",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Lätt att dricka mycket",
+        "utan att känna sig mätt",
+        "",
+        "Redan 0,8 liter i veckan",
+        "höjer risken för typ 2-diabetes"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Vatten eller kaffe i stället",
+        "",
+        "Högst 50 gram fritt socker",
+        "om dagen vid 2 000 kalorier"
+      ]
+    },
+    {
+      "name": "Bullar och kakor",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Siktat mjöl ger färre fibrer",
+        "och snabbare blodsocker",
+        "",
+        "Svenskar får i snitt",
+        "bara 20 gram fibrer om dagen"
+      ]
+    },
+    {
+      "name": "Vad som hjälper",
+      "char_file": "단과자빵_illust.jpg",
+      "body": [
+        "Sikta på 25–35 gram fibrer",
+        "",
+        "Leta efter Nyckelhålet",
+        "på bröd, flingor och müsli"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alkohol, läsk och siktat mjöl:",
+        "det som belastar körteln mest"
+      ],
+      [
+        "Byten som går att hålla",
+        "slår sträng specialkost"
+      ]
+    ],
+    "tip": [
+      "Mycket ont i magen som inte går över?",
+      "Kontakta vårdcentral genast"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  }
+}

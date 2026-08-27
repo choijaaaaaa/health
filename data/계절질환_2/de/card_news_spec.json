@@ -22,7 +22,7 @@
     },
     {
       "name": "Koffein",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Ein großer Eiskaffee",
         "oder Energydrink",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Koffein: die Lösung",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Bei starkem Schwitzen",
         "Wasser zur Hauptquelle machen",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Alkohol",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Alkohol bremst die",
         "Temperaturregulation des Körpers",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Alkohol: die Lösung",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Vor und während langer Zeit",
         "in der Hitze im Freien verzichten",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Nur Wasser reicht nicht immer",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Nach stundenlangem",
         "starkem Schwitzen",

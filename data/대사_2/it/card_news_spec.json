@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Dolore alla bocca dello stomaco",
+    "che si allarga verso la schiena?",
+    "Cosa c'entrano i trigliceridi"
+  ],
+  "eyebrow": "Trigliceridi e pancreas",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "흰빵_illust.jpg",
+  "cover_scrim_color": "#8A4B2A",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Farina 00",
+    "와인_illust.jpg": "Alcol",
+    "호두_illust.jpg": "Fibre"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Il dolore parte dalla bocca",
+        "dello stomaco e si allarga",
+        "a cintura verso la schiena",
+        "",
+        "Per l'ISS l'eccesso di trigliceridi",
+        "aumenta anche il rischio",
+        "per il pancreas"
+      ]
+    },
+    {
+      "name": "Il pasto abbondante",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Primo fattore:",
+        "le porzioni serali",
+        "",
+        "Se l'apporto di calorie è elevato",
+        "salgono anche i trigliceridi"
+      ]
+    },
+    {
+      "name": "Come alleggerirlo",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Riduci la porzione della cena,",
+        "non il numero dei pasti",
+        "",
+        "È la leva che si vede prima",
+        "sul valore a digiuno"
+      ]
+    },
+    {
+      "name": "L'alcol",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Secondo fattore: l'alcol",
+        "",
+        "Oltre 35 unità a settimana",
+        "quadruplicano il rischio",
+        "di pancreatite acuta"
+      ]
+    },
+    {
+      "name": "Come regolarlo",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Le soglie ISS di consumo abituale:",
+        "2 unità al giorno per l'uomo,",
+        "1 per la donna",
+        "",
+        "Tieni l'aperitivo fuori",
+        "dai giorni feriali"
+      ]
+    },
+    {
+      "name": "Le fibre che mancano",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Terzo fattore:",
+        "farine troppo raffinate",
+        "",
+        "La 00 conserva solo",
+        "la parte centrale del chicco"
+      ]
+    },
+    {
+      "name": "Come aggiungerle",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Almeno 25 grammi di fibra",
+        "al giorno secondo la SINU",
+        "",
+        "Pane e pasta integrali,",
+        "verdura e frutta a guscio"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Porzioni, alcol e farine raffinate:",
+        "il trio che alza i trigliceridi"
+      ],
+      [
+        "Correggendo questi fattori i valori",
+        "rientrano nella maggior parte dei casi"
+      ]
+    ],
+    "tip": [
+      "Dolore addominale violento e improvviso:",
+      "contatta subito il medico o il 118"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  }
+}

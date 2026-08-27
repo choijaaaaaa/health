@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Varför det här händer",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Tre vanor bryter ner",
         "kollagen snabbare än",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Orsak 1: Rökning",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Cigarettrök aktiverar",
         "enzymer som kallas MMP",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Rökstopp låter kollagenet återhämta sig",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Att sluta röka låter",
         "kollagenproduktionen",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Orsak 2: Oskyddad sol",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "UV-strålning aktiverar",
         "samma MMP-enzymer",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Använd solskydd varje dag",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "Strålsäkerhetsmyndigheten",
         "rekommenderar SPF 30",
@@ -77,7 +77,7 @@
     },
     {
       "name": "Orsak 3: Mycket socker",
-      "char_file": "사탕_real_01.jpg",
+      "char_file": "사탕_illust.jpg",
       "body": [
         "Överskottssocker binder",
         "till kollagen via glykering",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Minska det tillsatta sockret",
-      "char_file": "사탕_real_01.jpg",
+      "char_file": "사탕_illust.jpg",
       "body": [
         "Mindre tillsatt socker",
         "bromsar glykeringen",

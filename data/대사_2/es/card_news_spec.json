@@ -1,0 +1,113 @@
+{
+  "title": [
+    "¿Las heces flotan y el dolor",
+    "te llega hasta la espalda?",
+    "Lo que avisa el páncreas"
+  ],
+  "eyebrow": "Páncreas y digestión",
+  "swipe_label": "Desliza para continuar  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "술_illust.jpg",
+  "cover_scrim_color": "#2E6B57",
+  "char_display_names": {
+    "술_illust.jpg": "Alcohol",
+    "담배_illust.jpg": "Tabaco",
+    "탄산음료_illust.jpg": "Bebidas dulces"
+  },
+  "items": [
+    {
+      "name": "Qué está fallando",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "El páncreas fabrica las enzimas",
+        "que digieren la grasa",
+        "",
+        "Si produce menos, la grasa sale",
+        "sin digerir y las heces flotan"
+      ]
+    },
+    {
+      "name": "El alcohol",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "Primera causa tóxica",
+        "según los digestólogos",
+        "",
+        "La inflamación sostenida deja",
+        "tejido fibroso en la glándula"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "Retirarlo es la primera medida",
+        "del tratamiento, no un consejo",
+        "",
+        "En algunos casos frena el avance",
+        "de la enfermedad"
+      ]
+    },
+    {
+      "name": "El tabaco",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Segunda causa tóxica",
+        "más frecuente",
+        "",
+        "Va casi siempre de la mano",
+        "del alcohol"
+      ]
+    },
+    {
+      "name": "Qué hacer",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Dejarlo cuenta tanto",
+        "como dejar de beber",
+        "",
+        "Pide ayuda al centro de salud",
+        "si lo has intentado solo"
+      ]
+    },
+    {
+      "name": "Las bebidas dulces",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "La AESAN pide minimizar",
+        "azucaradas y edulcoradas",
+        "",
+        "para no reforzar el gusto",
+        "por el sabor dulce"
+      ]
+    },
+    {
+      "name": "Qué poner en su lugar",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "El agua es la bebida de elección",
+        "y mejor del grifo",
+        "",
+        "Con cereales integrales,",
+        "de 3 a 6 raciones al día"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol y tabaco son lo que más",
+        "pesa sobre el páncreas"
+      ],
+      [
+        "La dieta suma, pero suma",
+        "sobre esa base"
+      ]
+    ],
+    "tip": [
+      "Dolor brusco o muy intenso:",
+      "acude a un servicio sanitario"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  }
+}

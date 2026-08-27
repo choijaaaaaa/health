@@ -8,7 +8,7 @@
   "eyebrow": "Håravfall",
   "swipe_label": "Svep vidare  →",
   "closing_label": "Sammanfattning",
-  "cover_char_file": "호두_real_01.jpg",
+  "cover_char_file": "호두_illust.jpg",
   "cover_scrim_color": "#B5643C",
   "char_display_names": {
     "호두_illust.jpg": "Järnkällor",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Hur det hänger ihop",
-      "char_file": "호두_real_01.jpg",
+      "char_file": "호두_illust.jpg",
       "body": [
         "50 till 150 hårstrån",
         "om dagen är normalt",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Järnet är knepigt",
-      "char_file": "호두_real_01.jpg",
+      "char_file": "호두_illust.jpg",
       "body": [
         "Växtbaserad mat innehåller",
         "enbart icke-hemjärn,",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Så gör du",
-      "char_file": "호두_real_01.jpg",
+      "char_file": "호두_illust.jpg",
       "body": [
         "Bygg måltiden runt linser,",
         "bönor, tofu, pumpafrön",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Fytinsyran",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Fullkorn innehåller järn",
         "men också fytinsyra,",
@@ -65,7 +65,7 @@
     },
     {
       "name": "Så gör du",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Välj surdegsbröd",
         "och långjäst bröd",
@@ -76,7 +76,7 @@
     },
     {
       "name": "C-vitaminet avgör",
-      "char_file": "대추_real_01.jpg",
+      "char_file": "대추_illust.jpg",
       "body": [
         "C-vitamin förbättrar",
         "upptaget av icke-hemjärn",
@@ -87,7 +87,7 @@
     },
     {
       "name": "Så gör du",
-      "char_file": "대추_real_01.jpg",
+      "char_file": "대추_illust.jpg",
       "body": [
         "Något C-vitaminrikt",
         "till varje måltid",

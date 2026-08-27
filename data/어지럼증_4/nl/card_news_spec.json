@@ -7,7 +7,7 @@
   "eyebrow": "IJzer en opname",
   "swipe_label": "Swipe voor meer  →",
   "closing_label": "Samengevat",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "cover_scrim_color": "#5F3E7A",
   "char_display_names": {
     "커피_illust.jpg": "Koffie en thee",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "Hoe het zit",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Van het ijzer dat je eet",
         "komt maar een deel binnen",
@@ -31,7 +31,7 @@
     },
     {
       "name": "Heem en non-heem",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Heemijzer: ongeveer 25%",
         "wordt opgenomen",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Wat de opname remt",
-      "char_file": "호두_real_01.jpg",
+      "char_file": "호두_illust.jpg",
       "body": [
         "Fytaat uit granen en peulvruchten,",
         "polyfenolen uit thee en koffie",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Wat juist helpt",
-      "char_file": "과일즙_real_01.jpg",
+      "char_file": "과일즙_illust.jpg",
       "body": [
         "Vitamine C verhoogt",
         "de oplosbaarheid",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Calcium: klein effect",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Melk en kaas remmen ook,",
         "maar het effect is klein",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Slik je ijzerpillen?",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "'s Ochtends nuchter,",
         "met een sinaasappel of kiwi",
@@ -86,7 +86,7 @@
     },
     {
       "name": "Naar de huisarts",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Met bloedonderzoek vindt je",
         "huisarts de oorzaak",

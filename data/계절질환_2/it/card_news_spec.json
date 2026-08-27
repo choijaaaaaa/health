@@ -22,7 +22,7 @@
     },
     {
       "name": "Il caffè",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Un caffè freddo grande",
         "o una bevanda energetica",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Il caffè: la soluzione",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Quando si suda molto,",
         "l'acqua deve restare la priorità",
@@ -44,7 +44,7 @@
     },
     {
       "name": "L'alcol",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "L'alcol rallenta la capacità",
         "del corpo di regolare la temperatura",
@@ -55,7 +55,7 @@
     },
     {
       "name": "L'alcol: la soluzione",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Evitatelo prima e durante",
         "le lunghe ore all'aperto",
@@ -66,7 +66,7 @@
     },
     {
       "name": "L'acqua da sola non basta",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Dopo ore di sudorazione",
         "intensa,",

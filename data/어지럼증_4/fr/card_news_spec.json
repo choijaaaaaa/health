@@ -10,7 +10,7 @@
   "swipe_label": "Faites défiler  →",
   "closing_label": "Quand consulter",
   "topic_word": "Carence en fer",
-  "cover_char_file": "소고기_real_01.jpg",
+  "cover_char_file": "소고기_illust.jpg",
   "char_display_names": {
     "소고기_illust.jpg": "Fer héminique",
     "커피_illust.jpg": "Tannins",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "Pourquoi ces vertiges",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Une déficience en fer",
         "réduit le transport de",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Deux formes de fer",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Le fer héminique n'existe",
         "que dans les aliments",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Ce qui freine : les tannins",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Les tannins du thé",
         "diminuent l'absorption",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Ce qui aide : la vitamine C",
-      "char_file": "과일즙_real_01.jpg",
+      "char_file": "과일즙_illust.jpg",
       "body": [
         "Agrumes, jus pressé,",
         "poivrons, persil",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Varier les sources",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "Foie, viande, poisson,",
         "fruits de mer, légumineuses,",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Qui est le plus exposé",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Croissance, grossesse,",
         "règles abondantes,",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Quand appeler le 15",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Trouble de l'équilibre,",
         "parole ou vue atteintes,",

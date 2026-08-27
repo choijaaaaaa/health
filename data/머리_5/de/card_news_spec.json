@@ -8,7 +8,7 @@
   "eyebrow": "Migräne und Ernährung",
   "swipe_label": "Wischen für mehr  →",
   "closing_label": "Kurz gefragt",
-  "cover_char_file": "치즈_real_01.jpg",
+  "cover_char_file": "치즈_illust.jpg",
   "char_display_names": {
     "치즈_illust.jpg": "Gereifter Käse",
     "소시지_illust.jpg": "Wurstwaren",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Warum Listen wenig bringen",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Die DMKG sagt es deutlich:",
         "eine Migräne-Diät gibt es nicht",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Mythos 1 Der Käse",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Beim Reifen entsteht Tyramin,",
         "das Noradrenalin freisetzt",
@@ -41,7 +41,7 @@
     },
     {
       "name": "Greifen Sie zu Frischkäse",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Falls Käse im Tagebuch",
         "wiederholt auftaucht",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Mythos 2 Die Wurst",
-      "char_file": "소시지_real_01.jpg",
+      "char_file": "소시지_illust.jpg",
       "body": [
         "Nitrat und Nitrit in Würstchen",
         "werden von der DMKG genannt",
@@ -64,7 +64,7 @@
     },
     {
       "name": "Lesen Sie das Etikett genau",
-      "char_file": "소시지_real_01.jpg",
+      "char_file": "소시지_illust.jpg",
       "body": [
         "Mit Selleriepulver gepökelt",
         "heißt am Ende trotzdem Nitrit",
@@ -76,7 +76,7 @@
     },
     {
       "name": "Mythos 3 Der Kaffee",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Nicht die Tasse, der Entzug",
         "am freien Wochenende",
@@ -88,7 +88,7 @@
     },
     {
       "name": "Reduzieren Sie schrittweise",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Unter vier Tassen am Tag bleiben",
         "und die Menge gleich halten",

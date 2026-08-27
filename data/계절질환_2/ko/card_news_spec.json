@@ -6,11 +6,11 @@
     "탈수 예방 습관"
   ],
   "eyebrow": "온열질환 예방법",
-  "cover_char_file": "태양_real_01.jpg",
+  "cover_char_file": "태양_illust.jpg",
   "items": [
     {
       "name": "왜 자꾸 어지럽고 기운이 없을까요",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "더운 날 어지럽고 기운이 쭉 빠진다면",
         "먼저 확인해야 할 게 있어요",
@@ -23,7 +23,7 @@
     },
     {
       "name": "카페인",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "먼저 커피 같은 카페인 음료예요",
         "",
@@ -33,7 +33,7 @@
     },
     {
       "name": "카페인은 이렇게",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "더운 날엔 커피 대신",
         "시원한 물이나 보리차로 바꿔보세요",
@@ -44,7 +44,7 @@
     },
     {
       "name": "술",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "두 번째로는 술이에요",
         "",
@@ -55,7 +55,7 @@
     },
     {
       "name": "술은 이렇게",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "더운 날 야외 활동 전후로는",
         "음주를 피하는 게 좋아요",
@@ -66,7 +66,7 @@
     },
     {
       "name": "물만 마시기",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "마지막으로 물만 계속 마시는 거예요",
         "",

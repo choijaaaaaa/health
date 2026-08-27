@@ -9,7 +9,7 @@
   "swipe_label": "Swipe for more  →",
   "closing_label": "Tonight's change",
   "topic_word": "Iron absorption",
-  "cover_char_file": "소고기_real_01.jpg",
+  "cover_char_file": "소고기_illust.jpg",
   "char_display_names": {
     "소고기_illust.jpg": "Heme iron",
     "커피_illust.jpg": "Coffee and tea",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "Why you feel this way",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Dizziness, cold hands and",
         "pale skin travel together",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Habit 1: Coffee with the meal",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Coffee and black tea carry",
         "polyphenols that bind iron",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Move the cup, keep the coffee",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "The advice is narrow:",
         "keep it out of the meal,",
@@ -56,7 +56,7 @@
     },
     {
       "name": "Habit 2: Dairy on the same plate",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Calcium is a classic",
         "blocker of plant iron",
@@ -67,7 +67,7 @@
     },
     {
       "name": "Swap in vitamin C instead",
-      "char_file": "과일즙_real_01.jpg",
+      "char_file": "과일즙_illust.jpg",
       "body": [
         "Citrus, strawberries,",
         "tomatoes and bell peppers",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Habit 3: Beans and grains alone",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "Phytates in grains, nuts",
         "and legumes bind iron",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Add meat, fish or a cast-iron pan",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "A little lean meat, fish or",
         "poultry with beans or greens",

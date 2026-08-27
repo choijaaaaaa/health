@@ -5,11 +5,11 @@
     "골다공증 부르는 음식 피하는 법"
   ],
   "eyebrow": "골다공증 주의",
-  "cover_char_file": "탄산음료_real_01.jpg",
+  "cover_char_file": "탄산음료_illust.jpg",
   "items": [
     {
       "name": "왜 이런 문제가 생길까요",
-      "char_file": "탄산음료_real_01.jpg",
+      "char_file": "탄산음료_illust.jpg",
       "body": [
         "혈액 속 칼슘 농도가 떨어지면",
         "몸이 뼈에서 칼슘을 꺼내와",
@@ -22,7 +22,7 @@
     },
     {
       "name": "탄산음료",
-      "char_file": "탄산음료_real_01.jpg",
+      "char_file": "탄산음료_illust.jpg",
       "body": [
         "탄산음료 속 인산이",
         "칼슘과 강하게 결합해",
@@ -35,7 +35,7 @@
     },
     {
       "name": "탄산음료 대신",
-      "char_file": "탄산음료_real_01.jpg",
+      "char_file": "탄산음료_illust.jpg",
       "body": [
         "무가당 탄산수나",
         "저지방 우유로 바꾸면",
@@ -48,7 +48,7 @@
     },
     {
       "name": "커피",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "카페인이 이뇨작용으로",
         "칼슘을 소변으로",
@@ -61,7 +61,7 @@
     },
     {
       "name": "커피 대신",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "카페인 없는 보리차·둥굴레차로",
         "바꾸면 부담이 줄어요",
@@ -73,7 +73,7 @@
     },
     {
       "name": "소시지",
-      "char_file": "소시지_real_01.jpg",
+      "char_file": "소시지_illust.jpg",
       "body": [
         "나트륨을 많이 먹으면",
         "소변으로 나트륨이 빠질 때",
@@ -86,7 +86,7 @@
     },
     {
       "name": "소시지 대신",
-      "char_file": "소시지_real_01.jpg",
+      "char_file": "소시지_illust.jpg",
       "body": [
         "닭가슴살이나 두부처럼",
         "나트륨 적은 단백질을 고르고",

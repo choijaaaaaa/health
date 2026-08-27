@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Une douleur qui irradie dans le dos,",
+    "soulagée en chien de fusil ?",
+    "Pancréatite : au-delà de l'alcool"
+  ],
+  "eyebrow": "Santé du pancréas",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À vous de voir",
+  "cover_char_file": "술_illust.jpg",
+  "char_display_names": {
+    "술_illust.jpg": "Alcool",
+    "과일즙_illust.jpg": "Jus & smoothies",
+    "흰빵_illust.jpg": "Pain blanc"
+  },
+  "items": [
+    {
+      "name": "Ce qui se passe",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "L'inflammation chronique remplace",
+        "le tissu du pancréas par de la fibrose",
+        "",
+        "La stéatorrhée témoigne de la",
+        "destruction de plus de 90 %",
+        "du tissu exocrine"
+      ]
+    },
+    {
+      "name": "Cause 1 : l'alcool",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "L'intoxication alcoolique de",
+        "10 à 15 ans explique environ",
+        "80 % des pancréatites chroniques",
+        "",
+        "Le tabac est un facteur de",
+        "risque indépendant qui s'y ajoute"
+      ]
+    },
+    {
+      "name": "Ce qui aide",
+      "char_file": "술_illust.jpg",
+      "body": [
+        "Un sevrage alcoolique doit être",
+        "prévu, le tabac également stoppé",
+        "",
+        "Ces deux prérequis sont décrits",
+        "comme indispensables au contrôle",
+        "des douleurs pancréatiques"
+      ]
+    },
+    {
+      "name": "Cause 2 : les sucres liquides",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Sodas, nectars, jus et smoothies",
+        "contribuent à la prise de poids",
+        "",
+        "Et augmentent directement",
+        "la triglycéridémie"
+      ]
+    },
+    {
+      "name": "Le repère de l'ANSES",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Pas plus de 100 g de sucres par",
+        "jour et un seul verre de boisson sucrée",
+        "",
+        "Les boissons édulcorées ne doivent",
+        "pas remplacer l'eau"
+      ]
+    },
+    {
+      "name": "Cause 3 : le tout-blanc",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Pain, pâtes et riz raffinés",
+        "laissent peu de fibres",
+        "",
+        "Et l'excès de sucres finit",
+        "en triglycérides dans le sang"
+      ]
+    },
+    {
+      "name": "Ce qui aide",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Le PNNS place le pain complet,",
+        "les pâtes et le riz complets",
+        "dans la catégorie « aller vers »",
+        "",
+        "C'est un remplacement,",
+        "pas une privation"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "L'alcool domine, mais le tabac",
+        "et les sucres liquides comptent aussi"
+      ],
+      [
+        "Ces deux-là se changent",
+        "plus vite que le reste"
+      ]
+    ],
+    "tip": [
+      "Comptez vos verres sucrés de la semaine :",
+      "l'ANSES en fixe un par jour au maximum"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#6B3A2E"
+}

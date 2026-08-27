@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Does your belly pain reach",
+    "your back, with stools that float?",
+    "3 Habits That Load the Pancreas"
+  ],
+  "eyebrow": "Pancreas Health",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Change This First",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Sugary Drinks",
+    "흰빵_illust.jpg": "White Bread",
+    "물컵_illust.jpg": "Plain Water"
+  },
+  "items": [
+    {
+      "name": "Why This Happens",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Upper belly pain that spreads",
+        "to your back, worse after eating,",
+        "plus greasy stools",
+        "",
+        "The pancreas makes the enzymes",
+        "that digest fat — scarring means",
+        "fat leaves undigested"
+      ]
+    },
+    {
+      "name": "Sugary Drinks",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "One can is about 150 calories,",
+        "almost all added sugar",
+        "",
+        "Calories the body doesn't need",
+        "become triglycerides — and above",
+        "500 mg/dL those raise pancreatitis risk"
+      ]
+    },
+    {
+      "name": "Swap the Drink",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Water or unsweetened",
+        "sparkling water instead",
+        "",
+        "Sweet taste keeps the craving",
+        "going even with no calories —",
+        "plain beats diet here"
+      ]
+    },
+    {
+      "name": "Refined Starch",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "White bread sits in the high",
+        "glycemic band, 70 to 100",
+        "",
+        "Fast digestion means a sharp",
+        "blood sugar swing, and the excess",
+        "gets stored as triglycerides"
+      ]
+    },
+    {
+      "name": "Swap the Bread",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Whole grain bread, oats,",
+        "brown rice instead",
+        "",
+        "Fiber and intact starch slow",
+        "digestion — same carbs,",
+        "gentler arrival"
+      ]
+    },
+    {
+      "name": "Big Fatty Meals",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Large, fatty meals ask the",
+        "pancreas for a surge of enzyme",
+        "",
+        "Repeated often, that demand",
+        "keeps the gland working",
+        "harder than it should"
+      ]
+    },
+    {
+      "name": "Swap the Portions",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Small, frequent, lower-fat",
+        "meals and plenty of fluids",
+        "",
+        "No alcohol at all if pancreatitis",
+        "is in the picture — even a mild case"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Scarring in the pancreas",
+        "does not reverse itself"
+      ],
+      [
+        "But the load on it",
+        "is set by daily habits"
+      ]
+    ],
+    "tip": [
+      "Start with the drink —",
+      "water instead of the daily soda"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1A4F6B"
+}

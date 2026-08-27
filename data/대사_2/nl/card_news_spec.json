@@ -1,0 +1,113 @@
+{
+  "title": [
+    "Je alvleesklier klaagt laat,",
+    "maar wat belast hem elke dag?",
+    "Drie gewoontes op een rij"
+  ],
+  "eyebrow": "Alvleesklier en vertering",
+  "swipe_label": "Veeg verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "맥주_illust.jpg",
+  "cover_scrim_color": "#3D5A8C",
+  "char_display_names": {
+    "맥주_illust.jpg": "Alcohol",
+    "탄산음료_illust.jpg": "Frisdrank",
+    "흰빵_illust.jpg": "Witbrood"
+  },
+  "items": [
+    {
+      "name": "Wat er gebeurt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Enzymen gaan al aan het werk",
+        "in de alvleesklier zelf",
+        "",
+        "Door de grote reserve merk je",
+        "de schade pas laat"
+      ]
+    },
+    {
+      "name": "Alcohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Eerste belasting: dagelijks",
+        "meerdere glazen alcohol",
+        "",
+        "Roken telt mee: de klier",
+        "krijgt dan te weinig zuurstof"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Het Voedingscentrum is kort:",
+        "er is geen veilige hoeveelheid",
+        "",
+        "Elk glas minder telt,",
+        "ook zonder helemaal te stoppen"
+      ]
+    },
+    {
+      "name": "Frisdrank",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Tweede belasting: suiker,",
+        "via gewicht en bloedvetten",
+        "",
+        "Een glas cola van 200 ml",
+        "bevat zo'n 21 gram suiker"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Water, thee of koffie",
+        "zonder suiker",
+        "",
+        "Light is geen vrijbrief:",
+        "de zuren blijven"
+      ]
+    },
+    {
+      "name": "Witbrood",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Derde belasting:",
+        "vooral witte producten",
+        "",
+        "Aan de kleur van brood zie je",
+        "niet of het volkoren is"
+      ]
+    },
+    {
+      "name": "Wat helpt",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "60 gram volkoren per dag:",
+        "25% lager risico op diabetes 2",
+        "",
+        "En minder schommelingen",
+        "in je bloedsuiker"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Alcohol, frisdrank en witte producten:",
+        "de stille belasting van elke dag"
+      ],
+      [
+        "Vervangen werkt beter",
+        "dan schrappen"
+      ]
+    ],
+    "tip": [
+      "Drijvende ontlasting of afvallen",
+      "zonder reden? Bel de huisarts"
+    ],
+    "cta": "Wil je meer praktische gezondheidstips? Volg ons!"
+  }
+}

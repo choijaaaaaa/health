@@ -5,7 +5,7 @@
     "3 dingen om na te gaan"
   ],
   "eyebrow": "Overgang en opvliegers",
-  "cover_char_file": "맥주_real_01.jpg",
+  "cover_char_file": "맥주_illust.jpg",
   "cover_scrim_color": "#35706B",
   "char_display_names": {
     "맥주_real_01.jpg": "Alcohol",
@@ -15,7 +15,7 @@
   "items": [
     {
       "name": "Waarom het gebeurt",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Minder oestrogeen,",
         "warmte-centrum uit balans",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Alcohol",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Eerste punt: alcohol",
         "",
@@ -36,7 +36,7 @@
     },
     {
       "name": "Zo pak je het aan",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "Een glas minder",
         "bij het avondeten",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Warme dranken",
-      "char_file": "커피_real_03.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Tweede punt:",
         "warme dranken",
@@ -58,7 +58,7 @@
     },
     {
       "name": "Zo test je het",
-      "char_file": "커피_real_03.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Houd twee weken bij",
         "wat eraan voorafging",
@@ -69,7 +69,7 @@
     },
     {
       "name": "Gekruid eten",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Derde punt:",
         "gekruid eten",
@@ -80,7 +80,7 @@
     },
     {
       "name": "En verder",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Katoen, zijde of wol dragen",
         "in dunne laagjes",

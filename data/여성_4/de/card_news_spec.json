@@ -10,7 +10,7 @@
   "swipe_label": "Wischen für mehr  →",
   "closing_label": "Kurz durchgehen",
   "topic_word": "Hitzewallungen",
-  "cover_char_file": "고추_real_01.jpg",
+  "cover_char_file": "고추_illust.jpg",
   "char_display_names": {
     "커피_illust.jpg": "Starker Kaffee",
     "와인_illust.jpg": "Alkohol",
@@ -20,7 +20,7 @@
   "items": [
     {
       "name": "Wie lange das dauert",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Hitzewallungen und Schweiß-",
         "ausbrüche sind die häufigsten",
@@ -32,7 +32,7 @@
     },
     {
       "name": "Was dabei passiert",
-      "char_file": "고추_real_01.jpg",
+      "char_file": "고추_illust.jpg",
       "body": [
         "Das Gehirn weitet kurzzeitig",
         "die Gefäße in der Haut,",
@@ -44,7 +44,7 @@
     },
     {
       "name": "Verdächtige 1: Kaffee und Tee",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Starker Kaffee oder Tee steht",
         "auf der Verdachtsliste des IQWiG",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Verdächtige 2: Alkohol",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Alkohol steht auf derselben",
         "Liste wie Stress, Nervosität",
@@ -67,7 +67,7 @@
     },
     {
       "name": "Besser als streichen: testen",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Zwei Wochen notieren, dann",
         "einen Verdächtigen pro Woche",
@@ -79,7 +79,7 @@
     },
     {
       "name": "Ersatz statt Lücke",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Entkoffeinierter Kaffee am",
         "Nachmittag, Kräutertee oder",
@@ -91,7 +91,7 @@
     },
     {
       "name": "Aus dem Regal: realistisch bleiben",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Soja lindert nach bisherigen",
         "Studien nicht zuverlässig",

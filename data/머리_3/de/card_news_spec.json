@@ -8,7 +8,7 @@
   "eyebrow": "Haare und Kopfhaut",
   "swipe_label": "Weiter wischen  →",
   "closing_label": "Zum Schluss",
-  "cover_char_file": "소고기_real_01.jpg",
+  "cover_char_file": "소고기_illust.jpg",
   "char_display_names": {
     "알약_illust.jpg": "Präparate",
     "소고기_illust.jpg": "Eisenquellen",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Zwei sehr verschiedene Ursachen",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Haarausfall hat zwei",
         "grundverschiedene Ausgangslagen",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Nicht zu viel Testosteron",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Bis zu 70 Prozent der Männer",
         "und 40 Prozent der Frauen",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Was dann hilft",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Je früher behandelt wird,",
         "desto besser die Aussichten",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Wann Eisen dahintersteckt",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Haarausfall zählt zu den",
         "typischen Zeichen eines Eisenmangels",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Wer besonders aufpassen sollte",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "Einseitige Ernährung, strenge Diäten",
         "und Essstörungen senken die Zufuhr",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Eisenreich essen",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "Fleisch, Spinat, Linsen,",
         "Kichererbsen, Thunfisch,",
@@ -85,7 +85,7 @@
     },
     {
       "name": "Was das Geld nicht wert ist",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "Für Präparate mit Zink, Koffein",
         "oder Pflanzenextrakten ist keine",

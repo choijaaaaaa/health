@@ -8,7 +8,7 @@
   "eyebrow": "髪と頭皮のケア",
   "swipe_label": "スワイプで続き  →",
   "closing_label": "確かめること",
-  "cover_char_file": "다이어트도시락_real_01.jpg",
+  "cover_char_file": "다이어트도시락_illust.jpg",
   "char_display_names": {
     "다이어트도시락_illust.jpg": "急な減量",
     "알약_illust.jpg": "育毛サプリ",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "まず見分けること",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "抜け毛には",
         "体質で進むタイプと",
@@ -29,7 +29,7 @@
     },
     {
       "name": "原因1 体質のタイプ",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "テストステロンが5α還元酵素で",
         "DHTに変わり受容体に結合すると",
@@ -40,7 +40,7 @@
     },
     {
       "name": "原因1への対処",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "ガイドラインが強く勧めるのは",
         "塗るミノキシジルと",
@@ -52,7 +52,7 @@
     },
     {
       "name": "原因2 急な減量",
-      "char_file": "다이어트도시락_real_01.jpg",
+      "char_file": "다이어트도시락_illust.jpg",
       "body": [
         "やせの人の割合は",
         "20〜30歳代の女性で20.2％",
@@ -63,7 +63,7 @@
     },
     {
       "name": "原因2への対処",
-      "char_file": "다이어트도시락_real_01.jpg",
+      "char_file": "다이어트도시락_illust.jpg",
       "body": [
         "食べる量を減らせば",
         "鉄などの摂取量もそのまま下がります",
@@ -74,7 +74,7 @@
     },
     {
       "name": "原因3 鉄が足りない",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "月経のある女性の推奨量は",
         "1日10.5mg",
@@ -85,7 +85,7 @@
     },
     {
       "name": "原因3への対処",
-      "char_file": "소고기_real_01.jpg",
+      "char_file": "소고기_illust.jpg",
       "body": [
         "レバー・赤身の肉や魚",
         "小松菜やほうれん草を",

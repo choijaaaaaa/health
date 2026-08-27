@@ -5,7 +5,7 @@
     "Hábitos que conviene revisar"
   ],
   "eyebrow": "Salud ósea",
-  "cover_char_file": "가공육_real_01.jpg",
+  "cover_char_file": "가공육_illust.jpg",
   "char_display_names": {
     "가공육_illust.jpg": "Sodio",
     "커피_illust.jpg": "Cafeína"
@@ -13,7 +13,7 @@
   "items": [
     {
       "name": "¿Por qué pasa esto?",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "El sodio y la cafeína en exceso",
         "",
@@ -23,7 +23,7 @@
     },
     {
       "name": "El sodio",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Por cada 500mg de sodio",
         "",
@@ -33,7 +33,7 @@
     },
     {
       "name": "Sodio — lo que ayuda",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Revisar etiquetas de",
         "embutidos y conservas",
@@ -43,7 +43,7 @@
     },
     {
       "name": "La cafeína",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Más de 3 tazas al día",
         "con poco calcio",
@@ -53,7 +53,7 @@
     },
     {
       "name": "Cafeína — lo que ayuda",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Máximo 3 tazas al día",
         "",

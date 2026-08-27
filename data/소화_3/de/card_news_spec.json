@@ -7,7 +7,7 @@
   "eyebrow": "Darm und Verdauung",
   "swipe_label": "Weiterwischen  →",
   "closing_label": "Fazit",
-  "cover_char_file": "물방울_real_01.jpg",
+  "cover_char_file": "물방울_illust.jpg",
   "cover_scrim_color": "#8A3D5B",
   "char_display_names": {
     "물방울_illust.jpg": "Trinkmenge",
@@ -17,7 +17,7 @@
   "items": [
     {
       "name": "Worum es geht",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Zwei Ratschläge hört fast jeder:",
         "mehr trinken, mehr bewegen",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Fakt 1: Trinkmenge",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "1,5 bis 2 Liter täglich",
         "sind der Richtwert",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Fakt 2: Bewegung",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Mehr Sport als altersüblich",
         "soll gar nicht erst als",
@@ -52,7 +52,7 @@
     },
     {
       "name": "Fakt 3: Ballaststoffe",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Empfohlen sind 30 Gramm am Tag",
         "",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Weißmehl austauschen",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Helle Brötchen und Fertiggerichte",
         "machen satt, bilden aber",
@@ -75,7 +75,7 @@
     },
     {
       "name": "Zwei Portionen Obst",
-      "char_file": "체리_real_01.jpg",
+      "char_file": "체리_illust.jpg",
       "body": [
         "Rund 300 Gramm Früchte täglich",
         "",
@@ -85,7 +85,7 @@
     },
     {
       "name": "Flohsamen einschleichen",
-      "char_file": "체리_real_01.jpg",
+      "char_file": "체리_illust.jpg",
       "body": [
         "Für Psyllium ist die Datenlage",
         "am besten belegt",

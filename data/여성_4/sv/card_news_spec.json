@@ -5,7 +5,7 @@
     "3 vanor att se över"
   ],
   "eyebrow": "Klimakteriet",
-  "cover_char_file": "커피_real_04.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "cover_scrim_color": "#4A6E8F",
   "char_display_names": {
     "커피_real_04.jpg": "Kaffe och te",
@@ -15,7 +15,7 @@
   "items": [
     {
       "name": "Därför kommer de",
-      "char_file": "커피_real_04.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Östrogenet minskar",
         "",
@@ -26,7 +26,7 @@
     },
     {
       "name": "Kaffe och te",
-      "char_file": "커피_real_04.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Första vanan:",
         "kaffe och te",
@@ -37,7 +37,7 @@
     },
     {
       "name": "Så gör du i stället",
-      "char_file": "커피_real_04.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Mindre mängder,",
         "och tidigare på dagen",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Alkohol",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Andra vanan: alkohol",
         "",
@@ -58,7 +58,7 @@
     },
     {
       "name": "Så gör du i stället",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Ett glas färre på kvällen",
         "",
@@ -68,7 +68,7 @@
     },
     {
       "name": "Rökning",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Tredje vanan: rökning",
         "",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Det som gör skillnad",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Styrketräning minskar",
         "besvären tydligt",

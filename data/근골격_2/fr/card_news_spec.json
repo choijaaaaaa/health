@@ -5,7 +5,7 @@
     "3 habitudes à revoir"
   ],
   "eyebrow": "Santé osseuse au quotidien",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "char_display_names": {
     "커피_illust.jpg": "Café",
     "가공육_illust.jpg": "Charcuterie"
@@ -13,7 +13,7 @@
   "items": [
     {
       "name": "Pourquoi ça arrive ?",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "La caféine et le sel",
         "font tous deux perdre",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Le café",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Plus de 4 tasses par jour",
         "avec peu de calcium",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Café — ce qui aide",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Limiter à 3 tasses par jour",
         "",
@@ -45,7 +45,7 @@
     },
     {
       "name": "La charcuterie",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Jambon, saucisson, pâtés",
         "",
@@ -55,7 +55,7 @@
     },
     {
       "name": "Charcuterie — ce qui aide",
-      "char_file": "가공육_real_01.jpg",
+      "char_file": "가공육_illust.jpg",
       "body": [
         "Réserver aux occasions",
         "plutôt qu'au quotidien",

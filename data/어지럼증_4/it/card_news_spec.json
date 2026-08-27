@@ -7,7 +7,7 @@
   "eyebrow": "Ferro e assorbimento",
   "swipe_label": "Scorri per saperne di più  →",
   "closing_label": "In sintesi",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "cover_scrim_color": "#7E4A2F",
   "char_display_names": {
     "커피_illust.jpg": "Caffè e tè",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Perché succede",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Solo il 5-10% del ferro",
         "degli alimenti viene assorbito",
@@ -29,7 +29,7 @@
     },
     {
       "name": "I tannini di caffè e tè",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Insieme al ferro non-eme",
         "formano complessi insolubili",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Sposta la tazza",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Per i tannini del caffè basta",
         "berlo lontano dai pasti",
@@ -51,7 +51,7 @@
     },
     {
       "name": "Il calcio dei latticini",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Latte e formaggi al pasto",
         "competono con il ferro",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Latticini in un'altra fascia",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Non serve eliminarli:",
         "basta non eccedere",
@@ -73,7 +73,7 @@
     },
     {
       "name": "I fitati di legumi e cereali",
-      "char_file": "호두_real_01.jpg",
+      "char_file": "호두_illust.jpg",
       "body": [
         "Stanno proprio negli alimenti",
         "vegetali che il ferro ce l'hanno",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Ammollo e vitamina C",
-      "char_file": "과일즙_real_01.jpg",
+      "char_file": "과일즙_illust.jpg",
       "body": [
         "A bagno in acqua tiepida",
         "con mezzo limone, per ore",

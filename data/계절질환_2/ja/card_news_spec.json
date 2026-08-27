@@ -5,12 +5,12 @@
     "熱中症と塩分の話"
   ],
   "eyebrow": "汗をかいた日の水分補給",
-  "cover_char_file": "태양_real_01.jpg",
+  "cover_char_file": "태양_illust.jpg",
   "cover_scrim_color": "#1B6CA8",
   "items": [
     {
       "name": "なぜ起こるのか",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "暑い日のだるさは",
         "気温だけの問題ではありません",
@@ -21,7 +21,7 @@
     },
     {
       "name": "水だけを飲み続けると",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "発汗が多いときに",
         "水分だけを補給すると",
@@ -32,7 +32,7 @@
     },
     {
       "name": "水だけ：こうする",
-      "char_file": "소금_real_01.jpg",
+      "char_file": "소금_illust.jpg",
       "body": [
         "大量に汗をかいた日は",
         "塩分濃度0.1〜0.2％の",
@@ -43,7 +43,7 @@
     },
     {
       "name": "ビールで水分補給",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "どんな種類のお酒でも",
         "尿の量を増やしてしまうため",
@@ -54,7 +54,7 @@
     },
     {
       "name": "お酒：こうする",
-      "char_file": "맥주_real_01.jpg",
+      "char_file": "맥주_illust.jpg",
       "body": [
         "屋外で長時間動く予定なら",
         "前夜の一杯も含めて考える",
@@ -65,7 +65,7 @@
     },
     {
       "name": "量の目安",
-      "char_file": "소금_real_01.jpg",
+      "char_file": "소금_illust.jpg",
       "body": [
         "20〜30分ごとにカップ1〜2杯",
         "のどが渇く前から少しずつ",
@@ -76,7 +76,7 @@
     },
     {
       "name": "迷ったときは",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "自分で水分が摂れない",
         "反応がおかしいときは",

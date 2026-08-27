@@ -6,7 +6,7 @@
     "Tres factores a revisar"
   ],
   "eyebrow": "Menopausia y sofocos",
-  "cover_char_file": "커피_real_02.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "cover_scrim_color": "#7A3F62",
   "char_display_names": {
     "커피_real_02.jpg": "Cafeína",
@@ -16,7 +16,7 @@
   "items": [
     {
       "name": "Qué es un sofoco",
-      "char_file": "커피_real_02.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Calor en tórax,",
         "cuello y cara",
@@ -27,7 +27,7 @@
     },
     {
       "name": "La cafeína",
-      "char_file": "커피_real_02.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Primero: la cafeína",
         "",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Cómo ajustarla",
-      "char_file": "커피_real_02.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Reduce la cantidad",
         "y procura un ambiente fresco",
@@ -49,7 +49,7 @@
     },
     {
       "name": "El alcohol",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Segundo: el alcohol",
         "",
@@ -60,7 +60,7 @@
     },
     {
       "name": "Cómo ajustarlo",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Menos cantidad,",
         "y no justo antes de dormir",
@@ -70,7 +70,7 @@
     },
     {
       "name": "Lo que más pesa",
-      "char_file": "물컵_real_01.jpg",
+      "char_file": "물컵_illust.jpg",
       "body": [
         "Recomendación fuerte:",
         "ejercicio y no fumar",
@@ -81,7 +81,7 @@
     },
     {
       "name": "Cómo empezar",
-      "char_file": "물컵_real_01.jpg",
+      "char_file": "물컵_illust.jpg",
       "body": [
         "Caminar, nadar, yoga",
         "o trabajo con pesas",

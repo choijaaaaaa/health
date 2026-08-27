@@ -5,7 +5,7 @@
     "Salt, koffein och D-vitamin"
   ],
   "eyebrow": "Benhälsa i fokus",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "char_display_names": {
     "커피_illust.jpg": "Salt & koffein",
     "우유_illust.jpg": "D-vitamin"
@@ -13,7 +13,7 @@
   "items": [
     {
       "name": "Varför händer det här?",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Salt och koffein ökar",
         "kalciumförlust via urinen",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Salt & koffein",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Livsmedelsverket varnar för",
         "högt intag av båda",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Salt & koffein — det här hjälper",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Håll koll på salt i",
         "chark och färdigmat",
@@ -46,7 +46,7 @@
     },
     {
       "name": "D-vitaminbrist",
-      "char_file": "우유_real_01.jpg",
+      "char_file": "우유_illust.jpg",
       "body": [
         "Ca en femtedel av Sveriges",
         "befolkning får för lite",
@@ -56,7 +56,7 @@
     },
     {
       "name": "D-vitamin — det här hjälper",
-      "char_file": "우유_real_01.jpg",
+      "char_file": "우유_illust.jpg",
       "body": [
         "Berikad mjölk, fil",
         "och yoghurt äta dagligen",

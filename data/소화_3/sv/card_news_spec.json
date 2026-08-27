@@ -7,7 +7,7 @@
   "eyebrow": "Förstoppning och kost",
   "swipe_label": "Svep för mer  →",
   "closing_label": "Sammanfattningsvis",
-  "cover_char_file": "흰빵_real_01.jpg",
+  "cover_char_file": "흰빵_illust.jpg",
   "char_display_names": {
     "흰빵_illust.jpg": "Ljust bröd",
     "물방울_illust.jpg": "Vätska",
@@ -16,7 +16,7 @@
   "items": [
     {
       "name": "Fibrer ensamt räcker inte",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Hårt bajs och utspänd mage",
         "trots fiberrik frukost",
@@ -28,7 +28,7 @@
     },
     {
       "name": "Ljust bröd och vitt ris",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Vitt mjöl och vitt ris",
         "lämnar lite kvar",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Byt till fullkorn",
-      "char_file": "흰빵_real_01.jpg",
+      "char_file": "흰빵_illust.jpg",
       "body": [
         "Byt ljust bröd mot fullkorn,",
         "samma sak med pasta och ris",
@@ -51,7 +51,7 @@
     },
     {
       "name": "För lite vätska",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Fibrerna behöver vätska",
         "för att binda vatten i tarmen",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Ett glas till varje måltid",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Drick ett extra glas vatten",
         "till varje måltid",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Frukt som lossar",
-      "char_file": "대추_real_01.jpg",
+      "char_file": "대추_illust.jpg",
       "body": [
         "Kiwi, katrinplommon, aprikos,",
         "russin, fikon, dadlar och päron",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Rör på dig och vänta inte",
-      "char_file": "대추_real_01.jpg",
+      "char_file": "대추_illust.jpg",
       "body": [
         "Rörelse hjälper tarmarna",
         "att arbeta, en promenad räcker",

@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Oberbauchschmerz, der in den Rücken",
+    "zieht – und hohe Triglyzeride?",
+    "3 Gewohnheiten dahinter"
+  ],
+  "eyebrow": "Bauchspeicheldrüse",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Die Checkliste",
+  "cover_char_file": "과일즙_illust.jpg",
+  "char_display_names": {
+    "과일즙_illust.jpg": "Saft & Smoothie",
+    "흰빵_illust.jpg": "Weißmehl",
+    "물컵_illust.jpg": "Wasser"
+  },
+  "items": [
+    {
+      "name": "Was dahintersteckt",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Bei einer Pankreatitis wird der",
+        "Verdauungssaft schon in der",
+        "Drüse aktiv – sie verdaut sich selbst",
+        "",
+        "Neben Gallensteinen und Alkohol",
+        "stehen erhöhte Triglyzeride",
+        "als eigener Risikofaktor daneben"
+      ]
+    },
+    {
+      "name": "Ursache 1: Saft & Smoothie",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Flüssiger Zucker wird leicht",
+        "übersehen, weil Saft gesund klingt",
+        "",
+        "In der Leber wird überschüssiger",
+        "Zucker in Triglyzeride umgewandelt"
+      ]
+    },
+    {
+      "name": "Besser: Wasser",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Die DGE empfiehlt rund",
+        "1,5 Liter täglich, am besten Wasser",
+        "",
+        "Zuckergesüßte und alkoholische",
+        "Getränke sind nicht empfehlenswert"
+      ]
+    },
+    {
+      "name": "Ursache 2: Weißmehl",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Schnell verdauliche Kohlenhydrate",
+        "treiben den Wert genauso",
+        "",
+        "Die Stolperfalle: fettarm essen",
+        "und dafür mehr helles Brot"
+      ]
+    },
+    {
+      "name": "Besser: Vollkorn",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Bei Brot, Nudeln und Reis ist",
+        "Vollkorn laut DGE die beste Wahl",
+        "",
+        "Sättigt länger, und die Ballaststoffe",
+        "senken das Risiko für viele Krankheiten"
+      ]
+    },
+    {
+      "name": "Ursache 3: unsichtbarer Zucker",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Zucker steckt oft unsichtbar",
+        "in verarbeiteten Produkten",
+        "",
+        "DGE, DAG und DDG empfehlen",
+        "weniger als 10 % der Gesamtenergie",
+        "aus freien Zuckern"
+      ]
+    },
+    {
+      "name": "Besser: langsamer essen",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Langsames und bewusstes Essen",
+        "fördert das Sättigungsgefühl",
+        "",
+        "Dieselbe Mahlzeit, nur mit mehr Zeit,",
+        "kommt in kleineren Schüben an"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht das Fett allein –",
+        "Zucker und Alkohol treiben den Wert"
+      ],
+      [
+        "Unter 150 mg/dl sinkt",
+        "das Risiko für Folgeerkrankungen"
+      ]
+    ],
+    "tip": [
+      "Fangen Sie bei den Getränken an:",
+      "Wasser statt Saft und Smoothie"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#4A3B6E"
+}

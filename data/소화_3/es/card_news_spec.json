@@ -7,7 +7,7 @@
   "eyebrow": "Estreñimiento y dieta",
   "swipe_label": "Desliza para saber más  →",
   "closing_label": "Para empezar hoy",
-  "cover_char_file": "흰쌀밥_real_01.jpg",
+  "cover_char_file": "흰쌀밥_illust.jpg",
   "char_display_names": {
     "흰쌀밥_illust.jpg": "Cereales refinados",
     "물방울_illust.jpg": "Líquidos",
@@ -16,7 +16,7 @@
   "items": [
     {
       "name": "Qué se considera estreñimiento",
-      "char_file": "흰쌀밥_real_01.jpg",
+      "char_file": "흰쌀밥_illust.jpg",
       "body": [
         "Menos de 3 deposiciones",
         "por semana, heces más duras",
@@ -28,7 +28,7 @@
     },
     {
       "name": "1. Cereales refinados",
-      "char_file": "흰쌀밥_real_01.jpg",
+      "char_file": "흰쌀밥_illust.jpg",
       "body": [
         "La fibra insoluble aumenta",
         "el bolo fecal reteniendo agua",
@@ -39,7 +39,7 @@
     },
     {
       "name": "El cambio: integral",
-      "char_file": "흰쌀밥_real_01.jpg",
+      "char_file": "흰쌀밥_illust.jpg",
       "body": [
         "Cambia refinado por integral",
         "en una comida al día",
@@ -50,7 +50,7 @@
     },
     {
       "name": "2. Beber poco",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "La fibra necesita agua",
         "para hincharse",
@@ -61,7 +61,7 @@
     },
     {
       "name": "El cambio: 1,5-2 litros",
-      "char_file": "물방울_real_01.jpg",
+      "char_file": "물방울_illust.jpg",
       "body": [
         "Deja un vaso de agua",
         "junto al plato",
@@ -72,7 +72,7 @@
     },
     {
       "name": "3. Aplazar el baño",
-      "char_file": "서류더미_real_01.jpg",
+      "char_file": "서류더미_illust.jpg",
       "body": [
         "Al posponer las ganas,",
         "las heces siguen perdiendo",
@@ -83,7 +83,7 @@
     },
     {
       "name": "El cambio: hábito horario",
-      "char_file": "서류더미_real_01.jpg",
+      "char_file": "서류더미_illust.jpg",
       "body": [
         "Ve a la misma hora",
         "cada día, tras el desayuno",

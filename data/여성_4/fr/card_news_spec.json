@@ -9,7 +9,7 @@
   "eyebrow": "Ménopause",
   "swipe_label": "Faites défiler  →",
   "closing_label": "À vous de voir",
-  "cover_char_file": "커피_real_01.jpg",
+  "cover_char_file": "커피_illust.jpg",
   "char_display_names": {
     "커피_illust.jpg": "Café",
     "술_illust.jpg": "Alcool",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Le point de départ",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "La ménopause survient entre",
         "45 et 55 ans, à 51 ans",
@@ -30,7 +30,7 @@
     },
     {
       "name": "D'où part la chaleur",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Du centre de thermorégulation,",
         "dans l'hypothalamus",
@@ -42,7 +42,7 @@
     },
     {
       "name": "Cause 1 : le café, vraiment ?",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Le CNGOF conseille de limiter",
         "café, sucre et alcool",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Cause 2 : l'alcool du soir",
-      "char_file": "술_real_01.jpg",
+      "char_file": "술_illust.jpg",
       "body": [
         "Limiter l'alcool figure aussi",
         "dans le premier réflexe",
@@ -66,7 +66,7 @@
     },
     {
       "name": "Testez, ne supprimez pas",
-      "char_file": "커피_real_01.jpg",
+      "char_file": "커피_illust.jpg",
       "body": [
         "Deux semaines de notes,",
         "puis un seul suspect retiré",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Avant d'acheter un complément",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Depuis 2012, les isoflavones",
         "n'ont plus le droit de",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Ce qui est démontré",
-      "char_file": "알약_real_01.jpg",
+      "char_file": "알약_illust.jpg",
       "body": [
         "Contre les bouffées, seules",
         "l'hypnose et les thérapies",

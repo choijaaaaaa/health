@@ -7,7 +7,7 @@
   "eyebrow": "Hierro y absorción",
   "swipe_label": "Desliza para saber más  →",
   "closing_label": "En resumen",
-  "cover_char_file": "와인_real_01.jpg",
+  "cover_char_file": "와인_illust.jpg",
   "cover_scrim_color": "#26535C",
   "char_display_names": {
     "와인_illust.jpg": "Té, café y vino",
@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Por qué pasa",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "El hierro que comes y el que",
         "absorbes no son la misma cifra",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Taninos: té, café y vino",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "Beber grandes cantidades",
         "de té, café o vino tinto",
@@ -40,7 +40,7 @@
     },
     {
       "name": "Deja pasar dos horas",
-      "char_file": "와인_real_01.jpg",
+      "char_file": "와인_illust.jpg",
       "body": [
         "El intervalo recomendado",
         "es de al menos dos horas",
@@ -51,7 +51,7 @@
     },
     {
       "name": "El calcio de los lácteos",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Queso, leche y derivados",
         "en el mismo plato",
@@ -62,7 +62,7 @@
     },
     {
       "name": "Lácteos en otra franja",
-      "char_file": "치즈_real_01.jpg",
+      "char_file": "치즈_illust.jpg",
       "body": [
         "Siguen en la dieta,",
         "solo cambian de hora",
@@ -73,7 +73,7 @@
     },
     {
       "name": "Fitatos: legumbres y cereales",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "Salvado, legumbres y",
         "frutos secos llevan fitatos",
@@ -84,7 +84,7 @@
     },
     {
       "name": "Remojo y vitamina C",
-      "char_file": "아몬드_real_01.jpg",
+      "char_file": "아몬드_illust.jpg",
       "body": [
         "De 6 a 12 horas en agua fría",
         "antes de cocinarlas",

@@ -18,7 +18,7 @@
   "items": [
     {
       "name": "Pourquoi ça arrive",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Trois habitudes abîment",
         "le collagène plus vite",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Cause n°1 : le tabac",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "La fumée de cigarette active",
         "des enzymes MMP qui",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Arrêter relance la production",
-      "char_file": "담배_real_01.jpg",
+      "char_file": "담배_illust.jpg",
       "body": [
         "Arrêter de fumer relance",
         "la production de collagène",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Cause n°2 : le soleil sans protection",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "Les rayons UV activent",
         "les mêmes enzymes MMP",
@@ -66,7 +66,7 @@
     },
     {
       "name": "La crème solaire, tous les jours",
-      "char_file": "태양_real_01.jpg",
+      "char_file": "태양_illust.jpg",
       "body": [
         "Une protection solaire",
         "quotidienne limite les dégâts",
@@ -78,7 +78,7 @@
     },
     {
       "name": "Cause n°3 : trop de sucre",
-      "char_file": "사탕_real_01.jpg",
+      "char_file": "사탕_illust.jpg",
       "body": [
         "Le sucre en excès se fixe",
         "sur le collagène : la glycation",
@@ -89,7 +89,7 @@
     },
     {
       "name": "Moins de sucre ajouté",
-      "char_file": "사탕_real_01.jpg",
+      "char_file": "사탕_illust.jpg",
       "body": [
         "Réduire le sucre ajouté",
         "ralentit la glycation",
