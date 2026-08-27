@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Finding gray hairs in your 20s",
+    "and blaming what you eat?",
+    "The food angle is mostly a myth.",
+    "What Really Drives Early Graying"
+  ],
+  "eyebrow": "Early Graying, Explained",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "샴푸_illust.jpg",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Hair Follicle",
+    "담배_illust.jpg": "Smoking",
+    "긴장_illust.jpg": "Stress",
+    "알약_illust.jpg": "Supplements",
+    "계란_illust.jpg": "B12 Check"
+  },
+  "items": [
+    {
+      "name": "Why Hair Goes Gray",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Pigment is made inside the follicle,",
+        "not added from the outside",
+        "",
+        "With age the follicle makes less melanin —",
+        "and how early that starts is",
+        "largely down to your genes"
+      ]
+    },
+    {
+      "name": "Factor 1: Smoking",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "The habit with the clearest signal",
+        "",
+        "In one study of 207 adults, smokers were",
+        "about 2.5 times more likely to have",
+        "gray hair before the age of 30"
+      ]
+    },
+    {
+      "name": "What Helps With Factor 1",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Quitting is the one lifestyle change",
+        "with a repeatedly reported link",
+        "",
+        "Nobody can promise it turns hair back —",
+        "but the rest of the benefits are real"
+      ]
+    },
+    {
+      "name": "Factor 2: Stress and Alcohol",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Higher perceived stress tracked with",
+        "more severe graying in a 1,119-person survey",
+        "",
+        "A 2020 Nature study found a mechanism —",
+        "but that experiment was done in mice"
+      ]
+    },
+    {
+      "name": "What Helps With Factor 2",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Manage sleep, workload and alcohol",
+        "for their own sake first",
+        "",
+        "Any effect on pigment is a bonus,",
+        "not something to count on"
+      ]
+    },
+    {
+      "name": "The Supplement Myth",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "MedlinePlus is blunt about this:",
+        "supplements and vitamins will not",
+        "stop or slow the rate of graying",
+        "",
+        "No over-the-counter product",
+        "has been shown to restore pigment"
+      ]
+    },
+    {
+      "name": "When to Get It Checked",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Graying before 25 plus fatigue, feeling",
+        "cold, weight gain or memory trouble?",
+        "",
+        "Ask for thyroid and vitamin B12 tests —",
+        "both were significantly more common",
+        "in one series of early-graying patients"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Genes and age set the timetable,",
+        "habits nudge it a little"
+      ],
+      [
+        "The food list you were sold",
+        "is not where the evidence is"
+      ]
+    ],
+    "tip": [
+      "Quit smoking, keep alcohol modest, and get",
+      "B12 and thyroid checked if it started very early"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#4D5F3C"
+}

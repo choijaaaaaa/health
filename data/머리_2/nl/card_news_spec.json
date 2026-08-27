@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Grijs haar op je dertigste?",
+    "Eerst even dit lezen",
+    "3 feiten en 1 mythe"
+  ],
+  "eyebrow": "Vroeg grijs haar",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "가공육_illust.jpg",
+  "char_display_names": {
+    "가공육_illust.jpg": "Bewerkt vlees",
+    "커피_illust.jpg": "Koffie en thee",
+    "우유_illust.jpg": "Vitamine B12"
+  },
+  "items": [
+    {
+      "name": "Waarom haar grijs wordt",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Stopt de pigmentaanmaak in",
+        "de haarwortel, dan groeit het",
+        "haar al grijs naar buiten",
+        "",
+        "Leeftijd en aanleg bepalen dat"
+      ]
+    },
+    {
+      "name": "De mythe",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "\u2018Schrap koffie en chocolade",
+        "en je haar blijft bruin\u2019",
+        "",
+        "Zo werkt het niet, zegt",
+        "het Voedingscentrum"
+      ]
+    },
+    {
+      "name": "Wat er wél klopt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenolen in thee en koffie",
+        "remmen de ijzeropname iets",
+        "",
+        "Maar je hoeft er niets",
+        "voor te schrappen"
+      ]
+    },
+    {
+      "name": "Let op de klachten",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Tintelingen, moeheid,",
+        "duizeligheid, hartkloppingen",
+        "",
+        "Dan bloedonderzoek",
+        "bij de huisarts"
+      ]
+    },
+    {
+      "name": "Schijf van Vijf",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Maximaal 300 gram vlees",
+        "per week, 100 gram rood",
+        "",
+        "Bewerkt vlees staat niet",
+        "in de Schijf van Vijf"
+      ]
+    },
+    {
+      "name": "Alleen slikken wat nodig is",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Gezond eten geeft genoeg B12,",
+        "ook zonder vlees en vis",
+        "",
+        "Volledig plantaardig?",
+        "2,8 microgram per dag"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Grijs haar hoort bij",
+        "leeftijd en aanleg"
+      ],
+      [
+        "De klachten ernaast zijn",
+        "wél te onderzoeken"
+      ]
+    ],
+    "tip": [
+      "Vervang morgen één broodje ham",
+      "door ei, vis of hummus"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2B5F8E"
+}

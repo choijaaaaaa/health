@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Capelli bianchi a trent'anni?",
+    "Prima di correre alla tinta",
+    "3 cose da sapere"
+  ],
+  "eyebrow": "Capelli bianchi precoci",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "샴푸_illust.jpg",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Capello",
+    "계란_illust.jpg": "Vitamina B12",
+    "가공육_illust.jpg": "Insaccati"
+  },
+  "items": [
+    {
+      "name": "Cosa succede nel capello",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Il colore viene dalla melanina",
+        "prodotta nel follicolo",
+        "",
+        "Quando si ferma, il capello",
+        "ricresce già bianco"
+      ]
+    },
+    {
+      "name": "Età e familiarità",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Il capello cresce di circa",
+        "0,3 mm al giorno (ISSalute)",
+        "",
+        "Età e familiarità restano",
+        "i fattori più importanti"
+      ]
+    },
+    {
+      "name": "Quando serve il medico",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Stanchezza a riposo, pallore,",
+        "battito accelerato, formicolii",
+        "",
+        "Con questi segni si parla",
+        "col medico di famiglia"
+      ]
+    },
+    {
+      "name": "Meno insaccati",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Grassi animali, carni rosse e",
+        "insaccati con poche fibre:",
+        "un profilo da limitare",
+        "",
+        "Più legumi, pesce e verdura"
+      ]
+    },
+    {
+      "name": "Integratori con criterio",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "La B12 arriva da carne,",
+        "pesce e latticini",
+        "",
+        "Chi mangia vegano la integra;",
+        "gli altri fanno prima le analisi"
+      ]
+    },
+    {
+      "name": "Se scegli la tinta",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Fai sempre il test preliminare",
+        "su un'area limitata",
+        "",
+        "Solo su cuoio capelluto",
+        "integro, senza tagli"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nessun integratore riporta",
+        "il colore a un capello bianco"
+      ],
+      [
+        "Conta ciò che li accompagna,",
+        "non i capelli bianchi in sé"
+      ]
+    ],
+    "tip": [
+      "Al prossimo pranzo sostituisci gli insaccati",
+      "con legumi o pesce: si parte da qui"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#5A6E1F"
+}

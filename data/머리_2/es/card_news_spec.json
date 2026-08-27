@@ -1,0 +1,102 @@
+{
+  "title": [
+    "¿Canas antes de tiempo?",
+    "No es el champú ni el estrés.",
+    "Las señales que sí importan"
+  ],
+  "eyebrow": "Canas prematuras",
+  "swipe_label": "Desliza para continuar  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Complementos",
+    "탄산음료_illust.jpg": "Bebidas azucaradas",
+    "계란_illust.jpg": "Vitamina B12"
+  },
+  "items": [
+    {
+      "name": "Por qué salen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "El folículo deja de fabricar",
+        "melanina y el pelo nuevo",
+        "crece ya sin color",
+        "",
+        "Edad y herencia mandan"
+      ]
+    },
+    {
+      "name": "Lo que no funciona",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Ningún complemento devuelve",
+        "el pigmento a una cana",
+        "",
+        "En la UE solo se permiten",
+        "las alegaciones autorizadas"
+      ]
+    },
+    {
+      "name": "Señales que sí importan",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Cansancio que no mejora,",
+        "palidez, palpitaciones,",
+        "hormigueo en manos y pies",
+        "",
+        "Eso se mira con una analítica"
+      ]
+    },
+    {
+      "name": "Qué dice la AESAN",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Los complementos no sustituyen",
+        "una dieta equilibrada",
+        "",
+        "No son medicamentos ni",
+        "tratan enfermedades"
+      ]
+    },
+    {
+      "name": "Cinco raciones al día",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Mínimo cinco raciones de",
+        "frutas y verduras al día",
+        "",
+        "Más legumbres, integrales,",
+        "aceite de oliva y pescado azul"
+      ]
+    },
+    {
+      "name": "El agua, primero",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Un vaso de refresco de 200 ml",
+        "son cuatro cucharillas de azúcar",
+        "",
+        "El agua es la bebida",
+        "más saludable"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La cana no es el problema:",
+        "lo que la acompaña, sí"
+      ],
+      [
+        "Una analítica dice más",
+        "que cualquier etiqueta"
+      ]
+    ],
+    "tip": [
+      "Si hay cansancio, palidez u hormigueo,",
+      "pide cita con tu médico de familia"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#9C3F7A"
+}

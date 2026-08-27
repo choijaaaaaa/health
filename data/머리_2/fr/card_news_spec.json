@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Des cheveux blancs avant 30 ans ?",
+    "Le facteur le mieux documenté",
+    "n'est pas dans votre assiette",
+    "Les vraies pistes du blanchiment"
+  ],
+  "eyebrow": "Cheveux blancs précoces",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Compléments",
+    "담배_illust.jpg": "Tabac",
+    "와인_illust.jpg": "Alcool",
+    "샴푸_illust.jpg": "Follicule",
+    "계란_illust.jpg": "Vitamine B12"
+  },
+  "items": [
+    {
+      "name": "Pourquoi un cheveu blanchit",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "La couleur est fabriquée",
+        "à l'intérieur du follicule",
+        "",
+        "Quand les cellules pigmentaires cessent",
+        "de fournir de la mélanine,",
+        "le cheveu repousse blanc"
+      ]
+    },
+    {
+      "name": "La cause la mieux documentée",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Le tabac, et non l'alimentation",
+        "",
+        "Sur 207 adultes, les fumeurs avaient",
+        "un risque environ 2,5 fois plus élevé",
+        "de blanchir avant 30 ans"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Arrêter de fumer reste la seule ligne",
+        "sur laquelle agir change quelque chose",
+        "",
+        "Personne ne peut promettre",
+        "un retour de la couleur"
+      ]
+    },
+    {
+      "name": "Alcool et stress",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Associés dans deux grandes enquêtes,",
+        "sans preuve de causalité",
+        "",
+        "Le mécanisme du stress publié",
+        "dans Nature en 2020 a été observé",
+        "chez la souris, pas chez l'humain"
+      ]
+    },
+    {
+      "name": "Les compléments miracles",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "VIDAL le dit sans détour : le plus",
+        "souvent sans preuve d'efficacité",
+        "",
+        "B5, cystéine, méthionine et levure",
+        "de bière ne peuvent revendiquer",
+        "aucun effet sur les cheveux"
+      ]
+    },
+    {
+      "name": "Ce qui vaut la peine",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Couvrir ses apports sans excès :",
+        "l'ANSES retient 4 µg de vitamine B12",
+        "par jour chez l'adulte",
+        "",
+        "Abats, poissons, œufs, viande",
+        "et produits laitiers en apportent"
+      ]
+    },
+    {
+      "name": "Quand consulter",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Blanchiment avant 25 ans avec fatigue,",
+        "frilosité ou fourmillements ?",
+        "",
+        "Carence en vitamine B12 et hypothyroïdie",
+        "étaient significativement plus fréquentes",
+        "dans une analyse de 71 cas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Hérédité et âge d'abord,",
+        "tabac ensuite"
+      ],
+      [
+        "L'assiette arrive loin derrière",
+        "dans les données disponibles"
+      ]
+    ],
+    "tip": [
+      "Arrêt du tabac, alcool modéré, et bilan",
+      "sanguin si tout a commencé très tôt"
+    ],
+    "cta": "Envie d'autres conseils santé pratiques ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#5A3B5E"
+}

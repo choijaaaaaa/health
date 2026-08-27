@@ -1,0 +1,119 @@
+{
+  "title": [
+    "Erste graue Haare mit 25",
+    "und die Ernährung im Verdacht?",
+    "Die Datenlage sagt etwas anderes",
+    "3 Faktoren hinter frühem Ergrauen"
+  ],
+  "eyebrow": "Frühes Ergrauen",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "담배_illust.jpg",
+  "char_display_names": {
+    "담배_illust.jpg": "Rauchen",
+    "계란_illust.jpg": "Vitamin B12",
+    "맥주_illust.jpg": "Alkohol",
+    "알약_illust.jpg": "Präparate",
+    "긴장_illust.jpg": "Belastung"
+  },
+  "items": [
+    {
+      "name": "Warum Haare ergrauen",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Die Farbe entsteht im Follikel,",
+        "nicht am sichtbaren Haar",
+        "",
+        "Mit dem Alter sinkt der Melaningehalt",
+        "und mehr Luft wird eingeschlossen —",
+        "das Haar wird weiß"
+      ]
+    },
+    {
+      "name": "Faktor 1: Veranlagung",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Der stärkste Einzelfaktor",
+        "",
+        "In einer Befragung von 1.119 jungen",
+        "Erwachsenen hing frühes Ergrauen",
+        "der Eltern am deutlichsten damit zusammen"
+      ]
+    },
+    {
+      "name": "Faktor 2: Rauchen",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Die einzige Gewohnheit mit",
+        "wiederholt beschriebenem Zusammenhang",
+        "",
+        "Bei 207 Teilnehmenden: rund",
+        "zweieinhalbfaches Risiko für",
+        "graue Haare vor dem 30. Lebensjahr"
+      ]
+    },
+    {
+      "name": "Was hier hilft",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Rauchstopp — versprechen lässt sich",
+        "damit keine Haarfarbe",
+        "",
+        "gesund.bund.de nennt Strategien",
+        "und Anlaufstellen für den Ausstieg"
+      ]
+    },
+    {
+      "name": "Faktor 3: Stress und Alkohol",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Alkohol tauchte in zwei großen",
+        "Befragungen als Begleitfaktor auf",
+        "",
+        "Der Stress-Mechanismus aus Nature 2020",
+        "stammt aus dem Mausmodell"
+      ]
+    },
+    {
+      "name": "Was hier hilft",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Schlaf, Pensum und Trinkmenge",
+        "um ihrer selbst willen dosieren",
+        "",
+        "Mittel gegen graue Haare gibt es nicht —",
+        "kein Präparat hat das bisher gezeigt"
+      ]
+    },
+    {
+      "name": "Wann zum Arzt",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Ergrauen vor 25 plus Müdigkeit,",
+        "Gewichtszunahme oder trockene Haut?",
+        "",
+        "Vitamin-B12-Mangel und Schilddrüsen-",
+        "unterfunktion waren in einer Auswertung",
+        "von 71 Fällen deutlich häufiger"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Veranlagung und Alter geben",
+        "den Takt vor"
+      ],
+      [
+        "Rauchen und Belastung",
+        "verschieben ihn ein Stück"
+      ]
+    ],
+    "tip": [
+      "Heute Abend notieren: ab wann bei Ihnen —",
+      "und ab wann bei Ihren Eltern"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#63423A"
+}

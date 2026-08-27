@@ -1,0 +1,102 @@
+{
+  "title": [
+    "Grått hår redan vid trettio?",
+    "Innan du köper en ny flaska.",
+    "3 saker som går att påverka"
+  ],
+  "eyebrow": "Grått hår i förtid",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "소고기_illust.jpg": "Rött kött",
+    "탄산음료_illust.jpg": "Söta drycker",
+    "계란_illust.jpg": "Vitamin B12"
+  },
+  "items": [
+    {
+      "name": "Varför håret blir grått",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "När pigmentbildningen i",
+        "hårsäcken upphör växer strået",
+        "ut helt utan färg",
+        "",
+        "Ålder och arv styr det mesta"
+      ]
+    },
+    {
+      "name": "Sällskapet, inte stråna",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Trötthet, yrsel, hjärtklappning,",
+        "öronsus, stickningar i fötterna",
+        "",
+        "Då är det blodbrist",
+        "som ska undersökas"
+      ]
+    },
+    {
+      "name": "Ring eller boka tid",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Kontakta en vårdcentral vid",
+        "misstänkt blodbrist",
+        "",
+        "Ring 1177 för",
+        "sjukvårdsrådgivning"
+      ]
+    },
+    {
+      "name": "Håll koll på charken",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Högst 350 gram tillagat",
+        "rött kött i veckan",
+        "",
+        "Bara en mindre del bör",
+        "vara charkprodukter"
+      ]
+    },
+    {
+      "name": "500 gram om dagen",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Minst 500 gram grönsaker,",
+        "frukt och bär varje dag",
+        "",
+        "Välj fullkorn för fibrer,",
+        "järn och folat"
+      ]
+    },
+    {
+      "name": "Söta drycker sist på listan",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Lätt att dricka mycket",
+        "utan att bli mätt",
+        "",
+        "Mycket kalorier,",
+        "nästan ingen näring"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Grått hår går inte att bota",
+        "– och behöver det inte heller"
+      ],
+      [
+        "Det som följer med",
+        "går däremot att utreda"
+      ]
+    ],
+    "tip": [
+      "Byt morgondagens charkmacka",
+      "mot ägg, bönor eller fisk"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#7A6318"
+}
