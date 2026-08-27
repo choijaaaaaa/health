@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Mestruazioni molto abbondanti",
+    "e una pressione sorda",
+    "nel basso ventre?",
+    "Fibromi uterini: cosa dice l'ISS"
+  ],
+  "eyebrow": "Fibromi uterini",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "긴장_illust.jpg",
+  "char_display_names": {
+    "긴장_illust.jpg": "Stanchezza",
+    "알약_illust.jpg": "Integratori",
+    "커피_illust.jpg": "Assorbimento"
+  },
+  "items": [
+    {
+      "name": "Di cosa parliamo",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Cerchi online i cibi da evitare",
+        "per i fibromi uterini?",
+        "",
+        "Nella scheda dell'ISS",
+        "carne rossa e alcol",
+        "non compaiono affatto"
+      ]
+    },
+    {
+      "name": "Quanto sono frequenti",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Circa il 30% delle donne",
+        "convive con un fibroma",
+        "nel corso della vita",
+        "",
+        "Molte non avvertono nulla:",
+        "si scopre a un controllo"
+      ]
+    },
+    {
+      "name": "Quali disturbi danno",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Sanguinamenti molto intensi,",
+        "anemia, pressione pelvica,",
+        "bisogno frequente di urinare",
+        "",
+        "Dipende da dove si trova",
+        "il fibroma, non da quanti sono"
+      ]
+    },
+    {
+      "name": "Il fattore che sorprende",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Tra i fattori che l'ISS elenca",
+        "c'è l'eccesso di ferro",
+        "rispetto al fabbisogno",
+        "",
+        "Insieme a carenza di vitamina D",
+        "e condizioni di vita stressanti"
+      ]
+    },
+    {
+      "name": "Prima misurare, poi integrare",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Il corpo usa le riserve:",
+        "servono ferro e ferritina,",
+        "non un valore solo",
+        "",
+        "Un consumo eccessivo",
+        "può essere dannoso"
+      ]
+    },
+    {
+      "name": "Cosa ostacola l'assorbimento",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tannini di caffè e tè",
+        "e calcio dei latticini",
+        "riducono il ferro non-eme",
+        "",
+        "La vitamina C di agrumi",
+        "e kiwi lo aumenta"
+      ]
+    },
+    {
+      "name": "Quando rivolgersi al medico",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Disturbi intensi o che durano:",
+        "medico curante o ginecologo",
+        "",
+        "Dolore improvviso e violento",
+        "o sanguinamento che non si",
+        "arresta: 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "L'ISS non attribuisce i fibromi",
+        "a quello che c'è nel piatto"
+      ],
+      [
+        "Il fabbisogno di ferro è",
+        "10-12 mg al giorno, non di più"
+      ]
+    ],
+    "tip": [
+      "Prima ferro e ferritina,",
+      "poi il dosaggio lo decide il medico"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#2D5A3D"
+}

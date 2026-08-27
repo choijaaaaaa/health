@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Blöder du igenom",
+    "skydden varje mens?",
+    "Det beror inte på maten",
+    "Myom: så utreds det"
+  ],
+  "eyebrow": "Myom i livmodern",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Kort sagt",
+  "cover_char_file": "긴장_illust.jpg",
+  "char_display_names": {
+    "긴장_illust.jpg": "Trötthet",
+    "우유_illust.jpg": "Järnupptag",
+    "알약_illust.jpg": "Järntabletter"
+  },
+  "items": [
+    {
+      "name": "Vad det handlar om",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Myom beror på en förändring",
+        "hos en gen i en muskelcell",
+        "",
+        "Hormoner och ärftlighet nämns",
+        "som orsaker – kosten inte alls"
+      ]
+    },
+    {
+      "name": "Hur vanligt det är",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Nästan hälften av alla",
+        "som har en livmoder får myom",
+        "",
+        "Ändå ger de oftast",
+        "inga besvär alls"
+      ]
+    },
+    {
+      "name": "När mensen är för riklig",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Mer än 7 dagars blödning.",
+        "Klumpar. Du blöder igenom.",
+        "Du behöver dubbla skydd.",
+        "",
+        "Ett av tecknen räcker"
+      ]
+    },
+    {
+      "name": "Därför blir du trött",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Rikliga blödningar tömmer",
+        "järndepåerna",
+        "",
+        "Trött och orkeslös är",
+        "det vanligaste tecknet"
+      ]
+    },
+    {
+      "name": "Så tas järnet upp",
+      "char_file": "우유_illust.jpg",
+      "body": [
+        "Te, kaffe och mjölk till maten",
+        "försvårar upptaget",
+        "",
+        "Frukt, bär och grönsaker",
+        "med C-vitamin underlättar"
+      ]
+    },
+    {
+      "name": "Om järntabletter",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Receptfria tillskott räcker",
+        "inte vid blodbrist",
+        "",
+        "Ta aldrig högre dos än ordinerat",
+        "och förvara utom räckhåll för barn"
+      ]
+    },
+    {
+      "name": "När söka vård",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vårdcentral eller gynekolog",
+        "vid mycket ont, riklig blödning",
+        "eller tyngdkänsla",
+        "",
+        "Ring 1177 för rådgivning,",
+        "112 om det är livshotande"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tranexamsyra finns receptfritt",
+        "och minskar blödningen"
+      ],
+      [
+        "Men järnbristen bakom tröttheten",
+        "syns bara i ett provsvar"
+      ]
+    ],
+    "tip": [
+      "Järnbrist av mens följs upp",
+      "med prover ända tills mensen upphör"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#4A3F5E"
+}

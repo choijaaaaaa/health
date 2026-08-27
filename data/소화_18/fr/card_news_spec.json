@@ -1,0 +1,152 @@
+{
+  "title": [
+    "Un cancer de l'estomac",
+    "dans la famille ? Le premier",
+    "facteur n'est pas l'hérédité",
+    "Le dépistage d'H. pylori"
+  ],
+  "eyebrow": "Helicobacter pylori",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Test et traitement",
+    "담배_illust.jpg": "Tabac",
+    "소금_illust.jpg": "Sel"
+  },
+  "items": [
+    {
+      "name": "Une bactérie derrière 80 % des cas",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Selon l'Institut national du cancer,",
+        "Helicobacter pylori est responsable",
+        "d'au moins 80 % des cancers",
+        "de l'estomac",
+        "",
+        "Elle s'acquiert dans l'enfance",
+        "et persiste toute la vie"
+      ]
+    },
+    {
+      "name": "Silencieuse pendant des décennies",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Elle provoque une gastrite aiguë",
+        "puis chronique, le plus souvent",
+        "sans aucun symptôme",
+        "",
+        "La HAS estime qu'un infecté sur 100",
+        "développera un adénocarcinome",
+        "après plusieurs décennies"
+      ]
+    },
+    {
+      "name": "La prévalence en France",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Entre 15 et 30 % de la population,",
+        "et en diminution",
+        "",
+        "Moins de 20 % chez les moins",
+        "de 30 ans, environ 50 %",
+        "après 50-60 ans"
+      ]
+    },
+    {
+      "name": "Les antécédents familiaux comptent",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Être apparenté à une personne ayant",
+        "eu un cancer de l'estomac figure",
+        "dans les indications de la HAS",
+        "",
+        "Parents, frères et sœurs, enfants :",
+        "rechercher et traiter l'infection",
+        "relève de la prévention"
+      ]
+    },
+    {
+      "name": "Etape 1 — choisir le bon test",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Gastroscopie avec biopsies si elle",
+        "est indiquée, sinon la sérologie",
+        "peut suffire en première approche",
+        "",
+        "Test respiratoire et antigène fécal",
+        "ne sont pas remboursés pour le",
+        "diagnostic avant traitement"
+      ]
+    },
+    {
+      "name": "Etape 2 — aller au bout",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Trithérapie IPP + 2 antibiotiques",
+        "sur 10 jours si la sensibilité",
+        "est connue, sinon quadrithérapie",
+        "sur 10 ou 14 jours",
+        "",
+        "Le succès repose sur un traitement",
+        "pris jusqu'à son terme"
+      ]
+    },
+    {
+      "name": "Etape 3 — contrôler l'éradication",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Le contrôle doit être systématique :",
+        "le traitement n'est pas",
+        "efficace à 100 %",
+        "",
+        "Test respiratoire au moins 4 semaines",
+        "après l'arrêt des antibiotiques",
+        "et 2 semaines après les IPP"
+      ]
+    },
+    {
+      "name": "Tabac et sel s'y ajoutent",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Le tabac et une alimentation riche",
+        "en produits salés et pauvre en",
+        "fruits et légumes frais",
+        "sont des facteurs reconnus",
+        "",
+        "Les fruits et légumes ont",
+        "un effet protecteur"
+      ]
+    },
+    {
+      "name": "Quand consulter sans attendre",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Douleurs du haut de l'abdomen,",
+        "vomissements répétés, amaigrissement,",
+        "difficulté à avaler, anémie",
+        "",
+        "Vomissements de sang ou selles noires :",
+        "appelez le 15 ou le 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ce n'est pas une gastrite qui passe :",
+        "l'infection persiste sans traitement"
+      ],
+      [
+        "Mais elle se recherche, se traite",
+        "et se contrôle"
+      ]
+    ],
+    "tip": [
+      "Signalez à votre médecin traitant tout cancer",
+      "de l'estomac chez un parent proche"
+    ],
+    "cta": "Envie de plus de conseils santé pratiques ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#4E6B84"
+}

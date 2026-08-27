@@ -1,0 +1,137 @@
+{
+  "title": [
+    "Helicobacter im Magen —",
+    "und trotzdem bekommen",
+    "die meisten nie Beschwerden",
+    "Wer wirklich testen sollte"
+  ],
+  "eyebrow": "Helicobacter pylori",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Test und Therapie",
+    "담배_illust.jpg": "Rauchen",
+    "소금_illust.jpg": "Salz"
+  },
+  "items": [
+    {
+      "name": "Häufig, aber selten krank machend",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "In Deutschland tragen geschätzt",
+        "40 von 100 Menschen das Bakterium",
+        "",
+        "Nur etwa 4 bis 8 davon haben eine",
+        "Gastritis oder ein Magen- bzw.",
+        "Zwölffingerdarmgeschwür"
+      ]
+    },
+    {
+      "name": "Was im Magen passiert",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Die Bakterien stören die",
+        "Magensäureproduktion",
+        "",
+        "Die Übersäuerung kann Schleimhaut",
+        "und Magenwand schädigen —",
+        "",
+        "chronisch oft ganz ohne Beschwerden"
+      ]
+    },
+    {
+      "name": "Ansteckung passiert früh",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Laut DGVS-Leitlinie ist der enge",
+        "Kontakt von Kindern zu infizierten",
+        "Familienangehörigen der",
+        "wichtigste Übertragungsweg",
+        "",
+        "Zwischen erwachsenen Partnern",
+        "ist eine Übertragung dagegen selten"
+      ]
+    },
+    {
+      "name": "Familienanamnese entscheidet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Verwandte ersten Grades haben ein",
+        "zwei- bis dreifach höheres",
+        "Magenkrebsrisiko",
+        "",
+        "Bei mehr als einem betroffenen",
+        "Verwandten etwa 10-fach"
+      ]
+    },
+    {
+      "name": "So wird getestet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Magenspiegelung mit Gewebeprobe,",
+        "Atemtest, Blut- oder",
+        "Stuhluntersuchung",
+        "",
+        "Bis 40 reicht bei familiärer",
+        "Vorbelastung meist ein",
+        "nicht-invasiver Test"
+      ]
+    },
+    {
+      "name": "Was die Therapie bringt",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Protonenpumpenhemmer plus zwei",
+        "Antibiotika und Bismut,",
+        "mindestens zehn Tage",
+        "",
+        "Damit ist nicht nur die Säure",
+        "gedämpft, sondern die Ursache weg"
+      ]
+    },
+    {
+      "name": "Rauchen und Salz kommen dazu",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Rauchen und Alkohol erhöhen laut",
+        "Krebsregisterdaten das Risiko",
+        "",
+        "Ebenso eingesalzene Lebensmittel,",
+        "verarbeitete Fleischprodukte",
+        "und ein hoher Salzkonsum"
+      ]
+    },
+    {
+      "name": "Diese Zeichen abklären lassen",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Schwarzer Stuhl, Blut im Stuhl,",
+        "kaffeesatzartiges Erbrechen",
+        "",
+        "Schluckbeschwerden oder",
+        "ungewollter Gewichtsverlust",
+        "",
+        "Bei starkem Bluterbrechen: 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Die Infektion stammt fast immer",
+        "aus der Kindheit — nicht vom Essen"
+      ],
+      [
+        "Und bleibt trotzdem der wichtigste",
+        "Risikofaktor für Magenkrebs"
+      ]
+    ],
+    "tip": [
+      "Wissen Sie, ob in Ihrer Familie jemand",
+      "Magenkrebs hatte — und in welchem Alter?"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#3A6E5F"
+}

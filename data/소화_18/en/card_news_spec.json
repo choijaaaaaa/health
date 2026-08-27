@@ -1,0 +1,147 @@
+{
+  "title": [
+    "Stomach cancer in the family",
+    "and no idea what to do",
+    "with that information?",
+    "5 H. pylori Facts That Matter"
+  ],
+  "eyebrow": "H. pylori and Stomach Cancer",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Testing & Treatment",
+    "담배_illust.jpg": "Smoking",
+    "소금_illust.jpg": "Salt"
+  },
+  "items": [
+    {
+      "name": "Why This Bacterium Matters",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "H. pylori lives in the mucus",
+        "layer lining your stomach",
+        "",
+        "The IARC classified it as a",
+        "human carcinogen in 1994,",
+        "",
+        "and the CDC estimates two-thirds",
+        "of the world carries it"
+      ]
+    },
+    {
+      "name": "How It Turns Into Risk",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "It neutralizes acid and burrows",
+        "into the stomach lining,",
+        "out of reach of immune cells",
+        "",
+        "The result is decades of quiet",
+        "inflammation that can progress",
+        "to atrophic gastritis and cancer"
+      ]
+    },
+    {
+      "name": "Where It Comes From",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "It spreads person to person via",
+        "saliva, stool, or vomit —",
+        "",
+        "and in most populations it is",
+        "first picked up in childhood,",
+        "not in adult life",
+        "",
+        "That is part of why it runs in families"
+      ]
+    },
+    {
+      "name": "Who Should Be Tested",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Not everyone. The CDC points to",
+        "people with active or past ulcers",
+        "",
+        "Most experts say the evidence does",
+        "not support testing everyone —",
+        "over-treatment drives resistance",
+        "",
+        "A first-degree relative with stomach",
+        "cancer is worth raising with a doctor"
+      ]
+    },
+    {
+      "name": "What Treatment Looks Like",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Two or more antibiotics plus an",
+        "acid-reducing PPI, sometimes bismuth",
+        "",
+        "Finish every dose — stopping early",
+        "breeds resistant bacteria",
+        "",
+        "Retest at least 4 weeks after the",
+        "antibiotics end to confirm it worked"
+      ]
+    },
+    {
+      "name": "Quit Smoking, Cut the Salt",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Smokers have higher stomach cancer",
+        "risk — and smoking makes H. pylori",
+        "treatment less effective",
+        "",
+        "Quitting lowers that risk over time",
+        "and improves the odds the",
+        "antibiotics actually work"
+      ]
+    },
+    {
+      "name": "What the Diet Evidence Says",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Diets low in fruit and vegetables,",
+        "or high in salted, smoked, or",
+        "poorly preserved foods,",
+        "may raise stomach cancer risk",
+        "",
+        "No supplement replaces",
+        "eradication treatment"
+      ]
+    },
+    {
+      "name": "Call a Doctor Right Away If",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Black or tarry stool, or blood",
+        "mixed into stool",
+        "",
+        "Vomit with red blood or that",
+        "looks like coffee grounds",
+        "",
+        "Sudden severe belly pain, dizziness,",
+        "or fainting — call 911"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "H. pylori is testable and treatable —",
+        "but testing everyone is not the answer"
+      ],
+      [
+        "Family history is what decides",
+        "whether testing makes sense for you"
+      ]
+    ],
+    "tip": [
+      "Write down which relatives had stomach",
+      "cancer or ulcers, and at what age"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1A5F4F"
+}

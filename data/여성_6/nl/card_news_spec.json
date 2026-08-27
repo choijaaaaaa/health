@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Verlies je veel bloed",
+    "als je ongesteld bent?",
+    "Het ligt niet aan je eten",
+    "Vleesboom: wat je kunt doen"
+  ],
+  "eyebrow": "Vleesboom in de baarmoeder",
+  "swipe_label": "Veeg voor meer  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "char_display_names": {
+    "스마트폰_illust.jpg": "Bijhouden",
+    "키위_illust.jpg": "IJzer",
+    "알약_illust.jpg": "Medicijnen"
+  },
+  "items": [
+    {
+      "name": "Waar we het over hebben",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Zoek je wat je eraan kunt doen,",
+        "dan kom je uit bij eetlijstjes",
+        "",
+        "In het stuk over hoe vleesbomen",
+        "ontstaan komt voeding",
+        "helemaal niet voor"
+      ]
+    },
+    {
+      "name": "Hoe ontstaat het",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Een bal van spiercellen",
+        "in de wand van je baarmoeder",
+        "",
+        "Groeit door oestrogeen",
+        "en progesteron, en wordt",
+        "na de overgang meestal kleiner"
+      ]
+    },
+    {
+      "name": "Wanneer is het veel",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Vaak verschonen, ook 's nachts.",
+        "Steeds helemaal vol of doorlekken.",
+        "Maandverband én tampon.",
+        "Grote klonten.",
+        "",
+        "Eén ervan is al genoeg"
+      ]
+    },
+    {
+      "name": "Moe? Laat bloed prikken",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Snel moe kan bloedarmoede zijn",
+        "",
+        "Bij vrouwen is heftig ongesteld",
+        "zijn daarvan de meest",
+        "voorkomende oorzaak"
+      ]
+    },
+    {
+      "name": "Zo werkt de ijzerpil",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "'s Ochtends nuchter, met een",
+        "sinaasappel of kiwi erbij",
+        "",
+        "Koffie, thee en melk:",
+        "4 uur ervoor, 2 uur erna"
+      ]
+    },
+    {
+      "name": "Medicijnen bij bloedverlies",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Tranexaminezuur: alleen op de",
+        "3 zwaarste dagen van je mens",
+        "",
+        "Niet geschikt na trombose,",
+        "hartinfarct, beroerte",
+        "of longembolie"
+      ]
+    },
+    {
+      "name": "Wanneer bel je",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Overdag je eigen huisarts,",
+        "'s avonds en in het weekend",
+        "de huisartsen-spoedpost",
+        "",
+        "Bij levensgevaar: 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vleesbomen zijn geen kanker,",
+        "en die kans is heel klein"
+      ],
+      [
+        "Vaak is verder onderzoek",
+        "helemaal niet nodig"
+      ]
+    ],
+    "tip": [
+      "Loop de keuzehulp door",
+      "vóór je afspraak bij de huisarts"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#345C6E"
+}

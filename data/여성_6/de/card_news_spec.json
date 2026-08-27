@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Starke Blutungen und",
+    "ein dumpfer Druck",
+    "im Unterleib?",
+    "Myome: Was gesichert ist"
+  ],
+  "eyebrow": "Gebärmuttermyome",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "긴장_illust.jpg",
+  "char_display_names": {
+    "긴장_illust.jpg": "Erschöpfung",
+    "서류더미_illust.jpg": "Perioden-Tagebuch",
+    "알약_illust.jpg": "Eisenpräparate"
+  },
+  "items": [
+    {
+      "name": "Worum es geht",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Bei Myomen landet die Frage",
+        "nach der Ursache fast immer",
+        "beim Essen",
+        "",
+        "Das IQWiG hält dagegen:",
+        "Ob die Ernährung damit",
+        "zusammenhängt, ist unklar"
+      ]
+    },
+    {
+      "name": "Wie häufig Myome sind",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Etwa 40 bis 80 Prozent",
+        "aller Frauen haben Myome",
+        "",
+        "Die meisten sind winzig und",
+        "machen ein Leben lang",
+        "keine Beschwerden"
+      ]
+    },
+    {
+      "name": "Was das Risiko erhöht",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Häufiger bei dunkler Haut,",
+        "ohne vorherige Schwangerschaft,",
+        "bei Myomen in der Familie",
+        "und bei starkem Übergewicht",
+        "",
+        "Beschwerden meist mit 30 bis 50"
+      ]
+    },
+    {
+      "name": "Wann die Blutung zu stark ist",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Wechseln Sie Binde oder Tampon",
+        "schon nach ein bis zwei Stunden?",
+        "",
+        "Dann ist die Blutung",
+        "wahrscheinlich stärker als normal –",
+        "etwa 10 von 100 Frauen betrifft das"
+      ]
+    },
+    {
+      "name": "Das Perioden-Tagebuch",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Zwei bis drei Zyklen notieren:",
+        "Wechsel pro Tag und Dauer",
+        "",
+        "Diese Zahl bringt das Arztgespräch",
+        "weiter als jede Beschreibung"
+      ]
+    },
+    {
+      "name": "Warum Eisen fehlt",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Mit dem Blut geht Eisen verloren",
+        "",
+        "Blässe, Schwäche, Schwindel",
+        "und Herzrasen nach Belastung",
+        "sprechen für eine Anämie"
+      ]
+    },
+    {
+      "name": "Vorsicht bei ASS",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Acetylsalicylsäure ist bei starker",
+        "Blutung nicht geeignet – sie hemmt",
+        "die Gerinnung und kann den",
+        "Blutverlust verstärken",
+        "",
+        "Eisentabletten erst nach Blutbild"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Myome sind gutartig, und es kann",
+        "kein Krebs aus ihnen entstehen"
+      ],
+      [
+        "Entscheidend ist nicht der Speiseplan,",
+        "sondern die abgeklärte Blutung"
+      ]
+    ],
+    "tip": [
+      "Zwei Zyklen lang die Wechsel zählen",
+      "und die Zahl mit in die Praxis nehmen"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#35406E"
+}

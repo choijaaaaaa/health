@@ -1,0 +1,123 @@
+{
+  "title": [
+    "Heavier periods and",
+    "a constant full feeling",
+    "low in your pelvis?",
+    "Fibroid Risk, By the Numbers"
+  ],
+  "eyebrow": "Uterine Fibroid Basics",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "소고기_illust.jpg": "Red Meat",
+    "맥주_illust.jpg": "Alcohol",
+    "태양_illust.jpg": "Vitamin D"
+  },
+  "items": [
+    {
+      "name": "Why This Gets Missed",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Heavier periods and pelvic",
+        "pressure often get filed under",
+        "\"my cycle is just rough\"",
+        "",
+        "Up to 80% of women have fibroids",
+        "by age 50, and most never",
+        "notice them at all"
+      ]
+    },
+    {
+      "name": "Red Meat and Risk",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "The Office on Women's Health",
+        "links a lot of red meat and ham",
+        "with higher fibroid risk",
+        "",
+        "In one case-control study the top",
+        "third for beef had 1.7 times",
+        "the odds of the lowest third"
+      ]
+    },
+    {
+      "name": "Rebalance the Plate",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Move two red-meat dinners a week",
+        "to fish, beans or lentils",
+        "",
+        "The same data put the highest",
+        "green-vegetable intake at",
+        "roughly half the odds"
+      ]
+    },
+    {
+      "name": "Where Beer Shows Up",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "In a cohort of 21,885 women,",
+        "seven or more beers a week",
+        "came with a 57% higher rate",
+        "",
+        "Smoking and caffeine showed",
+        "no overall link in the",
+        "same group of women"
+      ]
+    },
+    {
+      "name": "Set a Weekly Ceiling",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Keep beer well under",
+        "seven drinks a week",
+        "",
+        "At one to six a week the",
+        "difference was not reliable,",
+        "so the ceiling is the useful part"
+      ]
+    },
+    {
+      "name": "The Vitamin D Gap",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "NICHD lists vitamin D deficiency",
+        "as a fibroid risk factor",
+        "",
+        "Women above 20 ng/mL had 32%",
+        "lower odds than women",
+        "below that line"
+      ]
+    },
+    {
+      "name": "Test Before You Supplement",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Ask for a blood level first",
+        "",
+        "The adult RDA is 600 IU a day",
+        "and the upper limit is 4,000 IU,",
+        "so high doses need a clinician"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Red meat, beer and low vitamin D",
+        "are the three with real numbers"
+      ],
+      [
+        "None of them shrink a fibroid —",
+        "an ultrasound is still the answer"
+      ]
+    ],
+    "tip": [
+      "Count the protection you use on",
+      "your heaviest day, then say it out loud"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#7E2F5A"
+}

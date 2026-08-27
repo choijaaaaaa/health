@@ -1,0 +1,117 @@
+{
+  "title": [
+    "¿Reglas mucho más",
+    "abundantes que antes?",
+    "No empieces por la dieta",
+    "Miomas uterinos: los datos"
+  ],
+  "eyebrow": "Miomas uterinos",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "소고기_illust.jpg": "Carne roja",
+    "와인_illust.jpg": "Alcohol",
+    "알약_illust.jpg": "Analgésicos"
+  },
+  "items": [
+    {
+      "name": "El mito más repetido",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Fuera la carne roja",
+        "y los miomas dejarán de crecer",
+        "",
+        "El informe del Ministerio",
+        "de Sanidad no dice eso"
+      ]
+    },
+    {
+      "name": "Lo que dice Sanidad",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "El impacto de la dieta,",
+        "el ejercicio, el tabaquismo,",
+        "el alcohol y el estrés",
+        "",
+        "sigue siendo menos claro"
+      ]
+    },
+    {
+      "name": "Cuántas mujeres",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Aparecen en el 70%",
+        "de las mujeres,",
+        "sobre todo hacia los 50",
+        "",
+        "Solo un 25% presenta síntomas"
+      ]
+    },
+    {
+      "name": "Lo que sí está documentado",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Etnia, agregación familiar,",
+        "menarquia precoz, hipertensión,",
+        "peso y diabetes",
+        "",
+        "Con tres familiares de primer",
+        "grado: incidencia 2,5 veces mayor"
+      ]
+    },
+    {
+      "name": "El síntoma que pesa",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Sangrado menstrual abundante",
+        "que puede producir",
+        "anemia ferropénica",
+        "",
+        "Más presión pélvica,",
+        "polaquiuria y estreñimiento"
+      ]
+    },
+    {
+      "name": "Antes del analgésico",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "La ficha técnica de la AEMPS",
+        "recoge hemorragias urogenitales",
+        "entre las reacciones frecuentes",
+        "",
+        "del ácido acetilsalicílico"
+      ]
+    },
+    {
+      "name": "Cuándo pedir cita",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Anota dos o tres ciclos",
+        "y llévalos al centro de salud",
+        "",
+        "Sangrado que no cesa,",
+        "dolor intenso o desmayo:",
+        "urgencias o 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La ecografía transvaginal es",
+        "la prueba de primera línea"
+      ],
+      [
+        "Y basta en la mayoría de casos:",
+        "sensibilidad del 90 al 99%"
+      ]
+    ],
+    "tip": [
+      "Cambia la pregunta: cuántas veces",
+      "cambiaste de protección, no qué comiste"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#6E3A4B"
+}

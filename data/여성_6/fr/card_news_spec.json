@@ -1,0 +1,118 @@
+{
+  "title": [
+    "Des règles beaucoup plus",
+    "abondantes qu'avant",
+    "et une fatigue qui dure ?",
+    "Fibrome utérin en 4 chiffres"
+  ],
+  "eyebrow": "Fibrome utérin",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "긴장_illust.jpg",
+  "char_display_names": {
+    "긴장_illust.jpg": "Fatigue",
+    "계란_illust.jpg": "Sources de fer",
+    "알약_illust.jpg": "Bilan sanguin"
+  },
+  "items": [
+    {
+      "name": "De quoi on parle",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Le fibrome utérin est la tumeur",
+        "bénigne la plus fréquente",
+        "de la femme en âge de procréer",
+        "",
+        "C'est aussi la première cause",
+        "d'hystérectomie en France"
+      ]
+    },
+    {
+      "name": "Chiffres 1 et 2",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "20 à 50 % des femmes",
+        "de plus de 30 ans",
+        "",
+        "Et près de 70 % à l'âge",
+        "de la ménopause, selon la HAS"
+      ]
+    },
+    {
+      "name": "Chiffre 3 : 25 %",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Les fibromes ne sont",
+        "cliniquement perçus que",
+        "dans 25 % des cas",
+        "",
+        "Saignements abondants, gêne",
+        "pelvienne, signes d'anémie"
+      ]
+    },
+    {
+      "name": "Chiffre 4 : le fer",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "L'Anses fixe 16 mg de fer par jour",
+        "quand les pertes menstruelles",
+        "sont élevées",
+        "",
+        "Contre 11 mg pour des pertes",
+        "faibles à modérées"
+      ]
+    },
+    {
+      "name": "Varier les sources",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Le fer des viandes et des poissons",
+        "s'absorbe mieux que celui du",
+        "jaune d'œuf, des légumineuses",
+        "et des légumes verts",
+        "",
+        "Combiner les deux reste le plus sûr"
+      ]
+    },
+    {
+      "name": "Avant de se supplémenter",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Un bilan sanguin d'abord",
+        "",
+        "La limite de sécurité de l'Anses",
+        "est de 40 mg par jour :",
+        "se supplémenter à l'aveugle n'a pas de sens"
+      ]
+    },
+    {
+      "name": "Quand consulter",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Règles au-delà d'une semaine,",
+        "essoufflement, douleurs inhabituelles",
+        "",
+        "En cas de malaise ou d'hémorragie,",
+        "appelez le 15 ou le 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sans symptômes, la HAS retient",
+        "la surveillance, pas le traitement"
+      ],
+      [
+        "L'échographie reste l'examen",
+        "de référence en cas de doute"
+      ]
+    ],
+    "tip": [
+      "Notez chaque jour de règles le nombre",
+      "de protections utilisées, sur deux cycles"
+    ],
+    "cta": "Envie d'autres conseils santé pratiques ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#5E3C6B"
+}

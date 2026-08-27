@@ -1,0 +1,156 @@
+{
+  "title": [
+    "¿Hubo cáncer gástrico",
+    "en tu familia directa?",
+    "Esto sí cambia algo",
+    "5 claves sobre H. pylori"
+  ],
+  "eyebrow": "Helicobacter pylori",
+  "swipe_label": "Desliza para seguir  →",
+  "closing_label": "Un paso concreto",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Prueba y tratamiento",
+    "담배_illust.jpg": "Tabaco",
+    "가공육_illust.jpg": "Salazones y ahumados"
+  },
+  "items": [
+    {
+      "name": "El principal factor modificable",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "La infección por H. pylori es",
+        "el principal factor de riesgo",
+        "modificable del cáncer gástrico",
+        "",
+        "En España la prevalencia se sitúa",
+        "entre el 30 % y el 40 %"
+      ]
+    },
+    {
+      "name": "La cascada de Correa",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Gastritis crónica, atrofia,",
+        "metaplasia, displasia y tumor",
+        "",
+        "Es un proceso de décadas:",
+        "la úlcera aparece en el 10-20 %",
+        "y el cáncer en torno al 1 %"
+      ]
+    },
+    {
+      "name": "Se contagia en la infancia",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vía fecal-oral u oral-oral",
+        "",
+        "En países desarrollados,",
+        "sobre todo en el entorno familiar:",
+        "entre padres e hijos o hermanos"
+      ]
+    },
+    {
+      "name": "Familiares de primer grado",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "El consenso español recomienda",
+        "investigar y tratar en familiares",
+        "de primer grado de pacientes",
+        "con cáncer gástrico",
+        "",
+        "Con independencia de los síntomas"
+      ]
+    },
+    {
+      "name": "Cribado poblacional, no",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "En países occidentales no hay",
+        "evidencia que justifique",
+        "endoscopias de cribado a todos",
+        "",
+        "La indicación la valora",
+        "tu médico, caso por caso"
+      ]
+    },
+    {
+      "name": "Cómo se hace la prueba",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Test del aliento con urea C13,",
+        "antígeno en heces, serología",
+        "o endoscopia con biopsias",
+        "",
+        "Suspender omeprazol 14 días antes",
+        "y antibióticos 4 semanas antes"
+      ]
+    },
+    {
+      "name": "Catorce días de tratamiento",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Inhibidor de la bomba de protones",
+        "con dos o tres antibióticos,",
+        "con o sin bismuto, 14 días",
+        "",
+        "La pauta depende de las",
+        "resistencias de cada zona"
+      ]
+    },
+    {
+      "name": "Los probióticos no bastan",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "No hay evidencia suficiente",
+        "para recomendarlos de forma",
+        "generalizada",
+        "",
+        "Pueden usarse como coadyuvantes,",
+        "nunca en lugar del tratamiento"
+      ]
+    },
+    {
+      "name": "Lo que se suma a la infección",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Tabaco, dietas ricas en salazones,",
+        "ahumados o muy procesados,",
+        "y gastritis crónica atrófica",
+        "",
+        "No fumar y comer equilibrado",
+        "sí reduce el riesgo"
+      ]
+    },
+    {
+      "name": "Cuándo consultar sin esperar",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Pérdida de peso inexplicada,",
+        "saciedad precoz, anemia,",
+        "heces negras o sangrado",
+        "",
+        "Vómito con sangre o dolor",
+        "brusco e intenso: llama al 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "En España el test no se pide a todos,",
+        "pero sí a familiares de primer grado"
+      ],
+      [
+        "Y ahí el tratamiento se indica",
+        "aunque no haya ningún síntoma"
+      ]
+    ],
+    "tip": [
+      "Anota quién de tu familia lo tuvo",
+      "y a qué edad, y llévalo a la consulta"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#8C3D2A"
+}

@@ -1,0 +1,156 @@
+{
+  "title": [
+    "Al maanden last van je maag",
+    "en niemand vindt iets?",
+    "Kijk eens naar de bacterie",
+    "die er al jaren zit"
+  ],
+  "eyebrow": "Maagbacterie Helicobacter pylori",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Op een rij",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Test en kuur",
+    "담배_illust.jpg": "Roken",
+    "소금_illust.jpg": "Zout en gerookt"
+  },
+  "items": [
+    {
+      "name": "Hoe vaak komt hij voor",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "In Nederland heeft ongeveer",
+        "15 procent van de mensen",
+        "onder de 40 de bacterie",
+        "",
+        "Boven de 60 is dat",
+        "zeker 30 procent"
+      ]
+    },
+    {
+      "name": "Wat hij in je maag doet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Meestal alleen een ontsteking",
+        "van het maagslijmvlies",
+        "",
+        "Vage pijn in de maagstreek,",
+        "misselijk, opgeblazen gevoel",
+        "of weinig eetlust"
+      ]
+    },
+    {
+      "name": "Van de 10 krijgen er 2 een zweer",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Van 10 mensen met de bacterie",
+        "krijgen er 2 een maagzweer",
+        "",
+        "Waarom de een wel en de",
+        "ander niet, is niet duidelijk"
+      ]
+    },
+    {
+      "name": "Hij zit er al sinds je jeugd",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Besmetting ontstaat meestal",
+        "op kinderleeftijd, vaak",
+        "vóór het vijfde jaar",
+        "",
+        "Zonder behandeling blijft hij",
+        "je hele leven in je maag"
+      ]
+    },
+    {
+      "name": "Wanneer de huisarts test",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Als stap 1 niet genoeg hielp,",
+        "als je opgroeide in een gebied",
+        "waar de bacterie veel voorkomt,",
+        "of als controle na een kuur",
+        "",
+        "Met een poeptest of ademtest"
+      ]
+    },
+    {
+      "name": "Eerst stoppen met deze pillen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Geen antibiotica in de 4 weken",
+        "voor de test",
+        "",
+        "Protonpompremmer 2 weken",
+        "van tevoren stoppen,",
+        "famotidine 1 dag"
+      ]
+    },
+    {
+      "name": "De kuur duurt 10 dagen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Twee soorten antibiotica plus",
+        "een maagzuurremmer, 2x per dag",
+        "",
+        "Daarna nog 4 weken alleen de",
+        "maagzuurremmer, en 2 weken",
+        "later een controletest"
+      ]
+    },
+    {
+      "name": "Hou vol tot het einde",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Het zijn veel pillen en er",
+        "kunnen bijwerkingen komen,",
+        "zoals diarree of buikpijn",
+        "",
+        "Maar afmaken maakt de kans",
+        "groot dat de bacterie weggaat"
+      ]
+    },
+    {
+      "name": "Roken werkt tegen",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Roken vermindert de doorbloeding",
+        "van het maagslijmvlies",
+        "",
+        "De antibiotica lijken vaker",
+        "effectief bij niet-rokers",
+        "dan bij rokers"
+      ]
+    },
+    {
+      "name": "Bel meteen bij deze klachten",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Zwarte poep, bloed overgeven,",
+        "pijn die niet meer weggaat",
+        "",
+        "Bel direct de huisarts of",
+        "huisartsenpost; bij wegraken",
+        "of fors bloedverlies 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "De bacterie zit er meestal al",
+        "sinds je kindertijd"
+      ],
+      [
+        "Testen gebeurt gericht, en na",
+        "behandeling is de kans kleiner"
+      ]
+    ],
+    "tip": [
+      "Woonde je als kind in een gebied waar",
+      "de bacterie veel voorkomt? Zeg dat erbij"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#24486E"
+}

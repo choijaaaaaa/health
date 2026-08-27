@@ -1,0 +1,156 @@
+{
+  "title": [
+    "Ont i maggropen i perioder",
+    "och du skyller på maten?",
+    "Bakom de flesta magsår",
+    "sitter en bakterie"
+  ],
+  "eyebrow": "Helicobacter pylori",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Kort sammanfattat",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Prov och behandling",
+    "담배_illust.jpg": "Rökning",
+    "키위_illust.jpg": "C-vitamin"
+  },
+  "items": [
+    {
+      "name": "Vanligaste orsaken till magsår",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "En infektion med Helicobacter",
+        "pylori är den vanligaste",
+        "orsaken till magsår",
+        "",
+        "Sår i tolvfingertarmen beror",
+        "nästan alltid på bakterien"
+      ]
+    },
+    {
+      "name": "Men de flesta blir aldrig sjuka",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "De flesta har bakterien utan",
+        "att få magsår eller besvär",
+        "",
+        "Det är oklart varför den bara",
+        "orsakar sår hos vissa"
+      ]
+    },
+    {
+      "name": "Smittan sker i barndomen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Bakterien smittar oftast när",
+        "man är barn och finns kvar",
+        "i magsäcken livet ut",
+        "",
+        "Numera smittas väldigt få barn",
+        "tack vare bättre hygien"
+      ]
+    },
+    {
+      "name": "Två saker om smittan",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Troligtvis sprids den inom",
+        "den egna familjen, med mat",
+        "eller vatten",
+        "",
+        "Man kan inte bli smittad av",
+        "någon som har magsår"
+      ]
+    },
+    {
+      "name": "Vilket prov säger vad",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Utandningsprov och avföringsprov",
+        "är säkrare än blodprov",
+        "",
+        "Blodprovet visar bara att",
+        "immunförsvaret har reagerat,",
+        "inte om bakterien finns nu"
+      ]
+    },
+    {
+      "name": "En vecka med antibiotika",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Protonpumpshämmare och två",
+        "sorters antibiotika två gånger",
+        "om dagen i en vecka",
+        "",
+        "Avbryt inte utan att fråga",
+        "läkare, även om besvären gått över"
+      ]
+    },
+    {
+      "name": "Så stor är cancerrisken",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Livstidsrisken för magsäckscancer",
+        "i Sverige är under två procent",
+        "för män, under en för kvinnor",
+        "",
+        "Bakterien ökar risken",
+        "två till tre gånger"
+      ]
+    },
+    {
+      "name": "Om flera i släkten haft den",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Var tionde magsäckscancer",
+        "är ärftlig",
+        "",
+        "Har flera nära släktingar haft",
+        "den görs en ärftlighetsutredning,",
+        "med gastroskopi från 30-årsåldern"
+      ]
+    },
+    {
+      "name": "Kost och rökning",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Kraftigt saltad mat ökar",
+        "troligen risken något,",
+        "liksom rökning",
+        "",
+        "C-vitamin och karotenoider",
+        "minskar den troligen"
+      ]
+    },
+    {
+      "name": "Sök vård direkt vid detta",
+      "char_file": "키위_illust.jpg",
+      "body": [
+        "Svart eller blodig avföring,",
+        "kräkning som ser ut som kaffesump,",
+        "oförklarlig viktnedgång",
+        "",
+        "Ring 112 om du samtidigt är yr,",
+        "matt eller svimmar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Bakterien orsakar de flesta magsår —",
+        "men de flesta smittade blir aldrig sjuka"
+      ],
+      [
+        "Och cancerrisken utgår från",
+        "en låg nivå i Sverige"
+      ]
+    ],
+    "tip": [
+      "Har flera nära släktingar haft",
+      "magsäckscancer? Ta upp det i vården"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#17607F"
+}

@@ -1,0 +1,158 @@
+{
+  "title": [
+    "Tumore dello stomaco in famiglia",
+    "e nessuno ti ha spiegato",
+    "quando serve il test?",
+    "Helicobacter pylori, i fatti"
+  ],
+  "eyebrow": "Helicobacter pylori",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Test e terapia",
+    "담배_illust.jpg": "Fumo",
+    "소금_illust.jpg": "Sale e affumicati",
+    "와인_illust.jpg": "Alcolici"
+  },
+  "items": [
+    {
+      "name": "Quanto è diffuso davvero",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Secondo l'ISS il batterio",
+        "potrebbe essere presente",
+        "in circa 25 milioni di italiani",
+        "",
+        "In genere non provoca",
+        "problemi di salute"
+      ]
+    },
+    {
+      "name": "Cosa fa nello stomaco",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Abbassa l'acidità gastrica",
+        "con l'enzima ureasi e penetra",
+        "nella mucosa dello stomaco",
+        "",
+        "In una parte delle persone",
+        "innesca una gastrite cronica"
+      ]
+    },
+    {
+      "name": "Quando diventa un problema",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Gastrite atrofica, ulcera",
+        "e raramente linfoma MALT",
+        "",
+        "Nel linfoma MALT l'eliminazione",
+        "del batterio porta a regressione",
+        "nel 60-80% dei casi"
+      ]
+    },
+    {
+      "name": "Come si trasmette",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Via orale o oro-fecale:",
+        "feci, vomito o saliva,",
+        "alimenti e acqua contaminati",
+        "",
+        "Lavarsi bene le mani resta",
+        "la misura più concreta"
+      ]
+    },
+    {
+      "name": "Chi fa il test non invasivo",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Difficoltà digestive sotto",
+        "i 60 anni, uso prolungato",
+        "di FANS o inibitori di pompa",
+        "",
+        "Gli anticorpi nel sangue",
+        "non sono raccomandati"
+      ]
+    },
+    {
+      "name": "In Italia nessuno screening",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "AIRC: non esiste alcun",
+        "programma di screening sulla",
+        "popolazione generale",
+        "",
+        "Senza sintomi e senza",
+        "familiarità non si consiglia"
+      ]
+    },
+    {
+      "name": "La terapia dura due settimane",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Inibitore di pompa protonica",
+        "più antibiotici combinati,",
+        "schema scelto dal medico",
+        "",
+        "Il test del respiro di conferma",
+        "non prima di quattro settimane"
+      ]
+    },
+    {
+      "name": "Il fumo pesa il 40 per cento",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Il fumo è associato a un",
+        "aumento del 40 per cento circa",
+        "del rischio di tumore gastrico",
+        "",
+        "e rende meno efficaci le",
+        "terapie di eradicazione"
+      ]
+    },
+    {
+      "name": "Sale, affumicati e alcolici",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Cibi sotto sale, affumicati",
+        "o conservati sott'olio,",
+        "e consumo eccessivo di alcolici",
+        "",
+        "Nessun integratore sostituisce",
+        "la terapia eradicante"
+      ]
+    },
+    {
+      "name": "Quando non aspettare",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Sangue nelle feci o feci nere,",
+        "vomito con sangue, difficoltà",
+        "a deglutire, calo di peso",
+        "",
+        "Se compaiono all'improvviso",
+        "e intensi: chiama il 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "In Italia il test non si fa a tappeto,",
+        "si fa quando c'è un motivo clinico"
+      ],
+      [
+        "Ulcera, lesioni precancerose, MALT,",
+        "anemia inspiegata o familiarità"
+      ]
+    ],
+    "tip": [
+      "Sai se in famiglia qualcuno ha avuto",
+      "un tumore dello stomaco, e a che età?"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#1C6B5F"
+}
