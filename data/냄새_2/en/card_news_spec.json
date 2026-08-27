@@ -1,0 +1,109 @@
+{
+  "title": [
+    "Scalp still smells a few hours",
+    "after you washed it?",
+    "Where Scalp Odor Really Starts"
+  ],
+  "eyebrow": "Scalp Odor, Explained",
+  "cover_char_file": "샴푸_illust.jpg",
+  "cover_scrim_color": "#7A3B2E",
+  "char_display_names": {
+    "샴푸_illust.jpg": "Washing",
+    "베개_illust.jpg": "Damp Nights",
+    "모자_illust.jpg": "Caps & Sweat"
+  },
+  "items": [
+    {
+      "name": "Where the smell starts",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Scalp odor comes from",
+        "buildup of skin cells,",
+        "sweat and sebum",
+        "",
+        "Microbes break it down",
+        "into the compounds you smell"
+      ]
+    },
+    {
+      "name": "Washing the hair, not the scalp",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Lather that runs over",
+        "the lengths and ends",
+        "",
+        "barely reaches the roots,",
+        "where the odor is",
+        "actually produced"
+      ]
+    },
+    {
+      "name": "Washing — the fix",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Part the hair and work",
+        "lather into the scalp itself"
+      ]
+    },
+    {
+      "name": "A damp scalp overnight",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Fungi and bacteria thrive",
+        "in warm, moist places",
+        "",
+        "A wet head on a pillow",
+        "for eight hours is",
+        "exactly that"
+      ]
+    },
+    {
+      "name": "Drying — the fix",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Dry the scalp, not just",
+        "the hair, before sleeping"
+      ]
+    },
+    {
+      "name": "Sweat left under a cap",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Hours under a cap",
+        "or helmet keep sweat",
+        "warm against the skin",
+        "",
+        "and the cap itself",
+        "holds onto it"
+      ]
+    },
+    {
+      "name": "Caps — the fix",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Rinse the roots after",
+        "sweating, and wash the cap"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Washing daily is fine —",
+        "an oily scalp may need it"
+      ],
+      [
+        "What matters more is where",
+        "the lather goes, and how dry",
+        "your scalp is at bedtime"
+      ]
+    ],
+    "tip": [
+      "If flaking and itching come with the smell,",
+      "a dermatologist can tell you what is behind it"
+    ],
+    "cta": "Want more practical health tips? Follow, like and subscribe!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "The takeaway"
+}

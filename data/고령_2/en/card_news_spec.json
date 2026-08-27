@@ -1,0 +1,95 @@
+{
+  "title": [
+    "All your protein",
+    "lands at dinner? Your muscles notice.",
+    "3 Adjustments Worth Making"
+  ],
+  "eyebrow": "Muscle Health Check",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "cover_scrim_color": "#46608F",
+  "char_display_names": {
+    "계란_illust.jpg": "Eggs",
+    "운동화_illust.jpg": "Walking Shoes",
+    "아령_illust.jpg": "Dumbbells"
+  },
+  "items": [
+    {
+      "name": "Why it happens",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Muscle drops about 3-5%",
+        "per decade after 30, and up",
+        "to 8% between 65 and 80",
+        "",
+        "Older muscle needs more",
+        "protein in one sitting to respond"
+      ]
+    },
+    {
+      "name": "Protein all at dinner",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "US adults average 13g of",
+        "protein at breakfast —",
+        "and 38g at dinner",
+        "",
+        "So breakfast rarely clears",
+        "the 25-30g threshold"
+      ]
+    },
+    {
+      "name": "Close the breakfast gap",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "A cup of cottage cheese or",
+        "plain Greek yogurt is about 24g",
+        "",
+        "Spreading protein across",
+        "three meals beats stacking",
+        "it all at night"
+      ]
+    },
+    {
+      "name": "Walking only",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Walking builds endurance,",
+        "but sends muscle little",
+        "reason to hold its size",
+        "",
+        "Only about 14% of adults 65+",
+        "meet the strength guideline"
+      ]
+    },
+    {
+      "name": "Add strength work",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Bands, light dumbbells, or",
+        "sit-to-stands, twice a week",
+        "",
+        "Trials in older adults report",
+        "better grip strength",
+        "and gait speed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Muscle loss isn't",
+        "just the calendar"
+      ],
+      [
+        "Two everyday habits",
+        "carry more of the weight"
+      ]
+    ],
+    "tip": [
+      "Add one protein food to breakfast,",
+      "and lift something twice a week"
+    ],
+    "cta": "Want more health tips like this? Follow along for more"
+  }
+}
