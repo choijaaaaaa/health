@@ -1,0 +1,122 @@
+{
+  "title": [
+    "Eisenmangel ist selten",
+    "ein Problem des Speiseplans.",
+    "Er ist meist ein Verlust.",
+    "Schwindel und Eisen"
+  ],
+  "cover_scrim_color": "#9B2D3F",
+  "eyebrow": "Eisenmangel",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Selbsttest",
+  "topic_word": "Eisenmangel",
+  "cover_char_file": "알약_illust.jpg",
+  "char_display_names": {
+    "알약_illust.jpg": "Eisenpräparate",
+    "커피_illust.jpg": "Tannine",
+    "소고기_illust.jpg": "Verwertbares Eisen",
+    "과일즙_illust.jpg": "Vitamin C"
+  },
+  "items": [
+    {
+      "name": "Warum das passiert",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Blasse Haut, Müdigkeit,",
+        "brüchige Nägel – und der",
+        "Drang, Eis zu kauen",
+        "",
+        "In Europa sind 5 bis 10 %",
+        "der Menschen betroffen"
+      ]
+    },
+    {
+      "name": "Ursache 1: Blutverlust",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Oft unbemerkte Blutungen",
+        "im Magen-Darm-Trakt oder",
+        "starke Regelblutungen",
+        "",
+        "Deshalb zuerst messen,",
+        "dann behandeln"
+      ]
+    },
+    {
+      "name": "Ursache 2: Hemmstoffe im Darm",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Tannine, Oxalsäure, Phytat,",
+        "Phosphat, Milchprodukte",
+        "und Kaffee binden Eisen",
+        "",
+        "Spinat steht auf beiden",
+        "Listen zugleich"
+      ]
+    },
+    {
+      "name": "Mythos Eisentabletten",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vorbeugend eingenommen",
+        "bringen sie keinen Vorteil",
+        "",
+        "Zu viel Eisen kann schaden –",
+        "erst ärztlich abklären"
+      ]
+    },
+    {
+      "name": "Was hilft: Vitamin C dazu",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Orangensaft, Broccoli",
+        "oder rote Paprika zur",
+        "pflanzlichen Mahlzeit",
+        "",
+        "Kaffee und Tee dagegen",
+        "zeitlich trennen"
+      ]
+    },
+    {
+      "name": "Was hilft: Portionen kennen",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "150 g Rindfleisch: 4,9 mg",
+        "60 g Pistazien: 4,4 mg",
+        "150 g Kichererbsen: 3,3 mg",
+        "",
+        "Empfohlen: 15 mg pro Tag",
+        "vor den Wechseljahren"
+      ]
+    },
+    {
+      "name": "Wann es ein Notfall ist",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Plötzlicher Schwindel mit",
+        "Lähmung, Sprachstörung",
+        "oder Sehausfall",
+        "",
+        "Sofort die 112 rufen,",
+        "nicht abwarten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Erst messen,",
+        "dann den Teller ändern"
+      ],
+      [
+        "Der Mangel ist häufiger",
+        "ein Verlust als ein Defizit"
+      ]
+    ],
+    "tip": [
+      "Mehr als ein Risikopunkt und die",
+      "Müdigkeit bleibt? Blutbild machen lassen"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen lohnt sich!"
+  }
+}

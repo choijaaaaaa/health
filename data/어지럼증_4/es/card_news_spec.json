@@ -1,0 +1,115 @@
+{
+  "title": [
+    "¿Mareo y cansancio",
+    "aunque comas bien?",
+    "Té, lácteos y fitatos"
+  ],
+  "eyebrow": "Hierro y absorción",
+  "swipe_label": "Desliza para saber más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "와인_illust.jpg",
+  "cover_scrim_color": "#26535C",
+  "char_display_names": {
+    "와인_illust.jpg": "Té, café y vino",
+    "치즈_illust.jpg": "Lácteos",
+    "아몬드_illust.jpg": "Legumbres y frutos secos",
+    "소고기_illust.jpg": "Hierro hemo"
+  },
+  "items": [
+    {
+      "name": "Por qué pasa",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "El hierro que comes y el que",
+        "absorbes no son la misma cifra",
+        "",
+        "Tres frenos actúan a la vez",
+        "en la misma mesa"
+      ]
+    },
+    {
+      "name": "Taninos: té, café y vino",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Beber grandes cantidades",
+        "de té, café o vino tinto",
+        "",
+        "puede disminuir",
+        "la absorción del hierro"
+      ]
+    },
+    {
+      "name": "Deja pasar dos horas",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "El intervalo recomendado",
+        "es de al menos dos horas",
+        "",
+        "No hace falta dejar el café:",
+        "basta con moverlo"
+      ]
+    },
+    {
+      "name": "El calcio de los lácteos",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Queso, leche y derivados",
+        "en el mismo plato",
+        "",
+        "compiten con el hierro",
+        "de las legumbres"
+      ]
+    },
+    {
+      "name": "Lácteos en otra franja",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Siguen en la dieta,",
+        "solo cambian de hora",
+        "",
+        "Lo mismo vale para el cinc,",
+        "el calcio y los antiácidos"
+      ]
+    },
+    {
+      "name": "Fitatos: legumbres y cereales",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Salvado, legumbres y",
+        "frutos secos llevan fitatos",
+        "",
+        "que dificultan la absorción",
+        "de hierro y calcio"
+      ]
+    },
+    {
+      "name": "Remojo y vitamina C",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "De 6 a 12 horas en agua fría",
+        "antes de cocinarlas",
+        "",
+        "Con vitamina C al lado,",
+        "la absorción puede aumentar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No es cuánto hierro comes:",
+        "es cuánto llega a la sangre"
+      ],
+      [
+        "El reloj pesa más",
+        "que la lista de la compra"
+      ]
+    ],
+    "tip": [
+      "Café dos horas después,",
+      "legumbres en remojo",
+      "y un cítrico en el mismo plato"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Suscríbete y síguenos!"
+  }
+}

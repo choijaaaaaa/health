@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Yr och trött",
+    "trots bra mat?",
+    "Så styr du järnupptaget"
+  ],
+  "eyebrow": "Järn och upptag",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#0C4A6E",
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe och te",
+    "소고기_illust.jpg": "Hemjärn",
+    "흰빵_illust.jpg": "Surdegsbröd",
+    "과일즙_illust.jpg": "C-vitamin",
+    "치즈_illust.jpg": "Kalcium",
+    "알약_illust.jpg": "Järntillskott"
+  },
+  "items": [
+    {
+      "name": "Så ligger det till",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kroppens upptag av järn är lågt",
+        "jämfört med andra näringsämnen",
+        "",
+        "Måltidens sammansättning",
+        "avgör mycket av resten"
+      ]
+    },
+    {
+      "name": "Hemjärn och icke-hemjärn",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Hemjärn tas upp lättast och är",
+        "ungefär halva järnet i kött",
+        "",
+        "Växter innehåller bara",
+        "icke-hemjärn"
+      ]
+    },
+    {
+      "name": "Det som bromsar",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Polyfenoler i te, kaffe och vin,",
+        "fytinsyra i spannmål och nötter",
+        "",
+        "Te, kaffe eller mjölk till maten",
+        "försvårar upptaget"
+      ]
+    },
+    {
+      "name": "Surdeg och groddning",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Lång jäsning bryter ner",
+        "en del av fytinsyran",
+        "",
+        "Att grodda baljväxter och frön",
+        "minskar den också"
+      ]
+    },
+    {
+      "name": "C-vitamin till maten",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Frukt, bär, grönsaker",
+        "och rotfrukter",
+        "",
+        "gör det lättare för kroppen",
+        "att ta upp järnet ur maten"
+      ]
+    },
+    {
+      "name": "Kalcium – med reservation",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Ett högt kalciumintag",
+        "kan verka hämmande",
+        "",
+        "men det syns mest i",
+        "studier på enstaka måltider"
+      ]
+    },
+    {
+      "name": "När tillskott inte räcker",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Receptfria järntillskott är",
+        "inte effektiva vid blodbrist",
+        "",
+        "Kontakta vårdcentralen",
+        "om du misstänker blodbrist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Det är inte bara mängden järn",
+        "som avgör hur mycket du får i dig"
+      ],
+      [
+        "Samma tallrik kan ge mer",
+        "med små ändringar i köket"
+      ]
+    ],
+    "tip": [
+      "Surdegsbröd, groddade baljväxter",
+      "och något med C-vitamin till maten —",
+      "kaffet ett par timmar efteråt"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera och följ sidan!"
+  }
+}

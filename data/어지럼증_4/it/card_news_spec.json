@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Non è quanto ferro mangi,",
+    "ma con che cosa lo mangi",
+    "Caffè, latticini e fitati"
+  ],
+  "eyebrow": "Ferro e assorbimento",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#7E4A2F",
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè e tè",
+    "치즈_illust.jpg": "Latticini",
+    "호두_illust.jpg": "Legumi e cereali",
+    "과일즙_illust.jpg": "Vitamina C"
+  },
+  "items": [
+    {
+      "name": "Perché succede",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Solo il 5-10% del ferro",
+        "degli alimenti viene assorbito",
+        "",
+        "Il resto lo decidono",
+        "gli abbinamenti del pasto"
+      ]
+    },
+    {
+      "name": "I tannini di caffè e tè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Insieme al ferro non-eme",
+        "formano complessi insolubili",
+        "",
+        "che l'organismo",
+        "non riesce ad assimilare"
+      ]
+    },
+    {
+      "name": "Sposta la tazza",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Per i tannini del caffè basta",
+        "berlo lontano dai pasti",
+        "",
+        "Per il tè: infusione breve",
+        "e succo di limone"
+      ]
+    },
+    {
+      "name": "Il calcio dei latticini",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Latte e formaggi al pasto",
+        "competono con il ferro",
+        "",
+        "È lo stesso meccanismo",
+        "dei tannini"
+      ]
+    },
+    {
+      "name": "Latticini in un'altra fascia",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Non serve eliminarli:",
+        "basta non eccedere",
+        "",
+        "durante i pasti principali",
+        "ricchi di ferro"
+      ]
+    },
+    {
+      "name": "I fitati di legumi e cereali",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Stanno proprio negli alimenti",
+        "vegetali che il ferro ce l'hanno",
+        "",
+        "e ne ostacolano",
+        "ulteriormente l'assorbimento"
+      ]
+    },
+    {
+      "name": "Ammollo e vitamina C",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "A bagno in acqua tiepida",
+        "con mezzo limone, per ore",
+        "",
+        "Agrumi, kiwi e broccoli nel",
+        "piatto aumentano l'assorbimento"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il ferro che mangi",
+        "non è quello che assorbi"
+      ],
+      [
+        "Non serve eliminare nulla,",
+        "serve spostare gli orari"
+      ]
+    ],
+    "tip": [
+      "Legumi in ammollo con mezzo limone,",
+      "caffè lontano dai pasti,",
+      "vitamina C nello stesso piatto"
+    ],
+    "cta": "Vuoi altri consigli sulla salute? Iscriviti e seguici!"
+  }
+}

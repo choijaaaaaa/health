@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Le problème n'est pas",
+    "la quantité de fer.",
+    "C'est sa forme.",
+    "Vertiges et absorption du fer"
+  ],
+  "cover_scrim_color": "#9B2D3F",
+  "eyebrow": "Absorption du fer",
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "Quand consulter",
+  "topic_word": "Carence en fer",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "소고기_illust.jpg": "Fer héminique",
+    "커피_illust.jpg": "Tannins",
+    "과일즙_illust.jpg": "Vitamine C",
+    "아몬드_illust.jpg": "Légumineuses"
+  },
+  "items": [
+    {
+      "name": "Pourquoi ces vertiges",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Une déficience en fer",
+        "réduit le transport de",
+        "l'oxygène vers les cellules",
+        "",
+        "D'où fatigue, maux de tête,",
+        "vertige et essoufflement"
+      ]
+    },
+    {
+      "name": "Deux formes de fer",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Le fer héminique n'existe",
+        "que dans les aliments",
+        "d'origine animale",
+        "",
+        "Son absorption est",
+        "supérieure à l'autre forme"
+      ]
+    },
+    {
+      "name": "Ce qui freine : les tannins",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Les tannins du thé",
+        "diminuent l'absorption",
+        "",
+        "Pris pendant le repas,",
+        "ils entrent en concurrence"
+      ]
+    },
+    {
+      "name": "Ce qui aide : la vitamine C",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Agrumes, jus pressé,",
+        "poivrons, persil",
+        "",
+        "L'Anses la cite parmi les",
+        "composés qui augmentent"
+      ]
+    },
+    {
+      "name": "Varier les sources",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Foie, viande, poisson,",
+        "fruits de mer, légumineuses,",
+        "noix, jaune d'œuf",
+        "",
+        "Légumes secs au moins",
+        "deux fois par semaine"
+      ]
+    },
+    {
+      "name": "Qui est le plus exposé",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Croissance, grossesse,",
+        "règles abondantes,",
+        "absorption diminuée",
+        "",
+        "Se supplémenter au hasard",
+        "ne remplace pas un bilan"
+      ]
+    },
+    {
+      "name": "Quand appeler le 15",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Trouble de l'équilibre,",
+        "parole ou vue atteintes,",
+        "faiblesse d'un côté",
+        "",
+        "Surtout si cela survient",
+        "brutalement : le 15"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Rien à supprimer,",
+        "tout à réassocier"
+      ],
+      [
+        "Mais une carence signale",
+        "souvent autre chose"
+      ]
+    ],
+    "tip": [
+      "Fatigue ou vertiges qui s'installent :",
+      "une prise de sang avant les compléments"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Duizelig en snel moe",
+    "ondanks gezond eten?",
+    "Zo werkt ijzeropname"
+  ],
+  "eyebrow": "IJzer en opname",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "cover_char_file": "커피_illust.jpg",
+  "cover_scrim_color": "#5F3E7A",
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie en thee",
+    "소고기_illust.jpg": "Heemijzer",
+    "호두_illust.jpg": "Noten en peulvruchten",
+    "과일즙_illust.jpg": "Vitamine C",
+    "치즈_illust.jpg": "Calcium",
+    "알약_illust.jpg": "IJzerpil"
+  },
+  "items": [
+    {
+      "name": "Hoe het zit",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Van het ijzer dat je eet",
+        "komt maar een deel binnen",
+        "",
+        "Vier dingen bepalen",
+        "hoeveel dat is"
+      ]
+    },
+    {
+      "name": "Heem en non-heem",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Heemijzer: ongeveer 25%",
+        "wordt opgenomen",
+        "",
+        "Non-heemijzer, zo'n 90% van",
+        "wat we eten: 1 tot 10%"
+      ]
+    },
+    {
+      "name": "Wat de opname remt",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Fytaat uit granen en peulvruchten,",
+        "polyfenolen uit thee en koffie",
+        "",
+        "vormen een onoplosbaar",
+        "complex met het ijzer"
+      ]
+    },
+    {
+      "name": "Wat juist helpt",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Vitamine C verhoogt",
+        "de oplosbaarheid",
+        "",
+        "Groente of fruit bij elke",
+        "maaltijd doet het werk"
+      ]
+    },
+    {
+      "name": "Calcium: klein effect",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Melk en kaas remmen ook,",
+        "maar het effect is klein",
+        "",
+        "Onderzoek laat zien dat het",
+        "niet tot ijzertekorten leidt"
+      ]
+    },
+    {
+      "name": "Slik je ijzerpillen?",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "'s Ochtends nuchter,",
+        "met een sinaasappel of kiwi",
+        "",
+        "Vier uur na koffie, thee of melk,",
+        "daarna twee uur wachten"
+      ]
+    },
+    {
+      "name": "Naar de huisarts",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Met bloedonderzoek vindt je",
+        "huisarts de oorzaak",
+        "",
+        "En die bepaalt welke",
+        "behandeling zin heeft"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Niet de hoeveelheid ijzer telt,",
+        "maar wat ernaast op je bord ligt"
+      ],
+      [
+        "Op lange termijn hoef je",
+        "geen voedingsmiddel te mijden"
+      ]
+    ],
+    "tip": [
+      "Groente of fruit bij elke maaltijd,",
+      "en koffie en thee een paar uur",
+      "van je ijzerpil vandaan"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg en abonneer je!"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Lightheaded on the stairs",
+    "and chewing ice all afternoon?",
+    "3 Habits That Block Iron"
+  ],
+  "cover_scrim_color": "#9B2D3F",
+  "eyebrow": "Iron absorption",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Tonight's change",
+  "topic_word": "Iron absorption",
+  "cover_char_file": "소고기_illust.jpg",
+  "char_display_names": {
+    "소고기_illust.jpg": "Heme iron",
+    "커피_illust.jpg": "Coffee and tea",
+    "치즈_illust.jpg": "Dairy calcium",
+    "아몬드_illust.jpg": "Phytates",
+    "과일즙_illust.jpg": "Vitamin C"
+  },
+  "items": [
+    {
+      "name": "Why you feel this way",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Dizziness, cold hands and",
+        "pale skin travel together",
+        "when iron runs low",
+        "",
+        "Heme iron absorbs at 25%,",
+        "plant iron at 17% or less"
+      ]
+    },
+    {
+      "name": "Habit 1: Coffee with the meal",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Coffee and black tea carry",
+        "polyphenols that bind iron",
+        "in the gut",
+        "",
+        "The NHLBI says black tea",
+        "can reduce iron absorption"
+      ]
+    },
+    {
+      "name": "Move the cup, keep the coffee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "The advice is narrow:",
+        "keep it out of the meal,",
+        "not out of the day",
+        "",
+        "Mid-afternoon instead of",
+        "the end of lunch"
+      ]
+    },
+    {
+      "name": "Habit 2: Dairy on the same plate",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Calcium is a classic",
+        "blocker of plant iron",
+        "",
+        "Milk itself is a very",
+        "poor source of iron"
+      ]
+    },
+    {
+      "name": "Swap in vitamin C instead",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Citrus, strawberries,",
+        "tomatoes and bell peppers",
+        "",
+        "Vitamin C counteracts",
+        "phytates and polyphenols"
+      ]
+    },
+    {
+      "name": "Habit 3: Beans and grains alone",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Phytates in grains, nuts",
+        "and legumes bind iron",
+        "the same way",
+        "",
+        "Good foods that simply",
+        "do better with a partner"
+      ]
+    },
+    {
+      "name": "Add meat, fish or a cast-iron pan",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "A little lean meat, fish or",
+        "poultry with beans or greens",
+        "lifts absorption up to 3x",
+        "",
+        "Cast iron pots add 1.5-3.3x",
+        "more iron to the food"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nothing has to leave",
+        "your kitchen"
+      ],
+      [
+        "The iron is lost at the",
+        "pairing, not the shopping"
+      ]
+    ],
+    "tip": [
+      "Add a vitamin C food to your next",
+      "plant-based plate, move the coffee later"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  }
+}
