@@ -1,0 +1,114 @@
+{
+  "title": [
+    "¿Sigues estreñido aunque",
+    "comas verdura cada día?",
+    "3 hábitos que lo empeoran"
+  ],
+  "eyebrow": "Estreñimiento y dieta",
+  "swipe_label": "Desliza para saber más  →",
+  "closing_label": "Para empezar hoy",
+  "cover_char_file": "흰쌀밥_illust.jpg",
+  "char_display_names": {
+    "흰쌀밥_illust.jpg": "Cereales refinados",
+    "물방울_illust.jpg": "Líquidos",
+    "서류더미_illust.jpg": "Aplazar el baño"
+  },
+  "items": [
+    {
+      "name": "Qué se considera estreñimiento",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Menos de 3 deposiciones",
+        "por semana, heces más duras",
+        "o más esfuerzo del normal",
+        "",
+        "Lo padece cerca del 20%",
+        "de la población"
+      ]
+    },
+    {
+      "name": "1. Cereales refinados",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "La fibra insoluble aumenta",
+        "el bolo fecal reteniendo agua",
+        "",
+        "Con harina blanca a diario",
+        "esa fibra no llega"
+      ]
+    },
+    {
+      "name": "El cambio: integral",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Cambia refinado por integral",
+        "en una comida al día",
+        "",
+        "La pauta son 25-30 g diarios,",
+        "subiendo despacio"
+      ]
+    },
+    {
+      "name": "2. Beber poco",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "La fibra necesita agua",
+        "para hincharse",
+        "",
+        "Subir integrales sin beber más",
+        "solo aumenta la hinchazón"
+      ]
+    },
+    {
+      "name": "El cambio: 1,5-2 litros",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Deja un vaso de agua",
+        "junto al plato",
+        "",
+        "Valen infusiones claras",
+        "y caldos desgrasados"
+      ]
+    },
+    {
+      "name": "3. Aplazar el baño",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Al posponer las ganas,",
+        "las heces siguen perdiendo",
+        "agua en el colon",
+        "",
+        "Y el reflejo se va apagando"
+      ]
+    },
+    {
+      "name": "El cambio: hábito horario",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Ve a la misma hora",
+        "cada día, tras el desayuno",
+        "",
+        "Suma media hora de paseo",
+        "para mover el intestino"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No hay que eliminar",
+        "ningún alimento de la lista"
+      ],
+      [
+        "El plan de esta noche",
+        "cabe en una sola frase"
+      ]
+    ],
+    "tip": [
+      "Cambia el pan blanco de la cena por integral",
+      "y deja un vaso de agua en la mesa"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? Suscríbete, dale me gusta y sígueme."
+  },
+  "cover_scrim_color": "#B03A48"
+}

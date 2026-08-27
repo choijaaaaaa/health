@@ -1,0 +1,114 @@
+{
+  "title": [
+    "Hard en droog, minder dan",
+    "3 keer per week naar de wc?",
+    "Zelden de schuld van je darmen"
+  ],
+  "eyebrow": "Verstopping en gewoonten",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Tot slot",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Witte producten",
+    "물방울_illust.jpg": "Vocht",
+    "서류더미_illust.jpg": "Aandrang uitstellen"
+  },
+  "items": [
+    {
+      "name": "Niet je darmen, wel je week",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Minder dan 3 keer per week,",
+        "harde en droge poep",
+        "",
+        "Volgens Thuisarts komt het",
+        "meestal niet door een ziekte,",
+        "maar door alledaagse dingen"
+      ]
+    },
+    {
+      "name": "Witte producten",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Vezels houden vocht vast",
+        "in de darmen",
+        "",
+        "Vrouwen hebben 24 gram nodig",
+        "per dag, mannen 30 gram"
+      ]
+    },
+    {
+      "name": "Kies volkoren",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Vervang wit brood",
+        "door volkoren",
+        "",
+        "Peulvruchten en noten",
+        "vullen de rest aan"
+      ]
+    },
+    {
+      "name": "Te weinig drinken",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Vezels binden vocht,",
+        "dus dat vocht moet er zijn",
+        "",
+        "Meer volkoren zonder drinken",
+        "maakt het juist lastiger"
+      ]
+    },
+    {
+      "name": "Drink 1,5 tot 2 liter",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Acht glazen of meer,",
+        "vooral water en thee",
+        "",
+        "Liever geen vruchtensap",
+        "of frisdrank"
+      ]
+    },
+    {
+      "name": "Aandrang uitstellen",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Blijft de poep langer zitten,",
+        "dan wordt hij droger en harder",
+        "",
+        "Na een tijd voel je",
+        "de aandrang niet meer goed"
+      ]
+    },
+    {
+      "name": "Ga meteen",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Ga naar de wc zodra",
+        "je het voelt",
+        "",
+        "En beweeg elke dag",
+        "een half uur of meer"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Trage darmen zijn",
+        "zelden de verklaring"
+      ],
+      [
+        "Vezels, vocht en het moment",
+        "kun je zelf bijsturen"
+      ]
+    ],
+    "tip": [
+      "Bij elke maaltijd een volkoren keuze",
+      "en een glas water erbij"
+    ],
+    "cta": "Wil je meer praktische gezondheidstips? Abonneer je, like en volg!"
+  },
+  "cover_scrim_color": "#2F6F8F"
+}

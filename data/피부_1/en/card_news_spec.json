@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Collagen loss isn't",
+    "a slow leak.",
+    "Something is cutting it.",
+    "3 exposures that age skin"
+  ],
+  "cover_scrim_color": "#0E7C7B",
+  "eyebrow": "Collagen protection",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "topic_word": "Collagen loss",
+  "char_display_names": {
+    "태양_illust.jpg": "Daily UV",
+    "담배_illust.jpg": "Cigarette smoke",
+    "탄산음료_illust.jpg": "Added sugar"
+  },
+  "items": [
+    {
+      "name": "Why this happens",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "Three exposures break",
+        "collagen down faster than",
+        "any cream can rebuild it",
+        "",
+        "Here's what's actually",
+        "going on"
+      ]
+    },
+    {
+      "name": "Cause 1: Everyday UV",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "UV light switches on MMP-1,",
+        "the enzyme that cuts collagen",
+        "",
+        "No sunburn needed —",
+        "ordinary daylight does it"
+      ]
+    },
+    {
+      "name": "Sunscreen on ordinary days too",
+      "char_file": "태양_illust.jpg",
+      "body": [
+        "In a 4.5-year randomized trial,",
+        "daily sunscreen users showed",
+        "no detectable rise in aging",
+        "",
+        "24% less than",
+        "occasional users"
+      ]
+    },
+    {
+      "name": "Cause 2: Cigarette smoke",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Smokers' skin carries more",
+        "MMP-1 than non-smokers' does",
+        "",
+        "In identical twins, 5 years",
+        "of smoking showed on the face"
+      ]
+    },
+    {
+      "name": "Quitting protects what's left",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Stopping removes one of the",
+        "two biggest MMP-1 triggers",
+        "",
+        "Daily sunscreen handles",
+        "the other one"
+      ]
+    },
+    {
+      "name": "Cause 3: Added sugar",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Excess glucose cross-links",
+        "collagen through glycation",
+        "",
+        "Stiff, browned fibers replace",
+        "flexible ones"
+      ]
+    },
+    {
+      "name": "Switch the source, keep the sweetness",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Sparkling water with fruit",
+        "instead of soda",
+        "",
+        "Check the Added Sugars line",
+        "before you buy the bottle"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sun, smoke and sugar",
+        "act on collagen"
+      ],
+      [
+        "long before your",
+        "birthdays do"
+      ]
+    ],
+    "tip": [
+      "Broad-spectrum SPF 30+ daily,",
+      "and swap the sweetened drinks"
+    ],
+    "cta": "Want more health tips like this one? Follow and subscribe!"
+  }
+}

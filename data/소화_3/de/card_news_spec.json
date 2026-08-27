@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Mehr trinken, mehr bewegen —",
+    "und trotzdem keine Besserung?",
+    "Verstopfung: 3 Fakten"
+  ],
+  "eyebrow": "Darm und Verdauung",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "물방울_illust.jpg",
+  "cover_scrim_color": "#8A3D5B",
+  "char_display_names": {
+    "물방울_illust.jpg": "Trinkmenge",
+    "흰빵_illust.jpg": "Weißmehl",
+    "체리_illust.jpg": "Obst"
+  },
+  "items": [
+    {
+      "name": "Worum es geht",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Zwei Ratschläge hört fast jeder:",
+        "mehr trinken, mehr bewegen",
+        "",
+        "Die S2k-Leitlinie von 2022",
+        "formuliert beide vorsichtiger",
+        "als der Alltagsrat"
+      ]
+    },
+    {
+      "name": "Fakt 1: Trinkmenge",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "1,5 bis 2 Liter täglich",
+        "sind der Richtwert",
+        "",
+        "Alles darüber hat laut Leitlinie",
+        "keinen therapeutischen Effekt"
+      ]
+    },
+    {
+      "name": "Fakt 2: Bewegung",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Mehr Sport als altersüblich",
+        "soll gar nicht erst als",
+        "Therapie versprochen werden",
+        "",
+        "Sinnvoll bleibt Bewegung",
+        "aus anderen Gründen"
+      ]
+    },
+    {
+      "name": "Fakt 3: Ballaststoffe",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Empfohlen sind 30 Gramm am Tag",
+        "",
+        "Die Nationale Verzehrsstudie II",
+        "fand 18 Gramm bei Frauen",
+        "und 19 bei Männern"
+      ]
+    },
+    {
+      "name": "Weißmehl austauschen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Helle Brötchen und Fertiggerichte",
+        "machen satt, bilden aber",
+        "kaum Volumen im Darm",
+        "",
+        "Schrittweise auf Vollkorn",
+        "und Hülsenfrüchte umstellen"
+      ]
+    },
+    {
+      "name": "Zwei Portionen Obst",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Rund 300 Gramm Früchte täglich",
+        "",
+        "Die Leitlinie nennt Pflaumen,",
+        "Kiwi und Mango beim Namen"
+      ]
+    },
+    {
+      "name": "Flohsamen einschleichen",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Für Psyllium ist die Datenlage",
+        "am besten belegt",
+        "",
+        "Bei Blähungen die Menge",
+        "erst einmal wieder senken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht das Glas Wasser entscheidet,",
+        "sondern was auf dem Teller liegt"
+      ],
+      [
+        "30 Gramm Ballaststoffe täglich —",
+        "in kleinen Schritten aufgebaut"
+      ]
+    ],
+    "tip": [
+      "Wie viele Mahlzeiten gestern waren aus hellem Mehl",
+      "und wie viele aus Vollkorn oder Hülsenfrüchten?"
+    ],
+    "cta": "Mehr alltagstaugliche Gesundheitsinfos? Folgen und abonnieren!"
+  }
+}

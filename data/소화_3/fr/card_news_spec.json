@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Vous buvez déjà 1,5 litre",
+    "et rien ne change ?",
+    "Constipation : eau ou fibres"
+  ],
+  "eyebrow": "Transit et digestion",
+  "swipe_label": "Faites glisser  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "물방울_illust.jpg",
+  "cover_scrim_color": "#2F6E5C",
+  "char_display_names": {
+    "물방울_illust.jpg": "Hydratation",
+    "흰빵_illust.jpg": "Pain blanc",
+    "체리_illust.jpg": "Fruits"
+  },
+  "items": [
+    {
+      "name": "De quoi parle-t-on",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Moins de trois selles par semaine,",
+        "des selles plus dures,",
+        "une évacuation incomplète",
+        "",
+        "C'est la définition retenue",
+        "par l'Assurance Maladie"
+      ]
+    },
+    {
+      "name": "Côté eau",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Au moins 1,5 litre par jour,",
+        "sauf contre-indication",
+        "",
+        "Un objectif simple,",
+        "et souvent déjà atteint"
+      ]
+    },
+    {
+      "name": "Côté fibres",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Référence Anses : 30 g par jour",
+        "INCA 3 mesure 20 g chez l'adulte",
+        "",
+        "94 % des femmes de 18 à 54 ans",
+        "n'atteignent pas 25 g"
+      ]
+    },
+    {
+      "name": "L'écart réel",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "L'écart se compte en grammes",
+        "de fibres, pas en litres d'eau",
+        "",
+        "Pain complet ou au son",
+        "plutôt que pain blanc"
+      ]
+    },
+    {
+      "name": "Monter en douceur",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Augmenter progressivement",
+        "sur deux semaines",
+        "",
+        "Trop vite, ce sont douleurs",
+        "et ballonnements garantis"
+      ]
+    },
+    {
+      "name": "Les légumineuses",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "Lentilles, pois chiches,",
+        "haricots secs deux fois par semaine",
+        "",
+        "Parmi les sources les plus",
+        "denses en fibres du quotidien"
+      ]
+    },
+    {
+      "name": "L'eau magnésienne",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "L'Assurance Maladie cite leur",
+        "rôle laxatif",
+        "",
+        "Un essai français de 2014 :",
+        "amélioration dès la 2e semaine",
+        "avec un litre par jour"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ce n'est pas le verre d'eau",
+        "qui manque le plus souvent"
+      ],
+      [
+        "Ce sont les 10 grammes de fibres",
+        "entre 20 g et la référence de 30 g"
+      ]
+    ],
+    "tip": [
+      "Sang dans les selles, perte de poids inexpliquée",
+      "ou douleurs persistantes : consultez sans attendre"
+    ],
+    "cta": "Envie d'autres repères santé concrets ? Abonnez-vous et suivez-nous !"
+  }
+}

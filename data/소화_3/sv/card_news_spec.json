@@ -1,0 +1,115 @@
+{
+  "title": [
+    "Hård mage trots att du",
+    "äter fiberrikt varje dag?",
+    "Mer fibrer räcker inte"
+  ],
+  "eyebrow": "Förstoppning och kost",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattningsvis",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Ljust bröd",
+    "물방울_illust.jpg": "Vätska",
+    "대추_illust.jpg": "Frukt som lossar"
+  },
+  "items": [
+    {
+      "name": "Fibrer ensamt räcker inte",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Hårt bajs och utspänd mage",
+        "trots fiberrik frukost",
+        "",
+        "1177 är tydliga: fibrer utan",
+        "tillräckligt med vätska",
+        "kan ge förstoppning ändå"
+      ]
+    },
+    {
+      "name": "Ljust bröd och vitt ris",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Vitt mjöl och vitt ris",
+        "lämnar lite kvar",
+        "åt tarmen att arbeta med",
+        "",
+        "Lagom är 25-35 gram fibrer,",
+        "snittet ligger runt 20"
+      ]
+    },
+    {
+      "name": "Byt till fullkorn",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Byt ljust bröd mot fullkorn,",
+        "samma sak med pasta och ris",
+        "",
+        "Blanda i grova gryner",
+        "och frön i müslin"
+      ]
+    },
+    {
+      "name": "För lite vätska",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Fibrerna behöver vätska",
+        "för att binda vatten i tarmen",
+        "",
+        "Utan den blir effekten",
+        "den motsatta"
+      ]
+    },
+    {
+      "name": "Ett glas till varje måltid",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Drick ett extra glas vatten",
+        "till varje måltid",
+        "",
+        "Över sjuttio är törstkänslan",
+        "ofta svagare än behovet"
+      ]
+    },
+    {
+      "name": "Frukt som lossar",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "Kiwi, katrinplommon, aprikos,",
+        "russin, fikon, dadlar och päron",
+        "",
+        "Öka fibrerna lite i taget",
+        "så slipper du gaser"
+      ]
+    },
+    {
+      "name": "Rör på dig och vänta inte",
+      "char_file": "대추_illust.jpg",
+      "body": [
+        "Rörelse hjälper tarmarna",
+        "att arbeta, en promenad räcker",
+        "",
+        "Håll dig inte från att bajsa",
+        "när du behöver"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ingen mat behöver",
+        "strykas från listan"
+      ],
+      [
+        "Ljust bröd fungerar bäst",
+        "som undantag, inte standard"
+      ]
+    ],
+    "tip": [
+      "Varje extra fiber behöver",
+      "ett extra glas vatten för att göra nytta"
+    ],
+    "cta": "Vill du ha fler konkreta hälsotips? Prenumerera, gilla och följ!"
+  },
+  "cover_scrim_color": "#4E7A3A"
+}

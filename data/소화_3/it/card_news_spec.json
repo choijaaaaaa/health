@@ -1,0 +1,117 @@
+{
+  "title": [
+    "Pancia gonfia e tre giorni",
+    "senza andare in bagno?",
+    "Non è l'intestino pigro"
+  ],
+  "eyebrow": "Stitichezza e abitudini",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Cereali raffinati",
+    "물방울_illust.jpg": "Acqua",
+    "서류더미_illust.jpg": "Stimolo rimandato"
+  },
+  "items": [
+    {
+      "name": "Non è pigrizia dell'intestino",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Meno di tre evacuazioni",
+        "a settimana, feci dure e sforzo",
+        "",
+        "Per l'ISS la forma più frequente",
+        "ha un transito normale:",
+        "contano le abitudini quotidiane"
+      ]
+    },
+    {
+      "name": "Cereali raffinati",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Le fibre accrescono il peso",
+        "delle feci e ne velocizzano",
+        "il passaggio",
+        "",
+        "In Italia se ne assumono",
+        "meno di 20 g contro i 25 dei LARN"
+      ]
+    },
+    {
+      "name": "Cosa cambiare a tavola",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Sostituisci un cereale",
+        "raffinato al giorno",
+        "",
+        "Integrale in un pasto,",
+        "poi in due: senza fretta"
+      ]
+    },
+    {
+      "name": "Poca acqua",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Più a lungo le feci",
+        "restano nel colon,",
+        "più diventano asciutte",
+        "",
+        "Aumentare le fibre senza bere",
+        "porta solo gas e gonfiore"
+      ]
+    },
+    {
+      "name": "Come bere di più",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Un bicchiere d'acqua",
+        "accanto a ogni pasto",
+        "",
+        "Vanno bene anche tisane",
+        "leggere e brodi vegetali"
+      ]
+    },
+    {
+      "name": "Stimolo rimandato",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "L'ISS elenca tra le cause",
+        "ignorare lo stimolo",
+        "ad andare in bagno",
+        "",
+        "Rimandare lo rende",
+        "sempre meno percepibile"
+      ]
+    },
+    {
+      "name": "Come recuperare la routine",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Rispondi allo stimolo",
+        "appena arriva",
+        "",
+        "Piedi su uno sgabello basso:",
+        "le ginocchia sopra i fianchi"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nessun alimento va",
+        "eliminato per decreto"
+      ],
+      [
+        "Conta la proporzione tra",
+        "ciò che rallenta e ciò che aiuta"
+      ]
+    ],
+    "tip": [
+      "Una fonte di fibra in ogni pasto",
+      "e un bicchiere d'acqua accanto"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Iscriviti, metti mi piace e segui!"
+  },
+  "cover_scrim_color": "#8A5A2B"
+}

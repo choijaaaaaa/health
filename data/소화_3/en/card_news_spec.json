@@ -1,0 +1,116 @@
+{
+  "title": [
+    "Three days, then a hard one —",
+    "and you call it bad luck?",
+    "3 habits behind constipation"
+  ],
+  "eyebrow": "Gut Health Basics",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "흰빵_illust.jpg",
+  "cover_scrim_color": "#7A4E2D",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Refined Grains",
+    "치즈_illust.jpg": "Cheese",
+    "물방울_illust.jpg": "Fluids",
+    "체리_illust.jpg": "Whole Fruit"
+  },
+  "items": [
+    {
+      "name": "Why It Keeps Happening",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "US adults are told to get",
+        "22 to 34 g of fiber a day",
+        "",
+        "Three ordinary habits",
+        "quietly work against",
+        "that number"
+      ]
+    },
+    {
+      "name": "Refined Staples",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Milling removes the bran",
+        "and germ — and the fiber",
+        "",
+        "Less bulk, less water held",
+        "in the stool itself"
+      ]
+    },
+    {
+      "name": "Refined Staples: The Swap",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "One slice of white bread",
+        "is not the problem",
+        "",
+        "Swap one refined item a day",
+        "for a whole-grain version"
+      ]
+    },
+    {
+      "name": "The Cheese Plate",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "Cleveland Clinic points to",
+        "two things at once:",
+        "",
+        "calcium binds, and dairy",
+        "brings no fiber at all"
+      ]
+    },
+    {
+      "name": "The Cheese Plate: The Swap",
+      "char_file": "치즈_illust.jpg",
+      "body": [
+        "The issue is displacement,",
+        "not cheese itself",
+        "",
+        "Keep the cheese, add beans",
+        "or greens to the same plate"
+      ]
+    },
+    {
+      "name": "The Fiber Sprint",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Doubling fiber overnight",
+        "brings gas and cramping",
+        "",
+        "And soluble fiber needs water",
+        "to form its gel at all"
+      ]
+    },
+    {
+      "name": "3 Swaps With Trial Data",
+      "char_file": "체리_illust.jpg",
+      "body": [
+        "A 2021 trial ran four weeks:",
+        "2 kiwifruit, 100 g prunes,",
+        "or 12 g psyllium daily",
+        "",
+        "All three helped — kiwifruit",
+        "had the fewest side effects"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Refined staples, a thin plate",
+        "and a fiber sprint stack up quietly"
+      ],
+      [
+        "The fix is a swap, not",
+        "another thing added on top"
+      ]
+    ],
+    "tip": [
+      "Put two kiwifruit or a handful of prunes",
+      "where tomorrow's afternoon pastry would go"
+    ],
+    "cta": "More practical health notes? Subscribe, like and follow!"
+  }
+}
