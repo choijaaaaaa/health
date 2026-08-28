@@ -22,6 +22,7 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -49,6 +50,15 @@ MANUAL_REVIEW_CHECKLIST = """작성/수정한 세션이 TTS·발행 전 직접 �
    위험한 확정적 효능 주장은 없는가(data/global_research_rules.md "표현
    주의" 절 참고), 제목이 핵심 검색 키워드로 시작하는가, 출처 없이 소수점
    단위까지 정밀한 수치를 인용하지 않았는가
+7-1. (blog_seo만) ⚠️ 인용한 수치에 **그 수치가 성립하는 조건**이 함께
+   적혀 있는가 — 비교 대상·하위집단·기간. 2026-08-28 실측 사례: AREDS2
+   시험 결과를 "루테인·제아잔틴이 AMD 진행 위험을 약 26% 낮췄다"로 썼는데,
+   실제 18%는 *베타카로틴 포함 제형 대비*이고 25%는 *식이 섭취가 낮았던
+   하위집단*에서만 나온 수치였다 — 조건을 떼어내면 일반적인 효과처럼
+   읽히고, 독자는 그걸 보고 보충제를 산다. 조건을 못 쓰겠으면 그 수치를
+   빼는 쪽이 맞다.
+7-2. (blog_seo만) 관찰연구 결과를 인과로 단정하지 않았는가 — 코호트·
+   단면연구는 "~와 연관됐다", 무작위 개입시험만 "~를 낮췄다"로 쓴다.
 8. (다국어 topic만) 언어 간 제목/훅이 사실상 번역인지, 그 언어권 독자에게
    맞춘 진짜 다른 각도로 다시 쓰여졌는지(번역 금지 원칙, CLAUDE.md "글로벌
    확장" 절)"""
@@ -199,6 +209,78 @@ def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
     }]
 
 
+
+
+def _blog_seo_entry(topic: str, lang: str = "kor") -> dict | None:
+    """platform_captions.json의 blog_seo 항목. 없으면 None(= 블로그 트랙이
+    아닌 topic이라 검사 대상이 아님)."""
+    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
+    if not caption_path.exists():
+        return None
+    try:
+        spec = json.loads(caption_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return None
+    for entry in spec.get("platforms", []):
+        if entry.get("platform") == "blog_seo":
+            return entry
+    return None
+
+# WHY 수치에 출처가 붙었는지 기계로 보는지(2026-08-28): 건강 콘텐츠는 YMYL이라
+# 구글 품질 평가에서 가장 엄격한 잣대가 적용되는데, 미발행분 246건을 훑어보니
+# 본문에 퍼센트·용량 수치가 613곳 나오는 반면 기관·연구를 함께 밝힌 글은
+# 일부였다. 사람이 매번 세는 대신 "수치는 있는데 근처에 출처가 없는" 자리를
+# 뽑아준다 — 그 수치가 틀렸다는 뜻이 아니라 확인이 필요한 자리라는 뜻이다.
+# 조건(비교군·하위집단) 누락은 기계로 못 잡으니 위 체크리스트 7-1로 넘긴다.
+_CLAIM_NUM = re.compile(
+    r"\d[\d.,]*\s?(?:%|percent|Prozent|por ciento|per cento|procent|パーセント|퍼센트"
+    r"|mg\b|g\b|ng/mL|mmHg|kcal)"
+)
+# 출처로 인정하는 신호 — 기관명, 저널명, "~에 따르면" 계열, 연구 언급
+_CLAIM_SRC = re.compile(
+    # 기관·저널 고유명
+    r"(Harvard|BMJ|Lancet|JAMA|NEJM|Cochrane|NIH|NIDDK|NIEHS|NHLBI|NCI|CDC|WHO|IARC|FDA|EFSA|NHS"
+    r"|Mayo|AREDS|NHANES|AHA|American Heart|NTP|Linus Pauling|DGE|RKI|RIVM|Voedingscentrum"
+    r"|Livsmedelsverket|Folkhälsomyndigheten|ANSES|Santé publique|HAS|ISS|CREA|AESAN|LARN"
+    r"|Ministerio|Ministère|Ministero|厚生労働省|질병관리청|식약처"
+    # 기관 일반명 — Institute/University/학회 등
+    r"|Institut\w*|Istituto|Universit\w*|College|School of|Società|Society|Association"
+    r"|Academy|Foundation|학회|연구소|学会|研究所"
+    # 인용 도입 표현
+    r"|according to|laut |selon |secondo |según |volgens |enligt |によると|に基づ|에 따르면"
+    # 연구·근거 언급
+    r"|stud(y|ies)|trial|research|analysis|meta-analys|review|figures"
+    r"|Studie|Forschung|Analyse|étude|recherche|studio|ricerca|estudio|investigación"
+    r"|onderzoek|studien|forskning|研究|データ|연구|데이터|분석"
+    # 지침·권고
+    r"|guideline|recommend|raccomanda|recomienda|aanbevel|rekommend|Leitlinie|Empfehlung"
+    r"|recommandation|linea guida|directriz|richtlijn|riktlinje|지침|권고|ガイドライン)",
+    re.I,
+)
+
+
+def check_unsourced_claims(topic: str, lang: str = "kor") -> list[dict]:
+    """blog_seo 본문에서 출처 신호 없이 등장하는 수치를 뽑는다.
+    같은 문장 또는 바로 앞 문장에 출처 신호가 있으면 통과로 본다."""
+    entry = _blog_seo_entry(topic, lang)
+    if not entry:
+        return []
+    body = re.sub(r"<[^>]+>", " ", entry.get("body_html") or "")
+    body = re.sub(r"\s+", " ", body).strip()
+    sentences = [s.strip() for s in re.split(r"(?<=[.!?\u3002])\s+", body) if s.strip()]
+    issues: list[dict] = []
+    for i, s in enumerate(sentences):
+        if not _CLAIM_NUM.search(s):
+            continue
+        window = s if i == 0 else sentences[i - 1] + " " + s
+        if _CLAIM_SRC.search(window):
+            continue
+        issues.append({
+            "quote": s[:160],
+            "issue": "수치가 있는데 이 문장·앞 문장에 출처 신호가 없음 — 근거를 밝히거나 수치를 빼세요",
+        })
+    return issues
+
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
     """기계적(비-API) 검사만 수행한다 — 논리/과장/번역독립성 판단은 파일
     상단 MANUAL_REVIEW_CHECKLIST를 세션이 직접 확인할 것."""
@@ -206,6 +288,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         check_title_truncation(topic, lang)
         + check_title_closing(topic, lang)
         + check_blog_title_length(topic, lang)
+        + check_unsourced_claims(topic, lang)
     )
 
 
