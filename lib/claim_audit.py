@@ -1,0 +1,152 @@
+# 콘텐츠의 "검증이 필요한 주장"을 기계적으로 찾아내는 감사기.
+#
+# WHY(2026-08-28): blog_seo를 8개 언어로 확장하면서 각 언어권 공식기관 원문과 대조했더니
+# ko 캡션에서 여덟 가지 유형의 오류가 나왔다 — 출처 없는 수치, 존재하지 않는 논문,
+# 실존 논문 수치 부풀리기(PREDIMED 30%→39%), 무관한 연구 갖다 붙이기(IARC 대장암 수치를
+# 새치 근거로), 맥락 오용, 전제 자체가 반박됨, 보도자료 수치를 논문 수치처럼 인용,
+# 원문 오독("150에서 250으로"→"150~250 증가").
+#
+# 다국어판은 언어권마다 재검증하니 걸러지지만 ko는 아무도 다시 안 본다. 사람이 매번
+# 눈으로 볼 수 없으므로, "이미 틀린 것으로 판정된 문구"와 "검증 없이 쓰인 정밀 수치"를
+# 기계가 잡아낸다. 완벽한 사실 검증은 불가능하지만 재발과 신규 유입은 막을 수 있다.
+from __future__ import annotations
+
+import json
+import re
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+AUDIT_DIR = ROOT / "data" / "_audit"
+KNOWN_ISSUES = AUDIT_DIR / "ko_known_issues.json"
+
+# 근거 없이 쓰이면 위험한 신호들. WHY 소수점 수치를 따로 보는지: 실측에서 "17.89mg",
+# "14.8%"처럼 소수점까지 정밀한 값일수록 원출처가 없는 경우가 많았다(있는 척하는 정밀도).
+_DECIMAL_STAT = re.compile(r"\d+\.\d+\s*(?:%|퍼센트|배|mg|g\b|mmHg|kcal|µg|pg)")
+_MULTIPLIER = re.compile(r"\d+(?:\.\d+)?\s*배")
+_PERCENT = re.compile(r"\d+(?:\.\d+)?\s*(?:%|퍼센트)")
+# 연구를 인용하는 형태. 저널명·기관명이 붙으면 원문 대조가 가능해야 한다.
+_STUDY_REF = re.compile(
+    r"(?:JAMA|Lancet|NEJM|BMJ|AJCN|Nature|Cell|Diabetes Care|Circulation|PLOS|Cochrane"
+    r"|메타분석|무작위|코호트|추적\s*연구|임상시험|체계적\s*문헌고찰)")
+_INSTITUTION = re.compile(r"(?:대학교?|학회|연구팀|연구소|재단|センター|Institute|University)")
+
+
+def _iter_texts(spec: dict):
+    """플랫폼 캡션과 blog_seo 본문에서 검사할 텍스트를 뽑는다."""
+    for p in spec.get("platforms", []):
+        if p.get("caption"):
+            yield p.get("name") or p.get("platform") or "?", p["caption"]
+        if p.get("body_html"):
+            yield (p.get("platform") or "blog_seo"), re.sub(r"<[^>]+>", " ", p["body_html"])
+
+
+def load_known_issues() -> list[dict]:
+    if not KNOWN_ISSUES.exists():
+        return []
+    return json.loads(KNOWN_ISSUES.read_text(encoding="utf-8")).get("issues", [])
+
+
+def check_known_regressions(topic: str, spec: dict) -> list[str]:
+    """이미 틀린 것으로 판정된 문구가 다시 나타났는지 본다.
+
+    WHY 숫자만 비교하는지: 문장은 고쳐 써도 핵심 수치는 그대로 남는 경우가 많다.
+    '치즈 70%'가 '숙성 치즈를 지목한 비율이 70%'로 바뀌어도 70이라는 값이 남으면
+    같은 오류다."""
+    hits = []
+    for issue in load_known_issues():
+        if issue["topic"] != topic:
+            continue
+        # WHY 한 자리 숫자를 버리는지: "오메가3", "TRPV1", "비타민C 3종"처럼 성분명·서수에
+        # 섞인 1~9가 오탐을 만든다. 두 자리 이상이라야 주장 고유의 수치로 볼 수 있다.
+        nums = [n for n in re.findall(r"\d+(?:\.\d+)?", issue["claim"])
+                if len(n.replace(".", "")) >= 2 or "." in n]
+        # 수치가 없는 주장(전제 오류 등)은 특징 어구로 찾는다
+        keywords = [w for w in re.findall(r"[가-힣]{3,}", issue["claim"])
+                    if w not in ("이상", "이하", "정도", "경우", "사용", "가능")][:4]
+        for where, text in _iter_texts(spec):
+            body_nums = set(re.findall(r"\d+(?:\.\d+)?", text))
+            common = [n for n in nums if n in body_nums]
+            # 고유 수치가 2개 이상 함께 남아 있으면 그 주장이 그대로일 확률이 높다
+            if len(common) >= 2 or (len(nums) == 1 and common):
+                hits.append(f"[{where}] 폐기 판정된 주장의 수치가 남아 있음 "
+                            f"({', '.join(common)}) — {issue['claim'][:60]} "
+                            f"→ {issue['fact'][:60]}")
+            elif not nums and keywords:
+                matched = [k for k in keywords if k in text]
+                if len(matched) >= max(2, len(keywords) - 1):
+                    hits.append(f"[{where}] 폐기 판정된 주장의 어구가 남아 있음 "
+                                f"({', '.join(matched)}) — {issue['claim'][:60]} "
+                                f"→ {issue['fact'][:60]}")
+    return hits
+
+
+def scan_unsourced_claims(spec: dict) -> list[str]:
+    """출처 표시 없이 쓰인 정밀 수치·연구 인용을 신호로 낸다(경고, 실패 아님)."""
+    warns = []
+    for where, text in _iter_texts(spec):
+        has_ref = bool(_STUDY_REF.search(text) or _INSTITUTION.search(text))
+        decimals = _DECIMAL_STAT.findall(text)
+        multipliers = _MULTIPLIER.findall(text)
+        if decimals and not has_ref:
+            warns.append(f"[{where}] 출처 언급 없는 소수점 수치: {', '.join(decimals[:5])}")
+        if multipliers and not has_ref:
+            warns.append(f"[{where}] 출처 언급 없는 배수 표현: {', '.join(multipliers[:5])}")
+        if _STUDY_REF.search(text) and not _PERCENT.search(text) and "배" not in text:
+            continue
+    return warns
+
+
+def audit_topic(topic: str) -> dict:
+    """topic 하나를 감사한다. regressions는 반드시 고쳐야 하고 warnings는 사람이 판단."""
+    path = ROOT / "data" / topic / "platform_captions.json"
+    if not path.exists():
+        return {"topic": topic, "skipped": "platform_captions.json 없음"}
+    try:
+        spec = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        return {"topic": topic, "error": f"JSON 파싱 실패: {e}"}
+    return {
+        "topic": topic,
+        "regressions": check_known_regressions(topic, spec),
+        "warnings": scan_unsourced_claims(spec),
+    }
+
+
+def _cli() -> None:
+    import argparse
+    ap = argparse.ArgumentParser(description="ko 콘텐츠의 검증 필요 주장 감사")
+    ap.add_argument("topics", nargs="*", help="생략 시 known_issues에 등록된 topic 전부")
+    ap.add_argument("--all", action="store_true", help="data/ 아래 모든 topic")
+    ap.add_argument("--warnings", action="store_true", help="경고까지 출력")
+    a = ap.parse_args()
+
+    if a.all:
+        topics = sorted(p.name for p in (ROOT / "data").iterdir()
+                        if p.is_dir() and (p / "platform_captions.json").exists())
+    elif a.topics:
+        topics = a.topics
+    else:
+        topics = sorted({i["topic"] for i in load_known_issues()})
+
+    bad = 0
+    for t in topics:
+        r = audit_topic(t)
+        if r.get("skipped") or r.get("error"):
+            if r.get("error"):
+                print(f"❌ {t}: {r['error']}"); bad += 1
+            continue
+        if r["regressions"]:
+            bad += 1
+            print(f"❌ {t}")
+            for m in r["regressions"]:
+                print(f"     {m}")
+        if a.warnings and r["warnings"]:
+            print(f"⚠️  {t}")
+            for m in r["warnings"][:6]:
+                print(f"     {m}")
+    print(f"\n{len(topics)}개 topic 검사 · 폐기 주장 잔존 {bad}개")
+    raise SystemExit(1 if bad else 0)
+
+
+if __name__ == "__main__":
+    _cli()

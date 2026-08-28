@@ -661,3 +661,30 @@ def test_comment_keyword_not_registered_to_other_project():
             )
 
     assert not conflicts, "; ".join(conflicts)
+
+# ---------------------------------------------------------------------------
+# 규칙: 이미 틀린 것으로 판정된 주장이 다시 들어오면 안 된다.
+#
+# WHY(2026-08-28): blog_seo 8개 언어 확장 중 각 언어권 공식기관 원문과 대조해
+# ko 캡션에서 38건의 오류를 찾았다 — 출처 없는 수치, 존재하지 않는 논문, 실존 논문
+# 수치 부풀리기, 무관한 연구 갖다 붙이기, 전제 자체가 반박됨 등. 다국어판은 언어마다
+# 재검증하니 걸러지지만 ko는 아무도 다시 안 본다. 사람이 매번 눈으로 볼 수 없으므로
+# 판정 결과를 data/_audit/ko_known_issues.json에 남기고 이 테스트가 재발을 막는다.
+# 새 오류를 찾으면 그 파일에 추가할 것 — 그러면 자동으로 감시 대상이 된다.
+from lib.claim_audit import audit_topic, load_known_issues  # noqa: E402
+
+_AUDITED_TOPICS = sorted({i["topic"] for i in load_known_issues()})
+
+
+@pytest.mark.skipif(not _AUDITED_TOPICS, reason="등록된 known issue 없음")
+@pytest.mark.parametrize("topic", _AUDITED_TOPICS)
+def test_no_known_false_claims(topic):
+    result = audit_topic(topic)
+    if result.get("skipped"):
+        pytest.skip(result["skipped"])
+    assert not result.get("error"), result.get("error")
+    assert not result["regressions"], (
+        f"{topic}: 폐기 판정된 주장이 캡션에 남아 있습니다 — "
+        f"data/_audit/ko_known_issues.json 참고\n  "
+        + "\n  ".join(result["regressions"])
+    )

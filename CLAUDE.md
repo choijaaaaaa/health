@@ -906,8 +906,18 @@ Fish Audio 한국어 보이스 품질 불만족으로 로컬 Voicebox.app(Qwen3-
 ```bash
 .venv/bin/python3 -m lib.claim_audit                    # 등록된 topic 감사
 .venv/bin/python3 -m lib.claim_audit --all --warnings   # 전체 + 출처 없는 수치 경고
+.venv/bin/python3 -m lib.claim_audit 머리_2 소화_2       # topic 지정
 .venv/bin/python3 -m pytest tests/test_content_rules.py -k known_false   # 게이트
 ```
+
+🚨 **`pytest -k`에 한글 topic명을 쓰면 조용히 0건이 수집된다(2026-08-28 실측).**
+pytest가 테스트 ID의 한글을 `\uc5ec\uc131` 형태로 이스케이프해서 `-k "여성"`이 매칭되지
+않는다. **exit 5(수집 0건)인데 실패가 아니라 성공처럼 보이므로 검증한 줄 알고 넘어가게
+된다** — 실제로 이 프로젝트에서 그렇게 지나간 적이 있다.
+- ❌ `pytest -k "여성"` → 0건
+- ✅ `pytest -k "uc5ec"` → 매칭됨(지저분하지만 동작)
+- ✅ **권장: `python3 -m lib.claim_audit <topic>`** — topic 인자를 그대로 받는다
+- `-k blog`, `-k known_false`처럼 **영문 키워드는 정상**
 
 ### 돌아가는 방식
 
