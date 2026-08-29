@@ -919,6 +919,21 @@ pytest가 테스트 ID의 한글을 `\uc5ec\uc131` 형태로 이스케이프해�
 - ✅ **권장: `python3 -m lib.claim_audit <topic>`** — topic 인자를 그대로 받는다
 - `-k blog`, `-k known_false`처럼 **영문 키워드는 정상**
 
+### ⚠️ ko 수정은 어디로 반영되나 — 경로가 두 갈래다
+
+혼동하기 쉬운 지점이다. `data/<topic>/platform_captions.json`(flat ko)과
+`data/<topic>/ko/platform_captions.json`(언어 폴더)은 **나가는 곳이 다르다.**
+
+| | flat ko (`data/<topic>/`) | `ko/` 폴더 (43개 topic) |
+|---|---|---|
+| 나가는 곳 | **네이버 블로그**(사람이 대시보드에서 복사해 수동 게시) | vernhaven blog_posts |
+| 반영 방법 | `python3 -m lib.mission_control_sync --commit` | vernhaven `ingest_health_shorts.py --commit` |
+| ingest 대상 | ❌ (스크립트가 `<lang>/`만 스캔) | ✅ |
+
+flat ko를 고친 뒤 vernhaven ingest를 돌려도 **ko는 한 줄도 안 들어간다** — 정상이다.
+mission-control 동기화가 그쪽 반영 경로다. 2026-08-28 ko 오류 수정 때 실제로
+이걸 확인하느라 한 번 헛돌았다.
+
 ### 돌아가는 방식
 
 1. **다국어 확장이 곧 감사다.** 새 언어를 쓸 때 각 언어권 공식기관 원문으로 재검증하므로
