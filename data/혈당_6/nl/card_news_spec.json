@@ -1,0 +1,131 @@
+{
+  "title": [
+    "Nuchtere bloedsuiker normaal,",
+    "HbA1c toch hoog?",
+    "Vaak is de procenttabel de boosdoener",
+    "De Nederlandse grenzen"
+  ],
+  "eyebrow": "HbA1c in mmol/mol",
+  "swipe_label": "Swipe verder  →",
+  "closing_label": "Kort samengevat",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Twee verschillende getallen",
+    "아몬드_illust.jpg": "De Nederlandse grenzen",
+    "운동화_illust.jpg": "Wat wel helpt"
+  },
+  "items": [
+    {
+      "name": "Twee getallen, één uitslag",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Nuchter 5,8 mmol/l is prima,",
+        "maar er staat ook 43 mmol/mol",
+        "",
+        "Geen labfout: de twee metingen",
+        "kijken naar een andere periode"
+      ]
+    },
+    {
+      "name": "Wat het HbA1c meet",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Diabetes Fonds: rode bloedcellen",
+        "leven 2 tot 3 maanden",
+        "",
+        "Het HbA1c geeft dus je gemiddelde",
+        "bloedsuiker van 2 à 3 maanden,",
+        "de nuchtere prik één ochtend"
+      ]
+    },
+    {
+      "name": "Die procenttabel klopt hier niet",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Tot april 2010 in procenten,",
+        "sindsdien in mmol/mol",
+        "",
+        "5,7 en 6,4 procent komen uit",
+        "een ander meetsysteem dan",
+        "jouw Nederlandse uitslag"
+      ]
+    },
+    {
+      "name": "De nuchtere grenzen hier",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "6,0 mmol/l of lager: normaal",
+        "6,1 tot 6,9: mogelijk prediabetes",
+        "7,0 of hoger: waarschijnlijk diabetes",
+        "",
+        "Nuchter = 8 uur alleen water"
+      ]
+    },
+    {
+      "name": "Eén prik is geen diagnose",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Bij een te hoge uitslag volgt",
+        "een tweede controle",
+        "op een andere dag",
+        "",
+        "Ruim 1,4 miljoen mensen hier",
+        "hebben prediabetes zonder het te merken"
+      ]
+    },
+    {
+      "name": "Vanaf welke leeftijd opletten",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Thuisarts.nl: vanaf 45 jaar",
+        "met overgewicht, familie, hoge",
+        "bloeddruk of weinig bewegen",
+        "",
+        "Bij een Hindostaanse achtergrond",
+        "al vanaf 35 jaar"
+      ]
+    },
+    {
+      "name": "Wat wel helpt",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Voedingscentrum: 60 gram volkoren",
+        "per dag hangt samen met 25% lager",
+        "risico op diabetes type 2",
+        "",
+        "Plus elke dag een half uur stevig",
+        "bewegen (Thuisarts.nl)"
+      ]
+    },
+    {
+      "name": "Eén grens niet overschrijden",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Slik of spuit je al medicijnen",
+        "voor diabetes? Pas de dosering",
+        "nooit zelf aan en stop er niet mee",
+        "",
+        "Dat is aan de arts",
+        "die het voorschreef"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lees je uitslag in mmol/mol,",
+        "niet in de procenten van internet"
+      ],
+      [
+        "En laat een hoge waarde altijd",
+        "een tweede keer prikken"
+      ]
+    ],
+    "tip": [
+      "Nog even nalopen: periode, eenheid,",
+      "grenswaarde, herhaalprik, volkoren"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#9C4B2A"
+}

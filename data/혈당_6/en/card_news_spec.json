@@ -1,0 +1,121 @@
+{
+  "title": [
+    "Fasting glucose normal,",
+    "but the A1C says prediabetes?",
+    "Why the Two Tests Disagree"
+  ],
+  "eyebrow": "A1C vs. Fasting Glucose",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Bottom Line",
+  "cover_char_file": "각설탕_illust.jpg",
+  "char_display_names": {
+    "각설탕_illust.jpg": "What A1C Measures",
+    "흰빵_illust.jpg": "Why They Disagree",
+    "운동화_illust.jpg": "What Moves the Number"
+  },
+  "items": [
+    {
+      "name": "Two Numbers, One Panel",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Your fasting glucose came back",
+        "normal, but the A1C landed",
+        "in the prediabetes band",
+        "",
+        "That is not a lab error —",
+        "the tests measure different",
+        "things over different windows"
+      ]
+    },
+    {
+      "name": "What A1C Measures",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Glucose binds to hemoglobin",
+        "inside red blood cells",
+        "",
+        "NIDDK: the A1C reflects your",
+        "average blood glucose over",
+        "the past 3 months — no fasting"
+      ]
+    },
+    {
+      "name": "The Ranges, With Conditions",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Below 5.7% normal, 5.7–6.4%",
+        "prediabetes, 6.5%+ diabetes",
+        "",
+        "Only from an NGSP-certified lab,",
+        "and any diagnostic result needs",
+        "a second confirming test"
+      ]
+    },
+    {
+      "name": "Why They Disagree",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Fasting glucose is a snapshot —",
+        "it moves with last night's meal,",
+        "sleep, illness and stress",
+        "",
+        "NIDDK notes either test can flag",
+        "diabetes while the other does not"
+      ]
+    },
+    {
+      "name": "The A1C's Blind Spots",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Blood loss, transfusion, dialysis",
+        "and iron-deficiency anemia",
+        "all shift the result",
+        "",
+        "A 6.8% can re-run anywhere",
+        "from 6.4% to 7.2%"
+      ]
+    },
+    {
+      "name": "What Moves the Number",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "In the Diabetes Prevention Program,",
+        "7% weight loss plus 150 min/week",
+        "cut new type 2 diabetes by 58%",
+        "",
+        "vs placebo, in high-risk adults,",
+        "over about three years"
+      ]
+    },
+    {
+      "name": "Start Where NIDDK Starts",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Lose 5–7% of your starting weight",
+        "and walk 30 minutes, 5 days a week",
+        "",
+        "Never change a prescribed glucose",
+        "medication on your own —",
+        "that call belongs to your doctor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "A normal fasting glucose does not",
+        "overrule an A1C of 5.7–6.4%"
+      ],
+      [
+        "Ask for the confirming test instead",
+        "of trusting the reassuring number"
+      ]
+    ],
+    "tip": [
+      "One thing to remember: get the second",
+      "test, then use the window it buys you"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#1F5E8B"
+}

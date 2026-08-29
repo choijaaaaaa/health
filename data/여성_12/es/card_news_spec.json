@@ -1,0 +1,126 @@
+{
+ "title": [
+  "¿Duele solo un lado",
+  "a mitad del ciclo,",
+  "lejos de la regla?",
+  "Dolor de ovulación"
+ ],
+ "eyebrow": "Dolor intermenstrual",
+ "swipe_label": "Desliza para seguir  →",
+ "closing_label": "La idea clave",
+ "cover_scrim_color": "#1A6B5A",
+ "cover_char_file": "긴장_illust.jpg",
+ "topic_word": "Dolor de ovulación",
+ "char_display_names": {
+  "긴장_illust.jpg": "Punzada lateral",
+  "스마트폰_illust.jpg": "Anotar la fecha",
+  "알약_illust.jpg": "Analgésicos",
+  "욕조_illust.jpg": "Calor"
+ },
+ "items": [
+  {
+   "name": "Lo que se siente",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Una punzada baja, en un lado,",
+    "lejos de la regla",
+    "",
+    "Puede cambiar de lado",
+    "de un mes a otro o repetirse",
+    "en el mismo durante meses"
+   ]
+  },
+  {
+   "name": "Qué pasa en el ovario",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "El folículo crece y distiende",
+    "la superficie del ovario",
+    "",
+    "Al romperse, el líquido o la",
+    "sangre que salen irritan",
+    "el revestimiento del abdomen"
+   ]
+  },
+  {
+   "name": "El reloj manda",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "De minutos a unas horas,",
+    "con un techo de 24 a 48 horas",
+    "",
+    "Por encima de eso ya no encaja",
+    "en el cuadro habitual"
+   ]
+  },
+  {
+   "name": "El calendario no acierta",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "La ovulación llega 14 más o",
+    "menos 2 días antes de la",
+    "siguiente regla, en el 98%",
+    "de los ciclos regulares",
+    "",
+    "Anotar sirve para ver el patrón,",
+    "no para predecirlo"
+   ]
+  },
+  {
+   "name": "Calor y moverse un poco",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "Paños calientes, baño templado",
+    "y tumbarse de lado con",
+    "las piernas dobladas",
+    "",
+    "La semFYC avisa: el reposo",
+    "prolongado empeora",
+    "las molestias"
+   ]
+  },
+  {
+   "name": "Si necesita un analgésico",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Ibuprofeno o naproxeno,",
+    "solo si hace falta",
+    "",
+    "El prospecto de la AEMPS avisa:",
+    "el ibuprofeno puede dificultar",
+    "el embarazo, con efecto",
+    "reversible al suspenderlo"
+   ]
+  },
+  {
+   "name": "Cuándo consultar",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Si no le ha venido la última",
+    "regla, si duele entre reglas",
+    "o si el dolor no cede",
+    "con la medicación",
+    "",
+    "Dolor brusco muy intenso",
+    "con vómitos o fiebre: 112"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Anote la fecha y el lado,",
+    "pero mida el reloj"
+   ],
+   [
+    "Un dolor que pasa de un día",
+    "ya no es de ovulación"
+   ]
+  ],
+  "tip": [
+   "La anticoncepción hormonal es lo único que lo previene, porque inhibe la ovulación; consúltelo con su médico",
+   "Un sangrado escaso de uno o dos días a mitad del ciclo es el spotting: anótelo y consulte si persiste"
+  ],
+  "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+ }
+}

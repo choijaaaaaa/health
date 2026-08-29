@@ -1,0 +1,123 @@
+{
+ "title": [
+  "Einseitiges Ziehen",
+  "mitten im Zyklus,",
+  "weit weg von der Regel?",
+  "Der Mittelschmerz"
+ ],
+ "eyebrow": "Zyklus verstehen",
+ "swipe_label": "Wischen für mehr  →",
+ "closing_label": "Kurz durchgehen",
+ "cover_scrim_color": "#7A5B3C",
+ "cover_char_file": "긴장_illust.jpg",
+ "topic_word": "Mittelschmerz",
+ "char_display_names": {
+  "긴장_illust.jpg": "Einseitiges Ziehen",
+  "스마트폰_illust.jpg": "Zyklus-Apps",
+  "알약_illust.jpg": "Pille",
+  "욕조_illust.jpg": "Wärme"
+ },
+ "items": [
+  {
+   "name": "Worum es geht",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Der Mittelschmerz tritt rund",
+    "um den Eisprung auf,",
+    "oft nur auf einer Seite",
+    "",
+    "Je nachdem, welcher Eierstock",
+    "in diesem Monat aktiv ist"
+   ]
+  },
+  {
+   "name": "Ursache 1: der Follikel",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Warum er entsteht, ist",
+    "wissenschaftlich noch nicht",
+    "vollständig geklärt",
+    "",
+    "Diskutiert werden die Spannung",
+    "im wachsenden Eibläschen",
+    "und der Follikelsprung selbst"
+   ]
+  },
+  {
+   "name": "Ursache 2: das Bauchfell",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Beim Eisprung platzt der Follikel",
+    "",
+    "Flüssigkeit und minimale",
+    "Blutmengen gelangen in die",
+    "Bauchhöhle und reizen",
+    "das Bauchfell"
+   ]
+  },
+  {
+   "name": "Warum der Kalender nichts verrät",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Der Eisprung liegt rund 10 bis 14",
+    "Tage vor der nächsten Blutung -",
+    "nicht einfach an Tag 14",
+    "",
+    "Im Nachhinein feststellen ist",
+    "leichter als vorhersagen"
+   ]
+  },
+  {
+   "name": "Was wirklich hilft",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "Wärme, Ruhe und eine",
+    "sanfte Bauchmassage",
+    "",
+    "Behandlungsbedürftig ist der",
+    "Mittelschmerz generell nicht"
+   ]
+  },
+  {
+   "name": "Vorbeugen statt aushalten",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Hormonelle Verhütung verhindert",
+    "den Eisprung - und damit",
+    "auch den Mittelschmerz",
+    "",
+    "Ein Thema für die",
+    "gynäkologische Sprechstunde"
+   ]
+  },
+  {
+   "name": "Wann es kein Mittelschmerz ist",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Sehr stark, mehrere Tage,",
+    "mit Fieber, Blutung oder",
+    "Schmerzen beim Wasserlassen",
+    "",
+    "Plötzlicher starker Schmerz mit",
+    "Erbrechen: Notruf 112"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Einseitig, in der Zyklusmitte,",
+    "wenige Stunden bis zwei Tage"
+   ],
+   [
+    "Alles, was deutlich länger dauert,",
+    "gehört ärztlich abgeklärt"
+   ]
+  ],
+  "tip": [
+   "Wärme und Ruhe reichen meist -",
+   "wer hormonell verhütet, hat keinen Eisprung und keinen Mittelschmerz"
+  ],
+  "cta": "Mehr alltagstaugliche Gesundheitstipps? Folgen lohnt sich!"
+ }
+}

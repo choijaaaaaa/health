@@ -1,0 +1,125 @@
+{
+ "title": [
+  "Mid-cycle ache",
+  "on one side only,",
+  "nowhere near your period?",
+  "Ovulation Pain Explained"
+ ],
+ "eyebrow": "Ovulation Pain",
+ "swipe_label": "Swipe for more  →",
+ "closing_label": "Bottom Line",
+ "cover_scrim_color": "#1E5F6E",
+ "cover_char_file": "긴장_illust.jpg",
+ "char_display_names": {
+  "긴장_illust.jpg": "One-Sided Ache",
+  "욕조_illust.jpg": "Heat and Rest",
+  "알약_illust.jpg": "Pain Relief",
+  "스마트폰_illust.jpg": "Track the Date"
+ },
+ "items": [
+  {
+   "name": "What You're Feeling",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "An ache low on one side,",
+    "roughly two weeks",
+    "before your next period",
+    "",
+    "MedlinePlus: one in five women",
+    "have pain around the time",
+    "of ovulation"
+   ]
+  },
+  {
+   "name": "Why One Side",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "The growing follicle stretches",
+    "the surface of the ovary,",
+    "then it ruptures",
+    "",
+    "Fluid or blood released from it",
+    "can irritate the lining",
+    "of the abdomen"
+   ]
+  },
+  {
+   "name": "The Number That Matters",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Minutes to a few hours,",
+    "at the outside 24 to 48 hours",
+    "",
+    "That ceiling is what tells you",
+    "when the ache is",
+    "something else"
+   ]
+  },
+  {
+   "name": "Heat and Rest First",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "A heating pad or a hot bath,",
+    "and simply resting",
+    "",
+    "Cleveland Clinic lists these",
+    "as the usual first step -",
+    "most cycles need nothing more"
+   ]
+  },
+  {
+   "name": "If You Need a Painkiller",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Ibuprofen, naproxen",
+    "or acetaminophen",
+    "",
+    "Trying to conceive this cycle?",
+    "Ask your doctor whether",
+    "acetaminophen is the better pick"
+   ]
+  },
+  {
+   "name": "The Only Real Prevention",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Hormonal birth control,",
+    "because it prevents ovulation",
+    "",
+    "Worth raising with your provider",
+    "if the pain interferes",
+    "with your normal activities"
+   ]
+  },
+  {
+   "name": "When to Call",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "A missed period, fever,",
+    "vomiting, pain when urinating,",
+    "or heavy bleeding between periods",
+    "",
+    "Severe pain lasting",
+    "longer than a day",
+    "is not ovulation pain"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Ovulation pain is measured",
+    "in hours, not days"
+   ],
+   [
+    "Heat and rest cover most of it -",
+    "the clock covers the rest"
+   ]
+  ],
+  "tip": [
+   "If severe pain outlasts a day, or a period is late,",
+   "call your provider instead of waiting it out"
+  ],
+  "cta": "Want more practical health tips? Follow for more!"
+ }
+}

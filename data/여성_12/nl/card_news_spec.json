@@ -1,0 +1,125 @@
+{
+ "title": [
+  "Buikpijn aan één kant,",
+  "ver van je ongesteldheid?",
+  "5 dingen over",
+  "pijn bij je eisprong"
+ ],
+ "eyebrow": "Pijn bij de eisprong",
+ "swipe_label": "Swipe voor meer  →",
+ "closing_label": "Wat je nu kunt doen",
+ "cover_scrim_color": "#2B4C7E",
+ "cover_char_file": "긴장_illust.jpg",
+ "topic_word": "Eisprongpijn",
+ "char_display_names": {
+  "긴장_illust.jpg": "Pijn aan één kant",
+  "스마트폰_illust.jpg": "Je cyclus bijhouden",
+  "알약_illust.jpg": "Pijnstillers",
+  "욕조_illust.jpg": "Warmte"
+ },
+ "items": [
+  {
+   "name": "1. Wat je voelt",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Trekkende pijn onderin je buik,",
+    "aan één kant, ver van",
+    "je ongesteldheid",
+    "",
+    "Thuisarts noemt buikpijn een van",
+    "de dingen die je van je",
+    "eisprong kunt merken"
+   ]
+  },
+  {
+   "name": "2. Er springt een blaasje open",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Elke maand groeit er een",
+    "eiblaasje in je eierstokken",
+    "",
+    "Is het groot genoeg, dan springt",
+    "het open en komt de eicel vrij:",
+    "dat is de eisprong"
+   ]
+  },
+  {
+   "name": "3. Twee weken vóór, niet erna",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "De eisprong is 2 weken",
+    "voordat je ongesteld wordt",
+    "",
+    "Bij de meeste vrouwen zitten er",
+    "21 tot 35 dagen tussen twee",
+    "ongesteldheden"
+   ]
+  },
+  {
+   "name": "4. Warmte en blijven bewegen",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "Een warme kruik, een pittenzak",
+    "of een warm bad",
+    "",
+    "En als het lukt: gewoon je",
+    "dingen doen, dan denk je",
+    "minder aan de pijn"
+   ]
+  },
+  {
+   "name": "5. Pijnstiller als het zeurt",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Paracetamol heeft de minste",
+    "bijwerkingen; ibuprofen en",
+    "naproxen kunnen ook",
+    "",
+    "Probeer je zwanger te worden?",
+    "Vraag je huisarts of paracetamol",
+    "die week beter past"
+   ]
+  },
+  {
+   "name": "Alleen de pil houdt het tegen",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Met de combinatiepil heb je",
+    "geen eisprong, en dus ook",
+    "geen eisprongpijn",
+    "",
+    "Wel een gesprek met je huisarts,",
+    "geen zelfexperiment"
+   ]
+  },
+  {
+   "name": "Wanneer je moet bellen",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Ongesteldheid overgeslagen,",
+    "pijn die steeds erger wordt,",
+    "koorts of blijven overgeven",
+    "",
+    "Gaat het steeds slechter",
+    "met je? Bel 112"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Zet vandaag de datum",
+    "en de kant erbij"
+   ],
+   [
+    "Twee of drie cycli bijhouden",
+    "geeft je huisarts het patroon"
+   ]
+  ],
+  "tip": [
+   "De eisprong is 2 weken vóór je volgende ongesteldheid - reken vanaf de menstruatie die nog komt",
+   "Ineens heftige buikpijn of buikpijn terwijl je zwanger bent: direct bellen, niet afwachten"
+  ],
+  "cta": "Meer praktische gezondheidstips? Volg ons!"
+ }
+}

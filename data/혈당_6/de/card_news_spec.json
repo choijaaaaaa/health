@@ -1,0 +1,120 @@
+{
+  "title": [
+    "Nüchternwert normal,",
+    "HbA1c bei 5,9 Prozent —",
+    "und niemand sagt etwas?",
+    "Prädiabetes im Befund erkennen"
+  ],
+  "eyebrow": "HbA1c richtig lesen",
+  "swipe_label": "Weiterwischen  →",
+  "closing_label": "Zum Mitnehmen",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Der Zeitraum",
+    "과일즙_illust.jpg": "Die Grenzwerte",
+    "운동화_illust.jpg": "Was wirklich hilft"
+  },
+  "items": [
+    {
+      "name": "Zwei Werte, ein Befund",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Nüchternblutzucker im grünen",
+        "Bereich, HbA1c bei 5,9 Prozent",
+        "",
+        "Kein Widerspruch: Beide Werte",
+        "beschreiben denselben Stoffwechsel",
+        "über verschiedene Zeiträume"
+      ]
+    },
+    {
+      "name": "Der Zeitraum",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Laut diabinfo.de zeigt der HbA1c",
+        "den durchschnittlichen Blutzucker",
+        "der letzten 8 bis 12 Wochen",
+        "",
+        "Der Nüchternwert dagegen nur",
+        "diesen einen Morgen"
+      ]
+    },
+    {
+      "name": "Die Grenzwerte in Deutschland",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Unter 5,7 % (39 mmol/mol):",
+        "kein Diabetes",
+        "5,7 bis 6,4 % (39–47): Prädiabetes",
+        "Ab 6,5 % (48 mmol/mol): Diabetes",
+        "",
+        "Bestätigt wird über zwei Messungen"
+      ]
+    },
+    {
+      "name": "Wo Tabellen sich widersprechen",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "In Deutschland gilt ein Nüchternwert",
+        "von 100–125 mg/dl als Prädiabetes",
+        "",
+        "Die WHO und viele Fachgesellschaften",
+        "setzen die Grenze höher, bei 110 mg/dl"
+      ]
+    },
+    {
+      "name": "Warum es so lange unauffällig bleibt",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Bei Insulinresistenz steigert die",
+        "Bauchspeicheldrüse die Produktion",
+        "auf ein Vielfaches",
+        "",
+        "Der Blutzucker bleibt dadurch oft",
+        "über viele Jahre unauffällig"
+      ]
+    },
+    {
+      "name": "Was wirklich hilft",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "150 bis 300 Minuten Bewegung",
+        "pro Woche — die Sportart ist egal",
+        "",
+        "Laut diabinfo können sich die Werte",
+        "bereits innerhalb eines Jahres",
+        "wieder normalisieren"
+      ]
+    },
+    {
+      "name": "Ohne Verbotsliste",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Gemüse, Hülsenfrüchte, Vollkorn,",
+        "Nüsse und Obst statt Streichliste",
+        "",
+        "Blutzuckersenkende Medikamente",
+        "nie eigenmächtig ändern —",
+        "das gehört in ärztliche Hand"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gehen Sie den Befund noch",
+        "einmal Zeile für Zeile durch"
+      ],
+      [
+        "Steht der mmol/mol-Wert dabei?",
+        "Gab es je einen zweiten Wert?"
+      ]
+    ],
+    "tip": [
+      "Kein einzelner normaler Wert",
+      "entkräftet einen auffälligen zweiten"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#3C6E4F"
+}

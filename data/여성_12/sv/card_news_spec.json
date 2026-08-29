@@ -1,0 +1,124 @@
+{
+ "title": [
+  "Ont på ena sidan",
+  "mitt i cykeln,",
+  "långt från mensen?",
+  "Ägglossningsvärk"
+ ],
+ "eyebrow": "Ägglossningsvärk",
+ "swipe_label": "Svep för mer  →",
+ "closing_label": "Nästa steg",
+ "cover_scrim_color": "#5C3A6B",
+ "cover_char_file": "긴장_illust.jpg",
+ "topic_word": "Ägglossningsvärk",
+ "char_display_names": {
+  "긴장_illust.jpg": "Ont på ena sidan",
+  "스마트폰_illust.jpg": "Räkna cykeln",
+  "알약_illust.jpg": "Värktabletter",
+  "욕조_illust.jpg": "Värme"
+ },
+ "items": [
+  {
+   "name": "Fyra tecken på ägglossning",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Klara och sega flytningar,",
+    "ont i nedre delen av magen,",
+    "ökad sexlust, spända bröst",
+    "",
+    "1177 skriver att värken",
+    "kan påminna om mensvärk"
+   ]
+  },
+  {
+   "name": "Därför bara ena sidan",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Varje månad mognar en äggcell",
+    "i en av äggstockarna",
+    "",
+    "När ägget är moget släpps det",
+    "ut i äggledaren - det är den",
+    "äggstocken som märks"
+   ]
+  },
+  {
+   "name": "Två veckor före mensen",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Ägglossningen sker ungefär",
+    "två veckor innan mensen",
+    "",
+    "Menscykeln brukar vara",
+    "mellan 21 och 35 dagar och kan",
+    "variera från månad till månad"
+   ]
+  },
+  {
+   "name": "Inget skydd mot graviditet",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Spermier kan överleva upp till",
+    "sju dagar i livmodern",
+    "",
+    "Känslan i magen kommer",
+    "för sent för att skydda dig -",
+    "använd ett preventivmedel"
+   ]
+  },
+  {
+   "name": "Lägg på värme",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "En varmvattenflaska eller",
+    "en uppvärmd vetekudde",
+    "på magen eller ryggen",
+    "",
+    "Att bada varmt och att röra",
+    "på sig lindrar också"
+   ]
+  },
+  {
+   "name": "Kombinera tabletterna rätt",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Bäst effekt får du av paracetamol",
+    "kombinerat med ibuprofen",
+    "eller naproxen",
+    "",
+    "P-piller, p-plåster, p-ring och",
+    "p-stav tar bort själva",
+    "ägglossningen"
+   ]
+  },
+  {
+   "name": "Sök vård om det här kommer",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Mensen uteblir, du får plötsligt",
+    "mycket ont, feber, eller värk",
+    "även mellan mensperioderna",
+    "",
+    "Yr, matt eller svimfärdig",
+    "samtidigt som magont: ring 112"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Skriv upp datum",
+    "och vilken sida"
+   ],
+   [
+    "Två eller tre cykler ger dig",
+    "ett mönster att visa upp"
+   ]
+  ],
+  "tip": [
+   "Räkna framåt mot nästa mens, inte från den som varit - och behandla datumet som en uppskattning",
+   "Hjälper inte receptfria smärtstillande läkemedel? Då är det dags att kontakta en mottagning"
+  ],
+  "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+ }
+}

@@ -1,0 +1,132 @@
+{
+  "title": [
+    "Glucosa en ayunas normal",
+    "y hemoglobina glucosilada alta:",
+    "¿por qué no coinciden?",
+    "Los umbrales españoles"
+  ],
+  "eyebrow": "Hemoglobina glucosilada",
+  "swipe_label": "Desliza  →",
+  "closing_label": "Para quedarse",
+  "cover_char_file": "탄산음료_illust.jpg",
+  "char_display_names": {
+    "탄산음료_illust.jpg": "Dos ventanas distintas",
+    "과일즙_illust.jpg": "Umbrales españoles",
+    "운동화_illust.jpg": "Lo que sí cambia"
+  },
+  "items": [
+    {
+      "name": "Dos cifras que no cuadran",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Glucemia basal 104 mg/dl",
+        "y HbA1c del 6,1 %",
+        "",
+        "No es un error del laboratorio:",
+        "cada prueba mira una ventana",
+        "de tiempo diferente"
+      ]
+    },
+    {
+      "name": "Qué promedia la HbA1c",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "INGESA (Ministerio de Sanidad):",
+        "la glucosilación es proporcional",
+        "a la glucosa de las 6-8 semanas",
+        "previas al análisis",
+        "",
+        "Sin ayuno y a cualquier hora"
+      ]
+    },
+    {
+      "name": "El corte español está en 110",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Sanidad: la glucosa se considera",
+        "normal por debajo de 110 mg/dl",
+        "",
+        "La tabla americana baja el corte",
+        "a 100 mg/dl. Mismo número,",
+        "lectura distinta"
+      ]
+    },
+    {
+      "name": "Y la franja de HbA1c también",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "redGDPS: el consenso español",
+        "sitúa el riesgo elevado",
+        "entre 6 y 6,4 %",
+        "",
+        "La ADA usa 5,7-6,4 % y la OMS",
+        "no acepta la HbA1c para esto"
+      ]
+    },
+    {
+      "name": "Cuándo repetir la prueba",
+      "char_file": "과일즙_illust.jpg",
+      "body": [
+        "Sanidad: cada 3 años a partir",
+        "de los 45; una vez al año si hay",
+        "sobrepeso, hipertensión,",
+        "antecedentes familiares o una",
+        "glucemia basal ya alterada"
+      ]
+    },
+    {
+      "name": "Lo que sí mueve la aguja",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "PREDIMED, según la guía redGDPS:",
+        "la dieta mediterránea reduce",
+        "la aparición de diabetes tipo 2",
+        "hasta un 40 %, sin perder peso",
+        "",
+        "Y perder un 5-7 % ayuda igual"
+      ]
+    },
+    {
+      "name": "Trocea los 30 minutos",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "150 minutos semanales en 3-5",
+        "sesiones, sin dos días seguidos",
+        "de parón (redGDPS)",
+        "",
+        "Vale caminar rápido 10 minutos",
+        "después de cada comida"
+      ]
+    },
+    {
+      "name": "Una línea que no se cruza",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Si ya tomas un antidiabético",
+        "o insulina, no cambies la dosis",
+        "ni la suspendas por tu cuenta",
+        "",
+        "Ese ajuste lo hace quien",
+        "te lo ha recetado"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pide que te repitan la analítica",
+        "y léela con los umbrales españoles"
+      ],
+      [
+        "Una glucemia basal normal aquí",
+        "no anula una HbA1c de 6 a 6,4 %"
+      ]
+    ],
+    "tip": [
+      "Si te quedas con una sola idea:",
+      "media hora al día, cinco días por semana"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#8A3B5F"
+}

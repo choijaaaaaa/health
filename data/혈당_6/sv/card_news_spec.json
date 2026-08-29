@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Normalt fastevärde men",
+    "HbA1c strax över 42?",
+    "Åldern kan ligga bakom siffran",
+    "Så läser du provsvaret"
+  ],
+  "eyebrow": "HbA1c och fasteprov",
+  "swipe_label": "Svep vidare  →",
+  "closing_label": "Kort sagt",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Två olika tidsfönster",
+    "호두_illust.jpg": "Gränserna i Sverige",
+    "운동화_illust.jpg": "Det som gör skillnad"
+  },
+  "items": [
+    {
+      "name": "Två prov som inte rimmar",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "fP-Glukos 5,6 mmol/L ser bra ut,",
+        "men HbA1c står på 44 mmol/mol",
+        "",
+        "Inget labbfel: proven mäter",
+        "olika lång tid"
+      ]
+    },
+    {
+      "name": "Vad långtidssockret visar",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "1177: HbA1c visar hur blodsockret",
+        "varit de senaste två till tre månaderna",
+        "",
+        "Provet kan tas när som helst",
+        "på dygnet, utan förberedelse"
+      ]
+    },
+    {
+      "name": "Referensen gäller en åldersgrupp",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "1177: HbA1c brukar vara högst",
+        "42 mmol/mol om du inte har diabetes",
+        "och är under 50 år",
+        "",
+        "Värdet ökar lite grann med åldern"
+      ]
+    },
+    {
+      "name": "Var går diagnosgränsen",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "48 mmol/mol eller högre",
+        "vid minst två tillfällen",
+        "",
+        "Och oftast lämnar du andra",
+        "prov också, till exempel P-Glukos"
+      ]
+    },
+    {
+      "name": "Fastevärdet i siffror",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Referensintervall ofta 4,0-6,0 mmol/L",
+        "",
+        "Upprepade värden mellan 6,1 och 6,9",
+        "kan leda till en glukosbelastning;",
+        "7,0 eller mer vid två olika dagar",
+        "räknas som högt"
+      ]
+    },
+    {
+      "name": "När HbA1c inte går att mäta",
+      "char_file": "호두_illust.jpg",
+      "body": [
+        "Vissa blodsjukdomar och små",
+        "förändringar i hemoglobinet gör",
+        "att provet inte kan användas",
+        "",
+        "Då finns andra mätmetoder"
+      ]
+    },
+    {
+      "name": "Det som gör skillnad",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Livsmedelsverket: minst 90 gram",
+        "fullkorn per dag, gärna mer",
+        "",
+        "Folkhälsomyndigheten: 150-300",
+        "minuter rörelse i veckan plus",
+        "styrka två dagar"
+      ]
+    },
+    {
+      "name": "En gräns du inte flyttar själv",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Tar du tabletter eller insulin?",
+        "Ändra aldrig dosen och sluta inte",
+        "på egen hand",
+        "",
+        "Ring genast 112 om någon",
+        "med diabetes blir medvetslös"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ett enstaka värde är aldrig",
+        "hela svaret"
+      ],
+      [
+        "Be om ett omprov och läs det",
+        "tillsammans med fastevärdet"
+      ]
+    ],
+    "tip": [
+      "Att gå igenom: tidsfönstret, åldern,",
+      "48-gränsen, fullkornet, rörelsen"
+    ],
+    "cta": "Vill du ha fler konkreta hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#3A5F8C"
+}

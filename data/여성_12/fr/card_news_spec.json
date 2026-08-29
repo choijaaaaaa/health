@@ -1,0 +1,125 @@
+{
+ "title": [
+  "Une douleur au milieu",
+  "du cycle qui traîne",
+  "plusieurs jours ?",
+  "Le syndrome du 15e jour"
+ ],
+ "eyebrow": "Cycle et douleurs",
+ "swipe_label": "Faites défiler  →",
+ "closing_label": "À vous de voir",
+ "cover_scrim_color": "#B04A6E",
+ "cover_char_file": "긴장_illust.jpg",
+ "char_display_names": {
+  "긴장_illust.jpg": "Pesanteur pelvienne",
+  "알약_illust.jpg": "Antalgiques",
+  "스마트폰_illust.jpg": "Noter les dates"
+ },
+ "items": [
+  {
+   "name": "Le point de départ",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Le CNGOF décrit le syndrome",
+    "intermenstruel, ou syndrome",
+    "du 15e jour",
+    "",
+    "Une pesanteur pelvienne",
+    "plus souvent diffuse",
+    "que latéralisée"
+   ]
+  },
+  {
+   "name": "Ce que dit la description",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Elle irradie vers les lombes,",
+    "les cuisses, le périnée",
+    "",
+    "D'intensité variable, en règle",
+    "modérée : elle n'impose pas",
+    "l'arrêt de l'activité"
+   ]
+  },
+  {
+   "name": "L'idée reçue sur la durée",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Le critère cité par le CNGOF",
+    "est la brièveté : quelques",
+    "heures au plus",
+    "",
+    "Une douleur installée sur",
+    "plusieurs jours ne correspond",
+    "pas à cette description"
+   ]
+  },
+  {
+   "name": "Le saignement du milieu de cycle",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Peu abondant, souvent limité",
+    "à quelques gouttes",
+    "",
+    "Il ne dure que quelques heures,",
+    "au maximum un à deux jours"
+   ]
+  },
+  {
+   "name": "Ce qui soulage vraiment",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Les formes mineures répondent",
+    "bien aux antalgiques banals",
+    "et aux antispasmodiques",
+    "",
+    "Les formes invalidantes justifient",
+    "un blocage de l'ovulation,",
+    "à décider en consultation"
+   ]
+  },
+  {
+   "name": "Première urgence à éliminer",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "La grossesse extra-utérine est",
+    "la première étiologie à",
+    "toujours éliminer",
+    "",
+    "Toute douleur pelvienne sur",
+    "un retard de règles impose",
+    "un avis en urgence"
+   ]
+  },
+  {
+   "name": "Deuxième urgence",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "La torsion d'annexe : nausées,",
+    "vomissements, défense abdominale,",
+    "douleur d'un seul côté",
+    "",
+    "Le traitement consiste à",
+    "intervenir chirurgicalement",
+    "en urgence - appelez le 15"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "Sur vos trois derniers cycles,",
+    "combien d'heures a duré la douleur ?"
+   ],
+   [
+    "Quelques heures, ou plusieurs jours",
+    "qui vous arrêtent net ?"
+   ]
+  ],
+  "tip": [
+   "Notez la date et le côté :",
+   "c'est ce qui sert le plus en consultation"
+  ],
+  "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+ }
+}

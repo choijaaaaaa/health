@@ -1,0 +1,119 @@
+{
+  "title": [
+    "L'hémoglobine glyquée",
+    "n'est pas le test qui dépiste",
+    "le prédiabète en France",
+    "Les vrais repères français"
+  ],
+  "eyebrow": "Glycémie à jeun et HbA1c",
+  "swipe_label": "Faites glisser  →",
+  "closing_label": "À retenir",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Le bon test",
+    "탄산음료_illust.jpg": "Les seuils français",
+    "운동화_illust.jpg": "Ce qui change vraiment"
+  },
+  "items": [
+    {
+      "name": "Une idée reçue tenace",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "On lit partout que l'HbA1c",
+        "est le test du prédiabète",
+        "",
+        "En France, le dépistage précoce",
+        "ne repose pas sur elle —",
+        "et confondre les deux induit en erreur"
+      ]
+    },
+    {
+      "name": "Le bon test",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Selon l'Inserm, la glycémie",
+        "veineuse à jeun en laboratoire",
+        "est la seule méthode de détection",
+        "du diabète à un stade précoce",
+        "",
+        "L'HbA1c confirme ou précise"
+      ]
+    },
+    {
+      "name": "Les seuils français",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Entre 1,10 et 1,25 g/L :",
+        "on parle de prédiabète",
+        "",
+        "À partir de 1,26 g/L sur deux",
+        "dosages successifs : diabète"
+      ]
+    },
+    {
+      "name": "Pourquoi les tableaux divergent",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Le seuil français démarre",
+        "à 1,10 g/L, soit 110 mg/dL",
+        "",
+        "Plusieurs pays retiennent 100 mg/dL :",
+        "1,05 g/L n'est pas un prédiabète ici,",
+        "mais le serait ailleurs"
+      ]
+    },
+    {
+      "name": "Qui doit se faire dépister",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Après 45 ans avec au moins un",
+        "facteur de risque : surpoids,",
+        "sédentarité, antécédent familial,",
+        "hypertension, dyslipidémie...",
+        "",
+        "Âge moyen au diagnostic : 65 ans"
+      ]
+    },
+    {
+      "name": "Ce qui change vraiment",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Au moins 30 minutes d'activités",
+        "physiques dynamiques par jour",
+        "",
+        "Plus du renforcement musculaire",
+        "deux fois par semaine (PNNS)"
+      ]
+    },
+    {
+      "name": "Dans l'assiette",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Augmentez les légumes secs et",
+        "allez vers pain, pâtes et riz complets",
+        "",
+        "Un traitement en cours ne se modifie",
+        "jamais seul : l'ajustement revient",
+        "au médecin prescripteur"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Un chiffre n'a de sens qu'avec",
+        "la grille du pays qui l'a rendu"
+      ],
+      [
+        "En France, tout part de la glycémie",
+        "veineuse à jeun au laboratoire"
+      ]
+    ],
+    "tip": [
+      "Et vous : avez-vous fait mesurer",
+      "votre glycémie à jeun depuis vos 45 ans ?"
+    ],
+    "cta": "Envie d'autres conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#7A3B52"
+}

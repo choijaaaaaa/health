@@ -1,0 +1,133 @@
+{
+  "title": [
+    "Glicemia a digiuno normale,",
+    "emoglobina glicata alta?",
+    "Dietro c'è il picco dopo i pasti",
+    "I riferimenti italiani"
+  ],
+  "eyebrow": "Emoglobina glicata",
+  "swipe_label": "Scorri  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "흰빵_illust.jpg",
+  "char_display_names": {
+    "흰빵_illust.jpg": "Il picco dopo i pasti",
+    "각설탕_illust.jpg": "I riferimenti ISS",
+    "운동화_illust.jpg": "Cosa sposta il numero"
+  },
+  "items": [
+    {
+      "name": "Due numeri, un solo referto",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Glicemia a digiuno sotto 100 mg/dl",
+        "ed emoglobina glicata a 6,1%",
+        "",
+        "Non è un errore del laboratorio:",
+        "i due esami guardano",
+        "finestre temporali diverse"
+      ]
+    },
+    {
+      "name": "Che cosa misura l'HbA1c",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Il glucosio si lega all'emoglobina",
+        "dei globuli rossi",
+        "",
+        "ISSalute: il test indica la glicemia",
+        "media degli ultimi due o tre mesi,",
+        "a qualsiasi ora e senza digiuno"
+      ]
+    },
+    {
+      "name": "Le due porte del pre-diabete",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "EpiCentro (ISS) distingue IFG,",
+        "glicemia a digiuno 100-125 mg/dl,",
+        "da IGT, 140-200 mg/dl due ore",
+        "dopo un carico di 75 g",
+        "",
+        "Si può avere la seconda con la prima a posto"
+      ]
+    },
+    {
+      "name": "I riferimenti italiani",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "ISSalute: da 6,5% (48 mmol/mol)",
+        "si fa diagnosi di diabete;",
+        "tra 6 e 6,4% si parla di alto rischio",
+        "",
+        "Nelle tabelle inglesi la fascia",
+        "parte da 5,7%: griglia diversa"
+      ]
+    },
+    {
+      "name": "Quando serve la curva da carico",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "ISSalute la indica per una glicemia",
+        "a digiuno tra 110 e 125 mg/dl",
+        "",
+        "E la diagnosi non si fa con",
+        "un solo prelievo: serve",
+        "almeno una seconda misurazione"
+      ]
+    },
+    {
+      "name": "Quando il valore inganna",
+      "char_file": "각설탕_illust.jpg",
+      "body": [
+        "Anemia mediterranea, carenza",
+        "di ferro, emorragie, gravidanza,",
+        "insufficienza renale e trasfusioni",
+        "",
+        "ISSalute le elenca tra le condizioni",
+        "che influenzano il risultato"
+      ]
+    },
+    {
+      "name": "Cosa sposta davvero il numero",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "ISSalute: esercizio regolare e circa",
+        "il 5% di peso in meno riducono",
+        "di oltre il 50% il rischio di diabete",
+        "",
+        "150 minuti a settimana di attività",
+        "aerobica moderata, più pane e cereali integrali"
+      ]
+    },
+    {
+      "name": "Una regola da non rompere",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Se prende già un ipoglicemizzante",
+        "o l'insulina, non cambi la dose",
+        "e non sospenda da solo",
+        "",
+        "L'aggiustamento spetta al medico",
+        "che ha prescritto la terapia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Un valore a digiuno tranquillo",
+        "non racconta le due ore dopo pranzo"
+      ],
+      [
+        "E il referto va letto con la griglia",
+        "del Paese che l'ha prodotto"
+      ]
+    ],
+    "tip": [
+      "Da rivedere: finestra dei due-tre mesi,",
+      "IFG e IGT, soglie ISS, 5% di peso"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#1B6E5A"
+}

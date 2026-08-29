@@ -1,0 +1,125 @@
+{
+ "title": [
+  "Tre-dodici ore,",
+  "non tre giorni:",
+  "che cos'è la fitta",
+  "di metà ciclo"
+ ],
+ "eyebrow": "Dolore ovulatorio",
+ "swipe_label": "Scorri per continuare  →",
+ "closing_label": "Il ripasso",
+ "cover_scrim_color": "#7C2F4A",
+ "cover_char_file": "긴장_illust.jpg",
+ "topic_word": "Mittelschmerz",
+ "char_display_names": {
+  "긴장_illust.jpg": "Fitta laterale",
+  "스마트폰_illust.jpg": "La durata",
+  "알약_illust.jpg": "Antidolorifici",
+  "욕조_illust.jpg": "Calore"
+ },
+ "items": [
+  {
+   "name": "Di che cosa parliamo",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Una fitta bassa, da un lato,",
+    "lontano dalle mestruazioni",
+    "",
+    "La FNOMCeO la chiama",
+    "mittelschmerz e la stima",
+    "in circa il 40% delle donne",
+    "in età fertile"
+   ]
+  },
+  {
+   "name": "Perché proprio un lato",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Le cause non sono chiare",
+    "",
+    "L'ipotesi più accreditata:",
+    "il follicolo si rompe e il fluido",
+    "rilasciato irrita i nervi",
+    "dell'addome inferiore"
+   ]
+  },
+  {
+   "name": "Il numero da ricordare",
+   "char_file": "스마트폰_illust.jpg",
+   "body": [
+    "Durata breve:",
+    "tra le tre e le dodici ore",
+    "",
+    "Il ciclo dura fra 24 e 35 giorni",
+    "secondo l'ISS, quindi il giorno",
+    "esatto non è mai scontato"
+   ]
+  },
+  {
+   "name": "Scambiato per appendicite",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "I casi più intensi sono stati",
+    "confusi con un'appendicite acuta",
+    "",
+    "In passato quelle diagnosi",
+    "errate hanno portato",
+    "a interventi non necessari"
+   ]
+  },
+  {
+   "name": "Il calore, per primo",
+   "char_file": "욕조_illust.jpg",
+   "body": [
+    "Un bagno caldo, la borsa",
+    "dell'acqua calda, un massaggio",
+    "lento della zona",
+    "",
+    "Vanno bene anche esercizio",
+    "leggero, yoga o pilates"
+   ]
+  },
+  {
+   "name": "Se serve un antidolorifico",
+   "char_file": "알약_illust.jpg",
+   "body": [
+    "Ibuprofene o paracetamolo,",
+    "come per la dismenorrea",
+    "",
+    "State cercando una gravidanza?",
+    "Chiedete al medico se il",
+    "paracetamolo sia più indicato"
+   ]
+  },
+  {
+   "name": "Quando non aspettare",
+   "char_file": "긴장_illust.jpg",
+   "body": [
+    "Mestruazione saltata, dolore",
+    "che supera la giornata,",
+    "febbre o vomito",
+    "",
+    "Dolore improvviso e violento",
+    "con difficoltà a stare in piedi:",
+    "si chiama il 112"
+   ]
+  }
+ ],
+ "closing": {
+  "headline": [
+   [
+    "La fitta di metà ciclo",
+    "si misura in ore"
+   ],
+   [
+    "Calore e riposo bastano",
+    "quasi sempre"
+   ]
+  ],
+  "tip": [
+   "I contraccettivi ormonali sono l'unica vera prevenzione, ma la prescrizione la valuta il medico",
+   "Se il dolore persiste o si intensifica, il medico di famiglia può prescrivere un'ecografia"
+  ],
+  "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+ }
+}
