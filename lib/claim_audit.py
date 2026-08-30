@@ -115,6 +115,44 @@ def check_title_variety(spec: dict) -> list[str]:
     return warns
 
 
+def scan_title_frames(min_share: float = 0.12) -> list[str]:
+    """전체 ko 제목을 훑어 특정 프레임에 쏠렸는지 본다.
+
+    WHY 고정 패턴 검사와 별도로 두는지(2026-08-30): KO_TITLE_OVERUSED는 "이미 아는
+    나쁜 패턴"만 잡는다. 그런데 템플릿을 바꾸는 작업이 **새 템플릿을 만드는** 일이
+    실제로 벌어졌다 — 재작성 1차안에서 원인지목형 13건 중 9건이 "…, 범인은 X예요"로
+    수렴했다. 무엇이 과용될지는 미리 알 수 없으므로, 어구 빈도를 매번 세어서
+    임계 이상 쏠린 것을 그때그때 찾아낸다."""
+    root = ROOT / "data"
+    titles = []
+    for d in sorted(root.iterdir()):
+        f = d / "platform_captions.json"
+        if not d.is_dir() or not f.exists():
+            continue
+        try:
+            spec = json.loads(f.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        for pl in spec.get("platforms", []):
+            if pl.get("name") == "네이버 블로그" and pl.get("caption"):
+                titles.append(pl["caption"].split("\n")[0].strip())
+    if not titles:
+        return []
+    from collections import Counter
+    # 말미 2어절과 특징 연결어구를 각각 센다
+    tails = Counter()
+    for ti in titles:
+        m = re.search(r"([가-힣]{2,6})(예요|이에요|에요|어요|아요|까요|해요)\s*$", ti)
+        if m:
+            tails[m.group(0)] += 1
+    hits = []
+    for frag, n in tails.most_common():
+        share = n / len(titles)
+        if share >= min_share:
+            hits.append(f"제목 말미 '{frag}'가 {n}건({share:.0%})으로 쏠림 — 다른 마무리로 분산할 것")
+    return hits
+
+
 def audit_topic(topic: str) -> dict:
     """topic 하나를 감사한다. regressions는 반드시 고쳐야 하고 warnings는 사람이 판단."""
     path = ROOT / "data" / topic / "platform_captions.json"
@@ -137,6 +175,8 @@ def _cli() -> None:
     ap.add_argument("topics", nargs="*", help="생략 시 known_issues에 등록된 topic 전부")
     ap.add_argument("--all", action="store_true", help="data/ 아래 모든 topic")
     ap.add_argument("--warnings", action="store_true", help="경고까지 출력")
+    ap.add_argument("--frames", action="store_true",
+                    help="전체 ko 제목의 프레임 쏠림 검사(새 템플릿이 생겼는지)")
     a = ap.parse_args()
 
     if a.all:
@@ -146,6 +186,14 @@ def _cli() -> None:
         topics = a.topics
     else:
         topics = sorted({i["topic"] for i in load_known_issues()})
+
+    if a.frames:
+        for m in scan_title_frames():
+            print(f"⚠️  {m}")
+        else:
+            pass
+        print("프레임 쏠림 검사 완료(경고 없으면 정상)")
+        raise SystemExit(0)
 
     bad = 0
     for t in topics:
