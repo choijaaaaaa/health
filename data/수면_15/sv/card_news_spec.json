@@ -1,0 +1,138 @@
+{
+  "title": [
+    "Muntorr varje morgon?",
+    "Det handlar inte om hur mycket du",
+    "dricker, utan om näsan.",
+    "3 orsaker och vad som hjälper"
+  ],
+  "eyebrow": "Munandning på natten",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Kudde",
+    "물컵_illust.jpg": "Vattenglas",
+    "물방울_illust.jpg": "Fukt",
+    "긴장_illust.jpg": "Muskler",
+    "스마트폰_illust.jpg": "Medier"
+  },
+  "items": [
+    {
+      "name": "Inte vätskebrist",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Du vaknar med tungan fastklistrad",
+        "vid gommen och en sträv känsla",
+        "i halsen",
+        "",
+        "Händer det varje morgon stod",
+        "läpparna sannolikt på glänt",
+        "och du andades genom munnen"
+      ]
+    },
+    {
+      "name": "Orsak 1: täppt näsa",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Allergisk snuva, förkylning,",
+        "polyper och sned nässkiljevägg",
+        "höjer motståndet i näsan tills",
+        "kroppen väljer den bredare vägen",
+        "",
+        "1177 skriver att snarkning beror",
+        "på att det är trångt i de övre",
+        "luftvägarna när du sover"
+      ]
+    },
+    {
+      "name": "Orsak 2: ryggläget",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "I ryggläge faller tungan bakåt",
+        "i svalget",
+        "",
+        "1177 skriver att besvären med",
+        "snarkning och",
+        "andningsuppehåll är störst",
+        "i ryggläge för många"
+      ]
+    },
+    {
+      "name": "Orsak 3: muskelspänningen",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Muskelspänningen i svalg och",
+        "käke avtar under sömnen",
+        "och med åldern",
+        "",
+        "Stora halsmandlar, stor gomspene",
+        "eller ofta täppt näsa kan behöva",
+        "utredas av en öron-, näs- och",
+        "halsspecialist"
+      ]
+    },
+    {
+      "name": "Vad munandning gör i munnen",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Luft som passerar näsan når",
+        "svalget uppvärmd, fuktad och",
+        "delvis renad från damm",
+        "",
+        "I en överkorsningsstudie från 2016",
+        "sjönk medelvärdet för pH i munnen",
+        "från 7,0 till 6,6 under",
+        "framtvingad munandning"
+      ]
+    },
+    {
+      "name": "Tejp löser inte orsaken",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "En systematisk översikt från 2025",
+        "hittade sammanlagt bara tio",
+        "studier med 213 patienter",
+        "",
+        "Två visade förbättring, båda",
+        "enbart hos personer med lindrig",
+        "obstruktiv sömnapné",
+        "",
+        "Med täppt näsa tar tejpen bort",
+        "den sista luftvägen som fanns kvar"
+      ]
+    },
+    {
+      "name": "Det här hjälper i stället",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sov på sidan, på magen eller med",
+        "en kudde bakom ryggen",
+        "",
+        "Skippa alkohol och lugnande",
+        "läkemedel före läggdags",
+        "",
+        "Ta itu med nästäppan: sköljning",
+        "med koksaltlösning och behandling",
+        "av allergisk snuva"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "För lite saliv ger sämre skydd",
+        "mot hål i tänderna"
+      ],
+      [
+        "Borsta med fluortandkräm två",
+        "gånger om dagen"
+      ]
+    ],
+    "tip": [
+      "Kontakta en vårdcentral om du snarkar",
+      "och är trött på dagarna"
+    ],
+    "cta": "Vill du ha fler hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#25335C"
+}

@@ -1,0 +1,136 @@
+{
+  "title": [
+    "¿Boca seca todas las mañanas?",
+    "No es falta de agua, es la nariz",
+    "que se cierra por la noche.",
+    "3 causas y lo que sí ayuda"
+  ],
+  "eyebrow": "Respiración oral nocturna",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Almohada",
+    "물컵_illust.jpg": "Vaso de agua",
+    "물방울_illust.jpg": "Humedad",
+    "긴장_illust.jpg": "Músculos",
+    "스마트폰_illust.jpg": "Redes"
+  },
+  "items": [
+    {
+      "name": "No es falta de agua",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Despertar con la lengua pegada al",
+        "paladar y la garganta áspera",
+        "",
+        "Cuando pasa todas las mañanas,",
+        "suele significar que los labios",
+        "estuvieron entreabiertos buena",
+        "parte de la noche"
+      ]
+    },
+    {
+      "name": "Causa 1: la nariz obstruida",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "La SEORL-CCC recuerda que la",
+        "obstrucción nasal surge de causas",
+        "distintas: rinitis, vegetaciones",
+        "o desvío de tabique",
+        "",
+        "La desviación septal se asocia con",
+        "respiración oral, ronquidos y",
+        "apnea del sueño"
+      ]
+    },
+    {
+      "name": "Causa 2: dormir boca arriba",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Boca arriba, la lengua y el",
+        "velo del paladar retroceden",
+        "por gravedad y estrechan",
+        "el espacio de detrás"
+      ]
+    },
+    {
+      "name": "Causa 3: el tono muscular",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "El tono muscular de la faringe",
+        "baja durante el sueño y",
+        "disminuye con la edad",
+        "",
+        "Tener el tabique torcido no",
+        "explica nada por sí solo: lo que",
+        "importa es si de verdad te",
+        "cierra la nariz"
+      ]
+    },
+    {
+      "name": "Lo que hacía la nariz",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "El aire que entra por la nariz",
+        "llega calentado, humidificado y",
+        "con parte del polvo retenido",
+        "",
+        "En un estudio cruzado de 2016 con",
+        "diez adultos sanos, el pH medio de",
+        "la boca bajó de 7,0 a 6,6 con",
+        "respiración oral forzada"
+      ]
+    },
+    {
+      "name": "El esparadrapo no es el primer paso",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Una revisión sistemática de 2025",
+        "solo encontró diez estudios con",
+        "213 pacientes",
+        "",
+        "Únicamente dos mostraban mejoría,",
+        "ambos limitados a personas con",
+        "apnea obstructiva leve",
+        "",
+        "Con la nariz taponada, sellar la",
+        "boca deja al durmiente sin",
+        "ninguna vía de aire"
+      ]
+    },
+    {
+      "name": "Lo que sí ayuda",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Que un otorrino mire la nariz",
+        "antes que nada",
+        "",
+        "Dormir de lado, con una almohada",
+        "que mantenga el cuello alineado",
+        "en lugar de elevarlo",
+        "",
+        "Alcohol y sedantes fuera de la",
+        "rutina nocturna"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Unos dos millones de personas",
+        "tienen apnea sin diagnosticar"
+      ],
+      [
+        "Ronquidos y apneas nocturnas",
+        "se han normalizado (SEPAR)"
+      ]
+    ],
+    "tip": [
+      "Averigua por qué la nariz no",
+      "estaba disponible por la noche"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#25335C"
+}

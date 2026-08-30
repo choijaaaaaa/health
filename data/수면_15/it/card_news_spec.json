@@ -1,0 +1,133 @@
+{
+  "title": [
+    "Bocca secca al risveglio?",
+    "Non è l'acqua che manca, è il naso",
+    "che si chiude di notte.",
+    "3 cause e cosa aiuta davvero"
+  ],
+  "eyebrow": "Respirazione orale notturna",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Cuscino",
+    "물컵_illust.jpg": "Acqua",
+    "물방울_illust.jpg": "Umidità",
+    "긴장_illust.jpg": "Muscoli",
+    "스마트폰_illust.jpg": "Social media"
+  },
+  "items": [
+    {
+      "name": "Non è disidratazione",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "La lingua attaccata al palato e",
+        "la gola che brucia al risveglio",
+        "",
+        "Nella grande maggioranza dei casi",
+        "significa che per buona parte",
+        "della notte le labbra sono",
+        "rimaste aperte"
+      ]
+    },
+    {
+      "name": "Causa 1: il naso chiuso",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Rinite allergica, raffreddore che",
+        "non passa, sinusite cronica,",
+        "deviazione del setto, turbinati",
+        "ingrossati",
+        "",
+        "Quando la via nasale oppone",
+        "resistenza, il corpo passa",
+        "alla via più larga"
+      ]
+    },
+    {
+      "name": "Causa 2: la posizione supina",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Da supini lingua e palato molle",
+        "arretrano per effetto della",
+        "gravità e restringono lo spazio",
+        "dietro di essi"
+      ]
+    },
+    {
+      "name": "Causa 3: il tono muscolare",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Il tono muscolare di bocca e",
+        "faringe nel sonno si riduce e",
+        "con l'età cala ulteriormente",
+        "",
+        "Le linee guida del Ministero",
+        "della Salute ipotizzano un",
+        "continuum tra respirazione orale,",
+        "russamento e apnee nel sonno"
+      ]
+    },
+    {
+      "name": "Cosa succede in bocca",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "L'aria che passa dal naso arriva",
+        "riscaldata, umidificata e ripulita",
+        "da una parte del pulviscolo",
+        "",
+        "In uno studio crossover del 2016",
+        "il pH medio del cavo orale è sceso",
+        "da 7,0 a 6,6 con la respirazione",
+        "orale forzata"
+      ]
+    },
+    {
+      "name": "Il cerotto non è il primo passo",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Una revisione sistematica del 2025",
+        "ha trovato in tutto dieci studi",
+        "per 213 pazienti",
+        "",
+        "Solo due mostravano un",
+        "miglioramento, entrambi limitati",
+        "ad apnee ostruttive lievi",
+        "",
+        "Se il naso è chiuso, sigillare la",
+        "bocca elimina l'ultima via d'aria"
+      ]
+    },
+    {
+      "name": "Cosa aiuta davvero",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Prima il naso, poi tutto il resto:",
+        "una deviazione del setto va",
+        "valutata dall'otorinolaringoiatra",
+        "",
+        "Dormire su un fianco con un",
+        "cuscino che tenga il collo",
+        "allineato si prova in due notti"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Russamento forte, apnee notate",
+        "da chi dorme accanto"
+      ],
+      [
+        "e sonnolenza diurna: serve un",
+        "esame strumentale del sonno"
+      ]
+    ],
+    "tip": [
+      "Fai controllare perché il naso",
+      "si chiude di notte"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#25335C"
+}

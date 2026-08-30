@@ -1,0 +1,140 @@
+{
+  "title": [
+    "Trockener Mund am Morgen?",
+    "Meist fehlt nicht das Wasser,",
+    "sondern die freie Nase.",
+    "3 Ursachen und was hilft"
+  ],
+  "eyebrow": "Mundatmung im Schlaf",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Kissen",
+    "물컵_illust.jpg": "Wasserglas",
+    "물방울_illust.jpg": "Feuchtigkeit",
+    "긴장_illust.jpg": "Muskeltonus",
+    "스마트폰_illust.jpg": "Social Media"
+  },
+  "items": [
+    {
+      "name": "Kein Flüssigkeitsmangel",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Pelzige Zunge, kratziger Hals,",
+        "rissige Lippen am Morgen:",
+        "meist kein Flüssigkeitsdefizit,",
+        "sondern ein Atemwegsproblem",
+        "",
+        "Die Lippen standen die halbe",
+        "Nacht offen"
+      ]
+    },
+    {
+      "name": "Ursache 1: die enge Nase",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Ist der Weg durch die Nase eng,",
+        "nimmt der Körper automatisch",
+        "den breiteren Weg",
+        "",
+        "Laut IQWiG ist bei bis zu",
+        "80 Prozent die Nasenscheidewand",
+        "verkrümmt, spürbar wird das erst",
+        "mit Schnupfen, Allergie oder",
+        "geschwollenen Nasenmuscheln"
+      ]
+    },
+    {
+      "name": "Ursache 2: die Rückenlage",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "In Rückenlage sinken Zunge und",
+        "Gaumensegel nach hinten",
+        "",
+        "Große Mandeln, ein enger Kiefer",
+        "und ein vergrößerter weicher",
+        "Gaumen sind laut S3-Leitlinie",
+        "weitere Engstellen"
+      ]
+    },
+    {
+      "name": "Ursache 3: weniger Spannung",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Die Muskelspannung in Rachen",
+        "und Mund lässt im Schlaf nach",
+        "",
+        "Schnarchen tritt laut der",
+        "AWMF-Patienteninformation",
+        "besonders häufig zwischen",
+        "45 und 55 Jahren auf"
+      ]
+    },
+    {
+      "name": "Was die Nase leistet",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Beim Mundatmen wird die Luft nicht",
+        "befeuchtet und erwärmt, Mundhöhle",
+        "und Rachen trocknen aus",
+        "",
+        "In einer Crossover-Studie von 2016",
+        "fiel der mittlere pH im Mund",
+        "von 7,0 auf 6,6, sobald die Nase",
+        "abgeklemmt war"
+      ]
+    },
+    {
+      "name": "Mundpflaster: falscher Anfang",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Eine Übersichtsarbeit von 2025",
+        "fand nur zehn Studien mit",
+        "213 Patienten",
+        "",
+        "Nur zwei zeigten eine Besserung,",
+        "beide ausschließlich bei leichter",
+        "obstruktiver Schlafapnoe",
+        "",
+        "Ist die Nase zu und der Mund",
+        "verschlossen, bleibt kein Weg",
+        "mehr für die Luft"
+      ]
+    },
+    {
+      "name": "Zuerst die Nase frei bekommen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bei allergischem Schnupfen sind",
+        "kortisonhaltige Nasensprays das",
+        "Mittel der Wahl",
+        "",
+        "Eine verkrümmte Nasenscheidewand",
+        "gehört in die HNO-Sprechstunde,",
+        "nicht unter ein Pflaster",
+        "",
+        "Kein Alkohol, keine Schlafmittel",
+        "am Abend"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Trockener Mund am Morgen ist",
+        "ein Anzeichen für Schlafapnoe"
+      ],
+      [
+        "Wer zuklebt, überdeckt das",
+        "Symptom für die Diagnose"
+      ]
+    ],
+    "tip": [
+      "Klären Sie erst ab, warum die",
+      "Nase nachts dicht ist"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#25335C"
+}

@@ -1,0 +1,136 @@
+{
+  "title": [
+    "Bouche sèche au réveil ?",
+    "Ce n'est pas l'eau qui manque,",
+    "c'est le nez qui se bouche.",
+    "3 causes et ce qui aide"
+  ],
+  "eyebrow": "Respiration buccale nocturne",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Oreiller",
+    "물컵_illust.jpg": "Verre d'eau",
+    "물방울_illust.jpg": "Humidité",
+    "긴장_illust.jpg": "Muscles",
+    "스마트폰_illust.jpg": "Réseaux"
+  },
+  "items": [
+    {
+      "name": "Pas un manque d'eau",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "La langue collée au palais, la",
+        "gorge irritée, un verre d'eau",
+        "dès le réveil",
+        "",
+        "Quand la bouche est desséchée",
+        "tous les matins, les lèvres sont",
+        "restées entrouvertes une bonne",
+        "partie de la nuit"
+      ]
+    },
+    {
+      "name": "Cause 1 : le nez bouché",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Rhinite allergique, rhume qui",
+        "traîne, sinusite chronique,",
+        "cloison déviée, cornets gonflés",
+        "",
+        "Dès que la résistance de la voie",
+        "nasale augmente, l'organisme",
+        "bascule sur la voie la plus large"
+      ]
+    },
+    {
+      "name": "Cause 2 : dormir sur le dos",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Couché à plat, la langue et le",
+        "voile du palais reculent sous",
+        "l'effet de la gravité",
+        "",
+        "L'Inserm range le fait de dormir",
+        "sur le dos parmi les éléments qui",
+        "favorisent la survenue d'apnées"
+      ]
+    },
+    {
+      "name": "Cause 3 : le tonus qui baisse",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Le vieillissement s'accompagne",
+        "d'une perte de tonicité des",
+        "muscles des voies aériennes",
+        "",
+        "L'incidence progresse presque",
+        "linéairement : 7,9 % chez les",
+        "20-44 ans, 19,7 % chez les",
+        "45-64 ans, 30,5 % après 65 ans"
+      ]
+    },
+    {
+      "name": "Ce que subit la bouche",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "L'air qui passe par le nez arrive",
+        "réchauffé, humidifié et débarrassé",
+        "d'une partie des poussières",
+        "",
+        "Dans une étude croisée de 2016, le",
+        "pH intrabuccal moyen est passé de",
+        "7,0 à 6,6 en respiration buccale",
+        "forcée"
+      ]
+    },
+    {
+      "name": "Le sparadrap, mauvais réflexe",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Une revue systématique de 2025 n'a",
+        "retrouvé que dix études portant",
+        "sur 213 patients",
+        "",
+        "Deux seulement montraient une",
+        "amélioration, toutes deux limitées",
+        "à des apnées obstructives légères",
+        "",
+        "Nez bouché, boucher la bouche",
+        "supprime la dernière voie d'air"
+      ]
+    },
+    {
+      "name": "Ce qui aide vraiment",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Faire examiner le nez avant tout",
+        "le reste : une cloison déviée",
+        "relève d'une consultation ORL",
+        "",
+        "Dormir sur le côté et garder la",
+        "nuque dans l'axe coûte zéro euro",
+        "et se teste en deux nuits"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ronflements bruyants, arrêts",
+        "respiratoires, somnolence"
+      ],
+      [
+        "justifient un enregistrement du",
+        "sommeil, pas un sparadrap"
+      ]
+    ],
+    "tip": [
+      "Ce soir, couchez-vous sur le côté,",
+      "la nuque dans l'axe"
+    ],
+    "cta": "Envie d'autres conseils santé ? Suivez-nous !"
+  },
+  "cover_scrim_color": "#25335C"
+}

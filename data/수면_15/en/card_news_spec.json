@@ -1,0 +1,133 @@
+{
+  "title": [
+    "Dry mouth every morning?",
+    "It is not the water you drank,",
+    "it is the route the air took.",
+    "3 causes and what helps"
+  ],
+  "eyebrow": "Mouth breathing at night",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Pillow",
+    "물컵_illust.jpg": "Water",
+    "물방울_illust.jpg": "Moisture",
+    "긴장_illust.jpg": "Muscle tone",
+    "스마트폰_illust.jpg": "Social media"
+  },
+  "items": [
+    {
+      "name": "Not a hydration failure",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "You wake with your tongue glued",
+        "to the roof of your mouth and",
+        "a scratchy throat",
+        "",
+        "A mouth that is bone dry every",
+        "morning usually means your lips",
+        "were parted most of the night"
+      ]
+    },
+    {
+      "name": "Cause 1: the nose is blocked",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Allergic rhinitis, a lingering",
+        "cold, chronic sinus inflammation,",
+        "a deviated septum or swollen",
+        "turbinates all raise the",
+        "resistance of the nasal airway",
+        "",
+        "The body takes the wider path"
+      ]
+    },
+    {
+      "name": "Cause 2: lying flat",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "On your back, gravity lets",
+        "the tongue and soft palate",
+        "settle backwards, narrowing",
+        "the space behind them"
+      ]
+    },
+    {
+      "name": "Cause 3: muscle tone drops",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Muscle tone in the jaw and lips",
+        "drops during sleep and declines",
+        "with age",
+        "",
+        "Each cause has a different fix,",
+        "which is why naming the cause",
+        "matters more than buying a gadget"
+      ]
+    },
+    {
+      "name": "What your nose was doing",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Nasal air is warmed, humidified",
+        "and stripped of dust before it",
+        "reaches the throat",
+        "",
+        "In a 2016 crossover study of ten",
+        "healthy adults, mean intraoral pH",
+        "fell from 7.0 to 6.6 when a nose",
+        "clip forced mouth breathing"
+      ]
+    },
+    {
+      "name": "Why taping can backfire",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "A 2025 systematic review found",
+        "ten studies, 213 patients in all",
+        "",
+        "Only two showed improvement,",
+        "both restricted to people with",
+        "mild obstructive sleep apnea",
+        "",
+        "Four studies raised the same",
+        "hazard: sealing the mouth when",
+        "the nose is blocked removes the",
+        "only remaining way to breathe"
+      ]
+    },
+    {
+      "name": "What actually helps",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Open the nose before you close",
+        "the mouth: allergic congestion",
+        "is treatable, a deviated septum",
+        "needs an ENT assessment",
+        "",
+        "Try your side instead of your",
+        "back, with a pillow that keeps",
+        "the neck neutral"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Loud snoring, gasping or",
+        "daytime sleepiness"
+      ],
+      [
+        "warrant a sleep study before",
+        "you seal anything shut"
+      ]
+    ],
+    "tip": [
+      "Start with the congestion, the allergies",
+      "and the sleeping position"
+    ],
+    "cta": "Want more practical health tips? Follow us!"
+  },
+  "cover_scrim_color": "#25335C"
+}

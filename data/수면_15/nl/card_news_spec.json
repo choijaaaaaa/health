@@ -1,0 +1,135 @@
+{
+  "title": [
+    "Elke ochtend een droge mond?",
+    "Het gaat niet om je waterinname,",
+    "maar om je neus.",
+    "3 oorzaken en wat wél helpt"
+  ],
+  "eyebrow": "Mondademhaling in de slaap",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "베개_illust.jpg",
+  "char_display_names": {
+    "베개_illust.jpg": "Kussen",
+    "물컵_illust.jpg": "Glas water",
+    "물방울_illust.jpg": "Vocht",
+    "긴장_illust.jpg": "Spieren",
+    "스마트폰_illust.jpg": "Media"
+  },
+  "items": [
+    {
+      "name": "Niet je waterinname",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Je tong plakt aan je gehemelte",
+        "en je keel voelt rauw",
+        "",
+        "Gebeurt dat élke ochtend, dan",
+        "stonden je lippen een groot",
+        "deel van de nacht open"
+      ]
+    },
+    {
+      "name": "Oorzaak 1: een verstopte neus",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Thuisarts.nl noemt bij snurken",
+        "een verstopte neus door",
+        "verkoudheid, allergie, neuspoliepen",
+        "of een scheef neustussenschot",
+        "",
+        "Zodra de neus dichtzit, kiest het",
+        "lichaam de bredere route"
+      ]
+    },
+    {
+      "name": "Oorzaak 2: op je rug slapen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Op je rug zakken de tong en",
+        "het zachte gehemelte",
+        "naar achteren",
+        "",
+        "Het eerste advies bij snurken",
+        "op Thuisarts.nl: slaap op je",
+        "buik of je zij, niet op je rug"
+      ]
+    },
+    {
+      "name": "Oorzaak 3: verslapte spieren",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Thuisarts.nl noemt verslapte",
+        "spieren door alcohol, slaappillen,",
+        "ouderdom of vermoeidheid",
+        "",
+        "Mannen, mensen met overgewicht",
+        "en ouderen hebben een grotere",
+        "kans op slaap-apneu"
+      ]
+    },
+    {
+      "name": "Wat een nacht mondademen doet",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Lucht via de neus komt op",
+        "lichaamstemperatuur, bevochtigd",
+        "en deels ontdaan van stof aan",
+        "",
+        "In een cross-overonderzoek uit",
+        "2016 daalde de gemiddelde pH in",
+        "de mond van 7,0 naar 6,6 tijdens",
+        "gedwongen mondademhaling"
+      ]
+    },
+    {
+      "name": "Geen tape, maar een verklaring",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Een systematische review uit 2025",
+        "vond in totaal tien onderzoeken",
+        "met 213 patiënten",
+        "",
+        "Twee lieten verbetering zien,",
+        "allebei uitsluitend bij een lichte",
+        "obstructieve slaapapneu",
+        "",
+        "Met een dichte neus haal je met",
+        "tape de laatste luchtweg weg"
+      ]
+    },
+    {
+      "name": "Wat wél helpt",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Neem de neus serieus: bij een lang",
+        "verstopte neus hoort een bezoek",
+        "aan de huisarts",
+        "",
+        "Slaap op je zij, met een kussen",
+        "dat de nek in lijn houdt",
+        "",
+        "Geen alcohol en geen slaappillen",
+        "voor de nacht"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Bij slaap-apneu stopt de adem",
+        "5 keer per uur of vaker"
+      ],
+      [
+        "telkens 10 seconden of langer,",
+        "met slaperigheid overdag"
+      ]
+    ],
+    "tip": [
+      "Bespreek het met je huisarts als je",
+      "snurkt of ademstops zijn gezien"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#25335C"
+}
