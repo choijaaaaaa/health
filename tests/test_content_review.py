@@ -230,3 +230,26 @@ def test_select_hook_pattern_returns_name_and_description_tuple():
     name, desc = select_hook_pattern("눈_1")
     assert isinstance(name, str) and name
     assert isinstance(desc, str) and desc
+
+
+# WHY(2026-08-30): 한국어 topic은 캡션 파일이 두 곳에 따로 있다 — flat은 네이버
+# 블로그로, ko/는 vernhaven blog_seo로 나간다. _topic_dir()이 ko/를 우선하는
+# 탓에 두 파일이 다 있는 topic에서 네이버 캡션은 어떤 검사도 안 받고 지나갔다.
+def test_blog_title_length_checks_both_flat_and_nested(tmp_path, monkeypatch):
+    monkeypatch.setattr(content_review, "ROOT", tmp_path)
+    topic = "커버리지_1"
+    naver = {"name": "네이버 블로그", "type": "text", "caption": "본문", "network": "naver"}
+
+    flat = tmp_path / "data" / topic
+    flat.mkdir(parents=True)
+    (flat / "platform_captions.json").write_text(
+        json.dumps({"title": "네" * 80, "platforms": [naver]}, ensure_ascii=False), encoding="utf-8")
+
+    nested = flat / "ko"
+    nested.mkdir()
+    (nested / "platform_captions.json").write_text(
+        json.dumps({"title": "코" * 30, "platforms": [naver]}, ensure_ascii=False), encoding="utf-8")
+
+    quotes = [i["quote"] for i in check_blog_title_length(topic)]
+    assert any(q.startswith("네") for q in quotes), "flat(네이버) 캡션이 검사에서 빠졌다"
+    assert all(not q.startswith("코") for q in quotes), "범위 안인 ko 제목이 잘못 잡혔다"

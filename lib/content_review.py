@@ -75,6 +75,23 @@ def _topic_dir(topic: str, lang: str = "kor") -> Path:
     return nested if nested.exists() else base
 
 
+def _caption_dirs(topic: str, lang: str = "kor") -> list[Path]:
+    """platform_captions.json을 검사할 디렉터리 전부.
+
+    WHY 하나가 아닌지(2026-08-30 실측): 한국어 topic은 캡션 파일이 두 곳에
+    따로 있고 나가는 곳도 다르다 — flat(data/<topic>/)은 네이버 블로그,
+    ko/ 폴더는 vernhaven blog_seo. _topic_dir()은 ko/가 있으면 무조건 그쪽만
+    보므로, 두 파일이 모두 있는 topic에서 네이버 캡션은 어떤 검사도 받지
+    않고 지나갔다. 실제로 네이버 캡션 16개를 새로 쓰는 동안 서브에이전트
+    셋이 각각 "content_review가 내 파일을 안 본다"고 따로 보고했다.
+    """
+    base = ROOT / "data" / topic
+    dirs = [_topic_dir(topic, lang)]
+    if lang == "kor" and base not in dirs and (base / "platform_captions.json").exists():
+        dirs.append(base)
+    return dirs
+
+
 def _lang_code(lang: str) -> str:
     """lang(예: "kor", "영어", "es")를 폴더 코드(예: "ko", "en", "es")로 정규화한다."""
     if lang == "kor":
@@ -172,8 +189,10 @@ def check_title_closing(topic: str, lang: str = "kor") -> list[dict]:
                 "severity": "medium",
             })
 
-    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
-    if caption_path.exists():
+    for caption_dir in _caption_dirs(topic, lang):
+        caption_path = caption_dir / "platform_captions.json"
+        if not caption_path.exists():
+            continue
         blog_title = json.loads(caption_path.read_text(encoding="utf-8")).get("title", "")
         tail = blog_title.rsplit(" - ", 1)[-1] if " - " in blog_title else blog_title
         if _is_generic_cta(tail):
@@ -191,22 +210,25 @@ def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
     검사한다(2026-08-10 최초 25~40자 확정 → 2026-08-12 실측 위반율 67%로
     너무 빡빡하다는 판단에 25~50자로 완화). 네이버 블로그·티스토리가 없는
     topic(글로벌 등)은 대상 아님."""
-    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
-    if not caption_path.exists():
-        return []
-    spec = json.loads(caption_path.read_text(encoding="utf-8"))
-    has_blog = any(p.get("name") in ("네이버 블로그", "티스토리") for p in spec.get("platforms", []))
-    if not has_blog:
-        return []
-    title = spec.get("title", "")
-    length = len(title)
-    if BLOG_TITLE_MIN_LENGTH <= length <= BLOG_TITLE_MAX_LENGTH:
-        return []
-    return [{
-        "quote": title,
-        "issue": f'블로그 제목이 {length}자입니다 — {BLOG_TITLE_MIN_LENGTH}~{BLOG_TITLE_MAX_LENGTH}자 사이로 맞추세요.',
-        "severity": "medium",
-    }]
+    issues: list[dict] = []
+    for caption_dir in _caption_dirs(topic, lang):
+        caption_path = caption_dir / "platform_captions.json"
+        if not caption_path.exists():
+            continue
+        spec = json.loads(caption_path.read_text(encoding="utf-8"))
+        has_blog = any(p.get("name") in ("네이버 블로그", "티스토리") for p in spec.get("platforms", []))
+        if not has_blog:
+            continue
+        title = spec.get("title", "")
+        length = len(title)
+        if BLOG_TITLE_MIN_LENGTH <= length <= BLOG_TITLE_MAX_LENGTH:
+            continue
+        issues.append({
+            "quote": title,
+            "issue": f'블로그 제목이 {length}자입니다 — {BLOG_TITLE_MIN_LENGTH}~{BLOG_TITLE_MAX_LENGTH}자 사이로 맞추세요.',
+            "severity": "medium",
+        })
+    return issues
 
 
 
