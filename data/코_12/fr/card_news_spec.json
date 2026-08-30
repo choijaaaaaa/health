@@ -1,0 +1,143 @@
+{
+  "title": [
+    "L'effet dure moins et le nez est plus",
+    "bouché qu'au premier jour du rhume",
+    "La durée maximale du RCP"
+  ],
+  "eyebrow": "Spray décongestionnant",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Spray nasal",
+    "알약_illust.jpg": "Vasoconstricteur",
+    "긴장_illust.jpg": "Effet rebond",
+    "소금_illust.jpg": "Sérum physiologique",
+    "물방울_illust.jpg": "Mesures de confort"
+  },
+  "items": [
+    {
+      "name": "Ce n'est plus le rhume",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Au bout de quelques jours, l'effet",
+        "dure moins longtemps et sans le",
+        "flacon le nez est plus bouché qu'au",
+        "premier jour du rhume",
+        "",
+        "À ce stade, ce n'est plus le rhume",
+        "qui obstrue le nez, c'est le",
+        "traitement"
+      ]
+    },
+    {
+      "name": "Ce que dit le RCP de l'ANSM",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Le RCP d'ATURGYL 0,05 % (chlorhydrate",
+        "d'oxymétazoline) le décrit comme un",
+        "\"traitement local de courte durée des",
+        "états congestifs aigus\"",
+        "",
+        "Le produit resserre les vaisseaux de",
+        "la muqueuse, celle-ci dégonfle,",
+        "l'air passe",
+        "",
+        "L'inflammation n'a pas été traitée"
+      ]
+    },
+    {
+      "name": "La rhinite iatrogène",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "\"En cas d'utilisation prolongée, ce",
+        "médicament peut augmenter les",
+        "symptômes de congestion nasale par",
+        "hypertrophie de la muqueuse nasale",
+        "(appelée rhinite iatrogène)\"",
+        "",
+        "Le RCP ajoute une \"réduction de",
+        "l'effet par un phénomène de",
+        "tachyphylaxie\", et cite la dépendance"
+      ]
+    },
+    {
+      "name": "3 à 5 jours maximum",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Posologie d'ATURGYL : \"1 pulvérisation",
+        "dans chaque narine, 2 à 3 fois par",
+        "jour. La durée maximale du traitement",
+        "est de 3 à 5 jours.\"",
+        "",
+        "Cette fourchette est française : sur",
+        "la même classe, la notice allemande",
+        "fixe 7 jours et l'étiquette",
+        "américaine 3 jours"
+      ]
+    },
+    {
+      "name": "L'âge et les associations",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Ce spray est réservé à l'adulte et à",
+        "l'adolescent de plus de 15 ans :",
+        "l'enfant de moins de 15 ans figure",
+        "dans les contre-indications",
+        "",
+        "Le RCP contre-indique l'association",
+        "de deux décongestionnants \"quelle que",
+        "soit la voie\" : jamais un comprimé",
+        "et un spray en même temps"
+      ]
+    },
+    {
+      "name": "Le rhume passe tout seul",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "L'ANSM le rappelle : \"le rhume guérit",
+        "spontanément en 7 à 10 jours sans",
+        "traitement\"",
+        "",
+        "Le sérum physiologique ne contient",
+        "aucun vasoconstricteur : il n'existe",
+        "donc pas de récepteur sur lequel une",
+        "tachyphylaxie pourrait s'installer"
+      ]
+    },
+    {
+      "name": "Les mesures de confort",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "L'ANSM liste : humidifier l'intérieur",
+        "du nez avec du sérum physiologique,",
+        "de l'eau thermale ou de l'eau de mer",
+        "",
+        "Boire suffisamment, dormir la tête",
+        "surélevée, maintenir 18-20 °C au",
+        "maximum et aérer régulièrement",
+        "",
+        "Si vous dépassez la durée indiquée,",
+        "l'arrêt ne s'improvise pas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ce n'est plus le rhume :",
+        "c'est le spray qui bouche le nez"
+      ],
+      [
+        "3 à 5 jours maximum,",
+        "2 à 3 pulvérisations par jour"
+      ]
+    ],
+    "tip": [
+      "Depuis quelle date pulvérisez-vous ?",
+      "Pas \"jusqu'au flacon vide\""
+    ],
+    "cta": "Envie de plus de conseils santé ? Suivez-nous !"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

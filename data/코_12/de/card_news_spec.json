@@ -1,0 +1,134 @@
+{
+  "title": [
+    "Das Spray hält kürzer, die Nase ist",
+    "dichter als am ersten Erkältungstag",
+    "Die 7-Tage-Frist"
+  ],
+  "eyebrow": "Abschwellendes Nasenspray",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Nasenspray",
+    "알약_illust.jpg": "Wirkstoff",
+    "긴장_illust.jpg": "Dauergebrauch",
+    "소금_illust.jpg": "Kochsalzlösung",
+    "물방울_illust.jpg": "Mitzählen"
+  },
+  "items": [
+    {
+      "name": "Nicht mehr der Schnupfen",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Das Spray hält nicht mehr so lange,",
+        "und ohne Spray ist die Nase dichter",
+        "als am Anfang der Erkältung",
+        "",
+        "Dann ist das nicht der Schnupfen,",
+        "sondern das Medikament"
+      ]
+    },
+    {
+      "name": "So wirkt Xylometazolin",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Xylometazolin ist ein direktes",
+        "alpha-Sympathomimetikum: es lässt",
+        "die Gefäßmuskulatur der Schleimhaut",
+        "kontrahieren, die Nase wird frei",
+        "",
+        "Laut Gelber Liste wirkt es innerhalb",
+        "weniger Minuten und hält im Schnitt",
+        "6 bis 8 Stunden",
+        "",
+        "Behandelt wird dabei nichts"
+      ]
+    },
+    {
+      "name": "Was bei Dauergebrauch passiert",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Die Gelbe Liste: bei längerer",
+        "Anwendung und Überdosierung kann",
+        "die Wirkung nachlassen",
+        "",
+        "Als Folge nennt sie eine reaktive",
+        "Hyperämie der Nasenschleimhaut",
+        "(Rhinitis medicamentosa) sowie eine",
+        "Atrophie der Schleimhaut"
+      ]
+    },
+    {
+      "name": "Was der Beipackzettel sagt",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "NasenSpray-ratiopharm, Abschnitt",
+        "\"Dauer der Anwendung\": darf nicht",
+        "länger als 7 Tage angewendet",
+        "werden, es sei denn auf",
+        "ärztliche Anordnung",
+        "",
+        "Auf Oxymetazolin stehen in den USA",
+        "3 Tage, in Frankreich 3 bis 5 Tage"
+      ]
+    },
+    {
+      "name": "Zwei überlesene Details",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Die 7 Tage gelten pro",
+        "Anwendungsphase, nicht pro Flasche",
+        "",
+        "Die 0,1-prozentigen Erwachsenen-",
+        "präparate sind für Kinder unter",
+        "6 Jahren nicht zugelassen"
+      ]
+    },
+    {
+      "name": "Kochsalzlösung statt Wirkstoff",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Salzhaltige Nasensprays und",
+        "Nasenspülungen enthalten kein",
+        "Sympathomimetikum, also gibt es",
+        "keinen Rezeptor, an dem sich eine",
+        "Toleranz entwickeln könnte",
+        "",
+        "Sie befreien die Nase weniger",
+        "spektakulär, und genau darin",
+        "liegt der Unterschied"
+      ]
+    },
+    {
+      "name": "Mitzählen statt schätzen",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Notieren Sie eine Woche lang Datum",
+        "und Anzahl der Sprühstöße - meist",
+        "höher als aus dem Gedächtnis",
+        "",
+        "Den Ausstieg entscheidet die Ärztin",
+        "oder der Arzt: ohne Spray können die",
+        "Beschwerden erst einmal zunehmen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht der Schnupfen, sondern",
+        "das Spray hält die Nase dicht"
+      ],
+      [
+        "7 Tage laut Beipackzettel,",
+        "danach entscheidet die Praxis"
+      ]
+    ],
+    "tip": [
+      "Flasche holen, den Abschnitt \"Dauer",
+      "der Anwendung\" lesen - zwei Minuten"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

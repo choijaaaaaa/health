@@ -1,0 +1,152 @@
+{
+  "title": [
+    "Effekten sitter kortare och näsan är",
+    "tätare än första förkylningsdagen",
+    "Gränsen på tio dagar"
+  ],
+  "eyebrow": "Avsvällande nässpray",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Nässpray",
+    "알약_illust.jpg": "Oximetazolin",
+    "긴장_illust.jpg": "Långvarigt bruk",
+    "소금_illust.jpg": "Koksaltlösning",
+    "물방울_illust.jpg": "Räkna"
+  },
+  "items": [
+    {
+      "name": "Inte förkylningen längre",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Efter ett tag känner många igen",
+        "mönstret: effekten sitter kortare,",
+        "och utan spray är näsan tätare än",
+        "den var första förkylningsdagen",
+        "",
+        "Då är det inte längre förkylningen",
+        "som täpper till näsan, utan",
+        "läkemedlet"
+      ]
+    },
+    {
+      "name": "Så fungerar sprayen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Produktresumén för Nezeril:",
+        "läkemedlet innehåller",
+        "\"oximetazolinhydroklorid, som är en",
+        "alfa-receptor-agonist med avsvällande",
+        "effekt\"",
+        "",
+        "Effekten åstadkoms genom",
+        "\"konstriktion av glatt muskulatur i",
+        "nässlemhinnans blodkärl\"",
+        "",
+        "Den kommer \"inom några minuter och",
+        "varar upp till 12 timmar\""
+      ]
+    },
+    {
+      "name": "3 saker vid långvarig användning",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "\"Vid användning under lång tid eller",
+        "vid överdosering kan Nezeril ge",
+        "nästäppa\"",
+        "",
+        "\"Långvarig eller överdriven",
+        "användning av läkemedlet kan orsaka",
+        "rhinitis medicamentosa\"",
+        "",
+        "1177: sprayerna \"kan då i stället ge",
+        "en nästäppa som kan vara svår att",
+        "bli av med\""
+      ]
+    },
+    {
+      "name": "Högst tio dagar i följd",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "1177 skriver: \"du ska inte använda",
+        "dem i mer än tio dagar i följd\"",
+        "",
+        "Produktresumén säger detsamma:",
+        "\"Nezeril nässpray bör användas högst",
+        "10 dagar i följd\"",
+        "",
+        "Tio dagar är en svensk siffra: den",
+        "franska anger 3 till 5 dagar, den",
+        "tyska och nederländska 7 dagar, den",
+        "amerikanska etiketten 3 dagar"
+      ]
+    },
+    {
+      "name": "Dosen är åldersuppdelad",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Från 2 år: 0,25 mg/ml, en sprayning",
+        "i vardera näsborren 2-3 gånger",
+        "per dygn",
+        "",
+        "Från 7 år: samma styrka men två",
+        "sprayningar",
+        "",
+        "Från 10 år: 0,5 mg/ml, två",
+        "sprayningar 2-3 gånger per dygn",
+        "",
+        "Preparatet är \"inte lämplig för barn",
+        "under 2 år\""
+      ]
+    },
+    {
+      "name": "Koksaltlösning i stället",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Saltlösning innehåller ingen",
+        "alfa-receptor-agonist, så det finns",
+        "ingen receptor där en rhinitis",
+        "medicamentosa kan byggas upp",
+        "",
+        "Den öppnar näsan långsammare och",
+        "mindre påtagligt - och det är hela",
+        "poängen"
+      ]
+    },
+    {
+      "name": "Räkna, gissa inte",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Skriv ned startdatum och antal doser",
+        "per dygn under en vecka - den brukar",
+        "bli högre än den man minns",
+        "",
+        "1177 påpekar att det också finns",
+        "nässprej med kortison, som \"du kan",
+        "använda under en längre tid\"",
+        "",
+        "Om det passar i ditt fall avgör",
+        "läkaren, inte du själv"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Inte förkylningen:",
+        "läkemedlet täpper till näsan"
+      ],
+      [
+        "Högst tio dagar i följd",
+        "enligt 1177 och produktresumén"
+      ]
+    ],
+    "tip": [
+      "Hämta flaskan och jämför raden om",
+      "antal dagar med ditt startdatum"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

@@ -1,0 +1,143 @@
+{
+  "title": [
+    "The spray lasts less and your nose",
+    "is more blocked than on day one",
+    "The 3-day label limit"
+  ],
+  "eyebrow": "Decongestant nasal spray",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Nasal spray",
+    "알약_illust.jpg": "Medication",
+    "긴장_illust.jpg": "Rebound",
+    "소금_illust.jpg": "Saline",
+    "물방울_illust.jpg": "Counting"
+  },
+  "items": [
+    {
+      "name": "It's not the cold anymore",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "A week in, the bottle empties faster",
+        "than it should and your nose feels",
+        "more blocked than when the cold",
+        "started",
+        "",
+        "That pattern has a name: rhinitis",
+        "medicamentosa, or rebound congestion"
+      ]
+    },
+    {
+      "name": "How the spray works",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "MedlinePlus says oxymetazoline",
+        "\"works by narrowing the blood vessels",
+        "in the nasal passages\", opening the",
+        "airway within minutes",
+        "",
+        "NIH StatPearls: the imidazoline",
+        "agents act mainly on α2-adrenergic",
+        "receptors",
+        "",
+        "The relief is mechanical, not curative"
+      ]
+    },
+    {
+      "name": "Why it stops lasting",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "StatPearls describes rebound",
+        "congestion as typically developing",
+        "after five to seven days of",
+        "continuous use",
+        "",
+        "Leading hypotheses: tachyphylaxis,",
+        "rebound vasodilation, and suppressed",
+        "noradrenaline release"
+      ]
+    },
+    {
+      "name": "3 days on the US label",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "The FDA-regulated Drug Facts panel",
+        "on DailyMed states: \"do not use for",
+        "more than 3 days\"",
+        "",
+        "It adds that \"frequent or prolonged",
+        "use may cause nasal congestion to",
+        "recur or worsen\"",
+        "",
+        "Three days is the US limit, not a",
+        "universal one - read your own label"
+      ]
+    },
+    {
+      "name": "Two details people miss",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "MedlinePlus: the spray is normally",
+        "used no more than twice in any",
+        "24-hour period",
+        "",
+        "And it should not be used in children",
+        "under 6 unless a doctor recommends it",
+        "",
+        "No improvement after three days? Stop",
+        "and call your doctor"
+      ]
+    },
+    {
+      "name": "Saline is the free option",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Saline contains no vasoconstrictor,",
+        "so the rebound mechanism does not",
+        "apply",
+        "",
+        "StatPearls notes saline irrigation",
+        "as an adjunct may improve symptoms",
+        "and reduce medication use",
+        "",
+        "It will not open a nose as fast -",
+        "which is why it makes no cycle"
+      ]
+    },
+    {
+      "name": "Don't design the taper",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Intranasal corticosteroids and a",
+        "planned taper - one nostril at a",
+        "time, or diluting with saline - are",
+        "clinician-chosen, not improvised",
+        "",
+        "StatPearls warns congestion may",
+        "temporarily worsen after stopping,",
+        "and this \"should not be mistaken for",
+        "treatment failure\""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "It is not the cold coming back -",
+        "it is the spray keeping you blocked"
+      ],
+      [
+        "The US label caps it at 3 days;",
+        "rebound builds over five to seven"
+      ]
+    ],
+    "tip": [
+      "Bring the actual bottle and an honest",
+      "count of how many times a day you use it"
+    ],
+    "cta": "Want more practical health tips? Follow us!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

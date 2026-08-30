@@ -1,0 +1,140 @@
+{
+  "title": [
+    "El efecto dura menos y la nariz está",
+    "más taponada que el primer día",
+    "El límite del prospecto"
+  ],
+  "eyebrow": "Descongestivo nasal",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Spray nasal",
+    "알약_illust.jpg": "Medicamento",
+    "긴장_illust.jpg": "Efecto rebote",
+    "소금_illust.jpg": "Suero fisiológico",
+    "물방울_illust.jpg": "Anotar"
+  },
+  "items": [
+    {
+      "name": "Ya no es el resfriado",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "A los pocos días aparece el mismo",
+        "patrón: el efecto dura menos y sin",
+        "el spray la nariz está más taponada",
+        "que el primer día del resfriado",
+        "",
+        "Llegado ese punto ya no obstruye el",
+        "resfriado, sino el propio medicamento"
+      ]
+    },
+    {
+      "name": "Qué hace el vasoconstrictor",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "El prospecto de Respir 0,5 mg/ml,",
+        "autorizado por la AEMPS, lo describe:",
+        "\"Oximetazolina administrada por la",
+        "nariz, produce constricción de los",
+        "vasos sanguíneos a nivel local,",
+        "descongestionando la mucosa nasal\"",
+        "",
+        "La inflamación de fondo sigue igual"
+      ]
+    },
+    {
+      "name": "Lo que dice la ficha técnica",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "\"El uso prolongado puede dar como",
+        "resultado un efecto rebote con",
+        "vasodilatación, congestión y rinitis",
+        "medicamentosa\"",
+        "",
+        "Entre las reacciones adversas figuran",
+        "\"aumento de la congestión nasal\",",
+        "\"hiperemia reactiva\" y \"congestión",
+        "de rebote\""
+      ]
+    },
+    {
+      "name": "Oximetazolina: 3 días",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Respir: 1 pulverización en cada fosa",
+        "nasal, \"máximo 2 veces al día\", sin",
+        "\"repetir a intervalos menores de",
+        "12 horas\"",
+        "",
+        "\"Si el paciente empeora o si los",
+        "síntomas persisten después de 3 días",
+        "de tratamiento, se debe suprimir el",
+        "tratamiento\"",
+        "",
+        "Contraindicado en menores de 6 años"
+      ]
+    },
+    {
+      "name": "Xilometazolina: 7 días",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "El prospecto de Snup es explícito:",
+        "\"Xilometazolina no debe utilizarse",
+        "durante más de 7 días, excepto por",
+        "indicación del médico\"",
+        "",
+        "El punto de parada no está redactado",
+        "igual para todos los descongestivos:",
+        "depende de la molécula"
+      ]
+    },
+    {
+      "name": "Suero fisiológico",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "El suero fisiológico y los lavados",
+        "nasales no contienen vasoconstrictor,",
+        "así que no existe el receptor sobre",
+        "el que pueda instaurarse el rebote",
+        "",
+        "Despejan menos y más despacio, y esa",
+        "es exactamente la diferencia"
+      ]
+    },
+    {
+      "name": "Anote, no calcule de memoria",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Anote durante una semana la fecha en",
+        "que empezó y cuántas pulverizaciones",
+        "hace al día",
+        "",
+        "Casi siempre sale un número más alto",
+        "que el recordado de memoria",
+        "",
+        "Mire también el excipiente: el",
+        "cloruro de benzalconio \"puede causar",
+        "irritación o inflamación\" en la nariz"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "No es el resfriado:",
+        "es el efecto rebote del spray"
+      ],
+      [
+        "3 días con oximetazolina,",
+        "7 días con xilometazolina"
+      ]
+    ],
+    "tip": [
+      "Lleve el envase y el número real",
+      "de pulverizaciones diarias"
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

@@ -1,0 +1,130 @@
+{
+  "title": [
+    "It is not your lunch",
+    "that flattens you at 2 p.m.",
+    "The body clock behind it"
+  ],
+  "eyebrow": "The afternoon dip",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "cover_scrim_color": "#14494F",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Body clock",
+    "흰빵_illust.jpg": "White bread",
+    "베개_illust.jpg": "Sleep",
+    "흰쌀밥_illust.jpg": "White rice",
+    "계란_illust.jpg": "Eggs",
+    "운동화_illust.jpg": "Walking"
+  },
+  "items": [
+    {
+      "name": "The blood-to-the-stomach story",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Digestion does increase blood flow",
+        "to the gut. The rest does not follow.",
+        "",
+        "The Sleep Foundation concludes that",
+        "scientific evidence has debunked the",
+        "myth, because cerebral autoregulation",
+        "keeps brain blood flow stable."
+      ]
+    },
+    {
+      "name": "The dip runs on a schedule",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "In a 2005 review in Clinics in Sports",
+        "Medicine, sleep researcher Timothy",
+        "Monk described the post-lunch dip as",
+        "having its roots in human biology.",
+        "",
+        "He tied it to a roughly 12-hour part",
+        "of the circadian system."
+      ]
+    },
+    {
+      "name": "Sleep debt does the rest",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "The dip shows up in some people even",
+        "without a meal, and is exacerbated by",
+        "a high-carbohydrate lunch.",
+        "",
+        "CDC's National Center for Health",
+        "Statistics reported that in 2024, 30.5%",
+        "of US adults slept under seven hours."
+      ]
+    },
+    {
+      "name": "Meal size is the clearest lever",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "In a 2012 crossover study in Physiology",
+        "and Behavior, Reyner and colleagues",
+        "restricted 12 young men to five hours",
+        "of sleep.",
+        "",
+        "A 922-calorie lunch beat a 305-calorie",
+        "one for lane drifting and sleepy EEG,",
+        "with the gap opening after 30 minutes."
+      ]
+    },
+    {
+      "name": "Protein blunts the route",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Research from Richard Wurtman's lab",
+        "found that as little as 5% of a meal's",
+        "calories from protein is enough to",
+        "block the shift that lets extra",
+        "tryptophan into the brain.",
+        "",
+        "Eggs, yogurt, fish or beans will do."
+      ]
+    },
+    {
+      "name": "Walk for a few minutes",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "A 2022 review and meta-analysis of",
+        "seven studies in Sports Medicine",
+        "found that breaking up sitting with",
+        "two to five minutes of light walking",
+        "every 20 to 30 minutes lowered",
+        "post-meal glucose and insulin."
+      ]
+    },
+    {
+      "name": "Daylight, and a short nap",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Bright light is the strongest input to",
+        "the circadian clock that is producing",
+        "the dip in the first place.",
+        "",
+        "If the dip lands at a predictable hour,",
+        "keeping a nap brief avoids waking",
+        "out of deep sleep groggy."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "The circadian dip would have",
+        "arrived with or without lunch."
+      ],
+      [
+        "A heavy meal deepens it, most",
+        "of all when you are short on sleep."
+      ]
+    ],
+    "tip": [
+      "Shrink the portion, add protein,",
+      "and walk a few minutes afterward."
+    ],
+    "cta": "Want more practical health tips? Follow along!"
+  }
+}

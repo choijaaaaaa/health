@@ -1,0 +1,130 @@
+{
+  "title": [
+    "A white lump you coughed up,",
+    "and the smell is way out of proportion?",
+    "3 habits that actually help"
+  ],
+  "eyebrow": "Tonsil stones and breath",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Saliva",
+    "소금_illust.jpg": "Salt water",
+    "물컵_illust.jpg": "Water",
+    "담배_illust.jpg": "Smoking",
+    "손가락_illust.jpg": "Fingers"
+  },
+  "items": [
+    {
+      "name": "It is not an infection",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "That lump is a tonsil stone, or",
+        "tonsillolith, and it is not a sign",
+        "that something is rotting",
+        "",
+        "It is compacted debris sitting in",
+        "the natural pockets on the surface",
+        "of your tonsils"
+      ]
+    },
+    {
+      "name": "What it is made of",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "A 2023 review describes them as",
+        "calcified accumulations of food,",
+        "cellular debris and microorganisms",
+        "in the tonsillar crypts",
+        "",
+        "Stones smaller than 5 mm are",
+        "common, larger ones are rare"
+      ]
+    },
+    {
+      "name": "How common is it?",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "A Japanese imaging study reviewed",
+        "the CT scans of 2,873 patients and",
+        "found tonsilloliths in 39.9%",
+        "",
+        "Mostly as incidental findings,",
+        "peaking between 50 and 69"
+      ]
+    },
+    {
+      "name": "Tongue first, then gargle",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Clean the back of your tongue with",
+        "a soft toothbrush, not just teeth,",
+        "and floss daily",
+        "",
+        "Then gargle warm salt water,",
+        "one teaspoon in a glass, after",
+        "meals"
+      ]
+    },
+    {
+      "name": "Stop your mouth drying out",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Saliva continuously rinses",
+        "the tonsil crypts",
+        "",
+        "When it dries up overnight or",
+        "during long stretches without",
+        "drinking, bacteria get an",
+        "easier run"
+      ]
+    },
+    {
+      "name": "Dehydration and smoking",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Cleveland Clinic lists dehydration",
+        "among the risk factors for",
+        "tonsil stones",
+        "",
+        "It puts staying hydrated and",
+        "quitting smoking on its",
+        "prevention list"
+      ]
+    },
+    {
+      "name": "Nothing sharp",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Do not go after a tonsil stone",
+        "with anything sharp",
+        "",
+        "None of the national health",
+        "services describe anything of",
+        "the sort",
+        "",
+        "They usually fall out on their own,",
+        "and antibiotics are not needed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "If a stone will not come loose,",
+        "that is a job for a clinic"
+      ],
+      [
+        "Tongue, salt water and a mouth",
+        "that never dries out do the work"
+      ]
+    ],
+    "tip": [
+      "Give it two or three weeks, then book",
+      "the appointment rather than a tool"
+    ],
+    "cta": "Want more practical health tips? Follow for more!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

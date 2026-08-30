@@ -1,0 +1,130 @@
+{
+  "title": [
+    "Non è il pranzo a stendervi,",
+    "è l'orologio biologico",
+    "Il calo del primo pomeriggio"
+  ],
+  "eyebrow": "Sonnolenza del pomeriggio",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_scrim_color": "#5C3B2A",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Orologio biologico",
+    "흰빵_illust.jpg": "Pane bianco",
+    "베개_illust.jpg": "Sonno",
+    "흰쌀밥_illust.jpg": "Riso bianco",
+    "계란_illust.jpg": "Uova",
+    "운동화_illust.jpg": "Camminata",
+    "커피_illust.jpg": "Caffè"
+  },
+  "items": [
+    {
+      "name": "Il mito del sangue allo stomaco",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Che la digestione aumenti il flusso di",
+        "sangue all'apparato digerente è vero.",
+        "È il passaggio successivo a essere",
+        "sbagliato.",
+        "",
+        "La Sleep Foundation conclude che le",
+        "prove hanno smentito il mito."
+      ]
+    },
+    {
+      "name": "Il calo segue un orario",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "In una rassegna del 2005 su Clinics in",
+        "Sports Medicine, Timothy Monk",
+        "descrive una flessione che affonda",
+        "le radici nella biologia umana.",
+        "",
+        "Forse è legata a una componente di",
+        "circa dodici ore del sistema circadiano."
+      ]
+    },
+    {
+      "name": "Il debito di sonno fa il resto",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Il calo compare in una parte delle",
+        "persone anche senza pranzo, ma viene",
+        "amplificato dai carboidrati.",
+        "",
+        "L'Istituto Superiore di Sanità ricorda",
+        "che un adulto ha bisogno in media di",
+        "sette-nove ore di sonno a notte."
+      ]
+    },
+    {
+      "name": "Conta la quantità",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "In uno studio crossover del 2012,",
+        "Reyner ha limitato dodici giovani",
+        "uomini a cinque ore di sonno.",
+        "",
+        "Con 922 kcal invece di 305 kcal sono",
+        "aumentate le uscite di corsia, dopo",
+        "una trentina di minuti di guida."
+      ]
+    },
+    {
+      "name": "Una proteina nel piatto",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "La ricerca del laboratorio di Richard",
+        "Wurtman ha mostrato che basta il 5%",
+        "delle calorie del pasto sotto forma di",
+        "proteine per bloccare lo squilibrio",
+        "che porta triptofano al cervello.",
+        "",
+        "Uova, legumi, pesce o formaggio."
+      ]
+    },
+    {
+      "name": "Camminare qualche minuto",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Una revisione sistematica del 2022 su",
+        "Sports Medicine, su sette studi, ha",
+        "rilevato che spezzare la seduta con",
+        "due-cinque minuti di cammino ogni",
+        "20-30 minuti abbassa glicemia e",
+        "insulinemia dopo il pasto."
+      ]
+    },
+    {
+      "name": "L'ora del caffè, non la dose",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Secondo la valutazione dell'EFSA, per",
+        "un adulto sano non destano",
+        "preoccupazioni dosi singole fino a",
+        "200 mg e fino a 400 mg distribuiti",
+        "nell'arco della giornata.",
+        "",
+        "Il caffè delle cinque accorcia la notte."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il calo circadiano sarebbe",
+        "arrivato con o senza pranzo."
+      ],
+      [
+        "Il segnale più chiaro è venuto",
+        "dal carico calorico, non da un cibo."
+      ]
+    ],
+    "tip": [
+      "Porzione più piccola, una proteina",
+      "nel piatto e due passi dopo pranzo."
+    ],
+    "cta": "Vuoi altri consigli pratici di salute? Seguici!"
+  }
+}

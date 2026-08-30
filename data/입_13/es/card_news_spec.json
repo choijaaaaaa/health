@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Una bolita blanca al toser,",
+    "¿y un olor que no va con su tamaño?",
+    "3 hábitos que sí están recomendados"
+  ],
+  "eyebrow": "Cálculos amigdalinos",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Saliva",
+    "소금_illust.jpg": "Agua con sal",
+    "물컵_illust.jpg": "Agua",
+    "담배_illust.jpg": "Tabaco",
+    "손가락_illust.jpg": "Dedos"
+  },
+  "items": [
+    {
+      "name": "No es una infección",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "No es una amigdalitis que empieza:",
+        "son cálculos amigdalinos",
+        "",
+        "Restos compactados dentro de los",
+        "pequeños huecos naturales de la",
+        "superficie de las amígdalas"
+      ]
+    },
+    {
+      "name": "Qué hay dentro",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Una revisión de 2023 los describe",
+        "como acumulaciones calcificadas de",
+        "restos de comida, detritos",
+        "celulares y microorganismos",
+        "",
+        "La profundidad de las criptas",
+        "varía de una persona a otra"
+      ]
+    },
+    {
+      "name": "No son nada raros",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Un estudio revisó las TC de",
+        "2.873 pacientes y encontró",
+        "tonsilolitos en el 39,9%",
+        "",
+        "Casi siempre como hallazgo casual,",
+        "con un máximo entre los 50 y",
+        "los 69 años"
+      ]
+    },
+    {
+      "name": "Lengua y agua con sal",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Limpia la lengua, no solo los",
+        "dientes: cepilla también la parte",
+        "posterior con cepillo o raspador",
+        "",
+        "Y haz gárgaras con una cucharadita",
+        "de sal en un vaso de agua",
+        "después de las comidas"
+      ]
+    },
+    {
+      "name": "Evita que se te seque la boca",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "La saliva enjuaga continuamente",
+        "las criptas",
+        "",
+        "Beber de forma regular a lo largo",
+        "del día es la versión más simple",
+        "de esa misma idea"
+      ]
+    },
+    {
+      "name": "Menos saliva, más bacterias",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Estas bacterias también pueden",
+        "crecer en exceso por una",
+        "disminución del flujo de saliva,",
+        "por enfermedades o fármacos",
+        "",
+        "Dejar el tabaco es una de las",
+        "primeras medidas correctoras"
+      ]
+    },
+    {
+      "name": "Nada puntiagudo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "No hurgues en la amígdala con un",
+        "objeto puntiagudo",
+        "",
+        "En ninguna de las fuentes citadas",
+        "aparece nada parecido",
+        "",
+        "Suelen desprenderse solos y no",
+        "requieren antibióticos"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Los cálculos se manejan",
+        "con actitud expectante"
+      ],
+      [
+        "Lengua, gárgaras y boca",
+        "húmeda: las tres medidas"
+      ]
+    ],
+    "tip": [
+      "Dale dos o tres semanas; si sigue igual,",
+      "pide cita en vez de buscar un utensilio"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

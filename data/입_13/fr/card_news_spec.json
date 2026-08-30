@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Une petite boule blanche remontée",
+    "en toussant, et une odeur sans commune mesure ?",
+    "3 gestes qui changent vraiment quelque chose"
+  ],
+  "eyebrow": "Caséum amygdalien",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Salive",
+    "소금_illust.jpg": "Eau salée",
+    "물컵_illust.jpg": "Eau",
+    "담배_illust.jpg": "Tabac",
+    "손가락_illust.jpg": "Doigts"
+  },
+  "items": [
+    {
+      "name": "Ce n'est pas une angine",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Ce n'est pas une infection :",
+        "c'est du caséum",
+        "",
+        "Un dépôt compacté logé dans les",
+        "petites cavités naturelles de la",
+        "surface des amygdales"
+      ]
+    },
+    {
+      "name": "Ce qu'il y a dedans",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Une revue de 2023 décrit des",
+        "accumulations calcifiées de",
+        "résidus alimentaires, de débris",
+        "cellulaires et de micro-organismes",
+        "",
+        "La profondeur des cryptes varie",
+        "d'une personne à l'autre"
+      ]
+    },
+    {
+      "name": "Un phénomène banal",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Une étude a repris les scanners de",
+        "2 873 patients : des amygdalolithes",
+        "chez 39,9 % d'entre eux",
+        "",
+        "Le plus souvent de façon fortuite,",
+        "avec un pic entre 50 et 69 ans"
+      ]
+    },
+    {
+      "name": "La langue, puis le gargarisme",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Brosser la langue chaque jour, de",
+        "l'arrière vers l'avant, avec une",
+        "brosse souple, pas seulement les dents",
+        "",
+        "Puis une cuillère à café de sel",
+        "dans un verre d'eau, en gargarisme",
+        "après les repas"
+      ]
+    },
+    {
+      "name": "Ne pas laisser la bouche s'assécher",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "La salive rince en permanence",
+        "les cryptes",
+        "",
+        "VIDAL conseille de boire au moins",
+        "un litre et demi d'eau par jour et",
+        "de favoriser la salivation avec des",
+        "chewing-gums sans sucre"
+      ]
+    },
+    {
+      "name": "La bouche sèche et le tabac",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "VIDAL cite la bouche sèche parmi",
+        "les causes de mauvaise haleine,",
+        "au même titre que le tabac",
+        "",
+        "Dans 85 à 90 % des cas, l'haleine",
+        "vient de bactéries de la bouche,",
+        "surtout sur la langue"
+      ]
+    },
+    {
+      "name": "Rien de pointu",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ne grattez pas l'amygdale avec un",
+        "objet pointu",
+        "",
+        "Aucune des sources officielles ne",
+        "décrit quoi que ce soit de ce genre",
+        "",
+        "Ils finissent le plus souvent par",
+        "tomber seuls, sans antibiotiques"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Les amygdalolithes",
+        "se surveillent"
+      ],
+      [
+        "Langue, eau salée et bouche",
+        "humide : voilà le vrai geste"
+      ]
+    ],
+    "tip": [
+      "Rien ne change malgré une bonne",
+      "hygiène ? Prenez rendez-vous"
+    ],
+    "cta": "Envie de plus de conseils santé concrets ? Abonnez-vous !"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

@@ -1,0 +1,148 @@
+{
+  "title": [
+    "De spray werkt korter en je neus zit",
+    "voller dan aan het begin",
+    "De grens van 7 dagen"
+  ],
+  "eyebrow": "Xylometazoline neusspray",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Neusspray",
+    "알약_illust.jpg": "Xylometazoline",
+    "긴장_illust.jpg": "Gewenning",
+    "소금_illust.jpg": "Zoutoplossing",
+    "물방울_illust.jpg": "Tellen"
+  },
+  "items": [
+    {
+      "name": "Niet de verkoudheid",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Na een dag of wat merken veel mensen",
+        "hetzelfde: het werkt korter, en",
+        "zonder spray zit je neus voller dan",
+        "aan het begin van de verkoudheid",
+        "",
+        "Op dat moment is het niet meer de",
+        "verkoudheid die je neus dichtzet,",
+        "maar het medicijn"
+      ]
+    },
+    {
+      "name": "Wat de vaatvernauwer doet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "De bijsluiter van Xylometazoline HCl",
+        "neusspray FNA: het middel \"vernauwt",
+        "de bloedvaatjes in de slijmvliezen",
+        "van de neus. Hierdoor vermindert de",
+        "zwelling, waardoor u weer beter door",
+        "de neus kunt ademen\"",
+        "",
+        "Er wordt niets behandeld - de",
+        "zwelling wordt tijdelijk weggedrukt"
+      ]
+    },
+    {
+      "name": "3 dingen die na een week misgaan",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "\"Als u het langer gebruikt, kan uw",
+        "neusslijmvlies beschadigen\"",
+        "",
+        "\"Voortdurend een verstopte neus.",
+        "Hierdoor blijft het slijmvlies",
+        "gezwollen en heeft u steeds opnieuw",
+        "xylometazoline nodig\"",
+        "",
+        "\"U raakt dan gewend aan dit medicijn",
+        "en kunt niet makkelijk meer stoppen\""
+      ]
+    },
+    {
+      "name": "Niet langer dan 7 dagen",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "De KNMP schrijft op Apotheek.nl:",
+        "\"Gebruik het niet langer dan 7 dagen",
+        "achter elkaar. Anders raakt uw",
+        "neusslijmvlies beschadigd\"",
+        "",
+        "Die 7 dagen is een Nederlandse maat:",
+        "in Frankrijk staat 3 tot 5 dagen op",
+        "dezelfde stofgroep, op het",
+        "Amerikaanse etiket 3 dagen"
+      ]
+    },
+    {
+      "name": "Hoe vaak, en wanneer niet",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Apotheek.nl: \"Wacht na elke dosis ten",
+        "minste 8 tot 10 uur. Gebruik het niet",
+        "vaker dan 3 keer per dag\"",
+        "",
+        "De bijsluiter: alleen gebruiken \"als",
+        "de neus echt is verstopt en niet om",
+        "een neusverstopping te voorkomen\"",
+        "",
+        "\"Een gewone verkoudheid is binnen",
+        "2 weken over\""
+      ]
+    },
+    {
+      "name": "Zoutoplossing helpt wel",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "In een neusspray met zoutoplossing",
+        "zit geen vaatvernauwer, dus is er",
+        "ook geen receptor waarop gewenning",
+        "kan ontstaan",
+        "",
+        "De FNA-bijsluiter noemt een",
+        "zoutoplossing zelf als mogelijkheid",
+        "voor de klachten na het stoppen",
+        "",
+        "Hij maakt je neus minder spectaculair",
+        "vrij - dat is precies het verschil"
+      ]
+    },
+    {
+      "name": "Tellen in plaats van schatten",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Noteer een week lang de startdatum",
+        "en het aantal pufjes per dag - dat",
+        "valt meestal hoger uit dan je uit",
+        "je hoofd denkt",
+        "",
+        "Thuisarts.nl is eerlijk over stoppen:",
+        "\"zal het de eerste 5 tot 10 dagen",
+        "voelen alsof je neus verstopt is\"",
+        "",
+        "\"Lukt het niet om te stoppen?",
+        "Bespreek dit met je huisarts\""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Niet de verkoudheid:",
+        "het medicijn zet je neus dicht"
+      ],
+      [
+        "7 dagen achter elkaar,",
+        "8 tot 10 uur tussen de doses"
+      ]
+    ],
+    "tip": [
+      "Pak het flesje en leg de bijsluiter",
+      "naast de datum waarop je begon"
+    ],
+    "cta": "Meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

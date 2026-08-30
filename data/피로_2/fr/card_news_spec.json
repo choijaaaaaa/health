@@ -1,0 +1,130 @@
+{
+  "title": [
+    "Le coup de barre de 14 heures",
+    "ne vient pas de votre assiette",
+    "Ce qui le déclenche vraiment"
+  ],
+  "eyebrow": "Creux de l'après-midi",
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "En résumé",
+  "cover_scrim_color": "#2A4B3C",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Horloge interne",
+    "흰빵_illust.jpg": "Pain blanc",
+    "베개_illust.jpg": "Sommeil",
+    "흰쌀밥_illust.jpg": "Riz blanc",
+    "계란_illust.jpg": "Œufs",
+    "운동화_illust.jpg": "Marche",
+    "커피_illust.jpg": "Café"
+  },
+  "items": [
+    {
+      "name": "Le sang parti dans l'estomac",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "La digestion augmente bien le débit",
+        "sanguin digestif. La suite du",
+        "raisonnement est fausse.",
+        "",
+        "La Sleep Foundation américaine",
+        "conclut que les données scientifiques",
+        "ont réfuté ce mythe."
+      ]
+    },
+    {
+      "name": "Le creux suit un horaire",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Dans une synthèse de 2005 parue dans",
+        "Clinics in Sports Medicine, Timothy",
+        "Monk décrit un creux qui prend racine",
+        "dans la biologie humaine.",
+        "",
+        "Peut-être une composante d'environ",
+        "douze heures du système circadien."
+      ]
+    },
+    {
+      "name": "La dette de sommeil fait le reste",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Selon le dossier Sommeil de l'Inserm,",
+        "les adultes dorment en moyenne",
+        "6 heures 42 par 24 heures en semaine,",
+        "et 28 % sont en dette de sommeil.",
+        "",
+        "La sieste type dure 15 à 20 minutes,",
+        "plutôt en début d'après-midi."
+      ]
+    },
+    {
+      "name": "C'est la quantité qui pèse",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Dans une étude croisée de 2012,",
+        "Reyner a limité douze jeunes hommes",
+        "à cinq heures de sommeil.",
+        "",
+        "Un déjeuner de 922 kcal, contre",
+        "305 kcal, a multiplié les écarts de",
+        "trajectoire après trente minutes."
+      ]
+    },
+    {
+      "name": "Une protéine dans l'assiette",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Les recherches du laboratoire de",
+        "Richard Wurtman montrent que 5 %",
+        "seulement des calories du repas",
+        "apportées par des protéines suffisent",
+        "à bloquer le passage du tryptophane.",
+        "",
+        "Œuf, fromage, poisson, légumineuses."
+      ]
+    },
+    {
+      "name": "Marcher quelques minutes",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Une méta-analyse de sept études,",
+        "parue en 2022 dans Sports Medicine,",
+        "montre que fractionner la position",
+        "assise par deux à cinq minutes de",
+        "marche toutes les 20 à 30 minutes",
+        "abaisse la glycémie après le repas."
+      ]
+    },
+    {
+      "name": "Décaler le café, pas le compter",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "L'Anses souligne que la caféine retarde",
+        "l'endormissement et dégrade le sommeil,",
+        "avec des effets très variables.",
+        "",
+        "L'EFSA estime que des doses uniques",
+        "jusqu'à 200 mg ne posent pas de",
+        "problème chez l'adulte en bonne santé."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le creux circadien serait venu",
+        "avec ou sans déjeuner."
+      ],
+      [
+        "Le signal le plus net venait de",
+        "la charge calorique, pas d'un aliment."
+      ]
+    ],
+    "tip": [
+      "Allégez le déjeuner et marchez",
+      "dix minutes après le repas."
+    ],
+    "cta": "Envie d'autres conseils santé ? Suivez-nous !"
+  }
+}

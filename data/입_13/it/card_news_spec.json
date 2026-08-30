@@ -1,0 +1,127 @@
+{
+  "title": [
+    "Una pallina bianca con un colpo di tosse,",
+    "e un odore che non c'entra nulla con le dimensioni?",
+    "3 abitudini che aiutano davvero"
+  ],
+  "eyebrow": "Calcoli tonsillari",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Saliva",
+    "소금_illust.jpg": "Acqua salata",
+    "물컵_illust.jpg": "Acqua",
+    "담배_illust.jpg": "Fumo",
+    "손가락_illust.jpg": "Dita"
+  },
+  "items": [
+    {
+      "name": "Non è una tonsillite",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Non è un'infezione: sono calcoli",
+        "tonsillari",
+        "",
+        "Materiale compattato dentro le",
+        "piccole cavità naturali della",
+        "superficie delle tonsille"
+      ]
+    },
+    {
+      "name": "Che cosa c'è dentro",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Una revisione del 2023 li descrive",
+        "come accumuli calcificati di",
+        "residui di cibo, detriti cellulari",
+        "e microrganismi nelle cripte",
+        "",
+        "La profondità di quelle cripte",
+        "cambia da persona a persona"
+      ]
+    },
+    {
+      "name": "Non è affatto raro",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Uno studio ha riesaminato le TAC",
+        "di 2.873 pazienti e ha trovato",
+        "tonsilloliti nel 39,9% dei casi",
+        "",
+        "Quasi sempre come reperto",
+        "occasionale, con il massimo",
+        "tra i 50 e i 69 anni"
+      ]
+    },
+    {
+      "name": "Prima la lingua, poi i gargarismi",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Spazzolare anche la parte",
+        "posteriore della lingua, con uno",
+        "spazzolino o un raschietto",
+        "",
+        "Poi un cucchiaino di sale in un",
+        "bicchiere d'acqua, in gargarismo",
+        "dopo aver mangiato"
+      ]
+    },
+    {
+      "name": "Non far seccare la bocca",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "La saliva risciacqua di continuo",
+        "le cripte",
+        "",
+        "Bere con regolarità nell'arco",
+        "della giornata è la versione più",
+        "semplice dello stesso principio"
+      ]
+    },
+    {
+      "name": "Bocca secca e fumo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "I farmaci che causano bocca secca",
+        "rendono più difficile l'igiene",
+        "orale e favoriscono l'alito cattivo",
+        "",
+        "Smettere di fumare è tra i primi",
+        "interventi possibili"
+      ]
+    },
+    {
+      "name": "Niente oggetti appuntiti",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Non andate a scavare nella tonsilla",
+        "con un oggetto appuntito",
+        "",
+        "In nessuna delle fonti citate",
+        "c'è qualcosa del genere",
+        "",
+        "Nella maggior parte dei casi si",
+        "staccano da soli, senza antibiotici"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "I tonsilloliti si gestiscono",
+        "con un'attesa vigile"
+      ],
+      [
+        "Lingua, gargarismi e bocca",
+        "umida: è questo che dicono"
+      ]
+    ],
+    "tip": [
+      "Se dopo due o tre settimane non cambia",
+      "nulla, la visita ORL, non un attrezzo"
+    ],
+    "cta": "Vuoi altri consigli pratici sulla salute? Seguici!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

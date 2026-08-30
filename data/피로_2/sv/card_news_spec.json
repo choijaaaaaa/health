@@ -1,0 +1,130 @@
+{
+  "title": [
+    "Det är inte lunchen",
+    "utan dygnsrytmen",
+    "Fakta om eftermiddagsdippen"
+  ],
+  "eyebrow": "Trötthet efter lunch",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_scrim_color": "#365A7A",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Dygnsrytm",
+    "흰빵_illust.jpg": "Vitt bröd",
+    "베개_illust.jpg": "Sömn",
+    "흰쌀밥_illust.jpg": "Vitt ris",
+    "계란_illust.jpg": "Ägg",
+    "운동화_illust.jpg": "Promenad",
+    "커피_illust.jpg": "Kaffe"
+  },
+  "items": [
+    {
+      "name": "Myten om blodet i magen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Att matsmältningen ökar blodflödet",
+        "till mag-tarmkanalen stämmer. Det är",
+        "fortsättningen som inte följer.",
+        "",
+        "Amerikanska Sleep Foundation",
+        "konstaterar att vetenskapliga belägg",
+        "har motbevisat myten."
+      ]
+    },
+    {
+      "name": "Dippen följer en klocka",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "I en översikt publicerad 2005 i Clinics",
+        "in Sports Medicine beskrev Timothy",
+        "Monk svackan som ett fenomen med",
+        "rötter i människans biologi.",
+        "",
+        "Möjligen kopplat till en ungefär",
+        "tolvtimmarskomponent i dygnsrytmen."
+      ]
+    },
+    {
+      "name": "Sömnbristen står för resten",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Hos en del människor syns dippen",
+        "även utan lunch, men en kolhydratrik",
+        "måltid förstärker den tydligt.",
+        "",
+        "1177 räknar upp otillräcklig sömn,",
+        "sömnapné, stress, järnbrist och",
+        "läkemedel som vanliga orsaker."
+      ]
+    },
+    {
+      "name": "Mängden avgör mest",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "I en överkorsningsstudie från 2012",
+        "begränsade Reyner sömnen hos tolv",
+        "unga män till fem timmar.",
+        "",
+        "En tung lunch på 922 kcal gav fler",
+        "avvikelser ur körfältet än en lätt på",
+        "305 kcal, efter ungefär 30 minuter."
+      ]
+    },
+    {
+      "name": "Lägg till protein",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Forskning från Richard Wurtmans",
+        "laboratorium visade att redan 5 % av",
+        "måltidens kalorier från protein räcker",
+        "för att blockera den förskjutning som",
+        "släpper in extra tryptofan i hjärnan.",
+        "",
+        "Ägg, fisk, keso, bönor eller ost."
+      ]
+    },
+    {
+      "name": "Gå några minuter efter maten",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "En systematisk översikt med",
+        "metaanalys av sju studier, publicerad",
+        "2022 i Sports Medicine, visade att",
+        "avbrott i stillasittande med två till",
+        "fem minuters lugn promenad var",
+        "20 till 30 minuter sänker blodsockret."
+      ]
+    },
+    {
+      "name": "Flytta kaffet i tid",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Livsmedelsverket anger att en kopp",
+        "bryggkaffe på 15 centiliter innehåller",
+        "cirka 70 milligram koffein, och att",
+        "känsligheten varierar kraftigt.",
+        "",
+        "1177 råder dig att pröva dig fram till",
+        "hur sent du kan dricka kaffe."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dygnsrytmens dipp hade",
+        "kommit med eller utan lunch."
+      ],
+      [
+        "Den tydligaste signalen kom",
+        "från kalorimängden, inte ett livsmedel."
+      ]
+    ],
+    "tip": [
+      "1177 lyfter fram att promenader ute",
+      "i ljuset gör dig piggare på dagen."
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  }
+}

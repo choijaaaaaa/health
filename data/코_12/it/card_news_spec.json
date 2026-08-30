@@ -1,0 +1,144 @@
+{
+  "title": [
+    "L'effetto dura meno e il naso è più",
+    "chiuso di quando è iniziato tutto",
+    "3 limiti nel foglio illustrativo"
+  ],
+  "eyebrow": "Decongestionante nasale",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "cover_char_file": "비강스프레이_illust.jpg",
+  "char_display_names": {
+    "비강스프레이_illust.jpg": "Spray nasale",
+    "알약_illust.jpg": "Vasocostrittore",
+    "긴장_illust.jpg": "Assuefazione",
+    "소금_illust.jpg": "Soluzione salina"
+  },
+  "items": [
+    {
+      "name": "Non è più il raffreddore",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Dopo qualche giorno molti notano la",
+        "stessa cosa: l'effetto dura di meno",
+        "e, senza spray, il naso è più chiuso",
+        "di quando il raffreddore era iniziato",
+        "",
+        "A quel punto non è più il raffreddore",
+        "a chiudere il naso, ma il medicinale"
+      ]
+    },
+    {
+      "name": "Perché smette di funzionare",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "I decongestionanti contengono un",
+        "vasocostrittore: nafazolina,",
+        "ossimetazolina o xilometazolina",
+        "",
+        "Restringono i vasi della mucosa, il",
+        "gonfiore cala e l'aria passa",
+        "",
+        "L'infiammazione di partenza resta",
+        "dov'era: lo spray sposta un sintomo,",
+        "non cura la causa"
+      ]
+    },
+    {
+      "name": "Cosa dice AIFA sull'uso protratto",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "RINAZINA spray nasale (nafazolina):",
+        "\"L'uso protratto di vasocostrittori",
+        "può alterare la normale funzione",
+        "della mucosa del naso e dei seni",
+        "paranasali inducendo anche",
+        "assuefazione al farmaco\"",
+        "",
+        "RINAZINA DOPPIA AZIONE: \"L'uso",
+        "prolungato o eccessivo può causare",
+        "naso intasato o peggioramento e",
+        "gonfiore della mucosa nasale\""
+      ]
+    },
+    {
+      "name": "Limite 1: non oltre una settimana",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "\"In ogni caso, il trattamento non",
+        "deve essere protratto per oltre una",
+        "settimana\"",
+        "",
+        "Per RINAZINA DOPPIA AZIONE il limite",
+        "è \"non più di 7 giorni consecutivi\",",
+        "e conviene smettere appena i sintomi",
+        "migliorano, \"anche se è prima dei",
+        "7 giorni\""
+      ]
+    },
+    {
+      "name": "Limite 2: l'intervallo fra le dosi",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Per la formulazione doppia: una",
+        "nebulizzazione per narice fino a",
+        "3 volte al giorno, lasciando almeno",
+        "6 ore fra due dosi",
+        "",
+        "Ridurre l'intervallo perché \"non fa",
+        "più effetto\" è il primo passo del",
+        "problema, non la soluzione"
+      ]
+    },
+    {
+      "name": "Limite 3: sotto i 12 anni",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "RINAZINA spray nasale: \"Il medicinale",
+        "non deve essere assunto dai bambini",
+        "di età inferiore ai 12 anni\"",
+        "",
+        "La controindicazione arriva da una",
+        "Nota Informativa Importante",
+        "concordata con AIFA nel 2007, dopo",
+        "una rivalutazione del rapporto",
+        "beneficio/rischio sfavorevole"
+      ]
+    },
+    {
+      "name": "Cosa aiuta davvero",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "La soluzione salina non contiene",
+        "vasocostrittori, quindi non esiste il",
+        "recettore su cui possa instaurarsi",
+        "l'assuefazione",
+        "",
+        "Contare, non stimare: segnare per una",
+        "settimana la data di inizio e gli",
+        "spruzzi al giorno",
+        "",
+        "Il benzalconio cloruro \"può provocare",
+        "un rigonfiamento della mucosa nasale\""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Non è il raffreddore:",
+        "è il medicinale a chiudere il naso"
+      ],
+      [
+        "Una settimana è la misura italiana;",
+        "in Francia 3-5 giorni, negli USA 3"
+      ]
+    ],
+    "tip": [
+      "Prenda il flacone e confronti la data",
+      "di inizio con la durata sul foglietto"
+    ],
+    "cta": "Vuoi altri consigli pratici di salute? Seguici!"
+  },
+  "cover_scrim_color": "#2E5A6E"
+}

@@ -1,0 +1,131 @@
+{
+  "title": [
+    "Nicht das Essen macht müde,",
+    "sondern Ihre innere Uhr",
+    "Hebel gegen das Mittagstief"
+  ],
+  "eyebrow": "Mittagstief und innere Uhr",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_scrim_color": "#3B4A6B",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Innere Uhr",
+    "흰빵_illust.jpg": "Weißbrot",
+    "베개_illust.jpg": "Schlaf",
+    "흰쌀밥_illust.jpg": "Reis",
+    "계란_illust.jpg": "Ei",
+    "운동화_illust.jpg": "Bewegung",
+    "커피_illust.jpg": "Kaffee"
+  },
+  "items": [
+    {
+      "name": "Der Mythos vom Blut im Magen",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Die Verdauung erhöht wirklich die",
+        "Durchblutung des Magen-Darm-Trakts.",
+        "",
+        "Die US-amerikanische Sleep Foundation",
+        "hält aber fest, dass Belege den Mythos",
+        "widerlegt haben: Die zerebrale",
+        "Autoregulation schützt das Gehirn."
+      ]
+    },
+    {
+      "name": "Das Tief steht im Kalender",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Timothy Monk fasste die Studienlage",
+        "2005 zusammen: Das Tief wurzelt in",
+        "der menschlichen Biologie.",
+        "",
+        "Womöglich steckt eine etwa",
+        "zwölfstündige Komponente des",
+        "circadianen Systems dahinter."
+      ]
+    },
+    {
+      "name": "Die Nacht davor entscheidet mit",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bei einem Teil der Menschen zeigt sich",
+        "das Tief auch dann, wenn gar nicht",
+        "gegessen wurde.",
+        "",
+        "Ein Tief, das bei ausreichend Schlaf",
+        "nur ein Räuspern wäre, wird nach fünf",
+        "Stunden Schlaf zur Wand."
+      ]
+    },
+    {
+      "name": "Die Menge, nicht die Zutat",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Reyner und Kolleginnen beschränkten",
+        "2012 den Schlaf von zwölf jungen",
+        "Männern auf fünf Stunden.",
+        "",
+        "Nach 922 kcal statt 305 kcal häuften",
+        "sich Spurabweichungen im Simulator,",
+        "und zwar erst nach rund 30 Minuten."
+      ]
+    },
+    {
+      "name": "Eiweiß bremst das Tryptophan",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Nach Arbeiten aus dem Labor von",
+        "Richard Wurtman genügen schon 5 %",
+        "der Mahlzeitenkalorien aus Eiweiß,",
+        "um die Verschiebung zu blockieren.",
+        "",
+        "Ein Ei, Käse, Quark oder",
+        "Hülsenfrüchte reichen dafür aus."
+      ]
+    },
+    {
+      "name": "Ein paar Minuten gehen",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Eine Meta-Analyse von sieben Studien",
+        "erschien 2022 in Sports Medicine.",
+        "",
+        "Langes Sitzen alle 20 bis 30 Minuten",
+        "durch zwei bis fünf Minuten leichtes",
+        "Gehen unterbrechen senkt Blutzucker",
+        "und Insulin nach der Mahlzeit."
+      ]
+    },
+    {
+      "name": "Kaffee bewusst terminieren",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Für gesunde Erwachsene gelten",
+        "Einzeldosen bis 200 mg und bis",
+        "400 mg über den Tag verteilt als",
+        "unbedenklich, so das Bundesinstitut",
+        "für Risikobewertung.",
+        "",
+        "Fürs Mittagstief zählt der Zeitpunkt."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht der Teller entscheidet,",
+        "sondern die innere Uhr."
+      ],
+      [
+        "Das deutlichste Signal kam von",
+        "der Kalorienlast, nicht von Zutaten."
+      ]
+    ],
+    "tip": [
+      "Die DGE empfiehlt 30 g Ballaststoffe",
+      "am Tag: Vollkorn statt Weißmehl."
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Folgen Sie uns!"
+  }
+}

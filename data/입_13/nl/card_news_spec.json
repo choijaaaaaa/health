@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Een wit brokje dat je ophoest,",
+    "en een geur die niet bij dat formaat past?",
+    "3 gewoontes die echt helpen"
+  ],
+  "eyebrow": "Amandelsteentjes en adem",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Speeksel",
+    "소금_illust.jpg": "Zout water",
+    "물컵_illust.jpg": "Water",
+    "담배_illust.jpg": "Roken",
+    "손가락_illust.jpg": "Vingers"
+  },
+  "items": [
+    {
+      "name": "Het is geen ontsteking",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Het zijn amandelsteentjes:",
+        "samengeperst gruis in de",
+        "natuurlijke kuiltjes op je",
+        "keelamandelen",
+        "",
+        "Geen beginnende keelontsteking,",
+        "en de koorts komt dan ook nooit"
+      ]
+    },
+    {
+      "name": "Wat er echt in zit",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Een overzichtsartikel uit 2023",
+        "beschrijft ze als verkalkte",
+        "ophopingen van etensresten,",
+        "afgestorven cellen en micro-",
+        "organismen in de crypten",
+        "",
+        "Hoe diep die kuiltjes zijn",
+        "verschilt per persoon"
+      ]
+    },
+    {
+      "name": "Zeldzaam is het niet",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Onderzoek bekeek de CT-scans van",
+        "2.873 patiënten en vond bij 39,9%",
+        "amandelsteentjes",
+        "",
+        "Bijna altijd als toevalsbevinding,",
+        "met een piek tussen 50 en 69 jaar"
+      ]
+    },
+    {
+      "name": "Eerst de tong, dan gorgelen",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Haal het witte of gele laagje van",
+        "je tong met een tongschraper of",
+        "een zachte tandenborstel",
+        "",
+        "Gorgel daarna met een theelepel",
+        "zout in een glas water, na de",
+        "maaltijd"
+      ]
+    },
+    {
+      "name": "Laat je mond niet uitdrogen",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Speeksel spoelt de kuiltjes",
+        "voortdurend schoon",
+        "",
+        "'s Nachts en na lang niet eten",
+        "is de kans op een slechte adem",
+        "groter, juist omdat je mond",
+        "dan droog is"
+      ]
+    },
+    {
+      "name": "Stoppen met roken",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Het advies van Thuisarts.nl is",
+        "regelmatig drinken, drie maaltijden",
+        "per dag met hooguit vier kleine",
+        "tussendoortjes, stoppen met roken",
+        "en geen alcohol"
+      ]
+    },
+    {
+      "name": "Niets scherps",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ga niet met een scherp voorwerp",
+        "in je amandel zitten prikken",
+        "",
+        "In geen van de genoemde bronnen",
+        "staat iets vergelijkbaars",
+        "",
+        "Ze komen meestal vanzelf los en",
+        "er zijn geen antibiotica nodig"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Amandelsteentjes worden",
+        "afwachtend behandeld"
+      ],
+      [
+        "Tong, zout water en een",
+        "vochtige mond doen het werk"
+      ]
+    ],
+    "tip": [
+      "Verandert er na twee tot drie weken niets?",
+      "Dan je huisarts, niet een hulpstuk"
+    ],
+    "cta": "Wil je meer praktische gezondheidstips? Volg ons!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

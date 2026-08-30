@@ -1,0 +1,129 @@
+{
+  "title": [
+    "En vitaktig klump du hostar upp,",
+    "och en lukt som inte alls matchar storleken?",
+    "3 vanor som faktiskt hjälper"
+  ],
+  "eyebrow": "Tonsillstenar och andedräkt",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Saliv",
+    "소금_illust.jpg": "Saltvatten",
+    "물컵_illust.jpg": "Vatten",
+    "담배_illust.jpg": "Rökning",
+    "손가락_illust.jpg": "Fingrar"
+  },
+  "items": [
+    {
+      "name": "Det här är ingen infektion",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Vid halsfluss är halsmandlarna",
+        "röda med vita prickar, och du har",
+        "ont i halsen och feber",
+        "",
+        "Det du hittar i fickan är något",
+        "annat: hopklumpade rester i de",
+        "gropar ytan naturligt har"
+      ]
+    },
+    {
+      "name": "Vad en tonsillsten består av",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Förkalkade ansamlingar av",
+        "matrester, cellrester och",
+        "mikroorganismer i halsmandlarnas",
+        "djupa veck",
+        "",
+        "Att fickornas djup skiljer sig åt",
+        "är hela förklaringen till varför",
+        "vissa får proppar och andra aldrig"
+      ]
+    },
+    {
+      "name": "Ovanligt är det inte",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "En studie gick igenom",
+        "datortomografier av 2 873 patienter",
+        "och hittade tonsillstenar hos 39,9%",
+        "",
+        "Nästan alltid som bifynd, med en",
+        "topp mellan 50 och 69 år"
+      ]
+    },
+    {
+      "name": "Tungryggen först, sedan gurgling",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "En mjuk tandborste längst bak på",
+        "tungan, där luktbildande bakterier",
+        "samlas — inte bara tänderna",
+        "",
+        "Sedan en tesked salt i ett glas",
+        "vatten, gurgla efter maten"
+      ]
+    },
+    {
+      "name": "Låt inte munnen torka ut",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Saliven sköljer fickorna oavbrutet",
+        "",
+        "healthdirect tar med att dricka",
+        "tillräckligt bland åtgärderna mot",
+        "dålig andedräkt",
+        "",
+        "Suger du på tabletter är sockerfria",
+        "bäst för tänderna"
+      ]
+    },
+    {
+      "name": "Uttorkning och rökstopp",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Cleveland Clinic räknar upp",
+        "uttorkning bland riskfaktorerna",
+        "för tonsillstenar",
+        "",
+        "På listan över hur man minskar",
+        "risken står rökstopp"
+      ]
+    },
+    {
+      "name": "Peta inte med något vasst",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Peta inte i halsmandeln med",
+        "något vasst",
+        "",
+        "I ingen av källorna står något",
+        "liknande",
+        "",
+        "De lossnar oftast av sig själva",
+        "och antibiotika behövs inte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Tonsillstenar hanteras",
+        "avvaktande"
+      ],
+      [
+        "Tungrengöring, saltvatten",
+        "och en fuktig mun gör jobbet"
+      ]
+    ],
+    "tip": [
+      "Sitter lukten kvar efter två till tre",
+      "veckor: en tid hos vården, inte ett verktyg"
+    ],
+    "cta": "Vill du ha fler praktiska hälsotips? Följ oss!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

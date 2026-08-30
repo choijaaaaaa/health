@@ -1,0 +1,132 @@
+{
+  "title": [
+    "Ein weißer Krümel aus dem Hals,",
+    "und der Geruch passt gar nicht zur Größe?",
+    "3 Gewohnheiten, die wirklich helfen"
+  ],
+  "eyebrow": "Mandelsteine und Mundgeruch",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "cover_char_file": "물방울_illust.jpg",
+  "char_display_names": {
+    "물방울_illust.jpg": "Speichel",
+    "소금_illust.jpg": "Salzwasser",
+    "물컵_illust.jpg": "Wasser",
+    "담배_illust.jpg": "Rauchen",
+    "손가락_illust.jpg": "Finger"
+  },
+  "items": [
+    {
+      "name": "Keine Mandelentzündung",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Bei einer echten Mandelentzündung",
+        "sind die Mandeln gerötet und weiß",
+        "gepunktet, dazu kommen",
+        "Halsschmerzen und Fieber",
+        "",
+        "Was hier herausfällt, ist etwas",
+        "anderes: verdichteter Belag aus den",
+        "Vertiefungen der Mandeloberfläche"
+      ]
+    },
+    {
+      "name": "Was da wirklich drinsteckt",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Tonsillolithen sind verkalkte",
+        "Ansammlungen aus Speiseresten,",
+        "abgestorbenen Zellen und",
+        "Mikroorganismen in den",
+        "Mandelkrypten",
+        "",
+        "Wie tief diese Buchten sind, ist",
+        "von Mensch zu Mensch verschieden"
+      ]
+    },
+    {
+      "name": "Wie häufig ist das?",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Eine Studie der Universität",
+        "Tokushima sah 2.873 CT-Aufnahmen",
+        "durch und fand bei 39,9%",
+        "Mandelsteine",
+        "",
+        "Meist als Zufallsbefund, mit einem",
+        "Gipfel zwischen 50 und 69 Jahren"
+      ]
+    },
+    {
+      "name": "Zunge mitreinigen und gurgeln",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Nicht nur die Zähne putzen: auch",
+        "die ganze Zunge mit Zahnbürste",
+        "oder Zungenschaber bürsten",
+        "",
+        "Gurgeln mit Salzwasser, am besten",
+        "nach dem Essen, nennen IQWiG und",
+        "gesund.bund.de als Hausmittel"
+      ]
+    },
+    {
+      "name": "Mund feucht halten",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Speichel spült die Mandelbuchten",
+        "fortwährend aus",
+        "",
+        "Regelmäßig trinken steht deshalb",
+        "bei praktisch allen Empfehlungen",
+        "mit auf der Liste"
+      ]
+    },
+    {
+      "name": "Rauchen aufgeben",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Auch das Rauchen aufgeben gehört",
+        "zu diesen Empfehlungen",
+        "",
+        "Die Bakterien können außerdem bei",
+        "nachlassendem Speichelfluss zu",
+        "wuchern beginnen, etwa durch",
+        "Erkrankungen oder Medikamente"
+      ]
+    },
+    {
+      "name": "Nicht mit spitzen Gegenständen",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Stochern Sie nicht mit spitzen",
+        "Gegenständen an der Mandel herum",
+        "",
+        "In keiner offiziellen Quelle steht",
+        "etwas Vergleichbares",
+        "",
+        "Tonsillolithen werden abwartend",
+        "behandelt und fallen meist von",
+        "selbst heraus"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ausdrücken holt den Klumpen,",
+        "nicht die tiefen Buchten"
+      ],
+      [
+        "Zunge, Salzwasser und ein",
+        "feuchter Mund helfen mehr"
+      ]
+    ],
+    "tip": [
+      "Bleiben Geruch oder Steine nach zwei",
+      "bis drei Wochen: ab in die HNO-Praxis"
+    ],
+    "cta": "Mehr praktische Gesundheitstipps? Jetzt folgen!"
+  },
+  "cover_scrim_color": "#4C6E5D"
+}

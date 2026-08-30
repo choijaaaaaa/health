@@ -1,0 +1,130 @@
+{
+  "title": [
+    "No es la comida:",
+    "es tu reloj biológico",
+    "Claves del bajón de las tres"
+  ],
+  "eyebrow": "Bajón de la tarde",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "cover_scrim_color": "#7A3352",
+  "cover_char_file": "시계_illust.jpg",
+  "char_display_names": {
+    "시계_illust.jpg": "Reloj biológico",
+    "흰빵_illust.jpg": "Pan blanco",
+    "베개_illust.jpg": "Sueño",
+    "흰쌀밥_illust.jpg": "Arroz blanco",
+    "계란_illust.jpg": "Huevo",
+    "운동화_illust.jpg": "Caminar",
+    "커피_illust.jpg": "Café"
+  },
+  "items": [
+    {
+      "name": "El mito de la sangre al estómago",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Que la digestión aumenta el riego del",
+        "aparato digestivo es cierto. Lo demás",
+        "no se deduce de ahí.",
+        "",
+        "La Sleep Foundation concluye que la",
+        "evidencia ha desmentido el mito: la",
+        "autorregulación cerebral protege."
+      ]
+    },
+    {
+      "name": "El bajón sigue un horario",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "En una revisión de 2005 en Clinics in",
+        "Sports Medicine, Timothy Monk lo",
+        "describió como un fenómeno con",
+        "raíces en la biología humana.",
+        "",
+        "Lo ligó a un componente de unas",
+        "doce horas del sistema circadiano."
+      ]
+    },
+    {
+      "name": "La deuda de sueño hace el resto",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "El bajón aparece en parte de las",
+        "personas incluso sin haber comido,",
+        "y se agrava con mucha carga de",
+        "hidratos.",
+        "",
+        "Llevadero con ocho horas de sueño,",
+        "se convierte en un muro con seis."
+      ]
+    },
+    {
+      "name": "La cantidad es lo que pesa",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "En un estudio cruzado de 2012 en",
+        "Physiology and Behavior, Reyner limitó",
+        "a doce hombres jóvenes a cinco horas.",
+        "",
+        "Con 922 kcal en vez de 305 kcal",
+        "aumentaron las salidas de carril,",
+        "tras unos 30 minutos de conducción."
+      ]
+    },
+    {
+      "name": "La proteína corta la vía",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "El laboratorio de Richard Wurtman",
+        "mostró que basta con que el 5% de",
+        "las calorías venga de proteínas para",
+        "bloquear la entrada extra de",
+        "triptófano al cerebro.",
+        "",
+        "Huevo, legumbre, pescado o queso."
+      ]
+    },
+    {
+      "name": "Camina unos minutos",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Una revisión con metaanálisis de siete",
+        "estudios, publicada en 2022 en Sports",
+        "Medicine, halló que romper el tiempo",
+        "sentado con dos a cinco minutos de",
+        "marcha suave cada 20 o 30 minutos",
+        "baja la glucosa y la insulina."
+      ]
+    },
+    {
+      "name": "La siesta y la hora del café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La Sociedad Española de Sueño",
+        "recomienda limitar la siesta a 20-30",
+        "minutos tras la comida.",
+        "",
+        "La EFSA considera sin problemas",
+        "dosis únicas de hasta 200 mg y",
+        "hasta 400 mg repartidos en el día."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El bajón circadiano habría",
+        "llegado con comida o sin ella."
+      ],
+      [
+        "La señal más clara vino de la",
+        "carga calórica, no de un alimento."
+      ]
+    ],
+    "tip": [
+      "Mueve el café de hora: el de las seis",
+      "recorta la noche y ahonda el bajón."
+    ],
+    "cta": "¿Quieres más consejos de salud? ¡Síguenos!"
+  }
+}
