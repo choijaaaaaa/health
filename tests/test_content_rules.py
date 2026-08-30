@@ -688,3 +688,50 @@ def test_no_known_false_claims(topic):
         f"data/_audit/ko_known_issues.json 참고\n  "
         + "\n  ".join(result["regressions"])
     )
+
+
+# ---------------------------------------------------------------------------
+# 규칙 12: blog_seo 언어 커버리지 (2026-08-30)
+#
+# CLAUDE.md "블로그 SEO 서브트랙" 절은 "완료 기준 = 8개 언어 blog_seo 전부"로
+# 정해뒀지만 이걸 확인하는 자동 검사가 없었다. 실측해보니 규칙은 지켜지고
+# 있었으나(48개 topic 전부 8개 언어), 확인은 매번 사람이 손으로 세는 방식이라
+# 한 언어가 빠진 채 "완료"로 넘어가도 아무도 모르는 상태였다 — 실제로 vernhaven
+# ko 큐가 다른 언어보다 한 달 먼저 마르는 걸 사람이 아니라 이 종류의 전수
+# 집계로 처음 발견했다.
+#
+# ko는 이 검사 대상이 아니다 — 블로그 서브트랙 언어 범위에서 의도적으로 빠져
+# 있고(같은 절), ko가 있는 topic은 영상 트랙에서 따로 만들어진 것이다.
+# ---------------------------------------------------------------------------
+
+BLOG_SEO_REQUIRED_LANGS = ("de", "en", "es", "fr", "it", "ja", "nl", "sv")
+
+
+def _topics_with_blog_seo() -> dict[str, set[str]]:
+    found: dict[str, set[str]] = {}
+    for combo in TOPICS:
+        if "/" not in combo:
+            continue
+        base, lang = combo.split("/", 1)
+        path = DATA_DIR / base / lang / "platform_captions.json"
+        try:
+            spec = json.loads(path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError):
+            continue
+        if _blog_seo_platforms(spec):
+            found.setdefault(base, set()).add(lang)
+    return found
+
+
+BLOG_SEO_TOPICS = sorted(_topics_with_blog_seo())
+
+
+@pytest.mark.parametrize("base_topic", BLOG_SEO_TOPICS)
+def test_blog_seo_language_coverage(base_topic):
+    """blog_seo를 하나라도 쓴 topic은 8개 언어를 전부 갖춰야 한다."""
+    have = _topics_with_blog_seo()[base_topic]
+    missing = [lang for lang in BLOG_SEO_REQUIRED_LANGS if lang not in have]
+    assert not missing, (
+        f"{base_topic}: blog_seo가 {sorted(have)}에만 있고 {missing}이 빠짐 — "
+        "CLAUDE.md '완료 기준 = 8개 언어 blog_seo 전부'"
+    )
