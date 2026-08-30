@@ -387,12 +387,29 @@ def select_hook_pattern(topic: str) -> tuple[str, str]:
 # 동일한 시드 공식, 축만 하나 늘림).
 
 
+# WHY 한국어 예시를 따로 붙이는지(2026-08-30): 예시가 영어뿐이라 ko 작성 때 참고가
+# 안 됐고, 실측 결과 ko 네이버 블로그 제목 342건이 한 틀로 수렴했다 —
+# "A - B" 대시 구조 93%, 조건절(~라면/~다면) 74%, "숫자+가지" 50%.
+# 아키타입이 5종으로 갈라져 있어도 문장 뼈대가 같으면 다양성이 없다.
 TITLE_ARCHETYPES = [
-    ("질문형", '"Why Does ~ Happen?" 류 질문형 — 예: "Why Does Your Blood Sugar Spike Right After Lunch?"'),
-    ("숫자·리스트형", '"N Things/Signs/Habits ~" 류 숫자 명시형 — 예: "3 Habits That Are Quietly Wrecking Your Sleep"'),
-    ("원인지목형", '"~ Is Secretly Behind ~" / "~ Might Be Causing ~" 류 원인 직접 지목형 — 예: "Your Afternoon Coffee Might Be Behind That 3 P.M. Crash"'),
-    ("통념반박형", '"~ Isn\'t What You Think" / "The Truth About ~" 류 통념 반박형 — 예: "Dry Eyes Aren\'t Just About Screen Time"'),
-    ("비교형", '"~ vs ~" 또는 "It\'s Not ~ — It\'s ~" 류 대조형 — 예: "It\'s Not Your Age — It\'s This One Habit"'),
+    ("질문형", '"Why Does ~ Happen?" 류 질문형 — 예: "Why Does Your Blood Sugar Spike Right After Lunch?" '
+               '/ ko 예: "식혜는 왜 콜라보다 혈당을 빨리 올릴까요"'),
+    ("숫자·리스트형", '"N Things/Signs/Habits ~" 류 숫자 명시형 — 예: "3 Habits That Are Quietly Wrecking Your Sleep" '
+                 '/ ko 예: "잠들기 전 30분, 수면을 망치는 세 가지"'),
+    ("원인지목형", '"~ Is Secretly Behind ~" / "~ Might Be Causing ~" 류 원인 직접 지목형 — 예: "Your Afternoon Coffee Might Be Behind That 3 P.M. Crash" '
+               '/ ko 예: "오후 3시의 졸음, 점심 커피가 범인일 수 있어요"'),
+    ("통념반박형", '"~ Isn\'t What You Think" / "The Truth About ~" 류 통념 반박형 — 예: "Dry Eyes Aren\'t Just About Screen Time" '
+               '/ ko 예: "안구건조증은 화면 탓만이 아닙니다"'),
+    ("비교형", '"~ vs ~" 또는 "It\'s Not ~ — It\'s ~" 류 대조형 — 예: "It\'s Not Your Age — It\'s This One Habit" '
+             '/ ko 예: "나이 탓이 아니라 이 습관 하나입니다"'),
+]
+
+# ko 제목이 수렴하는 형태들. 새 제목이 이 중 둘 이상에 걸리면 다시 쓸 것.
+KO_TITLE_OVERUSED = [
+    (r" - ", '"A - B" 대시 구조(전체의 93%)'),
+    (r"(라면|다면|신가요)\s*[-?]?\s*$|(라면|다면|신가요)\s+-", "조건절 마무리(~라면/~다면/~신가요, 74%)"),
+    (r"\d+\s*가지", '"숫자+가지"(50%)'),
+    (r"(습관|법|방법)\s*\d*\s*가지?\s*$", '"~하는 습관/법"으로 끝맺기'),
 ]
 
 

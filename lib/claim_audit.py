@@ -96,6 +96,25 @@ def scan_unsourced_claims(spec: dict) -> list[str]:
     return warns
 
 
+def check_title_variety(spec: dict) -> list[str]:
+    """ko 제목이 과용 패턴에 몰렸는지 본다.
+
+    WHY(2026-08-30): 아키타입이 5종으로 갈라져 있어도 문장 뼈대가 같으면 다양성이
+    없다. 실측에서 342건 중 93%가 "A - B" 대시 구조, 74%가 조건절 마무리였다 —
+    제목만 나란히 놓으면 한 템플릿을 342번 채운 게 그대로 보인다."""
+    from lib.content_review import KO_TITLE_OVERUSED
+    warns = []
+    for p in spec.get("platforms", []):
+        if p.get("name") != "네이버 블로그" or not p.get("caption"):
+            continue
+        title = p["caption"].split("\n")[0].strip()
+        hits = [label for pat, label in KO_TITLE_OVERUSED if re.search(pat, title)]
+        if len(hits) >= 2:
+            warns.append(f"제목이 과용 패턴 {len(hits)}개에 걸림 — {' / '.join(hits)}\n"
+                         f"     「{title[:60]}」")
+    return warns
+
+
 def audit_topic(topic: str) -> dict:
     """topic 하나를 감사한다. regressions는 반드시 고쳐야 하고 warnings는 사람이 판단."""
     path = ROOT / "data" / topic / "platform_captions.json"
@@ -108,7 +127,7 @@ def audit_topic(topic: str) -> dict:
     return {
         "topic": topic,
         "regressions": check_known_regressions(topic, spec),
-        "warnings": scan_unsourced_claims(spec),
+        "warnings": scan_unsourced_claims(spec) + check_title_variety(spec),
     }
 
 
