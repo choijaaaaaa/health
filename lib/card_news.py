@@ -749,6 +749,47 @@ def _shared_resolver(out_dir: Path, topic_prefix_arg):
     return _resolve
 
 
+def find_real_photo(char_file: str, real_dir: Path) -> str | None:
+    """spec의 char_file("<품목>_illust.jpg")에서 품목명을 뽑아 real_dir의 실사진을 찾는다.
+
+    WHY 정확히 두 패턴만(2026-08-02 버그 수정): "{품목}*.jpg" 와일드카드는
+    "돼지감자"를 찾을 때 "돼지감자차_real_01.jpg"(다른 품목)까지 접두어로
+    걸려서 잘못 매칭됐다 — "{품목}.jpg"(옛 명명) 또는
+    "{품목}_real_NN.jpg"(현재 명명)로 경계를 명확히 한다.
+    """
+    item_name = char_file.removesuffix("_illust.jpg")
+    real_dir = Path(real_dir)
+    if not real_dir.exists():
+        return None
+    matches = sorted(real_dir.glob(f"{item_name}.jpg")) + sorted(real_dir.glob(f"{item_name}_real_*.jpg"))
+    return str(matches[0]) if matches else None
+
+
+def _make_photo_for(real_dir: Path, shared):
+    """(slot, char_file) → 디스크의 실제 이미지 경로. 공용 배정표 우선, 없으면 로컬 real/ 폴백."""
+    def _photo_for(slot: str, char_file: str) -> str | None:
+        if shared:
+            hit = shared(slot)
+            if hit:
+                return hit
+        return find_real_photo(char_file, real_dir)
+
+    return _photo_for
+
+
+def photo_resolver(char_dir, out_dir, topic_prefix: str | None = None):
+    """generate()가 char_file을 실제 이미지로 바꿀 때 쓰는 바로 그 해석기를 돌려준다.
+
+    WHY 모듈 레벨로 꺼냈는지(2026-08-31): 해석 규칙이 generate() 안의 중첩 함수라
+    바깥에서 부를 방법이 없었고, 그래서 tests/test_content_rules.py가 같은 규칙을
+    손으로 베껴 두 벌로 관리하고 있었다 — 실제로 공용 배정표(assets-shared) 경로가
+    렌더러에만 추가되고 테스트엔 반영이 안 돼, 정상 렌더되는 topic 73개가 "실사진
+    없음"으로 오탐되며 테스트가 통째로 무시당하는 상태였다. 렌더러와 테스트가 이
+    함수 하나를 같이 부르면 규칙이 갈라질 수 없다.
+    """
+    return _make_photo_for(Path(char_dir).parent / "real", _shared_resolver(Path(out_dir), topic_prefix))
+
+
 def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None,
              lang: str = "kor"):
     """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
@@ -780,17 +821,6 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     # 이제 없다.
     real_dir = char_dir.parent / "real"
 
-    def _find_real_photo(char_file: str) -> str | None:
-        # WHY 정확히 두 패턴만(2026-08-02 버그 수정): "{품목}*.jpg" 와일드카드는
-        # "돼지감자"를 찾을 때 "돼지감자차_real_01.jpg"(다른 품목)까지 접두어로
-        # 걸려서 잘못 매칭됐다 — "{품목}.jpg"(옛 명명) 또는
-        # "{품목}_real_NN.jpg"(현재 명명)로 경계를 명확히 한다.
-        item_name = char_file.removesuffix("_illust.jpg")
-        if not real_dir.exists():
-            return None
-        matches = sorted(real_dir.glob(f"{item_name}.jpg")) + sorted(real_dir.glob(f"{item_name}_real_*.jpg"))
-        return str(matches[0]) if matches else None
-
     # WHY 렌더링 시작 전에 실사진 존재부터 검사(2026-08-25): 일러스트 폴백이
     # 없어진 이후로 real_photo가 없는 품목은 배지를 그릴 방법 자체가 없다 — 카드
     # 몇 장 그린 뒤 중간에 터지면 그 전까지 만든 이미지가 output_dir에 남으므로,
@@ -798,13 +828,7 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     # 새 topic 작업 시 이 에러가 나면 `lib/real_photo_sourcing.py <영어검색어> ...`로
     # 먼저 실사진을 소싱해둘 것.
     shared = _shared_resolver(out_dir, topic_prefix)
-
-    def _photo_for(slot: str, char_file: str) -> str | None:
-        if shared:
-            hit = shared(slot)
-            if hit:
-                return hit
-        return _find_real_photo(char_file)
+    _photo_for = _make_photo_for(real_dir, shared)
 
     missing_photos = [
         item["char_file"] for i, item in enumerate(spec["items"])
@@ -840,7 +864,7 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
     # 판단은 세션이 topic들을 비교해서 직접 정하고 이 필드에 적어둘 것.
     cover_char_file = spec.get("cover_char_file")
     cover_char_path = ((shared and shared("cover")) or
-                       (_find_real_photo(cover_char_file) if cover_char_file else None) or
+                       (find_real_photo(cover_char_file, real_dir) if cover_char_file else None) or
                        (char_paths[0] if char_paths else None))
 
     # WHY cover_scrim_color(2026-08-01, "cover_char_file로도 못 피하면 배경 색상

@@ -1809,9 +1809,24 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # 가리켜버려 404가 났다 — out_path 깊이(레거시 output/<topic>/dashboard.html
     # 2단계, 글로벌 output/<topic>/<lang>/dashboard.html 3단계)에 맞춰 "../" 개수를
     # 그때그때 계산해야 GitHub Pages·Vercel(진짜 루트) 양쪽에서 다 맞는다.
+    # WHY 저장소 밖 out_path도 견뎌야 하는지(2026-08-31): 필요한 값은 "이 페이지에서
+    # 사이트 루트까지 몇 단계 위인가"라는 상대 깊이뿐인데, 그걸 저장소 루트 기준
+    # relative_to로만 구하다 보니 out_path가 저장소 밖이면 ValueError로 즉사했다 —
+    # generate()는 out_path를 자유 인자로 받고 어디에 있어야 한다고 문서화한 적이
+    # 없는데도 그렇다. tests/test_dashboard.py가 pytest tmpdir로 호출하면서 13개
+    # 테스트가 통째로 이 에러로 죽어 있었다. 저장소 안이면 기존 계산 그대로 쓰고,
+    # 밖이면 out_dir 쪽에서 가장 가까운 "output" 디렉터리의 부모를 사이트 루트로
+    # 본다(out_dir은 관례상 항상 <사이트루트>/output/<topic>[/<lang>]이므로 두 경로가
+    # 저장소 안에서는 같은 값을 낸다).
     project_root = Path(__file__).resolve().parent.parent
     out_dir = Path(out_path).resolve().parent
-    asset_prefix = "../" * len(out_dir.relative_to(project_root).parts)
+    try:
+        depth = len(out_dir.relative_to(project_root).parts)
+    except ValueError:
+        parts = out_dir.parts
+        output_idx = max((i for i, p in enumerate(parts) if p == "output"), default=None)
+        depth = len(parts) - output_idx if output_idx is not None else 1
+    asset_prefix = "../" * depth
 
     html = PAGE_TEMPLATE.format(
         title=_esc(spec["title"]), card_thumbs=card_thumbs, ad_tag_badge=ad_tag_badge,

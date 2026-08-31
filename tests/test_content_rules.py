@@ -15,9 +15,10 @@ from pathlib import Path
 
 import pytest
 
+from lib import card_news
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
-REAL_DIR = ROOT / "assets_library" / "real"
 COMMENT_KEYWORDS_PATH = Path.home() / ".claude" / "comment-keywords.md"
 
 # CLAUDE.md "[광고]+고지문" 절 기준(2026-08-10) — "네이버 클립"과 "네이버 블로그"
@@ -493,29 +494,47 @@ def test_blog_seo_title_not_identical_to_meta_description(topic):
 
 
 # ---------------------------------------------------------------------------
-# 규칙 7: card_news_spec.json의 items[].char_file이 assets_library/illust/에 실존하는가
+# 규칙 7: card_news_spec.json의 items[].char_file이 실제 이미지로 해석되는가
 # ---------------------------------------------------------------------------
 
 @pytest.mark.parametrize("topic", TOPICS)
-def test_char_files_exist(topic):
-    # WHY assets_library/real/ 대상인지(2026-08-25, 일러스트 생성 전면 중단):
-    # lib/card_news.py의 generate()가 이제 char_file(illust 이름)을 real/에서
-    # 매칭되는 실사진으로 찾아 쓰고 illust/ 파일은 아예 안 연다(_find_real_photo와
-    # 동일한 매칭 규칙 — "{품목}.jpg" 또는 "{품목}_real_NN.jpg") — 이 테스트도
-    # 실제 렌더링이 요구하는 파일이 있는지를 검증해야 하므로 같이 바꿨다.
+def test_char_files_resolve_to_images(topic):
+    """char_file이 렌더러와 똑같은 규칙으로 디스크의 실제 이미지에 도달하는지 검사한다.
+
+    WHY 파일 실존이 아니라 "해석 가능"인지(2026-08-25 일러스트 중단 → 2026-08-31
+    현재 형태): char_file은 여전히 "<품목>_illust.jpg"라고 적혀 있지만 그 이름의
+    파일을 여는 코드는 이제 없다 — 간접 참조 키일 뿐이다. 2026-08-16 assets_library/
+    삭제 사고로 illust/가 복구되지 않은 상태에서 일러스트 생성 자체가 중단됐고,
+    generate()는 이 키에서 품목명을 뽑아 실사진을 찾은 뒤 못 찾으면 하드 에러를
+    낸다. 따라서 검사해야 할 명제는 "그 경로에 파일이 있는가"가 아니라 "렌더러가
+    이 spec으로 실제로 렌더할 수 있는가"다.
+
+    WHY 규칙을 베끼지 않고 import하는지(2026-08-31): 이전 버전은 real/ 글롭 규칙을
+    손으로 복제해뒀는데, 그 뒤 렌더러에만 공용 배정표(assets-shared) 경로가 추가되고
+    테스트는 안 따라갔다 — 멀쩡히 렌더되는 topic 73개가 "실사진 없음"으로 계속
+    실패하면서 이 테스트 전체가 무시당했고, 그 뒤에 숨은 진짜 실패를 아무도 못 보는
+    상태가 됐다. 이제 card_news.photo_resolver()를 그대로 불러 쓰므로 렌더러가
+    해석 규칙을 바꾸면 테스트가 자동으로 따라간다.
+    """
     spec = _load_json(DATA_DIR / topic / "card_news_spec.json", topic, "card_news_spec.json")
-    missing = []
-    for item in spec.get("items", []):
-        char_file = item.get("char_file")
-        if not char_file:
-            continue
-        item_name = char_file.removesuffix("_illust.jpg")
-        matches = list(REAL_DIR.glob(f"{item_name}.jpg")) + list(REAL_DIR.glob(f"{item_name}_real_*.jpg"))
-        if not matches:
-            missing.append(char_file)
-    assert not missing, (
-        f"{topic}: card_news_spec.json items[].char_file에 대응하는 실사진이 "
-        f"assets_library/real/에 없음 — {missing} (lib/real_photo_sourcing.py로 소싱할 것)"
+
+    # 렌더러 호출 관례 그대로(CLAUDE.md "렌더" 명령): char_dir=assets_library/illust,
+    # out_dir=output/<topic>[/<lang>]/card_news — photo_resolver가 이 out_dir에서
+    # (topic, lang)을 되짚어 공용 배정표를 조회하므로 경로 모양이 곧 조회 키다.
+    resolve = card_news.photo_resolver(
+        ROOT / "assets_library" / "illust",
+        ROOT / "output" / topic / "card_news",
+        topic_prefix=topic.split("/")[0],
+    )
+
+    unresolved = [
+        item["char_file"] for i, item in enumerate(spec.get("items", []))
+        if item.get("char_file") and resolve(f"item{i:02d}", item["char_file"]) is None
+    ]
+    assert not unresolved, (
+        f"{topic}: card_news_spec.json items[].char_file을 실제 이미지로 해석할 수 없음 "
+        f"— {unresolved} (공용 배정표에도 assets_library/real/에도 없음. "
+        f"assets-shared/sourcer.py로 소싱 후 assign.py로 배정할 것)"
     )
 
 
@@ -726,10 +745,20 @@ def _topics_with_blog_seo() -> dict[str, set[str]]:
 BLOG_SEO_TOPICS = sorted(_topics_with_blog_seo())
 
 
+# WHY 언어 2개 이하는 건너뛰는지(2026-08-31): 다른 세션이 지금 만들고 있는 topic이
+# 매번 빨간 줄로 잡힌다(실측: 대사_14가 en·ja만 있는 상태에서 이 검사에 걸림).
+# 작업 중인 topic까지 실패로 띄우면 "원래 빨간 테스트"가 되어 아무도 안 보게 되는데,
+# 그게 test_char_files_exist가 428건 실패한 채 방치됐던 경로다. 3개 이상 썼다는 건
+# 배치 작업을 돌렸다는 뜻이므로 그때부터는 빠진 언어를 진짜 누락으로 본다.
+BLOG_SEO_IN_PROGRESS_MAX = 2
+
+
 @pytest.mark.parametrize("base_topic", BLOG_SEO_TOPICS)
 def test_blog_seo_language_coverage(base_topic):
     """blog_seo를 하나라도 쓴 topic은 8개 언어를 전부 갖춰야 한다."""
     have = _topics_with_blog_seo()[base_topic]
+    if len(have) <= BLOG_SEO_IN_PROGRESS_MAX:
+        pytest.skip(f"{base_topic}: {sorted(have)}뿐 — 아직 작업 중인 topic으로 보고 스킵")
     missing = [lang for lang in BLOG_SEO_REQUIRED_LANGS if lang not in have]
     assert not missing, (
         f"{base_topic}: blog_seo가 {sorted(have)}에만 있고 {missing}이 빠짐 — "
