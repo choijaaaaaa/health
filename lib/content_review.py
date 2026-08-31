@@ -522,7 +522,9 @@ SECTION_HEADER_ARCHETYPES = {
         ("행동 동사형", "동사로 바로 시작하는 소제목 — 예: \"Cut Back on Late-Night Screens\", \"Swap Soda for Sparkling Water\""),
         ("질문형", "\"그럼 뭘 하면 될까?\"류 질문형 소제목 — 예: \"So What Actually Works?\""),
         ("결과 제시형", "이렇게 하면 어떻게 좋아지는지 결과를 먼저 제시하는 소제목 — 예: \"What Happens When You Fix This\""),
-        ("숫자형", "\"N가지 방법\" 같은 숫자 명시형 소제목 — 예: \"3 Changes That Actually Move the Needle\""),
+        # ⚠️ 숫자형은 아래 목록 개수와 반드시 일치해야 한다(2026-08-31 실측): 아키타입만
+        # 보고 "3 Wege…"를 붙였는데 그 아래 항목이 5개여서 헤더가 본문과 어긋난 사례가 있다.
+        ("숫자형", "\"N가지 방법\" 같은 숫자 명시형 소제목 — 예: \"3 Changes That Actually Move the Needle\". ⚠️ N은 그 섹션 아래 실제 항목 수와 일치시킬 것"),
         ("대조형", "\"문제 vs 실제 해결책\" 대조 구조 소제목 — 예: \"Skip the Myths — Here's What Helps\""),
     ],
     # "summary" = 글 맨 끝 요약 H2. 2026-08-31 실측에서 ko는 23편 중 21편이 "정리하면"

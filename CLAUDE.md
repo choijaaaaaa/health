@@ -866,6 +866,28 @@ python3 -c "import lib.content_review as c; print(c.select_section_header_archet
 - 소재상 뽑힌 아키타입이 도저히 안 맞으면 다른 걸 써도 되지만, 그때도 직전 몇 개
   topic과 같은 짜임은 피할 것.
 
+## ⚠️ `.env` 빈 값 때문에 조용히 안 돌던 동기화 (2026-08-31)
+
+**`.env`에 키 이름은 있는데 값이 빈 줄이 21~25개 있었다.** 그중 둘이 실제로 쓰이는
+값이라 아래 두 동기화가 **에러 없이 아무것도 안 하고 끝나 있었다** — 대시보드가
+낡은 채로 남아 있어도 아무도 모른다.
+
+- `python3 -m lib.card_news_hub --commit` — `BLOG_NETWORK_SUPABASE_*`가 비어
+  RuntimeError로 죽는데, 출력이 길어 마지막 줄을 안 보면 성공처럼 보인다.
+  값은 vernhaven-blog `.env.local`의 `SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY`와
+  같다(공유 blog-network 프로젝트)
+- `lib/mission_control_log.py`의 `report_issue()` — `MISSION_CONTROL_INGEST_*`가
+  비면 **조용히 `False`를 반환**하고 끝난다(fire-and-forget 설계라 호출부가 반환값을
+  안 본다). 값은 jp-review-shorts `.env`와 동일, URL은 `http://localhost:3011`이라
+  **mission-control dev 서버가 떠 있을 때만 실제로 기록된다**(배포본은 Vercel SSO
+  뒤라 API 접근 불가)
+
+- 동기화가 안 먹는 것 같으면 **먼저 `.env` 값이 비었는지 확인**할 것:
+  `python3 -c "from dotenv import dotenv_values; print([k for k,v in dotenv_values('.env').items() if not v])"`
+- 나머지 빈 키(YouTube TW/ES/PT/RU, FISH_AUDIO, PIXABAY, META_HANIP, THREADS,
+  SUPABASE_ACCESS_TOKEN/DB_PASSWORD/PROJECT_REF)는 **코드에서 참조하지 않아 무해**하다.
+  `SUPABASE_ANON_KEY`도 파이썬은 안 쓴다 — 브라우저는 `supabase_client.js`의 값을 쓴다
+
 ## 콘텐츠 QA — 완료 전 필수
 
 ⚠️ **Gemini API는 일러스트 생성(`lib/gemini_illust.py`)에만 쓴다(2026-08-15
