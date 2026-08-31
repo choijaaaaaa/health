@@ -2599,3 +2599,391 @@ Holder 이거 없애자 이런문화 없잖어 영어권에는?" — 사용자 �
 - 커밋 시 `.env` 포함 여부 항상 재확인
 - 로컬에서 결과물 바로 확인하려면 `open output/<주제>/dashboard.html` — GitHub Pages 푸시는
   모바일에서 SNS 앱으로 업로드할 때만 필요, 매번 기다릴 필요 없음
+
+---
+
+# 영상 트랙 절 (2026-08-31 CLAUDE.md 본문에서 이관)
+
+영상 제작이 2026-08-25부로 전면 중단돼 아래 절들은 실행되지 않는다. 본문이
+1,600줄까지 불어나 새 세션이 지금 지켜야 할 규칙을 찾기 어려워져서 통째로
+옮겼다 — 내용은 손대지 않았으니 영상 트랙을 재개하면 그대로 되살릴 것.
+
+## 캐릭터 모션 — 생성 중단 (2026-08-05)
+
+- **새 캐릭터는 모션을 만들지 않는다** — Kling도 `build_static_motion_loop`
+  정지 루프 mp4도 호출하지 않는다. 캐릭터는 일러스트(jpg) 생성까지만 —
+  `lib/video_assembler.py`의 `_build_character_loop`/`_build_character_segment`가
+  확장자로 자동 분기해서 정지 이미지로 처리한다(`--motion`에 `*_illust.jpg`
+  경로를 그대로 넘기면 됨, `rebuild_video.py`의 `_char_media_path()`도 동일).
+- 과거 Kling 모션 mp4(77개)는 자산으로 남아있고 재사용 가능 — 새로 안 만들면 됨.
+
+
+## 영상 조립 (`lib/video_assembler.py`)
+
+- **배경 기본값은 칠판 스타일**(`--bg-style chalkboard`, 기본값이라 생략 가능,
+  `--images` 불필요) — 실물 칠판 사진 + 분필체 자막 + 랜덤 낙서(별·하트 등
+  93종, seed 고정이라 topic마다 재현 가능)+ 명패(26종, 0~2개 랜덤)+칠판 색상
+  변형(26종). `--bg-style photo`는 과거 topic 재조립 등 특수한 경우에만.
+- **표준 호출 예시**:
+  ```
+  python3 lib/video_assembler.py \
+    --motion "assets_library/motion/<캐릭터>_motion.mp4" \
+    --audio "output/<topic>/<topic>_narration.mp3" \
+    --srt "output/<topic>/<topic>_narration.srt" \
+    --out "output/<topic>/<topic>_shorts.mp4" \
+    --title "<훅> <주제명, 자연어>" \
+    --title-card-text "<훅만>" \
+    --title-card-char "assets_library/illust/<캐릭터>_illust.jpg" \
+    --title-banner-photo "assets_library/real/<대표품목>_real_01.jpg" \
+    --bg-color 0x00FF00
+  ```
+  `--title`에 topic 폴더명(슬러그)을 그대로 넣지 말 것 — 자연어 문구만.
+- 캐릭터 여러 명(품목 3개 이상)이면 `--motion` 대신 `--motion-schedule
+  "시작-끝:경로,..."`(나레이션 기준 0초부터 빈틈없이).
+- 실사진 없는 topic은 `--images`에 캐릭터 일러스트를 넣지 말고
+  `make_gradient_bg()`로 그라디언트 배경 사용.
+- ⚠️ **인스타그램 릴스용 안전 여백 영상 — 포맷 무관 전부 필수**: 칠판 포맷만의
+  문제가 아니라 **데스크탑에서 인스타그램 업로드 자체가 이 비율이어야 바로
+  되는 호환성 문제**다 — 3개 템플릿(판서형/`before_after_transition`/
+  `checklist`) 전부 빠짐없이 만들어야 한다(2026-08-21부로 영상 트랙은
+  한국어 단일, 아래 "글로벌 확장" 절 참고).
+  `build_instagram_safe_video(source_path, out_path)`(기본 상하좌우 20% 여백)로
+  `<원본파일명>_instagram.mp4`를 같은 폴더에 만들어두면 `dashboard.py`가
+  자동으로 찾아서 인스타그램 릴스 카드에만 연결한다(원본 `_shorts.mp4`는
+  유튜브 자동 업로드용으로 그대로 둠). **영상을 새로 만들거나 재생성할 때마다
+  포맷 상관없이 항상 같이 만들 것** — "칠판 포맷일 때만"으로 오해해서 신규
+  포맷 영상 다수(47개)에서 누락됐던 적이 있음. ⚠️ **2026-08-17 훨씬 큰
+  규모(156개)로 재발 확인·백필 완료** — 원인 특정은 못 했으나(재조립
+  파이프라인의 특정 단계가 조용히 이 스텝을 건너뛴 것으로 추정) `shorts.mp4`는
+  있는데 짝이 되는 `_instagram.mp4`가 없는 영상이 전체의 1/3 넘게 쌓여있었음.
+  기존 `shorts.mp4`를 재렌더링할 필요 없이 `build_instagram_safe_video()`만
+  단독 재호출해서 누락분을 채우면 된다(입력이 완성된 최종 영상 하나뿐이라
+  narration/spec 의존성이 없음) — 새 topic 작업 후 다음 커맨드로 주기적으로
+  스캔·백필할 것:
+  ```python
+  from pathlib import Path
+  from lib.video_assembler import build_instagram_safe_video
+  for f in Path("output").glob("*/**/*shorts.mp4"):
+      if "_instagram" in f.name:
+          continue
+      sibling = f.with_name(f.stem + "_instagram" + f.suffix)
+      if not sibling.exists():
+          build_instagram_safe_video(str(f), sibling)
+  ```
+- output 폴더 안 파일명은 전부 `<topic>_` 접두어 붙일 것(`card_news.py`/
+  `--out`은 직접 지정, `fish_tts.py` 결과는 필요시 rename).
+
+
+## 배경음악(BGM) (`lib/bgm.py`)
+
+- **소스는 유튜브 오디오 보관함**(studio.youtube.com > 오디오 보관함)에서
+  다운로드한 무보컬 트랙만 `assets_library/music/`에 둔다(2026-08-05) —
+  저작권 걱정 없는 무료 소스로 확정(Pixabay Audio API는 403으로 막혀있고
+  Suno는 무료 플랜이 비상업 전용이라 둘 다 제외 — 상세는 archive "BGM 소스
+  선정" 절). `assets_library/music/`는 대용량이라 git엔 안 올라간다.
+- **선택**: `lib.bgm.pick_track(seed)`가 seed(topic 폴더명 등) 기준 결정론적
+  시드로 트랙 하나를 고른다 — 트랙이 없으면 `None`, 호출부는 BGM 없이 폴백.
+- **믹싱**: `BGM_VOLUME_DB=-24dB` + `FADE_SEC=1.5초` 페이드로 "내레이션 절대
+  방해 안 하는 밑바탕"용으로만(사용자 확정, 값 조정은 이 두 상수만 바꾸면
+  전체 파이프라인에 일괄 반영). `amix`엔 항상 `normalize=0` 명시할 것 —
+  기본값이면 입력 개수만큼 자동으로 볼륨을 나눠서 내레이션까지 작아진다.
+- 단순 케이스(내레이션 길이만큼만 깔면 되는 3개 신규 템플릿)는
+  `lib.bgm.mix_bgm(narration_path, out_path, duration, seed)` 하나로 끝 —
+  리턴값을 기존 최종 mux 단계의 `audio_path` 자리에 그대로 넣으면 되고,
+  비디오 코덱/트림 로직은 안 건드려도 된다.
+- 복합 케이스(`video_assembler.py`의 `assemble()` — 제목 카드·엔딩 카드
+  무음 구간까지 포함한 전체 영상 길이 동안 계속 깔아야 해서 기존
+  `adelay`/`apad` 필터와 한 filter_complex 안에서 조립해야 함)는
+  `lib.bgm.bgm_filter_segment(seed, duration, in_label, out_label)`로 필터
+  조각만 받아서 직접 조립할 것.
+
+
+## 영상 포맷 다각화 (`lib/templates/`)
+
+- **로스터 3개**: 판서형(기존, `video_assembler.py`) + `before_after_transition`/
+  `checklist`(`lib/templates/proto_*.py`). `timeline`/`ranking_countdown` 둘 다
+  2026-08-05 제외 — `timeline`은 진행 라인/스톱 애니메이션 타이밍이 나레이션과
+  안 맞아서, `ranking_countdown`은 실사진 없이 텍스트·배지만으로 구성되고
+  item 개수를 spec 그대로(최대 7개) 다 렌더링해서 화면이 과밀해 보여서. 코드는
+  각각 `lib/templates/proto_timeline.py`/`proto_ranking_countdown.py`에
+  남아있고 `rebuild_video.py`의 `FORMAT_ROSTER`에서만 빠짐, 문제 고치면
+  재편입 가능.
+- **선택**: `lib/rebuild_video.py`의 `select_format(topic)`이 topic 문자열
+  기준 결정론적 시드(`sum(ord(c)*(i*k+c0)...)  % len(options)`, 축마다 다른
+  (k,c0))로 하나를 고른다 — 진짜 랜덤 아님(재생성해도 같은 topic은 같은
+  포맷), 다른 topic·언어 참고 안 함(전역 상태 없음). `rebuild(topic)`이 그
+  포맷대로 자동 분기 렌더링 — `python3 -m lib.rebuild_video <topic>`만
+  실행하면 됨.
+- ⚠️ **현재 로스터: chalkboard + before_after_transition 1:1(2026-08-11
+  최종)** — `_FORMAT_WEIGHTED_POOL = ["chalkboard", "before_after_transition"]`.
+  경위: 2026-08-08 3:1:1 가중치 도입 → 2026-08-10 "신규 포맷 퀄 너무 안
+  좋다"는 판단으로 `["chalkboard"]`만 남김 → 2026-08-11 `before_after_transition`
+  실제 렌더 프레임을 육안 확인해서 두 결함을 고친 뒤(본문·클로징 화면
+  top-anchor라 하단 40~50%가 비던 문제 → 세로 중앙 정렬, `_remove_chroma`
+  하드컷뿐이라 `_hero_card`에서 크로마키 잔상 보이던 문제 → feather+디스필)
+  사용자가 리뷰하고 재승인, 다시 풀에 포함. **`checklist`는 같은 고도화를
+  거쳤지만("새 포맷 고도화" 요청으로 render_why/render_closing 세로 중앙
+  정렬 + get_icon 배지색 통일까지 완료) 이번엔 로스터에서 제외**(사용자
+  명시적 결정, "체크리스트는 빼고 칠판이랑 before after 이 두개") — 코드는
+  그대로 남겨둠, 나중에 다시 넣을 수 있음. **프로스펙티브만** 적용(신규/
+  재조립하는 것부터, 기존 영상은 소급 재조립 안 함).
+  ⚠️ **`before_after_transition`은 클로징 화면이 오래 떠 있으려면 마무리
+  멘트 자체를 충분히 길게 쓸 것**(사용자 확인, 테스트 렌더 리뷰 중) — 이
+  포맷은 나레이션 길이로 각 화면 노출 시간이 정해지므로, 마지막 화면
+  (headline+tip)을 다 읽을 시간을 주려면 그 구간 대본이 다른 화면만큼
+  (혹은 그 이상) 길어야 한다 — 짧게 쓰면 화면이 휙 지나가버림.
+  ⚠️ **`before_after_transition` 프레임 0(썸네일)·beat 정지 구간 수정
+  (2026-08-13)** — "썸네일만 나오고 그다음 첫 이미지가 그대로 이어지는
+  느낌" 사용자 지적으로 실측한 결과 훅 화면이 나레이션 길이(수 초)만큼
+  프레임 0 역할까지 겸했고, 기전/원인 각 beat도 나레이션 길이(최대 13초)
+  동안 완전 정지였다. 판서형과 동일하게 나레이션과 무관한 1.3초 무음
+  타이틀 카드를 앞에 별도로 붙이고(`TITLE_CARD_DURATION`), 모든 beat
+  세그먼트(`_build_segment`)에 zoompan 기반 미세 줌(최대 1.045배, beat
+  길이 역산이라 길이 무관하게 처음부터 끝까지 서서히 확대)을 추가해 정지
+  구간 자체를 없앴다. **프로스펙티브만 적용** — 기존 렌더링된 영상은 소급
+  재조립 안 함(위 "프로스펙티브만" 원칙 그대로), 재조립하면 자동 반영됨.
+- ⚠️ **재조립 필요(2026-08-06)**: `checklist`/`before_after_transition` 둘 다
+  이 날짜에 실측 버그 다수 수정 — **커밋 `21288ffd`~`88251692` 이전에
+  렌더링된 기존 영상은 아래 문제들을 그대로 갖고 있어 재조립 필요**:
+  - `checklist`: 항목별 원인→해결책, 헤더 문구 전환 시 텍스트 겹침(순차
+    페이드로 수정), 원인→해결책 타이밍이 실제 나레이션과 최대 8.7초 어긋남.
+  - `before_after_transition`: 오프닝 캐릭터 누락(cover_char_file 없는
+    topic), 원인 구간이 실제 나레이션보다 최대 12초+ 일찍 뜨는 어긋남,
+    **"해결책 항목별 화면(N개)" 구조를 없애고 "원인 화면들 → 요약(클로징)
+    화면 하나"로 변경**(해결책을 원인만큼 자세히 나레이션하지 않는 topic이
+    많아 항목별 화면 하나당 줄 수 있는 시간이 구조적으로 부족했음 — 코골이_1
+    실측: 항목별일 때 최대 4초 vs 요약 화면 하나로 합치니 8.5초).
+  - 둘 다: 훅 화면 장식 스타일 4종(plain/banner/boxed/underline) +
+    `before_after_transition`은 위치 지터도 추가(`checklist`는 이미 있었음).
+  재조립은 `python3 -m lib.rebuild_video <topic>` 재실행(같은 topic은
+  `select_format`이 결정론적이라 포맷 그대로 유지됨). mp4 재생성 후
+  인스타그램 크롭(`build_instagram_safe_video`)·`dashboard.html`도 함께
+  갱신할 것(위 "영상 조립" 절 참고).
+- 신규 4개 템플릿 공통 시그니처: `render(topic_dir, lang, audio_path,
+  srt_path, spec_path, out_path)`. `card_news_spec.json`의 `items` 개수를
+  그대로 읽어서 3개 고정 아님. 폰트는 `video_assembler.py`의
+  `_title_font_for_lang`/`_wrap_text_for_lang` 재사용(16개 언어 자동 지원).
+- **안전영역**: `_YT_SAFE_RIGHT=150`/`_YT_SAFE_BOTTOM=320`(유튜브 Shorts 앱
+  UI가 가리는 영역) — 4개 템플릿 전부 이 값을 로컬 상수로 복제해서 모든
+  텍스트 블록이 `(0,0,W-150,H-320)` 안에 들어오도록 강제 체크한다. 새
+  템플릿 추가 시 반드시 넣을 것 — 빠뜨리면 실기기에서 텍스트가 잘려 보인다.
+- **topic-seeded 다양화를 신규 포맷에도 반드시 적용할 것** — 판서형이
+  이미 하던 방식(색상 변형 26종·낙서 93종·명패 0~2개 랜덤 배치 등, 전부
+  topic 문자열 기반 결정론적 seed)과 동일한 원칙을 `before_after_transition`/
+  `checklist`/`ranking_countdown`에도 확인·적용한다. 각 템플릿이 이미 갖고
+  있는 축(테마 색상, 배지 모양, wipe 스타일, 진행 표시 스타일 등)을
+  `python3 -m lib.check_video_staleness` 같은 감사 없이도 주기적으로
+  points-of-repetition 관점에서 재점검할 것 — 저품질/반복 콘텐츠 정책
+  리스크와 직결됨(YouTube "inauthentic content" 정책, 2026-08-05 리서치).
+- 산출물이 코드보다 오래됐는지는 `python3 -m lib.check_video_staleness`로
+  확인(미게시 topic만 대상, 재생성은 자동으로 안 함).
+- ⚠️ 이 영상 포맷 시스템(코드+문서) 전체가 2026-08-04에 한 번 커밋 안 된 채
+  통째로 유실됐다가 재구축됨 — **이 종류 작업(대규모 신규 코드)은 완성되는
+  즉시 커밋할 것**, 리뷰용이라고 미루지 말 것.
+- **오프닝(프레임 0) = 사실상 피드 썸네일**(커스텀 썸네일 업로드 없음) —
+  `before_after_transition`/`checklist`/`ranking_countdown` 전부 프레임 0
+  전용 훅 화면 렌더러를 따로 둔다. 새 템플릿도 아이템 화면을 프레임 0에
+  그대로 쓰지 말 것.
+  - 훅 화면 노출 시간은 SRT 첫 구간(`entries[0]`) 길이 그대로 쓸 것 — 실제
+    훅 나레이션 문장이라 임의 비율로 잡으면 나레이션과 화면이 어긋난다.
+  - 중앙정렬은 안전영역 중심이 아니라 캔버스 진짜 중앙(`VISUAL_CX = W/2`)
+    기준으로: 안전박스 자체가 좌우 비대칭(왼쪽 50 vs 오른쪽 150)이라 안전
+    영역 중심에 맞추면 화면상 왼쪽으로 쏠려 보인다. `VISUAL_CENTER_MAX_WIDTH
+    = 2*min(VISUAL_CX-SAFE_LEFT, SAFE_RIGHT-VISUAL_CX)`로 폭을 캡핑하고
+    `VISUAL_CX`에 정렬하면 두 조건(안전영역 준수 + 시각적 중앙) 동시 만족.
+  - 오프닝 프레임 리뷰 이미지는 `output/_thumbnail_review/`에 모아둠(git 추적).
+- **텍스트 전환은 항상 순차 페이드, 동시-알파 크로스페이드 금지**: 서로 다른
+  문단/문구를 동시에 반투명 겹쳐 그리면(체크박스·아이콘처럼 모양이 비슷한
+  게 아니라 텍스트라서) 글자 단위로 뒤섞여 읽을 수 없다 — 전환 구간 앞
+  절반엔 이전 텍스트만 페이드아웃, 뒤 절반엔 새 텍스트만 페이드인할 것.
+  `checklist`에서 항목별 fact/fix, 헤더 문구 두 곳 모두 이 문제였음
+  (2026-08-05 수정). 새 텍스트 전환 로직 추가 시 이 패턴 적용.
+
+
+## TTS
+
+⚠️ **한국어는 Voicebox로 전환(2026-08-17)** — `lib/voicebox_tts.py`,
+Fish Audio 한국어 보이스 품질 불만족으로 로컬 Voicebox.app(Qwen3-TTS MLX,
+클론 보이스 "한국어1")과 실측 비교(같은 대본으로 생성해서 직접 청취) 후
+교체 확정. **en/ja는 대상 밖 — 계속 `lib/fish_tts.py`**(아래 그대로).
+새 한국어 topic은 반드시 `python3 lib/voicebox_tts.py <topic> <text>` 사용.
+
+- ⚠️ **Voicebox.app이 이 컴퓨터에서 항상 켜져 있어야 함** — 클라우드 API가
+  아니라 로컬 추론(기본 포트 17493). 꺼져 있으면 `synthesize()`가 바로
+  에러(연결 실패 메시지로 원인 명확히 표시, 조용히 실패하지 않음).
+- ⚠️ **생성이 느림** — 문장 단위로 API를 호출해서 이어붙이는 구조라(아래
+  WHY), 실측 700자 나레이션 기준 총 100초 안팎. 여러 topic 한 번에 돌릴
+  땐 이 배속을 감안할 것.
+- ⚠️ **word-level alignment가 없어서 문장 단위로 쪼개 호출**(fish_tts.py의
+  `_MAX_SENTENCES_PER_CALL=1`과 발상은 같으나 원인은 다름 — Fish는 응답
+  안정성 때문, Voicebox는 애초에 정렬 타임스탬프 자체를 안 줌): 문장 하나당
+  호출 하나 → 결과 오디오 길이(ffprobe 실측)를 그 문장 구간으로 그대로 씀 →
+  narration.srt는 문장 단위 엔트리(fish_tts.py의 `_build_srt` 결과와 동일한
+  granularity라 하류 파이프라인엔 차이 없음).
+- **보이스는 지금 "한국어1" 프로필 하나로 고정**(`PROFILE_ID_KOR` 상수) —
+  fish_tts.py처럼 topic마다 랜덤 선택하지 않음. 보이스를 더 늘리기로
+  하면 풀 방식으로 바꿀 것.
+- `synthesize(topic, text, voice_name=None, lang="kor")` 반환 모양은
+  fish_tts.py와 동일(`audio_path`/`srt_path`/`duration`/`word_count`/
+  `words`) — 호출부는 어느 TTS를 쓰는지 신경 쓸 필요 없음. `lang="kor"`
+  외 값을 넘기면 즉시 에러(en/ja를 실수로 여기로 보내는 걸 막음).
+
+### 나레이션 TTS 검증 도구 2종 (2026-08-18 도입 — 필수)
+
+⚠️ jp-review-shorts 콜라겐씨젤리_JP_1 한국어 나레이션 "미용 성분이
+7종에서 10종으로"가 TTS에서 "칠곱종"/"셥종"처럼 한자어(칠·십)와
+순우리말(일곱·열) 숫자 읽기가 뒤섞여 깨지는 사고를 사용자가 직접
+청취로 발견 — health-shorts 나레이션 412개를 같은 패턴으로 전수
+스캔했더니 **25개 topic이 동일 위험군**으로 확인됨(2026-08-18,
+`data/*/narration.txt`/`data/*/ko/narration.txt` 대상). 사용자가
+"한국어는 내가 들을 수 있지만 en/ja는 뭐가 문제인지도 모르겠다"고
+지적 — 이 두 도구로 대응한다:
+
+- **`lib/narration_qa.py`** — "작은 수+순우리말 카운터"(개/명/종/가지/
+  번/살/마리 등) 패턴을 정규식으로 미리 잡아내는 텍스트 레벨 체크.
+  **한국어 narration.txt를 다 쓴 직후, TTS 호출 전에 항상
+  `python3 -m lib.narration_qa data/<topic>/[ko/]narration.txt` 실행할
+  것.** 연도·만/천 단위 큰 수·정수 퍼센트는 검사 대상 아님(이미 자연스럽게
+  읽힘) — `COUNTERS` 목록 참고.
+- **`lib/tts_audio_qa.py`** — TTS 오디오를 Voicebox 내장 Whisper로
+  재전사해 원문과 비교하는 **언어 무관** 검증 도구. 세션은 오디오를
+  못 듣지만 전사된 "텍스트"는 en/ja든 뭐든 읽고 원문과 비교할 수 있다는
+  게 핵심 — jp-review-shorts en 나레이션에서 이 방법으로 "MS 1500"이
+  "Mississippi 1500"으로 읽히는 실제 오독을 찾아낸 전례 있음. 사용법:
+  `python3 -m lib.tts_audio_qa <audio_path> <narration.txt 경로>
+  <lang(ko/en/ja)>`. ⚠️ 자동 pass/fail 게이트 아님 — Whisper 자체가
+  숫자 표기를 정규화하므로(예: "일곱 종"을 다시 "7종"으로 씀) 완전
+  일치를 기대하면 안 되고, 원문에 없는 엉뚱한 단어·뜻 없이 뭉개진 구간
+  (특히 브랜드명·고유명사·약어)만 의심 신호로 볼 것.
+- ⚠️ **25개 영향 topic 잔여 처리는 아직 안 함** — 텍스트 수정 자체는
+  안전하지만(narration.txt만 고치면 됨), 이미 발행된 영상까지 재렌더링·
+  재업로드할지는 규모(412개 중 25개, 다수가 이미 유튜브에 라이브)를
+  감안해 사용자와 범위를 먼저 정한 뒤 진행할 것 — 무단으로 대량
+  재업로드하지 말 것.
+
+### Fish Audio (`lib/fish_tts.py`, en/ja 전용)
+
+⚠️ **Fish Audio로 전환(2026-08-14, Typecast 완전 폐기)** — Typecast 음성
+품질 불만으로 교체 결정. `TYPECAST_API_KEY`는 `.env`에서 제거됐고
+`lib/typecast_tts.py`/`data/typecast_voices*.json`도 삭제됨(2026-08-14) —
+2026-08-14 이전에 이미 Typecast로 생성된 오디오는 sunk cost로 그대로 둔다
+(재생성 안 함).
+
+- `synthesize(topic, text, voice_name=None, lang="kor")` — 반환 모양은
+  `audio_path`/`srt_path`/`duration`/`word_count`/`words`이고, 호출 관례도
+  호출 관례도 그대로: `topic` 인자에 언어 세그먼트를 포함시켜서 넘긴다
+  (`"눈_8"`→ko, `"눈_8/en"`→en, `"눈_8/ja"`→ja — output 경로가 topic 문자열
+  그대로 `output/<topic>/narration.*`가 되므로). CLI:
+  `python3 lib/fish_tts.py <topic> <text> [voice_name]`.
+- 보이스 미지정 시 언어별 풀(`data/fish_audio_voices.json`(kor)/
+  `_en.json`/`_ja.json`)에서 랜덤 선택. **캐릭터 여러 명 topic도 항상 단일
+  보이스** — 멀티보이스 세그먼트 방식은 안 씀.
+- ⚠️ **보이스 풀 큐레이션 기준(중요)** — Fish Audio `/model` 목록은 자체
+  큐레이션이 아니라 사용자 업로드 보이스 클로닝 마켓플레이스라 실존 인물
+  (연예인·정치인 등)·저작권 캐릭터 클론이 섞여 있다. 세 JSON 파일 모두
+  제목에 실존 인물·캐릭터 이름이 전혀 없는(순수 설명형 제목만) 항목만
+  사람이 확인 후 큐레이션한 목록 — 새 보이스 추가 시 항상 이 기준으로 확인.
+- **배속 없이 원 속도** — `AUDIO_TEMPO = 1.0`(health-shorts 기존 원칙 그대로
+  유지, 변경 없음).
+- ⚠️ **나레이션 텍스트의 소수점 퍼센트는 말로 풀어 쓸 것** — Fish Audio는
+  "0.09%"처럼 숫자 사이 마침표가 있는 토큰에서 문장 경계 정렬(alignment)이
+  깨진다(jp-review-shorts 실측). "0.09%" 대신 "0.09퍼센트"/"영점 영구
+  퍼센트"처럼 TTS가 읽을 문장에서만 풀어 쓸 것 — 화면 표시용(카드뉴스 등)
+  텍스트는 대상 아님.
+- ⚠️ **긴 나레이션은 문장 단위로 API를 여러 번 호출한다(`_MAX_SENTENCES_PER_CALL
+  = 1`, 자동 처리됨)** — Fish Audio 스트리밍 응답이 청크 여러 개로 나뉘는
+  긴 텍스트에서 마지막 청크가 잘리는 재현 버그가 있어서, 이 파일이 내부적으로
+  문장 하나당 API 호출 하나로 쪼개고 WAV로 재조립한다. 호출부는 신경 쓸 필요
+  없음 — `synthesize()`만 호출하면 됨.
+
+
+## 유튜브 쇼츠 자동 업로드 (`lib/youtube_upload.py`)
+
+⚠️ **한국어 채널 신규 업로드 완전 중단(2026-08-21, "트래픽이 전혀 나오지않아")**
+— `python3 lib/youtube_upload.py`(단일/`--backlog` 등 전부)를 ko에 더 이상
+쓰지 않는다. "유튜브에 올려줘"/"업로드해" 같은 트리거 문구가 와도 실행하지
+말고, 이미 트래픽 이유로 안 올리기로 했다고 안내할 것. 이미 라이브된 기존
+ko 영상은 삭제 요청 없었으니 그대로 둔다(내려달라는 별도 지시가 없는 한
+손대지 말 것). 영상 자체(숏츠 mp4)는 계속 만들어서 인스타그램 릴스·틱톡·
+네이버 클립 등 다른 영상 플랫폼엔 그대로 씀 — 유튜브 업로드 단계만 스킵.
+아래는 이 결정 이전에 쓰던 세부 동작 기록(참고용, 재개 시에만 유효).
+
+- ⚠️ **ko topic 경로는 flat이 원칙이지만 코드가 flat/`ko/` 서브폴더 둘 다
+  지원함(2026-08-17)** — "topic 폴더명" 절 원칙대로 ko는 언어 하위 폴더 없이
+  `output/<topic>/`·`data/<topic>/`에 바로 있는 게 정상이다. 그런데 실측
+  발견: 귀_7/소화_15/순환_9/어지럼증_8/여성_6/여성_9/피로_2 7개 topic이 한
+  세션의 실수로 `output/<topic>/ko/`·`data/<topic>/ko/`에도 콘텐츠가 통째로
+  재생성된 채 남아있었다(구버전 flat 산출물은 시각적으로도 색상 등이 달라
+  발견됨 — 구버전은 삭제, 새 버전인 `ko/`는 그대로 둠). 업로드 코드
+  (`_has_video`/`_upload_short_inner`)는 원래 flat만 봐서 이 7개 topic이
+  "영상 없음"으로 판정돼 업로드 후보에서 조용히 빠지고 있었다 — `_content_dir`/
+  `_content_data_dir` 헬퍼를 추가해 flat을 먼저 보고 없으면 `ko/`로 폴백하게
+  고쳤다. **새 topic 작업 시 ko 콘텐츠를 실수로 `ko/` 하위 폴더에 만들지 말
+  것**(다른 언어와 헷갈리기 쉬움) — 이미 만들어져 있어도 위 폴백 덕에
+  업로드는 되지만, `data/`·`output/` 둘 다 flat이 원칙이라는 걸 잊지 말 것.
+- 단일 topic: `python3 lib/youtube_upload.py <topic> [private|unlisted|public] [예약시각]`
+- ⚠️ **일괄 업로드 표준은 `--backlog`(2026-08-07, `--daily-per-channel`
+  대체) — "유튜브에 올려줘"/"업로드해" 등 트리거 문구 하나로 요청하면 이걸로
+  진행할 것**: `python3 lib/youtube_upload.py --backlog [privacy]`
+  (`upload_backlog()`). 채널(언어)마다 아직 안 올라간 topic 전체를 한 번에
+  큐잉해서, `uploadLimitExceeded`(계정당 하루 실제 업로드 개수 제한 — API
+  쿼터와 무관하고 `publishAt` 예약으로도 못 피함, 2026-08-07 실측: pt
+  17개·en 31개·es 34개에서 채널마다 다른 상한에 걸림)에 부딪힐 때까지
+  자동으로 밀어붙인다 — 채널별로 몇 개가 안전한지 미리 추측할 필요 없음.
+  한도 도달 시 그 채널만 즉시 포기하고(`_is_upload_limit_error`) 다음 채널로
+  넘어가며, 스케줄은 `_last_scheduled_publish_at`으로 그 채널에 이미 예약된
+  것 중 가장 늦은 시각 다음부터 이어붙인다(겹침 방지). topic이 다 소진되면
+  새로 준비되는 만큼만 올라가서 자연히 하루 2개 안팎으로 수렴함.
+  - ⚠️ **`--daily-per-channel`/`--daily-batch`는 레거시 — 새로 쓰지 말 것.**
+    전자는 채널당 하루 2개로 고정해 backlog가 쌓이면 못 따라가고, 후자는
+    언어 확장 전 한국어 단일 채널 시절 로직이라 6개 채널 체제에 안 맞는다.
+- 업로드 성공 시 자동으로: 카테고리 재생목록에 추가(중복 삽입 방지 확인 후),
+  Supabase `youtube_uploaded` 테이블에 기록. 커스텀 썸네일 자동 설정은 하지 않음
+  (2026-08-08 재확인: `thumbnails().set()` API 자체는 정상 작동하고 채널
+  그리드·검색·구독피드엔 반영되지만, 조회수 대부분이 나오는 스와이프 쇼츠
+  재생 화면엔 유튜브 플랫폼 자체 한계로 절대 반영 안 됨 — 자동화 가치 없어
+  보류) — 유튜브 자동 제안 또는 Studio 수동.
+- ⚠️ **업로드 추적은 Supabase `youtube_uploaded`가 유일한 근거 — 로컬
+  `output/youtube_uploaded.json`은 폐기(2026-08-15)** — 예전엔 이 git 추적
+  파일이 "이미 올렸는지"의 유일한 판단 근거였는데, 실제로 두 번 사고가 났다:
+  ①무관한 커밋(대시보드 재생성 버그)이 실수로 기록 67건을 날려서, 그 사이
+  `--backlog`가 이미 올라간 topic을 재업로드(vernhaven ko 채널에서 10개+
+  topic 중복 실측). ②동시 세션 경쟁 — 두 세션이 비슷한 시각에 `--backlog`를
+  돌리면 로컬 파일 읽기-쓰기 사이에 락이 없어 같은 topic을 동시에 집을 수
+  있음. Supabase `youtube_uploaded`는 `topic`이 PRIMARY KEY라 DB 자체가
+  유일성을 보장하고, `upload_short()`가 **실제 YouTube API를 부르기 전에**
+  `_sb_reserve_upload(topic, lang)`으로 그 topic을 `status='pending'`으로
+  원자적 INSERT 시도한다 — 이미 누가 예약/확정해뒀으면(PK 충돌) 조용히
+  실패하고 `upload_short()`가 그 즉시 RuntimeError로 끝난다(API 호출 자체를
+  안 함, 경쟁 조건이 물리적으로 닫히는 지점). 성공하면 업로드 진행 후
+  `_sb_finalize_upload()`로 `status='confirmed'`+실제 `video_id` 기록,
+  실패하면 `_sb_release_upload()`로 예약 행을 지워서 나중에 재시도 가능하게
+  한다. `select_daily_topics*()`의 후보 조회도 매번 Supabase를 새로
+  읽는다(로컬 캐시 없음 — 다른 세션이 방금 올린 것까지 즉시 반영돼야 함).
+  `lib/youtube_organize_playlists.py`(채널 스캔으로 소급 정리)는 예약 단계가
+  필요 없어 `_sb_record_existing_upload()`(즉시 upsert)를 쓴다. `index.html`은
+  원래도(2026-08-08 스키마 도입 시점부터) Supabase를 직접 읽었으므로 이번
+  변경 대상 아님 — Python 스크립트 쪽만 로컬 파일에서 Supabase로 옮겼다.
+- OAuth 1회 설정은 archive의 "유튜브 쇼츠 자동 업로드" 절 참고(사용자가 직접
+  해야 하는 단계 포함).
+- ⚠️ **리프레시 토큰은 ~7일마다 만료됨(OAuth 앱이 "테스트" 상태라 구글 정책상
+  자동 만료, 2026-08-11 실측: ko `invalid_grant: Token has been expired or
+  revoked`)** — 업로드 시도 시 이 에러가 뜨면 토큰 만료다. 재발급 절차:
+  `python3 lib/youtube_auth_setup.py [--channel <코드>]`(코드 없으면 ko) →
+  브라우저가 자동으로 열리고 해당 채널 소유 구글 계정으로 로그인+동의만
+  하면 스크립트가 새 refresh_token을 바로 출력함 → `.env`의 `YOUTUBE_
+  REFRESH_TOKEN`(또는 `YOUTUBE_<코드>_REFRESH_TOKEN`)에 그 값으로 교체 →
+  `_get_credentials(lang)` 재호출로 정상 작동 확인. 브라우저 로그인은
+  사용자가 직접 해야 하는 단계라, 만료 감지 시 이 절차 그대로 안내하고
+  진행할 것(프로덕션 전환은 유튜브 전체관리가 "민감 스코프"라 구글 앱
+  검수가 필요해서 개인 단일 채널 규모에선 배보다 배꼽 — 그냥 만료될 때마다
+  재발급하는 쪽을 유지하기로 함).
+- ⚠️ **캡션 구분자(`CAPTION_MARKERS`) 언어별로 여러 후보 필요** — 같은
+  언어라도 topic마다 "タイトル:/説明:"·"Title:/Description:" 등 다른
+  표기가 섞여 있을 수 있음(2026-08-07 ja에서 "概要欄:" 변형 발견, 10개
+  topic 업로드 실패로 드러남). 새 SKIP/실패가 구분자 불일치면 해당 언어의
+  `CAPTION_MARKERS` 후보 리스트에 실제 발견된 표기를 추가할 것.
+- 제목 100자 초과 시 `upload_short`가 단어 경계에서 자동으로 잘라 올림
+  (YouTube `invalidTitle` 거부 예방, 2026-08-07) — 새 topic 캡션 작성 시
+  제목을 100자 이내로 쓰는 게 우선이고, 이건 최후 안전장치일 뿐.
+
