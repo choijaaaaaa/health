@@ -51,9 +51,16 @@ _UI_EXCLUDED_PLATFORMS = {
 
 
 def collect_rows() -> list[dict]:
-    """data/<topic>/platform_captions.json(플랫 구조 — ko 영상/카드뉴스
-    topic만 해당, blog_seo처럼 언어 서브폴더가 있는 topic은 대상 아님)을
-    스캔해 수동 포스팅 대상 플랫폼만 골라 행 목록으로 만든다."""
+    """한국어 캡션 파일을 스캔해 수동 포스팅 대상 플랫폼만 골라 행 목록으로 만든다.
+
+    WHY 두 위치를 다 보는지(2026-08-31 실측): 한국어 캡션은 topic당 한 곳에만
+    있는데 그 위치가 topic마다 다르다 — 언어 폴더가 없는 옛 topic은
+    data/<topic>/platform_captions.json, 언어 폴더가 생긴 topic은
+    data/<topic>/ko/platform_captions.json이다(실측 342 대 17, 양쪽 다 있는
+    topic은 0개). 예전엔 flat만 스캔해서 ko/ 쪽 17개 topic의 네이버 캡션이
+    mission-control 목록에 아예 안 나왔다 — 그 topic들은 개별 대시보드를 직접
+    열어야만 캡션을 복사할 수 있었다.
+    """
     data_dir = ROOT / "data"
     rows: list[dict] = []
     if not data_dir.is_dir():
@@ -61,6 +68,8 @@ def collect_rows() -> list[dict]:
 
     for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
         captions_path = topic_dir / "platform_captions.json"
+        if not captions_path.exists():
+            captions_path = topic_dir / "ko" / "platform_captions.json"
         if not captions_path.exists():
             continue
         try:

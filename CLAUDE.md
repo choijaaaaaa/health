@@ -92,12 +92,13 @@ TTS 3종·유튜브 업로드·캐릭터 모션).
 ## 새 topic 완료 기준 — 두 트랙을 다 채워야 끝난다 (2026-08-30 확정)
 
 건강 topic 하나는 **나가는 곳이 둘**이고, 둘 다 카드뉴스가 필요하다. 한쪽만 있으면
-완료가 아니다 — 실제로 48개 topic 중 양쪽을 다 갖춘 게 **0개**였던 적이 있다
-(22개는 네이버만, 26개는 SEO 블로그만).
+완료가 아니다 — 실제로 blog_seo 8개 언어를 가진 48개 topic 중 **언어별 카드뉴스까지
+갖춘 게 21개뿐**이었다(나머지 27개는 스펙만 써놓고 렌더를 안 해서 vernhaven hero가
+비어 있었다).
 
 | | 네이버 블로그 트랙 | SEO 블로그 트랙(vernhaven) |
 |---|---|---|
-| 원고 | `data/<topic>/platform_captions.json` (flat, `네이버 블로그` 항목) | `data/<topic>/<lang>/platform_captions.json` (`blog_seo` 항목, 8개 언어) |
+| 원고 | `네이버 블로그` 항목 — **위치가 topic마다 다르다**, 아래 "한국어 캡션 파일은 topic마다 위치가 다르다" 절 참고 | `data/<topic>/<lang>/platform_captions.json` (`blog_seo` 항목, 8개 언어) |
 | 카드 스펙 | `data/<topic>/ko/card_news_spec.json` | `data/<topic>/<lang>/card_news_spec.json` (언어마다 따로) |
 | 카드 이미지 | `output/<topic>/ko/card_news/` | `output/<topic>/<lang>/card_news/` |
 | 반영 | `python3 -m lib.mission_control_sync --commit` | vernhaven `ingest_health_shorts.py --commit` |
@@ -707,20 +708,30 @@ pytest가 테스트 ID의 한글을 `\uc5ec\uc131` 형태로 이스케이프해�
 - ✅ **권장: `python3 -m lib.claim_audit <topic>`** — topic 인자를 그대로 받는다
 - `-k blog`, `-k known_false`처럼 **영문 키워드는 정상**
 
-### ⚠️ ko 수정은 어디로 반영되나 — 경로가 두 갈래다
+### ⚠️ 한국어 캡션 파일은 topic마다 위치가 다르다 (2026-08-31 정정)
 
-혼동하기 쉬운 지점이다. `data/<topic>/platform_captions.json`(flat ko)과
-`data/<topic>/ko/platform_captions.json`(언어 폴더)은 **나가는 곳이 다르다.**
+**한국어 캡션은 topic당 한 곳에만 있다. 그런데 그 한 곳이 topic마다 다르다.**
 
-| | flat ko (`data/<topic>/`) | `ko/` 폴더 (43개 topic) |
+- 언어 폴더가 없는 옛 topic → `data/<topic>/platform_captions.json` (342개)
+- 언어 폴더가 생긴 topic → `data/<topic>/ko/platform_captions.json` (17개)
+- 양쪽 다 있는 topic은 **0개**다. `tests/test_content_rules.py`의
+  `test_korean_caption_lives_in_one_place`가 이 불변조건을 지킨다.
+
+⚠️ **flat만 보고 "네이버 캡션이 없다"고 판단하지 말 것.** 실제로 한 세션이 그렇게
+오진해서 이미 `ko/`에 있는 캡션 26개를 flat에 중복 생성했고, 같은 topic에 서로 다른
+네이버 원고가 두 벌 생겨 어느 쪽이 나갈지 알 수 없는 상태가 됐다.
+
+`ko/` 폴더 파일은 **네이버 블로그 항목과 `blog_seo` 항목을 같이 담는다** — 파일
+하나가 두 곳으로 나간다. 어느 항목을 고쳤는지에 따라 반영 경로가 갈린다.
+
+| 고친 항목 | 나가는 곳 | 반영 방법 |
 |---|---|---|
-| 나가는 곳 | **네이버 블로그**(사람이 대시보드에서 복사해 수동 게시) | vernhaven blog_posts |
-| 반영 방법 | `python3 -m lib.mission_control_sync --commit` | vernhaven `ingest_health_shorts.py --commit` |
-| ingest 대상 | ❌ (스크립트가 `<lang>/`만 스캔) | ✅ |
+| `네이버 블로그` (flat 또는 ko/) | 네이버 블로그(사람이 대시보드에서 복사해 수동 게시) | `python3 -m lib.mission_control_sync --commit` |
+| `blog_seo` (`<lang>/`) | vernhaven `blog_posts` | vernhaven `ingest_health_shorts.py --commit` |
 
-flat ko를 고친 뒤 vernhaven ingest를 돌려도 **ko는 한 줄도 안 들어간다** — 정상이다.
-mission-control 동기화가 그쪽 반영 경로다. 2026-08-28 ko 오류 수정 때 실제로
-이걸 확인하느라 한 번 헛돌았다.
+flat ko의 네이버 항목을 고친 뒤 vernhaven ingest를 돌려도 **한 줄도 안 들어간다** —
+정상이다(그 스크립트는 `blog_seo`만 본다). 2026-08-28 ko 오류 수정 때 이걸 확인하느라
+한 번 헛돌았다.
 
 ### 돌아가는 방식
 
@@ -786,6 +797,26 @@ Voedingscentrum). **핵심 주장은 `curl`로 원문을 받아 문자열로 대
 - 수치를 쓸 땐 **어느 기관인지 문장 안에 적는다.** 못 적겠으면 그 수치를 뺀다.
 - 같은 topic의 다른 언어가 실명으로 인용하고 있으면(fr은 ADEME·WHO를 밝힘) 그건
   그대로 두고, 뭉뚱그린 쪽만 고친다 — 나라마다 기준이 다른 게 정상이다.
+
+## blog_seo 발행 품질 게이트 (2026-08-31 신설)
+
+**분량·제목 길이는 인입 스크립트가 "경고"로만 찍어서 아무도 안 고쳤다** — 실측 결과
+84편이 최소 분량 미달(최저 257단어), 49편이 제목 길이 초과인 채로 이미 인입돼 있었다.
+콘텐츠를 만드는 이 저장소에서 막는다.
+
+```bash
+.venv/bin/python3 -m pytest tests/test_blog_seo_quality.py -q
+```
+
+- 기준: 라틴문자권 본문 500단어 / 일본어 1000자, 제목 65자(ja·ko는 35자) —
+  `scripts/ingest_health_shorts.py`의 동명 상수와 **값 동기화 필수**(저장소가 달라 공유 불가)
+- 이미 인입된 미달분은 `data/_audit/blog_seo_quality_debt.json`에 등록돼 예외로 통과한다.
+  **새 위반은 즉시 실패**한다
+- ⚠️ **고친 항목은 채무 목록에서 지워야 한다** — 안 지우면 "고쳤는데 목록에 남아있다"로
+  실패한다(목록이 줄어들기만 하게 만드는 장치)
+- 증량은 **물타기 금지** — 있는 문장 늘려쓰기·같은 말 반복·면책 문구 증량이 아니라
+  그 언어권 공식기관 자료로 H2 섹션을 더한다
+- 제목을 줄일 땐 **`slug`를 절대 바꾸지 말 것**(이미 인입된 글의 URL이 끊긴다)
 
 ## 콘텐츠 QA — 완료 전 필수
 

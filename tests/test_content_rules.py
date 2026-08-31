@@ -764,3 +764,43 @@ def test_blog_seo_language_coverage(base_topic):
         f"{base_topic}: blog_seo가 {sorted(have)}에만 있고 {missing}이 빠짐 — "
         "CLAUDE.md '완료 기준 = 8개 언어 blog_seo 전부'"
     )
+
+
+# ---------------------------------------------------------------------------
+# 규칙 13: 한국어 캡션은 topic당 한 곳에만 (2026-08-31)
+#
+# 한국어 캡션 파일의 위치는 topic마다 다르다 — 언어 폴더가 없는 옛 topic은
+# data/<topic>/platform_captions.json, 언어 폴더가 생긴 topic은
+# data/<topic>/ko/platform_captions.json이다. 둘 중 하나지 둘 다는 아니다
+# (실측 342 대 17, 양쪽 다 있는 topic 0개).
+#
+# 이 불변조건이 문서에 없어서, 한 세션이 flat만 보고 "네이버 캡션이 없는
+# topic 26개"로 오진하고 이미 ko/에 있는 캡션을 flat에 중복 생성했다. 같은
+# topic에 서로 다른 네이버 원고가 두 벌 생겨서 어느 쪽이 나갈지 알 수 없는
+# 상태가 됐다 — 되돌리긴 했지만 사람 눈으로만 잡히는 종류라 여기서 막는다.
+# ---------------------------------------------------------------------------
+
+
+def _has_naver_entry(path: Path) -> bool:
+    if not path.exists():
+        return False
+    try:
+        spec = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return False
+    return any(p.get("name") == "네이버 블로그" for p in spec.get("platforms", []))
+
+
+BASE_TOPICS = sorted({t.split("/")[0] for t in TOPICS})
+
+
+@pytest.mark.parametrize("base_topic", BASE_TOPICS)
+def test_korean_caption_lives_in_one_place(base_topic):
+    flat = DATA_DIR / base_topic / "platform_captions.json"
+    nested = DATA_DIR / base_topic / "ko" / "platform_captions.json"
+    if _has_naver_entry(flat) and _has_naver_entry(nested):
+        pytest.fail(
+            f"{base_topic}: 네이버 블로그 캡션이 flat과 ko/ 양쪽에 있습니다 — "
+            "한국어 원고는 한 곳에만 두세요(언어 폴더가 있으면 ko/, 없으면 flat). "
+            "두 벌이 있으면 어느 쪽이 게시되는지 알 수 없습니다."
+        )
