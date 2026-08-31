@@ -818,6 +818,54 @@ Voedingscentrum). **핵심 주장은 `curl`로 원문을 받아 문자열로 대
   그 언어권 공식기관 자료로 H2 섹션을 더한다
 - 제목을 줄일 땐 **`slug`를 절대 바꾸지 말 것**(이미 인입된 글의 URL이 끊긴다)
 
+## 같은 틀로 수렴하지 않게 — 매 topic 시작 전 확인 (2026-08-31 신설)
+
+사용자가 "제목이나 내용이 비슷비슷해서 저품질 되는 느낌"이라고 먼저 알아챘고,
+실측해보니 사실이었다. **제목은 385개 중 완전 중복 0건이라 눈에 안 띄는데 구조가
+판박이였다** — 이런 쏠림은 글을 몇 편 읽어봐서는 잘 안 드러나고 전수로 세야 보인다.
+
+측정 당시(수정 전):
+
+| 축 | 쏠림 |
+|---|---|
+| 카드 아이템 7개 고정 | 385개 중 320개(83%) |
+| 원인/해결 배열이 단 두 가지 | 307개(80%) |
+| 네이버 본문 "먼저 ~"로 시작 | 77% |
+| 네이버 본문 "마지막으로"로 마무리 | 64% |
+| ko blog_seo H2 "정리하면" | 91% |
+
+```
+python3 -m lib.repetition_audit          # 지금 어디가 쏠려 있는지 계기판
+```
+
+게이트가 아니다 — 몇 %부터 위험한지 객관적 기준이 없어 임계값을 안 뒀다. 큰 작업
+전후로 돌려 수치가 내려가는지 보는 용도다.
+
+**새 topic 작성 전에 아래를 전부 확인하고 그대로 쓸 것.** 하나라도 건너뛰면 그 축이
+바로 다시 수렴한다(실제로 `select_title_archetype`은 문서에만 있고 구현이 없던
+기간이 있었고, 그동안 94%가 같은 H2로 수렴했다).
+
+```
+python3 -m lib.content_review --hook-pattern <topic>                  # 훅 어미
+python3 -m lib.content_review --card-structure <topic>                # 카드 짜임 6종
+python3 -m lib.content_review --connectives <topic>                   # 네이버 접속어 5종
+python3 -m lib.content_review --title-archetype <topic> <lang>        # blog_seo 제목
+python3 -m lib.content_review --closing-archetype <topic> <lang>      # blog_seo 클로징
+# H2 섹션 헤더는 CLI 없이 직접 import
+python3 -c "import lib.content_review as c; print(c.select_section_header_archetype('<topic>','<lang>','summary'))"
+python3 -c "import lib.content_review as c; print(c.select_section_header_archetype('<topic>','<lang>','actual_fix'))"
+```
+
+- **아키타입은 문구가 아니라 스타일이다.** 같은 아키타입이 뽑힌 topic끼리도 문구는
+  달라야 한다 — 그 글의 결론을 이름 붙이는 헤더를 쓸 것. "요점 한 줄"은 여전히
+  상투구고, "결국 문제는 온도차였어요"가 그 글의 헤더다.
+- **아이템 개수를 7개로 고정하지 말 것.** 소재에 따라 5~9개로 달라지는 게 정상이다.
+- **"왜 이런 문제가 생길까요"로 첫 장을 여는 습관을 경계할 것**(22회 반복됨).
+- 의료 안전 섹션 라벨(`받아야 할 때`·`받으세요` 류)은 다양화 대상이 아니다 —
+  반복돼도 그대로 두는 게 맞다.
+- 소재상 뽑힌 아키타입이 도저히 안 맞으면 다른 걸 써도 되지만, 그때도 직전 몇 개
+  topic과 같은 짜임은 피할 것.
+
 ## 콘텐츠 QA — 완료 전 필수
 
 ⚠️ **Gemini API는 일러스트 생성(`lib/gemini_illust.py`)에만 쓴다(2026-08-15

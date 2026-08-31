@@ -28,7 +28,16 @@ _PERCENT = re.compile(r"\d+(?:\.\d+)?\s*(?:%|퍼센트)")
 _STUDY_REF = re.compile(
     r"(?:JAMA|Lancet|NEJM|BMJ|AJCN|Nature|Cell|Diabetes Care|Circulation|PLOS|Cochrane"
     r"|메타분석|무작위|코호트|추적\s*연구|임상시험|체계적\s*문헌고찰)")
-_INSTITUTION = re.compile(r"(?:대학교?|학회|연구팀|연구소|재단|センター|Institute|University)")
+# WHY 한국 공식기관을 따로 넣는지(2026-08-31): 원래 패턴이 "대학·학회·연구소"류뿐이라
+# **질병관리청·식약처·환경부처럼 가장 신뢰도 높은 1차 출처를 밝힌 문장이 오히려 "출처
+# 없음"으로 잡혔다** — 실측에서 남은 경고 4건이 전부 이 오탐이었다. 경고가 오탐투성이면
+# 사람이 통째로 무시하게 되고, 그러면 진짜 미출처 수치가 그 뒤에 숨는다.
+_INSTITUTION = re.compile(
+    r"(?:대학교?|학회|연구팀|연구소|재단|センター|Institute|University"
+    r"|질병관리청|식품의약품안전처|식약처|식품의약품안전평가원|보건복지부|환경부"
+    r"|국가건강정보포털|건강보험심사평가원|심평원|국민건강보험공단|건강보험공단"
+    r"|국립암센터|국가암정보센터|농촌진흥청|기상청|소비자원|소비자연맹|소비자24"
+    r"|국민건강영양조사|WHO|세계보건기구|FDA|NIH|NHS|CDC|EFSA)")
 
 
 def _iter_texts(spec: dict):
