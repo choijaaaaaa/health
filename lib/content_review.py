@@ -17,10 +17,13 @@
 #   python3 -m lib.content_review --title-archetype <topic> <lang>    — blog_seo
 #     제목 쓰기 전에 먼저(topic+lang 시드, 아래 "blog_seo 전용 다양화 장치" 참고)
 #   python3 -m lib.content_review --closing-archetype <topic> <lang>  — blog_seo
+#   python3 -m lib.content_review --card-structure <topic>            — 카드 짜임
+#   python3 -m lib.content_review --connectives <topic>               — 네이버 접속어
 #     클로징 문단 쓰기 전에 먼저. select_section_header_archetype()은 CLI 없이
 #     함수를 직접 import해서 쓸 것(section 인자를 받으므로 CLI 매핑 생략)
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -468,6 +471,51 @@ def select_closing_archetype(topic: str, lang: str) -> tuple[str, str]:
     return CLOSING_ARCHETYPES[seed_val % len(CLOSING_ARCHETYPES)]
 
 
+# WHY 카드 구조까지 시드로 흔드는지(2026-08-31 실측): 카드 스펙 385개 중 320개(83%)가
+# 아이템 7개 고정이고, 307개(80%)가 단 두 가지 원인/해결 배열이었다("원인·대안 3쌍"
+# 아니면 "원인만 7개"). 제목은 중복 0건이라 눈에 안 띄는데 글을 여러 편 이어 보면
+# 같은 틀이 반복되는 게 드러난다 — 사용자가 "저품질 되는 느낌"이라고 먼저 알아챘다.
+# 훅·제목 아키타입과 같은 원리로 topic 시드를 걸어 구조 자체를 흔든다.
+CARD_STRUCTURES = [
+    ("원인·대안 3쌍", "원인 3개를 각각 바로 뒤에 대안과 붙여 3쌍으로(원인1→대안1→원인2→대안2→원인3→대안3). 아이템 7개."),
+    ("원인 몰기 후 대안 몰기", "원인 3개를 먼저 연달아 보여주고 대안 3개를 뒤에 몰아서. 순서가 바뀌면 읽는 리듬이 달라진다. 아이템 7개."),
+    ("원인 2개 깊게", "원인을 3개로 늘리지 말고 2개만 골라 각각 두 장씩 깊게 파고든다(기전 한 장 + 대안 한 장). 아이템 5~6개."),
+    ("오해 깨기", "흔한 오해 한 장으로 열고, 실제 원인 → 실제 대안 순으로. 첫 장을 '왜 이런 문제가 생길까요'로 시작하지 않는다. 아이템 6~7개."),
+    ("체크리스트형", "원인/대안을 나누지 않고 '오늘 바꿀 것' 항목을 죽 나열한다. 아이템 5~8개."),
+    ("한 가지 집중", "원인 하나만 끝까지 파고든다(기전→근거→대안→주의점). 여러 개 나열하지 않는다. 아이템 5~6개."),
+]
+
+# WHY 접속어까지 흔드는지: 네이버 본문의 77%가 "먼저 ~"로 원인을 열고 64%가
+# "마지막으로"로 닫고 있었다. 내용이 달라도 읽는 느낌이 같아진다.
+CAPTION_CONNECTIVES = [
+    ("먼저/두 번째로/마지막으로", "가장 흔한 기본형 — 이미 과반이 쓰고 있으니 이 시드가 나왔을 때만 쓸 것"),
+    ("첫 번째는/그다음은/여기에 하나 더", "번호를 세되 마지막을 '하나 더'로 열어두는 형태"),
+    ("~부터 보면/이것도 겹치면/여기에", "원인을 쌓아 올리는 형태 — 순번을 세지 않는다"),
+    ("의외로 ~/생각보다 ~/무엇보다", "각 항목을 의외성으로 여는 형태"),
+    ("접속어 없이", "'먼저·두 번째' 같은 순번 표지를 아예 쓰지 않고 소제목만으로 넘어간다"),
+]
+
+
+def _even_seed(text: str) -> int:
+    """WHY 기존 select_hook_pattern의 덧셈 시드를 안 쓰는지(2026-08-31): 한글은
+    ord 값이 44,032~55,203 좁은 구간에 몰려 있어서 그 공식으로 6으로 나누면
+    배분이 34~108개까지 벌어졌다(실측). 선택지가 적을수록 이 쏠림이 그대로
+    콘텐츠 쏠림이 되므로 여기서는 균등한 해시를 쓴다."""
+    return int(hashlib.md5(text.encode("utf-8")).hexdigest(), 16)
+
+
+def select_card_structure(topic: str) -> tuple[str, str]:
+    """카드 구성 방식을 topic 시드로 결정론적으로 고른다. 완성된 카드가 아니라
+    '이번 topic은 이 짜임으로 가라'는 지시다 — 소재상 도저히 안 맞으면 다른 걸
+    골라도 되지만, 그때도 직전 몇 개 topic과 같은 짜임은 피할 것."""
+    return CARD_STRUCTURES[_even_seed("card:" + topic) % len(CARD_STRUCTURES)]
+
+
+def select_caption_connectives(topic: str) -> tuple[str, str]:
+    """네이버 본문에서 항목을 잇는 접속어 세트를 topic 시드로 고른다."""
+    return CAPTION_CONNECTIVES[_even_seed("conn:" + topic) % len(CAPTION_CONNECTIVES)]
+
+
 SECTION_HEADER_ARCHETYPES = {
     # "actual_fix" = H2 "실제 해결책" 섹션(94%가 "What Actually Helps"로 고정돼 있던 그 섹션)
     "actual_fix": [
@@ -512,6 +560,18 @@ if __name__ == "__main__":
             print(f"{name} — {desc}")
         else:
             print("사용법: python3 -m lib.content_review --closing-archetype <topic> <lang>")
+    elif len(sys.argv) > 1 and sys.argv[1] == "--card-structure":
+        if len(sys.argv) > 2:
+            name, desc = select_card_structure(sys.argv[2])
+            print(f"{name} — {desc}")
+        else:
+            print("사용법: python3 -m lib.content_review --card-structure <topic>")
+    elif len(sys.argv) > 1 and sys.argv[1] == "--connectives":
+        if len(sys.argv) > 2:
+            name, desc = select_caption_connectives(sys.argv[2])
+            print(f"{name} — {desc}")
+        else:
+            print("사용법: python3 -m lib.content_review --connectives <topic>")
     elif len(sys.argv) > 1 and sys.argv[1] == "--all":
         review_all()
     elif len(sys.argv) > 1:

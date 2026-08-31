@@ -72,6 +72,14 @@ def check_known_regressions(topic: str, spec: dict) -> list[str]:
                             f"({', '.join(common)}) — {issue['claim'][:60]} "
                             f"→ {issue['fact'][:60]}")
             elif not nums and keywords:
+                # WHY corrected_marker(2026-08-31): 전제가 틀린 topic을 제대로 고치는
+                # 방법은 그 통념을 본문에서 직접 반박하는 것인데, 그러면 어구는 그대로
+                # 남아 어구 매칭이 통째로 오탐이 된다 — 실측: 근골격_20을 "마우스 탓이
+                # 아니다"로 다시 쓰자 '마우스'·'키보드'가 그대로 걸렸다. 반박이 실제로
+                # 들어갔음을 증명하는 문구를 issue에 적어두고, 그게 본문에 있으면 통과.
+                marker = issue.get("corrected_marker")
+                if marker and marker in text:
+                    continue
                 matched = [k for k in keywords if k in text]
                 if len(matched) >= max(2, len(keywords) - 1):
                     hits.append(f"[{where}] 폐기 판정된 주장의 어구가 남아 있음 "
