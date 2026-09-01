@@ -1,0 +1,147 @@
+{
+  "title": [
+    "Tio kilo lättare men",
+    "tunnare armar i spegeln?",
+    "Fettfri massa och viktminskningssprutan"
+  ],
+  "eyebrow": "Skydda muskelmassan",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "Hur mycket är egentligen muskel",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "I STEP 1 genomgick 140 deltagare",
+        "en DXA-mätning vid start",
+        "och efter 68 veckor",
+        "",
+        "Fettmassan sjönk med 19,3 procent,",
+        "den fettfria massan med 9,7 procent",
+        "",
+        "Eftersom fettet försvann snabbare ökade",
+        "andelen fettfri massa av totalvikten",
+        "med 3,0 procentenheter"
+      ]
+    },
+    {
+      "name": "Fettfri massa är inte muskel",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "I fettfri massa ingår kroppsvatten,",
+        "organ och bindväv, och en del av den",
+        "tidiga minskningen är vätska",
+        "",
+        "I SURMOUNT-1 bestod den förlorade vikten",
+        "av 75 procent fett och 25 procent fettfri",
+        "massa - exakt samma fördelning",
+        "som i placebogruppen"
+      ]
+    },
+    {
+      "name": "Därför tar kroppen av muskelproteinet",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Hungern dämpas och magsäckstömningen",
+        "saktar ned, så matintaget sjunker mer",
+        "än man själv märker",
+        "",
+        "Livsmedelsverket beskriver mekanismen",
+        "rakt av: får kroppen inte tillräckligt",
+        "med energi används proteinet som",
+        "energikälla i stället för som byggstenar"
+      ]
+    },
+    {
+      "name": "Risken när du bantar och tränar",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Myndigheten noterar att det sällan",
+        "finns behov av proteinpulver",
+        "",
+        "Men det finns en liten risk att få i sig",
+        "för lite protein om man tränar",
+        "och samtidigt bantar",
+        "",
+        "Det är precis den situation",
+        "en viktminskningsspruta skapar"
+      ]
+    },
+    {
+      "name": "Lägg proteinet först på tallriken",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "NNR 2023 rekommenderar 0,83 gram",
+        "protein per kilo och dag - ett riktvärde",
+        "för någon med stabil vikt",
+        "",
+        "I kraftigt energiunderskott visar",
+        "översikter att 1,2-1,6 g/kg bevarar",
+        "den fettfria massan bättre",
+        "",
+        "Ägg, fisk, kyckling, baljväxter, mejeri",
+        "eller tofu före bröd och potatis,",
+        "fördelat på tre mål"
+      ]
+    },
+    {
+      "name": "Belasta musklerna två dagar i veckan",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Folkhälsomyndigheten är tydlig: vuxna",
+        "bör ägna sig åt muskelstärkande aktiviteter",
+        "under minst två dagar i veckan,",
+        "med kroppens alla större muskelgrupper",
+        "",
+        "Samma rekommendation gäller över 65",
+        "",
+        "Knäböj, armhävningar och gummiband",
+        "räcker - gymkort är inget krav"
+      ]
+    },
+    {
+      "name": "Planera avslutet innan du börjar",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "TLV beslutade i februari 2026 att Wegovy",
+        "inte ska subventioneras och inte ingå",
+        "i högkostnadsskyddet",
+        "",
+        "I förlängningsfasen av STEP 1 kom 11,6 av",
+        "de 17,3 procentenheterna tillbaka på ett år,",
+        "ungefär två tredjedelar av nedgången",
+        "",
+        "Justera aldrig dosen och sluta aldrig",
+        "på egen hand - det är läkarens beslut"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Fettet försvinner snabbare än den fettfria massan,",
+        "och dess andel av kroppen ökar till och med"
+      ],
+      [
+        "Boka in två kvartslånga styrkepass på bestämda",
+        "dagar och lägg proteinet först på tallriken -",
+        "vanorna finns kvar även när sprutan är borta"
+      ]
+    ],
+    "tip": [
+      "En våg kan inte skilja fett från muskel - handstyrka och hur lätt du reser dig ur en stol säger mer",
+      "Ställ frågan «hur avslutar vi det här?» redan vid första besöket, inte den månad då pengarna tar slut"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ oss!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Viktminskningsspruta",
+    "체중계_illust.jpg": "Kroppssammansättning",
+    "흰쌀밥_illust.jpg": "Bröd och potatis",
+    "계란_illust.jpg": "Protein",
+    "아령_illust.jpg": "Styrketräning",
+    "달력_illust.jpg": "Behandlingsplan"
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "title": [
+    "¿Wegovy hace",
+    "perder músculo?",
+    "Lo que midió la densitometría del STEP 1"
+  ],
+  "eyebrow": "Proteger la masa magra",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "Lo que midió la densitometría",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "En el ensayo STEP 1, 140 participantes",
+        "se sometieron a densitometría (DEXA)",
+        "al inicio y a las 68 semanas",
+        "",
+        "La masa magra bajó un 9,7 %",
+        "y la grasa un 19,3 %",
+        "",
+        "Como la grasa se fue más deprisa,",
+        "el porcentaje del cuerpo que es",
+        "tejido magro subió unos 3 puntos"
+      ]
+    },
+    {
+      "name": "La lectura de la AEMPS",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "El informe de posicionamiento",
+        "de la AEMPS concluye que la pérdida",
+        "de peso se puede atribuir",
+        "principalmente a una reducción",
+        "de tejido adiposo",
+        "",
+        "En SURMOUNT-1, el 75 % del peso",
+        "perdido fue grasa y el 25 % masa magra,",
+        "la misma proporción que en placebo"
+      ]
+    },
+    {
+      "name": "La báscula sola no se lo dice",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "El propio informe recuerda que el IMC",
+        "no diferencia entre masa magra",
+        "y masa grasa",
+        "",
+        "Se considera obesidad más del 25 %",
+        "de grasa en hombres y del 33 % en mujeres",
+        "",
+        "Cuando no puede medirse, se usa",
+        "el perímetro de cintura: 102 cm",
+        "en hombres y 88 cm en mujeres"
+      ]
+    },
+    {
+      "name": "Por qué el cuerpo echa mano del músculo",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "El apetito se corta y la ingesta cae",
+        "más de lo que la persona percibe",
+        "",
+        "Cuando la energía que entra queda",
+        "muy por debajo de la que se gasta,",
+        "el organismo también usa proteína",
+        "muscular como combustible",
+        "",
+        "Por eso la indicación autorizada es",
+        "siempre como complemento de dieta",
+        "baja en calorías y más actividad física"
+      ]
+    },
+    {
+      "name": "La proteína, primero en el plato",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "El valor de referencia europeo,",
+        "0,83 g por kilo y día, está pensado",
+        "para alguien con el peso estable",
+        "",
+        "En dietas hipocalóricas, las revisiones",
+        "encuentran que 1,2-1,6 g/kg al día",
+        "preservan mejor la masa magra",
+        "",
+        "Huevo, pescado, carne magra, legumbres,",
+        "lácteos o tofu antes que el pan y el arroz,",
+        "repartidos en las tres comidas"
+      ]
+    },
+    {
+      "name": "Fuerza al menos dos días por semana",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Las recomendaciones del Ministerio",
+        "de Sanidad piden, además de los",
+        "150 minutos semanales, al menos",
+        "2 días de fortalecimiento muscular",
+        "con los grandes grupos musculares",
+        "",
+        "De 8 a 12 repeticiones por grupo",
+        "",
+        "Sentadillas, flexiones y bandas",
+        "elásticas cuentan; el gimnasio",
+        "no es un requisito"
+      ]
+    },
+    {
+      "name": "Lo que de verdad decide el resultado",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "La AEMPS es explícita: al año de",
+        "la discontinuación los pacientes",
+        "recuperaron dos terceras partes",
+        "del peso perdido",
+        "",
+        "En España Wegovy figura en BIFIMED",
+        "como no financiado, así que el",
+        "tratamiento se paga de bolsillo",
+        "",
+        "Aun así, la dosis y la retirada",
+        "las decide el médico prescriptor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La grasa se va más deprisa que la masa magra,",
+        "y la proporción de tejido magro incluso sube"
+      ],
+      [
+        "La proteína sin un estímulo de carga",
+        "es solo comida: dos sesiones cortas",
+        "de fuerza a la semana la convierten en músculo"
+      ]
+    ],
+    "tip": [
+      "El momento de preguntar «¿cómo termina esto?» es la primera consulta, no el mes en que decide dejarlo",
+      "Iniciar, ajustar o suspender un medicamento de prescripción corresponde a su médico o farmacéutico"
+    ],
+    "cta": "¿Quiere más consejos de salud? ¡Suscríbase, dé like y síganos!"
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Inyección semanal",
+    "체중계_illust.jpg": "Composición corporal",
+    "흰쌀밥_illust.jpg": "Pan y arroz",
+    "계란_illust.jpg": "Proteína",
+    "아령_illust.jpg": "Ejercicio de fuerza",
+    "달력_illust.jpg": "Plan de tratamiento"
+  }
+}

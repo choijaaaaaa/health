@@ -1,0 +1,161 @@
+{
+  "title": [
+    "Urines foncées :",
+    "où s'arrête la soif ?",
+    "Rosé, rouge, brunâtre : consultez sans tarder"
+  ],
+  "eyebrow": "Couleur des urines",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Ce que la nuance de jaune mesure",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Le jaune vient d'un pigment issu",
+        "de la dégradation des globules rouges",
+        "",
+        "La quantité éliminée chaque jour varie peu ;",
+        "ce qui change, c'est le volume d'eau",
+        "dans lequel elle est diluée",
+        "",
+        "Quand les apports manquent, le rein retient",
+        "l'eau, l'urine se concentre et vire vers l'ambre"
+      ]
+    },
+    {
+      "name": "Boire avant d'avoir soif",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "L'Anses recommande un minimum",
+        "de 1,5 à 2 litres d'eau par jour",
+        "pour les adultes, avant d'avoir soif",
+        "",
+        "En particulier chez les personnes âgées,",
+        "dont la sensation de soif est amoindrie",
+        "",
+        "Attendre la soif devient de moins en moins",
+        "fiable avec l'âge, précisément quand",
+        "les conséquences sont les plus lourdes"
+      ]
+    },
+    {
+      "name": "Les pertes de la journée",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Manger Bouger rappelle que le corps",
+        "est composé à environ 60 % d'eau et en perd",
+        "entre 2 et 2,5 litres au cours de la journée",
+        "",
+        "Une partie des apports vient de l'alimentation :",
+        "fruits, légumes et laitages en apportent beaucoup",
+        "",
+        "Un objectif chiffré rigide a moins de sens",
+        "qu'une lecture de la couleur"
+      ]
+    },
+    {
+      "name": "Les fausses hématuries",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "L'Association française d'urologie distingue",
+        "quatre catégories : hémorragies de voisinage,",
+        "colorations alimentaires - la betterave en tête -,",
+        "colorations médicamenteuses et causes métaboliques",
+        "",
+        "S'y ajoute la vitamine B2, éliminée dans les urines",
+        "dès que l'apport dépasse les besoins :",
+        "un jaune vif qui disparaît avec la dose"
+      ]
+    },
+    {
+      "name": "Vérifier une chronologie",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Le bon réflexe n'est pas de comparer",
+        "des nuances mais de vérifier une chronologie",
+        "",
+        "La coloration a-t-elle commencé le lendemain",
+        "d'un nouveau médicament, d'un complément",
+        "ou d'un plat coloré, et disparaît-elle à l'arrêt ?",
+        "",
+        "Si rien ne colle,",
+        "l'auto-évaluation s'arrête là"
+      ]
+    },
+    {
+      "name": "Pas de petit saignement rassurant",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "L'AFU ouvre sa fiche par une phrase",
+        "sans ambiguïté : « Vous constatez du sang",
+        "dans les urines ? Consultez sans tarder ! »",
+        "",
+        "Elle ajoute qu'il n'existe pas de corrélation",
+        "entre le type d'hématurie et la gravité",
+        "de la maladie causale",
+        "",
+        "Une teinte à peine rosée n'est pas un signal",
+        "plus faible qu'une urine franchement rouge"
+      ]
+    },
+    {
+      "name": "Tabac, anticoagulants, caillots",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "L'Institut national du cancer compte",
+        "13 074 nouveaux cas de cancer de la vessie",
+        "estimés en France en 2018, dont 81 % chez l'homme,",
+        "le tabac étant le principal facteur de risque",
+        "",
+        "Un anticoagulant peut favoriser une hématurie",
+        "mais n'est jamais à considérer comme",
+        "responsable en première intention",
+        "",
+        "Le caillotage vésical est une urgence"
+      ]
+    },
+    {
+      "name": "Brun foncé ou trouble",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Des urines brun foncé mais limpides orientent",
+        "vers un pigment biliaire et donc vers le foie",
+        "",
+        "Une teinte cola après un effort inhabituel",
+        "ou un choc peut traduire une atteinte musculaire,",
+        "à faire évaluer le jour même",
+        "",
+        "Troubles avec brûlures, fièvre ou douleurs",
+        "lombaires : plutôt une infection urinaire"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Visez une couleur plutôt qu'un chiffre,",
+        "et répartissez les boissons sur la journée"
+      ],
+      [
+        "L'ECBU est l'analyse systématiquement prescrite,",
+        "l'échographie l'examen de référence :",
+        "rien d'invasif dans un premier temps"
+      ]
+    ],
+    "tip": [
+      "Ne modifiez jamais seul un traitement prescrit parce qu'il a changé la couleur de vos urines",
+      "La première miction du matin est foncée après une nuit de concentration - ce qui compte, c'est qu'elle s'éclaircisse ensuite"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  },
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À retenir",
+  "char_display_names": {
+    "변기_illust.jpg": "Toilettes",
+    "신장_illust.jpg": "Rein",
+    "이온음료_illust.jpg": "Hydratation",
+    "방광_illust.jpg": "Vessie",
+    "간_illust.jpg": "Foie"
+  }
+}

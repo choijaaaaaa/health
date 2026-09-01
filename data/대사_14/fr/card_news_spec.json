@@ -1,0 +1,158 @@
+{
+  "title": [
+    "« Sous Wegovy, on perd",
+    "surtout du muscle » ?",
+    "Ce que l'étude SEMALEAN a mesuré"
+  ],
+  "eyebrow": "Préserver la masse maigre",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "Ce que les scanners ont mesuré",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "Dans STEP 1, 140 participants ont passé",
+        "une ostéodensitométrie au départ",
+        "et à 68 semaines",
+        "",
+        "La masse grasse a baissé de 19,3 %,",
+        "la masse maigre de 9,7 %",
+        "",
+        "La graisse fondant plus vite,",
+        "la part de masse maigre dans le poids",
+        "total a augmenté de 3,0 points"
+      ]
+    },
+    {
+      "name": "La masse maigre n'est pas du muscle",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "La « masse maigre » d'un DXA inclut",
+        "l'eau corporelle, les organes",
+        "et le tissu conjonctif",
+        "",
+        "Une partie de la baisse initiale",
+        "correspond à de l'eau,",
+        "pas à des fibres musculaires",
+        "",
+        "Dans SURMOUNT-1 : 75 % de graisse",
+        "et 25 % de masse maigre, exactement",
+        "comme dans le groupe placebo"
+      ]
+    },
+    {
+      "name": "L'étude rouennaise",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "SEMALEAN, au CHU de Rouen, a suivi",
+        "115 patients obèses sous sémaglutide",
+        "pendant douze mois",
+        "",
+        "La masse grasse a chuté de 18,9 % à un an",
+        "",
+        "La masse maigre a diminué au début",
+        "(−3,0 kg à 7 mois) puis s'est stabilisée,",
+        "sa proportion augmentant nettement"
+      ]
+    },
+    {
+      "name": "La fonction, pas la balance",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Le point le plus parlant de SEMALEAN",
+        "concerne la capacité, pas le poids",
+        "",
+        "La force de préhension a augmenté",
+        "de 4,5 kg à 12 mois",
+        "",
+        "La prévalence de l'obésité sarcopénique",
+        "est passée de 49 % au départ à 33 % à un an",
+        "",
+        "Cohorte observationnelle sans groupe",
+        "contrôle : pas une garantie individuelle"
+      ]
+    },
+    {
+      "name": "Les protéines en premier",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "La référence de l'Anses est de 0,83 g",
+        "de protéines par kilo et par jour,",
+        "un repère pour un poids stable",
+        "",
+        "En fort déficit énergétique, les revues",
+        "retrouvent une meilleure préservation",
+        "autour de 1,2 à 1,6 g/kg",
+        "",
+        "Œufs, poisson, viande maigre, légumineuses,",
+        "laitages ou tofu avant le pain et les féculents,",
+        "répartis sur trois repas"
+      ]
+    },
+    {
+      "name": "Du renforcement deux fois par semaine",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Santé publique France recommande,",
+        "en complément de l'endurance,",
+        "du renforcement musculaire",
+        "au moins deux fois par semaine",
+        "",
+        "Bras, jambes, abdominaux et dos",
+        "",
+        "Sans mise en charge, un corps en manque",
+        "d'énergie commence par se séparer",
+        "de ce qui ne sert pas",
+        "",
+        "Squats, pompes, élastique : la salle",
+        "de sport n'est pas la condition"
+      ]
+    },
+    {
+      "name": "L'arrêt, le vrai point de bascule",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Depuis le 15 juin 2026, Wegovy et Mounjaro",
+        "sont pris en charge à 65 % en ville,",
+        "sous conditions strictes",
+        "",
+        "L'extension de STEP 1 a suivi 327 patients",
+        "un an après l'arrêt : 11,6 des 17,3 points",
+        "perdus ont été repris, soit environ",
+        "deux tiers du poids perdu",
+        "",
+        "Modifier la dose, faire une pause ou arrêter",
+        "est une décision médicale"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La graisse fond plus vite que la masse maigre,",
+        "et sa part dans le poids total augmente"
+      ],
+      [
+        "Cette semaine, combien de séances",
+        "où vos muscles ont travaillé contre",
+        "une résistance ? C'est là que ça se joue"
+      ]
+    ],
+    "tip": [
+      "Le bon moment pour poser la question du calendrier de sortie est la première consultation, pas le jour où l'on décide d'arrêter",
+      "Les habitudes installées avant la dernière injection sont encore là après"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  },
+  "swipe_label": "Faites défiler  →",
+  "closing_label": "À retenir",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Injection hebdomadaire",
+    "체중계_illust.jpg": "Composition corporelle",
+    "아령_illust.jpg": "Force musculaire",
+    "계란_illust.jpg": "Protéines",
+    "의자_illust.jpg": "Renforcement",
+    "달력_illust.jpg": "Plan de traitement"
+  }
+}

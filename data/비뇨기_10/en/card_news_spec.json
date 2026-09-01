@@ -1,0 +1,151 @@
+{
+  "title": [
+    "Dark pee is usually thirst.",
+    "Pink or brown never is.",
+    "What urine colour does and does not tell you"
+  ],
+  "eyebrow": "Reading urine colour",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "What the yellow range measures",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "The yellow comes from urobilin,",
+        "a pigment left over when the body",
+        "breaks down old red blood cells",
+        "",
+        "Roughly the same amount leaves",
+        "each day, so what changes the shade",
+        "is the water it is diluted in",
+        "",
+        "Drink less and the kidneys hold water",
+        "back, so the urine darkens",
+        "toward deep yellow or amber"
+      ]
+    },
+    {
+      "name": "A gauge, not a measuring cup",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "The NHS target is simple: drink enough",
+        "that your pee is a clear pale yellow",
+        "",
+        "The Eatwell Guide suggests 6 to 8 cups",
+        "or glasses of fluid a day, and tea",
+        "and coffee count toward it",
+        "",
+        "US reference figures look very different",
+        "- about 3.7 litres of total water for men,",
+        "2.7 for women, a fifth of it from food"
+      ]
+    },
+    {
+      "name": "Colours that mean nothing",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "The NHS names beetroot specifically:",
+        "a recent portion can turn pee pink",
+        "and it is not blood",
+        "",
+        "Riboflavin passes out as an almost",
+        "fluorescent yellow and fades",
+        "once the dose does",
+        "",
+        "Starting a new medicine can turn urine",
+        "red or brown - phenazopyridine,",
+        "rifampicin, senna-based laxatives"
+      ]
+    },
+    {
+      "name": "Judge by timing, not by shade",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "If the change started within a day",
+        "of a new tablet, a big beetroot salad",
+        "or a supplement, and clears when",
+        "that stops, you have your answer",
+        "",
+        "If nothing on that list lines up,",
+        "stop guessing"
+      ]
+    },
+    {
+      "name": "Pink or red overrides the colour chart",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "The NHS is unusually blunt: ask for",
+        "an urgent GP appointment or NHS 111",
+        "if there is blood in your pee",
+        "",
+        "Even with no other symptoms, even the",
+        "first time, even a small amount, even",
+        "if you are not sure it is blood",
+        "",
+        "The reason given is equally blunt:",
+        "it can be a sign of cancer, which is",
+        "easier to treat when found early"
+      ]
+    },
+    {
+      "name": "No pain is the typical presentation",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "NIDDK notes it takes only a small",
+        "amount of blood to change the colour,",
+        "so a faint pink is not a milder finding",
+        "",
+        "In most cases visible blood causes",
+        "no pain and no other symptoms at all",
+        "",
+        "Being on a blood thinner is a reason",
+        "to get it looked at, not a reason",
+        "to shrug it off as expected"
+      ]
+    },
+    {
+      "name": "Brown and cloudy deserve their own note",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Deep brown but clear can mean bilirubin",
+        "is spilling into the urine, which points",
+        "at the liver or bile ducts",
+        "",
+        "It can also follow a punishing workout",
+        "or a heavy fall - muscle breakdown",
+        "releasing pigment, a same-day problem",
+        "",
+        "Cloudy with burning, urgency, fever",
+        "or flank pain fits a urinary tract infection"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Drink toward a colour rather than a number,",
+        "and count the tea and coffee"
+      ],
+      [
+        "The first pee of the morning is darker",
+        "because it has been concentrating overnight -",
+        "what matters is whether it lightens"
+      ]
+    ],
+    "tip": [
+      "Never stop or adjust a prescribed medicine because it changed your urine colour - the prescriber can tell you in seconds whether it is expected",
+      "Wondering whether a pink tinge is worth someone's time? The NHS answer is yes, the first time, even without symptoms"
+    ],
+    "cta": "Want more health tips? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "변기_illust.jpg": "Toilet",
+    "신장_illust.jpg": "Kidneys",
+    "이온음료_illust.jpg": "Fluid intake",
+    "방광_illust.jpg": "Bladder",
+    "간_illust.jpg": "Liver"
+  }
+}

@@ -752,6 +752,19 @@ BLOG_SEO_TOPICS = sorted(_topics_with_blog_seo())
 # 배치 작업을 돌렸다는 뜻이므로 그때부터는 빠진 언어를 진짜 누락으로 본다.
 BLOG_SEO_IN_PROGRESS_MAX = 2
 
+# WHY 3개 이상 쓴 topic에도 중단 지점을 적어둘 자리가 필요한지(2026-08-31): 언어 3개를
+# 넘긴 뒤 세션이 끊기는 일이 실제로 있다(절전으로 서브에이전트가 반복 종료). 그때
+# 빨간 줄을 그대로 두면 "원래 빨간 테스트"가 되어 새로 생긴 진짜 누락이 그 뒤에 숨는다
+# — 어디까지 했는지 파일로 남기고, 그 topic만 예외로 통과시킨다.
+# ⚠️ 다 채운 topic이 목록에 남아 있으면 실패시킨다. 안 그러면 목록이 안 줄어든다.
+BLOG_SEO_WIP_PATH = DATA_DIR / "_audit" / "blog_seo_wip.json"
+
+
+def _blog_seo_wip() -> dict[str, list[str]]:
+    if not BLOG_SEO_WIP_PATH.exists():
+        return {}
+    return json.loads(BLOG_SEO_WIP_PATH.read_text(encoding="utf-8")).get("entries", {})
+
 
 @pytest.mark.parametrize("base_topic", BLOG_SEO_TOPICS)
 def test_blog_seo_language_coverage(base_topic):
@@ -760,9 +773,16 @@ def test_blog_seo_language_coverage(base_topic):
     if len(have) <= BLOG_SEO_IN_PROGRESS_MAX:
         pytest.skip(f"{base_topic}: {sorted(have)}뿐 — 아직 작업 중인 topic으로 보고 스킵")
     missing = [lang for lang in BLOG_SEO_REQUIRED_LANGS if lang not in have]
+    if base_topic in _blog_seo_wip():
+        assert missing, (
+            f"{base_topic}: 8개 언어를 다 채웠는데 {BLOG_SEO_WIP_PATH.name}에 아직 남아 있다 "
+            f"— 해당 항목을 지울 것(작업 중 목록은 줄어들기만 해야 한다)"
+        )
+        pytest.skip(f"{base_topic}: 작업 중으로 등록됨 — 남은 언어 {missing}")
     assert not missing, (
         f"{base_topic}: blog_seo가 {sorted(have)}에만 있고 {missing}이 빠짐 — "
-        "CLAUDE.md '완료 기준 = 8개 언어 blog_seo 전부'"
+        "CLAUDE.md '완료 기준 = 8개 언어 blog_seo 전부'. 정말 이어서 할 거면 "
+        f"{BLOG_SEO_WIP_PATH.name}에 등록할 것"
     )
 
 

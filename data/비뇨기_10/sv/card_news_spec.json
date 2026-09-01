@@ -1,0 +1,162 @@
+{
+  "title": [
+    "Mörk urin - räcker",
+    "det med att dricka mer?",
+    "När törsten räcker och när du ska söka vård"
+  ],
+  "eyebrow": "Urinens färg",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Vad gulnyansen mäter",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Den gula färgen kommer från ett pigment",
+        "som bildas när gamla röda blodkroppar",
+        "bryts ned",
+        "",
+        "Mängden varierar inte särskilt mycket",
+        "- det som varierar är vattnet",
+        "det är utspätt i",
+        "",
+        "Med för lite intag håller njurarna kvar",
+        "vatten, urinen koncentreras",
+        "och drar mot bärnsten"
+      ]
+    },
+    {
+      "name": "Storleksordningen",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Den största delen av vattenförlusterna",
+        "sker via urinen: cirka 0,8 till 2 liter",
+        "per dygn enligt Livsmedelsverket",
+        "",
+        "NNR anger 2,0 liter per dag för kvinnor",
+        "och 2,5 för män - räknat på all mat",
+        "och dryck tillsammans",
+        "",
+        "Ungefär 70 till 80 procent kommer",
+        "från drycker, resten från maten"
+      ]
+    },
+    {
+      "name": "Törsten räcker oftast",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Livsmedelsverket skriver rakt ut att friska",
+        "personer med normal vätskereglering i regel",
+        "får i sig tillräckligt genom att dricka",
+        "när man är törstig",
+        "",
+        "Behovet varierar enormt: från en knapp liter",
+        "vid stillasittande arbete till tio liter",
+        "vid hård aktivitet i varmt klimat",
+        "",
+        "Därför är färgen en mer användbar",
+        "vardagsmätare än ett mål i deciliter"
+      ]
+    },
+    {
+      "name": "Men inte för alla",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Äldre och sjuka personer har sämre",
+        "förmåga att känna törst",
+        "",
+        "Rådet «drick när du är törstig» är skrivet",
+        "för friska vuxna med normal vätskereglering",
+        "",
+        "För en 85-åring, eller vid feber, kräkningar",
+        "eller diarré, blir en mörk urin ett tidigare",
+        "tecken än känslan av törst"
+      ]
+    },
+    {
+      "name": "Det finns en gräns åt andra hållet",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Ett för högt vattenintag under kort tid",
+        "kan rubba salt- och vätskebalansen",
+        "och leda till hyponatremi",
+        "",
+        "Vid hård träning behöver man därför få i sig",
+        "salt tillsammans med vätskan, inte bara vatten"
+      ]
+    },
+    {
+      "name": "Färger som inte handlar om vatten",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "1177 påpekar att färgen påverkas av hur mycket",
+        "du druckit och vad du ätit, och att röd urin",
+        "kan vara mensblod eller bero på ansträngning",
+        "",
+        "Rödbetor och rabarber färgar klassiskt,",
+        "och riboflavin ger en nästan lysande gul färg",
+        "som försvinner när dosen gör det",
+        "",
+        "Testet är kronologiskt snarare än visuellt"
+      ]
+    },
+    {
+      "name": "Rött, rosa eller brunt",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "1177 är tydlig: kontakta en vårdcentral",
+        "så snart det går om du tror att du har",
+        "blod i urinen",
+        "",
+        "Det gäller också om du tar blodförtunnande",
+        "läkemedel eller NOAK - det är ett skäl att",
+        "låta undersöka orsaken, inte att avfärda",
+        "",
+        "I en del regioner kan du kontakta",
+        "urologmottagning direkt om du är över 50 år"
+      ]
+    },
+    {
+      "name": "Brunt och grumligt",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Mörkbrun men klar urin kan betyda att",
+        "gallfärgämne följer med ut, vilket flyttar",
+        "blicken till levern och gallvägarna",
+        "",
+        "Colafärgad urin efter ovanligt hård träning",
+        "eller ett kraftigt slag kan bero på nedbruten",
+        "muskelvävnad och ska bedömas samma dag",
+        "",
+        "Grumlig med sveda, feber eller ont i sidan",
+        "passar in på en urinvägsinfektion"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sikta på ett färgspann i stället för ett litermål,",
+        "och sprid drickandet över dagen"
+      ],
+      [
+        "Ibland upptäcks blodet först i ett urinprov,",
+        "utan att färgen alls har ändrats"
+      ]
+    ],
+    "tip": [
+      "Sätt aldrig ut och ändra aldrig dosen av ett utskrivet läkemedel på egen hand för att urinen har bytt färg",
+      "Finns det blod i urinen efter en olycka ska du ringa 112; för rådgivning i övrigt ringer du 1177"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ oss!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "변기_illust.jpg": "Toaletten",
+    "신장_illust.jpg": "Njurarna",
+    "이온음료_illust.jpg": "Vätskeintag",
+    "방광_illust.jpg": "Urinblåsan",
+    "간_illust.jpg": "Levern"
+  }
+}

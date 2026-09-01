@@ -1,0 +1,159 @@
+{
+  "title": [
+    "Donkere plas:",
+    "te weinig gedronken?",
+    "Bij roze, rood of bruin bel je altijd"
+  ],
+  "eyebrow": "De kleur van je plas",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Wat de kleur wel meet",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Het geel komt van een pigment dat overblijft",
+        "bij de afbraak van rode bloedcellen",
+        "",
+        "De hoeveelheid die je per dag uitplast",
+        "verandert nauwelijks; wat wel verandert",
+        "is het water waarin het is opgelost",
+        "",
+        "Drink je weinig, dan houdt de nier water vast",
+        "en schuift de kleur op naar amber"
+      ]
+    },
+    {
+      "name": "1,4 liter, niet twee",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Het Voedingscentrum adviseert vrouwen",
+        "vanaf 13 jaar ten minste 1,4 liter drinken",
+        "per dag, mannen 1,4 tot 1,8 liter",
+        "",
+        "Dat is al het drinken bij elkaar opgeteld:",
+        "thee, koffie, melk en sojadrink tellen mee",
+        "",
+        "Van al het water dat je binnenkrijgt",
+        "komt ongeveer driekwart uit drinken"
+      ]
+    },
+    {
+      "name": "Een preciezere check dan kleur",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Plas je als gezonde volwassene ongeveer",
+        "100 milliliter per uur, dan zit je",
+        "vochtbalans goed",
+        "",
+        "Meer dan 300 milliliter per uur is een signaal",
+        "dat je te veel hebt gedronken",
+        "",
+        "Minder dan 30 milliliter per uur",
+        "wijst op te weinig drinken"
+      ]
+    },
+    {
+      "name": "Het gaat om het tempo, niet om één moment",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Een donkere ochtendplas na een nacht",
+        "zonder drinken is normaal; een hele dag",
+        "weinig en donker plassen is dat niet",
+        "",
+        "Het spiegelbeeld is even nuttig: constant",
+        "heel lichte, waterige plas in hoog tempo",
+        "betekent meestal dat je meer drinkt",
+        "dan nodig is"
+      ]
+    },
+    {
+      "name": "Roze, rood of bruin: bellen",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Thuisarts is er kort over: bel je huisarts",
+        "als je bloed in je urine ziet",
+        "",
+        "Heb je verder nergens last van,",
+        "dan mag dat op een werkdag",
+        "",
+        "Er is dus geen versie waarin je een paar",
+        "dagen afwacht of het nog eens gebeurt"
+      ]
+    },
+    {
+      "name": "Wanneer dezelfde dag",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Bel dezelfde dag bij zwangerschap, koorts",
+        "vanaf 38 graden, rillen of pijn in je zij",
+        "",
+        "Ook bij een ziekte aan blaas of nieren,",
+        "medicijnen waardoor je sneller bloedt,",
+        "moeilijk kunnen plassen of minder afweer",
+        "",
+        "Plas je heel veel bloed, bel dan direct"
+      ]
+    },
+    {
+      "name": "Geen pijn is geen geruststelling",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Thuisarts schrijft dat de kans op kanker",
+        "groter wordt naarmate je ouder wordt, én",
+        "als je roze, rode of bruine urine hebt",
+        "zonder andere klachten",
+        "",
+        "Vaak is de oorzaak onschuldiger:",
+        "blaasontsteking, nierbekkenontsteking",
+        "of nierstenen",
+        "",
+        "En soms is het geen bloed - rode bieten",
+        "kunnen je plas rood kleuren"
+      ]
+    },
+    {
+      "name": "Bruin en troebel",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Donkerbruine maar heldere urine kan betekenen",
+        "dat galkleurstof wordt uitgeplast: de aandacht",
+        "verschuift naar lever en galwegen",
+        "",
+        "Colakleurig na een zware training of een flinke",
+        "klap kan wijzen op afbraak van spierweefsel,",
+        "een kwestie van dezelfde dag",
+        "",
+        "Troebel met branderigheid, koorts of pijn",
+        "in de zij past bij een urineweginfectie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Stuur op een kleurbereik in plaats van",
+        "op een getal, en verdeel je drinken over de dag"
+      ],
+      [
+        "Blijft je plas donker terwijl je je goed voelt?",
+        "Drink een dag bewust meer - verandert er niets,",
+        "dan is juist dát wat je meeneemt naar de huisarts"
+      ]
+    ],
+    "tip": [
+      "Voor een urinemonster: plas nadat je minstens 4 uur niet hebt geplast en lever het potje binnen 2 uur in, anders meteen de koelkast in",
+      "Stop of verander nooit op eigen houtje een voorgeschreven medicijn omdat je urine van kleur is veranderd"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "변기_illust.jpg": "Toilet",
+    "신장_illust.jpg": "Nier",
+    "이온음료_illust.jpg": "Drinken",
+    "방광_illust.jpg": "Blaas",
+    "간_illust.jpg": "Lever"
+  }
+}

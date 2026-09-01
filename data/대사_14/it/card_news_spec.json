@@ -1,0 +1,155 @@
+{
+  "title": [
+    "Dieci chili in meno ma",
+    "le braccia svuotate?",
+    "Massa magra e GLP-1: cosa dicono le DXA"
+  ],
+  "eyebrow": "Tenere il muscolo dimagrendo",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "I numeri delle DXA",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "Nello studio STEP 1, 140 partecipanti",
+        "hanno eseguito una DXA all'inizio",
+        "e alla settimana 68",
+        "",
+        "La massa grassa è calata del 19,3 %,",
+        "la massa magra del 9,7 %",
+        "",
+        "Poiché il grasso è sceso più in fretta,",
+        "la quota di massa magra sul peso totale",
+        "è aumentata di 3,0 punti percentuali"
+      ]
+    },
+    {
+      "name": "La massa magra non è muscolo",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "La massa magra misurata dalla DXA",
+        "comprende acqua corporea, organi",
+        "e tessuto connettivo",
+        "",
+        "Parte del calo iniziale è liquido,",
+        "non fibra muscolare",
+        "",
+        "In SURMOUNT-1: 75 % grasso e 25 %",
+        "massa magra, la stessa identica",
+        "proporzione del gruppo placebo"
+      ]
+    },
+    {
+      "name": "Dietro il calo c'è la proteina che manca",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Quando l'appetito crolla, la porzione",
+        "più piccola resta fatta soprattutto",
+        "di pane, pasta e riso",
+        "",
+        "Se l'energia introdotta scende molto",
+        "sotto quella consumata, il corpo attinge",
+        "anche alle proteine muscolari",
+        "",
+        "Manca proprio il materiale con cui",
+        "il corpo mantiene il muscolo"
+      ]
+    },
+    {
+      "name": "Il riferimento LARN",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "I LARN indicano 0,90 g di proteine",
+        "per kg di peso al giorno fino a 59 anni,",
+        "e 1,1 g/kg dopo i 60",
+        "",
+        "Sono valori per chi ha un peso stabile:",
+        "in forte deficit calorico le revisioni",
+        "indicano 1,2-1,6 g/kg",
+        "",
+        "Uova, pesce, carne magra, legumi,",
+        "latticini e tofu all'inizio del pasto,",
+        "presenti in tutti e tre i pasti"
+      ]
+    },
+    {
+      "name": "Due giorni non consecutivi",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Le Linee di indirizzo del Ministero",
+        "della Salute indicano esercizi",
+        "di rafforzamento muscolare in almeno",
+        "due giorni non consecutivi a settimana",
+        "",
+        "Dopo i 64 anni si aggiunge un'attività",
+        "per l'equilibrio tre o più volte",
+        "",
+        "Squat, piegamenti a corpo libero",
+        "ed elastici bastano: la palestra",
+        "non è un requisito"
+      ]
+    },
+    {
+      "name": "Solo in farmacia, con ricetta",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "AIFA ricorda che i farmaci GLP-1",
+        "e GIP/GLP-1 sono soggetti a prescrizione",
+        "e non possono essere acquistati online",
+        "",
+        "Sui canali illegali circolano",
+        "prodotti contraffatti",
+        "",
+        "Fuori dalla filiera autorizzata",
+        "non c'è né dose certa né controllo:",
+        "nessuno sta misurando la massa magra"
+      ]
+    },
+    {
+      "name": "Quando si smette",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Per la gestione del peso i due farmaci",
+        "sono in Classe C, non rimborsati",
+        "e interamente a carico del cittadino",
+        "",
+        "Nell'estensione di STEP 1, dei 17,3 %",
+        "di calo medio 11,6 punti sono tornati",
+        "indietro entro la settimana 120,",
+        "circa due terzi del peso perso",
+        "",
+        "Dose e sospensione sono decisioni",
+        "cliniche, mai da prendere da soli"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La massa grassa cala più in fretta di quella magra,",
+        "e la proporzione di tessuto magro aumenta"
+      ],
+      [
+        "Il punto non è il farmaco: è se la proteina",
+        "arriva per prima nel piatto e se il muscolo",
+        "riceve un carico due volte a settimana"
+      ]
+    ],
+    "tip": [
+      "Con l'appetito dimezzato, se la proteina non arriva per prima nel piatto spesso non arriva affatto",
+      "Il momento giusto per chiedere «come e quando finisce» è la prima visita, non il mese in cui si decide di smettere"
+    ],
+    "cta": "Vuoi altri consigli di salute? Iscriviti, metti like e seguici!"
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Iniezione settimanale",
+    "체중계_illust.jpg": "Composizione corporea",
+    "흰쌀밥_illust.jpg": "Pane, pasta e riso",
+    "계란_illust.jpg": "Proteine",
+    "아령_illust.jpg": "Rafforzamento muscolare",
+    "달력_illust.jpg": "Piano di terapia"
+  }
+}

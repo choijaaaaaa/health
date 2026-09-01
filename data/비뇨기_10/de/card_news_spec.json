@@ -1,0 +1,150 @@
+{
+  "title": [
+    "Dunkler Urin heißt",
+    "nicht immer nur Durst",
+    "Urinfarbe: wann abwarten der Fehler ist"
+  ],
+  "eyebrow": "Signale der Urinfarbe",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Warum Urin dunkler wird",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Die gelbe Farbe stammt von einem",
+        "Abbauprodukt des roten Blutfarbstoffs",
+        "",
+        "Die täglich ausgeschiedene Menge",
+        "schwankt kaum - was sich ändert,",
+        "ist das Wasser, in dem sie gelöst ist",
+        "",
+        "Bei knapper Zufuhr hält die Niere",
+        "Wasser zurück und der Urin rutscht",
+        "Richtung Bernstein"
+      ]
+    },
+    {
+      "name": "Nicht zwei Liter, sondern 1410 ml",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Die DGE nennt als Richtwert für",
+        "25- bis unter 51-Jährige 1410 ml",
+        "pro Tag über Getränke",
+        "",
+        "Dazu rund 860 ml aus fester Nahrung",
+        "und 330 ml aus dem Stoffwechsel -",
+        "zusammen etwa 2600 ml",
+        "",
+        "Wer zwei Liter reines Wasser als Pflicht",
+        "versteht, verwechselt Gesamtwasser",
+        "mit Trinkmenge"
+      ]
+    },
+    {
+      "name": "Wenn mehr über Haut und Atmung geht",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Rund 1440 ml verlassen den Körper",
+        "täglich über den Urin, weitere 550 ml",
+        "über die Haut und 500 ml über die Lunge",
+        "",
+        "Steigt der Verlust bei Hitze, Fieber,",
+        "hohem Salzkonsum oder Durchfall,",
+        "bleibt für den Urin weniger übrig",
+        "",
+        "Kaffee und schwarzer Tee: moderat,",
+        "drei bis vier Tassen"
+      ]
+    },
+    {
+      "name": "Farben ohne Bedeutung",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Rote Bete und Rhabarber können",
+        "rosa bis rötlich färben - kein Blut,",
+        "nach ein bis zwei Tagen vorbei",
+        "",
+        "Vitamin B2 ergibt ein fast",
+        "leuchtendes Gelb",
+        "",
+        "Manche Medikamente färben orange",
+        "bis bräunlich; das steht meist",
+        "in der Packungsbeilage"
+      ]
+    },
+    {
+      "name": "Rot und Rosa: nicht abwarten",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Der Krebsinformationsdienst des DKFZ",
+        "listet Blut im Urin als frühes Symptom",
+        "eines Harnblasenkarzinoms",
+        "",
+        "Das erste Anzeichen beschreibt er als",
+        "schmerzlose Blutung aus der Blase",
+        "",
+        "Schmerzfreiheit ist hier kein",
+        "Entwarnungssignal, sondern die",
+        "typische Erscheinungsform"
+      ]
+    },
+    {
+      "name": "Rauchen ist der Hauptrisikofaktor",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Aktives Rauchen und Passivrauchen",
+        "sind laut DKFZ für ungefähr die Hälfte",
+        "aller Blasenkrebserkrankungen",
+        "verantwortlich",
+        "",
+        "Wer raucht oder geraucht hat, hat einen",
+        "zusätzlichen Grund, eine Verfärbung nicht",
+        "auf die nächste Woche zu schieben"
+      ]
+    },
+    {
+      "name": "Braun und trüb: eigene Zeile",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Klar-dunkelbrauner Urin kann bedeuten,",
+        "dass Gallenfarbstoff ausgeschieden wird -",
+        "das lenkt den Blick auf Leber und Gallenwege",
+        "",
+        "Cola- oder teefarben nach harter Belastung",
+        "oder einer Prellung: zerfallendes",
+        "Muskelgewebe, eine Sache für denselben Tag",
+        "",
+        "Trüb mit Brennen, Fieber oder Flankenschmerz",
+        "passt zum Harnwegsinfekt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht auf eine Literzahl trinken,",
+        "sondern auf einen Farbbereich"
+      ],
+      [
+        "Der erste Urin am Morgen darf dunkel sein -",
+        "entscheidend ist, ob er im Tagesverlauf",
+        "wieder heller wird"
+      ]
+    ],
+    "tip": [
+      "Verordnete Medikamente niemals eigenmächtig absetzen, nur weil sich die Urinfarbe verändert hat",
+      "Außerhalb der Sprechzeiten hilft der ärztliche Bereitschaftsdienst unter 116117; bei Flankenschmerz mit Fieber und Schüttelfrost die 112"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "변기_illust.jpg": "Toilette",
+    "신장_illust.jpg": "Niere",
+    "이온음료_illust.jpg": "Trinkmenge",
+    "방광_illust.jpg": "Blase",
+    "간_illust.jpg": "Leber"
+  }
+}

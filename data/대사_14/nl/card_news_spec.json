@@ -1,0 +1,147 @@
+{
+  "title": [
+    "Tien kilo lichter,",
+    "maar dunnere armen?",
+    "Wat DXA-scans over spiermassa laten zien"
+  ],
+  "eyebrow": "Spiermassa beschermen",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "Hoeveel is er echt spier",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "In STEP 1 kregen 140 deelnemers",
+        "een DXA-scan bij de start",
+        "en na 68 weken",
+        "",
+        "De vetmassa daalde met 19,3 %,",
+        "de vetvrije massa met 9,7 %",
+        "",
+        "Omdat het vet sneller verdween,",
+        "steeg het aandeel vetvrije massa",
+        "juist met 3,0 procentpunt"
+      ]
+    },
+    {
+      "name": "Vetvrije massa is geen spier",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "In vetvrije massa zit ook lichaamswater,",
+        "orgaanweefsel en bindweefsel,",
+        "en een deel van de eerste daling is vocht",
+        "",
+        "In SURMOUNT-1 bestond het verloren",
+        "gewicht voor 75 % uit vet en 25 % uit",
+        "vetvrije massa - precies dezelfde",
+        "verhouding als in de placebogroep"
+      ]
+    },
+    {
+      "name": "Leefstijl staat vóór de medicatie",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Het Farmacotherapeutisch Kompas is kort:",
+        "bij obesitas is een gezonde leefstijl",
+        "de basis van elke behandeling",
+        "",
+        "In de eerste lijn komt medicatie pas",
+        "in beeld na minstens een jaar",
+        "gecombineerde leefstijlinterventie",
+        "met onvoldoende effect"
+      ]
+    },
+    {
+      "name": "Waarom het lichaam spiereiwit aanspreekt",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Het hongergevoel wordt gedempt en",
+        "de maaglediging vertraagt, dus je eet",
+        "vaak fors minder dan je zelf doorhebt",
+        "",
+        "Zakt de energie-inname ver onder",
+        "het verbruik, dan gebruikt het lichaam",
+        "ook eiwit uit spierweefsel als brandstof"
+      ]
+    },
+    {
+      "name": "Begin de maaltijd met het eiwit",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Het Voedingscentrum houdt 0,83 gram",
+        "eiwit per kilo per dag aan - een norm",
+        "voor iemand met stabiel gewicht",
+        "",
+        "In een fors calorietekort laten reviews",
+        "zien dat 1,2 tot 1,6 g/kg de vetvrije",
+        "massa beter behoudt",
+        "",
+        "Ei, vis, kip, peulvruchten, zuivel of tofu",
+        "eerst; het gaat om herverdelen over de dag,",
+        "niet om eiwitpreparaten kopen"
+      ]
+    },
+    {
+      "name": "Twee keer per week belasten",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "De Beweegrichtlijnen adviseren naast",
+        "tweeënhalf uur matig intensieve beweging",
+        "minstens tweemaal per week spier-",
+        "en botversterkende activiteiten",
+        "",
+        "Belasting is het signaal dat dit weefsel",
+        "nodig blijft; zonder dat signaal snijdt",
+        "een lichaam met energietekort daar",
+        "",
+        "Squats, opdrukken en een weerstandsband",
+        "tellen mee - geen abonnement nodig"
+      ]
+    },
+    {
+      "name": "Regel het stoppen voordat je begint",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "Wegovy zit niet in het vergoedingssysteem",
+        "en wordt volledig zelf betaald",
+        "",
+        "In de verlengfase van STEP 1 kwam van",
+        "de 17,3 % afname 11,6 procentpunt terug",
+        "in een jaar - ongeveer twee derde",
+        "",
+        "Een zelf betaalde behandeling eindigt",
+        "vaak abrupt: pas nooit zelf de dosis aan",
+        "en stop niet op eigen houtje"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Vet verdwijnt sneller dan vetvrije massa,",
+        "en het aandeel vetvrije massa stijgt zelfs"
+      ],
+      [
+        "Plan twee korte krachtmomenten van een",
+        "kwartier op een vaste dag, en zet bij de",
+        "volgende maaltijd het eiwit eerst op je bord"
+      ]
+    ],
+    "tip": [
+      "Vraag in de begeleiding niet alleen naar de kilo's, maar ook naar je knijpkracht en hoe makkelijk je uit een stoel komt",
+      "Stel de vraag «hoe eindigt dit straks?» bij het eerste consult, niet in de maand dat je ermee wilt kappen"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Afvalspuit",
+    "체중계_illust.jpg": "Lichaamssamenstelling",
+    "달력_illust.jpg": "Behandelplan",
+    "흰쌀밥_illust.jpg": "Brood en aardappelen",
+    "계란_illust.jpg": "Eiwit",
+    "아령_illust.jpg": "Krachttraining"
+  }
+}

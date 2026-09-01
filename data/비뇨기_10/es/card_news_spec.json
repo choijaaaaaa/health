@@ -1,0 +1,146 @@
+{
+  "title": [
+    "¿Orina oscura?",
+    "Cuándo es sed y cuándo no",
+    "El rosa pálido no es menos grave que el rojo"
+  ],
+  "eyebrow": "El color de la orina",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Qué mide el tono de amarillo",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "El amarillo procede de un pigmento",
+        "que resulta de la degradación",
+        "de los glóbulos rojos",
+        "",
+        "La cantidad que se elimina cada día",
+        "apenas varía; lo que cambia es",
+        "el agua en la que va diluida",
+        "",
+        "Con poca ingesta el riñón retiene agua,",
+        "la orina se concentra y tira hacia el ámbar"
+      ]
+    },
+    {
+      "name": "Los 2,5 litros incluyen los alimentos",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "La EFSA fija una ingesta adecuada de agua",
+        "total de 2,5 litros al día en hombres",
+        "y 2,0 litros en mujeres",
+        "",
+        "La nota al pie que casi nadie lee:",
+        "esa cifra incluye todas las bebidas",
+        "y el agua que contienen los alimentos",
+        "",
+        "No son dos litros y medio embotellados",
+        "además de lo demás"
+      ]
+    },
+    {
+      "name": "«Bebe agua aunque no tengas sed»",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Es la indicación del Ministerio de Sanidad",
+        "en su material de prevención frente al calor,",
+        "junto a comer ligero y buscar sombra",
+        "",
+        "La sed llega tarde, y todavía más tarde",
+        "en personas mayores",
+        "",
+        "En verano la orina oscura persistente avisa",
+        "antes que el mareo o el dolor de cabeza"
+      ]
+    },
+    {
+      "name": "Colores que no tienen que ver con el agua",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "La remolacha y el ruibarbo pueden teñir",
+        "la orina de rosado: no es sangre",
+        "y desaparece sin más",
+        "",
+        "La riboflavina sobrante se elimina",
+        "y la deja de un amarillo casi fluorescente",
+        "",
+        "Varios medicamentos la tiñen de naranja",
+        "o parduzco; suele estar en el prospecto"
+      ]
+    },
+    {
+      "name": "Revise fechas, no tonos",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Si el cambio empezó al día siguiente",
+        "de un medicamento nuevo, un suplemento",
+        "o un plato muy coloreado, y remite",
+        "cuando eso termina, ya está explicado",
+        "",
+        "Si no encaja nada,",
+        "la autoevaluación se acaba ahí"
+      ]
+    },
+    {
+      "name": "La cantidad de sangre no mide el problema",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "La AECC señala que la sangre en la orina",
+        "es el síntoma más común del cáncer de vejiga",
+        "",
+        "El color va del rojo al rosa pálido según",
+        "la cantidad de sangre, que es independiente",
+        "del tamaño del tumor",
+        "",
+        "El dolor o la quemazón aparecen en menos",
+        "del 20 % de los pacientes: que no duela",
+        "es lo esperable, no un motivo para esperar"
+      ]
+    },
+    {
+      "name": "El marrón merece mención aparte",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Una orina parda pero transparente puede",
+        "indicar pigmento biliar y dirige la mirada",
+        "al hígado y la vía biliar",
+        "",
+        "Un tono tipo cola tras un esfuerzo inusual",
+        "o un golpe puede deberse a rotura de fibras",
+        "musculares y se valora el mismo día",
+        "",
+        "Turbia con escozor, urgencia, fiebre",
+        "o dolor lumbar encaja con infección urinaria"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Apunte a un color, no a una cifra,",
+        "y reparta la bebida a lo largo del día"
+      ],
+      [
+        "En la mayoría de los casos detrás hay",
+        "infección, cálculo o próstata - pero desde",
+        "fuera no se distinguen"
+      ]
+    ],
+    "tip": [
+      "No suspenda ni ajuste por su cuenta un medicamento prescrito porque le haya cambiado el color de la orina",
+      "Ante una orina rosa, roja o parduzca sin explicación clara, no espere a que se repita para pedir cita"
+    ],
+    "cta": "¿Quiere más consejos de salud? ¡Suscríbase, dé like y síganos!"
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "변기_illust.jpg": "Baño",
+    "신장_illust.jpg": "Riñón",
+    "이온음료_illust.jpg": "Hidratación",
+    "방광_illust.jpg": "Vejiga",
+    "간_illust.jpg": "Hígado"
+  }
+}

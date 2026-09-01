@@ -1,0 +1,163 @@
+{
+  "title": [
+    "Urine scure:",
+    "quando è sete e quando no",
+    "Rosa, rosso o marrone: il fai-da-te finisce qui"
+  ],
+  "eyebrow": "Il colore delle urine",
+  "cover_char_file": "변기_illust.jpg",
+  "cover_scrim_color": "#2F6B5E",
+  "items": [
+    {
+      "name": "Che cosa misura la sfumatura di giallo",
+      "char_file": "신장_illust.jpg",
+      "body": [
+        "Il giallo dipende da un pigmento che deriva",
+        "dalla demolizione dei globuli rossi",
+        "",
+        "La quantità eliminata ogni giorno cambia poco:",
+        "quello che cambia è l'acqua in cui è diluita",
+        "",
+        "Se l'apporto è scarso il rene trattiene acqua,",
+        "l'urina si concentra e vira verso l'ambra"
+      ]
+    },
+    {
+      "name": "I LARN: 2,5 e 2,0 litri, alimenti compresi",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "I LARN indicano per gli adulti 2,5 litri",
+        "al giorno per gli uomini e 2,0 per le donne",
+        "",
+        "Il valore comprende l'acqua bevuta, le altre",
+        "bevande e quella contenuta negli alimenti,",
+        "e vale dai 18 anni fino oltre i 75",
+        "",
+        "Le linee guida del CREA indicano il controllo",
+        "della diuresi e del colore delle urine",
+        "tra i modi per verificare l'idratazione"
+      ]
+    },
+    {
+      "name": "Quanto beviamo davvero",
+      "char_file": "이온음료_illust.jpg",
+      "body": [
+        "Nell'indagine nazionale citata dallo stesso",
+        "documento l'assunzione media si fermava",
+        "intorno a 1,75 litri negli uomini",
+        "e 1,65 nelle donne tra i 30 e i 59 anni",
+        "",
+        "Gli autori avvertono che è probabilmente",
+        "una sottostima: le indagini faticano a registrare",
+        "l'acqua bevuta fuori pasto o fuori casa",
+        "",
+        "Il margine tra abitudine e riferimento",
+        "esiste ed è facile da colmare"
+      ]
+    },
+    {
+      "name": "Colori che non c'entrano con l'acqua",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Barbabietola rossa e rabarbaro possono dare",
+        "un'urina rosata: non è sangue e passa da sola",
+        "",
+        "La riboflavina in eccesso viene eliminata",
+        "e dà un giallo acceso, quasi fluorescente,",
+        "che sparisce quando finisce la dose",
+        "",
+        "Diversi farmaci colorano di arancione",
+        "o brunastro: di solito è nel foglietto illustrativo"
+      ]
+    },
+    {
+      "name": "Il criterio è la cronologia",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Non la tinta, ma la sequenza dei giorni",
+        "",
+        "Se il cambiamento è iniziato il giorno dopo",
+        "un nuovo farmaco, un integratore o un piatto",
+        "molto colorato, e rientra quando quella cosa",
+        "finisce, la spiegazione c'è",
+        "",
+        "Se non torna nulla,",
+        "l'autovalutazione finisce qui"
+      ]
+    },
+    {
+      "name": "Ematuria e tumore della vescica",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Per AIRC il sangue nelle urine è tra",
+        "le manifestazioni più frequenti del tumore",
+        "della vescica, con coaguli, bruciore",
+        "e difficoltà a urinare",
+        "",
+        "In Italia le diagnosi hanno rappresentato",
+        "circa il 7 per cento di tutti i nuovi casi",
+        "di tumore, e il principale fattore",
+        "di rischio è il fumo di sigaretta"
+      ]
+    },
+    {
+      "name": "Un esame rassicurante non chiude la questione",
+      "char_file": "방광_illust.jpg",
+      "body": [
+        "Nella grande maggioranza dei casi la causa",
+        "è un'infezione o un calcolo - ma dall'esterno",
+        "le due situazioni sono indistinguibili",
+        "",
+        "La citologia urinaria può dare falsi negativi",
+        "quando le cellule tumorali sono difficili",
+        "da distinguere da quelle sane",
+        "",
+        "Se il sospetto resta, il percorso prosegue",
+        "con ecografia e cistoscopia"
+      ]
+    },
+    {
+      "name": "Il marrone merita una riga a parte",
+      "char_file": "간_illust.jpg",
+      "body": [
+        "Un'urina bruna ma limpida può indicare",
+        "che un pigmento biliare sta passando",
+        "nelle urine: attenzione a fegato e vie biliari",
+        "",
+        "Una colorazione tipo cola dopo uno sforzo",
+        "inusuale o un trauma può dipendere dalla rottura",
+        "di fibre muscolari: valutazione in giornata",
+        "",
+        "Torbida con bruciore, febbre o dolore lombare",
+        "è il quadro classico dell'infezione urinaria"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Puntate a un colore, non a un numero,",
+        "e distribuite le bevande nell'arco della giornata"
+      ],
+      [
+        "Il CREA suggerisce anche un limite di buon senso",
+        "nella direzione opposta: indicativamente",
+        "8-10 bicchieri al giorno"
+      ]
+    ],
+    "tip": [
+      "Non sospendete e non modificate mai di vostra iniziativa un farmaco prescritto perché ha cambiato il colore delle urine",
+      "Davanti a un'urina rosa, rossa o brunastra senza spiegazione evidente, non aspettate che si ripeta per decidere"
+    ],
+    "cta": "Vuoi altri consigli di salute? Iscriviti, metti like e seguici!"
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "변기_illust.jpg": "Bagno",
+    "신장_illust.jpg": "Rene",
+    "이온음료_illust.jpg": "Idratazione",
+    "방광_illust.jpg": "Vescica",
+    "간_illust.jpg": "Fegato"
+  }
+}

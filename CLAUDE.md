@@ -888,6 +888,38 @@ python3 -c "import lib.content_review as c; print(c.select_section_header_archet
   SUPABASE_ACCESS_TOKEN/DB_PASSWORD/PROJECT_REF)는 **코드에서 참조하지 않아 무해**하다.
   `SUPABASE_ANON_KEY`도 파이썬은 안 쓴다 — 브라우저는 `supabase_client.js`의 값을 쓴다
 
+## 이어서 할 일 (2026-09-01 중단 지점)
+
+절전으로 서브에이전트가 반복 종료돼 아래 셋이 남았다. **전부 진행 중 상태가 파일로
+등록돼 있어 테스트는 초록이다** — 목록을 줄여가며 이어받으면 된다.
+
+1. **blog_seo 8개 언어 미완** — `data/_audit/blog_seo_wip.json`에 등록.
+   현재 `대사_20`의 nl·sv 두 편(확보해둔 각국 근거가 그 파일 메모에 있다).
+   다 채우면 **그 항목을 지울 것** — 안 지우면 테스트가 실패한다
+2. **얇은 글 29편** — `data/_audit/blog_seo_quality_debt.json`.
+   `혈당_1`(6편)·`냄새_1`·`코_1`(각 5편)이 가장 많이 남았다.
+   증량 방법은 위 "blog_seo 발행 품질 게이트" 절 참고
+3. **언어별 카드뉴스 22조합 미작성** — `근골격_20`(8) `대사_20`(6) `피부_18`(8).
+   `data/<topic>/<lang>/card_news_spec.json`이 없으면 렌더가 안 되고, 그러면
+   vernhaven의 `hero_image_url`이 플레이스홀더로 남아 **블로그 글에 대표 이미지가
+   영영 안 붙는다**. 완성 예시는 `data/계절질환_2/de/card_news_spec.json`
+   ```
+   .venv/bin/python3 lib/card_news.py "data/<topic>/<lang>/card_news_spec.json" \
+     assets_library/illust "output/<topic>/<lang>/card_news" "<topic>" <lang>
+   ```
+   ⚠️ 마지막 인자는 언어 코드 그대로(한국어만 `kor`), 접두어는 `<topic>`(뒤에 `_` 금지)
+
+⚠️ **vernhaven 인입이 아직 안 끝났다** — 이번 라운드의 ko·다국어 수정분이 배포 DB에
+반영되지 않았다(DB의 `소화_17/de` 제목이 아직 옛 97자 버전). 두 번 시도했으나 절전
+중에 소켓이 죽어 멈췄다(2시간 동안 CPU 2초, 재시도 로직도 못 깨움). **깨어 있는
+상태에서 한 번 돌리면 된다**:
+```
+cd ../verticals/vernhaven-blog && set -a && . ./.env.local && set +a \
+  && python3 scripts/ingest_health_shorts.py --commit
+```
+멈춘 것 같으면 절전으로 소켓이 죽은 것이니 `kill` 후 재실행할 것(업서트라 안전하다).
+위 3번을 먼저 끝내면 이미지 조회 단계가 없어져 훨씬 빨리 끝난다.
+
 ## 콘텐츠 QA — 완료 전 필수
 
 ⚠️ **Gemini API는 일러스트 생성(`lib/gemini_illust.py`)에만 쓴다(2026-08-15
