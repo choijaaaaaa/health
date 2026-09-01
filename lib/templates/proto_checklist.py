@@ -23,6 +23,36 @@ from lib.video_assembler import (  # noqa: E402
 W, H = 1080, 1920
 FPS = 30
 ITEM_ICON_DIR = PROJECT_ROOT / "assets_library" / "illust"
+_CHAR_ILLUST_DIR = ITEM_ICON_DIR
+
+# WHY 실사진 폴백(2026-09-01): 일러스트 생성이 2026-08-25부로 중단됐고
+# assets_library/illust/는 지금 비어 있다 — spec의 "<품목>_illust.jpg"는 이제
+# 실제 파일이 아니라 품목을 가리키는 키다. card_news.py가 먼저 같은 전환을
+# 마쳤고(_photo_medallion), 영상 템플릿도 같은 실사진 풀을 쓴다.
+def _resolve_char_image(char_file: str):
+    """spec의 char_file을 실제 이미지 경로로 바꾼다. 일러스트가 남아 있으면
+    그걸 쓰고, 없으면 같은 품목의 실사진을 쓴다. 둘 다 없으면 None."""
+    if not char_file:
+        return None
+    illust = _CHAR_ILLUST_DIR / char_file
+    if illust.exists():
+        return illust
+    name = Path(char_file).stem
+    if name.endswith("_illust"):
+        name = name[: -len("_illust")]
+    real_dir = _CHAR_ILLUST_DIR.parent / "real"
+    exact = real_dir / f"{name}.jpg"
+    if exact.exists():
+        return exact
+    cands = sorted(real_dir.glob(f"{name}_real_*.jpg"))
+    return cands[0] if cands else None
+
+
+def _is_real_photo(path) -> bool:
+    """실사진이면 크로마 제거를 건너뛴다 — 꽉 찬 사진에 colorkey를 걸면 비슷한
+    색 영역마다 구멍이 뚫린다(card_news.py가 _remove_chroma_bg를 버린 이유)."""
+    return path is not None and path.parent.name == "real"
+
 
 # lib/video_assembler.py의 _YT_SAFE_RIGHT/_YT_SAFE_BOTTOM과 반드시 같은 값이어야
 # 한다 — 유튜브 Shorts 앱 UI(공유/좋아요 버튼 등)가 화면 우측·하단을 가리는 픽셀 폭.
@@ -475,7 +505,7 @@ def _load_items(spec: dict) -> tuple[str, str, list[dict]]:
             "label": cause["name"],
             "fact": _join_body(cause["body"]),
             "fix": _join_body(fix["body"]),
-            "icon": ITEM_ICON_DIR / cause["char_file"],
+            "icon": _resolve_char_image(cause["char_file"]),
         }
         for cause, fix in zip(pair_items[0::2], pair_items[1::2])
     ]
@@ -663,7 +693,7 @@ class Ctx:
         # (그래도 없으면 None -> render_title이 빈 체크박스 폴백으로 처리).
         cover_file = spec.get("cover_char_file")
         if cover_file:
-            self.cover_image_path = ITEM_ICON_DIR / cover_file
+            self.cover_image_path = _resolve_char_image(cover_file)
         elif self.items:
             self.cover_image_path = self.items[0]["icon"]
         else:

@@ -2815,12 +2815,21 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
     초록 배경 v8 클립에서 형광 초록 테두리가 안 없어지던 진짜 원인 — despill을
     mix=1.0까지 올려도 전혀 효과가 없었던 이유). 비교 대상 리터럴도 항상 .upper()로
     맞춰서 이 클래스의 버그가 재발하지 않게 한다."""
+    # WHY bg_color="none"(2026-09-01, 실사진 전환): 실사진은 단색 배경으로 생성된 게
+    # 아니라 꽉 찬 사진이라 colorkey를 걸면 사진 안에서 그 색과 비슷한 영역마다
+    # 구멍이 뚫린다 — card_news.py의 _photo_medallion이 _remove_chroma_bg를 버린 것과
+    # 같은 이유다. "none"이면 키잉 없이 그대로 얹는다.
+    no_key = bg_color.lower() == "none"
     similarity = "0.03" if bg_color.upper() == "0XFFFFFF" else "0.15"
     despill = ""
     if bg_color.upper() == "0X00FF00":
         despill = "despill=type=green:mix=1.0:expand=0,"
     elif bg_color.upper() == "0X0000FF":
         despill = "despill=type=blue:mix=1.0:expand=0,"
+    key_filter = "" if no_key else (
+        f"colorkey={bg_color}:{similarity}:{similarity},{despill}"
+        "format=argb,lut=a='if(gt(val\\,16)\\,255\\,0)'"
+    )
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         flip_filter = "hflip," if flip else ""
@@ -2832,10 +2841,10 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
             # 정지 이미지에는 무의미 — colorkey만 한 번 적용해서 정지 화면을
             # 그대로 duration만큼 유지한다(ping-pong/reverse/loop 단계 생략,
             # ffmpeg 호출 수가 4번에서 1번으로 줄어 처리도 훨씬 빠름).
+            vf = f"{flip_filter}{key_filter}" if key_filter else (flip_filter or "null")
             subprocess.run(
                 ["ffmpeg", "-y", "-loop", "1", "-i", motion_path, "-t", f"{total_duration}",
-                 "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
-                        "lut=a='if(gt(val\\,16)\\,255\\,0)'",
+                 "-vf", vf.rstrip(","),
                  "-c:v", "qtrle", str(out_path)],
                 check=True, capture_output=True,
             )

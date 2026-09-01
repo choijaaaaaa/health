@@ -41,6 +41,36 @@ FPS = 30
 TITLE_CARD_DURATION = 1.3
 
 _ILLUST_DIR = _REPO_ROOT / "assets_library" / "illust"
+_CHAR_ILLUST_DIR = _ILLUST_DIR
+
+# WHY 실사진 폴백(2026-09-01): 일러스트 생성이 2026-08-25부로 중단됐고
+# assets_library/illust/는 지금 비어 있다 — spec의 "<품목>_illust.jpg"는 이제
+# 실제 파일이 아니라 품목을 가리키는 키다. card_news.py가 먼저 같은 전환을
+# 마쳤고(_photo_medallion), 영상 템플릿도 같은 실사진 풀을 쓴다.
+def _resolve_char_image(char_file: str):
+    """spec의 char_file을 실제 이미지 경로로 바꾼다. 일러스트가 남아 있으면
+    그걸 쓰고, 없으면 같은 품목의 실사진을 쓴다. 둘 다 없으면 None."""
+    if not char_file:
+        return None
+    illust = _CHAR_ILLUST_DIR / char_file
+    if illust.exists():
+        return illust
+    name = Path(char_file).stem
+    if name.endswith("_illust"):
+        name = name[: -len("_illust")]
+    real_dir = _CHAR_ILLUST_DIR.parent / "real"
+    exact = real_dir / f"{name}.jpg"
+    if exact.exists():
+        return exact
+    cands = sorted(real_dir.glob(f"{name}_real_*.jpg"))
+    return cands[0] if cands else None
+
+
+def _is_real_photo(path) -> bool:
+    """실사진이면 크로마 제거를 건너뛴다 — 꽉 찬 사진에 colorkey를 걸면 비슷한
+    색 영역마다 구멍이 뚫린다(card_news.py가 _remove_chroma_bg를 버린 이유)."""
+    return path is not None and path.parent.name == "real"
+
 
 # WHY 중복 정의(직접 import 불가): video_assembler.py의 _YT_SAFE_RIGHT/_YT_SAFE_BOTTOM은
 # _place_chalk_doodle() 함수 안의 지역 상수라 모듈 레벨에서 import할 수 없다 — 값이
@@ -944,8 +974,13 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
             if not char_file:
                 return None
             if char_file not in char_cache:
-                raw = Image.open(_ILLUST_DIR / char_file).convert("RGB").resize((640, 640))
-                char_cache[char_file] = _remove_chroma(raw)
+                src = _resolve_char_image(char_file)
+                if src is None:
+                    return None
+                raw = Image.open(src).convert("RGB").resize((640, 640))
+                # _char_medallion이 알파를 곱해 원형으로 자르므로 RGBA여야 한다 —
+                # 크로마 제거를 건너뛰는 실사진은 불투명 알파를 직접 붙인다.
+                char_cache[char_file] = raw.convert("RGBA") if _is_real_photo(src) else _remove_chroma(raw)
             return char_cache[char_file]
 
         total_beats = 2 + n_pairs + 1  # hook + mechanism + N cause + closing(해결책 개별 화면 없음)
@@ -1080,7 +1115,7 @@ def render(topic_dir: str, lang: str, audio_path: str, srt_path: str, spec_path:
         title_card_png = tmp_path / "title_card.png"
         _make_title_card_png(
             " ".join(hook_lines), title_card_png,
-            char_path=str(_ILLUST_DIR / hook_char_file) if hook_char_file else None,
+            char_path=(str(_resolve_char_image(hook_char_file)) if _resolve_char_image(hook_char_file) else None),
             lang=lang, accent_color=_accent_color_for_seed(seed_str),
             y_bias=_text_y_bias_for_seed(seed_str), style=_title_card_style_for_seed(seed_str),
         )

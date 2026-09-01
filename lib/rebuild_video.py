@@ -169,7 +169,17 @@ def _char_media_path(name: str) -> str:
     motion_path = MOTION_DIR / f"{name}_motion.mp4"
     if motion_path.exists():
         return str(motion_path)
-    return str(ILLUST_DIR / f"{name}_illust.jpg")
+    illust_path = ILLUST_DIR / f"{name}_illust.jpg"
+    if illust_path.exists():
+        return str(illust_path)
+    # WHY 실사진 폴백(2026-09-01): 일러스트 생성이 2026-08-25부로 중단됐고
+    # assets_library/illust/는 지금 0개다 — 이 함수가 없는 파일 경로를 그대로
+    # 돌려주면 ffmpeg가 입력을 못 찾아 렌더가 통째로 실패한다. 카드뉴스는 이미
+    # 같은 전환을 마쳤으므로(_photo_medallion) 영상도 같은 실사진 풀을 쓴다.
+    real_path = find_real_photo(name)
+    if real_path:
+        return real_path
+    return str(illust_path)
 
 
 @lru_cache(maxsize=None)
@@ -187,6 +197,13 @@ def nearest_bg_color_for_motion(name: str) -> str:
     자체를 읽는다 — 어차피 같은 파일을 그대로 코너에 쓸 것이므로 그 파일의
     실제 배경색을 읽는 게 맞다."""
     media_path = _char_media_path(name)
+    # WHY 실사진이면 크로마키 자체를 끄는지(2026-09-01): 실사진은 단색 배경으로
+    # 생성된 게 아니라 꽉 찬 사진이라, 모서리 픽셀에서 유도한 색으로 colorkey를
+    # 걸면 사진 안에서 그 색과 비슷한 영역마다 구멍이 뚫린다(card_news.py의
+    # _photo_medallion이 _remove_chroma_bg를 버린 것과 같은 이유). "none"은
+    # video_assembler가 colorkey를 건너뛰라는 신호다.
+    if media_path.startswith(str(REAL_DIR)):
+        return "none"
     with tempfile.TemporaryDirectory() as tmp:
         frame_path = Path(tmp) / "frame.png"
         subprocess.run(
