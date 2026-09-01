@@ -1,0 +1,157 @@
+{
+  "title": [
+    "Badhuslukten är inte klor,",
+    "det är trikloramin",
+    "Huden efter badhuset"
+  ],
+  "eyebrow": "Huden efter badhuset",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Fritt klor hänger ihop med pH",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Folkhälsomyndighetens allmänna råd",
+        "om bassängbad kopplar halten fritt",
+        "klor till pH-värdet",
+        "",
+        "Vid pH 7,2 inte under 0,4 mg per",
+        "liter, vid pH 7,4 inte under 0,5",
+        "och vid pH 7,6 inte under 0,6, för",
+        "bassänger under 35 grader",
+        "",
+        "Själva pH-intervallet ska hålla sig",
+        "mellan 7,2 och 7,6"
+      ]
+    },
+    {
+      "name": "Två uttorkande moment i rad",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "1177 formulerar det rakt: ju mer",
+        "huden kommer i kontakt med vatten,",
+        "desto torrare blir den",
+        "",
+        "Varmt vatten torkar ut huden mer",
+        "än svalt vatten",
+        "",
+        "Ett långt bad plus en lång varm dusch",
+        "efteråt är alltså två uttorkande",
+        "moment i rad, inte ett"
+      ]
+    },
+    {
+      "name": "Sverige sätter ett värde även för luften",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Bundet klor bör inte överstiga",
+        "0,3 mg per liter och totalt klor",
+        "inte 2 mg per liter",
+        "",
+        "Bundet klor har alltså den snävaste",
+        "gränsen av alla klorparametrar",
+        "",
+        "Sverige sätter dessutom ett värde för",
+        "trikloramin i inomhusluften: inte",
+        "över 0,2 mg per kubikmeter",
+        "",
+        "Kontrollen görs varje dag bassängen",
+        "är öppen"
+      ]
+    },
+    {
+      "name": "Tvålen hör hemma före badet",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "De allmänna råden säger uttryckligen:",
+        "duscha och tvätta dig med tvål och",
+        "schampo utan badkläder före badet",
+        "",
+        "Mindre svett, hudfett och hudvårds-",
+        "produkter i bassängen betyder mindre",
+        "bundet klor för alla",
+        "",
+        "Efter badet gäller motsatt logik:",
+        "skölj svalt och kort, för då är det",
+        "din hudbarriär som ska skonas"
+      ]
+    },
+    {
+      "name": "Smörj ofta och rikligt",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "1177 beskriver mjukgörande som en",
+        "stor och viktig del av behandlingen:",
+        "det lindrar klådan och hjälper huden",
+        "att bevara sitt naturliga skydd",
+        "",
+        "Behöver du tvål alls efteråt, välj en",
+        "mild oparfymerad, eller tvättkräm och",
+        "duschcreme från apotek",
+        "",
+        "Håll naglarna kortklippta och klappa",
+        "i stället för att riva"
+      ]
+    },
+    {
+      "name": "Receptfritt kortison: en veckas prövotid",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "1177 anger ramen tydligt: du kan",
+        "pröva att smörja med receptfri kräm",
+        "eller salva med kortison i en vecka",
+        "",
+        "Det är en prövotid, inte en öppen",
+        "ordination",
+        "",
+        "Kortison ska inte användas till barn",
+        "under 2 år utan att en läkare har",
+        "rekommenderat det"
+      ]
+    },
+    {
+      "name": "När du ska kontakta vårdcentralen",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Om eksemet inte blivit bättre efter en",
+        "veckas behandling, om det sprider sig",
+        "eller ger blåsor och sår, om du har",
+        "eksem runt ögonen eller på underbenen",
+        "",
+        "Eksem runt ögonen behandlas inte på",
+        "egen hand med en receptfri tub",
+        "",
+        "Vanliga bovar i badhusmiljö är gummi",
+        "i simglasögon, konserveringsmedel i",
+        "hudvårdsprodukter och nickel i smycken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sitter besvären bara där vattnet var,",
+        "eller även på ställen som aldrig",
+        "var i bassängen?"
+      ],
+      [
+        "Kom de samma kväll, eller först ett",
+        "par dagar senare? Då är epikutantest",
+        "mer logiskt än en ny produkt"
+      ]
+    ],
+    "tip": [
+      "Lägg en tub mjukgörande i badväskan, bredvid handduken, så är beslutet redan fattat den kväll du är trött och har bråttom",
+      "Läkemedel som skrivits ut ska inte sättas ut eller doseras om på egen hand"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ oss!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "수영복_illust.jpg": "Badhus",
+    "시계_illust.jpg": "Badtid",
+    "바세린_illust.jpg": "Mjukgörande"
+  }
+}
