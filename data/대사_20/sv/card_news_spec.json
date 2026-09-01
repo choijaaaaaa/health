@@ -1,0 +1,158 @@
+{
+  "title": [
+    "Vågen står stilla,",
+    "men midjan växer?",
+    "Midjemått, styrka och protein"
+  ],
+  "eyebrow": "Bukfett vid normal vikt",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#1F6F5C",
+  "items": [
+    {
+      "name": "Vad BMI inte visar",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "1177 skriver rakt ut att BMI inte",
+        "visar hur stor del av kroppen som är",
+        "muskler och hur stor del som är fett",
+        "",
+        "Du kan ha ett högt BMI och ändå ha",
+        "en god hälsa, till exempel om mycket",
+        "av vikten är muskler",
+        "",
+        "Därför är det bra om du även mäter",
+        "midjan när du räknar ut ditt BMI"
+      ]
+    },
+    {
+      "name": "80 och 94 centimeter",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Risken för sjukdomar ökar redan vid",
+        "ett midjemått på 80 cm eller mer för",
+        "kvinnor och 94 cm eller mer för män",
+        "",
+        "Ett midjemått på 88 cm eller mer hos",
+        "kvinnor och 102 cm eller mer hos män",
+        "ökar risken ännu mer",
+        "",
+        "Två steg, inte en enda gräns - det",
+        "första går att passera med ett BMI",
+        "mitt i normalintervallet"
+      ]
+    },
+    {
+      "name": "Konditionen vägde tyngre",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "I Nurses' Health Study följdes drygt",
+        "88 000 sjuksköterskor i 20 år: risken",
+        "för hjärt-kärlsjukdom var starkt",
+        "kopplad till grad av bukfetma,",
+        "sambandet med BMI var svagare",
+        "",
+        "I ett annat material hade vältränade",
+        "överviktiga män med god kondition",
+        "lägre risk än otränade män med",
+        "normal kroppsvikt",
+        "",
+        "Observationsstudier - samband,",
+        "inte bevis på orsak"
+      ]
+    },
+    {
+      "name": "Därför tappas muskeln",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "En muskel som aldrig behöver ta i",
+        "blir mindre, och platsen fylls igen",
+        "",
+        "Hårda bantningsomgångar kostar",
+        "muskelmassa vid sidan av fettet, och",
+        "det som kommer tillbaka är mest fett",
+        "",
+        "Därför är viktnedgång fel mål för",
+        "den som redan väger normalt"
+      ]
+    },
+    {
+      "name": "Styrka minst två dagar i veckan",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Folkhälsomyndigheten: muskelstärkande",
+        "aktiviteter på måttlig eller hög",
+        "intensitet under minst två dagar i",
+        "veckan, som involverar kroppens alla",
+        "större muskelgrupper",
+        "",
+        "Låg muskelstyrka är enligt",
+        "Hjärt-Lungfonden en stark riskfaktor",
+        "för hjärt-kärlsjukdom",
+        "",
+        "Musklerna är också metabola och",
+        "endokrina organ, inte bara rörelse"
+      ]
+    },
+    {
+      "name": "Bryt sittandet, 150 minuter i veckan",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Minst 150-300 minuter måttlig",
+        "intensitet per vecka, eller 75-150",
+        "minuter på hög intensitet",
+        "",
+        "Långa perioder av stillasittande bör",
+        "brytas av och ersättas med någon form",
+        "av fysisk aktivitet",
+        "",
+        "Rask promenad, cykling och",
+        "trädgårdsarbete räknas in"
+      ]
+    },
+    {
+      "name": "0,83 gram protein per kilo",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "Livsmedelsverket: en vuxen behöver",
+        "0,83 g protein per kilo kroppsvikt",
+        "och dag - väger du 64 kg blir det 53 g",
+        "",
+        "Är du över 65 år bör proteinet ge",
+        "15-20 procent av energin, vilket",
+        "motsvarar 1,2-1,5 g per kilo",
+        "",
+        "Mer protein än kroppen behöver blir",
+        "inte automatiskt muskler - överskottet",
+        "lagras som fett, och tillskott behövs",
+        "sällan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Musklerna är ett organ,",
+        "inte ett utseende"
+      ],
+      [
+        "Det som ska flytta på sig är",
+        "sammansättningen, inte kilotalet"
+      ]
+    ],
+    "tip": [
+      "Risken finns att få i sig för lite protein om man tränar och bantar samtidigt",
+      "Ändra eller sätt aldrig ut din medicin på egen hand för att träningen går bra"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "체중계_illust.jpg": "Kroppsvikt",
+    "의자_illust.jpg": "Kondition",
+    "다이어트도시락_illust.jpg": "Bantningscykel",
+    "아령_illust.jpg": "Styrketräning",
+    "계단_illust.jpg": "Vardagsrörelse",
+    "닭가슴살_illust.jpg": "Protein"
+  }
+}

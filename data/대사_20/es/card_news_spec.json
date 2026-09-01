@@ -1,0 +1,153 @@
+{
+  "title": [
+    "La báscula marca lo mismo",
+    "y el pantalón aprieta en la cintura",
+    "Perímetro de cintura y músculo"
+  ],
+  "eyebrow": "Obesidad de peso normal",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#C9772B",
+  "items": [
+    {
+      "name": "Mismo IMC, riesgos opuestos",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "El índice de masa corporal se calcula",
+        "con el peso y la estatura, nada más",
+        "",
+        "No distingue un kilo de músculo del",
+        "muslo de un kilo de grasa alojada",
+        "alrededor de las vísceras",
+        "",
+        "Dos personas que pesan y miden lo",
+        "mismo pueden estar en extremos",
+        "opuestos del riesgo cardiometabólico"
+      ]
+    },
+    {
+      "name": "94 y 80, luego 102 y 88",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "La obesidad abdominal se considera",
+        "clínicamente presente a partir de",
+        "94 cm en hombres y 80 cm en mujeres",
+        "",
+        "Los documentos de consenso de la",
+        "SEEDO manejan un segundo umbral,",
+        "102 cm y 88 cm, a partir del cual el",
+        "riesgo se considera muy elevado",
+        "",
+        "No son cifras contradictorias:",
+        "son dos escalones del mismo continuo"
+      ]
+    },
+    {
+      "name": "Sarcopenia sin aviso",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Un músculo al que nunca se le pide",
+        "fuerza reduce su tamaño",
+        "",
+        "Una jornada de oficina acumula varias",
+        "horas en las que los grandes grupos",
+        "musculares no hacen prácticamente nada",
+        "",
+        "Con los años el proceso tiene nombre",
+        "propio, sarcopenia, y sus consecuencias",
+        "no son estéticas: menos fuerza",
+        "significa menos estabilidad"
+      ]
+    },
+    {
+      "name": "El ciclo de dietas restrictivas",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Recortar calorías de forma drástica",
+        "sin cambiar nada más hace perder",
+        "masa magra junto con la grasa",
+        "",
+        "Cuando el peso vuelve, vuelve sobre",
+        "todo como grasa",
+        "",
+        "Por eso, cuando el peso ya está en el",
+        "rango normal, adelgazar no es el",
+        "objetivo correcto"
+      ]
+    },
+    {
+      "name": "Fuerza al menos dos días",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "El Ministerio de Sanidad recomienda",
+        "actividades de fortalecimiento",
+        "muscular al menos dos días por semana,",
+        "implicando los grandes grupos",
+        "",
+        "Es la indicación que actúa de forma",
+        "más directa sobre la composición",
+        "corporal"
+      ]
+    },
+    {
+      "name": "Romper el sedentarismo",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "De 150 a 300 minutos semanales de",
+        "actividad aeróbica moderada, o de 75",
+        "a 150 de actividad vigorosa",
+        "",
+        "No sustituye al trabajo de fuerza:",
+        "se suman",
+        "",
+        "Sanidad propone ejemplos concretos:",
+        "ir andando o en bicicleta, pausas",
+        "activas breves y usar las escaleras",
+        "en lugar del ascensor"
+      ]
+    },
+    {
+      "name": "0,83 gramos por kilo",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "La referencia europea de la EFSA sitúa",
+        "en 0,83 g por kilo y día la ingesta",
+        "que mantiene la masa muscular en el",
+        "adulto sano - es un umbral de",
+        "suficiencia, no un objetivo máximo",
+        "",
+        "La AESAN aconseja al menos cuatro",
+        "raciones de legumbres a la semana y",
+        "tres o más de frutos secos",
+        "(20-30 g por ración, crudos y sin sal)"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El objetivo no es bajar de peso",
+        "cuando el peso ya está en la norma"
+      ],
+      [
+        "Es la composición corporal:",
+        "fuerza, proteína repartida",
+        "y menos horas sentado"
+      ]
+    ],
+    "tip": [
+      "Mídase el perímetro de cintura y anote el número con la fecha",
+      "No suspenda ni ajuste por su cuenta un medicamento prescrito porque el entrenamiento vaya bien"
+    ],
+    "cta": "¿Quiere más consejos de salud? Suscríbase, dé me gusta y síganos"
+  },
+  "swipe_label": "Deslice para seguir  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "체중계_illust.jpg": "Peso corporal",
+    "의자_illust.jpg": "Sedentarismo",
+    "다이어트도시락_illust.jpg": "Dietas restrictivas",
+    "아령_illust.jpg": "Fuerza",
+    "계단_illust.jpg": "Actividad diaria",
+    "닭가슴살_illust.jpg": "Proteína"
+  }
+}

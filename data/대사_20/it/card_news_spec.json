@@ -1,0 +1,142 @@
+{
+  "title": [
+    "Il peso è lo stesso da anni,",
+    "ma la vita si allarga?",
+    "Circonferenza vita e muscolo"
+  ],
+  "eyebrow": "Obesità normopeso",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#4C7A34",
+  "items": [
+    {
+      "name": "Normopeso non dice quanto grasso c'è",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "L'Istituto Superiore di Sanità, nel",
+        "portale del Progetto Cuore, definisce",
+        "normopeso chi ha un indice di massa",
+        "corporea tra 18,5 e 24,9 kg/m²",
+        "",
+        "Quel valore nasce da altezza e peso",
+        "e da nient'altro",
+        "",
+        "Non distingue un chilo di muscolo",
+        "della coscia da un chilo di grasso",
+        "depositato attorno agli organi"
+      ]
+    },
+    {
+      "name": "94 e 80 centimetri",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Il Progetto Cuore considera",
+        "desiderabile una circonferenza vita",
+        "inferiore a 94 cm negli uomini",
+        "e a 80 nelle donne",
+        "",
+        "Oltre 102 cm negli uomini e 88 cm",
+        "nelle donne il rischio è considerato",
+        "nettamente aumentato",
+        "",
+        "Sono soglie per le popolazioni",
+        "europee: in Asia orientale i valori",
+        "di riferimento sono diversi"
+      ]
+    },
+    {
+      "name": "Perché conta dove sta il grasso",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Il grasso viscerale, tra gli organi",
+        "della cavità addominale, produce",
+        "sostanze pro-infiammatorie e",
+        "interferisce con l'azione dell'insulina",
+        "",
+        "Il grasso sottocutaneo di fianchi e",
+        "cosce lo fa in misura molto minore",
+        "",
+        "Ecco perché il centimetro attorno",
+        "alla vita dice più dell'ago della",
+        "bilancia"
+      ]
+    },
+    {
+      "name": "Il ciclo delle diete restrittive",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Tagliare drasticamente le calorie",
+        "senza cambiare nient'altro fa perdere",
+        "massa magra insieme al grasso",
+        "",
+        "Quando il peso torna, torna",
+        "soprattutto come grasso",
+        "",
+        "Dopo qualche giro la bilancia mostra",
+        "lo stesso numero di partenza con una",
+        "composizione peggiorata"
+      ]
+    },
+    {
+      "name": "Rinforzo muscolare 2 giorni a settimana",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Raccomandazione OMS ripresa dal",
+        "Ministero della Salute: intensità",
+        "moderata o superiore, coinvolgendo",
+        "i grandi gruppi muscolari",
+        "",
+        "Da 150 a 300 minuti a settimana di",
+        "attività aerobica moderata non la",
+        "sostituiscono: le due indicazioni",
+        "si sommano",
+        "",
+        "Alzarsi ogni ora e prendere le scale",
+        "spezza il blocco di inattività"
+      ]
+    },
+    {
+      "name": "0,90 grammi per chilo",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "I LARN della Società Italiana di",
+        "Nutrizione Umana indicano 0,90 g di",
+        "proteine per chilo di peso al giorno",
+        "negli adulti",
+        "",
+        "Il valore sale a circa 1,1 g/kg",
+        "nell'anziano, proprio per il rischio",
+        "di sarcopenia",
+        "",
+        "Legumi a pranzo, uova o yogurt a",
+        "colazione, pesce o carne alla sera"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Quando il peso è già nella norma,",
+        "dimagrire non è l'obiettivo giusto"
+      ],
+      [
+        "L'obiettivo è la composizione:",
+        "forza, proteine distribuite,",
+        "meno tempo seduti"
+      ]
+    ],
+    "tip": [
+      "Misura la circonferenza della vita e annota il valore con la data",
+      "Non sospendere né modificare un farmaco prescritto perché l'allenamento va bene"
+    ],
+    "cta": "Vuoi altri consigli di salute? Iscriviti, metti mi piace e seguici!"
+  },
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "체중계_illust.jpg": "Peso corporeo",
+    "의자_illust.jpg": "Grasso viscerale",
+    "다이어트도시락_illust.jpg": "Diete restrittive",
+    "아령_illust.jpg": "Rinforzo muscolare",
+    "닭가슴살_illust.jpg": "Proteine"
+  }
+}

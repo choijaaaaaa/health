@@ -1,0 +1,153 @@
+{
+  "title": [
+    "Le poids ne bouge pas,",
+    "mais le pantalon serre à la taille ?",
+    "Tour de taille et masse musculaire"
+  ],
+  "eyebrow": "Obésité de poids normal",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#35707A",
+  "items": [
+    {
+      "name": "Ce que l'IMC ne contient pas",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "L'indice de masse corporelle est un",
+        "rapport entre le poids et la taille",
+        "au carré, rien de plus",
+        "",
+        "Aucune information sur la répartition",
+        "entre muscle, graisse et eau",
+        "",
+        "Deux personnes de même poids et de",
+        "même IMC peuvent se situer aux deux",
+        "extrémités du risque cardiométabolique"
+      ]
+    },
+    {
+      "name": "80, 94, 88 et 102 centimètres",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "En Europe, l'obésité abdominale est",
+        "définie par un tour de taille égal ou",
+        "supérieur à 80 cm chez la femme et",
+        "94 cm chez l'homme",
+        "",
+        "Au-delà de 88 et 102 cm, le risque",
+        "est considéré comme nettement accru",
+        "",
+        "Mesure debout, à mi-distance entre la",
+        "dernière côte et le haut de l'os",
+        "iliaque, en fin d'expiration"
+      ]
+    },
+    {
+      "name": "Le cycle des régimes restrictifs",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Réduire fortement les apports sans",
+        "rien changer d'autre fait perdre de",
+        "la masse maigre en plus de la graisse",
+        "",
+        "La reprise se fait principalement",
+        "en graisse",
+        "",
+        "Après plusieurs cycles, la balance",
+        "affiche le même chiffre pour une",
+        "composition moins favorable"
+      ]
+    },
+    {
+      "name": "Ce que la graisse fait au muscle",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Une équipe de l'Inserm dirigée par",
+        "Danièle Lacasa (unité 1166, ICAN) a",
+        "montré que la masse grasse abdominale",
+        "sécrète des molécules qui font baisser",
+        "l'expression de la troponine, de la",
+        "titine et de la myosine",
+        "",
+        "Travaux publiés dans Diabetes en 2015,",
+        "sur cellules et modèles expérimentaux :",
+        "un mécanisme plausible, pas un effet",
+        "mesuré chez le lecteur"
+      ]
+    },
+    {
+      "name": "Renforcement 1 à 2 fois par semaine",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Le repère de l'Anses, repris par",
+        "Santé publique France dans le PNNS",
+        "",
+        "8 à 10 exercices différents, répétés",
+        "environ 10 fois par série, chaque série",
+        "pouvant être répétée 2 à 3 fois",
+        "",
+        "Avec 2 jours de récupération entre",
+        "deux séances"
+      ]
+    },
+    {
+      "name": "30 minutes, au moins 5 jours",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Au moins 30 minutes d'activité",
+        "d'endurance, au moins 5 jours par",
+        "semaine - la marche rapide compte",
+        "",
+        "Cette activité ne remplace pas le",
+        "renforcement : les deux repères sont",
+        "distincts et cumulatifs",
+        "",
+        "L'Anses recommande aussi d'interrompre",
+        "les périodes assises dans la journée"
+      ]
+    },
+    {
+      "name": "0,83 g de protéines par kilo",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "Référence nutritionnelle fixée par",
+        "l'Anses chez l'adulte en bonne santé,",
+        "portée à 1 g/kg/j chez la personne âgée",
+        "",
+        "Pour 70 kg, cela représente environ",
+        "58 g par jour",
+        "",
+        "C'est un seuil de suffisance, à",
+        "répartir sur les repas plutôt qu'à",
+        "concentrer sur le dîner"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Une perte de poids n'est pas l'objectif",
+        "quand le poids est déjà dans la norme"
+      ],
+      [
+        "Ce qui se déplace, c'est la composition :",
+        "renforcement, protéines réparties,",
+        "moins de temps assis"
+      ]
+    ],
+    "tip": [
+      "Mesurez votre tour de taille et notez le chiffre avec la date",
+      "Ne modifiez jamais un traitement prescrit parce que l'activité physique se passe bien"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  },
+  "swipe_label": "Balayez pour la suite  →",
+  "closing_label": "À retenir",
+  "char_display_names": {
+    "체중계_illust.jpg": "Poids corporel",
+    "다이어트도시락_illust.jpg": "Régimes restrictifs",
+    "의자_illust.jpg": "Sédentarité",
+    "아령_illust.jpg": "Renforcement",
+    "계단_illust.jpg": "Endurance",
+    "닭가슴살_illust.jpg": "Protéines"
+  }
+}

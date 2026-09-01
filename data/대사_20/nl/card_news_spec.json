@@ -1,0 +1,155 @@
+{
+  "title": [
+    "Niets aangekomen,",
+    "toch een strakkere broek?",
+    "Middelomtrek in plaats van gewicht"
+  ],
+  "eyebrow": "Gezond gewicht, toch buikvet",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#2F5FA8",
+  "items": [
+    {
+      "name": "Twee getallen, niet één",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Het Voedingscentrum: of je een gezond",
+        "gewicht hebt, meet je met de BMI",
+        "én je middelomtrek - samen",
+        "",
+        "De BMI is minder geschikt als je heel",
+        "gespierd bent, zwanger bent, heel lang",
+        "of klein bent of een Aziatische",
+        "achtergrond hebt",
+        "",
+        "Boven de 70 jaar en bij een Aziatische",
+        "achtergrond gelden andere grenzen"
+      ]
+    },
+    {
+      "name": "80, 88, 94 en 102 centimeter",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Bij vrouwen is de middelomtrek",
+        "verhoogd vanaf 80 tot 88 cm,",
+        "en te hoog vanaf 88 cm",
+        "",
+        "Bij mannen verhoogd vanaf 94 tot",
+        "102 cm, en te hoog vanaf 102 cm",
+        "",
+        "Meten: rechtop staan, op je blote huid",
+        "tussen onderste rib en bovenkant",
+        "bekken, meetlint niet te strak,",
+        "uitademen en dan aflezen"
+      ]
+    },
+    {
+      "name": "Buikvet is een ander soort vet",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Vet in en rond de buik is nadeliger",
+        "voor je gezondheid dan vet op je",
+        "heupen en billen",
+        "",
+        "Het Voedingscentrum noemt buikvet een",
+        "belangrijke risicofactor voor diabetes",
+        "type 2 en hart- en vaatziekten",
+        "",
+        "Spierweefsel dat nooit kracht hoeft",
+        "te leveren wordt kleiner, en de ruimte",
+        "die vrijkomt vult zich op"
+      ]
+    },
+    {
+      "name": "Waarom streng lijnen averechts werkt",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Hard snijden in calorieën zonder",
+        "krachtprikkel kost naast vet",
+        "ook spiermassa",
+        "",
+        "Wat er daarna terugkomt is vooral vet",
+        "",
+        "Elke ronde eindigt op hetzelfde getal",
+        "met een ongunstiger samenstelling -",
+        "daarom is afvallen het verkeerde doel",
+        "bij een gezond gewicht"
+      ]
+    },
+    {
+      "name": "Twee keer per week krachtoefeningen",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "De Beweegrichtlijnen van de",
+        "Gezondheidsraad vragen minstens twee",
+        "keer per week activiteiten die botten",
+        "en spieren versterken",
+        "",
+        "Daarnaast tweeënhalf uur per week",
+        "matig intensieve activiteiten",
+        "",
+        "Kniebuigingen, opdrukken en een",
+        "weerstandsband tellen gewoon mee"
+      ]
+    },
+    {
+      "name": "Waar Nederland blijft steken",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Volgens CBS en RIVM voldeed in 2022",
+        "44 procent van de volwassenen aan",
+        "de Beweegrichtlijnen",
+        "",
+        "Het bot- en spierversterkende deel was",
+        "niet het probleem: 78 procent deed",
+        "daar genoeg aan",
+        "",
+        "De helft haalde de matig intensieve",
+        "inspanning - daar zit het gat"
+      ]
+    },
+    {
+      "name": "0,83 gram eiwit per kilo",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "De Gezondheidsraad houdt in de",
+        "Voedingsnormen 2021 0,83 g eiwit per",
+        "kilo lichaamsgewicht per dag aan",
+        "",
+        "Ouderen hebben net zo veel nodig als",
+        "jongere volwassenen: dezelfde 0,83 g",
+        "",
+        "Eiwit zit vooral in peulvruchten,",
+        "noten, vis, ei, vlees en zuivel of",
+        "zuivelalternatieven"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "De weegschaal telt op,",
+        "ze deelt niet"
+      ],
+      [
+        "Wat verschuift is de verhouding:",
+        "kracht, eiwit gespreid",
+        "en minder stilzitten"
+      ]
+    ],
+    "tip": [
+      "Leg een meetlint om je taille en noteer het getal met de datum",
+      "Verander of stop nooit zelf voorgeschreven medicatie omdat het trainen goed loopt"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "char_display_names": {
+    "체중계_illust.jpg": "Lichaamsgewicht",
+    "의자_illust.jpg": "Buikvet",
+    "다이어트도시락_illust.jpg": "Streng lijnen",
+    "아령_illust.jpg": "Krachttraining",
+    "계단_illust.jpg": "Dagelijkse beweging",
+    "닭가슴살_illust.jpg": "Eiwit"
+  }
+}
