@@ -1,0 +1,153 @@
+{
+  "title": [
+    "12 kilos down but",
+    "your arms look thinner?",
+    "Wegovy and muscle: what DXA scans showed"
+  ],
+  "eyebrow": "Protecting lean mass on a GLP-1",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "What the DXA scans showed",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "In the STEP 1 semaglutide trial,",
+        "140 participants had DXA scans",
+        "at baseline and week 68",
+        "",
+        "Total fat mass fell 19.3 percent,",
+        "lean body mass 9.7 percent",
+        "",
+        "Fat fell faster, so the lean",
+        "proportion of the body actually",
+        "rose by 3.0 percentage points"
+      ]
+    },
+    {
+      "name": "The same split on placebo",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "In the SURMOUNT-1 substudy,",
+        "roughly 75 percent of the weight",
+        "lost was fat and 25 percent lean",
+        "",
+        "That split was the same",
+        "in the placebo group",
+        "",
+        "Losing some lean tissue happens",
+        "in any substantial weight loss"
+      ]
+    },
+    {
+      "name": "Lean mass is not muscle",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Lean mass on a DXA scan includes",
+        "body water, organs and",
+        "connective tissue",
+        "",
+        "Some of the early drop",
+        "is fluid, not contractile tissue",
+        "",
+        "These were exploratory analyses",
+        "in small subgroups - a direction",
+        "of travel, not a personal forecast"
+      ]
+    },
+    {
+      "name": "Why the body reaches for muscle",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Appetite falls sharply, and often",
+        "more sharply than people notice",
+        "",
+        "When intake drops well below",
+        "what the body spends, protein from",
+        "muscle becomes one of the fuels",
+        "",
+        "Both labels describe these medicines",
+        "as an adjunct to a reduced-calorie diet",
+        "and increased physical activity"
+      ]
+    },
+    {
+      "name": "Protein, spread across the day",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "The RDA of 0.8 g per kilogram",
+        "is a floor for a weight-stable adult,",
+        "not a target in a steep deficit",
+        "",
+        "Reviews of energy-restricted diets",
+        "find 1.2 to 1.6 g/kg per day",
+        "preserves lean mass better",
+        "",
+        "Build each smaller meal around eggs,",
+        "fish, poultry, dairy, tofu or beans",
+        "instead of bread, rice and pasta"
+      ]
+    },
+    {
+      "name": "Lift at least twice a week",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "The US Physical Activity Guidelines",
+        "call for muscle-strengthening work",
+        "on 2 or more days per week",
+        "",
+        "Loading a muscle is the signal",
+        "that tells the body to keep it",
+        "",
+        "Bodyweight squats, push-ups and",
+        "resistance bands count -",
+        "a gym membership is not required"
+      ]
+    },
+    {
+      "name": "Plan the stopping part early",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "In the STEP 1 extension, 327 people",
+        "were followed for a year after",
+        "treatment ended",
+        "",
+        "Of the 17.3 percent lost by week 68,",
+        "11.6 points came back - about",
+        "two-thirds of the loss",
+        "",
+        "When and how to come off is your",
+        "prescriber's call, so ask about",
+        "the plan at the start, not at the end"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Fat falls faster than lean mass,",
+        "and the lean share of your body goes up"
+      ],
+      [
+        "Protein without a loading stimulus",
+        "is just calories - two short strength",
+        "sessions a week are what keep muscle"
+      ]
+    ],
+    "tip": [
+      "If the protein habit and the twice-weekly lifting are in place before the last injection, they are still there afterwards",
+      "Starting, adjusting or stopping a prescription medicine is a decision for your doctor - never change the dose on your own"
+    ],
+    "cta": "Want more health tips? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Wrap-up",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "GLP-1 injection",
+    "체중계_illust.jpg": "Body composition",
+    "흰쌀밥_illust.jpg": "Carb-heavy plate",
+    "계란_illust.jpg": "Protein",
+    "아령_illust.jpg": "Resistance training",
+    "달력_illust.jpg": "Treatment plan"
+  }
+}

@@ -1,0 +1,150 @@
+{
+  "title": [
+    "Abnehmspritze und",
+    "schlaffe Oberarme?",
+    "Muskelabbau: Eiweiß und Krafttraining"
+  ],
+  "eyebrow": "Muskeln halten beim Abnehmen",
+  "cover_char_file": "체중감량주사_illust.jpg",
+  "cover_scrim_color": "#8B3D6E",
+  "items": [
+    {
+      "name": "Was die DXA-Daten zeigen",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "In STEP 1 sank nach 68 Wochen",
+        "die Fettmasse um 19,3 Prozent,",
+        "die fettfreie Masse um 9,7 Prozent",
+        "",
+        "Ihr Anteil am Körpergewicht",
+        "stieg sogar um 3,0 Punkte",
+        "",
+        "Fettfreie Masse ist nicht",
+        "gleich Muskel - Wasser und",
+        "Organgewebe zaehlen mit"
+      ]
+    },
+    {
+      "name": "Kein Spritzen-Phänomen",
+      "char_file": "체중감량주사_illust.jpg",
+      "body": [
+        "In SURMOUNT-1 entfielen",
+        "rund 75 Prozent der Abnahme",
+        "auf Fett, 25 Prozent auf",
+        "fettfreie Masse",
+        "",
+        "In der Placebogruppe",
+        "war das Verhaeltnis gleich",
+        "",
+        "Das gehört zu jeder",
+        "größeren Abnahme dazu"
+      ]
+    },
+    {
+      "name": "Der eigentliche Auslöser",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Der Appetit fällt stärker,",
+        "als vielen bewusst ist",
+        "",
+        "Besteht die kleinere Portion",
+        "vor allem aus Brot, Nudeln",
+        "und Kartoffeln, fehlt der",
+        "Baustoff für die Muskulatur"
+      ]
+    },
+    {
+      "name": "Der häufige Rechenfehler",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Die DGE nennt 0,8 g Eiweiß",
+        "pro Kilogramm und Tag -",
+        "bezogen auf das Normalgewicht,",
+        "nicht auf das aktuelle",
+        "",
+        "Und 0,8 g/kg ist ein Erhaltungswert",
+        "für gewichtsstabile Menschen,",
+        "kein Zielwert im Kaloriendefizit"
+      ]
+    },
+    {
+      "name": "Eiweiß zuerst essen",
+      "char_file": "계란_illust.jpg",
+      "body": [
+        "Übersichtsarbeiten zur",
+        "Abnahmephase finden 1,2 bis 1,6 g",
+        "pro Kilogramm Normalgewicht",
+        "günstiger für die fettfreie Masse",
+        "",
+        "Quark, Ei, Fisch, mageres Fleisch,",
+        "Hülsenfrüchte und Tofu",
+        "an den Anfang der Mahlzeit",
+        "",
+        "Drei bis vier Portionen ueber den Tag",
+        "wirken besser als eine am Abend"
+      ]
+    },
+    {
+      "name": "Zweimal pro Woche kräftigen",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Die nationalen Empfehlungen sehen",
+        "neben 150 Minuten Ausdauer",
+        "an mindestens zwei Tagen der Woche",
+        "Kräftigungsübungen vor",
+        "",
+        "Nach GEDA-Daten des RKI erreichten",
+        "2019 nur 36,3 Prozent der Erwachsenen",
+        "die Muskelkräftigungsempfehlung",
+        "",
+        "Kniebeugen, Liegestütze und",
+        "Thera-Band zaehlen ausdruecklich mit"
+      ]
+    },
+    {
+      "name": "Das Ende gehört in den Plan",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Wegovy ist seit 2004 als",
+        "Lifestyle-Arzneimittel von der",
+        "Kassenleistung ausgenommen -",
+        "die Therapie läuft auf eigene Rechnung",
+        "",
+        "In STEP 1 kamen ein Jahr nach dem",
+        "Absetzen 11,6 der 17,3 Prozentpunkte",
+        "zurück, rund zwei Drittel",
+        "",
+        "Dosis, Pause und Absetzen sind",
+        "ärztliche Entscheidungen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Der kritische Punkt ist nicht das Medikament,",
+        "sondern das Eiweiß in der kleineren Portion"
+      ],
+      [
+        "Wer Eiweiß und Krafttraining vor",
+        "der letzten Spritze eingeuebt hat,",
+        "hat beides auch danach noch"
+      ]
+    ],
+    "tip": [
+      "0,8 g/kg gilt fürs Normalgewicht - in der Abnahmephase liegen 1,2 bis 1,6 g/kg günstiger",
+      "Dosisänderungen und das Absetzen bitte in der Praxis besprechen, nicht eigenmächtig"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "체중감량주사_illust.jpg": "Abnehmspritze",
+    "흰쌀밥_illust.jpg": "Beilagen",
+    "체중계_illust.jpg": "Körpergewicht",
+    "계란_illust.jpg": "Eiweiß",
+    "아령_illust.jpg": "Krafttraining",
+    "달력_illust.jpg": "Therapieplan"
+  }
+}
