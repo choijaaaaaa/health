@@ -1,0 +1,184 @@
+{
+  "title": [
+    "Perché il volante e il telefono",
+    "fanno formicolare la mano?",
+    "Sindrome del tunnel carpale"
+  ],
+  "eyebrow": "Tunnel carpale",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "Nove tendini e un solo nervo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Il tunnel carpale è un canale",
+        "stretto al polso in cui passano",
+        "il nervo mediano e i nove tendini",
+        "flessori delle dita",
+        "",
+        "Il canale non si allarga: se il",
+        "tessuto interno si gonfia, il",
+        "nervo è l'unica struttura che",
+        "non ha dove spostarsi",
+        "",
+        "Formicolano pollice, indice, medio",
+        "e anulare, ma non il mignolo"
+      ]
+    },
+    {
+      "name": "Perché proprio di notte",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "L'Istituto Superiore di Sanità",
+        "osserva che i disturbi possono",
+        "peggiorare nelle ore notturne se",
+        "si dorme con il polso piegato",
+        "",
+        "Di giorno la gravità porta i",
+        "liquidi verso il basso; a corpo",
+        "disteso si ridistribuiscono e",
+        "raggiungono anche le braccia",
+        "",
+        "Scuotere la mano rimette a posto",
+        "temporaneamente entrambe le cose"
+      ]
+    },
+    {
+      "name": "E allora la colpa è del mouse?",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "L'ISS scrive che l'evidenza",
+        "scientifica sugli strumenti che",
+        "vibrano o richiedono flessione",
+        "ripetuta del polso è conflittuale,",
+        "e che questi fattori non sono",
+        "stati identificati come cause",
+        "dirette della sindrome",
+        "",
+        "Aggiunge che nella maggior parte",
+        "dei casi non esiste una singola causa",
+        "",
+        "Computer, mouse e tastiera non",
+        "compaiono nell'elenco"
+      ]
+    },
+    {
+      "name": "Le condizioni che compaiono davvero",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Fratture, lussazioni e artrosi del",
+        "polso riducono lo spazio interno,",
+        "e chi ha un tunnel più piccolo è",
+        "più esposto",
+        "",
+        "Il diabete rende il nervo mediano",
+        "più vulnerabile alla compressione",
+        "",
+        "L'artrite reumatoide altera il",
+        "rivestimento dei tendini",
+        "",
+        "Poi tiroide, obesità e",
+        "insufficienza renale"
+      ]
+    },
+    {
+      "name": "Quando sono i liquidi a premere",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "La ritenzione di liquidi aumenta",
+        "la pressione dentro il canale",
+        "",
+        "È lo stesso meccanismo che spiega",
+        "il formicolio quando si tiene un",
+        "oggetto a lungo: il volante, il",
+        "telefono, il giornale",
+        "",
+        "Non serve un gesto ripetuto,",
+        "basta una posizione mantenuta"
+      ]
+    },
+    {
+      "name": "In gravidanza",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "La ritenzione di liquidi è comune",
+        "in gravidanza, e la forma legata",
+        "alla gravidanza generalmente",
+        "scompare al termine della stessa",
+        "",
+        "Anche la menopausa compare",
+        "nell'elenco dell'ISS",
+        "",
+        "Sapere che rientra da sola cambia",
+        "il modo di gestirla nel frattempo"
+      ]
+    },
+    {
+      "name": "Da quale gradino si comincia",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "L'ISS indica il tutore al polso",
+        "nelle ore notturne come primo",
+        "gradino, quello con meno",
+        "controindicazioni",
+        "",
+        "Poi ridurre le attività con",
+        "piegamenti e impugnature strette,",
+        "cioè forza di presa, non digitazione",
+        "",
+        "Gli antinfiammatori servono nel",
+        "breve periodo, non come soluzione",
+        "stabile"
+      ]
+    },
+    {
+      "name": "Quando smettere di aspettare",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "L'intorpidimento non va più via",
+        "durante la giornata",
+        "",
+        "La presa diventa più debole e gli",
+        "oggetti cadono di mano",
+        "",
+        "Il cuscinetto muscolare alla base",
+        "del pollice appare più piatto",
+        "rispetto all'altra mano",
+        "",
+        "Quest'ultimo è il più tardivo e",
+        "il meno reversibile: il muscolo",
+        "perso non torna"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il tutore notturno va messo quando",
+        "i formicolii sono ancora notturni"
+      ],
+      [
+        "Non quando la mano è ormai",
+        "insensibile tutto il giorno:",
+        "è lo stesso oggetto, ma cambia",
+        "ciò che può fare"
+      ]
+    ],
+    "tip": [
+      "Iniezione di corticosteroidi e intervento chirurgico si decidono in ambulatorio, non da soli",
+      "I farmaci già prescritti non vanno sospesi o modificati di propria iniziativa"
+    ],
+    "cta": "Vuoi altri consigli di salute? Iscriviti, metti mi piace e seguici!"
+  },
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "손가락_illust.jpg": "Mano",
+    "이불_illust.jpg": "Riposo notturno",
+    "마우스_illust.jpg": "Mouse",
+    "체중계_illust.jpg": "Peso corporeo",
+    "부종_illust.jpg": "Ritenzione di liquidi",
+    "임신_illust.jpg": "Gravidanza"
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "title": [
+    "¿Cuántas horas usa el ratón?",
+    "No es esa la pregunta",
+    "Síndrome del túnel carpiano"
+  ],
+  "eyebrow": "Túnel carpiano",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "El ratón no aparece en las directrices",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "El INSST lo escribe sin rodeos",
+        "en sus directrices para la",
+        "decisión clínica en enfermedades",
+        "profesionales:",
+        "",
+        "no existe evidencia científica",
+        "concluyente para la relación",
+        "entre la utilización de ordenador",
+        "y el túnel carpiano",
+        "",
+        "La ofimática tampoco aparece en",
+        "el cuadro de enfermedades",
+        "profesionales"
+      ]
+    },
+    {
+      "name": "El 95 % de los casos es idiopático",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Idiopático significa que no se",
+        "identifica una causa externa",
+        "",
+        "El INSST recoge que la etiología",
+        "es en gran medida estructural,",
+        "genética y biológica, y que lo",
+        "ambiental y ocupacional tiene un",
+        "papel más secundario",
+        "",
+        "Buena parte del problema estaba",
+        "en la anatomía del canal"
+      ]
+    },
+    {
+      "name": "A quién afecta de verdad",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "El túnel carpiano afecta al 3 %",
+        "al 6 % de la población adulta",
+        "y supone el 90 % de los síndromes",
+        "canaliculares",
+        "",
+        "Es más frecuente en la mujer,",
+        "con ratios de 3:1 e incluso 10:1,",
+        "y aparece sobre todo entre los",
+        "40 y los 60 años",
+        "",
+        "Embarazo, menopausia y",
+        "ooforectomía bilateral figuran",
+        "en la lista del INSST"
+      ]
+    },
+    {
+      "name": "La lista que sí aumenta el riesgo",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Obesidad, diabetes mellitus,",
+        "hipotiroidismo, artritis",
+        "reumatoide, gota, carencia de",
+        "vitamina B12 y adelgazamiento",
+        "intenso y rápido",
+        "",
+        "Por eso el INSST incluye entre",
+        "las pruebas la glucemia, la",
+        "uricemia, el factor reumatoide,",
+        "la TSH y la T4",
+        "",
+        "Un hipotiroidismo sin diagnosticar",
+        "pesa más que un reposamuñecas"
+      ]
+    },
+    {
+      "name": "La exposición laboral que sí cuenta",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Movimientos repetitivos de",
+        "flexoextensión de la muñeca,",
+        "dedos con la muñeca en extensión,",
+        "presión sobre el túnel y",
+        "vibraciones mano-brazo",
+        "",
+        "El Real Decreto 1299/2006 cita",
+        "lavanderos, cortadores de tejidos,",
+        "montaje electrónico, industria",
+        "textil y mataderos",
+        "",
+        "Si su trabajo encaja ahí, la vía",
+        "es el servicio de prevención"
+      ]
+    },
+    {
+      "name": "La férula nocturna es el primer escalón",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Una férula en posición neutra",
+        "impide que la muñeca se doble",
+        "durante el sueño",
+        "",
+        "Es barata, reversible y casi sin",
+        "efectos adversos, por eso va",
+        "primero",
+        "",
+        "La infiltración y la cirugía se",
+        "valoran en consulta, y ningún",
+        "tratamiento prescrito se suspende",
+        "por cuenta propia"
+      ]
+    },
+    {
+      "name": "Las tres fases y el signo de la botella",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Fase inicial: sin lesión del",
+        "nervio, mejora con tratamiento",
+        "conservador",
+        "",
+        "Fase intermedia: déficit sensitivo",
+        "y mejoría solo transitoria",
+        "",
+        "Fase avanzada: atrofia de la",
+        "eminencia tenar, con recuperación",
+        "inconstante incluso tras cirugía",
+        "",
+        "Al abrazar una botella, el pliegue",
+        "entre pulgar e índice deja de",
+        "amoldarse en la mano afectada"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La pregunta no es cuántas horas",
+        "usa el ratón"
+      ],
+      [
+        "Al abrazar una botella o apretar el",
+        "pulgar contra el meñique, ¿nota la",
+        "misma fuerza en las dos manos?"
+      ]
+    ],
+    "tip": [
+      "Si la respuesta es que no, eso es lo que hay que contar en la consulta, más que el hormigueo",
+      "El electromiograma no se recomienda de rutina: entre el 13 % y el 27 % de los pacientes con síntomas lo tienen normal"
+    ],
+    "cta": "¿Quieres más información de salud? Suscríbete, dale me gusta y síguenos"
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "손가락_illust.jpg": "Mano",
+    "마우스_illust.jpg": "Ratón",
+    "임신_illust.jpg": "Embarazo",
+    "체중계_illust.jpg": "Peso corporal",
+    "이불_illust.jpg": "Descanso nocturno"
+  }
+}

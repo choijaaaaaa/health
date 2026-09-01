@@ -1,0 +1,175 @@
+{
+  "title": [
+    "Shaking your hand awake at 3am?",
+    "The keyboard is not the reason",
+    "Carpal tunnel syndrome"
+  ],
+  "eyebrow": "Carpal tunnel syndrome",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "One nerve, nine tendons",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "The carpal tunnel is a narrow",
+        "passage at the base of the palm,",
+        "floored by wrist bones and roofed",
+        "by a stiff band of ligament",
+        "",
+        "The median nerve shares it with",
+        "nine tendons that bend the fingers",
+        "",
+        "When the tissue inside swells,",
+        "the nerve is the one structure",
+        "with nowhere to move"
+      ]
+    },
+    {
+      "name": "What the cause lists actually say",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "NIAMS is blunt: researchers do",
+        "not know the causes",
+        "",
+        "Its contributing factors are wrist",
+        "injury, vibrating machinery,",
+        "thyroid and pituitary problems,",
+        "rheumatoid arthritis, diabetes",
+        "and fluid retention",
+        "",
+        "The NHS list adds being",
+        "overweight and a previously",
+        "injured wrist"
+      ]
+    },
+    {
+      "name": "The keyboard question, in numbers",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "A 2015 meta-analysis of six",
+        "studies in nearly 5,000 people",
+        "found a pooled odds ratio of 0.72",
+        "for computer workers",
+        "",
+        "A 2022 review of 17 cohorts and",
+        "over a million workers put high",
+        "computer use at a hazard ratio",
+        "of 0.28",
+        "",
+        "What did raise the rate was",
+        "repetition and force intensity"
+      ]
+    },
+    {
+      "name": "Fluid, age and sex are on the list",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "NIAMS names fluid retention",
+        "during pregnancy or menopause,",
+        "adult age and being female",
+        "among the contributing factors",
+        "",
+        "The tunnel cannot widen, so any",
+        "extra fluid inside it lands on",
+        "the nerve",
+        "",
+        "This is the part a wrist rest",
+        "cannot reach"
+      ]
+    },
+    {
+      "name": "In pregnancy, time often does it",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "The NHS notes that carpal tunnel",
+        "syndrome sometimes resolves by",
+        "itself within a few months,",
+        "particularly when it started",
+        "during pregnancy",
+        "",
+        "That is a reason to treat symptoms",
+        "gently rather than to assume",
+        "nothing can be done"
+      ]
+    },
+    {
+      "name": "The night splint, with its limits",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "The NHS advises wearing a splint",
+        "while you sleep to hold the wrist",
+        "straight, and warns it may take",
+        "up to six weeks to feel better",
+        "",
+        "A 2023 Cochrane review of 29",
+        "trials in 1,937 adults found",
+        "little or no short-term benefit",
+        "versus no active treatment",
+        "",
+        "It is cheap and its harms are",
+        "minor, which is why it stays first"
+      ]
+    },
+    {
+      "name": "Treat what is treatable underneath",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Thyroid disease, diabetes and",
+        "weight appear on both cause lists",
+        "",
+        "If you have not had bloods done,",
+        "that is a reasonable thing to raise",
+        "",
+        "The exposures worth interrupting",
+        "are vibrating tools and repeated",
+        "hard gripping, not typing"
+      ]
+    },
+    {
+      "name": "The signs that mean stop waiting",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "In chronic cases NIAMS describes",
+        "fingers that feel numb all the",
+        "time rather than in bursts",
+        "",
+        "The muscles at the base of the",
+        "thumb weaken until buttons, zips",
+        "and coins become hard to hold",
+        "",
+        "That thumb pad shrinking is",
+        "muscle loss following nerve damage,",
+        "and it does not reliably come back"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Over the past month, has the numbness",
+        "stayed in bursts you can shake off,",
+        "or does it now sit there all day?"
+      ],
+      [
+        "Can you still feel the coin",
+        "you are picking up?"
+      ]
+    ],
+    "tip": [
+      "The NHS says to see a GP if symptoms are getting worse, are not going away, or if treating it yourself is not working",
+      "Surgery and steroid injections are a conversation with a clinician, and prescribed medicines should never be stopped on your own"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "In short",
+  "char_display_names": {
+    "손가락_illust.jpg": "Hand",
+    "체중계_illust.jpg": "Body weight",
+    "마우스_illust.jpg": "Computer mouse",
+    "부종_illust.jpg": "Fluid retention",
+    "임신_illust.jpg": "Pregnancy",
+    "이불_illust.jpg": "Night rest"
+  }
+}

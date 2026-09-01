@@ -1,0 +1,177 @@
+{
+  "title": [
+    "Even aankijken?",
+    "Bij 1 op de 4 wordt het juist erger",
+    "Carpale-tunnelsyndroom"
+  ],
+  "eyebrow": "Carpale-tunnelsyndroom",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "Afwachten is een echte keuze",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Thuisarts.nl zet de cijfers naast",
+        "elkaar:",
+        "",
+        "ongeveer 1 op de 4 mensen merkt",
+        "al na een maand dat het beter gaat",
+        "",
+        "bij ongeveer de helft worden de",
+        "klachten binnen een jaar vanzelf",
+        "minder",
+        "",
+        "bij ongeveer 1 op de 4 worden ze",
+        "juist erger"
+      ]
+    },
+    {
+      "name": "Wanneer afwachten verstandig is",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Volgens Thuisarts is afwachten een",
+        "goede keuze als je de klachten",
+        "korter dan zes weken hebt, ze niet",
+        "erg zijn, je de meeste dingen nog",
+        "zelf kunt en ze vooral 's nachts",
+        "zitten",
+        "",
+        "In het begin zijn er dan geen",
+        "risico's of nadelen",
+        "",
+        "Na drie maanden verandert dat"
+      ]
+    },
+    {
+      "name": "Muis en toetsenbord ontbreken",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Thuisarts noemt drie situaties:",
+        "steeds dezelfde snelle bewegingen",
+        "met knijpen of kracht, trillingen",
+        "zoals bij een drilboor, en de pols",
+        "lang ver gebogen houden",
+        "",
+        "Een review uit 2022 met 17 cohorten",
+        "en ruim een miljoen werknemers vond",
+        "hoge bewijskracht voor repetitie",
+        "en krachtsintensiteit",
+        "",
+        "Voor beeldschermwerk kwam er een",
+        "verlaagd aantal gevallen uit"
+      ]
+    },
+    {
+      "name": "Wie loopt er wel meer risico",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Volgens Thuisarts: mensen van",
+        "45 tot 64 jaar, vrouwen vaker dan",
+        "mannen, mensen met diabetes,",
+        "mensen met overgewicht en mensen",
+        "die hun hand of pols gebroken hebben",
+        "",
+        "Dat is de lijst waar het gesprek",
+        "met de huisarts over gaat, niet",
+        "over je bureaustoel"
+      ]
+    },
+    {
+      "name": "Zwangerschap en overgang",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "Zwangerschap, borstvoeding en de",
+        "overgang staan op dezelfde lijst",
+        "van Thuisarts",
+        "",
+        "Ben je zes weken geleden bevallen",
+        "en heb je nog veel klachten, dan",
+        "is dat een reden om een afspraak",
+        "te maken bij de huisarts"
+      ]
+    },
+    {
+      "name": "De spalk voor de nacht",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Een spalk draag je 's nachts, soms",
+        "overdag, en na vier tot zes weken",
+        "kunnen de klachten minder worden",
+        "",
+        "Het eerste halfjaar werkt een spalk",
+        "even goed als een prik",
+        "",
+        "Er is geen bewijs dat een op maat",
+        "gemaakte spalk beter werkt dan een",
+        "uit de winkel, dus vraag eerst je",
+        "zorgverzekeraar naar de vergoeding"
+      ]
+    },
+    {
+      "name": "De prik en de operatie in cijfers",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bij een prik met een corticosteroïd",
+        "heeft ongeveer de helft de eerste",
+        "drie maanden minder klachten",
+        "",
+        "Bij 46 van de 100 mensen worden de",
+        "klachten de eerste twee dagen juist",
+        "erger, en een derde prik helpt niet",
+        "",
+        "Een operatie duurt ongeveer een",
+        "kwartier onder plaatselijke",
+        "verdoving; ongeveer 5 van de 100",
+        "houden daarna nog klachten"
+      ]
+    },
+    {
+      "name": "Wanneer afwachten geen optie meer is",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Thuisarts schrijft dat de kans dat",
+        "een operatie helpt kleiner is als",
+        "je weinig kracht hebt in je duim",
+        "",
+        "De behandeling die het probleem",
+        "oplost, werkt dus slechter naarmate",
+        "je er langer mee wacht",
+        "",
+        "Houd je na drie maanden klachten,",
+        "worden ze erger of komen ze terug,",
+        "dan is dat het moment om alsnog te",
+        "kiezen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Knijp met duim en wijsvinger in beide",
+        "handen even hard en pak een muntje",
+        "van tafel"
+      ],
+      [
+        "Voelt en werkt dat aan beide kanten",
+        "hetzelfde? Zo niet, dan hoor je bij de",
+        "groep waarvoor afwachten niet bedoeld is"
+      ]
+    ],
+    "tip": [
+      "Maak een afspraak bij de huisarts als je meer pijn of juist minder kracht of gevoel in je hand hebt",
+      "Stop of verander nooit op eigen houtje een voorgeschreven medicijn omdat je hand beter aanvoelt"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "손가락_illust.jpg": "Hand",
+    "부종_illust.jpg": "Rust",
+    "이불_illust.jpg": "Nachtrust",
+    "마우스_illust.jpg": "Computermuis",
+    "체중계_illust.jpg": "Lichaamsgewicht",
+    "임신_illust.jpg": "Zwangerschap"
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "title": [
+    "Domningar i handen?",
+    "Bara var femte har det du tror",
+    "Karpaltunnelsyndrom"
+  ],
+  "eyebrow": "Karpaltunnelsyndrom",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "Bara var femte med symtomen har diagnosen",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "En svensk befolkningsstudie i JAMA",
+        "1999 skickade en enkät till 3 000",
+        "personer mellan 25 och 74 år",
+        "",
+        "14,4 procent rapporterade smärta,",
+        "domningar eller stickningar i",
+        "medianusnervens område",
+        "",
+        "Efter klinisk undersökning hade",
+        "3,8 procent säkerställt",
+        "karpaltunnelsyndrom, alltså ungefär",
+        "en av fem med symtom"
+      ]
+    },
+    {
+      "name": "Tangentbordet nämns inte alls",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "1177 Vårdguiden är ärlig på den",
+        "punkten: ofta går det inte att",
+        "finna någon förklaring till varför",
+        "trycket på nerven har ökat",
+        "",
+        "Det som ändå har med belastning att",
+        "göra är långa pass med vibrerande",
+        "verktyg eller upprepade rörelser",
+        "med handen",
+        "",
+        "Tangentbord nämns ingenstans i texten"
+      ]
+    },
+    {
+      "name": "Vad domningarna annars kan bero på",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Symtomen kan komma från nacken,",
+        "eller vara ulnarisinklämning, som",
+        "ger domningar i lillfingret",
+        "snarare än i tummen",
+        "",
+        "Därför tas ofta blodprov: enligt",
+        "1177 kan de visa diabetes, en",
+        "sköldkörtel som inte fungerar,",
+        "eller brist på järn, vitamin B12",
+        "eller folsyra",
+        "",
+        "Det är sådant som är värt att hitta"
+      ]
+    },
+    {
+      "name": "Hos gravida är besvären vanliga",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "Enligt 1177 är besvären relativt",
+        "vanliga hos gravida, främst från",
+        "sjätte graviditetsmånaden och framåt",
+        "",
+        "De försvinner oftast en tid efter",
+        "förlossningen",
+        "",
+        "Symtomen är också vanligare vid",
+        "ledgångsreumatism och hypotyreos"
+      ]
+    },
+    {
+      "name": "Nervmätningen är inget facit",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "I samma studie hittade man",
+        "elektrofysiologisk medianusneuropati",
+        "hos 18,4 procent av de 125",
+        "kontrollpersonerna utan symtom",
+        "",
+        "1177 skriver samma sak rakt ut:",
+        "neurografi kan inte säkert visa om",
+        "du har karpaltunnelsyndrom, men kan",
+        "visa hur skadad nerven är"
+      ]
+    },
+    {
+      "name": "Egenvård först, för de allra flesta",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "1177 skriver att de flesta med",
+        "karpaltunnelsyndrom inte behöver",
+        "söka vård, eftersom besvären brukar",
+        "gå över av sig själva",
+        "",
+        "Ta korta pauser när händerna blir",
+        "trötta, särskilt vid repetitiva",
+        "handledsrörelser, statiska grepp och",
+        "arbete med vibrerande verktyg",
+        "",
+        "Kontakta vårdcentralen om besvären",
+        "inte försvinner inom ett par veckor"
+      ]
+    },
+    {
+      "name": "Handledsstöd på natten",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Försök undvika att ha handlederna",
+        "kraftigt böjda när du sover",
+        "",
+        "Ett handledsstöd kan du köpa på",
+        "apotek eller i sjukvårdsaffär, och",
+        "det är också den vanligaste",
+        "behandlingen även efter läkarbesök",
+        "",
+        "Kortisonsprutan kan minska besvären,",
+        "men oftast bara tillfälligt"
+      ]
+    },
+    {
+      "name": "När du inte ska vänta längre",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Efter längre tid kan du få",
+        "känselbortfall i fingrarna och",
+        "muskelförtvining i tummen",
+        "",
+        "Förtjockningen som normalt finns",
+        "under tummen kan bli tunnare, och",
+        "läkaren kan se det vid undersökningen",
+        "",
+        "Hur lång tid det tar innan",
+        "fumligheten och kraftlösheten går",
+        "över beror på hur länge du haft",
+        "besvären före operationen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Jämför de två händerna i dagsljus:",
+        "ser muskelvalken under tummen",
+        "lika tjock ut på båda?"
+      ],
+      [
+        "Kommer känseln tillbaka helt när du",
+        "skakat handen, eller finns det en",
+        "fläck som förblir avdomnad?"
+      ]
+    ],
+    "tip": [
+      "Svaren på de två frågorna är precis vad vårdcentralen behöver höra",
+      "Vilken behandling som passar avgörs tillsammans med läkaren, och läkemedel du redan fått utskrivna ska du inte sätta ut på egen hand"
+    ],
+    "cta": "Vill du ha fler hälsotips? Prenumerera, gilla och följ oss!"
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "손가락_illust.jpg": "Hand",
+    "마우스_illust.jpg": "Datormus",
+    "체중계_illust.jpg": "Kroppsvikt",
+    "임신_illust.jpg": "Graviditet",
+    "부종_illust.jpg": "Vila",
+    "이불_illust.jpg": "Nattsömn"
+  }
+}

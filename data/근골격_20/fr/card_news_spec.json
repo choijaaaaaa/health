@@ -1,0 +1,159 @@
+{
+  "title": [
+    "Pouce contre auriculaire :",
+    "la même force des deux côtés ?",
+    "Syndrome du canal carpien"
+  ],
+  "eyebrow": "Canal carpien",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "Premier rang des maladies professionnelles",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Selon Santé publique France, le",
+        "canal carpien occupe le premier",
+        "rang des maladies professionnelles",
+        "indemnisées du régime général",
+        "",
+        "La prévalence estimée chez les",
+        "salariés des Pays de la Loire est",
+        "de 4,0 % chez les femmes et",
+        "2,4 % chez les hommes",
+        "",
+        "Ce n'est ni rare ni marginal"
+      ]
+    },
+    {
+      "name": "Ce que vise vraiment le tableau 57",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Le tableau 57 du régime général",
+        "vise les travaux comportant de",
+        "façon habituelle des mouvements",
+        "répétés ou prolongés d'extension",
+        "du poignet ou de préhension,",
+        "un appui carpien, ou une pression",
+        "prolongée sur le talon de la main",
+        "",
+        "Le délai de prise en charge est",
+        "de 30 jours"
+      ]
+    },
+    {
+      "name": "Ni le clavier ni la souris n'y figurent",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "L'INSST écrit dans ses directives",
+        "2022 qu'il n'existe pas de preuve",
+        "concluante entre l'usage de",
+        "l'ordinateur et le canal carpien,",
+        "et que la forme idiopathique",
+        "représente environ 95 % des cas",
+        "",
+        "Une revue de 2022 sur 17 cohortes",
+        "et plus d'un million de travailleurs",
+        "retient la répétitivité et",
+        "l'intensité de la force"
+      ]
+    },
+    {
+      "name": "Les facteurs non professionnels pèsent lourd",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Diabète, hypothyroïdie,",
+        "polyarthrite rhumatoïde, obésité",
+        "et antécédent de fracture du",
+        "poignet figurent parmi les",
+        "facteurs à rechercher",
+        "",
+        "Ce sont eux qui changent le",
+        "pronostic, bien plus qu'un",
+        "repose-poignet acheté en ligne"
+      ]
+    },
+    {
+      "name": "Pendant la grossesse",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "La grossesse et la ménopause",
+        "font partie des facteurs non",
+        "professionnels reconnus",
+        "",
+        "Chez la femme enceinte, la",
+        "régression après l'accouchement",
+        "est la règle",
+        "",
+        "C'est une raison de soulager sans",
+        "précipiter les gestes lourds"
+      ]
+    },
+    {
+      "name": "L'orthèse nocturne en première intention",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "La Haute Autorité de santé et",
+        "l'Assurance Maladie placent en",
+        "première intention l'orthèse de",
+        "poignet nocturne en position",
+        "neutre, pour trois mois au maximum",
+        "",
+        "Les anti-inflammatoires non",
+        "stéroïdiens n'ont pas d'intérêt",
+        "démontré dans cette indication",
+        "",
+        "L'infiltration soulage vite mais",
+        "n'apporte pas d'amélioration",
+        "à long terme"
+      ]
+    },
+    {
+      "name": "Les trois signes de gravité",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Un déficit moteur du pouce :",
+        "la difficulté à appuyer la pulpe",
+        "du pouce contre l'auriculaire",
+        "",
+        "Un engourdissement qui ne",
+        "disparaît plus dans la journée",
+        "",
+        "Une amyotrophie, la fonte du",
+        "coussinet musculaire à la base",
+        "du pouce",
+        "",
+        "La chirurgie fait céder les",
+        "fourmillements, pas l'amyotrophie"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Posez le pouce contre l'auriculaire",
+        "de la main qui fourmille et serrez,",
+        "puis comparez avec l'autre main"
+      ],
+      [
+        "Si la force est identique, l'orthèse",
+        "nocturne et un rendez-vous chez le",
+        "médecin traitant ouvrent le dossier"
+      ]
+    ],
+    "tip": [
+      "Si la force n'est pas identique, dites-le explicitement en prenant rendez-vous : c'est cette phrase qui accélère le parcours",
+      "Demandez rapidement l'avis du médecin du travail pour l'adaptation du poste, la sous-déclaration reste importante"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  },
+  "swipe_label": "Balayez pour la suite  →",
+  "closing_label": "À retenir",
+  "char_display_names": {
+    "손가락_illust.jpg": "Main",
+    "마우스_illust.jpg": "Souris",
+    "체중계_illust.jpg": "Poids corporel",
+    "임신_illust.jpg": "Grossesse",
+    "이불_illust.jpg": "Nuit"
+  }
+}

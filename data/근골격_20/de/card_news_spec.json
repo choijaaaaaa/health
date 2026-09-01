@@ -1,0 +1,178 @@
+{
+  "title": [
+    "Nachts taub, tagsüber normal:",
+    "Woran liegt das?",
+    "Karpaltunnelsyndrom"
+  ],
+  "eyebrow": "Karpaltunnelsyndrom",
+  "cover_char_file": "손가락_illust.jpg",
+  "cover_scrim_color": "#1D6E7A",
+  "items": [
+    {
+      "name": "Ein Kanal, der nicht nachgibt",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Der Karpaltunnel liegt an der",
+        "Innenseite der Handwurzel:",
+        "unten Knochen, oben das",
+        "straffe Karpalband",
+        "",
+        "Durch ihn laufen der Mittelnerv",
+        "und neun Beugesehnen",
+        "",
+        "Schwillt das Gewebe an, hat nur",
+        "der Nerv keinen Platz zum",
+        "Ausweichen"
+      ]
+    },
+    {
+      "name": "Warum es nachts anfängt",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Im Schlaf knickt das Handgelenk",
+        "ab, und in dieser Stellung",
+        "steigt der Druck im Kanal",
+        "",
+        "Das schwedische Portal 1177",
+        "beschreibt dasselbe: schlechtere",
+        "Durchblutung, mehr Schwellung,",
+        "mehr Druck auf den Nerv",
+        "",
+        "Deshalb hilft Ausschütteln",
+        "so zuverlässig"
+      ]
+    },
+    {
+      "name": "Nicht die Tastatur",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Das IQWiG schreibt: Die Studien",
+        "sprechen für einen eher geringen",
+        "Einfluss von Computerarbeit",
+        "",
+        "Auch bei ergonomischen Tastaturen",
+        "sei unklar, ob sie Beschwerden",
+        "vorbeugen oder lindern",
+        "",
+        "Wer hier sucht, übersieht",
+        "das Naheliegende"
+      ]
+    },
+    {
+      "name": "Was das Risiko wirklich erhöht",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Starker Druck aufs Handgelenk,",
+        "ausgeprägte Streckung oder Beugung",
+        "und Arbeit mit starken Vibrationen",
+        "wie am Presslufthammer",
+        "",
+        "Dazu Rheuma, Diabetes mellitus,",
+        "Verletzungen am Handgelenk und",
+        "wiederholte Sehnenscheidenentzündungen",
+        "",
+        "Laut IQWiG trifft es pro Jahr",
+        "etwa 3 von 1.000 Personen"
+      ]
+    },
+    {
+      "name": "In der Schwangerschaft",
+      "char_file": "임신_illust.jpg",
+      "body": [
+        "In der Schwangerschaft ist das",
+        "Risiko etwas erhöht, weil sich",
+        "mehr Flüssigkeit im Gewebe",
+        "sammelt",
+        "",
+        "Betroffen sind meist Menschen",
+        "zwischen 40 und 70 Jahren,",
+        "Frauen häufiger als Männer",
+        "",
+        "Bei Kindern ist es sehr selten"
+      ]
+    },
+    {
+      "name": "Nicht jeder Fall braucht sofort etwas",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Nach Angaben des IQWiG gehen",
+        "die Beschwerden bei etwa jeder",
+        "dritten betroffenen Person",
+        "innerhalb von 6 Monaten auch",
+        "ohne Behandlung zurück",
+        "",
+        "Tagsüber soll die Hand normal",
+        "bewegt werden, damit das Gelenk",
+        "nicht versteift",
+        "",
+        "Gemieden wird nur, was die",
+        "Beschwerden erkennbar auslöst"
+      ]
+    },
+    {
+      "name": "Die Schiene für die Nacht",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Eine Handgelenksschiene hält",
+        "das Gelenk nachts in der",
+        "mittleren Position",
+        "",
+        "Studien deuten auf Erleichterung",
+        "innerhalb weniger Wochen hin,",
+        "oft aber nur vorübergehend",
+        "",
+        "Dass ein Modell besser wäre als",
+        "ein anderes, ist nicht belegt",
+        "",
+        "Nicht ausreichend: Ibuprofen,",
+        "Diclofenac und Vitamin B6"
+      ]
+    },
+    {
+      "name": "Wann Abwarten teuer wird",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bleibt die Hand ständig taub",
+        "oder schwindet der Muskel am",
+        "Daumenballen, ist der Nerv",
+        "bereits dauerhaft geschädigt",
+        "",
+        "Dann kann auch eine Operation",
+        "die Beschwerden nicht mehr",
+        "vollständig beseitigen",
+        "",
+        "Früh operiert sind 75 bis 90",
+        "von 100 Menschen noch Jahre",
+        "später beschwerdefrei oder besser"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Der Punkt, an dem Abwarten teuer wird,",
+        "ist der Muskelschwund am Daumenballen"
+      ],
+      [
+        "Solange die Beschwerden nachts kommen",
+        "und sich ausschütteln lassen, ist eine",
+        "Schiene ein vernünftiger erster Schritt"
+      ]
+    ],
+    "tip": [
+      "Bleibt das Taubheitsgefühl oder lässt die Kraft im Daumen nach, gehört das in dieser Woche in die Hausarztpraxis",
+      "Außerhalb der Praxiszeiten hilft der ärztliche Bereitschaftsdienst unter 116117"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "손가락_illust.jpg": "Hand",
+    "이불_illust.jpg": "Nachtruhe",
+    "마우스_illust.jpg": "Computermaus",
+    "체중계_illust.jpg": "Grunderkrankungen",
+    "임신_illust.jpg": "Schwangerschaft",
+    "부종_illust.jpg": "Ruhephase"
+  }
+}

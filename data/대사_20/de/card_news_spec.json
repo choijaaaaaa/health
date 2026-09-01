@@ -1,0 +1,150 @@
+{
+  "title": [
+    "Die Waage zeigt seit Jahren",
+    "dieselbe Zahl, die Hose kneift?",
+    "Taillenumfang statt Gewicht"
+  ],
+  "eyebrow": "Normalgewichtige Adipositas",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#B8562F",
+  "items": [
+    {
+      "name": "Was im BMI nicht drinsteckt",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Der Body-Mass-Index ist Gewicht",
+        "geteilt durch Größe im Quadrat -",
+        "mehr Information steckt nicht darin",
+        "",
+        "Er unterscheidet ein Kilo",
+        "Oberschenkelmuskel nicht von einem",
+        "Kilo Fett rund um die Leber",
+        "",
+        "Gleiches Gewicht, gleicher BMI,",
+        "entgegengesetztes Risiko"
+      ]
+    },
+    {
+      "name": "80, 94, 88 und 102 Zentimeter",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Die WHO-Grenzwerte für Europa, die",
+        "auch die Deutsche Adipositas-",
+        "Gesellschaft verwendet",
+        "",
+        "Ab 80 cm bei Frauen und 94 cm bei",
+        "Männern gilt das Risiko als leicht",
+        "erhöht, ab 88 und 102 cm als",
+        "deutlich erhöht",
+        "",
+        "Gemessen im Stehen, am Ende einer",
+        "normalen Ausatmung"
+      ]
+    },
+    {
+      "name": "Der wiederholte Diätzyklus",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Wer die Kalorien stark reduziert und",
+        "sonst nichts ändert, verliert neben",
+        "Fett auch fettfreie Masse",
+        "",
+        "Kommt das Gewicht zurück, kehrt",
+        "vor allem Fett zurück",
+        "",
+        "Dieselbe Zahl auf der Waage,",
+        "ungünstigere Zusammensetzung"
+      ]
+    },
+    {
+      "name": "Muskulatur ohne Aufgabe",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Ein Bürotag besteht aus Stunden, in",
+        "denen die großen Muskelgruppen von",
+        "Beinen und Rumpf fast nichts tun",
+        "",
+        "Die DGE weist darauf hin, dass der",
+        "Abbau der Muskelmasse mit einer",
+        "Abnahme der Muskelfunktion einhergeht",
+        "",
+        "Im höheren Alter steigt damit das",
+        "Risiko für Frakturen und Gebrechlichkeit"
+      ]
+    },
+    {
+      "name": "Krafttraining an zwei Tagen",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Die Nationalen Empfehlungen für",
+        "Bewegung nennen muskelkräftigende",
+        "Aktivität an mindestens zwei Tagen",
+        "",
+        "Beansprucht werden alle großen",
+        "Muskelgruppen: Beine, Hüfte, Rücken,",
+        "Bauch, Brust, Schultern, Arme",
+        "",
+        "Ein Tag nur mit Beinübungen",
+        "erfüllt das nicht"
+      ]
+    },
+    {
+      "name": "Sitzen unterbrechen",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "150 Minuten moderate Ausdauer pro",
+        "Woche kommen zum Krafttraining hinzu,",
+        "sie ersetzen es nicht",
+        "",
+        "Einmal pro Stunde aufstehen, Treppe",
+        "statt Aufzug, kurze Wege zu Fuß",
+        "",
+        "Das ersetzt kein Training, verhindert",
+        "aber den durchgehenden Sitzblock"
+      ]
+    },
+    {
+      "name": "0,8 Gramm pro Kilogramm",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "Die DGE nennt für Erwachsene von 19",
+        "bis 65 Jahren 0,8 g Eiweiß pro",
+        "Kilogramm Körpergewicht und Tag",
+        "",
+        "Ab 65 Jahren einen Schätzwert von",
+        "1,0 g pro Kilogramm",
+        "",
+        "Ebenso wichtig ist die Verteilung:",
+        "über den Tag und in Mahlzeiten,",
+        "nicht als Supplement"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gewichtsabnahme ist das falsche Ziel,",
+        "wenn das Gewicht schon normal ist"
+      ],
+      [
+        "Die sinnvolle Zielgröße heißt",
+        "Zusammensetzung, nicht Gewicht"
+      ]
+    ],
+    "tip": [
+      "Maßband um die Taille legen und die Zahl mit Datum notieren",
+      "Verordnete Medikamente nie eigenmächtig absetzen, weil das Training gut läuft"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "체중계_illust.jpg": "Körpergewicht",
+    "다이어트도시락_illust.jpg": "Diätzyklus",
+    "의자_illust.jpg": "Bürotag",
+    "아령_illust.jpg": "Krafttraining",
+    "계단_illust.jpg": "Alltagsbewegung",
+    "닭가슴살_illust.jpg": "Eiweiß"
+  }
+}

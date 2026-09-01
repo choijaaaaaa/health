@@ -1,0 +1,128 @@
+{
+  "title": [
+    "Same weight for years,",
+    "but the waistband keeps tightening?",
+    "What the scale cannot split"
+  ],
+  "eyebrow": "Normal weight obesity",
+  "cover_char_file": "체중계_illust.jpg",
+  "cover_scrim_color": "#2E6E8E",
+  "items": [
+    {
+      "name": "A normal BMI, four times the risk",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "In NHANES III, 6,171 adults",
+        "all sat inside the normal",
+        "BMI range of 18.5 to 24.9",
+        "",
+        "Split into thirds by body fat,",
+        "the top third had metabolic",
+        "syndrome 16.6% of the time",
+        "",
+        "In the leanest third it was 4.8%"
+      ]
+    },
+    {
+      "name": "35 and 40 inches",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "The NHLBI puts the line at more",
+        "than 35 inches for women and",
+        "more than 40 inches for men",
+        "",
+        "Fat sitting around the waist",
+        "rather than the hips raises",
+        "heart disease and diabetes risk",
+        "",
+        "Measure standing, just above the",
+        "hipbones, right after breathing out"
+      ]
+    },
+    {
+      "name": "Why crash diets backfire",
+      "char_file": "다이어트도시락_illust.jpg",
+      "body": [
+        "Cutting calories hard and",
+        "changing nothing else costs",
+        "lean tissue along with fat",
+        "",
+        "What comes back is mostly fat",
+        "",
+        "Each round ends at the same",
+        "weight with a worse composition"
+      ]
+    },
+    {
+      "name": "Muscle never asked to work",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "A desk day is eight hours in",
+        "which the big muscle groups",
+        "produce almost no force",
+        "",
+        "Muscle that is never loaded",
+        "gets smaller, and the space",
+        "it leaves fills back in",
+        "",
+        "None of that shows on the scale"
+      ]
+    },
+    {
+      "name": "Two days a week, all of it",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "The CDC asks for strength work",
+        "on 2 or more days a week",
+        "",
+        "It has to cover legs, hips, back,",
+        "abdomen, chest, shoulders, arms",
+        "",
+        "That comes on top of 150 minutes",
+        "of moderate activity, not instead"
+      ]
+    },
+    {
+      "name": "Protein by the ounce",
+      "char_file": "닭가슴살_illust.jpg",
+      "body": [
+        "MedlinePlus puts protein at 10 to",
+        "35 percent of calories for adults",
+        "",
+        "One ounce of a protein food gives",
+        "about 7 grams - one large egg,",
+        "a quarter cup of tofu, or half a",
+        "cup of cooked beans or lentils",
+        "",
+        "Spread it across meals instead",
+        "of piling it into dinner"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Weight loss is the wrong target",
+        "when the weight is already normal"
+      ],
+      [
+        "Composition moves with strength work,",
+        "protein spread out, and less sitting"
+      ]
+    ],
+    "tip": [
+      "Measure your waist once and write the number down with the date",
+      "Never change or stop prescribed medication because training is going well"
+    ],
+    "cta": "Want more health tips? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "char_display_names": {
+    "체중계_illust.jpg": "Bathroom scale",
+    "다이어트도시락_illust.jpg": "Crash dieting",
+    "의자_illust.jpg": "Desk hours",
+    "아령_illust.jpg": "Strength work",
+    "닭가슴살_illust.jpg": "Protein"
+  }
+}
