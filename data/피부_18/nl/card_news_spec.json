@@ -1,0 +1,158 @@
+{
+  "title": [
+    "Douchte je vóór het zwemmen,",
+    "of alleen erna?",
+    "Huid na het zwembad"
+  ],
+  "eyebrow": "Huid na het zwembad",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Niet het vrije chloor, maar het gebonden chloor",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Sinds de Omgevingswet staan de eisen",
+        "voor badwater in tabel 15.16 van het",
+        "Besluit activiteiten leefomgeving",
+        "",
+        "Vrij chloor minimaal 0,5 en maximaal",
+        "1,5 mg/l in een binnenbad, gebonden",
+        "chloor maximaal 0,6 mg/l, en een",
+        "zuurgraad tussen pH 7,00 en 7,60",
+        "",
+        "Gebonden chloor geldt als indicator",
+        "voor trichlooramine in de lucht:",
+        "de bekende zwembadlucht"
+      ]
+    },
+    {
+      "name": "Water zelf is de tweede prikkel",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Thuisarts.nl noemt water zelf als",
+        "oorzaak van contacteczeem: komt er",
+        "vaak water op je huid, dan kan dat",
+        "de huid irriteren, net als zeep",
+        "",
+        "Een lange zwemsessie is dus twee",
+        "prikkels tegelijk, niet één",
+        "",
+        "En verdwijnt het contact, dan duurt",
+        "het nog 4 tot 6 weken voordat het",
+        "eczeem echt weg is"
+      ]
+    },
+    {
+      "name": "De wet meet wat de badgasten meebrengen",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "In dezelfde tabel staat een grens voor",
+        "ureum: maximaal 2,0 mg/l",
+        "",
+        "Ureum komt uit zweet en urine van de",
+        "badgasten, en juist dat vormt samen",
+        "met chloor de irriterende fractie",
+        "",
+        "De toelichting merkt op dat kinderen",
+        "die intensief zwemmen een kwetsbare",
+        "groep zijn: bij een laag lichaams-",
+        "gewicht is de blootstelling per kilo",
+        "hoog"
+      ]
+    },
+    {
+      "name": "Douche vooraf, spoel meteen erna",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Minder zweet en huidvet in het water",
+        "betekent minder ureum en minder",
+        "gebonden chloor, voor iedereen",
+        "",
+        "Spoel je meteen na het uitstappen",
+        "lauw af, niet na de koffie",
+        "",
+        "De film chloorwater die op je huid",
+        "opdroogt, neemt het vocht uit de",
+        "hoornlaag mee"
+      ]
+    },
+    {
+      "name": "Basiszalf is de behandeling zelf",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Thuisarts.nl adviseert bij",
+        "contacteczeem uitdrukkelijk: was je",
+        "niet te vaak en gebruik geen of zo",
+        "weinig mogelijk zeep of shampoo",
+        "",
+        "Twee keer per dag insmeren met een",
+        "basiszalf vormt de basis van de",
+        "behandeling en werkt ook preventief",
+        "",
+        "Een zalf laat een glimmend laagje",
+        "achter en is voor de allerdroogste huid"
+      ]
+    },
+    {
+      "name": "Hormoonzalf: sterkte en vingertopmaat",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Nederland kent vier sterkteklassen,",
+        "en hydrocortisonacetaat is de lichtste",
+        "",
+        "Een streepje zalf over de hele top van",
+        "je wijsvinger is genoeg voor een stuk",
+        "huid ter grootte van twee volwassen",
+        "handen",
+        "",
+        "Smeer nooit vaker dan twee keer per",
+        "dag, en niet gelijktijdig met",
+        "basiszalf: eerst de medicijnzalf,",
+        "een uur later de basiszalf"
+      ]
+    },
+    {
+      "name": "Wanneer je naar de huisarts gaat",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Neem contact op als de jeuk na twee",
+        "weken niet is verminderd",
+        "",
+        "Op het gezicht adviseren artsen",
+        "doorgaans niet langer dan vier weken,",
+        "vanwege het risico op glaucoom",
+        "",
+        "Stop na langdurig gebruik niet abrupt,",
+        "en ga langs bij nattende of korstende",
+        "plekken, uitgebreide blaren of koorts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Zitten de plekken alleen daar waar het",
+        "water kwam, of ook elders?"
+      ],
+      [
+        "Kwamen ze meteen op, of pas een paar",
+        "dagen later? Bij dat laatste is een",
+        "allergie voor rubber of zonnebrand",
+        "een logischer verdachte dan chloor"
+      ]
+    ],
+    "tip": [
+      "Stop een tube basiszalf in je zwemtas, naast de handdoek: als het besluit al genomen is, smeer je ook op de avond dat je moe en gehaast bent",
+      "Voorgeschreven middelen stop of verander je niet op eigen houtje"
+    ],
+    "cta": "Meer gezondheidstips? Abonneer, like en volg ons!"
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "수영복_illust.jpg": "Zwembad",
+    "시계_illust.jpg": "Duur",
+    "바세린_illust.jpg": "Basiszalf"
+  }
+}

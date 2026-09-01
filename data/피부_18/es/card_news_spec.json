@@ -1,0 +1,162 @@
+{
+  "title": [
+    "El picor tras la piscina",
+    "casi nunca es alergia al cloro",
+    "Piel tras la piscina"
+  ],
+  "eyebrow": "Piel tras la piscina",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "No es alergia: es dermatitis irritativa",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "En la dermatitis irritativa la",
+        "sustancia daña directamente la capa",
+        "externa: arrastra los lípidos y el",
+        "factor natural de hidratación",
+        "",
+        "La barrera queda abierta y el mismo",
+        "agente entra con más facilidad la",
+        "siguiente vez",
+        "",
+        "En la alérgica reacciona el sistema",
+        "inmunitario, y esa sensibilización",
+        "se construye con contactos repetidos"
+      ]
+    },
+    {
+      "name": "Tres señales que orientan",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Cuándo aparece: la irritación se",
+        "nota el mismo día, la reacción",
+        "alérgica tarda de uno a tres días",
+        "",
+        "Hasta dónde llega: la irritación se",
+        "queda donde hubo contacto, el eccema",
+        "alérgico tiende a extenderse",
+        "",
+        "Desde cuándo: una alergia de contacto",
+        "no debuta en el primer baño de la",
+        "temporada"
+      ]
+    },
+    {
+      "name": "Lo que fija la normativa de piscinas",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "El Real Decreto 742 de 2013 marca",
+        "cloro libre residual de 0,5 a",
+        "2,0 mg/L, cloro combinado por debajo",
+        "de 0,6 mg/L y un pH entre 7,2 y 8,0",
+        "",
+        "El vaso se cierra si el cloro libre",
+        "supera los 5 mg/L o el combinado",
+        "pasa de 3 mg/L, y los controles de",
+        "rutina se hacen al menos una vez al",
+        "día antes de abrir",
+        "",
+        "El combinado es el que pica: se forma",
+        "con el sudor y las cremas que entran",
+        "con los bañistas"
+      ]
+    },
+    {
+      "name": "Dúchate al entrar, aclárate al salir",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Ducharse antes de entrar no es un",
+        "trámite: reduce la materia con la",
+        "que se fabrica el cloro combinado",
+        "",
+        "Menos sudor y menos crema en el agua",
+        "significa menos picor para todos",
+        "",
+        "Al salir, aclarado con agua templada",
+        "de inmediato, no después del café en",
+        "la terraza: la película de agua",
+        "clorada que se seca se lleva también",
+        "el agua de la capa córnea"
+      ]
+    },
+    {
+      "name": "Baja el gel e hidrata en húmedo",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "La piel sale ya desengrasada y un gel",
+        "espumoso y perfumado retira justo lo",
+        "que falta",
+        "",
+        "Un syndet o un gel sobregraso basta",
+        "",
+        "Secar a toques, sin frotar, y extender",
+        "la crema en ese momento: es el gesto",
+        "que más cambia la sensación de la",
+        "noche siguiente"
+      ]
+    },
+    {
+      "name": "Hidrocortisona: 7 días como máximo",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "En España la hidrocortisona al 0,5 %",
+        "se dispensa sin receta, y su",
+        "prospecto autorizado por la AEMPS es",
+        "explícito: no aplicar más de 7 días",
+        "seguidos sin consultar al médico",
+        "",
+        "En adultos y mayores de 12 años, una",
+        "película fina una o dos veces al día",
+        "",
+        "En menores de 12 y mayores de 65,",
+        "consultar antes"
+      ]
+    },
+    {
+      "name": "Cuándo no es cuestión de autocuidado",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "No debe usarse sobre zona infectada",
+        "ni en piel muy frágil, y hay que",
+        "evitar el contacto con los ojos",
+        "porque puede aumentar la presión",
+        "ocular",
+        "",
+        "El uso prolongado produce atrofia",
+        "cutánea, telangiectasias, foliculitis",
+        "y acné, sobre todo en pliegues y cara",
+        "",
+        "Lesiones que supuran, ampollas",
+        "amplias o fiebre: cita médica en",
+        "lugar de un segundo tubo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El problema nunca fue el agua,",
+        "sino el rato de después"
+      ],
+      [
+        "Ducha al entrar, aclarado templado al",
+        "salir, menos gel y crema en húmedo:",
+        "cuatro gestos en menos de diez minutos"
+      ]
+    ],
+    "tip": [
+      "Empieza por uno solo: mete el bote de crema en la bolsa de la piscina, junto a la toalla",
+      "Si la piel reacciona igual tras varias sesiones bien hechas, la goma de las gafas o el perfume del gel son sospechosos más plausibles que el cloro"
+    ],
+    "cta": "¿Quieres más información de salud? Suscríbete, dale me gusta y síguenos"
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "수영복_illust.jpg": "Piscina",
+    "시계_illust.jpg": "Momento",
+    "바세린_illust.jpg": "Crema hidratante"
+  }
+}

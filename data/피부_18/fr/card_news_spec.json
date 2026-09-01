@@ -1,0 +1,163 @@
+{
+  "title": [
+    "Ça gratte le soir même ?",
+    "Alors ce n'est pas une allergie",
+    "Peau après la piscine"
+  ],
+  "eyebrow": "Peau après la piscine",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Irritation et allergie ne sont pas la même chose",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "L'INRS distingue les dermatites de",
+        "contact d'irritation, les dermatites",
+        "allergiques et celles aux protéines",
+        "",
+        "Les premières viennent d'une",
+        "agression directe de la barrière",
+        "cutanée : milieu humide, détergents,",
+        "désinfectants, solvants",
+        "",
+        "Les secondes reposent sur une",
+        "sensibilisation à un allergène précis",
+        "comme le nickel ou un parfum"
+      ]
+    },
+    {
+      "name": "Le calendrier trahit le mécanisme",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "L'irritation apparaît vite et reste",
+        "là où le produit a touché",
+        "",
+        "L'eczéma allergique de contact est",
+        "une hypersensibilité retardée : les",
+        "lésions se construisent en un à",
+        "trois jours et peuvent déborder",
+        "largement la zone de contact",
+        "",
+        "Une peau qui pique le soir même,",
+        "sur les zones découvertes par le",
+        "maillot, ressemble au premier tableau"
+      ]
+    },
+    {
+      "name": "Ce que fixe l'arrêté du 26 mai 2021",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Les limites contrôlées par les ARS :",
+        "pH entre 6,9 et 7,7, chlore libre",
+        "actif entre 0,4 et 1,4 mg/L, chlore",
+        "combiné au maximum 0,6 mg/L",
+        "",
+        "À pH 7,2, seuls 66,9 % du chlore",
+        "libre sont réellement actifs, contre",
+        "80,1 % à pH 6,9",
+        "",
+        "C'est le chlore combiné qui pique :",
+        "il se forme quand le chlore rencontre",
+        "la sueur et les cosmétiques"
+      ]
+    },
+    {
+      "name": "Se doucher avant, rincer tout de suite après",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Moins de sueur et de crème dans",
+        "l'eau, c'est moins de chloramines",
+        "produites, donc moins de ce qui",
+        "irrite tout le monde",
+        "",
+        "Au sortir du bassin, rincer à l'eau",
+        "tiède immédiatement, pas après le",
+        "café au bord du bassin",
+        "",
+        "Le film d'eau chlorée qui sèche sur",
+        "la peau emporte l'eau de la couche",
+        "cornée avec lui"
+      ]
+    },
+    {
+      "name": "Alléger le nettoyant, hydrater sur peau humide",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "La peau est déjà délipidée en sortant",
+        "du bassin, et un gel douche moussant",
+        "et parfumé retire précisément ce qui",
+        "manque",
+        "",
+        "Un pain ou un gel surgras suffit",
+        "largement",
+        "",
+        "Tamponner avec la serviette, ne pas",
+        "frotter, puis étaler la crème dans",
+        "la foulée, sur peau encore humide"
+      ]
+    },
+    {
+      "name": "Dermocorticoïdes : trois précautions",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "L'hydrocortisone à 0,5 % occupe le",
+        "niveau d'activité faible des quatre",
+        "niveaux français",
+        "",
+        "Une application par jour suffit :",
+        "deux n'apportent pas de bénéfice",
+        "mais augmentent le risque d'effet",
+        "indésirable",
+        "",
+        "À éviter dans les grands plis, et",
+        "contre-indiqué sur les paupières en",
+        "raison du risque de glaucome"
+      ]
+    },
+    {
+      "name": "Quand ce n'est plus de l'automédication",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Les dermocorticoïdes sont contre-",
+        "indiqués sur les infections de la",
+        "peau, les lésions ulcérées, l'acné,",
+        "la rosacée et la dermatite périorale",
+        "",
+        "Un usage prolongé expose à une",
+        "atrophie épidermique, à une",
+        "dépigmentation et à des vergetures",
+        "définitives",
+        "",
+        "Consultez si des bulles apparaissent,",
+        "si la peau devient chaude et",
+        "suintante, ou en cas de fièvre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Quatre gestes, une dizaine de minutes,",
+        "et ils portent tous sur la seule",
+        "variable que vous maîtrisez"
+      ],
+      [
+        "Le temps de contact et l'état de la",
+        "barrière au moment où vous sortez"
+      ]
+    ],
+    "tip": [
+      "Si les poussées reviennent après chaque baignade malgré la routine, un bilan allergologique a du sens : le caoutchouc des lunettes ou un parfum de gel douche sont plus crédibles que le chlore",
+      "Avant des tests épicutanés, pas de dermocorticoïde sur la zone depuis 7 jours ni d'antihistaminique depuis au moins 72 heures"
+    ],
+    "cta": "Envie de plus de conseils santé ? Abonnez-vous, likez et suivez-nous !"
+  },
+  "swipe_label": "Balayez pour la suite  →",
+  "closing_label": "À retenir",
+  "char_display_names": {
+    "수영복_illust.jpg": "Piscine",
+    "시계_illust.jpg": "Délai",
+    "바세린_illust.jpg": "Émollient"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "title": [
+    "Itchy after the pool?",
+    "It was never the chlorine",
+    "Skin after swimming"
+  ],
+  "eyebrow": "Skin after swimming",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Irritant damage, not an allergy",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "The NHS splits contact dermatitis",
+        "in two: an irritant directly damages",
+        "the outer layer of skin, an allergen",
+        "makes the immune system respond",
+        "",
+        "Contact dermatitis is most commonly",
+        "caused by irritants, and the",
+        "allergic form is the less common one",
+        "",
+        "DermNet notes that occupational hand",
+        "dermatitis is caused by irritants in",
+        "80 percent of cases"
+      ]
+    },
+    {
+      "name": "Patch testing answers a different question",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Patch testing tapes small amounts of",
+        "known allergens to the back and",
+        "reads them over several days",
+        "",
+        "It answers the allergy question,",
+        "but it does not diagnose irritant",
+        "damage",
+        "",
+        "If your skin only reacts after long",
+        "pool sessions and calms down over",
+        "the following week, that is a",
+        "barrier problem"
+      ]
+    },
+    {
+      "name": "The smell is chloramine, not chlorine",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "CDC explains that chloramines form",
+        "when chlorine combines with",
+        "nitrogen-containing material that",
+        "swimmers bring in: sweat, dirt,",
+        "pee and poop",
+        "",
+        "Chloramines are what irritate skin,",
+        "eyes and airways, and most health",
+        "departments cap them at 0.4 ppm",
+        "",
+        "CDC recommends pH 7.0 to 7.8 and",
+        "free chlorine of at least 1 ppm",
+        "in pools"
+      ]
+    },
+    {
+      "name": "Rinse going in, rinse coming out",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "CDC's reasoning for the pre-swim",
+        "rinse: even a quick one removes much",
+        "of the body waste that forms",
+        "chloramines in the first place",
+        "",
+        "So rinsing protects the water, and",
+        "the water then irritates you less",
+        "",
+        "NHS prevention advice is to rinse",
+        "skin that has met an irritant with",
+        "warm water as soon as possible -",
+        "at the lunch break too, not just",
+        "at closing time"
+      ]
+    },
+    {
+      "name": "Swap the gel, moisturise while damp",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "The NHS suggests emollient soap",
+        "substitutes rather than regular bar",
+        "or liquid soaps, which dry the",
+        "skin out",
+        "",
+        "Then gently dry and apply the",
+        "emollient while the skin is still",
+        "moist, in a large amount, smoothed",
+        "in the direction hair grows",
+        "",
+        "For very dry skin, two to four times",
+        "a day; ointments hold moisture best"
+      ]
+    },
+    {
+      "name": "What hydrocortisone can and cannot do",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "The NHS instruction is blunt: do not",
+        "use hydrocortisone on your skin for",
+        "more than 7 days unless a pharmacist",
+        "or doctor tells you to",
+        "",
+        "Apply a thin layer once or twice a",
+        "day; a fingertip unit covers an area",
+        "twice the size of your palm",
+        "",
+        "If you also use an emollient, apply",
+        "that first and wait around 30 minutes"
+      ]
+    },
+    {
+      "name": "When to stop self-treating",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Hydrocortisone is the wrong choice",
+        "on broken skin, cold sores,",
+        "chickenpox, shingles or a bacterial",
+        "skin infection",
+        "",
+        "Get seen if the rash covers a large",
+        "area, blisters are spreading, you",
+        "have a fever, or it has not settled",
+        "after about two weeks",
+        "",
+        "After stopping a steroid cream,",
+        "intense redness, burning or peeling",
+        "is a reason to call NHS 111"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "The pool did not do this on its own.",
+        "The gap between getting out and",
+        "getting moisturised did"
+      ],
+      [
+        "Rinse, pat dry, apply while damp -",
+        "that sequence is the whole",
+        "intervention"
+      ]
+    ],
+    "tip": [
+      "Put a tube of plain emollient in the swim bag next to the towel, so the decision is already made when you are cold and tired",
+      "If your skin keeps reacting after every swim, ask a pharmacist or GP about testing rather than cycling through products"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "In short",
+  "char_display_names": {
+    "수영복_illust.jpg": "Swimming pool",
+    "시계_illust.jpg": "Timing",
+    "바세린_illust.jpg": "Emollient"
+  }
+}

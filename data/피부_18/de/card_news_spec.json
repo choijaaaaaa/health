@@ -1,0 +1,161 @@
+{
+  "title": [
+    "Nach dem Schwimmbad juckt die Haut:",
+    "Chlorallergie?",
+    "Meist steckt etwas anderes dahinter"
+  ],
+  "eyebrow": "Haut nach dem Schwimmbad",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Meist ist es keine Chlorallergie",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Das IQWiG trennt beides sauber:",
+        "Rötung, Brennen oder Jucken sind",
+        "normale Reaktionen der Haut auf",
+        "einen reizenden Stoff",
+        "",
+        "Bei einer echten Kontaktallergie",
+        "reagiert das Immunsystem auf teils",
+        "sehr kleine Mengen von Stoffen,",
+        "die gar nicht aggressiv sein müssen",
+        "",
+        "Häufige Auslöser sind Nickel,",
+        "Duftstoffe, Latex und Klebstoffe"
+      ]
+    },
+    {
+      "name": "Erst nach 1 bis 3 Tagen",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Beschwerden einer Kontaktallergie",
+        "sind meist erst nach 1 bis 3 Tagen",
+        "spürbar - was noch am selben Abend",
+        "brennt, spricht für eine Reizung",
+        "",
+        "Typisch für die Allergie ist die",
+        "Streureaktion an Stellen ohne",
+        "Kontakt; eine Reizung bleibt dort,",
+        "wo der Stoff war",
+        "",
+        "Und sie entwickelt sich über Jahre,",
+        "nicht in der ersten Badesaison"
+      ]
+    },
+    {
+      "name": "Was die DIN 19643 vorgibt",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Eine eigene Beckenwasserverordnung",
+        "gibt es in Deutschland nicht; die",
+        "Gesundheitsämter stützen sich auf",
+        "die DIN 19643",
+        "",
+        "Freies Chlor: 0,3 bis 0,6 mg/l im",
+        "allgemeinen Becken, 0,7 bis 1,0 mg/l",
+        "im Warmsprudelbecken, pH 6,5 bis 7,5",
+        "",
+        "Das Problem ist nicht die",
+        "Konzentration, sondern die",
+        "Kontaktdauer"
+      ]
+    },
+    {
+      "name": "Nass ins Becken, sofort wieder abduschen",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Die Duschpflicht ist keine Schikane:",
+        "Schweiß, Hautfett und Kosmetikreste",
+        "binden freies Chlor, und daraus",
+        "entsteht gebundenes Chlor",
+        "",
+        "Genau dieser Anteil reizt Augen,",
+        "Haut und Atemwege und macht den",
+        "typischen Hallenbadgeruch",
+        "",
+        "Danach lauwarm abduschen, nicht erst",
+        "nach dem Kaffee am Beckenrand"
+      ]
+    },
+    {
+      "name": "Duschgel weg, feucht eincremen",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Die Haut ist nach dem Bad bereits",
+        "entfettet; ein schäumendes Duschgel",
+        "entfernt genau das, was jetzt fehlt",
+        "",
+        "Besser eine rückfettende Waschlotion",
+        "oder gar nichts",
+        "",
+        "Dann abtupfen statt trockenrubbeln",
+        "und auf die noch feuchte Haut eine",
+        "fettende Creme auftragen: Wasser und",
+        "Fett gleichzeitig"
+      ]
+    },
+    {
+      "name": "Hydrocortison 0,5 % hat eine Obergrenze",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "In Deutschland ist Hydrocortison",
+        "0,5 Prozent bis zu einer",
+        "Packungsgröße von 30 g von der",
+        "Verschreibungspflicht freigestellt",
+        "",
+        "Ab 6 Jahren 2- bis 3-mal täglich,",
+        "in der Folgebehandlung 1-mal täglich",
+        "",
+        "Ohne ärztlichen Rat nicht länger",
+        "als 2 Wochen anwenden; bei Kindern",
+        "unter 6 Jahren nur nach Rücksprache"
+      ]
+    },
+    {
+      "name": "Wann Sie nicht weitercremen sollten",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Die Creme darf nicht auf",
+        "Virusinfektionen wie Herpes, auf",
+        "bakterielle Infektionen, Pilze,",
+        "Akne, periorale Dermatitis oder",
+        "Rosacea",
+        "",
+        "Nässende, verkrustete oder sich",
+        "rasch ausbreitende Stellen gehören",
+        "in die Hautarztpraxis, ebenso",
+        "großflächige Blasen und Fieber",
+        "",
+        "Bei Atemnot oder Schwellung von",
+        "Lippen und Zunge sofort die 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sie müssen deshalb nicht aufhören",
+        "zu schwimmen"
+      ],
+      [
+        "Was Sie steuern können, liegt in den",
+        "zehn Minuten davor und den fünf",
+        "Minuten danach"
+      ]
+    ],
+    "tip": [
+      "Vorher duschen, sofort abspülen, Duschgel sparen, feucht eincremen: wie viele der vier machen Sie beim nächsten Mal wirklich?",
+      "Wer das ein paar Badetage durchhält und trotzdem jedes Mal reagiert, hat einen guten Grund für einen Termin in der Hautarztpraxis"
+    ],
+    "cta": "Mehr Gesundheitstipps gefällig? Abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "수영복_illust.jpg": "Schwimmbad",
+    "시계_illust.jpg": "Zeitpunkt",
+    "바세린_illust.jpg": "Pflegecreme"
+  }
+}

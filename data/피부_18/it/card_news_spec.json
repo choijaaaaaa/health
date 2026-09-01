@@ -1,0 +1,160 @@
+{
+  "title": [
+    "Dei quattro gesti dopo la piscina,",
+    "quanti ne fai già oggi?",
+    "Pelle dopo la piscina"
+  ],
+  "eyebrow": "Pelle dopo la piscina",
+  "cover_char_file": "수영복_illust.jpg",
+  "cover_scrim_color": "#118AB2",
+  "items": [
+    {
+      "name": "Non è quasi mai allergia al cloro",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "La dermatite irritativa, spiega",
+        "Humanitas, è una reazione della pelle",
+        "a stimoli chimici o naturali:",
+        "infiammazione improvvisa, cute rossa",
+        "e pruriginosa, poi vescicole",
+        "",
+        "Se rotte grattando lasciano croste",
+        "appiccicose, e il grattamento intenso",
+        "può arrivare a provocare",
+        "un'infezione della pelle",
+        "",
+        "Quella allergica nasce invece da una",
+        "ipersensibilità del sistema immunitario"
+      ]
+    },
+    {
+      "name": "Tre differenze pratiche",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "I tempi: l'irritazione compare",
+        "rapidamente dopo il contatto, la",
+        "reazione allergica è ritardata di",
+        "uno o più giorni",
+        "",
+        "I confini: l'irritazione resta dove",
+        "la sostanza ha toccato, l'eczema",
+        "allergico tende a superare l'area",
+        "",
+        "La storia: l'allergia da contatto non",
+        "nasce alla prima esposizione"
+      ]
+    },
+    {
+      "name": "Cosa fissa l'Accordo Stato-Regioni",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "L'Accordo del 16 gennaio 2003 fissa",
+        "per l'acqua in vasca cloro attivo",
+        "libero tra 0,7 e 1,5 mg/L, cloro",
+        "combinato non oltre 0,4 mg/L e pH",
+        "tra 6,5 e 7,5",
+        "",
+        "Il cloro combinato non è il",
+        "disinfettante: si forma quando il",
+        "cloro incontra sudore, creme e",
+        "residui portati dai bagnanti",
+        "",
+        "È la frazione che pizzica occhi e",
+        "pelle e fa l'odore di piscina"
+      ]
+    },
+    {
+      "name": "Doccia prima, risciacquo subito dopo",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Meno residui entrano in vasca, meno",
+        "cloro combinato si forma, meno",
+        "irritazione ricade su tutti",
+        "",
+        "Per questo la doccia prima",
+        "dell'ingresso non è una formalità",
+        "",
+        "All'uscita, risciacquo tiepido subito:",
+        "il velo di acqua clorata che asciuga",
+        "sulla pelle porta via anche l'acqua",
+        "dello strato corneo"
+      ]
+    },
+    {
+      "name": "Detergente leggero, crema su pelle umida",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "La pelle è già sgrassata e un",
+        "bagnoschiuma schiumogeno toglie",
+        "proprio quello che manca",
+        "",
+        "Detergente leggero o niente detergente",
+        "",
+        "Poi tamponare con l'asciugamano, non",
+        "strofinare, e stendere subito la",
+        "crema emolliente sulla pelle ancora",
+        "umida"
+      ]
+    },
+    {
+      "name": "Cortisone: strato sottile, pochi giorni",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "In Italia l'idrocortisone acetato allo",
+        "0,5 % è in farmacia senza obbligo di",
+        "prescrizione, in confezioni da pochi",
+        "grammi",
+        "",
+        "Strato sottile sull'area interessata,",
+        "non a tappeto, e per pochi giorni:",
+        "se in cinque o sei giorni non cambia",
+        "nulla, si sospende e si fa vedere",
+        "",
+        "Massima prudenza su viso, palpebre,",
+        "collo e grandi pieghe"
+      ]
+    },
+    {
+      "name": "Quando la crema non è la risposta",
+      "char_file": "수영복_illust.jpg",
+      "body": [
+        "Pelle che trasuda e fa croste, area",
+        "che si allarga rapidamente, calore e",
+        "dolore attorno alla zona",
+        "",
+        "Vescicole estese, febbre associata,",
+        "oppure un quadro che dopo due",
+        "settimane non è chiaramente migliorato",
+        "",
+        "In tutti questi casi la strada è la",
+        "visita, non un secondo tubetto"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Non serve rinunciare alla piscina,",
+        "né comprare mezza profumeria"
+      ],
+      [
+        "I parametri dell'acqua sono fissati per",
+        "legge: quello che resta nelle tue mani",
+        "è la durata del contatto e i primi",
+        "minuti dopo l'uscita"
+      ]
+    ],
+    "tip": [
+      "Se dopo qualche settimana la reazione continua identica, la gomma degli occhialini, un solare o una fragranza sono sospetti più credibili del cloro",
+      "Nei bambini piccoli il cortisonico non è una scelta da fare da soli: si chiede prima al pediatra o al farmacista"
+    ],
+    "cta": "Vuoi altri consigli di salute? Iscriviti, metti mi piace e seguici!"
+  },
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "수영복_illust.jpg": "Piscina",
+    "시계_illust.jpg": "Tempi",
+    "바세린_illust.jpg": "Crema emolliente"
+  }
+}
