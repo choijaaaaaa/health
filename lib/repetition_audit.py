@@ -74,13 +74,33 @@ def card_structure_report() -> dict:
     return {"total": total, "counts": counts, "shapes": shapes, "names": names}
 
 
+# WHY 문단 첫머리만 세는지(2026-09-01 정정): 처음엔 캡션 전체에서 "먼저"/"마지막으로"를
+# 그냥 찾았는데, 그 수치가 실제 쏠림보다 훨씬 부풀려져 있었다. 두 작업자가 각각
+# 실측해서 알려준 내용 — 남은 "먼저"는 전부 정상 한국어였고("채소를 먼저 먹고",
+# "담당 의사와 먼저 상의하세요"), 남은 "마지막으로"는 전부 `NN · 소제목` 마커 라인
+# (= 카드 제목)이라 본문 접속어가 아니다. 원인을 나열하며 문단을 여는 자리만 세야
+# 고칠 수 있는 수치가 된다.
+_MARKER_LINE = re.compile(r"^\d{2} · ")
+
+
+def _prose_paragraphs(caption: str) -> list[str]:
+    """마커 라인·해시태그를 뺀 본문 문단들."""
+    out = []
+    for line in caption.split("\n"):
+        line = line.strip()
+        if not line or line.startswith("#") or _MARKER_LINE.match(line):
+            continue
+        out.append(line)
+    return out
+
+
 def caption_phrase_report() -> dict:
-    """네이버 본문이 같은 접속어로 원인을 열고 닫는 비율."""
+    """네이버 본문이 같은 접속어로 원인을 열고 닫는 비율(문단 첫머리 기준)."""
     patterns = {
-        "먼저 ~": r"먼저\s",
-        "두 번째는": r"두 ?번째는",
-        "마지막으로": r"마지막으로",
-        "무조건 끊": r"무조건 (다 )?끊",
+        "'먼저'로 문단 열기": r"^먼저[\s,]",
+        "'두 번째는'으로 열기": r"^두 ?번째",
+        "'마지막으로'로 열기": r"^마지막으로",
+        "'무조건 끊을 필요는'": r"무조건 (다 )?끊",
     }
     hit = collections.Counter()
     total = 0
@@ -89,8 +109,9 @@ def caption_phrase_report() -> dict:
         if not caption:
             continue
         total += 1
+        paras = _prose_paragraphs(caption)
         for label, pat in patterns.items():
-            if re.search(pat, caption):
+            if any(re.search(pat, para) for para in paras):
                 hit[label] += 1
     return {"total": total, "hit": hit}
 
