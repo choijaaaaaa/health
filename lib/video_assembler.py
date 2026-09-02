@@ -446,6 +446,34 @@ def _title_card_style_for_seed(seed: str) -> str:
     return _TITLE_CARD_STYLES[idx]
 
 
+def _is_real_photo_path(path) -> bool:
+    """이 이미지가 실사진 풀에서 온 것인지. WHY(2026-09-01, 일러스트 전면 대체):
+    실사진은 단색 크로마 배경으로 생성된 게 아니라 꽉 찬 사진이라, 크로마 제거를
+    걸면 사진 안에서 배경색과 비슷한 영역마다 구멍이 뚫린다 — card_news.py의
+    _photo_medallion이 _remove_chroma_bg를 버린 것과 같은 이유다."""
+    return path is not None and Path(path).parent.name == "real"
+
+
+def _resolve_char_image(char_file: str | None, assets_root: Path) -> Path | None:
+    """spec의 "<품목>_illust.jpg"를 실제 파일로 바꾼다. 일러스트가 남아 있으면
+    그걸, 없으면 같은 품목의 실사진을. 2026-08-25부로 일러스트 생성이 중단돼
+    assets_library/illust/는 비어 있으므로 사실상 실사진 경로다."""
+    if not char_file:
+        return None
+    illust = assets_root / "illust" / char_file
+    if illust.exists():
+        return illust
+    name = Path(char_file).stem
+    if name.endswith("_illust"):
+        name = name[: -len("_illust")]
+    real_dir = assets_root / "real"
+    exact = real_dir / f"{name}.jpg"
+    if exact.exists():
+        return exact
+    cands = sorted(real_dir.glob(f"{name}_real_*.jpg"))
+    return cands[0] if cands else None
+
+
 def _remove_chroma_bg(img: Image.Image, thresh: int = 160) -> Image.Image:
     """캐릭터 일러스트의 크로마키 배경(코너 픽셀 색을 자동으로 키 색상 채택 —
     캐릭터 자체가 초록 계열이면 배경이 파란/마젠타로 바뀌므로 하드코딩 금지)을
@@ -486,9 +514,14 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
         # 프레임을 꽉 안 채우는 소스는 원본 크로마 배경색이 블러+반투명
         # 스크림 밑으로 그대로 비쳐서 타이틀 카드가 얼룩덜룩하게 보였다.
         raw = Image.open(char_path).convert("RGB").resize((int(H * 1.15), int(H * 1.15)))
-        chroma = _remove_chroma_bg(raw)
-        filled = Image.new("RGB", chroma.size, accent_color)
-        filled.paste(chroma, (0, 0), chroma)
+        if _is_real_photo_path(char_path):
+            # 실사진은 이미 프레임을 꽉 채우므로 배경을 accent_color로 메울 일이 없다.
+            chroma = raw.convert("RGBA")
+            filled = raw.copy()
+        else:
+            chroma = _remove_chroma_bg(raw)
+            filled = Image.new("RGB", chroma.size, accent_color)
+            filled.paste(chroma, (0, 0), chroma)
         target = chroma.size[0]
         char = filled.filter(ImageFilter.GaussianBlur(25))
         left, top = (target - W) // 2, (target - H) // 2
@@ -616,17 +649,19 @@ def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
     if illust_path and Path(illust_path).exists():
         raw = Image.open(illust_path).convert("RGB").resize((icon_size, icon_size))
         raw = raw.convert("RGBA")
+        _skip_key = _is_real_photo_path(illust_path)
         # WHY 자동 키 색 감지(2026-08-01 card_news.py 동일 이유): 캐릭터 배경
         # 크로마키가 초록/파랑/마젠타 등 topic마다 다를 수 있어 모서리 픽셀을
         # 실제 배경색으로 채택한다.
-        key = raw.getpixel((2, 2))[:3]
-        kr, kg, kb = key
-        px = raw.load()
-        for yy in range(raw.height):
-            for xx in range(raw.width):
-                r, g, b, a = px[xx, yy]
-                if abs(r - kr) + abs(g - kg) + abs(b - kb) < 160:
-                    px[xx, yy] = (r, g, b, 0)
+        if not _skip_key:
+            key = raw.getpixel((2, 2))[:3]
+            kr, kg, kb = key
+            px = raw.load()
+            for yy in range(raw.height):
+                for xx in range(raw.width):
+                    r, g, b, a = px[xx, yy]
+                    if abs(r - kr) + abs(g - kg) + abs(b - kb) < 160:
+                        px[xx, yy] = (r, g, b, 0)
         mask = Image.new("L", (icon_size, icon_size), 0)
         ImageDraw.Draw(mask).ellipse((0, 0, icon_size, icon_size), fill=255)
         combined_mask = ImageChops.multiply(raw.split()[3], mask)
@@ -2659,6 +2694,26 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     return canvas
 
 
+def _photo_to_medallion_png(src: str, out_path: Path, size: int = 640) -> Path:
+    """실사진을 투명 배경의 원형 배지 PNG로 만든다.
+
+    WHY(2026-09-01): 일러스트는 크로마 배경을 뚫으면 캐릭터만 남아 칠판 위에
+    자연스럽게 얹혔지만, 실사진은 키잉을 건너뛰므로 사각 사진이 그대로 칠판을
+    가린다(실측: 귀_4 좌하단에 사진 직사각형이 그대로 노출). card_news.py의
+    _photo_medallion과 같은 방식으로 중앙 정사각 크롭 후 원형 마스크를 씌운다."""
+    raw = Image.open(src).convert("RGB")
+    w, h = raw.size
+    side = min(w, h)
+    raw = raw.crop(((w - side) // 2, (h - side) // 2,
+                    (w - side) // 2 + side, (h - side) // 2 + side)).resize((size, size))
+    mask = Image.new("L", (size, size), 0)
+    ImageDraw.Draw(mask).ellipse((0, 0, size - 1, size - 1), fill=255)
+    out = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+    out.paste(raw, (0, 0), mask)
+    out.save(out_path)
+    return out_path
+
+
 def _is_static_image(path: str) -> bool:
     """모션 mp4 대신 정지 illust jpg/png를 코너 캐릭터로 그대로 쓰는 경로인지
     확장자로 판별한다(2026-08-05, 모션 생성 중단 확정). 확장자만 보는 단순
@@ -2678,6 +2733,8 @@ def _build_character_segment(motion_path: str, duration: float, out_path: Path, 
     영상마다 코너 장면이 픽셀 단위로 똑같아 보인다 — "미세한 변경만 준 대량생산"
     신호를 줄이려고 좌우 반전 옵션을 추가했다. 캐릭터 원화가 좌우 비대칭이 아니라서
     반전해도 어색하지 않다(글자·로고 없는 순수 캐릭터 일러스트 규칙과 일치)."""
+    # bg_color="none"은 실사진이라 키잉을 하지 말라는 신호다(_build_character_loop 참고).
+    no_key = bg_color.lower() == "none"
     similarity = "0.03" if bg_color.upper() == "0XFFFFFF" else "0.15"
     despill = ""
     if bg_color.upper() == "0X00FF00":
@@ -2685,24 +2742,30 @@ def _build_character_segment(motion_path: str, duration: float, out_path: Path, 
     elif bg_color.upper() == "0X0000FF":
         despill = "despill=type=blue:mix=1.0:expand=0,"
     flip_filter = "hflip," if flip else ""
+    key_filter = "" if no_key else (
+        f"colorkey={bg_color}:{similarity}:{similarity},{despill}"
+        "format=argb,lut=a='if(gt(val\\,16)\\,255\\,0)'"
+    )
     if _is_static_image(motion_path):
         # WHY: _build_character_loop의 정지 이미지 분기와 동일한 이유(2026-08-05,
         # 모션 생성 중단 확정) — ping-pong 없이 colorkey만 한 번 적용.
-        subprocess.run(
-            ["ffmpeg", "-y", "-loop", "1", "-i", motion_path, "-t", f"{duration}",
-             "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
-                    "lut=a='if(gt(val\\,16)\\,255\\,0)'",
-             "-c:v", "qtrle", str(out_path)],
-            check=True, capture_output=True,
-        )
+        with tempfile.TemporaryDirectory() as seg_tmp:
+            src = motion_path
+            if no_key:
+                src = str(_photo_to_medallion_png(motion_path, Path(seg_tmp) / "medallion.png"))
+            subprocess.run(
+                ["ffmpeg", "-y", "-loop", "1", "-i", src, "-t", f"{duration}",
+                 "-vf", (f"{flip_filter}{key_filter}" if key_filter else (flip_filter or "null")).rstrip(","),
+                 "-c:v", "qtrle", str(out_path)],
+                check=True, capture_output=True,
+            )
         return
     with tempfile.TemporaryDirectory() as tmp:
         tmp_path = Path(tmp)
         keyed = tmp_path / "keyed.mov"
         subprocess.run(
             ["ffmpeg", "-y", "-i", motion_path,
-             "-vf", f"{flip_filter}colorkey={bg_color}:{similarity}:{similarity},{despill}format=argb,"
-                    "lut=a='if(gt(val\\,16)\\,255\\,0)'",
+             "-vf", (f"{flip_filter}{key_filter}" if key_filter else (flip_filter or "null")).rstrip(","),
              "-c:v", "qtrle", str(keyed)],
             check=True, capture_output=True,
         )
@@ -2841,9 +2904,12 @@ def _build_character_loop(motion_path: str, total_duration: float, out_path: Pat
             # 정지 이미지에는 무의미 — colorkey만 한 번 적용해서 정지 화면을
             # 그대로 duration만큼 유지한다(ping-pong/reverse/loop 단계 생략,
             # ffmpeg 호출 수가 4번에서 1번으로 줄어 처리도 훨씬 빠름).
+            src = motion_path
+            if no_key:
+                src = str(_photo_to_medallion_png(motion_path, tmp_path / "medallion.png"))
             vf = f"{flip_filter}{key_filter}" if key_filter else (flip_filter or "null")
             subprocess.run(
-                ["ffmpeg", "-y", "-loop", "1", "-i", motion_path, "-t", f"{total_duration}",
+                ["ffmpeg", "-y", "-loop", "1", "-i", src, "-t", f"{total_duration}",
                  "-vf", vf.rstrip(","),
                  "-c:v", "qtrle", str(out_path)],
                 check=True, capture_output=True,
@@ -3291,13 +3357,17 @@ def assemble(
                     base = base[: -len("_motion")]
                 elif base.endswith("_illust"):
                     base = base[: -len("_illust")]
+                else:
+                    # 실사진은 "<품목>_real_NN"이라 그대로 두면 라벨에 파일명이
+                    # 노출된다(2026-09-01 실측: 코너 라벨에 "베개_real_01"이 찍힘).
+                    base = re.sub(r"_real_\d+$", "", base)
                 assets_root = motion_p.parent.parent
-                illust_p = assets_root / "illust" / f"{base}_illust.jpg"
+                illust_p = _resolve_char_image(f"{base}_illust.jpg", assets_root)
                 item_schedule.append({
                     "start": seg_start,
                     "end": seg_end,
                     "name": (item_label_overrides or {}).get(base, base),
-                    "illust": str(illust_p) if illust_p.exists() else None,
+                    "illust": str(illust_p) if illust_p else None,
                 })
 
         # WHY shared_bg_photo를 여기서 한 번만 만드는지(2026-08-02, "배경으로 넣는

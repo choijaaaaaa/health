@@ -160,6 +160,21 @@ def _char_name(char_file: str) -> str:
     return char_file.replace("_illust.jpg", "")
 
 
+def resolve_char_image(char_file: str | None) -> str | None:
+    """spec의 "<품목>_illust.jpg"를 실제 파일 경로로 바꾼다 — 일러스트가 남아
+    있으면 그걸, 없으면 같은 품목의 실사진을. 2026-08-25부로 일러스트 생성이
+    중단돼 assets_library/illust/는 비어 있으므로 사실상 실사진 경로다."""
+    if not char_file:
+        return None
+    illust = ILLUST_DIR / char_file
+    if illust.exists():
+        return str(illust)
+    name = Path(char_file).stem
+    if name.endswith("_illust"):
+        name = name[: -len("_illust")]
+    return find_real_photo(name)
+
+
 def _char_media_path(name: str) -> str:
     """이 캐릭터에 쓸 실제 파일 — 모션 mp4가 있으면 그걸(과거 Kling 시절 자산),
     없으면 정지 illust jpg를 그대로 반환한다(2026-08-05, 모션 생성 자체를
@@ -582,12 +597,12 @@ def derive(topic: str) -> dict:
         out_path=str(out),
         title=f"{hook} {subject}",
         title_card_text=hook,
-        title_card_char_path=str(ILLUST_DIR / cover_char_file),
+        title_card_char_path=resolve_char_image(cover_char_file),
         summary_card_text=summary_card_text,
         summary_card_duration=summary_card_duration,
         title_banner_photo_path=banner_photo,
         end_card_text=end_card_text,
-        end_card_char_path=str(ILLUST_DIR / cover_char_file),
+        end_card_char_path=resolve_char_image(cover_char_file),
         lang=lang,
         item_label_overrides=item_label_overrides,
         topic_word=topic_word,
