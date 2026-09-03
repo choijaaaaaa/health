@@ -119,11 +119,17 @@ def _resolve_output_file(topic_dir: Path, suffix: str) -> Path:
     가슴쓰림_1/en처럼 마이그레이션 이력이 있어 접두어가 남은 topic만 위 glob으로
     잡히고, 신규 topic은 하나도 안 잡혀서 폴백(전혀 엉뚱한 "en_narration.srt" 같은
     경로)으로 빠졌다 — 접두어 버전이 없으면 접두어 없는 정확한 파일명도 확인한다."""
-    matches = sorted(topic_dir.glob(f"*{suffix}"))
-    if matches:
-        return matches[0]
+    # WHY 접두어 없는 파일을 먼저 보는지(2026-09-03 실측): voicebox_tts.py는 항상
+    # "narration.mp3"로 저장하는데, 카테고리 리네임을 겪은 topic 폴더엔 옛 이름의
+    # "다리쥐_1_narration.mp3" 같은 파일이 그대로 남아 있다(22개 topic 실측).
+    # glob을 먼저 보면 그 옛 파일이 잡혀서 새로 뽑은 음성이 통째로 무시된다 —
+    # 나레이션을 다시 뽑았는데 영상엔 옛 목소리가 들어가는, 눈으로만 알 수 있는
+    # 종류의 사고다. 지금 관례인 접두어 없는 이름을 우선한다.
     bare = topic_dir / suffix.lstrip("_")
-    return bare if bare.exists() else None
+    if bare.exists():
+        return bare
+    matches = sorted(topic_dir.glob(f"*{suffix}"))
+    return matches[0] if matches else None
 
 
 def _strip_lang_prefix(topic: str, lang: str) -> str:
