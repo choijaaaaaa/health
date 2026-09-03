@@ -37,7 +37,33 @@ API_BASE = "http://localhost:17493"
 # 직접 듣고 "한국어1"로 확정 — 여러 보이스 랜덤 선택하던 fish_tts.py와
 # 달리 지금은 단일 확정 보이스만 쓴다. 나중에 보이스를 더 늘리기로 하면
 # 이 상수를 fish_tts.py의 _random_voice_name()처럼 풀 방식으로 바꿀 것.
-PROFILE_ID_KOR = "191e6fbc-0658-4d24-b5c2-4b1aacc1814a"  # Voicebox 프로필 "한국어1"
+# ⚠️ 하드코딩한 ID는 재녹음 한 번에 무효가 된다(2026-09-03 실측): 같은 이름으로 다시
+# 녹음하면 Voicebox가 프로필을 통째로 교체해 새 UUID를 발급하므로, 여기 박아둔
+# "191e6fbc-…"는 /profiles에 더 이상 존재하지 않았다. 이 상태로 합성을 걸면 그 topic
+# 전체가 조용히 실패한다 — 이름으로 조회해서 현재 유효한 ID를 쓰고, 못 찾으면 바로
+# 에러를 낸다(엉뚱한 보이스로 대체 합성하지 않는다).
+PROFILE_NAME_KOR = "최정은"  # 사용자 본인 클론 보이스
+_PROFILE_ID_CACHE: str | None = None
+
+
+def resolve_profile_id_kor() -> str:
+    global _PROFILE_ID_CACHE
+    if _PROFILE_ID_CACHE:
+        return _PROFILE_ID_CACHE
+    try:
+        profiles = requests.get(f"{API_BASE}/profiles", timeout=10).json()
+    except Exception as exc:  # noqa: BLE001 — 앱이 꺼져 있으면 원인을 그대로 보여준다
+        raise RuntimeError(
+            f"Voicebox.app에 연결하지 못했습니다({API_BASE}) — 앱이 켜져 있는지 확인하세요: {exc}"
+        ) from exc
+    for prof in profiles:
+        if prof.get("name") == PROFILE_NAME_KOR:
+            _PROFILE_ID_CACHE = prof["id"]
+            return _PROFILE_ID_CACHE
+    names = ", ".join(repr(p.get("name")) for p in profiles)
+    raise RuntimeError(
+        f"Voicebox에 한국어 프로필 {PROFILE_NAME_KOR!r}이 없습니다 — 현재 프로필: {names}"
+    )
 
 AUDIO_TEMPO = 1.0  # fish_tts.py와 동일 원칙 — 배속 없이 원 속도
 SENTENCE_GAP_MS = 320  # fish_tts.py/typecast_tts.py와 동일값
@@ -77,7 +103,7 @@ def _generate_sentence_wav(text: str, out_path: Path) -> None:
     확인) — 상태 폴링은 반드시 GET /history/{id}(일반 JSON)를 써야 한다."""
     resp = requests.post(
         f"{API_BASE}/generate",
-        json={"profile_id": PROFILE_ID_KOR, "text": text, "language": "ko"},
+        json={"profile_id": resolve_profile_id_kor(), "text": text, "language": "ko"},
         timeout=30,
     )
     resp.raise_for_status()
