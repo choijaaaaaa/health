@@ -200,7 +200,13 @@ def _char_media_path(name: str) -> str:
     real_path = find_real_photo(name)
     if real_path:
         return real_path
-    return str(illust_path)
+    # WHY 조용히 없는 경로를 돌려주지 않는지(2026-09-07): 예전엔 illust_path를 그대로
+    # 반환해서 ffmpeg가 "입력 없음"으로 죽었고(냄새_10, exit 254) 로그만 봐선 어느
+    # 품목이 없어서인지 알 수 없었다. 어차피 실패할 거라면 품목명을 밝히고 죽는 게 낫다.
+    raise FileNotFoundError(
+        f"'{name}' 사진을 못 찾음 — assets_library/real/에도 공용 풀(assets-shared)에도 없다. "
+        f"assets-shared/sourcer.py로 소싱하거나 spec의 char_file을 있는 품목으로 바꿀 것"
+    )
 
 
 @lru_cache(maxsize=None)
@@ -237,12 +243,45 @@ def nearest_bg_color_for_motion(name: str) -> str:
     return best[0]
 
 
+SHARED_ASSETS = Path("/Users/chlwjddms16/Desktop/project/assets-shared")
+
+
+@lru_cache(maxsize=None)
+def _shared_photo(char_name: str) -> str | None:
+    """공용 사진 풀(assets-shared)에서 품목명으로 한 장 고른다.
+
+    WHY(2026-09-07 실측): 영상 파이프라인은 assets_library/real/만 봤는데, 카드뉴스는
+    2026-08-25부터 공용 풀을 쓰고 있어 커버리지가 크게 벌어져 있었다 — 냄새_10의
+    '사타구니'는 real/엔 없고 공용 풀엔 3장 있는데, 못 찾자 존재하지 않는
+    illust 경로를 그대로 ffmpeg에 넘겨 렌더가 통째로 죽었다(exit 254).
+
+    WHY 카드뉴스처럼 (topic, lang, slot) 배정표를 쓰지 않는지: 그 표는 카드 슬롯
+    단위라 영상의 캐릭터 세그먼트에는 대응하는 키가 없다. 여기선 품목명만으로
+    조회하고, 같은 품목이 여러 장이면 이름 해시로 고정 선택해 재렌더할 때마다
+    사진이 바뀌지 않게 한다."""
+    try:
+        if str(SHARED_ASSETS) not in sys.path:
+            sys.path.insert(0, str(SHARED_ASSETS))
+        import photo_library as _pl
+
+        variants = _pl.variants(_pl.connect(), char_name)
+    except Exception:
+        return None
+    if not variants:
+        return None
+    pick = variants[sum(map(ord, char_name)) % len(variants)]
+    path = _pl.FILES_DIR / pick["filename"]
+    return str(path) if path.exists() else None
+
+
 def find_real_photo(char_name: str) -> str | None:
     exact = REAL_DIR / f"{char_name}.jpg"
     if exact.exists():
         return str(exact)
     cands = sorted(REAL_DIR.glob(f"{char_name}_real_*.jpg"))
-    return str(cands[0]) if cands else None
+    if cands:
+        return str(cands[0])
+    return _shared_photo(char_name)
 
 
 # WHY \w+(2026-08-03 버그 수정, en_heartburn_1 재생성 로그에서 스퓨리어스 세그먼트
