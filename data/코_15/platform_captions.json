@@ -61,6 +61,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "요즘 콧물·재채기 유독 심해졌나요? 봄보다 가을에 비염 환자가 더 많아요 🍂\n\n꽃가루 많은 시간대 피하고, 외출 후 바로 씻고, 생리식염수로 코 세척해보세요!\n\n#알레르기성비염 #가을비염 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "알레르기성 비염, 가을에 더 심해진다면 - 완화 습관 4가지\n\n꽃가루 많은 시간대 피하기, 외출 후 바로 씻기, 생리식염수로 코 세척하기로 가을철 비염을 줄여보세요.\n\n#알레르기성비염 #가을비염 #건강정보",
+      "suppress_product_block": false
     }
   ],
   "ad_tag": true

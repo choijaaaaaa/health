@@ -60,6 +60,16 @@
       "action": "영상 다운로드 → 업로드 → 캡션 복사해서 붙여넣기",
       "caption": "어지럼증에 이런 증상 같이 온다면 🚨\n\n발음 어눌, 복시, 팔다리 힘빠짐 — 뇌졸중 신호일 수 있어요. 곧바로 응급실로 가세요.\n\n#어지럼증 #뇌졸중 #건강정보",
       "suppress_product_block": true
+    },
+    {
+      "name": "페이스북",
+      "url": "https://www.facebook.com/profile.php?id=61588741213431",
+      "type": "text",
+      "no_caption_link": true,
+      "link_in_comment": true,
+      "action": "캡션 복사 → 새 게시물 작성 → 붙여넣기 (표지 이미지 첨부 권장) → 게시 후 댓글에 구매 링크 추가",
+      "caption": "어지럼증에 이런 증상 같이 온다면 지금 확인하세요 - 뇌졸중 신호 구별법\n\n어지럼증 대부분은 양성이지만 약 5~10%는 뇌졸중 신호일 수 있어요.\n\n발음 이상(구음장애), 복시, 편측 팔다리 힘빠짐·저림이 같이 온다면 곧바로 응급실로 가야 해요.\n\n#어지럼증 #뇌졸중 #건강정보",
+      "suppress_product_block": false
     }
   ],
   "ad_tag": true

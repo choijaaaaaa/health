@@ -47,19 +47,28 @@ TYPE_ORDER = ["video", "cards", "text"]
 # lib/instagram_upload.py는 릴스(영상) 전용이라 카드뉴스는 자동 업로드 대상이
 # 아니다 — 사람이 캡션을 복사해 직접 올려야 하므로 카드가 보여야 한다.
 _UI_EXCLUDED_PLATFORMS = {
-    "유튜브 쇼츠", "틱톡", "YouTube Shorts", "TikTok",
+    "틱톡", "TikTok",
     "쓰레드", "Threads",
 }
+
+# mission_control_sync.py의 동명 상수와 반드시 같은 값을 유지할 것(2026-09-08,
+# 영상 트랙 재개 후 유튜브·네이버 클립만 다시 올리기로 확정 — 인스타그램 릴스·
+# 틱톡은 계속 보류). 페이스북은 type이 "text"라 아래 필터에 안 걸린다.
+_VIDEO_TYPE_ALLOWED = {"유튜브 쇼츠", "YouTube Shorts", "네이버 클립"}
 
 
 def _is_shown_platform(p: dict) -> bool:
     """대시보드·mission-control에 캡션 카드로 띄울 플랫폼인지.
-    WHY type=="video"를 통째로 빼는지(2026-08-25): 영상 트랙이 중단되고 렌더된 mp4를
-    전부 삭제했다 — 올릴 영상이 없는데 "인스타그램 릴스로 이동" 같은 카드가 남아 있으면
-    UI가 실제 상태와 어긋난다. 이름 목록이 아니라 type으로 거르는 이유는, 플랫폼 이름은
-    프로젝트·언어마다 다르지만 type은 공통이라 새 플랫폼이 추가돼도 자동으로 걸리기
-    때문이다."""
-    return "name" in p and p["name"] not in _UI_EXCLUDED_PLATFORMS and p.get("type") != "video"
+    WHY type=="video" 중 일부만 남기는지(2026-09-08, 2026-08-25 결정 완화):
+    영상 트랙이 재개돼 유튜브·네이버 클립은 다시 올릴 영상이 있다 — 인스타그램
+    릴스·틱톡은 아직 보류라 그대로 뺀다. 이름 목록이 아니라 type으로 우선 거르는
+    이유는, 플랫폼 이름은 프로젝트·언어마다 다르지만 type은 공통이라 새 플랫폼이
+    추가돼도 자동으로 걸리기 때문이다."""
+    if "name" not in p or p["name"] in _UI_EXCLUDED_PLATFORMS:
+        return False
+    if p.get("type") == "video" and p["name"] not in _VIDEO_TYPE_ALLOWED:
+        return False
+    return True
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
