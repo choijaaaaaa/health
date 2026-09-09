@@ -36,7 +36,8 @@
     "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -104,14 +105,15 @@
     "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_8/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_8_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "계절질환_9",
     "title": "열탈진, 땀 흘리며 어지럽고 기운 빠진다면 - 열사병과 다른 대처법",
     "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9/dashboard.html",
-    "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9__00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9/card_news/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -124,7 +126,8 @@
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_1/ko/card_news/%EA%B3%A0%EB%A0%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -194,7 +197,8 @@
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_16/card_news/%EA%B3%A0%EB%A0%B9_16_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -204,7 +208,8 @@
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_2/ko/card_news/%EA%B3%A0%EB%A0%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -214,7 +219,8 @@
     "thumbnail": "output/%EA%B3%A0%EB%A0%B9_3/card_news/%EA%B3%A0%EB%A0%B9_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -284,7 +290,8 @@
     "thumbnail": "output/%EA%B7%80_1/ko/card_news/%EC%9D%B4%EB%AA%85_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -374,7 +381,8 @@
     "thumbnail": "output/%EA%B7%80_18/card_news/%EA%B7%80_18_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -394,7 +402,8 @@
     "thumbnail": "output/%EA%B7%80_3/card_news/%EA%B7%80_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -404,7 +413,8 @@
     "thumbnail": "output/%EA%B7%80_4/card_news/%EA%B7%80_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -462,7 +472,8 @@
     "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_1/ko/card_news/%EA%B4%80%EC%A0%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -520,7 +531,8 @@
     "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_15/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_15_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -570,7 +582,8 @@
     "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_2/ko/card_news/%EA%B3%A8%EB%8B%A4%EA%B3%B5%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -627,40 +640,44 @@
     "topic": "근골격_3",
     "title": "혹시 자다가 다리에 자주 쥐가 나지 않나요? - 다리쥐 부르는 음식 피하는 법",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_3/dashboard.html",
-    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_3/card_news/%EB%8B%A4%EB%A6%AC%EC%A5%90_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_3/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "근골격_4",
     "title": "아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면, 사실 이 음식들 때문일 수 있어요 - 목·어깨 뭉침 부르는 음식들",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_4/dashboard.html",
-    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_4/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_4/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "근골격_5",
     "title": "앉았다 일어날 때마다 허리가 뻐근하게 조여온다면 - 허리 통증 부르는 음식 피하는 법",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_5/dashboard.html",
-    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_5/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_5/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "근골격_6",
     "title": "엄지발가락이나 무릎이 갑자기 벌겋게 붓고 아프다면 주목! - 통풍 부르는 음식 피하는 법",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/dashboard.html",
-    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/card_news/%ED%86%B5%ED%92%8D_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -670,7 +687,8 @@
     "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_7/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -680,7 +698,8 @@
     "thumbnail": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_8_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -700,7 +719,8 @@
     "thumbnail": "output/%EB%83%84%EC%83%88_1/ko/card_news/%EC%B2%B4%EC%B7%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -710,7 +730,8 @@
     "thumbnail": "output/%EB%83%84%EC%83%88_10/card_news/%EB%83%84%EC%83%88_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -750,7 +771,8 @@
     "thumbnail": "output/%EB%83%84%EC%83%88_14/card_news/%EB%83%84%EC%83%88_14_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -760,7 +782,8 @@
     "thumbnail": "output/%EB%83%84%EC%83%88_2/ko/card_news/%EB%83%84%EC%83%88_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -770,7 +793,8 @@
     "thumbnail": "output/%EB%83%84%EC%83%88_3/card_news/%EB%83%84%EC%83%88_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -838,7 +862,8 @@
     "thumbnail": "output/%EB%88%88_1/ko/card_news/%EB%88%88_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -858,7 +883,8 @@
     "thumbnail": "output/%EB%88%88_11/card_news/%EB%88%88_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -868,7 +894,8 @@
     "thumbnail": "output/%EB%88%88_12/card_news/%EB%88%88_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -878,7 +905,8 @@
     "thumbnail": "output/%EB%88%88_13/card_news/%EB%88%88_13_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -888,7 +916,8 @@
     "thumbnail": "output/%EB%88%88_14/card_news/%EB%88%88_14_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -948,7 +977,8 @@
     "thumbnail": "output/%EB%88%88_2/card_news/%EB%88%88_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1008,7 +1038,8 @@
     "thumbnail": "output/%EB%88%88_25/card_news/%EB%88%88_25_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1018,14 +1049,15 @@
     "thumbnail": "output/%EB%88%88_3/card_news/%EB%88%88_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "눈_4",
     "title": "다래끼, 자꾸 나거나 낫는 데 오래 걸린다면 - 재발 줄이는 습관 3가지",
     "url": "output/%EB%88%88_4/dashboard.html",
-    "thumbnail": "output/%EB%88%88_4/card_news/%EB%8B%A4%EB%9E%98%EB%81%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%88%88_4/card_news/%EB%88%88_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -1048,7 +1080,8 @@
     "thumbnail": "output/%EB%88%88_6/card_news/%EB%88%88_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1068,7 +1101,8 @@
     "thumbnail": "output/%EB%88%88_8/card_news/%EB%88%88_8_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1085,10 +1119,11 @@
     "topic": "대사_1/ko",
     "title": "쉬어도 피곤하고 오른쪽 윗배가 묵직하게 뻐근한데 그냥 넘기고 계셨다면 잠깐 - 지방간 부르는 냉장고 음식",
     "url": "output/%EB%8C%80%EC%82%AC_1/ko/dashboard.html",
-    "thumbnail": "output/%EB%8C%80%EC%82%AC_1/ko/card_news/%EC%A7%80%EB%B0%A9%EA%B0%84_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_1/ko/card_news/%EB%8C%80%EC%82%AC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1108,7 +1143,8 @@
     "thumbnail": "output/%EB%8C%80%EC%82%AC_11/card_news/%EB%8C%80%EC%82%AC_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1118,7 +1154,8 @@
     "thumbnail": "output/%EB%8C%80%EC%82%AC_12/card_news/%EB%8C%80%EC%82%AC_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1128,7 +1165,8 @@
     "thumbnail": "output/%EB%8C%80%EC%82%AC_13/card_news/%EB%8C%80%EC%82%AC_13_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1195,10 +1233,11 @@
     "topic": "대사_2",
     "title": "명치에서 등까지 통증이 뻗친다, 대변이 물에 뜬다 — 하나라도 해당되면 - 췌장 굳게 만드는 냉장고 음식",
     "url": "output/%EB%8C%80%EC%82%AC_2/dashboard.html",
-    "thumbnail": "output/%EB%8C%80%EC%82%AC_2/card_news/%EC%B7%8C%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_2/card_news/%EB%8C%80%EC%82%AC_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1225,10 +1264,11 @@
     "topic": "대사_3",
     "title": "이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! - 갑상선 기능 방해하는 뜻밖의 음식",
     "url": "output/%EB%8C%80%EC%82%AC_3/dashboard.html",
-    "thumbnail": "output/%EB%8C%80%EC%82%AC_3/card_news/%EA%B0%91%EC%83%81%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_3/card_news/%EB%8C%80%EC%82%AC_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1248,7 +1288,8 @@
     "thumbnail": "output/%EB%8C%80%EC%82%AC_5/card_news/%EB%8C%80%EC%82%AC_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1263,9 +1304,9 @@
   },
   {
     "topic": "대사_7",
-    "title": "대사증후군, 성인 5명 중 1명이 겪는다는데 혹시 나도? - 동시에 관리하는 습관 3가지",
+    "title": "대사증후군, 성인 4명 중 1명이 겪는다는데 혹시 나도? - 동시에 관리하는 습관 3가지",
     "url": "output/%EB%8C%80%EC%82%AC_7/dashboard.html",
-    "thumbnail": "output/%EB%8C%80%EC%82%AC_7/card_news/%EB%8C%80%EC%82%AC_7__00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%8C%80%EC%82%AC_7/card_news/%EB%8C%80%EC%82%AC_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
       "card_news"
@@ -1294,7 +1335,8 @@
     "thumbnail": "output/%EB%A8%B8%EB%A6%AC_1/ko/card_news/%EB%91%90%ED%94%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1312,7 +1354,8 @@
     "thumbnail": "output/%EB%A8%B8%EB%A6%AC_11/card_news/%EB%A8%B8%EB%A6%AC_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1362,47 +1405,52 @@
     "thumbnail": "output/%EB%A8%B8%EB%A6%AC_16/card_news/%EB%A8%B8%EB%A6%AC_16_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "머리_2",
-    "title": "또래보다 유독 빨리 늘어나는 흰머리, 사실 이 음식들 때문일 수 있어요 - 새치 부르는 음식 피하는 법",
+    "title": "새치, 또래보다 흰머리가 유독 빨리 늘고 있다면 - 음식보다 먼저 볼 요인 3가지",
     "url": "output/%EB%A8%B8%EB%A6%AC_2/dashboard.html",
-    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_2/card_news/%EC%83%88%EC%B9%98_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_2/card_news/%EB%A8%B8%EB%A6%AC_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "머리_3",
-    "title": "머리 감을 때마다 한 움큼씩 빠지고 정수리 가르마가 휑해지고 있다면, 이유가 있어요 - 탈모 부르는 식탁 위 습관",
+    "title": "탈모, 머리 감을 때마다 한 움큼씩 빠지고 정수리가 휑해 보인다면 - 식탁 점검 3가지",
     "url": "output/%EB%A8%B8%EB%A6%AC_3/dashboard.html",
-    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_3/card_news/%ED%83%88%EB%AA%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_3/card_news/%EB%A8%B8%EB%A6%AC_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "머리_4",
     "title": "방금 놓아둔 물건이 어디 있는지 기억이 안 나고 하려던 말이 자꾸 맴돈다면 - 기억력 흐리는 음식 피하는 법",
     "url": "output/%EB%A8%B8%EB%A6%AC_4/dashboard.html",
-    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_4/card_news/%EA%B8%B0%EC%96%B5%EB%A0%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_4/card_news/%EB%A8%B8%EB%A6%AC_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "머리_5",
-    "title": "관자놀이가 지끈지끈 맥박처럼 뛰고 빛만 봐도 눈이 시리다면 — 편두통 환자 10명 중 7명이 꼽은 이 음식, 혹시 나도? - 편두통 부르는 의외의 음식들",
+    "title": "편두통, 관자놀이가 지끈거리고 빛만 봐도 눈이 시리다면 - 유발 음식 가려내는 두통 일기",
     "url": "output/%EB%A8%B8%EB%A6%AC_5/dashboard.html",
-    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_5/card_news/%ED%8E%B8%EB%91%90%ED%86%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%A8%B8%EB%A6%AC_5/card_news/%EB%A8%B8%EB%A6%AC_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1472,7 +1520,8 @@
     "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/card_news/00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1482,7 +1531,8 @@
     "thumbnail": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2/card_news/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1562,7 +1612,8 @@
     "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/ko/card_news/%EB%B0%A9%EA%B4%91%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1572,7 +1623,8 @@
     "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_10/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1659,7 +1711,7 @@
     "topic": "비뇨기_19",
     "title": "전해질 음료 칼륨, 땀 흘린 뒤 마셨다면 - 신장 부담 줄이는 법",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_19/dashboard.html",
-    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_19/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_19/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_19_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -1667,29 +1719,31 @@
   },
   {
     "topic": "비뇨기_2",
-    "title": "얼굴·발이 붓고 소변에 거품이 보인다면 주목! - 국물음식 똑똑하게 고르는 법",
+    "title": "얼굴·발이 붓고 소변에 거품? 콩팥병은 그전에 시작돼요 - 국물음식 똑똑하게 고르는 법",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_2/dashboard.html",
-    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_2/card_news/%EC%BD%A9%ED%8C%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_2/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "비뇨기_3",
     "title": "자다가 소변 때문에 자주 깨는 사람, 40대 이상에서 꽤 많이 겪는다는데 - 전립선 편하게 하는 음식 피하는 법",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_3/dashboard.html",
-    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_3/card_news/%EC%A0%84%EB%A6%BD%EC%84%A0_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_3/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "비뇨기_4",
     "title": "허리·옆구리가 찌르듯 아프고 소변에 피가 비치신 적 있나요? - 요로결석 키우는 음식 3가지",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_4/dashboard.html",
-    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_4/card_news/%EB%82%A8%EC%84%B1_2_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_4/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -1712,7 +1766,8 @@
     "thumbnail": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1750,14 +1805,15 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_1/ko/card_news/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_10",
     "title": "자꾸 딸꾹질이 난다면 - 딸꾹질을 자주 유발하는 음식·습관 3가지",
     "url": "output/%EC%86%8C%ED%99%94_10/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_10/card_news/%EB%94%B8%EA%BE%B9%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_10/card_news/%EC%86%8C%ED%99%94_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -1770,7 +1826,8 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_11/card_news/%EC%86%8C%ED%99%94_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1826,17 +1883,19 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_17/card_news/%EC%86%8C%ED%99%94_17_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_18",
-    "title": "헬리코박터 파일로리, 위암 가족력 있다면 지금 확인하세요 - 제균치료와 재감염 예방 습관",
+    "title": "헬리코박터 파일로리, 위암 가족력 있다면 지금 확인하세요 - 제균치료와 전파 예방 습관",
     "url": "output/%EC%86%8C%ED%99%94_18/dashboard.html",
     "thumbnail": "output/%EC%86%8C%ED%99%94_18/card_news/%EC%86%8C%ED%99%94_18_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1846,17 +1905,19 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_19/card_news/%EC%86%8C%ED%99%94_19_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_2",
-    "title": "다이어트해도 체지방이 안 빠진다, 나만 그런가 싶었다면 - 아침 공복에 먹으면 좋은 음식 5가지",
+    "title": "다이어트 6개월 해도 체중 5%도 안 줄었다면 - 체중 안 빠질 때 점검할 3가지",
     "url": "output/%EC%86%8C%ED%99%94_2/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_2/card_news/%EA%B3%B5%EB%B3%B5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_2/card_news/%EC%86%8C%ED%99%94_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1956,57 +2017,63 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_29/card_news/%EC%86%8C%ED%99%94_29_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_3",
     "title": "배 팽만감·잔변감·3일째 무소식, 하나라도 해당되면 - 변비 부르는 음식 피하는 법",
     "url": "output/%EC%86%8C%ED%99%94_3/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_3/card_news/%EB%B3%80%EB%B9%84_1_ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_3/card_news/%EC%86%8C%ED%99%94_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_4",
     "title": "점심만 먹으면 쏟아지는 졸음 주목! - 식곤증 부르는 음식 피하는 법",
     "url": "output/%EC%86%8C%ED%99%94_4/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_4/card_news/%EC%8B%9D%EA%B3%A4%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_4/card_news/%EC%86%8C%ED%99%94_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_5",
     "title": "밥 먹고 배가 빵빵하게 부풀고 트림·방귀가 잦다면 저장부터 하세요 - 더부룩함 부르는 의외의 습관",
     "url": "output/%EC%86%8C%ED%99%94_5/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_5/card_news/%EC%9C%84_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_5/card_news/%EC%86%8C%ED%99%94_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_6",
     "title": "트림·방귀가 유독 잦고 독하다면 주목! - 방귀냄새 부르는 음식 피하는 법",
     "url": "output/%EC%86%8C%ED%99%94_6/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_6/card_news/%EC%9E%A5_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_6/card_news/%EC%86%8C%ED%99%94_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "소화_7",
     "title": "화장실에서 볼일 볼 때마다 항문이 따갑고 화장지에 피가 묻어나온다면 - 치질 키우는 음식 피하는 법",
     "url": "output/%EC%86%8C%ED%99%94_7/dashboard.html",
-    "thumbnail": "output/%EC%86%8C%ED%99%94_7/card_news/%EC%B9%98%EC%A7%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%8C%ED%99%94_7/card_news/%EC%86%8C%ED%99%94_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2026,17 +2093,19 @@
     "thumbnail": "output/%EC%86%8C%ED%99%94_9/card_news/%EC%86%8C%ED%99%94_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "손발_1/ko",
     "title": "손톱이 자꾸 갈라지고 얇아지고 세로줄까지 늘어난다면 - 손톱 약하게 만드는 음식 피하는 법",
     "url": "output/%EC%86%90%EB%B0%9C_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%86%90%EB%B0%9C_1/ko/card_news/%EC%86%90%ED%86%B1_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C_1/ko/card_news/%EC%86%90%EB%B0%9C_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2046,7 +2115,8 @@
     "thumbnail": "output/%EC%86%90%EB%B0%9C_10/card_news/%EC%86%90%EB%B0%9C_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2056,7 +2126,8 @@
     "thumbnail": "output/%EC%86%90%EB%B0%9C_11/card_news/%EC%86%90%EB%B0%9C_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2166,7 +2237,8 @@
     "thumbnail": "output/%EC%86%90%EB%B0%9C_21/card_news/%EC%86%90%EB%B0%9C_21_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2176,7 +2248,8 @@
     "thumbnail": "output/%EC%86%90%EB%B0%9C_3/card_news/%EC%86%90%EB%B0%9C_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2186,7 +2259,8 @@
     "thumbnail": "output/%EC%86%90%EB%B0%9C_4/card_news/%EC%86%90%EB%B0%9C_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2203,10 +2277,11 @@
     "topic": "손발_6",
     "title": "무지외반증, 엄지발가락 뿌리가 튀어나온다면 - 변형 늦추는 습관",
     "url": "output/%EC%86%90%EB%B0%9C_6/dashboard.html",
-    "thumbnail": "output/%EC%86%90%EB%B0%9C_6/card_news/%EC%86%90%EB%B0%9C_6__00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%86%90%EB%B0%9C_6/card_news/%EC%86%90%EB%B0%9C_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2244,7 +2319,8 @@
     "thumbnail": "output/%EC%88%98%EB%A9%B4_1/ko/card_news/%EC%88%98%EB%A9%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2341,10 +2417,11 @@
     "topic": "수면_2",
     "title": "밤에 누우면 다리 속이 스멀스멀 근질거리고 자꾸 움직이고 싶어진다면 - 하지불안증후군 키우는 음식 피하는 법",
     "url": "output/%EC%88%98%EB%A9%B4_2/dashboard.html",
-    "thumbnail": "output/%EC%88%98%EB%A9%B4_2/card_news/%ED%95%98%EC%A7%80%EB%B6%88%EC%95%88%EC%A6%9D%ED%9B%84%EA%B5%B0_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%98%EB%A9%B4_2/card_news/%EC%88%98%EB%A9%B4_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2354,7 +2431,8 @@
     "thumbnail": "output/%EC%88%98%EB%A9%B4_3/card_news/%EC%88%98%EB%A9%B4_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2364,7 +2442,8 @@
     "thumbnail": "output/%EC%88%98%EB%A9%B4_4/card_news/%EC%88%98%EB%A9%B4_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2374,7 +2453,8 @@
     "thumbnail": "output/%EC%88%98%EB%A9%B4_5/card_news/%EC%88%98%EB%A9%B4_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2421,10 +2501,11 @@
     "topic": "순환_1/ko",
     "title": "여름에도 손발이 얼음장처럼 차갑고 이불 속에서도 발이 안 따뜻해진다면 - 냉증 키우는 음식 피하는 법",
     "url": "output/%EC%88%9C%ED%99%98_1/ko/dashboard.html",
-    "thumbnail": "output/%EC%88%9C%ED%99%98_1/ko/card_news/%EB%83%89%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_1/ko/card_news/%EC%88%9C%ED%99%98_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2434,7 +2515,8 @@
     "thumbnail": "output/%EC%88%9C%ED%99%98_10/card_news/%EC%88%9C%ED%99%98_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2444,7 +2526,8 @@
     "thumbnail": "output/%EC%88%9C%ED%99%98_11/card_news/%EC%88%9C%ED%99%98_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2454,7 +2537,8 @@
     "thumbnail": "output/%EC%88%9C%ED%99%98_12/card_news/%EC%88%9C%ED%99%98_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2531,10 +2615,11 @@
     "topic": "순환_2",
     "title": "혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법",
     "url": "output/%EC%88%9C%ED%99%98_2/dashboard.html",
-    "thumbnail": "output/%EC%88%9C%ED%99%98_2/card_news/%EB%B6%80%EC%A2%85_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_2/card_news/%EC%88%9C%ED%99%98_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2551,30 +2636,33 @@
     "topic": "순환_3",
     "title": "저녁마다 종아리가 퉁퉁 붓고 다리에 핏줄이 울퉁불퉁 튀어나와 보인다면 - 정맥류 키우는 음식 피하는 법",
     "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html",
-    "thumbnail": "output/%EC%88%9C%ED%99%98_3/card_news/%EC%A0%95%EB%A7%A5%EB%A5%98_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_3/card_news/%EC%88%9C%ED%99%98_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "순환_4",
     "title": "손발 끝이 자꾸 저리고 시린가요? - 손발 저림 부르는 음식 피하는 법",
     "url": "output/%EC%88%9C%ED%99%98_4/dashboard.html",
-    "thumbnail": "output/%EC%88%9C%ED%99%98_4/card_news/%EC%86%90%EB%B0%9C%EC%A0%80%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_4/card_news/%EC%88%9C%ED%99%98_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "순환_5",
     "title": "심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거리는 거, 사실 이 음식 때문일 수 있어요 - 혈압 확 올리는 의외의 음식들",
     "url": "output/%EC%88%9C%ED%99%98_5/dashboard.html",
-    "thumbnail": "output/%EC%88%9C%ED%99%98_5/card_news/%ED%98%88%EC%95%95_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%88%9C%ED%99%98_5/card_news/%EC%88%9C%ED%99%98_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2584,7 +2672,8 @@
     "thumbnail": "output/%EC%88%9C%ED%99%98_6/card_news/%EC%88%9C%ED%99%98_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2632,7 +2721,8 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_10/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2642,7 +2732,8 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_11/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2682,14 +2773,15 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_15/card_news/00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "어지럼증_2",
     "title": "차만 타면 머리가 핑 돌고 식은땀까지 난다면 - 멀미를 악화시키는 음식·식습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2/dashboard.html",
-    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -2699,20 +2791,22 @@
     "topic": "어지럼증_3",
     "title": "자다가 돌아눕거나 고개를 젖힐 때 핑 도는 어지럼증이 반복된다면 - 이석증 위험 높이는 생활습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3/dashboard.html",
-    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3/card_news/%EC%9D%B4%EC%84%9D%EC%A6%9D_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "어지럼증_4",
     "title": "이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! - 빈혈 부르는 의외의 음식 습관",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/dashboard.html",
-    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/card_news/%EB%B9%88%ED%98%88_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2732,7 +2826,8 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2760,7 +2855,8 @@
     "thumbnail": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_9/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2770,7 +2866,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_1/ko/card_news/%EC%A7%88%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2780,7 +2877,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_10/card_news/%EC%97%AC%EC%84%B1_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2790,17 +2888,19 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_11/card_news/%EC%97%AC%EC%84%B1_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "여성_12",
-    "title": "배란통, 여성 10명 중 1~2명이 겪는다는 이 통증, 혹시 나도? - 정상 통증 구별법",
+    "title": "배란통, 한쪽 아랫배만 콕콕 - 하루 넘게 아프면 배란통이 아니에요",
     "url": "output/%EC%97%AC%EC%84%B1_12/dashboard.html",
     "thumbnail": "output/%EC%97%AC%EC%84%B1_12/card_news/%EC%97%AC%EC%84%B1_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2877,7 +2977,7 @@
     "topic": "여성_2",
     "title": "생리 주기가 25일이었다가 이번 달엔 40일 넘게 늦어지기도 하시나요? - 생리 주기를 흔드는 의외의 식습관 3가지",
     "url": "output/%EC%97%AC%EC%84%B1_2/dashboard.html",
-    "thumbnail": "output/%EC%97%AC%EC%84%B1_2/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%97%AC%EC%84%B1_2/card_news/%EC%97%AC%EC%84%B1_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -2900,7 +3000,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_21/card_news/%EC%97%AC%EC%84%B1_21_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2910,7 +3011,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_3/card_news/%EC%97%AC%EC%84%B1_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2920,7 +3022,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_4/card_news/%EC%97%AC%EC%84%B1_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2940,7 +3043,8 @@
     "thumbnail": "output/%EC%97%AC%EC%84%B1_6/card_news/%EC%97%AC%EC%84%B1_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2978,7 +3082,8 @@
     "thumbnail": "output/%EC%9E%85_1/ko/card_news/%EC%9E%85_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3016,7 +3121,8 @@
     "thumbnail": "output/%EC%9E%85_13/card_news/%EC%9E%85_13_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3083,10 +3189,11 @@
     "topic": "입_2",
     "title": "입 안이 자꾸 헐고 있다면, 이유가 있어요 - 구내염 부르는 음식 피하는 법",
     "url": "output/%EC%9E%85_2/dashboard.html",
-    "thumbnail": "output/%EC%9E%85_2/card_news/%EA%B5%AC%EB%82%B4%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%9E%85_2/card_news/%EC%9E%85_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3096,37 +3203,41 @@
     "thumbnail": "output/%EC%9E%85_20/card_news/%EC%9E%85_20_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "입_3",
     "title": "양치할 때 잇몸에서 피가 자주 난다면 주목! - 잇몸출혈 부르는 음식 피하는 법",
     "url": "output/%EC%9E%85_3/dashboard.html",
-    "thumbnail": "output/%EC%9E%85_3/card_news/%EC%9E%87%EB%AA%B8_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%9E%85_3/card_news/%EC%9E%85_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "입_4",
     "title": "양치를 열심히 하는데도 이가 시리고 충치가 자꾸 생긴다면 - 치아 상하게 하는 음식 피하는 법",
     "url": "output/%EC%9E%85_4/dashboard.html",
-    "thumbnail": "output/%EC%9E%85_4/card_news/%EC%B9%98%EC%95%84_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%9E%85_4/card_news/%EC%9E%85_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "입_5",
     "title": "자고 일어났는데 턱이 뻐근하고 어금니가 시큰거린다면 - 이갈이 심해지는 습관 3가지",
     "url": "output/%EC%9E%85_5/dashboard.html",
-    "thumbnail": "output/%EC%9E%85_5/card_news/%EC%9D%B4%EA%B0%88%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%9E%85_5/card_news/%EC%9E%85_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3156,7 +3267,8 @@
     "thumbnail": "output/%EC%9E%85_8/card_news/%EC%9E%85_8_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3176,7 +3288,8 @@
     "thumbnail": "output/%EC%BD%94_1/ko/card_news/%EB%B9%84%EC%97%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3194,7 +3307,8 @@
     "thumbnail": "output/%EC%BD%94_11/card_news/%EC%BD%94_11_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3204,7 +3318,8 @@
     "thumbnail": "output/%EC%BD%94_12/card_news/%EC%BD%94_12_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3214,7 +3329,8 @@
     "thumbnail": "output/%EC%BD%94_13/card_news/%EC%BD%94_13_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3224,7 +3340,8 @@
     "thumbnail": "output/%EC%BD%94_14/card_news/%EC%BD%94_14_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3234,7 +3351,8 @@
     "thumbnail": "output/%EC%BD%94_15/card_news/%EC%BD%94_15_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3281,7 +3399,7 @@
     "topic": "코_2",
     "title": "코피가 부쩍 자주 나고 한 번 나면 잘 멎지 않는다면 - 코피 자주 나게 하는 습관 피하는 법",
     "url": "output/%EC%BD%94_2/dashboard.html",
-    "thumbnail": "output/%EC%BD%94_2/card_news/%EC%BD%94%ED%94%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%BD%94_2/card_news/%EC%BD%94_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3324,17 +3442,19 @@
     "thumbnail": "output/%EC%BD%94_23/card_news/%EC%BD%94_23_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "코_3",
     "title": "자다가 코를 심하게 골거나 숨이 막히는 느낌이 든다면 주목! - 코골이 부르는 음식 피하는 법",
     "url": "output/%EC%BD%94_3/dashboard.html",
-    "thumbnail": "output/%EC%BD%94_3/card_news/%EC%BD%94%EA%B3%A8%EC%9D%B4_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%EC%BD%94_3/card_news/%EC%BD%94_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3344,7 +3464,8 @@
     "thumbnail": "output/%EC%BD%94_4/card_news/%EC%BD%94_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3364,7 +3485,8 @@
     "thumbnail": "output/%EC%BD%94_6/card_news/%EC%BD%94_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3394,7 +3516,8 @@
     "thumbnail": "output/%EC%BD%94_9/card_news/%EC%BD%94_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3404,7 +3527,8 @@
     "thumbnail": "output/%ED%94%BC%EB%A1%9C_1/ko/card_news/%EB%A7%8C%EC%84%B1%ED%94%BC%EB%A1%9C_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3414,14 +3538,15 @@
     "thumbnail": "output/%ED%94%BC%EB%A1%9C_2/card_news/%ED%94%BC%EB%A1%9C_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "피로_3",
     "title": "번아웃, 일에 대한 마음이 식어버렸다면 - 심리적 소진 신호와 회복 습관",
     "url": "output/%ED%94%BC%EB%A1%9C_3/dashboard.html",
-    "thumbnail": "output/%ED%94%BC%EB%A1%9C_3/card_news/%ED%94%BC%EB%A1%9C_3__00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%94%BC%EB%A1%9C_3/card_news/%ED%94%BC%EB%A1%9C_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3474,7 +3599,8 @@
     "thumbnail": "output/%ED%94%BC%EB%B6%80_1/ko/card_news/%ED%94%BC%EB%B6%80_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3582,7 +3708,8 @@
     "thumbnail": "output/%ED%94%BC%EB%B6%80_2/card_news/%ED%94%BC%EB%B6%80_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3612,14 +3739,15 @@
     "thumbnail": "output/%ED%94%BC%EB%B6%80_22/card_news/%ED%94%BC%EB%B6%80_22_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "피부_3",
     "title": "식사만 하면 얼굴이며 등까지 땀이 비 오듯 쏟아지신다면 - 땀을 유독 많이 나게 하는 음식·음료",
     "url": "output/%ED%94%BC%EB%B6%80_3/dashboard.html",
-    "thumbnail": "output/%ED%94%BC%EB%B6%80_3/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_3/card_news/%ED%94%BC%EB%B6%80_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3629,7 +3757,7 @@
     "topic": "피부_4",
     "title": "먹고 나면 피부가 부풀어 오르고 미친 듯이 가려운 팽진이 생긴다면 - 두드러기 부르는 음식 3가지",
     "url": "output/%ED%94%BC%EB%B6%80_4/dashboard.html",
-    "thumbnail": "output/%ED%94%BC%EB%B6%80_4/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_4/card_news/%ED%94%BC%EB%B6%80_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3639,7 +3767,7 @@
     "topic": "피부_5",
     "title": "발가락 사이가 짓무르고 가려움이 안 가시고 각질까지 일어난다면 - 무좀 키우는 음식 피하는 법",
     "url": "output/%ED%94%BC%EB%B6%80_5/dashboard.html",
-    "thumbnail": null,
+    "thumbnail": "output/%ED%94%BC%EB%B6%80_5/card_news/%ED%94%BC%EB%B6%80_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3677,12 +3805,13 @@
   },
   {
     "topic": "피부_9",
-    "title": "기미가 자꾸 진해지고 있다면 이 습관부터 이제 그만 - 번지는 걸 막는 생활습관 4가지",
+    "title": "기미가 자꾸 진해진다면 화장품보다 먼저 볼 것 - 피부과학회 기준 기미 관리법",
     "url": "output/%ED%94%BC%EB%B6%80_9/dashboard.html",
     "thumbnail": "output/%ED%94%BC%EB%B6%80_9/card_news/%ED%94%BC%EB%B6%80_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3692,7 +3821,8 @@
     "thumbnail": "output/%ED%98%88%EB%8B%B9_1/ko/card_news/%ED%98%88%EB%8B%B9_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3732,7 +3862,8 @@
     "thumbnail": "output/%ED%98%88%EB%8B%B9_13/card_news/%ED%98%88%EB%8B%B9_13_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3742,14 +3873,15 @@
     "thumbnail": "output/%ED%98%88%EB%8B%B9_2/card_news/%ED%98%88%EB%8B%B9_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "혈당_3",
     "title": "한때 SNS를 뒤흔들었던 두바이 초콜릿, 다시 먹기 전에 확인해야 할 성분 3가지",
     "url": "output/%ED%98%88%EB%8B%B9_3/dashboard.html",
-    "thumbnail": "output/%ED%98%88%EB%8B%B9_3/card_news/ko_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_3/card_news/%ED%98%88%EB%8B%B9_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
       "card_news"
@@ -3759,10 +3891,11 @@
     "topic": "혈당_4",
     "title": "간식이나 밥 먹고 나면 유독 졸리고 나른하다면 주목! - 당뇨 부르는 음식 4가지",
     "url": "output/%ED%98%88%EB%8B%B9_4/dashboard.html",
-    "thumbnail": "output/%ED%98%88%EB%8B%B9_4/card_news/%EB%8B%B9%EB%87%A8_1_00_%ED%91%9C%EC%A7%80.jpg",
+    "thumbnail": "output/%ED%98%88%EB%8B%B9_4/card_news/%ED%98%88%EB%8B%B9_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3772,12 +3905,13 @@
     "thumbnail": "output/%ED%98%88%EB%8B%B9_5/card_news/%ED%98%88%EB%8B%B9_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
     "topic": "혈당_6",
-    "title": "당화혈색소, 공복혈당 정상인데 당뇨 전단계라면 - 당화혈색소 관리법",
+    "title": "당화혈색소, 공복혈당 정상인데 당뇨병전단계라면 - 대한당뇨병학회 기준",
     "url": "output/%ED%98%88%EB%8B%B9_6/dashboard.html",
     "thumbnail": "output/%ED%98%88%EB%8B%B9_6/card_news/%ED%98%88%EB%8B%B9_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
@@ -3812,7 +3946,8 @@
     "thumbnail": "output/%ED%98%88%EB%8B%B9_9/card_news/%ED%98%88%EB%8B%B9_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   }
 ]

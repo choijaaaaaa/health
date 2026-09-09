@@ -1225,12 +1225,6 @@ def _update_topics_index(out_path: str):
                 caption_spec = json.loads(caption_path.read_text())
                 title = caption_spec.get("title", topic)
                 ad_tag_applied = bool(caption_spec.get("ad_tag"))
-                # WHY "shorts" 트랙을 더 이상 붙이지 않는지(2026-08-25): 영상 제작이
-                # 전면 중단되고 렌더된 mp4를 전부 삭제했다 — platform_captions.json에
-                # 남아있는 옛 video 플랫폼 항목만 보고 "숏츠"로 분류하면, 실제로는
-                # 존재하지 않는 영상이 목록에 계속 배지로 뜬다(mission-control에 실제로
-                # 반영이 안 돼 있던 문제). 카드뉴스 단일 트랙이 된 이상 이 파생 자체가
-                # 의미를 잃었다.
                 # WHY 페이스북 제외(2026-08-08): type이 "text"라 카드뉴스
                 # 판별에 같이 걸렸는데, 실제로는 숏츠 영상을 올리는 플랫폼이라
                 # (CLAUDE.md "영상 필요 플랫폼" 목록에 페이스북 포함) 카드뉴스
@@ -1241,6 +1235,17 @@ def _update_topics_index(out_path: str):
                 }
                 if card_news_types & {"cards", "text"}:
                     tracks.append("card_news")
+                # WHY "shorts"를 다시 파생하는지(2026-09-08, 영상 트랙 재개 —
+                # 2026-08-25에 전면 중단하며 이 파생을 껐다가 2026-09-01 재개
+                # 이후에도 여기가 안 고쳐져서 108편이 실제로 렌더돼 있는데도
+                # 대시보드·mission-control 양쪽에서 "영상 없음"으로 보였다).
+                # _is_shown_platform과 동일하게 _VIDEO_TYPE_ALLOWED(유튜브 쇼츠·
+                # 네이버 클립만, 인스타 릴스·틱톡은 계속 보류)로 판별한다.
+                if any(
+                    p.get("type") == "video" and p.get("name") in _VIDEO_TYPE_ALLOWED
+                    for p in caption_spec.get("platforms", [])
+                ):
+                    tracks.append("shorts")
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
