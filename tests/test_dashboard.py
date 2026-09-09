@@ -59,12 +59,14 @@ def _make_dirs(tmp_path):
     return card_news_dir, out_path
 
 
-def test_generate_creates_html_with_all_platform_names(tmp_path):
-    # WHY 영상 플랫폼을 기대값에서 뺐는지(2026-08-31): 예전엔 "인스타그램 릴스"(video)도
-    # 렌더된다고 단언했지만, 2026-08-25 영상 트랙 중단으로 _is_shown_platform()이
-    # type=="video"를 통째로 거른다 — 올릴 mp4가 없는데 카드만 남으면 UI가 실제
-    # 상태와 어긋나서 내린 의도적 결정이다. 이 단언은 그 뒤로 계속 실패하면서
-    # ValueError 크래시(asset_prefix) 뒤에 가려져 있었다.
+def test_generate_creates_html_with_all_platform_names(tmp_path, monkeypatch):
+    # WHY _ALLOWED_PLATFORMS를 넓혀서 도는지(2026-09-09): 2026-09-09부로
+    # 실제 운영 필터는 "네이버 블로그" 딱 하나만 허용하는 화이트리스트다(카드뉴스
+    # 단일 채널 확정, dashboard.py _ALLOWED_PLATFORMS 정의부 WHY 참고) — 이
+    # 테스트는 필터 정책이 아니라 "필터를 통과한 플랫폼은 전부 이름이 HTML에
+    # 나오는지"를 보는 것이라, 필터 자체는 test_excluded_platforms_not_rendered가
+    # 따로 검증하고 여기서는 완화해서 여러 이름으로 렌더링을 확인한다.
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"네이버 블로그", "카드뉴스플랫폼"})
     platforms = [
         _platform("네이버 블로그", "text", network="naver", rich_paste=True),
         _platform("카드뉴스플랫폼", "cards"),
@@ -81,21 +83,18 @@ def test_generate_creates_html_with_all_platform_names(tmp_path):
 
 
 def test_excluded_platforms_not_rendered(tmp_path):
-    """회귀(2026-08-04): 유튜브 쇼츠/틱톡은 업로드 자동화 대상이라 대시보드 UI에
-    카드 자체가 안 뜨고, 그 옆의 다른 플랫폼은 그대로 떠야 한다. 한국어 이름과
-    글로벌(영어) 이름 둘 다 걸러지는지 확인한다.
-
-    WHY 제외 대상 이름에 video가 아닌 type을 주는지(2026-08-31): 2026-08-25부터
-    _is_shown_platform()이 type=="video"도 통째로 거르게 되면서, 이 이름들을
-    video로 두면 이름 필터가 죽어 있어도 테스트가 통과해버린다(두 규칙이 겹쳐
-    이름 규칙만 회귀하는 걸 못 잡음) — 이름 규칙만 단독으로 검증되도록 type을
-    분리하고, type 규칙은 아래 영상플랫폼 항목으로 따로 확인한다."""
+    """회귀(2026-09-09): 카드뉴스 단일 채널 확정 — "네이버 블로그"만 화이트리스트로
+    통과하고, 그 외엔 이름·type이 뭐든 전부 걸러져야 한다(예전 유튜브 쇼츠/틱톡
+    denylist 방식에서 이 허용목록 방식으로 전환됨, dashboard.py _ALLOWED_PLATFORMS
+    정의부 WHY 참고)."""
     platforms = [
         _platform("유튜브 쇼츠", "cards"),
         _platform("틱톡", "cards"),
         _platform("YouTube Shorts", "cards"),
         _platform("TikTok", "cards"),
         _platform("영상플랫폼", "video"),
+        _platform("페이스북", "text"),
+        _platform("쓰레드", "text"),
         _platform("네이버 블로그", "text"),
     ]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
@@ -136,8 +135,12 @@ def test_video_filename_never_rendered_regardless_of_files_present(tmp_path):
     assert "테스트주제_1_shorts_instagram.mp4" not in html
 
 
-def test_missing_hashtag_prints_warning(capsys, tmp_path):
-    """회귀 1: 캡션에 '#'이 없으면 print()로 경고가 찍혀야 한다."""
+def test_missing_hashtag_prints_warning(capsys, tmp_path, monkeypatch):
+    """회귀 1: 캡션에 '#'이 없으면 print()로 경고가 찍혀야 한다.
+
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터는 "네이버 블로그"만
+    허용한다 — 이 테스트는 필터가 아니라 해시태그 경고 로직을 보므로 완화."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"해시태그없는플랫폼"})
     platforms = [_platform("해시태그없는플랫폼", "text", caption="해시태그가 아예 없는 캡션입니다")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -149,8 +152,13 @@ def test_missing_hashtag_prints_warning(capsys, tmp_path):
     assert "해시태그가 없습니다" in captured.out
 
 
-def test_hashtag_present_no_warning_for_that_platform(capsys, tmp_path):
-    """해시태그가 있는 캡션에는 그 플랫폼 이름으로 경고가 찍히면 안 된다."""
+def test_hashtag_present_no_warning_for_that_platform(capsys, tmp_path, monkeypatch):
+    """해시태그가 있는 캡션에는 그 플랫폼 이름으로 경고가 찍히면 안 된다.
+
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터를 그대로 두면
+    이 플랫폼 자체가 걸러져 경고가 애초에 안 찍히므로(허위 통과) 검증이
+    안 된다 — 필터를 통과시켜서 진짜 해시태그 유무로만 판단하게 한다."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"해시태그있는플랫폼"})
     platforms = [_platform("해시태그있는플랫폼", "text", caption="캡션 내용 #건강 #정보")]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
     card_news_dir, out_path = _make_dirs(tmp_path)
@@ -161,18 +169,14 @@ def test_hashtag_present_no_warning_for_that_platform(capsys, tmp_path):
     assert "해시태그있는플랫폼" not in captured.out
 
 
-def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_path):
+def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_path, monkeypatch):
     """회귀 2: network:'naver'가 있는 플랫폼에만 data-naver-button='1'이 붙어야 하고,
-    다른 플랫폼에는 붙으면 안 된다(잘못 붙으면 네이버 URL이 안 들어가는 버그 재발)."""
-    # WHY "유튜브 쇼츠"가 아니라 "네이버 클립"/"일반플랫폼"을 쓰는지
-    # (2026-08-04): "유튜브 쇼츠"는 이제 대시보드 UI에서 아예 빠지는 플랫폼이라
-    # (lib/dashboard.py의 _UI_EXCLUDED_PLATFORMS 참고) 여기서 쓰면 필터링돼서
-    # 카드 자체가 안 나온다 — 이 테스트의 목적(naver 아닌 플랫폼에는
-    # data-naver-button이 안 붙는지 검증)과는 무관한 이름으로 교체.
-    # WHY type이 video가 아닌지(2026-08-31): 2026-08-25 영상 트랙 중단으로
-    # type=="video"는 이름과 무관하게 전부 걸러진다 — 그대로 두면 카드가 0장이라
-    # naver 플래그 자체를 검증할 수 없다. 이 테스트가 보는 건 network 플래그지
-    # 플랫폼 type이 아니므로 살아남는 type으로 바꿨다.
+    다른 플랫폼에는 붙으면 안 된다(잘못 붙으면 네이버 URL이 안 들어가는 버그 재발).
+
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터는 "네이버 블로그"만
+    허용해 서로 다른 이름의 플랫폼 2개를 동시에 통과시킬 수 없다 — 이 테스트가
+    보는 건 network 플래그 반영이지 플랫폼 필터가 아니므로 완화."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"네이버 클립", "일반플랫폼"})
     platforms = [
         _platform("네이버 클립", "text", network="naver"),
         _platform("일반플랫폼", "text"),
@@ -193,16 +197,19 @@ def test_naver_network_flag_sets_naver_button_attr_only_on_that_platform(tmp_pat
     assert 'data-naver-button=""' in other_card
 
 
-def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path):
+def test_btn_go_has_copy_target_with_sequential_idx_grouped_by_type(tmp_path, monkeypatch):
     """회귀 3: '열기' 버튼에 data-copy-target='cap-{idx}'가 붙고 텍스트가
     '열기(캡션 자동복사) →'여야 한다. idx는 원본 JSON 순서가 아니라 TYPE_ORDER
     (video → cards → text)로 그룹핑된 뒤 0부터 매겨진다 — generate() 내부에서
     platforms_by_type 딕셔너리로 먼저 타입별로 묶은 뒤 순회하기 때문이다.
 
-    WHY 영상B가 기대 순서에서 빠졌는지(2026-08-31): 2026-08-25 영상 트랙 중단으로
-    type=="video"는 렌더 대상에서 통째로 빠진다 — 입력에는 그대로 두어 "걸러지고
+    WHY 영상B가 기대 순서에서 빠졌는지: type=="video"는 렌더 대상에서 통째로
+    빠진다(dashboard.py _is_shown_platform 참고) — 입력에는 그대로 두어 "걸러지고
     번호도 차지하지 않는다"까지 같이 못박고, cards가 text보다 앞선다는 TYPE_ORDER
-    본래 의도는 남은 두 타입으로 계속 검증한다."""
+    본래 의도는 남은 두 타입으로 계속 검증한다.
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터는 "네이버 블로그"만
+    허용한다 — 이 테스트는 idx 순서 로직을 보므로 완화."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"텍스트A", "카드C", "텍스트D"})
     platforms = [
         _platform("텍스트A", "text"),
         _platform("영상B", "video"),
@@ -294,8 +301,12 @@ def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
     assert "01_%EC%99%9C%20%EC%9D%B4%EB%9F%B0" in html
 
 
-def test_caption_html_special_characters_are_escaped(tmp_path):
-    """캡션에 <, >, &가 있으면 _esc()로 이스케이프돼서 HTML이 안 깨져야 한다."""
+def test_caption_html_special_characters_are_escaped(tmp_path, monkeypatch):
+    """캡션에 <, >, &가 있으면 _esc()로 이스케이프돼서 HTML이 안 깨져야 한다.
+
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터는 "네이버 블로그"만
+    허용한다 — 이 테스트는 이스케이프 로직을 보므로 완화."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"이스케이프플랫폼"})
     dangerous_caption = "위험 문자 테스트 <script>alert('x')</script> & 팀 <b>강조</b> #태그"
     platforms = [_platform("이스케이프플랫폼", "text", caption=dangerous_caption)]
     spec_path = _write_spec(tmp_path / "platform_captions.json", platforms)
@@ -310,13 +321,15 @@ def test_caption_html_special_characters_are_escaped(tmp_path):
     assert "&lt;b&gt;" in html
 
 
-def test_no_caption_link_and_comment_dm_attrs_reflected(tmp_path):
+def test_no_caption_link_and_comment_dm_attrs_reflected(tmp_path, monkeypatch):
     """no_caption_link/comment_dm_automation 플래그가 카드의 data 속성에 정확히 반영되는지.
 
-    WHY 플래그를 얹는 쪽이 영상 플랫폼이 아닌지(2026-08-31): 원래 "인스타그램
-    릴스"(video)에 플래그를 얹어 검증했는데, 2026-08-25 영상 트랙 중단으로
-    type=="video" 카드가 아예 렌더되지 않아 next()가 StopIteration으로 죽었다 —
-    검증 대상은 data 속성 반영이지 플랫폼 type이 아니므로 살아남는 type으로 옮겼다."""
+    WHY 플래그를 얹는 쪽이 영상 플랫폼이 아닌지: type=="video" 카드는 아예
+    렌더되지 않는다(dashboard.py _is_shown_platform 참고) — 검증 대상은 data
+    속성 반영이지 플랫폼 type이 아니므로 살아남는 type을 쓴다.
+    WHY _ALLOWED_PLATFORMS를 넓히는지(2026-09-09): 실제 필터는 "네이버 블로그"만
+    허용해 서로 다른 이름 2개를 동시에 통과시킬 수 없다 — 완화해서 비교 검증."""
+    monkeypatch.setattr(dashboard_module, "_ALLOWED_PLATFORMS", {"쓰레드형플랫폼", "네이버 블로그"})
     platforms = [
         _platform("쓰레드형플랫폼", "text", no_caption_link=True, comment_dm_automation=True),
         _platform("네이버 블로그", "text"),
@@ -337,24 +350,19 @@ def test_no_caption_link_and_comment_dm_attrs_reflected(tmp_path):
     assert 'data-comment-dm=""' in naver_card
 
 
-# WHY(2026-08-02, "상품도 너한테 던져야겠다 이거 로컬스토리지 불안해서"): 상품 링크를
-# output/product_links.json(상품명 → 쿠팡 링크)에서 미리 채워 넣는 기능 테스트.
+# WHY 쿠팡 프리필 테스트가 없는지(2026-09-09 제거): "카드뉴스만, 네이버 블로그에만
+# 넣는다" 결정으로 _dock_products()에서 쿠팡 입력란 자체를 없앴다(dashboard.py
+# _ALLOWED_PLATFORMS 정의부 WHY 참고) — 아래는 남은 네이버 커넥트 프리필만 검증.
 # _dock_products는 순수 함수라 generate() 전체를 안 돌리고 직접 호출해서 검증한다.
 
-def test_dock_products_prefills_known_link():
-    html = _dock_products(["현미"], {"현미": "https://link.coupang.com/a/fSP6lbm8Ki"})
-    assert 'value="https://link.coupang.com/a/fSP6lbm8Ki"' in html
-    assert 'class="dock-product-row linked"' in html
-
-
 def test_dock_products_leaves_unknown_product_blank():
-    html = _dock_products(["처음 보는 상품"], {"현미": "https://link.coupang.com/a/fSP6lbm8Ki"})
+    html = _dock_products(["처음 보는 상품"], naver_links={"연어": "https://naver.me/5vJFBL58"})
     assert 'value=""' in html
     assert 'class="dock-product-row linked"' not in html
 
 
 # WHY(2026-08-04, "네이버 커넥트도 주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼... 위젯에도
-# 띄워주게 해야되겠어"): 쿠팡과 같은 패턴으로 output/naver_product_links.json에서
+# 띄워주게 해야되겠어"): output/naver_product_links.json에서
 # 네이버 커넥트 링크를 미리 채워 넣는 기능 테스트.
 
 def test_dock_products_prefills_naver_link():

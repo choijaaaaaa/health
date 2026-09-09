@@ -37,38 +37,19 @@ TYPE_ORDER = ["video", "cards", "text"]
 # 캡션 작성 자체를 생략하는 것과는 다른 케이스, 여기는 "UI에서만 숨기기") UI
 # 카드만 숨긴다.
 #
-# ⚠️ 쓰레드는 2026-08-22 재배제 — 2026-08-04에 "효과가 없어서" 뺐다가
-# 2026-08-21 mission-control 통합 작업 중 다시 올렸으나, 사용자가 다시
-# 안 쓰기로 확정(mission-control 업로드 탭 기준). 카드는 그대로 뜨지 않게
-# 이 세트에서 뺀다.
-# WHY 인스타그램 카드뉴스를 제외 목록에서 뺐는지(2026-08-25): 카드뉴스는
-# 네이버 블로그·인스타그램·페이스북 3곳에 올린다(맨 위 절)인데, 이 이름이 제외
-# 목록에 남아 있어서 293개 topic의 인스타그램 카드가 화면에 아예 안 떴다.
-# lib/instagram_upload.py는 릴스(영상) 전용이라 카드뉴스는 자동 업로드 대상이
-# 아니다 — 사람이 캡션을 복사해 직접 올려야 하므로 카드가 보여야 한다.
-_UI_EXCLUDED_PLATFORMS = {
-    "틱톡", "TikTok",
-    "쓰레드", "Threads",
-}
-
-# mission_control_sync.py의 동명 상수와 반드시 같은 값을 유지할 것(2026-09-08,
-# 영상 트랙 재개 후 유튜브·네이버 클립만 다시 올리기로 확정 — 인스타그램 릴스·
-# 틱톡은 계속 보류). 페이스북은 type이 "text"라 아래 필터에 안 걸린다.
-_VIDEO_TYPE_ALLOWED = {"유튜브 쇼츠", "YouTube Shorts", "네이버 클립"}
+# ⚠️ 네이버 블로그 단일 채널로 전환(2026-09-09) — "영상 폐기한다... 카드뉴스만
+# 한다", "쿠팡 링크도 없애라 이제 어차피 네이버블로그에만 넣는다" — 인스타그램
+# 릴스/카드뉴스·페이스북·쓰레드·유튜브 쇼츠·틱톡·네이버 클립 전부 제외 목록으로
+# 두던 방식(항목이 늘 때마다 계속 추가해야 함)에서, 아예 네이버 블로그 하나만
+# 허용하는 화이트리스트로 바꿨다 — 이후 또 플랫폼이 늘거나 줄어도 이 목록만
+# 보면 된다. 각 platform_captions.json 안의 다른 플랫폼 캡션 데이터 자체는
+# 지우지 않았다(그동안 여러 번 번복된 전례가 있어 가역적으로만 처리).
+_ALLOWED_PLATFORMS = {"네이버 블로그"}
 
 
 def _is_shown_platform(p: dict) -> bool:
-    """대시보드·mission-control에 캡션 카드로 띄울 플랫폼인지.
-    WHY type=="video" 중 일부만 남기는지(2026-09-08, 2026-08-25 결정 완화):
-    영상 트랙이 재개돼 유튜브·네이버 클립은 다시 올릴 영상이 있다 — 인스타그램
-    릴스·틱톡은 아직 보류라 그대로 뺀다. 이름 목록이 아니라 type으로 우선 거르는
-    이유는, 플랫폼 이름은 프로젝트·언어마다 다르지만 type은 공통이라 새 플랫폼이
-    추가돼도 자동으로 걸리기 때문이다."""
-    if "name" not in p or p["name"] in _UI_EXCLUDED_PLATFORMS:
-        return False
-    if p.get("type") == "video" and p["name"] not in _VIDEO_TYPE_ALLOWED:
-        return False
-    return True
+    """대시보드·mission-control에 캡션 카드로 띄울 플랫폼인지."""
+    return p.get("name") in _ALLOWED_PLATFORMS
 
 DOCK_PRODUCT_ROW_TEMPLATE = """
 <div class="dock-product-row{row_class}" id="dock-row-{idx}">
@@ -77,13 +58,6 @@ DOCK_PRODUCT_ROW_TEMPLATE = """
     <span class="dock-product-name">{name}</span>
   </div>
   <div class="dock-product-market">
-    <a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="{coupang_url}" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="{name_attr}" value="{link_value}" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="{naver_search_url}" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="{naver_search_url}" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     {naver_goto}
@@ -972,19 +946,6 @@ def _asset_link(platform_type: str, topic: str, cover_name: str | None) -> str:
             f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
 
 
-def _load_product_links() -> dict[str, str]:
-    """WHY(2026-08-02, "상품도 너한테 던져야겠다 이거 로컬스토리지 불안해서"):
-    상품별 쿠팡 파트너스 링크를 브라우저 localStorage 대신 git 추적되는
-    output/product_links.json(상품명 → 링크)에서 관리한다 — completed_topics.json/
-    youtube_uploaded.json과 같은 패턴. 사용자가 채팅으로 상품+링크를 알려주면
-    Claude Code가 이 파일에 직접 추가한다. 같은 상품이 여러 topic에서 반복
-    등장해도 한 번만 등록해두면 이후 생성되는 모든 대시보드에 자동으로 채워진다."""
-    path = Path(__file__).resolve().parent.parent / "output" / "product_links.json"
-    if not path.exists():
-        return {}
-    return json.loads(path.read_text(encoding="utf-8"))
-
-
 def _load_naver_product_links() -> dict[str, str]:
     """_load_product_links()와 같은 패턴, 네이버 커넥트용(2026-08-04, "네이버 커넥트도
     주소를 그냥 너가 알고있게 해야겠다 쿠팡처럼"). 이미 링크를 확보한 상품은 이 파일에서
@@ -1006,40 +967,36 @@ def _load_naver_product_links() -> dict[str, str]:
 
 def _dock_products(
     products: list[str],
-    product_links: dict[str, str] | None = None,
     naver_links: dict[str, str] | None = None,
     naver_brandconnect_id: str | None = None,
 ) -> str:
     if not products:
         return ""
-    product_links = product_links or {}
     naver_links = naver_links or {}
     rows = ""
     for idx, name in enumerate(products):
-        coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
         # WHY search.shopping.naver.com이 아니라 brandconnect.naver.com인지
         # (2026-08-07, "네이버 브랜드커넥트 연동 링크는 이런 형태로 들어가야하는데
         # 지금 네이버 쇼핑쪽 링크를 던지고 있네" — 실제 사용 링크 예시로 발견):
         # 일반 쇼핑 검색 결과가 아니라 브랜드커넥트 자체 상품 검색 페이지로 바로
         # 가야 그 자리에서 커넥트 링크를 만들 수 있다. ID는 data/affiliate_accounts.json의
-        # naver_brandconnect_id 재사용(쿠팡처럼 topic마다 다른 게 아니라 계정
-        # 고정값). quote_plus인 이유: 네이버가 실제 쓰는 URL이 공백을 %20이 아니라
-        # +로 인코딩해서(실측 예시 URL 그대로) 맞춰준다.
+        # naver_brandconnect_id 재사용(topic마다 다른 게 아니라 계정 고정값).
+        # quote_plus인 이유: 네이버가 실제 쓰는 URL이 공백을 %20이 아니라 +로
+        # 인코딩해서(실측 예시 URL 그대로) 맞춰준다.
         naver_search_url = (
             f"https://brandconnect.naver.com/{naver_brandconnect_id}/affiliate/products/search"
             f"?query={quote_plus(name)}&tab=product"
             if naver_brandconnect_id
             else f"https://search.shopping.naver.com/search/all?query={quote(name)}"
         )
-        link = product_links.get(name, "")
         naver_link = naver_links.get(name, "")
         naver_goto = (
             f'<a href="{_esc(naver_link)}" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>'
             if naver_link else ""
         )
         rows += DOCK_PRODUCT_ROW_TEMPLATE.format(
-            name=_esc(name), coupang_url=coupang_url, name_attr=_esc(name), idx=idx,
-            link_value=_esc(link), row_class=" linked" if (link or naver_link) else "",
+            name=_esc(name), name_attr=_esc(name), idx=idx,
+            row_class=" linked" if naver_link else "",
             naver_link_value=_esc(naver_link), naver_goto=naver_goto,
             naver_search_url=naver_search_url,
         )
@@ -1057,14 +1014,13 @@ def _dock_products(
         '<button type="button" class="copy-comment-links">'
         '💬 댓글용 링크 텍스트 복사</button>'
         f'{rows}'
-        '<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
+        '<p class="dock-hint">네이버 커넥트 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p>'
         '</div>'
     )
 
 
 def _product_links_bottom_section(
     products: list[str],
-    product_links: dict[str, str] | None = None,
     naver_links: dict[str, str] | None = None,
 ) -> str:
     """WHY(2026-08-02, "쿠팡 링크 맨 아래에도 추가해달라고 했는데 언제까지
@@ -1082,17 +1038,10 @@ def _product_links_bottom_section(
     복제해도 안전하다."""
     if not products:
         return ""
-    product_links = product_links or {}
     naver_links = naver_links or {}
     rows = ""
     for name in products:
-        coupang_url = f"https://www.coupang.com/np/search?component=&q={quote(name)}&channel=user"
-        link = product_links.get(name, "")
         naver_link = naver_links.get(name, "")
-        link_html = (
-            f'<a href="{_esc(link)}" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a>'
-            if link else '<span class="bottom-product-nolink">등록된 링크 없음</span>'
-        )
         naver_html = (
             f'<a href="{_esc(naver_link)}" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>'
             if naver_link else '<span class="bottom-product-nolink">네이버 링크 없음</span>'
@@ -1100,8 +1049,6 @@ def _product_links_bottom_section(
         rows += (
             '<div class="bottom-product-row">'
             f'<span class="bottom-product-name">{_esc(name)}</span>'
-            f'<a href="{coupang_url}" target="_blank" rel="noopener">🛒 쿠팡 검색</a>'
-            f'{link_html}'
             f'{naver_html}'
             '</div>'
         )
@@ -1235,17 +1182,11 @@ def _update_topics_index(out_path: str):
                 }
                 if card_news_types & {"cards", "text"}:
                     tracks.append("card_news")
-                # WHY "shorts"를 다시 파생하는지(2026-09-08, 영상 트랙 재개 —
-                # 2026-08-25에 전면 중단하며 이 파생을 껐다가 2026-09-01 재개
-                # 이후에도 여기가 안 고쳐져서 108편이 실제로 렌더돼 있는데도
-                # 대시보드·mission-control 양쪽에서 "영상 없음"으로 보였다).
-                # _is_shown_platform과 동일하게 _VIDEO_TYPE_ALLOWED(유튜브 쇼츠·
-                # 네이버 클립만, 인스타 릴스·틱톡은 계속 보류)로 판별한다.
-                if any(
-                    p.get("type") == "video" and p.get("name") in _VIDEO_TYPE_ALLOWED
-                    for p in caption_spec.get("platforms", [])
-                ):
-                    tracks.append("shorts")
+                # WHY "shorts" 트랙을 안 붙이는지(2026-09-09 재중단): 2026-09-01
+                # 영상 트랙 재개를 다시 뒤집었다("영상 폐기한다... 카드뉴스만
+                # 한다") — 108편 mp4는 지우지 않고 그대로 두지만, 카드뉴스
+                # 단일 트랙으로 다시 표시한다. 재개했던 흔적은
+                # `git log -- lib/dashboard.py`에 남아있다.
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는
@@ -1704,7 +1645,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
             f"{spec_path}에 'platforms' 키가 없습니다 — card_news_spec.json이 아니라 "
             f"platform_captions.json을 spec_path로 넘겼는지 확인하세요."
         )
-    # WHY 여기서 한 번만 걸러내는지: _UI_EXCLUDED_PLATFORMS 정의부 WHY 참고 — 아래
+    # WHY 여기서 한 번만 걸러내는지: _ALLOWED_PLATFORMS 정의부 WHY 참고 — 아래
     # 모든 코드가 spec["platforms"]/spec.get("platforms", ...)를 그대로 참조하므로,
     # spec 자체를 미리 걸러두면 호출부마다 따로 필터링할 필요가 없다.
     spec["platforms"] = [
@@ -1722,14 +1663,13 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     affiliate_path = Path(__file__).resolve().parent.parent / "data" / "affiliate_accounts.json"
     affiliate = json.loads(affiliate_path.read_text()) if affiliate_path.exists() else {}
     disclosure = affiliate.get("disclosure", {})
-    _product_links_loaded = _load_product_links()
     _naver_links_loaded = _load_naver_product_links()
     dock_products = _dock_products(
-        spec.get("products", []), _product_links_loaded, _naver_links_loaded,
+        spec.get("products", []), _naver_links_loaded,
         naver_brandconnect_id=affiliate.get("naver_brandconnect_id"),
     )
     dock_products_bottom = _product_links_bottom_section(
-        spec.get("products", []), _product_links_loaded, _naver_links_loaded
+        spec.get("products", []), _naver_links_loaded
     )
 
     # WHY 다시 전체 글롭인지(2026-08-09, "지방간_1 이런건 왜 카드뉴스 형태

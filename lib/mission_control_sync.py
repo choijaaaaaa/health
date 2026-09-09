@@ -36,24 +36,14 @@ load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# WHY dashboard.py의 _UI_EXCLUDED_PLATFORMS와 정확히 동일한 값을 써야 하는지:
-# 저기서 카드로 안 보여주는 플랫폼(자동 업로드되거나 UI에서만 숨긴 것)은
-# 여기서도 "수동으로 캡션 복사+링크 이동"이 필요 없다는 뜻이라 똑같이 뺀다.
-# 두 파일이 어긋나면 mission-control과 로컬 대시보드가 서로 다른 플랫폼
-# 목록을 보여주는 사고가 난다 — dashboard.py 쪽 상수가 바뀌면 이것도 같이
-# 바꿀 것(같은 리스트를 import해서 공유하지 않는 이유는 dashboard.py가
-# Jinja류 순수 문자열 템플릿 모듈이라 무거운 의존성 없이 상수만 복제하는
-# 쪽이 이 작은 동기화 스크립트엔 더 가볍다는 판단).
-_UI_EXCLUDED_PLATFORMS = {
-    "틱톡", "TikTok",
-    "쓰레드", "Threads",
-}
-
-# WHY 이 2개만 예외인지(2026-09-08, 영상 트랙 재개 후 mission-control에
-# 다시 올리기로 확정한 채널: 유튜브·페이스북·네이버 클립뿐) — 페이스북은
-# type이 "text"라 아래 video 필터에 애초에 안 걸리므로 여기 없어도 통과한다.
-# 인스타그램 릴스·틱톡은 계속 보류(성장 우선 판단, CLAUDE.md 참고).
-_VIDEO_TYPE_ALLOWED = {"유튜브 쇼츠", "YouTube Shorts", "네이버 클립"}
+# WHY dashboard.py의 _ALLOWED_PLATFORMS와 정확히 동일한 값을 써야 하는지: 두
+# 파일이 어긋나면 mission-control과 로컬 대시보드가 서로 다른 플랫폼 목록을
+# 보여주는 사고가 난다 — dashboard.py 쪽 상수가 바뀌면 이것도 같이 바꿀 것
+# (같은 리스트를 import해서 공유하지 않는 이유는 dashboard.py가 Jinja류 순수
+# 문자열 템플릿 모듈이라 무거운 의존성 없이 상수만 복제하는 쪽이 이 작은
+# 동기화 스크립트엔 더 가볍다는 판단).
+# ⚠️ 네이버 블로그 단일 채널로 전환(2026-09-09) — dashboard.py 동명 절 WHY 참고.
+_ALLOWED_PLATFORMS = {"네이버 블로그"}
 
 
 def collect_rows() -> list[dict]:
@@ -86,14 +76,7 @@ def collect_rows() -> list[dict]:
 
         for p in data.get("platforms", []):
             name = p.get("name")
-            # WHY type=="video" 필터를 완화했는지(2026-09-08): 2026-08-25엔
-            # 영상 트랙 중단 + mp4 전량 삭제로 올릴 영상이 없어 전부 제외했다.
-            # 이제 영상 트랙이 재개됐고(CLAUDE.md 참고) 유튜브·네이버 클립만
-            # 다시 올리기로 확정 — dashboard.py의 _is_shown_platform()과
-            # 반드시 같은 기준을 유지할 것(어긋나면 두 화면이 다른 목록을 보임).
-            if not name or name in _UI_EXCLUDED_PLATFORMS:
-                continue
-            if p.get("type") == "video" and name not in _VIDEO_TYPE_ALLOWED:
+            if name not in _ALLOWED_PLATFORMS:
                 continue
             caption = p.get("caption")
             if not caption:
