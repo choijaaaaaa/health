@@ -204,7 +204,7 @@
   .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="../../../supabase_client.js"></script>
+<script src="../../supabase_client.js"></script>
 </head>
 <body>
 <header>
@@ -230,13 +230,6 @@
     <span class="dock-product-name">이온음료</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%9D%B4%EC%98%A8%EC%9D%8C%EB%A3%8C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%9D%B4%EC%98%A8%EC%9D%8C%EB%A3%8C&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="이온음료" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9D%B4%EC%98%A8%EC%9D%8C%EB%A3%8C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%9D%B4%EC%98%A8%EC%9D%8C%EB%A3%8C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     
@@ -253,13 +246,6 @@
     <span class="dock-product-name">전해질 보충 음료</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%A0%84%ED%95%B4%EC%A7%88%20%EB%B3%B4%EC%B6%A9%20%EC%9D%8C%EB%A3%8C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%A0%84%ED%95%B4%EC%A7%88%20%EB%B3%B4%EC%B6%A9%20%EC%9D%8C%EB%A3%8C&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="전해질 보충 음료" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%84%ED%95%B4%EC%A7%88+%EB%B3%B4%EC%B6%A9+%EC%9D%8C%EB%A3%8C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%A0%84%ED%95%B4%EC%A7%88+%EB%B3%B4%EC%B6%A9+%EC%9D%8C%EB%A3%8C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     
@@ -269,7 +255,7 @@
     </div>
   </div>
 </div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+<p class="dock-hint">네이버 커넥트 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
 </div>
 
 <section>
@@ -299,22 +285,22 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_14_00_%ED%91%9C%EC%A7%80.jpg" download="어지럼증_14_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-0" spellcheck="false">저나트륨혈증, 물 많이 마셨는데 어지럽다면 - 물 안전하게 마시는 습관
+  <textarea class="caption-box" id="cap-0" spellcheck="false">물은 많이 마실수록 좋은 게 아니에요, 신장은 시간당 1리터가 한계예요
 
 00 · 표지
 
 
-물을 충분히, 아니 오히려 넘치게 마셨는데도 머리가 핑 돌고 힘이 빠진 적 있으신가요? &quot;물은 많이 마실수록 좋다&quot;는 말만 믿고 짧은 시간에 들이켰다면 저나트륨혈증을 의심해볼 수 있어요. 우리 몸의 나트륨 농도는 일정 범위로 유지돼야 하는데, 물을 빠르게 많이 마시면 신장이 배출 속도를 따라가지 못해요. 이때 혈액 속 나트륨이 희석되면서 어지럼증·두통·메스꺼움으로 이어지는데, 평소 습관 세 가지가 이 위험을 더 키워요.
+신장이 한 시간에 처리할 수 있는 물은 800~1000mL 정도로 정해져 있어요. 하루 목표량을 채우겠다고 짧은 시간에 그보다 빠르게 들이켜면, 배출이 따라가지 못하면서 혈액 속 나트륨이 희석돼요. 그 결과로 나타나는 게 어지럼증과 두통, 메스꺼움이에요. 물을 적게 마셔서가 아니라 빠르게 마셔서 생기는 문제라, 마시는 방식만 바꿔도 달라져요.
 
 01 · 왜 물을 많이 마셨는데 어지러울까요
 
 
-확인해야 할 건 목표량을 채우려고 짧은 시간에 벌컥벌컥 마시는 것, 땀을 많이 흘린 뒤에도 맹물만 계속 마시는 것, 소변 색을 확인하지 않고 무조건 많이 마시는 것 이 세 가지예요. 이런 습관이 겹치면 나트륨이 배출 속도보다 빠르게 희석되면서 저나트륨혈증으로 이어져요.
+이 상태를 저나트륨혈증이라고 불러요. 우리 몸의 나트륨 농도는 좁은 범위 안에서 유지돼야 하는데, 희석되는 속도가 배출 속도를 넘어서면 균형이 깨지거든요. 확인해야 할 건 목표량을 채우려고 짧은 시간에 벌컥벌컥 마시는 것, 땀을 많이 흘린 뒤에도 맹물만 계속 마시는 것, 소변 색을 확인하지 않고 무조건 많이 마시는 것 이 세 가지예요.
 
 02 · 목표량 채우려고 짧은 시간에 벌컥벌컥
 
 
-먼저 하루 목표량을 채우려고 짧은 시간에 벌컥벌컥 들이켜는 거예요. 신장이 한 시간에 처리할 수 있는 물은 800~1000mL 정도로 정해져 있어서, 그보다 빠르게 마시면 나트륨 농도가 급격히 떨어져요. 요즘 SNS에서 화제인 &quot;하루 몇 리터 물 마시기&quot; 챌린지처럼 짧은 시간에 목표량을 몰아 채우는 방식이 특히 위험해요.
+자주 지목되는 건 하루 목표량을 채우려고 짧은 시간에 벌컥벌컥 들이켜는 거예요. 신장이 한 시간에 처리할 수 있는 물은 800~1000mL 정도로 정해져 있어서, 그보다 빠르게 마시면 나트륨 농도가 급격히 떨어져요. 요즘 SNS에서 화제인 &quot;하루 몇 리터 물 마시기&quot; 챌린지처럼 짧은 시간에 목표량을 몰아 채우는 방식이 특히 위험해요.
 
 03 · 목마를 때 조금씩 나눠 마시기
 
@@ -324,7 +310,7 @@
 04 · 땀 많이 흘린 뒤 맹물만 계속 마시기
 
 
-두 번째로는 땀을 많이 흘린 뒤에도 전해질 없이 맹물만 계속 마시는 거예요. 땀으로 나트륨이 이미 빠져나간 상태에서 물만 채우면 나트륨 농도가 더 빠르게 떨어져요.
+여기에 겹치기 쉬운 게 땀을 많이 흘린 뒤에도 전해질 없이 맹물만 계속 마시는 거예요. 땀으로 나트륨이 이미 빠져나간 상태에서 물만 채우면 나트륨 농도가 더 빠르게 떨어져요.
 
 05 · 땀 많이 흘렸다면 전해질 음료 함께
 
@@ -334,7 +320,7 @@
 06 · 소변 색 확인 안 하고 무조건 많이
 
 
-마지막으로 소변 색을 확인하지 않고 무조건 많이 마시는 거예요. 이미 수분이 충분한데도 계속 들이켜면 나트륨이 과도하게 희석돼요.
+여기에 하나가 더 붙어요 — 소변 색을 확인하지 않고 무조건 많이 마시는 거예요. 이미 수분이 충분한데도 계속 들이켜면 나트륨이 과도하게 희석돼요.
 
 07 · 소변이 연한 노란색이면 충분한 신호
 
@@ -360,7 +346,7 @@
 </section>
 
 
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">이온음료</span><a href="https://www.coupang.com/np/search?component=&q=%EC%9D%B4%EC%98%A8%EC%9D%8C%EB%A3%8C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">전해질 보충 음료</span><a href="https://www.coupang.com/np/search?component=&q=%EC%A0%84%ED%95%B4%EC%A7%88%20%EB%B3%B4%EC%B6%A9%20%EC%9D%8C%EB%A3%8C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">이온음료</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">전해질 보충 음료</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 

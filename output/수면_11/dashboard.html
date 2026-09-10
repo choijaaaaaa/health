@@ -204,7 +204,7 @@
   .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="../../../supabase_client.js"></script>
+<script src="../../supabase_client.js"></script>
 </head>
 <body>
 <header>
@@ -230,13 +230,6 @@
     <span class="dock-product-name">무알코올 맥주</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="무알코올 맥주" value="https://link.coupang.com/a/fSQfk8IuyW" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC+%EB%A7%A5%EC%A3%BC&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC+%EB%A7%A5%EC%A3%BC&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     <a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a>
@@ -253,13 +246,6 @@
     <span class="dock-product-name">카모마일차</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%B9%B4%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%B9%B4%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="카모마일차" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%B9%B4%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%B9%B4%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     
@@ -269,7 +255,7 @@
     </div>
   </div>
 </div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+<p class="dock-hint">네이버 커넥트 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
 </div>
 
 <section>
@@ -299,22 +285,22 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EC%88%98%EB%A9%B4_11_00_%ED%91%9C%EC%A7%80.jpg" download="수면_11_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-0" spellcheck="false">잠꼬대, 자다가 말을 한다고 가족이 얘기해주지 않나요? - 잠꼬대 줄이는 습관 3가지
+  <textarea class="caption-box" id="cap-0" spellcheck="false">잠꼬대의 절반 이상은 얕은 잠 단계에서 나와요
 
 00 · 표지
 
 
-자다가 나도 모르게 말을 하거나 웅얼거려서 가족이나 룸메이트가 놀랐다는 이야기, 들어보신 적 있으신가요? 잠꼬대는 흔한 증상이지만 왜 나오는지, 어떻게 줄일 수 있는지는 잘 모르는 경우가 많아요. 오늘은 잠꼬대가 나오는 이유와 줄이는 습관을 하나씩 짚어볼게요.
+자다가 말을 하거나 웅얼거려서 가족이나 룸메이트를 놀라게 했다면, 꿈 때문이라기보다 잠이 얕아진 구간을 지나는 중이라는 신호일 수 있어요. 잠꼬대 자체는 흔하고 대부분 가볍게 지나가지만, 부쩍 잦아졌다면 그만큼 얕은 잠이 늘었다는 뜻이거든요. 그래서 줄이는 방법도 말을 참는 쪽이 아니라 잠을 깊게 만드는 쪽에 있어요.
 
 01 · 왜 잠꼬대가 나올까요
 
 
-잠꼬대는 자다가 말을 하거나 웅얼거리는 현상으로, 얕은 잠 단계에서 뇌가 완전히 쉬지 못할 때 주로 나타나요. 실제로 수면다원검사에서는 얕은 잠(N1·N2) 단계에서 절반 이상의 잠꼬대가 나타나고, 깊은 잠과 렘수면에서도 각각 20~25% 정도 나타난다는 결과가 있어요. 잠꼬대를 늘리는 대표적인 요인은 스트레스와 불안, 잠들기 전 음주, 불규칙한 수면 시간, 이 세 가지예요. 하나씩 살펴볼게요.
+잠꼬대는 뇌가 완전히 쉬지 못한 상태에서 말하는 회로만 잠깐 깨어날 때 나와요. 실제로 수면다원검사에서는 얕은 잠(N1·N2) 단계에서 절반 이상의 잠꼬대가 나타나고, 깊은 잠과 렘수면에서도 각각 20~25% 정도 나타난다는 결과가 있어요. 그러니 얕은 잠 구간을 늘리는 요인이 곧 잠꼬대를 늘리는 요인이에요. 스트레스와 불안, 잠들기 전 음주, 불규칙한 수면 시간 이 세 가지를 하나씩 살펴볼게요.
 
 02 · 스트레스와 불안
 
 
-먼저 스트레스와 불안이에요. 낮 동안 쌓인 긴장이 밤까지 이어지면 뇌가 완전히 이완하지 못하고 얕은 잠 단계에 더 오래 머물러요. 실제로 외상 후 스트레스장애(PTSD)가 있는 사람은 그렇지 않은 사람보다 잠꼬대를 훨씬 더 자주 겪는다는 연구 결과도 있어요. 스트레스가 심한 시기에 잠꼬대가 늘었다면 이 부분이 원인일 가능성이 커요.
+의외의 원인은 스트레스와 불안이에요. 낮 동안 쌓인 긴장이 밤까지 이어지면 뇌가 완전히 이완하지 못하고 얕은 잠 단계에 더 오래 머물러요. 실제로 외상 후 스트레스장애(PTSD)가 있는 사람은 그렇지 않은 사람보다 잠꼬대를 훨씬 더 자주 겪는다는 연구 결과도 있어요. 스트레스가 심한 시기에 잠꼬대가 늘었다면 이 부분이 원인일 가능성이 커요.
 
 03 · 잠들기 전 긴장 풀기
 
@@ -324,7 +310,7 @@
 04 · 잠들기 전 음주
 
 
-두 번째로는 잠들기 전 음주예요. 술을 마시고 자면 초반에는 잠이 빨리 드는 것 같지만, 실제로는 수면 단계가 얕아지고 뇌의 각성 관련 부위가 불규칙하게 활성화돼요. 이 과정에서 잠꼬대뿐 아니라 자주 깨는 증상까지 함께 늘어나요.
+생각보다 잠을 얕게 만드는 건 잠들기 전 음주예요. 술을 마시고 자면 초반에는 잠이 빨리 드는 것 같지만, 실제로는 수면 단계가 얕아지고 뇌의 각성 관련 부위가 불규칙하게 활성화돼요. 이 과정에서 잠꼬대뿐 아니라 자주 깨는 증상까지 함께 늘어나요.
 
 05 · 음주 습관 조절하기
 
@@ -334,7 +320,7 @@
 06 · 불규칙한 수면 시간
 
 
-마지막으로 불규칙한 수면 시간이에요. 잠드는 시간과 일어나는 시간이 매일 달라지면 뇌가 일정한 수면 리듬을 만들지 못해요. 이렇게 수면 리듬이 흔들리면 얕은 잠 단계가 늘어나면서 잠꼬대도 함께 잦아져요.
+무엇보다 바탕이 되는 건 불규칙한 수면 시간이에요. 잠드는 시간과 일어나는 시간이 매일 달라지면 뇌가 일정한 수면 리듬을 만들지 못해요. 이렇게 수면 리듬이 흔들리면 얕은 잠 단계가 늘어나면서 잠꼬대도 함께 잦아져요.
 
 07 · 기상 시간 일정하게
 
@@ -360,7 +346,7 @@
 </section>
 
 
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">무알코올 맥주</span><a href="https://www.coupang.com/np/search?component=&q=%EB%AC%B4%EC%95%8C%EC%BD%94%EC%98%AC%20%EB%A7%A5%EC%A3%BC&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><a href="https://link.coupang.com/a/fSQfk8IuyW" target="_blank" rel="noopener">🔗 등록된 링크로 이동</a><a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">카모마일차</span><a href="https://www.coupang.com/np/search?component=&q=%EC%B9%B4%EB%AA%A8%EB%A7%88%EC%9D%BC%EC%B0%A8&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">무알코올 맥주</span><a href="https://naver.me/xtNIblzX" target="_blank" rel="noopener">🟢 네이버 커넥트로 이동</a></div><div class="bottom-product-row"><span class="bottom-product-name">카모마일차</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 

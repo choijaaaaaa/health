@@ -204,7 +204,7 @@
   .lightbox img { max-width: 100%; max-height: 90vh; border-radius: 12px; }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
-<script src="../../../supabase_client.js"></script>
+<script src="../../supabase_client.js"></script>
 </head>
 <body>
 <header>
@@ -230,13 +230,6 @@
     <span class="dock-product-name">아연영양제</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%95%84%EC%97%B0%EC%98%81%EC%96%91%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%95%84%EC%97%B0%EC%98%81%EC%96%91%EC%A0%9C&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="아연영양제" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%95%84%EC%97%B0%EC%98%81%EC%96%91%EC%A0%9C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%95%84%EC%97%B0%EC%98%81%EC%96%91%EC%A0%9C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     
@@ -253,13 +246,6 @@
     <span class="dock-product-name">손소독제</span>
   </div>
   <div class="dock-product-market">
-    <a href="https://www.coupang.com/np/search?component=&q=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a>
-    <button type="button" class="copy-market-link" data-url="https://www.coupang.com/np/search?component=&q=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&channel=user" title="검색 링크 복사 — 파트너스 링크 생성기에 붙여넣기용">🔎 복사</button>
-    <div class="product-link-row">
-      <input type="text" class="product-link-input" data-market="coupang" data-product="손소독제" value="" placeholder="쿠팡 링크 붙여넣고 Enter">
-      <button type="button" class="copy-product-link" title="입력한 파트너스 링크 복사">📋 복사</button>
-    </div>
-    <div class="link-error" data-for="coupang"></div>
     <a href="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&tab=product" target="_blank" rel="noopener">🟢 네이버 검색</a>
     <button type="button" class="copy-market-link" data-url="https://brandconnect.naver.com/978391003266240/affiliate/products/search?query=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&tab=product" title="검색 링크 복사 — 브랜드커넥트 링크 생성기에 붙여넣기용">🔎 복사</button>
     
@@ -269,7 +255,7 @@
     </div>
   </div>
 </div>
-<p class="dock-hint">쿠팡 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
+<p class="dock-hint">네이버 커넥트 링크를 붙여넣으면 아래 각 플랫폼 카드 캡션에 자동 반영돼요.</p></div>
 </div>
 
 <section>
@@ -299,17 +285,17 @@
   </div>
   <div class="action-line">캡션 복사 → 붙여넣기 (표지 이미지는 위 다운로드 버튼으로 별도 삽입, 나머지는 번호 위치에 해당 이미지 직접 삽입)</div>
   <a class="asset-link" href="card_news/%EA%B3%A0%EB%A0%B9_11_00_%ED%91%9C%EC%A7%80.jpg" download="고령_11_00_표지.jpg">🖼 표지 이미지 다운로드 (선택)</a>
-  <textarea class="caption-box" id="cap-0" spellcheck="false">면역력 저하, 감기 오래가고 낫지 않는다면 - 노년기 면역관리 습관 3가지
+  <textarea class="caption-box" id="cap-0" spellcheck="false">같은 감기인데 왜 나이 들수록 낫는 데 더 오래 걸릴까요
 
 00 · 표지
 
 
-감기에 걸리면 유독 오래가고, 작은 상처도 더디게 낫는다고 느끼셨다면, 그냥 나이 탓이라고 넘기기 쉬워요. 사실 이건 나이가 들면서 면역세포 힘이 약해지는 자연스러운 노화 신호예요. 노년기 면역력을 지키는 데 놓치기 쉬운 습관 세 가지를 정리해봤어요.
+감기 한 번 걸리면 젊을 때보다 확실히 오래 끌고, 작은 상처도 아무는 속도가 눈에 띄게 더뎌요. 이건 체력이 부족해서가 아니라 몸이 새 면역세포를 만들어내는 능력 자체가 줄어든 결과예요. 그래서 나이가 들수록 무엇을 챙기느냐에 따라 회복 속도가 크게 갈려요.
 
 01 · 왜 나이 들수록 감염에 더 취약해질까요
 
 
-나이가 들면 몸속 면역세포를 만들어내는 능력 자체가 자연스럽게 줄어들어요. 같은 감기에 걸려도 회복이 훨씬 느리고, 대상포진이나 폐렴 같은 감염병 위험도 함께 커져요. 감기가 유난히 오래가거나 상처가 더디게 아문다면 면역력이 약해졌다는 신호로 봐야 해요.
+면역세포는 한 번 만들어두고 평생 쓰는 게 아니라 계속 새로 만들어 채워야 해요. 나이가 들면 이 보충 속도가 느려지면서 침입한 바이러스에 반응하는 힘도 같이 떨어져요. 같은 감기여도 회복이 훨씬 느리고 대상포진이나 폐렴 같은 감염병 위험이 커지는 것도 그래서예요. 문제는 이 흐름을 더 빠르게 만드는 습관이 일상 속에 숨어 있다는 점이에요.
 
 02 · 잠 부족과 스트레스를 그냥 방치하기
 
@@ -360,7 +346,7 @@
 </section>
 
 
-<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">아연영양제</span><a href="https://www.coupang.com/np/search?component=&q=%EC%95%84%EC%97%B0%EC%98%81%EC%96%91%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">손소독제</span><a href="https://www.coupang.com/np/search?component=&q=%EC%86%90%EC%86%8C%EB%8F%85%EC%A0%9C&channel=user" target="_blank" rel="noopener">🛒 쿠팡 검색</a><span class="bottom-product-nolink">등록된 링크 없음</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
+<section class="bottom-product-links"><h2>상품 링크</h2><button type="button" class="copy-comment-links">💬 댓글용 링크 텍스트 복사</button><div class="bottom-product-row"><span class="bottom-product-name">아연영양제</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><div class="bottom-product-row"><span class="bottom-product-name">손소독제</span><span class="bottom-product-nolink">네이버 링크 없음</span></div><p class="dock-hint">링크 수정은 위쪽 "빠른 도구" 패널의 상품 링크에서 해주세요.</p></section>
 
 <div class="lightbox" id="lightbox"><img id="lightbox-img" src=""></div>
 
