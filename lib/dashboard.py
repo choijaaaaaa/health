@@ -1186,11 +1186,14 @@ def _update_topics_index(out_path: str):
                 }
                 if card_news_types & {"cards", "text"}:
                     tracks.append("card_news")
-                # WHY "shorts" 트랙을 안 붙이는지(2026-09-09 재중단): 2026-09-01
-                # 영상 트랙 재개를 다시 뒤집었다("영상 폐기한다... 카드뉴스만
-                # 한다") — 108편 mp4는 지우지 않고 그대로 두지만, 카드뉴스
-                # 단일 트랙으로 다시 표시한다. 재개했던 흔적은
-                # `git log -- lib/dashboard.py`에 남아있다.
+                # WHY 실제 mp4 존재로 판정하는지(2026-09-10 재재개): 2026-09-09에
+                # "shorts" 부착 자체를 지웠던 걸 되살리되, 판정 기준을 바꿨다 —
+                # 예전엔 캡션에 video 타입 플랫폼이 있으면 붙였는데, 그러면
+                # **영상이 없는 topic에도 숏츠 배지가 붙어** mission-control에서
+                # "영상 있는 게 뭔지 모르겠다"는 문제가 된다(실측: 네이버 클립
+                # 캡션 152건 중 실제 mp4는 108편뿐). 캡션이 아니라 파일을 본다.
+                if (output_root / rel / "shorts.mp4").exists():
+                    tracks.append("shorts")
             except (json.JSONDecodeError, OSError):
                 pass
         # WHY(2026-08-01): 목록에서 폴더명만 보고는 어떤 topic인지 한눈에 안 들어온다는

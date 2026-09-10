@@ -138,6 +138,52 @@ def collect_topic_meta() -> list[dict]:
     return rows
 
 
+def collect_topics_index() -> list[dict]:
+    """output/topics.json을 그대로 읽어 topics 테이블 행으로 만든다.
+
+    WHY 이 함수가 필요한지(2026-09-10): mission-control 목록의 "트랙" 배지
+    (🎬 숏츠 / 🗞 카드뉴스)는 health-shorts 자신의 Supabase `topics` 테이블을
+    읽는데, **그 테이블에 밀어넣는 코드가 이 저장소에 없었다** — 2026-09-09
+    커밋도 "별도 파이썬 스크립트로 반영"이라고만 적혀 있고 스크립트가 남지
+    않았다. 그래서 dashboard.py가 topics.json을 새로 계산해도 화면은 낡은 채로
+    남아 "영상 있는 topic이 뭔지 모르겠다"가 됐다. 정식 명령에 넣어 매번 같이
+    올라가게 한다."""
+    path = ROOT / "output" / "topics.json"
+    if not path.exists():
+        return []
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def push_topics_index(rows: list[dict]) -> int:
+    import urllib.request
+    import urllib.error
+
+    supabase_url = os.environ.get("SUPABASE_URL")
+    service_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not supabase_url or not service_key:
+        raise RuntimeError("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY가 .env에 설정되어 있지 않습니다.")
+
+    # ⚠️ topics는 mission_control 스키마가 아니라 health-shorts 자신의 public
+    # 스키마에 있다(mission-control의 hsSupabase가 그쪽을 본다) — 아래 두 함수와
+    # 달리 Accept/Content-Profile을 붙이지 않는다.
+    req = urllib.request.Request(
+        f"{supabase_url}/rest/v1/topics?on_conflict=topic",
+        data=json.dumps(rows).encode("utf-8"),
+        method="POST",
+        headers={
+            "apikey": service_key,
+            "Authorization": f"Bearer {service_key}",
+            "Content-Type": "application/json",
+            "Prefer": "resolution=merge-duplicates,return=minimal",
+        },
+    )
+    try:
+        urllib.request.urlopen(req, timeout=60)
+    except urllib.error.HTTPError as e:
+        raise RuntimeError(f"topics upsert 실패: {e.code} {e.read().decode(errors='replace')}") from e
+    return len(rows)
+
+
 def push_topic_meta(rows: list[dict]) -> int:
     import urllib.request
     import urllib.error
@@ -213,6 +259,10 @@ def main() -> None:
     meta_rows = collect_topic_meta()
     print(f"topic_meta {len(meta_rows)}개 topic(products/ad_tag/comment_keyword 있는 것만) 발견")
 
+    ti = collect_topics_index()
+    shorts = sum(1 for t in ti if "shorts" in (t.get("tracks") or []))
+    print(f"topics(트랙 배지) {len(ti)}개 — 이 중 숏츠 {shorts}개")
+
     if not commit:
         print("\ndry-run — DB에 쓰지 않았습니다. 실제로 넣으려면 --commit을 추가하세요.")
         return
@@ -230,6 +280,12 @@ def main() -> None:
         chunk = meta_rows[i:i + 500]
         meta_total += push_topic_meta(chunk)
     print(f"{meta_total}개 행을 mission_control.topic_meta에 upsert했습니다.")
+
+    topic_rows = collect_topics_index()
+    topic_total = 0
+    for i in range(0, len(topic_rows), 500):
+        topic_total += push_topics_index(topic_rows[i:i + 500])
+    print(f"{topic_total}개 행을 topics(트랙 배지용)에 upsert했습니다.")
 
 
 if __name__ == "__main__":
