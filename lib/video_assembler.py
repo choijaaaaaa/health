@@ -3247,14 +3247,6 @@ def assemble(
     title_card_duration: float = 0.2,
     title_card_text: str | None = None,
     title_card_char_path: str | None = None,
-    # WHY summary_card(2026-08-16, "결론을 먼저 던지자 — 훅 다음에 요약
-    # 페이지 하나 더" 요청): 제목 카드(훅, 프레임 0=썸네일 역할) 바로 뒤에
-    # 나레이션과 무관한 무음 카드를 하나 더 붙여서 이 영상이 줄 결론(예:
-    # "이런 증상엔 3가지 음식이 필요하다")을 원인 설명 전에 먼저 보여준다 —
-    # end_card와 같은 패턴(단색/캐릭터 블러 배경 + 큰 글자, `_make_title_card_png`
-    # 재사용). end_card_duration과 동일하게 기본 켜짐, 0으로 주면 끌 수 있다.
-    summary_card_duration: float = 2.4,
-    summary_card_text: str | None = None,
     # WHY motion_schedule(2026-07-31, 수면음식_1 — 대추/체리/호두 세 캐릭터가 각자
     # 대사 구간에만 나와야 함): [(start, end, motion_path), ...] 형태로 주면
     # motion_path 대신 이 스케줄로 캐릭터 트랙을 만든다. 시간은 나레이션(오디오) 기준
@@ -3496,26 +3488,6 @@ def assemble(
             check=True, capture_output=True,
         )
 
-        # 0-1) 제목 카드 바로 뒤에 붙는 "결론 미리보기" 카드(2026-08-16, "결론을
-        # 먼저 던지자 — 훅 다음에 요약 페이지 하나 더" 요청) — 원인 설명으로
-        # 들어가기 전에 이 영상이 줄 결론(예: "이런 증상엔 3가지 음식이
-        # 필요하다")을 먼저 보여줘서 시청자를 붙잡는다. 제목 카드와 같은
-        # 방식(단색/캐릭터 블러 배경 + 큰 글자)이지만 문구가 보통 headline+tip
-        # 여러 줄이라 폰트를 title_card 기본값(88)보다 작게 잡는다. summary_card_
-        # duration=0이면 통째로 스킵(end_card와 동일한 on/off 패턴).
-        summary_card_out = None
-        if summary_card_duration > 0:
-            summary_card_png = tmp_path / "summary_card.png"
-            _make_title_card_png(summary_card_text or title_card_text or title, summary_card_png,
-                                  font_size=56, char_path=title_card_char_path, lang=lang,
-                                  accent_color=accent_color)
-            summary_card_out = tmp_path / "summary_card.mp4"
-            subprocess.run(
-                ["ffmpeg", "-y", "-loop", "1", "-t", f"{summary_card_duration}", "-r", str(FPS),
-                 "-i", str(summary_card_png), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(summary_card_out)],
-                check=True, capture_output=True,
-            )
-
         # 0-2) 맨 끝 엔딩 카드 — 제목 카드와 같은 스타일(단색+큰 글자)로 구독/좋아요/
         # 팔로우 CTA. end_card_duration=0이면 통째로 스킵(기존 인트로 스킵 패턴과 동일).
         end_card_out = None
@@ -3533,7 +3505,7 @@ def assemble(
 
         combined = tmp_path / "combined.mp4"
         list_path = tmp_path / "scenes.txt"
-        scene_files = ([title_card_out] + ([summary_card_out] if summary_card_out else [])
+        scene_files = ([title_card_out]
                        + ([intro_out] if intro_out else []) + [main_out]
                        + ([end_card_out] if end_card_out else []))
         list_path.write_text("\n".join(f"file '{p.resolve()}'" for p in scene_files))
@@ -3543,13 +3515,12 @@ def assemble(
             check=True, capture_output=True,
         )
 
-        # WHY intro_offset(2026-08-16): 나레이션 타임라인이 시작되는 지점이 이제
-        # title_card 하나가 아니라 title_card+summary_card 두 무음 카드 뒤다 —
-        # 아래 배너/캡션/오디오 오프셋 전부 이 값 기준으로 통일해서 어느 하나만
-        # 놓쳐 어긋나는 사고를 막는다(summary_card_duration=0이면 기존과 동일).
-        intro_offset = title_card_duration + summary_card_duration
+        # WHY intro_offset: 나레이션 타임라인이 시작되는 지점은 맨 앞 무음
+        # 제목 카드 뒤다 — 아래 배너/캡션/오디오 오프셋 전부 이 값 기준으로
+        # 통일해서 어느 하나만 놓쳐 어긋나는 사고를 막는다.
+        intro_offset = title_card_duration
 
-        # WHY video_total: 맨 앞 제목 카드(+요약 미리보기 카드) + 맨 끝 엔딩
+        # WHY video_total: 맨 앞 제목 카드 + 맨 끝 엔딩
         # 카드가 붙어서 영상 전체 길이가 나레이션 길이(total_duration)보다
         # 길어졌다 — 이후 배너/자막 단계는 전부 이 늘어난 길이 기준으로 처리해야 한다.
         video_total = intro_offset + total_duration + end_card_duration
@@ -3568,8 +3539,7 @@ def assemble(
         # 카드 추가): 엔딩 카드도 마찬가지로 CTA 문구가 중앙에 크게 뜨는데, 예전처럼
         # gte로 열어두면 배너가 엔딩 카드 구간까지 계속 떠서 겹친다 — 나레이션
         # 구간(intro_offset ~ intro_offset+total_duration)에서만 뜨게 상한을
-        # 추가했다 — intro_offset은 title_card_duration에 요약 미리보기 카드가
-        # 붙으면 그 길이까지 더한 값(위 WHY intro_offset 참고).
+        # 추가했다(intro_offset은 위 WHY intro_offset 참고).
         cmd_inputs = ["-i", str(combined)]
         filter_parts = []
         current = "0:v"
@@ -3877,10 +3847,6 @@ if __name__ == "__main__":
                          "썸네일은 문제 제기 훅만, 상단 배너는 훅+주제 전체를 보여주고 싶을 때 분리")
     p.add_argument("--title-card-char", default=None,
                     help="제목 카드 배경에 크게 흐리게 깔 캐릭터 이미지 경로(안 주면 단색 배경만)")
-    p.add_argument("--summary-card-duration", type=float, default=2.4,
-                    help="제목 카드 바로 뒤에 붙는 '결론 미리보기' 카드 길이(초) — 0이면 생략")
-    p.add_argument("--summary-card-text", default=None,
-                    help="결론 미리보기 카드에 쓸 문구(이 영상이 줄 결론/요약) — 안 주면 --title-card-text 또는 --title 재사용")
     p.add_argument("--end-card-duration", type=float, default=2.0,
                     help="영상 맨 끝 구독/좋아요/팔로우 CTA 카드 길이(초) — 0이면 엔딩 카드 생략")
     p.add_argument("--end-card-text", default=None,
@@ -3917,8 +3883,6 @@ if __name__ == "__main__":
         title_card_duration=args.title_card_duration,
         title_card_text=args.title_card_text,
         title_card_char_path=args.title_card_char,
-        summary_card_duration=args.summary_card_duration,
-        summary_card_text=args.summary_card_text,
         motion_schedule=motion_schedule,
         bg_style=args.bg_style,
         end_card_duration=args.end_card_duration,

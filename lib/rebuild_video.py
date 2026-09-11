@@ -45,16 +45,12 @@ _TEMPLATE_RENDERERS = {
     "before_after_transition": _render_before_after_transition,
     "checklist": _render_checklist,
 }
-# WHY chalkboard+before_after_transition 1:1로 복귀(2026-08-11, "체크리스트는
-# 빼고 칠판이랑 before after 이 두개 해야겠다" — before_after_transition
-# 고도화(세로 중앙 정렬+크로마 디스필) 실측 결과 검토 후 재승인): checklist는
-# 같은 고도화를 거쳤지만 이번엔 제외 — chalkboard/before_after_transition만
-# 동률로 섞는다. checklist 코드·FORMAT_ROSTER는 그대로 남겨둠(나중에 다시
-# 풀에 넣을 수 있게 — timeline/ranking_countdown 로스터 제외 때와 동일 패턴).
-# 2026-08-10엔 이 반대로 "신규 포맷들 퀄이 너무 안좋다"는 판단으로 3:1:1
-# 가중치(2026-08-08)를 폐기하고 chalkboard만 남겼었음 — 그 결정을 이번
-# 고도화로 부분적으로 뒤집은 것.
-_FORMAT_WEIGHTED_POOL = ["chalkboard", "before_after_transition"]
+# WHY 판서형(chalkboard) 단독으로 통일(2026-09-11, 사용자 지시 — "헬스숏츠쪽
+# 영상 기존의 칠판 포맷으로 통일하라"가 여러 번 반복 지적됨): 2026-08-11에
+# before_after_transition을 1:1로 복귀시켰던 결정을 되돌린다. 신규 포맷
+# 코드(proto_*.py)와 FORMAT_ROSTER는 그대로 남겨두되 이 풀에서만 뺀다 —
+# timeline/ranking_countdown/checklist를 뺐던 것과 동일한 패턴.
+_FORMAT_WEIGHTED_POOL = ["chalkboard"]
 
 
 def select_format(topic: str) -> str:
@@ -530,21 +526,6 @@ def derive(topic: str) -> dict:
     hook = " ".join(spec["title"][:-1])
     subject = spec["title"][-1]
 
-    # WHY summary_card(2026-08-16, "결론을 먼저 던지자" 요청) — 이 topic의
-    # closing(요약+팁)을 훅 직후 무음 미리보기 카드 문구로 그대로 재사용한다.
-    # `proto_before_after_transition.py`의 CLOSING_READ_MIN과 동일한 공식
-    # (텍스트 길이 비례, 2.4~5.0초 범위)으로 읽기 시간을 잡아 두 포맷의
-    # 미리보기 카드가 같은 원칙으로 움직이게 한다.
-    closing = spec.get("closing", {})
-    summary_card_text = " ".join(
-        ln for block in closing.get("headline", []) for ln in block
-    ) or hook
-    summary_weight = (
-        sum(len(ln) for block in closing.get("headline", []) for ln in block)
-        + sum(len(ln) for ln in closing.get("tip", []) if ln)
-    )
-    summary_card_duration = min(5.0, max(2.4, summary_weight * 0.045))
-
     lead_name = _char_name(items[0]["char_file"])
     banner_photo = find_real_photo(lead_name)
     if banner_photo is None:
@@ -643,8 +624,6 @@ def derive(topic: str) -> dict:
         title=f"{hook} {subject}",
         title_card_text=hook,
         title_card_char_path=resolve_char_image(cover_char_file),
-        summary_card_text=summary_card_text,
-        summary_card_duration=summary_card_duration,
         title_banner_photo_path=banner_photo,
         end_card_text=end_card_text,
         end_card_char_path=resolve_char_image(cover_char_file),
