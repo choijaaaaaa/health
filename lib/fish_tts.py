@@ -17,7 +17,6 @@ from __future__ import annotations
 import base64
 import json
 import os
-import random
 import re
 import subprocess
 import tempfile
@@ -54,10 +53,26 @@ def _voice_reference_id(name: str, lang: str = "kor") -> str:
     raise ValueError(f"등록되지 않은 Fish Audio 보이스 이름({lang}): {name}")
 
 
-def _random_voice_name(lang: str = "kor") -> str:
-    """topic마다 등록된 보이스 중 하나를 난수로 골라 채널 전체 목소리가
-    단조로워지지 않게 한다(typecast_tts.py와 동일 원칙)."""
-    return random.choice(_voice_pool(lang))["name"]
+# 🚨 채널 기본 보이스 고정(2026-09-12, 사용자 지시 — "헬스숏츠도 이후 목소리는
+# 전부 AI 영상 콘텐츠 쓰는 TTS로 통일하자, 애새끼 목소리도 있고 난장판이네").
+# 이전엔 topic마다 _random_voice_name()으로 난수 선택해서 "단조로워지지 않게" 했는데,
+# 그 결과 같은 채널 안에서 성별·연령대가 제각각인 영상이 쌓였다. ai-video-network
+# (1biteinfo)가 쓰는 것과 같은 보이스로 맞춘다 — 두 채널군의 톤을 일치시키는 게
+# 목적이므로 여기만 바꾸지 말고 그쪽 기본값과 항상 같이 볼 것.
+DEFAULT_VOICE_BY_LANG = {
+    "kor": "30대 남자 인터뷰어",   # 차분하고 친근함 — 1biteinfo 기본값과 동일
+    "en": "Sleepless historian",
+    "ja": "落ち着いた男性",
+}
+
+
+def _default_voice_name(lang: str = "kor") -> str:
+    """채널 기본 보이스. 난수 선택은 폐기됐다(위 WHY 참고) — 의도적으로 다른
+    목소리를 쓰려면 호출부에서 voice_name을 명시할 것."""
+    name = DEFAULT_VOICE_BY_LANG.get(lang)
+    if name is None:
+        raise ValueError(f"기본 보이스가 정의되지 않은 lang: {lang}")
+    return name
 
 
 def _format_srt_time(seconds: float) -> str:
@@ -393,8 +408,8 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     그대로 output/ 아래 상대경로로 쓴다(언어 세그먼트는 호출부가 topic에
     이미 포함시켜서 넘긴다, 예: "눈_8/en")."""
     if voice_name is None:
-        voice_name = _random_voice_name(lang)
-        print(f"[fish_tts] 보이스 랜덤 선택({lang}): {voice_name}")
+        voice_name = _default_voice_name(lang)
+        print(f"[fish_tts] 채널 기본 보이스({lang}): {voice_name}")
 
     try:
         audio_bytes, words = _call_tts_batched(text, voice_name, lang)
