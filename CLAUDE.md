@@ -1237,6 +1237,10 @@ deleted`로 실패(리프레시 토큰 만료의 `Token has been expired or revo
   이 함수와 `card_news.py._sync_to_r2()`를 **같이** 고쳐야 한다.
 - 대시보드의 "카드 이미지 전체 다운로드"는 `<a download>`가 아니라 **fetch+blob**이다 —
   R2가 다른 오리진이라 download 속성이 무시되기 때문(버킷에 GET CORS를 열어뒀다).
+- ⚠️ `_sync_to_r2()`는 **저장소 `output/` 밖으로 렌더하면 업로드를 건너뛴다.** 안 그러면
+  pytest가 tmp_path로 `generate()`를 부르는 것만으로 테스트 픽스처가 실제 버킷에
+  올라간다(2026-09-13 실측, 13장 업로드됨 — 삭제 완료). **외부 저장소에 쓰는 코드를
+  렌더 함수 안에 붙일 땐 테스트 경로에서도 실행된다는 걸 먼저 확인할 것.**
 
 ## 카드뉴스 허브 (`lib/card_news_hub.py`)
 

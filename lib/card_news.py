@@ -803,6 +803,15 @@ def _sync_to_r2(out_dir: Path) -> None:
     업로드 실패는 경고만 하고 렌더 자체는 성공으로 둔다 — 로컬 파일은 이미 다 있고,
     네트워크 문제로 카드뉴스 생성이 통째로 실패하는 게 더 나쁘다.
     """
+    # WHY 저장소 output/ 밖이면 건너뛰는지(2026-09-13, 붙이자마자 실측): pytest가
+    # tmp_path로 generate()를 호출하자 테스트 픽스처 13장이 실제 버킷에 올라갔다
+    # ("test_creates_expected_number_a0/테스트토픽_1/..."). 실 파이프라인의 출력은
+    # 항상 <저장소>/output/ 아래이므로, 그 밖이면 테스트·임시 렌더로 보고 스킵한다.
+    project_output = Path(__file__).resolve().parent.parent / "output"
+    try:
+        Path(out_dir).resolve().relative_to(project_output)
+    except ValueError:
+        return
     try:
         import boto3
         from botocore.config import Config
