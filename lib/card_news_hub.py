@@ -11,10 +11,21 @@
 # 사용법: python3 -m lib.card_news_hub
 from __future__ import annotations
 
+# WHY 기본 User-Agent를 갈아끼우는지(2026-09-13 D1 이전): DB API가 Cloudflare
+# Worker로 옮겨갔는데, Cloudflare 엣지가 파이썬 기본 UA("Python-urllib/x.y")를
+# 403으로 막는다(curl·requests는 통과). Worker 코드가 실행되기 전 단계라 서버에서는
+# 못 막고, 이 한 줄이 없으면 이 스크립트의 모든 DB 호출이 403으로 죽는다.
+import urllib.request as _urlreq
+_opener = _urlreq.build_opener()
+_opener.addheaders = [("User-Agent", "Mozilla/5.0 (compatible; project-tools/1.0)")]
+_urlreq.install_opener(_opener)
+
+
 import json
 import os
 from datetime import datetime, timezone
 from pathlib import Path
+
 
 ROOT = Path(__file__).resolve().parent.parent
 
