@@ -24,6 +24,11 @@ load_dotenv()
 GRAPH_BASE = "https://graph.facebook.com/v21.0"
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "")
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
+# 🚨 이 버킷만 아직 Supabase Storage다(2026-09-13 기준). 나머지 이미지는 전부
+# Cloudflare R2로 옮기고 Supabase Storage는 비워둔 상태 — 배포가 네이버 전용으로
+# 바뀌면서 이 모듈이 호출되지 않아 남겨뒀다. **인스타/스레드 업로드를 재개할 땐
+# R2로 바꿔 올릴 것**(verticals/blog_image_store.py 패턴). 안 그러면 Free 1GB
+# 하드캡이 영상 50MB씩으로 금방 다시 찬다.
 TEMP_BUCKET = "social-media-temp"
 
 
