@@ -1,0 +1,1309 @@
+<!doctype html>
+<html
+        lang="ko"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Cache 사용안하도록 설정 -->
+<!--    <meta http-equiv="Expires" content="-1">-->
+<!--    <meta http-equiv="Pragma" content="no-Cache">-->
+<!--    <meta http-equiv="Cache-Control" content="No-Cache">-->
+    <!-- Cache 사용안하도록 설정 -->
+    <!--<title th:text="|식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기|"></title> SR202206080010-의약품등 정보 페이지 인쇄 시 짤림 현상 -->
+    <title>식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기-비쿨롱점비액(자일로메타졸린염산염)</title>
+    <link rel="stylesheet" href="/resources/css/import.css">
+    <!--    <link rel="stylesheet" th:href="@{/resources/css/druginfo.css}" >-->
+    <link rel="stylesheet" href="/static/lib/jquery/jquery.bxslider.css">
+    <script type="text/javascript" src="/static/lib/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/resources/js/front_script.js"></script>
+    <script type="text/javascript" src="/resources/js/common-pbp.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="/static/lib/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/lib/bootbox.js"></script>
+    <script type="text/javascript" src="/resources/js/qrcode.js/qrcode.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        var pkInfoView = false;
+        
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= $('body').position().top  ){
+                $('.scroll_menu ul li').removeClass('on')
+            }
+            
+            for (var i = 0; i < 12; i++) {
+                var srId = i+1;
+                srId = (srId < 10) ? '0'+srId : srId;
+                
+                if (0 < $('.scroll_' + srId).length) {
+                    if($(window).scrollTop() >= $('.scroll_' + srId).position().top -10 ){
+                        $('.scroll_menu ul li').removeClass('on')
+                        $('.scroll_menu ul li:eq('+i+')').addClass('on')
+                    }
+                }
+            }
+            
+        });
+        
+        $(document).ready(function () {
+            checkId();
+            $(".scroll_menu ul li").each(function(){
+                var friend_tab_scroll = $(this).attr("id");
+                if(friend_tab_scroll != undefined && $(friend_tab_scroll).position() != undefined ){
+                    friend_tab_top = $(friend_tab_scroll).position().top;
+                    $(friend_tab_scroll).data("top", friend_tab_top);
+                }
+            })
+            $(".scroll_menu ul li").click(function(){
+                var friend_tab_top = $($(this).attr("id")).position().top;
+                $("html, body").stop().animate({scrollTop:friend_tab_top}, 500)
+            })
+            
+            setFrText();
+            
+            getDrWarnList();
+            
+            if (0 < $("#tblChf").length) {
+                $('#tblChf').hide();
+            }
+            
+            $('.bxslider').bxSlider({
+                mode: 'horizontal',
+                moveSlides: 1,
+                slideMargin: 40,
+                infiniteLoop: true,
+                slideWidth: 1023,
+                minSlides: 1,
+                maxSlides: 1,
+                speed: 800,
+            });
+            
+            $(".s-acc-con > h2 > button").click(function () {
+                $(".s-acc-con").not($(this).parent().next(".ac-con").parent().toggleClass("on")).removeClass("on");
+            });
+            $(".s-acc > h2 > button").click(function () {
+                $(this).parent().parent().toggleClass("on");
+            });
+            $(".sec_top .btn_area .btn_folding").click(function () {
+                var div = $(this).parent().parent(); 
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                var div = $(this).parent().parent();
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                $(".mediWrap").toggleClass("left-close");
+                
+                if ($(this).attr('id') == 'btnChf') {
+                    var div = $(this).parent().parent();
+                    
+                    if ($(div).hasClass('fr-on')) {
+                        $('#tblChf').show();
+                    } else {
+                        $('#tblChf').hide();
+                    }
+                }
+            });
+            //탭
+            $(".ltab > ul > li > a").click(function () {
+                $(".ltab > ul > li").removeClass("on");
+                $(this).parent().addClass("on");
+                $(".l_sec_md").toggleClass("t-on");
+                return false
+            });
+            $(".btn_ham").click(function () {
+                $(".drug_allmenu").addClass("on");
+            });
+            $(".btn_hamx").click(function () {
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".en-tab > a:first").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con2").removeClass("on");
+                $("#en-tab-con1").addClass("on");
+                return false
+            });
+            $(".en-tab > a:last").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con1").removeClass("on");
+                $("#en-tab-con2").addClass("on");
+                return false
+            });
+            $(".menulist > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".menulist > ul > li > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            
+            var eeTitles = $('#_ee_doc p.title');
+            eeTitles.addClass('subj nock');
+
+            var eeIndents = $('#_ee_doc > div > p');
+            eeIndents.addClass('note');
+
+            var udTitles = $('#_ud_doc p.title');
+            udTitles.addClass('subj nock');
+
+            var udIndents = $('#_ud_doc > div > p');
+            udIndents.addClass('note');
+
+            var cls = 'on';
+            var nbTitles = $('#_nb_doc p.title');
+            nbTitles.addClass('subj nock');
+            nbTitles.each(function(i,e) {
+                var title = $(e);
+                // title.append('<a href="#none" title="'+title.text()+' 접기"></a>');
+                title.append('<a href="#none" title="'+title.text()+' 접기" style="text-indent: -9999px">' + title.text() +' 접기</a>');
+            });
+            
+            nbTitles.on('click',function(){
+                var title = $(this);
+
+                var div = title.next();
+                var divTag = div.prop('tagName').toLowerCase();
+                console.log ("aa"  + title.attr('title') )
+
+                var titleLength = title.children().attr('title').length
+                var titleText = title.children().attr('title')
+                if (title.hasClass('on')) {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-4) + ' 접기');
+                    title.find('a').text(titleText.substr(0, titleLength-4) + ' 접기');
+                } else {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-3)  + ' 펼치기');
+                    title.find('a').text(titleText.substr(0, titleLength-3) + ' 펼치기');
+                }
+
+                if(div){
+                    title.toggleClass(cls);
+                }
+                if('div' == divTag) {
+                    div.toggleClass(cls);
+                }
+            });
+            
+            var nbHeader = $('.scroll_05');
+            if (0 < nbTitles.length) {
+                nbHeader.append('<a href="#none" id="btnTct" class="xi-minus-circle xi-plus-circle" title="주의사항 펼치기" style="text-indent: -9999px">주의사항 펼치기</a>');
+            }
+            $('.scroll_05 > a').on('click',function () {
+                var hi = $(this);
+                hi.toggleClass('xi-minus-circle');
+
+                if (hi.hasClass('xi-minus-circle')) {
+                    hi.attr('title', '주의사항 접기');
+                    hi.text('주의사항 접기');
+
+                } else {
+                    hi.attr('title', '주의사항 펼치기');
+                    hi.text('주의사항 펼치기');
+
+                }
+                if(hi.hasClass('xi-plus-circle')){
+                    nbTitles.each(function (i, e) {
+                        var title = $(e);
+
+                        if (hi.hasClass('xi-minus-circle')) {
+                            title.find('a').attr('title', title.text() + ' 접기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.removeClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.removeClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.removeClass(cls);
+                            }
+
+                        } else {
+                            title.find('a').attr('title', title.text() + ' 펼치기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.addClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.addClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.addClass(cls);
+                            }
+
+                        }
+                    });
+                }
+            });
+            
+            var nbIndents = $('#_nb_doc > div > p');
+            nbIndents.addClass('note');
+            
+            $('#drugInfoLastMenu').on('keypress keydown', function(event) {
+                var keyCode = '';
+                var key = event.key;
+                
+                if (window.event) {
+                    keyCode = event.keyCode;
+                } else {
+                    keyCode = event.which;
+                }
+                
+                if (9 == keyCode) {
+                    $('.btn_hamx').focus();
+                }
+            });
+            
+            // 강제로 3종 문서 img에 alt="" 넣어주기
+            var eeImgs = $('#_ee_doc').find('img');
+            var udImgs = $('#_ud_doc').find('img');
+            var nbImgs = $('#_nb_doc').find('img');
+            
+            setImgsAlt(eeImgs);
+            setImgsAlt(udImgs);
+            setImgsAlt(nbImgs);
+            
+            //화면 최초 진입시 pkInfo 정보에 따라 생동성이 우선인지 아이템 정보가 우선인지
+            setPkInfoView(pkInfoView);
+            if (!pkInfoView) {
+                               //생동성 시험정보 없으면 출력 부분 추가하여 버튼 비활성화 기능 제거- 2021.01.29 cdsy
+                //$('#btnPkInfo').attr('disabled', true);
+            }
+            
+            $("._up").click(function(){
+                //$(".scroll_menu ul li.on").prev().click() 2024.06.17 SR202406170014
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop-500)}, 300)
+            })
+
+            $("._down").click(function(){
+                /*if($(".scroll_menu ul li").hasClass("on")){ 2024.06.17 SR202406170014
+                    $(".scroll_menu ul li.on").next().click()
+                }else{
+                    $(".scroll_menu ul li:eq(0)").click()
+                }*/
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop+500)}, 300)
+            })
+
+            $("._scroll_top").click(function(){
+                $("html, body").stop().animate({scrollTop:0},300)
+                return false;
+            })
+        });
+        $(document).ready(function() {
+            var h = $('#ezdrug-url-code').height();
+            var codeValue = 'https://nedrug.mfds.go.kr/pbp/ezdrug?itemSeq=201403811';
+            new QRCode('ezdrug-url-code', {
+                text: codeValue,
+                width: h,
+                height: h
+            });
+            setTimeout(function() {
+            $('#ezdrug-url-code img').attr('alt', '품목제조사 및 유통(사용기한) 정보 QR코드')
+                $('#ezdrug-url-code img').attr('title', '클릭 시 크게 볼 수 있습니다')
+                .css({'cursor': 'pointer'});
+            }, 100);
+            $('#ezdrug-url-code').click(function(e) {
+                e.preventDefault();
+                $('#_tmp_qrcode').remove();
+                $('body').append('<div id="_tmp_qrcode" style="display: none;"></div>');
+                var q = new QRCode('_tmp_qrcode', {
+                    text: codeValue,
+                    width: 512,
+                    height: 512
+                });
+                function openQrcodePopup() {
+/*
+                    if (!q._oDrawing._bIsPainted) {
+                        setTimeout(openQrcodePopup, 100);
+                        return;
+                    }
+*/
+                    var canvas = document.createElement('canvas');
+                    var margin = 32;
+                    var w = 512 + margin, h = w;
+                    canvas.width = w;
+                    canvas.height = h;
+                    $('#_tmp_qrcode').append(canvas);
+                    var ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, w, h);
+                    var imgEle = new Image();
+                    imgEle.onload = function() {
+                        ctx.drawImage(imgEle, margin / 2, margin / 2);
+                        if (window.navigator.msSaveOrOpenBlob) {
+                            var src = canvas.toDataURL('image/png');
+                            var bc = atob(src.substr('data:image/png;base64,'.length));
+                            var bas = [];
+                            for (var offset = 0; offset < bc.length; offset += 512) {
+                                var slice = bc.slice(offset, offset + 512);
+                                var ba = new Array(slice.length);
+                                for (var i = 0; i < slice.length; i++) {
+                                    ba[i] = slice.charCodeAt(i);
+                                }
+                                bas.push(new Uint8Array(ba));
+                            }
+                            window.navigator.msSaveOrOpenBlob(new Blob(bas, {type:'image/png'}), '201403811.png');
+                        } else {
+                            canvas.toBlob(function(blob) {
+                                window.open(URL.createObjectURL(blob), '_blank');
+                            }, 'image/png');
+                        }
+                    }
+                    imgEle.src = $('#_tmp_qrcode canvas:eq(0)')[0].toDataURL('image/png');
+                }
+                setTimeout(openQrcodePopup, 100);
+            });
+        });
+        
+        function setImgsAlt(array) {
+            if (0 < array.length) {
+                array.each(function(i,e) {
+                    var img = $(e);
+                    img.attr('alt', '');
+                });
+            }
+        }
+
+        function getDrWarnList(){
+            var chk = $('.dr_warn_list').find('li').length;
+            if(chk < 1){
+                $('.dr_warn_list').addClass('none_li');
+            }
+        }
+        
+        function setFrText() {
+            var frDivs = $('div.div_fr');
+            frDivs.each(function(i,e) {
+                var frDiv = $(e);
+                var frText = frDiv.find('h3').text();
+                
+                if (frDiv.hasClass('fr-on')) {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 접기');
+                } else {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 펼치기');
+                }
+            });
+        }
+        
+        function getDurDetailClick(durSeq,divId){
+            param = {};
+            param.durSeq = durSeq;
+            param.divId = divId;
+            
+            $.get("/pbp/CCBBB01/getDurDetailClick", param, function (result) {
+                $('#'+divId).replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailAClick(usjntSeq){
+            param = {};
+            param.usjntSeq = usjntSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailAClick", param, function (result) {
+                $('#druA').replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailGClick(effectSeq){
+            param = {};
+            param.effectSeq = effectSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailGClick", param, function (result) {
+                $('#durG').replaceWith(result);
+            });
+        } 
+        
+        function getPatentDetailClick(itemSeq,patentNo){
+            param = {};
+            param.itemSeq = itemSeq;
+            param.patentNo = patentNo;
+            
+            $.get("/pbp/CCBBB01/getPatentDetailClick", param, function (result) {
+                $('#patentDetail').replaceWith(result);
+            });
+        }
+        
+        function closeDrugInfoPopup() {
+            window.close();
+        }
+        
+        function downExcelFile(item_seq, division) {
+            $('<form class="hidden" id="excelForm" action="/pbp/CCBBB01/getExcel" method="post"></form>').appendTo('body');
+            $('<input type="hidden" name="itemSeq" value="'+item_seq+'" />').appendTo($('#excelForm'));
+            $('<input type="hidden" name="division" value="'+division+'" />').appendTo($('#excelForm'));
+            $('#excelForm').submit().remove();
+        }
+        
+        function setPkInfoView(boolean) {
+            if (boolean) {
+                $('.main_title').text('생동성시험정보');
+               // $('#btnPkInfo').removeClass('btn_line').addClass('btn_base');  웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_base').addClass('btn_line');
+                $('.notPkInfo').css('display', 'none');
+                $('.pkInfo').css('display', 'block');
+                $('.pkInfo').css('margin-top', '250px');
+                $('.drug_content').css('margin-bottom', '350px');
+                $('.pkInfo').addClass('ht140');
+            } else {
+                $('.main_title').text('의약품상세정보');
+               // $('#btnPkInfo').removeClass('btn_base').addClass('btn_line'); 웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_line').addClass('btn_base');
+                $('.notPkInfo').css('display', 'block');
+                $('.pkInfo').css('display', 'none');
+                $('.pkInfo').css('margin-top', '0px');
+                $('.pkInfo').removeClass('ht140');
+                $('.drug_content').css('margin-bottom', '0px');
+            }
+        }
+
+        function  checkId() {
+            var chk;
+            var chk2;
+            var listChk1 =$("#listChk").has("li").length;
+            
+            chk2 =document.getElementById("withdrawal2");
+            chk = document.getElementById("withdrawal");
+            
+            if(listChk1 == false){
+                $('.drug_header').removeClass('drug_list_down').addClass('drug_list_up');
+                $('.drug_content').addClass("drug_list");
+            }
+            if(chk == null && chk2 == null){
+                $('.drug_header').removeClass('drug_header-down').addClass('drug_header-up');
+                $('.drug_info_top').addClass('not_button');
+            }
+        }
+        
+        function goWindowToUrl(url){
+            window.open(url,'_blank');
+        }
+        
+        function decomposeFontSize($container) {
+            var fontSize = $container.css('fontSize');
+            return /([0-9.]+)([a-zA-Z]+)/g.exec(fontSize);
+        }
+
+
+        var scaleLevel = 3;
+
+        function toggleFontSelector() {
+            var $ele = $('.fontsize-selector');
+            if ($ele.is(':visible')) {
+                $ele.hide();
+            } else {
+                $ele.show();
+            }
+        }
+
+        function scaleFontSizeOf(ele, selector, level) {
+            var $ele = $(ele);
+            $('.fontsize-selector a').removeClass('font-select');
+            $ele.addClass('font-select');
+
+            var scale = 1;
+            if (level === 3) {
+                var $container = $(selector);
+                $container.find('*').each(function () {
+                    $(this).css({fontSize: '', lineHeight: ''});
+                });
+                $('.fontsize-selector').hide();
+                return;
+            }
+            if (scaleLevel > level) {
+                scale = scaleLevel - level;
+                reduceFontSizeOf(selector, scale);
+            } else if (scaleLevel < level) {
+                scale = level - scaleLevel;
+                enlargeFontSizeOf(selector, scale);
+            }
+            scaleLevel = level;
+            $('.fontsize-selector').hide();
+
+        }
+
+        function enlargeFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) + scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        function reduceFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) - scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        // 3종 문서 변경이력 팝업 호출
+        function getDocChangeDateList (itemSeq, docType, count) {
+            var popupTitle = '';
+
+            // if (count < 1) {
+            //     this.alert("변경이력이 없습니다.");
+            // } else {
+                if (docType == 'EE') popuptitle = '효능효과 변경이력'
+                if (docType == 'UD') popuptitle = '용법용량 변경이력'
+                if (docType == 'NB') popuptitle = '사용상의주의사항 변경이력'
+                pbpPopup('/pbp/CCBBB01/getItemChangeHistInfo?itemSeq='+itemSeq+'&docType='+docType, popupTitle, 1000, 1250, 0, 0)
+            // }
+        }
+        
+        //키프리스 지식검색 이동
+        function moveKiprisSearch(keyword) {
+        	var newForm = $("<form></form>");
+        	newForm.attr("method","post");
+        	newForm.attr("action","https://kipris.or.kr/khome/search/searchResult.do");
+        	newForm.attr("target","blank");
+        	
+        	var sParam = keyword;
+        	
+        	if(sParam){
+        		sParam = sParam.replace(/-/gi, '');
+        	}else{
+        		sParam = keyword;
+        	}
+        	
+        	newForm.append($("<input/>", {type:"hidden", name:"searchKind", value:"totalSearch"}));
+        	newForm.append($("<input/>", {type:"hidden", name:"queryText" , value:sParam}));
+        	newForm.append($("<input/>", {type:"hidden", name:"expression", value:sParam}));
+        	
+        	newForm.appendTo("#scroll_12");
+        	newForm.submit();
+        }
+    </script>
+    <style>
+        body, html {
+            min-width: 0;
+        }
+
+        .nav-down .main_title {
+            display: none;
+        }
+
+        .nav-down .drug_header-pics {
+            display: none;
+        }
+
+        /*#ezdrug-url-code-wrap {display: none;}*/
+    </style>
+</head>
+
+<body class="nav-up">
+<!-- drug_wrap -->
+<div class="drug_wrap">
+    <!-- drugHeader -->
+    <div class="drug_header" id="gnb">
+        <div class="inner">
+            <h2 class="s-hh main_title">의약(외)품상세정보</h2>
+            <div class="drug_header-pics">
+                <div class="dr_warn_list">
+                    <ul id="listChk">
+                        
+                        
+                    </ul>
+                </div>
+                <div id="ezdrug-url-code-wrap">
+                    <div id="ezdrug-url-code">
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <!-- <button type="button" class="btn_ham">전체보기</button> -->
+                <div class="drug_allmenu">
+                    <div class="title">
+                        <button type="button" class="btn_hamx">전체메뉴닫기</button>
+                        <h1><strong>비쿨롱점비액(자일로메타졸린염산염)</strong></h1>
+                    </div>
+                    <!--
+                    <div class="menulist">
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor1">의약품 기본정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor0" onclick="moveAnchor(0); return false;">원료약품 및 분량</a></li>
+                                    <li><a href="#subAnchor1" onclick="moveAnchor(1); return false;">효능 효과</a></li>
+                                    <li><a href="#subAnchor2" onclick="moveAnchor(2); return false;">용법 용량</a></li>
+                                    <li><a href="#subAnchor3" onclick="moveAnchor(3); return false;">주의사항</a></li>
+                                    <li><a href="#subAnchor4" onclick="moveAnchor(4); return false;">의약품 적정사용정보</a></li>
+                                    <li><a href="#subAnchor5" onclick="moveAnchor(5); return false;">재심사, 보험, 기타</a></li>
+                                    <li><a href="#subAnchor6" onclick="moveAnchor(6); return false;">생산/수입실적</a></li>
+                                    <li><a href="#subAnchor7" onclick="moveAnchor(7); return false;">변경이력</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor2">의약품 적정사용 정보(DUR)</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor8" onclick="moveAnchor(8); return false;">병용금기</a></li>
+                                    <li><a href="#subAnchor9" onclick="moveAnchor(9); return false;">연령금기</a></li>
+                                    <li><a href="#subAnchor10" onclick="moveAnchor(10); return false;">임부금기</a></li>
+                                    <li><a href="#subAnchor11" onclick="moveAnchor(11); return false;">용량주의</a></li>
+                                    <li><a href="#subAnchor12" onclick="moveAnchor(12); return false;">투여기간주의</a></li>
+                                    <li><a href="#subAnchor13" onclick="moveAnchor(13); return false;">노인주의</a></li>
+                                    <li><a href="#subAnchor14" onclick="moveAnchor(14); return false;">효능군 중복주의</a></li>
+                                    <li><a href="#subAnchor15" onclick="moveAnchor(15); return false;">분할주의</a></li>
+                                    <li><a href="#subAnchor16" onclick="moveAnchor(16); return false;">첨가제 주의</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor3">생동성시험정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor17" onclick="moveAnchor(17); return false;">시험정보</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor4">특허정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor18" onclick="moveAnchor(18); return false;">특허 등제 의약품 정보</a></li>
+                                    <li><a href="#subAnchor19" onclick="moveAnchor(19); return false;">특허권 & 대리인</a></li>
+                                    <li><a href="#subAnchor20" onclick="moveAnchor(20); return false;">특허권</a></li>
+                                    <li><a href="#subAnchor21" onclick="moveAnchor(21); return false;" id="drugInfoLastMenu">연혁</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+                <h1>
+                    <strong>비쿨롱점비액(자일로메타졸린염산염)</strong>
+                </h1>
+                <!-- 글자 수 별 글자크기 조정 -> 300자 이상인 경우가 있어 디자인 깨짐
+                <h1 th:if="*{#strings.length(item.itemName)<50}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h1>
+                <h2 th:if="*{#strings.length(item.itemName)>=50 and #strings.length(item.itemName)<100}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h2>
+                <h3 th:if="*{#strings.length(item.itemName)>=100 and #strings.length(item.itemName)<150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h3>
+                <h4 th:if="*{#strings.length(item.itemName)>=150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h4>-->
+            </div>
+            <div class="user_control">
+                
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://www.facebook.com/sharer/sharer.php?u=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201403811aupdateTs2026-08-01+14%3A21%3A11.0b&#39;)"
+                       class="btn_facebook" title="페이스북 새창열림">페이스북 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://twitter.com/intent/tweet?text= &gt;   HOMEPAGE &amp;url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201403811aupdateTs2026-08-01+14%3A21%3A11.0b&#39;)"
+                       class="btn_twitter" title="트위터 새창열림">트위터 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://story.kakao.com/share?url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201403811aupdateTs2026-08-01+14%3A21%3A11.0b&#39;)"
+                       class="btn_kakao" title="카카오스토리 새창열림">카카오스토리 공유</a>
+                
+                <a href="#" onclick="javascript:window.print(); return false;" class="btn_print_new" title="인쇄">인쇄</a>
+                <!-- 2019.01.25 주석처리 <button type="button" class="btn_print-1" onclick="printScreen(2); return false;">인쇄하기</button> -->
+            </div>
+            
+        </div>
+    </div>
+    <!-- //drugHeader -->
+
+    <!-- drug_container -->
+    <div class="drug_container" id="content">
+        <!-- content -->
+        <section class="drug_content">
+            <!-- ==========================================================  컨텐츠 시작  -->
+            <div class="drug_info_top notPkInfo">
+                <div class="l_sec1 scroll_01 empltyClass"
+                     id="scroll_01">
+                    <div class="dr_img">
+                        <div class="pc-img" style="min-height : 120px;">
+                            
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD//gA8Q1JFQVRPUjogZ2QtanBlZyB2MS4wICh1c2luZyBJSkcgSlBFRyB2NjIpLCBxdWFsaXR5ID0gMTAwCv/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/AABEIANwBIQMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/AP79Njf7P5D/AAo2N/s/kP8ACjJ4+7xn+7/8V/LFGfpgY7L7/wC19en6dwA2N/s/kP8ACjY3+z+Q/wAKP++evovt/td/8ntSZP8As9P9n0Pv7/8A1uoIAuxv9n8h/hRsb/Z/If4UZ57d8/d9Mf3v6j8RxSD32/kv/wAUP6/U0ALsbn7v5Y/px+FG1v8AZ/If4UHv0znuF6/99fzBNGfcevRfUH+97f5PNABtb/Z/If4UbG/2fyH+FGenTpjov/xX+ewozznjv/d9/wDa9/8A6/XIAbG/2fyH+FGxv9n8v/rUDv8Ad/Jf/ih3+tfD37T3/BRH9lj9k77XpnxK+Ille+NbWDz2+HnhCCTxR4xhRot8L6tpukrcp4atbhf9VqHiWbSNOYld12qsDW+Hw2IxdWNDC0KuIrT+GlRpyq1Jd2owTdl1drJatpGNfEUMLSlWxNalQow+KrWnGnCPa8ptK72SvdvRXZ9w7G/2fy/+tRtb/Z/If4V/Ir+0f/wcV+K783mnfAbwba+BreMyrbaz4kfRPFPiKQBwIzceHdNGq+Go42RXIltvHguUeRd9kvlNHL7N/wAEtv8Agoj+0b8fdL8Za58V/HmoePzLr/i230m0137Ho58PRaFa/DqcQaUngaHwklzYXJ8YXW9Nei169s3tbZbTVYEe4juvuaPhrxNUwVTHVaOHw8KcPaOhVrf7TKLsvdgo+xuuZOSnXhJJNqMnaL+DzLxN4Xy2rClUrYmsp1VR9vRoc1CNR62k3JV3dJ8soUJwcrJySbkv6hNrf7P5D/4mja3+z+Q/+Jr8+0+P3iLKt9iRWzyY/EHi4ggjcVMdzr1ynXJBCbRwMEYFakP7RHiSNWjYajtJ4EN/oztGuQQEa+8MX8jgZIzPLMT3JwSfKlwdnC0jTpt9VOpTjp3XLOpfp2376GdPxR4Vl8VfERu7Xjhq0kvW8INfJSXnbU+8Njf7P5D/AAo2t/s9uwz/AC5/Pmvh2D9ovVI2Jmk8SSIRkLJdeD5EQ9sCHwTZMygk7g0gbC8OCTWpF+0rfxIAdr8gl7vw7DeSjGcqHsfE2iQknK4byEPopB4xlwnnMf8AlzTfX3ZylfW32YPbr6M64eJHCc9sfOP/AF8oyp263fO4rX/hz7O2t/s/kPT6dP8A9eKNjf7P5D/Cvke2/aYQtiaKJ8kbQvhua1JyMBWI8X35UjpuVHyc4UAYPrWlfFKW60SXxHqOkWenaLbxedcTnUb+S/NsgIeeDTjoKRuclSsTaiFKliJsKu/ixGQ5phVGVXDSSnKMIv4XKcmlGEVU5JTnJuyjBSlfoevgOLsgzOU4YPHwqzp051qijCcvZ0aavOrUlTjOFOnFaynOUUlrex69tb/Z/If4UbW/2fyH/wATRntx+S+mP73+fpxRn3HcdF7/APAv8981459IG1v9n8h/8TRtb/Z/If8AxNH/AHz+S+3+1/nP0wZ+n5L7/wC17/55yAGxv9n8vT8P/wBfejY3T5fy/rjNAOPTt2Xsf94f56epMnH8PGf7vfP+1+fH59wA2N/s/l6fh/8Ar70bW/2fyH+FJn/d7f3ffP8AF7+34Uuec/L/AOO++f4s/r/9cANrf7P5D/CjYfVfwA9/Yf557UZ+nfsvf/gX+e+aTJ9u/QL0wfQn1/8A185AF2H2/ED39j/n6Cja3+z+Q/woJPt1PUL/ALXv6/5POTPOfl7dl7f8C/Dr+VABtb/Z/Ie3t/nn1o2N/s/l6fh/+vvRnnPy/kvoP9r69/8A6xn6duy9v+Bf57YoANjf7P5D/CjY3+z+Q/wozxjj8l6/99Y/Sgn6fkvv/te/+ecgBtb/AGfyH/xNFGR6L+S//F0UAHp8z8+x9P8APTP9aPxbPGeD7/5/x7LlvRvzH/xNGW9G5x6e/tx+X1PSgBOf7zdfQ9wPft/+oeqf8CbpnofQn+n/ANf0XLY6N+n/AMTn9KMt6N+n/wAT7f5yKADnONzc+x9Prn9P8aB/vP3HQ/8A16Mt6N+n/wATRlj2b9B/NaAA9zl+voen8v1H0owf7z+/B9f8Pr/SlJbnhuvt/Laf6/Wky3o36f8AxNABzxy/T0P49+34/U0d/vP19D7/AOHPH9cGW9G/T/4mly2ejf8Ajv8A8Tj9aAG84PzN07g49eev4/1Ff5avxx1jxBr3xD8bXOta3q2ryHxX4hcvqF9c3hMjards8pM8kmXlb5pGHzO3LMTk1/qVktg8N09v/iR+n/16/wAtT4rRgeN/GpwMjxR4i7Akgardt6HkY7d+5xz+yeEEIzxGfOSTcaOX8raTcb1MVe103rZXs1t5H5P4pzlHD5Ok2k6uN5km7O0cLa6W7V3a+iu9ddfTfhp+wx8dviZbeHNWeLwt4H8PeLYtIutB1jxfrqB9Vs9chtrzTLiz0Xw7b+INeU3lheW97ax32mWX2i2nhnSQQyCU/q5/wRts5NBh8e+H55jLc6P4v+K+myvCuLSd7KL4JWss4LkSK5ktla3Vl3eXNKXIIUHw74Z/HjxX/wAK++GB0q6tfCsnhLwJ4N0e11zQPBNxrOpxtpXhPRfDsV7qGreJb7X/AA3Y3Nzb6akEt1a+HdHuDCiR2V9Lc7Y39b/4JAXl1Lq/jqa7WSW4vPGHxoe7uT5YBuyPgjOwdFAxLK3nOuxdilJFCj5Qf1HJcdmuP/tulmKw0KFGlThh6NCFRTi/bzjKU5S5lNyhGm3KNRrm5moU9L/ifHmDyvA5XlFTASxE61XFqpiKtZwlCVqEJRUIQUHFqcqiSlT5rJXnOSdv6NNGtNCvraBbq+WynktoRPLNeWwS2ne41pGnEDpC0q5ttKj+yrKHSO9e4eXyxvhh1ay0+wt7Gaw1JdQa6a4Zxsgia3RBEIlkginuisjM0xbMu0rt2qpDFuASUA9dpwGIOMleeTljkN1wADnJ6nNWQ/Tv15HcY6jv0zk8DHXk15FXLZxrSn7abg5OXspRi4K6kkuZrnVrppRaXupcurb+Shm9KeEjR+pUFXhCMFioTqRqaTpycpU4tUpNxjJNyg5XqNqXuwUdg3AODuBByDyOvO45/TBHHfGDlPPGBjJyeBgHJHXJwwPuw47EjBxlmTOCCck+wwe3ftnI2rgcg+lemfDvwLc+K9RSafKaXbukk8rBgJMEHylLdWI4J9M45FcmLWHwNCricTONKjRi5TlJdNLJLrKT0jGNuaTstWr9GWUMfm+OoZfgKTr4nEzVOnCOyTtzTk9o04RXNOUrqMU9dDrvhd4DbXrpNX1KJk0q3YMquMfaZFOQASMGMEfMc4bp2ri/jT+0JbajqNv8PvAd1G2iW+oW1lrusWmxotReG5iSTS9NkQFW0+KQbbu8jO2+dPJgc2SySXvjf7Sn7VFis118F/hJexrp1nu0zxh4p0+UbJ3T9zceHdEuITholbMOs6jG2Jn8ywtn8pbp5vBfB+m313Lpq2FpdXjWrR6jdLbRSSfZrOzljnububy1YxW0ESlppn2opOMglTXqZBwbVxdCXFnElF4ehChVq5FlGIfL7Cn7Lmp5ljoysliKitPD0pL92nGrNc6pxh1cV8eYfIauH8POC67xWLxGMw1DiziDCpyli6rrQjWybLJQUpPC07zpYyvTd6lp0Kd4OvOf9GvOOr/kfQ/56/pzRg+r9+x/D/P8qXLejf8Ajvpn+7/np14pMt6N+n/xP/6+1fywf2+GD/eb8j7e/v8Ap9MgHqz/AJH3+vp/nnBlvRv0/wDiaMt6N+g/mtAAP95+3Y+uD6+n/wCs8UdvvP37Htn/AA55P4c4Mt6N+n/xNGW9G/T/AOJ//X2oAT0+Zu3Y9/x/xz2z2Xv95/yPv/h6UZb0b9P/AImjLdMN+n89uKADB9X79j/j3/D3xR+Ld+3+9/n/AA7GW9G/T/4mly3o3f09D6Ad/r/LIAh+rdT29N30/wA/oEc8M/5E9/w/l/hSknsG6+3+17H29R+hKZYdm/Q/yWgA7/ef8j7f4+n/ANc/F+3Y9/z/AM+tLlvRvzH/AMTj/PrmjLejdv7vf/gP/wCrvigBOcdX/I9Pz/rRz6v7cH39/b/PODLejfp/8TRlvRvTt/8AE/qKADB/vN/3y1FG5vRv0/8AiaKAD5eOvH+0P/iv5Yo+X0PGP4h74/i/r+A7rt6fKvvz7f59f60bf9leMdz7/wCef17ACfL6HGePmHYD/a7fj/Sj5ffpj7y+4/ve/wBP1yu3theD6n0/P8/y70m0/wB0dPX2P+f69wAHy5zz/wB9D/4rNA2j1/76Hf6NS7efur37n0/z0H5daAv+yvfqT/8AX/p+HcADt5HPv8w6+vLfzFGV9/8AvofX+9680bTg/Kvr1P5f5IFG3/ZX8z6/T+f8uKAE+X39PvD8P4u1L8vv1/vD3/2vf6/rRt6fKvT1P+efx9zRt5+6vfuff2x6dvwHYAQ7cHGeR/eHpx/Fz+tf5b/xVjH/AAnXjcHIA8U+Iunf/ibXgIB98nnrz2PNf6kG3APyjp6n6/56elf5c/xWUjx142zjH/CVeI1zyCP+JveHp1PU88DOcc81+yeD9/rWdq+9HAK3f38Xb+rXPyfxVv8AVcpaV7VMa/RcmG10af8AXofQWnfFXwz4U8HeE9cjtrHW7fwd4b8FWmvrNFcTa3bavDp+hpBY6VFqayWdxaviza7msr/TFskgnRI7t5olsP0K/wCCPtuP7I8Z3sTDaPit8TbMq8Y85lm8O/Dq4TlZGCqPsv7yMCTLGMqcIWr8Jrr4jeKNOsptH0y5sdKsXSxiuFstM05bm6m06KGK2vptQura51EX0Zt4poriG7h+zSjfZrbKFVf28/4I3XEkvhrUmmmaWSb4k/Ea4meSWR5nmk8E/DpjK5bcZmkJZ5HkYNvZWyWOa/aMBlv1GGNqdcQkm3UlNzipwaTjyRjBxlKrZQbTg4Rlqm3/AD7xlmH1zAYWmnpRrU2lyRgotxkm0+ZuSlCFK/NaUZKTjpJJfv1GeQCAwxgMB8pJ3ZOSOvUH5enHQHNng9OMf/X4I6e+ODyelU4jjkFTuOT6Y2g4O7BAPqMjnsM56nw34fvfEmpQ2NohwxHmybSUijG0OWIJGPTBG48E8A15+MdOhSqVq0o06VOLnUqTajGMYq8nJ6bWv+W9j4rAUK+Mr0MJhaVSviK9SNKlRpR5p1KkmlGMUur08lfW1rmx4O8JXfijUUhjTZaRujXM/QIgOSoJByzDoOgPJ4yK+X/2vf2yNM8Lwah8AfgdqSi9iE2lfEDxtpUqk6ecNDe+GvD91C3z6oWLw67qkT408GTTbST+0Tcy6f53+29+29p/wusNR/Z3+Amqq/jCSOTTfiP4+0udWbwuzL5d74b0K9icD/hJ5VLwaxqcTf8AFOozWVq415ribQvzM0iT4YfB74az/tB/tQeOf+FVfBHTrm5tLG9+zxX/AI9+LPiG0UPJ4G+DnhKaSO58WeJZ2McOo6s5j8L+E45W1LxNqlnaQSRt1cPcOYbEQpcZcXxeGyPDThV4fyavCcq2ZVm74fMMRg1GVSvKq1zZZl0YTqVl/tFSDpOKq/eY+pmOVUpcEcE03mHF+bw+r59m2EknHLqLsq+WYHFXUMNTo3tmmZSnCnSfNRp1FNOVL7P+BPw61Hxcuq6vc6hpHhXwP4Q0ybXvHfxD8V6hbaH4N8EeH7OGS5vdY8Q69qEtvYWcNvawzzrHJMjOkEkzNHbwXFzD8bfEf/gtl4H1j9pb4F/sW/sF2NtffDPxl8bPhv4J+NP7SPifSom134saXfeL9LsNa8OfDrRtTh3eHPA17BJcWk/iDUbUa3qNtPKNBsNGaNfEGufgP/wUD/4KvfFT9sq1j+EPgTS5PgV+yV4bvEk8J/BDw1qk0s3iae2lVrbxn8YvEcfkT+P/ABlcPHFdrDeKnh7QJYreLSNPa9t59a1H5V/YGuGX9t39kt1G54v2hfhJIoPO4x+NNHbac5J3428NtzkHBxW+e4jGcSTqYnMoPDZfQUquAyWM4yj7SnHmpYvNqlOThisVGSjOnhISlgcJJX5sXVjHER/SeBvCvJ+BMsxeOrunmfEuIwWIji82lBulhI1MPJVMJlMaiU6FJpuFXGTjDFYqLkrYajN4Zf7Evy+hx/vD0x/e9OPpRlff/vod+v8AF3o2+y/mfTHp+P8A9fmjb/sr37nv+HP+cYr+Mj+ig+X3/wC+h7f7XsKPl9/++h7/AO17mjb/ALI/M+3/ANf/AD1QgKCzBQqgsxJOAACSSTwAB1Ptn6AB8vv/AN9D1z/e7UfLjHPf+Id8/wC17/496wYvEmkTo0sE3mxoSC6xyAEqedocK5HYELg4JGRWtaXMF9bx3NqyywybwrgMvKM0bqVcKwZJFZGDchgRx1B/X4X/AC19ALHy+/b+Idv+Bf57Yo+XOef++h7/AO1nv/nmjb/sjt3P4/5P69l28/dX8z7/AOen+IAE+X37/wAQ7/8AAv8APejg+vf+IejH1Pv1/HPNLt6/Kvfufw/zx+FIR/sr37/X/P8Ah2AFIHv1P8Q77vU4/wAnk80fL15/76H1/vUmP9lep7ntn6f5647KVyfur+Z9fYD+X59KAEyM55/76Ht/te3+eMHy9s9ujDt0/i/z2xS45+6v5+w9v6f4k2n+6vbufx6/5+tACfLjHP8A30P/AIqj5fQ/99Dnr1+b3NLt4+6v5n/P64oK+y/meOv6dOn/AOoAMj3/AO+x/wDFUUbR/dH/AH0f8KKAG46fMvPsPT6fzx/Sjj+8vOOw9/b+ePfHdd3Tjnt8v8vm9KN3f6Y+X64x831/p3oATt1XOfQd/wAP6fU0f8CX8h7+3t/njK7u/v8A3e+P970/H8MUbvXv/s9Rzj+L6/rQAmOcbl/Ien0x+v68UAf7S/kP6gUu7p+ny/y+b6UBvT9F/wDsqAEPc7l6+g/wz/P60f8AAl/IeuPT/D8uacW69cA/3f8A7If0pN/+P3ff/e9f85oAT/gS9PQf4f4H2o7/AHl/Ie/t7ev9Mru6D6YG38sfN+VG4/j/ALv/ANl9aAG9jyvT0H+A/TvX+Xh8XXVPH3jkZAK+K/EfAHzEjV70dQOvJxk5ycjqTX+oiXyD9PT/AOyNf5sHiz4Gaf4o1PxT4u174k6H4RstV8SePLi2tL61jlvHOi+I9XtLmBWm1SwiQusCzRzyGOBFlbfIohmNfrnhTiqGEr5zUrzcIyhl9ONqc6jlJyxkuVRpwqS+GMnflsur2Py3xOw9fE4fKadCCnNTxsnecKajG2EV3OpKEV7zitZXbaSTZ+eGtXSq8hzkckZ4I6jHXjAA468de9fu7/wRj1FZdL1CFtx2+OPH0iupQIpfwb8PwyMuQxLLGm0ggIEIOd4x+O3j/wAG/DDQfh9qWq2fjaTWPHsWt6TaWei2+oaLJpzaNdWC3eo3xhsJr24mmtroi0QpfmIRB2uYIbwy2tt+rH/BFMXuq6j/AGZZQS3DXPjb4gFgilgJP+EL8CpGSF+6BvdQSCfnPOK/oOlWp1sLWrXnTo0+ZSnWg6UeWEqM5VF7SKfs+WV1LRO0ld2P5k4poV6dKnRhCNWtUqUlTpUJe2lKVT2kIU3Gnf8AeOULckW5PmjpZ2P6WtD0281y/gsbGJnklkVSoztVSwDSEnhAoAdipx8nXgA/GX7cn7c+nfA7TNV/Z/8AgTrEVx8UbuFrD4jePtPlWRfAscyeXc+H9CuoiVPjCVGaO9vIn2+Fo2aGF/8AhISX0Pnf23v25NI/Zv0DWvgr8INctJPjFe2UkHxA8e29xCbT4W2EsObnStNvS5iXxnJAT9on37PC0LGZ2GtGIab/ACm/Fb9sqbwmL+w+Dk41Xx5cyTfa/ihqUS31r4auJWdrm68GWV8kqan4qMhdYvGeqpLaaNMZr7wzY3WrjRfFulzlOQ0sy9lxDnuGqTyOjNVcjyacXGef4iHLKlmOOhNPkymlK08NRqxaxdo4mpCpQeHoYv6bhvIsfgk8qypwXEuKpKGcZte+H4ZwlVKNTB4atG3/AAq1YN08TUpN1MPd4ag41lXrYf7Y+K/7Rvwf/ZB0ga/8WrMfEz4z6hZR6p4L/Z4t9UuLSYPqEKXWmeKvjprtjImo+DPCN1HLFqVh4OsHh+I3jrT5ba4gHhHwzq2m+NLj8Cf2kv2pvjT+1j8RJ/iP8avFk/iLVks00jw1odpbw6P4O8B+GbR2/s3wf4A8JaesejeE/C+mISltpWlW0fnzGbUNSnv9Wu72/uMDVrLVvEGp3+sa1f3usa1qt9dalqmralc3N/qWqX99O91eX2o3t5JNdXl5d3Mks1zdXMss88ztLPJJIzFs2TwyCowoLc5JXIzk46jpjgYJyc9CDjuzCOYZrjPr2Mk51I80MPSjFqhg6UuVSpYWm2+RySXtqz5q2IaiqkvZU6NKj+3cL8O5Jwrg/q2Agp4ityvG4+qovE4upo06klfkowd/Y4eDVOndyfPWnUq1PLGkfoFI6jnIHGDxnkA5IByc45xkivsD9gSUD9t39ks7QoT9ob4REtzkhfG2jE4OCpyAWPA7YwDivDG8M5K70VgCRwuTsJAwAFGODyT65x8pFfVX7EPh6Oz/AGxP2XrmGEB4Pjz8K5EwMN8vjPR3J6khvQjnPA281wVsFiPYV3Z29lNu6f8AI76dPK2i630a9vMcTSeAxqvr9UxPVbexk+6+d9vU/wBfPjH3l/75Hpn0/p+vFGP9pe/Ydvw/z2zS7u//ALL7f73p/Ojf/X+H8T/F+Jr+Iz74T8U/Ie3t7/55xy/jTUhpHhfWb3coZbQwR4wGEl462iFeh3K0wcY/u5PFdTu/X/Z+n+19P0rxj42XzJoOkaZGxWTU9bh3DpugtIZnkU/NnHmy259OMHqCGt16r8xPZ9P689DP8OXEp0u3JY/Mp3DH+z6evJ49fpXe+Broy22qWrsN1tqBlUHB2x3kEcoUDB/5bLO2f9rua4jQoEisLWMtj5M9uCcHGOMHAxxx68cHe8Ds1tr2tWjHP2i0huFzkkraztGOCRgKLsL14Ax0xWFOXNOq+7uls90tn5O+91Y0atGGt/0SUbdt9/v31PUvxX8h/h/hjvRjnG5fyH+GP1pd/wDnb2/76o3c9Of93n2/i+tbECfivfsO34f57Uf8CX8vZh2/+v8Ayyu/H/7P/wBlRn29f4fZvc9/6+9AAfqv5f73sf8AP15Qj0ZfyH+B/wA+1O3Y/Mn7v+9nv/8AX9c80bj6HP8Au/l/F60ANxz95fyHt7Y/X+uAY/vL2/hHf8B/nril3c+/+79Mj73tzRv5+vH3f/sqAE7Z3L+Q/wAM/pR/wJfyHv7e3+eMrvx9P93/AOyo3/8A69v/ANlQAmD6p+n+FFO3H0P/AHyf/iqKAD05bj2P+H880fi3bsff2/mPz7JtHHyn35Hp/n0/pRt6Dae2eR7/AOe34dwBfxfrxwfT6f59O5P+BN09D7+3/wBf36YTbxja3X1HoM47fp+PajaP7p6DuPf6/p+Q7gC9+rfkfT6Y/wA9M80v4t37H/4n/PbFN2jP3W6+o9B/nqPr2AFH91vzHr+HXn+nqAB3qMt+R/Q7f5cUn4t+R9c+n+fTHFJt6/Kc59R/j/Q/Wjb/ALLenUev+fb+dAC/8Cbt2P8Ah/nvml/FvyPv/s+/+eMN2jj5T27j/wDX/L6DrRtGfun8x7+/07//AFwBT0PLdO4Pp9Pzr/Nvv/CniPVte17VtN0LwG9hN4r8b2AuvEaefc31xN4x8Rwu09sdHkS6+SVbJrQ6h5E9jbeRdTRR3CJb/wCkdtwDww49R+vtmv8AM28YeFH8TXfipE8FLqLN42+IUsWtz+JILKCKa91/XdJ0+9NpFqhvYzY39j5txbnT0ivLTT5JDDeMsCzfrnhXBTlnic401bLU5yUJJKX9oKyjOvh029l77d/svdfmPiS2oZRaMp2ljpcsXKLfL9S15o0qzSV7v3F/iWz8d+Jfwp0fUrxtT8S/EfQvD0en2Nlpr28OlypZwQ6bcy2EkMV3f6pBFdzW0cZEFrZvd3k6x4VHxDLd/Wn7JH7TVr+xd+y9rWp+FLqO3+Knxf8AFvj660DxY8KPdeDvhxYQaX4Sj13RYJGeOTxT4r1rQNZ0/QpE3Q6aulXupORLFZO/5L/ELQ9R8L69qGhar5H26xkVJzbO8kRdkU4WR442faCQx2gbwQOmT1XiW/ufEGveHvDMckg0nwR4Z8PeHbaxUkxQalbeG7O68Q8dC83iS/1u6YOf3clzOqgb2J/qXhzhyjmeLwuFzCt9fy+9GvPDunClh68IuMqVGqqacqtCU+XE1aNRyp4ilh5Ua3PSqThP8KjWUq2IxVOgsFVwlLEVJVlOdXEU6keSlz0nU92liLVHTo1YxjKhOUa0LVYRY/4qfFPxT8Tb28W8urq20a4u5bqWzkuZJ7rVLiSYzSX2uXrl5b+6lmYzvHIxgWYl9sk4Nw/iJ0AM2QgHPOckZ46DkDOOeuB1xX1JbfAT4oXo8GtB8OPHM6/EVrpfh60HhLXp18dHT5Ehv18HMmnMPExs5pI4rv8Asb7cbaV0Sby2IVtHUP2d/ilpHhGfx7qvw/8AFml+DbTxndfDq88R6joOoWOk2vj2ygkub3wdPd3MEKxeJbS3gnmutHfbfW6QzGWFRFKV/XK+UZRWqRdfH4WVSclRgnWpJuSnOkqNKN9GqlKrSVKCup06kLc8Z268FxLLLsOsPgsFOjRhHnkoQk1rGEnVqTtec5RlCcqs5SclOL5nGUWfJf8AYC7RhOwA4AG0HPA7ZP69c006CR0jAyT0XvkZ3HHTgE8c4+hH6Pv/AME7v20I4xj9lH9oZ1dAQY/g/wCOrjhsMGVoNDfPykYAA5B5HBPqP7HXwE+KPh/9pTV/h/qvwR+JeueP9O8D+JbDXvhraaJo+keOdKsdWtNMh1S6vPDvxFudF0xw2g6rJGLbVYJpIo9TtdXsLZby1tL628bF0eF6WCx2MwmZ5ZjXgcJPFVKVDMcGrU6fKuerV9pKFCkpOKlWqLkhdL3m4o9alxPm0q9CjVwGKoPE140aTqUMReTlbljCCgpVJuztCN3LV6K7PyQXw+q5wmcjGNoxnrxx1BPOOM9ugH0l+xzpAtv2r/2bpmUKI/jd8MnZwASqp4w0ljweeANw6gFc44GP3lsvgL+2vp13peoat/wTxi1CeDWYG1iOx8G+AWXVdHsrSSK21eeaS41YSeKrlri4/tf/AEWGyu7UPYw3NpZ3axWP5YfCTSX1H9trwJr50qDRReftJ6Tq76PbW9naW+lfaviJFdHTra2sJbnT4bex8w2qQWNzPZxxRCO1llhVXbycCsozrC5ssLLL5RweX1qzq4HOMvzVOc4VoqnUhgpylR5vZuVOdRpVI/CuaM1GM24izHCYd08RQxFN4qFSko4jC4rCPldOKcoOvCCnZ1FzKF+Vq0naUG/9Pr8W/I+mPT/PXrzS/i3fse//AAH/APV2xTdvH3T+Y9P8fb/CjaP7rd+4/Dp/nPrX+aJ/Uov4t+R9vb2/zzn51+NE7yeI/BtkMmOKK/uiCDndNNbxgkYwQPs2Ae2TjrivonaM/db8x7f/AF+h/wDrfNnxVYSfEDQ7fGfI0GKYDOSDNf6gp/8AHYgfp3OKqFubXZKT+6Lf6ETV42X80P8A0pG1pszBIl5ACYAwOCD7e3H8uma6Pw+WXxVaupIWewvYXxkkgCOUev8AFEp46frWBYRgRxt/snrnPU9PbnGPw7Cuh0Mf8VHp3HWG9UdM5+zOevQdAT6+h5rjpfxHrvzdd+vz7m7vydrNX79u2j2+XU9V/Fu3Y9vw5/znNHfq35H39sfp/wDWTb/sntnke+f88fh3Noz909u49/8APX8R0PUZi+vzN37Hv+H+Htig/wC83ftjsx74/wA+nGG7evyt37j/APX/AD9s0uP9lu/f/e/z/j/EAL+LdT2+vt/njgcYX8W/I/8AxP8An6U3Gf4W79/97/Of59zaM/dPbuPX6+nv+XWgBe/Vv++fp7f0/wDrn4t27Ht+H+e+aTaM/dbv3Ht7/wBfz5wBeejcY7j/AOt+n6UAL2+835H/AAJ/Wj8X/I+/t7/y9BTdvH3W79x/X/Dv34pdv+yfzHv/APW/z1AHfi3/AHz/APY0Um0f3T+Y/wDiqKAE+bjpz/tN6Z/vfy/lRz7c4/iPfPvz+H4Z7GV9F/X/AOJoyvXC/r7/AOz/AE+vagA+bHbk/wB488DH8X9c9OKPm9vX7x9/9r2/zzRlfRf19v8AZ/w/nRlfRf1/+JoAPm6cf99H2P8Ae9/88UDcfT/vo/0btmjK+i/r/wDE0ZX0X9f/AImgAO7k8cH+8f8AED+X0o+b2/76PXOP73+frxRlfRf1/wDiaMr6L69/X/d/T09qAD5uOnOD949/+Bfyz7UfNnHH/fTe/wDtZ7f55oyvov6//E0ZX0X9f/iaAE+bB47f3icf+PHtX+ZR4l8S+DtMv9fvdc0v4gzT6f4n8fRXVzo914mh0Y20PxA1q9jxPZalpFnbW7rdrDcQ2/2mNbtZrm41KC6nFpD/AKbBK4PC9Pf/AOJH86/y9fGfw3+NuvW3xA1vw+tg/gbUPHvjbSI1uNS0SF7r7V42uNIuIPstxnUW8u+lilVdrSRMr3ViocAn9p8HYUJ1s8WIxEMNByymCnPEfVueU5ZjFU4zSfNOSbcaf2uVv7J+VeKDrKhlLoUZ15r+0Hywoqs4qKwcueUW1aKaSlJPS67ny98avFfw38S3tovw/wDCuo6CkYsPtl5q08M93dSRabb2k8YEM86xwpcxt5WZZXljSKd/JuJbhGX4c6c2sa/fajIgb7XrWqOxPLc2pdCwAALthMgcE5x0Gc7xt8HvGnhTR7rxDrMekx6datpwkEGqwT3LPqEOn3MCR2wCzOYoNUsHuGChIjPsDNJDcJF6n+z5pjanCbkxspj1rVoT0IIjs/LRzwMiRVEiZGSsgIGCa/r7gx4WnjqtPC4h16VLBVqkKkq0q0pOlPDwd6knKUpKOJTtfRSWiV0fhWNnVo5VjK+IpxpVas8PTcY040oxjNV6jShCySbox6PWK5k29f7AfgZ4D0nS/Gv/AATi0fWfgJrfibTfhb+ydafENPj3HqHjO08I/DfXfEfhLXL7WNBez020XwXqutaheWdszR65fJf20OpWN1bwOVt/N/Ojx14b0Lxd+xV+xp4Z8a+KLTwPB8cf2g/2h/jXqWo6l4X8WeMra71XR/EN5oWl6fd+HfBVteeKdSOvf2vaabC2l20k2L9CZYELzx/Alh4x+J+m6dHomm/ELx3Y6NBbfYodKsvFviC00qGz2GM2cVhBqEdqlqYyY/s0cSxFCVK4PP6Jax8T/gbrOqf8E5vC194y1eLwL8D/AAbp8vxV1XwyvjXw9q/hHxN4g1mz1nxFbWOp6PbaZ4kS9068061eXWfCE886gefpF89wkePkpcI5jkGY4LGrE4zMufGYnG1KmXUMXWrYWOXZZxxmMJ06eMq4/DUMRjs34jwioYSnRhhJ4nDKUaFStXq83pR4swWaYLEYfkwuDccNQw9OONrYelTryxmP4Uwcozlh44StVoYXL8nxLq16lSWIhRry5qtOFKnb7L+GXgX4d/D2P4aftBeJtL+CGl/DPT/iTp2m2+peEvhd+33B44TXfD4l12MaZ4J13xjrkiLC+mM0WqeJPCd14TkkT7POb55Y7O4+TPgN4W/Zf+NH7cn7Xfj34peL/AnjzR/EGj+M/HXwsPiTxp48+BGhar4u8Q+I7HU7Hw5DruqXHgXxXbXPh2wlPhTUzfWBWRf7R1W00i9tLOG4r7Q0f9qj4VeAfF9x4t8EfHvwfrFjpN3rLeHdO8ffHL9vXxZDd6XcQ31pZJr3hTxLo2v+E9Q1X+z7iOQJPaXdrY6sI7uwljltra5T4m/YVuvFXxT8Zal8L7f4I/sm+KLFZvFHxP8AHfxZ+Onwf/4TjXPCvhozWR1idtQh8RaHPqFrFeXEI0fR5ZYSLu/nabUrXTo7i4s/m8DhM2p5Xxbm+NlxJlcv7JwmDpY7HYyOX4nD4Crjq2PrRoQlhqeK+s4aOFw+HrzwmOpSxzxsqdLB0KsKMp+xiczy+eO4dy3BvJMwcswxFeeFwWH+uUauLp4WhhaTqThXnQdGvOvXrUoYjCzjhFheeria9KdRL7v0PTtQ/ZQ1Of4jeHv2dP2afAniUeBtT1fS77V/+Cg3xK1x7rwtqFpLK2raT4U8daPrGnazBdrpsq6ffWOmSz3ckE1tp92sjy5/m+/Z10F2/aF+DN3IBLNJ8WfA08jS7j5ryeKNNaUsw+dtzHLE4LHJ9DX9Cn7WXxetpvhJ8O/2jvCPwu/Y/wD2g/hzql/J8H7PV/Hn7OXiDQ/FXhGfw8deuNI0XT7HVPiRqzR+F2TT9bvNMtFFimmefAPssv8AaReL8W/gjpht/jr8KtXntokEXxO8H6hMtvbx20CY8S2Fw6xQRJHbwQqfljiiijiiUKkaKirX1nhvSxCybiLMsXRccdjqDwGLrVcVm1fE+2ypZlRnga9LOswx2Pw0sHUxNT93Vp4W8q7nGlUi4zXzPHuZUo4nAYDDVVLDYenUxWGpwpZfToujmNLB1aeLpVMswWFwleOLp0qbU6M8TpSUZVISUoH+h182O3/fR9M/3v6/pzR83t3/AIj2/wCBfh/PFGV9F/X/AOJ/z+VGV9F/X/4mv8/T+xg+b2/76Pt/te/+eM/NPjON9T+Jt3tOwaXp2m2BDZO9nhOoeYgGf3eL7yzuwd6PgYwT1niG1+Lb69qs9lPoL+FkdX02EXd1aXy2q20TTi6WCOASMZ1nADTyAxlcYBKjlPCHxTsdTiWaG2scSKHZ1tChYk4z/rMkE4GB0+UnoDUVJShG6V01ZtWaSkmrPXezemm1hK0tG7O+l09XGS2Vm2ut0n+J2tpZMFjAdeABgg/UY/EYH+c6Wmx/Z9f0uRiCGa4hGDzvltpFXOduFzjJB98cGrNv4ySXGIrQ5XtG/qfViPw69RntViTxDbuu+S2twYwXEiKyPHgNlklQ+YhwT80ZDAEgZFckakIS5r3t0t306Sf697G3K+W2mvW/p0sv617ne/Nx05x/Ee//AAKj5s447fxN3/4Fn/PFczbNrsdzArW4Nq0qrP59xBL5cR++6MGNwzj+EF3BP8OK6bK+i/r/APE12RlzK9pR6WknF/c/zWhm1Z2un6NNfeg+b24z/Ee3X+Kjn27/AMR9GHcn+nv3wZX0X9f/AImjK+i9/X0PqB3/AM9KoQc+g65+8f8Aa9x/nr3wfNnHH/fTeuPXP+fXijK+i9ff39v8R9OKMr6L+v8A8TQAYbPb/vpu2OeufT+tA3eg7fxHv/wI9aMr6L+vt/s/5/PJlfRf1/8AiaAD5sZ4/wC+j/8AFf5waPm9vpuPv/tex/znBlfRf1/+Joyvov6//E0ALhvb82/xopNy+i/r/wDE0UAL6fMvHsPTHr/LFHp8y8Y7Dtn3/l09u6enzPz7H0/z0z/Wj0GX7dj75/zz+PYAXjpuXr6Dnj6/y/PsD/gS9Bjgds+/v/8AW9U5x1fOfQ8ZA6//AK/oO9H/AAJ+gJ4Pv/h/9c9gBe/3k4PoPQe/t6/j2oGB/En5D147j0//AF8Unf7z9fQ+gP19ex/qQA/3n/I9j+Pv/X3AF9RuXk88D/H+fNHHqn5DpnPr+n9eaTnnl8544P8An9R9KP8AgTenQ9c4/wA9/wCVAC+nzLkY7Dt+P+H4Ud87l/Ie/v7/AOecp6fM+OOx7/59/qaMc9X/ACPv/h6f1wABAweVPHoPTtg9TX+YbqHjHQNMXxrbeIdO+MV1pkHxF8b394/hq98W2fg1I4vF+qXiay5sNdsNMhk025tLXdPbWonW8t5ZJ/3ttE7/AOnjg4PLdO4PP6nHv/hX+Wvr/wATbaLS/H3gC8+Il5pFlrPxK8YaZrPh7+w7K4tItE1HxTqs97qYvzo812sipMzxJHfu63LE4iRFib9x8F8NPE1c/hCEqlp5K5qE60Jwh7TMeapCVClVlzwV3FOMYuTV5wdmflfidOMKeTuUuW6zKMbwpzUpNYLljKNWcI8sno2nKVrpRldo8T+Lfi74b+IdJePwpbaymqLfWZin1PXPFOsSf2fGmoxTQyf25eTWqKkEOjKGihaaWZQkS20Fnm7+6f2AP2dJfj34Ml0z4d+JLK5+NjeNtfurH4b6rcR6bH4k8E6d8PReyahoWqXSJZx6va63omqafPZ3V2ltKNQ02W5m0tGik1D865NE+F0n24SeMdYiaKe/WyhfS41nuYYGjFirOQdPja8DSs1y2orFAYAJIVFxG6/pX/wTIbw7qumab4b8Rpq1i1z8XNfvNA8ZeF9Qk0Txr4E1i0+G8Wo2+u+F9btysttcC40y0NxZTrNYXqxxtPbm4gtbi2/pajSxNL2sMoxOLw2MwqWJwtevQ+t/vUlTlRxGHrSovF4OvRqVqNehTxGHqqM1Ww1aliaVCS/D85zDAZVlrxec0I1csrVaWExsKU3hnTp11KUMRRrU4z9jXw9anTqwqTo16bipQq0KtKc4v1W50rxj8JfF9zpfizwtfeHfFWjvLa32heK9IubO5tjKphY3GnXqwCSOWIv5Uksc9rNFJ58O/EMq93/wuS+aS/Fr4S8HQw38ciOr6ffXk6LPfJfTyR3M+oyeRcyBTaNc2cVtKLUpHncGZ/2Uv/jHqdh4Zj0P9sf4Q6B+1b8GtPiFvpvx98F+GLCbxz4W09sIr/EDwqZINS8N36Iyi+8Q+H9V0q1YfJBea/qU8xPP237AH7F37TFlLrf7K3x5n8N6lLC90fCGoXA8UR6ahAZYZ/DWvTaF8QNJhzuia/1DUNUhJTzLcThCHyn4h4XBWlxfkOOyylSaozz3LKeIznh5yi4/xq2FpwzLLKrk3JYLM8tpYmim1JyXvy8qnwRHOFTq8J51l+byr0/a0MrxdehlWdSg7NewpV60sBmFNJJPFYDH1aNRpcqjdwj+TB+Ml7JIXbw34fQHTY9OMaWFiYDGLLS7EzNFLp8qNMU00thlKKJVjEYSFFb2X9n79rLUfgj8Q38VS+DNH8T+Ftb8Can8OPGHg8TRaIuv+G9X1F9RupodRstPMdnqkcxijSdrK4iksxNYiKBZopbX1j4lf8Erv2rvATXNzoPh/wAP/E/SId7i88D67bjUPJAJj83Q/EaaFqkty3y77fSodXKsSsckygy18OeMvhr8RPh3eDT/AB94F8XeDLsO0Udt4p8O6toMr7c7vJXVLS389Sq71kiLoyHejFWUn6TC4zgni7A18FgcwyrN8LiqLo18PhseniFTa0UqVOtDGYarHSUJ8tKvTmlOEozSkvAxOW8U8J46jjMVl2Z5RicLWVWjiMTg5qg6l0rQnVpSweJhLWM4Xq0akXKM1KLaPpH4+ftMaR8SPh94E+CXwt+HqfCv4K/DzUL3X9P8Oz6/c+J9e1zxTfi+Nx4h8Qa5cwWrTTxJqepxWVrDEVgXULoPcTW4sLXT/nT4eTtB478GXJYBofFXh+RT2Vk1a0YEnqQCAx5HA655HGB8ZQZYjnO3HXGRjHXkkDHA4xgE12ngM7vGvg4MBsHinQCxIONo1W03BsYO3GSGx6kHmvaw+WYLKcrr4TA0pQo8mLrzlUq18TXr4jEupWxGIxGIxNSriMRiK9WUqlStWqznKT1dopHiYzMMXmWLhiMbUVSo1hsPD2dOlh6VKhh4U6NChQw9CFOhQo0qUIwp0qNOEIxXw3cpP/QY9ty/kPTHr/n6cUcdmTv2Hf8AH8P55pOcdX/I+n+e/wCgzRg/3n79j+H+P+Ff5fn+iZT1H/kH3/K8Wd0RgDP+obp+X+eMfmn8IbxDpdp51xGrmJcq8gBwVAAKsc545yBwO/b6x/afnvIPhZP9iup4ZJfEXh6GaKNyhvLeS9HnWrLkebGRi4aM5BEAYghcnzH4c2840+3KWqB9oAzbxHjaB/EuPvZHTufpTqRf1aTTjaU+V3veLik7rVb8y210b6aZXjKuo+9eEG720aqSS83dcm3n1Or0+6hDKRcRAbcYEqY+8OPvY6ZPJ59xXSzXCC0uCJkOLdz99TnCH0PXg9B/Kt+2iuCELW8ZbHP+jwcdQAVC7eRj6/XmrE9mJI2Wa0iZWBDD7PEBg+oCgjgjI/mBXlcjd7vXyVttOsm/m97navu23u/xt/XqevDBAyV6DqAT9Dk/59u6987l7HoO2ff+v5dDzfhN5JNAsC8kjMv2mIFizlY4b25hiQknOI441jUHJCqByQa6Pvjc/bsff/D0/A9a9NO6T2uk7epzhxzymeew/Dv/AI/jS8+q9+2f7x9/85685bzz8zY57Ht+P+Hvil49W79Rn+8O/wDn+jAX/gS9SOn+9/nn8zzk753L27D1z6/1/I80n4t37f73+f8AD+E79X7dj6/4e359KAF7/eXv29ce/wDX/wCsYH95O3Yf4/57YpO/3n79j7f4+n5cZBnP3m7dj/if1/DNABxjkp37D/Ee3btS8f3l/Ie/v7/55y3kjO5u/Y/44/X8uaXB9X/I+/v9P89AB2f9pf8AP/AqKTA9X/X/AAooATLHs35gf+y/zpct6N27j3/2eP8AOe1Jxx14/wBoen+9/LH9KOPfjH8Q7Z9+Pw/DHcAMtjo36f8AxOf0oy3o36f/ABNHy8dev94dh/vf/X+go+X3/wC+h7/7Xv8A55yALls9G/Nf/icfrSZb0b9P/iaOM55z/vDvx/ezQNo9f++h3+jUALlueG/8d/lt/lmky3o36f8AxNL8vIwevI3D/wCK/nRlff8A76H1/vevNACZb0b9P/iaMt6N+n/xNHy+/wD30PXP96l+X3/76Hv/ALXuaAEJbB4bp7f/ABI/T/69f5Z2qz/EK9uPEdjpi+Azoiaj4q8k6xFqsl59hg+L/i67VdRWNbiyeabWbi/iCeWLVtLNojot4wkk/wBTHjBxnp/eH0GcN/Sv8r280TxvJf6gdP8Ahb4F8T6Tq3i/4i6pperaha6UdXvYdD8b39vrVvqN1eXMcg+zB/ItozGD9j8mW2M7QTwV+7eCTiq3EDlKhGzyeSeIlCMLw/tWbadScI80YxlNatqMZOzSZ+W+JalKOTqMakm/7RVqfNfX6glzcqb5W2k+l2tVueBeJ/hF4wt28QapMfD3k6ZdSTX8Wm6i3kQi4jW52WEM0KzS20JuFtcxmQW0mI7l0DJI/wCgf/BNSQxT+Hn3xgv8U/FkZUkCQ7fhNdSKY+STgphsjBGSDmvgK6+JXhBrWOO7+GujPcxPLNNPA0MbXkks17MsW9bWIWsSC6iUsYryXzLaCSB7WOLyH+6P+CelzBc+I9Bu7WFbG1f4qeOri1sCQ4t4bn4ZTiO1R/ut9miZIt4xuVcD73H9QZL9Z/tGpCvF80aUknaCvFSgpfDVqX095baO2tmfzh4pwvwHjXJWiq2Hae+vJU5Utmruyv0vd9l/Qv4Q8Z694Uv01LRL+ezuYmUOEY+VNGQwZJoyRFLE4ZldHDI4JUgHBHY3HwT+BPxwv4dY0SWP9n74xrMLm217wtGbbwXrmpA71n1HQLWS0TQ9Qnlwf7S8Oz6dtleS6urPUp8IfC7W5JPyuSDtyCBtIAH1GMknPQA5OABjpbSeQBZBI6kZdXRtpH8WVK4O4fKAcjPDc9K9TMslhjG8RhsRXy3MYwUKePwfL7RxSuqOKoTjPDY7DXbbw2Lp1Kf2oKE7TX8v5BxnmXDUo0JU6WaZPVmp4nKMc6jw07uKlVwlWnKOIy/F8qfLisFUpVVpCbnTvB/Uei/FX9sz9mG9tNF+I9x/wsHwgZIoNO1zXvO8T6NqcB4VtN8a232bXI7mRF3w2Ov3BuoVTzG0oRHc/wB1+BP2rfhp8SdKOneOfDk3h9buKOK+tNUtoPEvhy4WQYCPItr50kbHki70lIYlILTkBmHxB8KP2k9Y8KWw8M+MbWHxd4LvV+y3elatFHehbV8B0Ed0ksc0WMkwTI8bADAwK+novgv8M/iZpT+I/gprNto9zMPtFx4YuZ3fT0lKszQxbmlvtJdmY4iIu7JSEjhjtIvmX8I4s4cyGjV/4y/h2lk9apNRocY8LwqYTAVal4qM8fgqaqxwGLk2nKpWoYulKfNOOIoxVj+pOCvELirMqDreHHFUs+VGk5Y3w541nRxmbUKaiueOU5hVnh6maYKEVLkp4XFYGtCDhCeFr1LN+keIv2M/2K/jFavqTfCX4c3gujubVvATN4Rm+0OCTLPP4HvdFD3W7LOL5JmaTcJ43wVPx18Xv+CVfwA8D+G9f+J/gTxL8RdA1HwPp154utdCvtW0nW9Cu38PRnVorF/tWiwazDHctbCCS5OsXBjR1YI0gO+3qWk+OfhjrKRXcet+F9XiJMNzbXE9p58aMNz2d9aSeTeQbvlLW80sbH5ZMkEDd8Y/tG+P5vhh488M6/PZa9Zat4R1zS3u722S31K3hvtNuLPzUurTyIrgRLL5hF1bTTTMigzpy1cOG4c49yqeExPDHHmMzbJJ1aMpYTE4+pOEsFKcFVVCNWeMwFZSpcyc4PDc1/cjzWS96HirwBnMsVlfG3h7Dh3iTkq4eOIwmBp2hmDp2ovE8lLAZphZ+2cXGnUp41Q+3VUGz94Mt6N+n/xNGW9G/T/4n/P4Uvy+h/76Hpj+96cfSj5fQ9/4h36/xd+9fy0f1+fJ37RPivQ9ciX4YJNcW/iC31HQPEMktzAP7NNmPtTCJbiB5Lj7SQQdhtVQAg+ZzgTeB9G+zWsMbXdqSqDO37QTzjB4gBOAOw9fx8O+L8yXP7QXiaPfzZ6f4btiCxJXdotjdgd+oud3vn8/e/CiDyYsN/Apzk84A5z6d/8A62AbxkPZ0aCTdpw9o07byUHddbNNaGFCSqVKsmleNSVJWvrGEra673benXoenQWafKTdwH5cjHn9+OQYfbgd+nYVceBAj4niY4I/5acdR3jz249+c8nGZCBkfMOhAz+P0/AZPvV0gBTgnocjnqck+306nr0ryXoo+8/RLV2t8vl+Z6SV1a3pqu6Tekb/AH9Lm74UvYoraPRSWa8gF9duU5hMM2pTSJtdgGLhLiIOpUAHcASBk9flvRv0/wDia8z8N4XxOwz9/R7zvgkrfacRzxnAZiO/XkcV6Z8uc8/99D0x/e/z9K76TcqcW+mm1tjmkrNhub0b9P8A4mjLY6N+nofQDvj/ADjJ8vPXnP8AEvf/AIF/P8c0Hbjv3/i9mPYn3/P61oSLkjs3X29/Y/56dshLDs36f0U0mB3BHJ/iHfd749f1685X5fQ/99D6j+L8aAEy3o36f/E/yo3N6N+n/wATRkZzz/30Pb/a9v8APGD5fft/EO3T+L/PagAy3o36f/E0Zb0b9P8A4mj5cY5/76H9GxR8vv8A99D3/wBr3P50AG5vRv0/+Jopcj3/AO+x/wDFUUAG3GPlXv3PXH+fX+tJg8fKvbPP1/z3/HsmOnzLz7D/AA/nijj+8vb+Ee/t/P8AHHcAXacfdHUdz6c/5yfoetLt/wBlenqff/63v7+je3Vc59B3/D+n1NH/AAJenoPf2/8Ar+3TIA7Bz91e/f2H+en5dSBf9kfmfbHr/TPoO7eM/eX/AL5H+H9f14AP95fyH9QP/r0AO2nn5V6+p/8A1/y+nqbf9lfzPr9P8/QYpvHJ3L16bR/hn+f1o/4Ev5D1x6f5+gzQAu3p8o/M+v8An1+vQUu3/ZX8z6n2x6f54DfxX8h/hRj/AGl/Ie/t7ev9CQBduAeB09Tkfz/zxk1/lhQRXE+reImOgX95DbeKviEkV1Y+Nrfw/M8svjKRnhEdxqmjvZCYuguDHcOsqWtvMbhke5tYP9Ts8BiSvAzwBn144HOP1461/lfyaLLcXviTVh4Ys7yO28UeOrie90rxBdab4gnt7LXfGF/qFxLEFhtovMhs7S1SKSWaK8i0i1WV43Maj998DUubidtpW/sWzb5dX/a2l/a0dWtLc+qvo+n5b4ltJZJ3cswtpf8A6AfKXW2ttO6ZxmpeAPBN1qLQv8PvG+nQ2kupwXsVjL9tPm+csNn9nvU1nVbSaGxksNWWYxO8kqwJE3mzahpuPo/9giSPSPE3hm1KTW/l/FXx9B5F0ClxHHbfC+5jMdwrxwussZCJIvkwsJjh40ICjwTxRY6vph8SzeGNE+JGk+I7OS0hssa4mrIk19eTS3Vtqcf9r65HqFoLHUb5YmN3PNBK/wBqlgY3V7dwepfsS3t1F4u8H/alkFxJ8RvHdzcuQYZVuY/hs6SAmK2leJ2kuTuUKoHKqqk7k/p3h1SnmEqkqnPGVBpXm6kve5J3u6lVOLTSi+ZvRpLlSv8Azt4nwdTgfMKa6VaHut6rljUUrRaTVrqzVr21V7n9G3wr8J6b42v79NW8R2nhuw023gmmv7sRNhZZ1SXELzQOUgg8yeUgbioAXlnZfQPEfgG28L/D3T/Gp1GS5XUZ7WG3iWXTmiMt0LuYRSC1mnUStawRywm3u7k3G29YRIlhdPF4P8LLHxPrEXiS48O+KfDvhaK1s1bVJtdluRLqVjFp+pXV7p6s2j3MNxphsoLh9U0e8lj0/UMW63trd/Z4jb+2nwP448T/APCNeDNa8f6Y2n2yabBp9vPYxxS2Fvptn4lsnmg8yCwvNTttLtNEtjaXkrx6Pd6fr+l34vDHcR+XpmOMr4XNnKec4fDYGhWw1bEYOVGtOrHC0sPKdeEHTwkpOdaUlOTdeajCK5VCSlF/ztl+R4THZB7OPDeLxuaYrDYvD4TMFiqNGj9exOLoU8LUqe2x9OEYYanGUIWw8HOpUfO5wlCUfMItbVxFt43j1wR1xkE4JOPlxyQrZxwD33gj4peJPAWpxaz4e1S50+4t5gJEjdjFMiscpLHuCOh4BV0YbSAOFOPFdcshoWqx6at/BqAjsNJuGuLYSCBzqej2WpvbRrNidvsbXLWqmQQ3o+zs9xZoGu1ta0d63lkhsAPtaQMq7CGAKmdkaBlHAZbuOCQDMUpQ7XP1E8NhcwwnJVoU8ThMVSTdOtT5qdWjVimlOlVj8MoyXuyimuqTTt+Vc+PyXMVVwuIr4DMcvxElCth67p1sNiKNTkbp16U7JxlCS5qc3F2um07H7c/Cr9pz4c/GXTIvBvxN0/TbXV5ljQpqAjawvJSuxZ7Wc4ksbrOVjlilikRz+6lBKg8R+0n+zbBofw38e+LfBOpLc6Np/hbWtUvdJ1CXNxbWVpYT3NxLYX6qRfRxwozpbXIjuPLTC3VzK4Q/kva6jNbyxzRzPE0YLRyK3lbZF5JjbzERXwyZMF4rkKu+LGyUfTmi/tW+MdJ+Fnjn4eeJ5Jde0PX/AAb4h0GymuGka905tU0m7sIJIn2rLNbRNMm7fFHEsI8xZ5Qvmzfi+a+G2a8PYz+1eBMfLD4KeIhUzPhzFTdTBVKPPH6xUwSqNxp1Y0lJqPNTqKyjTrcr9nL+lOFfGbIeMqWFyDxVymljM2pRhSyTjLBUvY5nDFRt9To5l7BKdalOsoxlNRq0G5OVbDKV6y/pz2+y/mfTHp689f15o2+y9+5/Dt/n2pv/AAJfyHpn0/p+vFITgE5U4BOABk49OOp6AcZ7V/EJ/pKfmV8YbyHTPj14tu4oLjX5tQutIjuLXQbeaefRfsHhrQraNNWfUE0y0L3Kp5kA0261LYoZbhoJB5de9eENcEsUJOia9EDGmBLYxgjgY+5cuOCSByT068Gvnzwx4t0bxlruo+LrywZL3xDqE+pTgHPlfaH3RwKxySltCI4EySQkag85NfWvhnUNFWOMeSR8owQ2OOPxPGODgYHTBNdOYU58tGnJyjKnSjFpxTs4xirK1tHay1vpd6pnLgnF+0qR5XGpWnNJXu1J3bbdtXdeSfkkl0VvfqQCbDUhxnBtHJyeM/KTz0HfvV/7auw4sb/ODybWQeuepGMfj6YrShvdNOwqhAwDg5II6dSeevU4+gq695p5X5VxkdznPB9V/LoOvavEcJ6Wk7eUWla69Ox6aqK2sVZPR+em+6W7s729La4nhqZJvElu217Zxa3sKw3UckT3CuIZSYCFeJ/L8nc6tIr4IZUcZx6vt5+6OvqfT/H2/DvXjF5qVrZalpd/bgiW1vogV4O6G5b7LdJg/Ll4JpFTJO1ykg5UY9l79U/If4Y/WuygrU1F3um9+v8AXb/gGE/ib76/h8xdvX5R3xyfw/zx+HcK4/hXv3PofXH+fTsn4p+Q7f8AAf8A9faj/gS/gPZh2A/z+GdiRcf7K9T3PbP0/wA9cdlK5/hX8z/QD+X+FNPsV/L6+x/z9eQ9eCv5D6eh/n+lADtvJ+Ud+59v8T2/LjKbf9kdu5/H/Pb3pMc/eT8h/h/X164o/FPyHf8A4D+fp3oAXbx90Z57n/Pp3/LNLt6/Kv5n3+nt6D9MN7dV/If4Z/T+dH/Al/Ie/t7f54yAO2j+6P8Avo/4UU3B9U/T/CigBd3TH4fL7dPvfyo3e3pj5frjHzf57d6X05bj/ZPp9P55/rRz/ebt/Cff2/n+OewAm7j2z/d7jp/FRu/zt9M/7X1/Wl/4E3Ufwn/D/wCt6g9aP+BN+R9/b3/zxgATdz05/wB3n3/iz0x+FAb0/Rf/ALKl753N/wB8n0+mP0/XmgfVvyP+B/z2oAN3X68nb/8AZfzpN/8Anb/9lS+vLfkf8P5Ypfxb8j9f7v8Anp0oAbv/AM7f/svUfpRu/wA7ff8A3vX9aX/gTfkfX6f5/Qr+Lfkff/Z9/wDOBgAaWyCPb+7+Hqcflj+Vf5es3gfwNJZa1qep+BvilNrGpfETxpa3PiTwVqdvLY6npreL9QtVjGmwap9ohvLTTotV03yJNNAnlvYJxNc2z+Uf9Qs9Dyx47g46e44/P8a/zJbrwj4Mm1S+vrnxl478L6mda+Jk+uSW9lcXnhmK707xXrc/hqCFbuxOlKl3HLdvcSPfTRxXXnyGztG825uv6D8CIc8uJ1zYiCUsjblhoYicrRhnU+WccNJVHTly2s4VoyqOnH2Tk4yj+S+KU3BZJyqk21maSrSpQjeUstinGVZOKkr3upU5KKk+dJNP4+8eaxovhvWNIuPhP4+8a6lYTWVrfag+v3Etvf2Ws2GqXJtrWa2W3t7Z0gt7awniBa+jcSFWmCM1rD7p+yJeOfG3gYSKZbm58Z/EDUJZFhJZmXwJYLIQsNpKQC9yxKgqgLALGUJr5Pv9Om82R3G53ZnJwEO5iWOVGMEnJA2oEIIwOAPqL9layEfj74c3kih1j8Q/EW0KMLELuuPBOisPM+3sEA/dttTYemA6Ek1/YeGyj+z3GpFyq2UIOtV5JVZqdWHxyhCClZSaV4rRJPU/mbifNKeaZJjsLLkpz9lXm6cVyxvRweImuXmk2lzRXV2eu2r/AKB/hHpXxH8SWN9pXg6LwyNMvNVg0vUn1nSPCdzdtez6Lrmp2yD+2tEufElxDFo+ja9cQtplysFgtvqEqfYZHluJPYtC0r406Ra+BtXbxRZwp/bB8OeGJtevNQvzpmpeOPB2l3z2AnvdMufskb6AumRLHG2+0F3Hd2Lz2F+15B82fDj4meKfA9o1jopsRp9xdyX7W82n2katqbWosYtSS+s5AtxfWNlLdWNmt7J5dta6pq1mqC31q/8AO7y++K/jXW9JbSL66sljdmWW7g0y2srs2semf2HHYRi1jiis7K00R49CgtrKC2ntNDWDSLGddMlurRvFxOW5risdiHTw2S/Ua0kuath1PEyVSjUo16ldunKNSUqcuSSaV6TVFc6nOcPxGeb5Dl+Bwyr4viJ5jh4y93C4x0sJH2OIoYjD06CjWhUpKFWHtITW1aHt0oSpxhU7Ww8E+LfiT4o8RXWoavps2tnSdH8S31zKWAvG8RaXY6lplrHFa2yQxGaS+sNJDiMaYmr3Wm2drFd/arW9tI/Enww1fw34Xi8VTanp97a/aIbaVdNM10bJ7iS6axaW9tysEVve6bFa6pbTm/0+3ksdT0ye3jSy1Cwku+X0r4j65pd9rN7HaWE0urXWm3rxi513TxY3GjJcQae1hc6FrWlXcUdpHdmHbLcXNpKyWaQwMAs0UOq+OPEeteHtP8Nanc2UmkaUbBtOhh0nSNONklgmrG3iSazsrdhAZdc1K6YXQvbye8u5r/5b69kL91LC5/DE4eEKuCo5dReBhOhGlBN0IYaMcVTw7hGXLavdQjKNGMKcY+zlJJwl8bjMfwhUweLqVsPmeJznFLNJ0sVLE1ZwWLqY1zwNbFqrNc3+zSj7WcZYiVWrOp7aKb9pHJt7kqTJzgKFZ0LKMDJCmWMQK3IyFfUJOSxWJcFzX1q53aFfqrlo3jUttAaPJkUFm8oxWjOGJO57q+k34ZWmnKrVNGIYFgMlSgZhiTHbY8q3NwyggBhHDDGGALNI5G2vrJP9nXaykBvLHMm3zM7kIKNevNcY4yNlvAxyRH5C4Ye1io/7NX0t+5qN/Kn/AJny+SJPO8n13zPL7LV6/WqKtZvze+lreR/ajvP+V/8Asq5/xbcSweFPE08ErQzQ+HtalhmQtG8Usem3LxyJIrBkdHCurqdykBgQRXRfi/5H0x/d/wAnnrXN+Mhu8IeKlG8lvDeurjHXdpl0MdO/QentX+Vi3XqvzP8Abs/HuLxf4f8ADeqaVoN4bvTrmXRbPUYJLfTL57OW3N3Z6XIsFzaW8iyy211d2n2zYGSzhurea6kiWZCfctD+LHg21W0a48STQi7F59mWS11lPMGnrvuuGsxsVIv3qM4VbiAGeAyRfPXA2VvBL9lhuIopo3tYEkiljWZXj8qP5HVwQ65HKkFScGvdPCun6dGuY7G0jBnN0dlrAga52FPtJCpzcbNyeaf3m0ld2CRXJh8RlXLH6xhs0lVUXGrKlmdCEKk7WU4Kpl1aVJc/JLkbq2jGUFJOanT8TE4fiT2lT6jmOSU6EpxlRjislxlerRp89OUqdSWHzvCQrv2KqU4VFGg4znCrKE40pUqvdafqia9pMd5p+pXcthfxTJFcW1ze2rvHvkgkaGWN4Lq3dWRxHLE0csbKJInU7WHwp8cfDPx48CJqPiHQ/iZ8QtZ8EuS0rx+LNcGpeH2kkxHHqUcF1F5lgzOsUWpQIsRfy4L2O2maA3P3Xqerab4dsEu7/fb2z3VvaRrbWk1w7XN5OIolW3tIpJSrSSF5ZBHshjEk87JFHJIvJXHj/wALXsNxbRi81BHuY9Iu4G0e8aBpNQkezNrdR3FukUkMn72G4VleKSIyB1eIS7fquE82zHJce8fgsqeZ5ZUqqGJwuKw8MVTnShKHKo4l0OWhi6anGMa1OFNSnJe0pSg4018P4kcN5Jxbk0cmzTib/V/P6OHdbA5jluYVcur0sRUpSU51MBHGKpi8trSpVHPC16lWUKcJuhiadaDrn4Ga348+I+pfG74A2l54/wDG9za3Xxn8A217bz+K9dmguoH8UaV5kNzFLftHPDImVaOVXjZS2QQdp/rk3/529+n978K/mr/aU+Ba/D39oP8AZ18V+HLd08F678dfAUBtvmdfD+sN4gtLlbBWkyWsLuKG4n0tnZpIlt7mznJENvNc/wBKvfq35H0+mP8APTPNfqvjJnGTZ9lPh1mmSKhHCYnJc1c40qVOjUpV4ZjCFWhiadNJQxFGUeSabldKM4SnTnCcv58+iNwxxZwbn/jxw3xhPGVMyy3jDhxUamJxOIxdDEYLEcPyxGHxuX168m6uBxlOoq1KSUJKTnSrU6WIpVaVNNw9v++fXr/F3o3ZH5/w+ze57/17ZpfX5m7/AMJ7/h/LHtig/wC83ft7E9wP846cEfhR/awhb+f931yD1P8A9f1zzSl8df8A0H/7Kj8W6nt9cdv88dOML+Lfkf8A4mgBu7k+v+7+f8XtzRv/AM7f/sqXv1b/AL5+nt/T/wCufi3bse34f575oATfj6f7v/2VG/8AwPy/p96l7feb8j/gT+tH4t+R9/b3/wA4FACb/wDO3/7Kinfi3/fP/wBjRQA3aOPlb8x6f564/HpRgcfK3bPP1/z2/DufNx056fMfTr97+VHPtzj+I98+/P4fhnsAJt4Hyt19R3H+e31I6Uu3/Zbp6jrz/n+Y9T5sduuPvH8P4v6/hR83t0z94+/+13x9P1oAMDP3W6+vsPf+v4noAKP7rfmPb6f56ex82ccf99N9fXP6fpQNx9P++j/Ru2aADb1+U5z6j/P6H60bf9k/mPX/AA/z3o+bk8cHH3j/AI4/PH0o+b2/76Prj+9/nPrQAm3p8rfmPX/6/t9Oppdo/un8x6n/AOt3/wASfN7ev3j/APFUfN7f99H3/wBr2P8A+ugBNvB4Yceo+vI4/wA9ga/zU9RsNVs9Y8TPa3nifT7K98R/EG3nmi0k63oUs0GtancWNvEFt7htO+3Xm20unR08oS3FzLJHFdeYn+lZ82Dx2/vE/wDsx7f57H/OsvoI7TU9YmOo+JNBWbXfHzy3NtZy6zpl5t8XTRWri1Fldizhia5u4JYzPawzXzW7/M11ceb/AEb9H52nxWlFTclkkVFx518OdSvyqFWTkuW8OWjVakk3DlUpR/GfF6yhkDcnG0szd1Lle+Wr4nKCSd7SbnBWbXNdpP5/8iPUbm1SWDwF4xv72I6e0Gr6VBpsg2Qadqk6XDvYaoXuI7zW7i1jtrK8DRXGlES2EDXaRanN+zd4dkf4ieGvJtILKJPGfxHlNvDd2qR2a/8ACLWEUVrA9zBvmjhD+WgjjClY90gQBa9K1zTL3xZo2r6Zban4K8Q3MN8kFpqE9rcaPrtvPcQrJDdxm4GoTpPGwW3eMvb/AGRILi3kKNKRFsfsn+GZW12J7gt9o0fxT4hSZlWKYtJN4aMM0ZkkcvskdN2EyZmj52iNg39f5LGnKjjU3GFRRpRlR95Ss7zhU9nKnhlCM1KMVF4SlJOL96Sdo/ydx5jng8pxGITjKFLDY2aqySmk5YapSlFyhUrSnytuV/byi7r3V1++NL0jyAMKAT94+WkbEAEAsijyLmMfNkEebgPFnHliuqgsmAJddvzKVKM2SVGFKu6kd5BDL8xTEpYbWU1ftLDaqAfwlmAUlQSAqgjvG3C8gkNhN4BUhtqK1C/d6DsCQoB4J2ggBWx8wCg/KPm5xXrU6LtZKyVr99PXby/I/jjNuIVUqylUrJyer+TUbLVJL3VbTbq3zJ839jc5IVQcgpkEggZ2kJ8oBCFhGpAEERlUgvsYT/Z5F2HoVUEkEZTO7LLISyooYsWmKtK7b3XBMYXpzCApzkvuGAeQeSX+8TklwpbA5IxnBpTbgnlRyOegGckE9AAxG3AxiMbSeVY1qqMn+H6fq337b6PwJcR0lbmcba+eml1q07WVrXtbZ6tnNxQTBAAAMknaqMqt0+YKn76QAn/WSyqi7tsa5VmGdrUEyaVfFGKAQtwpKBkG123JboccD5hLOwwD5xYZB7ZLfAxgAZwOcjhcDg8kgcAscAEjBLcZ+txldMvmKh1S3d9pAcHy13FQAVQAgEARqxB+583Nc2MouOExLfShWe3T2crPf7v03PW4bz6nV4iySnGUP3mbZd1W7xlBdmm9bNN6t3ejP7Jdv+yfzHp/j7e/tWD4qUHwv4jBDY/sHWO46f2fccfz6d/Wt75uvH/fR9M/3vT/AB6c1j+If+QBrhcDZ/Y+p79zcbRZT7s5JGMZBzkdcjHFf5RLdeq/M/3nPx58c6xqHh/wxNqumSQW97FP4fgilumRLaJL3WNMsZ3uZXinSCBbe4l86cxSfZ4w0wDFFztfDb4o+J9XvZVuBbmzPh7xxqEEelabe6tL9tsfGw8NeGjGbC1urm6tYreC6a5uIbApPuF7JHDDE4HU2Fgl9LFAXgUNCmEuCBHIoiLMuSCpG0EYIw2QOea6+P4T3eoXOt32l6vp2mT6t4L/AOEXs1XS7TUrPTmj1O/v5dRls7pltb0TySKr2M9tGrLEZXlcyskXfkOPyKnl9XLcyy7D/WpY6piYZxVhKrONCvRw+FeD9lDD1pRjRkp46FX3uSUZxhT9pNc/5zxXkXF9bPMPnuQ53jpZfDKqGBrcMYacMPSnjcJi8XmKzT6xWx+FpyqYuk6OT1cOvY+0pzpTr1/Y037HA8KeNPEnjnxda+Fdat4df8JKmurrl1F4V160h07XdIawFhpVxqTwW1vZ3olnuZLi3nTev2UQyeU7qs3O6F4v8S+KdZ0OOy12+sXm1fQ5NV0LWtO0+S/h0C01eVjYXthpnw3M1m7pFdpZ3tz4hs7e2laS4kukKSMnsPgf4KDw/wCINR1q8udOL3uhahopTw9Zf8IxKYr+5tLi7uDJor2Ja9JswY78E6hbElra7hAbd5Z4N0ltQ+IyyTaVfyE3fii01/T9SufFt5ceHLPwzqGzwfcXeu6zrF2NUl1czT3tvbsXtJIbuaewt44oJpJPtqGIyCp/bEsFQpVcPgcro1aE44TDqjTxCjja9eoqNaNKCq1lGlB1/Y0Yyq4PBYZzlXrUIz/NK+B41w74Yp5vjMRhsbm3EGKoYujPMcZ9br5fKeT4PB0nisLPEVHQws54it9TeMxlSnQzPNsf7GOEw2MnQ7P4oeG7HxPBo9rfRRyDS/GngbxFaSMilre/8PeMNF1WGeLdjYx+yvA5UhmgnliY7ZGB/SzaM9G6+o9M/wCefxzxX5o/FLxDbeHU0m4uHVTqXjPwH4ftkJG6a58QeMtC0iONEOS+0XjyvgMVhjeUjZGcfpd82cYH/fR/+Kr4GmsT/Y+C9o5/Vf7QzJYdO/Iqv1bKXieRbfC8PzNbtK+p+64b+z/9Y83VFUf7S/sjIHjnC3tXhni+IVl/tra2U1jvZ82tnK3u2E29eG79x2/D+WfbNLtx/C35j0Pp/nt9T5vQf99Ht1/i7Uc45x3/AIvZh3J/z+OOc9wCP9lu/f6/X/PTPcK5P3T+Y/qT29/b3oOewHX+8f8Aa9x+P4/gHcDjj/vo/Tuw7/4UAG0Z+63fuPb/AB9e3fnCbfZu3cfj/n88UvzZPA/76Pb/AIFn0/Sj5vQf99Hv0/i70AJt4+63fuP6/wCHfvxS7evyn8x7/wD1vU/1Pmxnj/vo/wDxX+cGj5vb/vo+/wDtex/zmgA2D0b81/xoo+f0/wDHj/8AFUUAGV44Xj6//E/zzRlfRe3c+/8As8/5z2pemOU79h1x/n0/pSenzLxjsO2f88Y/DuAGV9F/M9v+A/8A1jRlfRf1/wDiaO2Mp1B6D05/zx9R0pf+BJ0x0Hvnv7/T+oAmVz0X8zj/ANBxRlfRf1/+Jpe+dy9/T0A9f6/n0AMDun5D2x3HT8fqaAEyvov6/wDxP8qNy+i/r/8AE0vqNy8nPQf44/PP1o4/vL+Q9c+v+c+vNACZX0X9f/iaMr6L+v8A8TRxxyn5D1+v19P6heOu5fyHqT6+/wDnnIAhK4OAvT3z+q8mv88SZDaeIvEF2134o0pl1jxjJpt9Y2sGsaULi28Y3dxLNNZXSXiWdl51raR38yLppDwBpnktruWZ/wDQ74weV6dgP0wfX9e1f5wvxUtPip8MviJ410jXdE8Q+GbzTvE/im1vdL1XTpALE6je3kN3b3NtdQutsbiJvMZHWNy6pMMSxo6/0r9HSgsXieK8LGtQp1qlHJp06dacVKrGnLNVNU4NT5+WVSmpt0qsIxlaULygz8Q8aarw+H4frulVnRhUzONSpTi3GlKawHI5yXKlzKNTlXPCTcW4ytGRuXc76tLBLJB4Q8UQz6pey3b29vPpuvae9xLqeoTlxdz3x05HjtJFiDtZzoWa3RTO7zzd/wDsjWqi/wBYGITs8S6vkTytJdqV0mJWkikVZPOVSwjuZGnVWaWCRS7EA/Md98RZr/QLjStS0bTbi7Mz3NnrcEKwahZ3HkQpG0MhikZcTwCcG2ltinmuigRKkY+rf2Lh9o0/xBI5ZnXX53ZyS2X/ALJtVYMSSQWErybjnJHPJBP9hZZgK2EpYh1YRgnUowhCMlJSUajamnTcKcU+flaVCjP3LyU001/FnipmNKXCuYzp1JSccHX5ptNOHPS5HH31ObceXmu6tSNpNLlcXf71RDjPbHX88c565yenHHqKsqpBPoAeePzHJ/zxjNdV4JXwknirQn8eQ67ceD11G3fxDb+GpbSDXpdMDZnXTXv1a0Wdsgfv9gZN6LLDIyyp9sftA+If2NrzwRHpnwn8Mvc+LW1O1l0TU/DWneIPCsei6HHpmixz2niy58TvqreJtRlkiu0M1laQg3hln+0wSi6vNb58yz2rlmb5RlMOH8+zOOaOXPmWX4SnVyzLlGUIc2YYmpWpRw7SftZRqW5qSk6LrVeWjL+Qsp4cwvEfDfE/EVXjbg7IZ8OqmqWRZ3mVehnmeSnSlW5cmwFDC16uM5nD6vB0VU5MTKCxH1XDc+Kj8CKmMZGRyMHr3yTx3/DkjmnBMeh7Edj+PUZHXHuMgGvoe61/4QrK6W/h6Dybm11+H7RD4cu7kWQvbbwvp+l+Vp934w0+f7faWema1eNfPrl1b22s6nPd21myzr9m00+Lvgm20vV9Ps/hxpMdwvieHWvD+pix0S2uotOHjI+I7jTLhodOd9PU6YsWj2flS6qbKBIoYZhbw7Z6ln2YShSlheG8yqynUpRqQxFTD4J0adSr7L2zdWTU1T+OdON6kaSdRw5eXm86PCGRwrYmOZeIeQYaFKjXnQrYHDY/N44qvRoLFLDqGGjTlRdaP7qlWqJYeeIlHDqp7T2safzOEHqOTkk/yxwD0/DPHOBWTr4P9j6k/ORZTk7TgjCEnacZ4UYIGF4HHdvXfH/i+w8aX+l3dlokeiJY6feWs8Iltrme7u77xBrmvT3c13bafpn2hgdXW0jee3a4EFrGs08zAyN5dqcHnaffRJukeW1njSJQHZy0TKiADJZmYhVCg8ngcmvVc6+IyyrUxWEeDrzw+I58LKrTrulZTjFOrT/dzcoRjO8bpc3Km+W78nKFhct4zymlgM0jm2BoZzk7pZksNXwcMTH6xg6lVxw2JvXpKE5VaX7zlk1T53GKnyH9h+5fRf1/+JrH8QoJtA1yEBczaPqcYPXBksp0HG3HU9DWzx03L+Q9Mev+fpxUNwFMEys8ShopFLPhVG5SMsSeAMjJ9PWv8mdj/omPxc8d+BX8cWemW0Gval4e1DTYbj7FqGnmV3hmv7NLSSR7dbm2ScxIG8kSsQjtnlWkST2zQvCPiCWa4urbxlq8IkW3jtLVldLaFIbZYSJSkuJJJXHnTTxww7jkeUJP3tYWiaRqA1Ce11NXjuLS6mtpoCVEkEkEhjeJmGd2x1OD825RkEjmvpvw1pljFFGptldsBiWmuAC3HZZgORgnHHGCK0jis2wlHD4WGIw9XD4ZV/q8JUMNWVOOJq0a1aN69CVRKc6UJ8vM4wbnycqqVHPwqnD2S4vFYvH1MNXpYvHfVXi61HGY/CutLBUKuHw05Rw+JhS56VKvOHN7OMpxVL2nO8PR9nyjeGfEc9pp6jxnqVnNbW8kdy1vGJBcSsZSrl5HiZkCyBGMgafKq8U8JRVqzqfgW5utGaTVPEuo6dY2aSXOoa3dXv8AZ0UMK2M1tJctd3dwYII4/OeZnMU8KnaJIWAYn2a3tPs6Sm2S1jlZT5TvbNMIiD8uR50cjqDglRNGTj7wJzXjvjb4FRfEpiPG/j3xpqWnBzJFomm3GlaNosRAOzFhDplwJZIxwlxcSTXgH/Lzg5PdlmJlWr0nmGZ0stw1Ko5ueHy2lXxL55c0lRhSo04TceaSXt8RCMLpxTtY8rPMqnhcHW/sfIa2fY/EUYU4UcbntfBYCDpQhCnLFVsRiq9WnH3YuX1LA1qla0ueUOZyPyl+P/xr03xV8cP2cPhv4MvZdS8HeGfjH8PZr/WrneG8U6zp2rWdhbzqsgDtplhDLOtvLKiNqF5dXF68YhSx2f0bZX0X9f8A4mvzn0D9j34DeH/FHh/XYfBI1XXtH1rTb/SdT1nVdT1C4tdQgu4Xtp4LY3UWnieORFeNlss7uDnpX6M8Z6p19B6fX19/x7V9ZxpxBwzmuC4YyrhfBY/DYPIMBjKGKxOYxw8cRmOOx2MeLr42XsKtXmlUlvOfs3blpwo0qVOnBfnfg1wL4g8L5p4jcR+Iuc5JmWaccZ7lOOy7A5DUx1XA5Dk+T5PSyrBZTTljcNhnCNCMG406Ma0W3OvWxWJxNevVkmV9F/M9/wDgP/6u1BKkdF7+vofYd8f/AK8UY68p3xwPw/zz+PZfoV79vZj2z7//AF+c/An7sJlfRevbPfPoP/remOKMr6L+v/xNHXuvU9v97H+f591OD1ZfyH+P+frQAmV9F/X2/wBn/P55Mr6L+v8A8TS8ZPKd+3rj3+vf/wCsmB6p27D8e/f/APVigAyvov6//E0ZX0X9f/iaOMclO/Yf4j27dqXjn5l/Ideff3/zzkATcvov6/8AxNFLx6p+Q/xooAT0+ZufY+n+emfw60enzNzjse+f88Z/HsZY9m/MD/2X+dLlvRu3ce/+zx/nPagBvYfM3X0PcfX+v0Hel/4E/T0PXn39v/r9cGWx0b9P/ic/pRlvRv0/+JoAO/3n6+h9Af8APH4dyDn+JvTofb6/56+65bPRvzX/AOJx+tJlvRv0/wDiaAD15fOfQ/y//V9KMH+8/wCR9f8AD/Paly3PDf8Ajv8ALb/LNJlvRv0/+JoATnj5m/I+v19x6/XnFLj/AGnx9D6n/PT+oBlvRv0/+JoJbphueO3067f89aAI5C4RthJYg7Q3QnHuccHg/wA8V+Vf7VPwO8B/tLxonirw9cadrulNdRaV4js4tFv9QhWUoDHPa+INI1HTLqEGJTEssTS2haZ7Oa1kmkc/qvzgjDYA4zjAxx/d7D0/xNfL93obXE82PIDGeckbEUqEkb7xwDl8DBxzjJNe1ktSNGtUrOL9pT9nKlUhWq0KtKSc25U50pRkm7LW+jSt5+fmFOdWnGnGajCXMqkJU6dSFSL5fdnGrGS5d1bS99b7H80vxO/4I9eLdZub678H614ck82NZLNxpF5o8qTh/nW80+PULiy1O4ukB8+e31nw9Y20u2a00qRC1oPL/hb+w5+0f+znHrNtq3wi8b+NG1PUri4sYvhzouteMYdrwWcInuNTbRtG0e2G21YfZRqF1cReaoZ3XcV/qYbR5oCzKGXqC6H5VIUE7dh5xu5OeDleNpFathayPARI7yYkY4PzAkRqQSG74LAEkkAkHpX7Fkvi3xxksIUsJndTGYaCio4XOoPNador3LV5zpYyLp3vBLFKLaipwkkon41xx4Q8E8X5TjMDnGTqnDFxjGtiMkryyjEuLnTdRWpU6+Gkq0YONRyw0pck5OnKE5Ka/m3j+FX7Vl7t/sj9kD4y3Kkgr/ad98OfDLkDGCY/EXjbTivQNtkKYJweQcbFv+z9+2/f82P7Jl/ppPAfxX8bPgzpcK57uND8VeKbkAdTi1YgYwpPFf0fjTAWA2rk4xkZyT6cYJHAx64HpjRuPDV7aRLPcWkkcT8b5EVVBIBUNjdtznGG2kkFeGUgerX8deP5tR/tTL8M5aJUMswfvbaR+swxLfS+sn95+NYT6JPglRTl/qjmOOVO3M8XxJn+nROf1HGYGKv/AIUtPJn85Vt+yJ/wUF1Nsp8Kf2fdAQjhdf8Ajzrd265GQGPh74XamNw6EIGGc/MetdBZ/sE/t66g3/Ew8Rfsm+GUYjIt9b+LXi6SL0AA8IeFo5GC9cMgJBAwOn9CQ0GcFQUhUMCSftFvhAApKth8K4Dp+7YhjkDGQakXw7dlZGEICxuEG4hQ7ecIcIx2g7WIDHOFGCSMjPk1fGXxCq6vimvTTasqGCySj1WilSy2Enrs+a+p9Jhfo0+DOEs6XhplVVq93i8ZxJjm7RTfNHGZ1Vi9NXeLX33Pwo0H/gmn+09eSI/ib9pL4R6ZEXDTQeGPhJ4lvtq91jl1rxhAWz03ugIJzsGMV9w/BT/gnb8OfDN7pN/8SfHniX4k6nZXdvdGGHT9O8L+H7mS3lWeOKfT7GObUjAzoFkj/thjIoKn5W2196XGkT2bRpKqq0ib22yBwNskkTKWUsgYGMlgGJXoSDwNOwjaKWLAI+ZeTnHBHI6nnAyT+HqPExniTx3jKcovjDPEpxcX7DH1KCakuWX+7+zj5aJK3S6R9Xlvgt4T4CrBQ8MOCI8jg/33DmBxM004yjaeMpYiopXs03Nyvqn39swfV/yPp/j7/pzUNxBFcQyQTgvFIjLIpDAFfqCCD3DZBHqMVNlsZwfwx/8AE/56VXu2YWlyRuB+zz88cERtz93Pv2/Svx8/os+ZfE/7NnhvXtdk8Q6V8QPGfhC9nVklt9Fu9C1DTpMsMu9h4o0bxBbJNwFNzbpbzlVCLIsfyVpaR8E9Z0YKLf4t6vqCqAANY8PeHJycdydLh0fGcDhAig9FGSBtwtMpAZpGwAGYEDJA+vI6/qBzWtbytI6J5kilyI8uSiAk4JZixCr33HgencZypxk3J813vapUina26jJLoru131uNNrbl+cYt+erV/wASOPwN4hQBT4809gO//CNRr1Pp/bjAdycZ4qwvgrViMT+O0CHJ/wBE0Kxgk6c4ae7vE+n7s9s5GQNb+zb0IHDeYuMgRS7iwIzlfmUEHqMdegzVRrqG0ZlvYrtWCgopWRck992cEYBGQeTng5GIWHc5JRjNvt7So+z6S79lv8hSrQguaU4RV93GCV9LXukle2vp1uS6R4R0rRr6PU5te1TWb5WVIWv5LNIovMPlt5ENnaWwjZgdpIJLDKsSpxXpfOfvN19D6Z9f6fpXira3Gb6yjhguGEuoWkS72UBBJcxgljkltmc42gtgjvmvast6N+n/AMTWypSpLllFxvdpOTldd7ylJ797ehEKsKt3CSkk7NpWV7dNEn6r56ievzNxnse34/z/ABxS/Ut36j2b19v8+hub0b9P/iaMtjo36eh9AO+P84yywP8AvN37emfp/n9Ag54L/kf/AK38v1pckdm6+3v7H/PTtkJYdm/T+imgBMc/ebv2Pt/j6flkUmD/AHm7dj3/AB/z2zS5b0b9P/if5Ubm9G/T/wCJoATkjO5u/Y/44/X8uaXnnl/yPTn3+np/PBlvRv0/+Joy3o36f/E0AGD/AHm/75aijc3o36f/ABNFABxx14/2h6f738sf0o49+MfxDtn34/D8Md1wPl4HIJ7+n1/nmk4+Xgc7f1z7/wA/xzQAfLx16/3h2H+9/wDX+go+X3/76Hv/ALXv/nnJgYHA5YDv3APrn+lGBjoPu579wx9fb6/pQAcZzzn/AHh34/vZoG0ev/fQ7/RqXA3AYHU/+gg/T9P1pABk8DqfXsR6n3oAX5eRg9eRuH/xX86Mr7/99D6/3vXmk4wxwOGx+o9/5YFBA44HU+v94D19/wDI4oAPl9/++h65/vUvy+//AH0Pf/a9zSYHHA6A9+5A9felwM9B19/Vvf2H/wCqgBPlwcZ6ddw+nPzf/Wry99DdpJS1sHBeUgBtrg+a2GYsCCxyev8ACMHIyD6goBzwOg9e4z60m1cZ2jPXv127s9fX9K1pVpUnJpX5rX1a29CZQUrX6X6X3t/keUPoLeW0ZEqBmO5WXcM8g7W55JAAw46ngCooNEMaldpGJOPlBBAUjdjdtIPTHQ8ckjNeuFU4O1eQSc56gZ9fWo2t4WbBjXnIJwM4AB69Qee3auqGPqRd2nrvZ97d15d792zmr4WNam4aK/WzXbt/XkeYw2UtvNHPFhZY2Do2wMQyk4O1sg9+oODz1xWze3eoXkLQERwLKytOYlfdMVVFw5LMQDtXIXB27VJIDZ7I2dseTEvAbHttOB/PmkNlbHP7vuOct3Yr3PoOPTtRLGRnKM5QvKOzai7bNK73Saur7PVWOSOXTpwlCFZxhNrmipSSd7R7X1V07NXTs21ouBMN22SZNp2MCVIQENGqPwVxubAcn73nZmB8z5qaUvVG1J9qbzIVVYwTIWD7mZEJY7gCCxbaBtGAcV3f2O3/ALn6k/zzSfYrf+5+p9Mf5/wp/W4reDdkrXjBrWz67ev+bF/Z8r6VZK9vtS1vyf5q62dvu86ktLmZlMjM5XhQx4UMxJCKAAqgk/KABggBcAgTxae6sCw4DBj1+XGMAHHXPuM8dSBXfrZW2QNnBI4zj+WD+v8AIYlS1gAJEYG3kcnGRnnGcU/r2llGSS2tyrs91tqr39SYZWvic7vTdyezWrur9O5ZG3Aznp/eHpj+96cfTiorkBredRnLQSgfMO6MP7x79eDUuBjoP1/uZ9fX/OeaCqkEYHR/XsceteceyeSrYSIQXQ7cqOnO4gdMj8OTnpz3rUjs1CqSjDcgYcDkHnoBx78ADB5r0MQxLwsaDkdFHPK9exzk5p2xCcFF9OnQDd0/KqTjZXi27u7UraaWVrev3+ll7190l2s3+N1+RwCRFQrKZEDMQApcYx1PykqByM9M/UVK9uJVLOskpIUFnDPwSduS/tnjd0ruBHGQMxp1BxjgEsQT9eOtOCoFBCKOp4HcA8/p+HbFHub8sr3v8Sta6sl7t1tv3SdhWn1cbWt8L3013t36HlU2hFbjT7uOMrGL+zdsKRjFzHg4H3ec9Dtx6d/Vvlznn/voemP73+fpTSiEAFFIOw4IyM5yDgnHBAI9CM07A3EYHUevcE+vtTnNztdt2uk27uzd0m93buxQpxp35Uo8zvJJWTlZJtJaK9tkHy89ec/xL3/4F/P8c0Hbjv3/AIvZj2J9/wA/rRgc8Djd3PbGO/vRgc8Dv69t/v7f54xBYYHcEcn+Id93vj1/Xrzlfl9D/wB9D6j+L8aQgc8Dv69t/v7f54wpAzjA6D1HVsdjQAmRnPP/AH0Pb/a9v88YPl9+38Q7dP4v89qXAyRgd/X0Hv7mkABzwP4e5/ixnvQAfLjHP/fQ/o2KPl9/++h7/wC17n86MDaDgd/XsD7+386CBzwO/r23e/sP84wALke//fY/+Kopdi+n6n/GigD/2Q==" alt="비쿨롱점비액(자일로메타졸린염산염) 포장/용기정보"/>
+                            <!--                                 <img th:if="${#strings.isEmpty(itemImageDoc)}" th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." />  -->
+                            <!--                                 <img th:if="${#strings.isEmpty(extimgImageDocid)}" th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /> -->
+                        </div>
+                        <!--  2021.01.28
+                                                <ul class="bxslider" th:if="${!#strings.isEmpty(item.itemImageDoc) || !#strings.isEmpty(item.extimgImageDocid)}">
+                                                    <li th:unless="${#strings.isEmpty(item.itemImageDoc)}"><img th:src="@{${item.itemImageDoc}}" th:alt="|${item.itemName} 낱알이미지|" /></li>
+                                                    <li th:unless="${#strings.isEmpty(item.extimgImageDocid)}"><img th:src="@{${item.extimgImageDocid}}" th:alt="|${item.itemName} 포장/용기정보 이미지|" /></li>
+                                                                                  <li th:if="${#strings.isEmpty(itemImageDoc)}"><img th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." /></li> -->
+                        <!--                                <li th:if="${#strings.isEmpty(extimgImageDocid)}"><img th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /></li>
+                    </ul> -->
+                    </div>
+                </div>
+                <div class="r_sec">
+                    <h2 class="s-title">기본정보</h2>
+                    <table class="s-dr_table dr_table_type1">
+                        <caption><span>의약품정보 - 성상, 업체명, 전문/일반, 허가일, 품목기준코드, 취소/취하구분, 취소/취하일자, 표준코드  </span>
+                        </caption>
+                        <tr>
+                            <th scope="row">제품명</th>
+                            <td>
+                                <span class="pb10">비쿨롱점비액(자일로메타졸린염산염)</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">성상</th>
+                            <td>박하향의 무색내지 미백색의 액제가 함유된 분무제</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">업체명</th>
+                            <td>
+                                <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                        onclick="javascript:pbpPopup(&#39;/pbp/CCBBB01/getEntpInfo?entpSeq=19570016&#39;, &#39;업체정보&#39;, 700, 0, 0, 0); return false;">신신제약(주)</button>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">위탁제조업체</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전문/일반</th>
+                            <td>일반의약품</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">허가일</th>
+                            <td>2014-08-19</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">품목기준코드</th>
+                            <td>201403811</td>
+                        </tr>
+                        <span> <!--긴급 사용 승인 품목이 아니면 캔슬코드가 X가 아님-->
+                            <tr class="cancel">
+                                <th scope="row">취소/취하구분</th>
+                                <td>유효기간만료</td>
+                            </tr>
+                            <tr class="cancel">
+                                <th scope="row">취소/취하일자</th>
+                                <td>2024-08-19</td>
+                            </tr>
+                        </span>
+                        <tr>
+                            <th scope="row">표준코드</th>
+                            <td>8806438025101, 8806438025118</td>
+                        </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- 판매중지정보 추가 2019.12.09 -->
+                        
+                        <!-- 3차 2020.11.17 -->
+                        
+                        <!-- 마스크 모델명 추가 2020.12.17 -->
+                        
+                    </table>
+                </div>
+            </div>
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy Start -->
+            
+                <div class="pkInfo">
+                    <div class="info_sec scroll_11" id="scroll_11">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">생동성 시험 정보</h3>
+                        </div>
+                        <div class="info_sec mt20 pt0" id="_tmp_doc">생동성시험정보가 확인되지 않는 경우 '의약품상세정보'를 참조하시기 바랍니다.</div>
+                    </div>
+                </div>
+            
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy END -->
+
+            <div class="drug_info_mid">
+                
+                    <div class="info_sec notPkInfo scroll_02" id="scroll_02">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">원료약품 및 분량</h3>
+                        </div>
+                        <!--<h3 class="cont_title3 mt27 pb10" th:unless="${#lists.isEmpty(ingrMainArray)}" th:text="|유효성분 : ${#strings.arrayJoin(ingrMainArray, ', ')}| "></h3>-->
+                        
+                            <script>
+                                /*<![CDATA[*/
+                                var aa = true;
+                                /*]]>*/
+                            </script>
+                            
+    <!--                        유효성분 (처음 한번만)-->
+                            <h3 class="cont_title3 mt27 pb10"
+                            >이 약 100mL 중</h3>
+                            <table class="tb_base">
+                                <caption><span> 원료약품 및 분량 - 원료약품 및 분량으로 순번, 성분명, 분량, 단위, 규격, 성분정보, 비교의 정보를 제공</span></caption>
+                                <colgroup>
+                                    <col style="width:5%;"> <!--순번-->
+                                    <col style="width:20%;"> <!--성분명-->
+                                    <col style="width:10%;"> <!--분량-->
+                                    <col style="width:15%;"> <!--단위-->
+                                    <col style="width:10%;"> <!--규격-->
+                                    <col style="width:20%;"> <!--성분정보-->
+                                    <col style="width:20%;"> <!--비교-->
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>순번</th>
+                                    <th>성분명</th>
+                                    <th>분량</th>
+                                    <th>단위</th>
+                                    <th>규격</th>
+                                    <th>성분정보</th>
+                                    <th>비교</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        var aasda = {"dataSetRowTypeValue":null,"dataActionFlag":null,"gridcmmcheck":null,"tableCheckFlag":false,"tableExtendFlag":0,"lastChangeDt":null,"lastChangerId":null,"registTs":null,"registerId":null,"updateTs":null,"updaterId":null,"gridRowIndex":null,"user":null,"menu":null,"sysGbCode":"NDII_EXT","classNo":null,"entpName":null,"entpEngName":null,"entpSeq":null,"etcOtcCode":"","narcoticKindCode":null,"classNm":null,"itemPermitDate":null,"eeDocNo":null,"udDocNo":null,"nbDocNo":null,"strgeMethod":null,"stMethod":null,"validTerm":null,"reexamCodeNm":null,"startDate":null,"endDate":null,"rmpYn":null,"rmpGb":null,"rmpRepCycle":null,"rmpStartDate":null,"rmpEndDate":null,"packUnit":null,"itemName":null,"itemEngName":null,"fileName":null,"extimgImageDocid":null,"pdfFileName":null,"inserpaperImageDocid":null,"itemSeq":"201403811","materialCode":null,"drugLabeling":null,"lengLong":null,"lengShort":null,"thick":null,"lineFront":null,"lineBack":null,"dura":null,"durb":null,"durc":null,"durd":null,"dure":null,"durf":null,"durg":null,"durh":null,"duri":null,"duraIngrName":null,"durbIngrName":null,"durcIngrName":null,"durdIngrName":null,"dureIngrName":null,"durfIngrName":null,"durgIngrName":null,"durhIngrName":null,"duriIngrName":null,"dispsCont":null,"chartn":null,"drugShape":null,"udDocData":null,"eeDocData":null,"nbDocData":null,"pnDocData":null,"totqyCont":"\uC774 \uC57D 100mL \uC911","ingrCode":"M257887","ingrName":"\uC790\uC77C\uB85C\uBA54\uD0C0\uC878\uB9B0\uC5FC\uC0B0\uC5FC","ingrSubName":"\uCCA8\uAC00\uC81C : \uD3F4\uB9AC\uC625\uC2E440\uD558\uC774\uB4DC\uB85C\uC81C\uB124\uC774\uD2F0\uB4DC\uCE90\uC2A4\uD130\uC624\uC77C,D-\uC18C\uB974\uBE44\uD1A8\uC561,\uC5FC\uD654\uB098\uD2B8\uB968,\uC720\uCE7C\uB9AC\uC720,\uC778\uC0B0\uC218\uC18C\uB098\uD2B8\uB968\uC218\uD654\uBB3C,\uC778\uC0B0\uC774\uC218\uC18C\uB098\uD2B8\uB968,\uBCA4\uC798\uCF54\uB284\uC5FC\uD654\uBB3C,\uC5D0\uB370\uD2B8\uC0B0\uB098\uD2B8\uB968\uC218\uD654\uBB3C,L-\uBA58\uD1A8,\uC815\uC81C\uC218","ingrAddName":"\uCCA8\uAC00\uC81C \uC8FC\uC758 \uAD00\uB828 \uC131\uBD84: ","ingrMainName":"\uC720\uD6A8\uC131\uBD84 : \uC790\uC77C\uB85C\uBA54\uD0C0\uC878\uB9B0\uC5FC\uC0B0\uC5FC","ingrTotqy":"100.0","ingrUnitName":"\uBC00\uB9AC\uADF8\uB7A8","ingrStdName":"USP","ingrInfo":null,"remark":null,"barcode":null,"drugSize":null,"ediCode":null,"maxAmt":null,"unit":null,"applyDay":null,"itemImageDoc":null,"materialMixPurposeCode":null,"grain":0,"grainChange":0,"cnsgnManuf":null,"bioeqExamInfoOpenYn":null,"rareDrugYn":null,"addIngrYn":null,"indutyClassCode":null,"indutyClassCodeName":null,"cancelCodeName":null,"cancelDate":null,"cancelCode":null,"maskModelName":null,"permitExamName":null,"unaprvEuaYn":null,"euaRegistTs":null,"euaYn":null,"signlangUrl":null,"rnum":null,"changeDate":null,"changeIem":null,"changeMatter":null,"nnDocData":null,"patientMenuCnt":null,"expertMenuCnt":null};
+                                        /*]]>*/
+                                    </script>
+                                    <td style="text-align: center">1</td>
+                                    <td style="text-align: left">자일로메타졸린염산염</td>
+                                    <td style="text-align: center">100.0</td>
+                                    <td style="text-align: center">밀리그램</td>
+                                    <td style="text-align: center">USP</td>
+                                    <td style="text-align: left"></td>
+                                    <td style="text-align: left"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <h3 class="cont_title4 mt3 pb10 pl10">첨가제 : 폴리옥실40하이드로제네이티드캐스터오일,D-소르비톨액,염화나트륨,유칼리유,인산수소나트륨수화물,인산이수소나트륨,벤잘코늄염화물,에데트산나트륨수화물,L-멘톨,정제수</h3>
+                            
+                            
+                        
+
+                        
+                        <!-- 첨가제 주의 관련 성분 - 2020.08.14 첨가제 각각 표시, 첨가제 주의 관련 성분 유무 체크하여 마지막에 표시하도록 수정-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrSubArray)}" th:text="|첨가제 : ${#strings.arrayJoin(ingrSubArray, ', ')}| "></h3>-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrAddArray)}" th:text="|첨가제 주의 관련 성분: ${#strings.arrayJoin(ingrAddArray, ', ')}| "></h3>-->
+                        
+                    </div>
+                
+                <!-- 3차 e약은要 정보 -->
+                
+                    <div class="info_sec _preview notPkInfo scroll_99" id="scroll_99">
+                        <!-- <div class="sec_top fr-on div_fr _preview_nn"> 2020.12.30 기본 접기 -->
+                        <div class="sec_top div_fr _preview_nn">
+                            <h3 class="cont_title2 fl">e약은요 정보
+                                <button type="button" class="btn_folding">e약은요 정보 폴딩 버튼</button>
+                                <span class="btn_area btn_mob fr">
+                                    <a href="/pbp/cmn/pdf/drb/201403811/NN"
+                                       class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                    <a href="/pbp/cmn/xml/drb/201403811/NN"
+                                       class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                    <a href="/pbp/cmn/html/drb/201403811/NN" class="btn_small btn_icon"
+                                       target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                                    
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="info_box" id="_ee_doc_99">
+                            수정일자 :
+                            2024-01-04
+                            <br><br>
+                            <div class="info_box cw">
+                                <p>
+                                    "e약은요"는 일반소비자 눈높이에 맞춘 이해하기 쉬운 의약품 정보 제공을 위해 마련된 일반의약품 개요정보입니다.<br>
+                                    의약품에 관한 모든 내용을 담고 있지 않으며 자세한 사항은 현 화면의 상세 정보를 참고하시기 바랍니다.<br>
+                                    본 정보는 법적 효력을 가지는 것이 아닙니다.<br>
+                                </p>
+                            </div>
+                            <h3 class="cont_title4">이 약의 효능은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>이 약은 코감기(급성비염), 알레르기성 비염 또는 부비동염에 의한 코막힘, 콧물, 재채기, 머리무거움의 완화에 사용합니다.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떻게 사용합니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>만 12세 이상 및 성인은 1회 1번씩, 1일 1~3회의 범위 내에서 각 코안에 뿌립니다.</p>
+
+<p>적용 간격은 8시간 이상으로 합니다.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약을 사용하기 전에 반드시 알아야 할 내용은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"></div>
+
+                            <h3 class="cont_title4">이 약의 사용상 주의사항은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>이 약에 과민증 환자, 만 7세 미만의 유아, MAO 억제제(항우울제, 항정신병제, 감정조절제, 항파킨슨제 등)를 복용하고 있거나 복용을 중단한 후 2주 이내의 사람은 이 약을 사용하지 마십시오.</p>
+
+<p>이 약을 사용하기 전에 알레르기 체질, 약에 의한 알레르기 증상(발열, 발진, 발적, 부종, 자극감, 관절통, 천식, 가려움증 등) 경험자, 고혈압, 심장질환, 당뇨병, 갑상선질환, 녹내장, 임부 또는 임신하고 있을 가능성이 있는 여성, 흡연, 천식, 만성 기관지염, 폐기종, 과도한 가래가 동반되는 기침, 1주 이상 지속 또는 재발되는 기침, 만성 기침, 발열·발진이나 지속적인 두통이 동반되는 기침 환자는 의사 또는 약사와 상의하십시오.</p>
+
+<p>정해진 용법과 용량을 잘 지키십시오.</p>
+
+<p>어린이에게 투여할 경우 보호자의 지도 감독하에 투여하십시오.</p>
+
+<p>이 약은 비염용 분무제로만 사용하고, 눈과 귀에는 사용하지 마십시오.</p>
+
+<p>7일 이상 계속하여 사용하지 마십시오.</p>
+
+<p>3일간 사용하여도 증상의 개선이 없을 경우 사용을 즉각 중지하고 의사 또는 약사와 상의하십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약을 사용하는 동안 주의해야 할 약 또는 음식은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>사용 중에는 음주하지 마십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떤 이상반응이 나타날 수 있습니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>발진, 발적, 부종, 자극감, 가려움, 기관지 경련 등이 나타나는 경우 사용을 즉각 중지하고 의사 또는 약사와 상의하십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떻게 보관해야 합니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>습기와 빛을 피해 실온에서 보관하십시오.</p>
+
+<p>어린이의 손이 닿지 않는 곳에 보관하십시오.</p>
+</div>
+                        </div>
+                    </div>
+                
+                <!-- 3차 e약은要 정보 -->
+                <div class="info_sec _preview notPkInfo scroll_03" id="scroll_03">
+                    <div class="sec_top fr-on div_fr _preview_ee">
+                        <h3 class="cont_title2 fl">효능효과
+                            <button type="button" class="btn_folding">효능효과 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201403811/EE"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201403811/EE"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201403811/EE"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201403811&#39;, &#39;EE&#39;, &#39;0&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box" id="_ee_doc"><p class="indent0" >코감기(급성비염), 알레르기성 비염 또는 부비동염에 의한 다음 증상의 완화 : 코막힘, 콧물, 재채기, 머리무거움</p>
+</div>
+                </div>
+
+                <div class="info_sec _preview notPkInfo scroll_04" id="scroll_04">
+                    <div class="sec_top fr-on div_fr _preview_ud">
+                        <h3 class="cont_title2 fl">용법용량
+                            <button type="button" class="btn_folding">용법 용량 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201403811/UD"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201403811/UD"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201403811/UD"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201403811&#39;, &#39;UD&#39;, &#39;1&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt20 pt0" id="_ud_doc"><p class="indent0" >만 12세 이상의 청소년 또는 성인에게 1일 3회의 범위 내에서, 1회 1번 각 비강(코안)에 분무한다(뿌린다).</p>
+<p class="indent0" >적용간격은 8시간 이상으로 한다.</p>
+</div>
+                </div>
+                <script>
+                    /*<![CDATA[*/
+                    var patientMenuCnt = null;
+                    var expertMenuCnt = null;
+                    /*]]>*/
+                </script>
+                <div class="info_sec _preview notPkInfo scroll_05" id="scroll_05">
+                    <div class="sec_top fr-on div_fr _preview_nb">
+                        <h3 class="cont_title2 fl">사용상의주의사항
+                            <button type="button" class="btn_folding">사용상의주의사항 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201403811/NB"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201403811/NB"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201403811/NB"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                                
+                                
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201403811&#39;, &#39;NB&#39;, &#39;3&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt30 pt0 notice" id="_nb_doc"><p class="title">1. 다음과 같은 사람은 이 약을 사용하지 말 것</p>
+<div><p class="indent0" >1) 만 7세 미만의 유아</p>
+<p class="indent0" >2) 이 약 및 이 약의 구성성분에 대한 과민반응 및 그 병력이 있는 사람</p>
+<p class="indent0" >3) MAO 억제제(항우울제, 항정신병제, 감정조절제, 항파킨슨제 등)를 복용하고 있거나 복용을 중단한 후 2주 이내의 사람</p>
+<p class="indent0" >4) 뇌경질막이 노출되는 수술이나 나비뼈통과 뇌하수체절제술을 한 사람</p>
+<p class="indent0" >5) 폐쇄각 녹내장이 있는 사람</p>
+<p class="indent0" >6) 건성 비염(코염) 혹은 위축 비염(코염)이 있는 사람</p>
+<p class="indent0" >7) 크롬친화성세포종이나 전립선비대증 환자</p>
+</div><p class="title">2. 다음과 같은 사람은 이 약을 사용하기 전에 의사, 치과의사, 약사와 상의할 것</p>
+<div><p class="indent0" >1) 본인, 양친 또는 형제 등이 두드러기, 접촉성 피부염, 편두통, 음식물 알레르기 등을 일으키기 쉬운 체질을 갖고 있는 사람</p>
+<p class="indent0" >2) 지금까지 약(비염용 분무제 포함)에 의해 알레르기 증상(예: 발열, 발진ㆍ발적, 부종, 자극감, 관절통, 천식, 가려움증 등)을 일으킨 적이 있는 사람</p>
+<p class="indent0" >3) 고혈압, 심장질환, 당뇨병, 갑상선질환, 녹내장 환자</p>
+<p class="indent0" >4) 삼환계 혹은 사환계 항우울제 투여중인 환자</p>
+<p class="indent0" >5) 불면증, 어지럼증, 떨림, 심장부정맥 또는 혈압상승과 같이 아드레날린 작용물질에 대한 강한 반응을 보이는 환자에게는 다른 교감신경작용제와 마찬가지로 주의하여 사용할 것</p>
+<p class="indent0" >6)&nbsp;임부 또는 임신하고 있을 가능성이 있는 여성</p>
+<p class="indent0" >7) 수유부: 이 약이 모유로 분비되는지 알 수 없으므로, 이 약은 의사, 치과의사, 약사의 지시·감독하에 사용해야 한다.</p>
+<p class="indent0" >8) 의사 또는 치과의사의 치료를 받고 있는 사람</p>
+<p class="indent0" >9) 다음과 같은 기침이 있는 사람</p>
+<p class="indent0" >흡연, 천식, 만성 기관지염, 폐기종, 과도한 가래가 동반되는 기침, 1주 이상 지속 또는 재발되는 기침, 만성 기침, 발열·발진이나 지속적인 두통이 동반되는 기침</p>
+</div><p class="title">3. 다음과 같은 경우 이 약의 사용을 즉각 중지하고 의사, 치과의사, 약사와 상의할 것. 상담 시 가능한 한 이 첨부문서를 소지할 것.</p>
+<div><p class="indent0" >1) 이 약의 사용에 의해 다음의 증상이 나타난 경우</p>
+<p class="indent0" >발진ㆍ발적, 부종, 자극감, 가려움</p>
+<p class="indent0" >2) 3일간 사용하여도 증상이 좋아지지 않을 경우</p>
+<p class="indent0" >3) 가역적 후뇌 병증 증후군(PRES)/가역적 뇌혈관 수축 증후군(RCVS)의 징후/증상이 나타나는 경우</p>
+<p class="indent0" >-&nbsp;PRES/RCVS이 교감신경흥분제 약물에서 드물게 보고되었다. 급작스런 심한 두통, 구역, 구토 및 시각장애가 보고된 바 있으며, 대부분의 경우 적절한 치료 후 며칠 내에 개선되거나 해결된다. PRES/RCVS의 징후 증상이 나타나면 이 약의 사용을 즉시 중단하고 의사 또는 약사와 상의하여야 한다.</p>
+</div><p class="title">4. 기타 이 약의 사용 시 주의할 사항</p>
+<div><p class="indent0" >1) 정해진 용법ㆍ용량을 잘 지킬 것.</p>
+<p class="indent0" >2) 이 약은 과도하게 사용하면 오히려 코막힘을 일으킬 수 있으므로 과도하게 사용하지 말 것.</p>
+<p class="indent0" >3) 이 약은 비염용 분무제로만 사용하고, 눈과 귀에는 사용하지 말 것</p>
+<p class="indent0" >4) 오염을 방지하기 위해 가능한 공동으로 사용하지 말 것.</p>
+<p class="indent0" >5) 7일 이상 계속 사용하지 말 것.</p>
+<p class="indent0" >6) 사용 시에는 음주하지 말 것.</p>
+<p class="indent0" >7) 소아에게 사용할 경우에는 보호자의 지도 감독 하에 사용할 것</p>
+<p class="indent0" >8) &nbsp;이 약은 벤잘코늄염화물을 함유하고 있어, 기관지 경련을 일으킬 수 있으며, 특히 장기간 사용 시 비강 내 자극이나 종창(부기), 비강 점막의 부종을 유발할 수 있다.</p>
+</div><p class="title">5. 저장상의 주의사항</p>
+<div><p class="indent0" >1) 어린이의 손에 닿지 않는 장소에 보관할 것</p>
+<p class="indent0" >2) 직사광선을 피하고 될 수 있는 한 습기가 적은 서늘한 곳에 보관할 것</p>
+<p class="indent0" >3) 오용을 막고 품질의 보존을 위하여 다른 용기에 바꾸어 넣지 말 것</p>
+</div></div>
+                </div>
+
+                
+
+                <div class="info_sec notPkInfo scroll_07" id="scroll_07">
+                    <div class="sec_top">
+                        <h3 class="cont_title2">재심사, RMP, 보험, 기타정보</h3>
+                    </div>
+                    <table class="s-dr_table dr_table_type2 s-view-table ss_table">
+                        <caption><span>재심사 /RMP / 보험 / 기타 - 저장방법, 사용기간, 재심사대상, RMP대상, 포장 정보, 보험 약가</span></caption>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <tr>
+                            <th scope="row">저장방법</th>
+                            <td class="al_l">기밀용기, 실온(1∼30℃)보관</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">사용기간</th>
+                            
+                            <td class="al_l">제조일로부터 36 개월</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">재심사대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">RMP대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">포장정보</th>
+                            
+                            <td class="al_l">10mL /1병 </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">보험약가</th>
+                            
+                            <td class="al_l"></td>
+                        </tr>
+                        <!-- 3차 2020.11.17 -->
+                        <tr>
+                            <th scope="row">ATC코드</th>
+                            <td>
+                                <table style="padding:0px 0px 5px 0px; margin:0px 0px 5px 0px">
+                                    <tr style="height: 32px;">
+                                        <td class="pc-tr" style="padding:0; margin:0">R01AA07 (xylometazoline)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+
+                
+
+                <!--<th:block th:unless="${true}" th:remove="tag">   -->
+                <!--//20210126 임교순차장 구두 요청에 의거 "변경이력"주석처리-->
+                
+                    <div class="info_sec notPkInfo scroll_10" id="scroll_10">
+                        <div class="sec_top">
+                            <h3 class="cont_title2 fl">변경이력
+                                <button type="button" class="btn_small btn_folding" id="btnChf">변경이력 폴딩 버튼</button>
+                                <span class="btn_area btn_mob fr">
+                                    <button type="button" class="btn_small btn_icon"
+                                            onclick="downExcelFile(&#39;201403811&#39;, &#39;change&#39;);">
+                                        <span class="icon_xls">변경이력 엑셀다운로드</span>
+                                    </button>
+                                </span>
+                            </h3>
+                        </div>
+                        <div>
+                            <table class="s-dr_table dr_table dr_table_type2" id="tblChf">
+                                <caption><span>변경이력 - 순번, 변경일자, 변경항목</span></caption>
+                                <colgroup>
+                                    <col style="width:5%">
+                                    <col style="width:20%">
+                                    <col style="width:75%">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th scope="col">순번</th>
+                                    <th scope="col">변경일자</th>
+                                    <th scope="col">변경항목</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>1</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2024-07-29</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상의 주의사항</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>2</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2022-02-01</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>3</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2021-12-10</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>용법·용량</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>4</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2021-12-10</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상의 주의사항</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>5</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2015-04-15</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>제품명칭변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>6</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2014-09-22</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>효능효과변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>7</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2014-09-22</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>용법용량변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>8</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2014-09-22</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+
+                
+
+                
+
+                
+
+            </div>
+
+        </section>
+        <!-- //content -->
+    </div>
+    <!-- //drug_container -->
+    <div class="top">
+        <a href="#none" class="_scroll_top" title="top">top</a>
+        <a href="#none" class="_up" title="이전">이전</a>
+        <a href="#none" class="_down" title="뒤로">뒤로</a>
+    </div>
+
+</div>
+
+<div class="btn_area">
+    <button type="button" class="btn_normal btn_base btn_point3 s-bb" title="닫기"
+            onclick="javascript:closeDrugInfoPopup()"><span>닫기</span></button>
+</div>
+<div class="scroll_menu hidden">
+    <ul>
+        <li id=".scroll_01"><p>menu01</p></li>
+        <li id=".scroll_02"><p>menu02</p></li>
+        <li id=".scroll_03"><p>menu03</p></li>
+        <li id=".scroll_04"><p>menu04</p></li>
+        <li id=".scroll_05"><p>menu05</p></li>
+        
+        <li id=".scroll_07"><p>menu07</p></li>
+        
+        
+        <li id=".scroll_10"><p>menu10</p></li>
+        
+        
+    </ul>
+</div>
+<div class="btn-zoom">
+    <!--글자크기 선택-->
+    <div class="fontsize-wrap">
+        <a href="javascript:toggleFontSelector()" class="font-selec-btn">A+</a>
+        <ul class="fontsize-selector">
+            <li><a id="font-level-1"
+                   href="javascript:scaleFontSizeOf('#font-level-1', '.drug_wrap', 1)">A</a><span>아주작게</span></li>
+            <li><a id="font-level-2"
+                   href="javascript:scaleFontSizeOf('#font-level-2', '.drug_wrap', 2)">A</a><span>작게</span></li>
+            <li><a id="font-level-3" href="javascript:scaleFontSizeOf('#font-level-3', '.drug_wrap', 3)"
+                   class="font-select">A</a><span>보통</span></li>
+            <li><a id="font-level-4"
+                   href="javascript:scaleFontSizeOf('#font-level-4', '.drug_wrap', 4)">A</a><span>크게</span></li>
+            <li><a id="font-level-5"
+                   href="javascript:scaleFontSizeOf('#font-level-5', '.drug_wrap', 5)">A</a><span>아주크게</span></li>
+        </ul>
+    </div>
+</div>
+<!-- //drug_wrap -->
+</body>
+</html>

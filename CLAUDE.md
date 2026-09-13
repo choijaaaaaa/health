@@ -1215,6 +1215,29 @@ deleted`로 실패(리프레시 토큰 만료의 `Token has been expired or revo
   `youtube_upload.py` 연동 — `MISSION_CONTROL_INGEST_URL`/`_SECRET` 미설정
   시 조용히 스킵).
 
+## 🚨 카드뉴스 이미지 저장소 — Cloudflare R2 (2026-09-13 전환)
+
+**카드뉴스 jpg는 R2(`https://img.vernhaven.com/health-shorts/card_news/`)에서 서빙한다.**
+7,222장 1.14GB가 git·Vercel 배포에 그대로 실려 있었고(2026-08-08엔 609장 79.6MB였던 게
+14배가 됨), R2는 **egress가 무료**라 CDN에서 받는 편이 싸고 배포도 가벼워진다.
+블로그 4개 사이트가 쓰는 버킷과 같은 버킷이다(`verticals/.env.r2`, 프리픽스로 분리).
+
+| 키 규칙 | 로컬 경로 |
+|---|---|
+| `health-shorts/card_news/<topic>/<파일명>` | `output/<topic>/card_news/` 및 `output/<topic>/ko/card_news/` |
+| `health-shorts/card_news/<topic>/<lang>/<파일명>` | `output/<topic>/<lang>/card_news/` (ko 제외) |
+
+> ko와 루트를 같은 키로 합치는 이유: 둘을 동시에 가진 topic이 0개라 충돌하지 않고,
+> 대시보드가 topic만 알면 URL을 만들 수 있다.
+
+- **업로드는 자동이다** — `lib/card_news.py`가 렌더 직후 `_sync_to_r2()`로 올린다.
+  따로 실행할 명령이 없다. 실패하면 stderr에 경고만 나오고 렌더는 성공 처리되므로,
+  **경고가 보이면 그 topic은 배포본에서 이미지가 안 뜬다** — 다시 렌더하거나 수동 업로드할 것.
+- URL을 만드는 정본은 `lib/dashboard.py._card_news_r2_base()` 하나다. 키 규칙을 바꾸려면
+  이 함수와 `card_news.py._sync_to_r2()`를 **같이** 고쳐야 한다.
+- 대시보드의 "카드 이미지 전체 다운로드"는 `<a download>`가 아니라 **fetch+blob**이다 —
+  R2가 다른 오리진이라 download 속성이 무시되기 때문(버킷에 GET CORS를 열어뒀다).
+
 ## 카드뉴스 허브 (`lib/card_news_hub.py`)
 
 ⚠️ **UI 진입점 제거(2026-08-21, AI영상 채널 피벗)** — `index.html`의
@@ -1348,11 +1371,11 @@ python3 -m pytest tests/ -v
 없고, 삭제 사고를 실제로 겪어본 뒤 git을 유일한 백업 경로로 삼기로 함.
 새 캐릭터 일러스트는 만드는 즉시 커밋할 것.
 
-⚠️ **카드뉴스 이미지(`output/**/card_news/*.jpg`)는 표지만 빼고 gitignore하려던
-계획이 2026-08-08에 뒤집혀서, 지금은 전체가 git에 추적된다** — 실제 `.gitignore`
-기준. 이 문서에 예전 "표지만 추적" 문구가 최근까지 남아있어서 여러 세션이
-반복 발견했다(2026-08-14 정정) — 새 topic 작업 시 카드뉴스 이미지는 표지 포함
-전체를 그냥 커밋하면 된다, 별도 필터링 불필요.
+⚠️ **카드뉴스 이미지는 2026-09-13부로 Cloudflare R2에서 서빙한다** — git에는
+아직 추적되지만(히스토리에 이미 있어 빼도 용량이 안 줄고, 워크트리 병합 시 로컬
+파일이 삭제되는 사고 이력이 있어 추적 해제는 보류) **Vercel 배포에서는 제외**된다
+(`.vercelignore`의 `output/**/card_news/`). 대시보드가 이미지를 R2 절대 URL로
+가리키므로 배포본에 파일이 없어도 정상이다. 자세한 건 아래 "카드뉴스 이미지 저장소" 절.
 
 영상·이미지 생성 코드는 그대로다 — 파일은 여전히 로컬에 정상적으로 만들어지고,
 git이 추적만 안 할 뿐이다. `assets_library/{backgrounds,fonts,

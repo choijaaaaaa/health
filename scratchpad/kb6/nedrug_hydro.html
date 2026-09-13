@@ -1,0 +1,1241 @@
+<!doctype html>
+<html
+        lang="ko"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Cache 사용안하도록 설정 -->
+<!--    <meta http-equiv="Expires" content="-1">-->
+<!--    <meta http-equiv="Pragma" content="no-Cache">-->
+<!--    <meta http-equiv="Cache-Control" content="No-Cache">-->
+    <!-- Cache 사용안하도록 설정 -->
+    <!--<title th:text="|식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기|"></title> SR202206080010-의약품등 정보 페이지 인쇄 시 짤림 현상 -->
+    <title>식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기-히드록시크림(히드로코르티손)</title>
+    <link rel="stylesheet" href="/resources/css/import.css">
+    <!--    <link rel="stylesheet" th:href="@{/resources/css/druginfo.css}" >-->
+    <link rel="stylesheet" href="/static/lib/jquery/jquery.bxslider.css">
+    <script type="text/javascript" src="/static/lib/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/resources/js/front_script.js"></script>
+    <script type="text/javascript" src="/resources/js/common-pbp.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="/static/lib/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/lib/bootbox.js"></script>
+    <script type="text/javascript" src="/resources/js/qrcode.js/qrcode.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        var pkInfoView = false;
+        
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= $('body').position().top  ){
+                $('.scroll_menu ul li').removeClass('on')
+            }
+            
+            for (var i = 0; i < 12; i++) {
+                var srId = i+1;
+                srId = (srId < 10) ? '0'+srId : srId;
+                
+                if (0 < $('.scroll_' + srId).length) {
+                    if($(window).scrollTop() >= $('.scroll_' + srId).position().top -10 ){
+                        $('.scroll_menu ul li').removeClass('on')
+                        $('.scroll_menu ul li:eq('+i+')').addClass('on')
+                    }
+                }
+            }
+            
+        });
+        
+        $(document).ready(function () {
+            checkId();
+            $(".scroll_menu ul li").each(function(){
+                var friend_tab_scroll = $(this).attr("id");
+                if(friend_tab_scroll != undefined && $(friend_tab_scroll).position() != undefined ){
+                    friend_tab_top = $(friend_tab_scroll).position().top;
+                    $(friend_tab_scroll).data("top", friend_tab_top);
+                }
+            })
+            $(".scroll_menu ul li").click(function(){
+                var friend_tab_top = $($(this).attr("id")).position().top;
+                $("html, body").stop().animate({scrollTop:friend_tab_top}, 500)
+            })
+            
+            setFrText();
+            
+            getDrWarnList();
+            
+            if (0 < $("#tblChf").length) {
+                $('#tblChf').hide();
+            }
+            
+            $('.bxslider').bxSlider({
+                mode: 'horizontal',
+                moveSlides: 1,
+                slideMargin: 40,
+                infiniteLoop: true,
+                slideWidth: 1023,
+                minSlides: 1,
+                maxSlides: 1,
+                speed: 800,
+            });
+            
+            $(".s-acc-con > h2 > button").click(function () {
+                $(".s-acc-con").not($(this).parent().next(".ac-con").parent().toggleClass("on")).removeClass("on");
+            });
+            $(".s-acc > h2 > button").click(function () {
+                $(this).parent().parent().toggleClass("on");
+            });
+            $(".sec_top .btn_area .btn_folding").click(function () {
+                var div = $(this).parent().parent(); 
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                var div = $(this).parent().parent();
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                $(".mediWrap").toggleClass("left-close");
+                
+                if ($(this).attr('id') == 'btnChf') {
+                    var div = $(this).parent().parent();
+                    
+                    if ($(div).hasClass('fr-on')) {
+                        $('#tblChf').show();
+                    } else {
+                        $('#tblChf').hide();
+                    }
+                }
+            });
+            //탭
+            $(".ltab > ul > li > a").click(function () {
+                $(".ltab > ul > li").removeClass("on");
+                $(this).parent().addClass("on");
+                $(".l_sec_md").toggleClass("t-on");
+                return false
+            });
+            $(".btn_ham").click(function () {
+                $(".drug_allmenu").addClass("on");
+            });
+            $(".btn_hamx").click(function () {
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".en-tab > a:first").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con2").removeClass("on");
+                $("#en-tab-con1").addClass("on");
+                return false
+            });
+            $(".en-tab > a:last").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con1").removeClass("on");
+                $("#en-tab-con2").addClass("on");
+                return false
+            });
+            $(".menulist > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".menulist > ul > li > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            
+            var eeTitles = $('#_ee_doc p.title');
+            eeTitles.addClass('subj nock');
+
+            var eeIndents = $('#_ee_doc > div > p');
+            eeIndents.addClass('note');
+
+            var udTitles = $('#_ud_doc p.title');
+            udTitles.addClass('subj nock');
+
+            var udIndents = $('#_ud_doc > div > p');
+            udIndents.addClass('note');
+
+            var cls = 'on';
+            var nbTitles = $('#_nb_doc p.title');
+            nbTitles.addClass('subj nock');
+            nbTitles.each(function(i,e) {
+                var title = $(e);
+                // title.append('<a href="#none" title="'+title.text()+' 접기"></a>');
+                title.append('<a href="#none" title="'+title.text()+' 접기" style="text-indent: -9999px">' + title.text() +' 접기</a>');
+            });
+            
+            nbTitles.on('click',function(){
+                var title = $(this);
+
+                var div = title.next();
+                var divTag = div.prop('tagName').toLowerCase();
+                console.log ("aa"  + title.attr('title') )
+
+                var titleLength = title.children().attr('title').length
+                var titleText = title.children().attr('title')
+                if (title.hasClass('on')) {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-4) + ' 접기');
+                    title.find('a').text(titleText.substr(0, titleLength-4) + ' 접기');
+                } else {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-3)  + ' 펼치기');
+                    title.find('a').text(titleText.substr(0, titleLength-3) + ' 펼치기');
+                }
+
+                if(div){
+                    title.toggleClass(cls);
+                }
+                if('div' == divTag) {
+                    div.toggleClass(cls);
+                }
+            });
+            
+            var nbHeader = $('.scroll_05');
+            if (0 < nbTitles.length) {
+                nbHeader.append('<a href="#none" id="btnTct" class="xi-minus-circle xi-plus-circle" title="주의사항 펼치기" style="text-indent: -9999px">주의사항 펼치기</a>');
+            }
+            $('.scroll_05 > a').on('click',function () {
+                var hi = $(this);
+                hi.toggleClass('xi-minus-circle');
+
+                if (hi.hasClass('xi-minus-circle')) {
+                    hi.attr('title', '주의사항 접기');
+                    hi.text('주의사항 접기');
+
+                } else {
+                    hi.attr('title', '주의사항 펼치기');
+                    hi.text('주의사항 펼치기');
+
+                }
+                if(hi.hasClass('xi-plus-circle')){
+                    nbTitles.each(function (i, e) {
+                        var title = $(e);
+
+                        if (hi.hasClass('xi-minus-circle')) {
+                            title.find('a').attr('title', title.text() + ' 접기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.removeClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.removeClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.removeClass(cls);
+                            }
+
+                        } else {
+                            title.find('a').attr('title', title.text() + ' 펼치기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.addClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.addClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.addClass(cls);
+                            }
+
+                        }
+                    });
+                }
+            });
+            
+            var nbIndents = $('#_nb_doc > div > p');
+            nbIndents.addClass('note');
+            
+            $('#drugInfoLastMenu').on('keypress keydown', function(event) {
+                var keyCode = '';
+                var key = event.key;
+                
+                if (window.event) {
+                    keyCode = event.keyCode;
+                } else {
+                    keyCode = event.which;
+                }
+                
+                if (9 == keyCode) {
+                    $('.btn_hamx').focus();
+                }
+            });
+            
+            // 강제로 3종 문서 img에 alt="" 넣어주기
+            var eeImgs = $('#_ee_doc').find('img');
+            var udImgs = $('#_ud_doc').find('img');
+            var nbImgs = $('#_nb_doc').find('img');
+            
+            setImgsAlt(eeImgs);
+            setImgsAlt(udImgs);
+            setImgsAlt(nbImgs);
+            
+            //화면 최초 진입시 pkInfo 정보에 따라 생동성이 우선인지 아이템 정보가 우선인지
+            setPkInfoView(pkInfoView);
+            if (!pkInfoView) {
+                               //생동성 시험정보 없으면 출력 부분 추가하여 버튼 비활성화 기능 제거- 2021.01.29 cdsy
+                //$('#btnPkInfo').attr('disabled', true);
+            }
+            
+            $("._up").click(function(){
+                //$(".scroll_menu ul li.on").prev().click() 2024.06.17 SR202406170014
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop-500)}, 300)
+            })
+
+            $("._down").click(function(){
+                /*if($(".scroll_menu ul li").hasClass("on")){ 2024.06.17 SR202406170014
+                    $(".scroll_menu ul li.on").next().click()
+                }else{
+                    $(".scroll_menu ul li:eq(0)").click()
+                }*/
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop+500)}, 300)
+            })
+
+            $("._scroll_top").click(function(){
+                $("html, body").stop().animate({scrollTop:0},300)
+                return false;
+            })
+        });
+        $(document).ready(function() {
+            var h = $('#ezdrug-url-code').height();
+            var codeValue = 'https://nedrug.mfds.go.kr/pbp/ezdrug?itemSeq=199700505';
+            new QRCode('ezdrug-url-code', {
+                text: codeValue,
+                width: h,
+                height: h
+            });
+            setTimeout(function() {
+            $('#ezdrug-url-code img').attr('alt', '품목제조사 및 유통(사용기한) 정보 QR코드')
+                $('#ezdrug-url-code img').attr('title', '클릭 시 크게 볼 수 있습니다')
+                .css({'cursor': 'pointer'});
+            }, 100);
+            $('#ezdrug-url-code').click(function(e) {
+                e.preventDefault();
+                $('#_tmp_qrcode').remove();
+                $('body').append('<div id="_tmp_qrcode" style="display: none;"></div>');
+                var q = new QRCode('_tmp_qrcode', {
+                    text: codeValue,
+                    width: 512,
+                    height: 512
+                });
+                function openQrcodePopup() {
+/*
+                    if (!q._oDrawing._bIsPainted) {
+                        setTimeout(openQrcodePopup, 100);
+                        return;
+                    }
+*/
+                    var canvas = document.createElement('canvas');
+                    var margin = 32;
+                    var w = 512 + margin, h = w;
+                    canvas.width = w;
+                    canvas.height = h;
+                    $('#_tmp_qrcode').append(canvas);
+                    var ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, w, h);
+                    var imgEle = new Image();
+                    imgEle.onload = function() {
+                        ctx.drawImage(imgEle, margin / 2, margin / 2);
+                        if (window.navigator.msSaveOrOpenBlob) {
+                            var src = canvas.toDataURL('image/png');
+                            var bc = atob(src.substr('data:image/png;base64,'.length));
+                            var bas = [];
+                            for (var offset = 0; offset < bc.length; offset += 512) {
+                                var slice = bc.slice(offset, offset + 512);
+                                var ba = new Array(slice.length);
+                                for (var i = 0; i < slice.length; i++) {
+                                    ba[i] = slice.charCodeAt(i);
+                                }
+                                bas.push(new Uint8Array(ba));
+                            }
+                            window.navigator.msSaveOrOpenBlob(new Blob(bas, {type:'image/png'}), '199700505.png');
+                        } else {
+                            canvas.toBlob(function(blob) {
+                                window.open(URL.createObjectURL(blob), '_blank');
+                            }, 'image/png');
+                        }
+                    }
+                    imgEle.src = $('#_tmp_qrcode canvas:eq(0)')[0].toDataURL('image/png');
+                }
+                setTimeout(openQrcodePopup, 100);
+            });
+        });
+        
+        function setImgsAlt(array) {
+            if (0 < array.length) {
+                array.each(function(i,e) {
+                    var img = $(e);
+                    img.attr('alt', '');
+                });
+            }
+        }
+
+        function getDrWarnList(){
+            var chk = $('.dr_warn_list').find('li').length;
+            if(chk < 1){
+                $('.dr_warn_list').addClass('none_li');
+            }
+        }
+        
+        function setFrText() {
+            var frDivs = $('div.div_fr');
+            frDivs.each(function(i,e) {
+                var frDiv = $(e);
+                var frText = frDiv.find('h3').text();
+                
+                if (frDiv.hasClass('fr-on')) {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 접기');
+                } else {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 펼치기');
+                }
+            });
+        }
+        
+        function getDurDetailClick(durSeq,divId){
+            param = {};
+            param.durSeq = durSeq;
+            param.divId = divId;
+            
+            $.get("/pbp/CCBBB01/getDurDetailClick", param, function (result) {
+                $('#'+divId).replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailAClick(usjntSeq){
+            param = {};
+            param.usjntSeq = usjntSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailAClick", param, function (result) {
+                $('#druA').replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailGClick(effectSeq){
+            param = {};
+            param.effectSeq = effectSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailGClick", param, function (result) {
+                $('#durG').replaceWith(result);
+            });
+        } 
+        
+        function getPatentDetailClick(itemSeq,patentNo){
+            param = {};
+            param.itemSeq = itemSeq;
+            param.patentNo = patentNo;
+            
+            $.get("/pbp/CCBBB01/getPatentDetailClick", param, function (result) {
+                $('#patentDetail').replaceWith(result);
+            });
+        }
+        
+        function closeDrugInfoPopup() {
+            window.close();
+        }
+        
+        function downExcelFile(item_seq, division) {
+            $('<form class="hidden" id="excelForm" action="/pbp/CCBBB01/getExcel" method="post"></form>').appendTo('body');
+            $('<input type="hidden" name="itemSeq" value="'+item_seq+'" />').appendTo($('#excelForm'));
+            $('<input type="hidden" name="division" value="'+division+'" />').appendTo($('#excelForm'));
+            $('#excelForm').submit().remove();
+        }
+        
+        function setPkInfoView(boolean) {
+            if (boolean) {
+                $('.main_title').text('생동성시험정보');
+               // $('#btnPkInfo').removeClass('btn_line').addClass('btn_base');  웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_base').addClass('btn_line');
+                $('.notPkInfo').css('display', 'none');
+                $('.pkInfo').css('display', 'block');
+                $('.pkInfo').css('margin-top', '250px');
+                $('.drug_content').css('margin-bottom', '350px');
+                $('.pkInfo').addClass('ht140');
+            } else {
+                $('.main_title').text('의약품상세정보');
+               // $('#btnPkInfo').removeClass('btn_base').addClass('btn_line'); 웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_line').addClass('btn_base');
+                $('.notPkInfo').css('display', 'block');
+                $('.pkInfo').css('display', 'none');
+                $('.pkInfo').css('margin-top', '0px');
+                $('.pkInfo').removeClass('ht140');
+                $('.drug_content').css('margin-bottom', '0px');
+            }
+        }
+
+        function  checkId() {
+            var chk;
+            var chk2;
+            var listChk1 =$("#listChk").has("li").length;
+            
+            chk2 =document.getElementById("withdrawal2");
+            chk = document.getElementById("withdrawal");
+            
+            if(listChk1 == false){
+                $('.drug_header').removeClass('drug_list_down').addClass('drug_list_up');
+                $('.drug_content').addClass("drug_list");
+            }
+            if(chk == null && chk2 == null){
+                $('.drug_header').removeClass('drug_header-down').addClass('drug_header-up');
+                $('.drug_info_top').addClass('not_button');
+            }
+        }
+        
+        function goWindowToUrl(url){
+            window.open(url,'_blank');
+        }
+        
+        function decomposeFontSize($container) {
+            var fontSize = $container.css('fontSize');
+            return /([0-9.]+)([a-zA-Z]+)/g.exec(fontSize);
+        }
+
+
+        var scaleLevel = 3;
+
+        function toggleFontSelector() {
+            var $ele = $('.fontsize-selector');
+            if ($ele.is(':visible')) {
+                $ele.hide();
+            } else {
+                $ele.show();
+            }
+        }
+
+        function scaleFontSizeOf(ele, selector, level) {
+            var $ele = $(ele);
+            $('.fontsize-selector a').removeClass('font-select');
+            $ele.addClass('font-select');
+
+            var scale = 1;
+            if (level === 3) {
+                var $container = $(selector);
+                $container.find('*').each(function () {
+                    $(this).css({fontSize: '', lineHeight: ''});
+                });
+                $('.fontsize-selector').hide();
+                return;
+            }
+            if (scaleLevel > level) {
+                scale = scaleLevel - level;
+                reduceFontSizeOf(selector, scale);
+            } else if (scaleLevel < level) {
+                scale = level - scaleLevel;
+                enlargeFontSizeOf(selector, scale);
+            }
+            scaleLevel = level;
+            $('.fontsize-selector').hide();
+
+        }
+
+        function enlargeFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) + scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        function reduceFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) - scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        // 3종 문서 변경이력 팝업 호출
+        function getDocChangeDateList (itemSeq, docType, count) {
+            var popupTitle = '';
+
+            // if (count < 1) {
+            //     this.alert("변경이력이 없습니다.");
+            // } else {
+                if (docType == 'EE') popuptitle = '효능효과 변경이력'
+                if (docType == 'UD') popuptitle = '용법용량 변경이력'
+                if (docType == 'NB') popuptitle = '사용상의주의사항 변경이력'
+                pbpPopup('/pbp/CCBBB01/getItemChangeHistInfo?itemSeq='+itemSeq+'&docType='+docType, popupTitle, 1000, 1250, 0, 0)
+            // }
+        }
+        
+        //키프리스 지식검색 이동
+        function moveKiprisSearch(keyword) {
+        	var newForm = $("<form></form>");
+        	newForm.attr("method","post");
+        	newForm.attr("action","https://kipris.or.kr/khome/search/searchResult.do");
+        	newForm.attr("target","blank");
+        	
+        	var sParam = keyword;
+        	
+        	if(sParam){
+        		sParam = sParam.replace(/-/gi, '');
+        	}else{
+        		sParam = keyword;
+        	}
+        	
+        	newForm.append($("<input/>", {type:"hidden", name:"searchKind", value:"totalSearch"}));
+        	newForm.append($("<input/>", {type:"hidden", name:"queryText" , value:sParam}));
+        	newForm.append($("<input/>", {type:"hidden", name:"expression", value:sParam}));
+        	
+        	newForm.appendTo("#scroll_12");
+        	newForm.submit();
+        }
+    </script>
+    <style>
+        body, html {
+            min-width: 0;
+        }
+
+        .nav-down .main_title {
+            display: none;
+        }
+
+        .nav-down .drug_header-pics {
+            display: none;
+        }
+
+        /*#ezdrug-url-code-wrap {display: none;}*/
+    </style>
+</head>
+
+<body class="nav-up">
+<!-- drug_wrap -->
+<div class="drug_wrap">
+    <!-- drugHeader -->
+    <div class="drug_header" id="gnb">
+        <div class="inner">
+            <h2 class="s-hh main_title">의약(외)품상세정보</h2>
+            <div class="drug_header-pics">
+                <div class="dr_warn_list">
+                    <ul id="listChk">
+                        
+                        
+                    </ul>
+                </div>
+                <div id="ezdrug-url-code-wrap">
+                    <div id="ezdrug-url-code">
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <!-- <button type="button" class="btn_ham">전체보기</button> -->
+                <div class="drug_allmenu">
+                    <div class="title">
+                        <button type="button" class="btn_hamx">전체메뉴닫기</button>
+                        <h1><strong>히드록시크림(히드로코르티손)</strong></h1>
+                    </div>
+                    <!--
+                    <div class="menulist">
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor1">의약품 기본정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor0" onclick="moveAnchor(0); return false;">원료약품 및 분량</a></li>
+                                    <li><a href="#subAnchor1" onclick="moveAnchor(1); return false;">효능 효과</a></li>
+                                    <li><a href="#subAnchor2" onclick="moveAnchor(2); return false;">용법 용량</a></li>
+                                    <li><a href="#subAnchor3" onclick="moveAnchor(3); return false;">주의사항</a></li>
+                                    <li><a href="#subAnchor4" onclick="moveAnchor(4); return false;">의약품 적정사용정보</a></li>
+                                    <li><a href="#subAnchor5" onclick="moveAnchor(5); return false;">재심사, 보험, 기타</a></li>
+                                    <li><a href="#subAnchor6" onclick="moveAnchor(6); return false;">생산/수입실적</a></li>
+                                    <li><a href="#subAnchor7" onclick="moveAnchor(7); return false;">변경이력</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor2">의약품 적정사용 정보(DUR)</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor8" onclick="moveAnchor(8); return false;">병용금기</a></li>
+                                    <li><a href="#subAnchor9" onclick="moveAnchor(9); return false;">연령금기</a></li>
+                                    <li><a href="#subAnchor10" onclick="moveAnchor(10); return false;">임부금기</a></li>
+                                    <li><a href="#subAnchor11" onclick="moveAnchor(11); return false;">용량주의</a></li>
+                                    <li><a href="#subAnchor12" onclick="moveAnchor(12); return false;">투여기간주의</a></li>
+                                    <li><a href="#subAnchor13" onclick="moveAnchor(13); return false;">노인주의</a></li>
+                                    <li><a href="#subAnchor14" onclick="moveAnchor(14); return false;">효능군 중복주의</a></li>
+                                    <li><a href="#subAnchor15" onclick="moveAnchor(15); return false;">분할주의</a></li>
+                                    <li><a href="#subAnchor16" onclick="moveAnchor(16); return false;">첨가제 주의</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor3">생동성시험정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor17" onclick="moveAnchor(17); return false;">시험정보</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor4">특허정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor18" onclick="moveAnchor(18); return false;">특허 등제 의약품 정보</a></li>
+                                    <li><a href="#subAnchor19" onclick="moveAnchor(19); return false;">특허권 & 대리인</a></li>
+                                    <li><a href="#subAnchor20" onclick="moveAnchor(20); return false;">특허권</a></li>
+                                    <li><a href="#subAnchor21" onclick="moveAnchor(21); return false;" id="drugInfoLastMenu">연혁</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+                <h1>
+                    <strong>히드록시크림(히드로코르티손)</strong>
+                </h1>
+                <!-- 글자 수 별 글자크기 조정 -> 300자 이상인 경우가 있어 디자인 깨짐
+                <h1 th:if="*{#strings.length(item.itemName)<50}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h1>
+                <h2 th:if="*{#strings.length(item.itemName)>=50 and #strings.length(item.itemName)<100}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h2>
+                <h3 th:if="*{#strings.length(item.itemName)>=100 and #strings.length(item.itemName)<150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h3>
+                <h4 th:if="*{#strings.length(item.itemName)>=150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h4>-->
+            </div>
+            <div class="user_control">
+                
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://www.facebook.com/sharer/sharer.php?u=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=199700505aupdateTs2026-02-03+09:42:27.197353b&#39;)"
+                       class="btn_facebook" title="페이스북 새창열림">페이스북 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://twitter.com/intent/tweet?text= &gt;   HOMEPAGE &amp;url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=199700505aupdateTs2026-02-03+09:42:27.197353b&#39;)"
+                       class="btn_twitter" title="트위터 새창열림">트위터 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://story.kakao.com/share?url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=199700505aupdateTs2026-02-03+09:42:27.197353b&#39;)"
+                       class="btn_kakao" title="카카오스토리 새창열림">카카오스토리 공유</a>
+                
+                <a href="#" onclick="javascript:window.print(); return false;" class="btn_print_new" title="인쇄">인쇄</a>
+                <!-- 2019.01.25 주석처리 <button type="button" class="btn_print-1" onclick="printScreen(2); return false;">인쇄하기</button> -->
+            </div>
+            
+        </div>
+    </div>
+    <!-- //drugHeader -->
+
+    <!-- drug_container -->
+    <div class="drug_container" id="content">
+        <!-- content -->
+        <section class="drug_content">
+            <!-- ==========================================================  컨텐츠 시작  -->
+            <div class="drug_info_top notPkInfo">
+                <div class="l_sec1 scroll_01 empltyClass"
+                     id="scroll_01">
+                    <div class="dr_img">
+                        <div class="pc-img" style="min-height : 0;">
+                            
+                            
+                            <!--                                 <img th:if="${#strings.isEmpty(itemImageDoc)}" th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." />  -->
+                            <!--                                 <img th:if="${#strings.isEmpty(extimgImageDocid)}" th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /> -->
+                        </div>
+                        <!--  2021.01.28
+                                                <ul class="bxslider" th:if="${!#strings.isEmpty(item.itemImageDoc) || !#strings.isEmpty(item.extimgImageDocid)}">
+                                                    <li th:unless="${#strings.isEmpty(item.itemImageDoc)}"><img th:src="@{${item.itemImageDoc}}" th:alt="|${item.itemName} 낱알이미지|" /></li>
+                                                    <li th:unless="${#strings.isEmpty(item.extimgImageDocid)}"><img th:src="@{${item.extimgImageDocid}}" th:alt="|${item.itemName} 포장/용기정보 이미지|" /></li>
+                                                                                  <li th:if="${#strings.isEmpty(itemImageDoc)}"><img th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." /></li> -->
+                        <!--                                <li th:if="${#strings.isEmpty(extimgImageDocid)}"><img th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /></li>
+                    </ul> -->
+                    </div>
+                </div>
+                <div class="r_sec">
+                    <h2 class="s-title">기본정보</h2>
+                    <table class="s-dr_table dr_table_type1">
+                        <caption><span>의약품정보 - 성상, 업체명, 위탁제조업체, 전문/일반, 허가일, 품목기준코드, 취소/취하구분, 취소/취하일자, 표준코드  </span>
+                        </caption>
+                        <tr>
+                            <th scope="row">제품명</th>
+                            <td>
+                                <span class="pb10">히드록시크림(히드로코르티손)</span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">성상</th>
+                            <td>전질균등한 흰색의 크림제</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">업체명</th>
+                            <td>
+                                <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                        onclick="javascript:pbpPopup(&#39;/pbp/CCBBB01/getEntpInfo?entpSeq=19550006&#39;, &#39;업체정보&#39;, 700, 0, 0, 0); return false;">대한약품공업(주)</button>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">위탁제조업체</th>
+                            <td>한국콜마(주)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전문/일반</th>
+                            <td>일반의약품</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">허가일</th>
+                            <td>1997-12-04</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">품목기준코드</th>
+                            <td>199700505</td>
+                        </tr>
+                        <span> <!--긴급 사용 승인 품목이 아니면 캔슬코드가 X가 아님-->
+                            <tr class="cancel">
+                                <th scope="row">취소/취하구분</th>
+                                <td>취하</td>
+                            </tr>
+                            <tr class="cancel">
+                                <th scope="row">취소/취하일자</th>
+                                <td>2020-12-23</td>
+                            </tr>
+                        </span>
+                        <tr>
+                            <th scope="row">표준코드</th>
+                            <td>8806451027403, 8806451027410</td>
+                        </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- 판매중지정보 추가 2019.12.09 -->
+                        
+                        <!-- 3차 2020.11.17 -->
+                        
+                        <!-- 마스크 모델명 추가 2020.12.17 -->
+                        
+                    </table>
+                </div>
+            </div>
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy Start -->
+            
+                <div class="pkInfo">
+                    <div class="info_sec scroll_11" id="scroll_11">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">생동성 시험 정보</h3>
+                        </div>
+                        <div class="info_sec mt20 pt0" id="_tmp_doc">생동성시험정보가 확인되지 않는 경우 '의약품상세정보'를 참조하시기 바랍니다.</div>
+                    </div>
+                </div>
+            
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy END -->
+
+            <div class="drug_info_mid">
+                
+                    <div class="info_sec notPkInfo scroll_02" id="scroll_02">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">원료약품 및 분량</h3>
+                        </div>
+                        <!--<h3 class="cont_title3 mt27 pb10" th:unless="${#lists.isEmpty(ingrMainArray)}" th:text="|유효성분 : ${#strings.arrayJoin(ingrMainArray, ', ')}| "></h3>-->
+                        
+                            <script>
+                                /*<![CDATA[*/
+                                var aa = true;
+                                /*]]>*/
+                            </script>
+                            
+    <!--                        유효성분 (처음 한번만)-->
+                            <h3 class="cont_title3 mt27 pb10"
+                            >이 약 1그램 중</h3>
+                            <table class="tb_base">
+                                <caption><span> 원료약품 및 분량 - 원료약품 및 분량으로 순번, 성분명, 분량, 단위, 규격, 성분정보, 비교의 정보를 제공</span></caption>
+                                <colgroup>
+                                    <col style="width:5%;"> <!--순번-->
+                                    <col style="width:20%;"> <!--성분명-->
+                                    <col style="width:10%;"> <!--분량-->
+                                    <col style="width:15%;"> <!--단위-->
+                                    <col style="width:10%;"> <!--규격-->
+                                    <col style="width:20%;"> <!--성분정보-->
+                                    <col style="width:20%;"> <!--비교-->
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>순번</th>
+                                    <th>성분명</th>
+                                    <th>분량</th>
+                                    <th>단위</th>
+                                    <th>규격</th>
+                                    <th>성분정보</th>
+                                    <th>비교</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        var aasda = {"dataSetRowTypeValue":null,"dataActionFlag":null,"gridcmmcheck":null,"tableCheckFlag":false,"tableExtendFlag":0,"lastChangeDt":null,"lastChangerId":null,"registTs":null,"registerId":null,"updateTs":null,"updaterId":null,"gridRowIndex":null,"user":null,"menu":null,"sysGbCode":"NDII_EXT","classNo":null,"entpName":null,"entpEngName":null,"entpSeq":null,"etcOtcCode":"","narcoticKindCode":null,"classNm":null,"itemPermitDate":null,"eeDocNo":null,"udDocNo":null,"nbDocNo":null,"strgeMethod":null,"stMethod":null,"validTerm":null,"reexamCodeNm":null,"startDate":null,"endDate":null,"rmpYn":null,"rmpGb":null,"rmpRepCycle":null,"rmpStartDate":null,"rmpEndDate":null,"packUnit":null,"itemName":null,"itemEngName":null,"fileName":null,"extimgImageDocid":null,"pdfFileName":null,"inserpaperImageDocid":null,"itemSeq":"199700505","materialCode":null,"drugLabeling":null,"lengLong":null,"lengShort":null,"thick":null,"lineFront":null,"lineBack":null,"dura":null,"durb":null,"durc":null,"durd":null,"dure":null,"durf":null,"durg":null,"durh":null,"duri":null,"duraIngrName":null,"durbIngrName":null,"durcIngrName":null,"durdIngrName":null,"dureIngrName":null,"durfIngrName":null,"durgIngrName":null,"durhIngrName":null,"duriIngrName":null,"dispsCont":null,"chartn":null,"drugShape":null,"udDocData":null,"eeDocData":null,"nbDocData":null,"pnDocData":null,"totqyCont":"\uC774 \uC57D 1\uADF8\uB7A8 \uC911","ingrCode":"M101579","ingrName":"\uD788\uB4DC\uB85C\uCF54\uB974\uD2F0\uC190","ingrSubName":"\uCCA8\uAC00\uC81C : \uC138\uD0C4\uC62C,\uC774\uC18C\uD504\uB85C\uD544\uD314\uBBF8\uD14C\uC774\uD2B8,\uC5FC\uD654\uB098\uD2B8\uB968,\uC815\uC81C\uC218,\uD30C\uB77C\uC625\uC2DC\uBCA4\uC870\uC0B0\uD504\uB85C\uD544,\uB514\uC2A4\uD14C\uC544\uB9B4\uB514\uBAA8\uB284\uD074\uB85C\uB77C\uC774\uB4DC,\uB514\uBA54\uCE58\uCF58,\uD30C\uB77C\uC625\uC2DC\uBCA4\uC870\uC0B0\uBA54\uD2F8,\uBC31\uC0C9\uBC14\uC140\uB9B0,\uB18D\uAE00\uB9AC\uC138\uB9B0,\uD504\uB85C\uD544\uB80C\uAE00\uB9AC\uCF5C","ingrAddName":"\uCCA8\uAC00\uC81C \uC8FC\uC758 \uAD00\uB828 \uC131\uBD84: \uD504\uB85C\uD544\uB80C\uAE00\uB9AC\uCF5C","ingrMainName":"\uC720\uD6A8\uC131\uBD84 : \uD788\uB4DC\uB85C\uCF54\uB974\uD2F0\uC190","ingrTotqy":"10","ingrUnitName":"\uBC00\uB9AC\uADF8\uB7A8","ingrStdName":"USP","ingrInfo":null,"remark":null,"barcode":null,"drugSize":null,"ediCode":null,"maxAmt":null,"unit":null,"applyDay":null,"itemImageDoc":null,"materialMixPurposeCode":null,"grain":0,"grainChange":0,"cnsgnManuf":null,"bioeqExamInfoOpenYn":null,"rareDrugYn":null,"addIngrYn":null,"indutyClassCode":null,"indutyClassCodeName":null,"cancelCodeName":null,"cancelDate":null,"cancelCode":null,"maskModelName":null,"permitExamName":null,"unaprvEuaYn":null,"euaRegistTs":null,"euaYn":null,"signlangUrl":null,"rnum":null,"changeDate":null,"changeIem":null,"changeMatter":null,"nnDocData":null,"patientMenuCnt":null,"expertMenuCnt":null};
+                                        /*]]>*/
+                                    </script>
+                                    <td style="text-align: center">1</td>
+                                    <td style="text-align: left">히드로코르티손</td>
+                                    <td style="text-align: center">10</td>
+                                    <td style="text-align: center">밀리그램</td>
+                                    <td style="text-align: center">USP</td>
+                                    <td style="text-align: left"></td>
+                                    <td style="text-align: left"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <h3 class="cont_title4 mt3 pb10 pl10">첨가제 : 세탄올,이소프로필팔미테이트,염화나트륨,정제수,파라옥시벤조산프로필,디스테아릴디모늄클로라이드,디메치콘,파라옥시벤조산메틸,백색바셀린,농글리세린,프로필렌글리콜</h3>
+                            
+                                <h3 class="cont_title5 mt0 pb13 pl10">첨가제 주의 관련 성분: 프로필렌글리콜</h3>
+                            
+                            
+                        
+
+                        
+                        <!-- 첨가제 주의 관련 성분 - 2020.08.14 첨가제 각각 표시, 첨가제 주의 관련 성분 유무 체크하여 마지막에 표시하도록 수정-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrSubArray)}" th:text="|첨가제 : ${#strings.arrayJoin(ingrSubArray, ', ')}| "></h3>-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrAddArray)}" th:text="|첨가제 주의 관련 성분: ${#strings.arrayJoin(ingrAddArray, ', ')}| "></h3>-->
+                        <a class="btn_small btn_icon"
+                           href="/resources/images/contents/attention.pdf" title="첨가제 주의사항 PDF"><span class="icon_pdf">첨가제주의사항</span></a>
+                    </div>
+                
+                <!-- 3차 e약은要 정보 -->
+                
+                <!-- 3차 e약은要 정보 -->
+                <div class="info_sec _preview notPkInfo scroll_03" id="scroll_03">
+                    <div class="sec_top fr-on div_fr _preview_ee">
+                        <h3 class="cont_title2 fl">효능효과
+                            <button type="button" class="btn_folding">효능효과 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/199700505/EE"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/199700505/EE"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/199700505/EE"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;199700505&#39;, &#39;EE&#39;, &#39;0&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box" id="_ee_doc"><p class="title">(연고제)(크림제)(로오숀제)</p>
+<div><p class="indent0" >습진ㆍ피부염군, 피부가려움, 벌레물린데</p>
+</div><p class="title">(에어로솔제)</p>
+<div><p class="indent0" >습진ㆍ피부염, 벌레물린데, 담쟁이덩굴, 떡갈나무, 옻나무, 비누, 세제, 화장품, 보석 등에 기인하는 피부자극증상 및 생식기ㆍ항문가려움의 일시적 완화</p>
+</div></div>
+                </div>
+
+                <div class="info_sec _preview notPkInfo scroll_04" id="scroll_04">
+                    <div class="sec_top fr-on div_fr _preview_ud">
+                        <h3 class="cont_title2 fl">용법용량
+                            <button type="button" class="btn_folding">용법 용량 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/199700505/UD"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/199700505/UD"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/199700505/UD"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;199700505&#39;, &#39;UD&#39;, &#39;0&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt20 pt0" id="_ud_doc"><p class="indent0" >(연고제)(크림제)</p>
+<p class="indent0" >1일 1-3회 적당량을 환부에 바르고 증상에 따라 적절히 증감한다.</p>
+<p class="indent0" >(로오숀제)</p>
+<p class="indent0" >사용전 잘 흔들어 섞은 후 1일 1-3회 적당량을 환부에 바르고 증상에 따라 적절히 증감한다.</p>
+<p class="indent0" >(에어로솔제)</p>
+<p class="indent0" >성인 및 2세 이상의 소아 : 사용전 잘 흔들어 섞은 후 1일 1-2회 적당량을 환부에 분무한다.</p>
+</div>
+                </div>
+                <script>
+                    /*<![CDATA[*/
+                    var patientMenuCnt = null;
+                    var expertMenuCnt = null;
+                    /*]]>*/
+                </script>
+                <div class="info_sec _preview notPkInfo scroll_05" id="scroll_05">
+                    <div class="sec_top fr-on div_fr _preview_nb">
+                        <h3 class="cont_title2 fl">사용상의주의사항
+                            <button type="button" class="btn_folding">사용상의주의사항 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/199700505/NB"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/199700505/NB"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/199700505/NB"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                                
+                                
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;199700505&#39;, &#39;NB&#39;, &#39;1&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt30 pt0 notice" id="_nb_doc"><p class="title">1. 다음 환자에는 투여하지 말 것.</p>
+<div><p class="indent0" >1) 세균(결핵, 매독 등)ㆍ진균(칸디다증, 백선 등)ㆍ바이러스(대상포진, 단순포진, 수두, 종두증 등)ㆍ동물(옴, 사면발이 등)성 피부감염증 환자(증상이 악화될 수 있다)</p>
+<p class="indent0" >2) 이 약 또는 이 약 성분에 과민증 및 그 병력이 있는 환자</p>
+<p class="indent0" >3) 고막 천공이 있는 습진성 외이도염 환자(천공부위의 치유지연이 나타날 수 있다)</p>
+<p class="indent0" >4) 궤양(베체트병 제외), 제2도 심재성 이상의 화상ㆍ동상 환자(피부재생이 억제되어 치유가 지연될 수 있다)</p>
+<p class="indent0" >5) 입주위피부염, 보통여드름, 주사 환자</p>
+<p class="indent0" >6) 2세 미만 유아</p>
+</div><p class="title">2. 다음 환자에는 신중히 사용할 것.</p>
+<div><p class="indent0" >1) 임부 또는 임신하고 있을 가능성이 있는 부인 및 수유부</p>
+<p class="indent0" >2) 유ㆍ소아</p>
+<p class="indent0" >3) 고령자</p>
+<p class="indent0" >4) 이 약에 첨가제로 함유된 프로필렌글리콜에 의하여 알레르기를 일으킬 수 있으므로 이 성분에 과민하거나 알레르기 전력이 있는 환자에는 신중히 투여한다.</p>
+</div><p class="title">3. 이상반응</p>
+<div><p class="indent0" >1) 피부</p>
+<p class="indent2" >① 감염증 : 피부의 세균성(전염성 농가진, 모낭염 등) 및 진균성(칸디다증, 백선 등) 감염증이 나타날 수 있다[밀봉붕대법(ODT)의 경우 나타나기 쉽다]. 이와 같은 증상이 나타날 경우에는 적절한 항균제나 항진균제 등을 병용하고 증상이 신속히 개선되지 않을 경우에는 사용을 중지한다.</p>
+<p class="indent2" >② 일반적 피부증상 : 모낭염, 부스럼, 피부자극, 자통, 발열, 작열감, 발진, 발적, 홍조, 가려움, 피부건조, 농포성피부염, 알레르기성 접촉피부염, 땀띠, 한진, 상처악화, 욕창, 농포증 등이 나타날 수 있으며, 이러한 증상이 나타날 경우에는 사용을 중지한다.</p>
+<p class="indent2" >③ 장기 연용 : 스테로이드성 여드름, 스테로이드성 피부(피부위축, 모세혈관확장, 자반), 스테로이드성 주사, 입주위피부염(입주위ㆍ안면전체에 홍반, 구진, 모세혈관확장, 딱지, 인설), 어린선(漁鱗癬)양 피부변화, 다모, 색소탈실, 선조, 수포성피부염, 아토피피부염, 피부출혈 등이 나타날 수 있다. 이러한 증상이 나타날 경우에는 천천히 사용량을 줄여 코르티코이드를 함유하지 않은 약으로 바꾸어 사용한다.</p>
+<p class="indent0" >2) 내분비계 : 대량 또는 장기간에 걸친 광범위한 사용, 밀봉붕대법에 의해 코르티코이드 전신 투여와 같은 뇌하수체ㆍ부신피질계 기능의 억제를 가져올 수 있으므로 주의한다.</p>
+<p class="indent0" >3) 눈 : 안검피부에 사용시 안압 상승, 녹내장을 일으킬 수 있으므로 주의한다. 대량 또는 장기간에 걸친 광범위한 사용, 특히 밀봉붕대법을 사용할 경우 후낭하백내장, 녹내장 등이 나타날 수 있다. 빈도불명의 시야흐림이 나타날 수 있다.</p>
+</div><p class="title">4. 일반적주의</p>
+<div><p class="indent0" >1) 피부 감염을 수반하는 습진ㆍ피부염에는 사용하지 않는 것을 원칙으로 하지만 부득이하게 이 약을 사용하는 경우에는 먼저 적절한 항균제(전신적용), 항진균제로 치료하거나 이들과의 병용을 고려한다.</p>
+<p class="indent0" >2) 국소 코르티코이드의 전신적 흡수는 몇몇 환자에서 가역적인 시상하부-뇌하수체-부신(HPA) 축의 억제, 쿠싱증후군, 과혈당증, 당뇨 등을 일으킬 수 있으므로 국소 코르티코이드를 광범위한 체표면 또는 밀봉붕대법 하에 사용하는 환자는 정기적으로 혈중 코르티솔 농도, 요중에 유리되는 코르티솔을 측정하거나 ACTH 자극시험을 하여 HPA축 억제를 검사한다.</p>
+<p class="indent0" >3) 국소 코르티코이드의 전신적 흡수로 인해 HPA축이 억제되었다면 약물사용의 중지, 투여빈도의 감소, 활성이 약한 코르티코이드로의 대체 등의 방법을 시도하고 일반적으로 국소 코르티코이드 약물투여 중지 후 HPA축 기능은 신속히 회복된다.</p>
+<p class="indent0" >4) 증상이 개선되지 않거나 악화되는 경우에는 사용을 중지한다.</p>
+<p class="indent0" >5) 증상이 개선되면 가능한 한 빠른 시일 내에 사용을 중지한다.</p>
+<p class="indent0" >6) 이 약의 치료기간은 7일 이내로 제한한다.</p>
+<p class="indent0" >7) 전신 및 국소 코르티코스테로이드 사용으로 시력장애가 보고될 수 있다. 환자에게 시야흐림 또는 기타 시력장애와 같은 증상이 나타날 경우, 환자를 안과의사에게 보내어 백내장, 녹내장 또는 전신 및 국소 코르티코스테로이드 사용 후 보고된 중심장액맥락망막병(CSCR)과 같은 희귀질환을 포함하여 발생 가능한 원인 평가를 고려해야 한다.</p>
+</div><p class="title">5. 임부 및 수유부에 대한 투여</p>
+<div><p class="indent0" >1) 동물실험에서 비교적 적은 용량의 코르티코이드를 전신적으로 투여한 경우, 좀 더 강력한 코르티코이드 피부도포로 인해 기형발생이 나타났다.</p>
+<p class="indent0" >2) 임부에 대한 안전성이 확립되어 있지 않으므로 임부 또는 임신하고 있을 가능성이 있는 부인에는 치료상의 유익성이 위험성을 상회한다고 판단되는 경우에만 투여한다.</p>
+<p class="indent0" >3) 이 약이 모유로 이행한다는 보고는 없으나 전신적으로 흡수된 코르티코이드가 모유 중으로 이행되므로 수유부에 투여시 주의한다.</p>
+</div><p class="title">6. 소아에 대한 투여</p>
+<div><p class="indent0" >1) 소아는 체중당 체표면적의 비율이 성인보다 커서 코르티코이드로 인해 HPA축 억제, 쿠싱증후군, 발육장애 등이 나타나기 쉬우므로 주의한다.</p>
+<p class="indent0" >2) 기저귀 등은 밀봉붕대법과 같은 작용을 나타낼 수 있으므로 주의한다.</p>
+</div><p class="title">7. 고령자에 대한 투여</p>
+<div><p class="indent0" >일반적으로 고령자에서는 부작용이 나타나기 쉬우므로 대량, 장기간, 광범위하게(특히 밀봉붕대법) 사용할 경우 충분히 관찰하는 등 주의한다.</p>
+</div><p class="title">8. 적용상의 주의</p>
+<div><p class="indent0" >1) 안과용으로 사용하지 않는다.</p>
+<p class="indent0" >2) 화장이나 면도 후 등 치료 이외의 목적으로 사용하지 않는다.</p>
+<p class="indent0" >3) 의사의 감독 없이 밀봉붕대법을 사용하지 않는다(특히 밀봉붕대법을 사용할 경우 세균감염이 나타나기 쉬우므로 적용전에 환부를 청결히 한다).</p>
+</div><p class="title">9. 저장상의 주의사항</p>
+<div><p class="indent0" >1) 어린이의 손이 닿지 않는 곳에 보관한다.</p>
+<p class="indent0" >2) 용기에 구멍을 내거나 불에 태우지 않으며, 불꽃 옆에서 사용하지 않는다(에어로솔제에 한함).</p>
+</div><p class="title">10. 기타</p>
+<div><p class="indent0" >건선환자에 장기간, 대량 사용한 경우 치료 중 또는 치료중지 후 건선성홍피증, 농포성건선 등이 나타났다는 보고가 있다.</p>
+</div></div>
+                </div>
+
+                
+
+                <div class="info_sec notPkInfo scroll_07" id="scroll_07">
+                    <div class="sec_top">
+                        <h3 class="cont_title2">재심사, RMP, 보험, 기타정보</h3>
+                    </div>
+                    <table class="s-dr_table dr_table_type2 s-view-table ss_table">
+                        <caption><span>재심사 /RMP / 보험 / 기타 - 저장방법, 사용기간, 재심사대상, RMP대상, 포장 정보, 보험 약가</span></caption>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <tr>
+                            <th scope="row">저장방법</th>
+                            <td class="al_l">기밀용기, </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">사용기간</th>
+                            
+                            <td class="al_l">제조일로부터 24 개월</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">재심사대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">RMP대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">포장정보</th>
+                            
+                            <td class="al_l">10,15,20,50,450그램</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">보험약가</th>
+                            
+                            <td class="al_l"></td>
+                        </tr>
+                        <!-- 3차 2020.11.17 -->
+                        <tr>
+                            <th scope="row">ATC코드</th>
+                            <td>
+                                <table style="padding:0px 0px 5px 0px; margin:0px 0px 5px 0px">
+                                    <tr style="height: 32px;">
+                                        <td class="pc-tr" style="padding:0; margin:0">D07AA02 (hydrocortisone)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+
+                
+
+                <!--<th:block th:unless="${true}" th:remove="tag">   -->
+                <!--//20210126 임교순차장 구두 요청에 의거 "변경이력"주석처리-->
+                
+                    <div class="info_sec notPkInfo scroll_10" id="scroll_10">
+                        <div class="sec_top">
+                            <h3 class="cont_title2 fl">변경이력
+                                <button type="button" class="btn_small btn_folding" id="btnChf">변경이력 폴딩 버튼</button>
+                                <span class="btn_area btn_mob fr">
+                                    <button type="button" class="btn_small btn_icon"
+                                            onclick="downExcelFile(&#39;199700505&#39;, &#39;change&#39;);">
+                                        <span class="icon_xls">변경이력 엑셀다운로드</span>
+                                    </button>
+                                </span>
+                            </h3>
+                        </div>
+                        <div>
+                            <table class="s-dr_table dr_table dr_table_type2" id="tblChf">
+                                <caption><span>변경이력 - 순번, 변경일자, 변경항목</span></caption>
+                                <colgroup>
+                                    <col style="width:5%">
+                                    <col style="width:20%">
+                                    <col style="width:75%">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th scope="col">순번</th>
+                                    <th scope="col">변경일자</th>
+                                    <th scope="col">변경항목</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>1</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2018-06-18</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>2</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2009-09-14</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>성상변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>3</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2009-09-14</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>4</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2007-08-27</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>5</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2002-01-27</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>효능효과변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>6</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2002-01-27</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>용법용량변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>7</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2002-01-27</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+
+                
+
+                
+
+                
+
+            </div>
+
+        </section>
+        <!-- //content -->
+    </div>
+    <!-- //drug_container -->
+    <div class="top">
+        <a href="#none" class="_scroll_top" title="top">top</a>
+        <a href="#none" class="_up" title="이전">이전</a>
+        <a href="#none" class="_down" title="뒤로">뒤로</a>
+    </div>
+
+</div>
+
+<div class="btn_area">
+    <button type="button" class="btn_normal btn_base btn_point3 s-bb" title="닫기"
+            onclick="javascript:closeDrugInfoPopup()"><span>닫기</span></button>
+</div>
+<div class="scroll_menu hidden">
+    <ul>
+        <li id=".scroll_01"><p>menu01</p></li>
+        <li id=".scroll_02"><p>menu02</p></li>
+        <li id=".scroll_03"><p>menu03</p></li>
+        <li id=".scroll_04"><p>menu04</p></li>
+        <li id=".scroll_05"><p>menu05</p></li>
+        
+        <li id=".scroll_07"><p>menu07</p></li>
+        
+        
+        <li id=".scroll_10"><p>menu10</p></li>
+        
+        
+    </ul>
+</div>
+<div class="btn-zoom">
+    <!--글자크기 선택-->
+    <div class="fontsize-wrap">
+        <a href="javascript:toggleFontSelector()" class="font-selec-btn">A+</a>
+        <ul class="fontsize-selector">
+            <li><a id="font-level-1"
+                   href="javascript:scaleFontSizeOf('#font-level-1', '.drug_wrap', 1)">A</a><span>아주작게</span></li>
+            <li><a id="font-level-2"
+                   href="javascript:scaleFontSizeOf('#font-level-2', '.drug_wrap', 2)">A</a><span>작게</span></li>
+            <li><a id="font-level-3" href="javascript:scaleFontSizeOf('#font-level-3', '.drug_wrap', 3)"
+                   class="font-select">A</a><span>보통</span></li>
+            <li><a id="font-level-4"
+                   href="javascript:scaleFontSizeOf('#font-level-4', '.drug_wrap', 4)">A</a><span>크게</span></li>
+            <li><a id="font-level-5"
+                   href="javascript:scaleFontSizeOf('#font-level-5', '.drug_wrap', 5)">A</a><span>아주크게</span></li>
+        </ul>
+    </div>
+</div>
+<!-- //drug_wrap -->
+</body>
+</html>

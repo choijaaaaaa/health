@@ -295,7 +295,8 @@ def test_card_news_thumbnails_rendered(tmp_path, make_solid_jpg):
     generate(str(spec_path), str(card_news_dir), None, str(out_path))
     html = out_path.read_text(encoding="utf-8")
 
-    assert html.count('<img src="card_news/') == 3
+    # 2026-09-13부터 카드뉴스 이미지는 R2 절대 URL로 렌더된다(git·Vercel에서 뺐으므로).
+    assert html.count('<img src="https://img.vernhaven.com/health-shorts/card_news/') == 3
     assert "00_%ED%91%9C%EC%A7%80.jpg" in html
     # 파일명에 공백·한글이 섞여도 src가 URL 인코딩돼야 한다(quote() 경유).
     assert "01_%EC%99%9C%20%EC%9D%B4%EB%9F%B0" in html

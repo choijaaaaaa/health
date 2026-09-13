@@ -1,0 +1,1638 @@
+<!doctype html>
+<html
+        lang="ko"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- Cache 사용안하도록 설정 -->
+<!--    <meta http-equiv="Expires" content="-1">-->
+<!--    <meta http-equiv="Pragma" content="no-Cache">-->
+<!--    <meta http-equiv="Cache-Control" content="No-Cache">-->
+    <!-- Cache 사용안하도록 설정 -->
+    <!--<title th:text="|식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기|"></title> SR202206080010-의약품등 정보 페이지 인쇄 시 짤림 현상 -->
+    <title>식품의약품안전처 의약품통합정보시스템 의약품제품정보 상세보기-오트리빈에스비강분무액(옥시메타졸린염산염) </title>
+    <link rel="stylesheet" href="/resources/css/import.css">
+    <!--    <link rel="stylesheet" th:href="@{/resources/css/druginfo.css}" >-->
+    <link rel="stylesheet" href="/static/lib/jquery/jquery.bxslider.css">
+    <script type="text/javascript" src="/static/lib/jquery/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="/resources/js/front_script.js"></script>
+    <script type="text/javascript" src="/resources/js/common-pbp.js"></script>
+    <script type="text/javascript" src="/resources/js/jquery.bxslider.js"></script>
+    <script type="text/javascript" src="/static/lib/bootstrap-3.3.7/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/static/lib/bootbox.js"></script>
+    <script type="text/javascript" src="/resources/js/qrcode.js/qrcode.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        var pkInfoView = false;
+        
+        $(window).scroll(function() {
+            if($(window).scrollTop() >= $('body').position().top  ){
+                $('.scroll_menu ul li').removeClass('on')
+            }
+            
+            for (var i = 0; i < 12; i++) {
+                var srId = i+1;
+                srId = (srId < 10) ? '0'+srId : srId;
+                
+                if (0 < $('.scroll_' + srId).length) {
+                    if($(window).scrollTop() >= $('.scroll_' + srId).position().top -10 ){
+                        $('.scroll_menu ul li').removeClass('on')
+                        $('.scroll_menu ul li:eq('+i+')').addClass('on')
+                    }
+                }
+            }
+            
+        });
+        
+        $(document).ready(function () {
+            checkId();
+            $(".scroll_menu ul li").each(function(){
+                var friend_tab_scroll = $(this).attr("id");
+                if(friend_tab_scroll != undefined && $(friend_tab_scroll).position() != undefined ){
+                    friend_tab_top = $(friend_tab_scroll).position().top;
+                    $(friend_tab_scroll).data("top", friend_tab_top);
+                }
+            })
+            $(".scroll_menu ul li").click(function(){
+                var friend_tab_top = $($(this).attr("id")).position().top;
+                $("html, body").stop().animate({scrollTop:friend_tab_top}, 500)
+            })
+            
+            setFrText();
+            
+            getDrWarnList();
+            
+            if (0 < $("#tblChf").length) {
+                $('#tblChf').hide();
+            }
+            
+            $('.bxslider').bxSlider({
+                mode: 'horizontal',
+                moveSlides: 1,
+                slideMargin: 40,
+                infiniteLoop: true,
+                slideWidth: 1023,
+                minSlides: 1,
+                maxSlides: 1,
+                speed: 800,
+            });
+            
+            $(".s-acc-con > h2 > button").click(function () {
+                $(".s-acc-con").not($(this).parent().next(".ac-con").parent().toggleClass("on")).removeClass("on");
+            });
+            $(".s-acc > h2 > button").click(function () {
+                $(this).parent().parent().toggleClass("on");
+            });
+            $(".sec_top .btn_area .btn_folding").click(function () {
+                var div = $(this).parent().parent(); 
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                var div = $(this).parent().parent();
+                div.toggleClass("fr-on");
+                if ($(div).hasClass('_preview_nb')) {
+                    if ($(div).hasClass('fr-on')) {
+                        $('#btnTct').show();
+                    } else {
+                        $('#btnTct').hide();
+                    }
+                    setFrText();
+                }
+            });
+            $(".btn_folding").click(function () {
+                $(".mediWrap").toggleClass("left-close");
+                
+                if ($(this).attr('id') == 'btnChf') {
+                    var div = $(this).parent().parent();
+                    
+                    if ($(div).hasClass('fr-on')) {
+                        $('#tblChf').show();
+                    } else {
+                        $('#tblChf').hide();
+                    }
+                }
+            });
+            //탭
+            $(".ltab > ul > li > a").click(function () {
+                $(".ltab > ul > li").removeClass("on");
+                $(this).parent().addClass("on");
+                $(".l_sec_md").toggleClass("t-on");
+                return false
+            });
+            $(".btn_ham").click(function () {
+                $(".drug_allmenu").addClass("on");
+            });
+            $(".btn_hamx").click(function () {
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".en-tab > a:first").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con2").removeClass("on");
+                $("#en-tab-con1").addClass("on");
+                return false
+            });
+            $(".en-tab > a:last").click(function () {
+                $(".en-tab > a").removeClass("on");
+                $(this).addClass("on");
+                $("#en-tab-con1").removeClass("on");
+                $("#en-tab-con2").addClass("on");
+                return false
+            });
+            $(".menulist > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            $(".menulist > ul > li > ul > li > a").click(function(){
+                $(".drug_allmenu").removeClass("on");
+            });
+            
+            var eeTitles = $('#_ee_doc p.title');
+            eeTitles.addClass('subj nock');
+
+            var eeIndents = $('#_ee_doc > div > p');
+            eeIndents.addClass('note');
+
+            var udTitles = $('#_ud_doc p.title');
+            udTitles.addClass('subj nock');
+
+            var udIndents = $('#_ud_doc > div > p');
+            udIndents.addClass('note');
+
+            var cls = 'on';
+            var nbTitles = $('#_nb_doc p.title');
+            nbTitles.addClass('subj nock');
+            nbTitles.each(function(i,e) {
+                var title = $(e);
+                // title.append('<a href="#none" title="'+title.text()+' 접기"></a>');
+                title.append('<a href="#none" title="'+title.text()+' 접기" style="text-indent: -9999px">' + title.text() +' 접기</a>');
+            });
+            
+            nbTitles.on('click',function(){
+                var title = $(this);
+
+                var div = title.next();
+                var divTag = div.prop('tagName').toLowerCase();
+                console.log ("aa"  + title.attr('title') )
+
+                var titleLength = title.children().attr('title').length
+                var titleText = title.children().attr('title')
+                if (title.hasClass('on')) {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-4) + ' 접기');
+                    title.find('a').text(titleText.substr(0, titleLength-4) + ' 접기');
+                } else {
+                    title.find('a').attr('title', titleText.substr(0, titleLength-3)  + ' 펼치기');
+                    title.find('a').text(titleText.substr(0, titleLength-3) + ' 펼치기');
+                }
+
+                if(div){
+                    title.toggleClass(cls);
+                }
+                if('div' == divTag) {
+                    div.toggleClass(cls);
+                }
+            });
+            
+            var nbHeader = $('.scroll_05');
+            if (0 < nbTitles.length) {
+                nbHeader.append('<a href="#none" id="btnTct" class="xi-minus-circle xi-plus-circle" title="주의사항 펼치기" style="text-indent: -9999px">주의사항 펼치기</a>');
+            }
+            $('.scroll_05 > a').on('click',function () {
+                var hi = $(this);
+                hi.toggleClass('xi-minus-circle');
+
+                if (hi.hasClass('xi-minus-circle')) {
+                    hi.attr('title', '주의사항 접기');
+                    hi.text('주의사항 접기');
+
+                } else {
+                    hi.attr('title', '주의사항 펼치기');
+                    hi.text('주의사항 펼치기');
+
+                }
+                if(hi.hasClass('xi-plus-circle')){
+                    nbTitles.each(function (i, e) {
+                        var title = $(e);
+
+                        if (hi.hasClass('xi-minus-circle')) {
+                            title.find('a').attr('title', title.text() + ' 접기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.removeClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.removeClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.removeClass(cls);
+                            }
+
+                        } else {
+                            title.find('a').attr('title', title.text() + ' 펼치기');
+                            title.find('a').removeClass('xi-minus-circle');
+                            title.addClass(cls);
+                            var div = title.next();
+                            var divTag = div.prop('tagName').toLowerCase();
+                            if (div) {
+                                title.addClass(cls);
+                            }
+                            if('div'==divTag){
+                                div.addClass(cls);
+                            }
+
+                        }
+                    });
+                }
+            });
+            
+            var nbIndents = $('#_nb_doc > div > p');
+            nbIndents.addClass('note');
+            
+            $('#drugInfoLastMenu').on('keypress keydown', function(event) {
+                var keyCode = '';
+                var key = event.key;
+                
+                if (window.event) {
+                    keyCode = event.keyCode;
+                } else {
+                    keyCode = event.which;
+                }
+                
+                if (9 == keyCode) {
+                    $('.btn_hamx').focus();
+                }
+            });
+            
+            // 강제로 3종 문서 img에 alt="" 넣어주기
+            var eeImgs = $('#_ee_doc').find('img');
+            var udImgs = $('#_ud_doc').find('img');
+            var nbImgs = $('#_nb_doc').find('img');
+            
+            setImgsAlt(eeImgs);
+            setImgsAlt(udImgs);
+            setImgsAlt(nbImgs);
+            
+            //화면 최초 진입시 pkInfo 정보에 따라 생동성이 우선인지 아이템 정보가 우선인지
+            setPkInfoView(pkInfoView);
+            if (!pkInfoView) {
+                               //생동성 시험정보 없으면 출력 부분 추가하여 버튼 비활성화 기능 제거- 2021.01.29 cdsy
+                //$('#btnPkInfo').attr('disabled', true);
+            }
+            
+            $("._up").click(function(){
+                //$(".scroll_menu ul li.on").prev().click() 2024.06.17 SR202406170014
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop-500)}, 300)
+            })
+
+            $("._down").click(function(){
+                /*if($(".scroll_menu ul li").hasClass("on")){ 2024.06.17 SR202406170014
+                    $(".scroll_menu ul li.on").next().click()
+                }else{
+                    $(".scroll_menu ul li:eq(0)").click()
+                }*/
+                var posTop = $("html, body").scrollTop();	//현재 스크롤 위치값
+                $("html, body").stop().animate({scrollTop:parseInt(posTop+500)}, 300)
+            })
+
+            $("._scroll_top").click(function(){
+                $("html, body").stop().animate({scrollTop:0},300)
+                return false;
+            })
+        });
+        $(document).ready(function() {
+            var h = $('#ezdrug-url-code').height();
+            var codeValue = 'https://nedrug.mfds.go.kr/pbp/ezdrug?itemSeq=201903221';
+            new QRCode('ezdrug-url-code', {
+                text: codeValue,
+                width: h,
+                height: h
+            });
+            setTimeout(function() {
+            $('#ezdrug-url-code img').attr('alt', '품목제조사 및 유통(사용기한) 정보 QR코드')
+                $('#ezdrug-url-code img').attr('title', '클릭 시 크게 볼 수 있습니다')
+                .css({'cursor': 'pointer'});
+            }, 100);
+            $('#ezdrug-url-code').click(function(e) {
+                e.preventDefault();
+                $('#_tmp_qrcode').remove();
+                $('body').append('<div id="_tmp_qrcode" style="display: none;"></div>');
+                var q = new QRCode('_tmp_qrcode', {
+                    text: codeValue,
+                    width: 512,
+                    height: 512
+                });
+                function openQrcodePopup() {
+/*
+                    if (!q._oDrawing._bIsPainted) {
+                        setTimeout(openQrcodePopup, 100);
+                        return;
+                    }
+*/
+                    var canvas = document.createElement('canvas');
+                    var margin = 32;
+                    var w = 512 + margin, h = w;
+                    canvas.width = w;
+                    canvas.height = h;
+                    $('#_tmp_qrcode').append(canvas);
+                    var ctx = canvas.getContext('2d');
+                    ctx.fillStyle = 'white';
+                    ctx.fillRect(0, 0, w, h);
+                    var imgEle = new Image();
+                    imgEle.onload = function() {
+                        ctx.drawImage(imgEle, margin / 2, margin / 2);
+                        if (window.navigator.msSaveOrOpenBlob) {
+                            var src = canvas.toDataURL('image/png');
+                            var bc = atob(src.substr('data:image/png;base64,'.length));
+                            var bas = [];
+                            for (var offset = 0; offset < bc.length; offset += 512) {
+                                var slice = bc.slice(offset, offset + 512);
+                                var ba = new Array(slice.length);
+                                for (var i = 0; i < slice.length; i++) {
+                                    ba[i] = slice.charCodeAt(i);
+                                }
+                                bas.push(new Uint8Array(ba));
+                            }
+                            window.navigator.msSaveOrOpenBlob(new Blob(bas, {type:'image/png'}), '201903221.png');
+                        } else {
+                            canvas.toBlob(function(blob) {
+                                window.open(URL.createObjectURL(blob), '_blank');
+                            }, 'image/png');
+                        }
+                    }
+                    imgEle.src = $('#_tmp_qrcode canvas:eq(0)')[0].toDataURL('image/png');
+                }
+                setTimeout(openQrcodePopup, 100);
+            });
+        });
+        
+        function setImgsAlt(array) {
+            if (0 < array.length) {
+                array.each(function(i,e) {
+                    var img = $(e);
+                    img.attr('alt', '');
+                });
+            }
+        }
+
+        function getDrWarnList(){
+            var chk = $('.dr_warn_list').find('li').length;
+            if(chk < 1){
+                $('.dr_warn_list').addClass('none_li');
+            }
+        }
+        
+        function setFrText() {
+            var frDivs = $('div.div_fr');
+            frDivs.each(function(i,e) {
+                var frDiv = $(e);
+                var frText = frDiv.find('h3').text();
+                
+                if (frDiv.hasClass('fr-on')) {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 접기');
+                } else {
+                    frDiv.find('.btn_folding').attr('title', frText + ' 펼치기');
+                }
+            });
+        }
+        
+        function getDurDetailClick(durSeq,divId){
+            param = {};
+            param.durSeq = durSeq;
+            param.divId = divId;
+            
+            $.get("/pbp/CCBBB01/getDurDetailClick", param, function (result) {
+                $('#'+divId).replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailAClick(usjntSeq){
+            param = {};
+            param.usjntSeq = usjntSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailAClick", param, function (result) {
+                $('#druA').replaceWith(result);
+            });
+        } 
+        
+        function getDurDetailGClick(effectSeq){
+            param = {};
+            param.effectSeq = effectSeq;
+            
+            $.get("/pbp/CCBBB01/getDurDetailGClick", param, function (result) {
+                $('#durG').replaceWith(result);
+            });
+        } 
+        
+        function getPatentDetailClick(itemSeq,patentNo){
+            param = {};
+            param.itemSeq = itemSeq;
+            param.patentNo = patentNo;
+            
+            $.get("/pbp/CCBBB01/getPatentDetailClick", param, function (result) {
+                $('#patentDetail').replaceWith(result);
+            });
+        }
+        
+        function closeDrugInfoPopup() {
+            window.close();
+        }
+        
+        function downExcelFile(item_seq, division) {
+            $('<form class="hidden" id="excelForm" action="/pbp/CCBBB01/getExcel" method="post"></form>').appendTo('body');
+            $('<input type="hidden" name="itemSeq" value="'+item_seq+'" />').appendTo($('#excelForm'));
+            $('<input type="hidden" name="division" value="'+division+'" />').appendTo($('#excelForm'));
+            $('#excelForm').submit().remove();
+        }
+        
+        function setPkInfoView(boolean) {
+            if (boolean) {
+                $('.main_title').text('생동성시험정보');
+               // $('#btnPkInfo').removeClass('btn_line').addClass('btn_base');  웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_base').addClass('btn_line');
+                $('.notPkInfo').css('display', 'none');
+                $('.pkInfo').css('display', 'block');
+                $('.pkInfo').css('margin-top', '250px');
+                $('.drug_content').css('margin-bottom', '350px');
+                $('.pkInfo').addClass('ht140');
+            } else {
+                $('.main_title').text('의약품상세정보');
+               // $('#btnPkInfo').removeClass('btn_base').addClass('btn_line'); 웹접근성 주석처리 차후 수정 가능
+               // $('#btnItemDetail').removeClass('btn_line').addClass('btn_base');
+                $('.notPkInfo').css('display', 'block');
+                $('.pkInfo').css('display', 'none');
+                $('.pkInfo').css('margin-top', '0px');
+                $('.pkInfo').removeClass('ht140');
+                $('.drug_content').css('margin-bottom', '0px');
+            }
+        }
+
+        function  checkId() {
+            var chk;
+            var chk2;
+            var listChk1 =$("#listChk").has("li").length;
+            
+            chk2 =document.getElementById("withdrawal2");
+            chk = document.getElementById("withdrawal");
+            
+            if(listChk1 == false){
+                $('.drug_header').removeClass('drug_list_down').addClass('drug_list_up');
+                $('.drug_content').addClass("drug_list");
+            }
+            if(chk == null && chk2 == null){
+                $('.drug_header').removeClass('drug_header-down').addClass('drug_header-up');
+                $('.drug_info_top').addClass('not_button');
+            }
+        }
+        
+        function goWindowToUrl(url){
+            window.open(url,'_blank');
+        }
+        
+        function decomposeFontSize($container) {
+            var fontSize = $container.css('fontSize');
+            return /([0-9.]+)([a-zA-Z]+)/g.exec(fontSize);
+        }
+
+
+        var scaleLevel = 3;
+
+        function toggleFontSelector() {
+            var $ele = $('.fontsize-selector');
+            if ($ele.is(':visible')) {
+                $ele.hide();
+            } else {
+                $ele.show();
+            }
+        }
+
+        function scaleFontSizeOf(ele, selector, level) {
+            var $ele = $(ele);
+            $('.fontsize-selector a').removeClass('font-select');
+            $ele.addClass('font-select');
+
+            var scale = 1;
+            if (level === 3) {
+                var $container = $(selector);
+                $container.find('*').each(function () {
+                    $(this).css({fontSize: '', lineHeight: ''});
+                });
+                $('.fontsize-selector').hide();
+                return;
+            }
+            if (scaleLevel > level) {
+                scale = scaleLevel - level;
+                reduceFontSizeOf(selector, scale);
+            } else if (scaleLevel < level) {
+                scale = level - scaleLevel;
+                enlargeFontSizeOf(selector, scale);
+            }
+            scaleLevel = level;
+            $('.fontsize-selector').hide();
+
+        }
+
+        function enlargeFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) + scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        function reduceFontSizeOf(selector, scale) {
+            var $container = $(selector);
+            $container.find('*').each(function () {
+                var fs = decomposeFontSize($(this));
+                if (fs[1] < 1) {
+                    return;
+                }
+                var sizeNum = Number(fs[1]) - scale * 2;
+                $(this).css({fontSize: sizeNum + fs[2], lineHeight: sizeNum * 1.4 + fs[2]});
+            });
+        }
+
+        // 3종 문서 변경이력 팝업 호출
+        function getDocChangeDateList (itemSeq, docType, count) {
+            var popupTitle = '';
+
+            // if (count < 1) {
+            //     this.alert("변경이력이 없습니다.");
+            // } else {
+                if (docType == 'EE') popuptitle = '효능효과 변경이력'
+                if (docType == 'UD') popuptitle = '용법용량 변경이력'
+                if (docType == 'NB') popuptitle = '사용상의주의사항 변경이력'
+                pbpPopup('/pbp/CCBBB01/getItemChangeHistInfo?itemSeq='+itemSeq+'&docType='+docType, popupTitle, 1000, 1250, 0, 0)
+            // }
+        }
+        
+        //키프리스 지식검색 이동
+        function moveKiprisSearch(keyword) {
+        	var newForm = $("<form></form>");
+        	newForm.attr("method","post");
+        	newForm.attr("action","https://kipris.or.kr/khome/search/searchResult.do");
+        	newForm.attr("target","blank");
+        	
+        	var sParam = keyword;
+        	
+        	if(sParam){
+        		sParam = sParam.replace(/-/gi, '');
+        	}else{
+        		sParam = keyword;
+        	}
+        	
+        	newForm.append($("<input/>", {type:"hidden", name:"searchKind", value:"totalSearch"}));
+        	newForm.append($("<input/>", {type:"hidden", name:"queryText" , value:sParam}));
+        	newForm.append($("<input/>", {type:"hidden", name:"expression", value:sParam}));
+        	
+        	newForm.appendTo("#scroll_12");
+        	newForm.submit();
+        }
+    </script>
+    <style>
+        body, html {
+            min-width: 0;
+        }
+
+        .nav-down .main_title {
+            display: none;
+        }
+
+        .nav-down .drug_header-pics {
+            display: none;
+        }
+
+        /*#ezdrug-url-code-wrap {display: none;}*/
+    </style>
+</head>
+
+<body class="nav-up">
+<!-- drug_wrap -->
+<div class="drug_wrap">
+    <!-- drugHeader -->
+    <div class="drug_header" id="gnb">
+        <div class="inner">
+            <h2 class="s-hh main_title">의약(외)품상세정보</h2>
+            <div class="drug_header-pics">
+                <div class="dr_warn_list">
+                    <ul id="listChk">
+                        
+                            <li>
+                                <a href="/pbp/CCBAJ01/getList?searchName=%EC%98%A5%EC%8B%9C%EB%A9%94%ED%83%80%EC%A1%B8%EB%A6%B0&amp;searchTypeCode=A"
+                                   target="_blank">
+                                    <img src="/resources/images/contents/dr_list_01.gif" alt="병용금기" title="병용금기"/>
+                                </a>
+                            </li>
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                    </ul>
+                </div>
+                <div id="ezdrug-url-code-wrap">
+                    <div id="ezdrug-url-code">
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <!-- <button type="button" class="btn_ham">전체보기</button> -->
+                <div class="drug_allmenu">
+                    <div class="title">
+                        <button type="button" class="btn_hamx">전체메뉴닫기</button>
+                        <h1><strong>오트리빈에스비강분무액(옥시메타졸린염산염) </strong></h1>
+                    </div>
+                    <!--
+                    <div class="menulist">
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor1">의약품 기본정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor0" onclick="moveAnchor(0); return false;">원료약품 및 분량</a></li>
+                                    <li><a href="#subAnchor1" onclick="moveAnchor(1); return false;">효능 효과</a></li>
+                                    <li><a href="#subAnchor2" onclick="moveAnchor(2); return false;">용법 용량</a></li>
+                                    <li><a href="#subAnchor3" onclick="moveAnchor(3); return false;">주의사항</a></li>
+                                    <li><a href="#subAnchor4" onclick="moveAnchor(4); return false;">의약품 적정사용정보</a></li>
+                                    <li><a href="#subAnchor5" onclick="moveAnchor(5); return false;">재심사, 보험, 기타</a></li>
+                                    <li><a href="#subAnchor6" onclick="moveAnchor(6); return false;">생산/수입실적</a></li>
+                                    <li><a href="#subAnchor7" onclick="moveAnchor(7); return false;">변경이력</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor2">의약품 적정사용 정보(DUR)</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor8" onclick="moveAnchor(8); return false;">병용금기</a></li>
+                                    <li><a href="#subAnchor9" onclick="moveAnchor(9); return false;">연령금기</a></li>
+                                    <li><a href="#subAnchor10" onclick="moveAnchor(10); return false;">임부금기</a></li>
+                                    <li><a href="#subAnchor11" onclick="moveAnchor(11); return false;">용량주의</a></li>
+                                    <li><a href="#subAnchor12" onclick="moveAnchor(12); return false;">투여기간주의</a></li>
+                                    <li><a href="#subAnchor13" onclick="moveAnchor(13); return false;">노인주의</a></li>
+                                    <li><a href="#subAnchor14" onclick="moveAnchor(14); return false;">효능군 중복주의</a></li>
+                                    <li><a href="#subAnchor15" onclick="moveAnchor(15); return false;">분할주의</a></li>
+                                    <li><a href="#subAnchor16" onclick="moveAnchor(16); return false;">첨가제 주의</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li>
+                                <a href="#mainAnchor3">생동성시험정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor17" onclick="moveAnchor(17); return false;">시험정보</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#mainAnchor4">특허정보</a>
+                                <ul class="sub">
+                                    <li><a href="#subAnchor18" onclick="moveAnchor(18); return false;">특허 등제 의약품 정보</a></li>
+                                    <li><a href="#subAnchor19" onclick="moveAnchor(19); return false;">특허권 & 대리인</a></li>
+                                    <li><a href="#subAnchor20" onclick="moveAnchor(20); return false;">특허권</a></li>
+                                    <li><a href="#subAnchor21" onclick="moveAnchor(21); return false;" id="drugInfoLastMenu">연혁</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    -->
+                </div>
+                <h1>
+                    <strong>오트리빈에스비강분무액(옥시메타졸린염산염) </strong>
+                </h1>
+                <!-- 글자 수 별 글자크기 조정 -> 300자 이상인 경우가 있어 디자인 깨짐
+                <h1 th:if="*{#strings.length(item.itemName)<50}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h1>
+                <h2 th:if="*{#strings.length(item.itemName)>=50 and #strings.length(item.itemName)<100}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h2>
+                <h3 th:if="*{#strings.length(item.itemName)>=100 and #strings.length(item.itemName)<150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h3>
+                <h4 th:if="*{#strings.length(item.itemName)>=150}" style="width: 90%;">
+                    <strong th:text="*{item.itemName}"></strong></h4>-->
+            </div>
+            <div class="user_control">
+                
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://www.facebook.com/sharer/sharer.php?u=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201903221aupdateTs2022-07-14+10%3A28%3A51.0b&#39;)"
+                       class="btn_facebook" title="페이스북 새창열림">페이스북 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://twitter.com/intent/tweet?text= &gt;   HOMEPAGE &amp;url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201903221aupdateTs2022-07-14+10%3A28%3A51.0b&#39;)"
+                       class="btn_twitter" title="트위터 새창열림">트위터 공유</a>
+                    <a href="#"
+                       onclick="goWindowToUrl(&#39;https://story.kakao.com/share?url=https://nedrug.mfds.go.kr/pbp/CCBBB01/getItemDetailCache?cacheSeq=201903221aupdateTs2022-07-14+10%3A28%3A51.0b&#39;)"
+                       class="btn_kakao" title="카카오스토리 새창열림">카카오스토리 공유</a>
+                
+                <a href="#" onclick="javascript:window.print(); return false;" class="btn_print_new" title="인쇄">인쇄</a>
+                <!-- 2019.01.25 주석처리 <button type="button" class="btn_print-1" onclick="printScreen(2); return false;">인쇄하기</button> -->
+            </div>
+            
+        </div>
+    </div>
+    <!-- //drugHeader -->
+
+    <!-- drug_container -->
+    <div class="drug_container" id="content">
+        <!-- content -->
+        <section class="drug_content">
+            <!-- ==========================================================  컨텐츠 시작  -->
+            <div class="drug_info_top notPkInfo">
+                <div class="l_sec1 scroll_01 empltyClass"
+                     id="scroll_01">
+                    <div class="dr_img">
+                        <div class="pc-img" style="min-height : 120px;">
+                            
+                            <img src="data:image/jpeg;base64,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" alt="오트리빈에스비강분무액(옥시메타졸린염산염)  포장/용기정보"/>
+                            <!--                                 <img th:if="${#strings.isEmpty(itemImageDoc)}" th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." />  -->
+                            <!--                                 <img th:if="${#strings.isEmpty(extimgImageDocid)}" th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /> -->
+                        </div>
+                        <!--  2021.01.28
+                                                <ul class="bxslider" th:if="${!#strings.isEmpty(item.itemImageDoc) || !#strings.isEmpty(item.extimgImageDocid)}">
+                                                    <li th:unless="${#strings.isEmpty(item.itemImageDoc)}"><img th:src="@{${item.itemImageDoc}}" th:alt="|${item.itemName} 낱알이미지|" /></li>
+                                                    <li th:unless="${#strings.isEmpty(item.extimgImageDocid)}"><img th:src="@{${item.extimgImageDocid}}" th:alt="|${item.itemName} 포장/용기정보 이미지|" /></li>
+                                                                                  <li th:if="${#strings.isEmpty(itemImageDoc)}"><img th:src="@{/resources/images/layout/no-n-img.png}" alt="낱알 이미지가 없습니다." /></li> -->
+                        <!--                                <li th:if="${#strings.isEmpty(extimgImageDocid)}"><img th:src="@{/resources/images/layout/no-n-img1.png}" alt="포장/용기정보 이미지가 없습니다." /></li>
+                    </ul> -->
+                    </div>
+                </div>
+                <div class="r_sec">
+                    <h2 class="s-title">기본정보</h2>
+                    <table class="s-dr_table dr_table_type1">
+                        <caption><span>의약품정보 - 성상, 업체명, 전문/일반, 허가일, 품목기준코드, 표준코드  </span>
+                        </caption>
+                        <tr>
+                            <th scope="row">제품명</th>
+                            <td>
+                                <span class="pb10">오트리빈에스비강분무액(옥시메타졸린염산염) </span>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">성상</th>
+                            <td>일정량씩 분무되는 용기에 든 무색~흰색의 액제</td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">업체명</th>
+                            <td>
+                                <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                        onclick="javascript:pbpPopup(&#39;/pbp/CCBBB01/getEntpInfo?entpSeq=20162142&#39;, &#39;업체정보&#39;, 700, 0, 0, 0); return false;">헤일리온코리아주식회사</button>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <th scope="row">위탁제조업체</th>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">전문/일반</th>
+                            <td>일반의약품</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">허가일</th>
+                            <td>2019-05-20</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">품목기준코드</th>
+                            <td>201903221</td>
+                        </tr>
+                        <span> <!--긴급 사용 승인 품목이 아니면 캔슬코드가 X가 아님-->
+                            
+                            
+                        </span>
+                        <tr>
+                            <th scope="row">표준코드</th>
+                            <td>8800516003005, 8800516003012</td>
+                        </tr>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        <!-- 판매중지정보 추가 2019.12.09 -->
+                        
+                        <!-- 3차 2020.11.17 -->
+                        
+                        <!-- 마스크 모델명 추가 2020.12.17 -->
+                        
+                    </table>
+                </div>
+            </div>
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy Start -->
+            
+                <div class="pkInfo">
+                    <div class="info_sec scroll_11" id="scroll_11">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">생동성 시험 정보</h3>
+                        </div>
+                        <div class="info_sec mt20 pt0" id="_tmp_doc">생동성시험정보가 확인되지 않는 경우 '의약품상세정보'를 참조하시기 바랍니다.</div>
+                    </div>
+                </div>
+            
+            <!-- 생동성 시험정보 없으면 출력 부분 추가 - 2021.01.29 cdsy END -->
+
+            <div class="drug_info_mid">
+                
+                    <div class="info_sec notPkInfo scroll_02" id="scroll_02">
+                        <div class="sec_top">
+                            <h3 class="cont_title2">원료약품 및 분량</h3>
+                        </div>
+                        <!--<h3 class="cont_title3 mt27 pb10" th:unless="${#lists.isEmpty(ingrMainArray)}" th:text="|유효성분 : ${#strings.arrayJoin(ingrMainArray, ', ')}| "></h3>-->
+                        
+                            <script>
+                                /*<![CDATA[*/
+                                var aa = true;
+                                /*]]>*/
+                            </script>
+                            
+    <!--                        유효성분 (처음 한번만)-->
+                            <h3 class="cont_title3 mt27 pb10"
+                            >1밀리리터( ) 중-</h3>
+                            <table class="tb_base">
+                                <caption><span> 원료약품 및 분량 - 원료약품 및 분량으로 순번, 성분명, 분량, 단위, 규격, 성분정보, 비교의 정보를 제공</span></caption>
+                                <colgroup>
+                                    <col style="width:5%;"> <!--순번-->
+                                    <col style="width:20%;"> <!--성분명-->
+                                    <col style="width:10%;"> <!--분량-->
+                                    <col style="width:15%;"> <!--단위-->
+                                    <col style="width:10%;"> <!--규격-->
+                                    <col style="width:20%;"> <!--성분정보-->
+                                    <col style="width:20%;"> <!--비교-->
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th>순번</th>
+                                    <th>성분명</th>
+                                    <th>분량</th>
+                                    <th>단위</th>
+                                    <th>규격</th>
+                                    <th>성분정보</th>
+                                    <th>비교</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        var aasda = {"dataSetRowTypeValue":null,"dataActionFlag":null,"gridcmmcheck":null,"tableCheckFlag":false,"tableExtendFlag":0,"lastChangeDt":null,"lastChangerId":null,"registTs":null,"registerId":null,"updateTs":null,"updaterId":null,"gridRowIndex":null,"user":null,"menu":null,"sysGbCode":"NDII_EXT","classNo":null,"entpName":null,"entpEngName":null,"entpSeq":null,"etcOtcCode":"","narcoticKindCode":null,"classNm":null,"itemPermitDate":null,"eeDocNo":null,"udDocNo":null,"nbDocNo":null,"strgeMethod":null,"stMethod":null,"validTerm":null,"reexamCodeNm":null,"startDate":null,"endDate":null,"rmpYn":null,"rmpGb":null,"rmpRepCycle":null,"rmpStartDate":null,"rmpEndDate":null,"packUnit":null,"itemName":null,"itemEngName":null,"fileName":null,"extimgImageDocid":null,"pdfFileName":null,"inserpaperImageDocid":null,"itemSeq":"201903221","materialCode":null,"drugLabeling":null,"lengLong":null,"lengShort":null,"thick":null,"lineFront":null,"lineBack":null,"dura":null,"durb":null,"durc":null,"durd":null,"dure":null,"durf":null,"durg":null,"durh":null,"duri":null,"duraIngrName":null,"durbIngrName":null,"durcIngrName":null,"durdIngrName":null,"dureIngrName":null,"durfIngrName":null,"durgIngrName":null,"durhIngrName":null,"duriIngrName":null,"dispsCont":null,"chartn":null,"drugShape":null,"udDocData":null,"eeDocData":null,"nbDocData":null,"pnDocData":null,"totqyCont":"1\uBC00\uB9AC\uB9AC\uD130( ) \uC911-","ingrCode":"M223162","ingrName":"\uC625\uC2DC\uBA54\uD0C0\uC878\uB9B0\uC5FC\uC0B0\uC5FC","ingrSubName":"\uCCA8\uAC00\uC81C : \uC778\uC0B0\uC218\uC18C\uB098\uD2B8\uB968\uC2ED\uC774\uC218\uD654\uBB3C,\uC815\uC81C\uC218,\uC5D8 \uBA58\uD1A8,\uC18C\uB974\uBE44\uD1A8,\uC720\uCE7C\uB9BD\uD1A8,\uB9C8\uD06C\uB85C\uACE8\uAE00\uB9AC\uC138\uB864\uD788\uB4DC\uB85D\uC2DC\uC2A4\uD14C\uC544\uB808\uC774\uD2B8,\uBCA4\uC798\uCF54\uB284\uC5FC\uD654\uBB3C\uC561 (50%),\uC778\uC0B0\uC774\uC218\uC18C\uB098\uD2B8\uB968\uC774\uC218\uD654\uBB3C,\uC5D0\uB370\uD2B8\uC0B0\uB098\uD2B8\uB968,\uC5FC\uD654\uB098\uD2B8\uB968","ingrAddName":"\uCCA8\uAC00\uC81C \uC8FC\uC758 \uAD00\uB828 \uC131\uBD84: ","ingrMainName":"\uC720\uD6A8\uC131\uBD84 : \uC625\uC2DC\uBA54\uD0C0\uC878\uB9B0\uC5FC\uC0B0\uC5FC","ingrTotqy":"0.500","ingrUnitName":"\uBC00\uB9AC\uADF8\uB7A8","ingrStdName":"EP","ingrInfo":null,"remark":null,"barcode":null,"drugSize":null,"ediCode":null,"maxAmt":null,"unit":null,"applyDay":null,"itemImageDoc":null,"materialMixPurposeCode":null,"grain":0,"grainChange":0,"cnsgnManuf":null,"bioeqExamInfoOpenYn":null,"rareDrugYn":null,"addIngrYn":null,"indutyClassCode":null,"indutyClassCodeName":null,"cancelCodeName":null,"cancelDate":null,"cancelCode":null,"maskModelName":null,"permitExamName":null,"unaprvEuaYn":null,"euaRegistTs":null,"euaYn":null,"signlangUrl":null,"rnum":null,"changeDate":null,"changeIem":null,"changeMatter":null,"nnDocData":null,"patientMenuCnt":null,"expertMenuCnt":null};
+                                        /*]]>*/
+                                    </script>
+                                    <td style="text-align: center">1</td>
+                                    <td style="text-align: left">옥시메타졸린염산염</td>
+                                    <td style="text-align: center">0.500</td>
+                                    <td style="text-align: center">밀리그램</td>
+                                    <td style="text-align: center">EP</td>
+                                    <td style="text-align: left"></td>
+                                    <td style="text-align: left"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                            <h3 class="cont_title4 mt3 pb10 pl10">첨가제 : 인산수소나트륨십이수화물,정제수,엘 멘톨,소르비톨,유칼립톨,마크로골글리세롤히드록시스테아레이트,벤잘코늄염화물액 (50%),인산이수소나트륨이수화물,에데트산나트륨,염화나트륨</h3>
+                            
+                            
+                        
+
+                        
+                        <!-- 첨가제 주의 관련 성분 - 2020.08.14 첨가제 각각 표시, 첨가제 주의 관련 성분 유무 체크하여 마지막에 표시하도록 수정-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrSubArray)}" th:text="|첨가제 : ${#strings.arrayJoin(ingrSubArray, ', ')}| "></h3>-->
+                        <!--<h3 class="cont_title3 mt10 pb13 pl10" th:unless="${#lists.isEmpty(ingrAddArray)}" th:text="|첨가제 주의 관련 성분: ${#strings.arrayJoin(ingrAddArray, ', ')}| "></h3>-->
+                        
+                    </div>
+                
+                <!-- 3차 e약은要 정보 -->
+                
+                    <div class="info_sec _preview notPkInfo scroll_99" id="scroll_99">
+                        <!-- <div class="sec_top fr-on div_fr _preview_nn"> 2020.12.30 기본 접기 -->
+                        <div class="sec_top div_fr _preview_nn">
+                            <h3 class="cont_title2 fl">e약은요 정보
+                                <button type="button" class="btn_folding">e약은요 정보 폴딩 버튼</button>
+                                <span class="btn_area btn_mob fr">
+                                    <a href="/pbp/cmn/pdf/drb/201903221/NN"
+                                       class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                    <a href="/pbp/cmn/xml/drb/201903221/NN"
+                                       class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                    <a href="/pbp/cmn/html/drb/201903221/NN" class="btn_small btn_icon"
+                                       target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                                    
+                                </span>
+                            </h3>
+                        </div>
+                        <div class="info_box" id="_ee_doc_99">
+                            수정일자 :
+                            2023-12-07
+                            <br><br>
+                            <div class="info_box cw">
+                                <p>
+                                    "e약은요"는 일반소비자 눈높이에 맞춘 이해하기 쉬운 의약품 정보 제공을 위해 마련된 일반의약품 개요정보입니다.<br>
+                                    의약품에 관한 모든 내용을 담고 있지 않으며 자세한 사항은 현 화면의 상세 정보를 참고하시기 바랍니다.<br>
+                                    본 정보는 법적 효력을 가지는 것이 아닙니다.<br>
+                                </p>
+                            </div>
+                            <h3 class="cont_title4">이 약의 효능은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>이 약은 코감기(급성 비염), 알레르기성 비염 또는 부비동염에 의한 코막힘, 콧물, 재채기, 머리무거움 증상의 완화에 사용합니다.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떻게 사용합니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>만 12세 이상의 청소년 및 성인은 1회 1~2번씩, 1일 1~2회 각 비강에 분무합니다.</p>
+
+<p>1일 2회를 초과하지 마십시오.</p>
+
+<p>최소 사용 간격은 8시간입니다.</p>
+
+<p>다음 순서대로 사용하십시오.</p>
+
+<p>1. 코를 청결히 합니다</p>
+
+<p>2. 두 손가락 사이에 노즐을 잡고 엄지손가락을 아래에 받치고 병을 위로 세웁니다.</p>
+
+<p>3. 앞으로 약간 기울여 코 안에 노즐을 넣어 코안에 분사 후 동시에 부드럽게 호흡합니다.</p>
+
+<p>4. 사용 후 뚜껑을 닫기 전 노즐을 깨끗이 하고 건조시킵니다.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약을 사용하기 전에 반드시 알아야 할 내용은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"></div>
+
+                            <h3 class="cont_title4">이 약의 사용상 주의사항은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>이 약에 과민증 환자 및 경험자, 만 7세 미만의 어린이, MAO 억제제(항우울제, 항정신병제, 감정조절제, 항파킨슨제 등)를 복용하고 있거나 복용을 중단한 후 2주 이내의 사람, 뇌경질막이 노출되는 수술이나 나비뼈통과 뇌하수체절제술을 한 사람, 폐쇄각녹내장이 있는 사람, 건성 비염(코염) 혹은 위축 비염(코염)이 있는 사람은 이 약을 사용하지 마십시오.</p>
+
+<p>이 약을 사용하기 전에 임부 및 수유부, 만 7세~만 11세의 어린이, 알레르기 체질, 약에 의한 알레르기(발열, 발진, 발적, 부종, 자극감, 관절통, 천식, 가려움증 등) 경험자, 고혈압, 심장혈관계 질환, 갑상샘과다증, 당뇨병, 크롬친화세포종, 전립선(전립샘)비대증, 아드레날린 작용물질에 대한 강한 반응을 보이는 환자, 흡연, 천식, 만성 기관지염, 폐기종, 과도한 가래가 동반되는 기침, 1주 이상 지속 또는 재발되는 기침, 만성 기침, 발열·발진이나 지속적인 두통이 동반되는 기침 환자는 의사 또는 약사와 상의하십시오.</p>
+
+<p>정해진 용법과 용량을 잘 지키십시오.</p>
+
+<p>어린이에게 투여할 경우 보호자의 지도 감독하에 투여하십시오.</p>
+
+<p>이 약은 비염용 분무제로만 사용하고, 눈과 귀에는 사용하지 마십시오.</p>
+
+<p>7일 이상 계속하여 사용하지 마십시오.</p>
+
+<p>3일간 사용하여도 증상의 개선이 없을 경우 사용을 즉각 중지하고 의사 또는 약사와 상의하십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약을 사용하는 동안 주의해야 할 약 또는 음식은 무엇입니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>MAO억제제(항우울제, 항정신병제, 감정조절제, 항파킨슨제 등)와 함께 사용하지 마십시오.</p>
+
+<p>사용 중에는 음주하지 마십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떤 이상반응이 나타날 수 있습니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>발진, 발적, 부종, 자극감, 가려움, 드물게 두통, 불면증, 진정, 불안, 과민증, 고혈압, 불규칙한 심박수, 심박수 증가, 구역, 매우 드물게 안절부절, 졸림, 피로, 흔하게 비강(코안)건조, 비강(코안)의 불편함, 재채기, 흔하지 않게 입 안 건조, 입안염, 마른 목구멍, 목구멍 자극 등이 나타나는 경우 사용을 즉각 중지하고 의사 또는 약사와 상의하십시오.</p>
+</div>
+
+                            <h3 class="cont_title4">이 약은 어떻게 보관해야 합니까? 
+                            </h3>
+                            <div class="info_box" style="margin-top: 0px"><p>습기와 빛을 피해 실온에서 보관하십시오.</p>
+
+<p>어린이의 손이 닿지 않는 곳에 보관하십시오.</p>
+</div>
+                        </div>
+                    </div>
+                
+                <!-- 3차 e약은要 정보 -->
+                <div class="info_sec _preview notPkInfo scroll_03" id="scroll_03">
+                    <div class="sec_top fr-on div_fr _preview_ee">
+                        <h3 class="cont_title2 fl">효능효과
+                            <button type="button" class="btn_folding">효능효과 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201903221/EE"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201903221/EE"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201903221/EE"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201903221&#39;, &#39;EE&#39;, &#39;1&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box" id="_ee_doc"><p class="indent0" >코감기(급성비염(코염)), 알레르기성 비염(코염) 또는 부비동염에 의한 다음 증상의 완화 : 코막힘, 콧물, 재채기, 머리무거움</p>
+</div>
+                </div>
+
+                <div class="info_sec _preview notPkInfo scroll_04" id="scroll_04">
+                    <div class="sec_top fr-on div_fr _preview_ud">
+                        <h3 class="cont_title2 fl">용법용량
+                            <button type="button" class="btn_folding">용법 용량 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201903221/UD"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201903221/UD"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201903221/UD"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201903221&#39;, &#39;UD&#39;, &#39;2&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt20 pt0" id="_ud_doc"><p class="indent0" >만 12세 이상의 청소년 및 성인: 1회 1~2번씩 각 비강(코안)에 분무, 1일 1~2회의 범위 내에서 양쪽 비강(코안)에 투여</p>
+<p class="indent0" >1일 2회를 초과하여 사용하지 않는다.</p>
+<p class="indent0" >최소 투여 간격은 8 시간이다.</p>
+<p class="indent0" >이 약을 처음 사용하는 경우, 펌프를 수차례 눌러주어 약액이 균일하게 분사되는지 확인한다. 이후 사용시에는 바로 사용할 수 있다. 일단 사용하면, 보통 치료기간 동안 매일 사용할 수 있는 상태가 유지된다. 사용 시에 스프레이가 제대로 분사되지 않으면 위와 같이 다시 분사시킨다. 만약 이미 코 안으로 분사하였으나 제대로 분사되지 않은 경우, 다시 분사하지 않는다.</p>
+<p class="indent0" >[사용방법]</p>
+<p class="indent0" >1. 코를 청결히 한다.</p>
+<p class="indent0" >2. 두 손가락 사이에 노즐을 잡고 엄지손가락을 아래에 받치고 병을 위로 세운다.</p>
+<p class="indent0" >3. 앞으로 약간 기울여 코 안에 노즐을 넣는다.</p>
+<p class="indent0" >4. 코 안에 분사 후 동시에 부드럽게 호흡한다.</p>
+<p class="indent0" >5. 사용 후 뚜껑을 닫기 전 노즐을 깨끗이 하고 건조시킨다.</p>
+</div>
+                </div>
+                <script>
+                    /*<![CDATA[*/
+                    var patientMenuCnt = null;
+                    var expertMenuCnt = null;
+                    /*]]>*/
+                </script>
+                <div class="info_sec _preview notPkInfo scroll_05" id="scroll_05">
+                    <div class="sec_top fr-on div_fr _preview_nb">
+                        <h3 class="cont_title2 fl">사용상의주의사항
+                            <button type="button" class="btn_folding">사용상의주의사항 폴딩 버튼</button>
+                            <span class="btn_area btn_mob fr">
+                                <a href="/pbp/cmn/pdf/drb/201903221/NB"
+                                   class="btn_small btn_icon" target="_self" title="PDF다운로드"><span class="icon_pdf">PDF다운로드</span></a>
+                                <a href="/pbp/cmn/xml/drb/201903221/NB"
+                                   class="btn_small btn_icon" target="_self" title="XML다운로드"><span class="icon_xml">XML다운로드</span></a>
+                                <a href="/pbp/cmn/html/drb/201903221/NB"
+                                   class="btn_small btn_icon" target="_self" title="HTML다운로드"><span class="icon_ie">HTML다운로드</span></a>
+                                
+                                
+                            </span>
+                        </h3>
+                        <span class="cont_title2 fr">
+                            <button type="button" class="btn_small btn_base btn_point3" title="새창열림"
+                                    onclick="javascript:getDocChangeDateList(&#39;201903221&#39;, &#39;NB&#39;, &#39;3&#39;)">변경이력</button>
+                        </span>
+                    </div>
+                    <div class="info_box mt30 pt0 notice" id="_nb_doc"><p class="title">1. 다음과 같은 사람은 이 약을 사용하지 말 것</p>
+<div><p class="indent0" >1) 만 7세 미만의 어린이</p>
+<p class="indent0" >2) 이 약 및 이 약의 구성성분에 대한 과민반응 및 그 병력이 있는 사람</p>
+<p class="indent0" >3) MAO억제제(항우울제, 항정신병제, 감정조절제, 항파킨슨제 등)를 복용하고 있거나 복용을 중단한 후 2주 이내의 사람</p>
+<p class="indent0" >4) 뇌경질막이 노출되는 수술이나 나비뼈통과 뇌하수체절제술을 한 사람</p>
+<p class="indent0" >5) 폐쇄각녹내장이 있는 사람</p>
+<p class="indent0" >6) 건성 비염(코염) 혹은 위축 비염(코염)이 있는 사람</p>
+</div><p class="title">2. 다음과 같은 사람은 이 약을 사용하기 전에 의사, 치과의사, 약사와 상의할 것</p>
+<div><p class="indent0" >1)본인, 양친 또는 형제 등이 두드러기, 접촉성 피부염, 편두통, 음식물 알레르기 등을 일으키기 쉬운 체질을 갖고 있는 사람</p>
+<p class="indent0" >2) 지금까지 약(비염(코염)용 분무제 포함)에 의해 알레르기 증상(예: 발열, 발진·발적(충혈되어 붉어짐), 부종(부기), 자극감, 관절통, 천식, 가려움증 등)을 일으킨 적이 있는 사람</p>
+<p class="indent0" >3) 고혈압, 심장혈관계 질환, 갑상샘과다증, 당뇨병, 크롬친화세포종, 전립선(전립샘)비대증 환자</p>
+<p class="indent0" >4) 불면증, 어지럼증, 떨림, 심장부정맥 또는 혈압상승과 같이 아드레날린 작용물질에 대한 강한 반응을 보이는 환자에게는 다른 교감신경작용제와 마찬가지로 주의하여 사용할 것</p>
+<p class="indent0" >5) 가역적 후두부 뇌병증 증후군(PRES)/가역적 뇌 혈관수축 증후군(RCVS)이 교감신경흥분제 약물에서 드물게 보고되었다. 급작스런 심한 두통, 구역, 구토 및 시각장애가 보고된 바 있으며, 대부분의 경우 적절한 치료 후 며칠 내에 개선되거나 해결된다. PRES/RCVS의 징후/증상이 나타나면 옥시메타졸린 사용을 즉시 중단하고 의학적 조언을 구해야 한다.</p>
+<p class="indent0" >6) 다른 국소용 혈관수축제와 마찬가지로 이 약은 7일 이상 연속하여 사용하지 말 것: 지속적 혹은 초과 사용은 반동울혈, 비강(코안)점막 위축 및 빠른 내성을 일으킬 수 있다.</p>
+<p class="indent0" >7) 의학적 조언이 있는 경우를 제외하고 만7세에서 만11세까지의 어린이에게 이 약의 사용을 권장하지 않는다.</p>
+<p class="indent0" >8) 삼환계 및 사환계 항 우울제와 병용투여 하는 경우 혈압상승을 유발할 수 있음.</p>
+<p class="indent0" >9) 임부: 생식독성에 대한 동물실험은 불충분함. 이 약의 잠재적 전신 혈관수축 작용을 고려하여, 임신 중 사용은 권장하지 않음</p>
+<p class="indent0" >10) 수유부: 옥시메타졸린이 모유로 분비되는지 알려진 바 없으므로, 이 약은 의사, 약사, 치과의사의 지시·감독 하에 사용해야 한다.</p>
+<p class="indent0" >11) 의사 또는 치과의사의 치료를 받고 있는 사람</p>
+<p class="indent0" >12) 다음과 같은 기침이 있는 사람</p>
+<p class="indent0" >흡연, 천식, 만성 기관지염, 폐기종, 과도한 가래가 동반되는 기침, 1주 이상 지속 또는 재발되는 기침, 만성 기침, 발열·발진이나 지속적인 두통이 동반되는 기침</p>
+</div><p class="title">3. 다음과 같은 경우 이 약의 사용을 즉각 중지하고 의사, 치과의사, 약사와 상의할 것. 상담 시 가능한 한 이 첨부문서를 소지할 것.</p>
+<div><p class="indent0" >1) 이 약의 사용에 의해 다음의 증상이 나타난 경우</p>
+<p class="indent0" >발진·발적(충혈되어 붉어짐), 부종(부기), 자극감, 가려움</p>
+<p class="indent0" >2) 3일간 사용하여도 증상이 좋아지지 않을 경우</p>
+<p class="indent0" >3) 아래에 이상반응 목록은 기관계 분류와 빈도를 기준으로 한다.</p>
+<p class="indent0" >빈도: 매우 흔하게(≥ 1/10), 흔하게 (≥ 1/100, &lt; 1/10), 흔하지 않게(≥ 1/1,000, &lt; 1/100), 드물게(≥ 1/10,000, &lt; 1/1,000), 매우 드물게(&lt; 1/10,000), 빈도 불명(이용 가능 자료에서 평가 불가)</p>
+<p class="indent0" >가. 면역계 장애</p>
+<p class="indent0" >드물게: 두통, 불면증, 진정, 불안, 과민증</p>
+<p class="indent0" >매우 드물게: 안절부절, 졸림</p>
+<p class="indent0" >나. 심장계 장애</p>
+<p class="indent0" >드물게: 고혈압, 불규칙한 심박수, 심박수 증가</p>
+<p class="indent0" >다. 호흡기, 동맥 및 종격(세로칸) 장애</p>
+<p class="indent0" >흔하게: 비강(코안)건조, 비강(코안)의 불편함, 재채기</p>
+<p class="indent0" >흔하지 않게: 입 안 건조, 입안염, 마른 목구멍, 목구멍 자극</p>
+<p class="indent0" >라. 위장 장애</p>
+<p class="indent0" >드물게: 구역</p>
+<p class="indent0" >마. 전신장애 및 적용부위 상태</p>
+<p class="indent0" >매우 드물게: 피로</p>
+</div><p class="title">4. 기타 이 약의 사용 시 주의할 사항</p>
+<div><p class="indent0" >1) 정해진 용법·용량을 잘 지킬 것.</p>
+<p class="indent0" >2) 이 약은 과도하게 사용하면 오히려 코막힘을 일으킬 수 있으므로 과도하게 사용하지 말 것.</p>
+<p class="indent0" >3) 이 약은 비염(코염)용 분무제로만 사용하고, 눈과 귀에는 사용하지 말 것.</p>
+<p class="indent0" >4) 오염을 방지하기 위해 가능한 한 공동으로 사용하지 말 것.</p>
+<p class="indent0" >5) 7일 이상 계속 사용하지 말 것.</p>
+<p class="indent0" >6) 효과를 보기 위한 최소 용량을 최단의 치료기간 동안 사용해야 한다.</p>
+<p class="indent0" >7) 사용 시에는 음주하지 말 것.</p>
+<p class="indent0" >8) 소아에게 사용할 경우에는 보호자의 지도 감독하에 사용할 것.</p>
+<p class="indent0" >9) 이 약은 운전이나 기계 사용 능력에 영향을 미치지 않는다.</p>
+<p class="indent0" >10) 중등도에서 심한 정도의 과량투여 시, 산동(동공확대), 청색증, 발열, 연축(수축과 이완), 빈맥(빠른맥), 부정맥, 심장정지, 고혈압, 폐부종, 호흡곤란, 정신장애 같은 증상이 유발될 수 있다. 또한, 기면, 체온저하, 서맥(느린맥), 저혈압과 같은 쇼크, 무호흡 및 의식 상실과 같은 중추신경계 기능의 억제도 나타날 수 있다.</p>
+<p class="indent0" >11) 과량투여시의 처치: 펜톨아민(Phentolamine)과 같은 비선택성 알파-아드레날린 억제제는 높아진 혈압을 조절하는데 도움을 줄 수 있다. 추가적인 관리는 임상적 증상에 따르며, 혈압강하제는 사용하지 말아야 한다.</p>
+<p class="indent0" >12) &nbsp;이 약은 벤잘코늄염화물을 함유하고 있어, 기관지 경련을 일으킬 수 있으며, 특히 장기간 사용 시 비강 내 자극이나 종창(부기), 비강 점막의 부종을 유발할 수 있다.</p>
+</div><p class="title">5. 저장상의 주의사항</p>
+<div><p class="indent0" >1) 어린이의 손에 닿지 않는 장소에 보관할 것</p>
+<p class="indent0" >2) 직사광선을 피하고 될 수 있는 한 습기가 적은 서늘한 곳에 보관할 것</p>
+<p class="indent0" >3) 오용(잘못 사용)을 막고 품질의 보존을 위하여 다른 용기에 바꾸어 넣지 말 것</p>
+</div></div>
+                </div>
+
+                
+                    <div class="info_sec notPkInfo scroll_06" id="scroll_06">
+                        <div class="sec_top">
+                            <h3 class="cont_title2 fl">의약품 적정 사용 정보 (DUR)<a href="#none" class="btn_question"
+                                                                            title="의약품적정사용정보 도움말 새창열림"
+                                                                            onclick="javascript:pbpPopup(&#39;/pbp/CCBBB01/getDurHelpInfo&#39;, &#39;의약품적정사용정보&#39;, 700, 0, 0, 0); return false;"><span>도움말</span></a>
+                            </h3>
+                        </div>
+                        <table class="s-dr_table dr_table dr_table_type2">
+                            <caption><span>의약품 적정 사용 정보 (DUR) - 단일/복합, DUR유형, 제형, 금기 및 주의내용, 비고</span></caption>
+                            <colgroup>
+                                <col style="width:12%">
+                                <col style="width:24%">
+                                <col style="width:12%">
+                                <col style="width:12%">
+                                <col style="width:20%">
+                                <col style="width:20%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th scope="col">단일/복합</th>
+                                <th scope="col">DUR성분(성분1/성분2..[병용성분])</th>
+                                <th scope="col">DUR유형</th>
+                                <th scope="col">제형</th>
+                                <th scope="col">금기 및 주의내용</th>
+                                <th scope="col">비고</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=4000&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[클로미프라민]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=4000&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3988&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[아목사핀]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3988&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3956&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[노르트립틸린]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3956&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3954&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[이미프라민]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3954&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3952&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[독세핀]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3952&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3950&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[도티에핀]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3950&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="pc-tr"><span class="s-th">단일/복합</span><span>단일</span></td>
+                                <td class="al_l">
+                                    <span class="s-th">DUR성분(성분1/성분2..[병용성분])</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3946&amp;typeCode=A"
+                                       target="_blank" title="새창열림">옥시메타졸린[아미트리프틸린]</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">DUR유형</span>
+                                    <a href="/pbp/CCBAJ01/getInfo?&amp;durSeq=3946&amp;typeCode=A"
+                                       target="_blank">병용금기</a>
+                                </td>
+                                <td>
+                                    <span class="s-th">제형</span><span></span>
+                                </td>
+                                <td class="al_l">
+                                    <span class="s-th">금기 및 주의내용</span>
+                                    
+                                    
+                                    
+                                    
+                                </td>
+                                <!--<td class="al_l" th:with="cont=${#strings.replace(#objects.nullSafe(item.prohbtCont, ''), '-', '<br/>-')}">-->
+                                <td class="al_l">
+                                    <span class="s-th">비고</span>
+                                    <!--<span th:if="${#strings.contains(cont,'<br/>')}" th:utext="${#strings.substring(cont, 5)}"></span>-->
+                                    
+                                    <span></span>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        
+                    </div>
+                
+
+                <div class="info_sec notPkInfo scroll_07" id="scroll_07">
+                    <div class="sec_top">
+                        <h3 class="cont_title2">재심사, RMP, 보험, 기타정보</h3>
+                    </div>
+                    <table class="s-dr_table dr_table_type2 s-view-table ss_table">
+                        <caption><span>재심사 /RMP / 보험 / 기타 - 저장방법, 사용기간, 재심사대상, RMP대상, 포장 정보, 보험 약가</span></caption>
+                        <colgroup>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <tr>
+                            <th scope="row">저장방법</th>
+                            <td class="al_l">기밀용기, 실온보관(1~30℃)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">사용기간</th>
+                            
+                            <td class="al_l">제조일로부터 36 개월</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">재심사대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">RMP대상</th>
+                            <td class="al_l">
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">포장정보</th>
+                            
+                            <td class="al_l"> 10 밀리리터/병 </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">보험약가</th>
+                            
+                            <td class="al_l"></td>
+                        </tr>
+                        <!-- 3차 2020.11.17 -->
+                        <tr>
+                            <th scope="row">ATC코드</th>
+                            <td>
+                                <table style="padding:0px 0px 5px 0px; margin:0px 0px 5px 0px">
+                                    <tr style="height: 32px;">
+                                        <td class="pc-tr" style="padding:0; margin:0">R01AA05 (oxymetazoline)</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+
+                
+                    <div class="info_sec notPkInfo scroll_09" id="scroll_09">
+                        <h3 class="cont_title2 fl">수입실적<span class="stt">(단위 : $) ※ 외환은행에서 제공한 년도별 평균환율 적용으로 인해 약간의 오차가 있을 수 있습니다.</span>
+                        </h3>
+                        <div class="sec_top btn_mob">
+                            <button type="button" class="btn_small btn_icon fr mt15"
+                                    onclick="downExcelFile(&#39;201903221&#39;, &#39;import&#39;);">
+                                <span class="icon_xls">수입실적 엑셀다운로드</span>
+                            </button>
+                        </div>
+                        <table class="s-dr_table dr_table_type2">
+                            <caption><span>수입실적 - 년도, 수입실적</span></caption>
+                            <colgroup>
+                                <col style="width:50%">
+                                <col style="width:50%">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th scope="col">년도</th>
+                                <th scope="col">수입실적</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>2025</td>
+                                <td>258,701</td>
+                            </tr>
+                            <tr>
+                                <td>2024</td>
+                                <td>1,329,328</td>
+                            </tr>
+                            <tr>
+                                <td>2023</td>
+                                <td>38,843</td>
+                            </tr>
+                            <tr>
+                                <td>2022</td>
+                                <td>478,827</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+
+                <!--<th:block th:unless="${true}" th:remove="tag">   -->
+                <!--//20210126 임교순차장 구두 요청에 의거 "변경이력"주석처리-->
+                
+                    <div class="info_sec notPkInfo scroll_10" id="scroll_10">
+                        <div class="sec_top">
+                            <h3 class="cont_title2 fl">변경이력
+                                <button type="button" class="btn_small btn_folding" id="btnChf">변경이력 폴딩 버튼</button>
+                                <span class="btn_area btn_mob fr">
+                                    <button type="button" class="btn_small btn_icon"
+                                            onclick="downExcelFile(&#39;201903221&#39;, &#39;change&#39;);">
+                                        <span class="icon_xls">변경이력 엑셀다운로드</span>
+                                    </button>
+                                </span>
+                            </h3>
+                        </div>
+                        <div>
+                            <table class="s-dr_table dr_table dr_table_type2" id="tblChf">
+                                <caption><span>변경이력 - 순번, 변경일자, 변경항목</span></caption>
+                                <colgroup>
+                                    <col style="width:5%">
+                                    <col style="width:20%">
+                                    <col style="width:75%">
+                                </colgroup>
+                                <thead>
+                                <tr>
+                                    <th scope="col">순번</th>
+                                    <th scope="col">변경일자</th>
+                                    <th scope="col">변경항목</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>1</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2022-02-01</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>2</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2021-06-07</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>용법·용량</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>3</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2021-06-07</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상의 주의사항</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>4</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2019-08-01</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>성상변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>5</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2019-06-10</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>효능효과변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>6</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2019-06-10</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>용법용량변경</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="pc-tr"><span class="s-th">순번</span><span>7</span>
+                                    </td>
+                                    <td><span class="s-th">변경일자</span><span>2019-06-10</span></td>
+                                    <td class="al_l"><span class="s-th">변경항목</span><span>사용상주의사항변경(부작용포함)</span></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                
+
+                
+
+                
+
+                
+
+            </div>
+
+        </section>
+        <!-- //content -->
+    </div>
+    <!-- //drug_container -->
+    <div class="top">
+        <a href="#none" class="_scroll_top" title="top">top</a>
+        <a href="#none" class="_up" title="이전">이전</a>
+        <a href="#none" class="_down" title="뒤로">뒤로</a>
+    </div>
+
+</div>
+
+<div class="btn_area">
+    <button type="button" class="btn_normal btn_base btn_point3 s-bb" title="닫기"
+            onclick="javascript:closeDrugInfoPopup()"><span>닫기</span></button>
+</div>
+<div class="scroll_menu hidden">
+    <ul>
+        <li id=".scroll_01"><p>menu01</p></li>
+        <li id=".scroll_02"><p>menu02</p></li>
+        <li id=".scroll_03"><p>menu03</p></li>
+        <li id=".scroll_04"><p>menu04</p></li>
+        <li id=".scroll_05"><p>menu05</p></li>
+        <li id=".scroll_06"><p>menu06</p></li>
+        <li id=".scroll_07"><p>menu07</p></li>
+        
+        <li id=".scroll_09"><p>menu09</p></li>
+        <li id=".scroll_10"><p>menu10</p></li>
+        
+        
+    </ul>
+</div>
+<div class="btn-zoom">
+    <!--글자크기 선택-->
+    <div class="fontsize-wrap">
+        <a href="javascript:toggleFontSelector()" class="font-selec-btn">A+</a>
+        <ul class="fontsize-selector">
+            <li><a id="font-level-1"
+                   href="javascript:scaleFontSizeOf('#font-level-1', '.drug_wrap', 1)">A</a><span>아주작게</span></li>
+            <li><a id="font-level-2"
+                   href="javascript:scaleFontSizeOf('#font-level-2', '.drug_wrap', 2)">A</a><span>작게</span></li>
+            <li><a id="font-level-3" href="javascript:scaleFontSizeOf('#font-level-3', '.drug_wrap', 3)"
+                   class="font-select">A</a><span>보통</span></li>
+            <li><a id="font-level-4"
+                   href="javascript:scaleFontSizeOf('#font-level-4', '.drug_wrap', 4)">A</a><span>크게</span></li>
+            <li><a id="font-level-5"
+                   href="javascript:scaleFontSizeOf('#font-level-5', '.drug_wrap', 5)">A</a><span>아주크게</span></li>
+        </ul>
+    </div>
+</div>
+<!-- //drug_wrap -->
+</body>
+</html>

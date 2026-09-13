@@ -49,6 +49,9 @@ VERTICAL_REPOS: dict[str, tuple[str | None, str, str]] = {
 GROUP_ORDER = ["육아+반려동물", "경제"]
 
 
+# 카드뉴스 이미지 공개 베이스(2026-09-13 R2 이전). verticals/.env.r2의 R2_PUBLIC_BASE와 같은 값.
+_R2_PUBLIC_BASE = "https://img.vernhaven.com"
+
 def _find_sibling_project(name: str) -> Path:
     """seo-blog/scripts/ingest_health_shorts.py의 동명 함수와 동일한 로직
     (조상 디렉터리 순회) — 이 파일도 워크트리에서 실행될 수 있어 고정 깊이
@@ -147,13 +150,23 @@ def _naver_images(images_path: Path, repo_root: Path, topic: str) -> list[dict]:
     return images
 
 
+def _r2_card_news_url(topic: str, filename: str) -> str:
+    """카드뉴스 jpg의 R2 공개 URL. 업로드 키와 같은 규칙으로 조립한다
+    (health-shorts/card_news/<topic>/<파일명>)."""
+    import urllib.parse
+    return (f"{_R2_PUBLIC_BASE}/health-shorts/card_news/"
+            f"{urllib.parse.quote(topic)}/{urllib.parse.quote(filename)}")
+
+
 def _health_card_news_images(repo_root: Path, topic: str) -> list[dict]:
     """건강 topic의 실제 렌더링된 카드뉴스 jpg(00_표지, 01_..., ...)를
     번호 마커 목록으로 변환 — 신규 버티컬의 _naver_images()와 같은 모양
     ({marker, url})으로 맞춰서 index.html이 포맷 구분 없이 같은 렌더러로
-    보여줄 수 있게 한다. url은 http(s)가 아니라 ROOT 기준 상대경로(로컬
-    파일) — dashboard_path와 동일한 원리로 index.html이 file:// 또는 로컬
-    서버에서 열리는 걸 전제한다."""
+    보여줄 수 있게 한다. 🚨 url은 2026-09-13부터 Cloudflare R2 절대 URL이다(그전엔 ROOT 기준
+    상대경로). 카드뉴스 jpg가 7,222장 459MB까지 불어나 git·Vercel 배포에 그대로
+    실리고 있었는데, R2는 egress가 무료라 CDN에서 받는 편이 낫다. `_naver_images()`가
+    이미 http(s)로 시작하는 url을 그대로 통과시키므로 index.html·topic-detail.html은
+    수정이 필요 없다. (설정: verticals/.env.r2)"""
     card_news_dir = _topic_output_dir(repo_root, topic) / "card_news"
     if not card_news_dir.is_dir():
         return []
@@ -172,7 +185,7 @@ def _health_card_news_images(repo_root: Path, topic: str) -> list[dict]:
             if len(part) == 2 and part.isdigit():
                 marker = f"{part} · {'_'.join(parts[i + 1:])}"
                 break
-        images.append({"marker": marker, "url": os.path.relpath(jpg, ROOT)})
+        images.append({"marker": marker, "url": _r2_card_news_url(topic, jpg.name)})
     return images
 
 

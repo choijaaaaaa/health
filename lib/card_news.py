@@ -790,6 +790,47 @@ def photo_resolver(char_dir, out_dir, topic_prefix: str | None = None):
     return _make_photo_for(Path(char_dir).parent / "real", _shared_resolver(Path(out_dir), topic_prefix))
 
 
+
+def _sync_to_r2(out_dir: Path) -> None:
+    """방금 렌더한 카드뉴스를 Cloudflare R2에 올린다.
+
+    WHY 렌더 직후 자동인지(2026-09-13): 카드뉴스 jpg를 git·Vercel 배포에서 빼고
+    R2에서 서빙하도록 바꿨는데(`.vercelignore` 참고), 업로드가 수동이면 새 topic의
+    카드뉴스가 배포본에서 깨진 이미지로 뜬다 — 2026-08-08에 이미 같은 증상을
+    겪었다("카드뉴스탭에 아예없는건뭐냐?"). 사람이 기억해야 하는 단계로 남기지 않는다.
+
+    키 규칙은 `lib/dashboard.py._card_news_r2_base()`와 같아야 한다.
+    업로드 실패는 경고만 하고 렌더 자체는 성공으로 둔다 — 로컬 파일은 이미 다 있고,
+    네트워크 문제로 카드뉴스 생성이 통째로 실패하는 게 더 나쁘다.
+    """
+    try:
+        import boto3
+        from botocore.config import Config
+        env_path = Path(__file__).resolve().parent.parent.parent / "verticals" / ".env.r2"
+        conf = dict(l.strip().split("=", 1) for l in env_path.read_text().splitlines()
+                    if "=" in l and not l.strip().startswith("#"))
+        d = Path(out_dir).resolve()
+        if d.parent.parent.name == "output":
+            prefix = d.parent.name
+        else:
+            topic, lang = d.parent.parent.name, d.parent.name
+            prefix = topic if lang == "ko" else f"{topic}/{lang}"
+        s3 = boto3.client("s3", endpoint_url=conf["R2_ENDPOINT"],
+                          aws_access_key_id=conf["R2_ACCESS_KEY_ID"],
+                          aws_secret_access_key=conf["R2_SECRET_ACCESS_KEY"],
+                          config=Config(signature_version="s3v4"), region_name="auto")
+        jpgs = sorted(d.glob("*.jpg"))
+        for jpg in jpgs:
+            s3.put_object(Bucket=conf["R2_BUCKET"],
+                          Key=f"health-shorts/card_news/{prefix}/{jpg.name}",
+                          Body=jpg.read_bytes(), ContentType="image/jpeg",
+                          CacheControl="public, max-age=31536000, immutable")
+        print(f"  R2 업로드 완료: {len(jpgs)}장 → health-shorts/card_news/{prefix}/")
+    except Exception as exc:
+        print(f"  ⚠️ R2 업로드 실패({type(exc).__name__}: {exc}) — 로컬 파일은 정상. "
+              f"배포본에서 보이게 하려면 나중에 다시 올릴 것.", file=sys.stderr)
+
+
 def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | None = None,
              lang: str = "kor"):
     """spec_path: JSON 파일 — {title, items:[{name, char_file, body}], closing:{headline, tip, cta}}
@@ -913,6 +954,7 @@ def generate(spec_path: str, char_dir: str, out_dir: str, topic_prefix: str | No
                  top_chip_label=closing_label, char_label_overrides=char_display_names,
                  char_keys=closing_char_keys)
     print(f"카드뉴스 {n+2}장 생성 완료: {out_dir}")
+    _sync_to_r2(out_dir)
 
 
 if __name__ == "__main__":

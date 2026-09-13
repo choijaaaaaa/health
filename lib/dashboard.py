@@ -353,6 +353,7 @@ PAGE_TEMPLATE = """<!doctype html>
 
 <script>
 const CARD_IMAGE_NAMES = {card_image_names_js};
+const CARD_NEWS_BASE = {card_news_base_js};
 // WHY 파일명에 topic 접두어(2026-07-31): 여러 세션이 동시에 여러 topic을 작업하다보니
 // 다운로드 폴더에 "shorts.mp4", "00_표지.jpg"가 topic마다 겹쳐서 뭐가 뭔지 구분이
 // 안 됐다 — 다운로드되는 모든 파일명 앞에 topic 이름을 붙인다.
@@ -384,24 +385,38 @@ function _withTopicPrefix(name) {{
   return name.startsWith(TOPIC_NAME + "_") ? name : TOPIC_NAME + "_" + name;
 }}
 
+// WHY fetch+blob으로 받는지(2026-09-13 R2 이전): 카드뉴스가 다른 오리진(R2 CDN)에서
+// 오게 되면서 <a download>의 download 속성이 브라우저에 무시된다 — 그대로 두면
+// 저장이 아니라 탭이 8개 열린다. 버킷에 GET CORS를 열어두고 blob으로 받아 저장한다.
 const downloadAllBtn = document.getElementById("downloadAllCards");
 if (downloadAllBtn) {{
-  downloadAllBtn.addEventListener("click", () => {{
+  downloadAllBtn.addEventListener("click", async () => {{
     const originalLabel = downloadAllBtn.textContent;
-    downloadAllBtn.textContent = "다운로드 중…";
-    CARD_IMAGE_NAMES.forEach((name, i) => {{
-      setTimeout(() => {{
+    downloadAllBtn.disabled = true;
+    let failed = 0;
+    for (let i = 0; i < CARD_IMAGE_NAMES.length; i++) {{
+      const name = CARD_IMAGE_NAMES[i];
+      downloadAllBtn.textContent = `다운로드 중… ${{i + 1}}/${{CARD_IMAGE_NAMES.length}}`;
+      try {{
+        const res = await fetch(CARD_NEWS_BASE + "/" + name);
+        if (!res.ok) throw new Error(res.status);
+        const url = URL.createObjectURL(await res.blob());
         const a = document.createElement("a");
-        a.href = "card_news/" + name;
+        a.href = url;
         a.download = _withTopicPrefix(decodeURIComponent(name));
         document.body.appendChild(a);
         a.click();
         a.remove();
-        if (i === CARD_IMAGE_NAMES.length - 1) {{
-          setTimeout(() => {{ downloadAllBtn.textContent = originalLabel; }}, 500);
-        }}
-      }}, i * 350);
-    }});
+        URL.revokeObjectURL(url);
+      }} catch (e) {{
+        failed++;
+        console.error("카드 다운로드 실패", name, e);
+      }}
+      await new Promise(r => setTimeout(r, 120));
+    }}
+    downloadAllBtn.disabled = false;
+    downloadAllBtn.textContent = failed ? `${{failed}}장 실패 — 콘솔 확인` : originalLabel;
+    if (failed) setTimeout(() => {{ downloadAllBtn.textContent = originalLabel; }}, 4000);
   }});
 }}
 
@@ -928,6 +943,25 @@ SECTION_TEMPLATE = """
 """
 
 
+# 카드뉴스 이미지는 2026-09-13부로 Cloudflare R2에서 서빙한다. WHY: jpg 7,222장
+# 1.14GB가 git·Vercel 배포에 그대로 실려 있었는데, R2는 egress가 무료라 CDN에서
+# 받는 편이 싸고 배포도 가벼워진다. 키 규칙은 업로드 스크립트와 같아야 한다 —
+# ko(및 언어 폴더가 없는 구형 topic)는 <topic>/, 그 외 언어는 <topic>/<lang>/.
+_R2_CARD_NEWS_BASE = "https://img.vernhaven.com/health-shorts/card_news"
+
+
+def _card_news_r2_base(card_news_dir: str | Path) -> str:
+    """`output/<topic>/card_news` 또는 `output/<topic>/<lang>/card_news` 경로에서
+    그 카드뉴스들의 R2 프리픽스(끝에 / 없음)를 만든다."""
+    d = Path(card_news_dir).resolve()
+    if d.parent.parent.name == "output":
+        topic, lang = d.parent.name, None
+    else:
+        topic, lang = d.parent.parent.name, d.parent.name
+    base = f"{_R2_CARD_NEWS_BASE}/{quote(topic)}"
+    return base if lang in (None, "ko") else f"{base}/{quote(lang)}"
+
+
 def _prefixed(name: str, topic: str) -> str:
     """WHY(2026-07-31): card_news.py가 이제 파일명에 topic 접두어를 직접 붙이므로,
     다운로드 파일명을 만들 때 이미 붙어있는 접두어를 또 붙이면 중복된다
@@ -936,7 +970,8 @@ def _prefixed(name: str, topic: str) -> str:
     return name if name.startswith(topic + "_") else f"{topic}_{name}"
 
 
-def _asset_link(platform_type: str, topic: str, cover_name: str | None) -> str:
+def _asset_link(platform_type: str, topic: str, cover_name: str | None,
+                r2_base: str = "") -> str:
     # WHY video 타입엔 안내문 자체가 없는지(2026-08-05, "회색박스 텍스트
     # 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가 git에
     # 없어서 이 텍스트가 가리키던 다운로드/재생은 애초에 불가능했고, 로컬에서
@@ -946,7 +981,8 @@ def _asset_link(platform_type: str, topic: str, cover_name: str | None) -> str:
         return '<a class="asset-link" href="#card-gallery">🖼 위 카드뉴스 미리보기로 이동 ↑</a>'
     if not cover_name:
         return ""
-    return (f'<a class="asset-link" href="card_news/{quote(cover_name)}" '
+    href = f"{r2_base}/{quote(cover_name)}" if r2_base else f"card_news/{quote(cover_name)}"
+    return (f'<a class="asset-link" href="{href}" '
             f'download="{_prefixed(cover_name, topic_attr)}">🖼 표지 이미지 다운로드 (선택)</a>')
 
 
@@ -1201,7 +1237,8 @@ def _update_topics_index(out_path: str):
         # 접두어가 없는 중첩 topic("00_표지.jpg")과 있는 flat topic(과거 관례,
         # "<topic>_00_표지.jpg") 둘 다 와일드카드로 매칭한다.
         cover_path = next((dash.parent / "card_news").glob("*00_표지.jpg"), None)
-        thumbnail = f"output/{quote(topic)}/card_news/{quote(cover_path.name)}" if cover_path else None
+        thumbnail = (f"{_card_news_r2_base(dash.parent / 'card_news')}/{quote(cover_path.name)}"
+                     if cover_path else None)
         topics.append({
             "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
             "thumbnail": thumbnail, "ad_tag": ad_tag_applied, "tracks": tracks,
@@ -1687,7 +1724,8 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
     # 다운로드"가 표지 1장만 보여주는(버튼 id는 downloadAllCards인데 실제로는
     # 1장뿐인) 불일치가 생긴다.
     card_imgs = sorted(Path(card_news_dir).glob("*.jpg")) if Path(card_news_dir).exists() else []
-    card_thumbs = "".join(f'<img src="card_news/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in card_imgs)
+    r2_base = _card_news_r2_base(card_news_dir)
+    card_thumbs = "".join(f'<img src="{r2_base}/{quote(p.name)}" alt="{_esc(p.stem)}">' for p in card_imgs)
 
     # WHY video_path를 받고도 대시보드에서 안 쓰는지(2026-08-05, "회색박스
     # 텍스트 필요없잖아? 이제 어차피 영상을 깃허브에 올려놓지를 않는데?"): mp4가
@@ -1733,7 +1771,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
                 type=t,
                 type_label=TYPE_LABEL[t],
                 action=_esc(p.get("action", "")),
-                asset_link=_asset_link(t, topic, cover_path.name if cover_path else None),
+                asset_link=_asset_link(t, topic, cover_path.name if cover_path else None, r2_base),
                 done_key=quote(p["name"]),
                 no_caption_link_attr="1" if p.get("no_caption_link") else "",
                 naver_button_attr="1" if p.get("network") == "naver" else "",
@@ -1794,6 +1832,7 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         platform_sections=platform_sections,
         topic=quote(topic), dock_products=dock_products, dock_products_bottom=dock_products_bottom,
         card_image_names_js=card_image_names_js, asset_prefix=asset_prefix,
+        card_news_base_js=json.dumps(r2_base),
         coupang_disclosure_js=json.dumps(disclosure.get("coupang", "")),
         naver_disclosure_js=json.dumps(disclosure.get("naver", "")),
         # WHY comment_keyword 우선(2026-07-31): 상품이 없는 topic(products: [])은
