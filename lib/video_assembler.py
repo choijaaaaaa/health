@@ -31,7 +31,8 @@ _REPO_ROOT = Path(__file__).resolve().parent.parent
 if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
-from lib.bgm import bgm_filter_segment  # noqa: E402
+from lib.bgm import bgm_filter_segment
+from lib.ad_cta import build_cta_png, cta_filter  # noqa: E402
 
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -3763,10 +3764,22 @@ def assemble(
         else:
             filter_complex = f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[a]"
             mux_inputs = ["-i", str(captioned), "-i", audio_path]
+
+        # WHY 여기서 CTA를 합치는지(2026-09-14): 플랫폼이 영상 하단에 붙이는 제휴
+        # 광고 배너로 시선을 내리는 장치다(lib/ad_cta.py 참고). 오디오 mux와 같은
+        # ffmpeg 호출에 얹어야 재인코딩이 한 번으로 끝난다 — 따로 돌리면 완성본을
+        # 두 번 인코딩하게 된다. 비디오는 copy를 못 쓰게 되지만 그 비용뿐이다.
+        cta_png = tmp_path / "ad_cta.png"
+        cta_w, cta_h = build_cta_png(cta_png, lang)
+        mux_inputs += ["-i", str(cta_png)]
+        cta_idx = (len(mux_inputs) // 2) - 1          # 방금 추가한 입력의 인덱스
+        filter_complex += ";" + cta_filter(f"{cta_idx}:v", "0:v", cta_w, cta_h, "v")
         subprocess.run(
             ["ffmpeg", "-y", *mux_inputs,
              "-filter_complex", filter_complex,
-             "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+             "-map", "[v]", "-map", "[a]",
+             "-c:v", "libx264", "-preset", "medium", "-crf", "20", "-pix_fmt", "yuv420p",
+             "-c:a", "aac", "-b:a", "192k",
              out_path],
             check=True, capture_output=True,
         )
