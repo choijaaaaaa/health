@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Odeur à l'aine même après la douche ?",
+    "Ce n'est pas l'hygiène —",
+    "c'est une glande sudoripare",
+    "La vraie cause"
+  ],
+  "eyebrow": "Odeur à l'aine expliquée",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "La sueur elle-même sent à peine",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Les glandes apocrines s'activent",
+        "à la puberté",
+        "",
+        "Ce sont les bactéries de la peau",
+        "qui créent l'odeur, pas la sueur"
+      ]
+    },
+    {
+      "name": "Sous-vêtements serrés et trempés",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Le synthétique serré piège",
+        "chaleur et humidité",
+        "",
+        "L'humidité piégée fait proliférer",
+        "les bactéries responsables"
+      ]
+    },
+    {
+      "name": "Passez au coton respirant",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Changez dès que possible",
+        "après une transpiration importante",
+        "",
+        "Le coton laisse l'air",
+        "circuler"
+      ]
+    },
+    {
+      "name": "Le pli mal séché",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Le frottement peau contre peau",
+        "ajoute encore de la friction",
+        "",
+        "Séchez complètement après",
+        "chaque douche"
+      ]
+    },
+    {
+      "name": "Gratter au lieu de traiter",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Gratter abîme la peau",
+        "",
+        "Une peau abîmée aggrave",
+        "l'infection et l'odeur"
+      ]
+    },
+    {
+      "name": "Si ça ne part toujours pas",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Un antifongique en vente libre",
+        "pendant deux à quatre semaines",
+        "",
+        "Consultez si ça s'étend",
+        "ou ne s'améliore pas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'était jamais une question de savon.",
+    "tip": "Sueur apocrine, bactéries et humidité piégée — la solution est de sécher, pas de frotter plus fort.",
+    "cta": "L'éruption s'étend ou dure plus de deux semaines ? Parlez-en à un médecin ou un pharmacien."
+  },
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "Bilan",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Douche",
+    "물방울_illust.jpg": "Sueur",
+    "속옷_illust.jpg": "Sous-vêtements",
+    "수건_illust.jpg": "Séchage",
+    "손가락_illust.jpg": "Grattage",
+    "연고_illust.jpg": "Crème antifongique"
+  }
+}

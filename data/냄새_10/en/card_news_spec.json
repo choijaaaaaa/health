@@ -1,0 +1,165 @@
+{
+  "title": [
+    "Groin odor after every shower?",
+    "It's not a hygiene problem —",
+    "it's a sweat gland problem",
+    "The real cause"
+  ],
+  "eyebrow": "Groin odor, explained",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "The sweat itself barely smells",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "The groin and armpits are packed",
+        "with apocrine glands that switch on",
+        "at puberty",
+        "",
+        "That sweat is nearly odorless on",
+        "its own — skin bacteria break it",
+        "down into the smell you notice",
+        "",
+        "It's a gland-and-bacteria story,",
+        "not a not-washing-enough story"
+      ]
+    },
+    {
+      "name": "Tight, sweat-soaked underwear",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Skin folds already run warmer",
+        "than the rest of your skin",
+        "",
+        "Tight synthetic underwear traps",
+        "that heat and moisture instead",
+        "of letting it evaporate",
+        "",
+        "Trapped moisture is exactly what",
+        "lets odor-causing bacteria multiply",
+        "faster"
+      ]
+    },
+    {
+      "name": "Switch to breathable underwear",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Swap tight synthetics for",
+        "breathable cotton",
+        "",
+        "Change into dry underwear as soon",
+        "as you can after heavy sweating",
+        "or a workout"
+      ]
+    },
+    {
+      "name": "Not drying the fold completely",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Skin folds also rub together",
+        "with every step, adding friction",
+        "",
+        "Leftover moisture plus that",
+        "friction lets normal skin bacteria",
+        "and yeast overgrow",
+        "",
+        "In some cases a second, harsher-",
+        "smelling bacteria moves in too"
+      ]
+    },
+    {
+      "name": "Dry the fold on purpose",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Pat the fold fully dry with a",
+        "towel after every shower",
+        "",
+        "A hairdryer on the cool setting",
+        "reaches the spots a towel",
+        "usually misses"
+      ]
+    },
+    {
+      "name": "Scratching instead of treating it",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Scratching an itch you can't",
+        "ignore feels like relief",
+        "",
+        "But it breaks the skin, and",
+        "broken skin is exactly how",
+        "bacteria get in and the smell",
+        "gets worse"
+      ]
+    },
+    {
+      "name": "When it's not just odor anymore",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "If showering and drying well",
+        "don't fix it, that points away",
+        "from ordinary odor",
+        "",
+        "A ring-shaped rash with a raised,",
+        "well-defined edge and flaking is",
+        "the tell for jock itch"
+      ]
+    },
+    {
+      "name": "Ignoring athlete's foot",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sweaty feet and tight shoes grow",
+        "the same fungus that causes",
+        "jock itch",
+        "",
+        "It travels from your feet to your",
+        "groin on a shared towel or on",
+        "the hand that just scratched",
+        "an itchy foot"
+      ]
+    },
+    {
+      "name": "So what actually helps?",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Breathable underwear, full drying,",
+        "and leaving it alone instead of",
+        "scratching",
+        "",
+        "If an OTC antifungal doesn't clear",
+        "it in about two weeks, or it's",
+        "spreading, see a doctor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Groin odor usually comes down to",
+        "apocrine sweat, bacteria and trapped moisture"
+      ],
+      [
+        "A well-defined red, flaking rash",
+        "points to jock itch instead"
+      ]
+    ],
+    "tip": [
+      "Breathable underwear, drying the fold completely, treating athlete's feet early —",
+      "start tonight with the drying step"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "In short",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Showering",
+    "물방울_illust.jpg": "Sweat and moisture",
+    "속옷_illust.jpg": "Underwear",
+    "수건_illust.jpg": "Drying off",
+    "손가락_illust.jpg": "Scratching",
+    "운동화_illust.jpg": "Shoes and athlete's foot",
+    "연고_illust.jpg": "Antifungal cream"
+  }
+}

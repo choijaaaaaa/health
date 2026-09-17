@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Blåmärken lätt efter 60,",
+    "det är inte bara",
+    "\"att bli äldre\"",
+    "3 saker som faktiskt gör skillnad"
+  ],
+  "eyebrow": "Purpura senilis förklarat",
+  "cover_char_file": "손등_illust.jpg",
+  "items": [
+    {
+      "name": "Ett precist namn, inte bara ålder",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Purpura actinica — omkring 12% av",
+        "de över 50, 30% efter 75",
+        "",
+        "Inget vagt öde,",
+        "en dokumenterad mekanism"
+      ]
+    },
+    {
+      "name": "Decennier av ackumulerad sol",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Kollagenet som stödjer kärlen",
+        "försvagas på mest exponerad hud",
+        "",
+        "Händer och underarmar",
+        "i första linjen"
+      ]
+    },
+    {
+      "name": "Solskydd varje dag",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "SPF 30 eller högre, redan från",
+        "ett uv-index på 3",
+        "",
+        "En lång ärm gör",
+        "samma jobb"
+      ]
+    },
+    {
+      "name": "Aspirin hjälper inte, men sluta aldrig själv",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Förvärrar blåmärken utan att",
+        "själv skapa sköraheten",
+        "",
+        "Prata med läkaren,",
+        "sluta aldrig på egen hand"
+      ]
+    },
+    {
+      "name": "Smörj in huden medan den är fuktig",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "En enkel mjukgörare direkt",
+        "efter tvätt",
+        "",
+        "Hjälper mot torrheten",
+        "som ofta följer med"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Det är inget fast öde kopplat till åldern.",
+    "tip": "Tre precisa orsaker, tre enkla vanor som täcker dem.",
+    "cta": "Blåmärken även utanför händer och underarmar? Prata med läkare denna vecka."
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "햇빛_illust.jpg": "Sol",
+    "자외선차단제_illust.jpg": "Solskydd",
+    "아스피린_illust.jpg": "Aspirin",
+    "달력_illust.jpg": "Kalender",
+    "거미줄혈관_illust.jpg": "Kärl",
+    "바세린_illust.jpg": "Fuktkräm"
+  }
+}

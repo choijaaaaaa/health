@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Korsbandsskada,",
+    "kan uppstå även",
+    "helt utan kontakt",
+    "Rätt ordning för att komma tillbaka"
+  ],
+  "eyebrow": "Den verkliga orsaken till korsbandsskada",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Går av även utan någon smäll",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Vid en vridning sitter",
+        "foten fast i marken",
+        "",
+        "medan knät vrids",
+        "kraftigt"
+      ]
+    },
+    {
+      "name": "Dessa idrotter drabbas mest",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fotboll, utförsåkning, handboll,",
+        "basket — mycket vridningar",
+        "",
+        "Ett poppande ljud,",
+        "följt av snabb svullnad"
+      ]
+    },
+    {
+      "name": "Skydda knät först",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Undvik belastning,",
+        "kyl regelbundet",
+        "",
+        "och håll benet",
+        "högt"
+      ]
+    },
+    {
+      "name": "Vänta inte i osäkerhet",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Även om smärtan minskar,",
+        "avgör inte själv",
+        "",
+        "En riktig bedömning",
+        "kommer först"
+      ]
+    },
+    {
+      "name": "Träna baklår separat",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Starka framlår ensamma",
+        "stabiliserar inte knät nog",
+        "",
+        "Stärk även baklår",
+        "och höfter"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Det handlade aldrig om hur hård smällen var.",
+    "tip": "En muskelobalans i vridningsögonblicket är den verkliga orsaken.",
+    "cta": "Har ditt knä redan vikit sig och svullnat snabbt? Sök bedömning snart."
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "무릎_illust.jpg": "Knä",
+    "운동화_illust.jpg": "Skor",
+    "냉찜질_illust.jpg": "Ispåse",
+    "아령_illust.jpg": "Hantel",
+    "달력_illust.jpg": "Kalender"
+  }
+}

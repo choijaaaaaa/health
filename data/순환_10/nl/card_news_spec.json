@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Trombose door stilzitten,",
+    "het ging nooit echt",
+    "om het vliegtuig",
+    "Waarom lange reizen een risico zijn"
+  ],
+  "eyebrow": "Trombose, echt uitgelegd",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "De kuitpomp die stilstaat",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Elke reis van meer dan 4 uur — vliegtuig,",
+        "auto, bus, trein — is een risico",
+        "",
+        "De kuitspieren pompen bloed",
+        "naar het hart als u beweegt"
+      ]
+    },
+    {
+      "name": "Steunkousen werken echt",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Veel minder stille stolsels",
+        "bij dragers van steunkousen",
+        "",
+        "Gegradueerde kousen —",
+        "geen gewone comfortsokken"
+      ]
+    },
+    {
+      "name": "Roken verhoogt het risico verder",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Net als zwangerschap, hormoontherapie,",
+        "recente operaties",
+        "",
+        "Check uw risico vóór",
+        "een lange reis"
+      ]
+    },
+    {
+      "name": "Beweeg elk uur",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Loop als het kan, of beweeg",
+        "zittend uw enkels",
+        "",
+        "Dit start de kuitpomp ook",
+        "zittend weer op"
+      ]
+    },
+    {
+      "name": "Drink water, vermijd alcohol",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Alcohol en veel cafeïne maken",
+        "het bloed nog dikker",
+        "",
+        "Water is de betere",
+        "keuze onderweg"
+      ]
+    },
+    {
+      "name": "Let op eenzijdige zwelling",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Plotselinge kortademigheid of",
+        "pijn op de borst — direct spoed",
+        "",
+        "Wacht niet af — laat u",
+        "nog dezelfde dag onderzoeken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Het ging nooit echt om het vliegtuig.",
+    "tip": "De stilstaande kuitpomp is de echte oorzaak — beweeg, drink water, draag bij risico steunkousen.",
+    "cta": "Eén been plotseling gezwollen en kortademig? Wacht niet — laat u nog dezelfde dag onderzoeken."
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "의자_illust.jpg": "Zitplaats",
+    "담배_illust.jpg": "Roken",
+    "물컵_illust.jpg": "Water",
+    "압박스타킹_illust.jpg": "Steunkousen",
+    "부종_illust.jpg": "Zwelling"
+  }
+}

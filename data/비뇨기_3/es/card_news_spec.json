@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Se despierta para orinar,",
+    "no es solo la próstata —",
+    "revise su cena",
+    "Cambiar el horario, no eliminar todo"
+  ],
+  "eyebrow": "Nicturia y hábitos nocturnos",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 de cada 3 hombres tras los 65 lo vive",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% entre 40-64 años,",
+        "29-33% tras los 65",
+        "",
+        "Una próstata agrandada hace",
+        "la vejiga más sensible"
+      ]
+    },
+    {
+      "name": "El picante irrita la vejiga directamente",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Crea urgencia incluso",
+        "sin vejiga llena",
+        "",
+        "La irritación sigue tras",
+        "quedarse dormido"
+      ]
+    },
+    {
+      "name": "Pase el picante al almuerzo",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "No hace falta",
+        "eliminarlo del todo",
+        "",
+        "Picante al mediodía,",
+        "suave por la noche"
+      ]
+    },
+    {
+      "name": "La cafeína aumenta el volumen de orina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Inhibe la hormona que retiene",
+        "agua en los riñones",
+        "",
+        "Da más sed —",
+        "se bebe aún más"
+      ]
+    },
+    {
+      "name": "Descafeinado desde media tarde",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "El hábito se mantiene,",
+        "sin la cafeína",
+        "",
+        "NHS: reducir alcohol",
+        "y cafeína"
+      ]
+    },
+    {
+      "name": "El alcohol irrita vejiga y próstata a la vez",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Misma inhibición hormonal más",
+        "inflamación directa de próstata",
+        "",
+        "Termine 3-4 horas",
+        "antes de dormir"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dependía de qué y cuándo en la cena.",
+    "tip": "No hace falta eliminar picante, café o alcohol — a menudo basta con cambiar el horario.",
+    "cta": "¿Chorro de orina notablemente más débil? Consulte a un urólogo para descartar otras causas."
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "고추_illust.jpg": "Comida picante",
+    "커피_illust.jpg": "Café",
+    "맥주_illust.jpg": "Alcohol"
+  }
+}

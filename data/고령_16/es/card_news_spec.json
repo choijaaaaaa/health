@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Moretones fáciles tras los 60,",
+    "no es solo",
+    "\"cosas de la edad\"",
+    "3 gestos que sí cambian algo"
+  ],
+  "eyebrow": "Púrpura senil explicada",
+  "cover_char_file": "손등_illust.jpg",
+  "items": [
+    {
+      "name": "Un nombre preciso, no solo la edad",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Púrpura actínica — cerca del 12% de",
+        "los mayores de 50, 30% tras los 75",
+        "",
+        "No es un destino vago,",
+        "es un mecanismo documentado"
+      ]
+    },
+    {
+      "name": "Décadas de sol acumulado",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "El colágeno que sostiene los vasos",
+        "se debilita en la piel más expuesta",
+        "",
+        "Manos y antebrazos",
+        "en primera línea"
+      ]
+    },
+    {
+      "name": "Protector solar, todos los días",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "SPF 30 o más, desde un",
+        "índice UV de 3",
+        "",
+        "Una manga larga hace",
+        "el mismo trabajo"
+      ]
+    },
+    {
+      "name": "La aspirina no ayuda, pero no la deje sola",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Agrava los moretones sin",
+        "crear ella misma la fragilidad",
+        "",
+        "Hable con su médico,",
+        "nunca la deje por su cuenta"
+      ]
+    },
+    {
+      "name": "Hidrate la piel aún húmeda",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Un emoliente sencillo justo",
+        "después de lavarse",
+        "",
+        "Ayuda contra la sequedad",
+        "que acompaña la afección"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es un destino ligado a la edad.",
+    "tip": "Tres causas concretas, tres hábitos sencillos que las cubren.",
+    "cta": "¿Moretones también fuera de manos y antebrazos? Hable con su médico esta semana."
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "손등_illust.jpg": "Mano",
+    "햇빛_illust.jpg": "Sol",
+    "자외선차단제_illust.jpg": "Protector solar",
+    "아스피린_illust.jpg": "Aspirina",
+    "달력_illust.jpg": "Calendario",
+    "거미줄혈관_illust.jpg": "Vasos",
+    "바세린_illust.jpg": "Hidratante"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "title": [
+    "¿Olor en la ingle incluso tras ducharse?",
+    "No es higiene —",
+    "es una glándula sudorípara",
+    "La causa real"
+  ],
+  "eyebrow": "Olor inguinal explicado",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "El sudor en sí huele poco",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Las glándulas apocrinas se activan",
+        "en la pubertad",
+        "",
+        "Son las bacterias de la piel las",
+        "que crean el olor, no el sudor"
+      ]
+    },
+    {
+      "name": "Ropa interior ajustada y empapada",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "El sintético ajustado atrapa",
+        "calor y humedad",
+        "",
+        "La humedad atrapada hace proliferar",
+        "las bacterias responsables"
+      ]
+    },
+    {
+      "name": "Cambie a algodón transpirable",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Cámbiese en cuanto pueda",
+        "tras sudar mucho",
+        "",
+        "El algodón deja",
+        "circular el aire"
+      ]
+    },
+    {
+      "name": "El pliegue mal secado",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "La fricción piel con piel",
+        "añade más irritación",
+        "",
+        "Séquelo por completo tras",
+        "cada ducha"
+      ]
+    },
+    {
+      "name": "Rascarse en vez de tratarlo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Rascarse daña la piel",
+        "",
+        "La piel dañada empeora",
+        "la infección y el olor"
+      ]
+    },
+    {
+      "name": "Si aun así no se va",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Un antifúngico de venta libre",
+        "durante dos a cuatro semanas",
+        "",
+        "Consulte si se extiende",
+        "o no mejora"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nunca fue cuestión de más jabón.",
+    "tip": "Sudor apocrino, bacterias y humedad atrapada — la solución es secar bien, no frotar más fuerte.",
+    "cta": "¿La erupción se extiende o dura más de dos semanas? Hable con un médico o farmacéutico."
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Ducha",
+    "물방울_illust.jpg": "Sudor",
+    "속옷_illust.jpg": "Ropa interior",
+    "수건_illust.jpg": "Secado",
+    "손가락_illust.jpg": "Rascado",
+    "연고_illust.jpg": "Crema antifúngica"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Kruisbandscheur,",
+    "kan ook zonder",
+    "enige botsing ontstaan",
+    "De juiste volgorde om te herstellen"
+  ],
+  "eyebrow": "De echte oorzaak van een kruisbandscheur",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Scheurt ook zonder enige botsing",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Bij een draaibeweging blijft",
+        "de voet vast op de grond",
+        "",
+        "terwijl de knie",
+        "hevig draait"
+      ]
+    },
+    {
+      "name": "Deze sporten lopen het meeste risico",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Voetbal, skiën, handbal,",
+        "basketbal — veel draaibewegingen",
+        "",
+        "Een knappend gevoel,",
+        "gevolgd door snelle zwelling"
+      ]
+    },
+    {
+      "name": "Bescherm de knie eerst",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Vermijd belasting,",
+        "koel regelmatig",
+        "",
+        "en houd het been",
+        "hoog"
+      ]
+    },
+    {
+      "name": "Blijf niet in onzekerheid",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ook als de pijn afneemt,",
+        "beslis niet zelf",
+        "",
+        "Een juiste medische beoordeling",
+        "komt eerst"
+      ]
+    },
+    {
+      "name": "Train de hamstrings apart",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Sterke bovenbeenspieren alleen",
+        "stabiliseren de knie niet genoeg",
+        "",
+        "Versterk ook hamstrings",
+        "en heupen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Het ging nooit om de hardheid van de botsing.",
+    "tip": "Een spierbalans-probleem op het moment van draaien is de echte oorzaak.",
+    "cta": "Is uw knie al eens doorgezakt en snel gezwollen? Laat het snel beoordelen."
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "무릎_illust.jpg": "Knie",
+    "운동화_illust.jpg": "Schoenen",
+    "냉찜질_illust.jpg": "IJspak",
+    "아령_illust.jpg": "Halter",
+    "달력_illust.jpg": "Kalender"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "title": [
+    "Warum bekommen manche Menschen",
+    "ab 50 plötzlich blaue Flecken,",
+    "ohne sich zu stoßen?",
+    "Purpura senilis erklärt"
+  ],
+  "eyebrow": "Purpura senilis erklärt",
+  "cover_char_file": "손등_illust.jpg",
+  "cover_scrim_color": "#4A5859",
+  "items": [
+    {
+      "name": "Warum ein leichter Stoß schon reicht",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Kollagen unter der Haut hält",
+        "die Blutgefäße wie ein Polster",
+        "an ihrem Platz",
+        "",
+        "Wird dieses Polster mit den",
+        "Jahren dünner, verlieren die",
+        "Gefäße ihren Halt",
+        "",
+        "Ein Ärmel, der über die Haut",
+        "streift, kann dann schon",
+        "genügen"
+      ]
+    },
+    {
+      "name": "Ursache 1: jahrzehntelange Sonne",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Handrücken und Unterarme haben",
+        "über ein Leben hinweg mit",
+        "Abstand am meisten Sonne",
+        "abbekommen",
+        "",
+        "Diese UV-Belastung baut genau",
+        "das Kollagen ab, das die",
+        "Gefäße stützt",
+        "",
+        "Deshalb tritt das fast nie am",
+        "Oberschenkel auf, aber sehr oft",
+        "am Handrücken"
+      ]
+    },
+    {
+      "name": "Gegenmittel 1: diese Stellen aktiv schützen",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "Die Deutsche Krebshilfe empfiehlt",
+        "Sonnenschutz bereits ab UV-Index 3",
+        "— nicht erst im Hochsommer",
+        "",
+        "Mindestens Lichtschutzfaktor 30,",
+        "mit UVA- und UVB-Filter",
+        "",
+        "Ein langes Hemd auf dem Weg",
+        "zum Einkaufen leistet denselben",
+        "Schutz, kostenlos"
+      ]
+    },
+    {
+      "name": "Ursache 2: Blutverdünner und Kortison",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Aspirin, Warfarin oder",
+        "Clopidogrel machen die Gefäße",
+        "nicht an sich brüchig",
+        "",
+        "Laut MSD Manual verstärken",
+        "diese Medikamente die",
+        "Ekchymosen, sobald ein",
+        "Gefäß bereits gerissen ist",
+        "",
+        "Kortisonsalben, langfristig",
+        "angewendet, dünnen die Haut",
+        "zusätzlich aus"
+      ]
+    },
+    {
+      "name": "Gegenmittel 2: nichts eigenmächtig absetzen",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Einen Blutverdünner einfach",
+        "abzusetzen, ist riskanter",
+        "als der blaue Fleck selbst",
+        "",
+        "Eine aktuelle Medikamentenliste",
+        "zum nächsten Termin mitbringen",
+        "",
+        "Gezielt fragen, ob Dosis oder",
+        "Kortisonsalbe überprüft",
+        "werden sollten"
+      ]
+    },
+    {
+      "name": "Ursache 3: trockene Haut, die niemand beachtet",
+      "char_file": "거미줄혈관_illust.jpg",
+      "body": [
+        "Trockene Haut verliert schneller",
+        "an Elastizität als gut",
+        "gepflegte Haut",
+        "",
+        "Weniger Elastizität heißt",
+        "weniger Polsterung um genau",
+        "diese Gefäße",
+        "",
+        "Allein reicht das meist nicht,",
+        "aber zusammen mit den anderen",
+        "beiden schon"
+      ]
+    },
+    {
+      "name": "Gegenmittel 3: einfache Pflege, jeden Tag",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Kein teures Produkt nötig —",
+        "eine einfache, parfümfreie",
+        "Feuchtigkeitscreme reicht",
+        "",
+        "Direkt nach dem Waschen",
+        "auftragen, solange die Haut",
+        "noch feucht ist",
+        "",
+        "Bestehende Flecken verschwinden",
+        "dadurch nicht, neue werden",
+        "aber seltener"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nicht das Alter allein ist schuld —",
+        "es sind Sonnenjahre, bestimmte",
+        "Medikamente und trockene Haut"
+      ],
+      [
+        "Von diesen dreien lässt sich",
+        "der Sonnenschutz am schnellsten",
+        "ändern"
+      ]
+    ],
+    "tip": [
+      "Sonnencreme und Feuchtigkeitscreme direkt am Waschbecken aufbewahren, damit die tägliche Anwendung zur Gewohnheit wird",
+      "Blaue Flecken am Rumpf oder mit Fieber sind kein Fall für Sonnencreme, sondern für den Arzt"
+    ],
+    "cta": "Noch mehr Gesundheitstipps? Jetzt abonnieren, liken und folgen!"
+  },
+  "swipe_label": "Weiter wischen  »",
+  "closing_label": "Kurz gesagt",
+  "char_display_names": {
+    "손등_illust.jpg": "Alternde Haut",
+    "햇빛_illust.jpg": "Sonneneinstrahlung",
+    "자외선차단제_illust.jpg": "Sonnenschutz",
+    "아스피린_illust.jpg": "Blutverdünner",
+    "달력_illust.jpg": "Medikamentenliste",
+    "거미줄혈관_illust.jpg": "Trockene, dünne Haut",
+    "바세린_illust.jpg": "Tägliche Pflege"
+  }
+}

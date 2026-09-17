@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Rupture du LCA,",
+    "possible même sans",
+    "aucun contact direct",
+    "La bonne rééducation, étape par étape"
+  ],
+  "eyebrow": "La vraie cause de la rupture du LCA",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Une rupture possible sans aucun choc",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Lors d'un changement d'appui,",
+        "le pied reste fixé au sol",
+        "",
+        "pendant que le genou",
+        "pivote brutalement"
+      ]
+    },
+    {
+      "name": "Ces sports sont les plus concernés",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Football, ski, handball,",
+        "basketball — changements fréquents",
+        "",
+        "La triade craquement,",
+        "déboîtement, gonflement"
+      ]
+    },
+    {
+      "name": "Protégez le genou en premier",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Évitez l'appui,",
+        "glacez régulièrement",
+        "",
+        "et gardez la jambe",
+        "surélevée"
+      ]
+    },
+    {
+      "name": "Ne restez pas dans l'incertitude",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Même si la douleur diminue,",
+        "ne décidez pas seul",
+        "",
+        "Un diagnostic médical précis",
+        "doit venir en premier"
+      ]
+    },
+    {
+      "name": "Travaillez les ischio-jambiers séparément",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Des quadriceps forts seuls",
+        "ne stabilisent pas assez le genou",
+        "",
+        "Renforcez aussi les ischio-jambiers",
+        "et les hanches"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'était pas une question de choc violent.",
+    "tip": "Un déséquilibre musculaire au moment du changement d'appui est la vraie cause.",
+    "cta": "Le genou s'est déjà dérobé et a gonflé vite ? Faites-le examiner rapidement."
+  },
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "Bilan",
+  "char_display_names": {
+    "무릎_illust.jpg": "Genou",
+    "운동화_illust.jpg": "Chaussures",
+    "냉찜질_illust.jpg": "Glace",
+    "아령_illust.jpg": "Haltère",
+    "달력_illust.jpg": "Calendrier"
+  }
+}

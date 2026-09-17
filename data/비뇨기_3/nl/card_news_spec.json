@@ -1,0 +1,90 @@
+{
+  "title": [
+    "'s Nachts plassen,",
+    "niet alleen de prostaat —",
+    "kijk naar uw avondeten",
+    "Timing verschuiven, niet alles schrappen"
+  ],
+  "eyebrow": "Nycturie en avondgewoontes",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 op de 3 mannen boven 65 heeft dit",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% bij 40-64 jaar,",
+        "29-33% vanaf 65 jaar",
+        "",
+        "Een vergrote prostaat maakt",
+        "de blaas gevoeliger"
+      ]
+    },
+    {
+      "name": "Pittig eten irriteert de blaas direct",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Geeft aandrang ook zonder",
+        "dat de blaas vol is",
+        "",
+        "De irritatie houdt aan",
+        "na het inslapen"
+      ]
+    },
+    {
+      "name": "Verplaats pittig eten naar de lunch",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Niet helemaal",
+        "hoeven schrappen",
+        "",
+        "Pittig 's middags,",
+        "mild 's avonds"
+      ]
+    },
+    {
+      "name": "Cafeïne verhoogt de urineproductie",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Onderdrukt het hormoon dat",
+        "water vasthoudt",
+        "",
+        "Maakt ook dorstig —",
+        "u drinkt nog meer"
+      ]
+    },
+    {
+      "name": "Cafeïnevrij vanaf de late middag",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "De gewoonte blijft,",
+        "alleen zonder cafeïne",
+        "",
+        "NHS: minder alcohol",
+        "en cafeïne"
+      ]
+    },
+    {
+      "name": "Alcohol irriteert blaas en prostaat samen",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Dezelfde hormoononderdrukking plus",
+        "directe prostaatzwelling",
+        "",
+        "Stop 3-4 uur voor",
+        "het slapengaan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Het ging om wat en wanneer bij het avondeten.",
+    "tip": "U hoeft pittig eten, koffie of alcohol niet te schrappen — vaak is de timing verschuiven al genoeg.",
+    "cta": "Plasstraal merkbaar zwakker? Laat een uroloog andere oorzaken uitsluiten."
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "고추_illust.jpg": "Pittig eten",
+    "커피_illust.jpg": "Koffie",
+    "맥주_illust.jpg": "Alcohol"
+  }
+}

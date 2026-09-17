@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Trombosi da seduti,",
+    "non è mai stata",
+    "davvero una questione di aereo",
+    "Perché i viaggi lunghi sono un rischio"
+  ],
+  "eyebrow": "Trombosi, spiegata davvero",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "La pompa del polpaccio ferma",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Ogni viaggio oltre 4 ore — aereo,",
+        "auto, bus, treno — è un rischio",
+        "",
+        "I polpacci spingono il sangue",
+        "verso il cuore quando vi muovete"
+      ]
+    },
+    {
+      "name": "Le calze compressive funzionano davvero",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Molti meno coaguli silenziosi",
+        "in chi le indossa",
+        "",
+        "Calze graduate adatte —",
+        "non semplici calze di comfort"
+      ]
+    },
+    {
+      "name": "Il fumo aumenta ulteriormente il rischio",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Come gravidanza, terapia",
+        "ormonale, interventi recenti",
+        "",
+        "Verificate il vostro rischio",
+        "prima di un viaggio lungo"
+      ]
+    },
+    {
+      "name": "Muovetevi ogni ora",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Camminate se potete, o flettete",
+        "le caviglie da seduti",
+        "",
+        "Questo riattiva la pompa del",
+        "polpaccio anche seduti"
+      ]
+    },
+    {
+      "name": "Idratatevi, evitate l'alcol",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Alcol e troppa caffeina",
+        "addensano ulteriormente il sangue",
+        "",
+        "L'acqua è la scelta",
+        "migliore in viaggio"
+      ]
+    },
+    {
+      "name": "Attenzione al gonfiore a una sola gamba",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Affanno improvviso o dolore",
+        "al petto — pronto soccorso subito",
+        "",
+        "Non aspettate — fatevi",
+        "visitare lo stesso giorno"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non era mai davvero una questione di aereo.",
+    "tip": "La pompa del polpaccio ferma è la vera causa — muovetevi, idratatevi, calze compressive se a rischio.",
+    "cta": "Una gamba improvvisamente gonfia e fiato corto? Non aspettate — fatevi visitare lo stesso giorno."
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "의자_illust.jpg": "Sedile",
+    "담배_illust.jpg": "Fumo",
+    "물컵_illust.jpg": "Acqua",
+    "압박스타킹_illust.jpg": "Calze compressive",
+    "부종_illust.jpg": "Gonfiore"
+  }
+}

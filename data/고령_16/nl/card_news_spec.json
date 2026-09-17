@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Snel blauwe plekken na je 60e,",
+    "het is niet zomaar",
+    "\"gewoon ouder worden\"",
+    "3 dingen die echt iets veranderen"
+  ],
+  "eyebrow": "Purpura senilis uitgelegd",
+  "cover_char_file": "손등_illust.jpg",
+  "items": [
+    {
+      "name": "Een precieze naam, geen vage leeftijd",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Purpura actinica — ongeveer 12% van",
+        "de 50-plussers, 30% na de 75",
+        "",
+        "Geen vaag lot,",
+        "een gedocumenteerd mechanisme"
+      ]
+    },
+    {
+      "name": "Decennia opgetelde zon",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Het collageen dat vaten ondersteunt",
+        "verzwakt op de meest blootgestelde huid",
+        "",
+        "Handen en onderarmen",
+        "als eerste"
+      ]
+    },
+    {
+      "name": "Elke dag zonnebrand",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "SPF 30 of hoger, al vanaf",
+        "een uv-index van 3",
+        "",
+        "Een lange mouw doet",
+        "hetzelfde werk"
+      ]
+    },
+    {
+      "name": "Aspirine helpt niet, maar stop nooit zelf",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Verergert blauwe plekken zonder",
+        "zelf de kwetsbaarheid te maken",
+        "",
+        "Overleg met uw arts,",
+        "stop nooit op eigen houtje"
+      ]
+    },
+    {
+      "name": "Smeer de nog vochtige huid in",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Een gewone emolliens direct",
+        "na het wassen",
+        "",
+        "Helpt tegen de droogte",
+        "die vaak meespeelt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Het is geen vast gegeven van het ouder worden.",
+    "tip": "Drie precieze oorzaken, drie eenvoudige gewoontes die ze aanpakken.",
+    "cta": "Blauwe plekken ook elders dan handen en onderarmen? Overleg deze week met uw arts."
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "햇빛_illust.jpg": "Zon",
+    "자외선차단제_illust.jpg": "Zonnebrand",
+    "아스피린_illust.jpg": "Aspirine",
+    "달력_illust.jpg": "Kalender",
+    "거미줄혈관_illust.jpg": "Vaten",
+    "바세린_illust.jpg": "Vochtinbrenger"
+  }
+}

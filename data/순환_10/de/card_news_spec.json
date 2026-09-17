@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Thrombose durchs Sitzen,",
+    "es lag nie wirklich",
+    "am Flugzeug",
+    "Warum lange Reisen riskant sind"
+  ],
+  "eyebrow": "Thrombose, wirklich erklärt",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "Die Wadenpumpe, die stillsteht",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Jede Reise über 4 Stunden — Flugzeug,",
+        "Auto, Bus oder Bahn — ist ein Risiko",
+        "",
+        "Die Wadenmuskeln pumpen Blut",
+        "zum Herzen, wenn Sie sich bewegen"
+      ]
+    },
+    {
+      "name": "Kompressionsstrümpfe wirken wirklich",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Bei mittlerem Risiko deutlich",
+        "weniger stille Gerinnsel",
+        "",
+        "Angepasste Strümpfe —",
+        "keine einfachen Stützsocken"
+      ]
+    },
+    {
+      "name": "Rauchen erhöht das Risiko weiter",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Genau wie Schwangerschaft,",
+        "Hormontherapie, Operationen",
+        "",
+        "Vor langen Reisen das",
+        "persönliche Risiko prüfen"
+      ]
+    },
+    {
+      "name": "Jede Stunde bewegen",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Gehen Sie, wenn möglich,",
+        "oder wippen Sie im Sitzen",
+        "",
+        "Das bringt die Wadenpumpe",
+        "auch im Sitzen wieder in Gang"
+      ]
+    },
+    {
+      "name": "Trinken, Alkohol meiden",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Alkohol und viel Koffein",
+        "verdicken das Blut zusätzlich",
+        "",
+        "Wasser ist die bessere",
+        "Wahl auf Reisen"
+      ]
+    },
+    {
+      "name": "Einseitige Schwellung ernst nehmen",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Plötzliche Atemnot oder",
+        "Brustschmerz — sofort zum Arzt",
+        "",
+        "Nicht abwarten — noch am",
+        "selben Tag untersuchen lassen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Es lag nie wirklich am Flugzeug.",
+    "tip": "Die stillstehende Wadenpumpe ist die eigentliche Ursache — bewegen, trinken, bei Risiko Kompressionsstrümpfe.",
+    "cta": "Ein Bein plötzlich geschwollen und Atemnot? Nicht abwarten — noch am selben Tag zum Arzt."
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "의자_illust.jpg": "Sitzplatz",
+    "담배_illust.jpg": "Rauchen",
+    "물컵_illust.jpg": "Wasser",
+    "압박스타킹_illust.jpg": "Kompressionsstrümpfe",
+    "부종_illust.jpg": "Schwellung"
+  }
+}
