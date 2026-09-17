@@ -1,0 +1,163 @@
+{
+  "title": [
+    "Leistengeruch trotz Duschen?",
+    "Nicht die Talgdrüsen —",
+    "die Schweißdrüsen sind schuld",
+    "Die eigentliche Ursache"
+  ],
+  "eyebrow": "Leistengeruch, erklärt",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#5B7C99",
+  "items": [
+    {
+      "name": "Der Schweiß selbst riecht kaum",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "In der Leiste und den Achseln",
+        "sitzen apokrine Drüsen, die erst",
+        "in der Pubertät aktiv werden",
+        "",
+        "Dieser Schweiß ist fast geruchlos —",
+        "erst Hautbakterien bauen ihn ab",
+        "und erzeugen den typischen Geruch",
+        "",
+        "Es liegt an den Drüsen und",
+        "Bakterien, nicht am Waschen"
+      ]
+    },
+    {
+      "name": "Enge, verschwitzte Unterwäsche",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Hautfalten sind ohnehin wärmer",
+        "als glatte Haut",
+        "",
+        "Enge synthetische Unterwäsche",
+        "hält Wärme und Feuchtigkeit fest,",
+        "statt sie verdunsten zu lassen",
+        "",
+        "Diese Feuchtigkeit lässt",
+        "Bakterien schneller wachsen"
+      ]
+    },
+    {
+      "name": "Zu atmungsaktiver Unterwäsche wechseln",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Statt enger Synthetik",
+        "lieber Baumwolle wählen",
+        "",
+        "Nach starkem Schwitzen",
+        "möglichst bald in trockene",
+        "Unterwäsche wechseln"
+      ]
+    },
+    {
+      "name": "Die Falte nicht vollständig trocknen",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Beim Gehen reibt Haut auf Haut",
+        "und erzeugt zusätzlich Reibung",
+        "",
+        "Bleibt dazu Feuchtigkeit zurück,",
+        "können sich Bakterien und Hefen",
+        "leicht vermehren",
+        "",
+        "Manchmal siedeln sich auch",
+        "stärker riechende Keime an"
+      ]
+    },
+    {
+      "name": "Bewusst gründlich abtrocknen",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Nach dem Duschen die Falte mit",
+        "einem Handtuch komplett",
+        "trocken tupfen",
+        "",
+        "Ein Föhn auf kühler Stufe erreicht",
+        "Stellen, die das Handtuch",
+        "oft nicht schafft"
+      ]
+    },
+    {
+      "name": "Kratzen statt behandeln",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bei starkem Juckreiz kratzt",
+        "man fast automatisch",
+        "",
+        "Dadurch entstehen kleine",
+        "Hautverletzungen, durch die",
+        "Bakterien eindringen können"
+      ]
+    },
+    {
+      "name": "Wenn es nicht mehr nur Geruch ist",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Hilft gründliches Waschen und",
+        "Trocknen gar nicht, steckt oft",
+        "mehr dahinter",
+        "",
+        "Ein ringförmiger, klar begrenzter",
+        "roter Ausschlag mit Schuppung",
+        "deutet auf eine Pilzinfektion hin"
+      ]
+    },
+    {
+      "name": "Fußpilz wird ignoriert",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Schwitzige Füße und enge Schuhe",
+        "bieten demselben Pilz",
+        "gute Bedingungen",
+        "",
+        "Er wandert über ein gemeinsam",
+        "genutztes Handtuch oder die",
+        "kratzende Hand in die Leiste"
+      ]
+    },
+    {
+      "name": "Was hilft jetzt wirklich?",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Atmungsaktive Unterwäsche,",
+        "vollständiges Trocknen,",
+        "nicht kratzen",
+        "",
+        "Bessert sich nichts nach etwa",
+        "zwei Wochen, hilft ein Arzt",
+        "oder Apotheker weiter"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Leistengeruch entsteht meist durch",
+        "apokrinen Schweiß, Bakterien und Feuchtigkeit"
+      ],
+      [
+        "Ein klar begrenzter roter Ausschlag",
+        "kann auf eine Pilzinfektion hindeuten"
+      ]
+    ],
+    "tip": [
+      "Atmungsaktive Unterwäsche, gründlich trocknen, Fußpilz früh behandeln —",
+      "fang heute mit dem Trocknen an"
+    ],
+    "cta": "Mehr Gesundheitstipps wie diesen? Folgen und abonnieren!"
+  },
+  "swipe_label": "Weiter wischen →",
+  "closing_label": "Kurz gesagt",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Duschen",
+    "물방울_illust.jpg": "Schweiß und Feuchtigkeit",
+    "속옷_illust.jpg": "Unterwäsche",
+    "수건_illust.jpg": "Abtrocknen",
+    "손가락_illust.jpg": "Kratzen",
+    "운동화_illust.jpg": "Schuhe und Fußpilz",
+    "연고_illust.jpg": "Antimykotische Creme"
+  }
+}

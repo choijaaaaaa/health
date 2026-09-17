@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Blood clots from sitting,",
+    "it was never",
+    "really about the plane",
+    "Why long trips raise the risk"
+  ],
+  "eyebrow": "Blood clots, explained",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "The calf pump stopping is the real cause",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Anyone traveling 4+ hours by air,",
+        "car, bus or train can be at risk",
+        "",
+        "Your calf muscles pump blood",
+        "back to the heart when you move"
+      ]
+    },
+    {
+      "name": "Compression stockings actually work",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Studies found far fewer symptomless",
+        "clots in passengers wearing them",
+        "",
+        "15-30 mmHg knee-high stockings —",
+        "not general comfort socks"
+      ]
+    },
+    {
+      "name": "Smoking raises the risk further",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Along with pregnancy, hormone",
+        "therapy and recent surgery",
+        "",
+        "Check your personal risk",
+        "before a long trip"
+      ]
+    },
+    {
+      "name": "Move every hour",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Walk the aisle when you can,",
+        "or flex your ankles seated",
+        "",
+        "This restarts the calf pump",
+        "even without standing up"
+      ]
+    },
+    {
+      "name": "Stay hydrated, skip alcohol",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Alcohol and heavy caffeine are",
+        "diuretics that thicken blood",
+        "",
+        "Water is the better choice",
+        "on a long trip"
+      ]
+    },
+    {
+      "name": "Watch for one-sided swelling",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Sudden breathlessness or chest",
+        "pain means go to the ER",
+        "",
+        "Don't wait it out —",
+        "get seen the same day"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It was never really about the plane.",
+    "tip": "The calf pump sitting idle is the real cause — move, hydrate, and wear compression socks if at risk.",
+    "cta": "One leg suddenly swollen and short of breath? Don't wait — get seen the same day."
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "In short",
+  "char_display_names": {
+    "의자_illust.jpg": "Seat",
+    "담배_illust.jpg": "Smoking",
+    "물컵_illust.jpg": "Water",
+    "압박스타킹_illust.jpg": "Compression socks",
+    "부종_illust.jpg": "Swelling"
+  }
+}

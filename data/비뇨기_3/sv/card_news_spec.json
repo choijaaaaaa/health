@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Kissar du på natten,",
+    "inte bara prostatan —",
+    "se över middagen",
+    "Flytta tiden, skippa inte allt"
+  ],
+  "eyebrow": "Nykturi och kvällsvanor",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 av 3 män över 65 drabbas",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% vid 40-64 år,",
+        "29-33% från 65 år",
+        "",
+        "En förstorad prostata gör",
+        "blåsan känsligare"
+      ]
+    },
+    {
+      "name": "Starkt kryddat irriterar blåsan direkt",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Ger trängningar även utan",
+        "att blåsan är full",
+        "",
+        "Irritationen fortsätter",
+        "efter insomning"
+      ]
+    },
+    {
+      "name": "Flytta starkt kryddat till lunchen",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Behöver inte skippas",
+        "helt och hållet",
+        "",
+        "Kryddstarkt till lunch,",
+        "milt till middag"
+      ]
+    },
+    {
+      "name": "Koffein ökar urinvolymen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Hämmar hormonet som håller",
+        "kvar vatten i njurarna",
+        "",
+        "Ger även törst —",
+        "du dricker ännu mer"
+      ]
+    },
+    {
+      "name": "Koffeinfritt från sen eftermiddag",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vanan finns kvar,",
+        "bara utan koffein",
+        "",
+        "NHS: minska alkohol",
+        "och koffein"
+      ]
+    },
+    {
+      "name": "Alkohol irriterar blåsa och prostata samtidigt",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Samma hormonhämning plus",
+        "direkt svullnad i prostatan",
+        "",
+        "Sluta 3-4 timmar",
+        "före sänggåendet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Det handlade om vad och när vid middagen.",
+    "tip": "Du behöver inte skippa starkt kryddat, kaffe eller alkohol — ofta räcker det att flytta tiden.",
+    "cta": "Urinstrålen märkbart svagare? Låt en urolog utesluta andra orsaker."
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "고추_illust.jpg": "Starkt kryddat",
+    "커피_illust.jpg": "Kaffe",
+    "맥주_illust.jpg": "Alkohol"
+  }
+}

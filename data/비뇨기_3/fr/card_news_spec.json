@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Envie d'uriner la nuit,",
+    "pas juste la prostate —",
+    "regardez votre dîner",
+    "Décaler l'horaire, pas tout supprimer"
+  ],
+  "eyebrow": "Nycturie et habitudes du soir",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 homme sur 3 après 65 ans concerné",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH : 5-6% entre 40-64 ans,",
+        "29-33% après 65 ans",
+        "",
+        "Une prostate hypertrophiée rend",
+        "la vessie plus sensible"
+      ]
+    },
+    {
+      "name": "Les épices irritent la vessie directement",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Créent une envie même",
+        "sans vessie pleine",
+        "",
+        "L'irritation continue",
+        "après l'endormissement"
+      ]
+    },
+    {
+      "name": "Déplacez les épices au déjeuner",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Pas besoin de",
+        "tout supprimer",
+        "",
+        "Épicé le midi,",
+        "doux le soir"
+      ]
+    },
+    {
+      "name": "La caféine augmente le volume d'urine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Inhibe l'hormone qui retient",
+        "l'eau dans les reins",
+        "",
+        "Donne aussi soif —",
+        "on boit encore plus"
+      ]
+    },
+    {
+      "name": "Décaféiné dès l'après-midi",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "L'habitude reste,",
+        "sans la caféine",
+        "",
+        "NHS : réduire alcool",
+        "et caféine"
+      ]
+    },
+    {
+      "name": "L'alcool irrite vessie et prostate ensemble",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Même inhibition hormonale plus",
+        "gonflement direct de la prostate",
+        "",
+        "Arrêtez 3-4h avant",
+        "le coucher"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Tout dépendait du quoi et du quand au dîner.",
+    "tip": "Pas besoin de supprimer épices, café ou alcool — décaler l'horaire suffit souvent.",
+    "cta": "Jet urinaire nettement plus faible ? Consultez un urologue pour écarter d'autres causes."
+  },
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "Bilan",
+  "char_display_names": {
+    "고추_illust.jpg": "Épices",
+    "커피_illust.jpg": "Café",
+    "맥주_illust.jpg": "Alcool"
+  }
+}

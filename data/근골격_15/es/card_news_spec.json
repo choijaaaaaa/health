@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Rotura de LCA,",
+    "posible incluso sin",
+    "ningún contacto directo",
+    "El orden correcto para recuperarse"
+  ],
+  "eyebrow": "La causa real de la rotura de LCA",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Se rompe incluso sin ningún golpe",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Al cambiar de dirección,",
+        "el pie queda fijo en el suelo",
+        "",
+        "mientras la rodilla",
+        "gira bruscamente"
+      ]
+    },
+    {
+      "name": "Estos deportes son los más afectados",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Esquí, fútbol, balonmano,",
+        "baloncesto — giros frecuentes",
+        "",
+        "Chasquido, inestabilidad",
+        "e hinchazón rápida"
+      ]
+    },
+    {
+      "name": "Proteja la rodilla primero",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Evite el apoyo,",
+        "aplique hielo",
+        "",
+        "y mantenga la pierna",
+        "elevada"
+      ]
+    },
+    {
+      "name": "No se quede con la duda",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Aunque el dolor disminuya,",
+        "no decida por su cuenta",
+        "",
+        "Una valoración traumatológica",
+        "precisa va primero"
+      ]
+    },
+    {
+      "name": "Trabaje los isquiotibiales aparte",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Un cuádriceps fuerte solo",
+        "no estabiliza lo suficiente",
+        "",
+        "Fortalezca también isquiotibiales",
+        "y cadera"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nunca fue cuestión de un golpe violento.",
+    "tip": "Un desequilibrio muscular en el cambio de dirección es la causa real.",
+    "cta": "¿Su rodilla ya cedió y se hinchó rápido? Hágasela valorar cuanto antes."
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "무릎_illust.jpg": "Rodilla",
+    "운동화_illust.jpg": "Zapatillas",
+    "냉찜질_illust.jpg": "Hielo",
+    "아령_illust.jpg": "Mancuerna",
+    "달력_illust.jpg": "Calendario"
+  }
+}

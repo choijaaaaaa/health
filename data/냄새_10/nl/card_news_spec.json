@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Liesgeur, zelfs na het douchen?",
+    "Het is geen hygiëne —",
+    "het is een zweetklier",
+    "De echte oorzaak"
+  ],
+  "eyebrow": "Liesgeur uitgelegd",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "Het zweet zelf ruikt nauwelijks",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Apocriene klieren worden actief",
+        "bij de puberteit",
+        "",
+        "Huidbacteriën creëren de geur,",
+        "niet het zweet zelf"
+      ]
+    },
+    {
+      "name": "Strak, doorweekt ondergoed",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Strak synthetisch materiaal sluit",
+        "warmte en vocht in",
+        "",
+        "Ingesloten vocht laat de",
+        "verantwoordelijke bacteriën groeien"
+      ]
+    },
+    {
+      "name": "Stap over op ademend katoen",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Verschoon zodra mogelijk",
+        "na hevig zweten",
+        "",
+        "Katoen laat",
+        "lucht circuleren"
+      ]
+    },
+    {
+      "name": "De plooi niet goed gedroogd",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Huid-op-huid wrijving voegt",
+        "extra irritatie toe",
+        "",
+        "Droog volledig na",
+        "elke douche"
+      ]
+    },
+    {
+      "name": "Krabben in plaats van behandelen",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Krabben beschadigt de huid",
+        "",
+        "Beschadigde huid verergert",
+        "infectie en geur"
+      ]
+    },
+    {
+      "name": "Als het toch niet weggaat",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Een vrij verkrijgbaar antischimmelmiddel",
+        "gedurende twee tot vier weken",
+        "",
+        "Ga naar een arts als het",
+        "uitbreidt of niet beter wordt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Het ging nooit om meer zeep.",
+    "tip": "Apocrien zweet, bacteriën en ingesloten vocht — de oplossing is goed drogen, niet harder schrobben.",
+    "cta": "Breidt de uitslag zich uit of houdt het langer dan twee weken aan? Overleg met een arts of apotheker."
+  },
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Kort samengevat",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Douche",
+    "물방울_illust.jpg": "Zweet",
+    "속옷_illust.jpg": "Ondergoed",
+    "수건_illust.jpg": "Drogen",
+    "손가락_illust.jpg": "Krabben",
+    "연고_illust.jpg": "Antischimmelcrème"
+  }
+}

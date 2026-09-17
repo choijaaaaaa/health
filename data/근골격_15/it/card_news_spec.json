@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Rottura del crociato,",
+    "possibile anche senza",
+    "alcun contatto diretto",
+    "Il percorso corretto per recuperare"
+  ],
+  "eyebrow": "La vera causa della rottura del crociato",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Si rompe anche senza alcun urto",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Durante una rotazione forzata,",
+        "il piede resta fermo a terra",
+        "",
+        "mentre il ginocchio",
+        "ruota bruscamente"
+      ]
+    },
+    {
+      "name": "Questi sport sono i più colpiti",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sci, calcio, pallamano,",
+        "basket — rotazioni frequenti",
+        "",
+        "Rumore tipo 'clack',",
+        "poi gonfiore rapido"
+      ]
+    },
+    {
+      "name": "Proteggete il ginocchio per primo",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Evitate il carico,",
+        "applicate ghiaccio",
+        "",
+        "e tenete la gamba",
+        "sollevata"
+      ]
+    },
+    {
+      "name": "Non restate nell'incertezza",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Anche se il dolore cala,",
+        "non decidete da soli",
+        "",
+        "Una valutazione ortopedica",
+        "precisa viene prima"
+      ]
+    },
+    {
+      "name": "Allenate i femorali a parte",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Quadricipiti forti da soli",
+        "non stabilizzano abbastanza",
+        "",
+        "Rinforzate anche femorali",
+        "e anche"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non era una questione di urto violento.",
+    "tip": "Uno squilibrio muscolare nel momento del cambio di direzione è la vera causa.",
+    "cta": "Il ginocchio ha già ceduto e si è gonfiato in fretta? Fatelo valutare presto."
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "무릎_illust.jpg": "Ginocchio",
+    "운동화_illust.jpg": "Scarpe",
+    "냉찜질_illust.jpg": "Ghiaccio",
+    "아령_illust.jpg": "Manubrio",
+    "달력_illust.jpg": "Calendario"
+  }
+}

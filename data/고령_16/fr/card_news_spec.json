@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Bleus faciles après 60 ans,",
+    "ce n'est pas juste",
+    "\"l'âge qui avance\"",
+    "3 gestes qui changent vraiment"
+  ],
+  "eyebrow": "Purpura sénile expliqué",
+  "cover_char_file": "손등_illust.jpg",
+  "items": [
+    {
+      "name": "Un nom précis, pas juste l'âge",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Purpura actinique — environ 12% des",
+        "plus de 50 ans, 30% après 75 ans",
+        "",
+        "Ce n'est pas une vague fatalité,",
+        "c'est un mécanisme documenté"
+      ]
+    },
+    {
+      "name": "Des décennies de soleil accumulé",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Le collagène qui soutient les vaisseaux",
+        "s'affaiblit sur la peau la plus exposée",
+        "",
+        "Mains et avant-bras en",
+        "première ligne"
+      ]
+    },
+    {
+      "name": "Une crème solaire, tous les jours",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "SPF 30 ou plus, dès un",
+        "indice UV de 3",
+        "",
+        "Une manche longue fait",
+        "le même travail"
+      ]
+    },
+    {
+      "name": "L'aspirine n'aide pas, mais n'arrêtez pas seul",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Elle aggrave les bleus sans",
+        "créer la fragilité elle-même",
+        "",
+        "Parlez-en à votre médecin,",
+        "ne l'arrêtez jamais seul"
+      ]
+    },
+    {
+      "name": "Hydratez la peau encore humide",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Un émollient simple juste",
+        "après le lavage",
+        "",
+        "Aide contre la sécheresse",
+        "qui accompagne l'affection"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'est pas une fatalité de l'âge.",
+    "tip": "Trois causes précises, trois habitudes simples qui les couvrent.",
+    "cta": "Bleus ailleurs que sur les mains et avant-bras ? Parlez-en à votre médecin cette semaine."
+  },
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "Bilan",
+  "char_display_names": {
+    "손등_illust.jpg": "Main",
+    "햇빛_illust.jpg": "Soleil",
+    "자외선차단제_illust.jpg": "Crème solaire",
+    "아스피린_illust.jpg": "Aspirine",
+    "달력_illust.jpg": "Calendrier",
+    "거미줄혈관_illust.jpg": "Vaisseaux",
+    "바세린_illust.jpg": "Hydratant"
+  }
+}

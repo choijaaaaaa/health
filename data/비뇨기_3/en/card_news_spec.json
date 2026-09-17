@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Waking to pee at night,",
+    "it's not just",
+    "the prostate — check dinner",
+    "Shift the timing, not the whole diet"
+  ],
+  "eyebrow": "Nocturia and evening habits",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 in 3 men over 65 deals with this",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% at ages 40-64,",
+        "29-33% at 65 and older",
+        "",
+        "An enlarged prostate makes",
+        "the bladder more sensitive"
+      ]
+    },
+    {
+      "name": "Spicy food irritates the bladder directly",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Creates urgency even when",
+        "the bladder isn't actually full",
+        "",
+        "A spicy dinner keeps",
+        "irritating well after sleep"
+      ]
+    },
+    {
+      "name": "Move spicy meals to lunch",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "You don't need to cut",
+        "it out entirely",
+        "",
+        "Spicy at lunch, mild",
+        "dinner instead"
+      ]
+    },
+    {
+      "name": "Caffeine increases urine volume",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Suppresses the hormone that",
+        "tells kidneys to hold water",
+        "",
+        "Also makes you thirstier,",
+        "so you drink even more"
+      ]
+    },
+    {
+      "name": "Switch to decaf after mid-afternoon",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Keep the warm-drink habit,",
+        "just skip the caffeine",
+        "",
+        "NHS: cut down on",
+        "caffeine and alcohol"
+      ]
+    },
+    {
+      "name": "Alcohol irritates bladder and prostate both",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Same hormone suppression plus",
+        "direct prostate swelling",
+        "",
+        "Finish drinking 3-4",
+        "hours before bed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It came down to what, and when, at dinner.",
+    "tip": "You don't have to give up spicy food, coffee, or a drink — shifting the timing is often enough.",
+    "cta": "Urine stream noticeably weaker? See a urologist to check for other causes."
+  },
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "In short",
+  "char_display_names": {
+    "고추_illust.jpg": "Spicy food",
+    "커피_illust.jpg": "Coffee",
+    "맥주_illust.jpg": "Alcohol"
+  }
+}

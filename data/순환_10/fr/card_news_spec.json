@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Thrombose en position assise,",
+    "ce n'était jamais",
+    "vraiment l'avion",
+    "Pourquoi les longs trajets sont un risque"
+  ],
+  "eyebrow": "Thrombose, vraiment expliquée",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "La pompe du mollet à l'arrêt",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Tout trajet de plus de 4h — avion,",
+        "voiture, bus, train — est un risque",
+        "",
+        "Les mollets renvoient le sang",
+        "vers le cœur à chaque mouvement"
+      ]
+    },
+    {
+      "name": "Les bas de contention marchent vraiment",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Bien moins de caillots silencieux",
+        "chez les porteurs de bas",
+        "",
+        "Contention adaptée —",
+        "pas de simples chaussettes"
+      ]
+    },
+    {
+      "name": "Le tabac augmente encore le risque",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Comme la grossesse, le traitement",
+        "hormonal, une chirurgie récente",
+        "",
+        "Vérifiez votre risque avant",
+        "un long voyage"
+      ]
+    },
+    {
+      "name": "Bougez toutes les heures",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Marchez si possible, ou fléchissez",
+        "les chevilles assis",
+        "",
+        "Cela relance la pompe du",
+        "mollet même assis"
+      ]
+    },
+    {
+      "name": "Hydratez-vous, évitez l'alcool",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "L'alcool et trop de café",
+        "épaississent encore le sang",
+        "",
+        "L'eau est le meilleur choix",
+        "en voyage"
+      ]
+    },
+    {
+      "name": "Un gonflement d'un seul côté à surveiller",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Essoufflement soudain ou douleur",
+        "thoracique — urgences directement",
+        "",
+        "N'attendez pas — consultez",
+        "le jour même"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'était jamais vraiment une question d'avion.",
+    "tip": "La pompe du mollet à l'arrêt est la vraie cause — bougez, hydratez-vous, portez une contention si à risque.",
+    "cta": "Une jambe gonflée soudainement et un essoufflement ? N'attendez pas — consultez le jour même."
+  },
+  "swipe_label": "Glissez pour en savoir plus  →",
+  "closing_label": "Bilan",
+  "char_display_names": {
+    "의자_illust.jpg": "Siège",
+    "담배_illust.jpg": "Tabac",
+    "물컵_illust.jpg": "Eau",
+    "압박스타킹_illust.jpg": "Bas de contention",
+    "부종_illust.jpg": "Gonflement"
+  }
+}

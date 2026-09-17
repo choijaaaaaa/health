@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Trombosis al estar sentado,",
+    "nunca fue realmente",
+    "cuestión del avión",
+    "Por qué los viajes largos son un riesgo"
+  ],
+  "eyebrow": "Trombosis, explicada de verdad",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "La bomba de la pantorrilla parada",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Cualquier viaje de más de 4h — avión,",
+        "coche, bus, tren — es un riesgo",
+        "",
+        "Las pantorrillas empujan la sangre",
+        "hacia el corazón al moverse"
+      ]
+    },
+    {
+      "name": "Las medias de compresión sí funcionan",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Muchos menos coágulos silenciosos",
+        "en quienes las usan",
+        "",
+        "Compresión graduada adecuada —",
+        "no simples calcetines de descanso"
+      ]
+    },
+    {
+      "name": "Fumar aumenta aún más el riesgo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Igual que el embarazo, la terapia",
+        "hormonal, una cirugía reciente",
+        "",
+        "Revise su riesgo antes",
+        "de un viaje largo"
+      ]
+    },
+    {
+      "name": "Muévase cada hora",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Camine si puede, o flexione",
+        "los tobillos sentado",
+        "",
+        "Esto reactiva la bomba de",
+        "la pantorrilla incluso sentado"
+      ]
+    },
+    {
+      "name": "Hidrátese, evite el alcohol",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "El alcohol y el exceso de café",
+        "espesan aún más la sangre",
+        "",
+        "El agua es la mejor",
+        "opción en el viaje"
+      ]
+    },
+    {
+      "name": "Vigile la hinchazón de una sola pierna",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Falta de aire repentina o dolor",
+        "en el pecho — urgencias ya",
+        "",
+        "No espere — acuda al médico",
+        "ese mismo día"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nunca fue realmente cuestión del avión.",
+    "tip": "La bomba de la pantorrilla parada es la causa real — muévase, hidrátese, use medias si tiene riesgo.",
+    "cta": "¿Una pierna hinchada de repente y falta de aire? No espere — acuda al médico ese mismo día."
+  },
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "char_display_names": {
+    "의자_illust.jpg": "Asiento",
+    "담배_illust.jpg": "Tabaco",
+    "물컵_illust.jpg": "Agua",
+    "압박스타킹_illust.jpg": "Medias de compresión",
+    "부종_illust.jpg": "Hinchazón"
+  }
+}

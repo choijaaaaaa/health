@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Nächtliches Wasserlassen,",
+    "nicht nur die Prostata —",
+    "prüfen Sie Ihr Abendessen",
+    "Uhrzeit ändern, nicht alles streichen"
+  ],
+  "eyebrow": "Nykturie und Abendgewohnheiten",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "Jeder dritte Mann über 65 ist betroffen",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% bei 40-64,",
+        "29-33% ab 65 Jahren",
+        "",
+        "Eine vergrößerte Prostata macht",
+        "die Blase empfindlicher"
+      ]
+    },
+    {
+      "name": "Scharfes Essen reizt die Blase direkt",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Erzeugt Harndrang auch",
+        "ohne volle Blase",
+        "",
+        "Die Reizung hält auch",
+        "nach dem Einschlafen an"
+      ]
+    },
+    {
+      "name": "Scharfes Essen aufs Mittagessen legen",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Kein kompletter",
+        "Verzicht nötig",
+        "",
+        "Scharf mittags,",
+        "mild abends"
+      ]
+    },
+    {
+      "name": "Koffein erhöht die Urinmenge",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Unterdrückt das Hormon, das",
+        "Wasser zurückhalten soll",
+        "",
+        "Macht zusätzlich durstig —",
+        "noch mehr Trinken"
+      ]
+    },
+    {
+      "name": "Ab dem Nachmittag koffeinfrei",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Die Gewohnheit bleibt,",
+        "nur ohne Koffein",
+        "",
+        "NHS: Alkohol und Koffein",
+        "reduzieren"
+      ]
+    },
+    {
+      "name": "Alkohol reizt Blase und Prostata zugleich",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Gleiche Hormonunterdrückung plus",
+        "direkte Prostataschwellung",
+        "",
+        "3-4 Stunden vor dem",
+        "Schlafengehen aufhören"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Es lag am Was und Wann beim Abendessen.",
+    "tip": "Sie müssen scharfes Essen, Kaffee oder Alkohol nicht streichen — oft reicht die Uhrzeit zu ändern.",
+    "cta": "Harnstrahl merklich schwächer? Beim Urologen andere Ursachen abklären lassen."
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "고추_illust.jpg": "Scharfes Essen",
+    "커피_illust.jpg": "Kaffee",
+    "맥주_illust.jpg": "Alkohol"
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Ljumskdoft, även efter dusch?",
+    "Det är inte hygien —",
+    "det är en svettkörtel",
+    "Den verkliga orsaken"
+  ],
+  "eyebrow": "Ljumskdoft förklarad",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "Svetten i sig luktar knappt",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Apokrina körtlar aktiveras",
+        "vid puberteten",
+        "",
+        "Hudbakterier skapar lukten,",
+        "inte svetten själv"
+      ]
+    },
+    {
+      "name": "Tighta, genomsvettiga underkläder",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Tight syntetmaterial stänger",
+        "in värme och fukt",
+        "",
+        "Instängd fukt låter de ansvariga",
+        "bakterierna växa till"
+      ]
+    },
+    {
+      "name": "Byt till andningsbar bomull",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Byt så snart som möjligt",
+        "efter kraftig svettning",
+        "",
+        "Bomull låter",
+        "luft cirkulera"
+      ]
+    },
+    {
+      "name": "Vecket som inte torkats ordentligt",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Hud-mot-hud-friktion lägger till",
+        "extra irritation",
+        "",
+        "Torka helt efter",
+        "varje dusch"
+      ]
+    },
+    {
+      "name": "Att klia i stället för att behandla",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Att klia skadar huden",
+        "",
+        "Skadad hud förvärrar",
+        "infektion och lukt"
+      ]
+    },
+    {
+      "name": "Om det ändå inte försvinner",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Ett receptfritt svampmedel",
+        "i två till fyra veckor",
+        "",
+        "Sök läkare om det sprider",
+        "sig eller inte blir bättre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Det handlade aldrig om mer tvål.",
+    "tip": "Apokrin svett, bakterier och instängd fukt — lösningen är att torka ordentligt, inte skrubba hårdare.",
+    "cta": "Sprider sig utslaget eller varar mer än två veckor? Prata med läkare eller apotekspersonal."
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Dusch",
+    "물방울_illust.jpg": "Svett",
+    "속옷_illust.jpg": "Underkläder",
+    "수건_illust.jpg": "Torkning",
+    "손가락_illust.jpg": "Klia",
+    "연고_illust.jpg": "Svampkräm"
+  }
+}

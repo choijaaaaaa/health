@@ -1,0 +1,92 @@
+{
+  "title": [
+    "Trombos av att sitta still,",
+    "det handlade aldrig",
+    "egentligen om flygplanet",
+    "Varför långa resor är en risk"
+  ],
+  "eyebrow": "Trombos, verkligen förklarad",
+  "cover_char_file": "부종_illust.jpg",
+  "items": [
+    {
+      "name": "Vadpumpen som står stilla",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Varje resa över 4 timmar — flyg,",
+        "bil, buss, tåg — är en risk",
+        "",
+        "Vadmusklerna pumpar blod mot",
+        "hjärtat när du rör dig"
+      ]
+    },
+    {
+      "name": "Kompressionsstrumpor fungerar verkligen",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Betydligt färre tysta proppar",
+        "hos de som bär dem",
+        "",
+        "Rätt tryckklass —",
+        "inte vanliga komfortstrumpor"
+      ]
+    },
+    {
+      "name": "Rökning ökar risken ytterligare",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Precis som graviditet, hormonbehandling,",
+        "nyligen genomgången operation",
+        "",
+        "Kolla din risk före",
+        "en lång resa"
+      ]
+    },
+    {
+      "name": "Rör dig varje timme",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Gå om du kan, eller böj",
+        "fötterna sittande",
+        "",
+        "Det startar vadpumpen",
+        "igen även sittande"
+      ]
+    },
+    {
+      "name": "Drick vatten, undvik alkohol",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Alkohol och mycket koffein",
+        "gör blodet ännu tjockare",
+        "",
+        "Vatten är det bästa",
+        "valet under resan"
+      ]
+    },
+    {
+      "name": "Var uppmärksam på ensidig svullnad",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Plötslig andfåddhet eller",
+        "bröstsmärta — sök akutvård direkt",
+        "",
+        "Vänta inte — sök vård",
+        "samma dag"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Det handlade aldrig egentligen om flygplanet.",
+    "tip": "Den stillastående vadpumpen är den verkliga orsaken — rör dig, drick vatten, bär kompressionsstrumpor vid risk.",
+    "cta": "Ett ben plötsligt svullet och andfåddhet? Vänta inte — sök vård samma dag."
+  },
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "char_display_names": {
+    "의자_illust.jpg": "Sittplats",
+    "담배_illust.jpg": "Rökning",
+    "물컵_illust.jpg": "Vatten",
+    "압박스타킹_illust.jpg": "Kompressionsstrumpor",
+    "부종_illust.jpg": "Svullnad"
+  }
+}

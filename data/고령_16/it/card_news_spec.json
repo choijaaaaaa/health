@@ -1,0 +1,83 @@
+{
+  "title": [
+    "Lividi facili dopo i 60 anni,",
+    "non è solo",
+    "\"l'età che avanza\"",
+    "3 gesti che cambiano davvero"
+  ],
+  "eyebrow": "Porpora senile spiegata",
+  "cover_char_file": "손등_illust.jpg",
+  "items": [
+    {
+      "name": "Un nome preciso, non solo l'età",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Porpora attinica — circa il 12% degli",
+        "over 50, il 30% dopo i 75",
+        "",
+        "Non è un generico destino,",
+        "è un meccanismo documentato"
+      ]
+    },
+    {
+      "name": "Decenni di sole accumulato",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "Il collagene che sostiene i vasi",
+        "si indebolisce sulla pelle più esposta",
+        "",
+        "Mani e avambracci",
+        "in prima linea"
+      ]
+    },
+    {
+      "name": "Crema solare, ogni giorno",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "SPF 30 o superiore, già da",
+        "un indice UV di 3",
+        "",
+        "Una manica lunga fa",
+        "lo stesso lavoro"
+      ]
+    },
+    {
+      "name": "L'aspirina non aiuta, ma non sospendetela da soli",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Aggrava i lividi senza",
+        "creare da sola la fragilità",
+        "",
+        "Parlatene col medico,",
+        "non sospendetela mai da soli"
+      ]
+    },
+    {
+      "name": "Idratate la pelle ancora umida",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "Un emolliente semplice subito",
+        "dopo il lavaggio",
+        "",
+        "Aiuta contro la secchezza",
+        "che accompagna la condizione"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non è un destino legato all'età.",
+    "tip": "Tre cause precise, tre abitudini semplici che le coprono.",
+    "cta": "Lividi anche altrove oltre a mani e avambracci? Parlatene col medico questa settimana."
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "손등_illust.jpg": "Mano",
+    "햇빛_illust.jpg": "Sole",
+    "자외선차단제_illust.jpg": "Crema solare",
+    "아스피린_illust.jpg": "Aspirina",
+    "달력_illust.jpg": "Calendario",
+    "거미줄혈관_illust.jpg": "Vasi",
+    "바세린_illust.jpg": "Idratante"
+  }
+}

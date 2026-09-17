@@ -1,0 +1,93 @@
+{
+  "title": [
+    "Odore all'inguine anche dopo la doccia?",
+    "Non è igiene —",
+    "è una ghiandola sudoripara",
+    "La causa vera"
+  ],
+  "eyebrow": "Odore inguinale spiegato",
+  "cover_char_file": "샤워기_illust.jpg",
+  "cover_scrim_color": "#3A7CA5",
+  "items": [
+    {
+      "name": "Il sudore in sé odora poco",
+      "char_file": "물방울_illust.jpg",
+      "body": [
+        "Le ghiandole apocrine si attivano",
+        "alla pubertà",
+        "",
+        "Sono i batteri della pelle a creare",
+        "l'odore, non il sudore"
+      ]
+    },
+    {
+      "name": "Biancheria stretta e inzuppata",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Il sintetico stretto intrappola",
+        "calore e umidità",
+        "",
+        "L'umidità intrappolata fa",
+        "proliferare i batteri responsabili"
+      ]
+    },
+    {
+      "name": "Passate al cotone traspirante",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Cambiatevi appena possibile",
+        "dopo una sudorazione intensa",
+        "",
+        "Il cotone lascia",
+        "circolare l'aria"
+      ]
+    },
+    {
+      "name": "La piega asciugata male",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "L'attrito pelle contro pelle",
+        "aggiunge ulteriore irritazione",
+        "",
+        "Asciugate completamente dopo",
+        "ogni doccia"
+      ]
+    },
+    {
+      "name": "Grattarsi invece di curarsi",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Grattarsi danneggia la pelle",
+        "",
+        "La pelle danneggiata peggiora",
+        "infezione e odore"
+      ]
+    },
+    {
+      "name": "Se non passa comunque",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Un antifungino da banco per",
+        "due-quattro settimane",
+        "",
+        "Consultate un medico se si",
+        "allarga o non migliora"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non è mai stata una questione di sapone.",
+    "tip": "Sudore apocrino, batteri e umidità intrappolata — la soluzione è asciugare, non strofinare più forte.",
+    "cta": "L'eruzione si allarga o dura più di due settimane? Parlatene con un medico o un farmacista."
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "샤워기_illust.jpg": "Doccia",
+    "물방울_illust.jpg": "Sudore",
+    "속옷_illust.jpg": "Biancheria intima",
+    "수건_illust.jpg": "Asciugatura",
+    "손가락_illust.jpg": "Grattarsi",
+    "연고_illust.jpg": "Crema antifungina"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "title": [
+    "Vi svegliate per urinare,",
+    "non solo la prostata —",
+    "guardate la cena",
+    "Spostare l'orario, non eliminare tutto"
+  ],
+  "eyebrow": "Nicturia e abitudini serali",
+  "cover_char_file": "고추_illust.jpg",
+  "items": [
+    {
+      "name": "1 uomo su 3 dopo i 65 anni ne soffre",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "NIH: 5-6% tra 40-64 anni,",
+        "29-33% dopo i 65",
+        "",
+        "Una prostata ingrossata rende",
+        "la vescica più sensibile"
+      ]
+    },
+    {
+      "name": "Il piccante irrita la vescica direttamente",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Crea urgenza anche",
+        "senza vescica piena",
+        "",
+        "L'irritazione continua",
+        "dopo l'addormentamento"
+      ]
+    },
+    {
+      "name": "Spostate il piccante a pranzo",
+      "char_file": "고추_illust.jpg",
+      "body": [
+        "Non serve eliminarlo",
+        "del tutto",
+        "",
+        "Piccante a pranzo,",
+        "delicato la sera"
+      ]
+    },
+    {
+      "name": "La caffeina aumenta il volume di urina",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Inibisce l'ormone che dice",
+        "ai reni di trattenere acqua",
+        "",
+        "Aumenta anche la sete —",
+        "si beve ancora di più"
+      ]
+    },
+    {
+      "name": "Decaffeinato dal pomeriggio",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "L'abitudine resta,",
+        "senza la caffeina",
+        "",
+        "NHS: ridurre alcol",
+        "e caffeina"
+      ]
+    },
+    {
+      "name": "L'alcol irrita vescica e prostata insieme",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Stessa inibizione ormonale più",
+        "gonfiore diretto della prostata",
+        "",
+        "Fermatevi 3-4 ore",
+        "prima di coricarvi"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dipendeva da cosa e quando a cena.",
+    "tip": "Non serve eliminare piccante, caffè o alcol — spesso basta spostare l'orario.",
+    "cta": "Getto urinario notevolmente più debole? Consultate un urologo per altre cause."
+  },
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "char_display_names": {
+    "고추_illust.jpg": "Cibo piccante",
+    "커피_illust.jpg": "Caffè",
+    "맥주_illust.jpg": "Alcol"
+  }
+}

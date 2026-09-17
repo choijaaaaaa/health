@@ -1,0 +1,81 @@
+{
+  "title": [
+    "Kreuzbandriss,",
+    "auch ohne jeden",
+    "Zusammenstoß möglich",
+    "So schützen Sie das Knie richtig"
+  ],
+  "eyebrow": "Die echte Ursache des Kreuzbandrisses",
+  "cover_char_file": "무릎_illust.jpg",
+  "items": [
+    {
+      "name": "Reißt auch ganz ohne Fremdeinwirkung",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Bei einer Dreh- oder Stoppbewegung",
+        "bleibt der Fuß fest am Boden",
+        "",
+        "während sich das Knie",
+        "gleichzeitig verdreht"
+      ]
+    },
+    {
+      "name": "Diese Sportarten sind besonders betroffen",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fußball, Handball, Skifahren,",
+        "Basketball — viele Richtungswechsel",
+        "",
+        "Das vordere Kreuzband reißt etwa",
+        "zehnmal häufiger als das hintere"
+      ]
+    },
+    {
+      "name": "Schützen Sie das Knie zuerst",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Belastung vermeiden,",
+        "regelmäßig kühlen",
+        "",
+        "und das Bein möglichst",
+        "hochlagern"
+      ]
+    },
+    {
+      "name": "Nicht einfach abwarten",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Auch wenn der Schmerz nachlässt,",
+        "nicht auf eigene Faust entscheiden",
+        "",
+        "Eine fachärztliche Abklärung",
+        "gehört an den Anfang"
+      ]
+    },
+    {
+      "name": "Gezielt die hintere Oberschenkelmuskulatur trainieren",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Nur starke vordere Muskeln",
+        "stabilisieren das Knie nicht ausreichend",
+        "",
+        "Hamstrings und Hüfte",
+        "gezielt mittrainieren"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Es war nie nur die Härte des Zusammenstoßes.",
+    "tip": "Ein Ungleichgewicht der Beinmuskulatur bei Dreh- und Stoppbewegungen ist die eigentliche Ursache.",
+    "cta": "Ist das Knie schon einmal weggeknickt und schnell angeschwollen? Lassen Sie es zeitnah untersuchen."
+  },
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "char_display_names": {
+    "무릎_illust.jpg": "Knie",
+    "운동화_illust.jpg": "Sportschuhe",
+    "냉찜질_illust.jpg": "Kühlpack",
+    "아령_illust.jpg": "Kurzhantel",
+    "달력_illust.jpg": "Kalender"
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "title": [
+    "Those random bruises on your arms",
+    "aren't just \"getting older\"",
+    "Bruising easily after 60"
+  ],
+  "eyebrow": "Bruising easily after 60",
+  "cover_char_file": "손등_illust.jpg",
+  "cover_scrim_color": "#3D5A80",
+  "items": [
+    {
+      "name": "Why a bruise shows up with no memory of a bump",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Skin and blood vessels are held",
+        "in place by collagen underneath",
+        "",
+        "As that collagen thins with age,",
+        "vessels near the surface lose",
+        "their support",
+        "",
+        "A stray brush against a doorframe,",
+        "even a tight sleeve, can be enough",
+        "to rupture one",
+        "",
+        "That's why there's no memory of",
+        "a real injury"
+      ]
+    },
+    {
+      "name": "Cause 1: decades of sun on the same skin",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "The hands and forearms take more",
+        "sun over a lifetime than almost",
+        "any other skin",
+        "",
+        "That cumulative UV exposure breaks",
+        "down collagen and elastic fibers",
+        "in the dermis",
+        "",
+        "The medical term is photoaging,",
+        "and it's the single biggest reason",
+        "this shows up on hands, not thighs"
+      ]
+    },
+    {
+      "name": "Fix 1: protect that specific skin",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "The American Academy of",
+        "Dermatology recommends a",
+        "broad-spectrum SPF 30 or higher,",
+        "used daily, not just at the beach",
+        "",
+        "Properly applied, SPF 30 blocks",
+        "about 97% of UVB rays",
+        "",
+        "A long sleeve on a sunny errand",
+        "does the same job for free"
+      ]
+    },
+    {
+      "name": "Cause 2: blood thinners and steroid creams",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Aspirin, warfarin, and clopidogrel",
+        "don't create the fragile vessel —",
+        "the sun damage already did that",
+        "",
+        "But once a vessel tears, these",
+        "drugs make the bleeding harder",
+        "to stop, so the bruise spreads",
+        "further",
+        "",
+        "Long-term steroid creams thin",
+        "skin the same way sun does"
+      ]
+    },
+    {
+      "name": "Fix 2: don't stop anything on your own",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Never quit a blood thinner",
+        "without your doctor — the clot",
+        "risk is usually worse than",
+        "the bruise",
+        "",
+        "Keep a current list of every",
+        "medication and bring it to your",
+        "next appointment",
+        "",
+        "Ask specifically whether a dose",
+        "or a steroid cream could be",
+        "reviewed"
+      ]
+    },
+    {
+      "name": "Cause 3: skin that's been left dry for years",
+      "char_file": "거미줄혈관_illust.jpg",
+      "body": [
+        "Dry, under-moisturized skin loses",
+        "elasticity faster than skin that's",
+        "kept supple",
+        "",
+        "Less elasticity means less",
+        "cushioning around the same",
+        "fragile vessels",
+        "",
+        "It won't cause the problem alone,",
+        "but it stacks on top of the other",
+        "two"
+      ]
+    },
+    {
+      "name": "Fix 3: a plain moisturizer, daily",
+      "char_file": "바세린_illust.jpg",
+      "body": [
+        "You don't need a specialty",
+        "product — a plain, fragrance-free",
+        "emollient applied daily works",
+        "",
+        "Smooth it on right after washing,",
+        "while skin is still damp, so it",
+        "actually seals moisture in",
+        "",
+        "It won't reverse existing bruises,",
+        "but it protects the skin that",
+        "hasn't torn yet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "It isn't your age doing this on its own —",
+        "it's decades of sun, a few specific",
+        "medications, and dry skin, stacked together"
+      ],
+      [
+        "Cover the skin, review the medication list,",
+        "moisturize daily — that's the whole plan"
+      ]
+    ],
+    "tip": [
+      "Keep a plain moisturizer by the sink, not in a drawer, so using it daily is the easy default",
+      "If bruises are showing up on your torso or with no sun-exposed skin involved at all, that's worth a doctor visit, not a moisturizer"
+    ],
+    "cta": "Want more health tips like this? Subscribe, like and follow!"
+  },
+  "swipe_label": "Swipe for more  »",
+  "closing_label": "In short",
+  "char_display_names": {
+    "손등_illust.jpg": "Aging skin",
+    "햇빛_illust.jpg": "Sun exposure",
+    "자외선차단제_illust.jpg": "Sunscreen",
+    "아스피린_illust.jpg": "Blood thinners",
+    "달력_illust.jpg": "Medication review",
+    "거미줄혈관_illust.jpg": "Dry, fragile skin",
+    "바세린_illust.jpg": "Daily moisturizer"
+  }
+}

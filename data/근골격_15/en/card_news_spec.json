@@ -1,0 +1,81 @@
+{
+  "title": [
+    "ACL tear,",
+    "most people blame a hard hit —",
+    "the real cause is how you land",
+    "Prevent it (and re-tears) the right way"
+  ],
+  "eyebrow": "ACL Tear Prevention",
+  "cover_char_file": "무릎_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "It's Rarely Contact — It's the Landing",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "About 7 in 10 ACL tears happen with",
+        "no one touching you at all —",
+        "",
+        "just a hard cut, pivot, or landing",
+        "where the knee buckles inward."
+      ]
+    },
+    {
+      "name": "Cutting, Landing, Sudden Stops",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Soccer, basketball, and skiing top",
+        "the list — sports with quick turns.",
+        "",
+        "Weak hamstrings relative to the",
+        "quads let the knee cave inward."
+      ]
+    },
+    {
+      "name": "Protect It First — Don't Push Through",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Rest the knee, ice it, and keep it",
+        "raised above heart level for 48 hours.",
+        "",
+        "Don't return to activity just",
+        "because the pain faded."
+      ]
+    },
+    {
+      "name": "Get It Checked Within Weeks, Not Months",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Waiting longer to get diagnosed",
+        "raises the odds of meniscus damage.",
+        "",
+        "See an orthopedic doctor once",
+        "the swelling allows an exam."
+      ]
+    },
+    {
+      "name": "Train the Muscles That Back Up the Ligament",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Strong hamstrings and hips help",
+        "control the knee on landing.",
+        "",
+        "Practice landing softly with knees",
+        "tracking over your toes."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It was never really about toughness.",
+    "tip": "Most ACL tears are non-contact — it's about how the knee lands, not who hit it.",
+    "cta": "Knee ever buckled and swelled fast? Get it checked before you play again."
+  },
+  "char_display_names": {
+    "무릎_illust.jpg": "Knee",
+    "운동화_illust.jpg": "Shoes",
+    "냉찜질_illust.jpg": "Ice Pack",
+    "아령_illust.jpg": "Dumbbell",
+    "달력_illust.jpg": "Calendar"
+  }
+}
