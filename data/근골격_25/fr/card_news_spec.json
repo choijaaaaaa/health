@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Douleur à l'intérieur du tibia",
+    "après chaque course ?",
+    "Pas une courbature — une périostite",
+    "La distinguer d'une fracture de fatigue"
+  ],
+  "eyebrow": "Douleur au tibia, la vraie cause",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Les chocs s'accumulent sur l'os",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Une hausse soudaine",
+        "ne laisse pas le",
+        "temps de s'adapter."
+      ]
+    },
+    {
+      "name": "Douleur diffuse, pas localisée",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La périostite se sent",
+        "diffuse le long",
+        "du bord interne."
+      ]
+    },
+    {
+      "name": "La fracture de fatigue diffère",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Une douleur vive",
+        "en un point signale",
+        "une fracture."
+      ]
+    },
+    {
+      "name": "Détendre le mollet au rouleau",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Des mollets tendus",
+        "tirent sur le tibia",
+        "et ralentissent."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Douleur diffuse au tibia = probable périostite — un point vif peut signaler une fracture.",
+    "tip": "Passez à un sport peu traumatisant et augmentez le kilométrage de 10% max par semaine.",
+    "cta": "Douleur localisée qui persiste malgré le repos ? Consultez un médecin."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Chaussures de course",
+    "폼롤러_illust.jpg": "Rouleau de massage"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}

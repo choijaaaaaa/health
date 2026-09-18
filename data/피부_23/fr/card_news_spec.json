@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La crème n'agit pas sur",
+    "vos ongles jaunes et épais ?",
+    "Le champignon est hors de portée",
+    "3 gestes qui aident vraiment"
+  ],
+  "eyebrow": "Ongles jaunes, la vraie cause",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le champignon se cache sous l'ongle",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "La crème ne pénètre",
+        "pas assez dans",
+        "la plaque dure."
+      ]
+    },
+    {
+      "name": "Le traitement oral l'atteint",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Passe par le sang",
+        "jusqu'au lit",
+        "de l'ongle."
+      ]
+    },
+    {
+      "name": "L'ongle repousse en ~12 mois",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Arrêter après",
+        "quelques semaines",
+        "n'est pas un vrai test."
+      ]
+    },
+    {
+      "name": "Sandales dans les douches communes",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Moins de contact",
+        "pieds nus, moins",
+        "de réinfection."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si la crème n'agit pas, ce n'est pas le produit — le champignon est hors de portée.",
+    "tip": "Cas léger : vernis antifongique sur la durée. Cas sévère : demandez un traitement oral.",
+    "cta": "Propagation à plusieurs ongles ou aggravation ? Consultez un médecin."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Ongle d'orteil",
+    "슬리퍼_illust.jpg": "Sandales"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

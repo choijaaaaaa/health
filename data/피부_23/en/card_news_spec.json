@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Cream not working on",
+    "yellow, thick toenails?",
+    "The fungus is out of reach",
+    "3 Things That Actually Help"
+  ],
+  "eyebrow": "Yellow Toenails, the Real Cause",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Fungus Hides Deep Under the Nail",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Cream can't penetrate",
+        "the hard nail plate",
+        "deep enough."
+      ]
+    },
+    {
+      "name": "Oral Medication Reaches It",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Travels through the",
+        "bloodstream straight",
+        "to the nail bed."
+      ]
+    },
+    {
+      "name": "Nails Take ~12 Months to Regrow",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Stopping after weeks",
+        "isn't a fair test",
+        "of the treatment."
+      ]
+    },
+    {
+      "name": "Sandals in Communal Showers",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Less barefoot exposure",
+        "means less chance",
+        "of reinfection."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Cream not working isn't the product's fault — the fungus is just out of reach.",
+    "tip": "Mild case? Stick with antifungal lacquer long-term. Severe? Ask about oral medication.",
+    "cta": "Spread to multiple nails or getting worse? See a doctor."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Toenail",
+    "슬리퍼_illust.jpg": "Sandals"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

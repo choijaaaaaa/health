@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La crema non funziona su",
+    "unghie gialle e ispessite?",
+    "Il fungo è fuori portata",
+    "3 cose che aiutano davvero"
+  ],
+  "eyebrow": "Unghie gialle, la vera causa",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il fungo si nasconde sotto l'unghia",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "La crema non penetra",
+        "abbastanza nella",
+        "lamina dura."
+      ]
+    },
+    {
+      "name": "La terapia orale lo raggiunge",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Passa dal sangue",
+        "direttamente al",
+        "letto ungueale."
+      ]
+    },
+    {
+      "name": "L'unghia ricresce in ~12 mesi",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Smettere dopo",
+        "poche settimane",
+        "non è un vero test."
+      ]
+    },
+    {
+      "name": "Ciabatte nelle docce pubbliche",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Meno contatto a",
+        "piedi nudi, meno",
+        "reinfezione."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se la crema non funziona, non è colpa del prodotto — il fungo è fuori portata.",
+    "tip": "Caso lieve: smalto antimicotico a lungo. Caso grave: chiedete una terapia orale.",
+    "cta": "Diffusione a più unghie o peggioramento? Rivolgetevi a un medico."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Unghia del piede",
+    "슬리퍼_illust.jpg": "Ciabatte"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

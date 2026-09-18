@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Creme wirkt nicht bei",
+    "gelben, dicken Zehennägeln?",
+    "Der Pilz ist unerreichbar",
+    "3 Dinge, die wirklich helfen"
+  ],
+  "eyebrow": "Gelbe Zehennägel, die echte Ursache",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Pilz sitzt tief unter dem Nagel",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Creme dringt nicht",
+        "tief genug in die",
+        "Nagelplatte ein."
+      ]
+    },
+    {
+      "name": "Orale Mittel erreichen ihn",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Gelangen über den",
+        "Blutkreislauf direkt",
+        "zum Nagelbett."
+      ]
+    },
+    {
+      "name": "Nägel brauchen ~12 Monate",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Nach Wochen abbrechen",
+        "ist kein fairer",
+        "Test der Wirkung."
+      ]
+    },
+    {
+      "name": "Badeschuhe in Gemeinschaftsduschen",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Weniger Barfußkontakt",
+        "bedeutet weniger",
+        "Reinfektionsrisiko."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wenn Creme nicht wirkt, liegt es nicht am Produkt — der Pilz ist einfach unerreichbar.",
+    "tip": "Leicht? Nagellack lange konsequent nutzen. Schwer? Orale Mittel ärztlich abklären.",
+    "cta": "Auf mehrere Nägel ausgebreitet oder schlimmer geworden? Ärztlich abklären lassen."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Zehennagel",
+    "슬리퍼_illust.jpg": "Badeschuhe"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

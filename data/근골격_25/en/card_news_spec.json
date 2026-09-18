@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Inner shin aching",
+    "after every run?",
+    "It's not soreness — it's shin splints",
+    "How to Tell It From a Stress Fracture"
+  ],
+  "eyebrow": "Shin Pain, the Real Cause",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Impact Builds Up on the Bone",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sudden mileage jumps",
+        "give tissue no time",
+        "to adapt."
+      ]
+    },
+    {
+      "name": "Pain Spreads, Not Pinpoint",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Shin splints feel",
+        "diffuse along the",
+        "inner shin edge."
+      ]
+    },
+    {
+      "name": "Stress Fracture Feels Different",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sharp pain at",
+        "one exact spot",
+        "signals a fracture."
+      ]
+    },
+    {
+      "name": "Foam Roll the Calf",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Tight calves pull",
+        "on the shinbone",
+        "and slow healing."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Diffuse shin pain is likely shin splints — one sharp spot may be a stress fracture.",
+    "tip": "Switch to low-impact cardio, and increase mileage by no more than 10% a week.",
+    "cta": "Pain stuck at one point even with rest? Get it checked by a doctor."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Running Shoes",
+    "폼롤러_illust.jpg": "Foam Roller"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}
