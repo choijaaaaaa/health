@@ -1,0 +1,59 @@
+{
+  "title": [
+    "That first step out of bed,",
+    "sharp heel pain isn't bad luck —",
+    "it's a recognized plantar fasciitis pattern",
+    "3 changes that actually help"
+  ],
+  "eyebrow": "Morning Heel Pain, What's Really Going On",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Sudden Activity Increase",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "The fascia hasn't adapted —",
+        "repeated micro-tears turn",
+        "into ongoing inflammation."
+      ]
+    },
+    {
+      "name": "Unsupportive Shoes on Hard Floors",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "The shoe isn't absorbing",
+        "impact the foot needs",
+        "help with."
+      ]
+    },
+    {
+      "name": "Why the First Step Hurts Most",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Overnight the fascia shortens —",
+        "full weight on it at once",
+        "applies sudden tension."
+      ]
+    },
+    {
+      "name": "Ice and Gradual Load Help It Heal",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Calms inflammation while",
+        "you build activity back",
+        "up slowly."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's a recognized pattern, not bad luck — support the tissue.",
+    "tip": "Increase activity gradually, wear cushioned shoes, stretch calves before that first step.",
+    "cta": "Pain lasting weeks or changing how you walk? See a doctor or physical therapist."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneakers",
+    "냉찜질_illust.jpg": "Ice Pack"
+  }
+}
