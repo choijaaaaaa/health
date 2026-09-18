@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vita, känsellösa fingrar",
+    "i kylan?",
+    "Det är inte bara kyla",
+    "3 rätta steg vid köldskada"
+  ],
+  "eyebrow": "Vinterns köldskada, den verkliga orsaken",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Blodflödet sjunker först",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Kroppen skyddar organ",
+        "genom att leda bort",
+        "blod från extremiteterna."
+      ]
+    },
+    {
+      "name": "Blöta kläder ökar risken",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Blöta vantar och strumpor",
+        "drar bort värme",
+        "mycket snabbare."
+      ]
+    },
+    {
+      "name": "Alkohol gör det värre",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Värmekänslan lurar —",
+        "värmeförlusten",
+        "ökar faktiskt."
+      ]
+    },
+    {
+      "name": "Värm långsamt, ingen direkt värme",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Ljummet vatten 37-39°C,",
+        "aldrig hett vatten",
+        "eller direkta värmekällor."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Känsellös, vit hud är inte bara kyla — det är ett tecken på köldskada.",
+    "tip": "Värm långsamt med ljummet vatten. Gnid aldrig och låt aldrig området frysa igen.",
+    "cta": "Blåsor eller lila, mörk hud? Sök vård omedelbart."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Fingrar",
+    "욕조_illust.jpg": "Badkar"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}
