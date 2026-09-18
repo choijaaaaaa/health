@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Schienbein tut weh",
+    "nach jedem Lauf?",
+    "Kein Muskelkater — Schienbeinkantensyndrom",
+    "So unterscheidet man es vom Ermüdungsbruch"
+  ],
+  "eyebrow": "Schienbeinschmerz, die echte Ursache",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Stöße bauen sich am Knochen auf",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Plötzlich mehr Kilometer",
+        "geben dem Gewebe",
+        "keine Anpassungszeit."
+      ]
+    },
+    {
+      "name": "Diffuser, kein punktueller Schmerz",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Schienbeinkantensyndrom fühlt",
+        "sich entlang der",
+        "Innenkante verteilt an."
+      ]
+    },
+    {
+      "name": "Ermüdungsbruch fühlt sich anders an",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Scharfer Schmerz an",
+        "einer Stelle deutet",
+        "auf einen Bruch hin."
+      ]
+    },
+    {
+      "name": "Wade mit Faszienrolle lockern",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Verspannte Waden ziehen",
+        "am Schienbein und",
+        "verzögern die Heilung."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Diffuser Schienbeinschmerz ist meist das Syndrom — ein scharfer Punkt kann ein Bruch sein.",
+    "tip": "Auf stoßarmes Training umsteigen und Kilometer um höchstens 10% pro Woche steigern.",
+    "cta": "Schmerz bleibt an einer Stelle trotz Ruhe? Ärztlich abklären lassen."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Laufschuhe",
+    "폼롤러_illust.jpg": "Faszienrolle"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}

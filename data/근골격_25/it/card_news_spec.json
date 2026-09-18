@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Tibia dolorante",
+    "dopo ogni corsa?",
+    "Non è indolenzimento — è periostite",
+    "Come distinguerla da una frattura da stress"
+  ],
+  "eyebrow": "Dolore alla tibia, la vera causa",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "L'impatto si accumula sull'osso",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Un aumento improvviso",
+        "non lascia tempo",
+        "di adattamento."
+      ]
+    },
+    {
+      "name": "Dolore diffuso, non puntiforme",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La periostite si sente",
+        "diffusa lungo",
+        "il bordo interno."
+      ]
+    },
+    {
+      "name": "La frattura da stress è diversa",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Un dolore acuto",
+        "in un punto indica",
+        "una frattura."
+      ]
+    },
+    {
+      "name": "Sciogliere il polpaccio",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Muscoli contratti",
+        "tirano la tibia",
+        "e rallentano il recupero."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dolore diffuso alla tibia è probabile periostite — un punto acuto può essere frattura.",
+    "tip": "Passate a sport a basso impatto e aumentate i chilometri max del 10% a settimana.",
+    "cta": "Dolore fisso in un punto che persiste a riposo? Fatevi visitare da un medico."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Scarpe da corsa",
+    "폼롤러_illust.jpg": "Foam roller"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}

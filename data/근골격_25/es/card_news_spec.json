@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Espinilla dolorida",
+    "después de cada carrera?",
+    "No es dolor muscular — es periostitis",
+    "Cómo distinguirla de una fractura por estrés"
+  ],
+  "eyebrow": "Dolor de espinilla, la causa real",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "El impacto se acumula en el hueso",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Un aumento repentino",
+        "no da tiempo",
+        "para adaptarse."
+      ]
+    },
+    {
+      "name": "Dolor difuso, no puntual",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La periostitis se siente",
+        "difusa a lo largo",
+        "del borde interno."
+      ]
+    },
+    {
+      "name": "La fractura por estrés es distinta",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Un dolor agudo",
+        "en un punto indica",
+        "una fractura."
+      ]
+    },
+    {
+      "name": "Soltar la pantorrilla",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Gemelos tensos",
+        "tiran de la tibia",
+        "y ralentizan la cura."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dolor difuso en la espinilla es probable periostitis — un punto agudo puede ser fractura.",
+    "tip": "Cambia a ejercicio de bajo impacto y aumenta el kilometraje máximo un 10% por semana.",
+    "cta": "¿Dolor fijo en un punto que persiste en reposo? Consulta a un médico."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Zapatillas de correr",
+    "폼롤러_illust.jpg": "Rodillo de espuma"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}

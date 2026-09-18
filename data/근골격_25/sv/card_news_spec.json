@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Insidan av smalbenet",
+    "gör ont efter varje löprunda?",
+    "Ingen muskelvärk — benhinneinflammation",
+    "Så skiljer du det från en stressfraktur"
+  ],
+  "eyebrow": "Smärta i smalbenet, den verkliga orsaken",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Stötar byggs upp på benet",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Plötsligt fler kilometer",
+        "ger ingen tid",
+        "att anpassa sig."
+      ]
+    },
+    {
+      "name": "Utspridd smärta, inte punktvis",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Benhinneinflammation känns",
+        "diffus längs",
+        "insidan."
+      ]
+    },
+    {
+      "name": "Stressfraktur känns annorlunda",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Skarp smärta på",
+        "en punkt tyder",
+        "på en fraktur."
+      ]
+    },
+    {
+      "name": "Lossa vaden med foam roller",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Spända vader drar",
+        "i smalbenet och",
+        "bromsar läkningen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Utspridd smärta i smalbenet är troligen benhinneinflammation — en skarp punkt kan vara en fraktur.",
+    "tip": "Byt till stötsvag träning och öka distansen med max 10 procent i veckan.",
+    "cta": "Smärtan sitter kvar på en punkt trots vila? Låt en läkare undersöka det."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Löparskor",
+    "폼롤러_illust.jpg": "Foam roller"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}

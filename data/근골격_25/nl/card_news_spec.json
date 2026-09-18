@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Binnenkant scheenbeen doet",
+    "na elke run pijn?",
+    "Geen spierpijn — shin splints",
+    "Zo onderscheid je het van een breuk"
+  ],
+  "eyebrow": "Scheenbeenpijn, de echte oorzaak",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Schokken bouwen zich op het bot op",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Plotseling meer kilometers",
+        "geven geen tijd",
+        "om aan te passen."
+      ]
+    },
+    {
+      "name": "Verspreide, geen puntpijn",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Shin splints voelen",
+        "diffuus aan langs",
+        "de binnenrand."
+      ]
+    },
+    {
+      "name": "Vermoeidheidsbreuk voelt anders",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Scherpe pijn op",
+        "één plek wijst",
+        "op een breuk."
+      ]
+    },
+    {
+      "name": "Kuit losmaken met foamroller",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Strakke kuiten trekken",
+        "aan het scheenbeen",
+        "en vertragen herstel."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Verspreide scheenbeenpijn is meestal shin splints — één scherp punt kan een breuk zijn.",
+    "tip": "Stap over op schokarme cardio en bouw kilometers met max 10% per week op.",
+    "cta": "Pijn blijft op één punt zitten ondanks rust? Laat het door een arts nakijken."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Hardloopschoenen",
+    "폼롤러_illust.jpg": "Foamroller"
+  },
+  "cover_scrim_color": "#3D6B4A"
+}
