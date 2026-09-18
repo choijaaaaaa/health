@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Ataques de Ménière,",
+    "la dieta baja en sal es el consejo clásico —",
+    "pero la evidencia de ensayos es escasa",
+    "Lo que de verdad merece la pena probar"
+  ],
+  "eyebrow": "Enfermedad de Ménière, lo que dice la evidencia",
+  "cover_char_file": "소금_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Vértigo + zumbidos + taponamiento juntos",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Esta combinación, de 20 min a",
+        "horas, apunta a Ménière más",
+        "que un mareo común."
+      ]
+    },
+    {
+      "name": "Poco sodio es el consejo clásico",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Menos de 2000mg/día se recomienda",
+        "mucho, pero Cochrane no encontró",
+        "pruebas de ensayos."
+      ]
+    },
+    {
+      "name": "Cafeína y alcohol también se limitan",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Pueden afectar vasos y",
+        "equilibrio de líquidos — plausible,",
+        "pero no probado en ensayos."
+      ]
+    },
+    {
+      "name": "Estrés y sueño también importan",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Citados como desencadenantes",
+        "al margen de la dieta, vía el",
+        "sistema nervioso autónomo."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bajo riesgo para probar, sin esperar un resultado garantizado.",
+    "tip": "Prueba menos de 2000mg de sodio/día y sueño regular unas semanas, anota los ataques.",
+    "cta": "¿Vértigo con zumbidos y taponamiento que se repite? Consulta a un otorrino."
+  },
+  "char_display_names": {
+    "소금_illust.jpg": "Sal",
+    "커피_illust.jpg": "Café"
+  }
+}
