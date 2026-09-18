@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Ena sidan av ansiktet",
+    "hänger plötsligt?",
+    "Kolla pannan först",
+    "Bells pares vs stroke"
+  ],
+  "eyebrow": "Ansiktsförlamning, vad pannan avslöjar",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Pannan får signaler från båda sidor",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Vid stroke håller",
+        "andra hjärnhalvan",
+        "pannan rörlig."
+      ]
+    },
+    {
+      "name": "Bells pares är nervinflammation",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Hela sidan hänger,",
+        "från pannan till munnen,",
+        "inte bara nedtill."
+      ]
+    },
+    {
+      "name": "Hängande panna = strokesignal",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Tillkommer svaghet i",
+        "arm eller ben,",
+        "är det akut."
+      ]
+    },
+    {
+      "name": "Konstgjorda tårar skyddar ögat",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Ett öga som inte",
+        "sluts riskerar skada",
+        "på hornhinnan."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Hänger ena sidan av ansiktet? Titta i spegeln och försök rynka pannan.",
+    "tip": "Hängande panna plus svaghet i en lem — till akuten. Bells pares behöver behandling inom 72 timmar.",
+    "cta": "Minsta tvivel om stroke? Vänta inte — åk direkt till akuten."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Telefon",
+    "인공눈물_illust.jpg": "Konstgjorda tårar"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}

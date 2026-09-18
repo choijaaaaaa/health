@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Metà viso cade",
+    "all'improvviso?",
+    "Controllate prima la fronte",
+    "Paralisi di Bell vs Ictus"
+  ],
+  "eyebrow": "Caduta del viso, cosa rivela la fronte",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "La fronte riceve segnali da entrambi i lati",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Con l'ictus, l'altro",
+        "emisfero mantiene",
+        "mobile la fronte."
+      ]
+    },
+    {
+      "name": "La paralisi di Bell è infiammazione nervosa",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Cade tutto il lato,",
+        "dalla fronte alla bocca,",
+        "non solo in basso."
+      ]
+    },
+    {
+      "name": "Fronte che cade = segnale di ictus",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Con debolezza a",
+        "braccio o gamba,",
+        "è un'emergenza."
+      ]
+    },
+    {
+      "name": "Le lacrime artificiali proteggono l'occhio",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Un occhio che non",
+        "chiude rischia danni",
+        "alla cornea."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Metà viso cade? Guardatevi allo specchio e provate ad aggrottare la fronte.",
+    "tip": "Fronte cadente più debolezza a un arto: pronto soccorso. La paralisi di Bell va curata entro 72 ore.",
+    "cta": "Dubbio di ictus? Non aspettate — andate subito al pronto soccorso."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Telefono",
+    "인공눈물_illust.jpg": "Lacrime artificiali"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}

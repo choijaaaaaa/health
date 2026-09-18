@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Eén kant van je gezicht",
+    "hangt plotseling?",
+    "Check eerst je voorhoofd",
+    "Bellse verlamming vs beroerte"
+  ],
+  "eyebrow": "Gezichtsverlamming, wat het voorhoofd verraadt",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Voorhoofd krijgt signalen van beide kanten",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Bij beroerte houdt",
+        "de andere hersenhelft",
+        "het voorhoofd mobiel."
+      ]
+    },
+    {
+      "name": "Bellse verlamming is zenuwontsteking",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Hele kant hangt,",
+        "van voorhoofd tot mond,",
+        "niet alleen onder."
+      ]
+    },
+    {
+      "name": "Hangend voorhoofd = beroertesignaal",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Komt er ook zwakte",
+        "in arm of been bij,",
+        "is het spoed."
+      ]
+    },
+    {
+      "name": "Kunsttranen beschermen het oog",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Een oog dat niet sluit",
+        "riskeert schade",
+        "aan het hoornvlies."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Hangt een kant van je gezicht? Kijk in de spiegel en probeer je voorhoofd te rimpelen.",
+    "tip": "Hangend voorhoofd plus zwakte in een ledemaat: spoedeisende hulp. Bellse verlamming binnen 72 uur behandelen.",
+    "cta": "Twijfel over een beroerte? Wacht niet — ga direct naar de spoedeisende hulp."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Telefoon",
+    "인공눈물_illust.jpg": "Kunsttranen"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}

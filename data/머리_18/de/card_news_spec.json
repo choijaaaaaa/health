@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Gesichtshälfte hängt",
+    "plötzlich herab?",
+    "Zuerst die Stirn prüfen",
+    "Fazialisparese vs. Schlaganfall"
+  ],
+  "eyebrow": "Gesichtslähmung, was die Stirn verrät",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Stirn erhält Signale von beiden Seiten",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Bei Schlaganfall hält",
+        "die andere Hirnseite",
+        "die Stirn beweglich."
+      ]
+    },
+    {
+      "name": "Fazialisparese ist Nervenentzündung",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Ganze Seite hängt,",
+        "von Stirn bis Mund,",
+        "nicht nur unten."
+      ]
+    },
+    {
+      "name": "Hängende Stirn = Schlaganfallzeichen",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Kommt Arm- oder",
+        "Beinschwäche dazu,",
+        "ist es ein Notfall."
+      ]
+    },
+    {
+      "name": "Künstliche Tränen schützen das Auge",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Ein nicht schließendes",
+        "Auge riskiert",
+        "Hornhautschäden."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Hängt eine Gesichtshälfte? In den Spiegel schauen und die Stirn in Falten legen.",
+    "tip": "Hängende Stirn plus Gliederschwäche — sofort in die Notaufnahme. Fazialisparese braucht Therapie binnen 72 Stunden.",
+    "cta": "Verdacht auf Schlaganfall? Nicht warten — sofort in die Notaufnahme."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Telefon",
+    "인공눈물_illust.jpg": "Künstliche Tränen"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}
