@@ -1,0 +1,59 @@
+{
+  "title": [
+    "De nouveau faim juste après manger,",
+    "vous accusez le manque de volonté —",
+    "c'est probablement un crash glycémique",
+    "Les myrtilles ont de vraies preuves"
+  ],
+  "eyebrow": "Chute de glycémie, ce qui aide vraiment",
+  "cover_char_file": "블루베리_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le cycle pic-puis-chute",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Les glucides raffinés font",
+        "monter puis chuter la glycémie —",
+        "ça augmente la résistance."
+      ]
+    },
+    {
+      "name": "Les myrtilles atténuent le pic lui-même",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Un essai a trouvé une hausse",
+        "moindre avec une tasse",
+        "de myrtilles."
+      ]
+    },
+    {
+      "name": "8 semaines ont aussi baissé la tension",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Étude Oklahoma State :",
+        "tension -6%/-4% contre",
+        "-1,5%/-1,2% au placebo."
+      ]
+    },
+    {
+      "name": "Surgelées oui, séchées non",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "La congélation améliorerait",
+        "l'absorption ; les séchées",
+        "concentrent le sucre."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas un manque de volonté — regardez ce qui cause la chute.",
+    "tip": "Une tasse de myrtilles surgelées non sucrées avec yaourt ou amandes, pas séchées.",
+    "cta": "Déjà sous traitement pour le diabète ? Parlez-en avant de changer votre alimentation."
+  },
+  "char_display_names": {
+    "블루베리_illust.jpg": "Myrtilles",
+    "그릭요거트_illust.jpg": "Yaourt"
+  }
+}

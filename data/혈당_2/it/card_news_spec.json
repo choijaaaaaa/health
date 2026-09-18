@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Fame di nuovo subito dopo mangiato,",
+    "pensi sia forza di volontà —",
+    "è probabilmente un crollo glicemico",
+    "I mirtilli hanno vere prove cliniche"
+  ],
+  "eyebrow": "Crollo glicemico, cosa aiuta davvero",
+  "cover_char_file": "블루베리_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il ciclo picco-e-crollo",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "I carboidrati raffinati fanno",
+        "salire e crollare la glicemia —",
+        "aumenta l'insulino-resistenza."
+      ]
+    },
+    {
+      "name": "I mirtilli attenuano il picco stesso",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Uno studio ha trovato un rialzo",
+        "minore con una tazza",
+        "di mirtilli."
+      ]
+    },
+    {
+      "name": "8 settimane hanno abbassato anche la pressione",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Studio Oklahoma State:",
+        "pressione -6%/-4% contro",
+        "-1,5%/-1,2% nel placebo."
+      ]
+    },
+    {
+      "name": "Surgelati sì, essiccati no",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "Il congelamento migliorerebbe",
+        "l'assorbimento; gli essiccati",
+        "concentrano lo zucchero."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non è forza di volontà — guarda cosa causa il crollo.",
+    "tip": "Una tazza di mirtilli surgelati non zuccherati con yogurt o mandorle, non essiccati.",
+    "cta": "Già in terapia per il diabete? Parlane prima di cambiare la dieta."
+  },
+  "char_display_names": {
+    "블루베리_illust.jpg": "Mirtilli",
+    "그릭요거트_illust.jpg": "Yogurt"
+  }
+}

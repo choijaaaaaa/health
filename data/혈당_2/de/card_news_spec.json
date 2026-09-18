@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Schon kurz nach dem Essen wieder hungrig,",
+    "Sie vermuten Willensschwäche —",
+    "es ist wahrscheinlich ein Blutzucker-Crash",
+    "Für Blaubeeren gibt es echte Studienbelege"
+  ],
+  "eyebrow": "Blutzucker-Crash, was wirklich hilft",
+  "cover_char_file": "블루베리_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Der Anstieg-und-Absturz-Zyklus",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Raffinierte Kohlenhydrate lassen",
+        "Blutzucker steigen und stürzen —",
+        "das erhöht Insulinresistenz."
+      ]
+    },
+    {
+      "name": "Blaubeeren dämpfen die Spitze selbst",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Eine Studie fand geringeren",
+        "Anstieg mit einer Tasse",
+        "Blaubeeren."
+      ]
+    },
+    {
+      "name": "8 Wochen senkten auch den Blutdruck",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Oklahoma-State-Studie:",
+        "Blutdruck -6%/-4% vs.",
+        "-1,5%/-1,2% bei Placebo."
+      ]
+    },
+    {
+      "name": "Gefroren ja, getrocknet nein",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "Einfrieren kann Aufnahme",
+        "verbessern; getrocknet ist",
+        "der Zucker konzentriert."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Keine Willensschwäche — schauen Sie, was den Crash antreibt.",
+    "tip": "Eine Tasse gefrorene ungesüßte Blaubeeren mit Joghurt oder Nüssen, nicht getrocknet.",
+    "cta": "Schon Diabetesmedikamente? Vor Ernährungsänderungen mit der Praxis sprechen."
+  },
+  "char_display_names": {
+    "블루베리_illust.jpg": "Blaubeeren",
+    "그릭요거트_illust.jpg": "Joghurt"
+  }
+}

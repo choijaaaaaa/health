@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Hambre otra vez justo después de comer,",
+    "seguro que culpas a la fuerza de voluntad —",
+    "probablemente es un bajón de glucosa",
+    "Los arándanos tienen evidencia real"
+  ],
+  "eyebrow": "Bajón de glucosa, qué ayuda de verdad",
+  "cover_char_file": "블루베리_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El ciclo de pico y caída",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Los hidratos refinados suben",
+        "y hacen caer la glucosa —",
+        "aumenta la resistencia."
+      ]
+    },
+    {
+      "name": "Los arándanos suavizan el propio pico",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Un ensayo encontró menor",
+        "subida con una taza",
+        "de arándanos."
+      ]
+    },
+    {
+      "name": "8 semanas también bajaron la presión",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Estudio Oklahoma State:",
+        "presión -6%/-4% frente a",
+        "-1,5%/-1,2% en placebo."
+      ]
+    },
+    {
+      "name": "Congelados sí, deshidratados no",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "Congelar mejoraría la",
+        "absorción; los deshidratados",
+        "concentran el azúcar."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es fuerza de voluntad — mira qué causa el bajón.",
+    "tip": "Una taza de arándanos congelados sin azúcar con yogur o almendras, no deshidratados.",
+    "cta": "¿Ya tomas medicación para la diabetes? Habla con tu equipo antes de cambiar la dieta."
+  },
+  "char_display_names": {
+    "블루베리_illust.jpg": "Arándanos",
+    "그릭요거트_illust.jpg": "Yogur"
+  }
+}
