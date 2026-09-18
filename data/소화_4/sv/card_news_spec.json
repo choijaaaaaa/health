@@ -1,0 +1,71 @@
+{
+  "title": [
+    "Trötthet efter lunch,",
+    "du skyller nog på en full mage —",
+    "men det är blodsockret",
+    "Byt ordning, byt känsla"
+  ],
+  "eyebrow": "Trötthet efter lunch",
+  "cover_char_file": "흰빵_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Vitt bröd ger en blodsockertopp",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Vitt mjöl bryts ner snabbt —",
+        "blodsockret stiger fort och",
+        "sjunker lika fort igen."
+      ]
+    },
+    {
+      "name": "Vitt ris gör samma sak",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Även vitt ris har högt GI —",
+        "ätet ensamt höjer det",
+        "blodsockret snabbt."
+      ]
+    },
+    {
+      "name": "Sött ovanpå gör dippen värre",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Godis eller läsk till maten",
+        "lägger ytterligare en topp",
+        "ovanpå den första."
+      ]
+    },
+    {
+      "name": "Börja med grönsaker eller protein",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Fiber som kommer in först",
+        "saktar ner upptaget av de",
+        "kolhydrater som följer."
+      ]
+    },
+    {
+      "name": "Sött ihop med mandlar eller soja",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Protein och nyttigt fett bredvid",
+        "dämpar toppen som annars",
+        "följer på något sött."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inte mindre mat — en annan ordning.",
+    "tip": "Grönsaker eller protein först, bröd eller sött sist — det plattar till dippen rejält.",
+    "cta": "Kraftig trötthet varje dag, med skakningar eller hjärtklappning? Kontakta vården."
+  },
+  "char_display_names": {
+    "흰빵_illust.jpg": "Vitt bröd",
+    "흰쌀밥_illust.jpg": "Vitt ris",
+    "사탕_illust.jpg": "Godis",
+    "케일_illust.jpg": "Grönkål",
+    "아몬드_illust.jpg": "Mandlar"
+  }
+}

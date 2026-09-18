@@ -1,0 +1,71 @@
+{
+  "title": [
+    "Slaperigheid na de lunch,",
+    "je wijt het aan een volle maag —",
+    "het is eigenlijk je bloedsuiker",
+    "Andere volgorde, ander gevoel"
+  ],
+  "eyebrow": "Slaperigheid na de lunch",
+  "cover_char_file": "흰빵_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Wit brood laat de bloedsuiker pieken",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Verfijnd meel wordt snel",
+        "verteerd — de bloedsuiker",
+        "stijgt en daalt allebei snel."
+      ]
+    },
+    {
+      "name": "Witte rijst doet hetzelfde",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Ook witte rijst heeft een",
+        "hoge glycemische index —",
+        "alleen gegeten stijgt het snel."
+      ]
+    },
+    {
+      "name": "Iets zoets erbij maakt het erger",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Een snoepje of zoet drankje",
+        "na de maaltijd zet er nog",
+        "een piek bovenop."
+      ]
+    },
+    {
+      "name": "Begin met groente of eiwitten",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Vezels die eerst binnenkomen",
+        "vertragen de opname van de",
+        "koolhydraten die volgen."
+      ]
+    },
+    {
+      "name": "Zoets samen met amandelen of soja",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Eiwit en gezond vet ernaast",
+        "dempen de piek die anders",
+        "op iets zoets volgt."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Niet minder eten — een andere volgorde.",
+    "tip": "Groente of eiwit eerst, brood of iets zoets later — dat vlakt de dip al flink af.",
+    "cta": "Elke dag hevig slaperig, met trillen of hartkloppingen? Laat dit dan nakijken."
+  },
+  "char_display_names": {
+    "흰빵_illust.jpg": "Wit brood",
+    "흰쌀밥_illust.jpg": "Witte rijst",
+    "사탕_illust.jpg": "Snoep",
+    "케일_illust.jpg": "Boerenkool",
+    "아몬드_illust.jpg": "Amandelen"
+  }
+}

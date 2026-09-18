@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Piernas inquietas de noche,",
+    "seguro que culpas al mal sueño —",
+    "puede que sea tu cena",
+    "3 cambios para probar hoy"
+  ],
+  "eyebrow": "Piernas inquietas, las causas pasadas por alto",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El chocolate negro sobreestimula los nervios",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Cafeína y teobromina —",
+        "ambas sobreestimulan el",
+        "sistema nervioso por la noche."
+      ]
+    },
+    {
+      "name": "El alcohol juega en tu contra más tarde",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Relaja al principio, pero",
+        "altera el sueño justo cuando",
+        "los síntomas empeoran."
+      ]
+    },
+    {
+      "name": "Los hidratos refinados alteran la glucosa",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Una subida y bajada rápidas",
+        "pueden estimular el sistema",
+        "nervioso de forma parecida."
+      ]
+    },
+    {
+      "name": "Cambia a almendras, huevo o soja",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Más estables para la glucosa,",
+        "sin la combinación cafeína-",
+        "teobromina."
+      ]
+    },
+    {
+      "name": "El hierro importa para algunos, no todos",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Ferritina baja solo en el",
+        "10-20% de los casos de SPI —",
+        "hay que comprobarlo, no suponerlo."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es solo mal sueño — mira lo que hay en tu cena.",
+    "tip": "Cambia el chocolate, el alcohol y los dulces nocturnos por almendras, huevo o soja.",
+    "cta": "¿Síntomas frecuentes o intensos? Pide que te revisen la ferritina antes de automedicarte."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Chocolate negro",
+    "두유_illust.jpg": "Bebida de soja",
+    "시금치_illust.jpg": "Espinacas"
+  }
+}

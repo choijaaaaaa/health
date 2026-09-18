@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Trillend ooglid,",
+    "je wijt het vast aan magnesium —",
+    "het bewijs wijst ergens anders heen",
+    "Pak de echte triggers aan"
+  ],
+  "eyebrow": "Trillend ooglid, de echte oorzaken",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Magnesium is niet het sterkste verband",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Twee studies vonden geen",
+        "verband tussen bloedmagnesium",
+        "en goedaardig trillen."
+      ]
+    },
+    {
+      "name": "Cafeïne is beter onderbouwd",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cafeïne maakt de zenuwen naar",
+        "je ooglidspier gevoeliger —",
+        "het trekt sneller vanzelf samen."
+      ]
+    },
+    {
+      "name": "Vermoeidheid verklaart de meeste gevallen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Vermoeidheid speelt mee bij",
+        "ongeveer 60% van de",
+        "chronische gevallen."
+      ]
+    },
+    {
+      "name": "Eerst twee weken minder cafeïne",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vermindert het trillen,",
+        "dan zat cafeïne er",
+        "waarschijnlijk achter."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Waarschijnlijk geen magnesium — wel je koffie en je slaap.",
+    "tip": "Eerst twee weken minder cafeïne en meer slaap, voordat je naar een supplement grijpt.",
+    "cta": "Wekenlang trillen, oog dat helemaal dichtklapt, of het breidt uit naar je gezicht? Naar de dokter."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "알약_illust.jpg": "Supplement",
+    "베개_illust.jpg": "Kussen"
+  }
+}

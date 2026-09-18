@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Crises de Ménière,",
+    "le régime pauvre en sel est le conseil classique —",
+    "mais les preuves d'essais sont minces",
+    "Ce qui vaut vraiment la peine d'essayer"
+  ],
+  "eyebrow": "Maladie de Ménière, ce que disent les preuves",
+  "cover_char_file": "소금_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Vertiges + acouphènes + oreille bouchée ensemble",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Cette combinaison, 20 min à",
+        "plusieurs heures, oriente vers",
+        "Ménière plus qu'un vertige banal."
+      ]
+    },
+    {
+      "name": "Le peu de sodium est le conseil classique",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Moins de 2g/jour est souvent",
+        "recommandé, mais Cochrane n'a",
+        "trouvé aucune preuve d'essai."
+      ]
+    },
+    {
+      "name": "Caféine et alcool aussi limités",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Peuvent affecter vaisseaux et",
+        "équilibre hydrique — plausible,",
+        "mais non prouvé en essai."
+      ]
+    },
+    {
+      "name": "Stress et sommeil comptent aussi",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Cités comme déclencheurs",
+        "indépendants de l'alimentation,",
+        "via le système nerveux autonome."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Peu risqué à tester, sans attendre de résultat garanti.",
+    "tip": "Testez moins de 2g de sodium/jour et un sommeil régulier quelques semaines, notez les crises.",
+    "cta": "Vertiges avec acouphènes et oreille bouchée qui reviennent ? Consultez un ORL."
+  },
+  "char_display_names": {
+    "소금_illust.jpg": "Sel",
+    "커피_illust.jpg": "Café"
+  }
+}

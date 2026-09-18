@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Restless legs at night,",
+    "you probably blame poor sleep —",
+    "your evening snack may be why",
+    "Three swaps to try tonight"
+  ],
+  "eyebrow": "Restless Legs, the Overlooked Triggers",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Dark Chocolate Overstimulates the Nerves",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Caffeine plus theobromine —",
+        "both stimulate the nervous",
+        "system right before bed."
+      ]
+    },
+    {
+      "name": "Alcohol Backfires Later at Night",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Relaxing at first, but it",
+        "disrupts sleep just when RLS",
+        "symptoms tend to intensify."
+      ]
+    },
+    {
+      "name": "Refined Carbs Swing Your Blood Sugar",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "A fast rise and fall in blood",
+        "sugar can stimulate the",
+        "nervous system similarly."
+      ]
+    },
+    {
+      "name": "Swap in Nuts, Egg, or Soy Milk",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Steadier on blood sugar,",
+        "and none of the caffeine-",
+        "theobromine combination."
+      ]
+    },
+    {
+      "name": "Iron Matters for Some, Not All",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Low ferritin shows up in only",
+        "10-20% of RLS cases —",
+        "get it checked, don't guess."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not just poor sleep — check what's on your plate before bed.",
+    "tip": "Swap late-night chocolate, alcohol, and sweets for nuts, a boiled egg, or soy milk.",
+    "cta": "Symptoms frequent or severe? Ask a doctor to check your ferritin before self-treating."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Dark Chocolate",
+    "두유_illust.jpg": "Soy Milk",
+    "시금치_illust.jpg": "Spinach"
+  }
+}

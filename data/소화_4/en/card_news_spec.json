@@ -1,0 +1,71 @@
+{
+  "title": [
+    "Post-lunch drowsiness,",
+    "you probably blame a full stomach —",
+    "the real cause is your blood sugar",
+    "Fix the order, fix the crash"
+  ],
+  "eyebrow": "Post-Lunch Energy Crash",
+  "cover_char_file": "흰쌀밥_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "White Rice Sets Off the Spike",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "White rice is a high-GI staple —",
+        "eaten alone, it spikes blood",
+        "sugar fast, no matter the amount."
+      ]
+    },
+    {
+      "name": "White Bread Does the Same",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Refined bread digests just as",
+        "fast as rice — the faster it",
+        "rises, the harder it crashes."
+      ]
+    },
+    {
+      "name": "Sugary Sides Make It Worse",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Candy or a sweet drink on the",
+        "side adds another fast spike",
+        "on top of the meal itself."
+      ]
+    },
+    {
+      "name": "Eat Vegetables or Protein First",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Fiber that hits your stomach",
+        "first slows down how fast the",
+        "carbs behind it get absorbed."
+      ]
+    },
+    {
+      "name": "Pair Sweets With Nuts or Soy Milk",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "A handful of almonds or unsweet-",
+        "ened soy milk blunts the spike",
+        "that follows anything sugary."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not about eating less — it's about the order.",
+    "tip": "Vegetables or protein first, rice or sweets last — that one swap flattens the crash.",
+    "cta": "Sleepy every single afternoon, or shaky and confused too? That's worth a doctor's visit."
+  },
+  "char_display_names": {
+    "흰쌀밥_illust.jpg": "White Rice",
+    "흰빵_illust.jpg": "White Bread",
+    "사탕_illust.jpg": "Candy",
+    "케일_illust.jpg": "Kale",
+    "아몬드_illust.jpg": "Almonds"
+  }
+}

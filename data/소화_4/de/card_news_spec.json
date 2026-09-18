@@ -1,0 +1,71 @@
+{
+  "title": [
+    "Müdigkeit nach dem Essen,",
+    "Sie schieben es auf den vollen Magen —",
+    "tatsächlich ist es der Blutzucker",
+    "Die Reihenfolge macht den Unterschied"
+  ],
+  "eyebrow": "Müdigkeit nach dem Essen",
+  "cover_char_file": "흰빵_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Weißbrot treibt den Blutzucker hoch",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Helles Mehl wird sehr schnell",
+        "verdaut — der Blutzucker steigt",
+        "rasch und fällt ebenso rasch."
+      ]
+    },
+    {
+      "name": "Weißer Reis wirkt genauso",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Auch weißer Reis zählt zu den",
+        "Lebensmitteln mit hohem",
+        "glykämischem Index."
+      ]
+    },
+    {
+      "name": "Süßes obendrauf verschärft es",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Bonbons oder ein süßes Getränk",
+        "zum Essen setzen noch einen",
+        "zusätzlichen Blutzuckeranstieg."
+      ]
+    },
+    {
+      "name": "Erst Gemüse oder Eiweiß essen",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Ballaststoffe, die zuerst im",
+        "Magen sind, bremsen die",
+        "folgende Kohlenhydrataufnahme."
+      ]
+    },
+    {
+      "name": "Süßes mit Mandeln oder Sojamilch",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Eiweiß und Fett daneben dämp-",
+        "fen die Blutzuckerspitze, die",
+        "sonst auf Süßes folgen würde."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nicht weniger essen — anders kombinieren.",
+    "tip": "Erst Gemüse oder Eiweiß, dann Weißbrot oder Süßes — das allein glättet die Kurve.",
+    "cta": "Jeden Tag stark müde, dazu Zittern oder Herzrasen? Das gehört ärztlich abgeklärt."
+  },
+  "char_display_names": {
+    "흰빵_illust.jpg": "Weißbrot",
+    "흰쌀밥_illust.jpg": "Weißer Reis",
+    "사탕_illust.jpg": "Bonbons",
+    "케일_illust.jpg": "Grünkohl",
+    "아몬드_illust.jpg": "Mandeln"
+  }
+}

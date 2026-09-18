@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Ménière-aanvallen,",
+    "natriumarm dieet is het standaardadvies —",
+    "maar het onderzoeksbewijs is verrassend dun",
+    "Wat echt de moeite waard is om te proberen"
+  ],
+  "eyebrow": "Ziekte van Ménière, wat het bewijs zegt",
+  "cover_char_file": "소금_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Duizeligheid + oorsuizen + verstopt oor samen",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Die combinatie, 20 min tot uren,",
+        "wijst eerder op Ménière dan",
+        "gewone duizeligheid."
+      ]
+    },
+    {
+      "name": "Weinig natrium is het standaardadvies",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Onder 2000mg/dag wordt vaak",
+        "aangeraden, maar Cochrane vond",
+        "geen onderzoeksbewijs."
+      ]
+    },
+    {
+      "name": "Cafeïne en alcohol ook beperkt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kunnen bloedvaten en vocht-",
+        "balans beïnvloeden — aannemelijk,",
+        "maar niet bewezen in onderzoek."
+      ]
+    },
+    {
+      "name": "Stress en slaap tellen ook mee",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Genoemd als triggers los van",
+        "voeding, via het autonome",
+        "zenuwstelsel."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Laag risico om te proberen — verwacht geen gegarandeerd resultaat.",
+    "tip": "Probeer een paar weken onder 2000mg natrium en vast slaapritme, houd aanvallen bij.",
+    "cta": "Duizeligheid met oorsuizen en verstopt oor blijft terugkomen? Laat je KNO-arts onderzoeken."
+  },
+  "char_display_names": {
+    "소금_illust.jpg": "Zout",
+    "커피_illust.jpg": "Koffie"
+  }
+}

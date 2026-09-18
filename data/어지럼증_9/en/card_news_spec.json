@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Menière's attacks,",
+    "low-salt diet is the standard advice —",
+    "but the trial evidence is surprisingly thin",
+    "Here's what's actually worth trying"
+  ],
+  "eyebrow": "Menière's Disease, What the Evidence Says",
+  "cover_char_file": "소금_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Vertigo + Ringing + Ear Fullness Together",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "That specific combo, lasting",
+        "20 min to hours, points to",
+        "Ménière's over common dizziness."
+      ]
+    },
+    {
+      "name": "Low Sodium Is First-Line Advice",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Under 2,000mg/day is widely",
+        "recommended, but Cochrane found",
+        "no trial evidence either way."
+      ]
+    },
+    {
+      "name": "Caffeine and Alcohol Are Also Limited",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "May affect blood vessels and",
+        "fluid balance — plausible,",
+        "but not proven in trials."
+      ]
+    },
+    {
+      "name": "Stress and Sleep Matter Too",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Named as triggers independent",
+        "of diet, via the autonomic",
+        "nervous system."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Low-risk to try, just don't expect a guaranteed fix.",
+    "tip": "Try sodium under 2,000mg/day and consistent sleep for a few weeks and track attacks.",
+    "cta": "Vertigo with ringing and ear fullness keeps recurring? Get an ENT diagnosis."
+  },
+  "char_display_names": {
+    "소금_illust.jpg": "Salt",
+    "커피_illust.jpg": "Coffee"
+  }
+}

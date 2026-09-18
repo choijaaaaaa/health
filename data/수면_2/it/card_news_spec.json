@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Gambe agitate di notte,",
+    "pensi sia il sonno scarso —",
+    "potrebbe essere la cena",
+    "3 cambi da provare stasera"
+  ],
+  "eyebrow": "Gambe senza riposo, le cause trascurate",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il cioccolato fondente sovrastimola i nervi",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Caffeina e teobromina —",
+        "entrambe sovrastimolano",
+        "il sistema nervoso la sera."
+      ]
+    },
+    {
+      "name": "L'alcol gioca contro più avanti nella notte",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Rilassa all'inizio, ma",
+        "disturba il sonno proprio",
+        "quando i sintomi peggiorano."
+      ]
+    },
+    {
+      "name": "I carboidrati raffinati fanno oscillare la glicemia",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Rialzo e calo rapidi possono",
+        "stimolare il sistema",
+        "nervoso in modo simile."
+      ]
+    },
+    {
+      "name": "Mandorle, uovo o soia al posto loro",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Più stabili per la glicemia,",
+        "senza la combinazione",
+        "caffeina-teobromina."
+      ]
+    },
+    {
+      "name": "Il ferro conta per alcuni, non per tutti",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Ferritina bassa solo nel",
+        "10-20% dei casi di RLS —",
+        "va controllata, non indovinata."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non solo sonno scarso — guarda cosa c'è nel piatto della sera.",
+    "tip": "Sostituisci cioccolato, alcol e dolci serali con mandorle, uovo sodo o bevanda di soia.",
+    "cta": "Sintomi frequenti o forti? Fai controllare la ferritina prima di curarti da solo."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Cioccolato fondente",
+    "두유_illust.jpg": "Bevanda di soia",
+    "시금치_illust.jpg": "Spinaci"
+  }
+}

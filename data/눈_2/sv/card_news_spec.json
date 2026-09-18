@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Ryckande ögonlock,",
+    "du skyller nog på magnesium —",
+    "bevisen pekar åt annat håll",
+    "Åtgärda de riktiga triggerna"
+  ],
+  "eyebrow": "Ryckande ögonlock, de riktiga orsakerna",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Magnesium är inte den starkaste kopplingen",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Två studier hittade inget",
+        "samband mellan blodmagnesium",
+        "och godartade ryckningar."
+      ]
+    },
+    {
+      "name": "Koffein har bättre stöd",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein gör nerverna till",
+        "ögonlocksmuskeln känsligare —",
+        "den drar ihop sig lättare."
+      ]
+    },
+    {
+      "name": "Trötthet förklarar de flesta fallen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Trötthet spelar in i cirka",
+        "60% av de kroniska",
+        "fallen."
+      ]
+    },
+    {
+      "name": "Dra ner på koffein i två veckor först",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Avtar ryckningarna,",
+        "låg koffeinet troligen",
+        "bakom dem."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Troligen inte magnesium — utan ditt kaffe och din sömn.",
+    "tip": "Dra ner på koffein i två veckor och prioritera sömn innan du provar ett tillskott.",
+    "cta": "Ryckningar i veckor, ögat stängs helt, eller sprider sig i ansiktet? Sök vård."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "알약_illust.jpg": "Kosttillskott",
+    "베개_illust.jpg": "Kudde"
+  }
+}

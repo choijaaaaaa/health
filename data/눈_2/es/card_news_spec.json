@@ -1,0 +1,60 @@
+{
+  "title": [
+    "El párpado que tiembla,",
+    "seguro que culpas al magnesio —",
+    "la evidencia apunta a otro lado",
+    "Corrige las causas reales"
+  ],
+  "eyebrow": "Párpado que tiembla, las causas reales",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El magnesio no es el vínculo más fuerte",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Dos estudios no encontraron",
+        "relación entre el magnesio en",
+        "sangre y el temblor benigno."
+      ]
+    },
+    {
+      "name": "La cafeína está mejor documentada",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La cafeína hace más sensibles",
+        "los nervios del párpado —",
+        "se contrae más fácilmente."
+      ]
+    },
+    {
+      "name": "El cansancio explica la mayoría de los casos",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "El cansancio está presente en",
+        "cerca del 60% de los",
+        "casos crónicos."
+      ]
+    },
+    {
+      "name": "Reducir la cafeína dos semanas primero",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Si el temblor mejora,",
+        "la cafeína era",
+        "probablemente la causa."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Probablemente no es el magnesio — es el café y el sueño.",
+    "tip": "Reduce la cafeína dos semanas y prioriza el sueño antes de un suplemento.",
+    "cta": "¿Temblor durante semanas, párpado que se cierra, o se extiende a la cara? Ve al médico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "알약_illust.jpg": "Suplemento",
+    "베개_illust.jpg": "Almohada"
+  }
+}

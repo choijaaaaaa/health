@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Menière-attacker,",
+    "saltfattig kost är standardrådet —",
+    "men studiebevisen är förvånansvärt tunna",
+    "Vad som faktiskt är värt att testa"
+  ],
+  "eyebrow": "Menieres sjukdom, vad bevisen säger",
+  "cover_char_file": "소금_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Yrsel + tinnitus + lock för örat tillsammans",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Den kombinationen, 20 min till",
+        "timmar, pekar mer mot Menieres",
+        "än vanlig yrsel."
+      ]
+    },
+    {
+      "name": "Lite natrium är standardrådet",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Under 2000mg/dag rekommenderas",
+        "ofta, men Cochrane hittade",
+        "inga studiebevis för det."
+      ]
+    },
+    {
+      "name": "Koffein och alkohol begränsas också",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kan påverka kärl och vätske-",
+        "balans — rimligt, men inte",
+        "bevisat i studier."
+      ]
+    },
+    {
+      "name": "Stress och sömn spelar också roll",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Nämns som utlösare oberoende",
+        "av kosten, via det autonoma",
+        "nervsystemet."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Lågrisk att testa — förvänta dig inget garanterat resultat.",
+    "tip": "Testa under 2000mg natrium/dag och regelbunden sömn i några veckor, notera attackerna.",
+    "cta": "Yrsel med tinnitus och lock för örat som återkommer? Sök en öron-näsa-hals-läkare."
+  },
+  "char_display_names": {
+    "소금_illust.jpg": "Salt",
+    "커피_illust.jpg": "Kaffe"
+  }
+}
