@@ -1,0 +1,60 @@
+{
+  "title": [
+    "L'odeur de pieds",
+    "vient des",
+    "bactéries,",
+    "pas du sueur"
+  ],
+  "eyebrow": "Odeur de pieds : bactéries ou mycose ?",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les bactéries créent les composés odorants",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sueur et peau morte",
+        "deviennent de l'acide",
+        "isovalérique"
+      ]
+    },
+    {
+      "name": "Des chaussures mal ventilées sont risquées",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Mêmes chaussures",
+        "chaque jour, plus de",
+        "temps aux bactéries"
+      ]
+    },
+    {
+      "name": "Démangeaisons ou fissures signalent une mycose",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Odeur seule signifie",
+        "de meilleures",
+        "habitudes suffisent"
+      ]
+    },
+    {
+      "name": "La mycose exige un traitement antifongique",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Les habitudes seules",
+        "ne suffisent",
+        "pas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "L'odeur de pieds a plus à voir avec les bactéries et les chaussures qu'avec la sueur.",
+    "tip": "Faites tourner vos chaussures pour laisser chaque paire sécher au moins 24 heures.",
+    "cta": "Démangeaisons ou peau fissurée : faites vérifier une mycose par un dermatologue."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Basket",
+    "연고_illust.jpg": "Pommade"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}

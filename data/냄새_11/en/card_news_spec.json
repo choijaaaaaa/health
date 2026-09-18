@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Foot Odor",
+    "Is Bacteria,",
+    "Not Just",
+    "Sweat"
+  ],
+  "eyebrow": "3 Signs Foot Odor Is a Fungal Infection",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Bacteria make the odor compounds",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sweat plus dead skin",
+        "becomes isovaleric",
+        "acid"
+      ]
+    },
+    {
+      "name": "Poorly ventilated shoes are risky",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Same shoes daily",
+        "let bacteria",
+        "keep multiplying"
+      ]
+    },
+    {
+      "name": "Itching or cracking signals athlete's foot",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Odor alone means",
+        "shoe habits",
+        "are enough"
+      ]
+    },
+    {
+      "name": "Athlete's foot needs antifungal treatment",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Shoe habits",
+        "alone won't",
+        "fix it"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Foot odor is more about bacteria and shoe conditions than sweat itself.",
+    "tip": "Rotate shoes so each pair gets at least 24 hours to fully dry out.",
+    "cta": "Itching or cracked skin means it's worth checking for athlete's foot with a dermatologist."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneaker",
+    "연고_illust.jpg": "Ointment"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}

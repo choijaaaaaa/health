@@ -1,0 +1,60 @@
+{
+  "title": [
+    "L'odore ai piedi",
+    "viene dai",
+    "batteri,",
+    "non dal sudore"
+  ],
+  "eyebrow": "Odore ai piedi: sudore o micosi?",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "I batteri creano i composti odorosi",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sudore e pelle morta",
+        "diventano acido",
+        "isovalerico"
+      ]
+    },
+    {
+      "name": "Scarpe poco ventilate sono rischiose",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Stesse scarpe",
+        "ogni giorno, più tempo",
+        "ai batteri"
+      ]
+    },
+    {
+      "name": "Prurito o screpolature indicano micosi",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Solo odore significa",
+        "che le abitudini",
+        "bastano"
+      ]
+    },
+    {
+      "name": "La micosi richiede antimicotico",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Le abitudini",
+        "da sole non",
+        "bastano"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "L'odore ai piedi riguarda più i batteri e le scarpe che il sudore in sé.",
+    "tip": "Alterna le scarpe così che ogni paio abbia almeno 24 ore per asciugarsi.",
+    "cta": "Prurito o pelle screpolata: fai controllare la micosi da un dermatologo."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Scarpa",
+    "연고_illust.jpg": "Pomata"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}

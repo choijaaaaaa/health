@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fußgeruch",
+    "kommt von",
+    "Bakterien,",
+    "nicht Schweiß"
+  ],
+  "eyebrow": "3 Anzeichen: Fußgeruch ist ein Pilz",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Bakterien erzeugen die Geruchsstoffe",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Schweiß plus Hautzellen",
+        "werden zu",
+        "Isovaleriansäure"
+      ]
+    },
+    {
+      "name": "Schlecht belüftete Schuhe sind riskant",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Tägliche gleiche Schuhe",
+        "lassen Bakterien",
+        "weiter vermehren"
+      ]
+    },
+    {
+      "name": "Juckreiz oder Risse zeigen Fußpilz an",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Nur Geruch heißt,",
+        "Schuhgewohnheiten",
+        "reichen aus"
+      ]
+    },
+    {
+      "name": "Fußpilz braucht antimykotische Behandlung",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Schuhgewohnheiten",
+        "allein reichen",
+        "nicht"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Fußgeruch hat mehr mit Bakterien und Schuhbedingungen zu tun als mit Schweiß.",
+    "tip": "Schuhe wechseln, damit jedes Paar mindestens 24 Stunden vollständig trocknen kann.",
+    "cta": "Juckreiz oder rissige Haut bedeuten: beim Hautarzt auf Fußpilz untersuchen lassen."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Turnschuh",
+    "연고_illust.jpg": "Salbe"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}
