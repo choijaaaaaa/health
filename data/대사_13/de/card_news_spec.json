@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vitamin-D-Mangel,",
+    "man denkt, der Sommer regelt das —",
+    "Sonnencreme und Innenräume heben es auf",
+    "4 Wege, ihn wirklich zu heben"
+  ],
+  "eyebrow": "Vitamin D, warum der Sommer nicht reicht",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Sonnencreme blockiert die Synthese",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Für den Hautschutz richtig,",
+        "senkt aber auch die",
+        "Vitamin-D-Bildung stark."
+      ]
+    },
+    {
+      "name": "Innenraumzeit summiert sich",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Sonnenzeit auf unbedeckter Haut",
+        "bleibt weit hinter der",
+        "Jahreszeit zurück."
+      ]
+    },
+    {
+      "name": "Auch mit Insulinresistenz verbunden",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Niedriges Vitamin D ist mit",
+        "höheren Insulinresistenz-",
+        "Markern assoziiert."
+      ]
+    },
+    {
+      "name": "Pilze, Fisch, Eigelb, 15 Minuten",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Sonnengetrocknete Shiitake,",
+        "fetter Fisch, Eigelb,",
+        "kurze Mittagssonne."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Sommer allein reicht nicht — den tatsächlichen Wert prüfen.",
+    "tip": "Shiitake in der Sonne, zweimal Fisch pro Woche, Eigelb, 15 Minuten Sonne auf der Haut.",
+    "cta": "Schon Insulinresistenz diagnostiziert? Vor mehr Präparat erst mit der Praxis sprechen."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Shiitake-Pilz",
+    "연어_illust.jpg": "Lachs"
+  }
+}

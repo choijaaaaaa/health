@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Deficiencia de vitamina D,",
+    "crees que el verano basta —",
+    "protector solar e interiores la anulan",
+    "4 formas de subirla de verdad"
+  ],
+  "eyebrow": "Vitamina D, por qué el verano no basta",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El protector solar bloquea la síntesis",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Correcto para la piel, pero",
+        "reduce mucho la",
+        "producción de vitamina D."
+      ]
+    },
+    {
+      "name": "El tiempo en interiores se suma",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "La exposición real al sol",
+        "queda muy por debajo de",
+        "lo que sugiere la estación."
+      ]
+    },
+    {
+      "name": "También ligada a la resistencia a la insulina",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "La vitamina D baja se asocia",
+        "a marcadores más altos",
+        "de resistencia a la insulina."
+      ]
+    },
+    {
+      "name": "Setas, pescado, yema, 15 minutos",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Shiitake secas al sol,",
+        "pescado azul, yema,",
+        "sol breve al mediodía."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "El verano solo no basta — revisa tu nivel real.",
+    "tip": "Shiitake al sol, pescado azul dos veces por semana, yema de huevo, 15 minutos de sol.",
+    "cta": "¿Ya tienes resistencia a la insulina diagnosticada? Habla con tu médico antes de subir la dosis."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Seta shiitake",
+    "연어_illust.jpg": "Salmón"
+  }
+}

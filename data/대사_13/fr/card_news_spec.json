@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Carence en vitamine D,",
+    "on pense que l'été suffit —",
+    "crème solaire et intérieur l'annulent",
+    "4 façons de vraiment la remonter"
+  ],
+  "eyebrow": "Vitamine D, pourquoi l'été ne suffit pas",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "La crème solaire bloque la synthèse",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Bonne pour la peau, mais",
+        "réduit fortement la",
+        "production de vitamine D."
+      ]
+    },
+    {
+      "name": "Le temps en intérieur s'additionne",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "L'exposition réelle au soleil",
+        "reste bien en dessous",
+        "de ce que suggère la saison."
+      ]
+    },
+    {
+      "name": "Aussi lié à la résistance à l'insuline",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "La vitamine D basse est liée",
+        "à des marqueurs de résistance",
+        "à l'insuline plus élevés."
+      ]
+    },
+    {
+      "name": "Champignons, poisson, jaune, 15 min",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Shiitakés séchés au soleil,",
+        "poisson gras, jaune d'œuf,",
+        "soleil bref à midi."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "L'été seul ne suffit pas — vérifiez votre taux réel.",
+    "tip": "Shiitakés au soleil, poisson gras deux fois par semaine, jaune d'œuf, 15 min de soleil.",
+    "cta": "Déjà une résistance à l'insuline diagnostiquée ? Parlez-en à votre médecin avant d'augmenter."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Champignon shiitaké",
+    "연어_illust.jpg": "Saumon"
+  }
+}
