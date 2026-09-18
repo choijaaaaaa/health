@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La palpebra che trema,",
+    "pensi sia il magnesio —",
+    "le prove dicono altro",
+    "Correggi le vere cause"
+  ],
+  "eyebrow": "Palpebra che trema, le vere cause",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il magnesio non è il legame più forte",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Due studi non hanno trovato",
+        "legami tra magnesio nel sangue",
+        "e tremolio benigno."
+      ]
+    },
+    {
+      "name": "La caffeina è più documentata",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caffeina rende i nervi della",
+        "palpebra più sensibili —",
+        "si contrae più facilmente."
+      ]
+    },
+    {
+      "name": "La stanchezza spiega la maggioranza dei casi",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "La stanchezza è presente in",
+        "circa il 60% dei casi",
+        "cronici."
+      ]
+    },
+    {
+      "name": "Ridurre la caffeina per due settimane",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Se il tremolio si attenua,",
+        "la caffeina era",
+        "probabilmente la causa."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Probabilmente non è il magnesio — sono caffè e sonno.",
+    "tip": "Riduci la caffeina per due settimane e proteggi il sonno prima di un integratore.",
+    "cta": "Tremolio da settimane, occhio che si chiude, o si estende al viso? Vai dal medico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "알약_illust.jpg": "Integratore",
+    "베개_illust.jpg": "Cuscino"
+  }
+}

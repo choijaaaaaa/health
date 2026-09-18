@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Eyelid twitching,",
+    "you probably blame magnesium —",
+    "the evidence points elsewhere",
+    "Fix the real triggers instead"
+  ],
+  "eyebrow": "Eyelid Twitching, the Real Causes",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Magnesium Isn't the Strongest Link",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Two studies found no link between",
+        "blood magnesium and benign",
+        "eyelid twitching — surprising, but real."
+      ]
+    },
+    {
+      "name": "Caffeine Is Better Supported",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Caffeine makes the nerves feeding",
+        "your eyelid muscle fire more",
+        "easily on their own."
+      ]
+    },
+    {
+      "name": "Fatigue Drives Most Chronic Cases",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Tiredness is a factor in about",
+        "60% of chronic cases —",
+        "more sleep often helps most."
+      ]
+    },
+    {
+      "name": "Cut Caffeine for Two Weeks First",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "If the twitch fades, caffeine",
+        "was likely the driver —",
+        "no supplement needed."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's probably not magnesium — it's your coffee and your sleep.",
+    "tip": "Cut caffeine for two weeks and protect sleep before reaching for a supplement.",
+    "cta": "Twitching for weeks, eye closing fully, or spreading to your face? See a doctor."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "알약_illust.jpg": "Supplement",
+    "베개_illust.jpg": "Pillow"
+  }
+}

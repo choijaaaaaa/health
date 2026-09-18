@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Augenlidzucken,",
+    "Sie vermuten Magnesiummangel —",
+    "die Beweislage zeigt woanders hin",
+    "Die echten Auslöser angehen"
+  ],
+  "eyebrow": "Augenlidzucken, die echten Ursachen",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Magnesium ist nicht der stärkste Zusammenhang",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Zwei Studien fanden keinen",
+        "Zusammenhang zwischen Blutmagnesium",
+        "und gutartigem Lidzucken."
+      ]
+    },
+    {
+      "name": "Koffein ist besser belegt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Koffein macht die Nerven zum",
+        "Lidmuskel reizbarer —",
+        "er feuert leichter von selbst."
+      ]
+    },
+    {
+      "name": "Erschöpfung erklärt die meisten Fälle",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Müdigkeit spielt bei rund",
+        "60% der chronischen Fälle",
+        "eine Rolle."
+      ]
+    },
+    {
+      "name": "Erst zwei Wochen ohne viel Koffein",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Lässt das Zucken nach,",
+        "steckte wahrscheinlich der",
+        "Kaffee dahinter."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wahrscheinlich nicht Magnesium — sondern Kaffee und Schlaf.",
+    "tip": "Erst zwei Wochen weniger Koffein und mehr Schlaf, bevor Sie zu Magnesium greifen.",
+    "cta": "Wochenlanges Zucken, komplettes Schließen oder Ausbreitung im Gesicht? Zum Arzt."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee",
+    "알약_illust.jpg": "Nahrungsergänzung",
+    "베개_illust.jpg": "Kissen"
+  }
+}

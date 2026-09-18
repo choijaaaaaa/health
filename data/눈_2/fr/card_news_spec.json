@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La paupière qui tremble,",
+    "vous accusez le magnésium —",
+    "les preuves pointent ailleurs",
+    "Corrigez les vrais déclencheurs"
+  ],
+  "eyebrow": "Paupière qui tremble, les vraies causes",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le magnésium n'est pas le lien le plus fort",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Deux études n'ont trouvé aucun",
+        "lien entre magnésium sanguin",
+        "et tremblement bénin."
+      ]
+    },
+    {
+      "name": "La caféine est mieux documentée",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "La caféine rend les nerfs de",
+        "la paupière plus sensibles —",
+        "elle se contracte plus facilement."
+      ]
+    },
+    {
+      "name": "La fatigue explique la majorité des cas",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "La fatigue est présente dans",
+        "environ 60% des cas",
+        "chroniques."
+      ]
+    },
+    {
+      "name": "Réduire la caféine deux semaines d'abord",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Si le tremblement s'atténue,",
+        "la caféine en était",
+        "probablement la cause."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'est probablement pas le magnésium — c'est le café et le sommeil.",
+    "tip": "Réduisez la caféine deux semaines et protégez votre sommeil avant un complément.",
+    "cta": "Tremblement depuis des semaines, œil qui se ferme, ou qui s'étend au visage ? Consultez."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "알약_illust.jpg": "Complément",
+    "베개_illust.jpg": "Oreiller"
+  }
+}
