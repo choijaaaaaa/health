@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Mareo que",
+    "aparece solo con",
+    "ciertos movimientos",
+    "de cabeza"
+  ],
+  "eyebrow": "Mareo que aparece solo al mover la cabeza",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Los cristales flotan hacia los canales",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "El movimiento envía",
+        "una señal falsa",
+        "de rotación"
+      ]
+    },
+    {
+      "name": "Breve, segundos hasta un minuto",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sin zumbidos,",
+        "sin pérdida",
+        "auditiva"
+      ]
+    },
+    {
+      "name": "Acostarse mucho tiempo lo empeora",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "El reposo puede",
+        "retrasar la",
+        "recuperación"
+      ]
+    },
+    {
+      "name": "Dolor de cabeza y visión doble: emergencia",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Podría ser un ACV —",
+        "ve a",
+        "urgencias"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un mareo breve desencadenado por un movimiento preciso hace sospechar VPPB.",
+    "tip": "La maniobra de Epley suele traer una mejora notable en una o dos sesiones.",
+    "cta": "Dolor de cabeza intenso o dificultad para hablar: urgencias; si no, un otorrino."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Almohada"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vertiges",
+    "déclenchés par",
+    "les mouvements",
+    "de tête"
+  ],
+  "eyebrow": "Un vertige qui ne survient qu'à certains mouvements de tête",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Des cristaux dérivent dans les canaux",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Le mouvement envoie",
+        "un faux signal",
+        "de rotation"
+      ]
+    },
+    {
+      "name": "Bref, secondes à une minute",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Pas d'acouphènes,",
+        "pas de perte",
+        "auditive"
+      ]
+    },
+    {
+      "name": "Rester allongé aggrave la situation",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "L'alitement peut",
+        "ralentir la",
+        "guérison"
+      ]
+    },
+    {
+      "name": "Maux de tête et vision double : urgence",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Peut être un AVC —",
+        "direction les",
+        "urgences"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un vertige bref déclenché par un mouvement précis de tête fait penser au VPPB.",
+    "tip": "La manœuvre d'Epley apporte souvent une nette amélioration en une ou deux séances.",
+    "cta": "Maux de tête intenses ou élocution empâtée : urgences ; sinon consultez un ORL."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Oreiller"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Duizeligheid",
+    "die alleen bij",
+    "hoofdbeweging",
+    "toeslaat"
+  ],
+  "eyebrow": "Duizeligheid die alleen toeslaat bij een hoofdbeweging",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Kristallen komen in de kanalen terecht",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Beweging stuurt",
+        "een vals",
+        "draaisignaal"
+      ]
+    },
+    {
+      "name": "Kort, seconden tot een minuut",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Geen oorsuizen,",
+        "geen gehoor-",
+        "verlies"
+      ]
+    },
+    {
+      "name": "Lang plat liggen maakt het erger",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bedrust kan",
+        "herstel",
+        "vertragen"
+      ]
+    },
+    {
+      "name": "Hoofdpijn plus dubbelzien is spoed",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Kan een beroerte",
+        "zijn — naar de",
+        "spoedeisende hulp"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kort draaiende duizeligheid bij een specifieke hoofdbeweging doet BPPD vermoeden.",
+    "tip": "De Epley-manoeuvre bij een arts brengt vaak al na een of twee sessies duidelijke verbetering.",
+    "cta": "Hevige hoofdpijn of onduidelijk spreken: spoedeisende hulp; anders naar een KNO-arts."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kussen"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}

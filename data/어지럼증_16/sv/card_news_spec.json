@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Yrsel som",
+    "bara kommer vid",
+    "vissa huvud-",
+    "rörelser"
+  ],
+  "eyebrow": "Yrsel som bara kommer vid vissa huvudrörelser",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Kristaller hamnar i kanalerna",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Rörelsen skickar",
+        "en falsk",
+        "snurrsignal"
+      ]
+    },
+    {
+      "name": "Kort, sekunder till en minut",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Ingen tinnitus,",
+        "ingen hörsel-",
+        "nedsättning"
+      ]
+    },
+    {
+      "name": "Att ligga ner länge förvärrar det",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sängvila kan",
+        "sakta ner",
+        "återhämtningen"
+      ]
+    },
+    {
+      "name": "Huvudvärk plus dubbelseende är akut",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Kan vara stroke —",
+        "gå till",
+        "akuten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kort snurrande yrsel vid en specifik huvudrörelse väcker misstanke om BPPV.",
+    "tip": "Epleymanövern hos läkare ger ofta tydlig förbättring redan efter en eller två behandlingar.",
+    "cta": "Svår huvudvärk eller sluddrigt tal: akuten; annars boka tid hos en öron-näsa-hals-läkare."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kudde"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}
