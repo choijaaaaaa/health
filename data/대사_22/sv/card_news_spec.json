@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Alltid trött",
+    "är inte alltid",
+    "bara",
+    "stress"
+  ],
+  "eyebrow": "Alltid trött är inte alltid bara stress",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Lite hormon saktar ner ämnesomsättningen",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Trötthet, vikt,",
+        "kyla, förstoppning",
+        "kommer tillsammans"
+      ]
+    },
+    {
+      "name": "Trötthet som vila inte löser",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Vanlig trötthet",
+        "släpper med",
+        "vila"
+      ]
+    },
+    {
+      "name": "Kvinnor, ärftlighet, 60+ i riskzonen",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Strax efter",
+        "förlossningen räknas",
+        "också"
+      ]
+    },
+    {
+      "name": "Ett blodprov bekräftar det",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "TSH-provet är",
+        "enkelt",
+        "och snabbt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Trötthet som vila inte löser, med viktuppgång, köldkänsla eller förstoppning, är värt att testa.",
+    "tip": "Ett enkelt TSH-blodprov kan bekräfta en trög sköldkörtel.",
+    "cta": "Väl diagnostiserad håller en daglig tablett plus uppföljande blodprov dosen rätt."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Sköldkörtel",
+    "혈액검사_illust.jpg": "Blodprov"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

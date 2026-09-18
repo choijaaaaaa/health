@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Tu cansancio",
+    "constante podría",
+    "ser la",
+    "tiroides"
+  ],
+  "eyebrow": "Tu cansancio constante podría ser la tiroides",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Poca hormona ralentiza el metabolismo",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Cansancio, peso,",
+        "frío, estreñimiento",
+        "llegan juntos"
+      ]
+    },
+    {
+      "name": "Cansancio que el descanso no resuelve",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "El cansancio simple",
+        "se va con",
+        "el descanso"
+      ]
+    },
+    {
+      "name": "Mujeres, antecedentes, más de 60 en riesgo",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Justo tras el",
+        "parto también",
+        "cuenta"
+      ]
+    },
+    {
+      "name": "Un análisis de sangre lo confirma",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "La prueba TSH",
+        "es simple",
+        "y rápida"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un cansancio que el descanso no resuelve, con peso, frío o estreñimiento, merece un análisis.",
+    "tip": "Un simple análisis de sangre de TSH puede confirmar el hipotiroidismo.",
+    "cta": "Una vez diagnosticado, una pastilla diaria y análisis de seguimiento ajustan la dosis."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Tiroides",
+    "혈액검사_illust.jpg": "Análisis de sangre"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

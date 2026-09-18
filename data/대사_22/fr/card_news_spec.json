@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Et si votre",
+    "fatigue venait",
+    "de la",
+    "thyroïde ?"
+  ],
+  "eyebrow": "Et si votre fatigue venait de la thyroïde ?",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Un manque d'hormone ralentit tout",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Fatigue, prise de poids,",
+        "froid, constipation",
+        "arrivent ensemble"
+      ]
+    },
+    {
+      "name": "Une fatigue que le repos ne corrige pas",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "La fatigue simple",
+        "disparaît avec",
+        "le repos"
+      ]
+    },
+    {
+      "name": "Femmes, antécédents, plus de 60 ans à risque",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Juste après",
+        "l'accouchement",
+        "compte aussi"
+      ]
+    },
+    {
+      "name": "Une prise de sang confirme tout",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Le test TSH",
+        "est simple",
+        "et rapide"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Une fatigue que le repos ne corrige pas, avec prise de poids, froid ou constipation, mérite un test.",
+    "tip": "Une simple prise de sang mesurant la TSH peut confirmer une hypothyroïdie.",
+    "cta": "Une fois diagnostiquée, un comprimé quotidien et un suivi sanguin ajustent la dose."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Thyroïde",
+    "혈액검사_illust.jpg": "Prise de sang"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}
