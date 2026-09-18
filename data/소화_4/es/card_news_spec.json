@@ -1,0 +1,71 @@
+{
+  "title": [
+    "El sueño después de comer,",
+    "seguro que culpas al estómago lleno —",
+    "en realidad es la glucosa",
+    "Cambia el orden, cambia el bajón"
+  ],
+  "eyebrow": "Sueño después de comer",
+  "cover_char_file": "흰빵_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El pan blanco dispara la glucosa",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Harina refinada, digestión",
+        "rápida — la glucosa sube",
+        "deprisa y baja igual de rápido."
+      ]
+    },
+    {
+      "name": "El arroz blanco hace lo mismo",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "También tiene un índice",
+        "glucémico alto — solo, sube",
+        "el azúcar muy rápido."
+      ]
+    },
+    {
+      "name": "El dulce de más empeora la caída",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Un caramelo o una bebida",
+        "azucarada de postre añade",
+        "un segundo pico encima."
+      ]
+    },
+    {
+      "name": "Verdura o proteína primero",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "La fibra que llega antes",
+        "ralentiza la absorción del",
+        "hidrato que viene después."
+      ]
+    },
+    {
+      "name": "Dulce siempre con almendras o soja",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Proteína y grasa buena al lado",
+        "suavizan el pico que sigue",
+        "a algo dulce."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No se trata de comer menos, sino del orden.",
+    "tip": "Verdura o proteína primero, arroz o dulce después — con eso el bajón es mucho más suave.",
+    "cta": "¿Sueño fuerte todos los días, con temblores o palpitaciones? Coméntalo con tu médico."
+  },
+  "char_display_names": {
+    "흰빵_illust.jpg": "Pan blanco",
+    "흰쌀밥_illust.jpg": "Arroz blanco",
+    "사탕_illust.jpg": "Caramelos",
+    "케일_illust.jpg": "Col rizada",
+    "아몬드_illust.jpg": "Almendras"
+  }
+}

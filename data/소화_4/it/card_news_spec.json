@@ -1,0 +1,71 @@
+{
+  "title": [
+    "Sonnolenza dopo pranzo,",
+    "pensi sia lo stomaco pieno —",
+    "in realtà è la glicemia",
+    "Basta cambiare l'ordine"
+  ],
+  "eyebrow": "Sonnolenza post-pranzo",
+  "cover_char_file": "흰쌀밥_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il riso bianco fa salire la glicemia",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Il riso bianco ha un indice",
+        "glicemico alto — da solo fa",
+        "salire lo zucchero in fretta."
+      ]
+    },
+    {
+      "name": "Anche il pane bianco fa lo stesso",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Farina raffinata, digestione",
+        "veloce — sale in fretta e",
+        "scende altrettanto in fretta."
+      ]
+    },
+    {
+      "name": "I dolci in più peggiorano il crollo",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Una caramella o una bevanda",
+        "dolce a fine pasto aggiunge",
+        "un secondo picco."
+      ]
+    },
+    {
+      "name": "Verdure o proteine prima del piatto",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Le fibre che arrivano prima",
+        "rallentano l'assorbimento dei",
+        "carboidrati che seguono."
+      ]
+    },
+    {
+      "name": "Dolci insieme a mandorle o soia",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Proteine e grassi buoni accanto",
+        "attenuano il picco che segue",
+        "un alimento dolce."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non mangiare meno — cambiare l'ordine.",
+    "tip": "Verdure o proteine prima, pasta o dolci dopo — basta questo per appiattire la curva.",
+    "cta": "Sonnolenza forte ogni giorno, con tremori o battito accelerato? Meglio parlarne con un medico."
+  },
+  "char_display_names": {
+    "흰쌀밥_illust.jpg": "Riso bianco",
+    "흰빵_illust.jpg": "Pane bianco",
+    "사탕_illust.jpg": "Caramelle",
+    "케일_illust.jpg": "Cavolo riccio",
+    "아몬드_illust.jpg": "Mandorle"
+  }
+}

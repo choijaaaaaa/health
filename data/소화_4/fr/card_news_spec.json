@@ -1,0 +1,71 @@
+{
+  "title": [
+    "La somnolence après le repas,",
+    "on accuse souvent l'estomac plein —",
+    "c'est en fait la glycémie",
+    "Changer l'ordre change tout"
+  ],
+  "eyebrow": "Somnolence après le repas",
+  "cover_char_file": "흰쌀밥_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le riz blanc fait grimper la glycémie",
+      "char_file": "흰쌀밥_illust.jpg",
+      "body": [
+        "Le riz blanc a un index",
+        "glycémique élevé — seul, il fait",
+        "monter le sucre très vite."
+      ]
+    },
+    {
+      "name": "Le pain blanc suit le même chemin",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Farine raffinée digérée vite,",
+        "montée rapide, chute rapide",
+        "juste après."
+      ]
+    },
+    {
+      "name": "Le sucré en plus aggrave la chute",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Un bonbon ou une boisson",
+        "sucrée en dessert ajoute un",
+        "second pic sur le repas."
+      ]
+    },
+    {
+      "name": "Légumes ou protéines en premier",
+      "char_file": "케일_illust.jpg",
+      "body": [
+        "Les fibres qui arrivent en",
+        "premier ralentissent l'absorp-",
+        "tion des glucides qui suivent."
+      ]
+    },
+    {
+      "name": "Sucré + amandes ou lait de soja",
+      "char_file": "아몬드_illust.jpg",
+      "body": [
+        "Protéines et bonnes graisses",
+        "à côté atténuent le pic qui",
+        "suit un aliment sucré."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas moins manger — changer l'ordre.",
+    "tip": "Légumes ou protéines d'abord, féculents ou sucré ensuite — ça suffit à lisser la courbe.",
+    "cta": "Somnolence sévère tous les jours, avec tremblements ou palpitations ? Direction un médecin."
+  },
+  "char_display_names": {
+    "흰쌀밥_illust.jpg": "Riz blanc",
+    "흰빵_illust.jpg": "Pain blanc",
+    "사탕_illust.jpg": "Bonbons",
+    "케일_illust.jpg": "Chou kale",
+    "아몬드_illust.jpg": "Amandes"
+  }
+}
