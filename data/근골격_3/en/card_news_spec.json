@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Night leg cramps,",
+    "feels like bad luck —",
+    "coffee, alcohol, and salty food are draining minerals",
+    "The Real Electrolyte Fix"
+  ],
+  "eyebrow": "Night Leg Cramps, the Real Drivers",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Coffee's Mild Diuretic Effect",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Flushes out calcium and",
+        "magnesium along with",
+        "extra urine output."
+      ]
+    },
+    {
+      "name": "Alcohol Drains Faster, Especially at Night",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "A drink close to bedtime is",
+        "more likely followed by",
+        "a cramp than one earlier."
+      ]
+    },
+    {
+      "name": "Salty Processed Food Tips the Balance",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Excess sodium throws off",
+        "the whole electrolyte",
+        "ratio your muscles rely on."
+      ]
+    },
+    {
+      "name": "Magnesium Pills? Evidence Is Mixed",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "No significant benefit in",
+        "trials for most adults —",
+        "hydration habits matter more."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not bad luck — check your coffee, alcohol, and salt.",
+    "tip": "Water with your coffee and alcohol, potassium-rich food instead of processed meat.",
+    "cta": "Cramps most nights, or with numbness or weakness? Talk to a doctor."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "바나나_illust.jpg": "Banana"
+  }
+}

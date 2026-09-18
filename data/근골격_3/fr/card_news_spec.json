@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Crampes nocturnes aux mollets,",
+    "on dirait de la malchance —",
+    "café, alcool et charcuterie évacuent",
+    "les minéraux dont vos muscles ont besoin"
+  ],
+  "eyebrow": "Crampes nocturnes, les vraies causes",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "L'effet diurétique léger du café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Évacue calcium et magnésium",
+        "avec le surplus",
+        "d'urine."
+      ]
+    },
+    {
+      "name": "L'alcool évacue plus, surtout la nuit",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un verre près du coucher",
+        "est plus souvent suivi",
+        "d'une crampe."
+      ]
+    },
+    {
+      "name": "La charcuterie salée déséquilibre tout",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "L'excès de sodium perturbe",
+        "tout le ratio",
+        "d'électrolytes."
+      ]
+    },
+    {
+      "name": "Magnésium en comprimé ? Preuves mitigées",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Pas de bénéfice significatif",
+        "en essai pour la plupart —",
+        "l'hydratation compte plus."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas de malchance — regardez café, alcool et sel.",
+    "tip": "De l'eau avec le café et l'alcool, des aliments riches en potassium plutôt que de la charcuterie.",
+    "cta": "Crampes presque toutes les nuits, avec engourdissement ? Consultez un médecin."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "바나나_illust.jpg": "Banane"
+  }
+}
