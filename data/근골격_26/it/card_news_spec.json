@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Formicolio alla mano",
+    "che non migliora?",
+    "Controllate anulare e mignolo",
+    "Non è il tunnel carpale: 3 segnali"
+  ],
+  "eyebrow": "Formicolio alla mano, dove si nasconde la vera causa",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Lato pollice = tunnel carpale",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Pollice, indice, medio",
+        "intorpiditi: nervo",
+        "mediano compresso."
+      ]
+    },
+    {
+      "name": "Lato mignolo = stretto toracico",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Anulare, mignolo",
+        "intorpiditi: fascio",
+        "nervoso compresso."
+      ]
+    },
+    {
+      "name": "Le braccia alzate peggiorano tutto",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Alzare le braccia o",
+        "portare borse pesanti",
+        "scatenano i sintomi."
+      ]
+    },
+    {
+      "name": "Lo stretching di spalle aiuta",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Una postura curva",
+        "restringe lo spazio",
+        "che comprime il nervo."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Più formicolio su anulare e mignolo? Guardate la spalla, non il polso.",
+    "tip": "Riducete i movimenti sopra la testa, portate le borse su entrambe le spalle, fate stretching.",
+    "cta": "Gonfiore o cambio di colore del braccio? Non aspettate — consultate un medico."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dita",
+    "폼롤러_illust.jpg": "Foam roller"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

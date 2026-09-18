@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Engourdissement de la main",
+    "qui ne s'améliore pas ?",
+    "Regardez annulaire et auriculaire",
+    "Pas le canal carpien : 3 signes"
+  ],
+  "eyebrow": "Engourdissement de la main, où se cache la vraie cause",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Côté pouce = canal carpien",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Pouce, index, majeur",
+        "engourdis : nerf",
+        "médian comprimé."
+      ]
+    },
+    {
+      "name": "Côté auriculaire = défilé thoracique",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Annulaire, auriculaire",
+        "engourdis : faisceau",
+        "nerveux comprimé."
+      ]
+    },
+    {
+      "name": "Les bras levés aggravent",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Lever les bras ou",
+        "porter un sac lourd",
+        "déclenchent les symptômes."
+      ]
+    },
+    {
+      "name": "Étirements d'épaule aident",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Une posture voûtée",
+        "rétrécit l'espace",
+        "qui comprime le nerf."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Plus d'engourdissement côté annulaire et auriculaire ? Regardez l'épaule, pas le poignet.",
+    "tip": "Réduisez les mouvements au-dessus de la tête, portez les sacs sur les deux épaules, étirez-vous.",
+    "cta": "Gonflement ou changement de couleur du bras ? Consultez immédiatement."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Doigts",
+    "폼롤러_illust.jpg": "Rouleau de massage"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

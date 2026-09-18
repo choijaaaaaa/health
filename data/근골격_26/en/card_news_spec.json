@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Hand numbness that",
+    "won't improve?",
+    "Check your ring and pinky finger",
+    "3 Signs It's Not Carpal Tunnel"
+  ],
+  "eyebrow": "Hand Numbness, Where the Real Cause Hides",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Thumb-Side = Carpal Tunnel",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Thumb, index, middle",
+        "numb means the",
+        "median nerve is pinched."
+      ]
+    },
+    {
+      "name": "Pinky-Side = Thoracic Outlet",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ring and pinky numb",
+        "means the nerve",
+        "bundle is compressed."
+      ]
+    },
+    {
+      "name": "Overhead Motion Makes It Worse",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Raising arms overhead",
+        "or shoulder bags",
+        "trigger symptoms."
+      ]
+    },
+    {
+      "name": "Shoulder-Opening Stretches Help",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Rounded posture",
+        "narrows the space",
+        "that pinches the nerve."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "More numbness in the ring and pinky finger? Look at your shoulder, not your wrist.",
+    "tip": "Cut back on overhead arm motion, carry bags on both shoulders, stretch daily.",
+    "cta": "Arm swelling or color change? Don't wait — see a doctor."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Fingers",
+    "폼롤러_illust.jpg": "Foam Roller"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

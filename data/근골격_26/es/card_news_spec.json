@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Hormigueo en la mano",
+    "que no mejora?",
+    "Revisa anular y meñique",
+    "No es túnel carpiano: 3 señales"
+  ],
+  "eyebrow": "Hormigueo en la mano, dónde se esconde la causa real",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "Lado pulgar = túnel carpiano",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Pulgar, índice, medio",
+        "con hormigueo:",
+        "nervio mediano."
+      ]
+    },
+    {
+      "name": "Lado meñique = desfiladero torácico",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Anular, meñique",
+        "con hormigueo: haz",
+        "nervioso comprimido."
+      ]
+    },
+    {
+      "name": "Los brazos arriba empeoran todo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Levantar brazos o",
+        "cargar bolsos pesados",
+        "desencadenan síntomas."
+      ]
+    },
+    {
+      "name": "Los estiramientos de hombro ayudan",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Una postura encorvada",
+        "estrecha el espacio",
+        "que comprime el nervio."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "¿Más hormigueo en anular y meñique? Mira el hombro, no la muñeca.",
+    "tip": "Reduce los movimientos sobre la cabeza, lleva bolsos en ambos hombros, estírate a diario.",
+    "cta": "¿Hinchazón o cambio de color en el brazo? No esperes — consulta de inmediato."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dedos",
+    "폼롤러_illust.jpg": "Rodillo de espuma"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}
