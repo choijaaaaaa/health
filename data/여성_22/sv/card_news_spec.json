@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Cellförändringar på",
+    "livmoderhalsen känns inte —",
+    "screening hittar dem",
+    "3 saker som faktiskt hjälper"
+  ],
+  "eyebrow": "Cellförändringar, varför inga symtom",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Börjar med kvarstående HPV",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "De flesta HPV-infektioner",
+        "läker ut inom",
+        "1-2 år."
+      ]
+    },
+    {
+      "name": "Lindriga fall följs upp",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 innebär oftast",
+        "kontroll efter",
+        "ett år."
+      ]
+    },
+    {
+      "name": "Rökning ökar risken",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Försvagar immuncellernas",
+        "förmåga att",
+        "rensa bort HPV."
+      ]
+    },
+    {
+      "name": "HPV-vaccinet förebygger",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Blockerar högrisk-",
+        "HPV-typerna",
+        "bakom det."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inga symtom är normalt — regelbunden screening är enda sättet att upptäcka det tidigt.",
+    "tip": "Följ screening som passar din ålder, fråga om vaccinet, sluta röka.",
+    "cta": "Fått ett cellförändringssvar? Prata med en gynekolog om planen för din grad."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vaccin",
+    "담배_illust.jpg": "Cigarett"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La dysplasie du col",
+    "ne se ressent pas —",
+    "c'est le dépistage qui la trouve",
+    "3 gestes qui aident vraiment"
+  ],
+  "eyebrow": "Dysplasie du col, pourquoi aucun symptôme",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Débute avec un HPV persistant",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "La plupart des HPV",
+        "disparaissent en",
+        "1-2 ans."
+      ]
+    },
+    {
+      "name": "Les cas légers sont surveillés",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 veut souvent dire",
+        "un nouveau test",
+        "dans un an."
+      ]
+    },
+    {
+      "name": "Le tabac augmente le risque",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Affaiblit la capacité",
+        "des cellules immunitaires",
+        "à éliminer le HPV."
+      ]
+    },
+    {
+      "name": "Le vaccin HPV prévient",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Bloque les types de",
+        "HPV à haut risque",
+        "responsables."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas de symptôme, c'est normal — le dépistage régulier reste le seul moyen de la repérer tôt.",
+    "tip": "Suivez le dépistage adapté à votre âge, renseignez-vous sur le vaccin, arrêtez de fumer.",
+    "cta": "Résultat de dysplasie ? Parlez-en avec un gynécologue du suivi adapté au grade."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vaccin",
+    "담배_illust.jpg": "Cigarette"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}

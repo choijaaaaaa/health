@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Cervical dysplasia",
+    "isn't something you feel —",
+    "screening is how it's found",
+    "3 Things That Actually Help"
+  ],
+  "eyebrow": "Cervical Dysplasia, Why There Are No Symptoms",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Starts With Lingering HPV",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Most HPV clears",
+        "naturally within",
+        "1-2 years."
+      ]
+    },
+    {
+      "name": "Mild Cases Get Monitored",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 usually just",
+        "means a repeat test",
+        "in a year."
+      ]
+    },
+    {
+      "name": "Smoking Raises the Risk",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Weakens immune cells'",
+        "ability to clear",
+        "HPV."
+      ]
+    },
+    {
+      "name": "HPV Vaccine Prevents It",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Blocks the high-risk",
+        "HPV types behind",
+        "dysplasia."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No symptoms is normal — regular screening is the only way to catch it early.",
+    "tip": "Keep up with age-appropriate screening, ask about the vaccine, and quit smoking.",
+    "cta": "Got a dysplasia result? Talk to an OB-GYN about the plan for your grade."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vaccine",
+    "담배_illust.jpg": "Cigarette"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La displasia cervicale",
+    "non si sente —",
+    "è lo screening a trovarla",
+    "3 cose che aiutano davvero"
+  ],
+  "eyebrow": "Displasia cervicale, perché non dà sintomi",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Inizia con l'HPV persistente",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "La maggior parte dell'HPV",
+        "si risolve in",
+        "1-2 anni."
+      ]
+    },
+    {
+      "name": "I casi lievi si monitorano",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 significa di solito",
+        "un nuovo controllo",
+        "a un anno."
+      ]
+    },
+    {
+      "name": "Il fumo aumenta il rischio",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Indebolisce la capacità",
+        "delle cellule immunitarie",
+        "di eliminare l'HPV."
+      ]
+    },
+    {
+      "name": "Il vaccino anti-HPV previene",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Blocca i tipi di HPV",
+        "ad alto rischio",
+        "responsabili."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nessun sintomo è normale — lo screening regolare è l'unico modo per scoprirla presto.",
+    "tip": "Seguite lo screening adatto alla vostra età, informatevi sul vaccino, smettete di fumare.",
+    "cta": "Risultato di displasia? Parlatene con un ginecologo del piano adatto al grado."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vaccino",
+    "담배_illust.jpg": "Sigaretta"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}

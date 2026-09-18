@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Baarmoederhalsdysplasie",
+    "voel je niet —",
+    "onderzoek vindt het",
+    "3 dingen die echt helpen"
+  ],
+  "eyebrow": "Baarmoederhalsdysplasie, waarom geen klachten",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Begint met aanhoudende HPV",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "De meeste HPV",
+        "verdwijnt binnen",
+        "1-2 jaar."
+      ]
+    },
+    {
+      "name": "Lichte gevallen worden gevolgd",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 betekent meestal",
+        "controle na",
+        "een jaar."
+      ]
+    },
+    {
+      "name": "Roken verhoogt het risico",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Verzwakt het vermogen",
+        "van immuuncellen",
+        "om HPV op te ruimen."
+      ]
+    },
+    {
+      "name": "HPV-vaccin voorkomt het",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Blokkeert de",
+        "hoogrisico HPV-typen",
+        "erachter."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Geen klachten is normaal — regelmatig onderzoek is de enige manier om het vroeg te vinden.",
+    "tip": "Volg het onderzoek passend bij je leeftijd, vraag naar het vaccin, stop met roken.",
+    "cta": "Dysplasie-uitslag gekregen? Bespreek met een gynaecoloog het beleid bij jouw graad."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vaccin",
+    "담배_illust.jpg": "Sigaret"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}
