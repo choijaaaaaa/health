@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Roncar vs",
+    "apnea del sueño:",
+    "no es el",
+    "mismo problema"
+  ],
+  "eyebrow": "Roncar fuerte podría estar ocultando apnea del sueño",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Roncar es solo ruido",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Las vías se estrechan",
+        "pero la respiración",
+        "continúa"
+      ]
+    },
+    {
+      "name": "La apnea sí detiene la respiración",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Diez segundos",
+        "o más,",
+        "repetidamente"
+      ]
+    },
+    {
+      "name": "Peso, alcohol, postura importan",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Facilitan el",
+        "colapso de",
+        "las vías"
+      ]
+    },
+    {
+      "name": "Pausas observadas significan hacerse un estudio",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "El ronquido para,",
+        "luego ahogo —",
+        "ve al médico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Lo que más importa no es el volumen, sino si la respiración realmente se detiene.",
+    "tip": "Dormir de lado y evitar el alcohol antes de dormir ayudan con ronquidos leves.",
+    "cta": "Pausas observadas o mucha somnolencia diurna significan: hora de un estudio del sueño."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Almohada",
+    "수면무호흡_illust.jpg": "Apnea del sueño"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}
