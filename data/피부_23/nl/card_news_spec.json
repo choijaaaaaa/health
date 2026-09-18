@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Crème werkt niet op",
+    "gele, dikke teennagels?",
+    "De schimmel zit onbereikbaar",
+    "3 dingen die echt helpen"
+  ],
+  "eyebrow": "Gele teennagels, de echte oorzaak",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Schimmel schuilt diep onder de nagel",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Crème dringt niet",
+        "diep genoeg in",
+        "de nagelplaat."
+      ]
+    },
+    {
+      "name": "Orale medicatie bereikt het wel",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Reist via de",
+        "bloedbaan naar",
+        "het nagelbed."
+      ]
+    },
+    {
+      "name": "Nagel groeit in ~12 maanden terug",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Na weken stoppen",
+        "is geen eerlijke",
+        "test."
+      ]
+    },
+    {
+      "name": "Slippers in gedeelde douches",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Minder blootsvoets",
+        "contact, minder",
+        "herinfectie."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Werkt crème niet, dan ligt dat niet aan het product — de schimmel is onbereikbaar.",
+    "tip": "Mild? Blijf lang bij antischimmelnagellak. Ernstig? Vraag naar orale behandeling.",
+    "cta": "Verspreid naar meerdere nagels of erger geworden? Ga naar de huisarts."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Teennagel",
+    "슬리퍼_illust.jpg": "Slippers"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

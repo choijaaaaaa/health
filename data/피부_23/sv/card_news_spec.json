@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Kräm hjälper inte mot",
+    "gula, tjocka tånaglar?",
+    "Svampen sitter oåtkomlig",
+    "3 saker som faktiskt hjälper"
+  ],
+  "eyebrow": "Gula tånaglar, den verkliga orsaken",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Svampen gömmer sig under nageln",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Kräm tränger inte",
+        "tillräckligt djupt",
+        "in i plattan."
+      ]
+    },
+    {
+      "name": "Oral behandling når den",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Färdas via blodet",
+        "direkt till",
+        "nagelbädden."
+      ]
+    },
+    {
+      "name": "Nageln tar ~12 månader",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Sluta efter veckor",
+        "är inget rättvist",
+        "test."
+      ]
+    },
+    {
+      "name": "Badtofflor i gemensamma duschar",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Mindre barfotakontakt",
+        "betyder mindre",
+        "återinfektion."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Hjälper inte krämen är det inte produktens fel — svampen sitter oåtkomlig.",
+    "tip": "Milt fall? Håll fast vid nagellacket länge. Svårt fall? Fråga om oral behandling.",
+    "cta": "Spridit sig till fler naglar eller blivit värre? Sök läkare."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Tånagel",
+    "슬리퍼_illust.jpg": "Badtofflor"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}

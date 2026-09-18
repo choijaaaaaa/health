@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿La crema no funciona en",
+    "uñas amarillas y gruesas?",
+    "El hongo está fuera de alcance",
+    "3 cosas que ayudan de verdad"
+  ],
+  "eyebrow": "Uñas amarillas, la causa real",
+  "cover_char_file": "발톱_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "El hongo se esconde bajo la uña",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "La crema no penetra",
+        "lo suficiente en",
+        "la placa dura."
+      ]
+    },
+    {
+      "name": "El tratamiento oral lo alcanza",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Viaja por la sangre",
+        "directo al lecho",
+        "de la uña."
+      ]
+    },
+    {
+      "name": "La uña tarda ~12 meses",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Dejarlo tras",
+        "unas semanas",
+        "no es una prueba justa."
+      ]
+    },
+    {
+      "name": "Sandalias en duchas comunes",
+      "char_file": "슬리퍼_illust.jpg",
+      "body": [
+        "Menos contacto",
+        "descalzo, menos",
+        "reinfección."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si la crema no funciona, no es el producto — el hongo está fuera de alcance.",
+    "tip": "Caso leve: esmalte antimicótico a largo plazo. Caso grave: pregunta por tratamiento oral.",
+    "cta": "¿Se extendió a varias uñas o empeoró? Consulta a un médico."
+  },
+  "char_display_names": {
+    "발톱_illust.jpg": "Uña del pie",
+    "슬리퍼_illust.jpg": "Sandalias"
+  },
+  "cover_scrim_color": "#7A4A2E"
+}
