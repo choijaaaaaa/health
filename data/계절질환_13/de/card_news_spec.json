@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Finger werden weiß",
+    "und taub in der Kälte?",
+    "Das ist nicht nur Frieren",
+    "3 richtige Schritte bei Erfrierung"
+  ],
+  "eyebrow": "Erfrierung im Winter, die echte Ursache",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Durchblutung sinkt zuerst",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Der Körper schützt",
+        "wichtige Organe und",
+        "drosselt Blutfluss außen."
+      ]
+    },
+    {
+      "name": "Nasse Kleidung erhöht Risiko",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Nasse Handschuhe entziehen",
+        "Wärme viel schneller",
+        "als trockene Kälte."
+      ]
+    },
+    {
+      "name": "Alkohol macht es schlimmer",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Wärmegefühl täuscht —",
+        "der Wärmeverlust",
+        "beschleunigt sich tatsächlich."
+      ]
+    },
+    {
+      "name": "Langsam ohne direkte Hitze",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "37-39°C lauwarmes Wasser,",
+        "nie heißes Wasser",
+        "oder direkte Wärmequellen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Taube, wachsweiße Haut ist nicht nur Kälte — es ist ein Erfrierungszeichen.",
+    "tip": "Langsam mit lauwarmem Wasser aufwärmen. Niemals reiben oder erneut einfrieren lassen.",
+    "cta": "Blasen oder violette, dunkle Haut? Sofort ärztliche Hilfe suchen."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger",
+    "욕조_illust.jpg": "Badewanne"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}

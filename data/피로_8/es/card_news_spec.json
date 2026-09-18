@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Cansada aunque duermas bien?",
+    "No siempre es estrés —",
+    "puede ser falta de hierro",
+    "3 señales de deficiencia de hierro"
+  ],
+  "eyebrow": "La verdadera causa del cansancio crónico",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "Menos oxígeno en el cuerpo",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Poco hierro significa",
+        "menos hemoglobina,",
+        "menos oxígeno."
+      ]
+    },
+    {
+      "name": "El hierro se pierde",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Menstruaciones abundantes",
+        "o sangrado digestivo",
+        "vacían las reservas."
+      ]
+    },
+    {
+      "name": "El análisis lo confirma",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hemoglobina y",
+        "ferritina dan",
+        "una respuesta real."
+      ]
+    },
+    {
+      "name": "Hierro hemo + vitamina C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "La carne roja se",
+        "absorbe bien; la",
+        "vitamina C ayuda más."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No siempre es estrés — puede ser falta de hierro.",
+    "tip": "Pide que te midan hemoglobina y ferritina antes de tomar suplementos de hierro.",
+    "cta": "¿Cansancio de más de dos semanas, con mareo o falta de aire? Consulta a un médico."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Análisis de sangre",
+    "소고기_illust.jpg": "Carne roja"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

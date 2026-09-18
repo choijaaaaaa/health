@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Wochenend-Kopfschmerz",
+    "kommt nicht vom Ausschlafen —",
+    "es ist Koffeinentzug",
+    "3 Wege, wirklich damit umzugehen"
+  ],
+  "eyebrow": "Wochenend-Kopfschmerz, die echte Ursache",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Gefäße weiten sich im Rebound",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ohne Koffein weiten sich",
+        "verengte Gefäße",
+        "plötzlich wieder."
+      ]
+    },
+    {
+      "name": "Beginnt nach 12-24 Stunden",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Kopfschmerz startet",
+        "12-24 Stunden nach",
+        "der letzten Dosis."
+      ]
+    },
+    {
+      "name": "Kleine Dosis hilft schnell",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Manche Schmerzmittel",
+        "enthalten Koffein",
+        "gegen den Rebound."
+      ]
+    },
+    {
+      "name": "1-2 Wochen langsam reduzieren",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Schrittweise senken,",
+        "nicht abrupt stoppen —",
+        "das mildert den Rebound."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wochenend-Kopfschmerz kommt nicht vom Ausschlafen — es ist Koffeinentzug.",
+    "tip": "Kaffee reduzieren? Über ein bis zwei Wochen schrittweise herunterdosieren.",
+    "cta": "Kopfschmerz bleibt trotz gleichem Koffeinkonsum? Ärztlichen Rat einholen."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee",
+    "녹차_illust.jpg": "Grüner Tee"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

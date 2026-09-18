@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Dedos blancos y sin",
+    "sensibilidad en el frío?",
+    "No es solo frío",
+    "3 cosas que hacer ante la congelación"
+  ],
+  "eyebrow": "Congelación de invierno, la causa real",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "La sangre baja primero",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "El cuerpo protege órganos",
+        "vitales reduciendo la",
+        "sangre a las extremidades."
+      ]
+    },
+    {
+      "name": "La ropa mojada aumenta el riesgo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Guantes y calcetines mojados",
+        "quitan calor mucho",
+        "más rápido."
+      ]
+    },
+    {
+      "name": "El alcohol empeora todo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "El calor sentido engaña —",
+        "la pérdida de calor",
+        "en realidad se acelera."
+      ]
+    },
+    {
+      "name": "Recalentar despacio, sin calor directo",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Agua tibia a 37-39°C,",
+        "nunca agua caliente",
+        "ni fuentes directas."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "La piel blanca y sin sensibilidad no es solo frío — es señal de congelación.",
+    "tip": "Recalienta despacio con agua tibia. Nunca frotes ni dejes que la zona vuelva a congelarse.",
+    "cta": "¿Ampollas o piel violácea y oscura? Busca atención médica de inmediato."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dedos",
+    "욕조_illust.jpg": "Bañera"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}

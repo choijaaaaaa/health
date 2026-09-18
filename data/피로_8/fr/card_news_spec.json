@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fatiguée malgré un bon sommeil ?",
+    "Ce n'est pas toujours le stress —",
+    "c'est parfois le fer",
+    "3 signes d'une carence en fer"
+  ],
+  "eyebrow": "La vraie cause de la fatigue chronique",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Moins d'oxygène transporté",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Peu de fer, c'est",
+        "moins d'hémoglobine,",
+        "moins d'oxygène."
+      ]
+    },
+    {
+      "name": "Le fer s'échappe",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Règles abondantes ou",
+        "saignements digestifs",
+        "vident les réserves."
+      ]
+    },
+    {
+      "name": "La prise de sang tranche",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hémoglobine et",
+        "ferritine donnent",
+        "une vraie réponse."
+      ]
+    },
+    {
+      "name": "Fer héminique + vitamine C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "La viande rouge",
+        "s'absorbe bien; la",
+        "vitamine C aide aussi."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce n'est pas toujours le stress — le fer peut en être la cause.",
+    "tip": "Faites vérifier hémoglobine et ferritine avant tout complément en fer.",
+    "cta": "Fatigue depuis plus de deux semaines, avec vertiges ou essoufflement ? Consultez."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Prise de sang",
+    "소고기_illust.jpg": "Viande rouge"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

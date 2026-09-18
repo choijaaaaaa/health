@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Il mal di testa del weekend",
+    "non è dal dormire di più —",
+    "è astinenza da caffeina",
+    "3 cose che aiutano davvero"
+  ],
+  "eyebrow": "Mal di testa del weekend, la vera causa",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "I vasi si dilatano di rimbalzo",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Senza caffeina i vasi",
+        "contratti si dilatano",
+        "all'improvviso."
+      ]
+    },
+    {
+      "name": "Inizia dopo 12-24 ore",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Il mal di testa parte",
+        "12-24 ore dopo",
+        "l'ultima dose."
+      ]
+    },
+    {
+      "name": "Poca caffeina aiuta subito",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Alcuni antidolorifici",
+        "contengono caffeina",
+        "contro il rimbalzo."
+      ]
+    },
+    {
+      "name": "Ridurre in 1-2 settimane",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Diminuire piano,",
+        "non di colpo —",
+        "il rimbalzo si attenua."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Il mal di testa del weekend non è dal dormire di più — è astinenza da caffeina.",
+    "tip": "Per ridurre il caffè, diminuite gradualmente in una o due settimane.",
+    "cta": "Il mal di testa persiste senza cambi di caffeina? Consultate un medico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "녹차_illust.jpg": "Tè verde"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

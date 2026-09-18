@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Weekendhoofdpijn komt niet",
+    "van uitslapen —",
+    "het is cafeïneonttrekking",
+    "3 dingen die echt helpen"
+  ],
+  "eyebrow": "Weekendhoofdpijn, de echte oorzaak",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Vaten verwijden als reactie",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Zonder cafeïne verwijden",
+        "vernauwde vaten",
+        "zich plotseling."
+      ]
+    },
+    {
+      "name": "Begint na 12-24 uur",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Hoofdpijn begint",
+        "12-24 uur na",
+        "de laatste dosis."
+      ]
+    },
+    {
+      "name": "Kleine dosis helpt snel",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Sommige pijnstillers",
+        "bevatten cafeïne",
+        "tegen dit rebound."
+      ]
+    },
+    {
+      "name": "Afbouwen in 1-2 weken",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Geleidelijk minderen,",
+        "niet in één keer —",
+        "het rebound verzacht."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Weekendhoofdpijn komt niet van uitslapen — het is cafeïneonttrekking.",
+    "tip": "Koffie minderen? Bouw geleidelijk af over een tot twee weken.",
+    "cta": "Hoofdpijn blijft zonder verandering in cafeïne? Ga naar de huisarts."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "녹차_illust.jpg": "Groene thee"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

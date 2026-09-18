@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Stanca nonostante il sonno?",
+    "Non è sempre stress —",
+    "può essere carenza di ferro",
+    "La verità sulla stanchezza cronica"
+  ],
+  "eyebrow": "La vera causa della stanchezza cronica",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Meno ossigeno nel corpo",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Poco ferro significa",
+        "meno emoglobina,",
+        "meno ossigeno."
+      ]
+    },
+    {
+      "name": "Il ferro va perso",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Mestruazioni abbondanti",
+        "o sanguinamenti",
+        "svuotano le riserve."
+      ]
+    },
+    {
+      "name": "Le analisi confermano",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Emoglobina e",
+        "ferritina danno",
+        "una risposta certa."
+      ]
+    },
+    {
+      "name": "Ferro eme + vitamina C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "La carne rossa si",
+        "assorbe bene; la",
+        "vitamina C aiuta di più."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non è sempre stress — potrebbe essere carenza di ferro.",
+    "tip": "Fai controllare emoglobina e ferritina prima di iniziare un integratore di ferro.",
+    "cta": "Stanchezza da oltre due settimane, con capogiri o fiato corto? Consulta un medico."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Analisi del sangue",
+    "소고기_illust.jpg": "Carne rossa"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

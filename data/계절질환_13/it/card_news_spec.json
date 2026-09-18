@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Dita bianche e insensibili",
+    "quando fa freddo?",
+    "Non è solo freddo",
+    "3 gesti giusti contro il congelamento"
+  ],
+  "eyebrow": "Congelamento invernale, la vera causa",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il flusso sanguigno cala per primo",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Il corpo protegge organi",
+        "vitali riducendo il",
+        "sangue alle estremità."
+      ]
+    },
+    {
+      "name": "Vestiti bagnati aumentano il rischio",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Guanti e calzini bagnati",
+        "sottraggono calore",
+        "molto più in fretta."
+      ]
+    },
+    {
+      "name": "L'alcol peggiora la situazione",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Il calore percepito inganna —",
+        "la perdita di calore",
+        "in realtà accelera."
+      ]
+    },
+    {
+      "name": "Riscaldare piano, senza calore diretto",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Acqua tiepida 37-39°C,",
+        "mai acqua calda",
+        "o fonti dirette."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pelle insensibile e bianca non è solo freddo — è un segnale di congelamento.",
+    "tip": "Riscaldare lentamente con acqua tiepida. Mai strofinare né far ricongelare la zona.",
+    "cta": "Vesciche o pelle violacea e scura? Rivolgersi subito a un medico."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dita",
+    "욕조_illust.jpg": "Vasca da bagno"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}

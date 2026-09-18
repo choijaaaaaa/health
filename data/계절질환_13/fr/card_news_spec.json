@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Des doigts blancs et",
+    "insensibles dans le froid ?",
+    "Ce n'est pas juste le froid",
+    "3 bons gestes contre les gelures"
+  ],
+  "eyebrow": "Gelures d'hiver, la vraie cause",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le flux sanguin baisse d'abord",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Le corps protège les",
+        "organes vitaux en réduisant",
+        "le sang aux extrémités."
+      ]
+    },
+    {
+      "name": "Les vêtements mouillés aggravent",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Gants et chaussettes mouillés",
+        "évacuent la chaleur",
+        "bien plus vite."
+      ]
+    },
+    {
+      "name": "L'alcool empire les choses",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "La chaleur ressentie trompe —",
+        "la perte de chaleur",
+        "s'accélère en réalité."
+      ]
+    },
+    {
+      "name": "Réchauffer lentement, sans chaleur directe",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Eau tiède à 37-39°C,",
+        "jamais d'eau chaude",
+        "ni de source directe."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Une peau insensible et blanche n'est pas juste le froid — c'est un signe de gelure.",
+    "tip": "Réchauffez lentement à l'eau tiède. Ne frottez jamais et ne regelez jamais la zone.",
+    "cta": "Cloques ou peau violacée et sombre ? Consultez immédiatement un médecin."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Doigts",
+    "욕조_illust.jpg": "Baignoire"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}

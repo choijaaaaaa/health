@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Helghuvudvärk kommer inte",
+    "från att sova länge —",
+    "det är koffeinabstinens",
+    "3 saker som faktiskt hjälper"
+  ],
+  "eyebrow": "Helghuvudvärk, den verkliga orsaken",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Kärlen vidgas som reaktion",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Utan koffein vidgas",
+        "sammandragna kärl",
+        "plötsligt igen."
+      ]
+    },
+    {
+      "name": "Börjar efter 12-24 timmar",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Huvudvärken börjar",
+        "12-24 timmar efter",
+        "senaste dosen."
+      ]
+    },
+    {
+      "name": "Liten dos hjälper snabbt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vissa smärtstillande",
+        "innehåller koffein",
+        "mot reboundeffekten."
+      ]
+    },
+    {
+      "name": "Trappa ner på 1-2 veckor",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Minska gradvis,",
+        "inte tvärt —",
+        "reboundeffekten mildras."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Helghuvudvärk kommer inte från att sova länge — det är koffeinabstinens.",
+    "tip": "Ska du minska kaffet? Trappa ner gradvis under en till två veckor.",
+    "cta": "Kvarstår huvudvärken utan ändrat koffeinintag? Kontakta läkare."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "녹차_illust.jpg": "Grönt te"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

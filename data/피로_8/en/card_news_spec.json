@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Exhausted no matter how much you sleep?",
+    "It might not be stress —",
+    "it could be low iron",
+    "3 Signs of Iron-Deficiency Fatigue"
+  ],
+  "eyebrow": "The Real Cause of Chronic Fatigue",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Less Oxygen Reaches Your Body",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Low iron means less",
+        "hemoglobin, so cells",
+        "carry less oxygen."
+      ]
+    },
+    {
+      "name": "Iron Is Being Lost",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Heavy periods or GI",
+        "bleeding drain iron",
+        "faster than you replace it."
+      ]
+    },
+    {
+      "name": "A Blood Test Confirms It",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hemoglobin and ferritin",
+        "levels give you",
+        "an actual answer."
+      ]
+    },
+    {
+      "name": "Heme Iron + Vitamin C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Red meat's heme iron",
+        "absorbs well; vitamin C",
+        "boosts plant iron too."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not always age or stress — it could be low iron.",
+    "tip": "Get hemoglobin and ferritin checked before starting any iron supplement.",
+    "cta": "Fatigue lasting over two weeks, with dizziness or breathlessness? See a doctor."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Blood Test",
+    "소고기_illust.jpg": "Red Meat"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Witte, gevoelloze vingers",
+    "in de kou?",
+    "Het is niet zomaar kou",
+    "3 juiste stappen bij bevriezing"
+  ],
+  "eyebrow": "Winterse bevriezing, de echte oorzaak",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Doorbloeding daalt eerst",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Het lichaam beschermt organen",
+        "door bloed weg",
+        "te leiden van de extremiteiten."
+      ]
+    },
+    {
+      "name": "Natte kleding verhoogt risico",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Natte handschoenen en sokken",
+        "onttrekken warmte",
+        "veel sneller."
+      ]
+    },
+    {
+      "name": "Alcohol maakt het erger",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Warm gevoel misleidt —",
+        "het warmteverlies",
+        "versnelt juist."
+      ]
+    },
+    {
+      "name": "Langzaam opwarmen, geen directe warmte",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "Lauw water van 37-39°C,",
+        "nooit heet water",
+        "of directe warmtebronnen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Gevoelloze, witte huid is niet zomaar kou — het is een teken van bevriezing.",
+    "tip": "Warm langzaam op met lauw water. Wrijf nooit en laat het nooit opnieuw bevriezen.",
+    "cta": "Blaren of paarse, donkere huid? Zoek direct medische hulp."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Vingers",
+    "욕조_illust.jpg": "Badkuip"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}

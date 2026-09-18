@@ -1,0 +1,60 @@
+{
+  "title": [
+    "El dolor de cabeza del finde",
+    "no es por dormir más —",
+    "es abstinencia de cafeína",
+    "3 cosas que ayudan de verdad"
+  ],
+  "eyebrow": "Dolor de cabeza del finde, la causa real",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "Los vasos se dilatan de rebote",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Sin cafeína, los vasos",
+        "contraídos se dilatan",
+        "de golpe."
+      ]
+    },
+    {
+      "name": "Empieza a las 12-24 horas",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "El dolor comienza",
+        "12-24 horas después",
+        "de la última dosis."
+      ]
+    },
+    {
+      "name": "Poca cafeína ayuda rápido",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Algunos analgésicos",
+        "llevan cafeína contra",
+        "este rebote."
+      ]
+    },
+    {
+      "name": "Reducir en 1-2 semanas",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Bajar poco a poco,",
+        "no de golpe —",
+        "el rebote se suaviza."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "El dolor de cabeza del finde no es por dormir más — es abstinencia de cafeína.",
+    "tip": "Para reducir el café, disminúyelo poco a poco en una o dos semanas.",
+    "cta": "¿El dolor persiste sin cambios en la cafeína? Consulta a un médico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "녹차_illust.jpg": "Té verde"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

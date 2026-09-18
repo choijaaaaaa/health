@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Moe ondanks genoeg slaap?",
+    "Niet altijd stress —",
+    "het kan ijzertekort zijn",
+    "De waarheid over vermoeidheid"
+  ],
+  "eyebrow": "De echte oorzaak van chronische vermoeidheid",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Minder zuurstof in je lichaam",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Weinig ijzer betekent",
+        "minder hemoglobine,",
+        "minder zuurstof."
+      ]
+    },
+    {
+      "name": "IJzer gaat verloren",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hevige menstruatie of",
+        "bloedverlies put",
+        "de voorraad uit."
+      ]
+    },
+    {
+      "name": "Bloedtest geeft zekerheid",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hemoglobine en",
+        "ferritine geven",
+        "een echt antwoord."
+      ]
+    },
+    {
+      "name": "Heemijzer + vitamine C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Rood vlees neemt",
+        "goed op; vitamine C",
+        "helpt ook extra."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Niet altijd stress — het kan ijzertekort zijn.",
+    "tip": "Laat hemoglobine en ferritine testen voordat je ijzersupplementen neemt.",
+    "cta": "Meer dan twee weken moe, met duizeligheid of kortademigheid? Ga naar de huisarts."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Bloedtest",
+    "소고기_illust.jpg": "Rood vlees"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

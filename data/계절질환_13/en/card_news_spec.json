@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fingers and toes turning",
+    "numb and waxy white?",
+    "It's not just the cold",
+    "3 Things to Do About Frostbite"
+  ],
+  "eyebrow": "Winter Frostbite, the Real Cause",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Blood Flow Drops First",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "The body protects",
+        "core organs by cutting",
+        "blood to extremities."
+      ]
+    },
+    {
+      "name": "Wet Clothing Raises Risk",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Wet gloves and socks",
+        "pull heat away",
+        "much faster than dry cold."
+      ]
+    },
+    {
+      "name": "Alcohol Makes It Worse",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Feeling warm is a trick —",
+        "heat loss actually",
+        "speeds up instead."
+      ]
+    },
+    {
+      "name": "Rewarm Slowly, No Direct Heat",
+      "char_file": "욕조_illust.jpg",
+      "body": [
+        "37-39°C lukewarm water,",
+        "never hot water",
+        "or direct heat sources."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Numb, waxy-white skin isn't just cold — it's a frostbite signal.",
+    "tip": "Rewarm slowly with lukewarm water. Never rub the skin or let it refreeze.",
+    "cta": "Blisters or purplish, dark skin? Get medical care right away."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Fingers",
+    "욕조_illust.jpg": "Bathtub"
+  },
+  "cover_scrim_color": "#2E7A9E"
+}
