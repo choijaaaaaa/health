@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vitamine D-tekort,",
+    "je denkt dat de zomer het regelt —",
+    "zonnebrand en binnen zitten heffen het op",
+    "4 manieren om het echt te verhogen"
+  ],
+  "eyebrow": "Vitamine D, waarom de zomer niet genoeg is",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Zonnebrand blokkeert de aanmaak",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Goed voor de huid, maar",
+        "remt ook de vitamine D-",
+        "aanmaak flink af."
+      ]
+    },
+    {
+      "name": "Binnen zitten telt op",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Werkelijke zonblootstelling",
+        "blijft ver achter bij",
+        "wat het seizoen doet vermoeden."
+      ]
+    },
+    {
+      "name": "Ook gelinkt aan insulineresistentie",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Laag vitamine D hangt samen",
+        "met hogere insuline-",
+        "resistentie-markers."
+      ]
+    },
+    {
+      "name": "Paddenstoelen, vis, eigeel, 15 minuten",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Zongedroogde shiitake, vette vis,",
+        "eigeel, en kort",
+        "middagzonlicht."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Zomerzon alleen is niet genoeg — check je echte niveau.",
+    "tip": "Shiitake in de zon, twee keer per week vette vis, eigeel, 15 minuten zon op je huid.",
+    "cta": "Al insulineresistentie vastgesteld? Overleg met je arts voordat je een supplement verhoogt."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Shiitake-paddenstoel",
+    "연어_illust.jpg": "Zalm"
+  }
+}

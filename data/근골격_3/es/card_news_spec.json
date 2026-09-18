@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Calambres nocturnos en la pierna,",
+    "parece solo mala suerte —",
+    "café, alcohol y embutidos agotan minerales",
+    "La Solución Real: Electrolitos"
+  ],
+  "eyebrow": "Calambres nocturnos, las causas reales",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El leve efecto diurético del café",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Arrastra calcio y magnesio",
+        "con el exceso",
+        "de orina."
+      ]
+    },
+    {
+      "name": "El alcohol arrastra más, sobre todo de noche",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Una copa cerca de dormir",
+        "suele ir seguida",
+        "de un calambre."
+      ]
+    },
+    {
+      "name": "Los embutidos salados desequilibran todo",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "El exceso de sodio altera",
+        "todo el equilibrio",
+        "de electrolitos."
+      ]
+    },
+    {
+      "name": "¿Pastillas de magnesio? Evidencia mixta",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Sin beneficio significativo",
+        "en ensayos para la mayoría —",
+        "la hidratación importa más."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es mala suerte — mira el café, el alcohol y la sal.",
+    "tip": "Agua junto al café y al alcohol, alimentos ricos en potasio en vez de embutidos.",
+    "cta": "¿Calambres casi cada noche, con entumecimiento? Consulta a un médico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "바나나_illust.jpg": "Plátano"
+  }
+}

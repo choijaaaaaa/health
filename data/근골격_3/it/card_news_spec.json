@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Crampi notturni al polpaccio,",
+    "sembra solo sfortuna —",
+    "caffè, alcol e cibo salato esauriscono",
+    "i minerali di cui i muscoli hanno bisogno"
+  ],
+  "eyebrow": "Crampi notturni, le vere cause",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il leggero effetto diuretico del caffè",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Porta via calcio e magnesio",
+        "con l'urina",
+        "in eccesso."
+      ]
+    },
+    {
+      "name": "L'alcol ne porta via di più, specie di notte",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un bicchiere vicino al sonno",
+        "è più spesso seguito",
+        "da un crampo."
+      ]
+    },
+    {
+      "name": "I salumi sbilanciano tutto",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "L'eccesso di sodio sconvolge",
+        "l'intero rapporto",
+        "di elettroliti."
+      ]
+    },
+    {
+      "name": "Integratori di magnesio? Prove contrastanti",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Nessun beneficio significativo",
+        "negli studi per la maggioranza —",
+        "conta di più l'idratazione."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non è sfortuna — guarda caffè, alcol e sale.",
+    "tip": "Acqua con caffè e alcol, alimenti ricchi di potassio al posto dei salumi.",
+    "cta": "Crampi quasi ogni notte, con intorpidimento? Parlane con un medico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "바나나_illust.jpg": "Banana"
+  }
+}

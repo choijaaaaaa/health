@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Diese laufende Nase,",
+    "Allergietests bleiben unauffällig —",
+    "es könnte nichtallergische Rhinitis sein",
+    "4 Dinge, die wirklich beruhigen"
+  ],
+  "eyebrow": "Nichtallergische Rhinitis, die echten Auslöser",
+  "cover_char_file": "온도차_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Temperaturwechsel weiten die Nasengefäße",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Wechsel zwischen heiß und kalt",
+        "flutet die Nase innerhalb",
+        "von Minuten."
+      ]
+    },
+    {
+      "name": "Scharfes Essen reizt einen Nerv, keine Allergie",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Hitze und Schärfe aktivieren",
+        "den Trigeminusnerv —",
+        "gustatorische Rhinitis."
+      ]
+    },
+    {
+      "name": "Starke Gerüche und Stress summieren sich",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Parfüm, Rauch und emotionale",
+        "Schwankungen runden",
+        "die Auslöser ab."
+      ]
+    },
+    {
+      "name": "Kochsalzspülung beruhigt die Schleimhaut",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Eine risikoarme tägliche",
+        "Gewohnheit in",
+        "schlechten Phasen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Keine Allergie — die Nase reagiert auf den Reiz selbst.",
+    "tip": "Temperaturwechsel abfedern, Schärfe reduzieren, duftstofffrei, mit Kochsalz spülen.",
+    "cta": "Beschwerden über zwei Wochen oder störend im Alltag? Zum HNO-Arzt."
+  },
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperaturwechsel",
+    "비강스프레이_illust.jpg": "Kochsalzspray"
+  }
+}

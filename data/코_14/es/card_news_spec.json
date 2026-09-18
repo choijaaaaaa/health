@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Esa nariz que moquea,",
+    "las pruebas de alergia salen normales —",
+    "puede ser rinitis no alérgica",
+    "4 cosas que de verdad calman"
+  ],
+  "eyebrow": "Rinitis no alérgica, las causas reales",
+  "cover_char_file": "온도차_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Los cambios de temperatura dilatan los vasos",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Pasar del calor al frío",
+        "inunda la nariz en",
+        "minutos."
+      ]
+    },
+    {
+      "name": "El picante irrita un nervio, no es alergia",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Calor y picante activan",
+        "el nervio trigémino —",
+        "rinitis gustativa."
+      ]
+    },
+    {
+      "name": "Olores fuertes y estrés se suman",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Perfume, humo y cambios",
+        "emocionales completan",
+        "los desencadenantes."
+      ]
+    },
+    {
+      "name": "El lavado salino calma la mucosa",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Un hábito de bajo riesgo",
+        "en las rachas",
+        "peores."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es alergia — la nariz reacciona al estímulo en sí.",
+    "tip": "Amortigua los saltos, baja el picante, pasa a sin perfume, enjuaga con suero salino.",
+    "cta": "¿Síntomas de más de dos semanas o que alteran tu día a día? Ve al otorrino."
+  },
+  "char_display_names": {
+    "온도차_illust.jpg": "Cambio de temperatura",
+    "비강스프레이_illust.jpg": "Spray salino"
+  }
+}

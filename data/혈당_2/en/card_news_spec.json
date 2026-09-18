@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Hungry again right after eating,",
+    "you probably blame willpower —",
+    "it's likely a blood sugar spike-and-crash",
+    "Blueberries have real trial evidence"
+  ],
+  "eyebrow": "Blood Sugar Crashes, What Actually Helps",
+  "cover_char_file": "블루베리_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "The Spike-and-Crash Cycle",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Refined carbs spike then crash",
+        "blood sugar — repeated,",
+        "it raises insulin resistance."
+      ]
+    },
+    {
+      "name": "Blueberries Blunt the Spike Itself",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "A trial found smaller glucose",
+        "and insulin rise with",
+        "1 cup of blueberries."
+      ]
+    },
+    {
+      "name": "8 Weeks Lowered Blood Pressure Too",
+      "char_file": "블루베리_illust.jpg",
+      "body": [
+        "Oklahoma State study: BP down",
+        "~6% and 4% vs ~1.5%",
+        "and 1.2% in placebo."
+      ]
+    },
+    {
+      "name": "Frozen Works, Dried Doesn't",
+      "char_file": "그릭요거트_illust.jpg",
+      "body": [
+        "Freezing may boost absorption;",
+        "dried blueberries are",
+        "concentrated in sugar."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not willpower — check what's driving the crash.",
+    "tip": "One cup of frozen unsweetened blueberries with yogurt or nuts, not dried.",
+    "cta": "Already on diabetes medication? Talk to your care team before changing your diet."
+  },
+  "char_display_names": {
+    "블루베리_illust.jpg": "Blueberries",
+    "그릭요거트_illust.jpg": "Yogurt"
+  }
+}

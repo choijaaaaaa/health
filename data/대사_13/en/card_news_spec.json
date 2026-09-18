@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vitamin D deficiency,",
+    "you'd think summer sun covers it —",
+    "sunscreen and indoor time cancel it out",
+    "4 ways to actually raise it"
+  ],
+  "eyebrow": "Vitamin D, Why Summer Isn't Enough",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Sunscreen Blocks the Synthesis Pathway",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "High SPF is correct for skin",
+        "protection, but it also cuts",
+        "vitamin D production sharply."
+      ]
+    },
+    {
+      "name": "Indoor Life Adds Up",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Bare-skin sun exposure ends up",
+        "far lower than the season",
+        "would suggest."
+      ]
+    },
+    {
+      "name": "It's Linked to Insulin Resistance Too",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Low vitamin D is associated",
+        "with higher insulin",
+        "resistance markers."
+      ]
+    },
+    {
+      "name": "Mushrooms, Fish, Egg Yolk, 15 Minutes",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Sun-dried shiitake, oily fish,",
+        "egg yolk, and brief",
+        "midday sun exposure."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Summer sun alone doesn't cover it — check your actual level.",
+    "tip": "Sun-dried shiitake, oily fish twice a week, egg yolk, 15 minutes of bare-skin sun.",
+    "cta": "Already diagnosed with insulin resistance? Talk to your doctor before upping a supplement."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Shiitake Mushroom",
+    "연어_illust.jpg": "Salmon"
+  }
+}

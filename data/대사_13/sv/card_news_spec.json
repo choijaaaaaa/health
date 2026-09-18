@@ -1,0 +1,59 @@
+{
+  "title": [
+    "D-vitaminbrist,",
+    "du tror att sommaren räcker —",
+    "solkräm och inomhustid tar bort det",
+    "4 sätt att faktiskt höja det"
+  ],
+  "eyebrow": "D-vitamin, varför sommaren inte räcker",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Solkräm blockerar syntesen",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Rätt för hudskydd, men",
+        "sänker också D-vitamin-",
+        "produktionen kraftigt."
+      ]
+    },
+    {
+      "name": "Inomhustid läggs på hög",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Verklig solexponering hamnar",
+        "långt under vad",
+        "årstiden antyder."
+      ]
+    },
+    {
+      "name": "Kopplat även till insulinresistens",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Lågt D-vitamin är kopplat",
+        "till högre markörer för",
+        "insulinresistens."
+      ]
+    },
+    {
+      "name": "Svamp, fisk, äggula, 15 minuter",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Soltorkad shiitake, fet fisk,",
+        "äggula, och kort",
+        "middagssol."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Sommarsolen räcker inte ensam — kolla din faktiska nivå.",
+    "tip": "Shiitake i solen, fet fisk två gånger i veckan, äggula, 15 minuter sol på huden.",
+    "cta": "Redan diagnostiserad insulinresistens? Prata med läkare innan du höjer ett tillskott."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Shiitakesvamp",
+    "연어_illust.jpg": "Lax"
+  }
+}

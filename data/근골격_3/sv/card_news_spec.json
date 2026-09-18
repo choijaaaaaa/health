@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Nattliga vadkramper,",
+    "känns som otur —",
+    "kaffe, alkohol och salt mat dränerar",
+    "exakt de mineraler musklerna behöver"
+  ],
+  "eyebrow": "Nattliga vadkramper, de riktiga orsakerna",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Kaffets milda vätskedrivande effekt",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "För ut kalcium och magnesium",
+        "med den extra",
+        "urinmängden."
+      ]
+    },
+    {
+      "name": "Alkohol dränerar mer, särskilt på natten",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Ett glas nära sänggåendet",
+        "följs oftare av",
+        "en kramp."
+      ]
+    },
+    {
+      "name": "Salt chark rubbar balansen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "För mycket natrium rubbar",
+        "hela elektrolyt-",
+        "balansen."
+      ]
+    },
+    {
+      "name": "Magnesiumtabletter? Blandade bevis",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Ingen signifikant nytta i",
+        "studier för de flesta —",
+        "vätskebalans spelar mer roll."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ingen otur — se över kaffe, alkohol och salt.",
+    "tip": "Vatten till kaffe och alkohol, kaliumrik mat istället för chark.",
+    "cta": "Kramper nästan varje natt, med domningar? Prata med en läkare."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "바나나_illust.jpg": "Banan"
+  }
+}

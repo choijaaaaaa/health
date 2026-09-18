@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Nachtelijke kuitkramp,",
+    "voelt als pech —",
+    "koffie, alcohol en zout eten putten",
+    "precies de mineralen uit die spieren nodig hebben"
+  ],
+  "eyebrow": "Nachtelijke kuitkramp, de echte oorzaken",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Koffies lichte vochtafdrijvende werking",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Voert calcium en magnesium",
+        "mee af met extra",
+        "urineproductie."
+      ]
+    },
+    {
+      "name": "Alcohol voert meer af, vooral 's nachts",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Een drankje vlak voor het",
+        "slapen geeft vaker een",
+        "kramp dan eerder op de dag."
+      ]
+    },
+    {
+      "name": "Zoute vleeswaren verstoren de balans",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Te veel natrium verstoort",
+        "de hele elektrolyten-",
+        "balans."
+      ]
+    },
+    {
+      "name": "Magnesiumpillen? Bewijs is gemengd",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Geen significant voordeel in",
+        "onderzoek voor de meesten —",
+        "hydratatie telt meer."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Geen pech — kijk naar koffie, alcohol en zout.",
+    "tip": "Water bij koffie en alcohol, kaliumrijke voeding in plaats van vleeswaren.",
+    "cta": "Bijna elke nacht kramp, met tintelingen? Praat met een arts."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "바나나_illust.jpg": "Banaan"
+  }
+}

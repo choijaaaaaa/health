@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Carenza di vitamina D,",
+    "pensi che l'estate basti —",
+    "crema solare e casa la annullano",
+    "4 modi per alzarla davvero"
+  ],
+  "eyebrow": "Vitamina D, perché l'estate non basta",
+  "cover_char_file": "표고버섯_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "La crema solare blocca la sintesi",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "Corretta per la pelle, ma",
+        "riduce molto la",
+        "produzione di vitamina D."
+      ]
+    },
+    {
+      "name": "Il tempo in casa si accumula",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "L'esposizione reale al sole",
+        "resta ben sotto quanto",
+        "suggerisce la stagione."
+      ]
+    },
+    {
+      "name": "Legata anche all'insulino-resistenza",
+      "char_file": "표고버섯_illust.jpg",
+      "body": [
+        "La vitamina D bassa è associata",
+        "a marcatori più alti",
+        "di insulino-resistenza."
+      ]
+    },
+    {
+      "name": "Funghi, pesce, tuorlo, 15 minuti",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "Shiitake essiccati al sole,",
+        "pesce grasso, tuorlo,",
+        "breve sole a mezzogiorno."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "L'estate da sola non basta — controlla il tuo livello reale.",
+    "tip": "Shiitake al sole, pesce grasso due volte a settimana, tuorlo, 15 minuti di sole.",
+    "cta": "Già diagnosticata insulino-resistenza? Parlane col medico prima di aumentare l'integratore."
+  },
+  "char_display_names": {
+    "표고버섯_illust.jpg": "Fungo shiitake",
+    "연어_illust.jpg": "Salmone"
+  }
+}
