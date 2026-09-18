@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Varices vs",
+    "veinules :",
+    "pas le même",
+    "problème"
+  ],
+  "eyebrow": "Pourquoi certaines veines des jambes saillent-elles ?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Des valvules faibles stagnent le sang",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Le sang redescend,",
+        "la paroi veineuse",
+        "s'étire avec le temps"
+      ]
+    },
+    {
+      "name": "Les métiers debout augmentent le risque",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Grossesse, surpoids",
+        "et antécédents",
+        "comptent aussi"
+      ]
+    },
+    {
+      "name": "Une peau qui brunit alerte",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Une peau brune",
+        "à la cheville peut",
+        "devenir un ulcère"
+      ]
+    },
+    {
+      "name": "Gonflement soudain d'une jambe",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Peut être une",
+        "thrombose veineuse —",
+        "une urgence"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Les veinules seules ne sont pas préoccupantes — attention à la lourdeur, la douleur ou la décoloration.",
+    "tip": "Marcher régulièrement active la pompe des mollets ; bougez les jambes lors des longues stations debout.",
+    "cta": "Lourdeur, douleur, décoloration ou gonflement d'une seule jambe : direction un chirurgien vasculaire."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Gonflement",
+    "압박스타킹_illust.jpg": "Bas de contention"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

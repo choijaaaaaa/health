@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Várices vs",
+    "arañas vasculares:",
+    "no es el",
+    "mismo problema"
+  ],
+  "eyebrow": "¿Por qué algunas venas de las piernas sobresalen?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Válvulas débiles estancan la sangre",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "La sangre retrocede,",
+        "la pared venosa",
+        "se estira con el tiempo"
+      ]
+    },
+    {
+      "name": "Trabajos de pie elevan el riesgo",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Embarazo, sobrepeso",
+        "y antecedentes",
+        "también cuentan"
+      ]
+    },
+    {
+      "name": "La piel oscurecida alerta",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Piel oscura en el",
+        "tobillo puede volverse",
+        "una úlcera"
+      ]
+    },
+    {
+      "name": "Hinchazón súbita en una pierna",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Podría ser una",
+        "trombosis venosa —",
+        "una urgencia"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Las arañas vasculares solas no preocupan — atención a pesadez, dolor o decoloración.",
+    "tip": "Caminar con regularidad activa la bomba de la pantorrilla; mueve las piernas durante largas estancias de pie.",
+    "cta": "Pesadez, dolor, decoloración o hinchazón de una sola pierna: consulta a un cirujano vascular."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Hinchazón",
+    "압박스타킹_illust.jpg": "Medias de compresión"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Bulging Veins",
+    "vs. Spider Veins:",
+    "They're Not",
+    "the Same Thing"
+  ],
+  "eyebrow": "Why Do Some Leg Veins Bulge While Others Don't?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Weak valves let blood pool",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Blood flows back down",
+        "and the vein wall",
+        "stretches over time"
+      ]
+    },
+    {
+      "name": "Standing jobs raise the risk",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Pregnancy, obesity,",
+        "and family history",
+        "matter too"
+      ]
+    },
+    {
+      "name": "Skin discoloration is a signal",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Brownish ankle skin",
+        "can progress to",
+        "a venous ulcer"
+      ]
+    },
+    {
+      "name": "Sudden one-leg swelling",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Could be deep vein",
+        "thrombosis —",
+        "an emergency"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Spider veins alone rarely matter — the real signal is heaviness, pain, or discoloration.",
+    "tip": "Walk regularly to work the calf muscle pump, and move your legs during long stretches of standing.",
+    "cta": "Heaviness, pain, skin discoloration, or one-leg swelling means it's time to see a vascular surgeon."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Swelling",
+    "압박스타킹_illust.jpg": "Compression stockings"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

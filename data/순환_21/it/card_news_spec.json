@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Varici vs",
+    "capillari:",
+    "non sono lo",
+    "stesso problema"
+  ],
+  "eyebrow": "Perché alcune vene delle gambe sporgono?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Valvole deboli fanno ristagnare il sangue",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Il sangue torna giù,",
+        "la parete venosa",
+        "si dilata col tempo"
+      ]
+    },
+    {
+      "name": "I lavori in piedi aumentano il rischio",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Gravidanza, sovrappeso",
+        "e familiarità",
+        "contano anche loro"
+      ]
+    },
+    {
+      "name": "La pelle che si scurisce avvisa",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Pelle scura alla",
+        "caviglia può diventare",
+        "un'ulcera"
+      ]
+    },
+    {
+      "name": "Gonfiore improvviso a una gamba",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Potrebbe essere una",
+        "trombosi venosa —",
+        "un'urgenza"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "I soli capillari non preoccupano — attenzione a pesantezza, dolore o discolorazione.",
+    "tip": "Camminare regolarmente attiva la pompa del polpaccio; muovi le gambe durante lunghe stazioni in piedi.",
+    "cta": "Pesantezza, dolore, discolorazione o gonfiore di una gamba sola: rivolgiti a un chirurgo vascolare."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Gonfiore",
+    "압박스타킹_illust.jpg": "Calze compressive"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

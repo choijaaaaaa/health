@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Åderbråck vs",
+    "spindelvener:",
+    "inte samma",
+    "problem"
+  ],
+  "eyebrow": "Varför buktar vissa benvener ut?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Svaga klaffar gör att blod stannar",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Blod rinner tillbaka,",
+        "venväggen töjs",
+        "med tiden"
+      ]
+    },
+    {
+      "name": "Stillastående jobb ökar risken",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Graviditet, övervikt",
+        "och ärftlighet",
+        "spelar också in"
+      ]
+    },
+    {
+      "name": "Missfärgad hud varnar",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Brunaktig hud vid",
+        "vristen kan bli",
+        "ett sår"
+      ]
+    },
+    {
+      "name": "Plötslig svullnad i ett ben",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Kan vara djup",
+        "ventrombos —",
+        "ett akutfall"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Enbart spindelvener oroar sällan — håll koll på tyngd, smärta eller missfärgning.",
+    "tip": "Regelbunden promenad aktiverar vadmuskelpumpen; rör benen under långa stillastående perioder.",
+    "cta": "Tyngd, smärta, missfärgning eller svullnad i ett ben: låt en kärlkirurg undersöka det."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Svullnad",
+    "압박스타킹_illust.jpg": "Kompressionsstrumpor"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}
