@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Plötslig",
+    "hörselnedsättning",
+    "vs.",
+    "vaxpropp"
+  ],
+  "eyebrow": "3 tecken på plötslig hörselnedsättning",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Behandla inom 72 timmar",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Tidigare kortison-",
+        "behandling betyder",
+        "bättre chanser"
+      ]
+    },
+    {
+      "name": "Vaxpropp gradvis, detta plötsligt",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Dagar till veckor vs",
+        "bara några",
+        "timmar"
+      ]
+    },
+    {
+      "name": "Ingen förändring efter rengöring är ett tecken",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Riktig vaxpropp",
+        "förbättras direkt",
+        "efter avlägsnande"
+      ]
+    },
+    {
+      "name": "Yrsel eller tinnitus samtidigt",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Utan smärta,",
+        "men tillsammans —",
+        "det är tecknet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Blir ett öra plötsligt dövt, anta då inte bara att det är vaxpropp.",
+    "tip": "Hjälper rengöring med en örslev inte alls, misstänk plötslig hörselnedsättning.",
+    "cta": "Sök en öron-näsa-hals-läkare eller akuten för kortisonbehandling inom 72 timmar."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Öra",
+    "귀이개_illust.jpg": "Örslev"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Ipoacusia",
+    "improvvisa vs",
+    "cerume"
+  ],
+  "eyebrow": "3 segnali di ipoacusia improvvisa",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Trattare entro 72 ore",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Una terapia più",
+        "precoce migliora",
+        "le probabilità"
+      ]
+    },
+    {
+      "name": "Il cerume è graduale, questa è improvvisa",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Giorni o settimane vs",
+        "poche ore",
+        "soltanto"
+      ]
+    },
+    {
+      "name": "Nessun cambiamento dopo la pulizia: segnale",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Il vero cerume",
+        "migliora subito",
+        "dopo la rimozione"
+      ]
+    },
+    {
+      "name": "Vertigini o ronzii insieme",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Senza dolore,",
+        "ma insieme —",
+        "è il segnale"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se un orecchio diventa improvvisamente ovattato, non dare per scontato che sia cerume.",
+    "tip": "Se pulire con un bastoncino non cambia nulla, sospetta l'ipoacusia improvvisa.",
+    "cta": "Vai da un otorinolaringoiatra o al pronto soccorso per la terapia entro 72 ore."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Orecchio",
+    "귀이개_illust.jpg": "Bastoncino"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}
