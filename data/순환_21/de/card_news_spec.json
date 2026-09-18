@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Krampfadern",
+    "vs. Besenreiser:",
+    "Kein gleiches",
+    "Problem"
+  ],
+  "eyebrow": "Warum treten manche Beinvenen hervor und andere nicht?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Schwache Klappen stauen Blut",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Blut fließt zurück,",
+        "die Venenwand",
+        "dehnt sich mit der Zeit"
+      ]
+    },
+    {
+      "name": "Stehende Berufe erhöhen das Risiko",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Schwangerschaft, Übergewicht",
+        "und Veranlagung",
+        "spielen auch mit"
+      ]
+    },
+    {
+      "name": "Hautverfärbung ist ein Signal",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Bräunliche Knöchelhaut",
+        "kann zu einem",
+        "Geschwür werden"
+      ]
+    },
+    {
+      "name": "Plötzliche Schwellung an einem Bein",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Könnte eine tiefe",
+        "Venenthrombose sein —",
+        "ein Notfall"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Besenreiser allein sind meist harmlos — entscheidend sind Schwere, Schmerz oder Verfärbung.",
+    "tip": "Regelmäßiges Gehen aktiviert die Wadenmuskelpumpe, und bei langem Stehen die Beine zwischendurch bewegen.",
+    "cta": "Bei Schwere, Schmerz, Hautverfärbung oder Schwellung nur eines Beins zum Gefäßchirurgen gehen."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Schwellung",
+    "압박스타킹_illust.jpg": "Kompressionsstrümpfe"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

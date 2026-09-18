@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Spataderen vs",
+    "adertjes:",
+    "niet hetzelfde",
+    "probleem"
+  ],
+  "eyebrow": "Waarom puilen sommige beenaders uit?",
+  "cover_char_file": "부종_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Zwakke kleppen laten bloed stuwen",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Bloed zakt terug,",
+        "de aderwand",
+        "rekt na verloop van tijd"
+      ]
+    },
+    {
+      "name": "Staand werk verhoogt het risico",
+      "char_file": "압박스타킹_illust.jpg",
+      "body": [
+        "Zwangerschap, overgewicht",
+        "en familiegeschiedenis",
+        "spelen ook mee"
+      ]
+    },
+    {
+      "name": "Verkleurde huid is een signaal",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Bruine huid bij",
+        "de enkel kan een",
+        "ulcus worden"
+      ]
+    },
+    {
+      "name": "Plotselinge zwelling in één been",
+      "char_file": "부종_illust.jpg",
+      "body": [
+        "Kan diepveneuze",
+        "trombose zijn —",
+        "een spoedgeval"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Spinnenwebadertjes alleen zijn zelden zorgwekkend — let op zwaarte, pijn of verkleuring.",
+    "tip": "Regelmatig wandelen activeert de kuitspierpomp; beweeg je benen tijdens lang staan.",
+    "cta": "Zwaarte, pijn, huidverkleuring of zwelling in één been: laat een vaatchirurg het bekijken."
+  },
+  "char_display_names": {
+    "부종_illust.jpg": "Zwelling",
+    "압박스타킹_illust.jpg": "Compressiekousen"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}
