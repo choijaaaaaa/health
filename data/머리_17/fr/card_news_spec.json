@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Le mal de tête du week-end",
+    "n'est pas dû à la grasse matinée —",
+    "c'est un sevrage à la caféine",
+    "3 gestes qui aident vraiment"
+  ],
+  "eyebrow": "Mal de tête du week-end, la vraie cause",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Les vaisseaux se dilatent en rebond",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Sans caféine, les vaisseaux",
+        "contractés se dilatent",
+        "brusquement."
+      ]
+    },
+    {
+      "name": "Débute 12 à 24 heures après",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Le mal de tête commence",
+        "12-24 heures après",
+        "la dernière dose."
+      ]
+    },
+    {
+      "name": "Une petite dose aide vite",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Certains antidouleurs",
+        "contiennent de la caféine",
+        "contre ce rebond."
+      ]
+    },
+    {
+      "name": "Réduire sur 1-2 semaines",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Diminuer progressivement,",
+        "pas d'un coup —",
+        "le rebond s'atténue."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Le mal de tête du week-end n'est pas dû à la grasse matinée — c'est un sevrage.",
+    "tip": "Pour réduire le café, diminuez progressivement sur une à deux semaines.",
+    "cta": "Le mal de tête persiste sans changement de caféine ? Consultez un médecin."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "녹차_illust.jpg": "Thé vert"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}

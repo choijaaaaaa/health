@@ -1,0 +1,60 @@
+{
+  "title": [
+    "That weekend headache",
+    "isn't from sleeping in —",
+    "it's caffeine withdrawal",
+    "3 Ways to Actually Manage It"
+  ],
+  "eyebrow": "Weekend Headache, the Real Cause",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Vessels Rebound and Widen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Skip caffeine and",
+        "constricted vessels",
+        "suddenly expand."
+      ]
+    },
+    {
+      "name": "Starts 12-24 Hours Later",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Headache begins",
+        "12-24 hours after",
+        "your last dose."
+      ]
+    },
+    {
+      "name": "Small Caffeine Dose Helps Fast",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Some pain relievers",
+        "add caffeine to",
+        "reverse this rebound."
+      ]
+    },
+    {
+      "name": "Taper Over 1-2 Weeks",
+      "char_file": "녹차_illust.jpg",
+      "body": [
+        "Cut back gradually,",
+        "not all at once —",
+        "the rebound softens."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Weekend headaches aren't about sleeping in — it's caffeine withdrawal.",
+    "tip": "Cutting back or quitting coffee? Taper gradually over one to two weeks.",
+    "cta": "Headache persists with no change in caffeine intake? See a doctor."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "녹차_illust.jpg": "Green Tea"
+  },
+  "cover_scrim_color": "#8A5A2E"
+}
