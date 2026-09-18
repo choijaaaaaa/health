@@ -34,7 +34,7 @@ _테스트*.mp3
 assets_library/xray/stills/_candidates/
 assets_library/xray/*.zip
 
-# deploy/ — scripts/stage_for_deploy.py가 채우는 네이버 클립 업로드용 shorts.mp4
-# 복사본 전용 폴더(2026-09-18, ai-video-network/deploy/와 동일 패턴) — 원본은
-# output/<topic>/shorts.mp4, 이건 찾기 쉽게 모아둔 사본이라 git에 안 올림.
-deploy/
+# WHY 여기 deploy/ 항목이 없는지(2026-09-18 정정): scripts/stage_for_deploy.py가
+# 만드는 shorts.mp4·카드뉴스 복사본은 이 저장소 안이 아니라 ai-video-network/
+# deploy/ko/(사용자가 이미 매일 쓰는 공용 업로드 폴더)로 나간다 — 이 프로젝트
+# 폴더 트리 밖이라 여기 gitignore에 적을 대상 자체가 없음.

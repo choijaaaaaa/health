@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 """mission-control Upload 탭에서 목표 플랫폼이 전부 체크된(완료) topic의
-deploy/ **복사본**만 지운다 — 원본(`output/<topic>/shorts.mp4`)은 절대
-건드리지 않는다(2026-09-18, ai-video-network/tools/cleanup_deploy.py와
-동일 패턴 이식). 카드뉴스(type='cards')는 deploy/에 안 들어가므로 완료
-판정도 영상 목표 플랫폼(type!='cards')만 본다.
+공용 `ai-video-network/deploy/ko/` **복사본**(shorts.mp4 + card_news/)만
+지운다 — 원본(`output/<topic>/`)은 절대 건드리지 않는다(2026-09-18,
+ai-video-network/tools/cleanup_deploy.py와 동일 패턴 이식, 위치는
+stage_for_deploy.py와 동일하게 조정됨 — "deploy 폴더는 원래 쓰던 그거
+하나로" 정정 참고).
 
 완료 판정은 mission-control 웹앱(app/(dashboard)/upload/page.tsx의
 UploadTable/PostingBadge)과 동일 기준: hs_platform_captions(project=
-'health-shorts', type!='cards'인 목표 플랫폼)와 posting_log(실제 체크된
-플랫폼)를 대조해 postedCount === platformCount(그리고 >0)인 topic만
-완료로 본다. 두 테이블 다 이 프로젝트 자신의 Supabase 프로젝트 안에
-있다(하나는 public 스키마, 하나는 mission_control 스키마 — 다른
+'health-shorts'인 목표 플랫폼 — 네이버 블로그(type='text')·네이버
+클립(type='video') 둘 다, health-shorts엔 type='cards' 자체가 없음
+2026-09-18 실측 확인)와 posting_log(실제 체크된 플랫폼)를 대조해
+postedCount === platformCount(그리고 >0)인 topic만 완료로 본다 — 즉
+카드뉴스(네이버 블로그)·영상(네이버 클립) **둘 다 체크돼야** deploy/
+복사본을 지운다. 두 테이블 다 이 프로젝트 자신의 Supabase 프로젝트
+안에 있다(하나는 public 스키마, 하나는 mission_control 스키마 — 다른
 프로젝트처럼 자격증명을 따로 복사해올 필요 없음, health-shorts/.env
 SUPABASE_URL/SUPABASE_SERVICE_ROLE_KEY 하나로 둘 다 조회 가능).
 
@@ -31,7 +35,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
-DEPLOY_DIR = ROOT / "deploy"
+DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "ko"
 load_dotenv(ROOT / ".env")
 
 # WHY 기본 User-Agent를 갈아끼우는지: lib/mission_control_sync.py와 동일 사유
@@ -67,7 +71,7 @@ def _completed_topics() -> set[str]:
 
     captions = _fetch_all(
         url, key, "hs_platform_captions", "topic,platform_name,type", "mission_control",
-        extra="&project=eq.health-shorts&type=neq.cards",
+        extra="&project=eq.health-shorts",
     )
     posting_log = _fetch_all(url, key, "posting_log", "topic,platform", None)
 
@@ -106,13 +110,13 @@ def main() -> None:
             continue
         if args.commit:
             shutil.rmtree(target)
-            print(f"삭제됨: deploy/{topic}")
+            print(f"삭제됨: deploy/ko/{topic}")
         else:
-            print(f"[dry-run] 삭제 예정: deploy/{topic}")
+            print(f"[dry-run] 삭제 예정: deploy/ko/{topic}")
         removed += 1
 
     verb = "삭제" if args.commit else "삭제 예정(--commit으로 실행)"
-    print(f"\n{verb}: {removed}개 폴더 — 원본(output/<topic>/shorts.mp4)은 그대로 유지됨")
+    print(f"\n{verb}: {removed}개 폴더 — 원본(output/<topic>/)은 그대로 유지됨")
 
 
 if __name__ == "__main__":
