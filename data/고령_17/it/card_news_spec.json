@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Ipotensione",
+    "ortostatica,",
+    "non solo",
+    "l'età"
+  ],
+  "eyebrow": "3 segnali di ipotensione ortostatica",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Il riflesso pressorio rallenta",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Il cervello resta",
+        "brevemente",
+        "senza sangue"
+      ]
+    },
+    {
+      "name": "Si risolve in uno o due minuti",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Legata al cambio",
+        "di postura,",
+        "non costante"
+      ]
+    },
+    {
+      "name": "Alzarsi lentamente previene tutto",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Siediti sul bordo",
+        "prima di",
+        "alzarti"
+      ]
+    },
+    {
+      "name": "Svenimento o caduta è un segnale",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Fatti controllare,",
+        "non",
+        "ignorarlo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Le vertigini ogni volta che ci si alza non sono solo normale invecchiamento.",
+    "tip": "Siediti sul bordo del letto o di una sedia prima di alzarti lentamente.",
+    "cta": "In caso di vera perdita di coscienza o infortunio da caduta, rivolgiti a un medico."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Misuratore di pressione",
+    "의자_illust.jpg": "Sedia"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}

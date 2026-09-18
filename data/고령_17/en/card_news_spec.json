@@ -1,0 +1,60 @@
+{
+  "title": [
+    "It's Not",
+    "Just Aging —",
+    "It's Orthostatic",
+    "Hypotension"
+  ],
+  "eyebrow": "It's Not Just Aging — It's Orthostatic Hypotension",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "The blood pressure reflex slows down",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "The brain briefly",
+        "runs short",
+        "on blood"
+      ]
+    },
+    {
+      "name": "It settles within a minute or two",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Tied to the",
+        "posture change,",
+        "not constant"
+      ]
+    },
+    {
+      "name": "Rising slowly prevents it",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Sit on the edge",
+        "before standing",
+        "up fully"
+      ]
+    },
+    {
+      "name": "Fainting or a fall injury is a sign",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Get it checked,",
+        "not just",
+        "shrugged off"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dizziness every time you stand isn't just ordinary aging.",
+    "tip": "Sit on the edge of the bed or chair for a moment before standing up slowly.",
+    "cta": "If you've actually fainted or been hurt in a fall, get checked with a doctor."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Blood pressure monitor",
+    "의자_illust.jpg": "Chair"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}
