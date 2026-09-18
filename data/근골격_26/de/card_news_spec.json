@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Taubheit trotz Karpaltunnel-",
+    "Behandlung anhaltend?",
+    "Ring- und Kleinfinger prüfen",
+    "3 Zeichen für Thoracic Outlet"
+  ],
+  "eyebrow": "Taubheit in der Hand, wo die echte Ursache liegt",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Daumenseite = Karpaltunnel",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Taubheit in Daumen,",
+        "Zeige-, Mittelfinger:",
+        "Medianusnerv."
+      ]
+    },
+    {
+      "name": "Kleinfingerseite = Thoracic Outlet",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Taubheit in Ring-,",
+        "kleinem Finger:",
+        "Nervenbündel eingeklemmt."
+      ]
+    },
+    {
+      "name": "Überkopfbewegung verschlimmert es",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Arme heben oder",
+        "Taschen tragen",
+        "lösen Symptome aus."
+      ]
+    },
+    {
+      "name": "Schulter-öffnende Dehnung hilft",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Gerundete Haltung",
+        "verengt den Raum,",
+        "der den Nerv klemmt."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Mehr Taubheit in Ring- und Kleinfinger? Schulter prüfen, nicht das Handgelenk.",
+    "tip": "Überkopfbewegungen reduzieren, Taschen auf beiden Schultern tragen, täglich dehnen.",
+    "cta": "Schwellung oder Verfärbung am Arm? Nicht warten — ärztlichen Rat einholen."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger",
+    "폼롤러_illust.jpg": "Faszienrolle"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

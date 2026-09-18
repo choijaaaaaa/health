@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Tinteling in de hand",
+    "die niet beter wordt?",
+    "Check ringvinger en pink",
+    "Geen carpaal tunnel: 3 signalen"
+  ],
+  "eyebrow": "Tinteling in de hand, waar de echte oorzaak zit",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Duimzijde = carpaal tunnel",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Duim, wijs-, middelvinger",
+        "tintelen: mediaanzenuw",
+        "afgekneld."
+      ]
+    },
+    {
+      "name": "Pinkzijde = thoracic outlet",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ringvinger, pink",
+        "tintelen: zenuwbundel",
+        "afgekneld."
+      ]
+    },
+    {
+      "name": "Armen omhoog verergert het",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Armen heffen of",
+        "zware tassen dragen",
+        "triggeren klachten."
+      ]
+    },
+    {
+      "name": "Schoudersstretches helpen",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Gebogen houding",
+        "verkleint de ruimte",
+        "die de zenuw knelt."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Meer tinteling in ringvinger en pink? Kijk naar je schouder, niet je pols.",
+    "tip": "Minder bewegingen boven het hoofd, tassen op beide schouders, dagelijks stretchen.",
+    "cta": "Zwelling of verkleuring van de arm? Wacht niet — ga direct naar een arts."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Vingers",
+    "폼롤러_illust.jpg": "Foamroller"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Handdomning som",
+    "inte blir bättre?",
+    "Kolla ring- och lillfinger",
+    "Inte karpaltunnel: 3 tecken"
+  ],
+  "eyebrow": "Handdomning, var den verkliga orsaken gömmer sig",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Tumsidan = karpaltunnel",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Tumme, pek-, långfinger",
+        "domnar: mediannerven",
+        "kläms."
+      ]
+    },
+    {
+      "name": "Lillfingersidan = thoracic outlet",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ring-, lillfinger",
+        "domnar: nervbunten",
+        "kläms."
+      ]
+    },
+    {
+      "name": "Armar ovanför huvudet förvärrar",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Lyfta armar eller",
+        "tunga väskor",
+        "utlöser symtom."
+      ]
+    },
+    {
+      "name": "Axelöppnande stretchar hjälper",
+      "char_file": "폼롤러_illust.jpg",
+      "body": [
+        "Framåtböjd hållning",
+        "minskar utrymmet",
+        "som klämmer nerven."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Mer domning i ring- och lillfinger? Titta på axeln, inte handleden.",
+    "tip": "Minska rörelser ovanför huvudet, bär väskor på båda axlarna, stretcha dagligen.",
+    "cta": "Svullnad eller färgförändring i armen? Vänta inte — sök läkare direkt."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Fingrar",
+    "폼롤러_illust.jpg": "Foam roller"
+  },
+  "cover_scrim_color": "#2E6B8A"
+}
