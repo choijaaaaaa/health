@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Schnarchen vs.",
+    "Schlafapnoe:",
+    "Kein gleiches",
+    "Problem"
+  ],
+  "eyebrow": "Schnarchen vs. Schlafapnoe: Warum der Unterschied zählt",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Schnarchen ist nur Lärm",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Die Atemwege verengen sich,",
+        "aber die Atmung",
+        "läuft weiter"
+      ]
+    },
+    {
+      "name": "Bei Apnoe setzt die Atmung aus",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Zehn Sekunden",
+        "oder länger,",
+        "immer wieder"
+      ]
+    },
+    {
+      "name": "Gewicht, Alkohol, Schlafposition zählen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Diese lassen die",
+        "Atemwege leichter",
+        "kollabieren"
+      ]
+    },
+    {
+      "name": "Beobachtete Pausen bedeuten Test",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Schnarchen stoppt,",
+        "dann Würgen —",
+        "zum Arzt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Viel wichtiger als die Lautstärke ist, ob die Atmung tatsächlich aussetzt.",
+    "tip": "Seitenschlafen und kein Alkohol vor dem Schlafen helfen bei leichtem Schnarchen.",
+    "cta": "Beobachtete Atempausen oder starke Tagesmüdigkeit bedeuten: Zeit für ein Schlaflabor."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kissen",
+    "수면무호흡_illust.jpg": "Schlafapnoe"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}

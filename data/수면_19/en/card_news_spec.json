@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Snoring vs.",
+    "Sleep Apnea:",
+    "Not the Same",
+    "Problem"
+  ],
+  "eyebrow": "Loud Snoring Could Be Hiding Sleep Apnea",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Snoring is just noise",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "The airway narrows",
+        "but breathing",
+        "keeps going"
+      ]
+    },
+    {
+      "name": "Apnea means breathing stops",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Ten seconds",
+        "or longer,",
+        "over and over"
+      ]
+    },
+    {
+      "name": "Weight, alcohol, sleep position matter",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "These make the",
+        "airway collapse",
+        "more easily"
+      ]
+    },
+    {
+      "name": "Witnessed pauses mean get tested",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Snoring that stops",
+        "then gasping —",
+        "see a doctor"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "What matters far more than how loud it is, is whether breathing actually stops.",
+    "tip": "Side-sleeping and skipping alcohol before bed can help mild snoring.",
+    "cta": "Witnessed pauses or severe daytime sleepiness mean it's time for a sleep study."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Pillow",
+    "수면무호흡_illust.jpg": "Sleep apnea"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}

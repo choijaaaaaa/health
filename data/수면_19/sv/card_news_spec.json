@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Snarkningar vs",
+    "sömnapné:",
+    "inte samma",
+    "problem"
+  ],
+  "eyebrow": "Snarkningar är inte alltid ofarliga — så ser du skillnaden",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Snarkningar är bara ljud",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Luftvägen förträngs",
+        "men andningen",
+        "fortsätter"
+      ]
+    },
+    {
+      "name": "Apné stannar andningen på riktigt",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Tio sekunder",
+        "eller längre,",
+        "om och om igen"
+      ]
+    },
+    {
+      "name": "Vikt, alkohol, sovställning spelar roll",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "De gör att",
+        "luftvägen lättare",
+        "kollapsar"
+      ]
+    },
+    {
+      "name": "Bevittnade pauser betyder utredning",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Snarkning stannar,",
+        "sen kippande —",
+        "sök läkare"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Mycket viktigare än ljudvolymen är om andningen faktiskt stannar av.",
+    "tip": "Att sova på sidan och undvika alkohol före sänggåendet hjälper vid milda snarkningar.",
+    "cta": "Bevittnade pauser eller stark dagtrötthet betyder: dags för en sömnutredning."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kudde",
+    "수면무호흡_illust.jpg": "Sömnapné"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}

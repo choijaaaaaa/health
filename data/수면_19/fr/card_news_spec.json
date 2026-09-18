@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Ronflement vs",
+    "apnée du sommeil :",
+    "pas le même",
+    "problème"
+  ],
+  "eyebrow": "Ronflement ou apnée du sommeil : comment les distinguer ?",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le ronflement n'est que du bruit",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Les voies se rétrécissent",
+        "mais la respiration",
+        "continue"
+      ]
+    },
+    {
+      "name": "L'apnée arrête vraiment la respiration",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Dix secondes",
+        "ou plus,",
+        "à répétition"
+      ]
+    },
+    {
+      "name": "Poids, alcool, position comptent",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Ils facilitent",
+        "l'effondrement",
+        "des voies"
+      ]
+    },
+    {
+      "name": "Des pauses observées signifient consulter",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Ronflement qui s'arrête",
+        "puis étouffement —",
+        "voir un médecin"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ce qui compte bien plus que le volume, c'est si la respiration s'arrête vraiment.",
+    "tip": "Dormir sur le côté et éviter l'alcool avant le coucher aident un ronflement léger.",
+    "cta": "Des pauses observées ou une forte somnolence diurne signifient : direction un examen du sommeil."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Oreiller",
+    "수면무호흡_illust.jpg": "Apnée du sommeil"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}

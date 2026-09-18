@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Snurken vs",
+    "slaapapneu:",
+    "niet hetzelfde",
+    "probleem"
+  ],
+  "eyebrow": "Snurken is niet altijd onschuldig — dit is het verschil",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Snurken is gewoon geluid",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "De luchtweg vernauwt",
+        "maar de ademhaling",
+        "gaat door"
+      ]
+    },
+    {
+      "name": "Apneu stopt de ademhaling echt",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Tien seconden",
+        "of langer,",
+        "keer op keer"
+      ]
+    },
+    {
+      "name": "Gewicht, alcohol, slaaphouding tellen mee",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Ze maken de",
+        "luchtweg makkelijker",
+        "dichtvallen"
+      ]
+    },
+    {
+      "name": "Waargenomen pauzes betekenen onderzoek",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Snurken stopt,",
+        "dan stikken —",
+        "naar de dokter"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Veel belangrijker dan het volume is of de ademhaling echt stopt.",
+    "tip": "Op je zij slapen en alcohol voor het slapen vermijden helpen bij mild snurken.",
+    "cta": "Waargenomen pauzes of sterke slaperigheid overdag betekenen: tijd voor een slaaponderzoek."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kussen",
+    "수면무호흡_illust.jpg": "Slaapapneu"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}

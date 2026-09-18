@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Russare vs",
+    "apnea notturna:",
+    "non è lo stesso",
+    "problema"
+  ],
+  "eyebrow": "Russare o apnea notturna: come riconoscere la differenza",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Russare è solo rumore",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Le vie si restringono",
+        "ma la respirazione",
+        "continua"
+      ]
+    },
+    {
+      "name": "L'apnea ferma davvero la respirazione",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Dieci secondi",
+        "o più,",
+        "ripetutamente"
+      ]
+    },
+    {
+      "name": "Peso, alcol, posizione contano",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Facilitano il",
+        "collasso delle",
+        "vie respiratorie"
+      ]
+    },
+    {
+      "name": "Pause osservate significano fare un esame",
+      "char_file": "수면무호흡_illust.jpg",
+      "body": [
+        "Il russare si ferma,",
+        "poi soffoca —",
+        "vai dal medico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Conta molto più del volume se la respirazione si ferma davvero.",
+    "tip": "Dormire su un fianco ed evitare alcol prima di dormire aiutano il russare lieve.",
+    "cta": "Pause osservate o forte sonnolenza diurna significano: è ora di un esame del sonno."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Cuscino",
+    "수면무호흡_illust.jpg": "Apnea notturna"
+  },
+  "cover_scrim_color": "#3A5C8A"
+}
