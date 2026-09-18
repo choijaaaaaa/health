@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Mensvärk,",
+    "du skyller nog bara på livmodern —",
+    "3 livsmedel förvärrar smärtan",
+    "ett har faktiska studiebevis"
+  ],
+  "eyebrow": "Mensvärk, de bortglömda matorsakerna",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Koffein lägger till sammandragningarna",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Drar ihop kärl och stimulerar",
+        "livmodern utöver",
+        "prostaglandinerna."
+      ]
+    },
+    {
+      "name": "Charkprodukter föder prostaglandiner",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Natrium förvärrar uppsvälldhet,",
+        "mättat fett ökar",
+        "produktionen av dem."
+      ]
+    },
+    {
+      "name": "Socker förstärker inflammationen",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Snabba blodsockersvängningar",
+        "gör samma kramp",
+        "mer intensiv."
+      ]
+    },
+    {
+      "name": "Omega-3 har faktiska studiebevis",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1800mg dagligen i 2-3",
+        "månader minskade smärta och",
+        "smärtstillande-användning i studier."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inte bara livmodern — se över din tallrik.",
+    "tip": "Byt kaffe, charkprodukter och sötsaker mot te, tofu/fisk och mandlar.",
+    "cta": "Kramper som stör vardagen eller förvärras? Prata med en läkare."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "가공육_illust.jpg": "Charkprodukter",
+    "사탕_illust.jpg": "Godis",
+    "연어_illust.jpg": "Lax"
+  }
+}

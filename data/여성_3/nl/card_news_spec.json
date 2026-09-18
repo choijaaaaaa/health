@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Menstruatiepijn,",
+    "je wijt het vast alleen aan je baarmoeder —",
+    "3 voedingsmiddelen verergeren het",
+    "één heeft echt onderzoeksbewijs"
+  ],
+  "eyebrow": "Menstruatiepijn, de over het hoofd geziene voedingsfactoren",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Cafeïne voegt toe aan de samentrekkingen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Vernauwt bloedvaten en stimuleert",
+        "de baarmoeder bovenop de",
+        "prostaglandines."
+      ]
+    },
+    {
+      "name": "Bewerkt vlees voedt de prostaglandines",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Natrium verergert een opgeblazen",
+        "gevoel, verzadigd vet verhoogt",
+        "de productie ervan."
+      ]
+    },
+    {
+      "name": "Suiker versterkt de ontsteking",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Snelle bloedsuikerschommelingen",
+        "maken dezelfde kramp",
+        "intenser."
+      ]
+    },
+    {
+      "name": "Omega-3 heeft echt onderzoeksbewijs",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1800mg per dag gedurende",
+        "2-3 maanden verminderde pijn",
+        "en pijnstillergebruik in onderzoek."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Niet alleen je baarmoeder — kijk naar je bord.",
+    "tip": "Vervang koffie, bewerkt vlees en zoetigheid door thee, tofu/vis en noten.",
+    "cta": "Krampen die je dag verstoren of erger worden? Bespreek het met een arts."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "가공육_illust.jpg": "Bewerkt vlees",
+    "사탕_illust.jpg": "Snoep",
+    "연어_illust.jpg": "Zalm"
+  }
+}

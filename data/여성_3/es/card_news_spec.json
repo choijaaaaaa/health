@@ -1,0 +1,61 @@
+{
+  "title": [
+    "El dolor menstrual,",
+    "seguro que culpas solo al útero —",
+    "3 alimentos lo empeoran",
+    "El Omega-3, Con Evidencia Real"
+  ],
+  "eyebrow": "Dolor menstrual, las causas alimentarias pasadas por alto",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La cafeína suma a las contracciones",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Contrae los vasos y estimula",
+        "el útero además de",
+        "las prostaglandinas."
+      ]
+    },
+    {
+      "name": "Los embutidos alimentan las prostaglandinas",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "El sodio empeora la hinchazón,",
+        "la grasa saturada aumenta",
+        "su producción."
+      ]
+    },
+    {
+      "name": "El azúcar amplifica la inflamación",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Los cambios rápidos de glucosa",
+        "hacen que el mismo dolor",
+        "se sienta más intenso."
+      ]
+    },
+    {
+      "name": "El omega-3 tiene evidencia clínica real",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1800mg al día durante 2-3",
+        "meses redujo dolor y uso de",
+        "analgésicos en ensayos."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es solo el útero — mira lo que hay en tu plato.",
+    "tip": "Cambia café, embutidos y dulces por infusión, tofu/pescado y almendras.",
+    "cta": "¿Dolor que interfiere en tu día a día o que empeora? Coméntalo con un médico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "가공육_illust.jpg": "Embutidos",
+    "사탕_illust.jpg": "Caramelos",
+    "연어_illust.jpg": "Salmón"
+  }
+}

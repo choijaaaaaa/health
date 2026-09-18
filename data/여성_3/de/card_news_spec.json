@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Regelschmerzen,",
+    "Sie geben allein der Gebärmutter die Schuld —",
+    "3 Lebensmittel verschlimmern es",
+    "eines hat echte Studienbelege"
+  ],
+  "eyebrow": "Regelschmerzen, die übersehenen Ernährungsfaktoren",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Koffein verstärkt die Kontraktionen",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Verengt Gefäße und stimuliert",
+        "die Gebärmutter zusätzlich zu",
+        "den Prostaglandinen."
+      ]
+    },
+    {
+      "name": "Verarbeitetes Fleisch befeuert Prostaglandine",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Natrium verstärkt Blähungen,",
+        "gesättigtes Fett erhöht die",
+        "Prostaglandinproduktion."
+      ]
+    },
+    {
+      "name": "Zucker verstärkt die Entzündung",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Schnelle Blutzuckerschwankungen",
+        "lassen denselben Krampf",
+        "stärker wirken."
+      ]
+    },
+    {
+      "name": "Omega-3 hat echte Studienbelege",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1.800mg täglich über 2-3",
+        "Monate senkten Schmerz und",
+        "Schmerzmittelbedarf in Studien."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nicht nur die Gebärmutter — schauen Sie auf Ihren Teller.",
+    "tip": "Kaffee, verarbeitetes Fleisch und Süßes gegen Gerstentee, Tofu/Fisch und Nüsse tauschen.",
+    "cta": "Krämpfe stören den Alltag oder werden schlimmer? Sprechen Sie mit einer Ärztin."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffee",
+    "가공육_illust.jpg": "Verarbeitetes Fleisch",
+    "사탕_illust.jpg": "Süßigkeiten",
+    "연어_illust.jpg": "Lachs"
+  }
+}

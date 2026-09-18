@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Règles douloureuses,",
+    "vous blâmez sans doute juste l'utérus —",
+    "3 aliments aggravent la douleur",
+    "un a de vraies preuves cliniques"
+  ],
+  "eyebrow": "Règles douloureuses, les causes alimentaires négligées",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "La caféine ajoute aux contractions",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Resserre les vaisseaux et stimule",
+        "l'utérus en plus des",
+        "prostaglandines."
+      ]
+    },
+    {
+      "name": "La charcuterie nourrit les prostaglandines",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Le sodium aggrave les",
+        "ballonnements, le gras saturé",
+        "augmente leur production."
+      ]
+    },
+    {
+      "name": "Le sucre amplifie l'inflammation",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Les variations rapides de",
+        "glycémie rendent la même",
+        "crampe plus intense."
+      ]
+    },
+    {
+      "name": "Les oméga-3 ont de vraies preuves cliniques",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1800mg par jour sur 2-3",
+        "mois ont réduit douleur et",
+        "usage d'antidouleurs en essai."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas seulement l'utérus — regardez votre assiette.",
+    "tip": "Remplacez café, charcuterie et sucreries par tisane, tofu/poisson et amandes.",
+    "cta": "Crampes qui perturbent le quotidien ou qui s'aggravent ? Parlez-en à un médecin."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "가공육_illust.jpg": "Charcuterie",
+    "사탕_illust.jpg": "Bonbons",
+    "연어_illust.jpg": "Saumon"
+  }
+}

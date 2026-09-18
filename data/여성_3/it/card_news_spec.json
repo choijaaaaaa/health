@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Dolori mestruali,",
+    "pensi sia solo colpa dell'utero —",
+    "3 alimenti peggiorano il dolore",
+    "uno ha vere prove cliniche"
+  ],
+  "eyebrow": "Dolori mestruali, le cause alimentari trascurate",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Scorri per vedere altro  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "La caffeina aggiunge alle contrazioni",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Restringe i vasi e stimola",
+        "l'utero oltre alle",
+        "prostaglandine."
+      ]
+    },
+    {
+      "name": "La carne lavorata alimenta le prostaglandine",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Il sodio peggiora il gonfiore,",
+        "il grasso saturo aumenta",
+        "la loro produzione."
+      ]
+    },
+    {
+      "name": "Lo zucchero amplifica l'infiammazione",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Le oscillazioni rapide della",
+        "glicemia rendono lo stesso",
+        "crampo più intenso."
+      ]
+    },
+    {
+      "name": "Gli omega-3 hanno vere prove cliniche",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1800mg al giorno per 2-3",
+        "mesi hanno ridotto dolore e",
+        "uso di antidolorifici negli studi."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non solo l'utero — guarda cosa c'è nel piatto.",
+    "tip": "Sostituisci caffè, carne lavorata e dolci con tisana, tofu/pesce e mandorle.",
+    "cta": "Crampi che disturbano la vita quotidiana o peggiorano? Parlane con un medico."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "가공육_illust.jpg": "Carne lavorata",
+    "사탕_illust.jpg": "Caramelle",
+    "연어_illust.jpg": "Salmone"
+  }
+}

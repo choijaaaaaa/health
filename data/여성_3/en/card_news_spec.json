@@ -1,0 +1,61 @@
+{
+  "title": [
+    "Period cramps,",
+    "you probably blame your uterus alone —",
+    "three foods make it worse",
+    "The Omega-3 Fix With Real Evidence"
+  ],
+  "eyebrow": "Period Cramps, the Overlooked Food Triggers",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Caffeine Adds to the Contractions",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Constricts vessels and stimulates",
+        "the uterus on top of what",
+        "prostaglandins already do."
+      ]
+    },
+    {
+      "name": "Processed Meat Feeds Prostaglandins",
+      "char_file": "가공육_illust.jpg",
+      "body": [
+        "Sodium worsens bloating, and",
+        "saturated fat is linked to",
+        "more prostaglandin production."
+      ]
+    },
+    {
+      "name": "Sugar Amplifies the Inflammation",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Fast blood sugar swings make",
+        "the same cramp feel",
+        "more intense."
+      ]
+    },
+    {
+      "name": "Omega-3s Have Real Trial Evidence",
+      "char_file": "연어_illust.jpg",
+      "body": [
+        "300-1,800mg daily over 2-3",
+        "months reduced pain and",
+        "painkiller use in trials."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not just your uterus — check what's on your plate.",
+    "tip": "Swap coffee, processed meat, and sweets for barley tea, tofu or fish, and nuts.",
+    "cta": "Cramps disrupting daily life or getting worse over time? Talk to a doctor."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "가공육_illust.jpg": "Processed Meat",
+    "사탕_illust.jpg": "Candy",
+    "연어_illust.jpg": "Salmon"
+  }
+}
