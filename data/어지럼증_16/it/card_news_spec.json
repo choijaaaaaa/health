@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vertigini",
+    "solo con certi",
+    "movimenti",
+    "della testa"
+  ],
+  "eyebrow": "Vertigini che arrivano solo con certi movimenti della testa",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "I cristalli finiscono nei canali",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Il movimento invia",
+        "un falso segnale",
+        "di rotazione"
+      ]
+    },
+    {
+      "name": "Breve, secondi fino a un minuto",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Niente ronzii,",
+        "niente perdita",
+        "d'udito"
+      ]
+    },
+    {
+      "name": "Stare sdraiati a lungo peggiora",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Il riposo può",
+        "rallentare la",
+        "guarigione"
+      ]
+    },
+    {
+      "name": "Mal di testa e visione doppia: emergenza",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Può essere un ictus —",
+        "vai al pronto",
+        "soccorso"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Una vertigine breve scatenata da un movimento preciso fa pensare alla VPPB.",
+    "tip": "La manovra di Epley porta spesso a un netto miglioramento in una o due sedute.",
+    "cta": "Mal di testa intenso o difficoltà a parlare: pronto soccorso; altrimenti vai da un ORL."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Cuscino"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}

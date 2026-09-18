@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Schwindel nur",
+    "bei bestimmten",
+    "Kopf-",
+    "bewegungen"
+  ],
+  "eyebrow": "Schwindel nur bei bestimmten Kopfbewegungen",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Kristalle geraten in die Bogengänge",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Kopfbewegung sendet",
+        "falsches",
+        "Drehsignal"
+      ]
+    },
+    {
+      "name": "Kurz, Sekunden bis eine Minute",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Kein Ohrensausen,",
+        "kein Hörverlust —",
+        "typisches Zeichen"
+      ]
+    },
+    {
+      "name": "Langes Liegen verschlimmert es",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bettruhe kann",
+        "Genesung",
+        "verlangsamen"
+      ]
+    },
+    {
+      "name": "Kopfschmerz plus Doppelbilder ist Notfall",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Könnte ein",
+        "Schlaganfall sein —",
+        "Notaufnahme"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kurzer Drehschwindel bei bestimmter Kopfbewegung lässt an BPPV denken.",
+    "tip": "Das Epley-Manöver beim Arzt bringt oft schon nach ein bis zwei Sitzungen deutliche Besserung.",
+    "cta": "Starke Kopfschmerzen oder verwaschene Sprache bedeuten Notaufnahme; sonst zum HNO-Arzt."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kissen"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}

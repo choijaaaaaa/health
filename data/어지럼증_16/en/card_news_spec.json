@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Dizziness That",
+    "Hits Only With",
+    "Certain Head",
+    "Movements"
+  ],
+  "eyebrow": "Dizziness That Hits Only When You Move Your Head",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Crystals drift into the canals",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Head movement sends",
+        "a false spinning",
+        "signal"
+      ]
+    },
+    {
+      "name": "Brief, seconds to a minute",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "No ringing or",
+        "hearing loss —",
+        "that's the sign"
+      ]
+    },
+    {
+      "name": "Lying down too long makes it worse",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Bed rest can",
+        "actually slow",
+        "recovery"
+      ]
+    },
+    {
+      "name": "Headache plus double vision is an emergency",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Could be a stroke —",
+        "go to the ER",
+        "right away"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Brief spinning triggered by a specific head movement is worth suspecting as BPPV.",
+    "tip": "The Epley maneuver at a doctor's office often brings major improvement in one or two sessions.",
+    "cta": "Severe headache or slurred speech means the ER; otherwise get checked by an ENT specialist."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Pillow"
+  },
+  "cover_scrim_color": "#4A3A6B"
+}
