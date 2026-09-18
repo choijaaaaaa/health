@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Stanchezza",
+    "cronica o",
+    "ipotiroidismo?"
+  ],
+  "eyebrow": "Stanchezza cronica o ipotiroidismo: la differenza",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Poco ormone rallenta il metabolismo",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Stanchezza, peso,",
+        "freddo, stitichezza",
+        "arrivano insieme"
+      ]
+    },
+    {
+      "name": "Stanchezza che il riposo non risolve",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "La stanchezza",
+        "semplice passa",
+        "col riposo"
+      ]
+    },
+    {
+      "name": "Donne, familiarità, over 60 a rischio",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Subito dopo",
+        "il parto conta",
+        "anche"
+      ]
+    },
+    {
+      "name": "Un esame del sangue conferma tutto",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Il test TSH",
+        "è semplice",
+        "e veloce"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Una stanchezza che il riposo non risolve, con peso, freddo o stitichezza, merita un esame.",
+    "tip": "Un semplice esame del sangue del TSH può confermare l'ipotiroidismo.",
+    "cta": "Una volta diagnosticato, una compressa al giorno e controlli del sangue regolano la dose."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Tiroide",
+    "혈액검사_illust.jpg": "Esame del sangue"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

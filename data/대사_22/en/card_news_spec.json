@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Constant",
+    "Fatigue Could",
+    "Be an",
+    "Underactive Thyroid"
+  ],
+  "eyebrow": "Your Constant Fatigue Might Be an Underactive Thyroid",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Low hormone slows the whole metabolism",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Fatigue, weight gain,",
+        "cold, constipation",
+        "come together"
+      ]
+    },
+    {
+      "name": "Fatigue that rest doesn't fix",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Simple tiredness",
+        "clears with",
+        "rest"
+      ]
+    },
+    {
+      "name": "Women, family history, over 60 at risk",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Right after",
+        "childbirth too",
+        "counts"
+      ]
+    },
+    {
+      "name": "One blood test confirms it",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "The TSH test",
+        "is simple",
+        "and fast"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Fatigue that rest doesn't fix, plus weight gain, cold, or constipation, is worth testing.",
+    "tip": "A simple TSH blood test can confirm an underactive thyroid.",
+    "cta": "Once diagnosed, one daily pill and follow-up blood tests keep the dose right."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Thyroid",
+    "혈액검사_illust.jpg": "Blood test"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "계속되는 피로,",
+    "갑상선기능",
+    "저하증일",
+    "수 있어요"
+  ],
+  "eyebrow": "만성피로 vs 갑상선기능저하증",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "호르몬 부족이 대사를 늦춰요",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "피로·체중증가·",
+        "추위·변비가",
+        "함께 와요"
+      ]
+    },
+    {
+      "name": "쉬어도 안 풀리는 피로",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "단순 피로는",
+        "쉬면",
+        "풀려요"
+      ]
+    },
+    {
+      "name": "여성·가족력·60대가 위험군",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "출산 직후도",
+        "위험 요인",
+        "이에요"
+      ]
+    },
+    {
+      "name": "혈액검사 하나로 확인돼요",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "TSH 검사는",
+        "간단하고",
+        "빨라요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "쉬어도 안 풀리는 피로에 체중 증가·추위·변비가 겹치면 검사를 받아보세요.",
+    "tip": "간단한 TSH 혈액검사로 갑상선기능저하증을 확인할 수 있어요.",
+    "cta": "진단되면 매일 한 알씩, 정기 혈액검사로 용량을 조절하며 관리해요."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "갑상선",
+    "혈액검사_illust.jpg": "혈액검사"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

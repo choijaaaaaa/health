@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Altijd moe is",
+    "niet altijd",
+    "gewoon",
+    "stress"
+  ],
+  "eyebrow": "Altijd moe is niet altijd gewoon stress",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Weinig hormoon vertraagt het metabolisme",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Vermoeidheid, gewicht,",
+        "kou, obstipatie",
+        "komen samen"
+      ]
+    },
+    {
+      "name": "Vermoeidheid die rust niet oplost",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Gewone vermoeidheid",
+        "trekt weg",
+        "met rust"
+      ]
+    },
+    {
+      "name": "Vrouwen, familie, 60+ lopen risico",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Vlak na de",
+        "bevalling telt",
+        "ook mee"
+      ]
+    },
+    {
+      "name": "Eén bloedtest bevestigt het",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "De TSH-test",
+        "is simpel",
+        "en snel"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vermoeidheid die rust niet oplost, met gewichtstoename, kou of obstipatie, is een reden voor een test.",
+    "tip": "Een eenvoudige TSH-bloedtest kan een trage schildklier bevestigen.",
+    "cta": "Eenmaal vastgesteld houden een dagelijkse pil en vervolgbloedtests de dosis goed."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Schildklier",
+    "혈액검사_illust.jpg": "Bloedtest"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}

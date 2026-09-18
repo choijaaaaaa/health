@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Chronische",
+    "Müdigkeit vs.",
+    "Schilddrüsen-",
+    "unterfunktion"
+  ],
+  "eyebrow": "Chronische Müdigkeit vs. Schilddrüsenunterfunktion",
+  "cover_char_file": "갑상선_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Hormonmangel verlangsamt den Stoffwechsel",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Müdigkeit, Zunahme,",
+        "Frieren, Verstopfung",
+        "treten zusammen auf"
+      ]
+    },
+    {
+      "name": "Müdigkeit, die Ruhe nicht behebt",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Einfache Müdigkeit",
+        "bessert sich",
+        "mit Ruhe"
+      ]
+    },
+    {
+      "name": "Frauen, Familie, über 60 im Risiko",
+      "char_file": "갑상선_illust.jpg",
+      "body": [
+        "Direkt nach der",
+        "Geburt zählt",
+        "auch"
+      ]
+    },
+    {
+      "name": "Ein Bluttest bestätigt es",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Der TSH-Test ist",
+        "einfach",
+        "und schnell"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Müdigkeit, die Ruhe nicht behebt, plus Zunahme, Frieren oder Verstopfung, ist ein Grund für einen Test.",
+    "tip": "Ein einfacher TSH-Bluttest kann eine Schilddrüsenunterfunktion bestätigen.",
+    "cta": "Nach der Diagnose hält eine tägliche Tablette plus Kontrollbluttests die Dosis richtig."
+  },
+  "char_display_names": {
+    "갑상선_illust.jpg": "Schilddrüse",
+    "혈액검사_illust.jpg": "Bluttest"
+  },
+  "cover_scrim_color": "#2E5C6B"
+}
