@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Rusteloze benen 's nachts,",
+    "je wijt het aan slechte slaap —",
+    "je avondeten kan de reden zijn",
+    "3 dingen om vanavond te proberen"
+  ],
+  "eyebrow": "Rusteloze benen, de over het hoofd geziene oorzaken",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Pure chocolade prikkelt de zenuwen",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Cafeïne plus theobromine —",
+        "beide prikkelen het zenuw-",
+        "stelsel vlak voor het slapen."
+      ]
+    },
+    {
+      "name": "Alcohol werkt later op de nacht tegen je",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Ontspant eerst, maar",
+        "verstoort de slaap net als",
+        "klachten sterker worden."
+      ]
+    },
+    {
+      "name": "Witte koolhydraten doen je bloedsuiker schommelen",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Snelle stijging en daling kan",
+        "het zenuwstelsel op",
+        "vergelijkbare wijze prikkelen."
+      ]
+    },
+    {
+      "name": "Kies amandelen, ei of sojamelk",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Stabieler voor de bloedsuiker,",
+        "zonder de combinatie",
+        "cafeïne-theobromine."
+      ]
+    },
+    {
+      "name": "IJzer telt voor sommigen, niet voor iedereen",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Laag ferritine bij slechts",
+        "10-20% van RLS-gevallen —",
+        "laten checken, niet gokken."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Niet alleen slechte slaap — kijk naar je avondeten.",
+    "tip": "Vervang chocolade, alcohol en snoep 's avonds door amandelen, een ei of sojamelk.",
+    "cta": "Klachten vaak of heftig? Laat je ferritine checken voordat je zelf gaat behandelen."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Pure chocolade",
+    "두유_illust.jpg": "Sojamelk",
+    "시금치_illust.jpg": "Spinazie"
+  }
+}

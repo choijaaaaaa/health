@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Restless Legs in der Nacht,",
+    "Sie vermuten schlechten Schlaf —",
+    "Ihr Abendessen könnte der Grund sein",
+    "3 Tauschoptionen für heute"
+  ],
+  "eyebrow": "Restless Legs, die übersehenen Auslöser",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Kurz zusammengefasst",
+  "items": [
+    {
+      "name": "Dunkle Schokolade überreizt die Nerven",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Koffein plus Theobromin —",
+        "beides überreizt das Nerven-",
+        "system vor dem Schlafen."
+      ]
+    },
+    {
+      "name": "Alkohol wirkt später in der Nacht gegen Sie",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Anfangs entspannend, stört es",
+        "später den Schlaf — genau",
+        "wenn RLS stärker wird."
+      ]
+    },
+    {
+      "name": "Weißmehl lässt den Blutzucker schwanken",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Schneller Anstieg und Abfall",
+        "kann das Nervensystem",
+        "ähnlich reizen."
+      ]
+    },
+    {
+      "name": "Nüsse, Ei oder Sojamilch tauschen",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Blutzuckerstabiler, ohne die",
+        "Koffein-Theobromin-",
+        "Kombination."
+      ]
+    },
+    {
+      "name": "Eisen zählt nur bei manchen",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Niedriges Ferritin nur bei",
+        "10-20% der RLS-Fälle —",
+        "testen statt raten."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nicht nur schlechter Schlaf — schauen Sie aufs Abendessen.",
+    "tip": "Schokolade, Alkohol und Süßes abends gegen Nüsse, Ei oder Sojamilch tauschen.",
+    "cta": "Häufige, starke Beschwerden? Ferritin ärztlich testen lassen statt selbst zu behandeln."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Dunkle Schokolade",
+    "두유_illust.jpg": "Sojamilch",
+    "시금치_illust.jpg": "Spinat"
+  }
+}

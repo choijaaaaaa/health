@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Rastlösa ben på natten,",
+    "du skyller nog på dålig sömn —",
+    "din kvällsmat kan vara orsaken",
+    "3 byten att testa i kväll"
+  ],
+  "eyebrow": "Rastlösa ben, de bortglömda orsakerna",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Mörk choklad överstimulerar nerverna",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Koffein plus teobromin —",
+        "båda överstimulerar",
+        "nervsystemet före sömn."
+      ]
+    },
+    {
+      "name": "Alkohol slår tillbaka senare på natten",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Avslappnande först, men",
+        "stör sömnen just när",
+        "symtomen brukar öka."
+      ]
+    },
+    {
+      "name": "Vitt bröd får blodsockret att svänga",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Snabb höjning och sänkning",
+        "kan stimulera nervsystemet",
+        "på liknande sätt."
+      ]
+    },
+    {
+      "name": "Byt till mandlar, ägg eller sojadryck",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Stabilare för blodsockret,",
+        "utan kombinationen",
+        "koffein-teobromin."
+      ]
+    },
+    {
+      "name": "Järn spelar roll för vissa, inte alla",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Lågt ferritin bara hos",
+        "10-20% av RLS-fallen —",
+        "testa, gissa inte."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inte bara dålig sömn — se över kvällens tallrik.",
+    "tip": "Byt kvällens choklad, alkohol och sötsaker mot mandlar, ett kokt ägg eller sojadryck.",
+    "cta": "Täta eller kraftiga symtom? Be en läkare kontrollera ferritin innan du självmedicinerar."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Mörk choklad",
+    "두유_illust.jpg": "Sojadryck",
+    "시금치_illust.jpg": "Spenat"
+  }
+}

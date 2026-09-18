@@ -1,0 +1,69 @@
+{
+  "title": [
+    "Jambes agitées la nuit,",
+    "vous accusez le manque de sommeil —",
+    "c'est peut-être votre dîner",
+    "3 changements à tester ce soir"
+  ],
+  "eyebrow": "Jambes sans repos, les causes négligées",
+  "cover_char_file": "다크초콜릿_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le chocolat noir surstimule les nerfs",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Caféine et théobromine —",
+        "les deux surstimulent le",
+        "système nerveux le soir."
+      ]
+    },
+    {
+      "name": "L'alcool se retourne contre vous la nuit",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Détend au début, mais",
+        "perturbe le sommeil quand",
+        "les symptômes s'intensifient."
+      ]
+    },
+    {
+      "name": "Les glucides raffinés font varier la glycémie",
+      "char_file": "다크초콜릿_illust.jpg",
+      "body": [
+        "Une montée puis une chute",
+        "rapides peuvent stimuler",
+        "le système nerveux."
+      ]
+    },
+    {
+      "name": "Amandes, œuf ou lait de soja à la place",
+      "char_file": "두유_illust.jpg",
+      "body": [
+        "Plus stables pour la glycémie,",
+        "sans le combo caféine-",
+        "théobromine."
+      ]
+    },
+    {
+      "name": "Le fer compte pour certains, pas tous",
+      "char_file": "시금치_illust.jpg",
+      "body": [
+        "Ferritine basse chez seulement",
+        "10-20% des cas de SJSR —",
+        "à faire vérifier, pas deviner."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pas seulement le manque de sommeil — regardez votre assiette du soir.",
+    "tip": "Remplacez chocolat, alcool et sucreries du soir par amandes, œuf dur ou lait de soja.",
+    "cta": "Symptômes fréquents ou sévères ? Faites vérifier votre ferritine avant de vous automédiquer."
+  },
+  "char_display_names": {
+    "다크초콜릿_illust.jpg": "Chocolat noir",
+    "두유_illust.jpg": "Lait de soja",
+    "시금치_illust.jpg": "Épinards"
+  }
+}
