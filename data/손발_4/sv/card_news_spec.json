@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Det där första steget ur sängen,",
+    "skarp hälsmärta är inte otur —",
+    "det är ett igenkänt mönster vid plantarfasciit",
+    "3 förändringar som faktiskt hjälper"
+  ],
+  "eyebrow": "Hälsmärta på morgonen, vad som verkligen pågår",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Plötslig ökning av aktivitet",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fascian har inte anpassat sig —",
+        "mikrobristningar blir",
+        "ihållande inflammation."
+      ]
+    },
+    {
+      "name": "Olämpliga skor på hårda golv",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Skon absorberar inte",
+        "stöten foten",
+        "behöver hjälp med."
+      ]
+    },
+    {
+      "name": "Varför första steget gör mest ont",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fascian förkortas nattetid —",
+        "full vikt på en gång",
+        "ger plötslig spänning."
+      ]
+    },
+    {
+      "name": "Is och gradvis belastning hjälper läkning",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Lugnar inflammation medan",
+        "du bygger upp aktivitet",
+        "gradvis igen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ett igenkänt mönster, inte otur — stötta vävnaden.",
+    "tip": "Öka aktiviteten gradvis, dämpade skor, sträck vaderna innan det där första steget.",
+    "cta": "Smärta i veckor eller som ändrar hur du går? Sök läkare eller fysioterapeut."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneakers",
+    "냉찜질_illust.jpg": "Ispåse"
+  }
+}

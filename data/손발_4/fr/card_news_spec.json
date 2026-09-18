@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Ce premier pas hors du lit,",
+    "la douleur vive au talon n'est pas de la malchance —",
+    "c'est un schéma reconnu de fasciite plantaire",
+    "3 changements qui aident vraiment"
+  ],
+  "eyebrow": "Douleur au talon le matin, ce qui se passe vraiment",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Augmentation soudaine d'activité",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Le fascia ne s'est pas adapté —",
+        "les micro-déchirures deviennent",
+        "une inflammation continue."
+      ]
+    },
+    {
+      "name": "Chaussures inadaptées sur sol dur",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La chaussure n'absorbe pas",
+        "l'impact dont le pied",
+        "a besoin."
+      ]
+    },
+    {
+      "name": "Pourquoi le premier pas fait le plus mal",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Le fascia se raccourcit la nuit —",
+        "tout le poids d'un coup",
+        "applique une tension soudaine."
+      ]
+    },
+    {
+      "name": "Glace et charge progressive aident à guérir",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Calme l'inflammation pendant",
+        "que vous reprenez l'activité",
+        "progressivement."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un schéma reconnu, pas de malchance — soutenez le tissu.",
+    "tip": "Augmentez l'activité progressivement, portez des chaussures amorties, étirez les mollets avant ce premier pas.",
+    "cta": "Douleur depuis des semaines ou qui change votre marche ? Consultez un médecin ou kiné."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Baskets",
+    "냉찜질_illust.jpg": "Poche de glace"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Die eerste stap uit bed,",
+    "scherpe hielpijn is geen pech —",
+    "het is een herkend patroon van plantaire fasciitis",
+    "3 veranderingen die echt helpen"
+  ],
+  "eyebrow": "Ochtendhielpijn, wat er echt speelt",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Plotselinge toename van activiteit",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fascia niet aangepast —",
+        "microscheurtjes worden",
+        "aanhoudende ontsteking."
+      ]
+    },
+    {
+      "name": "Ongeschikte schoenen op harde vloeren",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "De schoen vangt de schok",
+        "niet op die de voet",
+        "nodig heeft."
+      ]
+    },
+    {
+      "name": "Waarom de eerste stap het meest doet",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Fascia verkort 's nachts —",
+        "volle gewicht ineens",
+        "geeft plotselinge spanning."
+      ]
+    },
+    {
+      "name": "IJs en geleidelijke opbouw helpen genezen",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Kalmeert ontsteking terwijl",
+        "je activiteit langzaam",
+        "opbouwt."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een herkend patroon, geen pech — ondersteun het weefsel.",
+    "tip": "Bouw activiteit geleidelijk op, gedempte schoenen, rek kuiten voor die eerste stap.",
+    "cta": "Pijn die weken aanhoudt of je manier van lopen verandert? Naar een arts of fysiotherapeut."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneakers",
+    "냉찜질_illust.jpg": "Ijspakking"
+  }
+}

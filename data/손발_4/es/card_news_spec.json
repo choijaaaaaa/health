@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Ese primer paso al salir de la cama,",
+    "el dolor agudo en el talón no es mala suerte —",
+    "es un patrón reconocido de fascitis plantar",
+    "3 cambios que de verdad ayudan"
+  ],
+  "eyebrow": "Dolor de talón por la mañana, qué pasa de verdad",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Aumento repentino de actividad",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La fascia no se ha adaptado —",
+        "los microdesgarros se vuelven",
+        "inflamación persistente."
+      ]
+    },
+    {
+      "name": "Calzado inadecuado en suelo duro",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "El zapato no absorbe",
+        "el impacto que el pie",
+        "necesita."
+      ]
+    },
+    {
+      "name": "Por qué el primer paso duele más",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "La fascia se acorta de noche —",
+        "todo el peso de golpe",
+        "aplica tensión repentina."
+      ]
+    },
+    {
+      "name": "Hielo y carga gradual ayudan a sanar",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Calma la inflamación mientras",
+        "recuperas la actividad",
+        "poco a poco."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un patrón reconocido, no mala suerte — apoya el tejido.",
+    "tip": "Aumenta la actividad gradualmente, calzado amortiguado, estira las pantorrillas antes del primer paso.",
+    "cta": "¿Dolor de semanas o que cambia tu forma de caminar? Ve a un médico o fisioterapeuta."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Zapatillas",
+    "냉찜질_illust.jpg": "Bolsa de hielo"
+  }
+}
