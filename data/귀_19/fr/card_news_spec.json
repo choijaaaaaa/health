@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Surdité",
+    "brutale vs",
+    "bouchon de",
+    "cérumen"
+  ],
+  "eyebrow": "Perte d'audition soudaine ou bouchon de cérumen ?",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Traiter dans les 72 heures",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Une corticothérapie",
+        "plus tôt améliore",
+        "les chances"
+      ]
+    },
+    {
+      "name": "Le cérumen est progressif, ceci est brutal",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Jours à semaines vs",
+        "quelques heures",
+        "seulement"
+      ]
+    },
+    {
+      "name": "Pas de changement après nettoyage : signal",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Un vrai cérumen",
+        "s'améliore juste",
+        "après retrait"
+      ]
+    },
+    {
+      "name": "Vertiges ou acouphènes associés",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Sans douleur,",
+        "mais ensemble —",
+        "c'est le signe"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si une oreille devient soudain étouffée, ne présumez pas que c'est du cérumen.",
+    "tip": "Si nettoyer avec un cure-oreille ne change rien, pensez à la surdité brutale.",
+    "cta": "Consultez un ORL ou les urgences pour une corticothérapie dans les 72 heures."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Oreille",
+    "귀이개_illust.jpg": "Cure-oreille"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}

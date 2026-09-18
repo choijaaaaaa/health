@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Plötzlicher",
+    "Hörverlust vs.",
+    "Ohren-",
+    "schmalz"
+  ],
+  "eyebrow": "3 Anzeichen für einen Hörsturz",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Innerhalb von 72 Stunden behandeln",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Frühere Kortison-",
+        "behandlung bedeutet",
+        "bessere Erholungschancen"
+      ]
+    },
+    {
+      "name": "Ohrenschmalz allmählich, das plötzlich",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Tage bis Wochen vs.",
+        "innerhalb weniger",
+        "Stunden"
+      ]
+    },
+    {
+      "name": "Keine Besserung nach Reinigung ist ein Zeichen",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Echtes Ohrenschmalz",
+        "bessert sich",
+        "sofort danach"
+      ]
+    },
+    {
+      "name": "Schwindel oder Ohrensausen dabei",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Ohne Schmerzen,",
+        "aber zusammen —",
+        "das ist das Zeichen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wird ein Ohr plötzlich dumpf, nicht einfach von Ohrenschmalz ausgehen.",
+    "tip": "Hilft Reinigen mit dem Ohrlöffel überhaupt nicht, an einen Hörsturz denken.",
+    "cta": "Zum HNO-Arzt oder in die Notaufnahme für Kortisonbehandlung innerhalb von 72 Stunden."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Ohr",
+    "귀이개_illust.jpg": "Ohrlöffel"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}

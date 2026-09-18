@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Sudden",
+    "Hearing Loss",
+    "vs. Earwax",
+    "Buildup"
+  ],
+  "eyebrow": "Sudden Hearing Loss vs. Earwax Buildup",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Treat within 72 hours",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Earlier steroid",
+        "treatment means",
+        "better recovery odds"
+      ]
+    },
+    {
+      "name": "Earwax is gradual, this is sudden",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Days to weeks vs.",
+        "within a few",
+        "hours"
+      ]
+    },
+    {
+      "name": "No change after ear picking is a sign",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Real earwax improves",
+        "right after",
+        "removal"
+      ]
+    },
+    {
+      "name": "Dizziness or ringing alongside it",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "No pain,",
+        "but together —",
+        "that's the sign"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "If one ear suddenly goes muffled, don't assume it's earwax.",
+    "tip": "If digging with an ear pick doesn't help at all, suspect sudden hearing loss instead.",
+    "cta": "See an ENT or the ER for steroid treatment within the 72-hour window."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Ear",
+    "귀이개_illust.jpg": "Ear pick"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Plotseling",
+    "gehoorverlies",
+    "vs.",
+    "oorsmeer"
+  ],
+  "eyebrow": "3 signalen van plotseling gehoorverlies",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Behandel binnen 72 uur",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Eerdere corticosteroïden-",
+        "behandeling betekent",
+        "betere hersteltkans"
+      ]
+    },
+    {
+      "name": "Oorsmeer geleidelijk, dit plotseling",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Dagen tot weken vs",
+        "binnen enkele",
+        "uren"
+      ]
+    },
+    {
+      "name": "Geen verandering na reinigen is signaal",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "Echt oorsmeer",
+        "verbetert direct",
+        "na verwijdering"
+      ]
+    },
+    {
+      "name": "Duizeligheid of oorsuizen erbij",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Zonder pijn,",
+        "maar samen —",
+        "dat is het signaal"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wordt een oor plotseling doof, ga er dan niet zomaar van uit dat het oorsmeer is.",
+    "tip": "Helpt reinigen met een oorlepeltje helemaal niet, vermoed dan plotseling gehoorverlies.",
+    "cta": "Ga naar een KNO-arts of spoedeisende hulp voor behandeling binnen 72 uur."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Oor",
+    "귀이개_illust.jpg": "Oorlepeltje"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}

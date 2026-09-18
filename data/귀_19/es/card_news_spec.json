@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Pérdida súbita",
+    "de audición vs",
+    "tapón de",
+    "cera"
+  ],
+  "eyebrow": "Pérdida súbita de audición vs. tapón de cera",
+  "cover_char_file": "귀_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Tratar dentro de 72 horas",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Los corticoides",
+        "más rápidos mejoran",
+        "las probabilidades"
+      ]
+    },
+    {
+      "name": "La cera es gradual, esto es súbito",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Días o semanas vs",
+        "solo unas",
+        "horas"
+      ]
+    },
+    {
+      "name": "Sin cambio tras limpiarlo es señal",
+      "char_file": "귀이개_illust.jpg",
+      "body": [
+        "La cera real",
+        "mejora justo",
+        "tras retirarla"
+      ]
+    },
+    {
+      "name": "Mareos o zumbidos junto con eso",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Sin dolor,",
+        "pero juntos —",
+        "es la señal"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si un oído de repente se tapa, no asumas que es cera.",
+    "tip": "Si limpiarlo con un hisopo no cambia nada, sospecha pérdida súbita de audición.",
+    "cta": "Ve a un otorrinolaringólogo o urgencias para tratamiento con corticoides en 72 horas."
+  },
+  "char_display_names": {
+    "귀_illust.jpg": "Oído",
+    "귀이개_illust.jpg": "Palito"
+  },
+  "cover_scrim_color": "#5C3A6B"
+}
