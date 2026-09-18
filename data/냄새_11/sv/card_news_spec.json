@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fotlukt kommer",
+    "från bakterier,",
+    "inte bara",
+    "svett"
+  ],
+  "eyebrow": "Fotlukt kommer från bakterier, inte bara svett",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Bakterier skapar luktämnena",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Svett och död hud",
+        "blir isovalerian-",
+        "syra"
+      ]
+    },
+    {
+      "name": "Dåligt ventilerade skor är riskabla",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Samma skor varje",
+        "dag ger bakterier",
+        "mer tid"
+      ]
+    },
+    {
+      "name": "Klåda eller sprickor tyder på fotsvamp",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Bara lukt betyder",
+        "att skovanor",
+        "räcker"
+      ]
+    },
+    {
+      "name": "Fotsvamp kräver svampbehandling",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Skovanor ensamma",
+        "löser det",
+        "inte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Fotlukt handlar mer om bakterier och skoförhållanden än om svett i sig.",
+    "tip": "Växla skor så att varje par får minst 24 timmar att torka helt.",
+    "cta": "Klåda eller sprucken hud: låt en hudläkare kontrollera fotsvamp."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneaker",
+    "연고_illust.jpg": "Salva"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}

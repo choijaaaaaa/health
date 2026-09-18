@@ -1,0 +1,60 @@
+{
+  "title": [
+    "El olor de pies",
+    "viene de las",
+    "bacterias,",
+    "no del sudor"
+  ],
+  "eyebrow": "3 señales de que el olor de pies es un hongo",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Las bacterias crean los compuestos del olor",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Sudor y piel muerta",
+        "se vuelven ácido",
+        "isovalérico"
+      ]
+    },
+    {
+      "name": "Zapatos poco ventilados son riesgosos",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Mismos zapatos",
+        "cada día dan más",
+        "tiempo a bacterias"
+      ]
+    },
+    {
+      "name": "Picazón o grietas señalan pie de atleta",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Solo olor significa",
+        "que los hábitos",
+        "bastan"
+      ]
+    },
+    {
+      "name": "El pie de atleta necesita antimicótico",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Los hábitos solos",
+        "no lo",
+        "resuelven"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "El olor de pies tiene más que ver con las bacterias y los zapatos que con el sudor.",
+    "tip": "Alterna los zapatos para que cada par tenga al menos 24 horas para secarse.",
+    "cta": "Picazón o piel agrietada: haz revisar el pie de atleta con un dermatólogo."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Zapatilla",
+    "연고_illust.jpg": "Pomada"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}

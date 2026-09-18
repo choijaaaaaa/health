@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Voetgeur komt",
+    "van bacteriën,",
+    "niet van",
+    "zweet"
+  ],
+  "eyebrow": "Voetgeur komt door bacteriën, niet alleen zweet",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Bacteriën maken de geurstoffen",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Zweet en dode huid",
+        "worden isovaleriaan-",
+        "zuur"
+      ]
+    },
+    {
+      "name": "Slecht geventileerde schoenen zijn riskant",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Dezelfde schoenen",
+        "elke dag geven",
+        "bacteriën meer tijd"
+      ]
+    },
+    {
+      "name": "Jeuk of scheurtjes wijzen op voetschimmel",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Alleen geur betekent",
+        "dat gewoontes",
+        "genoeg zijn"
+      ]
+    },
+    {
+      "name": "Voetschimmel vraagt antischimmelbehandeling",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Gewoontes alleen",
+        "lossen het niet",
+        "op"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Voetgeur heeft meer te maken met bacteriën en schoenen dan met zweet zelf.",
+    "tip": "Wissel schoenen af zodat elk paar minstens 24 uur volledig kan opdrogen.",
+    "cta": "Jeuk of gescheurde huid: laat voetschimmel checken door een huidarts."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Sneaker",
+    "연고_illust.jpg": "Zalf"
+  },
+  "cover_scrim_color": "#3A5C4A"
+}
