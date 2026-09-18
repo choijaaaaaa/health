@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Medio rostro cae",
+    "de repente?",
+    "Revisa primero la frente",
+    "Parálisis de Bell vs Ictus"
+  ],
+  "eyebrow": "Caída facial, lo que revela la frente",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "La frente recibe señales de ambos lados",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Con un ictus, el otro",
+        "hemisferio mantiene",
+        "móvil la frente."
+      ]
+    },
+    {
+      "name": "La parálisis de Bell es inflamación nerviosa",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Cae todo el lado,",
+        "de la frente a la boca,",
+        "no solo abajo."
+      ]
+    },
+    {
+      "name": "Frente caída = señal de ictus",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Con debilidad en",
+        "brazo o pierna,",
+        "es una emergencia."
+      ]
+    },
+    {
+      "name": "Las lágrimas artificiales protegen el ojo",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Un ojo que no cierra",
+        "arriesga daño",
+        "en la córnea."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "¿Medio rostro cae? Mírate al espejo e intenta arrugar la frente.",
+    "tip": "Frente caída más debilidad en un miembro: urgencias. La parálisis de Bell se trata en 72 horas.",
+    "cta": "¿Dudas de que sea un ictus? No esperes — ve a urgencias de inmediato."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Teléfono",
+    "인공눈물_illust.jpg": "Lágrimas artificiales"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}

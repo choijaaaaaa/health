@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Un côté du visage",
+    "s'affaisse soudainement ?",
+    "Vérifiez d'abord le front",
+    "Paralysie de Bell vs AVC"
+  ],
+  "eyebrow": "Affaissement du visage, ce que révèle le front",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Le front reçoit des signaux des deux côtés",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Lors d'un AVC, l'autre",
+        "hémisphère garde",
+        "le front mobile."
+      ]
+    },
+    {
+      "name": "La paralysie de Bell est une inflammation nerveuse",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Tout le côté s'affaisse,",
+        "du front à la bouche,",
+        "pas juste le bas."
+      ]
+    },
+    {
+      "name": "Front affaissé = signe d'AVC",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Avec une faiblesse",
+        "du bras ou de la jambe,",
+        "c'est une urgence."
+      ]
+    },
+    {
+      "name": "Les larmes artificielles protègent l'œil",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Un œil qui ne ferme",
+        "pas risque des lésions",
+        "de la cornée."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un côté du visage s'affaisse ? Regardez-vous et essayez de plisser le front.",
+    "tip": "Front affaissé + faiblesse d'un membre : urgences. La paralysie de Bell se traite dans les 72 heures.",
+    "cta": "Un doute sur un AVC ? N'attendez pas — allez aux urgences immédiatement."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Téléphone",
+    "인공눈물_illust.jpg": "Larmes artificielles"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}

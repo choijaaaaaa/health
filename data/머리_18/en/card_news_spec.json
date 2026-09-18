@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Face drooping on",
+    "one side suddenly?",
+    "Check your forehead first",
+    "Bell's Palsy vs Stroke"
+  ],
+  "eyebrow": "Facial Drooping, What the Forehead Reveals",
+  "cover_char_file": "전화기_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Forehead Gets Signals From Both Sides",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "With stroke, the",
+        "opposite brain side",
+        "keeps the forehead moving."
+      ]
+    },
+    {
+      "name": "Bell's Palsy Is Nerve Inflammation",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Whole side droops,",
+        "forehead to mouth,",
+        "not just lower face."
+      ]
+    },
+    {
+      "name": "Forehead Drooping = Stroke Signal",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Add arm or leg",
+        "weakness, and it's",
+        "an emergency."
+      ]
+    },
+    {
+      "name": "Artificial Tears Protect the Eye",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "An eye that won't",
+        "close risks corneal",
+        "damage."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "One side of your face drooping? Look in a mirror and try wrinkling your forehead.",
+    "tip": "Forehead drooping plus limb weakness — go to the ER. Bell's palsy needs treatment within 72 hours.",
+    "cta": "Any doubt it might be a stroke? Don't wait — go to the ER immediately."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Phone",
+    "인공눈물_illust.jpg": "Artificial Tears"
+  },
+  "cover_scrim_color": "#4A3D6B"
+}
