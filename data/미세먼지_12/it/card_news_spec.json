@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Brufoli dopo ogni giorno",
+    "di smog intenso?",
+    "La mascherina da sola non basta",
+    "3 cose che aiutano davvero"
+  ],
+  "eyebrow": "Smog, la vera causa dei brufoli",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Scorri per saperne di più  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il PM2,5 raggiunge pori e barriera",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "I radicali liberi",
+        "degradano collagene",
+        "ed elastina."
+      ]
+    },
+    {
+      "name": "L'acqua da sola non li rimuove",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Si legano ai grassi —",
+        "il detergente da solo",
+        "li lascia lì."
+      ]
+    },
+    {
+      "name": "L'olio detergente scioglie il legame",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Doppia detersione per",
+        "rimuovere davvero",
+        "le particelle intrappolate."
+      ]
+    },
+    {
+      "name": "La crema solare come scudo",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Riduce il contatto",
+        "diretto tra pelle",
+        "e particelle."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "La mascherina non basta nei giorni di smog — la detersione serale conta.",
+    "tip": "Doppia detersione con olio poi schiuma, e vitamina C contro i radicali liberi.",
+    "cta": "Rossori o brufoli peggiorano? Rivolgetevi a un dermatologo."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Mascherina",
+    "선크림_illust.jpg": "Crema solare"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}

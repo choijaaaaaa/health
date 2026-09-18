@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Unreine Haut nach jedem",
+    "Tag mit hohem Feinstaub?",
+    "Eine Maske allein reicht nicht",
+    "3 Dinge, die wirklich helfen"
+  ],
+  "eyebrow": "Feinstaub, die echte Ursache für Unreinheiten",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "PM2,5 erreicht Poren und Barriere",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Freie Radikale bauen",
+        "Kollagen und Elastin",
+        "ab."
+      ]
+    },
+    {
+      "name": "Wasser allein entfernt es nicht",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Bindet sich mit Öl —",
+        "Schaumreiniger allein",
+        "lässt es zurück."
+      ]
+    },
+    {
+      "name": "Ölreiniger löst die Bindung",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Doppelt reinigen, um",
+        "eingelagerte Partikel",
+        "wirklich zu entfernen."
+      ]
+    },
+    {
+      "name": "Sonnencreme als Schutzschicht",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Verringert direkten",
+        "Kontakt zwischen Haut",
+        "und Feinstaub."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Eine Maske reicht bei hohem Feinstaub nicht — die abendliche Reinigung zählt.",
+    "tip": "Erst Ölreiniger, dann Schaumreiniger, plus Vitamin-C-Pflege gegen freie Radikale.",
+    "cta": "Rötungen oder Unreinheiten werden schlimmer? Hautärztlichen Rat einholen."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Maske",
+    "선크림_illust.jpg": "Sonnencreme"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}

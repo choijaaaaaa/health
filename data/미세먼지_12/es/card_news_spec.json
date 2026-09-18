@@ -1,0 +1,60 @@
+{
+  "title": [
+    "¿Granos después de cada",
+    "día de alta contaminación?",
+    "La mascarilla sola no basta",
+    "3 cosas que ayudan de verdad"
+  ],
+  "eyebrow": "Contaminación, la causa real de los granos",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "El PM2,5 llega a poros y barrera",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Los radicales libres",
+        "degradan colágeno",
+        "y elastina."
+      ]
+    },
+    {
+      "name": "El agua sola no las elimina",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Se unen a las grasas —",
+        "el limpiador solo",
+        "las deja ahí."
+      ]
+    },
+    {
+      "name": "El aceite limpiador rompe la unión",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Doble limpieza para",
+        "eliminar de verdad",
+        "las partículas atrapadas."
+      ]
+    },
+    {
+      "name": "El protector solar como escudo",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Reduce el contacto",
+        "directo entre piel",
+        "y partículas."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "La mascarilla no basta en días de contaminación — la limpieza nocturna importa.",
+    "tip": "Doble limpieza con aceite y luego espuma, y vitamina C contra los radicales libres.",
+    "cta": "¿Enrojecimiento o granos que empeoran? Consulta a un dermatólogo."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Mascarilla",
+    "선크림_illust.jpg": "Protector solar"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}

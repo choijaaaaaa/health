@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Finnar efter varje dag",
+    "med hög föroreningsnivå?",
+    "Ett munskydd räcker inte",
+    "3 saker som faktiskt hjälper"
+  ],
+  "eyebrow": "Luftföroreningar, den verkliga orsaken till finnar",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "PM2,5 når porer och barriär",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Fria radikaler bryter",
+        "ner kollagen",
+        "och elastin."
+      ]
+    },
+    {
+      "name": "Vatten ensamt tar inte bort det",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Binder till fett —",
+        "skumrengöring ensam",
+        "lämnar kvar det."
+      ]
+    },
+    {
+      "name": "Oljerengöring löser bindningen",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Dubbelrengör för att",
+        "verkligen ta bort",
+        "fångade partiklar."
+      ]
+    },
+    {
+      "name": "Solskydd som fysiskt skydd",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Minskar direkt",
+        "kontakt mellan hud",
+        "och partiklar."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ett munskydd räcker inte vid hög föroreningsnivå — kvällens rengöring är avgörande.",
+    "tip": "Dubbelrengör med olja och sedan skum, och C-vitaminvård mot fria radikaler.",
+    "cta": "Rodnad eller finnar blir värre? Sök en hudläkare."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Munskydd",
+    "선크림_illust.jpg": "Solskyddskräm"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}

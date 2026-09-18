@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Skin breaking out",
+    "after every high pollution day?",
+    "A mask alone isn't enough",
+    "3 Things That Actually Help"
+  ],
+  "eyebrow": "Pollution, the Real Cause of Breakouts",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "PM2.5 Reaches Pores and Barrier",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Free radicals build up,",
+        "breaking down collagen",
+        "and elastin."
+      ]
+    },
+    {
+      "name": "Water Rinse Doesn't Remove It",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Binds with oils —",
+        "foam cleanser alone",
+        "leaves it behind."
+      ]
+    },
+    {
+      "name": "Oil Cleanser Breaks the Bond",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Double cleanse to",
+        "actually remove",
+        "trapped particles."
+      ]
+    },
+    {
+      "name": "Sunscreen as a Physical Shield",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Reduces direct",
+        "contact between skin",
+        "and particulate matter."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "A mask isn't enough on high pollution days — that evening's cleanse is what matters.",
+    "tip": "Double cleanse with an oil cleanser first, and use vitamin C skincare against free radicals.",
+    "cta": "Redness or breakouts keep worsening? See a dermatologist."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Mask",
+    "선크림_illust.jpg": "Sunscreen"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}
