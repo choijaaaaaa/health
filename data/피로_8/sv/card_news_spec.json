@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Trött trots nog sömn?",
+    "Inte alltid stress —",
+    "det kan vara järnbrist",
+    "Sanningen om kronisk trötthet"
+  ],
+  "eyebrow": "Den verkliga orsaken till kronisk trötthet",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Mindre syre i kroppen",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Lite järn ger mindre",
+        "hemoglobin, alltså",
+        "mindre syre."
+      ]
+    },
+    {
+      "name": "Järn går förlorat",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Kraftiga blödningar",
+        "tömmer förråden",
+        "snabbare än de fylls på."
+      ]
+    },
+    {
+      "name": "Blodprov ger svar",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hemoglobin och",
+        "ferritin ger",
+        "ett säkert svar."
+      ]
+    },
+    {
+      "name": "Hemjärn + C-vitamin",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Rött kött tas upp",
+        "väl; C-vitamin",
+        "hjälper ytterligare."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inte alltid stress — det kan vara järnbrist.",
+    "tip": "Testa hemoglobin och ferritin innan du börjar med järntillskott.",
+    "cta": "Trötthet i över två veckor, med yrsel eller andfåddhet? Kontakta läkare."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Blodprov",
+    "소고기_illust.jpg": "Rött kött"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}

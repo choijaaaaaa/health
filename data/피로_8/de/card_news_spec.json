@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Müde trotz genug Schlaf?",
+    "Es ist nicht immer Stress —",
+    "es könnte Eisenmangel sein",
+    "So erkennst du Eisenmangel"
+  ],
+  "eyebrow": "Die wahre Ursache chronischer Müdigkeit",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Weniger Sauerstoff im Körper",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Wenig Eisen bedeutet",
+        "weniger Hämoglobin,",
+        "weniger Sauerstoff."
+      ]
+    },
+    {
+      "name": "Eisen geht verloren",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Starke Blutungen",
+        "verbrauchen Eisen",
+        "schneller als es nachkommt."
+      ]
+    },
+    {
+      "name": "Bluttest bringt Klarheit",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Hämoglobin- und",
+        "Ferritinwerte geben",
+        "eine echte Antwort."
+      ]
+    },
+    {
+      "name": "Häm-Eisen + Vitamin C",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Rotes Fleisch liefert",
+        "gut aufnehmbares Eisen;",
+        "Vitamin C hilft zusätzlich."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nicht immer nur Stress — es könnte Eisenmangel sein.",
+    "tip": "Erst Hämoglobin und Ferritin testen lassen, bevor Eisenpräparate genommen werden.",
+    "cta": "Müdigkeit über zwei Wochen, mit Schwindel oder Atemnot? Zur Ärztin oder zum Arzt."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Bluttest",
+    "소고기_illust.jpg": "Rotes Fleisch"
+  },
+  "cover_scrim_color": "#9A3F3F"
+}
