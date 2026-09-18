@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vos vertiges en",
+    "vous levant :",
+    "hypotension",
+    "orthostatique ?"
+  ],
+  "eyebrow": "Vos vertiges en vous levant pourraient être une hypotension",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le réflexe de tension ralentit",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Le cerveau manque",
+        "brièvement",
+        "de sang"
+      ]
+    },
+    {
+      "name": "Ça se dissipe en une ou deux minutes",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Lié au changement",
+        "de posture,",
+        "pas constant"
+      ]
+    },
+    {
+      "name": "Se lever lentement prévient cela",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Asseyez-vous au bord",
+        "avant de vous",
+        "lever"
+      ]
+    },
+    {
+      "name": "Évanouissement ou chute est un signal",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Faites vérifier,",
+        "n'ignorez",
+        "pas cela"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Des vertiges à chaque fois qu'on se lève ne sont pas juste un vieillissement ordinaire.",
+    "tip": "Asseyez-vous au bord du lit ou d'une chaise avant de vous lever lentement.",
+    "cta": "En cas de vraie perte de connaissance ou de blessure par chute, consultez un médecin."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Tensiomètre",
+    "의자_illust.jpg": "Chaise"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}

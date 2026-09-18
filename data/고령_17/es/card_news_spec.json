@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Mareo al",
+    "levantarte:",
+    "¿hipotensión",
+    "ortostática?"
+  ],
+  "eyebrow": "Mareo al levantarte: no siempre es solo la edad",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El reflejo de presión se vuelve lento",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "El cerebro queda",
+        "brevemente",
+        "corto de sangre"
+      ]
+    },
+    {
+      "name": "Se resuelve en uno o dos minutos",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Ligado al cambio",
+        "de postura,",
+        "no constante"
+      ]
+    },
+    {
+      "name": "Levantarte despacio lo previene",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Siéntate al borde",
+        "antes de",
+        "levantarte"
+      ]
+    },
+    {
+      "name": "Desmayo o lesión por caída es señal",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Hazte revisar,",
+        "no lo",
+        "ignores"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "El mareo cada vez que te levantas no es solo envejecimiento normal.",
+    "tip": "Siéntate al borde de la cama o una silla antes de levantarte despacio.",
+    "cta": "Si te has desmayado de verdad o lesionado en una caída, consulta a un médico."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Tensiómetro",
+    "의자_illust.jpg": "Silla"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Varför blir du",
+    "yr när du reser",
+    "dig",
+    "snabbt?"
+  ],
+  "eyebrow": "Varför blir du yr när du reser dig snabbt?",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Blodtrycksreflexen blir långsammare",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Hjärnan får",
+        "tillfälligt för lite",
+        "blod"
+      ]
+    },
+    {
+      "name": "Lägger sig inom någon minut",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Kopplat till",
+        "lägesbytet,",
+        "inte konstant"
+      ]
+    },
+    {
+      "name": "Att resa sig långsamt förebygger det",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Sitt en stund",
+        "på kanten",
+        "först"
+      ]
+    },
+    {
+      "name": "Svimning eller fallskada är ett tecken",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Låt kolla upp det,",
+        "ignorera det",
+        "inte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Yrsel varje gång du reser dig är inte bara vanligt åldrande.",
+    "tip": "Sitt en stund på sängkanten eller en stol innan du reser dig långsamt.",
+    "cta": "Har du faktiskt svimmat eller skadat dig i ett fall, låt en läkare kolla upp det."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Blodtrycksmätare",
+    "의자_illust.jpg": "Stol"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}

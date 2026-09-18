@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Kreislauf-",
+    "kollaps beim",
+    "Aufstehen:",
+    "3 Anzeichen"
+  ],
+  "eyebrow": "3 Anzeichen: Kreislaufkollaps beim Aufstehen",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Der Blutdruckreflex wird langsamer",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Das Gehirn bekommt",
+        "kurz zu wenig",
+        "Blut"
+      ]
+    },
+    {
+      "name": "Legt sich innerhalb von ein, zwei Minuten",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "An den Lagewechsel",
+        "gebunden,",
+        "nicht dauerhaft"
+      ]
+    },
+    {
+      "name": "Langsames Aufstehen beugt vor",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Kurz am Rand",
+        "sitzen bleiben,",
+        "dann aufstehen"
+      ]
+    },
+    {
+      "name": "Ohnmacht oder Sturzverletzung ist ein Zeichen",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Abklären lassen,",
+        "nicht einfach",
+        "abtun"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Schwindel bei jedem Aufstehen ist nicht einfach normales Altern.",
+    "tip": "Kurz am Bett- oder Stuhlrand sitzen bleiben, bevor man langsam aufsteht.",
+    "cta": "Bei echter Bewusstlosigkeit oder Sturzverletzung ärztlich abklären lassen."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Blutdruckmessgerät",
+    "의자_illust.jpg": "Stuhl"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}

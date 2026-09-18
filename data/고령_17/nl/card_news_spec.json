@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Waarom word",
+    "je duizelig bij",
+    "snel",
+    "opstaan?"
+  ],
+  "eyebrow": "Waarom word je duizelig als je snel opstaat?",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "De bloeddrukreflex wordt trager",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Hersenen krijgen",
+        "even te weinig",
+        "bloed"
+      ]
+    },
+    {
+      "name": "Trekt binnen een paar minuten weg",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Gekoppeld aan",
+        "houdingswissel,",
+        "niet constant"
+      ]
+    },
+    {
+      "name": "Langzaam opstaan voorkomt het",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Ga even op de",
+        "rand zitten",
+        "voor opstaan"
+      ]
+    },
+    {
+      "name": "Flauwvallen of valletsel is een signaal",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Laat het checken,",
+        "negeer het",
+        "niet"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Duizeligheid telkens als je opstaat is niet gewoon normale veroudering.",
+    "tip": "Ga even op de rand van het bed of een stoel zitten voordat je langzaam opstaat.",
+    "cta": "Ben je echt flauwgevallen of gewond geraakt bij een val, laat het dan checken."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Bloeddrukmeter",
+    "의자_illust.jpg": "Stoel"
+  },
+  "cover_scrim_color": "#3A6B5C"
+}
