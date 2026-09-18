@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Des boutons après chaque",
+    "jour de forte pollution ?",
+    "Un masque seul ne suffit pas",
+    "3 gestes qui aident vraiment"
+  ],
+  "eyebrow": "Pollution, la vraie cause des boutons",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Glissez pour voir plus  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Les PM2,5 atteignent pores et barrière",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Les radicaux libres",
+        "dégradent collagène",
+        "et élastine."
+      ]
+    },
+    {
+      "name": "L'eau seule ne les élimine pas",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Se lient aux graisses —",
+        "le nettoyant moussant",
+        "seul les laisse."
+      ]
+    },
+    {
+      "name": "L'huile démaquillante défait la liaison",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Double nettoyage pour",
+        "vraiment éliminer",
+        "les particules piégées."
+      ]
+    },
+    {
+      "name": "La crème solaire comme bouclier",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Réduit le contact",
+        "direct entre la peau",
+        "et les particules."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un masque ne suffit pas les jours de forte pollution — le nettoyage du soir compte.",
+    "tip": "Double nettoyage à l'huile puis mousse, et soin à la vitamine C contre les radicaux libres.",
+    "cta": "Rougeurs ou boutons qui s'aggravent ? Consultez un dermatologue."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Masque",
+    "선크림_illust.jpg": "Crème solaire"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Puistjes na elke dag",
+    "met veel fijnstof?",
+    "Een mondkapje is niet genoeg",
+    "3 dingen die echt helpen"
+  ],
+  "eyebrow": "Fijnstof, de echte oorzaak van onzuiverheden",
+  "cover_char_file": "마스크_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "PM2,5 bereikt poriën en barrière",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Vrije radicalen breken",
+        "collageen en elastine",
+        "af."
+      ]
+    },
+    {
+      "name": "Water alleen verwijdert het niet",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Bindt met olie —",
+        "schuimreiniger alleen",
+        "laat het achter."
+      ]
+    },
+    {
+      "name": "Oliereiniger breekt de binding",
+      "char_file": "마스크_illust.jpg",
+      "body": [
+        "Dubbel reinigen om",
+        "vastzittende deeltjes",
+        "echt te verwijderen."
+      ]
+    },
+    {
+      "name": "Zonnebrand als fysiek schild",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Vermindert direct",
+        "contact tussen huid",
+        "en fijnstof."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een mondkapje is niet genoeg bij veel fijnstof — de avondreiniging telt.",
+    "tip": "Dubbel reinigen met olie en schuim, en vitamine C-verzorging tegen vrije radicalen.",
+    "cta": "Roodheid of onzuiverheden worden erger? Ga naar een dermatoloog."
+  },
+  "char_display_names": {
+    "마스크_illust.jpg": "Mondkapje",
+    "선크림_illust.jpg": "Zonnebrandcrème"
+  },
+  "cover_scrim_color": "#5A6E7A"
+}
