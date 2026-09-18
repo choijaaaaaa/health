@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Morning puffiness,",
+    "you probably blame salt alone —",
+    "licorice tea is a surprising cause too",
+    "4 things that actually help"
+  ],
+  "eyebrow": "Swelling, the Overlooked Causes",
+  "cover_char_file": "라면_illust.jpg",
+  "swipe_label": "Swipe to see more  →",
+  "closing_label": "Wrap-up",
+  "items": [
+    {
+      "name": "Licorice Changes Hormone Metabolism",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Blocks the enzyme that breaks",
+        "down cortisol, causing the",
+        "body to hold sodium and water."
+      ]
+    },
+    {
+      "name": "Instant Ramen Broth Is a Sodium Bomb",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "One packet often has",
+        "1,500-2,000mg sodium,",
+        "almost no potassium."
+      ]
+    },
+    {
+      "name": "Cheese Doubles Down",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Sodium holds water while",
+        "saturated fat can slow",
+        "circulation."
+      ]
+    },
+    {
+      "name": "Elevate Your Legs Before Bed",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "A simple habit that",
+        "reliably reduces next-",
+        "morning puffiness."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "It's not just salt — check your tea and instant noodles too.",
+    "tip": "Leave the ramen broth, pick lower-sodium cheese, pair with potassium-rich foods.",
+    "cta": "Swelling that's persistent, one-sided, or with shortness of breath? See a doctor."
+  },
+  "char_display_names": {
+    "라면_illust.jpg": "Instant Ramen",
+    "바나나_illust.jpg": "Banana"
+  }
+}

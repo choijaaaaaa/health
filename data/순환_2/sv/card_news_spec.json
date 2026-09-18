@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Morgonsvullnad,",
+    "du skyller nog bara på salt —",
+    "lakritste är också en överraskning",
+    "4 saker som faktiskt hjälper"
+  ],
+  "eyebrow": "Svullnad, de bortglömda orsakerna",
+  "cover_char_file": "라면_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Lakrits ändrar hormonomsättningen",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Blockerar kortisol-enzymet,",
+        "kroppen håller kvar",
+        "natrium och vatten."
+      ]
+    },
+    {
+      "name": "Nudelbuljong är en natriumbomb",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "En påse ofta 1500-2000mg",
+        "natrium, nästan inget",
+        "kalium."
+      ]
+    },
+    {
+      "name": "Ost förvärrar det dubbelt",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Natrium håller kvar vatten,",
+        "mättat fett saktar ner",
+        "cirkulationen."
+      ]
+    },
+    {
+      "name": "Lägg upp benen före sömn",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "En enkel vana som minskar",
+        "svullnaden nästa",
+        "morgon."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Inte bara salt — se även över te och nudlar.",
+    "tip": "Låt buljongen stå kvar, välj mindre salt ost, kombinera med kaliumrik mat.",
+    "cta": "Ihållande, ensidig svullnad eller andfåddhet? Sök en läkare."
+  },
+  "char_display_names": {
+    "라면_illust.jpg": "Nudelsoppa",
+    "바나나_illust.jpg": "Banan"
+  }
+}

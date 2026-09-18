@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Hinchazón matutina,",
+    "seguro que culpas solo a la sal —",
+    "el té de regaliz también sorprende",
+    "4 cosas que de verdad ayudan"
+  ],
+  "eyebrow": "Hinchazón, las causas pasadas por alto",
+  "cover_char_file": "라면_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El regaliz cambia el metabolismo hormonal",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Bloquea la enzima del cortisol,",
+        "el cuerpo retiene",
+        "sodio y agua."
+      ]
+    },
+    {
+      "name": "El caldo de fideos instantáneos, bomba de sodio",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "Un sobre suele tener 1500-",
+        "2000mg de sodio,",
+        "casi nada de potasio."
+      ]
+    },
+    {
+      "name": "El queso empeora el problema por partida doble",
+      "char_file": "라면_illust.jpg",
+      "body": [
+        "El sodio retiene agua,",
+        "la grasa saturada ralentiza",
+        "la circulación."
+      ]
+    },
+    {
+      "name": "Elevar las piernas antes de dormir",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Un hábito sencillo que",
+        "reduce la hinchazón",
+        "de la mañana siguiente."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No es solo la sal — revisa también el té y los fideos instantáneos.",
+    "tip": "Deja el caldo, elige queso bajo en sodio, acompaña con alimentos ricos en potasio.",
+    "cta": "¿Hinchazón persistente, unilateral, o con falta de aire? Consulta a un médico."
+  },
+  "char_display_names": {
+    "라면_illust.jpg": "Fideos instantáneos",
+    "바나나_illust.jpg": "Plátano"
+  }
+}
