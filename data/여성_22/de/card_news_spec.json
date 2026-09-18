@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Zervixdysplasie spürt",
+    "man nicht selbst —",
+    "die Vorsorge findet sie",
+    "3 Dinge, die wirklich helfen"
+  ],
+  "eyebrow": "Zervixdysplasie, warum es keine Symptome gibt",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Beginnt mit anhaltender HPV-Infektion",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Die meisten HPV-Infektionen",
+        "heilen innerhalb von",
+        "1-2 Jahren aus."
+      ]
+    },
+    {
+      "name": "Leichte Fälle werden beobachtet",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 bedeutet meist",
+        "Kontrolle nach",
+        "einem Jahr."
+      ]
+    },
+    {
+      "name": "Rauchen erhöht das Risiko",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Schwächt die Fähigkeit",
+        "der Immunzellen,",
+        "HPV zu beseitigen."
+      ]
+    },
+    {
+      "name": "HPV-Impfung beugt vor",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Verhindert die",
+        "Hochrisiko-HPV-Typen",
+        "hinter Dysplasie."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Keine Symptome ist normal — regelmäßige Vorsorge ist der einzige Weg zur Früherkennung.",
+    "tip": "Vorsorge im richtigen Abstand wahrnehmen, nach Impfung fragen, mit dem Rauchen aufhören.",
+    "cta": "Dysplasie-Befund erhalten? Mit der Gynäkologin den Plan für den Schweregrad besprechen."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Impfung",
+    "담배_illust.jpg": "Zigarette"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}

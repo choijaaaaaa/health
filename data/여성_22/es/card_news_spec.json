@@ -1,0 +1,60 @@
+{
+  "title": [
+    "La displasia cervical",
+    "no se siente —",
+    "el cribado es lo que la encuentra",
+    "3 cosas que ayudan de verdad"
+  ],
+  "eyebrow": "Displasia cervical, por qué no hay síntomas",
+  "cover_char_file": "백신_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "Empieza con el VPH persistente",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "La mayoría del VPH",
+        "desaparece en",
+        "1-2 años."
+      ]
+    },
+    {
+      "name": "Los casos leves se vigilan",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "CIN1 suele significar",
+        "una nueva prueba",
+        "al año."
+      ]
+    },
+    {
+      "name": "Fumar aumenta el riesgo",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Debilita la capacidad",
+        "de las células inmunitarias",
+        "para eliminar el VPH."
+      ]
+    },
+    {
+      "name": "La vacuna del VPH previene",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Bloquea los tipos",
+        "de VPH de alto riesgo",
+        "responsables."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No tener síntomas es normal — el cribado regular es la única forma de detectarla a tiempo.",
+    "tip": "Sigue el cribado adecuado a tu edad, pregunta por la vacuna, deja de fumar.",
+    "cta": "¿Resultado de displasia? Habla con un ginecólogo sobre el plan según el grado."
+  },
+  "char_display_names": {
+    "백신_illust.jpg": "Vacuna",
+    "담배_illust.jpg": "Cigarrillo"
+  },
+  "cover_scrim_color": "#8A2E5E"
+}
