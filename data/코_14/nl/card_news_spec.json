@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Die loopneus,",
+    "allergietests blijven normaal —",
+    "het kan niet-allergische rhinitis zijn",
+    "4 dingen die echt kalmeren"
+  ],
+  "eyebrow": "Niet-allergische rhinitis, de echte oorzaken",
+  "cover_char_file": "온도차_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Temperatuurwisselingen verwijden neusvaten",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Van warm naar koud overstappen",
+        "overspoelt de neus binnen",
+        "minuten."
+      ]
+    },
+    {
+      "name": "Pittig eten prikkelt een zenuw, geen allergie",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Hitte en kruiden activeren",
+        "de trigeminuszenuw —",
+        "gustatoire rhinitis."
+      ]
+    },
+    {
+      "name": "Sterke geuren en stress tellen op",
+      "char_file": "온도차_illust.jpg",
+      "body": [
+        "Parfum, rook en emotionele",
+        "schommelingen maken",
+        "de lijst compleet."
+      ]
+    },
+    {
+      "name": "Zoutoplossing kalmeert het slijmvlies",
+      "char_file": "비강스프레이_illust.jpg",
+      "body": [
+        "Een laag-risico gewoonte",
+        "in een slechte",
+        "periode."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Geen allergie — de neus reageert op de prikkel zelf.",
+    "tip": "Demp temperatuurverschillen, minder pittig, geurvrije producten, spoel met zoutoplossing.",
+    "cta": "Klachten langer dan twee weken of ernstig storend? Naar de KNO-arts."
+  },
+  "char_display_names": {
+    "온도차_illust.jpg": "Temperatuurverschil",
+    "비강스프레이_illust.jpg": "Zoutoplossing spray"
+  }
+}
