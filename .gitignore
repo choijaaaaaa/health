@@ -27,3 +27,14 @@ output/**/_frames/
 _테스트*.mp3
 .vercel
 .env*
+
+# 반투명 인체 라이브러리 — 채택본(stills/*.jpg, 장당 수백 KB)만 추적한다.
+# 미드저니 후보 원본(장당 ~1MB, 폐기본도 지우지 않고 보관)과 세션 zip은
+# 한 번에 수백 MB라 git에 넣지 않는다(대용량 미디어 정책과 같은 이유).
+assets_library/xray/stills/_candidates/
+assets_library/xray/*.zip
+
+# deploy/ — scripts/stage_for_deploy.py가 채우는 네이버 클립 업로드용 shorts.mp4
+# 복사본 전용 폴더(2026-09-18, ai-video-network/deploy/와 동일 패턴) — 원본은
+# output/<topic>/shorts.mp4, 이건 찾기 쉽게 모아둔 사본이라 git에 안 올림.
+deploy/
