@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Acne",
+    "vs.",
+    "Rosacea"
+  ],
+  "eyebrow": "È acne o rosacea?",
+  "cover_char_file": "와인_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "L'acne significa punti neri presenti",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Pori ostruiti",
+        "come",
+        "causa"
+      ]
+    },
+    {
+      "name": "La rosacea significa rossore senza comedoni",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Vasi",
+        "reattivi",
+        "reagiscono"
+      ]
+    },
+    {
+      "name": "Rossore dopo alcol o piccante indica rosacea",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "L'acne non",
+        "reagisce",
+        "così"
+      ]
+    },
+    {
+      "name": "Una crema anti-acne peggiora la rosacea",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Serve un",
+        "trattamento",
+        "diverso"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se la crema anti-acne non funziona, non insistere — potrebbe essere rosacea.",
+    "tip": "Controlla i punti neri e se alcol o piccante causano rossore.",
+    "cta": "Consulta un dermatologo per una diagnosi precisa se non è chiaro."
+  },
+  "char_display_names": {
+    "와인_illust.jpg": "Vino",
+    "피부발진_illust.jpg": "Pelle"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}
