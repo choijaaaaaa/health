@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Waarom is je",
+    "bloedsuiker",
+    "'s ochtends",
+    "hoger?"
+  ],
+  "eyebrow": "Waarom is je bloedsuiker 's ochtends hoger?",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Ochtendhormonen verhogen de bloedsuiker",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Lever geeft glucose",
+        "vrij om je",
+        "wakker te maken"
+      ]
+    },
+    {
+      "name": "Het Somogyi-effect is het tegenovergestelde",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Een terugslag na",
+        "nachtelijke lage",
+        "bloedsuiker"
+      ]
+    },
+    {
+      "name": "Meten om 2-3 uur is de sleutel",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Laag betekent Somogyi,",
+        "stabiel betekent",
+        "dawnfenomeen"
+      ]
+    },
+    {
+      "name": "Pas medicatie niet zelf aan",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "De oplossingen gaan",
+        "tegenovergestelde",
+        "kanten op"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een hogere ochtendwaarde betekent niet automatisch dat er iets fout ging.",
+    "tip": "Meet de bloedsuiker een paar nachten rond 2 tot 3 uur om de oorzaak vast te stellen.",
+    "cta": "Betrek altijd een arts voordat je een medicatiedosis aanpast."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Bloedsuikermeter",
+    "시계_illust.jpg": "Klok"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

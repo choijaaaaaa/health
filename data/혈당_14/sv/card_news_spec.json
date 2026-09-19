@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Gryningsfenomenet",
+    "vs.",
+    "Somogyi-",
+    "effekten"
+  ],
+  "eyebrow": "Varför är ditt blodsocker högre på morgonen?",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Morgonhormoner höjer blodsockret",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Levern frisätter",
+        "glukos för att",
+        "väcka dig"
+      ]
+    },
+    {
+      "name": "Somogyi-effekten är motsatsen",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "En rekyl efter",
+        "nattligt lågt",
+        "blodsocker"
+      ]
+    },
+    {
+      "name": "Mätning klockan 2-3 är nyckeln",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Lågt betyder Somogyi,",
+        "stabilt betyder",
+        "gryningsfenomenet"
+      ]
+    },
+    {
+      "name": "Justera inte medicin själv",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Lösningarna pekar",
+        "åt motsatta",
+        "håll"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ett högre morgonvärde betyder inte automatiskt att något blev fel.",
+    "tip": "Mät blodsockret runt klockan 2 till 3 på natten några nätter för att fastställa orsaken.",
+    "cta": "Involvera alltid en läkare innan du ändrar någon medicindos."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Blodsockermätare",
+    "시계_illust.jpg": "Klocka"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

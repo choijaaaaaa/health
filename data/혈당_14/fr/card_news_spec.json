@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Phénomène de",
+    "l'aube vs",
+    "effet",
+    "Somogyi"
+  ],
+  "eyebrow": "Votre glycémie du matin pourrait être le phénomène de l'aube",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les hormones du matin font monter la glycémie",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Le foie libère",
+        "du glucose au",
+        "réveil"
+      ]
+    },
+    {
+      "name": "L'effet Somogyi est l'inverse",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Un rebond après",
+        "une hypoglycémie",
+        "nocturne"
+      ]
+    },
+    {
+      "name": "Mesurer à 2-3h du matin est la clé",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Bas signifie Somogyi,",
+        "stable signifie",
+        "phénomène de l'aube"
+      ]
+    },
+    {
+      "name": "N'ajustez pas les médicaments seul",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Les solutions vont",
+        "dans des directions",
+        "opposées"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Une glycémie matinale plus élevée ne signifie pas automatiquement une erreur.",
+    "tip": "Mesurez la glycémie vers 2 à 3 heures du matin pendant quelques nuits pour cerner la cause.",
+    "cta": "Associez toujours un médecin avant de changer une dose de médicament."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Lecteur de glycémie",
+    "시계_illust.jpg": "Horloge"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}
