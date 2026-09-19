@@ -6,13 +6,13 @@
     "scheur?"
   ],
   "eyebrow": "Onschuldige glasvochttroebelingen vs. netvliesloslating",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Swipe voor meer →",
   "closing_label": "Samenvatting",
   "items": [
     {
       "name": "Veranderingen in het glasvocht zijn de oorzaak",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Een normaal onderdeel",
         "van het",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Ouder dan 50, sterke bijziendheid risico",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Oogoperatie,",
         "letsel tellen",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Stabiel aantal is geen zorg",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Geen toename",
         "over tijd is",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Flitsen plus stortvloed betekent spoed",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Een gordijn of",
         "schaduw waarschuwt",
@@ -53,8 +53,8 @@
     "cta": "Flitsen of een schaduw samen met nieuwe vlekjes betekenen dezelfde dag nog een oogarts."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Oog",
-    "안경_illust.jpg": "Bril"
+    "독서안경_illust.jpg": "Leesbril",
+    "인공눈물_illust.jpg": "Oogdruppels"
   },
   "cover_scrim_color": "#4A5C3A"
 }

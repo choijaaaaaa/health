@@ -6,13 +6,13 @@
     "bristning?"
   ],
   "eyebrow": "Ofarliga mouches volantes vs. näthinneavlossning",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Svep för mer →",
   "closing_label": "Sammanfattning",
   "items": [
     {
       "name": "Förändringar i glaskroppen är orsaken",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "En normal del av",
         "ett åldrande",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Över 50, kraftig närsynthet i riskzonen",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Ögonoperation,",
         "trauma räknas",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Stabilt antal oroar inte",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Ingen ökning",
         "över tid är",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Blixtar plus störtflod betyder akut",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "En gardin eller",
         "skugga varnar",
@@ -53,8 +53,8 @@
     "cta": "Blixtar eller en skugga tillsammans med nya fläckar betyder en ögonläkare samma dag."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Öga",
-    "안경_illust.jpg": "Glasögon"
+    "독서안경_illust.jpg": "Läsglasögon",
+    "인공눈물_illust.jpg": "Ögondroppar"
   },
   "cover_scrim_color": "#4A5C3A"
 }

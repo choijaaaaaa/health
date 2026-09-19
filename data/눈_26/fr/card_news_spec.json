@@ -6,13 +6,13 @@
     "rétinienne ?"
   ],
   "eyebrow": "Pourquoi vos mouches volantes ont-elles soudain augmenté ?",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Glissez pour en voir plus →",
   "closing_label": "Récapitulatif",
   "items": [
     {
       "name": "Les changements du vitré en sont la cause",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Une partie normale",
         "du vieillissement",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Plus de 50 ans, forte myopie à risque",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Chirurgie oculaire,",
         "traumatisme",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Un nombre stable ne préoccupe pas",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Pas d'augmentation",
         "dans le temps",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Éclairs plus apparition soudaine : urgence",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Un rideau ou",
         "une ombre",
@@ -53,8 +53,8 @@
     "cta": "Des éclairs ou une ombre avec de nouvelles mouches signifient consulter le jour même."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Œil",
-    "안경_illust.jpg": "Lunettes"
+    "독서안경_illust.jpg": "Lunettes de lecture",
+    "인공눈물_illust.jpg": "Gouttes oculaires"
   },
   "cover_scrim_color": "#4A5C3A"
 }
