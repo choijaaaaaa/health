@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Candidiasis",
+    "vs.",
+    "Vaginosis",
+    "Bacteriana"
+  ],
+  "eyebrow": "Candidiasis vs. vaginosis bacteriana",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La candidiasis significa flujo espeso y sin olor",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Proliferación",
+        "de hongos",
+        "como causa"
+      ]
+    },
+    {
+      "name": "La vaginosis significa flujo fino con olor a pescado",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Equilibrio",
+        "bacteriano",
+        "alterado"
+      ]
+    },
+    {
+      "name": "Picazón indica candidiasis, olor indica vaginosis",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "La molestia",
+        "principal",
+        "difiere"
+      ]
+    },
+    {
+      "name": "No compres crema antimicótica a ciegas",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "La vaginosis",
+        "necesita",
+        "antibióticos"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ante flujo inusual, no compres crema antimicótica sin más — identifica de qué se trata.",
+    "tip": "Revisa la textura del flujo, el olor, y la intensidad de la picazón.",
+    "cta": "Consulta a un ginecólogo si los síntomas siguen repitiéndose o no está claro."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Ropa interior",
+    "샤워기_illust.jpg": "Ducha"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Mycose",
+    "vs.",
+    "Vaginose",
+    "Bactérienne"
+  ],
+  "eyebrow": "Mycose vs. vaginose bactérienne",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "La mycose veut dire pertes épaisses et inodores",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Prolifération",
+        "fongique en",
+        "cause"
+      ]
+    },
+    {
+      "name": "La vaginose veut dire pertes fines et odeur de poisson",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Équilibre",
+        "bactérien",
+        "perturbé"
+      ]
+    },
+    {
+      "name": "Démangeaisons évoque mycose, odeur évoque vaginose",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Le principal",
+        "inconfort",
+        "diffère"
+      ]
+    },
+    {
+      "name": "N'achetez pas de crème antifongique à l'aveugle",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "La vaginose",
+        "nécessite des",
+        "antibiotiques"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Face à des pertes inhabituelles, n'achetez pas simplement une crème antifongique — identifiez de quoi il s'agit.",
+    "tip": "Vérifiez la texture des pertes, l'odeur, et l'intensité des démangeaisons.",
+    "cta": "Consultez un gynécologue si les symptômes reviennent souvent ou restent flous."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Sous-vêtements",
+    "샤워기_illust.jpg": "Douche"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Candidiasis",
+    "vs.",
+    "Bacteriële",
+    "Vaginose"
+  ],
+  "eyebrow": "Die afscheiding kan bacteriële vaginose zijn, niet alleen candida",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Candidiasis betekent dikke, geurloze afscheiding",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Schimmel-",
+        "overgroei",
+        "als oorzaak"
+      ]
+    },
+    {
+      "name": "BV betekent dunne afscheiding met visachtige geur",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Verstoorde",
+        "bacteriële",
+        "balans"
+      ]
+    },
+    {
+      "name": "Jeuk wijst op candida, geur wijst op BV",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Het belangrijkste",
+        "ongemak",
+        "verschilt"
+      ]
+    },
+    {
+      "name": "Koop niet blind steeds weer antischimmelcrème",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "BV heeft juist",
+        "antibiotica",
+        "nodig"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bij ongewone afscheiding niet zomaar antischimmelcrème kopen — stel vast om welke het gaat.",
+    "tip": "Controleer de textuur van de afscheiding, de geur, en hoe hevig de jeuk is.",
+    "cta": "Raadpleeg een gynaecoloog als klachten blijven terugkomen of onduidelijk blijven."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Ondergoed",
+    "샤워기_illust.jpg": "Douche"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}

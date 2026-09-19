@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Svampinfektion",
+    "vs.",
+    "Bakteriell",
+    "Vaginos"
+  ],
+  "eyebrow": "Din flytning kan bero på bakteriell vaginos, inte bara svamp",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Svampinfektion betyder tjock, luktfri flytning",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Svamp-",
+        "överväxt",
+        "som orsak"
+      ]
+    },
+    {
+      "name": "BV betyder tunn flytning med fiskliknande lukt",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Rubbad",
+        "bakteriell",
+        "balans"
+      ]
+    },
+    {
+      "name": "Klåda tyder på svamp, lukt tyder på BV",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Det största",
+        "obehaget",
+        "skiljer sig"
+      ]
+    },
+    {
+      "name": "Köp inte bara svampkräm blint igen",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "BV behöver",
+        "istället",
+        "antibiotika"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vid ovanlig flytning, köp inte bara svampkräm — ta reda på vilket det är.",
+    "tip": "Kontrollera flytningens konsistens, lukten, och hur intensiv klådan är.",
+    "cta": "Sök en gynekolog om symtomen fortsätter komma tillbaka eller är oklara."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Underkläder",
+    "샤워기_illust.jpg": "Dusch"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}
