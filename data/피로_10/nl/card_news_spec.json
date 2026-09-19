@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Burn-out",
+    "vs.",
+    "Depressie"
+  ],
+  "eyebrow": "Burn-out of depressie: het verschil",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Burn-out is gekoppeld aan een specifieke baan",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Uitputting",
+        "gekoppeld",
+        "aan werk"
+      ]
+    },
+    {
+      "name": "Depressie raakt het hele leven",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Een stemmings-",
+        "stoornis los",
+        "van werk"
+      ]
+    },
+    {
+      "name": "Verbeteren met rust wijst op burn-out",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Gelijk blijven",
+        "kan wijzen op",
+        "depressie"
+      ]
+    },
+    {
+      "name": "Waardeloosheid of doodsgedachten, direct hulp zoeken",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Professionele",
+        "hulp is",
+        "nodig"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Controleer of de last beperkt blijft tot werk of het hele leven raakt.",
+    "tip": "Noteer of je daadwerkelijk herstelt na wat tijd vrij te nemen.",
+    "cta": "Bij waardeloosheid of doodsgedachten direct contact opnemen met een hulpverlener."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Koffie",
+    "시계_illust.jpg": "Klok"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}

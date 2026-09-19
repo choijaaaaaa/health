@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Utmattning",
+    "vs.",
+    "Depression"
+  ],
+  "eyebrow": "Utmattning eller depression: skillnaden",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Utmattning är kopplad till ett specifikt jobb",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "En uttröttning",
+        "kopplad",
+        "till jobbet"
+      ]
+    },
+    {
+      "name": "Depression påverkar hela livet",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "En sinnesstämnings-",
+        "störning utan",
+        "koppling till jobbet"
+      ]
+    },
+    {
+      "name": "Bättring med vila pekar mot utmattning",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Oförändrat kan",
+        "betyda",
+        "depression"
+      ]
+    },
+    {
+      "name": "Värdelöshet eller dödstankar, sök hjälp direkt",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Professionell",
+        "hjälp",
+        "behövs"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kontrollera om besvären begränsas till jobbet eller påverkar hela livet.",
+    "tip": "Notera om du faktiskt återhämtar dig efter att ha tagit ledigt.",
+    "cta": "Vid värdelöshet eller dödstankar, kontakta en vårdgivare utan dröjsmål."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Kaffe",
+    "시계_illust.jpg": "Klocka"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Burnout",
+    "vs.",
+    "Depresión"
+  ],
+  "eyebrow": "Burnout vs. depresión",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El burnout está ligado a un trabajo concreto",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un agotamiento",
+        "ligado al",
+        "trabajo"
+      ]
+    },
+    {
+      "name": "La depresión afecta a toda la vida",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Un trastorno",
+        "del ánimo sin",
+        "relación laboral"
+      ]
+    },
+    {
+      "name": "Mejorar con el descanso apunta a burnout",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Seguir igual",
+        "puede indicar",
+        "depresión"
+      ]
+    },
+    {
+      "name": "Inutilidad o pensamientos de muerte, busca ayuda ya",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Se necesita",
+        "ayuda",
+        "profesional"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Comprueba si el malestar se limita al trabajo o afecta a toda la vida.",
+    "tip": "Anota si realmente te recuperas después de tomarte tiempo libre.",
+    "cta": "Si hay sensación de inutilidad o pensamientos de muerte, contacta a un profesional sin demora."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "시계_illust.jpg": "Reloj"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}

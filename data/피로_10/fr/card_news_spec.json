@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Burnout",
+    "vs.",
+    "Dépression"
+  ],
+  "eyebrow": "3 signes qui distinguent le burnout de la dépression",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le burnout est lié à un emploi précis",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un épuisement",
+        "lié au",
+        "travail"
+      ]
+    },
+    {
+      "name": "La dépression touche l'ensemble de la vie",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Un trouble de",
+        "l'humeur sans",
+        "lien au travail"
+      ]
+    },
+    {
+      "name": "S'améliorer avec le repos évoque le burnout",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Rester identique",
+        "peut signifier",
+        "la dépression"
+      ]
+    },
+    {
+      "name": "Dévalorisation ou pensées de mort, agissez vite",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Une aide",
+        "professionnelle",
+        "est nécessaire"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vérifiez si la difficulté se limite au travail ou touche l'ensemble de la vie.",
+    "tip": "Notez si vous récupérez réellement après avoir pris du temps libre.",
+    "cta": "En cas de dévalorisation ou de pensées de mort, contactez un professionnel sans délai."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Café",
+    "시계_illust.jpg": "Horloge"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Burnout",
+    "vs.",
+    "Depressione"
+  ],
+  "eyebrow": "È burnout o depressione?",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Il burnout è legato a un lavoro specifico",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Un esaurimento",
+        "legato al",
+        "lavoro"
+      ]
+    },
+    {
+      "name": "La depressione riguarda tutta la vita",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Un disturbo",
+        "dell'umore",
+        "non legato al lavoro"
+      ]
+    },
+    {
+      "name": "Migliorare col riposo indica burnout",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Restare uguale",
+        "può indicare",
+        "depressione"
+      ]
+    },
+    {
+      "name": "Senso di inutilità o pensieri di morte, cerca aiuto subito",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Serve aiuto",
+        "professionale",
+        "subito"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Controlla se il disagio si limita al lavoro o riguarda tutta la vita.",
+    "tip": "Annota se recuperi davvero dopo esserti preso del tempo libero.",
+    "cta": "In caso di senso di inutilità o pensieri di morte, contatta subito uno specialista."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Caffè",
+    "시계_illust.jpg": "Orologio"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}
