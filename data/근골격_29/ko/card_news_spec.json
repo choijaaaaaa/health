@@ -1,0 +1,60 @@
+{
+  "title": [
+    "턱관절과",
+    "이갈이",
+    "구별하는",
+    "세 가지"
+  ],
+  "eyebrow": "턱관절과 이갈이, 구별하는 세 가지 신호",
+  "cover_char_file": "껌_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "턱관절장애는 딸깍거리는 소리",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "관절 자체의",
+        "문제",
+        "예요"
+      ]
+    },
+    {
+      "name": "이갈이는 뻐근한 근육통",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "근육 과로가",
+        "원인",
+        "이에요"
+      ]
+    },
+    {
+      "name": "아침에 가장 아프면 이갈이",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "밤새 이 간",
+        "다음",
+        "생겨요"
+      ]
+    },
+    {
+      "name": "이갈이 방치하면 턱관절장애로",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "마우스가드가",
+        "도움이",
+        "돼요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "턱이 아프다고 그냥 넘기지 말고, 어느 쪽인지 확인해보세요.",
+    "tip": "딸깍거리는 소리, 아침 통증, 치아 마모를 확인해보세요.",
+    "cta": "턱이 잘 안 벌어지면 턱관절 전문 진료를 받아보세요."
+  },
+  "char_display_names": {
+    "칫솔_illust.jpg": "칫솔",
+    "껌_illust.jpg": "껌"
+  },
+  "cover_scrim_color": "#6B5A4A"
+}

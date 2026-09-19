@@ -1,0 +1,59 @@
+{
+  "title": [
+    "CMD",
+    "vs.",
+    "Bruxismus"
+  ],
+  "eyebrow": "CMD vs. Bruxismus",
+  "cover_char_file": "껌_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "CMD heißt Klickgeräusche",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Ein Problem mit",
+        "dem Gelenk",
+        "selbst"
+      ]
+    },
+    {
+      "name": "Bruxismus heißt erschöpfter Muskelschmerz",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "Überlastete",
+        "Kau-",
+        "muskeln"
+      ]
+    },
+    {
+      "name": "Schmerz am schlimmsten morgens heißt Bruxismus",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "Nach einer Nacht",
+        "des",
+        "Knirschens"
+      ]
+    },
+    {
+      "name": "Unbehandelter Bruxismus kann zu CMD führen",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Eine Schiene",
+        "kann",
+        "helfen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kieferschmerzen nicht einfach abtun — klären Sie, um welche Art es geht.",
+    "tip": "Prüfen Sie Klickgeräusche, Morgenschmerz und Zahnabrieb.",
+    "cta": "Bei einem nicht richtig öffnenden Kiefer einen CMD-Spezialisten aufsuchen."
+  },
+  "char_display_names": {
+    "칫솔_illust.jpg": "Zahnbürste",
+    "껌_illust.jpg": "Kaugummi"
+  },
+  "cover_scrim_color": "#6B5A4A"
+}
