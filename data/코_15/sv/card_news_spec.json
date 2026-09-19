@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Förkylning",
+    "som kommer",
+    "tillbaka:",
+    "bihåleinflammation?"
+  ],
+  "eyebrow": "En förkylning som kommer tillbaka är inte bara otur",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Blockerad dränering låter bakterier växa",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Instängt slem",
+        "är där bakterier",
+        "förökar sig"
+      ]
+    },
+    {
+      "name": "Över 10 dagar utan förbättring",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Inte ens",
+        "gradvis förbättring",
+        "är ett tecken"
+      ]
+    },
+    {
+      "name": "\"Dubbel försämring\" är nyckelmönstret",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Bättre, sedan",
+        "kommer febern",
+        "plötsligt tillbaka"
+      ]
+    },
+    {
+      "name": "Färgen ensam är inte pålitlig",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Längd, mönster,",
+        "ansiktssmärta",
+        "spelar större roll"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "En förkylning som blir bättre och sedan plötsligt sämre igen kan vara bakteriell bihåleinflammation.",
+    "tip": "Näsdusch med koksaltlösning och tillräckligt med vätska hjälper i vilket fall som helst.",
+    "cta": "Är det dubbla försämringsmönstret tydligt, låt en öron-näsa-hals-läkare kontrollera det."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Glas vatten",
+    "수건_illust.jpg": "Handduk"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}

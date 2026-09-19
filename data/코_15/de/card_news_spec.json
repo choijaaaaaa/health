@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Erkältung",
+    "kehrt zurück:",
+    "keine",
+    "Normalität"
+  ],
+  "eyebrow": "Eine Erkältung, die zurückkehrt, ist nicht normal",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Verstopfte Drainage lässt Bakterien wachsen",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Gestauter Schleim",
+        "ist, wo Bakterien",
+        "sich vermehren"
+      ]
+    },
+    {
+      "name": "Über 10 Tage ohne Besserung",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Selbst keine",
+        "allmähliche Besserung",
+        "ist ein Zeichen"
+      ]
+    },
+    {
+      "name": "\"Doppelte Verschlechterung\" ist der Schlüssel",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Besser, dann",
+        "kehrt Fieber",
+        "plötzlich zurück"
+      ]
+    },
+    {
+      "name": "Farbe allein ist nicht zuverlässig",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Dauer, Muster,",
+        "Gesichtsschmerz",
+        "zählen mehr"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Eine Erkältung, die sich bessert und dann plötzlich wieder verschlechtert, kann bakterielle Sinusitis sein.",
+    "tip": "Nasenspülungen mit Kochsalzlösung und ausreichend Flüssigkeit unterstützen die Genesung so oder so.",
+    "cta": "Ist das doppelte Verschlechterungsmuster klar, beim HNO-Arzt abklären lassen."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Wasserglas",
+    "수건_illust.jpg": "Handtuch"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}

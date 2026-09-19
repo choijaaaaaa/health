@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Rhume qui",
+    "empire à",
+    "nouveau :",
+    "sinusite ?"
+  ],
+  "eyebrow": "Rhume simple vs sinusite bactérienne : la différence",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Un drainage bouché laisse les bactéries croître",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Le mucus piégé",
+        "est où les bactéries",
+        "se multiplient"
+      ]
+    },
+    {
+      "name": "Plus de 10 jours sans amélioration",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Même pas une",
+        "amélioration progressive",
+        "est un signe"
+      ]
+    },
+    {
+      "name": "La \"double aggravation\" est le schéma clé",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Mieux, puis",
+        "la fièvre revient",
+        "soudainement"
+      ]
+    },
+    {
+      "name": "La couleur seule n'est pas fiable",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Durée, schéma,",
+        "douleur faciale",
+        "comptent plus"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un rhume qui s'améliore puis empire soudainement à nouveau pourrait être une sinusite bactérienne.",
+    "tip": "Les rinçages nasaux au sérum physiologique et une bonne hydratation aident dans tous les cas.",
+    "cta": "Si le schéma de double aggravation est clair, faites vérifier par un ORL."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Verre d'eau",
+    "수건_illust.jpg": "Serviette"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}

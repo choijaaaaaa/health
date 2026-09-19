@@ -1,0 +1,60 @@
+{
+  "title": [
+    "3 señales de",
+    "que tu resfriado",
+    "es",
+    "sinusitis"
+  ],
+  "eyebrow": "3 señales de que tu resfriado es realmente sinusitis",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El drenaje bloqueado deja crecer bacterias",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "El moco atrapado",
+        "es donde las bacterias",
+        "se multiplican"
+      ]
+    },
+    {
+      "name": "Más de 10 días sin mejora",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Ni siquiera una",
+        "mejora gradual",
+        "es señal"
+      ]
+    },
+    {
+      "name": "El \"doble empeoramiento\" es la clave",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Mejor, y luego",
+        "la fiebre vuelve",
+        "de repente"
+      ]
+    },
+    {
+      "name": "El color solo no es fiable",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Duración, patrón,",
+        "dolor facial",
+        "importan más"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un resfriado que mejora y luego empeora de repente otra vez podría ser sinusitis bacteriana.",
+    "tip": "Los lavados nasales con solución salina y mantenerse hidratado ayudan de todos modos.",
+    "cta": "Si el patrón de doble empeoramiento es claro, hazte revisar por un otorrinolaringólogo."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Vaso de agua",
+    "수건_illust.jpg": "Toalla"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}
