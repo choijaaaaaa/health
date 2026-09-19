@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eksem",
+    "vs.",
+    "Kontaktdermatit"
+  ],
+  "eyebrow": "Är det eksem eller kontaktdermatit?",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Eksem återkommer på samma fasta ställen",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Hudbarriär och",
+        "immun-",
+        "svar"
+      ]
+    },
+    {
+      "name": "Kontaktdermatit stämmer in på ett ämne",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "En reaktion på",
+        "något",
+        "specifikt"
+      ]
+    },
+    {
+      "name": "Sedan barndomen betyder eksem",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "En ny produkt",
+        "betyder kontakt-",
+        "dermatit"
+      ]
+    },
+    {
+      "name": "Att inte undvika utlösaren gör att det kommer tillbaka",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Ett lapptest",
+        "kan",
+        "bekräfta det"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Prova inte bara produkt efter produkt utan att veta vilket det är.",
+    "tip": "Kontrollera om utslaget stämmer in på ett ämne, och när det började.",
+    "cta": "Sök en dermatolog för ett lapptest om utlösaren är svår att hitta."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Handkräm",
+    "은목걸이_illust.jpg": "Halsband"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}
