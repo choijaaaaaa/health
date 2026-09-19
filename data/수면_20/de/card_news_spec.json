@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Schlafparalyse",
+    "vs.",
+    "Narkolepsie"
+  ],
+  "eyebrow": "Schlafparalyse vs. Narkolepsie",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Gelegentliche Schlafparalyse ist meist harmlos",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Schlafmangel ist",
+        "ein häufiger",
+        "Auslöser"
+      ]
+    },
+    {
+      "name": "Narkolepsie entsteht durch verlorene Orexin-Zellen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Tagesschläfrigkeit",
+        "und Kataplexie",
+        "sind Kennzeichen"
+      ]
+    },
+    {
+      "name": "Schwäche beim Lachen heißt Kataplexie",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Nur bei",
+        "Narkolepsie",
+        "vorkommend"
+      ]
+    },
+    {
+      "name": "Tagesschläfrigkeit trotz voller Nacht ist ein Warnsignal",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Schlafattacken",
+        "wiederholen",
+        "sich"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wenn Schlafparalyse häufig ist und mit Tagesschläfrigkeit einhergeht, nicht einfach als Schlafgewohnheit abtun.",
+    "tip": "Prüfen Sie Schwäche beim Lachen und Tagesschläfrigkeit.",
+    "cta": "Bei überlappenden Symptomen einen Schlafspezialisten aufsuchen."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kissen",
+    "시계_illust.jpg": "Uhr"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}

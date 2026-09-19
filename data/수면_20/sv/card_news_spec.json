@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Sömnparalys",
+    "vs.",
+    "Narkolepsi"
+  ],
+  "eyebrow": "Sömnparalys vs. narkolepsi",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Enstaka sömnparalys är vanligtvis ofarligt",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sömnbrist är en",
+        "vanlig",
+        "utlösare"
+      ]
+    },
+    {
+      "name": "Narkolepsi uppstår från förlorade orexinceller",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Dagsömnighet och",
+        "kataplexi är",
+        "kännetecken"
+      ]
+    },
+    {
+      "name": "Svaghet vid skratt betyder kataplexi",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Ett tecken unikt",
+        "för",
+        "narkolepsi"
+      ]
+    },
+    {
+      "name": "Dagsömnighet trots full sömn är ett varningstecken",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Sömnattacker",
+        "upprepar",
+        "sig"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Om sömnparalys är frekvent och kommer med dagsömnighet, avfärda det inte bara som en sömnvana.",
+    "tip": "Kontrollera svaghet vid skratt och dagsömnighet.",
+    "cta": "Sök en sömnspecialist om symtomen överlappar."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kudde",
+    "시계_illust.jpg": "Klocka"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}

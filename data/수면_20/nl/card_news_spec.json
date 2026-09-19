@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Slaapverlamming",
+    "vs.",
+    "Narcolepsie"
+  ],
+  "eyebrow": "Slaapverlamming vs. narcolepsie",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Incidentele slaapverlamming is meestal onschuldig",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Slaaptekort is",
+        "een veelvoorkomende",
+        "trigger"
+      ]
+    },
+    {
+      "name": "Narcolepsie ontstaat door verlies van orexinecellen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Slaperigheid overdag",
+        "en kataplexie zijn",
+        "kenmerken"
+      ]
+    },
+    {
+      "name": "Zwakte bij lachen betekent kataplexie",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Een teken uniek",
+        "voor",
+        "narcolepsie"
+      ]
+    },
+    {
+      "name": "Slaperigheid overdag ondanks goede slaap is een alarmsignaal",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Slaapaanvallen",
+        "herhalen",
+        "zich"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Als slaapverlamming vaak voorkomt en gepaard gaat met slaperigheid overdag, zie het niet als gewoon een slaapgewoonte.",
+    "tip": "Controleer op zwakte bij lachen en slaperigheid overdag.",
+    "cta": "Raadpleeg een slaapspecialist als de klachten overlappen."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Kussen",
+    "시계_illust.jpg": "Klok"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}

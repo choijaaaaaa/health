@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Parálisis del",
+    "Sueño vs.",
+    "Narcolepsia"
+  ],
+  "eyebrow": "Parálisis del sueño vs. narcolepsia",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La parálisis del sueño ocasional suele ser inofensiva",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "La falta de sueño",
+        "es un desencadenante",
+        "común"
+      ]
+    },
+    {
+      "name": "La narcolepsia surge de la pérdida de células de orexina",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Somnolencia diurna",
+        "y cataplejía son",
+        "sus señales"
+      ]
+    },
+    {
+      "name": "Debilidad al reír significa cataplejía",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Una señal única",
+        "de la",
+        "narcolepsia"
+      ]
+    },
+    {
+      "name": "Somnolencia diurna a pesar de dormir bien es señal de alerta",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Los ataques de",
+        "sueño se",
+        "repiten"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si la parálisis del sueño es frecuente y viene con somnolencia diurna, no la trates como un simple hábito.",
+    "tip": "Revisa la debilidad al reír y la somnolencia diurna.",
+    "cta": "Consulta a un especialista del sueño si los síntomas se superponen."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Almohada",
+    "시계_illust.jpg": "Reloj"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}
