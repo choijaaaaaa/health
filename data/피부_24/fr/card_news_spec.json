@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vitiligo",
+    "vs.",
+    "Pityriasis",
+    "Versicolor"
+  ],
+  "eyebrow": "Vitiligo vs. pityriasis versicolor",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le vitiligo veut dire taches lisses blanches",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Perte des cellules",
+        "pigmentaires",
+        "en cause"
+      ]
+    },
+    {
+      "name": "Le pityriasis versicolor veut dire taches squameuses",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Prolifération de",
+        "levure en",
+        "cause"
+      ]
+    },
+    {
+      "name": "Des squames au grattage évoquent le pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "La texture reste",
+        "normale pour le",
+        "vitiligo"
+      ]
+    },
+    {
+      "name": "Plus visible après bronzage évoque le pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Le vitiligo ne",
+        "bronze jamais",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Avant de penser au vitiligo, vérifiez les squames et la réaction au soleil.",
+    "tip": "Grattouillez légèrement et observez le changement après le soleil d'été.",
+    "cta": "En cas de doute, un dermatologue peut vérifier rapidement à la lampe de Wood."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Crème solaire",
+    "팔뚝각질_illust.jpg": "Desquamation"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}

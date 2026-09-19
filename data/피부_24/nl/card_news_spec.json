@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lichte vlekken?",
+    "Misschien geen",
+    "vitiligo"
+  ],
+  "eyebrow": "Die lichte vlekken zouden wel eens pityriasis versicolor kunnen zijn",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Vitiligo betekent gladde witte vlekken",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Verlies van",
+        "pigmentcellen",
+        "als oorzaak"
+      ]
+    },
+    {
+      "name": "Pityriasis versicolor betekent schilferige vlekken",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Overgroei van",
+        "gist als",
+        "oorzaak"
+      ]
+    },
+    {
+      "name": "Schilfers bij krabben wijst op pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Textuur blijft",
+        "normaal bij",
+        "vitiligo"
+      ]
+    },
+    {
+      "name": "Opvallen na bruinen wijst op pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo bruint",
+        "nooit",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Voordat je aan vitiligo denkt, controleer schilfering en reactie op de zon.",
+    "tip": "Krab licht en let op verandering na zomerse zon.",
+    "cta": "Bij twijfel kan een dermatoloog snel controleren met een Wood-lamp."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Zonnebrandcrème",
+    "팔뚝각질_illust.jpg": "Huidschilfering"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vitíligo",
+    "vs.",
+    "Pitiriasis",
+    "Versicolor"
+  ],
+  "eyebrow": "3 señales para distinguir el vitíligo de la pitiriasis versicolor",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Vitíligo significa manchas lisas blancas",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Pérdida de células",
+        "de pigmento",
+        "como causa"
+      ]
+    },
+    {
+      "name": "Pitiriasis versicolor significa manchas escamosas",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Proliferación de",
+        "levadura como",
+        "causa"
+      ]
+    },
+    {
+      "name": "Escamas al rascar indican pitiriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "La textura sigue",
+        "normal en el",
+        "vitíligo"
+      ]
+    },
+    {
+      "name": "Más visible tras broncearse indica pitiriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "El vitíligo nunca",
+        "se broncea",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Antes de pensar en vitíligo, revisa la descamación y la reacción al sol.",
+    "tip": "Rasca ligeramente y observa el cambio tras el sol de verano.",
+    "cta": "Si hay duda, un dermatólogo puede confirmarlo rápido con lámpara de Wood."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Protector solar",
+    "팔뚝각질_illust.jpg": "Descamación"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}

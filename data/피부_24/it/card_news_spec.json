@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vitiligine",
+    "vs.",
+    "Pitiriasi",
+    "Versicolor"
+  ],
+  "eyebrow": "Le macchie bianche non sono sempre vitiligine",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Vitiligine significa macchie lisce bianche",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Perdita delle",
+        "cellule pigmento",
+        "come causa"
+      ]
+    },
+    {
+      "name": "Pitiriasi versicolor significa macchie squamose",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Proliferazione",
+        "del lievito",
+        "come causa"
+      ]
+    },
+    {
+      "name": "Squame se grattata indica pitiriasi",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "La texture resta",
+        "normale nella",
+        "vitiligine"
+      ]
+    },
+    {
+      "name": "Più visibile dopo tintarella indica pitiriasi",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "La vitiligine non",
+        "si abbronza",
+        "mai"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Prima di pensare alla vitiligine, controlla la desquamazione e la reazione al sole.",
+    "tip": "Gratta leggermente e osserva come cambia dopo il sole d'estate.",
+    "cta": "In caso di dubbio, un dermatologo può verificare rapidamente con la lampada di Wood."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Crema solare",
+    "팔뚝각질_illust.jpg": "Desquamazione"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}

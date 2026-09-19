@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vitiligo",
+    "vs.",
+    "Pityriasis",
+    "Versicolor"
+  ],
+  "eyebrow": "Weiße Hautflecken sind nicht immer Vitiligo",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Vitiligo heißt glatte milchweiße Flecken",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Verlust der",
+        "Pigmentzellen",
+        "als Ursache"
+      ]
+    },
+    {
+      "name": "Pityriasis versicolor heißt schuppige Flecken",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Hefepilz-",
+        "überwucherung",
+        "als Ursache"
+      ]
+    },
+    {
+      "name": "Schuppen beim Kratzen heißt Pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo-Haut",
+        "bleibt normal",
+        "in der Textur"
+      ]
+    },
+    {
+      "name": "Auffällig nach Bräune heißt Pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo bräunt",
+        "nie",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bevor Sie an Vitiligo denken, prüfen Sie Schuppung und Reaktion auf Sonne.",
+    "tip": "Leicht kratzen und beobachten, wie sich der Fleck nach Sommersonne verändert.",
+    "cta": "Bei Unklarheit kann ein Dermatologe schnell mit einer Wood-Lampe prüfen."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Sonnencreme",
+    "팔뚝각질_illust.jpg": "Hautschuppung"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}

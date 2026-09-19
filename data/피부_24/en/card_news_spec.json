@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vitiligo",
+    "vs.",
+    "Tinea",
+    "Versicolor"
+  ],
+  "eyebrow": "Vitiligo vs. Tinea Versicolor",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Vitiligo means smooth milky-white patches",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Caused by lost",
+        "pigment-making",
+        "cells"
+      ]
+    },
+    {
+      "name": "Tinea versicolor means scaly patches",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Yeast overgrowth",
+        "is the",
+        "cause"
+      ]
+    },
+    {
+      "name": "Flaking when scratched means tinea",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo skin",
+        "texture stays",
+        "normal"
+      ]
+    },
+    {
+      "name": "Standing out after tanning means tinea",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo never",
+        "tans at",
+        "all"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Before worrying it's vitiligo, check for flaking and how it reacts to sun.",
+    "tip": "Scratch it lightly, and watch how it changes after summer sun.",
+    "cta": "If it's unclear, a dermatologist can check quickly with a Wood's lamp."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Sunscreen",
+    "팔뚝각질_illust.jpg": "Skin flaking"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}
