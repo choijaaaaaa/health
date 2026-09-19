@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tinnitus",
+    "vs.",
+    "Hyperakusis"
+  ],
+  "eyebrow": "Hyperakusis könnte hinter Ihrer Geräuschempfindlichkeit stecken",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Tinnitus bedeutet ein Geräusch, das nicht da ist",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Innenohrschaden",
+        "und",
+        "Alterung"
+      ]
+    },
+    {
+      "name": "Hyperakusis bedeutet echtes Geräusch tut weh",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Ein Problem der",
+        "Gehirn-",
+        "verarbeitung"
+      ]
+    },
+    {
+      "name": "Zunehmende Vermeidung spricht für Hyperakusis",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Tinnitus meidet",
+        "seltener den",
+        "Alltag"
+      ]
+    },
+    {
+      "name": "Ganztägiges Blockieren macht empfindlicher",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Schrittweise mit",
+        "Fachperson",
+        "behandeln"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Prüfen Sie, ob ein Geräusch ohne Quelle da ist oder ein echtes Geräusch schmerzt.",
+    "tip": "Halten Sie fest, ob Vermeidungsverhalten zunimmt.",
+    "cta": "Bei anhaltenden Beschwerden über Wochen das Gehör bei einer HNO-Praxis prüfen lassen."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Ohrhörer",
+    "헤드폰_illust.jpg": "Kopfhörer"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}

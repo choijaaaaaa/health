@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Acouphènes",
+    "vs.",
+    "Hyperacousie"
+  ],
+  "eyebrow": "Ce n'est pas juste des acouphènes",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les acouphènes signifient un son qui n'existe pas",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Lésion de l'oreille",
+        "interne et",
+        "âge"
+      ]
+    },
+    {
+      "name": "L'hyperacousie signifie qu'un son réel fait mal",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Un problème de",
+        "traitement",
+        "cérébral"
+      ]
+    },
+    {
+      "name": "Éviter de plus en plus les sons évoque l'hyperacousie",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Les acouphènes",
+        "évitent moins",
+        "le quotidien"
+      ]
+    },
+    {
+      "name": "Bloquer le son toute la journée augmente la sensibilité",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Gérer",
+        "progressivement avec",
+        "un spécialiste"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vérifiez si un son est entendu sans source, ou si un son réel fait mal.",
+    "tip": "Notez si le comportement d'évitement des sons augmente.",
+    "cta": "Consultez un ORL au-delà de quelques semaines si cela persiste."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Écouteurs",
+    "헤드폰_illust.jpg": "Casque"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}

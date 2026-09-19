@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tinnitus",
+    "vs.",
+    "Hyperacusis"
+  ],
+  "eyebrow": "Hyperacusis kan achter je geluidsgevoeligheid zitten",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Tinnitus betekent een geluid dat er niet is",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Binnenoorschade",
+        "en",
+        "veroudering"
+      ]
+    },
+    {
+      "name": "Hyperacusis betekent echt geluid doet pijn",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Een probleem in",
+        "hersen-",
+        "verwerking"
+      ]
+    },
+    {
+      "name": "Steeds meer vermijden wijst op hyperacusis",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Tinnitus vermijdt",
+        "minder het",
+        "dagelijks leven"
+      ]
+    },
+    {
+      "name": "Geluid de hele dag blokkeren maakt gevoeliger",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Geleidelijk",
+        "behandelen met",
+        "een specialist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Controleer of een geluid zonder bron klinkt, of een echt geluid pijn doet.",
+    "tip": "Noteer of vermijdingsgedrag rond geluid toeneemt.",
+    "cta": "Raadpleeg een KNO-arts als dit langer dan een paar weken aanhoudt."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Oordopjes",
+    "헤드폰_illust.jpg": "Koptelefoon"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}

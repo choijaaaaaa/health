@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Acúfeno",
+    "vs.",
+    "Hiperacusia"
+  ],
+  "eyebrow": "¿Por qué los sonidos cotidianos de repente duelen?",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El acúfeno significa un sonido que no existe",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Daño en el oído",
+        "interno y",
+        "edad"
+      ]
+    },
+    {
+      "name": "La hiperacusia significa que un sonido real duele",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Un problema de",
+        "procesamiento",
+        "cerebral"
+      ]
+    },
+    {
+      "name": "Evitar cada vez más sonidos indica hiperacusia",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "El acúfeno evita",
+        "menos la vida",
+        "cotidiana"
+      ]
+    },
+    {
+      "name": "Bloquear el sonido todo el día aumenta la sensibilidad",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Manejarlo",
+        "gradualmente con",
+        "un especialista"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Comprueba si se oye un sonido sin fuente, o si un sonido real duele.",
+    "tip": "Anota si el comportamiento de evitar sonidos va en aumento.",
+    "cta": "Consulta a un otorrinolaringólogo si persiste más de unas semanas."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Auriculares",
+    "헤드폰_illust.jpg": "Auriculares de diadema"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}

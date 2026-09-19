@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Acufene",
+    "vs.",
+    "Iperacusia"
+  ],
+  "eyebrow": "L'iperacusia potrebbe essere dietro la tua sensibilità ai suoni",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "L'acufene significa un suono che non esiste",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Danno all'orecchio",
+        "interno ed",
+        "età"
+      ]
+    },
+    {
+      "name": "L'iperacusia significa che un suono reale fa male",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Un problema",
+        "di elaborazione",
+        "cerebrale"
+      ]
+    },
+    {
+      "name": "Evitare sempre più suoni indica iperacusia",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "L'acufene evita",
+        "meno la vita",
+        "quotidiana"
+      ]
+    },
+    {
+      "name": "Bloccare il suono tutto il giorno aumenta la sensibilità",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Gestisci",
+        "gradualmente con",
+        "uno specialista"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Controlla se un suono si sente senza fonte, o se un suono reale fa male.",
+    "tip": "Annota se il comportamento di evitamento dei suoni sta aumentando.",
+    "cta": "Consulta un otorinolaringoiatra se persiste oltre qualche settimana."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Auricolari",
+    "헤드폰_illust.jpg": "Cuffie"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}
