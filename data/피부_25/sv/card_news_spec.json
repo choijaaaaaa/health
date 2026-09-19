@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipom",
+    "vs.",
+    "Epidermoidcysta"
+  ],
+  "eyebrow": "Lipom vs. epidermoidcysta",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Ett lipom är mjukt och glider fritt",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "En godartad",
+        "tumör i",
+        "fettet"
+      ]
+    },
+    {
+      "name": "En cysta är fast och rör sig inte",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Keratin i en",
+        "tilltäppt",
+        "por"
+      ]
+    },
+    {
+      "name": "En central punkt betyder cysta",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Lipom har",
+        "ingen sådan",
+        "por"
+      ]
+    },
+    {
+      "name": "Kläm aldrig en cysta hemma",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Kan öka",
+        "infektions-",
+        "risken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Hittat en knöl under huden? Försök inte klämma ut den hemma.",
+    "tip": "Kontrollera om den glider fritt och om det finns en central punkt.",
+    "cta": "Sök en dermatolog om den plötsligt växer eller gör ont."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "피부반점_illust.jpg": "Hud"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

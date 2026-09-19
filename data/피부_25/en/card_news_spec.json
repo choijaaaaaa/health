@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipoma",
+    "vs.",
+    "Epidermoid Cyst"
+  ],
+  "eyebrow": "Lipoma vs. Epidermoid Cyst",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "A lipoma is soft and slides freely",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "A benign tumor",
+        "in the fat",
+        "layer"
+      ]
+    },
+    {
+      "name": "A cyst is firm and doesn't move",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Keratin trapped",
+        "in a blocked",
+        "pore"
+      ]
+    },
+    {
+      "name": "A central dot means a cyst",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Lipomas have",
+        "no such",
+        "punctum"
+      ]
+    },
+    {
+      "name": "Never squeeze a cyst at home",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Can worsen",
+        "infection",
+        "risk"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Found a lump under your skin? Don't just try to squeeze it at home.",
+    "tip": "Check if it slides freely, and whether there's a central dot.",
+    "cta": "See a dermatologist if it suddenly grows or becomes painful."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "피부반점_illust.jpg": "Skin"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

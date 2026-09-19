@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipom",
+    "vs.",
+    "Epidermoide Zyste"
+  ],
+  "eyebrow": "Lipom vs. epidermoide Zyste",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Ein Lipom ist weich und gleitet frei",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Ein gutartiger",
+        "Tumor im",
+        "Fettgewebe"
+      ]
+    },
+    {
+      "name": "Eine Zyste ist fest und bewegt sich nicht",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Keratin in einer",
+        "verstopften",
+        "Pore"
+      ]
+    },
+    {
+      "name": "Ein zentraler Punkt bedeutet Zyste",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Lipome haben",
+        "keinen solchen",
+        "Porus"
+      ]
+    },
+    {
+      "name": "Zysten nie zu Hause ausdrücken",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Kann das",
+        "Infektionsrisiko",
+        "erhöhen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Einen Knoten unter der Haut gefunden? Nicht einfach zu Hause ausdrücken.",
+    "tip": "Prüfen Sie, ob er frei gleitet und ob ein zentraler Punkt sichtbar ist.",
+    "cta": "Bei plötzlichem Wachstum oder Schmerzen einen Dermatologen aufsuchen."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "피부반점_illust.jpg": "Haut"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

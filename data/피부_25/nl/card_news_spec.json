@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipoom",
+    "vs.",
+    "Epidermoïdcyste"
+  ],
+  "eyebrow": "Die bult onder de huid is niet altijd een lipoom",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Een lipoom is zacht en glijdt vrij",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Een goedaardige",
+        "tumor in het",
+        "vet"
+      ]
+    },
+    {
+      "name": "Een cyste is stug en beweegt niet",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Keratine in een",
+        "verstopte",
+        "porie"
+      ]
+    },
+    {
+      "name": "Een middelpunt betekent een cyste",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Lipomen hebben",
+        "geen zo'n",
+        "porie"
+      ]
+    },
+    {
+      "name": "Knijp een cyste nooit thuis uit",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Kan het",
+        "infectierisico",
+        "verhogen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een bult onder je huid gevonden? Probeer hem niet zomaar thuis uit te knijpen.",
+    "tip": "Controleer of hij vrij glijdt en of er een middelpunt is.",
+    "cta": "Raadpleeg een dermatoloog bij plotselinge groei of pijn."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Hand",
+    "피부반점_illust.jpg": "Huid"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}
