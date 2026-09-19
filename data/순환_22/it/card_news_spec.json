@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Costocondrite",
+    "vs.",
+    "Angina",
+    "Pectoris"
+  ],
+  "eyebrow": "Il dolore al petto non è sempre il cuore",
+  "cover_char_file": "가슴통증_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "La costocondrite si riproduce con la pressione",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Ben localizzata",
+        "in un solo",
+        "punto"
+      ]
+    },
+    {
+      "name": "L'angina non si riproduce con la pressione",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Si estende al",
+        "braccio o alla",
+        "mandibola"
+      ]
+    },
+    {
+      "name": "Respiro corto o sudore freddo sono segnali d'allarme",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Segnali classici",
+        "dell'angina",
+        ""
+      ]
+    },
+    {
+      "name": "Non aspettare mai a casa in caso di dubbio",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Oltre 15 minuti,",
+        "al pronto soccorso",
+        "senza aspettare"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non restare mai semplicemente a casa quando un dolore al petto è difficile da riconoscere.",
+    "tip": "Controlla la posizione, se la pressione la riproduce, e altri sintomi.",
+    "cta": "Con respiro corto o estensione al braccio, vai al pronto soccorso subito."
+  },
+  "char_display_names": {
+    "가슴통증_illust.jpg": "Petto",
+    "전화기_illust.jpg": "Pronto soccorso"
+  },
+  "cover_scrim_color": "#7A3A3A"
+}

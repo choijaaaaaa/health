@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Costochondritis",
+    "vs.",
+    "Angina",
+    "pectoris"
+  ],
+  "eyebrow": "Costochondritis vs. Angina pectoris",
+  "cover_char_file": "가슴통증_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Costochondritis wird durch Druck reproduziert",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Scharf auf eine",
+        "Stelle",
+        "begrenzt"
+      ]
+    },
+    {
+      "name": "Angina pectoris wird durch Druck nicht reproduziert",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Breitet sich in",
+        "Arm oder Kiefer",
+        "aus"
+      ]
+    },
+    {
+      "name": "Atemnot oder Kaltschweiß sind Warnsignale",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Klassische",
+        "Anzeichen für",
+        "Angina"
+      ]
+    },
+    {
+      "name": "Bei Unklarheit niemals zu Hause abwarten",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Über 15 Minuten",
+        "sofort in die",
+        "Notaufnahme"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bei Unklarheit zwischen den beiden niemals einfach zu Hause abwarten.",
+    "tip": "Stelle, Reproduzierbarkeit durch Druck und Begleitsymptome prüfen.",
+    "cta": "Bei Atemnot oder Ausbreitung in den Arm sofort in die Notaufnahme."
+  },
+  "char_display_names": {
+    "가슴통증_illust.jpg": "Brust",
+    "전화기_illust.jpg": "Notaufnahme"
+  },
+  "cover_scrim_color": "#7A3A3A"
+}
