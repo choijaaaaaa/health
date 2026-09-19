@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Votre mal de",
+    "tête pourrait",
+    "être une",
+    "migraine"
+  ],
+  "eyebrow": "Votre mal de tête pourrait être une migraine, pas juste du stress",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "La tension donne une pression des deux côtés",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Débute par une",
+        "tension du cou",
+        "et des épaules"
+      ]
+    },
+    {
+      "name": "La migraine donne une douleur pulsatile d'un côté",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Signalisation nerf-",
+        "vaisseaux",
+        "hyperactive"
+      ]
+    },
+    {
+      "name": "Nausées et sensibilité à la lumière sont clés",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Aggravation au",
+        "mouvement évoque",
+        "la migraine"
+      ]
+    },
+    {
+      "name": "Attention à l'abus d'antalgiques",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Plus de 2-3x",
+        "par semaine risque",
+        "un effet rebond"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Avant de reprendre le même comprimé, identifiez d'abord de quel type de mal de tête il s'agit.",
+    "tip": "Notez l'endroit, les symptômes et le médicament pour quelques maux de tête seulement.",
+    "cta": "Consultez un neurologue si ça revient plusieurs fois par mois."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Tension",
+    "알약_illust.jpg": "Antalgiques"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}

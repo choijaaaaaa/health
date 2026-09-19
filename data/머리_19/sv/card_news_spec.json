@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Varför känns",
+    "huvudvärk",
+    "annorlunda?"
+  ],
+  "eyebrow": "Varför känns vissa huvudvärkar annorlunda?",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Spänning ger tryck på båda sidor",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Börjar som spänning",
+        "i nacke och",
+        "axlar"
+      ]
+    },
+    {
+      "name": "Migrän ger ensidig bultande smärta",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Överaktiv nerv-",
+        "kärl-",
+        "signalering"
+      ]
+    },
+    {
+      "name": "Illamående och ljuskänslighet är nyckeln",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Förvärras av rörelse",
+        "pekar mot",
+        "migrän"
+      ]
+    },
+    {
+      "name": "Se upp för smärtstillande-överanvändning",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Mer än 2-3 ggr",
+        "i veckan riskerar",
+        "reboundhuvudvärk"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Innan du tar samma tablett igen, ta reda på vilken typ av huvudvärk det är.",
+    "tip": "Skriv ner plats, symtom och medicin för bara ett par huvudvärkstillfällen.",
+    "cta": "Sök en neurolog om det upprepas flera gånger i månaden."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Spänning",
+    "알약_illust.jpg": "Smärtstillande"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}

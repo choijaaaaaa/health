@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Cefalea",
+    "tensiva vs.",
+    "emicrania"
+  ],
+  "eyebrow": "3 segnali per distinguere la cefalea tensiva dall'emicrania",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "La tensiva è pressione su entrambi i lati",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Inizia come",
+        "tensione al collo",
+        "e alle spalle"
+      ]
+    },
+    {
+      "name": "L'emicrania è dolore pulsante da un lato",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Segnalazione nervo-",
+        "vasi",
+        "iperattiva"
+      ]
+    },
+    {
+      "name": "Nausea e fotosensibilità sono la chiave",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Peggiora col",
+        "movimento indica",
+        "emicrania"
+      ]
+    },
+    {
+      "name": "Attenzione all'abuso di antidolorifici",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Più di 2-3 volte",
+        "a settimana rischia",
+        "cefalea di rimbalzo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Prima di riprendere lo stesso farmaco, capisci di che tipo di mal di testa si tratta.",
+    "tip": "Annota il luogo, i sintomi e il farmaco per solo qualche episodio.",
+    "cta": "Consulta un neurologo se si ripete più volte al mese."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Tensione",
+    "알약_illust.jpg": "Antidolorifici"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}

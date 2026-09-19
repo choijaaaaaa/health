@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Cefalea",
+    "tensional vs.",
+    "migraña"
+  ],
+  "eyebrow": "Cefalea tensional vs. migraña",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La tensional es presión en ambos lados",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Empieza como",
+        "tensión en cuello",
+        "y hombros"
+      ]
+    },
+    {
+      "name": "La migraña es dolor pulsátil de un lado",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Señalización nervio-",
+        "vasos",
+        "hiperactiva"
+      ]
+    },
+    {
+      "name": "Náuseas y sensibilidad a la luz son clave",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Empeorar con el",
+        "movimiento sugiere",
+        "migraña"
+      ]
+    },
+    {
+      "name": "Cuidado con el abuso de analgésicos",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Más de 2-3 veces",
+        "por semana arriesga",
+        "cefalea de rebote"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Antes de tomar el mismo analgésico otra vez, identifica de qué tipo de dolor de cabeza se trata.",
+    "tip": "Anota el lugar, los síntomas y el medicamento durante solo unos episodios.",
+    "cta": "Consulta a un neurólogo si se repite varias veces al mes."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Tensión",
+    "알약_illust.jpg": "Analgésicos"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}
