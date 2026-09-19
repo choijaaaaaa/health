@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Dry Dandruff",
+    "vs.",
+    "Seborrheic",
+    "Dermatitis"
+  ],
+  "eyebrow": "Dry Dandruff vs. Seborrheic Dermatitis",
+  "cover_char_file": "샴푸_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Dry dandruff means small white flakes",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Starts from a",
+        "dry skin",
+        "barrier"
+      ]
+    },
+    {
+      "name": "Seborrheic means oily clumped flakes",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Malassezia yeast",
+        "overgrowth is",
+        "the cause"
+      ]
+    },
+    {
+      "name": "Spreading to brows or nose means seborrheic",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "It spreads past",
+        "the scalp",
+        "itself"
+      ]
+    },
+    {
+      "name": "Moisturizing alone won't fix seborrheic",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "It needs an",
+        "antifungal",
+        "shampoo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "If switching dandruff shampoos hasn't helped, check what's actually causing it.",
+    "tip": "Track flake color, where it spreads, and how it responds to moisture.",
+    "cta": "See a dermatologist if antifungal shampoo doesn't help after two weeks."
+  },
+  "char_display_names": {
+    "샴푸_illust.jpg": "Shampoo",
+    "헤어브러시_illust.jpg": "Hairbrush"
+  },
+  "cover_scrim_color": "#6B5A3A"
+}

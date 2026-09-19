@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Caspa seca",
+    "vs.",
+    "Dermatitis",
+    "seborreica"
+  ],
+  "eyebrow": "Caspa seca vs. dermatitis seborreica",
+  "cover_char_file": "샴푸_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Seca significa pequeñas escamas blancas",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Surge de una",
+        "barrera cutánea",
+        "seca"
+      ]
+    },
+    {
+      "name": "Seborreica significa grumos grasosos",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Proliferación de",
+        "levadura Malassezia",
+        "como causa"
+      ]
+    },
+    {
+      "name": "Extenderse a las cejas indica seborreica",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Se extiende más",
+        "allá del cuero",
+        "cabelludo"
+      ]
+    },
+    {
+      "name": "La hidratación sola no basta",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Necesita un",
+        "champú",
+        "antifúngico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si cambiar de champú no ha ayudado, primero identifica la causa real.",
+    "tip": "Sigue el color de las escamas, su extensión y la respuesta a la hidratación.",
+    "cta": "Consulta a un dermatólogo si el antifúngico no ayuda tras dos semanas."
+  },
+  "char_display_names": {
+    "샴푸_illust.jpg": "Champú",
+    "헤어브러시_illust.jpg": "Cepillo"
+  },
+  "cover_scrim_color": "#6B5A3A"
+}

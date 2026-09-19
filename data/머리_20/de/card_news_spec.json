@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Trockene",
+    "Schuppen vs.",
+    "Seborrhoisches",
+    "Ekzem"
+  ],
+  "eyebrow": "3 Anzeichen, die Schuppen von seborrhoischem Ekzem unterscheiden",
+  "cover_char_file": "샴푸_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Trocken heißt kleine weiße Schuppen",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Beginnt durch",
+        "trockene",
+        "Hautbarriere"
+      ]
+    },
+    {
+      "name": "Seborrhoisch heißt ölige Klumpen",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Malassezia-Pilz-",
+        "überwucherung",
+        "ist die Ursache"
+      ]
+    },
+    {
+      "name": "Ausbreitung zu Brauen oder Nase heißt seborrhoisch",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Breitet sich über",
+        "die Kopfhaut",
+        "hinaus aus"
+      ]
+    },
+    {
+      "name": "Feuchtigkeit allein hilft nicht bei seborrhoisch",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Braucht ein",
+        "antimykotisches",
+        "Shampoo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wenn Shampoo-Wechsel nicht geholfen hat, klären Sie erst die tatsächliche Ursache.",
+    "tip": "Farbe der Schuppen, Ausbreitung und Reaktion auf Feuchtigkeit verfolgen.",
+    "cta": "Bei keiner Besserung nach zwei Wochen Antimykotikum einen Dermatologen aufsuchen."
+  },
+  "char_display_names": {
+    "샴푸_illust.jpg": "Shampoo",
+    "헤어브러시_illust.jpg": "Haarbürste"
+  },
+  "cover_scrim_color": "#6B5A3A"
+}
