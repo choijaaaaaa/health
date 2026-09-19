@@ -1,0 +1,60 @@
+{
+  "title": [
+    "지방종과",
+    "표피낭종",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "지방종과 표피낭종, 구별하는 법",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "지방종은 부드럽고 잘 움직여요",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "지방층에서",
+        "생기는",
+        "양성 종양이에요"
+      ]
+    },
+    {
+      "name": "표피낭종은 단단하고 안 움직여요",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "막힌 모공에",
+        "각질이",
+        "쌓여서 생겨요"
+      ]
+    },
+    {
+      "name": "가운데 점 있으면 표피낭종이에요",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "지방종에는",
+        "이런 점이",
+        "없어요"
+      ]
+    },
+    {
+      "name": "표피낭종은 집에서 짜면 안 돼요",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "감염 위험이",
+        "커질 수",
+        "있어요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "피부 밑 덩어리를 발견했다고 집에서 짜지 마세요.",
+    "tip": "덩어리가 움직이는지, 가운데 점이 있는지 확인해보세요.",
+    "cta": "갑자기 커지거나 아프면 피부과 진료를 받아보세요."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "손등",
+    "피부반점_illust.jpg": "피부"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

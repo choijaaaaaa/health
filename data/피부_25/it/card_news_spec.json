@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipoma",
+    "vs.",
+    "Cisti Epidermica"
+  ],
+  "eyebrow": "Lipoma vs. cisti epidermica",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Un lipoma è morbido e scorre liberamente",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Un tumore",
+        "benigno nel",
+        "grasso"
+      ]
+    },
+    {
+      "name": "Una cisti è solida e non si muove",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Cheratina in un",
+        "poro",
+        "bloccato"
+      ]
+    },
+    {
+      "name": "Un punto centrale significa cisti",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "I lipomi non hanno",
+        "questo tipo",
+        "di poro"
+      ]
+    },
+    {
+      "name": "Non spremere mai una cisti a casa",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Può peggiorare",
+        "il rischio",
+        "di infezione"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Trovato un nodulo sotto la pelle? Non provare a spremerlo a casa.",
+    "tip": "Controlla se scorre liberamente e se c'è un punto centrale.",
+    "cta": "Consulta un dermatologo se cresce improvvisamente o diventa doloroso."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Mano",
+    "피부반점_illust.jpg": "Pelle"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

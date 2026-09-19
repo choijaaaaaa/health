@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipome",
+    "vs.",
+    "Kyste Épidermique"
+  ],
+  "eyebrow": "Lipome vs. kyste épidermique",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Un lipome est mou et glisse librement",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Une tumeur",
+        "bénigne dans",
+        "la graisse"
+      ]
+    },
+    {
+      "name": "Un kyste est ferme et ne bouge pas",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "De la kératine",
+        "dans un pore",
+        "bouché"
+      ]
+    },
+    {
+      "name": "Un point central signifie un kyste",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Les lipomes n'ont",
+        "aucun pore",
+        "de ce type"
+      ]
+    },
+    {
+      "name": "Ne jamais presser un kyste chez soi",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Peut aggraver",
+        "le risque",
+        "d'infection"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Trouvé une bosse sous la peau ? N'essayez pas de la presser chez vous.",
+    "tip": "Vérifiez si elle glisse librement et s'il y a un point central.",
+    "cta": "Consultez un dermatologue en cas de croissance soudaine ou de douleur."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Main",
+    "피부반점_illust.jpg": "Peau"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Lipoma",
+    "vs.",
+    "Quiste Epidérmico"
+  ],
+  "eyebrow": "Lipoma vs. quiste epidérmico",
+  "cover_char_file": "손등_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Un lipoma es blando y se desliza libremente",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Un tumor",
+        "benigno en",
+        "la grasa"
+      ]
+    },
+    {
+      "name": "Un quiste es firme y no se mueve",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Queratina en un",
+        "poro",
+        "bloqueado"
+      ]
+    },
+    {
+      "name": "Un punto central significa quiste",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Los lipomas no",
+        "tienen ese",
+        "tipo de poro"
+      ]
+    },
+    {
+      "name": "Nunca aprietes un quiste en casa",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Puede empeorar",
+        "el riesgo de",
+        "infección"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "¿Encontraste un bulto bajo la piel? No intentes apretarlo en casa.",
+    "tip": "Revisa si se desliza libremente y si hay un punto central.",
+    "cta": "Consulta a un dermatólogo si crece de repente o duele."
+  },
+  "char_display_names": {
+    "손등_illust.jpg": "Mano",
+    "피부반점_illust.jpg": "Piel"
+  },
+  "cover_scrim_color": "#5A6B3A"
+}
