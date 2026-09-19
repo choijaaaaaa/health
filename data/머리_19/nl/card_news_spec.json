@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Waarom voelt",
+    "hoofdpijn zo",
+    "verschillend",
+    "aan?"
+  ],
+  "eyebrow": "Waarom voelt de ene hoofdpijn anders aan dan de andere?",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Spanning geeft druk aan beide kanten",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Begint als spanning",
+        "in nek en",
+        "schouders"
+      ]
+    },
+    {
+      "name": "Migraine geeft eenzijdig kloppen",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Overactieve zenuw-",
+        "bloedvat-",
+        "signalen"
+      ]
+    },
+    {
+      "name": "Misselijkheid en lichtgevoeligheid zijn de sleutel",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Verergering bij",
+        "bewegen wijst op",
+        "migraine"
+      ]
+    },
+    {
+      "name": "Let op overmatig pijnstillergebruik",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Meer dan 2-3x",
+        "per week riskeert",
+        "reboundhoofdpijn"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Voordat je weer naar dezelfde pijnstiller grijpt, stel eerst vast om welk type het gaat.",
+    "tip": "Noteer de plek, klachten en medicatie voor slechts een paar keer hoofdpijn.",
+    "cta": "Raadpleeg een neuroloog als het meerdere keren per maand terugkomt."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Spanning",
+    "알약_illust.jpg": "Pijnstillers"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Spannungskopf-",
+    "schmerz vs.",
+    "Migräne"
+  ],
+  "eyebrow": "3 Anzeichen, die Migräne von Spannungskopfschmerz unterscheiden",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Spannung heißt Druck auf beiden Seiten",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Beginnt als Nacken-",
+        "und Schulter-",
+        "verspannung"
+      ]
+    },
+    {
+      "name": "Migräne heißt einseitiges Pochen",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Überaktive Nerven-",
+        "Gefäß-",
+        "Signalübertragung"
+      ]
+    },
+    {
+      "name": "Übelkeit und Lichtempfindlichkeit sind Schlüssel",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Verschlechterung bei",
+        "Bewegung deutet auf",
+        "Migräne hin"
+      ]
+    },
+    {
+      "name": "Vorsicht vor Schmerzmittel-Übergebrauch",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Mehr als 2-3x",
+        "pro Woche riskiert",
+        "Rebound-Kopfschmerz"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bevor Sie wieder zur gleichen Tablette greifen, klären Sie erst, um welche Art es geht.",
+    "tip": "Notieren Sie Ort, Symptome und Medikament für nur ein paar Kopfschmerzen.",
+    "cta": "Bei mehrmaligem Auftreten pro Monat einen Neurologen aufsuchen."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Spannung",
+    "알약_illust.jpg": "Schmerzmittel"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}

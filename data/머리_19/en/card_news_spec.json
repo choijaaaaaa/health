@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tension",
+    "Headache vs.",
+    "Migraine"
+  ],
+  "eyebrow": "Tension Headache vs. Migraine",
+  "cover_char_file": "긴장_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Tension means pressure on both sides",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Starts as neck",
+        "and shoulder",
+        "muscle tightness"
+      ]
+    },
+    {
+      "name": "Migraine means one-sided throbbing",
+      "char_file": "긴장_illust.jpg",
+      "body": [
+        "Overactive nerve-",
+        "blood vessel",
+        "signaling"
+      ]
+    },
+    {
+      "name": "Nausea and light sensitivity are key",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Worsening with",
+        "movement points",
+        "to migraine"
+      ]
+    },
+    {
+      "name": "Watch out for painkiller overuse",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "More than 2-3x",
+        "a week risks",
+        "rebound headache"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Before reaching for the same pill again, figure out which type of headache it is.",
+    "tip": "Log the location, symptoms, and medication for just a few headaches.",
+    "cta": "See a neurologist if it recurs several times a month."
+  },
+  "char_display_names": {
+    "긴장_illust.jpg": "Tension",
+    "알약_illust.jpg": "Painkillers"
+  },
+  "cover_scrim_color": "#4A5A6B"
+}
