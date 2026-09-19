@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Mouches volantes",
+    "en hausse :",
+    "déchirure",
+    "rétinienne ?"
+  ],
+  "eyebrow": "Pourquoi vos mouches volantes ont-elles soudain augmenté ?",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les changements du vitré en sont la cause",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Une partie normale",
+        "du vieillissement",
+        "de l'œil"
+      ]
+    },
+    {
+      "name": "Plus de 50 ans, forte myopie à risque",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Chirurgie oculaire,",
+        "traumatisme",
+        "comptent aussi"
+      ]
+    },
+    {
+      "name": "Un nombre stable ne préoccupe pas",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Pas d'augmentation",
+        "dans le temps",
+        "est normal"
+      ]
+    },
+    {
+      "name": "Éclairs plus apparition soudaine : urgence",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Un rideau ou",
+        "une ombre",
+        "alertent aussi"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Quelques mouches volantes sont sans gravité, mais une apparition soudaine avec éclairs peut différer.",
+    "tip": "Un ophtalmologiste dilate la pupille pour examiner directement la rétine.",
+    "cta": "Des éclairs ou une ombre avec de nouvelles mouches signifient consulter le jour même."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Œil",
+    "안경_illust.jpg": "Lunettes"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}

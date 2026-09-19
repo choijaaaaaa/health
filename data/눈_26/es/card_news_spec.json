@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Moscas volantes",
+    "en aumento:",
+    "¿desgarro",
+    "retiniano?"
+  ],
+  "eyebrow": "Un aumento repentino de moscas volantes podría ser un desgarro",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Los cambios del vítreo son la causa",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Una parte normal",
+        "del envejecimiento",
+        "del ojo"
+      ]
+    },
+    {
+      "name": "Más de 50, miopía alta en riesgo",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Cirugía ocular,",
+        "trauma también",
+        "cuentan"
+      ]
+    },
+    {
+      "name": "Un número estable no preocupa",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Sin aumento",
+        "con el tiempo",
+        "es normal"
+      ]
+    },
+    {
+      "name": "Destellos más aumento súbito: urgencia",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Una cortina o",
+        "sombra también",
+        "avisan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Unas pocas moscas volantes son inofensivas, pero un aumento súbito con destellos puede ser distinto.",
+    "tip": "Un oftalmólogo dilata la pupila para examinar directamente la retina.",
+    "cta": "Destellos o una sombra junto con moscas nuevas significan consulta ese mismo día."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Ojo",
+    "안경_illust.jpg": "Gafas"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}

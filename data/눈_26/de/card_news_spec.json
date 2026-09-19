@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Neue Flecken",
+    "plus Blitze:",
+    "Netzhautriss?"
+  ],
+  "eyebrow": "Harmlose Mouches Volantes vs. Netzhautablösung",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Veränderungen im Glaskörper sind die Ursache",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Ein normaler Teil",
+        "des alternden",
+        "Auges"
+      ]
+    },
+    {
+      "name": "Über 50, starke Kurzsichtigkeit im Risiko",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Augen-OP,",
+        "Trauma zählen",
+        "auch"
+      ]
+    },
+    {
+      "name": "Gleichbleibende Zahl bedeutet keine Sorge",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Keine Zunahme",
+        "über Zeit ist",
+        "normal"
+      ]
+    },
+    {
+      "name": "Blitze plus Schwarm bedeuten sofort zum Arzt",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Ein Vorhang oder",
+        "Schatten ist",
+        "auch ein Zeichen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ein paar Flecken sind harmlos, aber ein plötzlicher Schwarm mit Blitzen kann anders sein.",
+    "tip": "Ein Augenarzt weitet die Pupille, um die Netzhaut direkt zu untersuchen.",
+    "cta": "Blitze oder ein Schatten zusammen mit neuen Flecken bedeuten sofort zum Arzt, nicht abwarten."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Auge",
+    "안경_illust.jpg": "Brille"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}
