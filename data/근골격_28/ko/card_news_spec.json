@@ -1,0 +1,60 @@
+{
+  "title": [
+    "테니스엘보와",
+    "골프엘보",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "테니스엘보와 골프엘보, 구별하는 법",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "테니스엘보는 팔꿈치 바깥쪽",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "손목 젖히는",
+        "힘줄에",
+        "생겨요"
+      ]
+    },
+    {
+      "name": "골프엘보는 팔꿈치 안쪽",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "손목 굽히는",
+        "힘줄에",
+        "생겨요"
+      ]
+    },
+    {
+      "name": "마우스도 테니스엘보 원인이에요",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "운동 안 해도",
+        "생길 수",
+        "있어요"
+      ]
+    },
+    {
+      "name": "쉬기만 하면 재발해요",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "반복 동작을",
+        "줄여야",
+        "해요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "팔꿈치가 아프다고 쉬면서 얼음만 대고 있지 마세요.",
+    "tip": "바깥쪽인지 안쪽인지, 어떤 동작에서 더 아픈지 확인해보세요.",
+    "cta": "몇 주 지나도 안 나으면 정형외과 진료를 받아보세요."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "마우스",
+    "골프채_illust.jpg": "골프채"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}

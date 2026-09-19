@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tennis Elbow",
+    "vs.",
+    "Golfer's Elbow"
+  ],
+  "eyebrow": "Tennis Elbow vs. Golfer's Elbow",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Tennis elbow means outer elbow pain",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Wrist extension",
+        "tendon is",
+        "affected"
+      ]
+    },
+    {
+      "name": "Golfer's elbow means inner elbow pain",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Wrist flexion",
+        "tendon is",
+        "affected"
+      ]
+    },
+    {
+      "name": "Mouse use can cause tennis elbow too",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "No sport",
+        "needed to",
+        "get it"
+      ]
+    },
+    {
+      "name": "Rest alone won't stop it recurring",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "The repeated",
+        "motion must",
+        "be reduced"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Don't just rest and ice an aching elbow without changing anything else.",
+    "tip": "Check whether it's the outer or inner side, and which motion hurts more.",
+    "cta": "See an orthopedic specialist if it doesn't improve after a few weeks."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Mouse",
+    "골프채_illust.jpg": "Golf club"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}

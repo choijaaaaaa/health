@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tennisarmbåge",
+    "vs.",
+    "Golfarmbåge"
+  ],
+  "eyebrow": "Tennisarmbåge vs. golfarmbåge",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Tennisarmbåge betyder smärta utanpå",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Sena för",
+        "handleds-",
+        "sträckning"
+      ]
+    },
+    {
+      "name": "Golfarmbåge betyder smärta inuti",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Sena för",
+        "handleds-",
+        "böjning"
+      ]
+    },
+    {
+      "name": "Även datormus kan orsaka tennisarmbåge",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Ingen sport",
+        "krävs",
+        "för det"
+      ]
+    },
+    {
+      "name": "Vila ensamt förhindrar inte återfall",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Rörelsen måste",
+        "minskas",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vila och kyl inte bara en ömmande armbåge utan att ändra något annat.",
+    "tip": "Kontrollera om det är utanpå eller inuti, och vilken rörelse gör mest ont.",
+    "cta": "Sök en ortoped om det inte förbättras efter några veckor."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Mus",
+    "골프채_illust.jpg": "Golfklubba"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}

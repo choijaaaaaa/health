@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Codo de",
+    "Tenista vs.",
+    "Codo de Golfista"
+  ],
+  "eyebrow": "Codo de tenista vs. codo de golfista",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El codo de tenista significa dolor externo",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Tendón de",
+        "extensión de",
+        "la muñeca"
+      ]
+    },
+    {
+      "name": "El codo de golfista significa dolor interno",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Tendón de",
+        "flexión de",
+        "la muñeca"
+      ]
+    },
+    {
+      "name": "El ratón también puede causar codo de tenista",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "No se necesita",
+        "ningún",
+        "deporte"
+      ]
+    },
+    {
+      "name": "El descanso solo no basta",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "El movimiento",
+        "debe",
+        "reducirse"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No te limites a descansar y aplicar hielo en un codo dolorido sin cambiar nada más.",
+    "tip": "Revisa si es externo o interno, y qué movimiento duele más.",
+    "cta": "Consulta a un ortopedista si no mejora tras unas semanas."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Ratón",
+    "골프채_illust.jpg": "Palo de golf"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}
