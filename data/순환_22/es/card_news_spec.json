@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Costocondritis",
+    "vs.",
+    "Angina"
+  ],
+  "eyebrow": "Costocondritis vs. angina",
+  "cover_char_file": "가슴통증_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La costocondritis se reproduce al presionar",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Bien localizada",
+        "en un solo",
+        "punto"
+      ]
+    },
+    {
+      "name": "La angina no se reproduce al presionar",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Se extiende al",
+        "brazo o la",
+        "mandíbula"
+      ]
+    },
+    {
+      "name": "Falta de aire o sudor frío son señales de alerta",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Señales clásicas",
+        "de la angina",
+        ""
+      ]
+    },
+    {
+      "name": "Nunca esperes en casa si hay duda",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Más de 15 min,",
+        "ve a urgencias",
+        "sin esperar"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nunca te quedes en casa esperando cuando un dolor de pecho es difícil de identificar.",
+    "tip": "Revisa la ubicación, si la presión lo reproduce, y otros síntomas.",
+    "cta": "Con falta de aire o extensión al brazo, ve a urgencias ahora mismo."
+  },
+  "char_display_names": {
+    "가슴통증_illust.jpg": "Pecho",
+    "전화기_illust.jpg": "Urgencias"
+  },
+  "cover_scrim_color": "#7A3A3A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Costochondrite",
+    "vs.",
+    "Angine de",
+    "Poitrine"
+  ],
+  "eyebrow": "Costochondrite vs. angine de poitrine",
+  "cover_char_file": "가슴통증_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "La costochondrite est reproduite par la pression",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "Bien localisée",
+        "à un seul",
+        "point"
+      ]
+    },
+    {
+      "name": "L'angine n'est pas reproduite par la pression",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "S'étend au bras",
+        "ou à la",
+        "mâchoire"
+      ]
+    },
+    {
+      "name": "Essoufflement ou sueurs froides sont des signes d'alerte",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Signes classiques",
+        "de l'angine",
+        ""
+      ]
+    },
+    {
+      "name": "Ne jamais attendre chez soi en cas de doute",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Plus de 15 min,",
+        "allez aux urgences",
+        "sans attendre"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ne restez jamais simplement chez vous quand une douleur thoracique est difficile à identifier.",
+    "tip": "Vérifiez l'emplacement, si la pression la reproduit, et les autres symptômes.",
+    "cta": "En cas d'essoufflement ou d'extension au bras, allez aux urgences maintenant."
+  },
+  "char_display_names": {
+    "가슴통증_illust.jpg": "Poitrine",
+    "전화기_illust.jpg": "Urgences"
+  },
+  "cover_scrim_color": "#7A3A3A"
+}

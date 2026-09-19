@@ -1,0 +1,60 @@
+{
+  "title": [
+    "늑연골염과",
+    "협심증",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "늑연골염과 협심증, 구별하는 법",
+  "cover_char_file": "가슴통증_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "늑연골염은 누르면 재현되는 통증",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "한 지점에",
+        "국한된",
+        "통증이에요"
+      ]
+    },
+    {
+      "name": "협심증은 눌러도 재현 안 돼요",
+      "char_file": "가슴통증_illust.jpg",
+      "body": [
+        "팔·턱으로",
+        "퍼지는",
+        "느낌이에요"
+      ]
+    },
+    {
+      "name": "숨차거나 식은땀 나면 위험 신호",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "협심증의",
+        "대표",
+        "증상이에요"
+      ]
+    },
+    {
+      "name": "헷갈리면 절대 집에서 참지 마세요",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "15분 넘으면",
+        "곧바로",
+        "응급실로"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "가슴 통증이 헷갈릴 때는 절대 집에서 두고 보지 마세요.",
+    "tip": "통증 위치, 재현 여부, 동반 증상을 확인해보세요.",
+    "cta": "숨이 차거나 팔로 퍼지면 지체 없이 응급실로 가세요."
+  },
+  "char_display_names": {
+    "가슴통증_illust.jpg": "가슴",
+    "전화기_illust.jpg": "응급실"
+  },
+  "cover_scrim_color": "#7A3A3A"
+}
