@@ -1,0 +1,59 @@
+{
+  "title": [
+    "PMS",
+    "vs.",
+    "PMDD"
+  ],
+  "eyebrow": "PMS vs. PMDD: come distinguerle",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "PMS significa sintomi lievi",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Gonfiore e tensione,",
+        "ancora",
+        "gestibili"
+      ]
+    },
+    {
+      "name": "PMDD significa sensibilità serotoninergica anomala",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Rabbia intensa",
+        "o depressione",
+        "ne sono il segno"
+      ]
+    },
+    {
+      "name": "Tracciare due cicli è essenziale",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Verificare se si",
+        "concentra nella",
+        "fase luteale"
+      ]
+    },
+    {
+      "name": "I casi gravi possono richiedere SSRI",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Gli integratori",
+        "da soli non",
+        "sempre bastano"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se gli sbalzi d'umore prima delle mestruazioni disturbano la vita quotidiana, non limitarti a sopportare.",
+    "tip": "Traccia i sintomi su un calendario per circa due cicli.",
+    "cta": "In caso di pensieri di autolesionismo, contatta subito un medico."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Calendario",
+    "알약_illust.jpg": "Farmaco"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

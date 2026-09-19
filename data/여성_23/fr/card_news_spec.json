@@ -1,0 +1,59 @@
+{
+  "title": [
+    "SPM",
+    "vs.",
+    "TDPM"
+  ],
+  "eyebrow": "SPM vs. TDPM : comment les distinguer",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le SPM veut dire symptômes légers",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ballonnements",
+        "et tension, encore",
+        "gérables"
+      ]
+    },
+    {
+      "name": "Le TDPM veut dire sensibilité anormale à la sérotonine",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Colère intense",
+        "ou dépression",
+        "en sont le signe"
+      ]
+    },
+    {
+      "name": "Suivre deux cycles est essentiel",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vérifier si ça se",
+        "concentre en phase",
+        "lutéale"
+      ]
+    },
+    {
+      "name": "Les cas sévères peuvent nécessiter des ISRS",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Les compléments",
+        "seuls ne suffisent",
+        "pas toujours"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si les sautes d'humeur avant les règles perturbent votre quotidien, ne vous contentez pas de serrer les dents.",
+    "tip": "Suivez vos symptômes sur un calendrier pendant environ deux cycles.",
+    "cta": "En cas de pensées d'automutilation, contactez immédiatement un médecin."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Calendrier",
+    "알약_illust.jpg": "Médicament"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

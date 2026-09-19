@@ -1,0 +1,59 @@
+{
+  "title": [
+    "PMS와 PMDD",
+    "구별하는",
+    "세 가지"
+  ],
+  "eyebrow": "생리전증후군과 월경전불쾌장애, 구별하는 법",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "PMS는 경미한 신체·감정 증상",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "붓기·가슴통증",
+        "정도로",
+        "견딜 만해요"
+      ]
+    },
+    {
+      "name": "PMDD는 세로토닌 조절 민감도 이상",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "심한 분노·우울",
+        "이 나타나는",
+        "게 특징이에요"
+      ]
+    },
+    {
+      "name": "두 달 증상 기록이 핵심",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "황체기 집중,",
+        "생리 후 호전",
+        "여부를 봐요"
+      ]
+    },
+    {
+      "name": "심하면 SSRI 치료를 고려하세요",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "영양제만으론",
+        "부족할 수",
+        "있어요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "생리 전 기분 기복이 일상에 지장을 줄 정도라면, 그냥 참지 마세요.",
+    "tip": "두 달 정도 증상을 달력에 기록해보세요.",
+    "cta": "자해 생각이 들 정도로 심하면 바로 의료진과 상담하세요."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "달력",
+    "알약_illust.jpg": "약"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

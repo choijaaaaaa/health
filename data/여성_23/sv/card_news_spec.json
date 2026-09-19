@@ -1,0 +1,59 @@
+{
+  "title": [
+    "3 tecken",
+    "PMS vs.",
+    "PMDS"
+  ],
+  "eyebrow": "3 tecken som skiljer PMS från PMDS",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "PMS betyder milda symtom",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Svullnad och",
+        "ömhet, ändå",
+        "hanterbart"
+      ]
+    },
+    {
+      "name": "PMDS betyder onormal serotoninkänslighet",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Intensiv ilska",
+        "eller nedstämdhet",
+        "är kännetecknet"
+      ]
+    },
+    {
+      "name": "Att spåra två cykler är nyckeln",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Kolla om det",
+        "klustrar sig i",
+        "lutealfasen"
+      ]
+    },
+    {
+      "name": "Svåra fall kan behöva SSRI",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Kosttillskott",
+        "räcker inte",
+        "alltid ensamt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Om humörsvängningar före mens stör vardagen, härda inte bara ut.",
+    "tip": "För dagbok över symtom i ungefär två cykler.",
+    "cta": "Vid tankar på självskada, kontakta en läkare omedelbart."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Kalender",
+    "알약_illust.jpg": "Medicin"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}
