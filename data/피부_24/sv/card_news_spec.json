@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vita fläckar?",
+    "Kanske inte",
+    "vitiligo"
+  ],
+  "eyebrow": "Dina vita fläckar kan bero på pityriasis versicolor",
+  "cover_char_file": "선크림_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Vitiligo betyder släta vita fläckar",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Förlorade",
+        "pigmentceller",
+        "som orsak"
+      ]
+    },
+    {
+      "name": "Pityriasis versicolor betyder fjällande fläckar",
+      "char_file": "선크림_illust.jpg",
+      "body": [
+        "Överväxt av",
+        "jäst som",
+        "orsak"
+      ]
+    },
+    {
+      "name": "Fjäll vid klia tyder på pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Strukturen förblir",
+        "normal vid",
+        "vitiligo"
+      ]
+    },
+    {
+      "name": "Syns mer efter solning tyder på pityriasis",
+      "char_file": "팔뚝각질_illust.jpg",
+      "body": [
+        "Vitiligo blir",
+        "aldrig brunt",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Innan du tänker vitiligo, kontrollera fjällning och reaktion på solen.",
+    "tip": "Klia lätt och se hur det förändras efter sommarsol.",
+    "cta": "Vid oklarhet kan en dermatolog snabbt kontrollera med en Wood-lampa."
+  },
+  "char_display_names": {
+    "선크림_illust.jpg": "Solskydd",
+    "팔뚝각질_illust.jpg": "Hudfjällning"
+  },
+  "cover_scrim_color": "#3A5C6B"
+}
