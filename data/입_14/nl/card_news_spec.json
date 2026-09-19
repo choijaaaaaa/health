@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Afte of",
+    "koortslip:",
+    "besmettelijk",
+    "of niet?"
+  ],
+  "eyebrow": "Jouw mondzweer kan besmettelijk zijn — of niet",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Aften zijn intern, niet besmettelijk",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Binnenkant wang",
+        "of tong,",
+        "nooit besmettelijk"
+      ]
+    },
+    {
+      "name": "Koortslip is viraal en besmettelijk",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Verspreidt zich",
+        "via contact bij",
+        "blaasjes"
+      ]
+    },
+    {
+      "name": "Locatie onderscheidt eerst",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Binnenin mond vs",
+        "buitenrand",
+        "van lip"
+      ]
+    },
+    {
+      "name": "Dichtbij het oog: direct naar de arts",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Kan zicht",
+        "bedreigen als",
+        "onbehandeld"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Check de locatie en of het besmettelijk is voordat je aanneemt dat het hetzelfde zweertje is.",
+    "tip": "De meeste genezen binnen één tot twee weken, sneller met vroege zorg.",
+    "cta": "Wat aanhoudt of dichtbij het oog verschijnt, vraagt meteen om een arts."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Lippen",
+    "칫솔_illust.jpg": "Tandenborstel"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}

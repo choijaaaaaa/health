@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Afta o herpes",
+    "labiale:",
+    "contagioso",
+    "o no?"
+  ],
+  "eyebrow": "La tua afta potrebbe essere contagiosa — o no",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Le afte sono interne, non contagiose",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Guancia interna",
+        "o lingua,",
+        "mai contagiose"
+      ]
+    },
+    {
+      "name": "L'herpes labiale è virale e contagioso",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Si diffonde per",
+        "contatto con",
+        "le vescicole"
+      ]
+    },
+    {
+      "name": "La posizione distingue per prima",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Interno bocca vs",
+        "bordo esterno",
+        "del labbro"
+      ]
+    },
+    {
+      "name": "Vicino all'occhio: vai subito dal medico",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Può minacciare",
+        "la vista se",
+        "non trattato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Controlla la posizione e se è contagiosa prima di dare per scontato che sia la stessa piaga.",
+    "tip": "La maggior parte guarisce in una o due settimane, più in fretta con cure precoci.",
+    "cta": "Ciò che persiste o compare vicino all'occhio richiede subito un medico."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Labbra",
+    "칫솔_illust.jpg": "Spazzolino"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Afte eller",
+    "munsår av herpes:",
+    "smittsamt",
+    "eller inte?"
+  ],
+  "eyebrow": "Ditt munsår kan vara smittsamt — eller inte",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Afte är inuti, inte smittsamt",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Insida kind",
+        "eller tunga,",
+        "aldrig smittsamt"
+      ]
+    },
+    {
+      "name": "Munsår av herpes är viralt och smittsamt",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Sprids genom",
+        "kontakt vid",
+        "blåsor"
+      ]
+    },
+    {
+      "name": "Platsen avgör först",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Inuti munnen vs",
+        "läppens yttre",
+        "kant"
+      ]
+    },
+    {
+      "name": "Nära ögat: sök läkare direkt",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Kan hota synen",
+        "om det",
+        "inte behandlas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kolla platsen och om det smittar innan du antar att det är samma sår.",
+    "tip": "De flesta läker inom en till två veckor, snabbare med tidig vård.",
+    "cta": "Det som kvarstår eller dyker upp nära ögat behöver en läkare direkt."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Läppar",
+    "칫솔_illust.jpg": "Tandborste"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}

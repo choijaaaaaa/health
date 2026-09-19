@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Aphte ou",
+    "bouton de fièvre :",
+    "contagieux",
+    "ou non ?"
+  ],
+  "eyebrow": "Toutes les plaies dans la bouche ne se valent pas",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les aphtes sont internes, non contagieux",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Joue interne",
+        "ou langue,",
+        "jamais contagieux"
+      ]
+    },
+    {
+      "name": "Le bouton de fièvre est viral et contagieux",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Se propage par",
+        "contact pendant",
+        "les vésicules"
+      ]
+    },
+    {
+      "name": "L'emplacement distingue en premier",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Intérieur bouche vs",
+        "bord externe",
+        "de la lèvre"
+      ]
+    },
+    {
+      "name": "Près de l'œil : consultez tout de suite",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Peut menacer",
+        "la vision si",
+        "non traité"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vérifiez l'emplacement et la contagiosité avant de supposer que c'est la même plaie.",
+    "tip": "La plupart guérissent en une à deux semaines, plus vite avec des soins précoces.",
+    "cta": "Ce qui persiste ou apparaît près de l'œil nécessite un médecin immédiatement."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Lèvres",
+    "칫솔_illust.jpg": "Brosse à dents"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}

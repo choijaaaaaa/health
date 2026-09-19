@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Afta o herpes",
+    "labial:",
+    "¿contagioso",
+    "o no?"
+  ],
+  "eyebrow": "¿Por qué una llaga bucal sana rápido y otra no?",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Las aftas son internas, no contagiosas",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Mejilla interna",
+        "o lengua,",
+        "nunca contagiosas"
+      ]
+    },
+    {
+      "name": "El herpes labial es viral y contagioso",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Se propaga por",
+        "contacto con",
+        "las ampollas"
+      ]
+    },
+    {
+      "name": "La ubicación distingue primero",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Interior boca vs",
+        "borde externo",
+        "del labio"
+      ]
+    },
+    {
+      "name": "Cerca del ojo: consulta de inmediato",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Puede amenazar",
+        "la visión si",
+        "no se trata"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Revisa la ubicación y si es contagioso antes de suponer que es la misma llaga.",
+    "tip": "La mayoría sana en una o dos semanas, más rápido con cuidado temprano.",
+    "cta": "Lo que persiste o aparece cerca del ojo necesita un médico de inmediato."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Labios",
+    "칫솔_illust.jpg": "Cepillo de dientes"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}
