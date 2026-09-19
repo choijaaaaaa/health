@@ -6,13 +6,13 @@
     "retinico?"
   ],
   "eyebrow": "Corpi mobili innocui vs distacco della retina",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Scorri per saperne di più →",
   "closing_label": "Riepilogo",
   "items": [
     {
       "name": "I cambiamenti del vitreo ne sono la causa",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Una parte normale",
         "dell'invecchiamento",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Over 50, forte miopia a rischio",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Chirurgia oculare,",
         "trauma contano",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Un numero stabile non preoccupa",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Nessun aumento",
         "nel tempo è",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Lampi più comparsa improvvisa: emergenza",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Una tenda o",
         "un'ombra avvisano",
@@ -53,8 +53,8 @@
     "cta": "Lampi o un'ombra insieme a nuovi corpi mobili significano visita lo stesso giorno."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Occhio",
-    "안경_illust.jpg": "Occhiali"
+    "독서안경_illust.jpg": "Occhiali da lettura",
+    "인공눈물_illust.jpg": "Gocce oculari"
   },
   "cover_scrim_color": "#4A5C3A"
 }

@@ -6,13 +6,13 @@
     "retiniano?"
   ],
   "eyebrow": "Un aumento repentino de moscas volantes podría ser un desgarro",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Desliza para ver más →",
   "closing_label": "Resumen",
   "items": [
     {
       "name": "Los cambios del vítreo son la causa",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Una parte normal",
         "del envejecimiento",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Más de 50, miopía alta en riesgo",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Cirugía ocular,",
         "trauma también",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Un número estable no preocupa",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Sin aumento",
         "con el tiempo",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Destellos más aumento súbito: urgencia",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Una cortina o",
         "sombra también",
@@ -53,8 +53,8 @@
     "cta": "Destellos o una sombra junto con moscas nuevas significan consulta ese mismo día."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Ojo",
-    "안경_illust.jpg": "Gafas"
+    "독서안경_illust.jpg": "Gafas de lectura",
+    "인공눈물_illust.jpg": "Gotas oculares"
   },
   "cover_scrim_color": "#4A5C3A"
 }

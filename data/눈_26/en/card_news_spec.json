@@ -6,13 +6,13 @@
     "Retinal Tear"
   ],
   "eyebrow": "A Sudden Shower of Eye Floaters Could Signal a Retinal Tear",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Swipe for more  →",
   "closing_label": "Recap",
   "items": [
     {
       "name": "Vitreous changes cause floaters",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "A common part",
         "of the eye",
@@ -21,7 +21,7 @@
     },
     {
       "name": "Over 50, high myopia at risk",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Eye surgery,",
         "trauma count",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Stable count means no worry",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Not increasing",
         "over time is",
@@ -39,7 +39,7 @@
     },
     {
       "name": "Flashes plus a burst mean same-day care",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "A curtain or",
         "shadow is a",
@@ -53,8 +53,8 @@
     "cta": "Flashes or a shadow alongside new floaters mean same-day eye care, not waiting."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Eye",
-    "안경_illust.jpg": "Glasses"
+    "독서안경_illust.jpg": "Reading glasses",
+    "인공눈물_illust.jpg": "Eye drops"
   },
   "cover_scrim_color": "#4A5C3A"
 }

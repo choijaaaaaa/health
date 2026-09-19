@@ -6,13 +6,13 @@
     "しれません"
   ],
   "eyebrow": "急に増えた飛蚊症、網膜剥離のサインかも",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "スワイプして続きを見る →",
   "closing_label": "まとめ",
   "items": [
     {
       "name": "硝子体の変化が原因です",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "加齢に伴う",
         "よくある",
@@ -21,7 +21,7 @@
     },
     {
       "name": "50歳以上・強度近視がリスク",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "眼手術・外傷も",
         "危険因子",
@@ -30,7 +30,7 @@
     },
     {
       "name": "数が一定なら心配なし",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "時間が経っても",
         "増えなければ",
@@ -39,7 +39,7 @@
     },
     {
       "name": "光+急増はその日のうちに受診",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "カーテン・影の",
         "感覚も",
@@ -53,8 +53,8 @@
     "cta": "光や影が一緒に現れたら様子を見ずにその日のうちに眼科を受診しましょう。"
   },
   "char_display_names": {
-    "눈_illust.jpg": "目",
-    "안경_illust.jpg": "メガネ"
+    "독서안경_illust.jpg": "老眼鏡",
+    "인공눈물_illust.jpg": "目薬"
   },
   "cover_scrim_color": "#4A5C3A"
 }

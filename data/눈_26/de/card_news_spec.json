@@ -5,13 +5,13 @@
     "Netzhautriss?"
   ],
   "eyebrow": "Harmlose Mouches Volantes vs. Netzhautablösung",
-  "cover_char_file": "눈_illust.jpg",
+  "cover_char_file": "독서안경_illust.jpg",
   "swipe_label": "Wischen für mehr →",
   "closing_label": "Zusammenfassung",
   "items": [
     {
       "name": "Veränderungen im Glaskörper sind die Ursache",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Ein normaler Teil",
         "des alternden",
@@ -20,7 +20,7 @@
     },
     {
       "name": "Über 50, starke Kurzsichtigkeit im Risiko",
-      "char_file": "눈_illust.jpg",
+      "char_file": "독서안경_illust.jpg",
       "body": [
         "Augen-OP,",
         "Trauma zählen",
@@ -29,7 +29,7 @@
     },
     {
       "name": "Gleichbleibende Zahl bedeutet keine Sorge",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Keine Zunahme",
         "über Zeit ist",
@@ -38,7 +38,7 @@
     },
     {
       "name": "Blitze plus Schwarm bedeuten sofort zum Arzt",
-      "char_file": "안경_illust.jpg",
+      "char_file": "인공눈물_illust.jpg",
       "body": [
         "Ein Vorhang oder",
         "Schatten ist",
@@ -52,8 +52,8 @@
     "cta": "Blitze oder ein Schatten zusammen mit neuen Flecken bedeuten sofort zum Arzt, nicht abwarten."
   },
   "char_display_names": {
-    "눈_illust.jpg": "Auge",
-    "안경_illust.jpg": "Brille"
+    "독서안경_illust.jpg": "Lesebrille",
+    "인공눈물_illust.jpg": "Augentropfen"
   },
   "cover_scrim_color": "#4A5C3A"
 }
