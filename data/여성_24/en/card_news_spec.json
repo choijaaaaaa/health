@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Yeast Infection",
+    "vs.",
+    "BV"
+  ],
+  "eyebrow": "Yeast Infection vs. BV",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Yeast infection means thick, odorless discharge",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Fungal",
+        "overgrowth",
+        "is the cause"
+      ]
+    },
+    {
+      "name": "BV means thin discharge with a fishy smell",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Lost balance of",
+        "protective",
+        "bacteria"
+      ]
+    },
+    {
+      "name": "Itching means yeast, smell means BV",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "The main",
+        "discomfort",
+        "differs"
+      ]
+    },
+    {
+      "name": "Don't keep buying antifungal cream blindly",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "BV needs",
+        "antibiotics",
+        "instead"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Don't just grab antifungal cream for unusual discharge — check which one it is.",
+    "tip": "Check the discharge texture, smell, and how intense the itching is.",
+    "cta": "See an OB-GYN if symptoms keep recurring or it's unclear."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Underwear",
+    "샤워기_illust.jpg": "Shower"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Candidosi",
+    "vs.",
+    "Vaginosi",
+    "Batterica"
+  ],
+  "eyebrow": "Perdite insolite non sono sempre solo candida",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "La candidosi significa perdite dense e senza odore",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Proliferazione",
+        "fungina",
+        "come causa"
+      ]
+    },
+    {
+      "name": "La vaginosi significa perdite sottili con odore di pesce",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Equilibrio",
+        "batterico",
+        "alterato"
+      ]
+    },
+    {
+      "name": "Prurito indica candidosi, odore indica vaginosi",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Il disagio",
+        "principale",
+        "differisce"
+      ]
+    },
+    {
+      "name": "Non comprare crema antimicotica alla cieca",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "La vaginosi",
+        "richiede",
+        "antibiotici"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Con perdite insolite, non comprare subito la crema antimicotica — capisci di cosa si tratta.",
+    "tip": "Controlla la consistenza delle perdite, l'odore, e l'intensità del prurito.",
+    "cta": "Consulta un ginecologo se i sintomi continuano a ripresentarsi o restano poco chiari."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Biancheria intima",
+    "샤워기_illust.jpg": "Doccia"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}

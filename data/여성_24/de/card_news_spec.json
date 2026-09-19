@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Scheidenpilz",
+    "vs.",
+    "Bakterielle",
+    "Vaginose"
+  ],
+  "eyebrow": "Scheidenpilz vs. bakterielle Vaginose",
+  "cover_char_file": "속옷_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Scheidenpilz heißt dicker, geruchloser Ausfluss",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Pilz-",
+        "überwucherung",
+        "als Ursache"
+      ]
+    },
+    {
+      "name": "Bakterielle Vaginose heißt dünner, fischiger Ausfluss",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Gestörtes",
+        "bakterielles",
+        "Gleichgewicht"
+      ]
+    },
+    {
+      "name": "Juckreiz heißt Pilz, Geruch heißt Vaginose",
+      "char_file": "샤워기_illust.jpg",
+      "body": [
+        "Das Hauptproblem",
+        "unterscheidet",
+        "sich"
+      ]
+    },
+    {
+      "name": "Nicht blind weiter Antipilzcreme kaufen",
+      "char_file": "속옷_illust.jpg",
+      "body": [
+        "Vaginose braucht",
+        "stattdessen",
+        "Antibiotika"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Bei ungewöhnlichem Ausfluss nicht einfach zur Antipilzcreme greifen — klären Sie, um welche es geht.",
+    "tip": "Prüfen Sie Konsistenz, Geruch und die Stärke des Juckreizes.",
+    "cta": "Bei wiederkehrenden oder unklaren Symptomen einen Gynäkologen aufsuchen."
+  },
+  "char_display_names": {
+    "속옷_illust.jpg": "Unterwäsche",
+    "샤워기_illust.jpg": "Dusche"
+  },
+  "cover_scrim_color": "#7A3A5A"
+}
