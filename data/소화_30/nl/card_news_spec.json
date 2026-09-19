@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Bloed na",
+    "ontlasting:",
+    "aambeien of",
+    "fissuur?"
+  ],
+  "eyebrow": "Bloed bij de ontlasting kan een fissuur zijn",
+  "cover_char_file": "변기_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Aambeien doen meestal geen pijn",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Helderrood bloed",
+        "op de",
+        "ontlasting"
+      ]
+    },
+    {
+      "name": "Fissuren geven scherpe pijn",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Voelt als",
+        "glas dat",
+        "passeert"
+      ]
+    },
+    {
+      "name": "Pijn is het eerste om te checken",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Kleur en",
+        "verandering tellen",
+        "ook mee"
+      ]
+    },
+    {
+      "name": "Donker bloed of gewichtsverlies is een signaal",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Neem niet zomaar",
+        "aambeien",
+        "aan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Check of het pijn doet voordat je aanneemt dat het gewoon aambeien is.",
+    "tip": "Genoeg vezels en vocht om de ontlasting zacht te houden is de basis voor beide.",
+    "cta": "Een ongewone kleur of toenemend bloedverlies vraagt om een medische controle."
+  },
+  "char_display_names": {
+    "변기_illust.jpg": "Toilet",
+    "물컵_illust.jpg": "Glas water"
+  },
+  "cover_scrim_color": "#6B3A5C"
+}

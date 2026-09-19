@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Sang après",
+    "la selle :",
+    "hémorroïdes",
+    "ou fissure ?"
+  ],
+  "eyebrow": "Hémorroïdes vs fissure anale : la différence",
+  "cover_char_file": "변기_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Les hémorroïdes sont généralement indolores",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Sang rouge vif",
+        "sur les",
+        "selles"
+      ]
+    },
+    {
+      "name": "Les fissures provoquent une douleur vive",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Comme le",
+        "passage de",
+        "verre"
+      ]
+    },
+    {
+      "name": "La douleur est le premier signe à vérifier",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Couleur et",
+        "évolution comptent",
+        "aussi"
+      ]
+    },
+    {
+      "name": "Sang foncé ou perte de poids alerte",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Ne pas juste",
+        "supposer des",
+        "hémorroïdes"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Vérifiez si ça fait mal avant de supposer que tout saignement est juste des hémorroïdes.",
+    "tip": "Assez de fibres et de liquides pour garder des selles molles est la base pour les deux.",
+    "cta": "Une couleur inhabituelle ou un saignement croissant méritent un avis médical."
+  },
+  "char_display_names": {
+    "변기_illust.jpg": "Toilettes",
+    "물컵_illust.jpg": "Verre d'eau"
+  },
+  "cover_scrim_color": "#6B3A5C"
+}
