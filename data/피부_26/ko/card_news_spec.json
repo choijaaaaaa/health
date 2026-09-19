@@ -1,0 +1,60 @@
+{
+  "title": [
+    "여드름과",
+    "주사비",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "여드름과 주사비, 구별하는 법",
+  "cover_char_file": "와인_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "여드름은 블랙헤드가 기본이에요",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "모공 막힘이",
+        "원인",
+        "이에요"
+      ]
+    },
+    {
+      "name": "주사비는 면포 없이 붉기만 해요",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "혈관이",
+        "예민하게",
+        "반응해요"
+      ]
+    },
+    {
+      "name": "술·매운음식에 확 붉어지면 주사비",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "여드름은",
+        "이렇게",
+        "반응 안 해요"
+      ]
+    },
+    {
+      "name": "여드름약을 주사비에 쓰면 악화돼요",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "다른 치료가",
+        "따로",
+        "필요해요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "여드름약이 안 들으면 주사비일 수 있으니 함부로 쓰지 마세요.",
+    "tip": "블랙헤드 유무와 술·매운 음식에 붉어지는지 확인해보세요.",
+    "cta": "확실하지 않으면 피부과에서 정확한 진단을 받아보세요."
+  },
+  "char_display_names": {
+    "와인_illust.jpg": "와인",
+    "피부발진_illust.jpg": "피부"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

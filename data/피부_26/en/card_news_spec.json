@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Adult Acne",
+    "vs.",
+    "Rosacea"
+  ],
+  "eyebrow": "Adult Acne vs. Rosacea",
+  "cover_char_file": "와인_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Acne means blackheads are present",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Clogged pores",
+        "are the",
+        "cause"
+      ]
+    },
+    {
+      "name": "Rosacea means redness with no comedones",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Reactive blood",
+        "vessels",
+        "react"
+      ]
+    },
+    {
+      "name": "Flushing after alcohol or spice means rosacea",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Acne doesn't",
+        "flush this",
+        "way"
+      ]
+    },
+    {
+      "name": "Acne cream on rosacea makes it worse",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "A different",
+        "treatment is",
+        "needed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "If acne cream isn't working, don't just keep using it — it could be rosacea.",
+    "tip": "Check for blackheads and whether alcohol or spice causes flushing.",
+    "cta": "See a dermatologist for an accurate diagnosis if it's unclear."
+  },
+  "char_display_names": {
+    "와인_illust.jpg": "Wine",
+    "피부발진_illust.jpg": "Skin"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

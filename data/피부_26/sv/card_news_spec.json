@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Vuxenakne",
+    "vs.",
+    "Rosacea"
+  ],
+  "eyebrow": "Vuxenakne vs. rosacea",
+  "cover_char_file": "와인_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Akne betyder pormaskar finns",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Tilltäppta porer",
+        "som",
+        "orsak"
+      ]
+    },
+    {
+      "name": "Rosacea betyder rodnad utan komedoner",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Reaktiva",
+        "blodkärl",
+        "reagerar"
+      ]
+    },
+    {
+      "name": "Rodnad vid alkohol eller kryddigt tyder på rosacea",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Akne reagerar",
+        "inte så",
+        "på det"
+      ]
+    },
+    {
+      "name": "Aknekräm på rosacea förvärrar det",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "En annan",
+        "behandling",
+        "behövs"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Om aknekräm inte fungerar, fortsätt inte bara använda den — det kan vara rosacea.",
+    "tip": "Kontrollera pormaskar och om alkohol eller kryddigt orsakar rodnad.",
+    "cta": "Sök en dermatolog för en korrekt diagnos om det är oklart."
+  },
+  "char_display_names": {
+    "와인_illust.jpg": "Vin",
+    "피부발진_illust.jpg": "Hud"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

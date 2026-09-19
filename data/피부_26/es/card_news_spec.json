@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Acné Adulto",
+    "vs.",
+    "Rosácea"
+  ],
+  "eyebrow": "Acné adulto vs. rosácea",
+  "cover_char_file": "와인_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El acné significa puntos negros presentes",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Poros",
+        "obstruidos",
+        "como causa"
+      ]
+    },
+    {
+      "name": "La rosácea significa enrojecimiento sin comedones",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Vasos",
+        "reactivos",
+        "reaccionan"
+      ]
+    },
+    {
+      "name": "Enrojecer con alcohol o picante indica rosácea",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "El acné no",
+        "reacciona",
+        "así"
+      ]
+    },
+    {
+      "name": "Una crema anti-acné empeora la rosácea",
+      "char_file": "피부발진_illust.jpg",
+      "body": [
+        "Se necesita otro",
+        "tratamiento",
+        ""
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si la crema para el acné no funciona, no insistas — podría ser rosácea.",
+    "tip": "Revisa los puntos negros y si el alcohol o el picante causan rojez.",
+    "cta": "Consulta a un dermatólogo para un diagnóstico preciso si no está claro."
+  },
+  "char_display_names": {
+    "와인_illust.jpg": "Vino",
+    "피부발진_illust.jpg": "Piel"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}
