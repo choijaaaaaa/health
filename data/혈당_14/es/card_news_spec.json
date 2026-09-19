@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fenómeno del",
+    "alba vs",
+    "efecto",
+    "Somogyi"
+  ],
+  "eyebrow": "Fenómeno del alba vs. efecto Somogyi",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Las hormonas matutinas suben la glucosa",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "El hígado libera",
+        "glucosa para",
+        "despertar"
+      ]
+    },
+    {
+      "name": "El efecto Somogyi es lo contrario",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Un rebote tras",
+        "una hipoglucemia",
+        "nocturna"
+      ]
+    },
+    {
+      "name": "Medir a las 2-3 de la madrugada es clave",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Bajo significa Somogyi,",
+        "estable significa",
+        "fenómeno del alba"
+      ]
+    },
+    {
+      "name": "No ajustes la medicación por tu cuenta",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Las soluciones van",
+        "en direcciones",
+        "opuestas"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Una glucosa matutina más alta no significa automáticamente un error.",
+    "tip": "Mide la glucosa hacia las 2-3 de la madrugada durante unas noches para identificar la causa.",
+    "cta": "Involucra siempre a un médico antes de cambiar cualquier dosis de medicación."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Glucómetro",
+    "시계_illust.jpg": "Reloj"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

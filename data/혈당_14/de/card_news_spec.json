@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Dawn-Phänomen",
+    "vs.",
+    "Somogyi-",
+    "Effekt"
+  ],
+  "eyebrow": "3 Gründe für hohen Blutzucker am Morgen",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Morgendliche Hormone heben den Blutzucker",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Leber gibt Glukose",
+        "zum Aufwachen",
+        "frei"
+      ]
+    },
+    {
+      "name": "Der Somogyi-Effekt ist das Gegenteil",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Ein Rebound nach",
+        "nächtlicher",
+        "Unterzuckerung"
+      ]
+    },
+    {
+      "name": "Messung um 2-3 Uhr ist entscheidend",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Niedrig heißt Somogyi,",
+        "stetig steigend",
+        "heißt Dawn"
+      ]
+    },
+    {
+      "name": "Medikamente nicht eigenmächtig anpassen",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Die Lösungen gehen",
+        "in entgegengesetzte",
+        "Richtungen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ein höherer Morgenwert bedeutet nicht automatisch, dass etwas falsch gelaufen ist.",
+    "tip": "Blutzucker an ein paar Nächten gegen 2 bis 3 Uhr messen, um die Ursache zu klären.",
+    "cta": "Jede Dosisänderung immer gemeinsam mit einem Arzt besprechen."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Blutzuckermessgerät",
+    "시계_illust.jpg": "Uhr"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

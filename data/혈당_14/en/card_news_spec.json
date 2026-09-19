@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Dawn",
+    "Phenomenon vs.",
+    "Somogyi",
+    "Effect"
+  ],
+  "eyebrow": "Dawn Phenomenon vs. Somogyi Effect",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Morning hormones raise blood sugar",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Liver releases",
+        "glucose to",
+        "wake you up"
+      ]
+    },
+    {
+      "name": "Somogyi effect is the opposite",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "A rebound after",
+        "overnight low",
+        "blood sugar"
+      ]
+    },
+    {
+      "name": "Checking 2-3 a.m. is the key",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Low then means",
+        "Somogyi, steady",
+        "rise means dawn"
+      ]
+    },
+    {
+      "name": "Don't adjust medication on your own",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "The fixes go",
+        "in opposite",
+        "directions"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "A higher morning reading doesn't automatically mean something went wrong.",
+    "tip": "Check blood sugar around 2 to 3 a.m. for a few nights to pin down the cause.",
+    "cta": "Always loop in a doctor before changing any medication dose."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Glucose meter",
+    "시계_illust.jpg": "Clock"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

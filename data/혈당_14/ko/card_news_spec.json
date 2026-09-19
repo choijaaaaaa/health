@@ -1,0 +1,59 @@
+{
+  "title": [
+    "아침 공복혈당이",
+    "높은 이유",
+    "3가지"
+  ],
+  "eyebrow": "아침 공복혈당이 높은 이유 3가지",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "새벽 호르몬이 혈당을 올려요",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "기상 준비로",
+        "간이 포도당을",
+        "내보내요"
+      ]
+    },
+    {
+      "name": "소모지 효과는 반대예요",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "밤새 저혈당 후",
+        "반등하는",
+        "현상이에요"
+      ]
+    },
+    {
+      "name": "새벽 2~3시 확인이 핵심",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "낮으면 소모지,",
+        "꾸준히 오르면",
+        "새벽현상이에요"
+      ]
+    },
+    {
+      "name": "임의로 약 조절하면 안 돼요",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "해결 방향이",
+        "정반대",
+        "예요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "아침 공복혈당이 높다고 무조건 뭔가 잘못한 건 아니에요.",
+    "tip": "새벽 2~3시 혈당을 며칠 확인해서 원인을 정확히 파악하세요.",
+    "cta": "약 용량 조절은 반드시 의료진과 상의해서 결정하세요."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "혈당계",
+    "시계_illust.jpg": "시계"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}

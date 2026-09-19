@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Fenomeno",
+    "dell'alba vs",
+    "effetto",
+    "Somogyi"
+  ],
+  "eyebrow": "3 motivi per la glicemia alta al mattino",
+  "cover_char_file": "혈당계_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Gli ormoni mattutini alzano la glicemia",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Il fegato rilascia",
+        "glucosio per",
+        "il risveglio"
+      ]
+    },
+    {
+      "name": "L'effetto Somogyi è l'opposto",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "Un rimbalzo dopo",
+        "un'ipoglicemia",
+        "notturna"
+      ]
+    },
+    {
+      "name": "Misurare alle 2-3 del mattino è la chiave",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Bassa significa Somogyi,",
+        "stabile significa",
+        "fenomeno dell'alba"
+      ]
+    },
+    {
+      "name": "Non modificare i farmaci da soli",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Le soluzioni vanno",
+        "in direzioni",
+        "opposte"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Una glicemia mattutina più alta non significa automaticamente un errore.",
+    "tip": "Misura la glicemia verso le 2-3 del mattino per alcune notti per individuare la causa.",
+    "cta": "Coinvolgi sempre un medico prima di cambiare qualsiasi dose di farmaco."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Glucometro",
+    "시계_illust.jpg": "Orologio"
+  },
+  "cover_scrim_color": "#5C6B3A"
+}
