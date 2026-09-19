@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tinnitus",
+    "vs.",
+    "Hyperacusis"
+  ],
+  "eyebrow": "Tinnitus vs. Hyperacusis",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Tinnitus means hearing a sound that isn't there",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Inner-ear damage",
+        "and",
+        "aging"
+      ]
+    },
+    {
+      "name": "Hyperacusis means real sound feels painful",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "A brain",
+        "processing",
+        "issue"
+      ]
+    },
+    {
+      "name": "Growing sound avoidance points to hyperacusis",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Tinnitus avoids",
+        "daily life",
+        "less"
+      ]
+    },
+    {
+      "name": "Blocking sound all day makes it more sensitive",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Manage it",
+        "gradually with",
+        "a specialist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Check whether a sound is heard with nothing there, or a real sound feels painful.",
+    "tip": "Note whether sound-avoidance behavior is growing.",
+    "cta": "See an ENT for a hearing test if it persists beyond a few weeks."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Earbuds",
+    "헤드폰_illust.jpg": "Headphones"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}

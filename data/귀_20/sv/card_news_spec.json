@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tinnitus",
+    "vs.",
+    "Hyperakusi"
+  ],
+  "eyebrow": "Hyperakusi kan ligga bakom din ljudkänslighet",
+  "cover_char_file": "이어폰_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Tinnitus betyder ett ljud som inte finns",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Innerörats skada",
+        "och",
+        "åldrande"
+      ]
+    },
+    {
+      "name": "Hyperakusi betyder verkligt ljud gör ont",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Ett problem i",
+        "hjärnans",
+        "bearbetning"
+      ]
+    },
+    {
+      "name": "Ökat undvikande pekar mot hyperakusi",
+      "char_file": "이어폰_illust.jpg",
+      "body": [
+        "Tinnitus undviker",
+        "vardagen",
+        "mer sällan"
+      ]
+    },
+    {
+      "name": "Att blockera ljud hela dagen ökar känsligheten",
+      "char_file": "헤드폰_illust.jpg",
+      "body": [
+        "Hantera",
+        "gradvis med",
+        "en specialist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Kontrollera om ett ljud hörs utan källa, eller om ett verkligt ljud gör ont.",
+    "tip": "Notera om undvikandebeteende kring ljud ökar.",
+    "cta": "Sök en öron-näs-halsläkare om det kvarstår mer än några veckor."
+  },
+  "char_display_names": {
+    "이어폰_illust.jpg": "Hörlurar",
+    "헤드폰_illust.jpg": "Hörlurar över öronen"
+  },
+  "cover_scrim_color": "#5A4A7A"
+}
