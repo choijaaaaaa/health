@@ -1,0 +1,60 @@
+{
+  "title": [
+    "3 Signs Your Cold",
+    "Has Turned",
+    "Into",
+    "Sinusitis"
+  ],
+  "eyebrow": "3 Signs Your Cold Has Turned Into Sinusitis",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Blocked sinus drainage lets bacteria grow",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Trapped mucus",
+        "is where bacteria",
+        "multiply"
+      ]
+    },
+    {
+      "name": "Past 10 days with no improvement",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Not even",
+        "gradual improvement",
+        "is a sign"
+      ]
+    },
+    {
+      "name": "\"Double worsening\" is the key pattern",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Better, then",
+        "fever suddenly",
+        "returns"
+      ]
+    },
+    {
+      "name": "Discharge color alone isn't reliable",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Duration, pattern,",
+        "facial pain",
+        "matter more"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "A cold that improves and then suddenly worsens again could be bacterial sinusitis.",
+    "tip": "Saline nasal rinses and staying hydrated support recovery either way.",
+    "cta": "If the double-worsening pattern is clear, get checked by an ENT."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Glass of water",
+    "수건_illust.jpg": "Towel"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Verkoudheid",
+    "die terugkeert:",
+    "sinusitis?"
+  ],
+  "eyebrow": "Een verkoudheid die terugkeert is niet gewoon pech",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Verstopte afvoer laat bacteriën groeien",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Opgesloten slijm",
+        "is waar bacteriën",
+        "zich vermenigvuldigen"
+      ]
+    },
+    {
+      "name": "Meer dan 10 dagen zonder verbetering",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Zelfs geen",
+        "geleidelijke verbetering",
+        "is een teken"
+      ]
+    },
+    {
+      "name": "\"Dubbele verslechtering\" is het patroon",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Beter, dan",
+        "keert koorts",
+        "plotseling terug"
+      ]
+    },
+    {
+      "name": "Kleur alleen is niet betrouwbaar",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Duur, patroon,",
+        "gezichtspijn",
+        "tellen meer"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een verkoudheid die beter wordt en dan plotseling weer erger kan bacteriële sinusitis zijn.",
+    "tip": "Neusspoelingen met zoutoplossing en voldoende drinken helpen sowieso bij het herstel.",
+    "cta": "Is het dubbele verslechteringspatroon duidelijk, laat dat dan checken door een KNO-arts."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Glas water",
+    "수건_illust.jpg": "Handdoek"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}

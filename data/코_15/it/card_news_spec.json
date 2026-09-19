@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Raffreddore",
+    "che peggiora",
+    "di nuovo:",
+    "sinusite?"
+  ],
+  "eyebrow": "Un raffreddore che peggiora di nuovo non è normale",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Il drenaggio bloccato fa crescere i batteri",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Il muco intrappolato",
+        "è dove i batteri",
+        "si moltiplicano"
+      ]
+    },
+    {
+      "name": "Oltre 10 giorni senza miglioramento",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Nemmeno un",
+        "miglioramento graduale",
+        "è un segnale"
+      ]
+    },
+    {
+      "name": "Il \"doppio peggioramento\" è lo schema chiave",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Meglio, poi",
+        "la febbre torna",
+        "improvvisamente"
+      ]
+    },
+    {
+      "name": "Il colore da solo non è affidabile",
+      "char_file": "수건_illust.jpg",
+      "body": [
+        "Durata, schema,",
+        "dolore facciale",
+        "contano di più"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Un raffreddore che migliora e poi peggiora di nuovo improvvisamente potrebbe essere sinusite batterica.",
+    "tip": "I lavaggi nasali con soluzione salina e una buona idratazione aiutano comunque.",
+    "cta": "Se lo schema del doppio peggioramento è chiaro, fatti controllare da un otorinolaringoiatra."
+  },
+  "char_display_names": {
+    "물컵_illust.jpg": "Bicchiere d'acqua",
+    "수건_illust.jpg": "Asciugamano"
+  },
+  "cover_scrim_color": "#6B5C3A"
+}
