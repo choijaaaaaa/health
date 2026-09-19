@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Trigger Finger",
+    "vs.",
+    "Dupuytren's"
+  ],
+  "eyebrow": "Trigger Finger vs. Dupuytren's Contracture",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Trigger finger catches and snaps",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Tendon pulley",
+        "inflammation",
+        "is the cause"
+      ]
+    },
+    {
+      "name": "Dupuytren's curls painlessly",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Connective tissue",
+        "thickens",
+        "over time"
+      ]
+    },
+    {
+      "name": "A cord in the palm means Dupuytren's",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Firm band leading",
+        "toward the",
+        "finger"
+      ]
+    },
+    {
+      "name": "Stretching alone won't fix it",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "May need a",
+        "procedure or",
+        "surgery"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Don't just keep stretching a finger that's catching or curling.",
+    "tip": "Check for pain, catching, and any firm band in the palm.",
+    "cta": "See a hand specialist if it doesn't improve within a few days."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}

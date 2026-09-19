@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Doigt à",
+    "Ressort vs.",
+    "Dupuytren"
+  ],
+  "eyebrow": "Doigt à ressort vs. maladie de Dupuytren",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le doigt à ressort accroche et claque",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Inflammation de",
+        "la poulie",
+        "en cause"
+      ]
+    },
+    {
+      "name": "Dupuytren recourbe sans douleur",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Le tissu conjonctif",
+        "s'épaissit",
+        "avec le temps"
+      ]
+    },
+    {
+      "name": "Un cordon dans la paume évoque Dupuytren",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bande ferme allant",
+        "vers le",
+        "doigt"
+      ]
+    },
+    {
+      "name": "L'étirement seul ne suffit pas",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Peut nécessiter",
+        "un geste ou",
+        "une opération"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "N'étirez pas simplement un doigt qui accroche ou se recourbe.",
+    "tip": "Vérifiez la douleur, l'accrochage, et tout cordon ferme dans la paume.",
+    "cta": "Consultez un spécialiste de la main si rien ne s'améliore en quelques jours."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Doigt"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}

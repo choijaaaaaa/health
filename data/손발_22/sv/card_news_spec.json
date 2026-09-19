@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Triggerfinger",
+    "vs.",
+    "Dupuytrens"
+  ],
+  "eyebrow": "Triggerfinger vs. Dupuytrens kontraktur",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Triggerfinger fastnar och klickar",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Inflammation i",
+        "ledbandsskidan",
+        "som orsak"
+      ]
+    },
+    {
+      "name": "Dupuytrens kröker smärtfritt",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bindväven",
+        "förtjockas med",
+        "tiden"
+      ]
+    },
+    {
+      "name": "En sträng i handflatan tyder på Dupuytrens",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Fast band mot",
+        "fingret",
+        ""
+      ]
+    },
+    {
+      "name": "Stretching ensamt räcker inte",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Kan behöva en",
+        "åtgärd eller",
+        "operation"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Fortsätt inte bara stretcha ett finger som fastnar eller kröker sig.",
+    "tip": "Kontrollera smärta, fastnande, och alla fasta strängar i handflatan.",
+    "cta": "Sök en handspecialist om det inte förbättras inom några dagar."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}

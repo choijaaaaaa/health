@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Schnellender",
+    "Finger vs.",
+    "Dupuytren"
+  ],
+  "eyebrow": "Schnellender Finger vs. Dupuytren-Kontraktur",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Schnellender Finger hakt und schnellt",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Sehnen-Ringband-",
+        "Entzündung",
+        "als Ursache"
+      ]
+    },
+    {
+      "name": "Dupuytren krümmt schmerzlos",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bindegewebe",
+        "verdickt sich",
+        "mit der Zeit"
+      ]
+    },
+    {
+      "name": "Ein Strang in der Handfläche heißt Dupuytren",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Fester Strang",
+        "zum Finger",
+        "hin"
+      ]
+    },
+    {
+      "name": "Dehnen allein hilft nicht",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Braucht eventuell",
+        "einen Eingriff",
+        "oder OP"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Dehnen Sie nicht einfach weiter, wenn ein Finger hakt oder sich krümmt.",
+    "tip": "Prüfen Sie Schmerz, Haken und jeden festen Strang in der Handfläche.",
+    "cta": "Bei keiner Besserung nach ein paar Tagen einen Handspezialisten aufsuchen."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Finger"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}
