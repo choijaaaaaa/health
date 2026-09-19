@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eczéma",
+    "vs.",
+    "Dermite de Contact"
+  ],
+  "eyebrow": "Cette éruption pourrait être une dermite de contact, pas de l'eczéma",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "L'eczéma revient aux mêmes endroits fixes",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Barrière cutanée",
+        "et réponse",
+        "immunitaire"
+      ]
+    },
+    {
+      "name": "La dermite de contact coïncide avec une substance",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Une réaction à",
+        "quelque chose",
+        "de précis"
+      ]
+    },
+    {
+      "name": "Depuis l'enfance signifie eczéma",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Un nouveau produit",
+        "signifie dermite",
+        "de contact"
+      ]
+    },
+    {
+      "name": "Ne pas éviter le déclencheur fait revenir l'éruption",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Un test épicutané",
+        "peut le",
+        "confirmer"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "N'essayez pas simplement produit après produit sans savoir de quoi il s'agit.",
+    "tip": "Vérifiez si l'éruption coïncide avec une substance, et quand elle a commencé.",
+    "cta": "Consultez un dermatologue pour un test épicutané si le déclencheur est difficile à trouver."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Crème pour les mains",
+    "은목걸이_illust.jpg": "Collier"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}

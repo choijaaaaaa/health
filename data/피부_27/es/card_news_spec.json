@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eczema",
+    "vs.",
+    "Dermatitis de Contacto"
+  ],
+  "eyebrow": "Eczema vs. dermatitis de contacto",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El eczema vuelve en las mismas zonas fijas",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Barrera cutánea",
+        "y respuesta",
+        "inmunitaria"
+      ]
+    },
+    {
+      "name": "La dermatitis de contacto coincide con una sustancia",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Una reacción a",
+        "algo",
+        "específico"
+      ]
+    },
+    {
+      "name": "Desde la infancia significa eczema",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Un producto nuevo",
+        "significa dermatitis",
+        "de contacto"
+      ]
+    },
+    {
+      "name": "No evitar el desencadenante hace que vuelva",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Una prueba de",
+        "parche puede",
+        "confirmarlo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No te limites a probar un producto tras otro sin saber de cuál se trata.",
+    "tip": "Revisa si la erupción coincide con una sustancia, y cuándo empezó.",
+    "cta": "Consulta a un dermatólogo para una prueba de parche si el desencadenante es difícil de hallar."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Crema de manos",
+    "은목걸이_illust.jpg": "Collar"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}

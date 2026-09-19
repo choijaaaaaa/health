@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eczema",
+    "vs.",
+    "Contact Dermatitis"
+  ],
+  "eyebrow": "Eczema vs. Contact Dermatitis",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Eczema recurs in the same set spots",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Skin barrier",
+        "and immune",
+        "response"
+      ]
+    },
+    {
+      "name": "Contact dermatitis lines up with a substance",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "A reaction to",
+        "something",
+        "specific"
+      ]
+    },
+    {
+      "name": "Since childhood means eczema",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "A new product",
+        "means contact",
+        "dermatitis"
+      ]
+    },
+    {
+      "name": "Not avoiding the trigger means it keeps coming back",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "A patch test",
+        "can",
+        "confirm it"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Don't just keep switching products without knowing which one it is.",
+    "tip": "Check whether the rash lines up with a substance, and when it started.",
+    "cta": "See a dermatologist for a patch test if the trigger is hard to find."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Hand cream",
+    "은목걸이_illust.jpg": "Necklace"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}

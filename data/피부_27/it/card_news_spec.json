@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eczema",
+    "vs.",
+    "Dermatite da Contatto"
+  ],
+  "eyebrow": "3 segnali per distinguere l'eczema dalla dermatite da contatto",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "L'eczema torna nelle stesse zone fisse",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Barriera cutanea",
+        "e risposta",
+        "immunitaria"
+      ]
+    },
+    {
+      "name": "La dermatite da contatto coincide con una sostanza",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Una reazione a",
+        "qualcosa di",
+        "specifico"
+      ]
+    },
+    {
+      "name": "Dall'infanzia significa eczema",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Un nuovo prodotto",
+        "significa dermatite",
+        "da contatto"
+      ]
+    },
+    {
+      "name": "Non evitare il trigger fa tornare lo sfogo",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Un patch test",
+        "può",
+        "confermarlo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non limitarti a provare un prodotto dopo l'altro senza sapere di quale si tratti.",
+    "tip": "Controlla se lo sfogo coincide con una sostanza, e quando è iniziato.",
+    "cta": "Consulta un dermatologo per un patch test se il trigger è difficile da trovare."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Crema mani",
+    "은목걸이_illust.jpg": "Collana"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}

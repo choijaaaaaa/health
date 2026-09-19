@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eczeem",
+    "vs.",
+    "Contactdermatitis"
+  ],
+  "eyebrow": "Is het eczeem of contactdermatitis?",
+  "cover_char_file": "은목걸이_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Eczeem keert terug op dezelfde vaste plekken",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Huidbarrière en",
+        "immuun-",
+        "reactie"
+      ]
+    },
+    {
+      "name": "Contactdermatitis komt overeen met een stof",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Een reactie op",
+        "iets",
+        "specifieks"
+      ]
+    },
+    {
+      "name": "Sinds de kindertijd betekent eczeem",
+      "char_file": "핸드크림_illust.jpg",
+      "body": [
+        "Een nieuw product",
+        "betekent contact-",
+        "dermatitis"
+      ]
+    },
+    {
+      "name": "De trigger niet vermijden laat het terugkomen",
+      "char_file": "은목걸이_illust.jpg",
+      "body": [
+        "Een plakproef",
+        "kan het",
+        "bevestigen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Probeer niet gewoon product na product zonder te weten om welke het gaat.",
+    "tip": "Controleer of de uitslag overeenkomt met een stof, en wanneer het begon.",
+    "cta": "Raadpleeg een dermatoloog voor een plakproef als de trigger moeilijk te vinden is."
+  },
+  "char_display_names": {
+    "핸드크림_illust.jpg": "Handcrème",
+    "은목걸이_illust.jpg": "Ketting"
+  },
+  "cover_scrim_color": "#3A6B4A"
+}
