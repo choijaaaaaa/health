@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Paralysie du",
+    "Sommeil vs.",
+    "Narcolepsie"
+  ],
+  "eyebrow": "Paralysie du sommeil vs. narcolepsie",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Une paralysie du sommeil occasionnelle est généralement sans danger",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Le manque de",
+        "sommeil est un",
+        "déclencheur fréquent"
+      ]
+    },
+    {
+      "name": "La narcolepsie vient de la perte de cellules à orexine",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Somnolence diurne",
+        "et cataplexie",
+        "en sont les signes"
+      ]
+    },
+    {
+      "name": "Une faiblesse en riant signifie une cataplexie",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Un signe propre",
+        "à la",
+        "narcolepsie"
+      ]
+    },
+    {
+      "name": "Une somnolence diurne malgré une nuit complète est un signal d'alerte",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Les accès de",
+        "sommeil se",
+        "répètent"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si la paralysie du sommeil est fréquente et s'accompagne de somnolence diurne, ne la considérez pas comme une simple habitude.",
+    "tip": "Vérifiez la faiblesse en riant et la somnolence diurne.",
+    "cta": "Consultez un spécialiste du sommeil si les symptômes se recoupent."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Oreiller",
+    "시계_illust.jpg": "Horloge"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Paralisi nel",
+    "Sonno vs.",
+    "Narcolessia"
+  ],
+  "eyebrow": "Paralisi nel sonno vs. narcolessia",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "La paralisi nel sonno occasionale è di solito innocua",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "La privazione di",
+        "sonno è un trigger",
+        "comune"
+      ]
+    },
+    {
+      "name": "La narcolessia deriva dalla perdita di cellule dell'orexina",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sonnolenza diurna",
+        "e cataplessia ne",
+        "sono i segnali"
+      ]
+    },
+    {
+      "name": "Debolezza quando ridi significa cataplessia",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Un segnale unico",
+        "della",
+        "narcolessia"
+      ]
+    },
+    {
+      "name": "Sonnolenza diurna nonostante il sonno è un segnale d'allarme",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Gli attacchi di",
+        "sonno si",
+        "ripetono"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se la paralisi nel sonno è frequente e si accompagna a sonnolenza diurna, non trattarla come una semplice abitudine.",
+    "tip": "Controlla la debolezza quando ridi e la sonnolenza diurna.",
+    "cta": "Consulta uno specialista del sonno se i sintomi si sovrappongono."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Cuscino",
+    "시계_illust.jpg": "Orologio"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}

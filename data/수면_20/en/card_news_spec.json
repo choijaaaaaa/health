@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Sleep Paralysis",
+    "vs.",
+    "Narcolepsy"
+  ],
+  "eyebrow": "Sleep Paralysis vs. Narcolepsy",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Occasional sleep paralysis is usually fine",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Sleep deprivation",
+        "is a common",
+        "trigger"
+      ]
+    },
+    {
+      "name": "Narcolepsy comes from lost orexin cells",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Daytime sleepiness",
+        "and cataplexy",
+        "are hallmarks"
+      ]
+    },
+    {
+      "name": "Weakness when laughing means cataplexy",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "A sign unique",
+        "to",
+        "narcolepsy"
+      ]
+    },
+    {
+      "name": "Daytime sleepiness despite full sleep is a warning sign",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Sleep attacks",
+        "keep",
+        "repeating"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "If sleep paralysis is frequent and comes with daytime sleepiness, don't just call it a sleep habit.",
+    "tip": "Check for weakness when laughing and daytime sleepiness.",
+    "cta": "See a sleep specialist if the symptoms overlap."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Pillow",
+    "시계_illust.jpg": "Clock"
+  },
+  "cover_scrim_color": "#3A3A6B"
+}
