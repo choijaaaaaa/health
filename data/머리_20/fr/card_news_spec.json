@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Vos pellicules",
+    "pourraient être",
+    "une dermite",
+    "séborrhéique"
+  ],
+  "eyebrow": "Vos pellicules pourraient être une dermite séborrhéique",
+  "cover_char_file": "샴푸_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Sèches veut dire petites pellicules blanches",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Vient d'une",
+        "barrière cutanée",
+        "sèche"
+      ]
+    },
+    {
+      "name": "Séborrhéique veut dire amas gras",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Prolifération de",
+        "levure Malassezia",
+        "en cause"
+      ]
+    },
+    {
+      "name": "S'étendre aux sourcils évoque le séborrhéique",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "S'étend au-delà",
+        "du cuir",
+        "chevelu"
+      ]
+    },
+    {
+      "name": "L'hydratation seule ne suffit pas",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Besoin d'un",
+        "shampooing",
+        "antifongique"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si changer de shampooing n'a pas aidé, identifiez d'abord la vraie cause.",
+    "tip": "Suivez la couleur des pellicules, leur extension et leur réaction à l'hydratation.",
+    "cta": "Consultez un dermatologue si l'antifongique n'aide pas après deux semaines."
+  },
+  "char_display_names": {
+    "샴푸_illust.jpg": "Shampooing",
+    "헤어브러시_illust.jpg": "Brosse à cheveux"
+  },
+  "cover_scrim_color": "#6B5A3A"
+}

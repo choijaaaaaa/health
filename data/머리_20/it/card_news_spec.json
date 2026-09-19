@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Forfora secca",
+    "vs.",
+    "Dermatite",
+    "seborroica"
+  ],
+  "eyebrow": "3 segnali per distinguere la forfora dalla dermatite seborroica",
+  "cover_char_file": "샴푸_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Secca significa piccole scaglie bianche",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Nasce da una",
+        "barriera cutanea",
+        "secca"
+      ]
+    },
+    {
+      "name": "Seborroica significa ammassi oleosi",
+      "char_file": "샴푸_illust.jpg",
+      "body": [
+        "Proliferazione del",
+        "lievito Malassezia",
+        "come causa"
+      ]
+    },
+    {
+      "name": "Estendersi a sopracciglia indica seborroica",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Si estende oltre",
+        "il cuoio",
+        "capelluto"
+      ]
+    },
+    {
+      "name": "L'idratazione sola non basta",
+      "char_file": "헤어브러시_illust.jpg",
+      "body": [
+        "Serve uno shampoo",
+        "antifungino",
+        "dedicato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Se cambiare shampoo non ha aiutato, individua prima la vera causa.",
+    "tip": "Segui il colore delle scaglie, la loro estensione e la risposta all'idratazione.",
+    "cta": "Consulta un dermatologo se l'antifungino non aiuta dopo due settimane."
+  },
+  "char_display_names": {
+    "샴푸_illust.jpg": "Shampoo",
+    "헤어브러시_illust.jpg": "Spazzola"
+  },
+  "cover_scrim_color": "#6B5A3A"
+}
