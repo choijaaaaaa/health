@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Burnout",
+    "vs.",
+    "Depression"
+  ],
+  "eyebrow": "Burnout vs. Depression",
+  "cover_char_file": "커피_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Burnout is tied to a specific job or situation",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "An exhaustion",
+        "linked to",
+        "work"
+      ]
+    },
+    {
+      "name": "Depression shows up across life as a whole",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "A mood disorder",
+        "unrelated",
+        "to work"
+      ]
+    },
+    {
+      "name": "Improving with rest points to burnout",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Staying the same",
+        "may mean",
+        "depression"
+      ]
+    },
+    {
+      "name": "Worthlessness or thoughts of death need help now",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Professional",
+        "help is",
+        "needed"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Check whether the struggle is limited to work, or spans life as a whole.",
+    "tip": "Note whether you actually recover after taking time off.",
+    "cta": "If there's worthlessness or thoughts of death, contact a professional without delay."
+  },
+  "char_display_names": {
+    "커피_illust.jpg": "Coffee",
+    "시계_illust.jpg": "Clock"
+  },
+  "cover_scrim_color": "#4A5D8A"
+}
