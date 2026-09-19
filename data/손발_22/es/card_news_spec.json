@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Dedo en",
+    "Resorte vs.",
+    "Dupuytren"
+  ],
+  "eyebrow": "Dedo en resorte vs. contractura de Dupuytren",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El dedo en resorte se traba y hace clic",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Inflamación de",
+        "la polea",
+        "como causa"
+      ]
+    },
+    {
+      "name": "Dupuytren curva sin dolor",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "El tejido",
+        "conectivo se",
+        "engrosa"
+      ]
+    },
+    {
+      "name": "Un cordón en la palma indica Dupuytren",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Banda firme",
+        "hacia el",
+        "dedo"
+      ]
+    },
+    {
+      "name": "El estiramiento solo no basta",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Puede necesitar",
+        "un procedimiento",
+        "o cirugía"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No te limites a estirar si un dedo se traba o se curva.",
+    "tip": "Revisa el dolor, el trabado, y cualquier cordón firme en la palma.",
+    "cta": "Si no mejora en pocos días, consulta a un especialista de mano."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dedo"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}

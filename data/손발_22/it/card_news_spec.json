@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Dito a",
+    "Scatto vs.",
+    "Dupuytren"
+  ],
+  "eyebrow": "Il dito curvo non si risolve con lo stretching",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "Il dito a scatto si blocca e scatta",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Infiammazione",
+        "della puleggia",
+        "come causa"
+      ]
+    },
+    {
+      "name": "Dupuytren curva senza dolore",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Il tessuto",
+        "connettivo si",
+        "ispessisce"
+      ]
+    },
+    {
+      "name": "Un cordone nel palmo indica Dupuytren",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Banda rigida",
+        "verso il",
+        "dito"
+      ]
+    },
+    {
+      "name": "Lo stretching da solo non basta",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Può richiedere",
+        "una procedura",
+        "o intervento"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Non limitarti a fare stretching se un dito si blocca o si curva.",
+    "tip": "Controlla dolore, blocco, e qualsiasi cordone rigido nel palmo.",
+    "cta": "Se non migliora in pochi giorni, consulta uno specialista della mano."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Dito"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}

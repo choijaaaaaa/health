@@ -1,0 +1,58 @@
+{
+  "title": [
+    "Trekkende",
+    "Vinger vs.",
+    "Dupuytren"
+  ],
+  "eyebrow": "Die kromme vinger kan Dupuytren zijn, niet alleen stijfheid",
+  "cover_char_file": "손가락_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Trekkende vinger haakt vast en klikt",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Ontsteking van",
+        "de katrol",
+        "als oorzaak"
+      ]
+    },
+    {
+      "name": "Dupuytren krult pijnloos",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Bindweefsel",
+        "verdikt in de",
+        "loop van tijd"
+      ]
+    },
+    {
+      "name": "Een streng in de palm wijst op Dupuytren",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Stevige band",
+        "richting de",
+        "vinger"
+      ]
+    },
+    {
+      "name": "Rekken alleen is niet genoeg",
+      "char_file": "손가락_illust.jpg",
+      "body": [
+        "Kan een ingreep",
+        "of operatie",
+        "vereisen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Blijf niet gewoon rekken als een vinger vasthaakt of krult.",
+    "tip": "Controleer op pijn, vasthaken, en elke stevige streng in de palm.",
+    "cta": "Raadpleeg een handspecialist als het na een paar dagen niet verbetert."
+  },
+  "char_display_names": {
+    "손가락_illust.jpg": "Vinger"
+  },
+  "cover_scrim_color": "#3A6B5A"
+}
