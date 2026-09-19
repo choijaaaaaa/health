@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Deficiencia de",
+    "Hierro vs.",
+    "Deficiencia de B12"
+  ],
+  "eyebrow": "Deficiencia de hierro vs. deficiencia de B12",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La deficiencia de hierro significa uñas y pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Hemoglobina",
+        "más baja",
+        "como causa"
+      ]
+    },
+    {
+      "name": "La deficiencia de B12 significa hormigueo",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Esencial para",
+        "la función",
+        "nerviosa"
+      ]
+    },
+    {
+      "name": "Hormigueo en manos y pies indica B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Raro con la",
+        "deficiencia de",
+        "hierro"
+      ]
+    },
+    {
+      "name": "No tomes suplementos sin analizarte primero",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Un análisis de",
+        "sangre confirma",
+        "cuál es"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No tomes hierro solo porque estás cansado — identifica de qué carencia se trata.",
+    "tip": "Revisa el hormigueo, los cambios en las uñas, y tu alimentación habitual.",
+    "cta": "Si los síntomas continúan, hazte analizar hierro y B12 juntos."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Res",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}

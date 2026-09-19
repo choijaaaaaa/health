@@ -1,0 +1,60 @@
+{
+  "title": [
+    "철결핍성빈혈과",
+    "B12 결핍",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "철결핍성빈혈과 비타민 B12 결핍, 구별하는 법",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "철결핍은 손톱 변화와 이식증",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "헤모글로빈",
+        "감소가",
+        "원인이에요"
+      ]
+    },
+    {
+      "name": "B12 결핍은 손발 저림 동반",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "신경 기능에",
+        "필요한",
+        "영양소예요"
+      ]
+    },
+    {
+      "name": "손발 저리면 B12 결핍 의심",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "철결핍에는",
+        "이 증상이",
+        "거의 없어요"
+      ]
+    },
+    {
+      "name": "확인 없이 영양제 먼저 먹지 마세요",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "혈액검사로",
+        "정확히",
+        "확인하세요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "피곤하다고 무작정 철분제부터 먹지 말고, 어느 쪽인지 확인해보세요.",
+    "tip": "손발 저림 여부와 손톱 변화, 평소 식습관을 확인해보세요.",
+    "cta": "증상이 계속되면 철분과 B12 수치를 같이 검사해보세요."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "소고기",
+    "두부_illust.jpg": "두부"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}

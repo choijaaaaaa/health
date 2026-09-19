@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Carence en",
+    "Fer vs.",
+    "Carence en B12"
+  ],
+  "eyebrow": "Carence en fer vs. carence en B12",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "La carence en fer veut dire ongles et pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Hémoglobine",
+        "abaissée",
+        "en cause"
+      ]
+    },
+    {
+      "name": "La carence en B12 veut dire picotements",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Essentielle pour",
+        "la fonction",
+        "nerveuse"
+      ]
+    },
+    {
+      "name": "Des picotements dans les mains évoquent la B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Rare avec la",
+        "carence en",
+        "fer"
+      ]
+    },
+    {
+      "name": "Ne prenez pas de compléments sans test",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Une prise de",
+        "sang confirme",
+        "laquelle"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ne prenez pas simplement du fer parce que vous êtes fatigué — identifiez de quelle carence il s'agit.",
+    "tip": "Vérifiez les picotements, les changements d'ongles, et votre alimentation habituelle.",
+    "cta": "Si les symptômes persistent, faites tester le fer et la B12 ensemble."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Bœuf",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}

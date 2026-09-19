@@ -1,0 +1,59 @@
+{
+  "title": [
+    "IJzertekort",
+    "vs.",
+    "B12-Tekort"
+  ],
+  "eyebrow": "IJzertekort vs. vitamine B12-tekort",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "IJzertekort betekent nagels en pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Lager",
+        "hemoglobine",
+        "als oorzaak"
+      ]
+    },
+    {
+      "name": "B12-tekort betekent tintelingen",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Essentieel voor",
+        "de zenuw-",
+        "functie"
+      ]
+    },
+    {
+      "name": "Tintelingen in handen of voeten wijst op B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Zelden bij",
+        "ijzertekort",
+        ""
+      ]
+    },
+    {
+      "name": "Neem geen supplementen zonder test",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Een bloedtest",
+        "bevestigt",
+        "welk het is"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Grijp niet zomaar naar ijzer omdat je moe bent — stel vast om welk tekort het gaat.",
+    "tip": "Controleer op tintelingen, nagelveranderingen, en je gebruikelijke voeding.",
+    "cta": "Bij aanhoudende klachten ijzer- en B12-waarden samen laten testen."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Rundvlees",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}

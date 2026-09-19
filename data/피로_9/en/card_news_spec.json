@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Iron",
+    "Deficiency vs.",
+    "B12 Deficiency"
+  ],
+  "eyebrow": "Iron Deficiency vs. B12 Deficiency",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Iron deficiency means nail changes and pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Lower",
+        "hemoglobin",
+        "is the cause"
+      ]
+    },
+    {
+      "name": "B12 deficiency means tingling hands and feet",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Essential for",
+        "nerve",
+        "function"
+      ]
+    },
+    {
+      "name": "Tingling in hands or feet suggests B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Iron deficiency",
+        "rarely causes",
+        "this"
+      ]
+    },
+    {
+      "name": "Don't take supplements without testing first",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "A blood test",
+        "confirms",
+        "which one"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Don't just grab an iron supplement when you're tired — check which one it is.",
+    "tip": "Check for tingling, nail changes, and your usual diet.",
+    "cta": "If symptoms continue, get both iron and B12 levels tested."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Beef",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}

@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Järnbrist",
+    "vs.",
+    "B12-Brist"
+  ],
+  "eyebrow": "Järnbrist vs. B12-brist",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Svep för mer →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Järnbrist betyder nagelförändringar och pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Lägre",
+        "hemoglobin",
+        "som orsak"
+      ]
+    },
+    {
+      "name": "B12-brist betyder stickningar",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Nödvändigt för",
+        "nerv-",
+        "funktionen"
+      ]
+    },
+    {
+      "name": "Stickningar i händer eller fötter pekar mot B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Sällsynt vid",
+        "järnbrist",
+        ""
+      ]
+    },
+    {
+      "name": "Ta inte kosttillskott utan att testa först",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Ett blodprov",
+        "bekräftar",
+        "vilket det är"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ta inte bara järntillskott för att du är trött — ta reda på vilken brist det är.",
+    "tip": "Kontrollera stickningar, nagelförändringar, och din vanliga kost.",
+    "cta": "Vid fortsatta symtom, testa järn- och B12-nivåer tillsammans."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Nötkött",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}
