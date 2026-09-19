@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Gota",
+    "vs.",
+    "Pseudogota"
+  ],
+  "eyebrow": "Gota vs. pseudogota",
+  "cover_char_file": "무릎_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La gota significa cristales de urato, dedo gordo",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Empeora tras",
+        "alcohol o",
+        "carne"
+      ]
+    },
+    {
+      "name": "La pseudogota significa cristales de calcio, rodilla/muñeca",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Sigue más bien a",
+        "cirugía o",
+        "traumatismo"
+      ]
+    },
+    {
+      "name": "Tras los 60 aumenta el riesgo de pseudogota",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "La edad es una",
+        "pista",
+        "clave"
+      ]
+    },
+    {
+      "name": "No reinicies solo los medicamentos antiguos",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "El líquido",
+        "articular confirma",
+        "el diagnóstico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "No reinicies sin más un medicamento antiguo para la gota cuando una articulación se hincha de repente.",
+    "tip": "Anota la articulación afectada y comidas, alcohol o cirugías recientes.",
+    "cta": "Si hay duda, haz analizar el líquido articular."
+  },
+  "char_display_names": {
+    "무릎_illust.jpg": "Rodilla",
+    "맥주_illust.jpg": "Alcohol"
+  },
+  "cover_scrim_color": "#6B4A3A"
+}

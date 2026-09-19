@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Goutte",
+    "vs.",
+    "Chondro-",
+    "calcinose"
+  ],
+  "eyebrow": "Cette douleur articulaire pourrait être une chondrocalcinose, pas la goutte",
+  "cover_char_file": "무릎_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "La goutte veut dire cristaux d'urate, gros orteil",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "S'aggrave après",
+        "alcool ou",
+        "viande"
+      ]
+    },
+    {
+      "name": "La chondrocalcinose veut dire cristaux de calcium, genou/poignet",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "Suit plutôt une",
+        "opération ou",
+        "un traumatisme"
+      ]
+    },
+    {
+      "name": "Après 60 ans, risque de chondrocalcinose accru",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "L'âge est un",
+        "indice",
+        "clé"
+      ]
+    },
+    {
+      "name": "Ne reprenez pas d'anciens médicaments seul",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "Le liquide",
+        "articulaire confirme",
+        "le diagnostic"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ne reprenez pas simplement d'anciens médicaments contre la goutte quand une articulation gonfle soudainement.",
+    "tip": "Notez l'articulation touchée et tout repas, alcool ou opération récents.",
+    "cta": "En cas de doute, faites analyser le liquide articulaire."
+  },
+  "char_display_names": {
+    "무릎_illust.jpg": "Genou",
+    "맥주_illust.jpg": "Alcool"
+  },
+  "cover_scrim_color": "#6B4A3A"
+}

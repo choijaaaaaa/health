@@ -1,0 +1,60 @@
+{
+  "title": [
+    "통풍과",
+    "가성통풍",
+    "구별하는",
+    "법"
+  ],
+  "eyebrow": "통풍과 가성통풍, 구별하는 법",
+  "cover_char_file": "무릎_illust.jpg",
+  "swipe_label": "넘겨서 더 보기  →",
+  "closing_label": "정리",
+  "items": [
+    {
+      "name": "통풍은 요산 결정, 엄지발가락",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "술·고기 먹은",
+        "다음날",
+        "심해져요"
+      ]
+    },
+    {
+      "name": "가성통풍은 칼슘 결정, 무릎·손목",
+      "char_file": "무릎_illust.jpg",
+      "body": [
+        "수술·외상",
+        "뒤에",
+        "생겨요"
+      ]
+    },
+    {
+      "name": "60대 이후면 가성통풍 가능성↑",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "나이도",
+        "중요한",
+        "단서예요"
+      ]
+    },
+    {
+      "name": "예전 통풍약 임의 복용 금지",
+      "char_file": "맥주_illust.jpg",
+      "body": [
+        "관절액 검사로",
+        "확진해야",
+        "해요"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "관절이 갑자기 부었다고 곧바로 통풍약을 다시 먹지 마세요.",
+    "tip": "어느 관절인지, 최근 음식·수술 여부를 기록해보세요.",
+    "cta": "확실하지 않으면 관절액 검사로 정확히 확인하세요."
+  },
+  "char_display_names": {
+    "무릎_illust.jpg": "무릎",
+    "맥주_illust.jpg": "술"
+  },
+  "cover_scrim_color": "#6B4A3A"
+}
