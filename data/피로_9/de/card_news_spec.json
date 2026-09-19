@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Eisenmangel",
+    "vs.",
+    "B12-Mangel"
+  ],
+  "eyebrow": "Eisenmangel vs. B12-Mangel",
+  "cover_char_file": "소고기_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Eisenmangel heißt Nagelveränderungen und Pica",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Niedrigeres",
+        "Hämoglobin",
+        "als Ursache"
+      ]
+    },
+    {
+      "name": "B12-Mangel heißt Kribbeln in Händen und Füßen",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Essenziell für",
+        "die Nerven-",
+        "funktion"
+      ]
+    },
+    {
+      "name": "Kribbeln in Händen oder Füßen deutet auf B12",
+      "char_file": "두부_illust.jpg",
+      "body": [
+        "Bei Eisenmangel",
+        "selten",
+        "vorhanden"
+      ]
+    },
+    {
+      "name": "Nicht ohne Test einfach Präparate nehmen",
+      "char_file": "소고기_illust.jpg",
+      "body": [
+        "Ein Bluttest",
+        "klärt",
+        "welcher es ist"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Nicht einfach zum Eisenpräparat greifen, wenn Sie müde sind — klären Sie, um welchen Mangel es geht.",
+    "tip": "Prüfen Sie Kribbeln, Nagelveränderungen und Ihre übliche Ernährung.",
+    "cta": "Bei anhaltenden Symptomen Eisen- und B12-Werte gemeinsam testen lassen."
+  },
+  "char_display_names": {
+    "소고기_illust.jpg": "Rindfleisch",
+    "두부_illust.jpg": "Tofu"
+  },
+  "cover_scrim_color": "#7A5A3A"
+}
