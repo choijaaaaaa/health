@@ -1,0 +1,60 @@
+{
+  "title": [
+    "One Mouth",
+    "Sore Heals Fast,",
+    "Another",
+    "Won't. Why?"
+  ],
+  "eyebrow": "Why Does One Mouth Sore Heal Fast and Another Won't?",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Canker sores are inside, not contagious",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Inner cheek",
+        "or tongue,",
+        "never spreads"
+      ]
+    },
+    {
+      "name": "Cold sores are viral and contagious",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Spreads through",
+        "contact while",
+        "blistering"
+      ]
+    },
+    {
+      "name": "Location tells them apart first",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Inside mouth vs.",
+        "outer lip",
+        "edge"
+      ]
+    },
+    {
+      "name": "Near the eye means see a doctor now",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Can threaten",
+        "vision if",
+        "untreated"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Check the location and whether it's contagious before assuming it's the same sore.",
+    "tip": "Most heal within one to two weeks, faster with early care.",
+    "cta": "Anything that lingers or shows up near the eye needs a doctor right away."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Lips",
+    "칫솔_illust.jpg": "Toothbrush"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}

@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Aphthe oder",
+    "Lippenherpes:",
+    "ansteckend",
+    "oder nicht?"
+  ],
+  "eyebrow": "Ihre Mundwunde könnte ansteckend sein — oder nicht",
+  "cover_char_file": "입술_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Aphthen sind innen, nicht ansteckend",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Wangeninnenseite",
+        "oder Zunge,",
+        "nie ansteckend"
+      ]
+    },
+    {
+      "name": "Lippenherpes ist viral und ansteckend",
+      "char_file": "입술_illust.jpg",
+      "body": [
+        "Verbreitet sich",
+        "bei Bläschen",
+        "durch Kontakt"
+      ]
+    },
+    {
+      "name": "Die Lage unterscheidet zuerst",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Mundinneres vs.",
+        "äußerer",
+        "Lippenrand"
+      ]
+    },
+    {
+      "name": "In Augennähe sofort zum Arzt",
+      "char_file": "칫솔_illust.jpg",
+      "body": [
+        "Kann die",
+        "Sehkraft",
+        "bedrohen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Erst die Lage prüfen und ob es ansteckend ist, bevor man dieselbe Wunde annimmt.",
+    "tip": "Die meisten heilen in ein bis zwei Wochen, schneller mit früher Behandlung.",
+    "cta": "Was bestehen bleibt oder in Augennähe auftritt, braucht sofort einen Arzt."
+  },
+  "char_display_names": {
+    "입술_illust.jpg": "Lippen",
+    "칫솔_illust.jpg": "Zahnbürste"
+  },
+  "cover_scrim_color": "#8A5C2E"
+}
