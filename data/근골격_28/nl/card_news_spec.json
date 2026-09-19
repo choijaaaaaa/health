@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tennisarm",
+    "vs.",
+    "Golferselleboog"
+  ],
+  "eyebrow": "Die muis of toetsenbord kan een tennisarm veroorzaken",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Tennisarm betekent pijn aan de buitenkant",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Pees voor",
+        "polsextensie",
+        "aangedaan"
+      ]
+    },
+    {
+      "name": "Golferselleboog betekent pijn aan de binnenkant",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Pees voor",
+        "polsflexie",
+        "aangedaan"
+      ]
+    },
+    {
+      "name": "Ook muisgebruik kan een tennisarm veroorzaken",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Geen sport",
+        "nodig",
+        "daarvoor"
+      ]
+    },
+    {
+      "name": "Rust alleen voorkomt geen terugkeer",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "De beweging",
+        "moet worden",
+        "verminderd"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Rust en koel een pijnlijke elleboog niet zomaar zonder iets anders te veranderen.",
+    "tip": "Controleer of het buiten of binnen zit, en welke beweging meer pijn doet.",
+    "cta": "Raadpleeg een orthopeed als het na een paar weken niet verbetert."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Muis",
+    "골프채_illust.jpg": "Golfclub"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}

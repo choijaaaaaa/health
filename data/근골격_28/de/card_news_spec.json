@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tennisarm",
+    "vs.",
+    "Golferarm"
+  ],
+  "eyebrow": "Tennisarm vs. Golferarm",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Tennisarm heißt Schmerz an der Außenseite",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Sehne für",
+        "Handgelenk-",
+        "streckung"
+      ]
+    },
+    {
+      "name": "Golferarm heißt Schmerz an der Innenseite",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Sehne für",
+        "Handgelenk-",
+        "beugung"
+      ]
+    },
+    {
+      "name": "Auch die Maus kann einen Tennisarm verursachen",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Kein Sport",
+        "dafür",
+        "nötig"
+      ]
+    },
+    {
+      "name": "Ruhe allein verhindert kein Wiederauftreten",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Die Bewegung",
+        "muss reduziert",
+        "werden"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ruhen und Kühlen Sie einen schmerzenden Ellenbogen nicht einfach, ohne sonst etwas zu ändern.",
+    "tip": "Prüfen Sie, ob außen oder innen schmerzt und welche Bewegung schlimmer macht.",
+    "cta": "Bei keiner Besserung nach einigen Wochen einen Orthopäden aufsuchen."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Maus",
+    "골프채_illust.jpg": "Golfschläger"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}

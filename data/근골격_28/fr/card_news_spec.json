@@ -1,0 +1,59 @@
+{
+  "title": [
+    "Tennis Elbow",
+    "vs.",
+    "Golf Elbow"
+  ],
+  "eyebrow": "Tennis elbow vs. golf elbow",
+  "cover_char_file": "마우스_illust.jpg",
+  "swipe_label": "Glissez pour en voir plus →",
+  "closing_label": "Récapitulatif",
+  "items": [
+    {
+      "name": "Le tennis elbow veut dire douleur externe",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Tendon de",
+        "l'extension du",
+        "poignet"
+      ]
+    },
+    {
+      "name": "Le golf elbow veut dire douleur interne",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Tendon de",
+        "la flexion du",
+        "poignet"
+      ]
+    },
+    {
+      "name": "La souris peut aussi causer un tennis elbow",
+      "char_file": "마우스_illust.jpg",
+      "body": [
+        "Aucun sport",
+        "n'est",
+        "nécessaire"
+      ]
+    },
+    {
+      "name": "Le repos seul ne suffit pas",
+      "char_file": "골프채_illust.jpg",
+      "body": [
+        "Le mouvement",
+        "doit être",
+        "réduit"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Ne vous contentez pas de repos et de glace sur un coude douloureux sans rien changer d'autre.",
+    "tip": "Vérifiez si c'est le côté externe ou interne, et quel mouvement fait le plus mal.",
+    "cta": "Consultez un orthopédiste si rien ne s'améliore après quelques semaines."
+  },
+  "char_display_names": {
+    "마우스_illust.jpg": "Souris",
+    "골프채_illust.jpg": "Club de golf"
+  },
+  "cover_scrim_color": "#3A5A6B"
+}
