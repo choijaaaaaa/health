@@ -11,13 +11,13 @@ health-shorts도 넣어줘 — 업로드 편해지게" 요청).
 2. 그래서 `ai-video-network/deploy/ko/<topic>/`에 1biteinfo/worlds-figure
    topic들과 **같은 계층**으로 섞어 넣었다가, "영상 플랫폼 애들이랑 섞이면
    보기 어렵다 — 헬스숏츠 폴더링 따로 해야지"로 다시 정정받음.
-3. **최종**: `ai-video-network/deploy/ko/health-shorts/<topic>/` — 같은
+3. **최종**: `ai-video-network/deploy/health-shorts/<topic>/` — 같은
    `deploy/` 트리 안에 있어서 한 곳만 보면 되는 건 유지하면서, 이 프로젝트
    topic들은 전용 서브폴더로 시각적으로 분리됨. 1biteinfo/worlds-figure
    topic과 이름이 겹칠 걱정도 이제 없음(서로 다른 폴더).
 
-- 영상: `deploy/ko/health-shorts/<topic>/shorts.mp4` ← `output/<topic>/shorts.mp4`
-- 카드뉴스: `deploy/ko/health-shorts/<topic>/card_news/<파일명>` ←
+- 영상: `deploy/health-shorts/<topic>/shorts.mp4` ← `output/<topic>/shorts.mp4`
+- 카드뉴스: `deploy/health-shorts/<topic>/card_news/<파일명>` ←
   `output/<topic>/card_news/*.jpg` (2026-09-18 실측: shorts.mp4가 있는 topic은
   전부 네이버용 카드뉴스가 `output/<topic>/card_news/`에 flat으로 있다 —
   `ko/card_news`가 아님, 그 하위 언어 폴더(en/ja/...)는 blog_seo용이라 대상 아님)
@@ -34,7 +34,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = ROOT / "output"
-DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "ko" / "health-shorts"
+DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 
 
 def _iter_topics() -> list[tuple[str, Path]]:
@@ -85,7 +85,7 @@ def stage(dry_run: bool) -> None:
                     skipped += 1
 
     # WHY 이름 형태 체크 없이 바로 rglob 전체를 stale로 보는지: 이 폴더
-    # (deploy/ko/health-shorts/) 자체가 이 프로젝트 전용이라 다른
+    # (deploy/health-shorts/) 자체가 이 프로젝트 전용이라 다른
     # 프로젝트(1biteinfo 등) 파일이 여기 섞여 들어올 일이 없다 — 예전엔
     # deploy/ko/ 최상위를 같이 써서 이름 형태(밑줄 vs 공백)로 구분해야
     # 했지만, 전용 서브폴더로 분리된 뒤로는 불필요해짐.
@@ -93,7 +93,7 @@ def stage(dry_run: bool) -> None:
         p for p in DEPLOY_DIR.rglob("*") if p.is_file() and p not in seen
     ]
     if stale:
-        print(f"\n⚠️  deploy/ko/health-shorts/에 원본을 못 찾은 파일 {len(stale)}개(삭제 안 함, 직접 확인할 것):")
+        print(f"\n⚠️  deploy/health-shorts/에 원본을 못 찾은 파일 {len(stale)}개(삭제 안 함, 직접 확인할 것):")
         for p in stale:
             print("   -", p.relative_to(DEPLOY_DIR))
 

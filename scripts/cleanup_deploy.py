@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """mission-control Upload 탭에서 목표 플랫폼이 전부 체크된(완료) topic의
-공용 `ai-video-network/deploy/ko/health-shorts/` **복사본**(shorts.mp4 +
+공용 `ai-video-network/deploy/health-shorts/` **복사본**(shorts.mp4 +
 card_news/)만 지운다 — 원본(`output/<topic>/`)은 절대 건드리지 않는다
 (2026-09-18, ai-video-network/tools/cleanup_deploy.py와 동일 패턴 이식,
 위치는 stage_for_deploy.py와 동일 경위로 두 번 정정됨 — 그쪽 파일 상단
@@ -36,7 +36,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
-DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "ko" / "health-shorts"
+DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 load_dotenv(ROOT / ".env")
 
 # WHY 기본 User-Agent를 갈아끼우는지: lib/mission_control_sync.py와 동일 사유
@@ -111,9 +111,9 @@ def main() -> None:
             continue
         if args.commit:
             shutil.rmtree(target)
-            print(f"삭제됨: deploy/ko/health-shorts/{topic}")
+            print(f"삭제됨: deploy/health-shorts/{topic}")
         else:
-            print(f"[dry-run] 삭제 예정: deploy/ko/health-shorts/{topic}")
+            print(f"[dry-run] 삭제 예정: deploy/health-shorts/{topic}")
         removed += 1
 
     verb = "삭제" if args.commit else "삭제 예정(--commit으로 실행)"
