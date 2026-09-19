@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Corpi mobili",
+    "in aumento:",
+    "strappo",
+    "retinico?"
+  ],
+  "eyebrow": "Corpi mobili innocui vs distacco della retina",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Scorri per saperne di più →",
+  "closing_label": "Riepilogo",
+  "items": [
+    {
+      "name": "I cambiamenti del vitreo ne sono la causa",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Una parte normale",
+        "dell'invecchiamento",
+        "dell'occhio"
+      ]
+    },
+    {
+      "name": "Over 50, forte miopia a rischio",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Chirurgia oculare,",
+        "trauma contano",
+        "anche"
+      ]
+    },
+    {
+      "name": "Un numero stabile non preoccupa",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Nessun aumento",
+        "nel tempo è",
+        "normale"
+      ]
+    },
+    {
+      "name": "Lampi più comparsa improvvisa: emergenza",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Una tenda o",
+        "un'ombra avvisano",
+        "anche"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Pochi corpi mobili sono innocui, ma una comparsa improvvisa con lampi può essere diversa.",
+    "tip": "Un oculista dilata la pupilla per esaminare direttamente la retina.",
+    "cta": "Lampi o un'ombra insieme a nuovi corpi mobili significano visita lo stesso giorno."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Occhio",
+    "안경_illust.jpg": "Occhiali"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}

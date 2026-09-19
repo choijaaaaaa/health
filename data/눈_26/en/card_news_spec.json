@@ -1,0 +1,60 @@
+{
+  "title": [
+    "A Sudden Shower",
+    "of Floaters Could",
+    "Signal a",
+    "Retinal Tear"
+  ],
+  "eyebrow": "A Sudden Shower of Eye Floaters Could Signal a Retinal Tear",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "Vitreous changes cause floaters",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "A common part",
+        "of the eye",
+        "aging"
+      ]
+    },
+    {
+      "name": "Over 50, high myopia at risk",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Eye surgery,",
+        "trauma count",
+        "too"
+      ]
+    },
+    {
+      "name": "Stable count means no worry",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Not increasing",
+        "over time is",
+        "normal"
+      ]
+    },
+    {
+      "name": "Flashes plus a burst mean same-day care",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "A curtain or",
+        "shadow is a",
+        "red flag too"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "A few floaters are fine, but a sudden burst with flashes can be different.",
+    "tip": "An eye doctor dilates the pupil to examine the retina directly.",
+    "cta": "Flashes or a shadow alongside new floaters mean same-day eye care, not waiting."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Eye",
+    "안경_illust.jpg": "Glasses"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}

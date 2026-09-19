@@ -1,0 +1,60 @@
+{
+  "title": [
+    "Meer vlekjes",
+    "plus flitsen:",
+    "netvlies-",
+    "scheur?"
+  ],
+  "eyebrow": "Onschuldige glasvochttroebelingen vs. netvliesloslating",
+  "cover_char_file": "눈_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Veranderingen in het glasvocht zijn de oorzaak",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Een normaal onderdeel",
+        "van het",
+        "verouderende oog"
+      ]
+    },
+    {
+      "name": "Ouder dan 50, sterke bijziendheid risico",
+      "char_file": "눈_illust.jpg",
+      "body": [
+        "Oogoperatie,",
+        "letsel tellen",
+        "ook mee"
+      ]
+    },
+    {
+      "name": "Stabiel aantal is geen zorg",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Geen toename",
+        "over tijd is",
+        "normaal"
+      ]
+    },
+    {
+      "name": "Flitsen plus stortvloed betekent spoed",
+      "char_file": "안경_illust.jpg",
+      "body": [
+        "Een gordijn of",
+        "schaduw waarschuwt",
+        "ook"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Een paar vlekjes zijn onschuldig, maar een plotselinge stortvloed met flitsen kan anders zijn.",
+    "tip": "Een oogarts verwijdt de pupil om het netvlies rechtstreeks te onderzoeken.",
+    "cta": "Flitsen of een schaduw samen met nieuwe vlekjes betekenen dezelfde dag nog een oogarts."
+  },
+  "char_display_names": {
+    "눈_illust.jpg": "Oog",
+    "안경_illust.jpg": "Bril"
+  },
+  "cover_scrim_color": "#4A5C3A"
+}
