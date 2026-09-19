@@ -1,0 +1,59 @@
+{
+  "title": [
+    "SPM",
+    "vs.",
+    "TDPM"
+  ],
+  "eyebrow": "SPM vs. TDPM: cómo distinguirlos",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "El SPM significa síntomas leves",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Hinchazón y",
+        "sensibilidad,",
+        "manejables"
+      ]
+    },
+    {
+      "name": "El TDPM significa sensibilidad anormal a la serotonina",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ira intensa o",
+        "depresión son",
+        "el sello distintivo"
+      ]
+    },
+    {
+      "name": "Registrar dos ciclos es clave",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Comprobar si se",
+        "concentra en la",
+        "fase lútea"
+      ]
+    },
+    {
+      "name": "Los casos graves pueden necesitar ISRS",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Los suplementos",
+        "solos no siempre",
+        "bastan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Si los cambios de humor antes de la regla afectan tu día a día, no te limites a aguantar.",
+    "tip": "Registra los síntomas en un calendario durante unos dos ciclos.",
+    "cta": "Si hay pensamientos de autolesión, contacta a un médico de inmediato."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Calendario",
+    "알약_illust.jpg": "Medicamento"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

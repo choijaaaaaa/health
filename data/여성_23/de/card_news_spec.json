@@ -1,0 +1,59 @@
+{
+  "title": [
+    "PMS",
+    "vs.",
+    "PMDS"
+  ],
+  "eyebrow": "PMS vs. PMDS: So unterscheidet man sie",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "PMS heißt milde körperliche und Stimmungssymptome",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Blähungen und",
+        "Spannen, noch",
+        "bewältigbar"
+      ]
+    },
+    {
+      "name": "PMDS heißt gestörte Serotonin-Sensitivität",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Starke Wut oder",
+        "Depression ist",
+        "das Kennzeichen"
+      ]
+    },
+    {
+      "name": "Zwei Zyklen erfassen ist entscheidend",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Prüfen, ob es sich",
+        "in der Lutealphase",
+        "häuft"
+      ]
+    },
+    {
+      "name": "Schwere Fälle brauchen eventuell SSRI",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Nahrungsergänzung",
+        "allein reicht",
+        "oft nicht"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Wenn Stimmungsschwankungen vor der Periode den Alltag stören, einfach durchhalten reicht nicht.",
+    "tip": "Symptome über etwa zwei Zyklen im Kalender festhalten.",
+    "cta": "Bei Gedanken an Selbstverletzung sofort einen Arzt kontaktieren."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Kalender",
+    "알약_illust.jpg": "Medikament"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

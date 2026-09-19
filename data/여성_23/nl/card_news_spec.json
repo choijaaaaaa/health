@@ -1,0 +1,59 @@
+{
+  "title": [
+    "3 signalen",
+    "PMS vs.",
+    "PMDS"
+  ],
+  "eyebrow": "3 signalen die PMS onderscheiden van PMDS",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Swipe voor meer →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "PMS betekent milde klachten",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Opgeblazen gevoel,",
+        "gevoelige borsten,",
+        "nog te overzien"
+      ]
+    },
+    {
+      "name": "PMDS betekent abnormale serotoninegevoeligheid",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Hevige woede of",
+        "depressie is",
+        "het kenmerk"
+      ]
+    },
+    {
+      "name": "Twee cycli bijhouden is cruciaal",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Checken of het zich",
+        "concentreert in de",
+        "luteale fase"
+      ]
+    },
+    {
+      "name": "Ernstige gevallen kunnen SSRI's nodig hebben",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Supplementen alleen",
+        "zijn vaak niet",
+        "genoeg"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "Als stemmingswisselingen voor je menstruatie je dagelijks leven verstoren, bijt niet gewoon door.",
+    "tip": "Houd klachten ongeveer twee cycli lang bij op een kalender.",
+    "cta": "Bij gedachten aan zelfbeschadiging direct contact opnemen met een arts."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Kalender",
+    "알약_illust.jpg": "Medicatie"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

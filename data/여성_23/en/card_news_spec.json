@@ -1,0 +1,59 @@
+{
+  "title": [
+    "PMS",
+    "vs.",
+    "PMDD"
+  ],
+  "eyebrow": "PMS vs. PMDD: How to Tell Them Apart",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Recap",
+  "items": [
+    {
+      "name": "PMS means mild physical and mood symptoms",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Bloating and",
+        "tenderness, still",
+        "manageable"
+      ]
+    },
+    {
+      "name": "PMDD means abnormal serotonin sensitivity",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Severe anger or",
+        "depression is",
+        "the hallmark"
+      ]
+    },
+    {
+      "name": "Tracking two cycles is key",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Check if it clusters",
+        "in the luteal",
+        "phase"
+      ]
+    },
+    {
+      "name": "Severe cases may need SSRIs",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Supplements alone",
+        "may not be",
+        "enough"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "If mood swings before your period disrupt daily life, don't just push through it.",
+    "tip": "Track symptoms on a calendar for about two cycles.",
+    "cta": "If symptoms include thoughts of self-harm, contact a doctor right away."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Calendar",
+    "알약_illust.jpg": "Medication"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}

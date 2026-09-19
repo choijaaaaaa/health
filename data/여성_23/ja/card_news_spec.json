@@ -1,0 +1,60 @@
+{
+  "title": [
+    "それは",
+    "PMSではなく",
+    "PMDD",
+    "かも"
+  ],
+  "eyebrow": "PMSとPMDDの見分け方",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "スワイプして続きを見る →",
+  "closing_label": "まとめ",
+  "items": [
+    {
+      "name": "PMSは軽度の身体・気分症状",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "むくみや張り",
+        "程度で",
+        "対処できます"
+      ]
+    },
+    {
+      "name": "PMDDはセロトニン感受性の異常",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "強い怒りや",
+        "抑うつが",
+        "特徴です"
+      ]
+    },
+    {
+      "name": "2周期の記録が鍵です",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "黄体期に",
+        "集中するか",
+        "確認します"
+      ]
+    },
+    {
+      "name": "重い場合はSSRIも検討",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "サプリだけでは",
+        "足りない",
+        "ことも"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": "生理前の気分の波が日常生活に支障が出るほどなら、我慢しないでください。",
+    "tip": "2周期ほど症状をカレンダーに記録してみましょう。",
+    "cta": "自傷を考えるほど重い場合はすぐに医師に相談しましょう。"
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "カレンダー",
+    "알약_illust.jpg": "薬"
+  },
+  "cover_scrim_color": "#7A4A5C"
+}
