@@ -1,5 +1,9 @@
 {
   "_why": "8개 언어를 다 못 채우고 중단된 blog_seo topic. tests/test_content_rules.py::test_blog_seo_language_coverage가 여기 등록된 topic만 예외로 통과시킨다 — 새로 생긴 누락은 즉시 실패한다. 다 채우면 해당 항목을 지울 것(안 지우면 '다 채웠는데 목록에 남아있다'로 실패한다).",
   "_recorded_on": "2026-09-01",
-  "entries": {}
+  "entries": {
+    "냄새_12": ["de", "es", "fr", "it", "nl", "sv"],
+    "비뇨기_11": ["de", "es", "fr", "it", "nl", "sv"],
+    "손발_10": ["de", "es", "fr", "it", "nl", "sv"]
+  }
 }
