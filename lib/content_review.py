@@ -397,8 +397,12 @@ _NAVER_NUM = re.compile(
 _NAVER_VAGUE_SRC = re.compile(
     r"(연구\s?결과가\s?있|연구가\s?있|한\s?연구에|여러\s?연구|알려져\s?있|보고가\s?있|조사\s?결과가\s?있)"
 )
+# ⚠️ 약칭만 넣으면 **정식 명칭을 쓴 문장이 오탐으로 잡힌다**(2026-09-23 머리_14 실측:
+# "식품의약품안전처 통합식품안전정보망"이 출처 없음으로 걸렸다). 기관을 제대로 밝힌 쪽이
+# 벌을 받는 셈이라, 자주 쓰는 정식 명칭을 같이 둔다.
 _NAVER_REAL_SRC = re.compile(
-    r"(대학교|대학병원|서울대|연세|삼성서울|아산|질병관리청|식약처|보건복지부|국민건강|"
+    r"(대학교|대학병원|서울대|연세|삼성서울|아산|질병관리청|식약처|식품의약품안전처|"
+    r"보건복지부|국민건강|건강보험심사평가원|국민건강보험공단|농촌진흥청|기상청|"
     r"WHO|세계보건기구|학회|연구소|재단|NHS|CDC|FDA|메이요|하버드|논문|저널|"
     r"[가-힣]{2,}병원|[가-힣]{2,}연구원|[A-Z][A-Za-z]{2,})"
 )
@@ -497,9 +501,12 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
     않기로 했다(2026-09-19). 마커가 있는 새 원고만 검사해야 옛 topic이 전부 실패로 뜨지 않는다."""
     if lang not in ("kor", "ko"):
         return []
-    spec_path = ROOT / "data" / topic / "card_news_spec.json"
+    # ⚠️ 스펙 위치가 topic마다 다르다(check_search_keyword와 같은 사정) — flat만 보면 ko/ 폴더를 쓰는
+    # topic이 content_v2 마커를 달아도 깊이 검사가 조용히 꺼진 채 "문제 없음"으로 통과한다.
+    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
+                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
     nar_path = ROOT / "data" / topic / "narration.txt"
-    if not spec_path.exists() or not nar_path.exists():
+    if spec_path is None or not nar_path.exists():
         return []
     try:
         if not json.loads(spec_path.read_text(encoding="utf-8")).get("content_v2"):
