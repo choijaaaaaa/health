@@ -26,6 +26,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -401,7 +402,11 @@ _NAVER_VAGUE_SRC = re.compile(
 # "식품의약품안전처 통합식품안전정보망"이 출처 없음으로 걸렸다). 기관을 제대로 밝힌 쪽이
 # 벌을 받는 셈이라, 자주 쓰는 정식 명칭을 같이 둔다.
 _NAVER_REAL_SRC = re.compile(
+    # ⚠️ 2026-09-23 머리_14(콜라겐) 실측: "한국소비자원 시험에서 …"가 출처 없음으로 걸렸다 —
+    # 끝이 '원'이라 `[가-힣]{2,}연구원`에도 안 걸린다. 위 WHY의 "정식 명칭을 쓴 쪽이 벌을 받는" 사례가
+    # 그대로 반복돼 공공기관 이름을 직접 추가한다(소비자원 보도자료는 이 채널이 자주 쓰는 1차 자료다).
     r"(대학교|대학병원|서울대|연세|삼성서울|아산|질병관리청|식약처|식품의약품안전처|"
+    r"한국소비자원|소비자원|한국소비자연맹|"
     r"보건복지부|국민건강|건강보험심사평가원|국민건강보험공단|농촌진흥청|기상청|"
     r"WHO|세계보건기구|학회|연구소|재단|NHS|CDC|FDA|메이요|하버드|논문|저널|"
     r"[가-힣]{2,}병원|[가-힣]{2,}연구원|[A-Z][A-Za-z]{2,})"
@@ -479,7 +484,13 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
 # 2026-09-20 사용자 "사람들에게 크게 도움이 되지 않는 느낌… 놀랄 만큼 도움될 내용이 많이 들어가면 좋겠다":
 # 기존 원고는 "커피·진통제·짠 음식이 위에 나쁘다"처럼 다 아는 말만 하고, 실행할 수 있는 숫자도 병원에 가야
 # 할 신호도 없었다. 아래 네 가지를 새 원고(card_news_spec에 "content_v2": true)에 강제한다.
-V2_MIN_SECONDS, V2_MAX_SECONDS = 62, 80        # 6.7자/초 기준 약 415~536자
+# 6.13자/초 기준 약 380~521자.
+#
+# WHY 상한이 80이 아니라 85인지(2026-09-24): 원래 "62~80초"는 6.7자/초라는 틀린 상수로 환산한 값이라
+# 실제로는 한 번도 지켜진 적이 없다 — 발행본 67편 중 48%가 80초를 넘고, 사용자가 유일하게 품질을 인정한
+# 본보기 소화_14조차 82.3초다. 숫자를 지킬 수 없는 채로 두면 경고가 상시 켜져 있어 아무도 안 본다.
+# 실제로 만들어져 통과한 길이에 맞춰 85초로 둔다.
+V2_MIN_SECONDS, V2_MAX_SECONDS = 62, 85
 V2_MIN_NUMBERS = 3
 # "명·세·살"은 건강 콘텐츠에서 가장 흔한 단위인데 빠져 있었다(2026-09-23) — "인구 천 명당 17.2명",
 # "만 50세부터"처럼 실행에 직결되는 수치가 통째로 안 잡혀 원고를 멀쩡히 쓰고도 미달로 걸렸다.
@@ -492,6 +503,23 @@ _MYTH_PATTERNS = [
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
                     re.compile(r"(이런 ?증상|이럴 ?때|다음 중 하나라도)")]
+
+
+def _narration_seconds(topic: str, dense_chars: int) -> tuple[float, bool]:
+    """(초, 실측인지). mp3가 있으면 직접 재고, 아직 TTS 전이면 글자수로 추정한다.
+
+    WHY 실측을 우선하는지(2026-09-24): 발화 속도는 topic마다 5.83~6.40자/초로 흔들려서(문장 길이·숫자
+    읽기·문장 사이 쉼의 양이 달라서다) 상수 하나로 환산하면 ±4초가 그냥 난다. 순환_12는 추정 86초로
+    상한을 넘었는데 실제 음성은 82.9초였다 — 멀쩡한 원고를 줄이게 만드는 종류의 오탐이다."""
+    audio = ROOT / "output" / topic / "narration.mp3"
+    if audio.exists():
+        try:
+            out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                  "-of", "csv=p=0", str(audio)], capture_output=True, text=True, timeout=20)
+            return float(out.stdout.strip()), True
+        except (ValueError, OSError, subprocess.SubprocessError):
+            pass
+    return dense_chars / SPEECH_CHARS_PER_SEC, False
 
 
 def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
@@ -515,11 +543,12 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
         return []
     text = nar_path.read_text(encoding="utf-8")
     dense = re.sub(r"\s", "", text)
-    secs = len(dense) / SPEECH_CHARS_PER_SEC
+    secs, measured = _narration_seconds(topic, len(dense))
     issues = []
     if not V2_MIN_SECONDS <= secs <= V2_MAX_SECONDS:
         issues.append({"quote": f"{len(dense)}자", "severity": "high",
-                       "issue": f"나레이션이 약 {secs:.0f}초입니다 — 목표 {V2_MIN_SECONDS}~{V2_MAX_SECONDS}초"
+                       "issue": f"나레이션이 {'실측 ' if measured else '약 '}{secs:.0f}초입니다 — "
+                                f"목표 {V2_MIN_SECONDS}~{V2_MAX_SECONDS}초"
                                 f"({round(V2_MIN_SECONDS * SPEECH_CHARS_PER_SEC)}~"
                                 f"{round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외)."})
     nums = _NUM_WITH_UNIT.findall(text)
@@ -556,7 +585,11 @@ def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
     lib = ROOT / "assets_library" / "xray" / "output"
     issues = []
     refs = [cfg.get("inset", {}).get("clip")] + [o.get("clip") for o in cfg.get("opening", [])]
-    refs += [f"assets_library/xray/output/{r['mech']}.mp4" for r in cfg.get("timeline", []) if r.get("mech")]
+    # ⚠️ `act`도 같이 본다 — 항목 칸은 왼쪽 행위·오른쪽 기전으로 나뉘는데 예전엔 mech만 검사해서
+    # 없는 행위 클립을 적어두면 content_review는 통과하고 조립할 때서야 터졌다.
+    refs += [f"assets_library/xray/output/{r[k]}.mp4"
+             for r in cfg.get("timeline", []) for k in ("mech", "act") if r.get(k)]
+    refs += [f"assets_library/xray/output/{a}.mp4" for a in cfg.get("_acts") or []]
     for ref in [r for r in refs if r]:
         if not (ROOT / ref).exists() and not (lib / Path(ref).name).exists():
             issues.append({"quote": ref, "severity": "high",
@@ -572,6 +605,75 @@ def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
         if pending:
             issues.append({"quote": ", ".join(r.get("name", "?") for r in pending), "severity": "high",
                            "issue": "아직 안 받은 클립 요청이 있습니다 — 받기 전에는 이 topic을 완료로 치지 않습니다."})
+    return issues
+
+
+# 항목을 여는 말 — 나레이션이 "먼저 전염이에요"처럼 항목을 선언하는 자리.
+_ITEM_OPENERS = re.compile(
+    r"^(?:먼저|첫\s*(?:번)?째(?:는|로)?|두\s*번째(?:는|로)?|세\s*번째(?:는|로)?|마지막(?:은|으로)?)\s+(.{1,30}?)(?:예요|이에요|입니다|이요)\.",
+    re.MULTILINE)
+TITLE_OVERLAP_FLOOR = 0.50   # 제목 줄 중 **가장 잘 맞는 한 줄**이 이보다 낮으면 각도가 다른 것으로 본다
+
+
+def _bigrams(text: str) -> set[str]:
+    """한글만 남긴 글자 2-gram. 조사·어미로 표면형이 달라져도 겹침이 잡힌다."""
+    s = re.sub(r"[^가-힣]", "", text)
+    return {s[i:i + 2] for i in range(len(s) - 1)}
+
+
+def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
+    """카드뉴스 제목·항목이 지금 나레이션과 같은 이야기를 하는지.
+
+    WHY(2026-09-24 실측): 나레이션을 전면 재작성한 뒤 카드가 옛 각도에 남는 사고가 두 건 한꺼번에 났다 —
+    고령_15는 원고를 "전염·치료시기·백신"으로 갈았는데 카드는 "담으로 오인·병원 미루기"에 머물러 **전염이
+    통째로 빠졌고**, 대사_14는 items만 고치고 title이 "근육 지키고 요요 줄이는"으로 남아 구토·탈모·췌장을
+    말하는 영상과 제목이 따로 놀았다. 둘 다 사람이 눈으로 훑어야만 보이는 종류라 그때까지 아무 검사도
+    안 걸렸다.
+
+    항목 누락은 확정적이라 high, 제목은 어휘 일치 휴리스틱이라 medium으로 둔다."""
+    if lang not in ("kor", "ko"):
+        return []
+    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
+                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
+    nar_path = ROOT / "data" / topic / "narration.txt"
+    if spec_path is None or not nar_path.exists():
+        return []
+    try:
+        spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    if not spec.get("content_v2"):   # 옛 topic은 검사하지 않는다(check_content_depth와 같은 사정)
+        return []
+
+    narration = nar_path.read_text(encoding="utf-8")
+    spec_text = re.sub(r"\s", "", json.dumps(spec, ensure_ascii=False))
+    issues = []
+
+    # 1. 나레이션이 선언한 항목이 카드 어딘가에 있는가 — "먼저 전염이에요"의 '전염'
+    for label in _ITEM_OPENERS.findall(narration):
+        core = re.sub(r"\s", "", label)
+        if core and core not in spec_text:
+            issues.append({"quote": label, "severity": "high",
+                           "issue": f"나레이션은 '{label}'을(를) 항목으로 말하는데 카드에는 없습니다 — "
+                                    "원고를 고치고 card_news_spec.json을 안 따라 고친 상태입니다."})
+
+    # 2. 제목이 통째로 다른 이야기를 하는가 — items만 고치고 제목을 옛 각도로 남긴 경우
+    #
+    # WHY 낱말이 아니라 **줄 단위 글자 2-gram 겹침**으로 재는지(2026-09-24 실측): 낱말로 재면 "있다면"·
+    # "쓰는"·"것과" 같은 어미·조사가 전부 "나레이션에 없는 말"로 잡혀 오탐이 9건 중 9건이었다. 한국어는
+    # 어미가 붙어 표면형이 달라지므로 낱말 일치는 신호가 안 된다. 또 줄 하나씩 보면 "쓰러지기 전 대처법
+    # 3가지" 같은 멀쩡한 마무리 줄이 11%로 뜬다 — 마무리 줄은 원래 원고에 없는 말이다. **제목 전체에서
+    # 가장 잘 맞는 한 줄**을 보면 각도가 살아있는 제목은 최소 한 줄이 크게 겹치고(60~100%), 각도가
+    # 어긋난 제목만 모든 줄이 낮게 나온다(대사_14 실측 최대 23%).
+    ref = _bigrams(narration) | _bigrams(json.dumps(spec.get("items", []), ensure_ascii=False))
+    scored = [(len(g & ref) / len(g), line) for line in (spec.get("title") or [])
+              if (g := _bigrams(line))]
+    if scored:
+        best, line = max(scored)
+        if best < TITLE_OVERLAP_FLOOR:
+            issues.append({"quote": " / ".join(l for _, l in scored), "severity": "medium",
+                           "issue": f"제목이 나레이션·항목과 거의 안 겹칩니다(가장 겹치는 줄도 {best:.0%}) — "
+                                    "각도를 바꾸고 제목만 옛것으로 남겨두지 않았는지 확인하세요."})
     return issues
 
 
@@ -687,6 +789,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_content_depth(topic, lang)
         + check_xray_clips(topic, lang)
         + check_search_keyword(topic, lang)
+        + check_card_narration_alignment(topic, lang)
     )
 
 
@@ -775,9 +878,14 @@ BANNED_HOOK_TAIL = re.compile(
 
 # 첫 문장 권장 상한(공백 제외). 이 프로젝트 TTS 실측 발화속도 약 5.5자/초 기준
 # 약 4초 — 0~5초 훅 구간 안에서 첫 정보가 도착하게 하려는 값이다.
-# 발화 속도 실측(2026-09-19, 채널 통일 보이스 "30대 남자 인터뷰어" + AUDIO_TEMPO 1.1): 공백 제외 약 6.7자/초.
-# 예전 5.5자/초는 topic마다 난수로 고르던 여러 보이스가 섞인 값이었다.
-SPEECH_CHARS_PER_SEC = 6.7
+# 발화 속도 실측(2026-09-24, 채널 통일 보이스 "30대 남자 인터뷰어", 재작성 7편의 mp3를 ffprobe로 직접 잰 값):
+# 공백 제외 약 6.13자/초(5.83~6.40).
+#
+# ⚠️ 이 값을 6.7로 두면 안 된다. 6.7은 `fish_tts.AUDIO_TEMPO`가 1.1(1.1배속)이던 시절의 측정치인데
+# 그 뒤 "배속 없이 원 속도" 원칙으로 1.0으로 돌아갔고 이 상수만 안 따라왔다(6.7÷1.1=6.09, 실측과 일치).
+# 그 9% 과대평가 때문에 사전 핏 계산이 7편 전부 "80초 안"으로 통과시켰는데 실제 TTS는 83~92초로 나왔다.
+# 발화 속도는 보이스·배속을 바꿀 때마다 다시 재야 한다.
+SPEECH_CHARS_PER_SEC = 6.13
 OPENING_MAX_CHARS = 40       # 도입 한 문장 ≈ 6초 — 사용자 "40자정도해도 5초정도밖에"
 XRAY_OPENING_MAX_CHARS = 40  # 반투명 인체 포맷도 도입부 = 훅 한 문장
 
