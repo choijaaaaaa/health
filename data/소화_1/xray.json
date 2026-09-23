@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "역류성식도염, 밤중 역류 줄이기",
+  "inset": {
+    "clip": "assets_library/xray/output/m_reflux_backflow.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "위"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_toss_turn.mp4",
+      "range": [
+        3.4,
+        5.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_stomach.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_reflux_backflow",
+    "m_pressure_buildup",
+    "m_tissue_laxity"
+  ],
+  "_items": [
+    "시계",
+    "체중계",
+    "사탕"
+  ],
+  "summary_from": "위가 식도보다 왼쪽에",
+  "timeline": [
+    {
+      "from": "먼저 잠들기 직전",
+      "item": "시계",
+      "mech": "m_reflux_backflow"
+    },
+    {
+      "from": "두 번째로는 배를",
+      "item": "체중계",
+      "mech": "m_pressure_buildup"
+    },
+    {
+      "from": "마지막으로 박하사탕이에요.",
+      "item": "사탕",
+      "mech": "m_tissue_laxity"
+    },
+    {
+      "from": "위가 식도보다 왼쪽에",
+      "item": "시계",
+      "mech": "m_reflux_backflow"
+    },
+    {
+      "from": "삼킬 때 음식이",
+      "item": "체중계",
+      "mech": "m_pressure_buildup"
+    }
+  ],
+  "opening_until": 3.84
+}

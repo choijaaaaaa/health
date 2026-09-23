@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "옥수수, 껍질이 그대로 나오는 이유",
+  "inset": {
+    "clip": "assets_library/xray/output/m_enzyme_deficiency.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_grab_belly.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_intestines.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_enzyme_deficiency",
+    "m_bacteria_growth",
+    "m_wall_stretch_pain"
+  ],
+  "_items": [
+    "옥수수",
+    "어금니",
+    "소화불량"
+  ],
+  "summary_from": "보건복지부 2020년 한국인",
+  "timeline": [
+    {
+      "from": "먼저 알갱이를 감싼",
+      "item": "옥수수",
+      "mech": "m_enzyme_deficiency"
+    },
+    {
+      "from": "두 번째로는 씹지",
+      "item": "어금니",
+      "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "마지막으로는 한 번에",
+      "item": "소화불량",
+      "mech": "m_wall_stretch_pain"
+    },
+    {
+      "from": "보건복지부 2020년 한국인",
+      "item": "옥수수",
+      "mech": "m_enzyme_deficiency"
+    },
+    {
+      "from": "배가 부푼 느낌이",
+      "item": "어금니",
+      "mech": "m_bacteria_growth"
+    }
+  ],
+  "opening_until": 4.56
+}

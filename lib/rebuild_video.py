@@ -672,7 +672,13 @@ def derive(topic: str) -> dict:
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
     else:
         srt_entries = _parse_srt(str(srt))
-        narration_txt = (ROOT / "data" / data_topic / "narration.txt").read_text()
+        # ⚠️ 스펙이 `ko/`에 있어도 나레이션은 flat에 있는 topic이 있다(2026-09-23 대사_22 실측 —
+        # 검사기는 flat을 보고 조립기는 ko/를 봐서 조립만 FileNotFoundError로 죽었다). 둘 다 찾는다.
+        narration_txt = next(
+            p for p in (ROOT / "data" / data_topic / "narration.txt",
+                        ROOT / "data" / topic / "narration.txt",
+                        ROOT / "data" / topic / "ko" / "narration.txt") if p.exists()
+        ).read_text()
         kwargs["motion_path"] = None
         kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
         # 반투명 인체 포맷은 xray.json timeline이 항목 전환 시각을 정한다(키워드 추정은 한 문장에 두 항목이

@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "비문증, 눈 속 젤리의 노화",
+  "inset": {
+    "clip": "assets_library/xray/output/m_vitreous_floaters.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "눈"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_rub_eyes.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_eye.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_vitreous_floaters",
+    "m_eye_elongation",
+    "m_microvessel_damage"
+  ],
+  "_items": [
+    "스마트폰",
+    "혈당계",
+    "영양제"
+  ],
+  "summary_from": "날파리가 하루 이틀",
+  "timeline": [
+    {
+      "from": "먼저 노화예요.",
+      "item": "스마트폰",
+      "mech": "m_vitreous_floaters"
+    },
+    {
+      "from": "두 번째로는 고도근시예요.",
+      "item": "혈당계",
+      "mech": "m_eye_elongation"
+    },
+    {
+      "from": "마지막으로 당뇨예요.",
+      "item": "영양제",
+      "mech": "m_microvessel_damage"
+    },
+    {
+      "from": "날파리가 하루 이틀",
+      "item": "스마트폰",
+      "mech": "m_vitreous_floaters"
+    },
+    {
+      "from": "시야 한쪽이 커튼처럼",
+      "item": "혈당계",
+      "mech": "m_eye_elongation"
+    }
+  ],
+  "opening_until": 4.24
+}

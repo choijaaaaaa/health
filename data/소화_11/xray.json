@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "과민성대장증후군, 검사는 정상인데",
+  "inset": {
+    "clip": "assets_library/xray/output/m_nerve_overdrive.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_rush_to_toilet.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_intestines.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_nerve_overdrive",
+    "m_osmotic_water_pull",
+    "m_wall_stretch_pain"
+  ],
+  "_items": [
+    "긴장",
+    "마늘",
+    "귀리"
+  ],
+  "summary_from": "여기에 하루 5분",
+  "timeline": [
+    {
+      "from": "먼저 스트레스예요.",
+      "item": "긴장",
+      "mech": "m_nerve_overdrive"
+    },
+    {
+      "from": "두 번째로는 양파,",
+      "item": "마늘",
+      "mech": "m_osmotic_water_pull"
+    },
+    {
+      "from": "마지막으로 식이섬유예요.",
+      "item": "귀리",
+      "mech": "m_wall_stretch_pain"
+    },
+    {
+      "from": "여기에 하루 5분",
+      "item": "긴장",
+      "mech": "m_nerve_overdrive"
+    },
+    {
+      "from": "다만 체중이 줄거나",
+      "item": "마늘",
+      "mech": "m_osmotic_water_pull"
+    }
+  ],
+  "opening_until": 6.16
+}

@@ -64,6 +64,18 @@ def _copy_if_newer(src: Path, dest: Path, dry_run: bool, seen: set[Path]) -> boo
     return True
 
 
+def _final_video(topic_dir: Path) -> Path:
+    """올릴 영상 파일. 🚨 반투명 인체 포맷은 `shorts.mp4`가 **칠판만 있는 중간본**이고,
+    도입부 Flow와 기전 클립까지 얹은 최종본은 `shorts_xray_test.mp4`다(scripts/xray_splice.py 출력).
+    이걸 구분하지 않으면 업로드 폴더에 반쪽짜리가 올라간다(2026-09-23 실측).
+    파일명의 `_test`는 시험 단계 이름이 그대로 굳은 것이라 올릴 때 `shorts.mp4`로 바꿔 담는다."""
+    xray = topic_dir / "shorts_xray_test.mp4"
+    plain = topic_dir / "shorts.mp4"
+    if xray.is_file() and xray.stat().st_mtime >= plain.stat().st_mtime:
+        return xray
+    return plain
+
+
 def stage(dry_run: bool) -> None:
     DEPLOY_DIR.mkdir(parents=True, exist_ok=True)
     copied = skipped = 0
@@ -71,7 +83,7 @@ def stage(dry_run: bool) -> None:
 
     for topic, topic_dir in _iter_topics():
         dest_dir = DEPLOY_DIR / topic
-        if _copy_if_newer(topic_dir / "shorts.mp4", dest_dir / "shorts.mp4", dry_run, seen):
+        if _copy_if_newer(_final_video(topic_dir), dest_dir / "shorts.mp4", dry_run, seen):
             copied += 1
         else:
             skipped += 1
