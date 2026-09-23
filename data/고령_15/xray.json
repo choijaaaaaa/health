@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 파일럿(2026-09-23). 도입부 훅이 2.6초로 짧아 Flow는 2컷을 각 1.4초로 빠르게 넘긴다 — 소화_9 시험본(13.6초)이 '너무 길다'는 지적을 받았고, 구도 전환이 느린 게 지루함의 원인이라 짧은 컷이 낫다.",
+  "_why": "전량 재제작 파일럿(2026-09-23, 원고 재작성 후 2026-09-24 시간표 재작성). 도입부 훅이 4.8초라 Flow 2컷을 각 2.4초로 나눠 배속 없이(1.0배) 훅 문장 끝에 정확히 맞춘다 — 소화_9 시험본(13.6초)이 '너무 길다'는 지적을 받았고 구도 전환이 느린 게 지루함의 원인이라 짧은 컷이 낫다.",
   "top_title": "대상포진, 후유증 막는 대처법",
   "inset": {
     "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
@@ -15,50 +15,34 @@
     {
       "clip": "assets_library/xray/output/act_scratch_skin.mp4",
       "range": [
-        2.6,
-        4.0
+        2.0,
+        4.4
       ]
     },
     {
       "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
       "range": [
-        2.0,
-        3.4
+        1.6,
+        4.0
       ]
     }
   ],
   "timeline": [
-    {
-      "from": "먼저 한쪽만",
-      "item": "연고",
-      "mech": "m_virus_reactivation"
-    },
-    {
-      "from": "두 번째로는 물집이",
-      "item": "알약",
-      "mech": "m_virus_replication"
-    },
-    {
-      "from": "마지막으로 예방접종을",
-      "item": "백신",
-      "mech": "m_immune_decline"
-    },
-    {
-      "from": "그러니 한쪽에만",
-      "item": "연고",
-      "mech": "m_virus_reactivation"
-    },
-    {
-      "from": "물집이 보이면 그날",
-      "item": "알약",
-      "mech": "m_virus_replication"
-    },
-    {
-      "from": "쉰 살이 넘었다면",
-      "item": "백신",
-      "mech": "m_immune_decline"
-    }
+    {"from": "대상포진은 옮지 않는다고", "item": "피부발진", "mech": "m_virus_reactivation", "label": "물집"},
+    {"from": "옮으면 대상포진이 아니라", "item": "피부반점", "mech": "m_virus_replication", "label": "피부 세포"},
+    {"from": "놓치기 쉬운 건", "item": "아기", "mech": "m_virus_persistence", "label": "신경절"},
+    {"from": "수두를 앓은 적", "item": "아기", "mech": "m_barrier_leak", "act": "act_scratch_skin", "label": "피부 장벽"},
+    {"from": "물집이 딱지로 변할", "item": "수건", "mech": "m_layer_separation", "label": "피부"},
+    {"from": "두 번째는 치료 시기예요", "item": "시계", "mech": "m_virus_replication", "act": "act_take_supplement", "label": "피부 세포"},
+    {"from": "질병관리청은 발진이 생기고", "item": "알약", "mech": "m_tissue_invasion", "act": "act_take_supplement", "label": "피부 조직"},
+    {"from": "마지막은 백신이에요", "item": "백신", "mech": "m_immune_decline", "label": "면역세포"},
+    {"from": "2006년 천 명당", "item": "달력", "mech": "m_virus_reactivation", "label": "신경절"},
+    {"from": "환자의 64퍼센트가", "item": "노화", "mech": "m_immune_decline", "label": "면역세포"},
+    {"from": "2017년 나온 사백신은", "item": "주사기", "mech": "m_virus_persistence", "label": "신경절"},
+    {"from": "그러니 한쪽에만", "item": "시계", "mech": "m_virus_reactivation", "label": "신경절"},
+    {"from": "물집이 잡히면 딱지가", "item": "수건", "mech": "m_layer_separation", "label": "피부"},
+    {"from": "눈 주위나 코끝에", "item": "피부발진", "mech": "part_eye", "label": "눈"}
   ],
   "summary_from": "그러니 한쪽에만",
-  "opening_until": 2.96
+  "opening_until": 5.0
 }

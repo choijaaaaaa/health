@@ -29,7 +29,8 @@
   ],
   "_mech": [
     "m_vitreous_floaters",
-    "m_shadow_contrast",
+    "m_fibrosis",
+    "part_eye",
     "m_layer_separation"
   ],
   "_items": [
@@ -37,6 +38,7 @@
     "영양제",
     "스마트폰",
     "달력",
+    "선글라스",
     "폭죽"
   ],
   "summary_from": "점이 거슬릴 땐",
@@ -45,36 +47,60 @@
       "from": "인공눈물을 넣고",
       "item": "인공눈물",
       "act": "act_rub_eyes",
-      "mech": "m_vitreous_floaters"
+      "mech": "m_vitreous_floaters",
+      "label": "유리체"
     },
     {
-      "from": "먼저 영양제예요",
+      "from": "따져볼 건 영양제",
       "item": "영양제",
       "act": "act_take_supplement",
-      "mech": "m_vitreous_floaters"
+      "mech": "m_fibrosis",
+      "label": "유리체"
+    },
+    {
+      "from": "뭉친 혼탁은",
+      "item": "영양제",
+      "act": "act_take_supplement",
+      "mech": "m_vitreous_floaters",
+      "label": "유리체"
     },
     {
       "from": "두 번째는 밝은 배경",
       "item": "스마트폰",
       "act": "act_squint_at_screen",
-      "mech": "m_shadow_contrast"
+      "mech": "part_eye",
+      "label": "눈"
+    },
+    {
+      "from": "개수는 그대로인데",
+      "item": "스마트폰",
+      "act": "act_squint_at_screen",
+      "mech": "m_vitreous_floaters",
+      "label": "망막"
     },
     {
       "from": "마지막은 지켜보는 기간",
       "item": "달력",
       "act": "act_chase_floater",
-      "mech": "m_layer_separation"
+      "mech": "m_vitreous_floaters",
+      "label": "유리체"
+    },
+    {
+      "from": "레이저는 부수다",
+      "item": "달력",
+      "mech": "m_layer_separation",
+      "label": "망막"
     },
     {
       "from": "점이 거슬릴 땐",
-      "item": "달력"
+      "item": "선글라스"
     },
     {
       "from": "며칠 사이 점이",
       "item": "폭죽"
     }
   ],
-  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①통념 반박(인공눈물·휴식)은 눈을 비벼 없애보려는 act_rub_eyes와, 혼탁 덩어리가 망막에 그림자를 드리우는 m_vitreous_floaters — 나레이션의 '눈 근육이 아니라 유리체 속 혼탁'이 그대로 화면이다. ②영양제는 알약을 삼키는 act_take_supplement에 같은 m_vitreous_floaters를 붙여 '먹어도 저 덩어리는 그대로'를 한 화면에 둔다(기전이 같은 건 때우기가 아니라 같은 덩어리 얘기라서다). ③밝은 배경은 화면을 얼굴 가까이 들어올리는 act_squint_at_screen(색인 주의: 점등이 없어 기전 컷으론 약하고 행동 제시용 — 여기선 행위 칸이라 맞다) + 배경이 밝을수록 그림자 대비가 커지는 m_shadow_contrast(신규 요청). ④지켜보는 기간은 흰 벽 앞에서 점을 눈으로 쫓는 act_chase_floater(신규 요청) + 5%가 넘어가는 병적 비문증을 보여주는 m_layer_separation(망막층이 어긋나며 벌어짐). m_vitreous_floaters는 호박색 점등이 없어 혼자선 밋밋하다는 색인 기록이 있어, 왼쪽 행위 칸을 안구가 호박색으로 켜지는 act_rub_eyes·위가 켜지는 act_take_supplement로 받아 화면 전체가 회청색으로 가라앉지 않게 했다.",
-  "_summary_why": "'점이 거슬릴 땐'부터 해결책 — 영상 칸 없이 칠판 전체로 간다. 마지막 '며칠 사이 점이'는 응급 신호 구간이라 폭죽(번쩍임)으로 바꾼다.",
-  "opening_until": 5.2
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. 구간은 4초 클립 하나로 4배 안에서 채워지게 끊었다(제일 긴 구간이 12초=3.0배). ①5.4~17.4초 통념 반박+기전 선언: 눈을 비벼 없애보려는 act_rub_eyes(안구 점등)와 혼탁 덩어리가 망막에 그림자를 드리우는 m_vitreous_floaters — '눈 근육이 아니라 유리체 속 혼탁이 망막에 드리우는 그림자'가 그대로 화면이다. ②17.4~28.4초 항목 예고+영양제 도입: 예고 문장에서 바로 영양제로 넘어가 빈 구간을 없앴다. 기전은 m_fibrosis — 섬유 가닥이 엉켜 투명한 유리 블록처럼 굳는 장면이라 '유리체가 태어날 때 만들어져 평생 교환되지 않는다'가 보인다(프레임 확인: 0.8초 섬유 격자 → 3.4초 유리 블록). ③28.4~35.2초 '먹어서 못 지운다': 알약을 삼키는 act_take_supplement 옆에 덩어리가 그대로 떠 있는 m_vitreous_floaters를 둬 '먹어도 저 덩어리는 그대로'를 한 화면에 둔다. ④35.2~42.3초 밝은 배경: 화면을 얼굴 가까이 드는 act_squint_at_screen(색인 주의: 점등이 없어 기전 컷으론 약하고 행동 제시용 — 여기선 행위 칸이라 맞다) + 안구가 호박색으로 환해지는 part_eye. 🚨 이 칸의 제 클립은 m_shadow_contrast(배경이 밝을수록 같은 그림자가 진해진다)인데 아직 못 받았다 — 받으면 part_eye 자리를 그걸로 바꾼다. ⑤42.3~48.0초 '개수는 그대로인데': 같은 덩어리를 다시 보여줘야 하는 구절이라 m_vitreous_floaters, 라벨은 그림자가 맺히는 망막. ⑥48.0~55.8초 지켜보는 기간: '개수와 크기가 여러 달 그대로면 수술하지 않는 게 원칙'이라 변하지 않는 덩어리(m_vitreous_floaters). 행위 칸의 act_chase_floater(점을 눈으로 쫓다 손을 멈칫)는 아직 못 받아 이 구간만 기전 단독으로 간다. ⑦55.8~65.8초 수술 위험+5%: 레이저·유리체절제술의 대표 합병증이자 병적 비문증이 넘어가는 자리가 망막박리라 층이 어긋나 벌어지는 m_layer_separation. 라벨은 구간마다 유리체/눈/망막으로 바꿔, 기전이 실제로 보여주는 부위와 맞췄다.",
+  "_summary_why": "'점이 거슬릴 땐'부터 해결책 — 영상 칸 없이 칠판 전체로 간다. 이 구간의 칠판 품목은 카드 5번(덜 거슬리게 지내는 법)과 같은 선글라스로 맞췄다(예전엔 달력이라 카드와 사진이 어긋났다). 마지막 '며칠 사이 점이'는 응급 신호 구간이라 폭죽(번쩍임)으로 바꾼다.",
+  "opening_until": 5.04
 }

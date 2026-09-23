@@ -43,30 +43,75 @@
   "summary_from": "건강보험심사평가원 자료로",
   "timeline": [
     {
+      "from": "배가 아프고 변의가",
+      "item": "휴지",
+      "mech": "m_vagal_slowdown",
+      "act": "act_rush_to_toilet",
+      "label": "미주신경"
+    },
+    {
+      "from": "방아쇠는 화장실에서",
+      "item": "변기",
+      "mech": "m_blood_flow_drop",
+      "act": "act_strain_on_toilet",
+      "label": "심장으로 오는 피"
+    },
+    {
       "from": "먼저 화장실에서",
       "item": "변기",
-      "mech": "m_vagal_slowdown"
+      "mech": "m_vagal_slowdown",
+      "act": "act_strain_on_toilet",
+      "label": "미주신경"
     },
     {
       "from": "두 번째로는 더운",
       "item": "압박스타킹",
-      "mech": "m_vessel_dilation"
+      "mech": "m_vessel_dilation",
+      "act": "act_wipe_sweat",
+      "label": "피부 혈관"
     },
     {
       "from": "마지막으로 수분",
       "item": "이온음료",
-      "mech": "m_blood_flow_drop"
+      "mech": "m_dehydration",
+      "act": "act_stand_still_unaware",
+      "label": "혈액량"
+    },
+    {
+      "from": "질병관리청은 하루",
+      "item": "소금",
+      "mech": "m_blood_flow_drop",
+      "act": "act_drink_caffeine",
+      "label": "혈압"
     },
     {
       "from": "서울아산병원은 속이",
-      "item": "소금",
-      "mech": "m_vagal_slowdown"
+      "item": "식은땀",
+      "mech": "m_vagal_slowdown",
+      "act": "act_sink_to_floor",
+      "label": "실신 직전"
+    },
+    {
+      "from": "이때 참지 말고",
+      "item": "의자",
+      "mech": "m_blood_flow_drop",
+      "act": "act_sink_to_floor",
+      "label": "다리 정맥"
+    },
+    {
+      "from": "약부터 찾기 쉽지만",
+      "item": "알약",
+      "mech": "m_vagal_slowdown",
+      "act": null,
+      "label": "미주신경"
     },
     {
       "from": "건강보험심사평가원 자료로",
       "item": "혈압계",
-      "mech": "m_blood_flow_drop"
+      "mech": "m_blood_flow_drop",
+      "act": null,
+      "label": "혈압"
     }
   ],
-  "opening_until": 5.4
+  "opening_until": 5.8
 }
