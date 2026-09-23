@@ -274,21 +274,24 @@ def main() -> None:
             t1 = t0 + d
             inputs += ["-i", str(clip)]
             # 늘릴 때 프레임 보간(minterpolate) — 그냥 setpts만 늘리면 같은 프레임이 반복돼 뚝뚝 끊긴다
-            slow = (f",setpts={speed:.4f}*(PTS-STARTPTS),minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc"
-                    if speed != 1.0 else ",setpts=PTS-STARTPTS")
+            slow = (f"setpts={speed:.4f}*(PTS-STARTPTS),minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc"
+                    if speed != 1.0 else "setpts=PTS-STARTPTS")
             # WHY 프레임 번호로 길이를 강제하는지(2026-09-18 "8초~9초 사이에… 칠판이 잠깐 노출"): 늘린 클립이
             # 계산상 끝(8.34초)보다 이르게(8.23초) 끝나 그 틈으로 밑의 칠판이 비쳤다. 프레임 보간 필터가 첫
             # 프레임을 늦게 내보내 타임스탬프 기준 trim이 앞부분 길이를 잃은 것 — tpad+시간 trim으로도 안 잡혔다.
             # 프레임을 0부터 다시 번호 매기고, 마지막 프레임을 복제해 늘린 뒤 필요한 프레임 수로 정확히 자른다.
             nf = round(d * 30) + 1      # 다음 클립과 1프레임 겹치게 — 경계에서 둘 다 없는 순간이 없도록
             rng = trims[i]
-            cut = f"trim=start={rng[0]}:end={rng[1]},setpts=PTS-STARTPTS," if rng else ""
+            cut = f"trim=start={rng[0]}:end={rng[1]},setpts=PTS-STARTPTS" if rng else ""
             in_panel = a.panel and chain_flags[i] is False
             # ⚠️ 칸에 들어갈 클립을 먼저 720x1280(세로)으로 밀어 넣으면, **이미 칸 비율(960x680 가로)로
             # 만들어 온 합성본**이 찌그러진다(2026-09-24 실측: 왼쪽 행위·오른쪽 기전을 붙여 넣었더니 세로로
             # 늘어나 한쪽만 남았다). 칸 쪽은 아래 `scale={pw}:-2,crop`이 비율을 지키며 알아서 맞춘다.
             fit = "" if in_panel else f"scale={W}:{H}"
-            fc.append(f"[{n}:v]{cut}{fit}{slow},fps=30,setpts=N/30/TB,tpad=stop_mode=clone:stop=60,"
+            # 빈 조각을 걸러서 잇는다 — 예전엔 조각마다 쉼표를 손으로 붙였는데, 칸 클립은 `fit`이 비어서
+            # `[1:v],setpts=...`가 만들어졌고 ffmpeg가 "No such filter: ''"로 죽었다(2026-09-24 실측).
+            head = ",".join(x for x in (cut, fit, slow) if x)
+            fc.append(f"[{n}:v]{head},fps=30,setpts=N/30/TB,tpad=stop_mode=clone:stop=60,"
                       f"trim=end_frame={nf},setpts=N/30/TB+{t0}/TB[c{i}]")
             if in_panel:
                 # WHY 칸 안에 넣는지(2026-09-19 "너무 정신사납잖어… 남는공간에다가 영상"): 화면 전체를 칠판↔영상으로

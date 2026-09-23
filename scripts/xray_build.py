@@ -37,7 +37,13 @@ PANEL_W, PANEL_H = 960, 680          # lib/video_assembler.XRAY_PANEL 과 같은
 
 
 
-MAX_STRETCH = 2.5            # 이보다 더 늘리면 사실상 정지 화면이라, 남는 만큼만 반복으로 채운다
+# 반복은 쓰지 않는다 — 2026-09-24 사용자 "반복재생 말고 속도 느리게해서 하라했자나".
+# 상한을 2.5로 뒀더니 18.6초 구간(6초 클립, 3.1배 필요)이 상한에 걸려 결국 반복으로 넘어갔다.
+# 시청층이 중장년이라 느린 건 오히려 낫다는 판단이 이미 있어(PANEL_SPEED 0.5) 4배까지 연다.
+MAX_STRETCH = 4.0
+# 그래도 넘치면 **반복하지 않고 멈춘다.** 4배로도 못 채운다는 건 그 구간에 보여줄 장면이 모자라다는
+# 뜻이고, 같은 4초를 다섯 번 돌리면 "같은 그림에 색만 바뀌는" 화면이 된다(실측 지적).
+# 사용자 "이것도 영상이 더 필요한거면 더 만들어서 해야지" — 클립을 하나 더 요청한다.
 SMOOTH_FROM = 1.15           # 이 이상 늘릴 때만 프레임 보간 — 그냥 늘리면 같은 프레임이 반복돼 끊긴다
 
 
@@ -142,6 +148,12 @@ def main() -> None:
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--ad-tag", action="store_true", help="유튜브판(광고 표시 얹음)")
     ap.add_argument("--base", help="덧씌울 원본 디렉토리(예: nocta)")
+    # WHY 미리보기 모드가 따로 있는지: 없는 행위 클립을 만나면 평소엔 멈춰야 한다(비슷한 걸로 때우면
+    # 화면과 나레이션이 어긋나는 사고가 반복됐다). 다만 클립을 아직 다 못 받은 상태에서 **구성이
+    # 어떻게 보이는지** 확인해야 할 때가 있다. 그때도 대체 클립은 절대 쓰지 않고, 그 구간만 기전
+    # 단독으로 두고 어디가 비었는지 출력한다.
+    ap.add_argument("--preview", action="store_true",
+                    help="못 받은 행위 클립이 있어도 그 구간만 기전 단독으로 두고 끝까지 조립(발행 금지)")
     a = ap.parse_args()
 
     cfg = json.loads((ROOT / "data" / a.topic / "xray.json").read_text(encoding="utf-8"))
@@ -168,10 +180,13 @@ def main() -> None:
         act = row.get("act") or (acts[i % len(acts)] if acts else None)
         dst = tmp / f"p{i}_{mech}.mp4"
         if not a.dry_run:
-            if act:
-                asrc = ROOT / LIB / f"{act}.mp4"
-                if not asrc.exists():
+            asrc = ROOT / LIB / f"{act}.mp4" if act else None
+            if asrc and not asrc.exists():
+                if not a.preview:
                     raise SystemExit(f"행위 클립 없음: {act} — clip_requests.json에 적을 것")
+                print(f"  ⚠️ 미리보기: {row['start']:.1f}초 구간은 행위 클립 {act}가 없어 기전 단독")
+                asrc = None
+            if asrc:
                 _split_fill(asrc, src, dur, dst)
             else:
                 _fill_to(src, dur, dst)
