@@ -165,6 +165,11 @@ def main() -> None:
     cfg = json.loads((ROOT / "data" / a.topic / "xray.json").read_text(encoding="utf-8"))
     if not a.dry_run:
         subprocess.run([PY, "-m", "lib.rebuild_video", a.topic], cwd=ROOT, check=True)
+        # 결론 구간은 영상 칸 없이 칠판을 크게 쓴다("그래서 뭘 하면 되는지"를 읽히는 자리다).
+        # 그 칠판 전체 버전을 여기서 같이 만든다 — 따로 돌려야 하는 단계로 두면 빠지고, 빠져도
+        # xray_splice가 조용히 건너뛰어 영상 칸이 끝까지 남는다(2026-09-24 실측).
+        if cfg.get("summary_from"):
+            subprocess.run([PY, "-m", "lib.rebuild_video", a.topic, "--board"], cwd=ROOT, check=True)
 
     args = []
     # 도입부: 전부 시각 0 — fill_until까지 한 묶음으로 이어 붙여 전체 화면으로 덮는다

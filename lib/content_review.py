@@ -679,6 +679,38 @@ def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
 
 MAX_PANEL_GAP_SEC = 8.0      # 위쪽 칸이 이보다 오래 안 바뀌면 "같은 그림에 색만" 구간이 된다
 
+def check_xray_timeline_resolves(topic: str, lang: str = "kor") -> list[dict]:
+    """xray.json timeline의 구절이 지금 자막에서 실제로 찾히는지.
+
+    WHY(2026-09-24 실측): 원고를 다시 쓰면 문장이 바뀌는데 timeline의 `from` 구절은 옛 문장 그대로
+    남는다. 그러면 조립이 첫 줄에서 죽는다 — 고령_15·눈_8·머리_14가 그 상태였다. 그런데
+    check_xray_pacing은 resolve() 예외를 삼키고 빈 목록을 돌려줘서 **검수는 "문제 없음"으로 통과**했다.
+    깨진 걸 조용히 넘기는 검사는 없는 것만 못하다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return []
+    try:
+        tl = json.loads(path.read_text(encoding="utf-8")).get("timeline") or []
+    except json.JSONDecodeError:
+        return [{"quote": "xray.json", "severity": "high", "issue": "xray.json이 깨졌습니다."}]
+    if not tl:
+        return []
+    try:
+        from lib.xray_timeline import _cues
+        text = " ".join(c[2] for c in _cues(topic))
+    except (StopIteration, OSError):
+        return [{"quote": topic, "severity": "high",
+                 "issue": "나레이션 자막(narration.srt)이 없어 timeline을 풀 수 없습니다 — TTS를 먼저 돌리세요."}]
+    missing = [r.get("from", "") for r in tl if r.get("from", "") not in text]
+    if missing:
+        return [{"quote": ", ".join(missing[:4]), "severity": "high",
+                 "issue": f"timeline 구절 {len(missing)}개가 지금 자막에 없습니다 — 원고를 고치고 timeline을 "
+                          "안 따라 고친 상태라 조립이 실패합니다."}]
+    return []
+
+
 def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
     """도입부 컷이 문장을 자르지 않는지, 위쪽 칸이 오래 비어 있지 않은지.
 
@@ -843,6 +875,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_xray_clips(topic, lang)
         + check_search_keyword(topic, lang)
         + check_card_narration_alignment(topic, lang)
+        + check_xray_timeline_resolves(topic, lang)
         + check_xray_pacing(topic, lang)
     )
 

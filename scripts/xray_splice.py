@@ -208,7 +208,14 @@ def _summary_board(topic, inputs, fc, cur, n, base_dir: str = ""):
     cfg = json.loads((ROOT / "data" / topic / "xray.json").read_text(encoding="utf-8"))
     summary = cfg.get("summary_from")
     board = ROOT / "output" / topic / base_dir / "board" / "shorts.mp4"  # rebuild_video --board 결과(같은 시드)
-    if not summary or not board.exists():
+    if not summary:
+        return cur, n
+    if not board.exists():
+        # WHY 소리내어 알리는지(2026-09-24 실측): 없으면 그냥 넘어가던 탓에 결론 구간이 칠판 전체로
+        # 안 바뀌고 영상 칸이 끝까지 남아 있었는데, 로그가 조용해서 아무도 몰랐다. 결론을 칠판으로
+        # 크게 쓰는 건 "그래서 뭘 하면 되는지"를 읽히려는 확정 규칙이다.
+        print(f"⚠️ 결론 구간 칠판 전체 버전이 없어 영상 칸이 끝까지 남습니다: {board.relative_to(ROOT)}\n"
+              f"   만들려면: .venv/bin/python3 -m lib.rebuild_video {topic} --board", file=sys.stderr)
         return cur, n
     from lib.xray_timeline import _cues, _time_of
     ts = round((_time_of(summary, _cues(topic)) + TITLE_CARD_SEC) * 30) / 30

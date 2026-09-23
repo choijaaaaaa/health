@@ -53,7 +53,10 @@ def resolve(topic: str) -> list[dict] | None:
     starts = [_time_of(t["from"], cues) for t in tl]
     end_all = cues[-1][1]
     return [{"start": st, "end": starts[i + 1] if i + 1 < len(starts) else end_all,
-             "item": t["item"], "mech": t.get("mech"), "act": t.get("act")}
+             "item": t["item"], "mech": t.get("mech"), "act": t.get("act"),
+             # `label`도 같이 — act 때와 똑같은 구멍이었다. 여기서 떼면 topic이 구간마다 부위
+             # 이름을 적어둬도 조립기엔 안 가고 전부 inset 라벨 하나로 떨어진다(2026-09-24 실측).
+             "label": t.get("label")}
             for i, (st, t) in enumerate(zip(starts, tl))]
 
 
