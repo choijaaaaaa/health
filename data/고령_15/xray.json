@@ -1,0 +1,64 @@
+{
+  "_why": "전량 재제작 파일럿(2026-09-23). 도입부 훅이 2.6초로 짧아 Flow는 2컷을 각 1.4초로 빠르게 넘긴다 — 소화_9 시험본(13.6초)이 '너무 길다'는 지적을 받았고, 구도 전환이 느린 게 지루함의 원인이라 짧은 컷이 낫다.",
+  "top_title": "대상포진, 후유증 막는 대처법",
+  "inset": {
+    "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "신경절"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_scratch_skin.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "timeline": [
+    {
+      "from": "먼저 한쪽만",
+      "item": "연고",
+      "mech": "m_virus_reactivation"
+    },
+    {
+      "from": "두 번째로는 물집이",
+      "item": "알약",
+      "mech": "m_virus_replication"
+    },
+    {
+      "from": "마지막으로 예방접종을",
+      "item": "백신",
+      "mech": "m_immune_decline"
+    },
+    {
+      "from": "그러니 한쪽에만",
+      "item": "연고",
+      "mech": "m_virus_reactivation"
+    },
+    {
+      "from": "물집이 보이면 그날",
+      "item": "알약",
+      "mech": "m_virus_replication"
+    },
+    {
+      "from": "쉰 살이 넘었다면",
+      "item": "백신",
+      "mech": "m_immune_decline"
+    }
+  ],
+  "summary_from": "그러니 한쪽에만",
+  "opening_until": 2.96
+}
