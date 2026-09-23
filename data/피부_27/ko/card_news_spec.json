@@ -1,9 +1,8 @@
 {
   "title": [
-    "아토피와",
-    "접촉성 피부염",
-    "구별하는",
-    "세 가지"
+    "아토피 초기, 접촉성 피부염과",
+    "갈리는 지점이 있어요.",
+    "둘을 구별하는 신호 세 가지"
   ],
   "eyebrow": "아토피와 접촉성 피부염, 구별하는 세 가지 신호",
   "cover_char_file": "은목걸이_illust.jpg",
@@ -56,5 +55,8 @@
     "핸드크림_illust.jpg": "핸드크림",
     "은목걸이_illust.jpg": "목걸이"
   },
-  "cover_scrim_color": "#3A6B4A"
+  "cover_scrim_color": "#3A6B4A",
+  "thumb_word": "아토피",
+  "search_keyword": "아토피초기",
+  "search_volume": 1880
 }

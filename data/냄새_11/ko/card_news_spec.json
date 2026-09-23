@@ -1,9 +1,8 @@
 {
   "title": [
-    "발냄새는",
-    "땀이 아니라",
-    "세균 때문",
-    "이에요"
+    "발냄새 원인은 땀이 아니라",
+    "땀을 분해하는 세균이에요.",
+    "무좀까지 가려내는 발 관리법"
   ],
   "eyebrow": "발냄새, 땀 때문만은 아니에요",
   "cover_char_file": "운동화_illust.jpg",
@@ -56,5 +55,8 @@
     "운동화_illust.jpg": "운동화",
     "연고_illust.jpg": "연고"
   },
-  "cover_scrim_color": "#3A5C4A"
+  "cover_scrim_color": "#3A5C4A",
+  "thumb_word": "발냄새",
+  "search_keyword": "발냄새원인",
+  "search_volume": 1830
 }

@@ -1,9 +1,8 @@
 {
   "title": [
-    "통풍과",
-    "가성통풍",
-    "구별하는",
-    "법"
+    "가성통풍, 무릎이나 손목이",
+    "갑자기 붓고 아프신가요?",
+    "통풍과 가려내는 법"
   ],
   "eyebrow": "통풍과 가성통풍, 구별하는 법",
   "cover_char_file": "무릎_illust.jpg",
@@ -56,5 +55,8 @@
     "무릎_illust.jpg": "무릎",
     "맥주_illust.jpg": "술"
   },
-  "cover_scrim_color": "#6B4A3A"
+  "cover_scrim_color": "#6B4A3A",
+  "thumb_word": "가성통풍",
+  "search_keyword": "가성통풍",
+  "search_volume": 440
 }

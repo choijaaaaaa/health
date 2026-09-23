@@ -1,9 +1,8 @@
 {
   "title": [
-    "코골이와",
-    "수면무호흡증은",
-    "완전히 다른",
-    "문제예요"
+    "수면무호흡증 증상, 그냥 코골이라고",
+    "알고 계셨다면 그게 아니에요.",
+    "코골이와 수면무호흡증 구별법"
   ],
   "eyebrow": "코골이 vs 수면무호흡증, 뭐가 다를까요",
   "cover_char_file": "베개_illust.jpg",
@@ -56,5 +55,8 @@
     "베개_illust.jpg": "베개",
     "수면무호흡_illust.jpg": "수면무호흡"
   },
-  "cover_scrim_color": "#3A5C8A"
+  "cover_scrim_color": "#3A5C8A",
+  "thumb_word": "수면무호흡",
+  "search_keyword": "수면무호흡증증상",
+  "search_volume": 2160
 }

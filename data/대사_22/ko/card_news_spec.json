@@ -1,9 +1,9 @@
 {
   "title": [
-    "계속되는 피로,",
-    "갑상선기능",
-    "저하증일",
-    "수 있어요"
+    "갑상선기능저하증,",
+    "쉬어도 안 풀리는 피로가",
+    "계속되시나요?",
+    "혈액검사 하나로 확인하는 법"
   ],
   "eyebrow": "만성피로 vs 갑상선기능저하증",
   "cover_char_file": "갑상선_illust.jpg",
@@ -56,5 +56,8 @@
     "갑상선_illust.jpg": "갑상선",
     "혈액검사_illust.jpg": "혈액검사"
   },
-  "cover_scrim_color": "#2E5C6B"
+  "cover_scrim_color": "#2E5C6B",
+  "thumb_word": "갑상선저하",
+  "search_keyword": "갑상선기능저하증",
+  "search_volume": 53990
 }

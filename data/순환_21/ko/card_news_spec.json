@@ -1,9 +1,9 @@
 {
   "title": [
-    "다리 혈관,",
-    "튀어나온 것과",
-    "비치는 것은",
-    "완전히 달라요"
+    "하지정맥류 증상, 비치는 실핏줄은",
+    "사실 정맥류가 아니에요.",
+    "무거움과 피부 변색이 진짜 신호예요.",
+    "정맥류와 실핏줄 구별법"
   ],
   "eyebrow": "하지정맥류 vs 실핏줄, 뭐가 다를까",
   "cover_char_file": "부종_illust.jpg",
@@ -56,5 +56,7 @@
     "부종_illust.jpg": "부종",
     "압박스타킹_illust.jpg": "압박스타킹"
   },
-  "cover_scrim_color": "#2E6B8A"
+  "cover_scrim_color": "#2E6B8A",
+  "search_keyword": "하지정맥류증상",
+  "search_volume": 25370
 }

@@ -1,0 +1,42 @@
+{
+  "_why": "반투명 인체 포맷(소화_21). SIBO는 '소장 안에서 세균이 늘어난다'가 전부라 부위는 part_intestines 하나로 고정하고, 기전은 세균 증식(m_bacteria_growth)과 발효 가스 두 축만 쓴다. m_gas_fermentation은 라이브러리에 없어 clip_requests.json으로 요청했다 — 비슷한 클립(m_pressure_buildup은 방광·부비동식 폐쇄 챔버)으로 때우지 않는다.",
+  "top_title": "소장세균과다증식, 장 속 가스 줄이는 습관",
+  "inset": {
+    "clip": "assets_library/xray/output/part_intestines.mp4",
+    "crop": [
+      0,
+      420,
+      720,
+      510
+    ],
+    "label": "소장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/pilot_B.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_intestines.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "먼저 그 유산균",
+      "item": "영양제",
+      "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "두 번째는 양파",
+      "item": "양배추",
+      "mech": "m_gas_fermentation"
+    },
+    {
+      "from": "마지막은 간식",
+      "item": "달력",
+      "mech": "m_bacteria_growth"
+    }
+  ],
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(유산균·간식은 사진이 0장이라 배정표에 있는 영양제·달력을 쓴다). 유산균 항목과 간식 항목은 결과가 똑같이 '세균이 계속 늘어난다'라서 m_bacteria_growth를 두 번 쓴다 — 화면과 나레이션이 어긋나지 않는다.",
+  "summary_from": "대한내과학회지는",
+  "_summary_why": "이 구절부터 결론(검사 기준 + 병원 신호) — 영상 칸 없이 칠판 전체로 간다."
+}

@@ -1,9 +1,8 @@
 {
   "title": [
-    "비듬과",
-    "지루성 피부염",
-    "구별하는",
-    "세 가지"
+    "두피 각질, 샴푸를 바꿔도 그대로라",
+    "나만 그런가 싶으셨나요?",
+    "비듬과 지루성 피부염 구별법"
   ],
   "eyebrow": "비듬과 지루성 피부염, 구별하는 세 가지 신호",
   "cover_char_file": "샴푸_illust.jpg",
@@ -56,5 +55,8 @@
     "샴푸_illust.jpg": "샴푸",
     "헤어브러시_illust.jpg": "헤어브러시"
   },
-  "cover_scrim_color": "#6B5A3A"
+  "cover_scrim_color": "#6B5A3A",
+  "thumb_word": "지루성피부염",
+  "search_keyword": "두피각질",
+  "search_volume": 4460
 }

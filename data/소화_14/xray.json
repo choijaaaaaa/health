@@ -1,0 +1,63 @@
+{
+  "_why": "반투명 인체 포맷(content_v2 재작성, 2026-09-21). 도입부는 배를 움켜쥐고 웅크리는 pilot_B 4초 + 위 점등 part_stomach 4초 — 위경련은 '명치를 쥐어짜는 자세' 자체가 증상 설명이라 행위 클립이 훅과 그대로 겹친다.",
+  "top_title": "위경련, 명치 통증 줄이는 습관",
+  "inset": {
+    "clip": "assets_library/xray/output/part_stomach.mp4",
+    "crop": [
+      0,
+      370,
+      720,
+      510
+    ],
+    "label": "위"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/pilot_B.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_stomach.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "이럴 때 탄산음료",
+      "item": "탄산음료",
+      "mech": "m_pressure_buildup"
+    },
+    {
+      "from": "먼저 스트레스",
+      "item": "긴장",
+      "mech": "m_nerve_overdrive"
+    },
+    {
+      "from": "두 번째는 빈속",
+      "item": "커피",
+      "mech": "m_acid_secretion"
+    },
+    {
+      "from": "마지막은 술",
+      "item": "맥주",
+      "mech": "m_toxin_load"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "긴장"
+    },
+    {
+      "from": "커피는 빈속 대신",
+      "item": "커피"
+    },
+    {
+      "from": "술자리에는",
+      "item": "맥주"
+    },
+    {
+      "from": "통증이 올 땐",
+      "item": "온찜질"
+    }
+  ],
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. 기전 배정 근거 — 탄산음료는 위에 가스가 차 압력이 오르는 것이라 m_pressure_buildup(플라스크가 차오름), 스트레스는 위 운동 리듬을 흐트러뜨리는 신경 과흥분이라 m_nerve_overdrive, 빈속 커피는 음식 없이 위산이 위벽에 닿는 장면이라 m_acid_secretion, 술은 독성 물질이 조직으로 스며드는 m_toxin_load.",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+}

@@ -1,9 +1,9 @@
 {
   "title": [
-    "이명과",
-    "청각과민증",
-    "같은 문제가",
-    "아닙니다"
+    "청각과민증을 이명과",
+    "같은 문제라고",
+    "알고 계셨다면, 그게 아니에요.",
+    "이명과 청각과민증 구별법"
   ],
   "eyebrow": "이명과 청각과민증, 같은 문제가 아닙니다",
   "cover_char_file": "이어폰_illust.jpg",
@@ -56,5 +56,8 @@
     "이어폰_illust.jpg": "이어폰",
     "헤드폰_illust.jpg": "헤드폰"
   },
-  "cover_scrim_color": "#5A4A7A"
+  "cover_scrim_color": "#5A4A7A",
+  "thumb_word": "청각과민증",
+  "search_keyword": "청각과민증",
+  "search_volume": 810
 }

@@ -1,8 +1,9 @@
 {
   "title": [
-    "입 안이 헐면",
-    "다 같은 게",
-    "아니에요"
+    "구내염 전염된다고",
+    "알고 계셨다면",
+    "그게 아니에요.",
+    "구내염과 입술포진 구별법 2가지"
   ],
   "eyebrow": "구내염 vs 입술포진, 뭐가 다를까",
   "cover_char_file": "입술_illust.jpg",
@@ -55,5 +56,8 @@
     "입술_illust.jpg": "입술",
     "칫솔_illust.jpg": "칫솔"
   },
-  "cover_scrim_color": "#8A5C2E"
+  "cover_scrim_color": "#8A5C2E",
+  "thumb_word": "구내염",
+  "search_keyword": "구내염전염",
+  "search_volume": 7380
 }

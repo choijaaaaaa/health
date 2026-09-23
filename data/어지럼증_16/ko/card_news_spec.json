@@ -1,9 +1,8 @@
 {
   "title": [
-    "고개 움직일 때만",
-    "핑 도는 어지럼증,",
-    "이석증일",
-    "수 있어요"
+    "이석증 증상, 돌아눕는 순간",
+    "방이 몇 초 핑 돌다 멈춥니다.",
+    "다른 어지럼증과 구별하는 법"
   ],
   "eyebrow": "고개 돌릴 때만 어지러운 이유",
   "cover_char_file": "베개_illust.jpg",
@@ -55,5 +54,8 @@
   "char_display_names": {
     "베개_illust.jpg": "베개"
   },
-  "cover_scrim_color": "#4A3A6B"
+  "cover_scrim_color": "#4A3A6B",
+  "thumb_word": "이석증",
+  "search_keyword": "이석증증상",
+  "search_volume": 37110
 }

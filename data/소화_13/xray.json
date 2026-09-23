@@ -1,0 +1,68 @@
+{
+  "_why": "반투명 인체 포맷(2026-09-21). 담석은 간에서 나온 담즙이 담낭에 고이면서 생기므로 부위는 part_liver(간·담도 점등, part_prompts.md가 소화_13을 이 클립의 사용 topic으로 지정) 하나로 간다. 별도 담낭 점등 클립은 라이브러리에 없다.",
+  "_opening_caveat": "행위 클립은 pilot_B(윗배를 움켜쥐고 웅크림) — 담석 산통 자세와 맞지만 이 클립에서 점등되는 장기는 위(위염 편용으로 뽑힌 파일럿)다. 오른쪽 윗배 전용 행위 클립이 생기면 교체할 것.",
+  "top_title": "담석증, 담즙 고이지 않게 하는 습관",
+  "inset": {
+    "clip": "assets_library/xray/output/part_liver.mp4",
+    "crop": [
+      0,
+      395,
+      720,
+      510
+    ],
+    "label": "간·쓸개"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/pilot_B.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_liver.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "먼저 굶는",
+      "item": "체중계",
+      "mech": "m_crystal_precipitation"
+    },
+    {
+      "from": "이렇게 생긴 돌이",
+      "item": "담석",
+      "mech": "m_pressure_buildup"
+    },
+    {
+      "from": "두 번째로는 아침을",
+      "item": "시계",
+      "mech": "m_stasis_thickening"
+    },
+    {
+      "from": "마지막으로 지방을",
+      "item": "샐러드",
+      "mech": "m_stasis_thickening"
+    },
+    {
+      "from": "그러니 체중은",
+      "item": "체중계",
+      "mech": "m_crystal_precipitation"
+    },
+    {
+      "from": "아침은 거르지",
+      "item": "달걀",
+      "mech": "m_stasis_thickening"
+    },
+    {
+      "from": "지방은 끊지",
+      "item": "호두",
+      "mech": "m_stasis_thickening"
+    },
+    {
+      "from": "질병관리청은 담석",
+      "item": "담석",
+      "mech": "m_pressure_buildup"
+    }
+  ],
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_pressure_buildup은 '돌이 담관을 막아 담낭이 부푼다'는 문장 전용 — 기존 클립이 담낭 폐색 장면과 그대로 맞는다.",
+  "summary_from": "그러니 체중은",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+}

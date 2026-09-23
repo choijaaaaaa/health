@@ -1,9 +1,8 @@
 {
   "title": [
-    "얼굴 한쪽이",
-    "갑자기 안 움직인다면,",
-    "이마부터 확인하세요",
-    "벨마비 vs 뇌졸중 구별법"
+    "벨마비, 치료 골든타임은",
+    "증상 시작 후 72시간이에요.",
+    "벨마비와 뇌졸중 이마 구별법"
   ],
   "eyebrow": "얼굴 마비, 이마가 가르는 응급도",
   "cover_char_file": "전화기_illust.jpg",
@@ -56,5 +55,8 @@
     "전화기_illust.jpg": "전화기",
     "인공눈물_illust.jpg": "인공눈물"
   },
-  "cover_scrim_color": "#4A3D6B"
+  "cover_scrim_color": "#4A3D6B",
+  "thumb_word": "벨마비",
+  "search_keyword": "벨마비",
+  "search_volume": 3850
 }

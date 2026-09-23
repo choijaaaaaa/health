@@ -1,9 +1,8 @@
 {
   "title": [
-    "손끝 발끝이",
-    "하얗게 질리고 감각이 없다면,",
-    "단순히 추운 게 아니에요",
-    "동상 대처법 3가지"
+    "동상, 손끝 발끝이 하얗게 질린 건",
+    "추워서가 아니라 혈류가 끊겨서예요.",
+    "천천히 데우는 대처법 3가지"
   ],
   "eyebrow": "겨울철 동상, 진짜 원인",
   "cover_char_file": "손가락_illust.jpg",
@@ -56,5 +55,8 @@
     "손가락_illust.jpg": "손가락",
     "욕조_illust.jpg": "욕조"
   },
-  "cover_scrim_color": "#2E7A9E"
+  "cover_scrim_color": "#2E7A9E",
+  "thumb_word": "동상",
+  "search_keyword": "동상",
+  "search_volume": 2900
 }

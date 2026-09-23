@@ -1,7 +1,9 @@
 {
   "title": [
-    "번아웃일까요",
-    "우울증일까요"
+    "번아웃 증상, 쉬어도",
+    "슬픔과 무기력이 2주 넘게",
+    "매일 이어지고 있나요?",
+    "번아웃과 우울증 구별법"
   ],
   "eyebrow": "번아웃일까요, 우울증일까요",
   "cover_char_file": "커피_illust.jpg",
@@ -54,5 +56,8 @@
     "커피_illust.jpg": "커피",
     "시계_illust.jpg": "시계"
   },
-  "cover_scrim_color": "#4A5D8A"
+  "cover_scrim_color": "#4A5D8A",
+  "thumb_word": "번아웃",
+  "search_keyword": "번아웃증상",
+  "search_volume": 11570
 }

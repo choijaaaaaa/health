@@ -1,9 +1,8 @@
 {
   "title": [
-    "미세먼지 나쁜 날마다",
-    "피부가 뒤집어진다면,",
-    "마스크만으론 부족해요",
-    "이중 세안·관리법 3가지"
+    "미세먼지 피부 트러블, 마스크보다",
+    "그날 저녁 세안이 더 중요합니다.",
+    "이중 세안 관리법 3가지"
   ],
   "eyebrow": "미세먼지, 피부 트러블 진짜 원인",
   "cover_char_file": "마스크_illust.jpg",
@@ -56,5 +55,12 @@
     "마스크_illust.jpg": "마스크",
     "선크림_illust.jpg": "선크림"
   },
-  "cover_scrim_color": "#5A6E7A"
+  "cover_scrim_color": "#5A6E7A",
+  "thumb_word": "피부트러블",
+  "search_keyword": "미세먼지피부",
+  "search_volume": 0,
+  "video_retired": {
+    "verdict": "drop",
+    "reason": "검색어 0. 피부_13(모낭염 42,950) 등 피부 카테고리와 겹치고 '미세먼지 피부'는 검색어가 아니다."
+  }
 }

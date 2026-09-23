@@ -1,8 +1,8 @@
 {
   "title": [
-    "주말마다 반복되는 두통,",
-    "늦잠 탓이 아니라",
-    "커피를 못 마셔서예요",
+    "카페인 두통, 주말에 생기는 두통이",
+    "늦잠 탓이라고 알고 계셨다면",
+    "그게 아니에요.",
     "카페인 금단 두통 대처법"
   ],
   "eyebrow": "주말 두통, 진짜 원인",
@@ -56,5 +56,8 @@
     "커피_illust.jpg": "커피",
     "녹차_illust.jpg": "녹차"
   },
-  "cover_scrim_color": "#8A5A2E"
+  "cover_scrim_color": "#8A5A2E",
+  "thumb_word": "금단두통",
+  "search_keyword": "카페인두통",
+  "search_volume": 900
 }

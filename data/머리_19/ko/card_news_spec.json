@@ -1,9 +1,9 @@
 {
   "title": [
-    "편두통과",
-    "긴장성 두통",
-    "구별하는",
-    "세 가지"
+    "편두통 증상,",
+    "한쪽이 욱신거리고 속이 메스껍다면",
+    "긴장성 두통이 아니에요.",
+    "둘을 가르는 신호 세 가지"
   ],
   "eyebrow": "편두통과 긴장성 두통, 구별하는 세 가지 신호",
   "cover_char_file": "긴장_illust.jpg",
@@ -56,5 +56,8 @@
     "긴장_illust.jpg": "긴장",
     "알약_illust.jpg": "진통제"
   },
-  "cover_scrim_color": "#4A5A6B"
+  "cover_scrim_color": "#4A5A6B",
+  "thumb_word": "편두통",
+  "search_keyword": "편두통증상",
+  "search_volume": 4520
 }

@@ -1,9 +1,8 @@
 {
   "title": [
-    "여드름과",
-    "주사비",
-    "구별하는",
-    "법"
+    "주사비, 여드름약을 써도",
+    "좋아지지 않으신가요?",
+    "여드름과 주사비 구별법"
   ],
   "eyebrow": "여드름과 주사비, 구별하는 법",
   "cover_char_file": "와인_illust.jpg",
@@ -56,5 +55,13 @@
     "와인_illust.jpg": "와인",
     "피부발진_illust.jpg": "피부"
   },
-  "cover_scrim_color": "#6B3A4A"
+  "cover_scrim_color": "#6B3A4A",
+  "thumb_word": "주사비",
+  "search_keyword": "주사비",
+  "search_volume": 640,
+  "video_retired": {
+    "verdict": "merge",
+    "into": "피부_12",
+    "reason": "'주사비'(640)는 자동완성이 전부 '독감주사 비용·코 주사비' 같은 주사 비용 검색어라 주사(rosacea) 유입이 0에 가깝고, 내용인 '여드름과 주사 구별법'은 피부_12(주사피부염, 16,810)가 이미 '여드름 아닌 주사 구별법과 관리 습관'으로 다룬다."
+  }
 }

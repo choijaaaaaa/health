@@ -1,9 +1,8 @@
 {
   "title": [
-    "방아쇠수지와",
-    "듀피트렌",
-    "구축",
-    "구별법"
+    "듀피트렌 구축, 스트레칭만으론",
+    "펴지지 않습니다.",
+    "방아쇠수지와 구별하는 법"
   ],
   "eyebrow": "방아쇠수지와 듀피트렌 구축, 구별하는 법",
   "cover_char_file": "손가락_illust.jpg",
@@ -55,5 +54,8 @@
   "char_display_names": {
     "손가락_illust.jpg": "손가락"
   },
-  "cover_scrim_color": "#3A6B5A"
+  "cover_scrim_color": "#3A6B5A",
+  "thumb_word": "방아쇠수지",
+  "search_keyword": "듀피트렌구축",
+  "search_volume": 550
 }

@@ -1,9 +1,8 @@
 {
   "title": [
-    "가위눌림과",
-    "기면증",
-    "구별하는",
-    "법"
+    "기면증 증상, 충분히 자도",
+    "낮에 계속 졸리신가요?",
+    "가위눌림과 기면증 구별법"
   ],
   "eyebrow": "가위눌림과 기면증, 구별하는 법",
   "cover_char_file": "베개_illust.jpg",
@@ -56,5 +55,8 @@
     "베개_illust.jpg": "베개",
     "시계_illust.jpg": "시계"
   },
-  "cover_scrim_color": "#3A3A6B"
+  "cover_scrim_color": "#3A3A6B",
+  "thumb_word": "기면증",
+  "search_keyword": "기면증증상",
+  "search_volume": 7990
 }

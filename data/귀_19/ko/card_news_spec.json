@@ -1,9 +1,9 @@
 {
   "title": [
-    "한쪽 귀가",
-    "갑자기 먹먹하면",
-    "돌발성 난청일",
-    "수 있어요"
+    "귀 먹먹함, 한쪽만 갑자기라면",
+    "귀지가 아니라",
+    "돌발성 난청일 수 있어요.",
+    "청력 지키는 72시간 골든타임"
   ],
   "eyebrow": "귀지 탓이 아닐 수도 있어요",
   "cover_char_file": "귀_illust.jpg",
@@ -56,5 +56,8 @@
     "귀_illust.jpg": "귀",
     "귀이개_illust.jpg": "귀이개"
   },
-  "cover_scrim_color": "#5C3A6B"
+  "cover_scrim_color": "#5C3A6B",
+  "thumb_word": "돌발성난청",
+  "search_keyword": "귀먹먹함",
+  "search_volume": 5840
 }

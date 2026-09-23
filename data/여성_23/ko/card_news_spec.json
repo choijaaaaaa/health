@@ -1,8 +1,9 @@
 {
   "title": [
-    "PMS와 PMDD",
-    "구별하는",
-    "세 가지"
+    "PMDD, 생리 전 기분 기복 그거",
+    "참을성 문제가 아니라",
+    "세로토닌 민감도 때문이에요.",
+    "PMS와 구별하는 세 가지"
   ],
   "eyebrow": "생리전증후군과 월경전불쾌장애, 구별하는 법",
   "cover_char_file": "달력_illust.jpg",
@@ -55,5 +56,8 @@
     "달력_illust.jpg": "달력",
     "알약_illust.jpg": "약"
   },
-  "cover_scrim_color": "#7A4A5C"
+  "cover_scrim_color": "#7A4A5C",
+  "thumb_word": "PMDD",
+  "search_keyword": "PMDD",
+  "search_volume": 1720
 }

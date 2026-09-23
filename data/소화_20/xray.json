@@ -1,0 +1,54 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). inset은 part_intestines에서 장이 호박색으로 켜진 구간을 원형으로 잘라 쓴다 — 크롭 y는 소화_9(위, 330~840)보다 아래인 410~920으로, 점등 영역(y≈540~800) 한가운데가 원 중심에 오게 잡았다.",
+  "top_title": "대장 용종, 검진 시기와 습관",
+  "inset": {
+    "clip": "assets_library/xray/output/part_intestines.mp4",
+    "crop": [
+      0,
+      410,
+      720,
+      510
+    ],
+    "label": "대장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_rush_to_toilet.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_intestines.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "용종은 대장",
+      "item": "장",
+      "mech": "m_cell_overgrowth"
+    },
+    {
+      "from": "대한대장항문",
+      "item": "대장내시경",
+      "mech": "m_cell_overgrowth"
+    },
+    {
+      "from": "먼저 줄일",
+      "item": "가공육",
+      "mech": "m_toxin_load"
+    },
+    {
+      "from": "채소는 하루",
+      "item": "귀리"
+    },
+    {
+      "from": "국민 암예방",
+      "item": "운동화"
+    },
+    {
+      "from": "검진은 국가",
+      "item": "대장내시경"
+    }
+  ],
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_cell_overgrowth는 라이브러리에 없어 data/소화_20/clip_requests.json으로 렌더를 요청해둔 상태다 — 비슷한 클립으로 대체하지 않는다.",
+  "summary_from": "채소는 하루",
+  "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+}

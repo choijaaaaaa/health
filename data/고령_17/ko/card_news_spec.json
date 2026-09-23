@@ -1,9 +1,8 @@
 {
   "title": [
-    "일어설 때",
-    "핑 도는 어지럼증,",
-    "기립성 저혈압",
-    "일 수 있어요"
+    "기립성 저혈압, 일어설 때 핑 돌다가",
+    "1~2분 안에 가라앉는다면 이쪽이에요.",
+    "쓰러지지 않는 기립 습관"
   ],
   "eyebrow": "일어설 때 핑 도는 어지럼증, 3가지로 확인하세요",
   "cover_char_file": "혈압계_illust.jpg",
@@ -56,5 +55,8 @@
     "혈압계_illust.jpg": "혈압계",
     "의자_illust.jpg": "의자"
   },
-  "cover_scrim_color": "#3A6B5C"
+  "cover_scrim_color": "#3A6B5C",
+  "thumb_word": "기립성저혈압",
+  "search_keyword": "기립성저혈압",
+  "search_volume": 27190
 }

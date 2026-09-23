@@ -1,0 +1,57 @@
+{
+  "_why": "반투명 인체 포맷 시험(2026-09-18). inset은 pilot_A 마지막 장면(카메라 정지, 위가 빛나는 몸통)을 원형으로 잘라 불빛만 맥동시킨다 — 줌 구간을 반복하면 정신없다는 지적으로 고정 장면으로 바꿨다.",
+  "top_title": "위염, 위 점막 지키는 습관",
+  "inset": {
+    "clip": "assets_library/xray/output/pilot_A.mp4",
+    "crop": [
+      0,
+      330,
+      720,
+      510
+    ],
+    "label": "위"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/pilot_B2.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/pilot_A.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "먼저 커피",
+      "item": "커피",
+      "mech": "m_acid_secretion"
+    },
+    {
+      "from": "두 번째로는",
+      "item": "이부프로펜",
+      "mech": "m_mucus_barrier"
+    },
+    {
+      "from": "마지막으로 짠",
+      "item": "소금",
+      "mech": "m_cell_damage"
+    },
+    {
+      "from": "카페인은 하루",
+      "item": "커피",
+      "mech": "m_acid_secretion"
+    },
+    {
+      "from": "진통제는 꼭",
+      "item": "이부프로펜",
+      "mech": "m_mucus_barrier"
+    },
+    {
+      "from": "짠 음식은",
+      "item": "소금",
+      "mech": "m_cell_damage"
+    }
+  ],
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다.",
+  "summary_from": "카페인은 하루",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+}

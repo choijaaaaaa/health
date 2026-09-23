@@ -1,9 +1,8 @@
 {
   "title": [
-    "눈앞에 점이",
-    "갑자기 늘면",
-    "망막열공일",
-    "수 있어요"
+    "망막열공, 눈앞의 점이 갑자기 늘고",
+    "번쩍임까지 보인다면 당일 진료예요.",
+    "그냥 비문증과 구별하는 법"
   ],
   "eyebrow": "눈앞에 떠다니는 점, 왜 갑자기 늘어났을까요",
   "cover_char_file": "독서안경_illust.jpg",
@@ -56,5 +55,8 @@
     "독서안경_illust.jpg": "돋보기",
     "인공눈물_illust.jpg": "인공눈물"
   },
-  "cover_scrim_color": "#4A5C3A"
+  "cover_scrim_color": "#4A5C3A",
+  "thumb_word": "망막열공",
+  "search_keyword": "망막열공",
+  "search_volume": 3880
 }
