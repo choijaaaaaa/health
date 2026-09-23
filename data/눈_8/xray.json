@@ -1,6 +1,6 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "비문증, 눈 속 젤리의 노화",
+  "_why": "원고 전면 재작성(2026-09-23). 각도를 '원인 나열'에서 자동완성 1·3·4·6·7위(치료·치료방법·영양제·완치·약)인 '없앨 수 있나'로 바꿨다. 도입부는 눈을 비벼 없애보려는 act_rub_eyes(안구 점등) + part_eye — 훅이 '점이 시선을 따라다닌다'라 눈 자체를 보여주는 컷이 맞다.",
+  "top_title": "비문증, 없애는 방법이 있을까",
   "inset": {
     "clip": "assets_library/xray/output/m_vitreous_floaters.mp4",
     "crop": [
@@ -15,55 +15,66 @@
     {
       "clip": "assets_library/xray/output/act_rub_eyes.mp4",
       "range": [
-        2.6,
+        1.4,
         4.0
       ]
     },
     {
       "clip": "assets_library/xray/output/part_eye.mp4",
       "range": [
-        2.0,
-        3.4
+        1.4,
+        4.0
       ]
     }
   ],
   "_mech": [
     "m_vitreous_floaters",
-    "m_eye_elongation",
-    "m_microvessel_damage"
+    "m_shadow_contrast",
+    "m_layer_separation"
   ],
   "_items": [
+    "인공눈물",
+    "영양제",
     "스마트폰",
-    "혈당계",
-    "영양제"
+    "달력",
+    "폭죽"
   ],
-  "summary_from": "날파리가 하루 이틀",
+  "summary_from": "점이 거슬릴 땐",
   "timeline": [
     {
-      "from": "먼저 노화예요.",
-      "item": "스마트폰",
+      "from": "인공눈물을 넣고",
+      "item": "인공눈물",
+      "act": "act_rub_eyes",
       "mech": "m_vitreous_floaters"
     },
     {
-      "from": "두 번째로는 고도근시예요.",
-      "item": "혈당계",
-      "mech": "m_eye_elongation"
-    },
-    {
-      "from": "마지막으로 당뇨예요.",
+      "from": "먼저 영양제예요",
       "item": "영양제",
-      "mech": "m_microvessel_damage"
-    },
-    {
-      "from": "날파리가 하루 이틀",
-      "item": "스마트폰",
+      "act": "act_take_supplement",
       "mech": "m_vitreous_floaters"
     },
     {
-      "from": "시야 한쪽이 커튼처럼",
-      "item": "혈당계",
-      "mech": "m_eye_elongation"
+      "from": "두 번째는 밝은 배경",
+      "item": "스마트폰",
+      "act": "act_squint_at_screen",
+      "mech": "m_shadow_contrast"
+    },
+    {
+      "from": "마지막은 지켜보는 기간",
+      "item": "달력",
+      "act": "act_chase_floater",
+      "mech": "m_layer_separation"
+    },
+    {
+      "from": "점이 거슬릴 땐",
+      "item": "달력"
+    },
+    {
+      "from": "며칠 사이 점이",
+      "item": "폭죽"
     }
   ],
-  "opening_until": 4.24
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①통념 반박(인공눈물·휴식)은 눈을 비벼 없애보려는 act_rub_eyes와, 혼탁 덩어리가 망막에 그림자를 드리우는 m_vitreous_floaters — 나레이션의 '눈 근육이 아니라 유리체 속 혼탁'이 그대로 화면이다. ②영양제는 알약을 삼키는 act_take_supplement에 같은 m_vitreous_floaters를 붙여 '먹어도 저 덩어리는 그대로'를 한 화면에 둔다(기전이 같은 건 때우기가 아니라 같은 덩어리 얘기라서다). ③밝은 배경은 화면을 얼굴 가까이 들어올리는 act_squint_at_screen(색인 주의: 점등이 없어 기전 컷으론 약하고 행동 제시용 — 여기선 행위 칸이라 맞다) + 배경이 밝을수록 그림자 대비가 커지는 m_shadow_contrast(신규 요청). ④지켜보는 기간은 흰 벽 앞에서 점을 눈으로 쫓는 act_chase_floater(신규 요청) + 5%가 넘어가는 병적 비문증을 보여주는 m_layer_separation(망막층이 어긋나며 벌어짐). m_vitreous_floaters는 호박색 점등이 없어 혼자선 밋밋하다는 색인 기록이 있어, 왼쪽 행위 칸을 안구가 호박색으로 켜지는 act_rub_eyes·위가 켜지는 act_take_supplement로 받아 화면 전체가 회청색으로 가라앉지 않게 했다.",
+  "_summary_why": "'점이 거슬릴 땐'부터 해결책 — 영상 칸 없이 칠판 전체로 간다. 마지막 '며칠 사이 점이'는 응급 신호 구간이라 폭죽(번쩍임)으로 바꾼다.",
+  "opening_until": 5.2
 }

@@ -1,11 +1,11 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "갑상선기능저하증, 피로와 구별",
+  "_why": "전량 재제작 배치1(2026-09-23) → 2026-09-24 각도 재작성. 자동완성 1위 '증상'의 하위 1·2·4위(눈/목/생리)로 항목을 다시 잡았다. 클립은 lib.clip_index의 seen·fits·avoid로 고르고 최종 프레임만 확인.",
+  "top_title": "갑상선기능저하증, 먼저 티 나는 곳",
   "inset": {
-    "clip": "assets_library/xray/output/m_metabolic_slowdown.mp4",
+    "clip": "assets_library/xray/output/part_thyroid.mp4",
     "crop": [
       0,
-      400,
+      480,
       720,
       500
     ],
@@ -13,57 +13,63 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_doze_off_sitting.mp4",
+      "clip": "assets_library/xray/output/act_rub_eyes.mp4",
       "range": [
-        2.6,
-        4.0
+        1.4,
+        3.8
       ]
     },
     {
       "clip": "assets_library/xray/output/part_thyroid.mp4",
       "range": [
-        2.0,
+        1.0,
         3.4
       ]
     }
   ],
   "_mech": [
-    "m_metabolic_slowdown",
     "m_fluid_retention",
-    "m_autoimmune_attack"
+    "m_autoimmune_attack",
+    "m_blood_loss",
+    "m_hormone_drop"
   ],
   "_items": [
-    "체중계",
     "부종",
-    "면역세포"
+    "갑상선",
+    "생리대"
   ],
-  "summary_from": "철분제나 칼슘제는 4시간",
+  "summary_from": "확인은 피 한 번이면",
   "timeline": [
     {
-      "from": "먼저 대사 속도예요.",
-      "item": "체중계",
-      "mech": "m_metabolic_slowdown"
-    },
-    {
-      "from": "두 번째로는 부기예요.",
+      "from": "먼저 눈이에요.",
       "item": "부종",
       "mech": "m_fluid_retention"
     },
     {
-      "from": "마지막으로 원인이에요.",
-      "item": "면역세포",
+      "from": "두 번째로는 목이에요.",
+      "item": "갑상선",
       "mech": "m_autoimmune_attack"
     },
     {
-      "from": "철분제나 칼슘제는 4시간",
-      "item": "체중계",
-      "mech": "m_metabolic_slowdown"
+      "from": "마지막으로 생리예요.",
+      "item": "생리대",
+      "mech": "m_blood_loss"
     },
     {
-      "from": "피로에 얼굴 붓기와",
-      "item": "부종",
+      "from": "확인은 피 한 번이면",
+      "item": "혈액검사",
+      "mech": "m_hormone_drop"
+    },
+    {
+      "from": "갑상선자극호르몬이 10을",
+      "item": "알약",
+      "mech": "m_hormone_drop"
+    },
+    {
+      "from": "얼굴 붓기에 잠긴 목소리가",
+      "item": "맥박",
       "mech": "m_fluid_retention"
     }
   ],
-  "opening_until": 4.0
+  "opening_until": 4.9
 }
