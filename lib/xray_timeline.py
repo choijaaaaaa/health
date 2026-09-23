@@ -38,7 +38,11 @@ def _time_of(phrase: str, cues) -> float:
 
 
 def resolve(topic: str) -> list[dict] | None:
-    """[{start, end, item, mech}] (나레이션 기준 초). timeline이 없으면 None."""
+    """[{start, end, item, mech, act}] (나레이션 기준 초). timeline이 없으면 None.
+
+    WHY `act`도 같이 내보내는지(2026-09-24 실측): 위쪽 칸은 **왼쪽 행위 · 오른쪽 기전**으로 나뉘는데,
+    이 함수가 act를 떼고 돌려주는 바람에 topic이 timeline에 act를 적어도 xray_build가 못 받아
+    기전만 크게 나갔다 — 항목마다 행위를 넣을 자리가 아예 없는 것처럼 보였다."""
     path = ROOT / "data" / topic / "xray.json"
     if not path.exists():
         return None
@@ -49,7 +53,8 @@ def resolve(topic: str) -> list[dict] | None:
     starts = [_time_of(t["from"], cues) for t in tl]
     end_all = cues[-1][1]
     return [{"start": st, "end": starts[i + 1] if i + 1 < len(starts) else end_all,
-             "item": t["item"], "mech": t.get("mech")} for i, (st, t) in enumerate(zip(starts, tl))]
+             "item": t["item"], "mech": t.get("mech"), "act": t.get("act")}
+            for i, (st, t) in enumerate(zip(starts, tl))]
 
 
 def summary_start(topic: str) -> float | None:
