@@ -42,7 +42,7 @@
     "물컵",
     "혈액검사"
   ],
-  "_clip_notes": "act_hair_shedding 3.0~5.6초 = 손이 머리에서 떨어지며 머리카락 가닥이 딸려 나오고 두피 점등(프레임 확인). act_toilet_check 3.6~5.6초 = 변기를 내려다보는 자세에서 신장·요관·방광이 이어서 점등(프레임 확인). part_kidney는 CLIP_NOTES의 region 수정본이라 신장만 켜진다. act_urgent_watery_bowel은 아직 없어 clip_requests.json에 요청함 — act_grab_belly(대장 전체 점등, 어느 복통에나 붙는 뭉뚱그린 동작)·act_rush_to_toilet(방광 점등, 소변 급함)으로 때우지 않는다.",
+  "_clip_notes": "act_hair_shedding 3.0~5.6초 = 손이 머리에서 떨어지며 머리카락 가닥이 딸려 나오고 두피 점등(프레임 확인). act_toilet_check = 서서 소변보며 방광→양쪽 신장까지 점등(프레임 확인, clip_index도 '신장 이상 신호'로 적고 있다). part_kidney는 CLIP_NOTES의 region 수정본이라 신장만 켜진다. act_urgent_watery_bowel은 아직 없어 clip_requests.json에 요청함 — 차선은 act_rush_to_toilet 4.5~6.0초(4.3초부터 장이 켜진 채 급히 걸어간다, 그 앞 구간은 방광이라 쓰면 안 된다).",
   "summary_from": "로딩은 건너뛰고",
   "timeline": [
     {

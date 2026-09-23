@@ -95,6 +95,16 @@
 
 기존 영상 109편은 이 규칙으로 전부 재생성 완료(2026-09-11) — 전량 미게시 상태였다.
 
+## 🚨 제작 방법론은 `PIPELINE_METHOD.md` 하나로 (2026-09-24 확정)
+
+검색어에서 출발하는 원고 작성, 공공데이터 수치, 클립 색인, 행위 클립 디테일 기준, 부위 클립 region —
+**실제로 돌려보고 확정한 것들을 한 문서에 모았다.** 원고·영상 작업 전에 그걸 먼저 읽는다.
+
+**다른 채널(댕냥사전 등)도 그대로 쓸 수 있게 뺀 문서다** — 경로만 자기 프로젝트에 맞게 바꾸면 된다.
+이식 가능한 도구: `lib/naver_keywords.py` · `lib/naver_searchad.py` · `lib/clip_index.py` ·
+`lib/topic_search_rank.py` · `scripts/make_part_clip.py`. 공공데이터는
+`~/Desktop/project/public-data/`에 이미 받아져 있어 프로젝트를 안 가린다.
+
 ## 🚨 채널명은 「건강만사전」 (2026-09-23 확정)
 
 사람이 보는 모든 표기는 이 이름을 쓴다 — 영상 엔딩 카드(`video_assembler.BRAND_NAME`), 카드뉴스
