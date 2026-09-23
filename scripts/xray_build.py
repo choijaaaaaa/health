@@ -5,8 +5,9 @@ WHY(2026-09-23 파일럿에서 확정): 이 포맷은 손으로 돌리면 단계
   1. `rebuild_video` — 칠판 본체
   2. `xray_splice`로 도입부 Flow 2컷 — ⚠️ 시각을 **0으로 줘야** 한 묶음(chain)으로 이어져 전체 화면이 된다.
      0.2/1.6처럼 실제 시각을 주면 두 번째 컷이 위쪽 칸 크기로 잘려 들어간다(실측).
-  3. 항목마다 기전 클립 교체 — ⚠️ 기전 클립은 4초인데 항목 구간은 13~30초다. 느리게 늘리면 정지 화면이
-     되므로(구도 전환이 느린 게 지루함의 원인) **루프로 채운다.**
+  3. 항목마다 기전 클립 교체 — ⚠️ 기전 클립은 4초인데 항목 구간은 13~30초다. **재생 속도로 맞춘다**
+     (반복하면 같은 동작이 끊겨 돌아가는 게 보인다). 정지 화면이 되지 않게 MAX_STRETCH까지만 늘리고
+     남는 만큼만 반복으로 채운다.
 
 xray.json에 `opening[].range`와 `opening_until`을 적어두면 이 스크립트가 그대로 재현한다.
 
@@ -33,33 +34,106 @@ MIN_PANEL_SEC = 3.0          # 이보다 짧은 구간에 기전을 갈아 끼�
 
 
 PANEL_W, PANEL_H = 960, 680          # lib/video_assembler.XRAY_PANEL 과 같은 값
-HALF_W = PANEL_W // 2
 
 
-def _loop_to(clip: Path, seconds: float, out: Path) -> None:
+
+MAX_STRETCH = 2.5            # 이보다 더 늘리면 사실상 정지 화면이라, 남는 만큼만 반복으로 채운다
+SMOOTH_FROM = 1.15           # 이 이상 늘릴 때만 프레임 보간 — 그냥 늘리면 같은 프레임이 반복돼 끊긴다
+
+
+def _duration(clip: Path) -> float:
+    out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                          "-of", "csv=p=0", str(clip)], capture_output=True, text=True, check=True)
+    return float(out.stdout.strip())
+
+
+def _fit(clip: Path, seconds: float) -> str:
+    """구간을 채우도록 재생 속도를 조절하는 필터 조각.
+
+    WHY 반복이 아니라 속도인지(2026-09-24 사용자 "영상 Loop 말고 왠만하면 시간을 늘리거나 줄이는거로해
+    영상을 느리게 빠르게 해서"): 4초 클립을 20초 구간에 다섯 번 되풀이하면 같은 동작이 다섯 번 끊겨
+    돌아가는 게 그대로 보인다. 한 번을 구간 길이에 맞춰 늘리면 동작이 끊기지 않는다.
+
+    다만 무한정 늘리진 않는다 — 30초 구간에 4초 클립이면 7.5배라 정지 화면이 된다. `MAX_STRETCH`까지만
+    늘리고 남는 만큼은 반복으로 채운다(호출부가 `-stream_loop -1`을 준다).
+    """
+    k = min(seconds / _duration(clip), MAX_STRETCH)
+    f = f"setpts={k:.4f}*(PTS-STARTPTS)"
+    if k >= SMOOTH_FROM:
+        f += ",minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc"
+    return f
+
+
+# 클립을 **자르지 않는다** — 2026-09-24 사용자 "자르는거 없이 영상 풀로 다 나올수있게".
+# 세로 클립(720x1280)을 칸 높이 680에 맞추면 폭이 382라 반칸(477)에 넉넉히 들어간다. 남는 좌우는
+# 클립 배경과 같은 색으로 메운다(클립 네 귀퉁이를 찍어 잰 값). 예전엔 폭을 먼저 맞추고 넘치는 높이를
+# 잘라냈는데, 그러면 전신 클립에서 발이 잘려 동작의 무게중심이 안 보였다.
+VOID = "0x142E35"            # 클립 배경(어두운 슬레이트) — 메운 자리가 티 나지 않게
+DIVIDER = "0x3A5A66"         # 두 영상 사이 구분선 — 왼쪽 행동 / 오른쪽 기전의 경계
+# 8인 이유: 반칸 폭이 짝수로 떨어져야 한다((960-8)/2 = 476). 6으로 두면 477이 홀수라
+# libx264가 폭을 짝수로 맞추면서 결과가 958px로 2px 모자랐다(실측).
+DIVIDER_W = 8
+HALF_W = (PANEL_W - DIVIDER_W) // 2
+
+
+LABEL_PAD = 18               # 칸 모서리가 radius 28로 둥글게 깎이므로 그 안쪽에 둔다
+
+
+def _side_labels(td: Path) -> tuple[Path, Path]:
+    """좌우가 각각 무엇인지 알려주는 라벨 두 장.
+
+    WHY(2026-09-24 사용자 "왼쪽이 행동, 오른쪽이 기전이라는걸 보여주고"): 두 장면을 나란히 놓는 것만으론
+    어느 쪽이 원인이고 어느 쪽이 몸 안인지 안 읽힌다. 구분선만으로는 "다른 장면"까지만 전달된다."""
+    from lib.video_assembler import _make_pill_label_png
+    paths = []
+    for text in ("이 행동이", "몸 안에선"):
+        p = td / f"label_{text}.png"
+        if not p.exists():
+            _make_pill_label_png(text, p, font_size=38)
+        paths.append(p)
+    return paths[0], paths[1]
+
+
+def _fit_whole(idx: int, clip: Path, seconds: float, width: int) -> str:
+    """클립 하나를 잘라내지 않고 `width`×PANEL_H 안에 통째로 앉힌다."""
+    return (f"[{idx}:v]scale=-2:{PANEL_H},{_fit(clip, seconds)},"
+            f"pad={width}:{PANEL_H}:(ow-iw)/2:0:color={VOID}")
+
+
+def _fill_to(clip: Path, seconds: float, out: Path) -> None:
+    """칸 하나를 기전 클립으로만 채운다(행위 클립이 없는 항목)."""
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(clip),
-                    "-t", f"{seconds:.2f}", "-c:v", "libx264", "-crf", "18", "-preset", "medium",
-                    "-an", str(out)], check=True)
+                    "-filter_complex", _fit_whole(0, clip, seconds, PANEL_W),
+                    "-t", f"{seconds:.2f}",
+                    "-c:v", "libx264", "-crf", "18", "-preset", "medium",
+                    "-pix_fmt", "yuv420p", "-an", str(out)], check=True)
 
 
-def _split_loop(act: Path, mech: Path, seconds: float, out: Path,
-                act_focus: float = 0.34, mech_focus: float = 0.5) -> None:
-    """왼쪽 행위 · 오른쪽 기전으로 한 칸에 나란히 넣고 구간 길이만큼 루프시킨다.
+def _split_fill(act: Path, mech: Path, seconds: float, out: Path) -> None:
+    """왼쪽 행위 · 오른쪽 기전으로 한 칸에 나란히 넣고 구간 길이에 맞춘다.
 
     WHY(2026-09-24 사용자 "왼쪽에 행동 오른쪽에 기전 이렇게 들어가야 할거같다"): 기전만 크게 띄우면
     "몸 안에서 무슨 일이 벌어지는지"는 보이는데 **그게 어떤 행동 때문인지**가 안 보인다. 둘을 나란히
     놓아야 "이 행동을 하면 → 몸이 이렇게 된다"가 한 화면에서 읽힌다.
 
-    `act_focus`가 0.34인 이유: 행위 클립은 720x1280 전신이라 그대로 반으로 자르면 머리나 발만 남는다.
-    위에서 34% 지점을 중심으로 잡아야 손과 상체(동작이 실제로 보이는 곳)가 들어온다.
+    가운데 구분선을 두는 이유: 배경색이 같은 두 장면이 맞닿으면 한 화면으로 읽혀 좌우가 다른
+    이야기라는 게 안 보인다. 왼쪽 블록 오른쪽 끝을 구분선 색으로 메워 경계를 만든다.
+
+    두 클립은 길이가 달라 각자의 배속으로 같은 구간을 채운다.
     """
-    vf = (f"[0:v]scale={HALF_W}:-2,crop={HALF_W}:{PANEL_H}:0:'min(ih-{PANEL_H},ih*{act_focus})'[a];"
-          f"[1:v]scale={HALF_W}:-2,crop={HALF_W}:{PANEL_H}:0:'min(ih-{PANEL_H},ih*{mech_focus})'[m];"
-          f"[a][m]hstack=2")
+    labels = _side_labels(out.parent)
+    vf = (f"{_fit_whole(0, act, seconds, HALF_W)},"
+          f"pad={HALF_W + DIVIDER_W}:{PANEL_H}:0:0:color={DIVIDER}[a];"
+          f"{_fit_whole(1, mech, seconds, HALF_W)}[m];"
+          f"[a][m]hstack=2[panel];"
+          f"[panel][2:v]overlay={LABEL_PAD}:{LABEL_PAD}[l];"
+          f"[l][3:v]overlay={HALF_W + DIVIDER_W + LABEL_PAD}:{LABEL_PAD}")
     subprocess.run(["ffmpeg", "-y", "-v", "error",
                     "-stream_loop", "-1", "-i", str(act), "-stream_loop", "-1", "-i", str(mech),
+                    "-i", str(labels[0]), "-i", str(labels[1]),
                     "-filter_complex", vf, "-t", f"{seconds:.2f}",
-                    "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-an", str(out)], check=True)
+                    "-c:v", "libx264", "-crf", "18", "-preset", "medium",
+                    "-pix_fmt", "yuv420p", "-an", str(out)], check=True)
 
 
 def main() -> None:
@@ -98,9 +172,9 @@ def main() -> None:
                 asrc = ROOT / LIB / f"{act}.mp4"
                 if not asrc.exists():
                     raise SystemExit(f"행위 클립 없음: {act} — clip_requests.json에 적을 것")
-                _split_loop(asrc, src, dur, dst)
+                _split_fill(asrc, src, dur, dst)
             else:
-                _loop_to(src, dur, dst)
+                _fill_to(src, dur, dst)
         args.append(f"{row['start']:.2f}:{dst}")
 
     cmd = [PY, "scripts/xray_splice.py", a.topic, *args, "--panel"]
