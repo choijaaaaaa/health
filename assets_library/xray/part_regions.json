@@ -1,0 +1,90 @@
+{
+ "_why": "부위 점등 클립을 Flow 대신 scripts/make_part_clip.py로 만들 때 쓰는 점등 영역(스틸 안 비율 x,y,w,h 타원). 2026-09-20 전신 스틸에서 눈으로 확인해 확정. 장기가 겹쳐 보여 좌표로는 못 가르는 부위(심장·폐·간·췌장·신장)는 여기 넣지 말고 전용 클로즈업 스틸을 쓴다 — 나레이션과 화면이 어긋나면 안 된다.",
+ "cu_torso_organs.jpg": {
+  "part_stomach": [
+   0.35,
+   0.42,
+   0.3,
+   0.1
+  ],
+  "part_intestines": [
+   0.33,
+   0.52,
+   0.34,
+   0.16
+  ],
+  "part_bladder": [
+   0.44,
+   0.635,
+   0.12,
+   0.05
+  ],
+  "part_brain": [
+   0.43,
+   0.055,
+   0.14,
+   0.06
+  ],
+  "part_thyroid": [
+   0.455,
+   0.245,
+   0.09,
+   0.035
+  ],
+  "part_knee": [
+   0.33,
+   0.905,
+   0.34,
+   0.05
+  ]
+ },
+ "_전체점등": "클로즈업 스틸(cu_eye·cu_ear·cu_mouth·cu_hand·cu_foot·cu_skin_section 등)은 피사체 자체가 그 부위라 --region 없이 그대로 돌린다.",
+ "cu_heart.jpg": {
+  "part_heart": [
+   0.3,
+   0.33,
+   0.2,
+   0.18
+  ]
+ },
+ "cu_lungs.jpg": {
+  "part_lungs": [
+   0.27,
+   0.26,
+   0.31,
+   0.24
+  ]
+ },
+ "cu_liver_pancreas.jpg": {
+  "part_liver": [
+   0.35,
+   0.39,
+   0.19,
+   0.13
+  ]
+ },
+ "cu_nose_sinus.jpg": {
+  "part_nose_sinus": [
+   0.38,
+   0.38,
+   0.25,
+   0.2
+  ]
+ },
+ "cu_head_front.jpg": {
+  "part_brain": [
+   0.38,
+   0.09,
+   0.24,
+   0.19
+  ]
+ },
+ "cu_shoulder.jpg": {
+  "part_shoulder": [
+   0.4,
+   0.23,
+   0.22,
+   0.2
+  ]
+ }
+}

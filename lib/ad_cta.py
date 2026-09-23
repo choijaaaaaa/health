@@ -25,10 +25,28 @@ _FONTS = Path(__file__).resolve().parent.parent / "assets_library" / "fonts"
 # 원형 사진이 이미 쓰고 있어 그 사이만 비어 있다.
 CTA_CX = 510          # 명패와 원형 사진 사이의 빈 구간 중앙
 CTA_CY = 1545         # 나무 선반 위. 유튜브 하단 안전선(1600)보다도 위다
+
+# WHY 칠판 상단 기준 오프셋이 따로 필요한지(2026-09-17): 위 CTA_CY는 상단 배너가
+# 있던 시절(칠판이 y≈255부터 시작)에 실측한 절대 좌표다. 배너를 끄면 칠판이 그만큼
+# 위로 올라가서 같은 좌표가 나무 선반 한가운데를 뚫고 앉고, 화살표가 광고 배너가
+# 아니라 사진 배경을 가리킨다(실측 확인). 선반은 칠판 이미지의 고정 위치이므로
+# 절대 y가 아니라 **칠판 상단으로부터의 거리**로 잡아야 레이아웃이 바뀌어도 맞는다.
+CTA_CY_FROM_BOARD_TOP = 1290   # = 기존 1545 - 그때의 칠판 상단(255)
 BOB_PX = 13           # 위아래 진폭(px)
 BOB_PERIOD = 1.6      # 한 번 까딱이는 주기(초)
 TILT_DEG = 5.0        # 좌우 기울기 진폭(도)
 TILT_PERIOD = 2.3     # 기울기 주기(초) — 진폭 주기와 어긋나게 둬야 기계적으로 안 보인다
+
+# WHY 도입부엔 CTA를 띄우지 않는지(2026-09-17 사용자 지적): t=0부터 깔면 맨 앞
+# 제목 카드(=썸네일) 글자를 배지가 정통으로 덮는다. 네이버 클립은 업로더가
+# 영상 프레임 중에서 썸네일을 고르는 방식이라, 전 구간에 CTA가 깔려 있으면
+# 깨끗한 썸네일 후보 프레임 자체가 하나도 없다 — 광고 유도가 박힌 썸네일은
+# 클릭률을 떨어뜨리므로 배너로 시선을 내리려다 유입을 깎아먹는 역효과다.
+# 5초인 이유: 초반 0~5초가 이탈을 가르는 훅 구간이라 같은 이유로 비워둬야
+# 한다. 5초 안에 이탈할 시청자는 어차피 배너를 안 누르므로 잃는 것도 없다.
+# 공정위 "처음부터 끝까지 노출" 대상은 이 CTA가 아니라 광고 표시 배지
+# (video_assembler._build_ad_tag_badge)다 — 그쪽은 계속 전 구간 유지.
+CTA_START_SEC = 5.0
 
 # 분필 톤 안에서 가장 눈에 띄는 색. 순백은 본문 판서와 같아 묻힌다.
 CHALK_YELLOW = (255, 214, 92)
@@ -102,22 +120,33 @@ def build_cta_png(out_path: Path, lang: str = "kor") -> tuple[int, int]:
 
 
 def cta_filter(overlay_label: str, base_label: str, cw: int, ch: int,
-               out_label: str = "v") -> str:
+               out_label: str = "v", start_at: float = CTA_START_SEC,
+               center_y: float | None = None, center_x: float | None = None) -> str:
     """CTA를 까딱이며 얹는 filter_complex 조각.
 
     rotate는 오버레이 입력에만 걸어야 한다 — 베이스 영상에 걸면 화면 전체가 돈다.
     `c=none`으로 회전 여백을 투명하게 두고, ow/oh를 키워 모서리 잘림을 막는다.
+
+    WHY 등장 지연을 fade가 아니라 overlay의 `enable`로 거는지: 오버레이 입력은
+    PNG 한 장짜리라 자체 타임스탬프가 0에 멈춰 있다 — 그 스트림에 fade를 걸면
+    st에 영영 도달하지 못해 CTA가 끝까지 안 나온다. 반면 overlay의 `enable`/`t`는
+    베이스 영상 타임라인으로 평가되므로 의도대로 동작한다(y의 까딱임도 같은
+    이유로 이미 overlay 쪽 `t`를 쓰고 있다).
     """
     rot = (f"[{overlay_label}]format=rgba,"
            f"rotate=a='{math.radians(TILT_DEG):.5f}*sin(2*PI*t/{TILT_PERIOD})':"
            f"c=none:ow=rotw(iw):oh=roth(ih)[cta]")
-    x = f"{CTA_CX}-overlay_w/2"
-    y = f"{CTA_CY}-overlay_h/2+{BOB_PX}*sin(2*PI*t/{BOB_PERIOD})"
-    ov = f"[{base_label}][cta]overlay=x='{x}':y='{y}':format=auto[{out_label}]"
+    cx = CTA_CX if center_x is None else center_x
+    x = f"{cx}-overlay_w/2"
+    cy = CTA_CY if center_y is None else center_y
+    y = f"{cy}-overlay_h/2+{BOB_PX}*sin(2*PI*t/{BOB_PERIOD})"
+    ov = (f"[{base_label}][cta]overlay=x='{x}':y='{y}':format=auto"
+          f":enable='gte(t,{start_at})'[{out_label}]")
     return f"{rot};{ov}"
 
 
-def apply_to_video(src: str | Path, dst: str | Path, lang: str = "kor") -> None:
+def apply_to_video(src: str | Path, dst: str | Path, lang: str = "kor",
+                   start_at: float = CTA_START_SEC) -> None:
     """완성된 mp4에 CTA를 덧입힌다(오디오는 그대로 복사).
 
     기존 영상 소급 적용과 신규 조립 양쪽에서 같은 결과가 나오도록 이 함수 하나만 쓴다.
@@ -126,7 +155,7 @@ def apply_to_video(src: str | Path, dst: str | Path, lang: str = "kor") -> None:
     with tempfile.TemporaryDirectory() as td:
         png = Path(td) / "cta.png"
         cw, ch = build_cta_png(png, lang)
-        fc = cta_filter("1:v", "0:v", cw, ch, "v")
+        fc = cta_filter("1:v", "0:v", cw, ch, "v", start_at=start_at)
         dst.parent.mkdir(parents=True, exist_ok=True)
         subprocess.run(
             ["ffmpeg", "-y", "-i", str(src), "-i", str(png),

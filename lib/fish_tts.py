@@ -410,6 +410,11 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     if voice_name is None:
         voice_name = _default_voice_name(lang)
         print(f"[fish_tts] 채널 기본 보이스({lang}): {voice_name}")
+    # WHY 한국어는 다른 보이스를 막는지(2026-09-19 사용자 확정 "tts 목소리도 딱 그거로만 쫙 가자"): 예전엔
+    # topic마다 난수로 보이스를 골라 한 채널에 성별·연령대가 제각각인 영상이 쌓였다. 인자로 다른 이름을
+    # 넘기는 경로가 남아 있으면 같은 일이 다시 생기므로 한국어는 기본 보이스 외엔 거부한다.
+    if lang == "kor" and voice_name != DEFAULT_VOICE_BY_LANG["kor"]:
+        raise ValueError(f"[fish_tts] 한국어 나레이션은 '{DEFAULT_VOICE_BY_LANG['kor']}'만 쓴다 — 받은 값: {voice_name}")
 
     try:
         audio_bytes, words = _call_tts_batched(text, voice_name, lang)

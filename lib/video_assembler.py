@@ -32,7 +32,7 @@ if str(_REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(_REPO_ROOT))
 
 from lib.bgm import bgm_filter_segment
-from lib.ad_cta import build_cta_png, cta_filter  # noqa: E402
+from lib.ad_cta import CTA_CX, CTA_CY_FROM_BOARD_TOP, build_cta_png, cta_filter  # noqa: E402
 
 W, H = 1080, 1920
 FONT_PATH = "/System/Library/Fonts/AppleSDGothicNeo.ttc"
@@ -42,7 +42,11 @@ FPS = 30
 # 요청하는 글도 추가하자"): 매번 topic마다 문구를 새로 넘길 필요 없이 항상 같은
 # 표준 문구로 나가게 모듈 상수로 고정 — end_card_text를 명시로 넘기면 그걸 쓰고,
 # 안 넘기면(기본) 이 문구를 쓴다. 완전히 끄고 싶으면 end_card_duration=0.
-DEFAULT_END_CARD_TEXT = "더 많은 건강정보가 궁금하다면 구독·좋아요·팔로우 해주세요"
+# WHY 채널명을 문구에 박는지(2026-09-23 사용자 "health shorts도 전반적으로 명칭을 건강만사전으로"):
+# 지금까지 이 채널은 영상·카드·캡션 어디에도 이름이 안 나갔다. 검색으로 들어온 시청자가 다음 영상을
+# 찾을 실마리가 없어서, 마지막 카드에 채널명을 남긴다.
+BRAND_NAME = "건강만사전"
+DEFAULT_END_CARD_TEXT = f"{BRAND_NAME} · 더 많은 건강정보는 구독·좋아요·팔로우"
 
 # WHY 칠판 스타일 기본 배경 전환(2026-08-02): 실사진을 그대로 배경에 깔면 밋밋하고
 # 눈에 확 안 들어온다는 피드백("real 이미지 그대로 배경으로 넣고 있는데... 확 보이지가
@@ -530,9 +534,20 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
         scrim = Image.new("RGBA", (W, H), (*accent_color, 150))
         img = Image.alpha_composite(char.convert("RGBA"), scrim).convert("RGB")
     _fpath, _findex = _title_font_for_lang(lang)
-    font = ImageFont.truetype(_fpath, font_size, index=_findex)
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
+    # WHY 한 덩어리 단어는 화면 폭까지 키우는지(2026-09-21 사용자 "존나 크게 딱 박아 화면에"): 썸네일 문구를
+    # 병명 하나로 줄인 뒤에도 88px 그대로면 큰 화면 가운데 작은 글자만 남는다. 줄바꿈이 필요 없는 짧은 문구는
+    # 폭의 88%를 채울 때까지 키운다(최대 300px — 그 이상은 한글 자소가 가장자리에서 잘린다).
+    if len(text.split()) == 1 and len(text) <= 8:
+        size = font_size
+        while size < 300:
+            f2 = ImageFont.truetype(_fpath, size + 8, index=_findex)
+            if draw.textlength(text, font=f2) > W * 0.88:
+                break
+            size += 8
+        font_size = size
+    font = ImageFont.truetype(_fpath, font_size, index=_findex)
     lines = _wrap_text_for_lang(draw, text, font, max_text_w, lang)
 
     line_h = font_size + 26
@@ -701,6 +716,35 @@ def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
     draw.text((tx + 2, ty + 2), name, font=font, fill=(0, 0, 0, 130))
     draw.text((tx, ty), name, font=font, fill=(255, 255, 255, 255))
     canvas.save(out_path)
+
+
+def _make_item_row_png(item_schedule: list[dict], active: str, out_path: Path, lang: str = "kor") -> None:
+    """해결 항목 전부를 가로로 나열한 라벨 줄. 지금 말하는 항목(active)만 크고 밝게, 나머지는 작고 어둡게."""
+    names, seen = [], set()
+    for it in item_schedule:
+        if it["name"] not in seen:
+            seen.add(it["name"]); names.append(it)
+    cells = []
+    with tempfile.TemporaryDirectory() as td:
+        for k, it in enumerate(names):
+            fp = Path(td) / f"c{k}.png"
+            on = it["name"] == active
+            _make_item_label_png(it["illust"], it["name"], fp, icon_size=132 if on else 104,
+                                 font_size=44 if on else 36, lang=lang)
+            im = Image.open(fp).convert("RGBA")
+            if not on:
+                a = im.getchannel("A").point(lambda v: int(v * 0.45))
+                im = Image.eval(im.convert("RGB"), lambda v: int(v * 0.7)).convert("RGBA")
+                im.putalpha(a)
+            cells.append(im)
+    gap = 36
+    w = sum(c.width for c in cells) + gap * (len(cells) - 1)
+    h = max(c.height for c in cells)
+    row = Image.new("RGBA", (w, h), (0, 0, 0, 0))
+    x = 0
+    for c in cells:
+        row.alpha_composite(c, (x, (h - c.height) // 2)); x += c.width + gap
+    row.save(out_path)
 
 
 # WHY 칠판 모서리 낙서(2026-08-02, "파츠같은거 귀여운거 랜덤으로 칠판 모서리쪽에
@@ -2430,11 +2474,39 @@ def _topic_word_from_seed(seed: str) -> str:
 # 칠판.png 픽셀 좌표를 최종 캔버스 좌표로 바꾸는 계산이 낙서 배치에 이미 있었는데,
 # 분필통 트레이 위치도 같은 변환이 필요해서 공용 함수로 뽑았다 — 크롭/줌 상수가
 # 바뀌면 이 함수 한 곳만 고치면 모든 모서리 장식이 같이 맞아떨어진다.
-def _chalkboard_orig_to_canvas(x_orig: float, y_orig: float, top_pad: int) -> tuple[float, float]:
+# WHY 칠판을 세로로 늘리는지(2026-09-19 "칠판이 예전보다 너무 위로올라와있네 아래 그 제품 화살표가 이전이
+# 위치가맞아서… 칠판은 널찍해도 되니까 아래 틀 위치를 전이랑 좀 맞춰주던가"): 상단 배너를 없애자 칠판이 배너
+# 높이(≈255px)만큼 통째로 올라갔고, 선반 바로 위의 `제품 보러 가기` 화살표도 네이버 광고 칩에서 멀어졌다.
+# 칠판을 내리면 위가 비므로, 판서면 가운데에 격자를 끼워 넣어 **윗테는 그대로, 선반만 예전 자리(y≈1680)로**
+# 내린다. 격자 주기가 원본 55px(자기상관 실측, 칠판 변형 26종 전부 동일)라 3칸(165px)을 끼우면 이음매가 안 보인다.
+CHALKBOARD_EXTEND_CUT_ORIG = 500      # 판서면(142~866) 가운데 — 이 아래를 밀어낸다
+CHALKBOARD_EXTEND_ORIG = 165          # = 격자 3칸. 화면에선 ×1.625 ≈ 268px
+
+
+def _extend_board_rows(img: Image.Image, extend: int = CHALKBOARD_EXTEND_ORIG) -> Image.Image:
+    """칠판 사진(원본 좌표)의 CUT 위치에 바로 위 격자 띠를 복제해 끼워 세로로 늘린다.
+    extend가 음수면 CUT 아래로 그만큼 판서면을 잘라내 줄인다(반투명 인체 패널 포맷 — 위쪽 영상 칸 자리)."""
+    c, e = CHALKBOARD_EXTEND_CUT_ORIG, extend
+    if e < 0:
+        out = Image.new(img.mode, (img.width, img.height + e))
+        out.paste(img.crop((0, 0, img.width, c)), (0, 0))
+        out.paste(img.crop((0, c - e, img.width, img.height)), (0, c))
+        return out
+    out = Image.new(img.mode, (img.width, img.height + e))
+    out.paste(img.crop((0, 0, img.width, c)), (0, 0))
+    out.paste(img.crop((0, c - e, img.width, c)), (0, c))
+    out.paste(img.crop((0, c, img.width, img.height)), (0, c + e))
+    return out
+
+
+def _chalkboard_orig_to_canvas(x_orig: float, y_orig: float, top_pad: int,
+                               extend: int = CHALKBOARD_EXTEND_ORIG) -> tuple[float, float]:
     cropped_w = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
     scale = (W / cropped_w) * CHALKBOARD_ZOOM
     left_offset = (cropped_w * scale - W) / 2
     x = (x_orig - CHALKBOARD_CROP_LEFT) * scale - left_offset
+    if y_orig >= CHALKBOARD_EXTEND_CUT_ORIG:
+        y_orig = max(CHALKBOARD_EXTEND_CUT_ORIG, y_orig + extend)
     y = y_orig * scale + top_pad
     return x, y
 
@@ -2517,8 +2589,9 @@ def _doodle_eraser() -> Image.Image:
 
 
 def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner: int = 4,
-                         skip_right: bool = False, lang: str = "kor",
-                         topic_word: str | None = None) -> Image.Image:
+                         skip_right: bool = False, lang: str = "kor", skip_left: bool = False, skip_top: bool = False,
+                         topic_word: str | None = None,
+                         extend: int = CHALKBOARD_EXTEND_ORIG) -> Image.Image:
     """칠판을 옛날 교실 감성으로 장식한다(2026-08-02, "좀 많았으면 하는데...
     화려하게 갔으면 싶어" + "나무받침대랑 분필조각, 지우개까지 다 추가하고
     급훈 문구가... 도형도 이것저것 엄청 넣어보자" → "이빠이넣어 귀여운 것들
@@ -2578,13 +2651,14 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     없어서(캡션이 비는 자리 자체가 플랫폼 아이콘 열 안쪽이라) 오른쪽 양옆
     여백 띠 낙서는 포기하고 왼쪽만 그린다."""
     rng = random.Random(seed)
-    green_top_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, top_pad)[1])
-    green_bottom_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_BOTTOM_ORIG, top_pad)[1])
+    green_top_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, top_pad, extend)[1])
+    green_bottom_canvas = round(_chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_BOTTOM_ORIG, top_pad, extend)[1])
     _YT_SAFE_RIGHT = 150
     _YT_SAFE_BOTTOM = 320
 
     zone_w, zone_h, top_gap = 260, 300, 20
-    sides = ("left",) if skip_right else ("left", "right")
+    sides = tuple(sd for sd in ("left", "right") if not (sd == "left" and skip_left)
+                  and not (sd == "right" and skip_right))
     for side in sides:
         # WHY per_corner를 고정 개수로 안 쓰는지(2026-08-03, 파츠 다양화 요청):
         # 이 자리 자체(그리는지 여부)는 배치 안전지대라 항상 유지하되, 몇 개가
@@ -2609,7 +2683,8 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
                     break
             x = 25 + lx if side == "left" else W - _YT_SAFE_RIGHT - zone_w + lx
             y = green_top_canvas + top_gap + ly
-            canvas.alpha_composite(doodle, (x, y))
+            if not skip_top:
+                canvas.alpha_composite(doodle, (x, y))
 
     # 양옆 여백 띠 — WHY 왼쪽만 그리는지: 위 클래스 docstring 참고(오른쪽은
     # 캡션 안전 지점과 플랫폼 UI 안전 지점이 아예 안 겹쳐서 그릴 자리가 없음).
@@ -2638,7 +2713,8 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
             continue
         lx = rng.randint(0, max(_SIDE_MARGIN_W - doodle.width, 4))
         y = margin_top + ly
-        canvas.alpha_composite(doodle, (lx, y))
+        if not skip_top:
+            canvas.alpha_composite(doodle, (lx, y))
 
     # WHY 70% 확률인지(2026-08-03, "걍 다 들어간상태로만 영상을 제작하는듯"):
     # 급훈은 항상 나오는 고정 파츠였다 — 가끔 빠지는 topic도 있어야 매번 같은
@@ -2646,7 +2722,8 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
     if rng.random() < 0.7:
         motto_word = topic_word if topic_word is not None else _topic_word_from_seed(seed)
         motto = _doodle_text_box(motto_word, font_size=48, double_border=True, lang=lang)
-        canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
+        if not skip_top:
+            canvas.alpha_composite(motto, (round((W - motto.width) / 2), green_top_canvas + top_gap + 10))
 
     # WHY 풀에서 0~2개를 뽑는지: 위 _NAMEPLATE_POOL 정의부 WHY 참고 — "떠든
     # 사람"+"주번" 고정 조합 대신 topic마다 다른 종류·개수의 명패가 뜨게 한다.
@@ -2672,8 +2749,8 @@ def _place_chalk_doodle(canvas: Image.Image, seed: str, top_pad: int, per_corner
         canvas.alpha_composite(plate, (30, y_cursor))
         y_cursor -= 12
 
-    tray_top_x, tray_top_y = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_LEFT_ORIG, _CHALKBOARD_TRAY_TOP_ORIG, top_pad)
-    tray_bottom_x, _ = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_RIGHT_ORIG, _CHALKBOARD_TRAY_BOTTOM_ORIG, top_pad)
+    tray_top_x, tray_top_y = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_LEFT_ORIG, _CHALKBOARD_TRAY_TOP_ORIG, top_pad, extend)
+    tray_bottom_x, _ = _chalkboard_orig_to_canvas(_CHALKBOARD_TRAY_RIGHT_ORIG, _CHALKBOARD_TRAY_BOTTOM_ORIG, top_pad, extend)
     tray_mid_x = (tray_top_x + tray_bottom_x) / 2  # 오른쪽 절반은 코너 캐릭터 자리라 왼쪽 절반만 사용
     tray_y = round(tray_top_y) + 6
 
@@ -3049,8 +3126,166 @@ CHALKBOARD_CONTENT_BOTTOM = 924
 # 시작하게 한다. top_pad를 명시하지 않고 이 함수를 단독 호출할 때만 이 기본값을 쓴다.
 CHALKBOARD_TOP_PAD = 220
 
+# WHY 칠판 폭만 줄이는지(2026-09-18, 네이버 클립 실측 — "칠판 프레임도 잘리고 글자도 좀 잘리고 있음"):
+# 네이버 클립은 폰 화면(세로가 더 김)을 꽉 채우려고 영상을 확대해 **양옆을 약 48px씩 잘라낸다**
+# (스크린샷 923x2000 기준: 표시 배율 0.939, 표시 폭 1014 → 91px 초과). 칠판을 폭에 딱 맞게 그리면
+# 나무 테두리가 정확히 그 자리에 있다.
+# ⚠️ 통째로 축소하면 안 된다 — 처음에 0.86배 균일 축소했다가 위아래까지 줄어 아래가 사진으로 휑하게
+# 비었다("양옆 좀 줄여달라했더니 위아래도 개병신같이"). 가로로만 누르면 격자·글자가 찌그러진다.
+# 그래서 **칠판 가운데에서 세로 띠를 잘라내고 좌우를 붙인다** — 격자와 나무 테두리는 가로로 반복되는
+# 무늬라 이음매가 안 보이고, 높이·비율·장식 크기는 그대로다. 띠 위치는 장식이 없는 칸(명패·분필받침은
+# 왼쪽, "shorts" 라벨은 가운데 380~560, 오른쪽 위 모서리 낙서는 x>800)으로 골랐다.
+CHALKBOARD_STRIP_X = 600
+# 110 = 네이버가 양옆에서 자르는 96px + 여유 14px. 처음엔 150을 뺐다가 필요 이상으로 좁아져 칠판이 작아 보였다
+# (2026-09-19 실측: 높이는 원래와 같았고 폭만 1079→929).
+CHALKBOARD_STRIP_W = 110
 
-def _chalkboard_display_height() -> int:
+NAVER_SAFE_RIGHT = 880
+NAVER_SAFE_TOP = 120
+
+
+# 반투명 인체 포맷의 인셋·주제 한 줄 위치(2026-09-18 목업 B안 — 칠판 오른쪽 위, 원래 품목 사진 자리).
+# 아래쪽 빈 공간은 네이버 채널명·캡션·광고 칩이 덮는 자리라 인셋을 두면 CTA 화살표와 함께 가려졌다(A안 탈락).
+XRAY_INSET_SIZE = 240          # 2026-09-18 "사이즈 좀 줄이고 오른쪽 위에 붙어있게"
+XRAY_INSET_X = W - CHALKBOARD_STRIP_W // 2 - 23 - XRAY_INSET_SIZE   # 칠판 오른쪽 안쪽 테두리에 붙임(띠 폭 따라감)
+XRAY_INSET_Y = 228          # 광고 표시(칠판 윗테, y≈178~222) 바로 아래
+XRAY_ITEM_LABEL_X = CHALKBOARD_STRIP_W // 2 + 25
+# WHY 위쪽 영상 칸인지(2026-09-19 "너무 정신사납잖어 아예 칠판 높이를 좀줄이고 아래로 빼서 남는공간에다가 영상"):
+# 기전 클립을 화면 전체로 끼우니 칠판↔영상이 통째로 뒤집혀 정신없었다. 화면 구조를 고정하고 위 칸 안의 내용만
+# 바꾼다 — 평소엔 부위 점등, 설명 문장에선 기전 클립. 자막은 늘 칠판에 있어 밝은 위산에 묻히지 않는다.
+# 칠판은 판서면에서 격자 8칸(원본 440px)을 빼 절반 높이로 줄이되 선반·CTA 위치는 그대로 둔다(윗부분만 내려옴).
+XRAY_BOARD_EXTEND_ORIG = CHALKBOARD_EXTEND_ORIG - 440
+XRAY_PANEL = (60, 190, 960, 680)            # x, y, w, h — 좌우 60은 네이버 양옆 잘림(48) 밖, 아래는 칠판 윗테 위   # 설명 항목 라벨 — 칠판 왼쪽 안쪽 테두리 옆(띠 폭 따라감)
+XRAY_ITEM_LABEL_Y = 228
+TOP_TITLE_Y = 100          # 네이버 닫기·분석 버튼(y<100) 바로 아래, 칠판 윗테(y≈170) 위
+
+
+def _probe_duration(path) -> float:
+    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                        str(path)], capture_output=True, text=True, check=True)
+    return float(r.stdout)
+
+
+def _build_xray_inset(spec: dict, out_path: Path) -> None:
+    """부위 점등 클립에서 카메라가 멈춘 한 장면을 원형으로 잘라, 호박색 불빛만 맥동하는 알파 루프를 만든다.
+
+    WHY 고정 장면인지(2026-09-18 "너무 줌했다 뺐다하니까 정신이없다 캠은 고정해"): 처음엔 클립의 줌인
+    구간을 앞뒤로(ping-pong) 반복했는데, 그러면 작은 원 안에서 줌인·줌아웃이 계속 반복된다. 주목은 색이
+    이미 끌어주므로 움직임은 불빛 맥동 하나로 충분하다 — 따뜻한 색 픽셀만 밝힌 판과 원판을 코사인 곡선으로
+    섞어 1.6초 주기로 숨쉬게 한다(주기 끝 = 시작이라 반복 지점이 안 보인다)."""
+    x, y, w, h = spec["crop"]
+    ow, oh = XRAY_PANEL[2], XRAY_PANEL[3]
+    with tempfile.TemporaryDirectory() as td:
+        td = Path(td)
+        # WHY 가장 밝은 장면을 자동으로 고르는지(2026-09-18 실측): 클립 맨 끝(3.9초)을 잡았더니 불빛이 이미
+        # 꺼져가는 시점이라 인셋의 호박색이 거의 안 보였다. 카메라가 거의 멈춘 후반 40%에서 따뜻한 색 픽셀의
+        # 밝기 합이 가장 큰 프레임을 쓴다. still_at을 주면 그 시각을 그대로 쓴다.
+        def _grab(t: float) -> Image.Image:
+            fp = td / f"g{t:.2f}.png"
+            subprocess.run(["ffmpeg", "-y", "-ss", f"{t:.2f}", "-i", str(spec["clip"]), "-frames:v", "1",
+                            str(fp)], check=True, capture_output=True, timeout=60)
+            return Image.open(fp).convert("RGB").crop((x, y, x + w, y + h))
+
+        def _warmth(im: Image.Image) -> int:
+            r, _, b = im.split()
+            return sum(ImageChops.subtract(r, b).point(lambda v: v if v > 40 else 0).getdata())
+
+        if "still_at" in spec:
+            crop = _grab(spec["still_at"])
+        else:
+            d = _probe_duration(spec["clip"])
+            cands = [_grab(d * (0.6 + 0.05 * i)) for i in range(8)]
+            crop = max(cands, key=_warmth)
+        base = crop.resize((ow, oh), Image.LANCZOS)
+        # 따뜻한(호박색) 픽셀만 골라 밝힌 판 — 몸의 청록은 그대로 두고 불빛만 부푼다
+        warm = base.point(lambda v: v)  # 복사
+        r, g, b = base.split()
+        warm_mask = ImageChops.subtract(r, b).point(lambda v: 255 if v > 40 else 0).filter(ImageFilter.GaussianBlur(6))
+        bright = Image.eval(base, lambda v: min(255, int(v * 1.45 + 18)))
+        glow = bright.filter(ImageFilter.GaussianBlur(10))
+        lit = Image.composite(Image.blend(bright, glow, 0.35), base, warm_mask)
+        circle = Image.new("L", (ow, oh), 0)
+        ImageDraw.Draw(circle).rounded_rectangle([0, 0, ow - 1, oh - 1], radius=28, fill=255)
+        frames = round(1.6 * FPS)
+        for i in range(frames):
+            k = (1 - math.cos(2 * math.pi * i / frames)) / 2
+            f = Image.blend(base, lit, k).convert("RGBA")
+            f.putalpha(circle)
+            f.save(td / f"f{i:03d}.png")
+        subprocess.run(["ffmpeg", "-y", "-framerate", str(FPS), "-i", str(td / "f%03d.png"), "-c:v", "qtrle",
+                        str(out_path)], check=True, capture_output=True, timeout=120)
+
+
+def _make_pill_label_png(text: str, out_path: Path, lang: str = "kor", font_size: int = 60) -> None:
+    """영상 칸 위에 얹는 짧은 라벨(부위 이름). 장면이 밝았다 어두웠다 하므로 어두운 반투명 알약 바탕을 깐다."""
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
+    bb = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
+    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    img = Image.new("RGBA", (tw + 44, th + 26), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=img.height // 2, fill=(10, 14, 16, 170))
+    d.text((22 - bb[0], 13 - bb[1]), text, font=font, fill=(255, 214, 92, 255))
+    img.save(out_path)
+
+
+def chunk_caption_entries(entries, lang: str = "kor", max_lines: int = 2, max_width: int = 720):
+    """자막 구간을 max_lines줄 이하 조각으로 나누고 글자 수 비례로 시간을 배분한다. 단어 단위로 채우되
+    넘치기 직전 쉼표·연결어미로 끝나는 어절이 있으면 거기서 끊는다 — 그냥 넘치는 자리에서 자르면 "이 세 /
+    가지부터"처럼 한 덩어리 말이 쪼개졌다(2026-09-19). scripts/xray_splice.py도 이 함수를 쓴다."""
+    font = ImageFont.truetype(_chalk_font_for_lang(lang), 68)
+    d = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    fits = lambda t: len(_wrap_text_for_lang(d, t, font, max_width, lang)) <= max_lines
+    ends = (",", "다면", "라면", "으면", "하면", "고", "서", "는데", "지만")
+    out = []
+    for cs, ce, text in entries:
+        words = text.split()
+        pieces, cur = [], []
+        for w in words:
+            if cur and not fits(" ".join(cur + [w])):
+                cut = max((k for k, x in enumerate(cur) if x.endswith(ends)), default=None)
+                if cut is not None and cut >= len(cur) // 3:
+                    pieces.append(" ".join(cur[:cut + 1])); cur = cur[cut + 1:]
+                else:
+                    pieces.append(" ".join(cur)); cur = []
+            cur.append(w)
+        if cur:
+            pieces.append(" ".join(cur))
+        total = sum(len(x) for x in pieces) or 1
+        t = cs
+        for x in pieces:
+            dt = (ce - cs) * len(x) / total
+            out.append((t, t + dt, x)); t += dt
+    return out
+
+
+def _make_top_title_png(text: str, out_path: Path, lang: str = "kor", font_size: int = 58) -> None:
+    """검은 바탕 위쪽 띠에 들어가는 주제 한 줄. 예전 상단 배너처럼 훅 문장을 통째로 깔지 않고
+    "키워드, 주제" 한 줄만 쓴다(배너는 4줄로 늘어져 폐기됐다). 폭이 넘치면 한 줄이 될 때까지 줄인다."""
+    font_path, idx = _title_font_for_lang(lang)
+    size = font_size
+    while True:
+        font = ImageFont.truetype(font_path, size, index=idx)
+        bb = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
+        if bb[2] - bb[0] <= NAVER_SAFE_RIGHT - 120 or size <= 36:
+            break
+        size -= 2
+    img = Image.new("RGBA", (bb[2] - bb[0] + 8, bb[3] - bb[1] + 8), (0, 0, 0, 0))
+    ImageDraw.Draw(img).text((4 - bb[0], 4 - bb[1]), text, font=font, fill=(255, 255, 255, 255))
+    img.save(out_path)
+
+
+def _board_xy(x: float, y: float, top: float) -> tuple[float, float]:
+    """칠판 기준 좌표를 띠를 잘라낸 뒤의 캔버스 좌표로 옮긴다. 띠 왼쪽은 오른쪽으로, 띠 오른쪽은
+    왼쪽으로 반 띠씩 이동한다(좁아진 칠판을 가운데 정렬). 세로는 그대로다."""
+    half = CHALKBOARD_STRIP_W / 2
+    if x < CHALKBOARD_STRIP_X:
+        return x + half, y
+    if x >= CHALKBOARD_STRIP_X + CHALKBOARD_STRIP_W:
+        return x - half, y
+    return CHALKBOARD_STRIP_X + half, y
+
+
+def _chalkboard_display_height(extend: int = CHALKBOARD_EXTEND_ORIG) -> int:
     """실제 렌더링되는 칠판 사진의 세로 픽셀 높이(캔버스 폭 W, CHALKBOARD_ZOOM
     배율 적용 후) — _build_chalkboard_bg와 동일한 크롭/스케일 계산을 반복해서
     구한다. WHY 필요한지(2026-08-02, "글이 너무 아래로 쏠려있잖아 칠판 기준으로
@@ -3059,14 +3294,16 @@ def _chalkboard_display_height() -> int:
     photo = Image.open(CHALKBOARD_PHOTO_PATH).convert("RGB")
     cropped_width = CHALKBOARD_CROP_RIGHT - CHALKBOARD_CROP_LEFT
     scale = (W / cropped_width) * CHALKBOARD_ZOOM
-    return round(photo.height * scale)
+    return round((photo.height + extend) * scale)
 
 
 def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | None = None,
                           photo_bg_path: str | None = None, photo_bg_img: Image.Image | None = None,
                           doodle_seed: str | None = None, doodle_skip_right: bool = False,
                           board_photo_path: str | None = None, lang: str = "kor",
-                          topic_word: str | None = None):
+                          topic_word: str | None = None, bg_black: bool = False,
+                          bg_color: tuple[int, int, int] | None = None, doodle_skip_left: bool = False,
+                          board_extend: int = CHALKBOARD_EXTEND_ORIG):
     """칠판 스타일 기본 배경(2026-08-02, 실물 칠판 사진으로 교체). 좌우 흰 여백을
     나무 프레임 가장자리까지 잘라서 프레임이 가로 폭에 꽉 차게 만들고, 위아래는
     원본 비율 그대로 살린 뒤 부족한 높이만큼 같은 톤의 흰색으로 패딩해서 캔버스를
@@ -3105,7 +3342,8 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
     참고. 안 주면(기존 호출부·테스트 호환) 낙서 없이 그대로."""
     with tempfile.TemporaryDirectory() as tmp:
         photo = Image.open(board_photo_path or CHALKBOARD_PHOTO_PATH).convert("RGB")
-        cropped = photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height))
+        cropped = _extend_board_rows(photo.crop((CHALKBOARD_CROP_LEFT, 0, CHALKBOARD_CROP_RIGHT, photo.height)),
+                                     board_extend)
         scale = (W / cropped.width) * CHALKBOARD_ZOOM
         resized = cropped.resize((round(cropped.width * scale), round(cropped.height * scale)))
         left = (resized.width - W) // 2
@@ -3128,8 +3366,8 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
             board_alpha = ImageChops.invert(white_mask)
             resized_rgba = resized.convert("RGBA")
             resized_rgba.putalpha(board_alpha)
-            canvas.alpha_composite(resized_rgba, (0, effective_top_pad))
-            canvas = canvas.convert("RGB")
+            board_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            board_layer.alpha_composite(resized_rgba, (0, effective_top_pad))
 
             # ⚠️ WHY 받침대 아래를 칠판 톤 단색으로 덮지 않는지(2026-08-02 되돌림):
             # 다른 세션이 "판서면이 화면 끝까지 이어지는 것처럼" 보이게 하려고 이
@@ -3139,14 +3377,46 @@ def _build_chalkboard_bg(total_duration: float, out_path: Path, top_pad: int | N
             # 채워지는지 모르겠네" 지적으로 실제 버그(단색 채움)가 확인됨. 이 구간도
             # board_alpha가 이미 투명 처리해뒀으므로 그대로 두면 실사진이 이어져서
             # 보인다 — 의도한 동작.
+        elif bg_black:
+            # 반투명 인체 포맷(2026-09-18): 배경 실사진 없이 검정 — 칠판 사진의 흰 여백은 키잉해서 뺀다.
+            # 위쪽 장식(shorts 액자·모서리 낙서)은 설명 항목 라벨·부위 영상과 뒤섞여 어수선해서 이 포맷에선 뺀다
+            # ("상단에 shorts 되어있는거랑 이런저런 아이콘… 걍 빼는게 나을것같다"). 아래 명패·분필받침은 유지.
+            # WHY 순검정이 아니라 topic 강조색 그라데이션인지(2026-09-18 "배경에 색상을 좀 넣는게 좋을거같긴하네"):
+            # 제목 카드와 같은 팔레트(_accent_color_for_seed)를 어둡게 깔아 topic마다 색이 달라지게 한다 —
+            # 전부 같은 검정이면 썸네일만 봐도 다 똑같아 보인다는 예전 지적이 그대로 재발한다.
+            canvas = Image.new("RGBA", (W, H), (0, 0, 0, 255))
+            if bg_color:
+                top_c = tuple(round(c * 0.42) for c in bg_color)
+                bot_c = tuple(round(c * 0.16) for c in bg_color)
+                grad = Image.new("RGB", (1, H))
+                for yy in range(H):
+                    k = yy / (H - 1)
+                    grad.putpixel((0, yy), tuple(round(top_c[i] * (1 - k) + bot_c[i] * k) for i in range(3)))
+                canvas = grad.resize((W, H)).convert("RGBA")
+            r, g, b = resized.split()
+            wb = lambda band: band.point(lambda x: 255 if x >= 225 else 0)
+            resized_rgba = resized.convert("RGBA")
+            resized_rgba.putalpha(ImageChops.invert(ImageChops.multiply(ImageChops.multiply(wb(r), wb(g)), wb(b))))
+            board_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            board_layer.alpha_composite(resized_rgba, (0, effective_top_pad))
         else:
-            canvas = Image.new("RGB", (W, H), CHALKBOARD_BG_FILL)
-            canvas.paste(resized, (0, effective_top_pad))
+            canvas = Image.new("RGBA", (W, H), CHALKBOARD_BG_FILL + (255,))
+            board_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+            board_layer.paste(resized.convert("RGBA"), (0, effective_top_pad))
 
+        # 장식은 칠판 좌표 기준으로 그려지므로 축소 전의 칠판 레이어에 얹어야 같이 줄어든다
         if doodle_seed:
-            canvas = _place_chalk_doodle(canvas.convert("RGBA"), doodle_seed, effective_top_pad,
-                                          skip_right=doodle_skip_right, lang=lang,
-                                          topic_word=topic_word).convert("RGB")
+            board_layer = _place_chalk_doodle(board_layer, doodle_seed, effective_top_pad,
+                                               skip_right=doodle_skip_right, lang=lang,
+                                               topic_word=topic_word, skip_left=doodle_skip_left,
+                                               skip_top=bg_black, extend=board_extend)
+        a, sw = CHALKBOARD_STRIP_X, CHALKBOARD_STRIP_W
+        narrow = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        narrow.alpha_composite(board_layer.crop((0, 0, a, H)), (sw // 2, 0))
+        narrow.alpha_composite(board_layer.crop((a + sw, 0, W, H)), (a + sw // 2, 0))
+        canvas = canvas.convert("RGBA")
+        canvas.alpha_composite(narrow, (0, 0))
+        canvas = canvas.convert("RGB")
 
         still = Path(tmp) / "chalkboard.jpg"
         canvas.save(still, quality=95)
@@ -3276,6 +3546,29 @@ def assemble(
     # 그 항목에 대한 real 이미지를 흐린 색으로"): 상단 배너의 단색 배경을 topic
     # 대표 실사진 블러로 바꾼다. 안 주면 기존 단색 배경 그대로 폴백.
     title_banner_photo_path: str | None = None,
+    # WHY 상단 배너를 끌 수 있게 하는지(2026-09-17 사용자 지적 "써머리 삭제해"):
+    # 배너는 제목 전체(훅+주제 라벨)를 화면 위 4줄까지 깔아두는데, 도입부엔 칠판
+    # 자막이 같은 훅 문장을 그대로 다시 말한다 — 0~5초에 같은 내용이 9줄로 겹쳐
+    # 떠서 이탈을 가르는 구간을 텍스트 벽으로 만든다. `title`은 배너를 꺼도
+    # 색상·캐릭터 배치 시드로 계속 쓰이므로 빈 문자열로 넘기지 말 것.
+    show_title_banner: bool = True,
+    # 반투명 인체 포맷(2026-09-18 사용자 설계): 칠판 구간을 검은 바탕으로 바꾸고, 칠판 오른쪽 위에
+    # 부위 점등 클립을 원형으로 작게 반복 재생하고(xray_inset), 위쪽 빈 띠에 주제 한 줄(top_title_text)을
+    # 넣는다. 도입부 Flow 구간은 조립 후 scripts/xray_splice.py가 덧씌운다.
+    # xray_inset = {"clip": 경로, "crop": [x, y, w, h], "label": "위", "still_at": 초(선택)}
+    xray_inset: dict | None = None,
+    # 인셋 포맷 안에서도 결론(해결책) 구간은 영상 칸 없는 원래 크기 칠판으로 조립한다(2026-09-19 "결론적으로 어떤걸
+    # 해줘야하는지는 기존 포맷이 더 맞지"). False면 배경색·주제 한 줄·왼쪽 항목 라벨은 그대로, 영상 칸만 뺀다.
+    xray_panel: bool = True,
+    top_title_text: str | None = None,
+    # WHY(2026-09-20 사용자 "제품 보러 가기는 마지막 써머리 때만 뜨게 하자"): CTA 화살표가 영상 내내 떠
+    # 있으면 원인 설명 구간에서도 시선을 아래로 끌어간다. 해결책·요약이 시작하는 시각을 받아 그때부터만 띄운다.
+    # None이면 ad_cta.CTA_START_SEC(5초) 그대로.
+    cta_start_at: float | None = None,
+    # WHY(2026-09-21 사용자 "제품 보러 가기 있는 버전과 없는 버전으로 나눠서, 없는 버전은 유튜브에"): CTA
+    # 화살표는 네이버 클립이 영상 아래 붙이는 제휴 배너를 가리키는 장치다 — 그 배너가 없는 플랫폼에선 화살표가
+    # 허공을 가리킨다. False면 화살표만 빼고 법정 광고 표시는 그대로 둔다.
+    cta_enabled: bool = True,
     # WHY lang(2026-08-03, 글로벌 확장): 칠판 낙서의 급훈/명패 문구 풀을 언어별로
     # 바꾸기 위함(_place_chalk_doodle 참고) — 기본값 "kor"면 기존 동작 그대로.
     lang: str = "kor",
@@ -3377,8 +3670,11 @@ def assemble(
         # 제목 줄 수에 따라 달라지므로(1줄/2줄) 고정값 대신 실제 배너를 먼저 만들어서
         # 그 높이(title_h)를 칠판 배경 생성에 넘긴다.
         title_png = tmp_path / "title.png"
-        title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path,
-                                   photo_img=shared_bg_photo, lang=lang)
+        if show_title_banner:
+            title_h = _make_title_png(title, title_png, photo_path=title_banner_photo_path,
+                                       photo_img=shared_bg_photo, lang=lang)
+        else:
+            title_png, title_h = None, 0
 
         # WHY caption_center_y(2026-08-02, "글이 너무 아래로 쏠려있잖아 칠판 기준으로
         # 중앙으로 들어가게"): 기존엔 화면 하단 기준 고정 오프셋(-620)으로 자막을
@@ -3396,17 +3692,38 @@ def assemble(
         # 중앙보다 자막이 더 아래로 치우쳐 보였다. `_build_chalkboard_bg`와 정확히
         # 같은 공식으로 effective_top_pad를 다시 계산해서 어긋남을 없앤다.
         caption_center_y = None
+        cta_center_y = None
+        cta_center_x = None
+        panel_on = bool(xray_inset) and xray_panel
+        board_ext = XRAY_BOARD_EXTEND_ORIG if panel_on else CHALKBOARD_EXTEND_ORIG
+        _scale = _chalkboard_orig_to_canvas(0, 1, 0)[1]
+        # 패널 포맷은 판서면을 줄인 만큼 칠판을 내려서 선반 위치를 기본 포맷과 같게 둔다
+        board_top_pad = round((CHALKBOARD_EXTEND_ORIG - board_ext) * _scale) if panel_on else title_h
+        xray_green_top = None
         if bg_style == "chalkboard":
-            board_h = _chalkboard_display_height()
-            effective_top_pad = min(title_h, max(H - board_h, 0))
+            board_h = _chalkboard_display_height(board_ext)
+            effective_top_pad = min(board_top_pad, max(H - board_h, 0))
             board_bottom = min(effective_top_pad + board_h, H)
             caption_center_y = (effective_top_pad + board_bottom) / 2
+            # 배너를 끄면 칠판이 통째로 올라간다 — CTA도 선반 기준을 유지하게 같이 옮긴다.
+            # 칠판 가운데 띠를 잘라냈으므로 가로 위치는 _board_xy로 옮긴다(세로는 그대로).
+            cta_center_y = (CTA_CY_FROM_BOARD_TOP + effective_top_pad + round(board_ext * _scale))
+            if panel_on:
+                # 자막은 줄어든 판서면 안, 왼쪽 위 설명 항목(약 190px)과 CTA(위쪽 끝 = 중심-70) 사이 가운데
+                xray_green_top = _chalkboard_orig_to_canvas(0, _CHALKBOARD_GREEN_TOP_ORIG, effective_top_pad, board_ext)[1]
+                caption_center_y = (xray_green_top + 190 + cta_center_y - 70) / 2
+            cta_center_x = _board_xy(CTA_CX, 0, 0)[0]
 
         bg = tmp_path / "bg.mp4"
         if bg_style == "chalkboard":
             board_seed = Path(out_path).stem
-            _build_chalkboard_bg(total_duration, bg, top_pad=title_h, photo_bg_img=shared_bg_photo,
-                                  doodle_seed=board_seed, doodle_skip_right=bool(item_schedule),
+            _build_chalkboard_bg(total_duration, bg, top_pad=board_top_pad, board_extend=board_ext,
+                                  photo_bg_img=None if xray_inset else shared_bg_photo,
+                                  bg_black=bool(xray_inset),
+                                  bg_color=_accent_color_for_seed(title) if xray_inset else None,
+                                  doodle_skip_left=bool(xray_inset and item_schedule),
+                                  doodle_seed=board_seed,
+                                  doodle_skip_right=bool(item_schedule) and not xray_inset,
                                   board_photo_path=pick_chalkboard_variant(board_seed), lang=lang,
                                   topic_word=topic_word)
         elif image_schedule:
@@ -3563,11 +3880,12 @@ def assemble(
         # 하나(shared_bg_photo)를 써야 하나로 이어져 보인다는 원칙(위 _build_chalkboard_bg
         # WHY photo_bg_img 참고)이 item_schedule에서만 깨져 있었던 것. 구간별로
         # 바뀌어야 하는 건 우상단의 작은 아이템 아이콘+이름 라벨뿐이다.
-        banner_idx = _add_input(title_png)
         enable_expr = f"between(t\\,{intro_offset}\\,{intro_offset + total_duration})"
-        nxt = "vb"
-        filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
-        current = nxt
+        if title_png is not None:
+            banner_idx = _add_input(title_png)
+            nxt = "vb"
+            filter_parts.append(f"[{current}][{banner_idx}:v]overlay=x=0:y=0:enable='{enable_expr}'[{nxt}]")
+            current = nxt
 
         # WHY ad_tag과 item_schedule을 더 이상 상호배타로 안 두는지(2026-08-06,
         # 손톱_1 실측 확인 — 캐릭터 여러 명 topic은 우상단이 항상 아이템 라벨
@@ -3583,22 +3901,64 @@ def assemble(
             ad_idx = _add_input(ad_png)
             nxt = "vad"
             filter_parts.append(
-                f"[{current}][{ad_idx}:v]overlay=x=main_w-overlay_w-20:y={title_h + 16}:enable='{enable_expr}'[{nxt}]")
+                f"[{current}][{ad_idx}:v]overlay=x={(XRAY_PANEL[0] + XRAY_PANEL[2] - 14) if panel_on else NAVER_SAFE_RIGHT}-overlay_w:y={(XRAY_PANEL[1] + 14) if panel_on else (TOP_TITLE_Y + 78) if top_title_text else max(title_h + 16, NAVER_SAFE_TOP)}:enable='{enable_expr}'[{nxt}]")
+            current = nxt
+
+        if panel_on:
+            inset_mov = tmp_path / "xray_inset.mov"
+            _build_xray_inset(xray_inset, inset_mov)
+            cmd_inputs.extend(["-stream_loop", "-1", "-t", f"{video_total}", "-i", str(inset_mov)])
+            inset_idx = next_input_idx
+            next_input_idx += 1
+            nxt = "vxi"
+            filter_parts.append(f"[{current}][{inset_idx}:v]overlay=x={XRAY_PANEL[0]}:y={XRAY_PANEL[1]}:"
+                                f"enable='{enable_expr}'[{nxt}]")
+            current = nxt
+            # 부위 이름(예: "위") — 영상 칸 왼쪽 아래 모서리 안쪽, 어두운 알약 모양 바탕 위에(밝은 장면에서도 읽히게)
+            if xray_inset.get("label"):
+                il_png = tmp_path / "xray_inset_label.png"
+                _make_pill_label_png(xray_inset["label"], il_png, lang=lang)
+                il_idx = _add_input(il_png)
+                nxt = "vxl"
+                filter_parts.append(
+                    f"[{current}][{il_idx}:v]overlay=x={XRAY_PANEL[0] + 18}:"
+                    f"y={XRAY_PANEL[1] + XRAY_PANEL[3] - 18}-overlay_h:enable='{enable_expr}'[{nxt}]")
+                current = nxt
+        if top_title_text:
+            tt_png = tmp_path / "top_title.png"
+            _make_top_title_png(top_title_text, tt_png, lang=lang)
+            tt_idx = _add_input(tt_png)
+            nxt = "vtt"
+            filter_parts.append(f"[{current}][{tt_idx}:v]overlay=x=(main_w-overlay_w)/2:y={TOP_TITLE_Y}:"
+                                f"enable='{enable_expr}'[{nxt}]")
             current = nxt
 
         if item_schedule:
-            label_y = title_h + 16 + ad_tag_h + 8 if ad_tag else title_h + 20
+            # 광고 표시와 같은 이유로 네이버 UI(분석 버튼·우측 버튼 열) 밖으로 내린다
+            _top = max(title_h + 16, NAVER_SAFE_TOP)
+            label_y = _top + ad_tag_h + 8 if ad_tag else _top
+            # 인셋 포맷은 오른쪽 위를 부위 영상이 쓰므로 설명 항목은 왼쪽 위로 뺀다(낙서도 그쪽만 생략)
+            label_x = str(XRAY_ITEM_LABEL_X) if xray_inset else f"{NAVER_SAFE_RIGHT}-overlay_w"
+            if xray_inset:
+                label_y = round(xray_green_top) + 12 if (panel_on and xray_green_top) else XRAY_ITEM_LABEL_Y
             for i, item in enumerate(item_schedule):
                 seg_start_abs = item["start"] + intro_offset
                 seg_end_abs = item["end"] + intro_offset
                 win = f"between(t\\,{seg_start_abs}\\,{seg_end_abs})"
 
                 label_png = tmp_path / f"label_seg_{i:03d}.png"
-                _make_item_label_png(item["illust"], item["name"], label_png, lang=lang)
+                if xray_inset and not panel_on:
+                    # 결론 칠판: 해결 항목 전부를 한 줄로 나열하고 지금 말하는 항목만 밝게 — 시청자가 "몇 가지를
+                    # 챙기면 되는지"를 한눈에 본다(2026-09-19 "기존처럼 나열해놓고 아이템을 사람들이 인지할수있게")
+                    _make_item_row_png(item_schedule, item["name"], label_png, lang=lang)
+                    lx, ly = "(main_w-overlay_w)/2", XRAY_ITEM_LABEL_Y
+                else:
+                    _make_item_label_png(item["illust"], item["name"], label_png, lang=lang)
+                    lx, ly = label_x, label_y
                 label_idx = _add_input(label_png)
                 nxt = f"vl{i}"
                 filter_parts.append(
-                    f"[{current}][{label_idx}:v]overlay=x=main_w-overlay_w-24:y={label_y}:enable='{win}'[{nxt}]")
+                    f"[{current}][{label_idx}:v]overlay=x={lx}:y={ly}:enable='{win}'[{nxt}]")
                 current = nxt
 
         filter_complex = ";".join(filter_parts)
@@ -3652,6 +4012,9 @@ def assemble(
         # 문장별로 나눈 구간에 정확한 시간을 비례 배분할 수 있다 — MAX_CAPTION_LINES
         # WHY 주석 참고(_split_long_caption_entries 바로 위).
         srt_entries = _split_long_caption_entries(srt_entries, lang)
+        if panel_on:
+            # "그 자막의 양도 조절이 되어야"(2026-09-19): 판서면이 절반이라 한 번에 최대 두 줄
+            srt_entries = chunk_caption_entries(srt_entries, lang, max_lines=2, max_width=720)
         cap_dir = tmp_path / "caps"
         cap_dir.mkdir()
         timeline, cursor = [(0.0, offset, None)], 0.0
@@ -3671,16 +4034,23 @@ def assemble(
         if end_card_duration > 0:
             timeline.append((total_duration + offset, video_total, None))
 
+        # WHY 경계를 프레임 격자에 맞추고 trim을 프레임 번호로 거는지(2026-09-19 실측): 시간 기준 trim으로
+        # 구간을 잘라 이어 붙이면 구간마다 1프레임 미만의 반올림 오차가 생기고, 그게 뒤로 갈수록 쌓여 자막이
+        # 음성보다 점점 늦어졌다(소화_9: 4.9초 0.03초 → 33초 0.27초 지연). 모든 경계를 같은 격자로 정해
+        # 이어 붙인 길이가 정확히 합산되게 한다 — 기존 칠판 영상 전부에 있던 문제다.
+        timeline = [(round(s0 * FPS) / FPS, round(e0 * FPS) / FPS, t0) for s0, e0, t0 in timeline]
         seg_paths = []
         for i, (start, end, text) in enumerate(timeline):
             dur = end - start
+            sf, ef = round(start * FPS), round(end * FPS)
             if dur <= 0.02:
                 continue
             seg = tmp_path / f"cap_{i:04d}.mp4"
             if text:
                 cap_png = cap_dir / f"cap_{i:04d}.png"
                 if bg_style == "chalkboard":
-                    _make_chalk_caption_png(text, cap_png, lang=lang)
+                    # max_width 720: 네이버 클립은 양옆을 잘라내고 오른쪽 x>900에 버튼 열을 얹는다
+                    _make_chalk_caption_png(text, cap_png, lang=lang, max_width=720)
                 else:
                     _make_caption_png(text, cap_png, lang=lang)
                 cap_y_expr = (
@@ -3702,7 +4072,7 @@ def assemble(
                     ["ffmpeg", "-y", "-i", str(combined),
                      "-loop", "1", "-r", str(FPS), "-t", f"{dur}", "-i", str(cap_png),
                      "-filter_complex",
-                     f"[0:v]trim=start={start}:duration={dur},setpts=PTS-STARTPTS[bg];"
+                     f"[0:v]trim=start_frame={sf}:end_frame={ef},setpts=PTS-STARTPTS[bg];"
                      f"[bg][1:v]overlay=x=(main_w-overlay_w)/2:y={cap_y_expr}[v]",
                      "-map", "[v]", "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
                     check=True, capture_output=True,
@@ -3710,7 +4080,7 @@ def assemble(
             else:
                 subprocess.run(
                     ["ffmpeg", "-y", "-i", str(combined),
-                     "-filter_complex", f"[0:v]trim=start={start}:duration={dur},setpts=PTS-STARTPTS[v]",
+                     "-filter_complex", f"[0:v]trim=start_frame={sf}:end_frame={ef},setpts=PTS-STARTPTS[v]",
                      "-map", "[v]", "-r", str(FPS), "-c:v", "libx264", "-pix_fmt", "yuv420p", str(seg)],
                     check=True, capture_output=True,
                 )
@@ -3769,11 +4139,17 @@ def assemble(
         # 광고 배너로 시선을 내리는 장치다(lib/ad_cta.py 참고). 오디오 mux와 같은
         # ffmpeg 호출에 얹어야 재인코딩이 한 번으로 끝난다 — 따로 돌리면 완성본을
         # 두 번 인코딩하게 된다. 비디오는 copy를 못 쓰게 되지만 그 비용뿐이다.
-        cta_png = tmp_path / "ad_cta.png"
-        cta_w, cta_h = build_cta_png(cta_png, lang)
-        mux_inputs += ["-i", str(cta_png)]
-        cta_idx = (len(mux_inputs) // 2) - 1          # 방금 추가한 입력의 인덱스
-        filter_complex += ";" + cta_filter(f"{cta_idx}:v", "0:v", cta_w, cta_h, "v")
+        if cta_enabled:
+            cta_png = tmp_path / "ad_cta.png"
+            cta_w, cta_h = build_cta_png(cta_png, lang)
+            mux_inputs += ["-i", str(cta_png)]
+            cta_idx = (len(mux_inputs) // 2) - 1      # 방금 추가한 입력의 인덱스
+            cta_kwargs = {"center_y": cta_center_y, "center_x": cta_center_x}
+            if cta_start_at is not None:
+                cta_kwargs["start_at"] = cta_start_at
+            filter_complex += ";" + cta_filter(f"{cta_idx}:v", "0:v", cta_w, cta_h, "v", **cta_kwargs)
+        else:
+            filter_complex += ";[0:v]null[v]"
         subprocess.run(
             ["ffmpeg", "-y", *mux_inputs,
              "-filter_complex", filter_complex,

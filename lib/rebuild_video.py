@@ -505,6 +505,16 @@ def build_motion_schedule(
             points.append((t, idx))
             assigned.add(idx)
 
+    # WHY 경계를 자막 시작 시각에 붙이는지(2026-09-19, 소화_9 반투명 인체 시험본): 위 pos_to_time은 문단 안
+    # 글자 위치 비율로 시각을 **추정**해서 실제 문장 시작과 수백 ms 어긋난다. 도입부를 Flow로 덮고 4.92초에
+    # 칠판이 시작했는데 항목 전환은 5.07초로 추정돼, 칠판이 뜨자마자 인트로 항목("속쓰림")이 잠깐 보였다가
+    # "커피"로 바뀌었다. 1.2초 안에 자막이 시작하면 그 시각으로 스냅한다(항목 전환은 문장 경계에서 일어난다).
+    cue_starts = [e[0] for e in srt_entries]
+    def _snap(t):
+        near = min(cue_starts, key=lambda c: abs(c - t), default=t)
+        return near if abs(near - t) <= 1.2 else t
+    points = [(t if i == 0 else _snap(t), idx) for i, (t, idx) in enumerate(points)]
+
     total_end = srt_entries[-1][1] if srt_entries else 0.0
     segments = []
     for i, (t, idx) in enumerate(points):
@@ -523,8 +533,16 @@ def derive(topic: str) -> dict:
     data_topic = _resolve_data_topic(topic)
     spec = json.loads((ROOT / "data" / data_topic / "card_news_spec.json").read_text())
     items = spec["items"]
-    hook = " ".join(spec["title"][:-1])
-    subject = spec["title"][-1]
+    # WHY video_title(2026-09-19): 이미 게시한 영상을 새 포맷으로 재업로드할 때 기존 게시물과 겹쳐 보이지 않게
+    # 영상 표지(=썸네일) 문구만 바꾼다. card_news_spec의 title을 고치면 이미 나간 카드뉴스 이미지까지 바뀌므로
+    # 영상 전용 필드를 따로 둔다.
+    _vt = spec.get("video_title") or spec["title"]
+    hook = " ".join(_vt[:-1])
+    subject = _vt[-1]
+    # WHY 썸네일은 병명 한 덩어리만(2026-09-21 사용자 "썸네일은 이제부터 딱 그 병명만 박아"): 제목 카드는
+    # 0.2초만 지나가고 네이버 클립 목록에서 썸네일로 쓰인다 — 문장을 넣으면 작게 깔려 안 읽힌다. 설명은
+    # 제목(캡션)이 한다. spec["thumb_word"]가 있으면 그걸, 없으면 첫 줄에서 쉼표 앞부분을 병명으로 본다.
+    thumb_word = spec.get("thumb_word") or re.split(r"[,·—]", _vt[0])[0].strip()
 
     lead_name = _char_name(items[0]["char_file"])
     banner_photo = find_real_photo(lead_name)
@@ -622,6 +640,13 @@ def derive(topic: str) -> dict:
         srt_path=str(srt),
         out_path=str(out),
         title=f"{hook} {subject}",
+        # WHY 배너를 끄는지(2026-09-17): 배너가 훅+주제를 화면 위 4줄까지 깔아두는데
+        # 도입부 칠판 자막이 같은 훅 문장을 그대로 다시 말해서, 0~5초에 같은 내용이
+        # 9줄로 겹쳐 뜬다 — 이탈을 가르는 구간을 텍스트 벽으로 만들고 있었다.
+        # `title`은 배너를 꺼도 색상·캐릭터 배치 시드로 계속 쓰이므로 그대로 넘긴다.
+        show_title_banner=False,
+        # 반투명 인체 포맷 — data/<topic>/xray.json이 있는 topic만(없으면 기존 칠판 그대로)
+        **_xray_kwargs(topic),
         title_card_text=hook,
         title_card_char_path=resolve_char_image(cover_char_file),
         title_banner_photo_path=banner_photo,
@@ -635,8 +660,10 @@ def derive(topic: str) -> dict:
         # 오버레이 자체는 이제부터 항상 켠다 — 캡션 쪽 실제 커미션 링크/고지문구는
         # 플랫폼별로 여전히 CLAUDE.md "오버레이 구현 후 플랫폼별 대응" 정책을
         # 따로 따른다(네이버 클립만 즉시 재개, 유튜브·인스타는 계속 보류).
-        ad_tag=True,
+        ad_tag=False,   # 기본(네이버 클립)은 화면 표시 없음 — 유튜브용(--no-cta)에서만 켠다
     )
+
+    kwargs["title_card_text"] = thumb_word
 
     if len(distinct_chars) == 1:
         name = _char_name(items[0]["char_file"])
@@ -648,14 +675,92 @@ def derive(topic: str) -> dict:
         narration_txt = (ROOT / "data" / data_topic / "narration.txt").read_text()
         kwargs["motion_path"] = None
         kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
+        # 반투명 인체 포맷은 xray.json timeline이 항목 전환 시각을 정한다(키워드 추정은 한 문장에 두 항목이
+        # 나오면 순서가 뒤집힌다 — lib/xray_timeline.py 상단 WHY). 첫 구간은 0초부터(도입부는 Flow가 덮는다).
+        from lib.xray_timeline import resolve as _xray_resolve
+        _tl = _xray_resolve(topic)
+        if _tl:
+            kwargs["motion_schedule"] = [
+                (0.0 if i == 0 else round(r["start"], 3), round(r["end"], 3), _char_media_path(r["item"]),
+                 nearest_bg_color_for_motion(r["item"]))
+                for i, r in enumerate(_tl)
+            ]
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
+        cta_at = _cta_start_sec(topic, items, srt_entries)
+        if cta_at is not None:
+            kwargs["cta_start_at"] = round(cta_at, 2)
 
     return kwargs
 
 
-def rebuild(topic: str):
+def _summary_start_sec(topic: str, items: list[dict], srt_entries: list[tuple[float, float, str]]) -> float | None:
+    """해결책(대안) 항목이 처음 나오는 시각 — CTA 화살표를 여기서부터 띄운다.
+
+    WHY(2026-09-20 사용자 "제품 보러 가기 이건 마지막 써머리 때만 뜨게 하자"): 원인을 설명하는 동안에도
+    화살표가 떠 있으면 시선이 계속 아래로 끌린다. ① xray.json summary_from ② 첫 대안 항목의 첫 본문
+    구절을 자막에서 찾는 순서로 정하고, 둘 다 실패하면 None(= 기존 5초 규칙)."""
+    from lib.xray_timeline import summary_start as _xs
+    t = _xs(topic)
+    if t is not None:
+        return t
+    alt = next((it for it in items if _is_alt_item(it, items)), None)
+    if not alt or not srt_entries:
+        return None
+    line = next((b for b in alt.get("body", []) if b.strip()), "")
+    key = re.sub(r"\s", "", line)[:10]
+    if not key:
+        return None
+    for s, _e, text in srt_entries:
+        if key and key in re.sub(r"\s", "", text):
+            return s
+    return None
+
+
+def _cta_start_sec(topic: str, items: list[dict], srt_entries: list[tuple[float, float, str]]) -> float | None:
+    """CTA 화살표를 띄울 시각. 해결책 구간을 못 찾으면 전체 길이의 65% 지점(= 마무리 언저리)으로 둔다 —
+    대안 항목이 없는 구조의 topic도 있어서, 그런 경우 5초부터 띄우는 옛 동작으로 돌아가면 안 된다."""
+    t = _summary_start_sec(topic, items, srt_entries)
+    if t is not None:
+        return t
+    return round(srt_entries[-1][1] * 0.65, 2) if srt_entries else None
+
+
+def _xray_kwargs(topic: str) -> dict:
+    """data/<topic>/xray.json → assemble() 인자. 파일이 없으면 빈 dict(기존 칠판 포맷)."""
+    import json
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return {}
+    cfg = json.loads(path.read_text(encoding="utf-8"))
+    inset = dict(cfg["inset"])
+    inset["clip"] = str((ROOT / inset["clip"]).resolve())
+    return {"xray_inset": inset, "top_title_text": cfg.get("top_title")}
+
+
+def rebuild(topic: str, board_variant: bool = False, no_cta: bool = False):
+    """board_variant=True: 인셋 포맷 topic의 결론 구간용 칠판 전체 버전을 shorts_board.mp4로 따로 만든다
+    (영상 칸 없음) — scripts/xray_splice.py가 결론 구절부터 이걸로 덮는다."""
     fmt = select_format(topic)
     kwargs = derive(topic)
+    # WHY(2026-09-21 사용자 "제품 보러 가기 있는 버전과 없는 버전으로 나눠서, 없는 버전은 유튜브에"):
+    # CTA 화살표는 네이버 클립의 제휴 배너를 가리키는 장치라 유튜브에선 가리킬 대상이 없다.
+    if no_cta:
+        # WHY 광고 표시가 여기서만 켜지는지(2026-09-21 사용자 "네이버 클립용은 광고 그거 없어도 되고
+        # 유튜브는 있어야 함"): 네이버 클립은 플랫폼이 영상 아래에 제휴 배너를 자체 표기와 함께 붙인다.
+        # 유튜브는 설명란 제휴 링크를 우리가 직접 밝혀야 하므로 화면에 표시를 남긴다.
+        kwargs["cta_enabled"] = False
+        kwargs["ad_tag"] = True
+        out = Path(kwargs["out_path"]); nocta_dir = out.parent / "nocta"
+        nocta_dir.mkdir(exist_ok=True)
+        kwargs["out_path"] = str(nocta_dir / out.name)
+
+    if board_variant:
+        kwargs["xray_panel"] = False
+        # 파일 이름을 그대로 "shorts"로 두고 하위 폴더에 저장한다 — 칠판 색·장식이 출력 파일 이름(stem)을 시드로
+        # 정해져서, 이름을 바꾸면 결론 구간만 다른 칠판(보라 판·회색 테두리)이 나왔다(2026-09-19 실측).
+        board_dir = Path(kwargs["out_path"]).parent / "board"
+        board_dir.mkdir(exist_ok=True)
+        kwargs["out_path"] = str(board_dir / Path(kwargs["out_path"]).name)
     print(f"=== {topic} ===")
     print("format:", fmt)
     print("title:", kwargs["title"])
@@ -709,4 +814,4 @@ def rebuild(topic: str):
 
 
 if __name__ == "__main__":
-    rebuild(sys.argv[1])
+    rebuild(sys.argv[1], board_variant="--board" in sys.argv[2:], no_cta="--no-cta" in sys.argv[2:])

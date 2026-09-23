@@ -38,3 +38,15 @@ assets_library/xray/*.zip
 # 만드는 shorts.mp4·카드뉴스 복사본은 이 저장소 안이 아니라 ai-video-network/
 # deploy/ko/(사용자가 이미 매일 쓰는 공용 업로드 폴더)로 나간다 — 이 프로젝트
 # 폴더 트리 밖이라 여기 gitignore에 적을 대상 자체가 없음.
+
+# 반투명 인체(xray) 클립 라이브러리 — 미디어만 제외, 프롬프트·작업 문서는 추적한다.
+# WHY(2026-09-23): RENDER/stills/output 합계 588MB라 커밋하면 저장소가 감당이 안 된다.
+# assets_library/{real,motion,music}과 같은 정책(대용량 미디어는 로컬 유지).
+assets_library/xray/RENDER/
+assets_library/xray/stills/
+assets_library/xray/output/
+assets_library/xray/clips/
+assets_library/xray/작업/*.png
+assets_library/xray/작업/*.jpg
+assets_library/xray/작업/*.mp4
+assets_library/xray/*.png

@@ -13,7 +13,7 @@
 #     (lang 생략 시 한국어)
 #   python3 -m lib.content_review --all            — data/ 밑 모든 topic 배치 검사(한국어 전용)
 #   python3 -m lib.content_review --hook-pattern <topic>  — 제목 쓰기 전에 먼저,
-#     12종 훅 패턴 중 이번 topic이 뭔지 확인(결정론적 시드, API 호출 없음)
+#     10종 훅 패턴 중 이번 topic이 뭔지 확인(결정론적 시드, API 호출 없음)
 #   python3 -m lib.content_review --title-archetype <topic> <lang>    — blog_seo
 #     제목 쓰기 전에 먼저(topic+lang 시드, 아래 "blog_seo 전용 다양화 장치" 참고)
 #   python3 -m lib.content_review --closing-archetype <topic> <lang>  — blog_seo
@@ -179,18 +179,32 @@ def check_title_closing(topic: str, lang: str = "kor") -> list[dict]:
     issues = []
 
     def _is_generic_cta(text: str) -> bool:
+        # ⚠️ startswith만 보면 "계속된다면 지금 확인하세요"처럼 **앞에 말이 붙은** 줄이 빠져나간다
+        # (2026-09-23 실측, 코_10). 폐기 문구는 줄 어디에 있든 그 줄 전체를 다시 써야 하므로 포함으로 본다.
         stripped = text.strip()
-        return any(stripped == p or stripped.startswith(p) for p in GENERIC_CTA_CLOSING_PHRASES)
+        return any(p in stripped for p in GENERIC_CTA_CLOSING_PHRASES)
 
     spec_path = _topic_dir(topic, lang) / "card_news_spec.json"
     if spec_path.exists():
         title = json.loads(spec_path.read_text(encoding="utf-8")).get("title")
-        if isinstance(title, list) and len(title) >= 2 and _is_generic_cta(title[-1]):
-            issues.append({
-                "quote": title[-1],
-                "issue": f'card_news_spec.json title 마지막 줄("{title[-1]}")이 의미 없는 CTA 문구입니다 — 무엇에 대한 해결책인지 드러나는 명사구로 바꾸세요(예: "OO 줄이는 습관 3가지").',
-                "severity": "medium",
-            })
+        if isinstance(title, list) and len(title) >= 2:
+            if _is_generic_cta(title[-1]):
+                issues.append({
+                    "quote": title[-1],
+                    "issue": f'card_news_spec.json title 마지막 줄("{title[-1]}")이 의미 없는 CTA 문구입니다 — 무엇에 대한 해결책인지 드러나는 명사구로 바꾸세요(예: "OO 줄이는 습관 3가지").',
+                    "severity": "medium",
+                })
+            # ⚠️ 마지막 줄만 보면 안 된다(2026-09-23 실측): "…며칠째 계속된다면 / 저장부터 하세요 /
+            # 후유증 막는 대처법 3가지"처럼 **중간 줄**에 박힌 폐기 CTA는 116개 topic에서 린터를
+            # 통과한 채 살아남아 있었다. 그 줄은 자리만 차지하고 검색어가 들어갈 공간을 뺏는다.
+            for line in title[:-1]:
+                if _is_generic_cta(line):
+                    issues.append({
+                        "quote": line,
+                        "issue": f'title 중간 줄("{line}")이 폐기된 CTA 문구입니다 — 그 줄을 지우고 '
+                                 "앞 훅이 문장으로 끝나도록 다시 쓰세요.",
+                        "severity": "medium",
+                    })
 
     for caption_dir in _caption_dirs(topic, lang):
         caption_path = caption_dir / "platform_captions.json"
@@ -306,14 +320,364 @@ def check_unsourced_claims(topic: str, lang: str = "kor") -> list[dict]:
         })
     return issues
 
+
+def check_opening_hook(topic: str, lang: str = "kor") -> list[dict]:
+    """나레이션 첫 문장이 조건절 자격심사("~라면 주목하세요"류)인지, 그리고
+    0~5초 안에 정보가 도착할 길이인지 검사한다(2026-09-17 신설).
+
+    WHY 이 검사가 필요한지: 훅 문형 규칙은 문서에만 있을 땐 지켜지지 않았다 —
+    실측 115편 중 71편이 조건절 훅이었고 최장 11.9초짜리도 있었다. 기계가 잡지
+    않으면 다음 topic에서 또 들어온다."""
+    base = ROOT / "data" / topic
+    path = next((p for p in (base / lang / "narration.txt", base / "ko" / "narration.txt",
+                             base / "narration.txt") if p.exists()), None)
+    if path is None:
+        return []
+    text = path.read_text(encoding="utf-8").strip()
+    if not text:
+        return []
+    first = re.split(r"(?<=[.!?])\s+", text.replace("\n", " ").strip())[0].strip()
+    if not first:
+        return []
+
+    issues: list[dict] = []
+    if BANNED_HOOK_TAIL.search(first):
+        issues.append({
+            "quote": first[:120],
+            "issue": ("훅이 저장·주목 유도로 끝납니다(\"~라면 저장하세요/주목하세요\"류) — "
+                      "시청자를 거르기만 하고 정보를 안 줘서 0~5초를 버립니다. "
+                      "HOOK_PATTERNS의 정보 제시형으로 다시 쓰세요."),
+            "severity": "high",
+        })
+
+    # 반투명 인체 포맷(data/<topic>/xray.json)은 도입부를 Flow 클립 두 개(행위 4초 + 부위 4초 = 8초)로 채운다.
+    # 칠판으로 넘어가기 전까지의 나레이션 = 첫 두 문장이 8초를 넘으면 클립을 늘려야 하고, 늘린 도입부는
+    # "너무 긴 편"이었다(2026-09-19 사용자, 소화_9 시험본 13.6초 → "대충 8초 정도로 끊어야").
+    if (ROOT / "data" / topic / "xray.json").exists():
+        sents = re.split(r"(?<=[.!?])\s+", text.replace("\n", " ").strip())
+        opening = re.sub(r"\s+", "", sents[0])
+        if len(opening) > XRAY_OPENING_MAX_CHARS:
+            issues.append({
+                "quote": sents[0][:140],
+                "issue": (f"반투명 인체 포맷 도입부(훅 문장)가 공백 제외 {len(opening)}자 — 약 "
+                          f"{len(opening) / SPEECH_CHARS_PER_SEC:.1f}초입니다(목표 {XRAY_OPENING_MAX_CHARS}자 ≈ 6초). "
+                          f"도입부 Flow 구간이 늘어집니다."),
+                "severity": "high",
+            })
+
+    dense = re.sub(r"\s+", "", first)
+    if len(dense) > OPENING_MAX_CHARS:
+        issues.append({
+            "quote": first[:120],
+            "issue": (f"첫 문장이 공백 제외 {len(dense)}자 — 약 {len(dense) / SPEECH_CHARS_PER_SEC:.1f}초입니다"
+                      f"(권장 {OPENING_MAX_CHARS}자/약 6초 이내). 상황·증상만 남기고 곧바로 첫 항목으로 넘어가세요."),
+            "severity": "medium",
+        })
+    return issues
+
+
+# ══════════════════════ 네이버 블로그 원고 품질(2026-09-17 신설) ══════════════════════
+# WHY: 사용자 지적 "네이버블로그도그렇고 클립도 그렇고 내용이 좀 애매해 그렇게까지
+# 사람들한테 도움이 되지 않는 느낌이야". 전수 실측으로 원인 두 가지를 특정했다.
+#  ① 385편 중 199편(52%)이 수치를 쓰면서 그 수치의 출처 기관을 본문에 안 밝힌다 —
+#     "30% 낮아진다는 연구 결과가 있어요"는 독자 입장에서 검증 불가능한 카더라다.
+#     CLAUDE.md "수치를 쓸 땐 어느 기관인지 문장 안에 적는다"는 규칙이 blog_seo에만
+#     기계 검사(check_unsourced_claims)로 걸려 있었고 네이버 원고는 무방비였다.
+#  ② 152편 중 62편이 나레이션 문장을 40% 이상 그대로 재사용한다(최고 87%). 네이버
+#     원고는 1000자 이상인데 60~75초짜리 나레이션은 350~410자뿐이라, 재사용하면
+#     나머지를 같은 말 반복으로 채우게 된다 — 그게 "애매하다"의 실체다.
+# 네이버 원고는 나레이션의 확장판이 아니라 **별도 장르**여야 한다.
+# WHY 시간 단위(분·시간·일·주)를 빼는지: "20분 이상 천천히 드세요"는 검증할 주장이
+# 아니라 실행 지침이라, 넣으면 경고의 대부분이 이쪽으로 채워져 진짜 문제가 묻힌다.
+# 독자가 출처 없이는 믿을 수 없는 것 — 효과크기·유병률·용량·측정값만 대상으로 둔다.
+_NAVER_NUM = re.compile(
+    r"\d[\d.,]*\s?(?:%|퍼센트|배\b|명 중|mg|ml|kcal|mmHg)"
+)
+# 무기명 귀속 — 출처를 밝히는 척하지만 누구인지 안 밝히는 표현
+_NAVER_VAGUE_SRC = re.compile(
+    r"(연구\s?결과가\s?있|연구가\s?있|한\s?연구에|여러\s?연구|알려져\s?있|보고가\s?있|조사\s?결과가\s?있)"
+)
+_NAVER_REAL_SRC = re.compile(
+    r"(대학교|대학병원|서울대|연세|삼성서울|아산|질병관리청|식약처|보건복지부|국민건강|"
+    r"WHO|세계보건기구|학회|연구소|재단|NHS|CDC|FDA|메이요|하버드|논문|저널|"
+    r"[가-힣]{2,}병원|[가-힣]{2,}연구원|[A-Z][A-Za-z]{2,})"
+)
+NARRATION_REUSE_MAX = 40.0      # 나레이션 문장 재사용 상한(%)
+
+
+def _shingles(text: str, n: int = 8) -> set[str]:
+    flat = re.sub(r"\d\d\s·[^\n]*", "", text)          # "01 · 소제목" 이미지 마커 제거
+    flat = re.sub(r"[\s#·\-—]", "", flat)
+    return {flat[i:i + n] for i in range(len(flat) - n + 1)}
+
+
+def _naver_caption(topic: str) -> str | None:
+    for d in _caption_dirs(topic, "kor"):
+        path = d / "platform_captions.json"
+        if not path.exists():
+            continue
+        try:
+            data = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            continue
+        for pl in data.get("platforms", []):
+            if pl.get("name") == "네이버 블로그":
+                return pl.get("caption") or ""
+    return None
+
+
+def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
+    """네이버 블로그 원고가 (a) 수치의 출처를 밝히는지 (b) 나레이션 재탕이 아닌지
+    검사한다. 한국어 전용 — 다른 언어엔 네이버 원고 자체가 없다."""
+    if lang not in ("kor", "ko"):
+        return []
+    caption = _naver_caption(topic)
+    if not caption:
+        return []
+
+    issues: list[dict] = []
+    body = re.sub(r"\d\d\s·[^\n]*", " ", caption)
+    for sent in (x.strip() for x in re.split(r"(?<=[.!?])\s+", body) if x.strip()):
+        if _NAVER_NUM.search(sent) and not _NAVER_REAL_SRC.search(sent):
+            issues.append({
+                "quote": sent[:140],
+                "issue": ("수치가 있는데 어느 기관·연구인지 이 문장에 없습니다 — "
+                          "기관명을 문장 안에 쓰거나, 못 쓰겠으면 그 수치를 빼세요."),
+                "severity": "high",
+            })
+        elif _NAVER_VAGUE_SRC.search(sent) and not _NAVER_REAL_SRC.search(sent):
+            issues.append({
+                "quote": sent[:140],
+                "issue": ('"연구 결과가 있어요"식 무기명 귀속입니다 — 출처를 밝히는 것처럼 '
+                          "보이지만 독자가 확인할 수 없습니다. 기관명을 밝히세요."),
+                "severity": "high",
+            })
+
+    base = ROOT / "data" / topic
+    nar_path = next((p for p in (base / "narration.txt", base / "ko" / "narration.txt")
+                     if p.exists()), None)
+    if nar_path:
+        ns = _shingles(nar_path.read_text(encoding="utf-8"))
+        if ns:
+            reuse = len(ns & _shingles(caption)) / len(ns) * 100
+            if reuse >= NARRATION_REUSE_MAX:
+                issues.append({
+                    "quote": f"나레이션 문장 재사용률 {reuse:.0f}%",
+                    "issue": (f"네이버 원고가 나레이션의 확장판입니다(상한 {NARRATION_REUSE_MAX:.0f}%). "
+                              "60~75초 나레이션엔 350~410자뿐이라 1000자를 채우려면 같은 말을 "
+                              "반복하게 됩니다 — 분량·조건·예외처럼 영상에 못 담은 내용으로 "
+                              "독립된 글을 쓰세요."),
+                    "severity": "medium",
+                })
+    return issues
+
+
+# 2026-09-20 사용자 "사람들에게 크게 도움이 되지 않는 느낌… 놀랄 만큼 도움될 내용이 많이 들어가면 좋겠다":
+# 기존 원고는 "커피·진통제·짠 음식이 위에 나쁘다"처럼 다 아는 말만 하고, 실행할 수 있는 숫자도 병원에 가야
+# 할 신호도 없었다. 아래 네 가지를 새 원고(card_news_spec에 "content_v2": true)에 강제한다.
+V2_MIN_SECONDS, V2_MAX_SECONDS = 62, 80        # 6.7자/초 기준 약 415~536자
+V2_MIN_NUMBERS = 3
+_NUM_WITH_UNIT = re.compile(
+    r"\d[\d,.]*\s?(?:mg|g|kg|ml|L|밀리그램|그램|칼로리|kcal|도|℃|%|퍼센트|배|분|시간|일|주|개월|년|회|번|잔|컵|알|정|포)")
+_MYTH_PATTERNS = [
+    re.compile(r"(좋다고|낫는다고|도움이 된다고|괜찮다고|효과가 있다고)\s*(들으|알려|생각|믿)"),
+    re.compile(r"(알려져 ?있지만|생각하기 쉽지만|흔히 ?아는 것과 달리|사실은 ?반대)"),
+    re.compile(r"오히려"),
+]
+_DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
+                    re.compile(r"(이런 ?증상|이럴 ?때|다음 중 하나라도)")]
+
+
+def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
+    """새 기준(content_v2) 원고가 실제로 도움이 되는 내용을 담았는지 — 숫자·통념 반박·병원 신호·분량.
+
+    WHY 마커(card_news_spec의 "content_v2")로 거는지: 기존 434개 topic은 TTS 재생성 비용 때문에 손대지
+    않기로 했다(2026-09-19). 마커가 있는 새 원고만 검사해야 옛 topic이 전부 실패로 뜨지 않는다."""
+    if lang not in ("kor", "ko"):
+        return []
+    spec_path = ROOT / "data" / topic / "card_news_spec.json"
+    nar_path = ROOT / "data" / topic / "narration.txt"
+    if not spec_path.exists() or not nar_path.exists():
+        return []
+    try:
+        if not json.loads(spec_path.read_text(encoding="utf-8")).get("content_v2"):
+            return []
+    except json.JSONDecodeError:
+        return []
+    text = nar_path.read_text(encoding="utf-8")
+    dense = re.sub(r"\s", "", text)
+    secs = len(dense) / SPEECH_CHARS_PER_SEC
+    issues = []
+    if not V2_MIN_SECONDS <= secs <= V2_MAX_SECONDS:
+        issues.append({"quote": f"{len(dense)}자", "severity": "high",
+                       "issue": f"나레이션이 약 {secs:.0f}초입니다 — 목표 {V2_MIN_SECONDS}~{V2_MAX_SECONDS}초"
+                                f"({round(V2_MIN_SECONDS * SPEECH_CHARS_PER_SEC)}~"
+                                f"{round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외)."})
+    nums = _NUM_WITH_UNIT.findall(text)
+    if len(nums) < V2_MIN_NUMBERS:
+        issues.append({"quote": ", ".join(nums) or "(없음)", "severity": "high",
+                       "issue": f"단위가 붙은 수치가 {len(nums)}개뿐입니다(최소 {V2_MIN_NUMBERS}개) — "
+                                "'줄이세요' 대신 '하루 400mg 이하', '식후 30분'처럼 실행할 수 있게 쓰세요."})
+    if not any(p.search(text) for p in _MYTH_PATTERNS):
+        issues.append({"quote": text[:40], "severity": "medium",
+                       "issue": "통념을 뒤집는 대목이 없습니다 — 시청자가 이미 아는 말만 하면 놀랄 게 없습니다. "
+                                "'~가 좋다고 알려졌지만 오히려…' 같은 반전을 한 개는 넣으세요."})
+    if not any(p.search(text) for p in _DOCTOR_PATTERNS):
+        issues.append({"quote": text[-40:], "severity": "high",
+                       "issue": "병원에 가야 할 신호가 없습니다 — 구체적 증상으로 한 줄 넣으세요"
+                                "(예: 체중이 줄거나 검은 변을 보면 바로 진료)."})
+    return issues
+
+
+def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
+    """xray.json이 가리키는 클립이 실제로 있는지. 없으면 실패 — 비슷한 클립으로 대충 때우지 않는다.
+
+    WHY(2026-09-21 사용자 "클립이 더 필요하다고 판단되면 막 연관없는거 아무거나 넣지말고 나한테 더 요청을 해"):
+    라이브러리에 맞는 기전이 없을 때 남는 클립을 끼워 넣으면 화면과 나레이션이 어긋난다(그 자체가 이 채널에서
+    반복된 사고다). 없으면 `data/<topic>/clip_requests.json`에 적고 사용자에게 요청한 뒤 조립을 멈춘다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return []
+    try:
+        cfg = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return [{"quote": "xray.json", "severity": "high", "issue": "xray.json이 깨졌습니다."}]
+    lib = ROOT / "assets_library" / "xray" / "output"
+    issues = []
+    refs = [cfg.get("inset", {}).get("clip")] + [o.get("clip") for o in cfg.get("opening", [])]
+    refs += [f"assets_library/xray/output/{r['mech']}.mp4" for r in cfg.get("timeline", []) if r.get("mech")]
+    for ref in [r for r in refs if r]:
+        if not (ROOT / ref).exists() and not (lib / Path(ref).name).exists():
+            issues.append({"quote": ref, "severity": "high",
+                           "issue": "클립이 없습니다 — 비슷한 클립으로 바꾸지 말고 "
+                                    f"`data/{topic}/clip_requests.json`에 적어 사용자에게 렌더를 요청하세요."})
+    req = ROOT / "data" / topic / "clip_requests.json"
+    if req.exists():
+        try:
+            pending = [r for r in json.loads(req.read_text(encoding="utf-8")).get("requests", [])
+                       if not (lib / f"{r.get('name')}.mp4").exists()]
+        except json.JSONDecodeError:
+            pending = []
+        if pending:
+            issues.append({"quote": ", ".join(r.get("name", "?") for r in pending), "severity": "high",
+                           "issue": "아직 안 받은 클립 요청이 있습니다 — 받기 전에는 이 topic을 완료로 치지 않습니다."})
+    return issues
+
+
+def check_search_keyword(topic: str, lang: str = "kor") -> list[dict]:
+    """검색어를 제목 맨 앞에 뒀는지 — `card_news_spec.json`의 `search_keyword` 기준.
+
+    WHY(2026-09-23 사용자 "네이버 클립은 사람들이 검색했던 검색어 기준으로 영상을 띄워준다… 제목도
+    검색어 트렌드에 맞춰 짓는 게 핵심"): "훅은 핵심 키워드로 시작" 규칙은 예전부터 있었지만 그 키워드가
+    실제로 검색되는 말인지는 한 번도 안 봤다. 이제 `lib/topic_search_rank.py`가 월간 검색량으로 고른
+    표현을 spec에 박아두고, 제목이 그 말로 시작하는지 여기서 검사한다.
+
+    마커가 없는 옛 topic은 통과시킨다(content_v2와 같은 방식) — 게시 완료분을 전부 실패로 띄우지 않는다."""
+    if lang not in ("kor", "ko"):
+        return []
+    # ⚠️ 스펙 위치가 topic마다 다르다(캡션과 같은 사정 — "한국어 캡션 파일은 topic마다 위치가 다르다" 절).
+    # flat만 보면 ko/ 폴더를 쓰는 54개 topic이 검사 없이 통과한다.
+    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
+                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
+    if spec_path is None:
+        return []
+    try:
+        spec = json.loads(spec_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    kw = (spec.get("search_keyword") or "").strip()
+    if not kw:
+        return []
+    flat_kw = re.sub(r"\s", "", kw)
+    issues = []
+    title = spec.get("video_title") or spec.get("title") or []
+    if title and not re.sub(r"\s", "", title[0]).startswith(flat_kw):
+        issues.append({"quote": title[0], "severity": "high",
+                       "issue": f"제목이 검색어 '{kw}'로 시작하지 않습니다 — 클립은 검색어로 노출되므로 "
+                                "이 말이 맨 앞에 와야 합니다."})
+    caption = _naver_caption(topic)
+    if caption:
+        first = caption.strip().splitlines()[0]
+        if not re.sub(r"\s", "", first).startswith(flat_kw):
+            issues.append({"quote": first, "severity": "high",
+                           "issue": f"네이버 캡션 첫 줄이 검색어 '{kw}'로 시작하지 않습니다."})
+    return issues
+
+
+def check_products_in_brandconnect(topic: str, lang: str = "kor") -> list[dict]:
+    """해결책 품목(products)이 브랜드커넥트에 실제로 있는지 — 없는 품목은 링크를 달 수가 없다.
+
+    WHY(2026-09-19 사용자 지시 "특이한 품목을 추천했는데 브랜드커넥트에 없어버리면 연동조차 할 수가 없는
+    상태… 매번 그렇게 하도록"): 조사 단계에서 `python3 -m lib.brandconnect check <topic>`으로 확인한
+    결과(data/<topic>/brandconnect.json) 또는 전체 카탈로그(data/_audit/brandconnect_catalog.json)를 본다.
+    확인 기록이 없는 품목도 실패로 친다 — "안 돌려봤다"와 "있다"를 구분해야 검사가 빠지지 않는다."""
+    if lang not in ("kor", "ko"):
+        return []
+    try:
+        cap = next(p for p in (ROOT / "data" / topic / "platform_captions.json",
+                               ROOT / "data" / topic / "ko" / "platform_captions.json") if p.exists())
+        products = json.loads(cap.read_text(encoding="utf-8")).get("products") or []
+    except (StopIteration, json.JSONDecodeError):
+        return []
+    known: dict = {}
+    status: dict = {}
+    cat = ROOT / "data" / "_audit" / "brandconnect_catalog.json"
+    if cat.exists():
+        for k, v in json.loads(cat.read_text(encoding="utf-8")).items():
+            known[k] = v.get("found"); status[k] = v.get("status")
+    # 표본을 사람이 보고 "본품 없음"으로 판정한 품목(일반의약품 등)은 카탈로그 status와 무관하게 없음으로 친다
+    unav = ROOT / "data" / "brandconnect_unavailable.json"
+    if unav.exists():
+        for k in json.loads(unav.read_text(encoding="utf-8")).get("health", {}).get("없음", []):
+            known[k] = False; status[k] = "없음"
+    per = ROOT / "data" / topic / "brandconnect.json"
+    if per.exists():
+        known.update({k: v.get("found") for k, v in json.loads(per.read_text(encoding="utf-8"))["products"].items()})
+    issues = []
+    for name in products:
+        if name not in known:
+            issues.append({"quote": name, "severity": "high",
+                           "issue": "브랜드커넥트 확인 기록 없음 — `python3 -m lib.brandconnect check "
+                                    f"{topic}`을 돌려 제휴 가능 여부부터 확인하세요."})
+        elif not known[name]:
+            if status.get(name) == "확인필요":
+                msg = ("브랜드커넥트에 비슷한 상품은 있으나 자동 선택 기준에 안 걸림 — 검색어를 실제 상품명에 가깝게 "
+                       "바꾸거나(예: 무알코올→무알콜) 직접 확인하세요.")
+            else:
+                msg = ("브랜드커넥트에 없는 품목(추천 금지) — 해결책에서 빼거나 브랜드커넥트에 있는 품목으로 바꾸세요. "
+                       "목록: data/brandconnect_unavailable.json")
+            issues.append({"quote": name, "severity": "high", "issue": msg})
+    for name in products:
+        if any(w in name for w in WEAK_SUBSTITUTES):
+            issues.append({"quote": name, "severity": "medium",
+                           "issue": "원인 습관의 대체품(무알코올 맥주·전자담배·디카페인류)은 해결책으로 약하다 — "
+                                    "몸에 실제로 도움이 되는 영양제·도구를 추천하세요."})
+    return issues
+
+
+# 2026-09-19 사용자: "술을 마시는게 좋지 않다 -> 무알코올 맥주, 담배를 피는게 좋지 않다 -> 전자담배 뭐이런식으로
+# 걍 애매하게 대체제 던져주는것보단 영양제같은거 추천하는게 훨씬 효과적이다"
+WEAK_SUBSTITUTES = ("무알코올", "무알콜", "논알콜", "전자담배", "금연초", "디카페인", "제로 콜라", "제로콜라", "제로음료")
+
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
     """기계적(비-API) 검사만 수행한다 — 논리/과장/번역독립성 판단은 파일
     상단 MANUAL_REVIEW_CHECKLIST를 세션이 직접 확인할 것."""
     return (
-        check_title_truncation(topic, lang)
+        check_opening_hook(topic, lang)
+        + check_products_in_brandconnect(topic, lang)
+        + check_naver_blog_quality(topic, lang)
+        + check_title_truncation(topic, lang)
         + check_title_closing(topic, lang)
         + check_blog_title_length(topic, lang)
         + check_unsourced_claims(topic, lang)
+        # ⚠️ 아래 셋은 각자 마커(content_v2 / xray.json / search_keyword)가 있는 topic만 검사한다.
+        # 2026-09-23까지 앞의 둘은 정의만 돼 있고 여기 연결이 빠져 있어서, CLAUDE.md에 "자동으로 잡는다"고
+        # 적혀 있는데도 review_topic을 돌리면 한 건도 안 걸렸다.
+        + check_content_depth(topic, lang)
+        + check_xray_clips(topic, lang)
+        + check_search_keyword(topic, lang)
     )
 
 
@@ -358,22 +722,55 @@ def review_all() -> dict[str, list[dict]]:
 # 확인해봐"류 한 가지 틀로 수렴, CLAUDE_ARCHIVE.md의 12종 로테이션 규칙이 문서에만
 # 있고 실제로 거의 안 지켜지고 있었음): 매번 세션이 "직전 몇 개와 다른 걸 의식적으로
 # 고르라"는 지침에만 의존하면 편한 패턴으로 계속 회귀한다 — `select_format`과 동일한
-# 원칙(topic 문자열만으로 결정론적 시드, 전역 상태 없음, 재현 가능)으로 12개 중
+# 원칙(topic 문자열만으로 결정론적 시드, 전역 상태 없음, 재현 가능)으로 10개 중
 # 하나를 강제로 골라주면 사람이 의식적으로 신경 쓸 필요가 없어진다.
+# 🚨 2026-09-17 전면 교체 — 조건절 훅("~라면 주목하세요"류) 금지.
+# 기존 12종 중 5종(호출형·저장유도형·체크리스트형·긴급시급성형·경고중단유도형)이
+# "[증상 나열]~라면 + 주목/확인/저장하세요" 문형을 **지시하고** 있었다. 그래서
+# 세션이 규칙을 어긴 게 아니라 규칙대로 쓴 결과가 사용자가 금지한 문형이었다 —
+# 같은 파일의 GENERIC_CTA_CLOSING_PHRASES가 "주목하세요"·"저장부터 하세요"를 이미
+# 금지어로 갖고 있는데도 훅 쪽은 그대로 권하고 있어서 코드가 자기모순이었고,
+# 그게 "하지 말라고 했는데 또 들어간" 실제 원인이다.
+#
+# 문제의 본질: 조건절 훅은 **정보를 하나도 주지 않고 자격 심사만 한다.** 실측상
+# 115편 중 71편(62%)이 이 문형이고 27편은 첫 문장이 7초를 넘겼다(최장 11.9초) —
+# 이탈을 가르는 0~5초를 통째로 "당신이 볼 영상인지" 확인하는 데 쓴 셈이다.
+#
+# 교체 기준: 첫 문장이 **그 자체로 정보를 담을 것**(원인·수치·반전·장면).
+# 시청자 자격을 묻는 문형은 전부 뺐고, 남긴 질문형·공감형도 곧바로 정보가
+# 이어지도록 설명에 못박았다.
 HOOK_PATTERNS = [
-    ("호출형", '"~있다면 주목!" — 예: "손발이 자주 저리거나 차갑고 잘 붓는다면 주목!"'),
-    ("질문형", '"~이신가요?" — 예: "자꾸 속이 더부룩하고 신물이 올라오시나요?"'),
-    ("원인 예고형", '"~고 있다면, 이유가 있어요" — 예: "자도 자도 피곤하고 있다면, 이유가 있어요"'),
-    ("경고/중단 유도형", '"~라면 이제 그만" / "~하고 계셨다면 잠깐" — 예: "자기 전 이 습관, 하고 계셨다면 잠깐"'),
-    ("저장 유도형", '"~라면 저장부터 하세요" — 예: "이 증상 있다면 저장부터 하세요"'),
-    ("반전형", '"~그거, 사실 [의외의 원인] 때문이에요" — 예: "자꾸 붓는 얼굴, 사실 이 음식 때문일 수 있어요"'),
-    ("체크리스트형", '"아래 중 하나라도 해당되면" — 예: "손발 저림·부종·피로감, 하나라도 해당되면"'),
-    ("긴급/시급성형", '"~라면 지금 확인하세요" — 예: "요즘 부쩍 붓는다면 지금 확인하세요"'),
-    ("혼잣말/공감형", '"나만 그런가 싶었다면" — 예: "요즘 유독 피곤한 게 나만 그런가 싶었다면"'),
-    ("비교/대조형", '"다른 게 아니라 ~ 때문일 수 있어요" — 예: "나이 탓이 아니라 이 음식 때문일 수 있어요"'),
-    ("직접 화법(대화체) 질문형", '"혹시 ~하지 않나요?" — 예: "혹시 자고 일어나도 개운하지 않나요?"'),
-    ("숫자/통계 제시형", '"[N명 중 1명]이 겪는다는 ~, 혹시 나도?" — 예: "성인 3명 중 1명이 겪는다는 이 증상, 혹시 나도?"(수치는 실제 리서치로 뒷받침된 것만)'),
+    ("반전형", '"~그거, 사실 [의외의 원인] 때문이에요" — 예: "자꾸 붓는 얼굴, 사실 베개 높이 때문이에요"'),
+    ("결론 선치형", '결론을 첫 문장에 바로 놓는다 — 예: "혈당 스파이크, 뭘 먹느냐보다 먹는 순서가 더 큽니다"'),
+    ("통념 반박형", '"~라고 알고 계셨다면 그게 아니에요" — 예: "새치는 뽑으면 는다고 알고 계셨다면, 그게 아니에요"'),
+    ("숫자/통계 제시형", '"[N명 중 1명]이 겪는 ~" — 예: "성인 3명 중 1명이 겪는 역류성 식도염"(수치는 실제 리서치로 뒷받침된 것만)'),
+    ("효과 수치형", '같은 행동의 전후 차이를 수치로 — 예: "같은 밥이라도 순서만 바꾸면 식후 혈당 최고치가 30% 낮아집니다"'),
+    ("장면 제시형", '증상이 드러나는 구체적 순간 하나를 묘사 — 예: "아침 첫 소변에 거품이 가라앉지 않고 남아 있습니다"'),
+    ("비교/대조형", '"[흔한 원인]이 아니라 [진짜 원인] 때문이에요" — 예: "나이 탓이 아니라 저녁에 마신 커피 때문이에요"'),
+    ("질문형", '"~이신가요?" — 짧게 묻고 **곧바로** 답을 준다. 예: "중이염, 귀가 먹먹하고 아프신가요?" → 다음 문장에서 바로 원인'),
+    ("직접 화법(대화체) 질문형", '"혹시 ~하지 않나요?" — 질문형과 같이 다음 문장이 즉시 정보여야 한다'),
+    ("혼잣말/공감형", '"나만 그런가 싶었다면" — 공감 한 마디로 짧게 열고 바로 원인으로. 증상을 길게 나열하지 말 것'),
 ]
+
+# 훅 첫 문장 금지 문형 — 조건절 + 자격심사/CTA 꼬리. check_opening_hook()이 쓴다.
+# WHY 문서가 아니라 정규식인지: 이 규칙은 2026-08-10에 이미 문서로 있었는데
+# (GENERIC_CTA_CLOSING_PHRASES) 제목에만 적용돼서 나레이션 훅으로 계속 새어나왔다.
+# ⚠️ 2026-09-19 정정: "~라면 확인하세요"는 금지 대상이 아니다. 사용자가 원하는 도입부가 바로
+# "[상황]에서 [증상]이 나타나면 이걸 확인하세요 → 곧바로 첫 항목"이다("어떤 상황에서 어떤 현상이 나타나면
+# 이런걸 확인하세요 바로 넘어가는거야"). 금지는 저장·주목 유도 꼬리만 — 처음 이 규칙을 만들 때 확인형까지
+# 묶은 건 과잉이었다.
+BANNED_HOOK_TAIL = re.compile(
+    r"(?:다|라)면[^.!?]{0,20}?"
+    r"(?:주목|저장부터|저장해|저장하세요|놓치지\s*마세요)"
+)
+
+# 첫 문장 권장 상한(공백 제외). 이 프로젝트 TTS 실측 발화속도 약 5.5자/초 기준
+# 약 4초 — 0~5초 훅 구간 안에서 첫 정보가 도착하게 하려는 값이다.
+# 발화 속도 실측(2026-09-19, 채널 통일 보이스 "30대 남자 인터뷰어" + AUDIO_TEMPO 1.1): 공백 제외 약 6.7자/초.
+# 예전 5.5자/초는 topic마다 난수로 고르던 여러 보이스가 섞인 값이었다.
+SPEECH_CHARS_PER_SEC = 6.7
+OPENING_MAX_CHARS = 40       # 도입 한 문장 ≈ 6초 — 사용자 "40자정도해도 5초정도밖에"
+XRAY_OPENING_MAX_CHARS = 40  # 반투명 인체 포맷도 도입부 = 훅 한 문장
 
 
 def select_hook_pattern(topic: str) -> tuple[str, str]:
