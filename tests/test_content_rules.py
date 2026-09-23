@@ -824,3 +824,71 @@ def test_korean_caption_lives_in_one_place(base_topic):
             "한국어 원고는 한 곳에만 두세요(언어 폴더가 있으면 ko/, 없으면 flat). "
             "두 벌이 있으면 어느 쪽이 게시되는지 알 수 없습니다."
         )
+
+
+# ══════════════════ 네이버 블로그 원고 품질 게이트(2026-09-17 신설) ══════════════════
+# WHY 채무 목록 방식인지: 실측 시점에 385편 중 227편이 이미 위반 상태였다. 전부
+# 실패시키면 테스트가 상시 빨간불이라 아무도 안 보게 되고(= 게이트가 없는 것과 같다),
+# 227편을 지금 다 고치는 건 게시 완료분 재작성이라 별개 결정이다. 그래서 그 시점
+# 스냅샷만 예외로 두고 **새 위반은 즉시 실패**시킨다 — blog_seo 쪽에서 이미 쓰고
+# 있는 패턴(data/_audit/blog_seo_quality_debt.json)과 같은 구조다.
+_NAVER_DEBT_PATH = DATA_DIR / "_audit" / "naver_blog_quality_debt.json"
+
+
+def _naver_debt() -> dict[str, dict]:
+    if not _NAVER_DEBT_PATH.exists():
+        return {}
+    return json.loads(_NAVER_DEBT_PATH.read_text(encoding="utf-8")).get("entries", {})
+
+
+def test_naver_blog_quality_no_new_violations():
+    """네이버 원고에 출처 없는 수치·나레이션 재탕이 새로 들어오면 실패한다."""
+    from lib import content_review
+
+    debt = _naver_debt()
+    regressions = []
+    for topic_dir in sorted(p for p in DATA_DIR.iterdir() if p.is_dir()):
+        topic = topic_dir.name
+        issues = content_review.check_naver_blog_quality(topic)
+        if not issues:
+            continue
+        counts = {
+            "high": sum(1 for i in issues if i.get("severity") == "high"),
+            "medium": sum(1 for i in issues if i.get("severity") == "medium"),
+        }
+        allowed = debt.get(topic)
+        if allowed is None:
+            regressions.append(f"{topic}: 신규 위반 {counts} — {issues[0]['issue'][:60]}")
+        elif counts["high"] > allowed.get("high", 0) or counts["medium"] > allowed.get("medium", 0):
+            regressions.append(f"{topic}: 위반 증가 {allowed} → {counts}")
+
+    assert not regressions, "네이버 블로그 원고 품질 위반:\n" + "\n".join(regressions)
+
+
+def test_naver_debt_list_has_no_stale_entries():
+    """고친 topic은 채무 목록에서 지워야 한다 — 목록이 줄어들기만 하게 만드는 장치."""
+    from lib import content_review
+
+    stale = [
+        topic for topic in _naver_debt()
+        if (DATA_DIR / topic).is_dir() and not content_review.check_naver_blog_quality(topic)
+    ]
+    assert not stale, (
+        "아래 topic은 더 이상 위반이 없습니다 — "
+        f"data/_audit/naver_blog_quality_debt.json에서 지우세요: {stale}"
+    )
+
+
+# ══════════════════ review_topic이 부르는 검사가 실제로 존재하는지 ══════════════════
+# WHY(2026-09-24 실측): 오탐이 심한 검사 하나를 손으로 잘라내다가 바로 위에 있던
+# check_xray_pacing까지 같이 날렸는데, review_topic은 여전히 그걸 부르고 있었다.
+# 정의가 없으니 검수를 돌리는 순간 NameError로 죽는데, 테스트는 전부 통과했다 —
+# 어느 테스트도 review_topic을 부르지 않았기 때문이다. 함수를 지우거나 이름을 바꿀 때
+# 호출부가 남아 있으면 여기서 잡힌다.
+def test_review_topic_runs_without_missing_checks():
+    from lib import content_review
+
+    sample = next((d.name for d in sorted(DATA_DIR.iterdir())
+                   if d.is_dir() and (d / "narration.txt").exists()), None)
+    assert sample, "검사할 topic이 없다"
+    content_review.review_topic(sample)      # NameError가 나면 실패

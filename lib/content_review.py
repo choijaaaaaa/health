@@ -679,6 +679,57 @@ def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
 
 MAX_PANEL_GAP_SEC = 8.0      # 위쪽 칸이 이보다 오래 안 바뀌면 "같은 그림에 색만" 구간이 된다
 
+def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
+    """도입부 컷이 문장을 자르지 않는지, 위쪽 칸이 오래 비어 있지 않은지.
+
+    WHY(2026-09-24 비뇨기_16 실측 지적): 두 가지가 한꺼번에 드러났다.
+    ① `opening_until`이 5.2초인데 통념 반박 문장은 4.64~14.40초라, 그 문장이 **0.5초만 전체 화면에
+       나오고 칠판으로 넘어갔다.** 사용자 "왜 앞선 전체 영상에 잠깐 나오고 넘어가게 만드는것이며".
+    ② 그 뒤 첫 항목이 20.56초에 시작해 **16초 동안 위쪽 칸에 영상이 없었다.** 부위 인셋만 맥동해서
+       "6초부터 18초까지 똑같은 이미지에 색상만 들어가는 느낌"이 된다.
+    둘 다 파일만 봐선 안 보이고 영상을 틀어봐야 보이는 종류라 검사로 못 박는다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return []
+    try:
+        cfg = json.loads(path.read_text(encoding="utf-8"))
+        from lib.xray_timeline import _cues, resolve
+        cues = _cues(topic)
+        rows = resolve(topic) or []
+    except Exception:
+        return []
+    if not cues:
+        return []
+
+    issues = []
+    until = cfg.get("opening_until")
+    if until is not None:
+        # 문장 경계(자막 큐의 시작·끝)와 0.35초 안에서 맞아야 한다 — 그보다 멀면 문장을 자르는 것이다
+        edges = [c[0] for c in cues] + [c[1] for c in cues]
+        if min(abs(until - e) for e in edges) > 0.35:
+            cut = next((c for c in cues if c[0] < until < c[1]), None)
+            issues.append({"quote": f"opening_until={until}", "severity": "high",
+                           "issue": f"도입부 컷이 문장 한가운데를 자릅니다"
+                                    + (f" — \"{cut[2][:28]}…\"가 {cut[0]:.1f}~{cut[1]:.1f}초인데 "
+                                       f"{until}초에 칠판으로 넘어갑니다. " if cut else " — ")
+                                    + "문장이 끝나는 시각에 맞추세요."})
+
+    if rows:
+        gap_start = until if until is not None else 0.0
+        gaps = [(gap_start, rows[0]["start"])]
+        gaps += [(rows[i]["end"], rows[i + 1]["start"]) for i in range(len(rows) - 1)]
+        for s, e in gaps:
+            if e - s > MAX_PANEL_GAP_SEC:
+                issues.append({"quote": f"{s:.1f}~{e:.1f}초", "severity": "high",
+                               "issue": f"위쪽 칸에 영상이 없는 구간이 {e - s:.0f}초입니다"
+                                        f"(상한 {MAX_PANEL_GAP_SEC:.0f}초) — 그동안 화면이 칠판과 "
+                                        "부위 인셋뿐이라 같은 그림에 색만 바뀌는 것처럼 보입니다. "
+                                        "timeline에 구간을 더 나누거나 클립을 요청하세요."})
+    return issues
+
+
 def check_search_keyword(topic: str, lang: str = "kor") -> list[dict]:
     """검색어를 제목 맨 앞에 뒀는지 — `card_news_spec.json`의 `search_keyword` 기준.
 
