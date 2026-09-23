@@ -86,8 +86,13 @@ def main() -> None:
         lines.append(f"\n## {i}. `{r['name']}` — {topic}\n")
         ref, mode, still = _reference(r)
         lines.append(f"\n**왜 필요한가**: {r.get('why', '')}\n")
-        lines.append(f"\n**레퍼런스**: `{ref}` — **{mode}**로 넣는다\n")
-        lines.append(f"\n### 미드저니 (start 스틸 → `{still}`)\n```\n{r.get('midjourney', '')}\n```\n")
+        ready = (ROOT / still).exists()
+        if ready:
+            # 스틸이 이미 있으면 미드저니 단계는 끝난 것 — Flow만 돌리면 된다
+            lines.append(f"\n✅ **start 스틸 준비됨**: `{still}` — 미드저니 단계 생략, 아래 Flow만 돌린다.\n")
+        else:
+            lines.append(f"\n**레퍼런스**: `{ref}` — **{mode}**로 넣는다\n")
+            lines.append(f"\n### 미드저니 (start 스틸 → `{still}`)\n```\n{r.get('midjourney', '')}\n```\n")
         lines.append(f"\n### Flow ({r.get('seconds', 6)}초)\n```\n{r.get('flow', '')}\n```\n")
         if r.get("_render_note"):
             lines.append(f"\n> {r['_render_note']}\n")

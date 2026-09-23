@@ -23,19 +23,14 @@
 이 파일은 `scripts/build_clip_request_sheet.py`가 각 topic의 `clip_requests.json`에서 다시 만든다.
 **직접 고치지 마라** — 고칠 내용은 해당 topic의 `clip_requests.json`에 넣는다.
 
-**2026-09-23 기준 18종**
+**2026-09-24 기준 18종**
 ---
 
 ## 1. `act_shingles_band` — 고령_15
 
 **왜 필요한가**: 대상포진은 한쪽에 띠처럼 잡히는 물집이 유일한 시각 특징인데, 지금 쓰는 act_scratch_skin(팔 긁기)에는 물집이 전혀 없다. 증상이 화면에 안 보이면 무슨 병 이야기인지 알 수 없다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_shingles_band.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet, both feet flat on the floor. The figure stands turned slightly to one side with one arm lifted away from the ribs, the other hand hovering just above that bare flank without touching it, the head bowed to look down at the flank. Along one side of the torso only, following a single narrow band that curves from the spine around the ribs to the front, the glass shell is raised into a line of small clustered blisters like beads under the surface, the band stopping dead at the midline so the other side is perfectly smooth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_shingles_band.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -48,12 +43,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 **왜 필요한가**: 항목 2의 핵심 문장이 "맑은 하늘이나 하얀 종이를 볼 때 점이 더 뚜렷해진다"(서울아산병원)인데, 라이브러리 115종에 '배경이 밝을수록 같은 그림자가 진해진다'는 장면이 없다. clip_index로 '그림자·대비·빛·시야'를 다 뒤졌지만 m_vitreous_floaters(덩어리가 떠다니며 그림자를 드리움)·m_vision_field_loss(시야가 까맣게 지워짐)·m_uv_radiation_damage(자외선이 조직을 때림)뿐이라, 여기에 m_vitreous_floaters를 한 번 더 끼우면 앞 구간과 똑같은 화면이 되어 '배경 밝기에 따라 달라진다'는 이 항목의 요점이 화면에서 사라진다. 개수가 늘어난 게 아니라 대비가 커진 것뿐이라는 게 이 topic이 시청자에게 주는 가장 실용적인 정보라 대충 넘길 수 없다. 받기 전까지 눈_8 조립을 멈춘다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_shadow_contrast.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up inside the eye, translucent glass-like 3D tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The lower third of the frame is a smooth pale cyan retinal sheet stretching away like a curved floor, its fine radial nerve fibres faintly visible under the surface. Floating in the clear space above it, a single lumpy grey-blue clump the size of a grape hangs suspended with two thin ragged threads trailing from it. A wide warm amber beam enters from the top of the frame and passes down through the clear space, and the clump casts one soft dark oval shadow onto the pale cyan sheet below. Everything except the amber beam is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, eyelashes, spectacles, screens, phone, tools, machine parts, red, blood colour
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_shadow_contrast.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (4초)
 ```
@@ -66,12 +56,7 @@ Three quick shots cut together, about 1.3 seconds each, the lumpy grey-blue clum
 
 **왜 필요한가**: 항목 3(지켜보는 기간)의 왼쪽 행위 칸에 쓸 클립이 없다. 라이브러리 행위 48종에서 눈 관련은 act_rub_eyes(눈 비비기)·act_squint_at_screen(화면을 얼굴 가까이)·act_shield_eyes_from_light(손차양)뿐인데 셋 다 안구건조·눈 피로·눈부심 어디에나 붙는 뭉뚱그린 동작이라, 비문증 영상에 붙여도 무슨 병 이야기인지 화면에서 안 보인다(CLIP_NOTES 2026-09-24 '행위 클립은 동작이 디테일해야 한다'). 비문증인 사람만 하는 동작은 따로 있다 — 밝은 벽을 보다 고개는 그대로 둔 채 눈알만 굴려 떠다니는 점을 쫓고, 잡으려는 듯 손을 올리다 소용없다는 걸 알고 멈칫하는 것. 앞 구간에서 act_rub_eyes를 이미 썼으므로 같은 클립을 또 쓰면 항목이 바뀐 게 화면에 안 드러나기도 한다. 받기 전까지 눈_8 조립을 멈춘다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_chase_floater.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet. The figure stands facing forward with its weight carried on one leg so that the opposite hip drops and the shoulders tilt slightly, the head level and still, the chin tucked a fraction. One forearm is raised to about chest height with the fingers half closed, as if reaching for something small in the air and stopping short of it, the elbow not fully extended and the wrist slack; the other arm hangs loose at the side. Both eyeballs are lit warm amber inside the glass skull and are rolled upward and to one side, looking away from the direction the raised hand is reaching. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, clothing, hair, facial features, spectacles, screens, phone, tools, machine parts, duplicated limbs, red, blood colour
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_chase_floater.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -84,12 +69,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 **왜 필요한가**: 위고비는 주 1회 피하주사인데 지금 쓰는 act_take_supplement는 알약을 삼키는 동작이다. 약을 먹는 것과 주사하는 것은 시청자가 바로 구별한다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_inject_belly.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet, both feet flat on the floor. The figure stands with the head bowed looking down at its own abdomen, one hand pinching a fold of the lower belly to one side of the navel, the other hand holding a slim smooth cylindrical pen-shaped device upright with its tip resting against that pinched fold. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_inject_belly.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -102,12 +82,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 **왜 필요한가**: 1번 항목(오심 43.9%·구토 24.5%)의 행위 클립. 라이브러리의 act_grab_belly는 배를 움켜쥐는 뭉뚱그린 동작이라 위경련·장염·생리통 어디에도 붙어 이 증상을 못 가리킨다. GLP-1 오심은 '배가 아파 웅크리는' 게 아니라 '한두 숟갈 뜨다 명치까지 차오른 느낌에 음식을 밀어내고 침을 삼키며 숨을 멈추는' 동작이다 — 증상 자체(먹다 만 그릇을 밀어내는 손, 입을 막는 손)가 동작 안에 보여야 한다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_nausea_push_plate_away.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure seated at a plain low table, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. A single plain shallow bowl of the same translucent cyan glass sits on the table still half full. The figure leans back away from the table with the shoulders pulled up toward the ears, one flat palm pushing the bowl away across the table at arm's length, the other hand covering the mouth with the knuckles pressed against the lips, the chin tucked down and the throat lifted mid-swallow. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, cutlery, chopsticks, machine parts, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_nausea_push_plate_away.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -120,12 +95,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ho
 
 **왜 필요한가**: 3번 항목(급성 췌장염 0.2%·담석증 1.6%)의 행위 클립이자 마지막 병원 신호('명치 통증이 등까지 뻗치면서 멎지 않으면')를 그대로 보여주는 동작. 라이브러리에 대체할 게 없다 — act_clutch_chest는 프레임 확인 결과 심장이 점등해 심근경색으로 읽히고, act_clutch_low_back은 콩팥이 점등해 신장 통증이다. 췌장염 통증은 명치에서 등으로 뚫고 나가는 형태라 사람이 앞으로 몸을 접고 반대 손으로 등 뒤 갈비뼈 아래를 받치며, 눕지 못하고 무릎을 끌어당긴다 — 이 '앞으로 접고 등을 받치는' 조합이 이 병의 사람만 하는 동작이다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_epigastric_bore_to_back.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure seen from a three-quarter angle, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, body visible from the top of the head to the knees. The figure sits on the floor folded sharply forward over its own lap, the crown of the head dropped low and the spine curled, one fist pressed knuckles-first into the pit of the stomach just below the breastbone, the other arm reached behind the back with the flat palm bracing under the lower ribs on the same side, both knees drawn up toward the chest. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, furniture, machine parts, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_epigastric_bore_to_back.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -138,12 +108,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ho
 
 **왜 필요한가**: 이 영상의 간판 장면(훅 0~5초)이 '자고 일어나면 눈두덩이 붓는다'인데, 195종 색인을 '눈꺼풀·붓기·얼굴'로 뒤져도 눈 주위가 부은 장면이 하나도 없다. 지금 도입부에 임시로 쓰는 act_rub_eyes는 색인 fits가 '눈의 피로·안구건조'라 눈을 비비는 피로 장면이고(프레임 확인: 두 손으로 얼굴을 덮고 양쪽 안구만 점등), 부기가 화면에 전혀 없다. act_cover_face는 부비동, part_eyelid는 확대율이 너무 커서 눈꺼풀인 줄 모른다. ▶ 어디를 어떻게: 아래 눈꺼풀 바로 아래 눈두덩을 두 손 검지·중지 끝으로 각각 한 번 지그시 눌렀다 떼고, 눌린 자리가 자국 없이 곧바로 도로 부풀어 오르는 것까지 보여야 한다(점액부종은 눌러도 자국이 안 남는 게 진단 포인트라 '떼고 나서 되돌아오는' 구간이 이 클립의 전부다). 점등은 양쪽 눈꺼풀·눈두덩 연부조직만 — 안구는 켜지지 않는다. ▶ 피하는 동작: 눈을 비비지 말 것(act_rub_eyes와 같은 장면이 된다), 두 손으로 얼굴 전체를 덮지 말 것(act_cover_face), 안구가 앞으로 튀어나오게 하지 말 것(갑상선기능항진증의 안구돌출로 읽혀 이 원고의 통념 반박과 정면으로 어긋난다). ▶ 반복 리듬: 누른다-뗀다-되돌아온다를 두 번, 두 번째가 더 느리고 되돌아오는 속도가 눈에 띄게 굼뜨다. ▶ 무게중심: 발은 그대로 두고 턱만 살짝 들어 머리를 뒤로 조금 젖힌 채 눈두덩을 위에서 만지는 자세라 상체는 거의 움직이지 않는다 — 카메라만 얼굴로 밀고 들어와 마지막엔 눈두덩이 화면 위쪽 3분의 1을 채운다. 클립이 오면 xray.json opening 첫 항목(act_rub_eyes 1.4~3.8)을 이걸로 교체한다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_press_swollen_eyelid.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, head and upper chest filling the frame, the chin lifted a little so the face tilts back. Both eyes are closed and the soft tissue above and below each eye is swollen into a smooth puffy dome that rounds out the eye socket and narrows the eye line, the rest of the face flat and smooth. The index and middle fingertips of each hand rest lightly on the puffy pad just under each lower lid, pressing in and denting it slightly. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, bulging eyeballs, protruding eyes, tools, mirror, machine parts, glassware, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_press_swollen_eyelid.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -156,12 +121,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera pu
 
 **왜 필요한가**: 이 원고의 핵심 문장이 "먹은 콜라겐은 소화되면서 아미노산으로 쪼개져 온몸에 나눠 쓰여요. 피부로 직행하지 않고"인데, 라이브러리 115종 중 이 장면이 없다. clip_index로 '분해·흡수·단백질'을 전부 뒤졌지만 m_enzyme_deficiency(효소가 없어 분해가 안 됨)·m_nutrient_absorption_block(큰 분자가 표면에 남음)·m_muscle_wasting(근섬유가 가늘어짐)뿐이라 전부 뜻이 반대거나 다른 얘기다. 지금 이 구간에 남는 클립을 끼우면 '콜라겐이 흡수가 안 된다'로 정반대로 읽힌다 — 흡수는 되는데 피부로 직행하지 않고 온몸에 흩어진다는 게 요점이라, 가닥이 잘려 낱개가 되고 여러 갈래로 흩어지는 장면이 따로 필요하다. 받기 전까지 머리_14 조립을 멈춘다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_peptide_breakdown.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Inside the open lumen of the small intestine, the pale cyan wall curving away at the bottom of the frame with tall thin finger-like villi standing up from it. Lying across the open space above the villi, one long unbroken warm amber rope made of three strands twisted tightly around each other like a braided cable, running from the left edge to the right edge of the frame, thick and glossy and clearly whole along its entire length. Everything except that amber rope is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, white layer, cream layer, crust, opaque cap, scissors, tools, machine parts
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_peptide_breakdown.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (4초)
 ```
@@ -174,12 +134,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the lon
 
 **왜 필요한가**: 크레아틴 배탈 항목(덜 녹은 가루가 장에 남아 장 안으로 물을 끌어당김)에 쓸 행위 클립이 없다. 프레임으로 직접 확인한 후보들은 전부 '배가 아파 화장실이 급하다'까지만 보여준다 — act_grab_belly는 두 손으로 배를 감싸고 위·장이 넓게 켜지는 뭉뚱그린 복통이고, pilot_B2는 한쪽 다리를 들어 참는 자세지만 역시 장이 넓게 켜질 뿐이며, act_rush_to_toilet은 4.5~6.0초에 장이 켜진 채 급히 걸어가는 구간이 있다. 셋 다 장염·과민성 장·생리통에 그대로 붙는 장면이라 이 항목이 크레아틴 이야기라는 걸 화면이 말해주지 못한다. 이 항목의 시각 특징은 '물이 찬 장'이다 — 장 고리가 액체로 팽창해 수면(waterline)이 보이고 그 물결이 왼쪽 아래 하행결장으로 내려가야, 오른쪽 칸의 m_osmotic_water_pull(장 안으로 물이 끌려 들어감)과 한 장면이 된다. 손도 배를 감싸는 게 아니라 누르면 더 아파서 닿기 직전에 멈칫하다 손바닥 아래쪽으로 왼쪽 아랫배만 납작하게 누른다. ⚠️ 이 클립을 새로 뽑을 만큼은 아니라고 판단하면 act_rush_to_toilet 4.5~6.0초를 차선으로 쓸 수 있다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_urgent_watery_bowel.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet. The figure is caught mid-stride and folded forward at the waist, the trunk twisted slightly away from its own left side, the weight carried on the ball of the leading foot with the back heel lifted off the floor and the knees pressed close together. The heel of one flat hand presses low on the left lower belly just inside the hip bone, fingers splayed and lifted clear of the skin, the other arm swung out wide for balance. Inside the glass shell the intestinal loops are rounded and distended, each loop half filled with a still liquid surface so a flat waterline is visible across it, the loops on the lower left the most swollen and stretched thin. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, toilet, cup, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_urgent_watery_bowel.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -192,12 +147,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 **왜 필요한가**: 3번 항목('몰아 먹는 식사')의 행위 클립. 이 포맷은 왼쪽에 행동, 오른쪽에 기전을 나란히 놓아 '이 행동을 하면 몸이 이렇게 된다'를 읽히게 하는데, 라이브러리에는 먹는 동작 자체가 하나도 없다 — act_drink_caffeine은 컵을 들어 마시는 동작이라 '끼니를 거르다 한 끼를 몰아 먹는다'와 다르고, act_shift_uncomfortably_seated(앉은 채 들썩이다 아랫배를 누름)는 먹은 뒤의 결과라 원인 행동을 못 보여준다. act_grab_belly는 색인 avoid대로 어느 소화기 질환에나 붙는 뭉뚱그린 동작이다. 필요한 건 '빈 위가 한꺼번에 크게 늘어나는 순간'이 눈에 보이는 동작이다: 오래 비어 있던 위가 몇 번의 빠른 큰 입에 통째로 부풀고, 그 팽창이 아래 대장으로 이어지는 흐름. 피해야 할 동작은 천천히 음미하며 먹는 식사 장면과 배를 움켜쥐는 통증 동작이다(전자는 이 항목의 반대, 후자는 이미 라이브러리에 있고 주제를 못 가린다). 반복 리듬은 '크게 한 입 → 거의 안 씹고 삼킴'을 네 번, 갈수록 빨라지게. 무게중심은 앞으로 쏠려 식탁 위로 상체를 기울인 채 유지한다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_large_meal_after_fasting.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure seated at a plain low table, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. One plain deep bowl heaped high with food and two smaller plain bowls, all of the same translucent cyan glass, are crowded together on the table. The figure leans far forward over the table with the elbows planted on it, one hand lifting a heaped spoon to an already open mouth and the other hand gripping the rim of the deep bowl and dragging it closer, the shoulders hunched and the whole weight pitched forward over the food. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, chopsticks, machine parts, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_large_meal_after_fasting.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -210,12 +160,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera st
 
 **왜 필요한가**: 나레이션 "급하게 굶으면 간이 담즙으로 콜레스테롤을 한꺼번에 쏟아내서, 담즙이 과포화돼 콜레스테롤이 결정으로 굳어요" — 과포화된 액체에서 결정이 석출돼 한 덩어리 돌로 자라는 장면. 담석 말고 요로결석·타석 계열 topic에도 그대로 쓸 수 있다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_crystal_precipitation.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human anatomy, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One rounded hollow sac seen from the side at eye level and cut open lengthwise so its whole hollow inside is visible, sitting in the lower two thirds of the frame with open dark empty space above it. The sac is filled to the brim with perfectly clear pale cyan fluid and its inner wall is smooth and unmarked. A few tiny warm amber specks hang suspended in the fluid near the floor of the sac, far apart from each other and not yet touching. Everything except those specks is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, white layer, cream layer, crust, opaque cap, bread, gemstones, glitter, sand, jar, bottle
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_crystal_precipitation.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -228,12 +173,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): a dense
 
 **왜 필요한가**: 나레이션 "공복이 길어지면 담낭이 짜이지 않아 담즙이 고인 채 점점 걸쭉해져요"와 "지방이 거의 없으면 담낭을 수축시키는 신호가 안 나와 담즙이 더 오래 고여요" 두 문장에 함께 쓴다 — 주머니를 감싼 근육이 끝까지 수축하지 않아 안의 액체가 정체되고 농축되는 장면. m_pressure_buildup(배출로가 막혀 압력이 오르는 장면)과는 원인이 반대라 대체가 안 된다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_stasis_thickening.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human anatomy, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One rounded hollow sac seen from the side at eye level and cut open lengthwise so its whole hollow inside is visible, sitting in the lower two thirds of the frame with open dark empty space above it. A ring of banded muscle fibres wraps around the outside of the sac wall, slack and loose. A single narrow outlet channel leaves the sac at its lower right side and runs wide open and completely empty toward the right edge of the frame. The sac is filled to the brim with clear pale cyan fluid lying perfectly still. Everything is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, white layer, cream layer, crust, opaque cap, bread, balloon, machinery, pipe, plumbing
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_stasis_thickening.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -246,12 +186,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the rin
 
 **왜 필요한가**: 헬리코박터는 보균자 대부분이 평생 무증상이라 '아픈 동작'이 아예 없는 병이다. 지금 opening에 쓰던 act_grab_belly는 배를 움켜쥐고 대장이 점등하는 클립이라 장염·생리통에도 붙는 뭉뚱그린 동작인 데다 점등 장기(대장)까지 틀렸다. 이 병 고유의 장면은 증상이 아니라 전파 경로다 — 각자 쓰던 숟가락을 한 냄비에 번갈아 담갔다 입으로 가져가는 동작이 침이 섞이는 순간을 그대로 보여준다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_shared_pot_dipping.jpg`)
-```
-Medical holographic visualization of two translucent glass-like human figures seated facing each other at a low table, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless faces, both figures visible from the top of the head to the waist, elbows resting on the table. One shallow round communal pot of liquid sits between them on the table. Each figure holds its own long spoon, one spoon lowered into the shared pot and the other spoon paused in mid-air just below its owner's mouth, so the two spoons trade places over the same pot. Both stomachs are visible through the glass torsos. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_shared_pot_dipping.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -264,12 +199,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 **왜 필요한가**: 대장 용종 편(소화_20) 기전 컷. 들어갈 문장: "대장 점막 세포가 비정상적으로 늘어나 혹처럼 솟아오른 조직이 용종이에요". 대장암·자궁근종·물혹처럼 '세포가 과하게 늘어나 덩어리가 된다'는 기전은 앞으로도 재사용된다(범용 12종에 증식 계열이 통째로 빠져 있다).
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_cell_overgrowth.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A flat slab of intestinal lining seen from the side at eye level, its top surface facing straight up, perfectly level and filling the lower two thirds of the frame with open dark empty space above it. The top surface is dotted with evenly spaced small round pit openings; below each opening a narrow tube-shaped gland runs straight down into the tissue, clearly visible through the translucent cut face. Every cell in the slab is the same plump rounded shape and the same size, packed in neat even rows. One small group of cells near the centre of the slab is packed slightly more tightly than the rest and glows faint warm amber. Everything except that one small group is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, white layer, cream layer, crust, opaque cap, bread, tumour, blood, red, gore
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_cell_overgrowth.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -282,12 +212,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the sma
 
 **왜 필요한가**: 소장 세균이 발효당(포드맵)을 먹어 가스를 뿜어내고, 그 가스가 장벽을 밀어 올려 배가 부푸는 장면. 소화_21 두 번째 항목('양파, 마늘, 밀가루 같은 발효당') 구간에 4초 통째로 들어간다. 소화·대사 계열 topic(복부팽만·과민성 장 증후군·유당불내증)에서 계속 재사용할 수 있는 범용 기전이다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Style Reference (⚠️ Omni Reference 금지)**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/mech/m_gas_fermentation.jpg`)
-```
-Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A slab of small intestine wall seen from the side at eye level across the bottom third of the frame, its upper surface covered in tall thin finger-like folds standing upright, with open dark empty space above. Scattered among the folds lie about a dozen small warm amber sugar granules, and a few warm amber rod-shaped bacteria sit directly on top of those granules. One small clear round bubble has just lifted off a granule and floats alone in the dark space above the folds. Everything except the granules and the rods is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, face, full body, white layer, cream layer, crust, opaque cap, bread, foam, soap suds, underwater, fish, petri dish
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/mech/m_gas_fermentation.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -302,12 +227,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the war
 
 **왜 필요한가**: 미주신경성 실신 topic(순환_12) 도입부 행위 클립. 기존 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질·과민성대장 어디에나 붙고 실신이 안 보인다. act_sink_to_floor는 선 자세에서의 붕괴라 화장실 맥락이 없다. 나레이션 훅이 '화장실에서 힘주다가 눈앞이 하얘지고 식은땀이 난 적 있으신가요?'라 두 요소(힘주기 → 무너짐)가 한 동작 안에 이어져야 한다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_toilet_strain_faint.jpg`)
-```
-translucent blue x-ray style human body seated on a toilet in a narrow bathroom, side-three-quarter view, elbows braced on thighs and torso folded forward, one hand pressed flat against the tile wall beside him, abdominal cavity and chest glowing amber from bearing down, heart and the vagus nerve running down the neck faintly outlined, dark teal background, vertical 9:16, no readable text, no facial features
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_toilet_strain_faint.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
@@ -320,12 +240,7 @@ Seconds 0.0-1.5: he holds his breath and bears down - shoulders ride UP toward h
 
 **왜 필요한가**: 하지정맥류의 시각 특징은 종아리에 굵게 도드라진 핏줄인데, 지금 쓰는 act_rub_leg에는 그냥 다리를 짚는 동작만 있고 튀어나온 정맥이 안 보인다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 
-**레퍼런스**: `assets_library/xray/stills/canon_vascular_front.jpg` — **Omni Reference**로 넣는다
-
-### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_bulging_leg_veins.jpg`)
-```
-Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet, both feet flat on the floor. The figure stands with the weight even on both feet and bends forward from the hips, both hands reaching down to rest on one calf, the head bowed to look at it. On that calf only, thick rope-like veins stand out raised above the glass shell in winding knotted cords running from behind the knee down to the ankle, the other leg perfectly smooth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, duplicated limbs
-```
+✅ **start 스틸 준비됨**: `assets_library/xray/stills/act/act_bulging_leg_veins.jpg` — 미드저니 단계 생략, 아래 Flow만 돌린다.
 
 ### Flow (6초)
 ```
