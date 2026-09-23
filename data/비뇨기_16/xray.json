@@ -44,43 +44,50 @@
       "from": "첫 주에 크레아틴을",
       "item": "아령",
       "mech": "m_nutrient_absorption_block",
-      "act": "act_take_supplement"
+      "act": "act_take_supplement",
+      "label": "근육"
     },
     {
       "from": "로딩은 효과가 아니라",
       "item": "아령",
       "mech": "m_filtration_overload",
-      "act": "act_take_supplement"
+      "act": "act_take_supplement",
+      "label": "신장"
     },
     {
       "from": "먼저 탈모예요",
       "item": "헤어브러시",
       "mech": "m_follicle_weakening",
-      "act": "act_hair_shedding"
+      "act": "act_hair_shedding",
+      "label": "모낭"
     },
     {
       "from": "두 번째는 배탈이에요",
       "item": "물컵",
       "mech": "m_osmotic_water_pull",
-      "act": "act_urgent_watery_bowel"
+      "act": "act_urgent_watery_bowel",
+      "label": "장"
     },
     {
       "from": "마지막은 신장 수치예요",
       "item": "혈액검사",
       "mech": "m_filtration_overload",
-      "act": "act_toilet_check"
+      "act": "act_toilet_check",
+      "label": "신장"
     },
     {
       "from": "로딩은 건너뛰고",
       "item": "물컵",
       "mech": "m_nutrient_absorption_block",
-      "act": "act_take_supplement"
+      "act": "act_take_supplement",
+      "label": "근육"
     },
     {
       "from": "소변 거품이",
       "item": "혈액검사",
       "mech": "m_filtration_overload",
-      "act": "act_toilet_check"
+      "act": "act_toilet_check",
+      "label": "신장"
     }
   ],
   "opening_until": 4.96

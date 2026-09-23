@@ -151,12 +151,19 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png
     ImageDraw.Draw(mm).rounded_rectangle([0, 0, pw - 1, ph - 1], radius=28, fill=255)
     mm.save(mask)
     t_first = t_last = None
+    labels: list[tuple[float, float, str]] = []
     for k, r in enumerate(tl):
         t0 = round((r["start"] + TITLE_CARD_SEC) * 30) / 30
         t1 = round((r["end"] + TITLE_CARD_SEC) * 30) / 30
         if k == 0:
             t_first = t0
         t_last = t1
+        # 부위 라벨은 구간마다 다르다 — 기전 장면만으론 어느 장기인지 모르는데, 하나로 고정하면
+        # 모낭·장 이야기를 하는 구간에도 "신장"이 붙는다(2026-09-24 실측). timeline 행의 label이
+        # 있으면 그걸 쓰고, 없으면 예전처럼 inset 라벨 하나로 간다.
+        lab = r.get("label") or cfg.get("inset", {}).get("label")
+        if lab:
+            labels.append((t0, t1, lab))
         # 🚨 호출부가 이 구간에 칸 클립을 직접 넣어줬으면 여기서 다시 칠하지 않는다.
         # WHY(2026-09-24 실측): 이 함수가 명시 오버레이보다 **뒤에** 돌아서, xray_build가 만든
         # 왼쪽 행위·오른쪽 기전 합성본을 기전 단독 화면으로 전부 덮어썼다. 결론 구절 뒤 두 구간만
@@ -172,14 +179,14 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png
         fc.append(f"[{cur}][qa{k}]overlay={px}:{py}:eof_action=pass:"
                   f"enable='between(t,{t0:.4f},{t1 + 1 / 30:.4f})'[pt{k}]")
         cur, n = f"pt{k}", n + 2
-    label = cfg.get("inset", {}).get("label")
-    if label:
-        lp = Path(td) / "panel_label.png"
-        _make_pill_label_png(label, lp)
+    for j, (ls, le, lab) in enumerate(labels):
+        lp = Path(td) / f"panel_label_{j}.png"
+        if not lp.exists():
+            _make_pill_label_png(lab, lp)
         inputs += ["-i", str(lp)]
         fc.append(f"[{cur}][{n}:v]overlay=x={px + 18}:y={py + ph - 18}-h:"
-                  f"enable='between(t,{t_first:.4f},{t_last + 1 / 30:.4f})'[plb]")
-        cur, n = "plb", n + 1
+                  f"enable='between(t,{ls:.4f},{le + 1 / 30:.4f})'[plb{j}]")
+        cur, n = f"plb{j}", n + 1
     if ad_png is None:
         return cur, n
     inputs += ["-i", str(ad_png)]
