@@ -23,12 +23,41 @@ HEADER = """# 클립 요청 시트
 **미드저니로 스틸을 뽑고 → Flow에 start 프레임 단독으로 넣고 → 모션 프롬프트**를 붙인다.
 결과는 `assets_library/xray/RENDER/<이름>.mp4`로 저장하면 세션이 `scripts/publish_xray_clips.py`로 정리한다.
 
-🚨 Flow는 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.
-🚨 길이는 4·6·8·10초 네 가지뿐이다.
+## 🚨 레퍼런스 이미지를 반드시 같이 넣는다
+
+라이브러리 195종이 **같은 인체 모델**로 통일돼 있다. 텍스트 프롬프트만으로 뽑으면 톤·체형이 달라져
+**다른 사람이 나온다.** 요청마다 아래에 어느 이미지를 어떤 방식으로 넣을지 적어뒀다. 갈래는 둘이다.
+
+| 클립 | 붙이는 법 | 왜 |
+|---|---|---|
+| `act_`(행위) · `part_`(부위) | **Omni Reference** | 전신 인체가 그대로 나와야 한다 — 톤·체형 고정 |
+| `m_`(기전) | **Style Reference**(색·질감만) | 🚨 Omni는 "이 대상을 넣어라"라서 **클로즈업에 전신 인체가 끼어든다** |
+
+## 그 밖의 고정 규칙
+
+- Flow는 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.
+- 길이는 **4·6·8·10초** 네 가지뿐이다. 기전은 **4초 안에 컷 3개**(한 장면을 4초 끄는 것보다 리듬이 산다).
+- 얼굴은 이목구비 없이 매끈하게. 점등은 **호박색 하나뿐**이고 나머지는 끝까지 청록 유리다.
+- 미드저니 4장 중 1장 채택, 나머지는 `stills/_candidates/<파일명>/`에 보관.
 
 이 파일은 `scripts/build_clip_request_sheet.py`가 각 topic의 `clip_requests.json`에서 다시 만든다.
 **직접 고치지 마라** — 고칠 내용은 해당 topic의 `clip_requests.json`에 넣는다.
 """
+
+DEFAULT_REF = "assets_library/xray/stills/canon_organs.jpg"
+
+
+def _reference(r: dict) -> tuple[str, str, str]:
+    """(레퍼런스 이미지, 붙이는 방식, 스틸 저장 위치). 요청이 직접 적어두면 그게 이긴다.
+
+    WHY 이름 앞글자로 가르는지: 기전 클립에 Omni Reference를 넣으면 위벽 클로즈업 안에 전신 인체가
+    끼어든다(`mechanism_prompts.md`에 실측 기록). 행위·부위는 반대로 Omni가 없으면 매번 다른
+    체형·톤의 사람이 나온다."""
+    name = r.get("name", "")
+    ref = r.get("ref") or DEFAULT_REF
+    if name.startswith("m_"):
+        return ref, "Style Reference (⚠️ Omni Reference 금지)", f"assets_library/xray/stills/mech/{name}.jpg"
+    return ref, "Omni Reference", f"assets_library/xray/stills/act/{name}.jpg"
 
 
 def collect() -> list[tuple[str, dict]]:
@@ -55,8 +84,10 @@ def main() -> None:
     lines = [HEADER, f"\n**{date.today().isoformat()} 기준 {len(reqs)}종**\n", "---\n"]
     for i, (topic, r) in enumerate(reqs, 1):
         lines.append(f"\n## {i}. `{r['name']}` — {topic}\n")
+        ref, mode, still = _reference(r)
         lines.append(f"\n**왜 필요한가**: {r.get('why', '')}\n")
-        lines.append(f"\n### 미드저니 (start 스틸)\n```\n{r.get('midjourney', '')}\n```\n")
+        lines.append(f"\n**레퍼런스**: `{ref}` — **{mode}**로 넣는다\n")
+        lines.append(f"\n### 미드저니 (start 스틸 → `{still}`)\n```\n{r.get('midjourney', '')}\n```\n")
         lines.append(f"\n### Flow ({r.get('seconds', 6)}초)\n```\n{r.get('flow', '')}\n```\n")
         if r.get("_render_note"):
             lines.append(f"\n> {r['_render_note']}\n")
