@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "알룰로스, 하루 얼마까지",
+  "inset": {
+    "clip": "assets_library/xray/output/m_urine_overproduction.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_grab_belly.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_intestines.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_urine_overproduction",
+    "m_osmotic_water_pull",
+    "m_bacteria_growth"
+  ],
+  "_items": [
+    "탄산음료",
+    "사탕",
+    "껌"
+  ],
+  "summary_from": "빈속에 몰아 마시지",
+  "timeline": [
+    {
+      "from": "먼저 제로 탄산음료예요.",
+      "item": "탄산음료",
+      "mech": "m_urine_overproduction"
+    },
+    {
+      "from": "두 번째로는 무설탕",
+      "item": "사탕",
+      "mech": "m_osmotic_water_pull"
+    },
+    {
+      "from": "마지막으로 무설탕 껌이에요.",
+      "item": "껌",
+      "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "빈속에 몰아 마시지",
+      "item": "탄산음료",
+      "mech": "m_urine_overproduction"
+    },
+    {
+      "from": "설사가 2주 넘게",
+      "item": "사탕",
+      "mech": "m_osmotic_water_pull"
+    }
+  ],
+  "opening_until": 5.12
+}

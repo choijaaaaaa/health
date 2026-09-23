@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "콜라겐, 모발에 진짜 필요한 것",
+  "inset": {
+    "clip": "assets_library/xray/output/m_follicle_weakening.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "두피"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_take_supplement.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_scalp.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_follicle_weakening",
+    "m_oxygen_transport_drop",
+    "m_enzyme_deficiency"
+  ],
+  "_items": [
+    "닭가슴살",
+    "소고기",
+    "계란"
+  ],
+  "summary_from": "모발은 한 달에",
+  "timeline": [
+    {
+      "from": "먼저 단백질이에요.",
+      "item": "닭가슴살",
+      "mech": "m_follicle_weakening"
+    },
+    {
+      "from": "두 번째로는 철분이에요.",
+      "item": "소고기",
+      "mech": "m_oxygen_transport_drop"
+    },
+    {
+      "from": "마지막으로 아연과 비오틴이에요.",
+      "item": "계란",
+      "mech": "m_enzyme_deficiency"
+    },
+    {
+      "from": "모발은 한 달에",
+      "item": "닭가슴살",
+      "mech": "m_follicle_weakening"
+    },
+    {
+      "from": "머리 감을 때",
+      "item": "소고기",
+      "mech": "m_oxygen_transport_drop"
+    }
+  ],
+  "opening_until": 4.08
+}

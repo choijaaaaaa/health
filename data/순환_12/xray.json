@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "미주신경성 실신, 쓰러지기 전 대처",
+  "inset": {
+    "clip": "assets_library/xray/output/m_vagal_slowdown.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "뇌"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_sink_to_floor.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_brain.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_vagal_slowdown",
+    "m_vessel_dilation",
+    "m_backflow_pooling"
+  ],
+  "_items": [
+    "이온음료",
+    "압박스타킹",
+    "소금"
+  ],
+  "summary_from": "서울아산병원은 실신을 겪은",
+  "timeline": [
+    {
+      "from": "먼저 바늘과 통증이에요.",
+      "item": "이온음료",
+      "mech": "m_vagal_slowdown"
+    },
+    {
+      "from": "두 번째로는 뜨거운",
+      "item": "압박스타킹",
+      "mech": "m_vessel_dilation"
+    },
+    {
+      "from": "마지막으로 더운 곳에",
+      "item": "소금",
+      "mech": "m_backflow_pooling"
+    },
+    {
+      "from": "서울아산병원은 실신을 겪은",
+      "item": "이온음료",
+      "mech": "m_vagal_slowdown"
+    },
+    {
+      "from": "전조 없이 갑자기",
+      "item": "압박스타킹",
+      "mech": "m_vessel_dilation"
+    }
+  ],
+  "opening_until": 5.2
+}

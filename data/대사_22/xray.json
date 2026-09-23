@@ -1,0 +1,69 @@
+{
+  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "top_title": "갑상선기능저하증, 피로와 구별",
+  "inset": {
+    "clip": "assets_library/xray/output/m_metabolic_slowdown.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "갑상선"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_doze_off_sitting.mp4",
+      "range": [
+        2.6,
+        4.0
+      ]
+    },
+    {
+      "clip": "assets_library/xray/output/part_thyroid.mp4",
+      "range": [
+        2.0,
+        3.4
+      ]
+    }
+  ],
+  "_mech": [
+    "m_metabolic_slowdown",
+    "m_fluid_retention",
+    "m_autoimmune_attack"
+  ],
+  "_items": [
+    "체중계",
+    "부종",
+    "면역세포"
+  ],
+  "summary_from": "철분제나 칼슘제는 4시간",
+  "timeline": [
+    {
+      "from": "먼저 대사 속도예요.",
+      "item": "체중계",
+      "mech": "m_metabolic_slowdown"
+    },
+    {
+      "from": "두 번째로는 부기예요.",
+      "item": "부종",
+      "mech": "m_fluid_retention"
+    },
+    {
+      "from": "마지막으로 원인이에요.",
+      "item": "면역세포",
+      "mech": "m_autoimmune_attack"
+    },
+    {
+      "from": "철분제나 칼슘제는 4시간",
+      "item": "체중계",
+      "mech": "m_metabolic_slowdown"
+    },
+    {
+      "from": "피로에 얼굴 붓기와",
+      "item": "부종",
+      "mech": "m_fluid_retention"
+    }
+  ],
+  "opening_until": 4.0
+}
