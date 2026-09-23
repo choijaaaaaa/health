@@ -53,6 +53,12 @@ def _duration(clip: Path) -> float:
     return float(out.stdout.strip())
 
 
+def _overstretched(clip: Path, seconds: float) -> float:
+    """구간을 채우려면 MAX_STRETCH보다 더 늘려야 하는가 — 그 배율을 돌려준다(아니면 0)."""
+    need = seconds / _duration(clip)
+    return need if need > MAX_STRETCH else 0.0
+
+
 def _fit(clip: Path, seconds: float) -> str:
     """구간을 채우도록 재생 속도를 조절하는 필터 조각.
 
@@ -180,6 +186,18 @@ def main() -> None:
         act = row.get("act") or (acts[i % len(acts)] if acts else None)
         dst = tmp / f"p{i}_{mech}.mp4"
         if not a.dry_run:
+            # 4배로도 못 채우면 나머지는 반복으로 때워진다 — 같은 4초가 계속 돌아가는 화면이 된다.
+            # 그 구간엔 보여줄 장면이 모자란 것이므로 클립을 하나 더 받아야 한다.
+            for kind, name in (("기전", mech), ("행위", act)):
+                p = ROOT / LIB / f"{name}.mp4" if name else None
+                over = _overstretched(p, dur) if p and p.exists() else 0.0
+                if over:
+                    msg = (f"{row['start']:.1f}초 구간({dur:.0f}초)을 {kind} 클립 {name}"
+                           f"({_duration(p):.0f}초) 하나로 못 채웁니다 — {over:.1f}배가 필요한데 상한은 "
+                           f"{MAX_STRETCH}배입니다. 구간을 쪼개거나 클립을 하나 더 요청하세요.")
+                    if not a.preview:
+                        raise SystemExit(f"장면 부족: {msg}")
+                    print(f"  ⚠️ 미리보기: {msg}")
             asrc = ROOT / LIB / f"{act}.mp4" if act else None
             if asrc and not asrc.exists():
                 if not a.preview:

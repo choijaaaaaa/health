@@ -27,11 +27,6 @@
       ]
     }
   ],
-  "_acts": [
-    "act_hair_shedding",
-    "act_urgent_watery_bowel",
-    "act_toilet_check"
-  ],
   "_mech": [
     "m_follicle_weakening",
     "m_osmotic_water_pull",
@@ -46,30 +41,47 @@
   "summary_from": "로딩은 건너뛰고",
   "timeline": [
     {
+      "from": "첫 주에 크레아틴을",
+      "item": "아령",
+      "mech": "m_nutrient_absorption_block",
+      "act": "act_take_supplement"
+    },
+    {
+      "from": "로딩은 효과가 아니라",
+      "item": "아령",
+      "mech": "m_filtration_overload",
+      "act": "act_take_supplement"
+    },
+    {
       "from": "먼저 탈모예요",
       "item": "헤어브러시",
-      "mech": "m_follicle_weakening"
+      "mech": "m_follicle_weakening",
+      "act": "act_hair_shedding"
     },
     {
       "from": "두 번째는 배탈이에요",
       "item": "물컵",
-      "mech": "m_osmotic_water_pull"
+      "mech": "m_osmotic_water_pull",
+      "act": "act_urgent_watery_bowel"
     },
     {
-      "from": "마지막은 건강검진",
+      "from": "마지막은 신장 수치예요",
       "item": "혈액검사",
-      "mech": "m_filtration_overload"
+      "mech": "m_filtration_overload",
+      "act": "act_toilet_check"
     },
     {
       "from": "로딩은 건너뛰고",
       "item": "물컵",
-      "mech": "m_osmotic_water_pull"
+      "mech": "m_nutrient_absorption_block",
+      "act": "act_take_supplement"
     },
     {
       "from": "소변 거품이",
       "item": "혈액검사",
-      "mech": "m_filtration_overload"
+      "mech": "m_filtration_overload",
+      "act": "act_toilet_check"
     }
   ],
-  "opening_until": 5.2
+  "opening_until": 4.96
 }

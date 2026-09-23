@@ -103,7 +103,7 @@ def _caption_png(text: str, out: Path) -> Image.Image:
 PANEL_SPEED = 0.5      # 기전 클립 재생 속도 — "보는 사람들이 나이대가 좀 있는분들이 많아서… 느린게 더좋아"(2026-09-19)
 
 
-def _panel_track(topic, td, inputs, fc, cur, n, ad_png):  # ad_png=None이면 광고 표시를 얹지 않는다
+def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png=None이면 광고 표시를 얹지 않는다
     """xray.json timeline 구간마다 위쪽 영상 칸에 기전 클립을 반복 재생한다.
 
     WHY 반복·저속인지(2026-09-19 "그 영상을 느리게 길게 빼고 여러번 반복재생을 하자"): 4초 클립을 한 번 틀고
@@ -126,10 +126,16 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png):  # ad_png=None이면 �
         tl = [dict(r, end=min(r["end"], t_sum)) for r in tl if r["start"] < t_sum - 0.05]
     px, py, pw, ph = XRAY_PANEL
     focus = cfg.get("mech_focus", {})
+    def _is_covered(r) -> bool:
+        t0 = round((r["start"] + TITLE_CARD_SEC) * 30) / 30
+        t1 = round((r["end"] + TITLE_CARD_SEC) * 30) / 30
+        return any(t0 < e and s < t1 for s, e in (covered or []))
+
     made = {}
     for r in tl:
         name = r["mech"]
-        if name in made:
+        # 덮을 구간의 기전은 느리게 늘린 파일을 만들 필요가 없다 — minterpolate이 구간마다 몇십 초씩 걸린다
+        if name in made or _is_covered(r):
             continue
         src = ROOT / "assets_library" / "xray" / "output" / f"{name}.mp4"
         f = focus.get(name, 0.35)
@@ -151,6 +157,13 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png):  # ad_png=None이면 �
         if k == 0:
             t_first = t0
         t_last = t1
+        # 🚨 호출부가 이 구간에 칸 클립을 직접 넣어줬으면 여기서 다시 칠하지 않는다.
+        # WHY(2026-09-24 실측): 이 함수가 명시 오버레이보다 **뒤에** 돌아서, xray_build가 만든
+        # 왼쪽 행위·오른쪽 기전 합성본을 기전 단독 화면으로 전부 덮어썼다. 결론 구절 뒤 두 구간만
+        # 살아남았는데, 그건 이 트랙이 summary_from 앞에서 멈추기 때문이었다 — 그래서 "분할이
+        # 일부 구간만 들어간다"로 보였다.
+        if _is_covered(r):
+            continue
         dur = t1 - t0 + 2 / 30
         inputs += ["-stream_loop", "-1", "-t", f"{dur:.3f}", "-i", str(made[r["mech"]])]
         inputs += ["-loop", "1", "-t", f"{dur:.3f}", "-i", str(mask)]
@@ -344,7 +357,8 @@ def main() -> None:
                           f"enable='between(t,{t0},{t1})'[a{i}]")
                 cur, n = f"a{i}", n + 1
         if a.panel:
-            cur, n = _panel_track(a.topic, td, inputs, fc, cur, n, ad if a.ad_tag else None)
+            panel_windows = [(t, t + d) for (t, _c, d), f in zip(inserts, chain_flags) if f is False]
+            cur, n = _panel_track(a.topic, td, inputs, fc, cur, n, ad if a.ad_tag else None, panel_windows)
             cur, n = _summary_board(a.topic, inputs, fc, cur, n, a.base)
         fc.append(f"{''.join(amix)}amix=inputs={len(amix)}:duration=first:normalize=0[aout]")
         # --base nocta면 결과도 nocta/ 안에 둔다 — 안 그러면 유튜브판이 네이버판을 덮어쓴다(2026-09-21 실측)
