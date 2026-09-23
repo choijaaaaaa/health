@@ -1,6 +1,6 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "미주신경성 실신, 쓰러지기 전 대처",
+  "_why": "원고 전면 재작성(2026-09-24) — 각도를 헌혈·목욕탕에서 자동완성 2위 '미주신경성 실신 똥'(배변·배뇨 상황실신)으로 바꿈. 클립은 프레임을 직접 뽑아 확인하고 골랐다.",
+  "top_title": "미주신경성 실신, 쓰러지기 전 신호",
   "inset": {
     "clip": "assets_library/xray/output/m_vagal_slowdown.mp4",
     "crop": [
@@ -13,11 +13,12 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_sink_to_floor.mp4",
+      "clip": "assets_library/xray/output/act_toilet_strain_faint.mp4",
       "range": [
-        2.6,
-        4.0
-      ]
+        1.6,
+        3.0
+      ],
+      "_pending": "clip_requests.json — 아직 안 받음. 라이브러리의 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질과 구별이 안 되고, act_sink_to_floor는 선 자세 붕괴라 화장실 맥락이 없다."
     },
     {
       "clip": "assets_library/xray/output/part_brain.mp4",
@@ -30,40 +31,42 @@
   "_mech": [
     "m_vagal_slowdown",
     "m_vessel_dilation",
-    "m_backflow_pooling"
+    "m_blood_flow_drop"
   ],
   "_items": [
-    "이온음료",
+    "변기",
     "압박스타킹",
-    "소금"
+    "이온음료",
+    "소금",
+    "혈압계"
   ],
-  "summary_from": "서울아산병원은 실신을 겪은",
+  "summary_from": "건강보험심사평가원 자료로",
   "timeline": [
     {
-      "from": "먼저 바늘과 통증이에요.",
-      "item": "이온음료",
+      "from": "먼저 화장실에서",
+      "item": "변기",
       "mech": "m_vagal_slowdown"
     },
     {
-      "from": "두 번째로는 뜨거운",
+      "from": "두 번째로는 더운",
       "item": "압박스타킹",
       "mech": "m_vessel_dilation"
     },
     {
-      "from": "마지막으로 더운 곳에",
+      "from": "마지막으로 수분",
+      "item": "이온음료",
+      "mech": "m_blood_flow_drop"
+    },
+    {
+      "from": "서울아산병원은 속이",
       "item": "소금",
-      "mech": "m_backflow_pooling"
-    },
-    {
-      "from": "서울아산병원은 실신을 겪은",
-      "item": "이온음료",
       "mech": "m_vagal_slowdown"
     },
     {
-      "from": "전조 없이 갑자기",
-      "item": "압박스타킹",
-      "mech": "m_vessel_dilation"
+      "from": "건강보험심사평가원 자료로",
+      "item": "혈압계",
+      "mech": "m_blood_flow_drop"
     }
   ],
-  "opening_until": 5.2
+  "opening_until": 5.4
 }

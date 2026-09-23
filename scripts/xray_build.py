@@ -32,10 +32,34 @@ LIB = "assets_library/xray/output"
 MIN_PANEL_SEC = 3.0          # 이보다 짧은 구간에 기전을 갈아 끼우면 깜빡임으로만 보인다
 
 
+PANEL_W, PANEL_H = 960, 680          # lib/video_assembler.XRAY_PANEL 과 같은 값
+HALF_W = PANEL_W // 2
+
+
 def _loop_to(clip: Path, seconds: float, out: Path) -> None:
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(clip),
                     "-t", f"{seconds:.2f}", "-c:v", "libx264", "-crf", "18", "-preset", "medium",
                     "-an", str(out)], check=True)
+
+
+def _split_loop(act: Path, mech: Path, seconds: float, out: Path,
+                act_focus: float = 0.34, mech_focus: float = 0.5) -> None:
+    """왼쪽 행위 · 오른쪽 기전으로 한 칸에 나란히 넣고 구간 길이만큼 루프시킨다.
+
+    WHY(2026-09-24 사용자 "왼쪽에 행동 오른쪽에 기전 이렇게 들어가야 할거같다"): 기전만 크게 띄우면
+    "몸 안에서 무슨 일이 벌어지는지"는 보이는데 **그게 어떤 행동 때문인지**가 안 보인다. 둘을 나란히
+    놓아야 "이 행동을 하면 → 몸이 이렇게 된다"가 한 화면에서 읽힌다.
+
+    `act_focus`가 0.34인 이유: 행위 클립은 720x1280 전신이라 그대로 반으로 자르면 머리나 발만 남는다.
+    위에서 34% 지점을 중심으로 잡아야 손과 상체(동작이 실제로 보이는 곳)가 들어온다.
+    """
+    vf = (f"[0:v]scale={HALF_W}:-2,crop={HALF_W}:{PANEL_H}:0:'min(ih-{PANEL_H},ih*{act_focus})'[a];"
+          f"[1:v]scale={HALF_W}:-2,crop={HALF_W}:{PANEL_H}:0:'min(ih-{PANEL_H},ih*{mech_focus})'[m];"
+          f"[a][m]hstack=2")
+    subprocess.run(["ffmpeg", "-y", "-v", "error",
+                    "-stream_loop", "-1", "-i", str(act), "-stream_loop", "-1", "-i", str(mech),
+                    "-filter_complex", vf, "-t", f"{seconds:.2f}",
+                    "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-an", str(out)], check=True)
 
 
 def main() -> None:
@@ -56,20 +80,27 @@ def main() -> None:
         rng = o.get("range")
         args.append(f"0:{o['clip']}" + (f"@{rng[0]}-{rng[1]}" if rng else ""))
 
-    # 기전: 항목 구간마다 다른 클립을 위쪽 칸에 루프로 채운다(첫 구간은 inset이 이미 덮고 있다)
+    # 항목 구간마다 위쪽 칸을 갈아 끼운다. `act`가 있으면 **왼쪽 행위 · 오른쪽 기전**으로 나눠 넣는다.
     tl = resolve(a.topic) or []
+    acts = cfg.get("_acts") or []
     tmp = Path(tempfile.mkdtemp(prefix="xray_loop_"))
-    inset_clip = Path(cfg.get("inset", {}).get("clip", "")).stem
-    for row in tl:
+    for i, row in enumerate(tl):
         mech, dur = row.get("mech"), row["end"] - row["start"]
-        if not mech or dur < MIN_PANEL_SEC or mech == inset_clip:
+        if not mech or dur < MIN_PANEL_SEC:
             continue
         src = ROOT / LIB / f"{mech}.mp4"
         if not src.exists():
             raise SystemExit(f"기전 클립 없음: {mech} — 비슷한 걸로 바꾸지 말고 clip_requests.json에 적을 것")
-        dst = tmp / f"{mech}_{row['start']:.0f}.mp4"
+        act = row.get("act") or (acts[i % len(acts)] if acts else None)
+        dst = tmp / f"p{i}_{mech}.mp4"
         if not a.dry_run:
-            _loop_to(src, dur, dst)
+            if act:
+                asrc = ROOT / LIB / f"{act}.mp4"
+                if not asrc.exists():
+                    raise SystemExit(f"행위 클립 없음: {act} — clip_requests.json에 적을 것")
+                _split_loop(asrc, src, dur, dst)
+            else:
+                _loop_to(src, dur, dst)
         args.append(f"{row['start']:.2f}:{dst}")
 
     cmd = [PY, "scripts/xray_splice.py", a.topic, *args, "--panel"]

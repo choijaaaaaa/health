@@ -1,69 +1,61 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "헬리코박터균, 제균과 전파 막기",
+  "_why": "원고 전면 재작성(2026-09-24). 각도를 '균이 위산을 버티는 법' 설명에서 '검진에서 양성을 받고 확인할 것'으로 바꿨다 — 자동완성 1·2·3위가 증상·제균치료·전염이라 그 셋을 항목으로 깐다. 도입부 행위 클립은 요청 중(act_shared_pot_dipping) — 이 균은 대부분 무증상이라 '아픈 동작'이 없고, 고유한 장면은 침이 섞이는 전파 순간이다.",
+  "top_title": "헬리코박터균, 양성 뒤 확인할 것",
   "inset": {
-    "clip": "assets_library/xray/output/m_mucus_barrier.mp4",
+    "clip": "assets_library/xray/output/part_stomach.mp4",
     "crop": [
       0,
-      400,
+      370,
       720,
-      500
+      510
     ],
     "label": "위"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_grab_belly.mp4",
+      "clip": "assets_library/xray/output/act_shared_pot_dipping.mp4",
       "range": [
-        2.6,
-        4.0
+        1.6,
+        3.8
       ]
     },
     {
       "clip": "assets_library/xray/output/part_stomach.mp4",
       "range": [
         2.0,
-        3.4
+        4.2
       ]
     }
   ],
-  "_mech": [
-    "m_mucus_barrier",
-    "m_inflammation",
-    "m_bacteria_growth"
-  ],
-  "_items": [
-    "김치찌개",
-    "그릭요거트",
-    "알약"
-  ],
-  "summary_from": "대한상부위장관헬리코박터학회 진료지침은 위산분비억제제에",
+  "_opening_why": "act_grab_belly(배 움켜쥐기)는 대장이 점등하는 뭉뚱그린 동작이라 이 topic에 안 맞는다 — 장기도 틀리고 장염·생리통 어디에나 붙는다. 공용 냄비에 각자 숟가락을 번갈아 담그는 동작만이 헬리코박터 고유의 장면이다.",
   "timeline": [
     {
-      "from": "먼저 이 균이",
-      "item": "김치찌개",
+      "from": "이럴 때 헬리코박터",
+      "item": "그릭요거트",
       "mech": "m_mucus_barrier"
     },
     {
-      "from": "두 번째로는 위암까지",
-      "item": "그릭요거트",
-      "mech": "m_inflammation"
-    },
-    {
-      "from": "마지막으로는 가족 간",
-      "item": "알약",
+      "from": "먼저 증상이에요",
+      "item": "속쓰림",
       "mech": "m_bacteria_growth"
     },
     {
-      "from": "대한상부위장관헬리코박터학회 진료지침은 위산분비억제제에",
-      "item": "김치찌개",
-      "mech": "m_mucus_barrier"
+      "from": "두 번째는 제균",
+      "item": "알약",
+      "mech": "m_inflammation"
     },
     {
-      "from": "체중이 줄거나 검은",
-      "item": "그릭요거트",
-      "mech": "m_inflammation"
+      "from": "마지막은 가족",
+      "item": "김치찌개",
+      "mech": "m_pathogen_ascent"
+    },
+    {
+      "from": "국과 찌개는",
+      "item": "김치찌개"
     }
   ],
-  "opening_until": 4.48
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech)이 바뀐다. 프레임을 직접 뽑아 확인한 배정 근거 — m_mucus_barrier는 점액층을 뚫고 내려가는 단면이라 '유산균은 그 아래까지 못 간다'는 반박에 붙이고, m_bacteria_growth는 반투명 층 밑에 막대균이 빽빽이 깔린 장면이라 '점액층 밑에 눌러앉아 평생 무증상'과 그대로 겹친다. m_inflammation은 부어오른 점막에 면역세포가 몰린 장면이라 제균 대상(만성 염증)에, m_pathogen_ascent는 관을 타고 막대균이 옮겨가는 장면이라 가족 간 전파에 붙였다.",
+  "summary_from": "국과 찌개는",
+  "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체로 간다.",
+  "opening_until": 4.4
 }

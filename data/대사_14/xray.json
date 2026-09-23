@@ -1,22 +1,22 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "위고비, 끊은 뒤를 준비하는 법",
+  "_why": "원고 전면 재작성(2026-09-24). 각도를 '끊은 뒤 요요'에서 '식약처 허가사항이 적어둔 부작용 빈도 순서'로 바꿨다 — 자동완성이 위고비 부작용의 하위를 췌장·구토·탈모로 잡아주는데 옛 원고는 셋 다 안 다뤘다. 기전 클립은 프레임을 직접 뽑아 확인했다: m_emptying_delay는 1.5~3.2초에 좁아진 출구 위로 호박색이 고여 있어 위 배출 지연 그대로, m_follicle_weakening은 3.2초에 모발 세 가닥과 비어버린 모낭이 보인다(CLIP_NOTES대로 난포가 아니라 모낭), m_duct_blockage는 1.5초에 관을 막은 덩어리·3.2초에 담낭 모양 주머니가 보여 담석증에 맞는다. 행위 클립은 act_hair_shedding만 쓴다 — 4.5~5.8초에 손바닥에 빠진 머리카락 뭉치가 실제로 보여 증상이 동작 안에 드러난다. 1·3번 항목의 행위는 라이브러리에 뭉뚱그린 것뿐이라(act_grab_belly는 어느 복통에나 붙고, act_clutch_chest는 심장이·act_clutch_low_back은 콩팥이 점등한다) clip_requests.json에 새로 요청했다.",
+  "top_title": "위고비, 허가사항이 적어둔 부작용",
   "inset": {
-    "clip": "assets_library/xray/output/m_muscle_wasting.mp4",
+    "clip": "assets_library/xray/output/part_stomach.mp4",
     "crop": [
       0,
-      400,
+      370,
       720,
-      500
+      510
     ],
     "label": "위"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_take_supplement.mp4",
+      "clip": "assets_library/xray/output/act_inject_belly.mp4",
       "range": [
-        2.6,
-        4.0
+        1.5,
+        3.9
       ]
     },
     {
@@ -28,42 +28,52 @@
     }
   ],
   "_mech": [
-    "m_muscle_wasting",
-    "m_metabolic_slowdown",
-    "m_fat_accumulation"
+    "m_emptying_delay",
+    "m_follicle_weakening",
+    "m_duct_blockage"
+  ],
+  "_act": [
+    "act_nausea_push_plate_away",
+    "act_hair_shedding",
+    "act_epigastric_bore_to_back"
   ],
   "_items": [
-    "계란",
-    "아령",
-    "달력"
+    "달력",
+    "체중계",
+    "체중감량주사"
   ],
-  "summary_from": "대한비만학회도 약물치료는 식사와",
+  "summary_from": "증량은 0.25mg으로",
   "timeline": [
     {
-      "from": "먼저 식욕이 줄었다고",
-      "item": "계란",
-      "mech": "m_muscle_wasting"
+      "from": "이럴 때 펜 하나를",
+      "item": "체중감량주사",
+      "mech": "m_emptying_delay"
     },
     {
-      "from": "두 번째로는 기운이",
-      "item": "아령",
-      "mech": "m_metabolic_slowdown"
-    },
-    {
-      "from": "마지막으로 목표 체중에",
+      "from": "먼저 구토예요",
       "item": "달력",
-      "mech": "m_fat_accumulation"
+      "mech": "m_emptying_delay"
     },
     {
-      "from": "대한비만학회도 약물치료는 식사와",
-      "item": "계란",
-      "mech": "m_muscle_wasting"
+      "from": "두 번째로는 탈모예요",
+      "item": "체중계",
+      "mech": "m_follicle_weakening"
     },
     {
-      "from": "구토가 멎지 않거나",
-      "item": "아령",
-      "mech": "m_metabolic_slowdown"
+      "from": "마지막으로 췌장이에요",
+      "item": "체중감량주사",
+      "mech": "m_duct_blockage"
+    },
+    {
+      "from": "증량은 0.25mg으로",
+      "item": "달력",
+      "mech": "m_emptying_delay"
+    },
+    {
+      "from": "명치 통증이 등까지",
+      "item": "체중감량주사",
+      "mech": "m_duct_blockage"
     }
   ],
-  "opening_until": 4.72
+  "opening_until": 5.7
 }

@@ -1,0 +1,11 @@
+{
+  "_why": "행위 클립은 '그 병의 사람만 하는 동작'이어야 한다(CLIP_NOTES.md 2026-09-24). 이 topic의 시그니처는 변기에서 힘주다 그대로 무너지는 장면인데 라이브러리에 없다.",
+  "requests": [
+    {
+      "name": "act_toilet_strain_faint",
+      "why": "미주신경성 실신 topic(순환_12) 도입부 행위 클립. 기존 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질·과민성대장 어디에나 붙고 실신이 안 보인다. act_sink_to_floor는 선 자세에서의 붕괴라 화장실 맥락이 없다. 나레이션 훅이 '화장실에서 힘주다가 눈앞이 하얘지고 식은땀이 난 적 있으신가요?'라 두 요소(힘주기 → 무너짐)가 한 동작 안에 이어져야 한다.",
+      "midjourney": "translucent blue x-ray style human body seated on a toilet in a narrow bathroom, side-three-quarter view, elbows braced on thighs and torso folded forward, one hand pressed flat against the tile wall beside him, abdominal cavity and chest glowing amber from bearing down, heart and the vagus nerve running down the neck faintly outlined, dark teal background, vertical 9:16, no readable text, no facial features",
+      "flow": "Seconds 0.0-1.5: he holds his breath and bears down - shoulders ride UP toward his ears, the torso folds further forward over the thighs, the abdominal cavity and chest glow brighter amber as pressure builds, the left hand flattens harder against the tile wall. Seconds 1.5-2.2: the glow in the chest snaps off and the heart's pulse visibly SLOWS to two heavy beats, the vagus nerve line down the neck flashes once. Seconds 2.2-3.4: the strain releases - shoulders drop abruptly, the head falls forward FIRST as the neck gives out, then the torso tips sideways; the wall hand slides DOWN the tile leaving the wall, knees splay outward and the bare feet skid forward on the floor, weight shifting from the thighs onto one shoulder. Seconds 3.4-4.0: he is slumped sideways off the seat, brain glow dimming to near dark. Locked static camera at seated eye level, no zoom, no cuts. Face stays featureless - all distress is shown through the body: breath held, shoulders up then dropping, head leading the collapse, hand sliding, feet skidding."
+    }
+  ]
+}

@@ -1,69 +1,75 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "크레아틴, 신장 수치 오해 푸는 법",
+  "_why": "전면 재작성(2026-09-23). 네이버 자동완성에서 실제 수요가 확인된 갈래(탈모·배탈·크레아티닌 수치)로 각도를 바꿨고, 클립은 프레임을 직접 뽑아 확인해 골랐다.",
+  "top_title": "크레아틴 부작용, 진짜와 오해",
   "inset": {
-    "clip": "assets_library/xray/output/m_filtration_overload.mp4",
+    "clip": "assets_library/xray/output/part_kidney.mp4",
     "crop": [
       0,
-      400,
+      250,
       720,
-      500
+      510
     ],
     "label": "신장"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_take_supplement.mp4",
+      "clip": "assets_library/xray/output/act_hair_shedding.mp4",
       "range": [
-        2.6,
-        4.0
+        3.0,
+        5.6
       ]
     },
     {
       "clip": "assets_library/xray/output/part_kidney.mp4",
       "range": [
-        2.0,
-        3.4
+        1.4,
+        4.0
       ]
     }
   ],
+  "_acts": [
+    "act_hair_shedding",
+    "act_urgent_watery_bowel",
+    "act_toilet_check"
+  ],
   "_mech": [
-    "m_filtration_overload",
+    "m_follicle_weakening",
     "m_osmotic_water_pull",
-    "m_dehydration"
+    "m_filtration_overload"
   ],
   "_items": [
-    "혈액검사",
-    "영양제",
-    "물컵"
+    "헤어브러시",
+    "물컵",
+    "혈액검사"
   ],
-  "summary_from": "혈액검사는 복용을 사흘",
+  "_clip_notes": "act_hair_shedding 3.0~5.6초 = 손이 머리에서 떨어지며 머리카락 가닥이 딸려 나오고 두피 점등(프레임 확인). act_toilet_check 3.6~5.6초 = 변기를 내려다보는 자세에서 신장·요관·방광이 이어서 점등(프레임 확인). part_kidney는 CLIP_NOTES의 region 수정본이라 신장만 켜진다. act_urgent_watery_bowel은 아직 없어 clip_requests.json에 요청함 — act_grab_belly(대장 전체 점등, 어느 복통에나 붙는 뭉뚱그린 동작)·act_rush_to_toilet(방광 점등, 소변 급함)으로 때우지 않는다.",
+  "summary_from": "로딩은 건너뛰고",
   "timeline": [
     {
-      "from": "먼저 혈액검사 전에",
-      "item": "혈액검사",
-      "mech": "m_filtration_overload"
+      "from": "먼저 탈모예요",
+      "item": "헤어브러시",
+      "mech": "m_follicle_weakening"
     },
     {
-      "from": "두 번째로는 첫",
-      "item": "영양제",
-      "mech": "m_osmotic_water_pull"
-    },
-    {
-      "from": "마지막으로 물을 평소만큼만",
+      "from": "두 번째는 배탈이에요",
       "item": "물컵",
-      "mech": "m_dehydration"
+      "mech": "m_osmotic_water_pull"
     },
     {
-      "from": "혈액검사는 복용을 사흘",
+      "from": "마지막은 건강검진",
       "item": "혈액검사",
       "mech": "m_filtration_overload"
     },
     {
-      "from": "소변 거품이 몇",
-      "item": "영양제",
+      "from": "로딩은 건너뛰고",
+      "item": "물컵",
       "mech": "m_osmotic_water_pull"
+    },
+    {
+      "from": "소변 거품이",
+      "item": "혈액검사",
+      "mech": "m_filtration_overload"
     }
   ],
-  "opening_until": 5.68
+  "opening_until": 5.2
 }
