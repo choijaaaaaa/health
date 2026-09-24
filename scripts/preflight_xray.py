@@ -59,6 +59,14 @@ def main() -> None:
             found.append({"severity": "medium", "issue": f"부위 라벨이 빈 구간 {n}개 — 전 구간이 한 이름으로 고정된다"})
         # 미수령 클립은 사람이 렌더해야 하는 것이라 따로 센다(고칠 수 있는 문제가 아니다)
         pend = [i for i in found if "안 받은 클립" in i["issue"]]
+        # 🚨 이미 음성을 뽑아둔 topic은 **길이 초과로 막지 않는다.** 고치려면 원고를 줄이고
+        # TTS를 다시 불러야 하는데, 이 프로젝트는 "길이가 마음에 안 들어서 다시 뽑는 것"을
+        # 금지한다(글자수 과금, CLAUDE.md "TTS 재생성 기준"). 87초짜리 2초 때문에 돈을 쓰게
+        # 하는 검사가 된다 — 다음 원고를 쓸 때 미리 맞추라는 뜻이지 이미 뽑은 걸 다시 뽑으라는
+        # 뜻이 아니다. 음성이 아직 없는 topic에서는 그대로 막힌다(그때가 고칠 수 있는 때다).
+        spoken = (ROOT / "output" / t / "narration.mp3").is_file()
+        pend += [i for i in found
+                 if spoken and "나레이션이 실측" in i["issue"] and i not in pend]
         real = [i for i in found if i not in pend]
         total += len(real)
         mark = "✅" if not real else "⚠️"
