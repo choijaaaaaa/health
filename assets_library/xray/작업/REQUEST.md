@@ -23,7 +23,7 @@
 이 파일은 `scripts/build_clip_request_sheet.py`가 각 topic의 `clip_requests.json`에서 다시 만든다.
 **직접 고치지 마라** — 고칠 내용은 해당 topic의 `clip_requests.json`에 넣는다.
 
-**2026-09-24 기준 18종**
+**2026-09-24 기준 21종**
 ---
 
 ## 1. `act_shingles_band` — 고령_15
@@ -39,7 +39,43 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 2. `m_shadow_contrast` — 눈_8
+## 2. `act_cover_blister_gauze` — 고령_15
+
+**왜 필요한가**: 원고가 시청자에게 시키는 행동이 "물집이 딱지로 변할 때까지 옷이나 거즈로 덮어라"인데, 덮는 동작 클립이 라이브러리에 하나도 없다. 27.7~33.2초와 72.4~78.6초 두 구간이 그 행동을 말하는 동안 화면엔 기전만 돌아간다. act_scratch_skin(긁기)으로 대신하면 하지 말라는 행동을 보여주게 돼서 쓸 수 없다.
+
+**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
+
+### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_cover_blister_gauze.jpg`)
+```
+Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet, both feet flat on the floor. The figure stands turned slightly to one side, one arm lifted clear of the ribs, the other hand pressing a plain rectangular pad of soft opaque gauze flat against that bare flank, fingers spread over the pad. Along that one side of the torso only, a single narrow band of small clustered blisters runs from the spine around the ribs, and the gauze pad covers the middle of that band so only its two ends are still visible, the band stopping dead at the midline so the other side is perfectly smooth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, tools, machine parts, glassware, duplicated limbs
+```
+
+### Flow (6초)
+```
+One continuous shot in a single unbroken scene with no scene cuts, the camera pushing in from a full-body framing to the chest-to-hips region and holding there. 0-1.5s: from the very first frame the band of clustered blisters along one flank is already glowing amber, and the free hand lifts a soft opaque gauze pad up toward it while the other arm stays locked out wide. 1.5-3s: the hand lays the pad flat over the middle of the band and presses it down with spread fingers, and the amber glow under the pad dims to a dull ember while the two uncovered ends of the band stay bright. 3-4.5s: the hand smooths the pad outward along the curve of the ribs until the whole band is covered, and every last amber point under it goes out one after another. 4.5-6s: the hand stays resting on the pad, the covered flank holding a single even soft pale cyan with no amber left anywhere, the opposite side of the body staying perfectly smooth. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth drone that settles into a calm sustained tone as the glow goes out, no music, no dialogue.
+```
+
+---
+
+## 3. `act_vaccine_shot_arm` — 고령_15
+
+**왜 필요한가**: 백신이 세 항목 중 하나이고 마무리도 "쉰 살이 넘었다면 사백신 일정을 잡으세요"인데, 접종 동작 클립이 없다. act_take_supplement는 알약을 삼키는 동작이라 주사제에 쓰지 말라고 색인에 명시돼 있고(경구↔주사 혼동), 48.2~67.4초 백신 구간 전체가 행위 칸 없이 기전만 돌아간다.
+
+**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
+
+### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_vaccine_shot_arm.jpg`)
+```
+Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, full body visible from the top of the head to the feet, both feet flat on the floor. The figure stands facing forward with one sleeveless shoulder turned slightly toward the camera and that arm hanging relaxed at its side, while a second bare hand enters from outside the frame holding a slim plain syringe with its short needle resting against the deltoid muscle high on that upper arm. The deltoid muscle itself is visible as a distinct rounded band of fibres inside the translucent shoulder. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, red, blood colour, opaque skin, clothing, hair, facial features, machine parts, glassware, duplicated limbs, second figure, face of the person holding the syringe
+```
+
+### Flow (6초)
+```
+One continuous shot in a single unbroken scene with no scene cuts, the camera starting on the full standing figure and easing in on the shoulder. 0-1.5s: from the very first frame the figure stands still with one arm relaxed at its side, and a hand holding a slim syringe comes in from the edge of the frame toward that upper arm. 1.5-3s: the needle tip touches the deltoid high on the arm and goes in, and the rounded band of deltoid fibres inside the translucent shoulder lights up amber at that one point, the camera stopping with the shoulder and upper chest filling the frame. 3-4.5s: the plunger presses down and the amber point spreads into a small even pool through the deltoid fibres, then the syringe lifts away and the hand leaves the frame. 4.5-6s: the figure holds still and the amber pool fades to a steady soft glow that stays lit in the deltoid until the very last frame, the rest of the body staying soft pale cyan. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth drone with one short soft click as the needle goes in, no music, no dialogue.
+```
+
+---
+
+## 4. `m_shadow_contrast` — 눈_8
 
 **왜 필요한가**: 항목 2의 핵심 문장이 "맑은 하늘이나 하얀 종이를 볼 때 점이 더 뚜렷해진다"(서울아산병원)인데, 라이브러리 115종에 '배경이 밝을수록 같은 그림자가 진해진다'는 장면이 없다. clip_index로 '그림자·대비·빛·시야'를 다 뒤졌지만 m_vitreous_floaters(덩어리가 떠다니며 그림자를 드리움)·m_vision_field_loss(시야가 까맣게 지워짐)·m_uv_radiation_damage(자외선이 조직을 때림)뿐이라, 여기에 m_vitreous_floaters를 한 번 더 끼우면 앞 구간과 똑같은 화면이 되어 '배경 밝기에 따라 달라진다'는 이 항목의 요점이 화면에서 사라진다. 개수가 늘어난 게 아니라 대비가 커진 것뿐이라는 게 이 topic이 시청자에게 주는 가장 실용적인 정보라 대충 넘길 수 없다. 받기 전까지 눈_8 조립을 멈춘다.
 
@@ -52,7 +88,7 @@ Three quick shots cut together, about 1.3 seconds each, the lumpy grey-blue clum
 
 ---
 
-## 3. `act_chase_floater` — 눈_8
+## 5. `act_chase_floater` — 눈_8
 
 **왜 필요한가**: 항목 3(지켜보는 기간)의 왼쪽 행위 칸에 쓸 클립이 없다. 라이브러리 행위 48종에서 눈 관련은 act_rub_eyes(눈 비비기)·act_squint_at_screen(화면을 얼굴 가까이)·act_shield_eyes_from_light(손차양)뿐인데 셋 다 안구건조·눈 피로·눈부심 어디에나 붙는 뭉뚱그린 동작이라, 비문증 영상에 붙여도 무슨 병 이야기인지 화면에서 안 보인다(CLIP_NOTES 2026-09-24 '행위 클립은 동작이 디테일해야 한다'). 비문증인 사람만 하는 동작은 따로 있다 — 밝은 벽을 보다 고개는 그대로 둔 채 눈알만 굴려 떠다니는 점을 쫓고, 잡으려는 듯 손을 올리다 소용없다는 걸 알고 멈칫하는 것. 앞 구간에서 act_rub_eyes를 이미 썼으므로 같은 클립을 또 쓰면 항목이 바뀐 게 화면에 안 드러나기도 한다. 받기 전까지 눈_8 조립을 멈춘다.
 
@@ -65,7 +101,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 4. `act_inject_belly` — 대사_14
+## 6. `act_inject_belly` — 대사_14
 
 **왜 필요한가**: 위고비는 주 1회 피하주사인데 지금 쓰는 act_take_supplement는 알약을 삼키는 동작이다. 약을 먹는 것과 주사하는 것은 시청자가 바로 구별한다.
 
@@ -78,7 +114,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 5. `act_nausea_push_plate_away` — 대사_14
+## 7. `act_nausea_push_plate_away` — 대사_14
 
 **왜 필요한가**: 1번 항목(오심 43.9%·구토 24.5%)의 행위 클립. 라이브러리의 act_grab_belly는 배를 움켜쥐는 뭉뚱그린 동작이라 위경련·장염·생리통 어디에도 붙어 이 증상을 못 가리킨다. GLP-1 오심은 '배가 아파 웅크리는' 게 아니라 '한두 숟갈 뜨다 명치까지 차오른 느낌에 음식을 밀어내고 침을 삼키며 숨을 멈추는' 동작이다 — 증상 자체(먹다 만 그릇을 밀어내는 손, 입을 막는 손)가 동작 안에 보여야 한다.
 
@@ -91,7 +127,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ho
 
 ---
 
-## 6. `act_epigastric_bore_to_back` — 대사_14
+## 8. `act_epigastric_bore_to_back` — 대사_14
 
 **왜 필요한가**: 3번 항목(급성 췌장염 0.2%·담석증 1.6%)의 행위 클립이자 마지막 병원 신호('명치 통증이 등까지 뻗치면서 멎지 않으면')를 그대로 보여주는 동작. 라이브러리에 대체할 게 없다 — act_clutch_chest는 프레임 확인 결과 심장이 점등해 심근경색으로 읽히고, act_clutch_low_back은 콩팥이 점등해 신장 통증이다. 췌장염 통증은 명치에서 등으로 뚫고 나가는 형태라 사람이 앞으로 몸을 접고 반대 손으로 등 뒤 갈비뼈 아래를 받치며, 눕지 못하고 무릎을 끌어당긴다 — 이 '앞으로 접고 등을 받치는' 조합이 이 병의 사람만 하는 동작이다.
 
@@ -104,7 +140,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ho
 
 ---
 
-## 7. `act_press_swollen_eyelid` — 대사_22
+## 9. `act_press_swollen_eyelid` — 대사_22
 
 **왜 필요한가**: 이 영상의 간판 장면(훅 0~5초)이 '자고 일어나면 눈두덩이 붓는다'인데, 195종 색인을 '눈꺼풀·붓기·얼굴'로 뒤져도 눈 주위가 부은 장면이 하나도 없다. 지금 도입부에 임시로 쓰는 act_rub_eyes는 색인 fits가 '눈의 피로·안구건조'라 눈을 비비는 피로 장면이고(프레임 확인: 두 손으로 얼굴을 덮고 양쪽 안구만 점등), 부기가 화면에 전혀 없다. act_cover_face는 부비동, part_eyelid는 확대율이 너무 커서 눈꺼풀인 줄 모른다. ▶ 어디를 어떻게: 아래 눈꺼풀 바로 아래 눈두덩을 두 손 검지·중지 끝으로 각각 한 번 지그시 눌렀다 떼고, 눌린 자리가 자국 없이 곧바로 도로 부풀어 오르는 것까지 보여야 한다(점액부종은 눌러도 자국이 안 남는 게 진단 포인트라 '떼고 나서 되돌아오는' 구간이 이 클립의 전부다). 점등은 양쪽 눈꺼풀·눈두덩 연부조직만 — 안구는 켜지지 않는다. ▶ 피하는 동작: 눈을 비비지 말 것(act_rub_eyes와 같은 장면이 된다), 두 손으로 얼굴 전체를 덮지 말 것(act_cover_face), 안구가 앞으로 튀어나오게 하지 말 것(갑상선기능항진증의 안구돌출로 읽혀 이 원고의 통념 반박과 정면으로 어긋난다). ▶ 반복 리듬: 누른다-뗀다-되돌아온다를 두 번, 두 번째가 더 느리고 되돌아오는 속도가 눈에 띄게 굼뜨다. ▶ 무게중심: 발은 그대로 두고 턱만 살짝 들어 머리를 뒤로 조금 젖힌 채 눈두덩을 위에서 만지는 자세라 상체는 거의 움직이지 않는다 — 카메라만 얼굴로 밀고 들어와 마지막엔 눈두덩이 화면 위쪽 3분의 1을 채운다. 클립이 오면 xray.json opening 첫 항목(act_rub_eyes 1.4~3.8)을 이걸로 교체한다.
 
@@ -117,7 +153,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera pu
 
 ---
 
-## 8. `m_peptide_breakdown` — 머리_14
+## 10. `m_peptide_breakdown` — 머리_14
 
 **왜 필요한가**: 이 원고의 핵심 문장이 "먹은 콜라겐은 소화되면서 아미노산으로 쪼개져 온몸에 나눠 쓰여요. 피부로 직행하지 않고"인데, 라이브러리 115종 중 이 장면이 없다. clip_index로 '분해·흡수·단백질'을 전부 뒤졌지만 m_enzyme_deficiency(효소가 없어 분해가 안 됨)·m_nutrient_absorption_block(큰 분자가 표면에 남음)·m_muscle_wasting(근섬유가 가늘어짐)뿐이라 전부 뜻이 반대거나 다른 얘기다. 지금 이 구간에 남는 클립을 끼우면 '콜라겐이 흡수가 안 된다'로 정반대로 읽힌다 — 흡수는 되는데 피부로 직행하지 않고 온몸에 흩어진다는 게 요점이라, 가닥이 잘려 낱개가 되고 여러 갈래로 흩어지는 장면이 따로 필요하다. 받기 전까지 머리_14 조립을 멈춘다.
 
@@ -130,7 +166,25 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the lon
 
 ---
 
-## 9. `act_urgent_watery_bowel` — 비뇨기_16
+## 11. `act_apply_face_cream` — 머리_14
+
+**왜 필요한가**: '먼저 바르는 콜라겐이에요. 콜라겐 분자는 각질층이 통과시키는 크기보다 커서 대부분 표면에 남아요' 구간(22.4~35.0초)의 왼쪽 행위 칸에 쓸 클립이 없다. 프레임으로 확인한 후보는 전부 어긋난다 — act_check_skin은 이름과 달리 허리를 숙여 무릎만 점등되는 장면이고, act_scalp_care는 통을 들고 바르긴 하지만 정수리·두피라 턱선·잔주름이 훅인 이 원고와 부위가 다르며, act_rub_hands는 손만 비비는 장면이다. 필요한 건 '얼굴(특히 턱선)에 크림을 펴 바르는 동작'이고, 오른쪽 칸의 m_nutrient_absorption_block(큰 금색 구슬이 구멍을 못 넘고 표면에 남음)과 한 장면으로 읽히려면 바른 것이 피부 표면에 얇은 막으로 얹혀 있어야 한다. 받으면 결론 구간(선크림)에도 쓸 수 있다. 받기 전까지 이 구간은 기전 단독으로 둔다.
+
+**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
+
+### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_apply_face_cream.jpg`)
+```
+Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, upper body visible from the top of the head to the waist. The figure stands facing the camera with the chin lifted and tilted a little to one side, one forearm raised so the fingertips of that hand rest flat against the jawline just below the cheekbone, the other hand held at chest height cradling a small plain lidless round jar with completely smooth blank sides and no markings of any kind. A thin warm amber film clings to the fingertips and lies in a smooth glossy sheet on the outermost surface of the jaw and cheek, sitting entirely on top of the skin with a clear bright boundary between the amber film and the pale cyan tissue underneath, nothing amber anywhere below that boundary. Inside the glass shell the skull and jawbone are faintly visible in the same pale cyan. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, brand, packaging, facial features, hair, clothing, tools, machine parts, duplicated limbs, amber inside the body, blood colour, red
+```
+
+### Flow (6초)
+```
+One continuous shot in a single unbroken scene with no scene cuts, the camera easing slowly in toward the jaw and cheek and never cutting away. 0-1.5s: the figure stands facing the camera holding the small blank jar at chest height in one hand, and dips two fingertips of the other hand into it so a small bead of warm amber material lifts out and clings to the fingertips. 1.5-3s: the chin lifts and tilts to one side and those two fingertips touch down on the jawline just below the cheekbone, the amber bead flattening on contact. 3-4.5s: the fingertips sweep in three slow strokes along the jawline from the chin back toward the ear, each stroke spreading the amber into a thinner and wider glossy sheet across the surface of the jaw and cheek, the sheet staying strictly on the outermost surface with a hard bright edge where it meets the pale cyan tissue below it. 4.5-6s: the hand lifts away and the camera pushes in close on the jaw, holding on the amber sheet sitting on top of the skin, the sheet thinning and dulling slightly at its edges but never sinking in, with the pale cyan layers of tissue clearly visible underneath and completely free of any amber. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty, and the jar has no markings of any kind. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth drone with a soft dry sliding sound on each stroke, no music, no dialogue.
+```
+
+---
+
+## 12. `act_urgent_watery_bowel` — 비뇨기_16
 
 **왜 필요한가**: 크레아틴 배탈 항목(덜 녹은 가루가 장에 남아 장 안으로 물을 끌어당김)에 쓸 행위 클립이 없다. 프레임으로 직접 확인한 후보들은 전부 '배가 아파 화장실이 급하다'까지만 보여준다 — act_grab_belly는 두 손으로 배를 감싸고 위·장이 넓게 켜지는 뭉뚱그린 복통이고, pilot_B2는 한쪽 다리를 들어 참는 자세지만 역시 장이 넓게 켜질 뿐이며, act_rush_to_toilet은 4.5~6.0초에 장이 켜진 채 급히 걸어가는 구간이 있다. 셋 다 장염·과민성 장·생리통에 그대로 붙는 장면이라 이 항목이 크레아틴 이야기라는 걸 화면이 말해주지 못한다. 이 항목의 시각 특징은 '물이 찬 장'이다 — 장 고리가 액체로 팽창해 수면(waterline)이 보이고 그 물결이 왼쪽 아래 하행결장으로 내려가야, 오른쪽 칸의 m_osmotic_water_pull(장 안으로 물이 끌려 들어감)과 한 장면이 된다. 손도 배를 감싸는 게 아니라 누르면 더 아파서 닿기 직전에 멈칫하다 손바닥 아래쪽으로 왼쪽 아랫배만 납작하게 누른다. ⚠️ 이 클립을 새로 뽑을 만큼은 아니라고 판단하면 act_rush_to_toilet 4.5~6.0초를 차선으로 쓸 수 있다.
 
@@ -143,7 +197,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 10. `act_large_meal_after_fasting` — 소화_11
+## 13. `act_large_meal_after_fasting` — 소화_11
 
 **왜 필요한가**: 3번 항목('몰아 먹는 식사')의 행위 클립. 이 포맷은 왼쪽에 행동, 오른쪽에 기전을 나란히 놓아 '이 행동을 하면 몸이 이렇게 된다'를 읽히게 하는데, 라이브러리에는 먹는 동작 자체가 하나도 없다 — act_drink_caffeine은 컵을 들어 마시는 동작이라 '끼니를 거르다 한 끼를 몰아 먹는다'와 다르고, act_shift_uncomfortably_seated(앉은 채 들썩이다 아랫배를 누름)는 먹은 뒤의 결과라 원인 행동을 못 보여준다. act_grab_belly는 색인 avoid대로 어느 소화기 질환에나 붙는 뭉뚱그린 동작이다. 필요한 건 '빈 위가 한꺼번에 크게 늘어나는 순간'이 눈에 보이는 동작이다: 오래 비어 있던 위가 몇 번의 빠른 큰 입에 통째로 부풀고, 그 팽창이 아래 대장으로 이어지는 흐름. 피해야 할 동작은 천천히 음미하며 먹는 식사 장면과 배를 움켜쥐는 통증 동작이다(전자는 이 항목의 반대, 후자는 이미 라이브러리에 있고 주제를 못 가린다). 반복 리듬은 '크게 한 입 → 거의 안 씹고 삼킴'을 네 번, 갈수록 빨라지게. 무게중심은 앞으로 쏠려 식탁 위로 상체를 기울인 채 유지한다.
 
@@ -156,7 +210,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera st
 
 ---
 
-## 11. `m_crystal_precipitation` — 소화_13
+## 14. `m_crystal_precipitation` — 소화_13
 
 **왜 필요한가**: 나레이션 "급하게 굶으면 간이 담즙으로 콜레스테롤을 한꺼번에 쏟아내서, 담즙이 과포화돼 콜레스테롤이 결정으로 굳어요" — 과포화된 액체에서 결정이 석출돼 한 덩어리 돌로 자라는 장면. 담석 말고 요로결석·타석 계열 topic에도 그대로 쓸 수 있다.
 
@@ -169,7 +223,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): a dense
 
 ---
 
-## 12. `m_stasis_thickening` — 소화_13
+## 15. `m_stasis_thickening` — 소화_13
 
 **왜 필요한가**: 나레이션 "공복이 길어지면 담낭이 짜이지 않아 담즙이 고인 채 점점 걸쭉해져요"와 "지방이 거의 없으면 담낭을 수축시키는 신호가 안 나와 담즙이 더 오래 고여요" 두 문장에 함께 쓴다 — 주머니를 감싼 근육이 끝까지 수축하지 않아 안의 액체가 정체되고 농축되는 장면. m_pressure_buildup(배출로가 막혀 압력이 오르는 장면)과는 원인이 반대라 대체가 안 된다.
 
@@ -182,7 +236,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the rin
 
 ---
 
-## 13. `act_shared_pot_dipping` — 소화_18
+## 16. `act_shared_pot_dipping` — 소화_18
 
 **왜 필요한가**: 헬리코박터는 보균자 대부분이 평생 무증상이라 '아픈 동작'이 아예 없는 병이다. 지금 opening에 쓰던 act_grab_belly는 배를 움켜쥐고 대장이 점등하는 클립이라 장염·생리통에도 붙는 뭉뚱그린 동작인 데다 점등 장기(대장)까지 틀렸다. 이 병 고유의 장면은 증상이 아니라 전파 경로다 — 각자 쓰던 숟가락을 한 냄비에 번갈아 담갔다 입으로 가져가는 동작이 침이 섞이는 순간을 그대로 보여준다.
 
@@ -195,7 +249,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 14. `m_cell_overgrowth` — 소화_20
+## 17. `m_cell_overgrowth` — 소화_20
 
 **왜 필요한가**: 대장 용종 편(소화_20) 기전 컷. 들어갈 문장: "대장 점막 세포가 비정상적으로 늘어나 혹처럼 솟아오른 조직이 용종이에요". 대장암·자궁근종·물혹처럼 '세포가 과하게 늘어나 덩어리가 된다'는 기전은 앞으로도 재사용된다(범용 12종에 증식 계열이 통째로 빠져 있다).
 
@@ -208,7 +262,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the sma
 
 ---
 
-## 15. `m_gas_fermentation` — 소화_21
+## 18. `m_gas_fermentation` — 소화_21
 
 **왜 필요한가**: 소장 세균이 발효당(포드맵)을 먹어 가스를 뿜어내고, 그 가스가 장벽을 밀어 올려 배가 부푸는 장면. 소화_21 두 번째 항목('양파, 마늘, 밀가루 같은 발효당') 구간에 4초 통째로 들어간다. 소화·대사 계열 topic(복부팽만·과민성 장 증후군·유당불내증)에서 계속 재사용할 수 있는 범용 기전이다.
 
@@ -223,7 +277,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the war
 
 ---
 
-## 16. `act_toilet_strain_faint` — 순환_12
+## 19. `act_toilet_strain_faint` — 순환_12
 
 **왜 필요한가**: 미주신경성 실신 topic(순환_12) 도입부 행위 클립. 기존 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질·과민성대장 어디에나 붙고 실신이 안 보인다. act_sink_to_floor는 선 자세에서의 붕괴라 화장실 맥락이 없다. 나레이션 훅이 '화장실에서 힘주다가 눈앞이 하얘지고 식은땀이 난 적 있으신가요?'라 두 요소(힘주기 → 무너짐)가 한 동작 안에 이어져야 한다.
 
@@ -236,7 +290,7 @@ Seconds 0.0-1.5: he holds his breath and bears down - shoulders ride UP toward h
 
 ---
 
-## 17. `act_bulging_leg_veins` — 순환_3
+## 20. `act_bulging_leg_veins` — 순환_3
 
 **왜 필요한가**: 하지정맥류의 시각 특징은 종아리에 굵게 도드라진 핏줄인데, 지금 쓰는 act_rub_leg에는 그냥 다리를 짚는 동작만 있고 튀어나온 정맥이 안 보인다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 
@@ -249,7 +303,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 18. `act_check_jaw_mirror` — 여성_7
+## 21. `act_check_jaw_mirror` — 여성_7
 
 **왜 필요한가**: 다낭성난소증후군은 통증 질환이 아닌데 지금은 act_press_one_side_lower_abdomen(아랫배 누르기)를 쓰고 있다. 실제로 사람이 알아채는 신호는 턱선 여드름과 굵은 털이라 그걸 확인하는 동작이 맞다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 
