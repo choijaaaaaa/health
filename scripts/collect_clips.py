@@ -29,20 +29,52 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 XRAY = ROOT / "assets_library" / "xray"
 INBOX = XRAY / "작업" / "2_완성클립"
+WORK = XRAY / "작업" / "1_스틸"
+STILLS = XRAY / "stills"
 LIB = XRAY / "output"
 
 
-def _known_names() -> set[str]:
-    """요청해둔 클립 이름 — 오타로 엉뚱한 파일이 들어오는 걸 막는다."""
-    out = set()
+def _known() -> dict[str, dict]:
+    """요청해둔 클립 이름 → 요청 본문. 오타로 엉뚱한 파일이 들어오는 걸 막는다."""
+    out: dict[str, dict] = {}
     for f in (ROOT / "data").glob("*/clip_requests.json"):
         try:
             for r in json.loads(f.read_text(encoding="utf-8")).get("requests", []):
                 if r.get("name"):
-                    out.add(r["name"])
+                    out.setdefault(r["name"], r)
         except json.JSONDecodeError:
             continue
     return out
+
+
+def _still_dest(name: str, req: dict) -> Path:
+    """스틸이 라이브러리에서 살 자리. 스틸만 받는 요청(아기 캐논 등)은 stills/ 바로 밑에 둔다 —
+    make_part_clip.py가 그 경로로 클립을 만든다."""
+    if req.get("kind") == "still":
+        return STILLS / f"{name}.jpg"
+    return STILLS / ("mech" if name.startswith("m_") else "act") / f"{name}.jpg"
+
+
+def _harvest_stills(known: dict[str, dict], commit: bool) -> list[tuple[str, str]]:
+    """1_스틸/에 새로 들어온 미드저니 스틸을 라이브러리로 들인다.
+
+    WHY(2026-09-24): prep_clip_worksheet가 시트를 다시 만들 때 1_스틸/을 통째로 지우고 다시
+    채운다. 사용자가 새로 뽑아 넣은 스틸을 그 전에 거둬가지 않으면 **그대로 사라진다** — 영상
+    요청은 mp4가 남아 티가 안 났지만, 아기 캐논처럼 스틸 자체가 산출물인 요청은 결과물을 잃는다."""
+    moved = []
+    for f in sorted(WORK.glob("*.jpg")):
+        name = f.stem.split("_", 1)[1] if f.stem[:2].isdigit() and "_" in f.stem else f.stem
+        req = known.get(name)
+        if req is None:
+            continue
+        dest = _still_dest(name, req)
+        if dest.exists():          # 이미 들인 것을 시트가 복사해둔 사본이다
+            continue
+        moved.append((f.name, str(dest.relative_to(XRAY))))
+        if commit:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(f, dest)
+    return moved
 
 
 def main() -> None:
@@ -51,9 +83,12 @@ def main() -> None:
     a = ap.parse_args()
 
     INBOX.mkdir(parents=True, exist_ok=True)
-    known = _known_names()
+    known = _known()
+    stills = _harvest_stills(known, a.commit) if WORK.exists() else []
+    for src, dst in stills:
+        print(f"  {'✅' if a.commit else '[dry]'} {src} → {dst}")
     found = sorted(INBOX.glob("*.mp4"))
-    if not found:
+    if not found and not stills:
         print(f"{INBOX.relative_to(ROOT)}/ 가 비어 있다 — Flow 결과를 **클립 이름 그대로** 넣어라.")
     moved, unknown = [], []
     for f in found:
@@ -77,7 +112,7 @@ def main() -> None:
         print(f"\ndry-run — 옮기지 않았다. 실제로 들이려면 --commit")
         return
 
-    print(f"\n{len(moved)}개 반영. 작업 시트를 다시 만든다.")
+    print(f"\n클립 {len(moved)}개 · 스틸 {len(stills)}장 반영. 작업 시트를 다시 만든다.")
     subprocess.run([sys.executable, "scripts/prep_clip_worksheet.py"], cwd=ROOT, check=False)
     print("\n이제 그 topic들을 다시 조립하면 된다:")
     subprocess.run([sys.executable, "scripts/rebuild_stale.py"], cwd=ROOT, check=False)
