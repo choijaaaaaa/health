@@ -92,8 +92,13 @@ def uploadable_topics() -> set[str]:
         cards = odir / "card_news"
         if not vid.is_file() or not cards.is_dir() or not any(cards.glob("*.jpg")):
             continue
+        # 🚨 음성(narration.mp3)·자막(narration.srt)도 원본에 넣는다(2026-09-24): 숫자 읽기가
+        # 깨진 음성 18편을 다시 뽑았는데, 검사가 data/ 쪽만 보는 바람에 **옛 음성으로 조립된
+        # 영상 5편이 "최신"으로 목록에 남아 있었다.** 음성을 다시 뽑으면 자막 시각이 전부
+        # 움직이므로 반드시 다시 조립해야 한다.
         srcs = [topic_dir / "xray.json", topic_dir / "narration.txt",
-                topic_dir / "card_news_spec.json", topic_dir / "ko" / "card_news_spec.json"]
+                topic_dir / "card_news_spec.json", topic_dir / "ko" / "card_news_spec.json",
+                odir / "narration.mp3", odir / "narration.srt"]
         newest = max((p.stat().st_mtime for p in srcs if p.exists()), default=0)
         if newest > vid.stat().st_mtime:
             continue
@@ -340,6 +345,50 @@ def push_to_supabase(rows: list[dict]) -> int:
     return len(rows)
 
 
+
+def prune_stale(keep: set[str]) -> None:
+    """이제 올릴 수 없게 된 topic 행을 **지운다.**
+
+    WHY(2026-09-24): 이 동기화는 upsert만 해서 목록이 늘기만 했다. 숫자 읽기를 고친 음성으로
+    다시 조립해야 하는 영상 5편이 "최신"인 척 목록에 남아 있었다 — 넣기만 하고 빼지 않으면
+    "목록에 있다 = 올릴 수 있다"가 성립하지 않는다.
+
+    🚨 `hs_platform_captions`·`topic_meta`는 다른 프로젝트(1biteinfo 등)와 같이 쓰는 표다.
+    반드시 `project=health-shorts`로 좁혀서 지운다.
+    """
+    import urllib.parse
+    import urllib.request
+
+    url = os.environ.get("SUPABASE_URL")
+    key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+    if not url or not key:
+        return
+
+    def call(method: str, path: str, profile: bool) -> list:
+        req = urllib.request.Request(f"{url}/rest/v1/{path}", method=method, headers={
+            "apikey": key, "Authorization": f"Bearer {key}",
+            **({"Accept-Profile": "mission_control", "Content-Profile": "mission_control"} if profile else {}),
+        })
+        with urllib.request.urlopen(req, timeout=60) as r:
+            body = r.read().decode() or "[]"
+        return json.loads(body) if method == "GET" else []
+
+    for table, profile, scoped in (("hs_platform_captions", True, True),
+                                   ("topic_meta", True, True),
+                                   ("topics", False, False)):
+        q = "select=topic&limit=1000" + ("&project=eq.health-shorts" if scoped else "")
+        have = {r["topic"] for r in call("GET", f"{table}?{q}", profile)}
+        drop = sorted(have - keep)
+        if not drop:
+            continue
+        for i in range(0, len(drop), 50):
+            names = ",".join('"' + urllib.parse.quote(t) + '"' for t in drop[i:i + 50])
+            d = f"{table}?topic=in.({names})" + ("&project=eq.health-shorts" if scoped else "")
+            call("DELETE", d, profile)
+        print(f"{table}: 이제 못 올리는 {len(drop)}개 제거 — {', '.join(drop[:6])}"
+              + (" 외" if len(drop) > 6 else ""))
+
+
 def main() -> None:
     commit = "--commit" in sys.argv
     rows = collect_rows()
@@ -382,6 +431,9 @@ def main() -> None:
     for i in range(0, len(topic_rows), 500):
         topic_total += push_topics_index(topic_rows[i:i + 500])
     print(f"{topic_total}개 행을 topics(트랙 배지용)에 upsert했습니다.")
+
+    # 넣은 뒤엔 **빠져야 할 것을 뺀다** — 그래야 "목록에 있다 = 지금 올릴 수 있다"가 된다.
+    prune_stale(uploadable_topics())
 
 
 if __name__ == "__main__":
