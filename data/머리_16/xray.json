@@ -1,0 +1,78 @@
+{
+  "_why": "원고 전면 재작성(2026-09-24, 마운자로 탈모 하나를 깊게). 칸은 기전의 층위로 나눴다 — 급감량(지방) → 모발이 한꺼번에 쉬는 단계로 넘어가 석 달 뒤 빠짐(모낭) → 모낭은 쉬는 중이라 다시 자람(두피) → 임상에서 누구에게 몰리나(여성). 프레임 확인: act_hair_shedding은 3~6초에 손바닥과 두피 사이로 긴 머리카락 뭉치가 딸려 나오고 정수리가 켜진다. m_follicle_weakening은 모낭 한 개의 털이 줄고 가늘어지다 표면에서 떨어져 빈 구멍만 남는다 — '쉬는 단계로 넘어가 빠진다'엔 맞지만 '모낭이 죽은 게 아니라 쉬는 것'과는 반대 그림이라 재생 구간엔 두지 않았다. 재생 구간은 part_scalp(모근과 머리카락 층이 호박색으로 켜짐). m_fat_breakdown은 지방방울이 쪼개져 빠져나가 '체중이 빠르게 준다'에 맞다. 행위 칸 셋은 라이브러리에 맞는 게 없어 clip_requests.json에 요청했다(act_scalp_care는 마사지·제품이 다시 나게 한다로 읽혀 대본과 반대 말이 돼 안 씀).",
+  "top_title": "머리가 한 움큼씩 빠진다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_scalp.mp4",
+    "crop": [
+      0,
+      230,
+      720,
+      510
+    ],
+    "label": "두피"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_hair_shedding.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_scalp.mp4"
+    }
+  ],
+  "_mech": [
+    "m_fat_breakdown",
+    "m_follicle_weakening",
+    "part_scalp"
+  ],
+  "_act": [
+    "act_hair_shedding",
+    "act_loose_waistband",
+    "act_hairline_regrowth",
+    "act_part_line_check"
+  ],
+  "_items": [
+    "체중감량주사",
+    "머리카락",
+    "달력",
+    "저탄고단백식단"
+  ],
+  "summary_from": "그러니 약은 혼자",
+  "timeline": [
+    {
+      "from": "몸은 체중이 빠르게",
+      "item": "체중감량주사",
+      "mech": "m_fat_breakdown",
+      "act": null,
+      "label": "지방"
+    },
+    {
+      "from": "그러면 자라던 머리카락",
+      "item": "머리카락",
+      "mech": "m_follicle_weakening",
+      "act": "act_hair_shedding",
+      "label": "모낭"
+    },
+    {
+      "from": "모낭이 죽은 게 아니라",
+      "item": "달력",
+      "mech": "part_scalp",
+      "act": null,
+      "label": "두피"
+    },
+    {
+      "from": "임상에서 마운자로 탈모는",
+      "item": "체중감량주사",
+      "mech": "m_follicle_weakening",
+      "act": null,
+      "label": "머리카락"
+    },
+    {
+      "from": "그러니 약은 혼자",
+      "item": "저탄고단백식단",
+      "mech": "m_fat_breakdown",
+      "act": null,
+      "label": "지방"
+    }
+  ],
+  "opening_until": 13.76
+}
