@@ -37,7 +37,7 @@
     "보청기",
     "면역세포"
   ],
-  "summary_from": "질병관리청은 말이 어눌해지거나",
+  "summary_from": "이석증이면 이비인후과에서",
   "timeline": [
     {
       "from": "먼저 지속 시간이에요.",
@@ -75,14 +75,7 @@
       "label": "전정신경"
     },
     {
-      "from": "머리를 정해진 순서로",
-      "item": "면역세포",
-      "mech": "m_inflammation",
-      "act": "act_toss_turn",
-      "label": "전정신경"
-    },
-    {
-      "from": "질병관리청은 말이 어눌해지거나",
+      "from": "이석증이면 이비인후과에서",
       "item": "면역세포",
       "mech": "m_inflammation",
       "act": null,

@@ -37,7 +37,7 @@
     "와인",
     "이불"
   ],
-  "summary_from": "열감 때문에 깨는",
+  "summary_from": "석류즙이나 콩이",
   "timeline": [
     {
       "from": "먼저 커피예요.",
@@ -68,25 +68,11 @@
       "label": "땀샘"
     },
     {
-      "from": "석류즙이나 콩이 열감에",
-      "item": "이불",
-      "mech": "m_dehydration",
-      "act": "act_take_supplement",
-      "label": "체액량"
-    },
-    {
-      "from": "대신 카페인은 오후",
-      "item": "이불",
-      "mech": "m_sweat_overproduction",
-      "act": "act_open_window",
-      "label": "땀샘"
-    },
-    {
-      "from": "열감 때문에 깨는",
+      "from": "석류즙이나 콩이",
       "item": "이불",
       "mech": "m_sweat_overproduction",
       "act": null,
-      "label": "땀 분비"
+      "label": "땀샘"
     }
   ],
   "opening_until": 4.72

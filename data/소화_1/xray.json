@@ -37,7 +37,7 @@
     "체중계",
     "사탕"
   ],
-  "summary_from": "위가 식도보다 왼쪽에",
+  "summary_from": "그러니 저녁은 잠들기",
   "timeline": [
     {
       "from": "먼저 잠들기 직전",
@@ -69,13 +69,6 @@
     },
     {
       "from": "그러니 저녁은 잠들기",
-      "item": "사탕",
-      "mech": "m_tissue_laxity",
-      "label": "식도 조임근",
-      "act": "act_toss_turn"
-    },
-    {
-      "from": "위가 식도보다 왼쪽에",
       "item": "사탕",
       "mech": "m_tissue_laxity",
       "act": null,

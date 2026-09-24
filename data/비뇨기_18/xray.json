@@ -37,7 +37,7 @@
     "사탕",
     "껌"
   ],
-  "summary_from": "빈속에 몰아 마시지",
+  "summary_from": "배탈이 안 나는 선은",
   "timeline": [
     {
       "from": "먼저 제로 탄산음료예요.",
@@ -61,14 +61,7 @@
       "act": "act_shift_uncomfortably_seated"
     },
     {
-      "from": "배탈이 안 나는",
-      "item": "껌",
-      "mech": "m_bacteria_growth",
-      "label": "세균 번식",
-      "act": "act_drink_caffeine"
-    },
-    {
-      "from": "빈속에 몰아 마시지",
+      "from": "배탈이 안 나는 선은",
       "item": "껌",
       "mech": "m_bacteria_growth",
       "act": null,

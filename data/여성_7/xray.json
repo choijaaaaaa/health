@@ -29,7 +29,7 @@
     "귀리",
     "체중계"
   ],
-  "summary_from": "질병관리청 국가건강정보포털은 가임기",
+  "summary_from": "서울대학교병원은 원래 체중",
   "timeline": [
     {
       "from": "두 번째로는 남성호르몬",
@@ -46,17 +46,10 @@
       "act": "act_jaw_acne_to_ovary"
     },
     {
-      "from": "60킬로그램이면 3킬로그램이에요.",
-      "item": "체중계",
-      "mech": "m_glucose_spike",
-      "act": "act_take_supplement",
-      "label": "혈당"
-    },
-    {
-      "from": "질병관리청 국가건강정보포털은 가임기",
+      "from": "서울대학교병원은 원래 체중",
       "item": "체중계",
       "mech": "m_sebum_overproduction",
-      "act": "act_jaw_acne_to_ovary",
+      "act": null,
       "label": "피지 과다"
     }
   ],

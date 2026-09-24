@@ -29,7 +29,7 @@
     "빈혈",
     "체중계"
   ],
-  "summary_from": "숨이 찰 만큼",
+  "summary_from": "음식으로 근종 자체가",
   "timeline": [
     {
       "from": "자궁내막 바로 아래",
@@ -61,13 +61,6 @@
     },
     {
       "from": "음식으로 근종 자체가",
-      "item": "체중계",
-      "mech": "m_fat_accumulation",
-      "act": "act_run_impact",
-      "label": "내장지방"
-    },
-    {
-      "from": "숨이 찰 만큼",
       "item": "체중계",
       "mech": "m_fat_accumulation",
       "act": null,
