@@ -15,6 +15,8 @@ import json
 import re
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 # WHY 60초 여유: 같은 배치에서 spec 저장 → 렌더가 순서대로 일어나므로 초 단위 차이는
 # 정상이다. 이걸 안 두면 방금 재렌더한 topic이 매번 걸린다.
@@ -30,11 +32,12 @@ def _card_prefix(stem: str) -> str | None:
 
 def scan(topics: list[str] | None = None) -> list[dict]:
     out = []
-    for spec_path in sorted((ROOT / "data").glob("*/card_news_spec.json")):
-        topic = spec_path.parts[-2]
+    # 트랙 topic은 data/<트랙>/<topic>/…으로 한 단계 깊다 — 이름에는 트랙이 안 들어간다.
+    for spec_path in tracks.glob_topic_files(ROOT / "data", "*/card_news_spec.json"):
+        topic = tracks.topic_of_path(spec_path, ROOT / "data")
         if topics and topic not in topics:
             continue
-        card_dir = ROOT / "output" / topic / "card_news"
+        card_dir = tracks.output_dir(topic) / "card_news"
         jpgs = sorted(card_dir.glob("*.jpg")) if card_dir.is_dir() else []
         problems = []
         if not jpgs:
@@ -69,9 +72,11 @@ def _cli() -> None:
         print("\n# 아래를 health-shorts 루트에서 실행하면 재렌더된다")
         for r in rows:
             t = r["topic"]
-            print(f'rm -f "output/{t}/card_news"/*.jpg && '
-                  f'.venv/bin/python3 lib/card_news.py "data/{t}/card_news_spec.json" '
-                  f'assets_library/illust "output/{t}/card_news" "{t}" kor')
+            data_rel = tracks.data_dir(t).relative_to(ROOT)
+            out_rel = tracks.output_dir(t).relative_to(ROOT)
+            print(f'rm -f "{out_rel}/card_news"/*.jpg && '
+                  f'.venv/bin/python3 lib/card_news.py "{data_rel}/card_news_spec.json" '
+                  f'assets_library/illust "{out_rel}/card_news" "{t}" kor')
 
 
 if __name__ == "__main__":

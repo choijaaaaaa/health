@@ -15,10 +15,15 @@ from pathlib import Path
 
 import pytest
 
-from lib import card_news
+from lib import card_news, tracks
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = ROOT / "data"
+
+
+def _data(topic: str):
+    """topic 이름(평평) → data 폴더. 트랙은 경로에만 있다(lib/tracks.py)."""
+    return tracks.data_dir(topic)
 COMMENT_KEYWORDS_PATH = Path.home() / ".claude" / "comment-keywords.md"
 
 # CLAUDE.md "[광고]+고지문" 절 기준(2026-08-10) — "네이버 클립"과 "네이버 블로그"
@@ -51,14 +56,15 @@ def _discover_topics() -> list[str]:
     낸다. 언어별 하위 폴더로 나뉜 새 글로벌 topic(data/<topic>/<lang>/
     platform_captions.json)은 언어 폴더가 없으면 콘텐츠 파일 자체가 없어서 그냥
     topic 이름만 내면 이후 _load_json이 전부 스킵돼 실질적으로 검사가 빠진다 —
-    "<topic>/<lang>" 형태로 언어별 경로를 각각 독립 topic처럼 낸다(Path가 슬래시를
-    그대로 하위 경로로 처리하므로 DATA_DIR / topic 형태의 기존 호출부는 그대로 동작)."""
+    "<topic>/<lang>" 형태로 언어별 경로를 각각 독립 topic처럼 낸다.
+
+    🚨 topic 이름에 트랙 폴더를 섞지 않는다(2026-09-24) — `data/육아/육아_1`을 그대로
+    이어붙이면 `"육아/육아_1"`이 되는데, 이 저장소에서 topic 안의 `/`는 **언어**를 뜻해서
+    `육아_1`이 언어 코드로 읽힌다. 경로는 `tracks.data_dir()`이 푼다."""
     if not DATA_DIR.exists():
         return []
     topics = []
-    for p in sorted(DATA_DIR.iterdir()):
-        if not p.is_dir():
-            continue
+    for p in tracks.iter_topic_dirs(DATA_DIR):
         if (p / "platform_captions.json").exists():
             topics.append(p.name)
             # WHY continue하지 않는지(2026-08-28 버그 수정): 옛 flat topic에 나중에
@@ -146,7 +152,7 @@ def _bad_endings(text: str) -> list[str]:
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_card_news_spec_is_valid_json(topic):
-    path = DATA_DIR / topic / "card_news_spec.json"
+    path = _data(topic) / "card_news_spec.json"
     if not path.exists():
         pytest.skip(f"{topic}: card_news_spec.json 없음")
     try:
@@ -157,7 +163,7 @@ def test_card_news_spec_is_valid_json(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_platform_captions_is_valid_json(topic):
-    path = DATA_DIR / topic / "platform_captions.json"
+    path = _data(topic) / "platform_captions.json"
     if not path.exists():
         pytest.skip(f"{topic}: platform_captions.json 없음")
     try:
@@ -172,7 +178,7 @@ def test_platform_captions_is_valid_json(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_all_captions_have_hashtags(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     missing = [p["name"] for p in _content_platforms(spec) if "#" not in p.get("caption", "")]
     assert not missing, (
         f"{topic}: 아래 플랫폼 caption에 해시태그(#)가 없음 — {missing}"
@@ -188,7 +194,7 @@ NAVER_BLOG_MIN_LENGTH = 1000
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_blog_min_length(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     for p in _content_platforms(spec):
         if p["name"] == "네이버 블로그":
             length = len(p.get("caption", ""))
@@ -207,7 +213,7 @@ def test_naver_blog_min_length(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_blog_and_tistory_not_duplicated(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     platforms = {p["name"]: p for p in _content_platforms(spec)}
     naver = platforms.get("네이버 블로그")
     tistory = platforms.get("티스토리")
@@ -231,7 +237,7 @@ def test_naver_blog_and_tistory_not_duplicated(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_narration_no_jeonwoncheol_ending(topic):
-    path = DATA_DIR / topic / "narration.txt"
+    path = _data(topic) / "narration.txt"
     if not path.exists():
         pytest.skip(f"{topic}: narration.txt 없음")
     text = path.read_text(encoding="utf-8")
@@ -243,7 +249,7 @@ def test_narration_no_jeonwoncheol_ending(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_card_news_spec_no_jeonwoncheol_ending(topic):
-    spec = _load_json(DATA_DIR / topic / "card_news_spec.json", topic, "card_news_spec.json")
+    spec = _load_json(_data(topic) / "card_news_spec.json", topic, "card_news_spec.json")
     all_hits = []
     for s in _iter_strings(spec):
         all_hits.extend(_bad_endings(s))
@@ -254,7 +260,7 @@ def test_card_news_spec_no_jeonwoncheol_ending(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_platform_captions_no_jeonwoncheol_ending(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     all_hits = []
     for p in spec.get("platforms", []):
         hits = _bad_endings(p.get("caption", ""))
@@ -271,7 +277,7 @@ def test_platform_captions_no_jeonwoncheol_ending(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_network_flag(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     problems = []
     for p in _content_platforms(spec):
         name = p["name"]
@@ -290,7 +296,7 @@ def test_naver_network_flag(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_rich_paste_flag(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     problems = []
     for p in _content_platforms(spec):
         name = p["name"]
@@ -315,7 +321,7 @@ _BAD_IMAGE_MARKER_RE = re.compile(r"📷|\[[^\]]*\]|삽입")
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_naver_blog_and_tistory_image_marker_format(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     problems = []
     for p in _content_platforms(spec):
         if p["name"] not in ("네이버 블로그", "티스토리"):
@@ -333,7 +339,7 @@ def test_naver_blog_and_tistory_image_marker_format(topic):
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_products_no_middle_dot(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     bad = [prod for prod in spec.get("products", []) if "·" in prod]
     assert not bad, f"{topic}: products에 '·'로 두 품목을 이어붙인 항목 있음 — {bad}"
 
@@ -355,7 +361,7 @@ _PRODUCTS_DESCRIPTIVE_PATTERN = re.compile(
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_products_no_descriptive_adjective(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     bad = [prod for prod in spec.get("products", []) if _PRODUCTS_DESCRIPTIVE_PATTERN.search(prod)]
     assert not bad, (
         f"{topic}: products에 설명형 수식어 붙은 항목 있음(실제 검색어로 단순화할 것) — {bad}"
@@ -377,7 +383,7 @@ _PRODUCTS_UNSEARCHABLE_PREFIX_PATTERN = re.compile("가정용|고농도")
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_products_no_unsearchable_prefix(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     bad = [prod for prod in spec.get("products", []) if _PRODUCTS_UNSEARCHABLE_PREFIX_PATTERN.search(prod)]
     assert not bad, (
         f"{topic}: products에 실제 쿠팡 카테고리에 없는 수식어 붙은 항목 있음 — {bad}"
@@ -395,7 +401,7 @@ BLOG_SEO_REQUIRED_FIELDS = ("title", "meta_description", "slug", "hero_image_url
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_blog_seo_required_fields_present(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     missing = []
     for p in _blog_seo_platforms(spec):
         for field in BLOG_SEO_REQUIRED_FIELDS:
@@ -413,7 +419,7 @@ BLOG_SEO_META_DESCRIPTION_RANGE = (120, 160)
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_blog_seo_meta_description_length(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     problems = []
     for p in _blog_seo_platforms(spec):
         meta = p.get("meta_description", "")
@@ -430,7 +436,7 @@ def test_blog_seo_body_has_inline_image(topic):
     hero_image_url은 seo-blog 페이지에서 본문에 시각적으로 렌더링되지 않으므로
     (OG/JSON-LD 전용) 본문 자체에 이미지가 없으면 독자에게 사진이 하나도
     안 보인다."""
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     missing = [p["platform"] for p in _blog_seo_platforms(spec) if "<img" not in p.get("body_html", "")]
     assert not missing, f"{topic}: 본문(body_html)에 <img> 태그가 하나도 없음 — {missing}"
 
@@ -464,7 +470,7 @@ def _html_tag_balance_issues(html: str) -> list[str]:
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_blog_seo_body_html_tags_balanced(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     problems = {}
     for p in _blog_seo_platforms(spec):
         issues = _html_tag_balance_issues(p.get("body_html", ""))
@@ -478,14 +484,14 @@ _SLUG_RE = re.compile(r"^[a-z0-9-]+$")
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_blog_seo_slug_format(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     bad = [p["slug"] for p in _blog_seo_platforms(spec) if not _SLUG_RE.match(p.get("slug", ""))]
     assert not bad, f"{topic}: slug이 URL 안전 형식(소문자 영숫자+하이픈)이 아님 — {bad}"
 
 
 @pytest.mark.parametrize("topic", TOPICS)
 def test_blog_seo_title_not_identical_to_meta_description(topic):
-    spec = _load_json(DATA_DIR / topic / "platform_captions.json", topic, "platform_captions.json")
+    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
     bad = [
         p["title"] for p in _blog_seo_platforms(spec)
         if p.get("title") and p.get("title") == p.get("meta_description")
@@ -516,14 +522,14 @@ def test_char_files_resolve_to_images(topic):
     상태가 됐다. 이제 card_news.photo_resolver()를 그대로 불러 쓰므로 렌더러가
     해석 규칙을 바꾸면 테스트가 자동으로 따라간다.
     """
-    spec = _load_json(DATA_DIR / topic / "card_news_spec.json", topic, "card_news_spec.json")
+    spec = _load_json(_data(topic) / "card_news_spec.json", topic, "card_news_spec.json")
 
     # 렌더러 호출 관례 그대로(CLAUDE.md "렌더" 명령): char_dir=assets_library/illust,
     # out_dir=output/<topic>[/<lang>]/card_news — photo_resolver가 이 out_dir에서
     # (topic, lang)을 되짚어 공용 배정표를 조회하므로 경로 모양이 곧 조회 키다.
     resolve = card_news.photo_resolver(
         ROOT / "assets_library" / "illust",
-        ROOT / "output" / topic / "card_news",
+        tracks.output_dir(topic) / "card_news",
         topic_prefix=topic.split("/")[0],
     )
 
@@ -548,7 +554,7 @@ def test_char_files_resolve_to_images(topic):
 def test_no_weak_organ_worry_hook(topic):
     problems = []
 
-    card_news_path = DATA_DIR / topic / "card_news_spec.json"
+    card_news_path = _data(topic) / "card_news_spec.json"
     if card_news_path.exists():
         spec = _load_json(card_news_path, topic, "card_news_spec.json")
         title_lines = spec.get("title", [])
@@ -556,7 +562,7 @@ def test_no_weak_organ_worry_hook(topic):
         if any(WEAK_HOOK_PHRASE in line for line in title_lines) or WEAK_HOOK_PHRASE in joined:
             problems.append(f"card_news_spec.json title에 약한 훅 문구 잔존: {title_lines}")
 
-    captions_path = DATA_DIR / topic / "platform_captions.json"
+    captions_path = _data(topic) / "platform_captions.json"
     if captions_path.exists():
         cap_spec = _load_json(captions_path, topic, "platform_captions.json")
         if WEAK_HOOK_PHRASE in cap_spec.get("title", ""):
@@ -625,7 +631,7 @@ def _parse_registry_table(md_text: str) -> dict[str, str]:
 def _collect_current_keyword_usage() -> dict[str, list[str]]:
     usage: dict[str, list[str]] = {}
     for topic in TOPICS:
-        path = DATA_DIR / topic / "platform_captions.json"
+        path = _data(topic) / "platform_captions.json"
         if not path.exists():
             continue
         try:

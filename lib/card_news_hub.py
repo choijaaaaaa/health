@@ -26,6 +26,8 @@ import os
 from datetime import datetime, timezone
 from pathlib import Path
 
+from lib import tracks
+
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -90,17 +92,28 @@ def _repo_root(dir_name: str | None) -> Path:
     return ROOT if dir_name is None else _find_sibling_project(dir_name)
 
 
+def _is_self(repo_root: Path) -> bool:
+    """트랙 폴더 규칙(lib/tracks.py)은 이 저장소에만 있다 — 형제 버티컬 레포는
+    같은 이름의 폴더가 있어도 평평한 topic이므로 그대로 둬야 한다."""
+    return repo_root == ROOT
+
+
+def _iter_topic_dirs(repo_root: Path, data_dir: Path) -> list[Path]:
+    return (tracks.iter_topic_dirs(data_dir) if _is_self(repo_root)
+            else sorted(p for p in data_dir.iterdir() if p.is_dir()))
+
+
 def _topic_data_dir(repo_root: Path, topic: str) -> Path:
     """data/<topic>/ko/를 먼저 보고 없으면 data/<topic>/로 폴백 —
     lib/content_review.py의 _topic_dir()와 동일한 원칙(실측: health-shorts
     한국어 topic 대부분이 이제 nested ko/ 구조)."""
-    base = repo_root / "data" / topic
+    base = tracks.data_dir(topic) if _is_self(repo_root) else repo_root / "data" / topic
     nested = base / "ko"
     return nested if nested.exists() else base
 
 
 def _topic_output_dir(repo_root: Path, topic: str) -> Path:
-    base = repo_root / "output" / topic
+    base = tracks.output_dir(topic) if _is_self(repo_root) else repo_root / "output" / topic
     nested = base / "ko"
     return nested if nested.exists() else base
 
@@ -219,7 +232,7 @@ def collect_items() -> dict:
         if not data_dir.is_dir():
             continue
 
-        for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
+        for topic_dir in _iter_topic_dirs(repo_root, data_dir):
             topic = topic_dir.name
             captions_path = _topic_data_dir(repo_root, topic) / "platform_captions.json"
             naver_entry = _naver_blog_entry(captions_path)

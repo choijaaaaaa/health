@@ -42,6 +42,8 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
+from lib import tracks
+
 
 load_dotenv()
 
@@ -77,7 +79,9 @@ def collect_rows() -> list[dict]:
     if not data_dir.is_dir():
         return rows
 
-    for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
+    # WHY iter_topic_dirs인지(2026-09-24): 1단 iterdir은 트랙 폴더(data/육아/)를 topic
+    # 하나로 보고 그 밑의 진짜 topic을 통째로 놓친다 — 트랙 topic이 영영 안 올라간다.
+    for topic_dir in tracks.iter_topic_dirs(data_dir):
         captions_path = topic_dir / "platform_captions.json"
         if not captions_path.exists():
             captions_path = topic_dir / "ko" / "platform_captions.json"
@@ -126,8 +130,13 @@ def collect_topic_meta() -> list[dict]:
     rows: list[dict] = []
     if not data_dir.is_dir():
         return rows
-    for topic_dir in sorted(p for p in data_dir.iterdir() if p.is_dir()):
+    for topic_dir in tracks.iter_topic_dirs(data_dir):
         captions_path = topic_dir / "platform_captions.json"
+        # WHY ko/ 폴백(2026-09-24): collect_rows()와 달리 여기엔 폴백이 없어서 언어
+        # 폴더를 쓰는 topic의 products/ad_tag가 통째로 빠졌다 — 신규 topic이 정확히
+        # 그 경로를 탄다.
+        if not captions_path.exists():
+            captions_path = topic_dir / "ko" / "platform_captions.json"
         if not captions_path.exists():
             continue
         try:

@@ -7,6 +7,11 @@ import random
 import sys
 from pathlib import Path
 
+# WHY sys.path를 건드리는지: 이 파일은 `python3 lib/card_news.py ...`로 직접 실행돼서
+# 그때는 lib/ 자신이 sys.path[0]이라 `lib` 패키지를 못 찾는다.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from lib import tracks  # noqa: E402
+
 from fontTools.ttLib import TTFont
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageStat
 
@@ -819,11 +824,16 @@ def _sync_to_r2(out_dir: Path) -> None:
         conf = dict(l.strip().split("=", 1) for l in env_path.read_text().splitlines()
                     if "=" in l and not l.strip().startswith("#"))
         d = Path(out_dir).resolve()
-        if d.parent.parent.name == "output":
-            prefix = d.parent.name
-        else:
-            topic, lang = d.parent.parent.name, d.parent.name
-            prefix = topic if lang == "ko" else f"{topic}/{lang}"
+        # WHY 트랙 폴더를 먼저 걷어내는지(2026-09-24): 트랙 topic은
+        # output/<트랙>/<topic>/card_news로 한 단계 깊다 — 그대로 읽으면 트랙을 topic으로,
+        # topic을 언어로 오인해 키가 "<트랙>/<topic>"이 된다. R2 키에 들어가는 건
+        # 트랙이 빠진 평평한 topic 이름이어야 dashboard._card_news_r2_base()와 맞는다.
+        rel = d.relative_to(project_output).parts
+        if rel[0] in tracks.track_dirs():
+            rel = rel[1:]
+        topic = rel[0]
+        lang = rel[1] if len(rel) > 2 else None
+        prefix = topic if lang in (None, "ko") else f"{topic}/{lang}"
         s3 = boto3.client("s3", endpoint_url=conf["R2_ENDPOINT"],
                           aws_access_key_id=conf["R2_ACCESS_KEY_ID"],
                           aws_secret_access_key=conf["R2_SECRET_ACCESS_KEY"],

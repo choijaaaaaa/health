@@ -12,6 +12,13 @@ import sys
 from pathlib import Path
 from urllib.parse import quote, quote_plus
 
+# WHY sys.path를 건드리는지: 이 파일은 `python3 lib/dashboard.py ...`로 직접 실행되기도
+# 하는데 그때는 lib/ 자신이 sys.path[0]이라 `lib` 패키지를 못 찾는다.
+# WHY 별칭(track_paths): 이 모듈은 "숏츠/카드뉴스" 분류용 지역 변수 이름으로 `tracks`를
+# 이미 쓰고 있어서 같은 이름으로 import하면 그 함수들 안에서 가려진다.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+from lib import tracks as track_paths  # noqa: E402
+
 
 def _esc(text: str) -> str:
     return (
@@ -954,7 +961,11 @@ def _card_news_r2_base(card_news_dir: str | Path) -> str:
     """`output/<topic>/card_news` 또는 `output/<topic>/<lang>/card_news` 경로에서
     그 카드뉴스들의 R2 프리픽스(끝에 / 없음)를 만든다."""
     d = Path(card_news_dir).resolve()
-    if d.parent.parent.name == "output":
+    # WHY 트랙 폴더를 "output"과 같이 취급하는지(2026-09-24): 트랙 topic의 카드뉴스는
+    # output/<트랙>/<topic>/card_news라 한 단계 깊다 — 트랙 폴더를 topic으로, topic을
+    # 언어로 읽으면 키가 card_news.py의 업로드 키와 어긋나 배포본에서 이미지가 안 뜬다.
+    # 키에 들어가는 건 트랙이 빠진 평평한 topic 이름이다.
+    if d.parent.parent.name == "output" or d.parent.parent.name in track_paths.track_dirs():
         topic, lang = d.parent.name, None
     else:
         topic, lang = d.parent.parent.name, d.parent.name
@@ -1102,6 +1113,14 @@ def _product_links_bottom_section(
     )
 
 
+def _dashboard_url(dashboard_path: Path) -> str:
+    """대시보드 파일이 **실제로 사는 자리**를 저장소 루트 기준 URL로 만든다.
+
+    WHY(2026-09-24): topic 이름만으로 "output/<topic>/dashboard.html"을 조립하면
+    트랙 topic(파일은 output/<트랙>/<topic>/에 있다)에서 없는 경로를 가리킨다."""
+    return "/".join(quote(part) for part in dashboard_path.relative_to(track_paths.ROOT).parts)
+
+
 def _write_all_products(output_root: Path, data_root: Path) -> None:
     """WHY(2026-08-08, "제품 링크 안 되어있는 목록을 메인에다가 따로 빼놓고
     거기다 넣고 저장하면 글로벌로 반영되게"): index.html이 "아직 쿠팡/네이버
@@ -1130,27 +1149,29 @@ def _write_all_products(output_root: Path, data_root: Path) -> None:
             return
         entries.append({"topic": topic_id, "title": title, "url": dashboard_url})
 
-    for fp in sorted(data_root.glob("*/ko/platform_captions.json")):
+    # WHY glob_topic_files인지: 트랙 topic은 data/<트랙>/<topic>/…으로 한 단계 깊어
+    # 평범한 glob에 안 걸린다. topic 이름은 트랙을 뺀 평평한 값이어야 한다.
+    for fp in track_paths.glob_topic_files(data_root, "*/ko/platform_captions.json"):
         try:
             spec = json.loads(fp.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        topic, lang = fp.parent.parent.name, fp.parent.name
+        topic, lang = track_paths.topic_of_path(fp.parent, data_root), fp.parent.name
         topic_id = f"{topic}/{lang}"
-        dashboard_url = f"output/{quote(topic)}/{lang}/dashboard.html"
+        dashboard_url = _dashboard_url(track_paths.output_dir(topic) / lang / "dashboard.html")
         title = spec.get("title", topic_id)
         for p in spec.get("products", []):
             add(p, topic_id, title, dashboard_url)
     # WHY 언어 하위 폴더 없는(2단계 아닌 flat) topic도 포함하는지: 위 glob은
     # "<topic>/ko/platform_captions.json"만 잡아서, 다국어 확장 이전에 만든
     # flat topic("<topic>/platform_captions.json")의 상품명이 누락된다.
-    for fp in sorted(data_root.glob("*/platform_captions.json")):
+    for fp in track_paths.glob_topic_files(data_root, "*/platform_captions.json"):
         try:
             spec = json.loads(fp.read_text(encoding="utf-8"))
         except (json.JSONDecodeError, OSError):
             continue
-        topic_id = fp.parent.name
-        dashboard_url = f"output/{quote(topic_id)}/dashboard.html"
+        topic_id = track_paths.topic_of_path(fp.parent, data_root)
+        dashboard_url = _dashboard_url(track_paths.output_dir(topic_id) / "dashboard.html")
         title = spec.get("title", topic_id)
         for p in spec.get("products", []):
             add(p, topic_id, title, dashboard_url)
@@ -1183,13 +1204,26 @@ def _update_topics_index(out_path: str):
     # 허브 페이지 자체도 걸어버려서 "가슴쓰림_1"이 "가슴쓰림_1/en"·"가슴쓰림_1/ja"와
     # 별개로 또 하나의 topic 행으로 중복 등록되는 문제가 생긴다 — 언어별 하위
     # dashboard.html이 이미 존재하는 base topic은 얕은 glob 결과에서 제외한다.
-    nested_dash_paths = sorted(output_root.glob("*/*/dashboard.html"))
+    # 🚨 WHY 얕은 글롭 대신 iter_topic_dirs인지(2026-09-24 트랙 폴더 도입): 트랙 topic은
+    # output/<트랙>/<topic>/dashboard.html이라 `*/*/dashboard.html`에 같이 걸리는데,
+    # 그걸 "언어 중첩"으로 읽으면 nested_bases에 **트랙 이름**("육아")이 들어가고
+    # 아래 _generate_unified_dashboard가 output/<트랙>/dashboard.html이라는 가짜 통합
+    # 허브를 만든다. 트랙 폴더는 언어가 아니라 topic 폴더가 한 단계 깊은 것이다.
+    topic_dirs = track_paths.iter_topic_dirs(output_root)
+    nested_dash_paths = [d / "dashboard.html"
+                         for t in topic_dirs
+                         for d in sorted(q for q in t.iterdir() if q.is_dir())
+                         if (d / "dashboard.html").exists()]
     nested_bases = {p.parent.parent.name for p in nested_dash_paths}
-    flat_dash_paths = [p for p in sorted(output_root.glob("*/dashboard.html")) if p.parent.name not in nested_bases]
+    flat_dash_paths = [t / "dashboard.html" for t in topic_dirs
+                       if (t / "dashboard.html").exists() and t.name not in nested_bases]
     dash_paths = flat_dash_paths + nested_dash_paths
     for dash in dash_paths:
         rel = dash.parent.relative_to(output_root)
-        topic = "/".join(rel.parts)  # flat: "가슴쓰림_1", 중첩: "가슴쓰림_1/en"
+        # topic 식별자에는 트랙이 안 들어간다 — 여기서의 "/"는 끝까지 **언어**를 뜻한다.
+        base_name = track_paths.topic_of_path(dash.parent, output_root)
+        lang_part = dash.parent.name if dash.parent.name != base_name else None
+        topic = base_name if lang_part is None else f"{base_name}/{lang_part}"  # flat: "가슴쓰림_1", 중첩: "가슴쓰림_1/en"
         title = topic
         # WHY ad_tag도 여기서 같이 읽는지(2026-08-06, "플래그 세워서 육안으로
         # 신규 포맷이라는거 구분 가능하게"): 영상 우상단 광고 태그 오버레이가
@@ -1240,7 +1274,7 @@ def _update_topics_index(out_path: str):
         thumbnail = (f"{_card_news_r2_base(dash.parent / 'card_news')}/{quote(cover_path.name)}"
                      if cover_path else None)
         topics.append({
-            "topic": topic, "title": title, "url": f"output/{quote(topic)}/dashboard.html",
+            "topic": topic, "title": title, "url": _dashboard_url(dash),
             "thumbnail": thumbnail, "ad_tag": ad_tag_applied, "tracks": tracks,
         })
     topics.sort(key=lambda t: t["topic"])
@@ -1573,7 +1607,8 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
     한 탭으로 가라고" — 탭 전환 UI 완전 폐지 확정): 한국어(iframe) 섹션과
     글로벌 언어 카드들을 전부 한 페이지에 세로로 나열한다 — 언어별로 버튼을
     눌러 전환할 필요 없이 스크롤만으로 전부 확인 가능."""
-    topic_data_root = data_root / base_topic
+    # 트랙 topic은 data/<트랙>/<topic>/ 이라 이름만 이어붙이면 안 된다.
+    topic_data_root = track_paths.data_dir(base_topic)
     if not topic_data_root.exists():
         return
     all_langs = sorted(p.name for p in topic_data_root.iterdir() if p.is_dir())
@@ -1589,7 +1624,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
             continue
 
         if lang == "ko":
-            lang_dashboard = output_root / base_topic / "ko" / "dashboard.html"
+            lang_dashboard = track_paths.output_dir(base_topic) / "ko" / "dashboard.html"
             if lang_dashboard.exists():
                 sections += (
                     '<section class="lang-section"><h2 class="lang-heading">한국어</h2>'
@@ -1646,7 +1681,7 @@ def _generate_unified_dashboard(base_topic: str, output_root: Path, data_root: P
     html = UNIFIED_PAGE_TEMPLATE.format(
         title=_esc(title), lang_sections=sections, topic_name_js=json.dumps(base_topic),
     )
-    out_dir = output_root / base_topic
+    out_dir = track_paths.output_dir(base_topic)
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "dashboard.html").write_text(html, encoding="utf-8")
 
@@ -1664,6 +1699,10 @@ def generate(spec_path: str, card_news_dir: str, video_path: str | None, out_pat
         try:
             idx = parts.index("data")
             rest = parts[idx + 1:-1]
+            # 트랙 폴더는 경로에만 있고 topic 이름에는 안 들어간다 —
+            # 안 빼면 슬러그가 "육아_육아_1"이 된다.
+            if rest and rest[0] in track_paths.track_dirs():
+                rest = rest[1:]
         except ValueError:
             rest = ()
         topic = "_".join(rest) if rest else Path(spec_path).parent.name

@@ -18,6 +18,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from lib import tracks
 from lib.mission_control_log import report_issue
 from lib.rebuild_video import ROOT, select_format
 from lib.youtube_upload import _is_already_uploaded, _sb_fetch_uploaded
@@ -58,12 +59,11 @@ def find_stale_topics() -> list[dict]:
     uploaded = _uploaded_topics()
     stale: list[dict] = []
     output_dir = ROOT / "output"
-    for topic_dir in sorted(output_dir.iterdir()):
-        if not topic_dir.is_dir() or topic_dir.name.startswith("_"):
-            continue
-        for lang_dir in sorted(topic_dir.iterdir()):
-            if not lang_dir.is_dir():
-                continue
+    # WHY iter_topic_dirs인지(2026-09-24): 트랙 폴더(output/육아/)를 topic으로 보면
+    # 그 밑의 진짜 topic 폴더가 "언어"로 읽혀 topic 식별자가 "육아/육아_1"이 된다 —
+    # 이 저장소에서 topic 안의 "/"는 언어를 뜻하므로 그대로 두면 조용히 깨진다.
+    for topic_dir in tracks.iter_topic_dirs(output_dir):
+        for lang_dir in sorted(p for p in topic_dir.iterdir() if p.is_dir()):
             topic = f"{topic_dir.name}/{lang_dir.name}"
             if _is_already_uploaded(topic, uploaded):
                 continue
