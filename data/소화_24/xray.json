@@ -42,29 +42,33 @@
     {
       "from": "먼저 알갱이를 감싼",
       "item": "옥수수",
-      "mech": "m_enzyme_deficiency"
+      "mech": "m_enzyme_deficiency",
+      "label": "유당불내증"
     },
     {
       "from": "두 번째로는 씹지",
       "item": "어금니",
-      "mech": "m_bacteria_growth"
+      "mech": "m_bacteria_growth",
+      "label": "세균 번식"
     },
     {
       "from": "마지막으로는 한 번에",
       "item": "소화불량",
-      "mech": "m_wall_stretch_pain"
+      "mech": "m_wall_stretch_pain",
+      "label": "가스가 참"
     },
     {
       "from": "식이섬유는 많이 먹을수록",
       "item": "소화불량",
-      "mech": "m_wall_stretch_pain"
+      "mech": "m_wall_stretch_pain",
+      "label": "가스가 참"
     },
     {
       "from": "보건복지부 2020년 한국인",
       "item": "소화불량",
       "mech": "m_wall_stretch_pain",
       "act": null,
-      "label": null
+      "label": "가스가 참"
     }
   ],
   "opening_until": 4.24

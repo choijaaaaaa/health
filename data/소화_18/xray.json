@@ -24,36 +24,44 @@
     {
       "from": "이럴 때 헬리코박터",
       "item": "그릭요거트",
-      "mech": "m_mucus_barrier"
+      "mech": "m_mucus_barrier",
+      "label": "점액 보호막"
     },
     {
       "from": "먼저 증상이에요",
       "item": "속쓰림",
-      "mech": "m_bacteria_growth"
+      "mech": "m_bacteria_growth",
+      "label": "세균 번식"
     },
     {
       "from": "두 번째는 제균",
       "item": "알약",
-      "mech": "m_inflammation"
+      "mech": "m_inflammation",
+      "label": "염증"
     },
     {
       "from": "대한상부위장관헬리코박터학회 2025년 개정",
       "item": "알약",
-      "mech": "m_inflammation"
+      "mech": "m_inflammation",
+      "label": "염증"
     },
     {
       "from": "마지막은 가족",
       "item": "김치찌개",
-      "mech": "m_pathogen_ascent"
+      "mech": "m_pathogen_ascent",
+      "label": "방광염"
     },
     {
       "from": "국가암정보센터는 위암 가족력만",
       "item": "김치찌개",
-      "mech": "m_pathogen_ascent"
+      "mech": "m_pathogen_ascent",
+      "label": "방광염"
     },
     {
       "from": "국과 찌개는",
-      "item": "김치찌개"
+      "item": "김치찌개",
+      "mech": "m_pathogen_ascent",
+      "label": "방광염"
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech)이 바뀐다. 프레임을 직접 뽑아 확인한 배정 근거 — m_mucus_barrier는 점액층을 뚫고 내려가는 단면이라 '유산균은 그 아래까지 못 간다'는 반박에 붙이고, m_bacteria_growth는 반투명 층 밑에 막대균이 빽빽이 깔린 장면이라 '점액층 밑에 눌러앉아 평생 무증상'과 그대로 겹친다. m_inflammation은 부어오른 점막에 면역세포가 몰린 장면이라 제균 대상(만성 염증)에, m_pathogen_ascent는 관을 타고 막대균이 옮겨가는 장면이라 가족 간 전파에 붙였다.",

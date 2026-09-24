@@ -42,29 +42,33 @@
     {
       "from": "먼저 제로 탄산음료예요.",
       "item": "탄산음료",
-      "mech": "m_urine_overproduction"
+      "mech": "m_urine_overproduction",
+      "label": "다뇨"
     },
     {
       "from": "두 번째로는 무설탕",
       "item": "사탕",
-      "mech": "m_osmotic_water_pull"
+      "mech": "m_osmotic_water_pull",
+      "label": "설사"
     },
     {
       "from": "마지막으로 무설탕 껌이에요.",
       "item": "껌",
-      "mech": "m_bacteria_growth"
+      "mech": "m_bacteria_growth",
+      "label": "세균 번식"
     },
     {
       "from": "배탈이 안 나는",
       "item": "껌",
-      "mech": "m_bacteria_growth"
+      "mech": "m_bacteria_growth",
+      "label": "세균 번식"
     },
     {
       "from": "빈속에 몰아 마시지",
       "item": "껌",
       "mech": "m_bacteria_growth",
       "act": null,
-      "label": null
+      "label": "세균 번식"
     }
   ],
   "opening_until": 4.8

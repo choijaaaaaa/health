@@ -42,39 +42,45 @@
     {
       "from": "먼저 커피예요.",
       "item": "커피",
-      "mech": "m_adenosine_block"
+      "mech": "m_adenosine_block",
+      "label": "수용체"
     },
     {
       "from": "메이요클리닉이 갱년기 여성",
       "item": "커피",
-      "mech": "m_adenosine_block"
+      "mech": "m_hormone_drop",
+      "label": "호르몬"
     },
     {
       "from": "두 번째로는 술이에요.",
       "item": "와인",
-      "mech": "m_vessel_dilation"
+      "mech": "m_vessel_dilation",
+      "label": "피부 혈관"
     },
     {
       "from": "마지막으로 더운 잠자리예요.",
       "item": "이불",
-      "mech": "m_sweat_overproduction"
+      "mech": "m_sweat_overproduction",
+      "label": "땀샘"
     },
     {
       "from": "석류즙이나 콩이 열감에",
       "item": "이불",
-      "mech": "m_sweat_overproduction"
+      "mech": "m_dehydration",
+      "label": "체액량"
     },
     {
       "from": "대신 카페인은 오후",
       "item": "이불",
-      "mech": "m_sweat_overproduction"
+      "mech": "m_sweat_overproduction",
+      "label": "땀샘"
     },
     {
       "from": "열감 때문에 깨는",
       "item": "이불",
       "mech": "m_sweat_overproduction",
       "act": null,
-      "label": null
+      "label": "땀 분비"
     }
   ],
   "opening_until": 5.04

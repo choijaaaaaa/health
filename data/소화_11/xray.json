@@ -56,26 +56,29 @@
       "from": "먼저 약이에요",
       "item": "알약",
       "act": "act_strain_on_toilet",
-      "mech": "m_motility_slowdown"
+      "mech": "m_motility_slowdown",
+      "label": "변비"
     },
     {
       "from": "두 번째는 유산균이에요",
       "item": "영양제",
       "act": "act_take_supplement",
-      "mech": "m_nerve_overdrive"
+      "mech": "m_nerve_overdrive",
+      "label": "신경 과흥분"
     },
     {
       "from": "마지막은 몰아 먹는 식사예요",
       "item": "흰쌀밥",
       "act": "act_large_meal_after_fasting",
-      "mech": "m_arousal_spike"
+      "mech": "m_arousal_spike",
+      "label": "신호 폭증"
     },
     {
       "from": "커피와 차는",
       "item": "흰쌀밥",
       "mech": "m_arousal_spike",
       "act": null,
-      "label": null
+      "label": "신호 폭증"
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 칸(왼쪽 act · 오른쪽 mech)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(약·유산균·식사는 사진이 없어 배정표에 있는 알약·영양제·흰쌀밥을 쓴다).",

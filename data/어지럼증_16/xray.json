@@ -42,39 +42,45 @@
     {
       "from": "먼저 지속 시간이에요.",
       "item": "시계",
-      "mech": "m_otolith_displacement"
+      "mech": "m_otolith_displacement",
+      "label": "이석증"
     },
     {
       "from": "대한이비인후과학회는 이 어지럼이",
       "item": "시계",
-      "mech": "m_otolith_displacement"
+      "mech": "m_otolith_displacement",
+      "label": "이석증"
     },
     {
       "from": "두 번째로는 귀",
       "item": "보청기",
-      "mech": "m_pressure_buildup"
+      "mech": "m_pressure_buildup",
+      "label": "담즙 분비"
     },
     {
       "from": "속귀 림프액이 늘어",
       "item": "보청기",
-      "mech": "m_pressure_buildup"
+      "mech": "m_pressure_buildup",
+      "label": "담즙 분비"
     },
     {
       "from": "마지막으로 자세와 상관없이",
       "item": "면역세포",
-      "mech": "m_inflammation"
+      "mech": "m_inflammation",
+      "label": "염증"
     },
     {
       "from": "머리를 정해진 순서로",
       "item": "면역세포",
-      "mech": "m_inflammation"
+      "mech": "m_inflammation",
+      "label": "염증"
     },
     {
       "from": "질병관리청은 말이 어눌해지거나",
       "item": "면역세포",
       "mech": "m_inflammation",
       "act": null,
-      "label": null
+      "label": "염증"
     }
   ],
   "opening_until": 4.96

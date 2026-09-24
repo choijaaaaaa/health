@@ -42,34 +42,39 @@
     {
       "from": "먼저 잠들기 직전",
       "item": "시계",
-      "mech": "m_reflux_backflow"
+      "mech": "m_reflux_backflow",
+      "label": "역류"
     },
     {
       "from": "두 번째로는 배를",
       "item": "체중계",
-      "mech": "m_pressure_buildup"
+      "mech": "m_pressure_buildup",
+      "label": "담즙 분비"
     },
     {
       "from": "질병관리청은 허리둘레가 남자",
       "item": "체중계",
-      "mech": "m_pressure_buildup"
+      "mech": "m_pressure_buildup",
+      "label": "담즙 분비"
     },
     {
       "from": "마지막으로 박하사탕이에요.",
       "item": "사탕",
-      "mech": "m_tissue_laxity"
+      "mech": "m_tissue_laxity",
+      "label": "탄력 저하"
     },
     {
       "from": "그러니 저녁은 잠들기",
       "item": "사탕",
-      "mech": "m_tissue_laxity"
+      "mech": "m_tissue_laxity",
+      "label": "탄력 저하"
     },
     {
       "from": "위가 식도보다 왼쪽에",
       "item": "사탕",
       "mech": "m_tissue_laxity",
       "act": null,
-      "label": null
+      "label": "탄력 저하"
     }
   ],
   "opening_until": 3.36

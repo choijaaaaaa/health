@@ -34,29 +34,33 @@
     {
       "from": "먼저 인슐린저항성이에요.",
       "item": "영양제",
-      "mech": "m_receptor_desensitization"
+      "mech": "m_receptor_desensitization",
+      "label": "내성이 생김"
     },
     {
       "from": "두 번째로는 남성호르몬",
       "item": "귀리",
-      "mech": "m_hormone_surge"
+      "mech": "m_hormone_surge",
+      "label": "호르몬 급증"
     },
     {
       "from": "마지막으로 피지 과다예요.",
       "item": "체중계",
-      "mech": "m_sebum_overproduction"
+      "mech": "m_sebum_overproduction",
+      "label": "피지 과다"
     },
     {
       "from": "60킬로그램이면 3킬로그램이에요.",
       "item": "체중계",
-      "mech": "m_sebum_overproduction"
+      "mech": "m_sebum_overproduction",
+      "label": "피지 과다"
     },
     {
       "from": "질병관리청 국가건강정보포털은 가임기",
       "item": "체중계",
       "mech": "m_sebum_overproduction",
       "act": null,
-      "label": null
+      "label": "피지 과다"
     }
   ],
   "opening_until": 12.24,

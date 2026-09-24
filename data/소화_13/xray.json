@@ -24,29 +24,33 @@
     {
       "from": "먼저 굶는",
       "item": "체중계",
-      "mech": "m_crystal_precipitation"
+      "mech": "m_crystal_precipitation",
+      "label": "담즙"
     },
     {
       "from": "이렇게 생긴 돌이",
       "item": "담석",
-      "mech": "m_pressure_buildup"
+      "mech": "m_pressure_buildup",
+      "label": "담즙 분비"
     },
     {
       "from": "두 번째로는 아침을",
       "item": "시계",
-      "mech": "m_stasis_thickening"
+      "mech": "m_stasis_thickening",
+      "label": "담낭"
     },
     {
       "from": "마지막으로 지방을",
       "item": "샐러드",
-      "mech": "m_stasis_thickening"
+      "mech": "m_stasis_thickening",
+      "label": "담낭"
     },
     {
       "from": "그러니 체중은",
       "item": "샐러드",
       "mech": "m_stasis_thickening",
       "act": null,
-      "label": null
+      "label": "담낭"
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_pressure_buildup은 '돌이 담관을 막아 담낭이 부푼다'는 문장 전용 — 기존 클립이 담낭 폐색 장면과 그대로 맞는다.",

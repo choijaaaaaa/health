@@ -34,29 +34,33 @@
     {
       "from": "먼저 뜨거운 반신욕과",
       "item": "사우나",
-      "mech": "m_vessel_dilation"
+      "mech": "m_vessel_dilation",
+      "label": "혈관 확장"
     },
     {
       "from": "두 번째로는 짠",
       "item": "소금",
-      "mech": "m_fluid_retention"
+      "mech": "m_fluid_retention",
+      "label": "부종"
     },
     {
       "from": "마지막으로 변비예요.",
       "item": "귀리",
-      "mech": "m_backflow_pooling"
+      "mech": "m_backflow_pooling",
+      "label": "하지정맥류"
     },
     {
       "from": "관리는 종아리 근육을",
       "item": "귀리",
-      "mech": "m_backflow_pooling"
+      "mech": "m_backflow_pooling",
+      "label": "하지정맥류"
     },
     {
       "from": "발목 안쪽 피부가",
       "item": "귀리",
       "mech": "m_backflow_pooling",
       "act": null,
-      "label": null
+      "label": "하지정맥류"
     }
   ],
   "opening_until": 16.4,

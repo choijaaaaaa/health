@@ -39,39 +39,45 @@
     {
       "from": "이럴 때 펜 하나를",
       "item": "체중감량주사",
-      "mech": "m_emptying_delay"
+      "mech": "m_emptying_delay",
+      "label": "위 배출"
     },
     {
       "from": "허가사항에 적힌 부작용은",
       "item": "체중감량주사",
-      "mech": "m_emptying_delay"
+      "mech": "m_wall_stretch_pain",
+      "label": "위벽"
     },
     {
       "from": "먼저 구토예요",
       "item": "달력",
-      "mech": "m_emptying_delay"
+      "mech": "m_emptying_delay",
+      "label": "위 배출"
     },
     {
       "from": "위 배출이 늦어져",
       "item": "달력",
-      "mech": "m_emptying_delay"
+      "mech": "m_nerve_overdrive",
+      "label": "구역 신호"
     },
     {
       "from": "두 번째로는 탈모예요",
       "item": "체중계",
-      "mech": "m_follicle_weakening"
+      "mech": "m_follicle_weakening",
+      "label": "모낭"
     },
     {
       "from": "마지막으로 췌장이에요",
       "item": "체중감량주사",
-      "mech": "m_duct_blockage"
+      "mech": "m_duct_blockage",
+      "label": "췌관"
     },
     {
       "from": "증량은 0.25mg으로",
       "item": "체중감량주사",
       "mech": "m_duct_blockage",
       "act": null,
-      "label": null
+      "label": "관이 막힘"
     }
   ],
   "opening_until": 17.2
