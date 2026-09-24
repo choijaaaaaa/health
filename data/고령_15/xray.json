@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 파일럿(2026-09-23, 원고 재작성 후 2026-09-24 시간표 재작성). 도입부 훅이 4.8초라 Flow 2컷을 각 2.4초로 나눠 배속 없이(1.0배) 훅 문장 끝에 정확히 맞춘다 — 소화_9 시험본(13.6초)이 '너무 길다'는 지적을 받았고 구도 전환이 느린 게 지루함의 원인이라 짧은 컷이 낫다.",
+  "_why": "원고 전면 재작성(2026-09-24): 전염·치료시기·백신 3칸 나열 → '왜 한쪽·띠·통증이 먼저인가'를 기전의 층위로 판다. 칸: 잠복·재활성(신경 뿌리) → 좌우 따로라 한쪽 띠(척수 신경) → 신경 먼저·피부 나중이라 통증이 물집보다 앞섬(피부 신경, 행위는 '파스'로 오해하는 동작) → 항바이러스제가 막는 것(증식) → 24/72시간(퍼짐) → 신경통이 남음. 도입부는 훅=act_shingles_band, 통념 반박(파스)=act_cover_blister_gauze(흰 패치를 옆구리에 붙이는 장면).",
   "top_title": "한쪽만 띠처럼 따끔거린다면",
   "inset": {
     "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
@@ -16,82 +16,61 @@
       "clip": "assets_library/xray/output/act_shingles_band.mp4"
     },
     {
-      "clip": "assets_library/xray/output/m_virus_reactivation.mp4"
+      "clip": "assets_library/xray/output/act_cover_blister_gauze.mp4"
     }
   ],
   "timeline": [
     {
-      "from": "놓치기 쉬운 건",
-      "item": "아기",
-      "mech": "m_virus_persistence",
-      "label": "신경절",
-      "act": "act_shingles_band"
+      "from": "어릴 때 앓은 수두",
+      "item": "노화",
+      "mech": "m_virus_reactivation",
+      "act": "act_slow_walk",
+      "label": "신경 뿌리"
     },
     {
-      "from": "수두를 앓은 적",
-      "item": "아기",
-      "mech": "m_barrier_leak",
+      "from": "신경은 좌우가 따로",
+      "item": "피부반점",
+      "mech": "m_nerve_overdrive",
+      "act": "act_shingles_band",
+      "label": "척수 신경"
+    },
+    {
+      "from": "바이러스가 신경을 먼저",
+      "item": "달력",
+      "mech": "m_virus_reactivation",
       "act": "act_cover_blister_gauze",
-      "label": "피부 장벽"
+      "label": "피부 신경"
     },
     {
-      "from": "물집이 딱지로 변할",
-      "item": "수건",
-      "mech": "m_layer_separation",
-      "label": "피부",
-      "act": "act_cover_blister_gauze"
-    },
-    {
-      "from": "두 번째는 치료 시기예요",
-      "item": "시계",
+      "from": "항바이러스제는 바이러스가",
+      "item": "알약",
       "mech": "m_virus_replication",
       "act": "act_take_supplement",
       "label": "피부 세포"
     },
     {
-      "from": "질병관리청은 발진이 생기고",
-      "item": "알약",
+      "from": "질병관리청은 발진이",
+      "item": "시계",
       "mech": "m_tissue_invasion",
-      "act": "act_take_supplement",
+      "act": "act_shingles_band",
       "label": "피부 조직"
     },
     {
-      "from": "마지막은 백신이에요",
-      "item": "백신",
-      "mech": "m_immune_decline",
-      "label": "면역세포",
-      "act": "act_vaccine_shot_arm"
-    },
-    {
-      "from": "2006년 천 명당",
-      "item": "달력",
-      "mech": "m_virus_reactivation",
-      "label": "신경절",
-      "act": "act_shingles_band"
-    },
-    {
-      "from": "환자의 64퍼센트가",
+      "from": "놓치면 물집이 나아도",
       "item": "노화",
-      "mech": "m_immune_decline",
-      "label": "면역세포",
-      "act": "act_slow_walk"
+      "mech": "m_nerve_overdrive",
+      "act": "act_slow_walk",
+      "label": "신경 말단"
     },
     {
-      "from": "2017년 나온 사백신은",
-      "item": "주사기",
-      "mech": "m_virus_persistence",
-      "label": "신경절",
-      "act": "act_vaccine_shot_arm"
-    },
-    {
-      "from": "그러니 한쪽에만",
-      "item": "주사기",
+      "from": "그러니 한쪽만 띠처럼",
+      "item": "처방전",
       "mech": "m_virus_persistence",
       "act": null,
-      "label": "신경절"
+      "label": "신경 뿌리"
     }
   ],
-  "summary_from": "그러니 한쪽에만",
-  "opening_until": 14.88,
+  "summary_from": "그러니 한쪽만 띠처럼",
+  "opening_until": 12.24,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

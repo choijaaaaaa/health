@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23) → 2026-09-24 각도 재작성. 자동완성 1위 '증상'의 하위 1·2·4위(눈/목/생리)로 항목을 다시 잡았다. 클립은 lib.clip_index의 seen·fits·avoid로 고르고 최종 프레임만 확인.",
+  "_why": "원고 전면 재작성(2026-09-24): 눈·목·생리 3칸 나열 → 부기와 잠긴 목소리가 같은 원인이라는 한 줄기로 판다. 칸: 호르몬 부족(갑상선) → 물 붙잡는 물질이 눈두덩에 쌓임(자국 안 남는 부기) → 같은 물질이 성대에 쌓여 목이 잠김(행위는 감기로 오인하는 기침) → 하시모토: 면역세포가 갑상선을 조금씩 공격. 생리·빈혈 칸 삭제.",
   "top_title": "눈두덩 붓고 목소리가 잠긴다면",
   "inset": {
     "clip": "assets_library/xray/output/part_thyroid.mp4",
@@ -19,76 +19,44 @@
       "clip": "assets_library/xray/output/part_thyroid.mp4"
     }
   ],
-  "_mech": [
-    "m_fluid_retention",
-    "m_autoimmune_attack",
-    "m_blood_loss",
-    "m_hormone_drop"
-  ],
-  "_items": [
-    "부종",
-    "갑상선",
-    "생리대"
-  ],
-  "summary_from": "확인은 피 한 번이면",
+  "summary_from": "아침에만 붓고 오후에",
   "timeline": [
     {
-      "from": "저하증이 먼저 티를",
+      "from": "갑상선호르몬은 몸의",
       "item": "갑상선",
       "mech": "m_hormone_drop",
       "act": "act_touch_neck",
       "label": "갑상선"
     },
     {
-      "from": "먼저 눈이에요",
+      "from": "피부가 얇은 눈두덩부터",
       "item": "부종",
       "mech": "m_fluid_retention",
-      "act": "act_rub_eyes",
+      "act": "act_press_swollen_eyelid",
       "label": "눈두덩"
     },
     {
-      "from": "이 부기는 손가락으로",
-      "item": "부종",
-      "mech": "m_fluid_retention",
-      "act": "act_rub_eyes",
-      "label": "눈두덩"
+      "from": "목소리도 같은 이유예요",
+      "item": "확성기",
+      "mech": "m_mucus_overproduction",
+      "act": "act_cough",
+      "label": "성대"
     },
     {
-      "from": "두 번째로는 목이에요",
-      "item": "갑상선",
+      "from": "원인은 10명 중",
+      "item": "가족력",
       "mech": "m_autoimmune_attack",
       "act": "act_touch_neck",
-      "label": "갑상선"
+      "label": "갑상선 세포"
     },
     {
-      "from": "성대에도 같은 부기가",
-      "item": "갑상선",
-      "mech": "m_autoimmune_attack",
-      "act": "act_touch_neck",
-      "label": "갑상선"
-    },
-    {
-      "from": "마지막으로 생리예요",
-      "item": "생리대",
-      "mech": "m_blood_loss",
-      "act": "act_shift_uncomfortably_seated",
-      "label": "자궁내막"
-    },
-    {
-      "from": "매달 피를 더",
-      "item": "생리대",
-      "mech": "m_blood_loss",
-      "act": "act_slump_at_desk",
-      "label": "빈혈"
-    },
-    {
-      "from": "확인은 피 한 번이면",
-      "item": "생리대",
-      "mech": "m_blood_loss",
+      "from": "아침에만 붓고 오후에",
+      "item": "혈액검사",
+      "mech": "m_hormone_drop",
       "act": null,
-      "label": "빈혈"
+      "label": "갑상선"
     }
   ],
-  "opening_until": 4.8,
+  "opening_until": 13.84,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

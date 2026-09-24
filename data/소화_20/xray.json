@@ -1,6 +1,6 @@
 {
   "_why": "반투명 인체 포맷(content_v2). inset은 part_intestines에서 장이 호박색으로 켜진 구간을 원형으로 잘라 쓴다 — 크롭 y는 소화_9(위, 330~840)보다 아래인 410~920으로, 점등 영역(y≈540~800) 한가운데가 원 중심에 오게 잡았다.",
-  "top_title": "대장 용종, 검진 시기와 습관",
+  "top_title": "아픈 데 없어도 자라는 대장 용종",
   "inset": {
     "clip": "assets_library/xray/output/part_intestines.mp4",
     "crop": [
@@ -13,7 +13,7 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_rush_to_toilet.mp4"
+      "clip": "assets_library/xray/output/act_stand_still_unaware.mp4"
     },
     {
       "clip": "assets_library/xray/output/part_intestines.mp4"
@@ -21,35 +21,44 @@
   ],
   "timeline": [
     {
-      "from": "용종은 대장",
-      "item": "장",
-      "mech": "m_cell_overgrowth",
-      "act": "act_stand_still_unaware",
-      "label": "장 점막"
-    },
-    {
-      "from": "대한대장항문",
-      "item": "대장내시경",
+      "from": "용종은 대개 피를",
+      "item": "대장용종",
       "mech": "m_cell_overgrowth",
       "act": "act_strain_on_toilet",
-      "label": "장 점막"
+      "label": "대장 점막"
     },
     {
-      "from": "먼저 줄일",
-      "item": "가공육",
-      "mech": "m_toxin_load",
-      "act": "act_large_meal_after_fasting",
-      "label": "독소가 쌓임"
+      "from": "몸이 알려주지도",
+      "item": "장",
+      "mech": "part_intestines",
+      "act": "act_sniff_self",
+      "label": "대장"
     },
     {
-      "from": "채소는 하루",
-      "item": "양배추",
-      "mech": "m_toxin_load",
+      "from": "그래도 시간은 우리 편",
+      "item": "대장용종",
+      "mech": "m_tissue_invasion",
+      "act": "act_stand_still_unaware",
+      "label": "선종"
+    },
+    {
+      "from": "그 사이 한 번만",
+      "item": "대장내시경",
+      "mech": "m_cell_overgrowth",
+      "act": "act_squint_at_screen",
+      "label": "대장 점막"
+    },
+    {
+      "from": "그러니 45세가 넘었으면",
+      "item": "대장내시경",
+      "mech": "m_cell_overgrowth",
       "act": null,
-      "label": "독소가 쌓임"
+      "label": "대장"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_cell_overgrowth는 라이브러리에 없어 data/소화_20/clip_requests.json으로 렌더를 요청해 받았다 — 비슷한 클립으로 대체하지 않는다. 행위(act) 배정 근거(2026-09-24, 프레임 직접 확인) — ①정의 구간('세포가 늘어나 혹처럼 솟아오른다', '암으로 바뀌는 데 5~10년')은 가만히 선 채 아랫배 한 점만 서서히 밝아지며 커지는 act_stand_still_unaware가 그 과정 자체다(점등 자리가 우하복부라 대장 topic과도 맞다). ②'대부분 증상이 없었다 + 분변잠혈검사 음성이면 안심한다' 구간은 변기에 앉아 힘을 주다 대장 전체가 점등되는 act_strain_on_toilet — 훅('배변이 편하면 없는 걸까요?')이 반박하는 바로 그 안심의 근거를 화면에 세운다. ③가공육 구간은 숟가락을 쉬지 않고 나르며 식도–위–대장이 차례로 켜지는 act_large_meal_after_fasting. 세 구간 모두 다른 클립이라 칸이 매번 바뀐다. ⚠️ ①②를 맞바꾼 이유: 20.9초짜리 ② 구간에 4초 클립(act_stand_still_unaware)을 두면 5.2배로 늘려야 해 정지 화면이 된다(XRAY_FORMAT 상한 4배). 6초 클립을 긴 구간에 두면 3.5배로 들어간다.",
-  "summary_from": "채소는 하루",
-  "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+  "_timeline_why": "새 대본은 '검사가 왜 놓치나 → 몸도 안 알려준다 → 그래도 시간은 우리 편 → 일정으로 찾는 병'이라 그 네 층위로 칸을 나눴다(구간 6.9~11.1초). ①용종은 피를 안 흘려 대변 검사가 놓침: 점막에서 혹이 솟는 m_cell_overgrowth + 변기에 앉은 act_strain_on_toilet(대변). ②15만 명 중 3~4명 용종, 대부분 불편 없음: 대장 전체가 켜지는 part_intestines + 점등 없이 가만히 선 act_sniff_self. ③선종이 암이 되는 데 5~10년: 조직 속으로 뿌리가 뻗는 m_tissue_invasion + 한 점이 서서히 커지는 act_stand_still_unaware. ④그 사이 한 번 들여다보면 떼어낸다·일정으로 찾는 병: 자루 달린 버섯 모양 용종 m_cell_overgrowth(떼어낼 수 있는 모양, ①과 안 붙음) + 화면을 들어 들여다보는 act_squint_at_screen(일정 확인, 점등 없음). 가공육·채소는 해결책이라 칠판으로 넘겼다.",
+  "summary_from": "그러니 45세가 넘었으면",
+  "_summary_why": "해결책 첫 문장 '그러니 45세가 넘었으면 대장내시경을'부터 칠판 전체. 배지는 대장내시경.",
+  "_opening_why": "훅 '배변도 편하고 아픈 데도 없으면 없는 걸까요?' + 분변잠혈 음성 반박까지 전체 화면. 아무 동작 없이 선 몸에서 아랫배 한 점만 조용히 밝아지는 act_stand_still_unaware(본인은 모르는 채 무언가 있음) → 대장 전체가 켜지는 part_intestines. 통클립 4+4초를 11.6초에 쓰므로 약 1.45배.",
+  "opening_until": 11.36
 }

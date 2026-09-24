@@ -1,5 +1,5 @@
 {
-  "_why": "전면 재작성(2026-09-23). 네이버 자동완성에서 실제 수요가 확인된 갈래(탈모·배탈·크레아티닌 수치)로 각도를 바꿨고, 클립은 프레임을 직접 뽑아 확인해 골랐다.",
+  "_why": "원고 전면 재작성(2026-09-24): '진짜인지 가려낼 3가지' 나열 → 계산식이 착시를 만드는 과정을 층위로 판다. 칸: 검사지 수치=핏속 크레아티닌, 신장이 거른 뒤 남은 양으로 여과율을 거꾸로 계산(part_kidney) → 크레아틴이 매일 크레아티닌으로 바뀌어 핏속 양이 늘면 계산식이 '느려졌다'고 읽음(m_glucose_spike: 흡수된 구슬이 혈관을 채우는 그림으로만 씀) → 진짜 손상은 거름막으로 알부민이 샘(m_filtration_overload) → 한 번 높은 건 탈수·운동으로도(m_dehydration). 시스타틴C는 칠판으로 옮김.",
   "top_title": "신장 수치가 높게 나왔다면",
   "inset": {
     "clip": "assets_library/xray/output/part_kidney.mp4",
@@ -19,76 +19,45 @@
       "clip": "assets_library/xray/output/part_kidney.mp4"
     }
   ],
-  "_mech": [
-    "m_follicle_weakening",
-    "m_osmotic_water_pull",
-    "m_filtration_overload"
-  ],
-  "_items": [
-    "헤어브러시",
-    "물컵",
-    "혈액검사"
-  ],
   "_clip_notes": "act_hair_shedding 3.0~5.6초 = 손이 머리에서 떨어지며 머리카락 가닥이 딸려 나오고 두피 점등(프레임 확인). act_toilet_check = 서서 소변보며 방광→양쪽 신장까지 점등(프레임 확인, clip_index도 '신장 이상 신호'로 적고 있다). part_kidney는 CLIP_NOTES의 region 수정본이라 신장만 켜진다. act_urgent_watery_bowel은 아직 없어 clip_requests.json에 요청함 — 차선은 act_rush_to_toilet 4.5~6.0초(4.3초부터 장이 켜진 채 급히 걸어간다, 그 앞 구간은 방광이라 쓰면 안 된다).",
-  "summary_from": "그러니 수치 하나에",
+  "summary_from": "그러니 재검 때는",
   "timeline": [
     {
-      "from": "확인할 건 근육량",
-      "item": "혈액검사",
+      "from": "검사지의 신장 수치는",
+      "item": "신장",
+      "mech": "part_kidney",
+      "act": "act_clutch_low_back",
+      "label": "신장"
+    },
+    {
+      "from": "그런데 크레아틴은",
+      "item": "영양제",
+      "mech": "m_glucose_spike",
+      "act": "act_take_supplement",
+      "label": "혈관"
+    },
+    {
+      "from": "진짜 손상은 소변에서",
+      "item": "방광",
       "mech": "m_filtration_overload",
       "act": "act_toilet_check",
-      "label": "사구체"
+      "label": "사구체 거름막"
     },
     {
-      "from": "먼저 근육량이에요",
-      "item": "아령",
-      "mech": "m_muscle_wasting",
-      "act": "act_take_supplement",
-      "label": "근육"
-    },
-    {
-      "from": "이럴 땐 근육 영향을",
-      "item": "혈액검사",
-      "mech": "m_filtration_overload",
-      "act": "act_take_supplement",
-      "label": "크레아티닌"
-    },
-    {
-      "from": "두 번째는 단백뇨예요",
-      "item": "혈액검사",
-      "mech": "m_barrier_leak",
-      "act": "act_toilet_check",
-      "label": "사구체 여과막"
-    },
-    {
-      "from": "소변검사에서 알부민이",
-      "item": "혈액검사",
-      "mech": "m_osmotic_water_pull",
-      "act": "act_toilet_check",
-      "label": "소변"
-    },
-    {
-      "from": "마지막은 석 달 추세예요",
-      "item": "달력",
-      "mech": "m_microvessel_damage",
-      "act": "act_take_supplement",
-      "label": "모세혈관"
-    },
-    {
-      "from": "사구체여과율 60",
-      "item": "달력",
-      "mech": "m_fibrosis",
-      "act": "act_toilet_check",
+      "from": "한 번 높은 건",
+      "item": "운동화",
+      "mech": "m_dehydration",
+      "act": "act_wipe_sweat",
       "label": "신장 조직"
     },
     {
-      "from": "그러니 수치 하나에",
+      "from": "그러니 재검 때는",
       "item": "혈액검사",
-      "mech": "m_filtration_overload",
+      "mech": "part_kidney",
       "act": null,
-      "label": "사구체"
+      "label": "신장"
     }
   ],
-  "opening_until": 11.28,
+  "opening_until": 10.08,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }
