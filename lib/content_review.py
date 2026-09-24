@@ -495,10 +495,14 @@ V2_MIN_NUMBERS = 3
 # "명·세·살"은 건강 콘텐츠에서 가장 흔한 단위인데 빠져 있었다(2026-09-23) — "인구 천 명당 17.2명",
 # "만 50세부터"처럼 실행에 직결되는 수치가 통째로 안 잡혀 원고를 멀쩡히 쓰고도 미달로 걸렸다.
 _NUM_WITH_UNIT = re.compile(
-    r"\d[\d,.]*\s?(?:mg|g|kg|ml|L|밀리그램|그램|칼로리|kcal|도|℃|%|퍼센트|배|분|시간|일|주|개월|년|회|번|잔|컵|알|정|포|명|세|살)")
+    r"\d[\d,.]*\s?(?:mg|g|kg|ml|L|밀리그램|그램|칼로리|kcal|도|℃|%|퍼센트|배|분|시간|일|주|개월|년|회|번|잔|컵|알|정|포|명|세|살|리터|밀리리터|티스푼|큰술|작은술|단계|층|줄)")
 _MYTH_PATTERNS = [
     re.compile(r"(좋다고|낫는다고|도움이 된다고|괜찮다고|효과가 있다고)\s*(들으|알려|생각|믿)"),
     re.compile(r"(알려져 ?있지만|생각하기 쉽지만|흔히 ?아는 것과 달리|사실은 ?반대)"),
+    # "떠올리지만 / 떠올리는데 / 여기기 쉽지만 / 아는 사람이 많은데" — 실제로 자주 쓰는 반박 형태인데
+    # 위 셋에 안 걸려 멀쩡한 원고가 실패했다(2026-09-24 대사_22 실측).
+    re.compile(r"(떠올리|여기|착각하|믿|넘기|생각하)(지만|는데|기 쉽지만)"),
+    re.compile(r"(반대(쪽|로)|~?가 아니라)"),
     re.compile(r"오히려"),
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
@@ -678,6 +682,76 @@ def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
 
 
 MAX_PANEL_GAP_SEC = 8.0      # 위쪽 칸이 이보다 오래 안 바뀌면 "같은 그림에 색만" 구간이 된다
+
+# 기관명을 문장마다 붙이면 읽는 사람은 "또 저 소리"가 된다.
+_ORG_NAMES = re.compile(r"질병관리청|건강보험심사평가원|서울아산병원|서울대학교병원|식품의약품안전처|"
+                        r"대한[가-힣]{2,6}학회|국제[가-힣]{2,8}학회|국립[가-힣]{2,6}원|한국소비자원")
+MAX_ORG_MENTIONS = 2
+
+# 설명 없이 던지면 못 알아듣는 말. 값은 "이 말을 풀어줬는지" 확인할 쉬운 표현이다.
+_JARGON = {
+    "미주신경": "신경", "사구체여과율": "신장", "크레아티닌": "노폐물", "하시모토": "면역",
+    "갑상선자극호르몬": "호르몬", "베타차단제": "약", "전정": "귀", "포드맵": "당",
+    "인슐린 저항성": "혈당", "사이토카인": "염증", "프로스타글란딘": "통증",
+}
+
+
+def check_plain_language(topic: str, lang: str = "kor") -> list[dict]:
+    """기관명을 반복해 붙이지 않았는지, 전문용어를 설명 없이 던지지 않았는지.
+
+    WHY(2026-09-24 사용자 지적): 공공데이터를 쓰기 시작한 뒤 원고에 기관명과 전문용어만 덧붙었다.
+    대사_22에 질병관리청이 다섯 번 나왔고("뭐만하면 질병관리청 이지랄하네"), 순환_12는
+    미주신경·사구체여과율·베타차단제가 설명 없이 박혀 있었다("전문용어 덕지덕지 붙여가지고
+    이해도 안되게"). 한 항목은 **행동 → 원인 → 아이템** 세 마디면 된다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "narration.txt"
+    if not path.exists():
+        return []
+    text = path.read_text(encoding="utf-8")
+    issues = []
+    # 🚨 세는 건 **수치 없이 붙은** 기관명이다. 퍼센트·기간 같은 숫자를 받치는 인용은 제 역할을
+    # 하는 것이고("저하증이 항진증보다 1.8배"), 문제는 사실만 말하면 되는 자리에 이름을 덧댄 쪽이다.
+    bare = [sent for sent in re.split(r"(?<=[.?!])\s+", text.strip())
+            if _ORG_NAMES.search(sent) and not _NUM_WITH_UNIT.search(sent)]
+    if len(bare) > MAX_ORG_MENTIONS:
+        issues.append({"quote": bare[0][:40], "severity": "medium",
+                       "issue": f"수치 없이 기관명만 붙인 문장이 {len(bare)}개입니다"
+                                f"(권장 {MAX_ORG_MENTIONS}개 이하) — 숫자를 받치는 자리가 아니면 "
+                                "사실만 말하세요."})
+    for term, plain in _JARGON.items():
+        if term in text and plain not in text:
+            issues.append({"quote": term, "severity": "medium",
+                           "issue": f"'{term}'을(를) 설명 없이 씁니다 — 쉬운 말('{plain}')로 한 번 풀거나 빼세요."})
+    return issues
+
+
+def check_summary_single_block(topic: str, lang: str = "kor") -> list[dict]:
+    """결론 구간이 여러 행으로 쪼개져 품목 배지만 줄줄이 바뀌지 않는지.
+
+    WHY(2026-09-24 사용자 "써머리에는 이미지는 줄줄이 나열해놓고 설명은 뒤에 몇개밖에 안 나온다"):
+    결론은 "그래서 뭘 하면 되는지" 한 덩어리다. timeline을 거기서 더 쪼개면 칠판 품목만 계속
+    바뀌는데 정작 말은 몇 마디뿐이라 따로 논다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return []
+    try:
+        from lib.xray_timeline import resolve, summary_start
+        ts = summary_start(topic)
+        rows = resolve(topic) or []
+    except Exception:
+        return []
+    if ts is None or not rows:
+        return []
+    inside = [r for r in rows if r["start"] >= ts - 0.05]
+    if len(inside) > 1:
+        return [{"quote": ", ".join(str(r["item"]) for r in inside), "severity": "medium",
+                 "issue": f"결론 구간이 {len(inside)}개 행으로 쪼개져 품목이 계속 바뀝니다 — "
+                          "결론은 한 덩어리로 두거나 아예 빼세요(칠판 전체 버전이 덮습니다)."}]
+    return []
+
 
 def check_xray_timeline_resolves(topic: str, lang: str = "kor") -> list[dict]:
     """xray.json timeline의 구절이 지금 자막에서 실제로 찾히는지.
@@ -877,6 +951,8 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_card_narration_alignment(topic, lang)
         + check_xray_timeline_resolves(topic, lang)
         + check_xray_pacing(topic, lang)
+        + check_plain_language(topic, lang)
+        + check_summary_single_block(topic, lang)
     )
 
 

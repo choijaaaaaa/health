@@ -34,21 +34,6 @@
       "from": "마지막으로 짠",
       "item": "소금",
       "mech": "m_cell_damage"
-    },
-    {
-      "from": "카페인은 하루",
-      "item": "커피",
-      "mech": "m_acid_secretion"
-    },
-    {
-      "from": "진통제는 꼭",
-      "item": "이부프로펜",
-      "mech": "m_mucus_barrier"
-    },
-    {
-      "from": "짠 음식은",
-      "item": "소금",
-      "mech": "m_cell_damage"
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다.",

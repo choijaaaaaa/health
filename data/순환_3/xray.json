@@ -53,17 +53,7 @@
       "from": "마지막으로 변비예요.",
       "item": "귀리",
       "mech": "m_backflow_pooling"
-    },
-    {
-      "from": "발목 안쪽 피부가",
-      "item": "사우나",
-      "mech": "m_vessel_dilation"
-    },
-    {
-      "from": "이미 늘어난 정맥은",
-      "item": "소금",
-      "mech": "m_fluid_retention"
     }
   ],
-  "opening_until": 6.08
+  "opening_until": 5.76
 }

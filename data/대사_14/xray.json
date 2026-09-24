@@ -63,17 +63,7 @@
       "from": "마지막으로 췌장이에요",
       "item": "체중감량주사",
       "mech": "m_duct_blockage"
-    },
-    {
-      "from": "증량은 0.25mg으로",
-      "item": "달력",
-      "mech": "m_emptying_delay"
-    },
-    {
-      "from": "명치 통증이 등까지",
-      "item": "체중감량주사",
-      "mech": "m_duct_blockage"
     }
   ],
-  "opening_until": 5.7
+  "opening_until": 5.36
 }

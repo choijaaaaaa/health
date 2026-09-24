@@ -60,7 +60,8 @@ def _lit(base: Image.Image, mask: Image.Image, amount: float) -> Image.Image:
     return Image.composite(amber, base, m)
 
 
-def build(still: Path, out: Path, region: tuple[float, float, float, float] | None) -> None:
+def build(still: Path, out: Path, region: tuple[float, float, float, float] | None,
+          zoom: float = ZOOM_END, glow_in: tuple[float, float] = GLOW_IN) -> None:
     src = Image.open(still).convert("RGB")
     if src.size != (W, H):
         src = src.resize((W, H), Image.LANCZOS)
@@ -72,7 +73,7 @@ def build(still: Path, out: Path, region: tuple[float, float, float, float] | No
         for i in range(frames):
             t = i / FPS
             # 카메라: 후반으로 갈수록 느려지는 push-in(파일럿 A "the camera eases to a stop")
-            z = 1 + (ZOOM_END - 1) * (1 - (1 - min(t / DUR, 1)) ** 2)
+            z = 1 + (zoom - 1) * (1 - (1 - min(t / DUR, 1)) ** 2)
             cw, ch = W / z, H / z
             # 전신 스틸에서 배를 켜면 카메라도 배로 가야 한다 — region이 있으면 그 중심으로 밀고 들어간다
             cx = min(max(rcx * W, cw / 2), W - cw / 2)
@@ -80,9 +81,9 @@ def build(still: Path, out: Path, region: tuple[float, float, float, float] | No
             box = (round(cx - cw / 2), round(cy - ch / 2), round(cx + cw / 2), round(cy + ch / 2))
             frame = src.crop(box).resize((W, H), Image.LANCZOS)
             fm = mask.crop(box).resize((W, H), Image.LANCZOS)
-            ramp = 0.0 if t < GLOW_IN[0] else min(1.0, (t - GLOW_IN[0]) / (GLOW_IN[1] - GLOW_IN[0]))
+            ramp = 0.0 if t < glow_in[0] else min(1.0, (t - glow_in[0]) / (glow_in[1] - glow_in[0]))
             # 만개 후엔 꺼지지 않고 0.78~1.0 사이에서 숨만 쉰다(캐논: 마지막 프레임까지 켜진 채)
-            pulse = 1.0 if ramp < 1 else 0.89 + 0.11 * math.cos(2 * math.pi * (t - GLOW_IN[1]) / PULSE_PERIOD)
+            pulse = 1.0 if ramp < 1 else 0.89 + 0.11 * math.cos(2 * math.pi * (t - glow_in[1]) / PULSE_PERIOD)
             _lit(frame, fm, ramp * pulse).save(td / f"{i:04d}.png")
         subprocess.run(["ffmpeg", "-y", "-framerate", str(FPS), "-i", str(td / "%04d.png"),
                         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(out)],
@@ -94,11 +95,19 @@ def main() -> None:
     ap.add_argument("still")
     ap.add_argument("out")
     ap.add_argument("--region", help="점등 타원 x,y,w,h (0~1 비율). 생략하면 피사체 전체")
+    # WHY(2026-09-24 사용자 "이미지는 확대하지않고 그대로 있어도된다. 줌 땡기니까 벗어나는거 아니냐?"):
+    # push-in을 걸면 점등 부위가 화면 밖으로 밀려날 수 있고, 도입부처럼 클립의 앞부분만 잘라 쓰면
+    # 아직 확대 중이라 부위가 제자리에 없다. 고정 화면이 필요한 자리엔 줌을 끈다.
+    ap.add_argument("--no-zoom", action="store_true", help="push-in 없이 고정 화면으로")
+    # 도입부는 클립 앞쪽 2.6초만 잘라 쓰는데 기본 점등은 1.3초에 켜지기 시작해 2.7초에 만개한다 —
+    # 그대로 쓰면 앞 절반이 깜깜하다(실측: part_kidney 2.6초까지 점등 0%).
+    ap.add_argument("--glow-in", help="점등 시작,만개 시각 (기본 1.3,2.7)")
     a = ap.parse_args()
     region = tuple(float(v) for v in a.region.split(",")) if a.region else None
     if region and len(region) != 4:
         raise SystemExit("--region은 x,y,w,h 네 값")
-    build(Path(a.still), Path(a.out), region)
+    glow = tuple(float(v) for v in a.glow_in.split(",")) if a.glow_in else GLOW_IN
+    build(Path(a.still), Path(a.out), region, zoom=1.0 if a.no_zoom else ZOOM_END, glow_in=glow)
     print(f"완료: {a.out}")
 
 

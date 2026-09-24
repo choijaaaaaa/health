@@ -53,17 +53,7 @@
       "from": "마지막으로 체지방이에요.",
       "item": "체중계",
       "mech": "m_fat_accumulation"
-    },
-    {
-      "from": "숨이 찰 만큼",
-      "item": "생리대",
-      "mech": "m_blood_loss"
-    },
-    {
-      "from": "생리가 7일 넘게",
-      "item": "빈혈",
-      "mech": "m_oxygen_transport_drop"
     }
   ],
-  "opening_until": 5.12
+  "opening_until": 4.8
 }

@@ -184,7 +184,9 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png
         if not lp.exists():
             _make_pill_label_png(lab, lp)
         inputs += ["-i", str(lp)]
-        fc.append(f"[{cur}][{n}:v]overlay=x={px + 18}:y={py + ph - 18}-h:"
+        # 오른쪽 아래에 둔다 — 2026-09-24 사용자 "기전에 해당하는게 그 부위라서, 행동이랑은 별개로".
+        # 칸이 좌우로 갈릴 때 왼쪽 아래에 두면 행위 클립에 붙은 이름처럼 읽힌다.
+        fc.append(f"[{cur}][{n}:v]overlay=x={px + pw - 18}-w:y={py + ph - 18}-h:"
                   f"enable='between(t,{ls:.4f},{le + 1 / 30:.4f})'[plb{j}]")
         cur, n = f"plb{j}", n + 1
     if ad_png is None:

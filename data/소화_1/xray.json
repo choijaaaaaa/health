@@ -53,17 +53,7 @@
       "from": "마지막으로 박하사탕이에요.",
       "item": "사탕",
       "mech": "m_tissue_laxity"
-    },
-    {
-      "from": "위가 식도보다 왼쪽에",
-      "item": "시계",
-      "mech": "m_reflux_backflow"
-    },
-    {
-      "from": "삼킬 때 음식이",
-      "item": "체중계",
-      "mech": "m_pressure_buildup"
     }
   ],
-  "opening_until": 3.84
+  "opening_until": 3.52
 }

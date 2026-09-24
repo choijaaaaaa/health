@@ -53,17 +53,7 @@
       "from": "마지막으로는 한 번에",
       "item": "소화불량",
       "mech": "m_wall_stretch_pain"
-    },
-    {
-      "from": "보건복지부 2020년 한국인",
-      "item": "옥수수",
-      "mech": "m_enzyme_deficiency"
-    },
-    {
-      "from": "배가 부푼 느낌이",
-      "item": "어금니",
-      "mech": "m_bacteria_growth"
     }
   ],
-  "opening_until": 4.56
+  "opening_until": 4.24
 }

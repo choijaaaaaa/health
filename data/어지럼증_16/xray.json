@@ -53,17 +53,7 @@
       "from": "마지막으로 자세와 상관없이",
       "item": "면역세포",
       "mech": "m_inflammation"
-    },
-    {
-      "from": "질병관리청은 말이 어눌해지거나",
-      "item": "시계",
-      "mech": "m_otolith_displacement"
-    },
-    {
-      "from": "복시나 심한 두통까지",
-      "item": "보청기",
-      "mech": "m_pressure_buildup"
     }
   ],
-  "opening_until": 5.28
+  "opening_until": 4.96
 }

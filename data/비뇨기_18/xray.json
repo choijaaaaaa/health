@@ -53,17 +53,7 @@
       "from": "마지막으로 무설탕 껌이에요.",
       "item": "껌",
       "mech": "m_bacteria_growth"
-    },
-    {
-      "from": "빈속에 몰아 마시지",
-      "item": "탄산음료",
-      "mech": "m_urine_overproduction"
-    },
-    {
-      "from": "설사가 2주 넘게",
-      "item": "사탕",
-      "mech": "m_osmotic_water_pull"
     }
   ],
-  "opening_until": 5.12
+  "opening_until": 4.8
 }

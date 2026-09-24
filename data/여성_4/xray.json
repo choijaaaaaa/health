@@ -53,17 +53,7 @@
       "from": "마지막으로 더운 잠자리예요.",
       "item": "이불",
       "mech": "m_sweat_overproduction"
-    },
-    {
-      "from": "열감 때문에 깨는",
-      "item": "커피",
-      "mech": "m_adenosine_block"
-    },
-    {
-      "from": "대한폐경학회 치료지침은 폐경호르몬요법을",
-      "item": "와인",
-      "mech": "m_vessel_dilation"
     }
   ],
-  "opening_until": 5.36
+  "opening_until": 5.04
 }

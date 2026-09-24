@@ -63,20 +63,8 @@
       "item": "흰쌀밥",
       "act": "act_large_meal_after_fasting",
       "mech": "m_arousal_spike"
-    },
-    {
-      "from": "커피와 차는",
-      "item": "귀리",
-      "act": "act_take_supplement",
-      "mech": "m_nerve_overdrive"
-    },
-    {
-      "from": "건강보험심사평가원 자료로",
-      "item": "알약",
-      "act": "act_strain_on_toilet",
-      "mech": "m_motility_slowdown"
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 칸(왼쪽 act · 오른쪽 mech)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(약·유산균·식사는 사진이 없어 배정표에 있는 알약·영양제·흰쌀밥을 쓴다).",
-  "opening_until": 5.4
+  "opening_until": 5.52
 }

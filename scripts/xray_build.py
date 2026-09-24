@@ -30,6 +30,7 @@ from lib.xray_timeline import resolve  # noqa: E402
 
 PY = str(ROOT / ".venv" / "bin" / "python3")
 LIB = "assets_library/xray/output"
+TITLE_CARD_SEC = 0.2          # 영상 맨 앞 제목 카드 — 나레이션은 이만큼 늦게 시작한다
 MIN_PANEL_SEC = 3.0          # 이보다 짧은 구간에 기전을 갈아 끼우면 깜빡임으로만 보인다
 
 
@@ -224,7 +225,10 @@ def main() -> None:
 
     cmd = [PY, "scripts/xray_splice.py", a.topic, *args, "--panel"]
     if cfg.get("opening_until"):
-        cmd += ["--fill-until", str(cfg["opening_until"])]
+        # 🚨 `opening_until`은 **나레이션 시각**으로 적는다(자막에서 훅이 끝나는 시각). 영상은 맨 앞
+        # 제목카드만큼 밀려 있으므로 여기서 더해 넘긴다 — 2026-09-24 실측: 그냥 넘기던 탓에 도입부가
+        # 늘 0.2초 일찍 잘려 훅 마지막 말이 칠판으로 넘어가 있었다("0.5초정도 나오고 넘어가버리잖아").
+        cmd += ["--fill-until", f"{cfg['opening_until'] + TITLE_CARD_SEC:.2f}"]
     if a.ad_tag:
         cmd.append("--ad-tag")
     if a.base:

@@ -53,17 +53,7 @@
       "from": "마지막으로 피지 과다예요.",
       "item": "체중계",
       "mech": "m_sebum_overproduction"
-    },
-    {
-      "from": "질병관리청 국가건강정보포털은 가임기",
-      "item": "영양제",
-      "mech": "m_receptor_desensitization"
-    },
-    {
-      "from": "월경 주기가 35일을",
-      "item": "귀리",
-      "mech": "m_hormone_surge"
     }
   ],
-  "opening_until": 5.6
+  "opening_until": 5.28
 }

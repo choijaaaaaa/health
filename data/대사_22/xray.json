@@ -41,25 +41,18 @@
   "summary_from": "확인은 피 한 번이면",
   "timeline": [
     {
-      "from": "갑상선 하면 눈이",
+      "from": "갑상선 질환 하면",
       "item": "갑상선",
       "mech": "m_hormone_drop",
       "act": "act_touch_neck",
       "label": "갑상선"
     },
     {
-      "from": "건강보험심사평가원 통계로도",
+      "from": "저하증이 먼저 티를",
       "item": "갑상선",
-      "mech": "m_autoimmune_attack",
+      "mech": "m_hormone_drop",
       "act": "act_touch_neck",
       "label": "갑상선"
-    },
-    {
-      "from": "저하증이 먼저 티를",
-      "item": "부종",
-      "mech": "m_fluid_retention",
-      "act": "act_rub_eyes",
-      "label": "조직 사이 물"
     },
     {
       "from": "먼저 눈이에요",
@@ -69,7 +62,7 @@
       "label": "눈두덩"
     },
     {
-      "from": "눌러도 자국이",
+      "from": "이 부기는 손가락으로",
       "item": "부종",
       "mech": "m_fluid_retention",
       "act": "act_rub_eyes",
@@ -86,7 +79,7 @@
       "from": "성대에도 같은 부기가",
       "item": "갑상선",
       "mech": "m_fluid_retention",
-      "act": "act_rub_neck",
+      "act": "act_touch_neck",
       "label": "성대"
     },
     {
@@ -94,7 +87,7 @@
       "item": "생리대",
       "mech": "m_blood_loss",
       "act": "act_shift_uncomfortably_seated",
-      "label": "자궁"
+      "label": "자궁내막"
     },
     {
       "from": "매달 피를 더",
@@ -102,28 +95,7 @@
       "mech": "m_blood_loss",
       "act": "act_slump_at_desk",
       "label": "빈혈"
-    },
-    {
-      "from": "확인은 피 한 번이면",
-      "item": "혈액검사",
-      "mech": "m_hormone_drop",
-      "act": "act_take_supplement",
-      "label": "호르몬"
-    },
-    {
-      "from": "갑상선자극호르몬이 10을",
-      "item": "알약",
-      "mech": "m_hormone_drop",
-      "act": "act_take_supplement",
-      "label": "호르몬"
-    },
-    {
-      "from": "얼굴 붓기에 잠긴",
-      "item": "맥박",
-      "mech": "m_fluid_retention",
-      "act": null,
-      "label": "맥박"
     }
   ],
-  "opening_until": 5.0
+  "opening_until": 4.96
 }
