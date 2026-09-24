@@ -172,6 +172,15 @@ def build(track: str | None) -> None:
         r["_no"], r["_work"] = f"{i:02d}", f"{i:02d}_{r['name']}.jpg"
         if src:
             shutil.copy2(src, work / r["_work"])
+        else:
+            # 🚨 스틸이 없는 항목은 폴더를 **빈자리로 두지 않는다**(2026-09-24): "스틸 다
+            # 모아놨다"는 말만 믿고 열었다가 파일이 없어 헛걸음했다. 왜 없는지, 뭘 하면
+            # 되는지를 그 자리에 적어둔다.
+            (work / f"{i:02d}_{r['name']}_스틸없음.txt").write_text(
+                f"{r['name']} — 스틸이 아직 없습니다.\n\n"
+                f"0_작업지시.md의 {i:02d}번에 미드저니 프롬프트가 있습니다.\n"
+                f"그걸로 이미지를 뽑아 이 폴더에 `{i:02d}_{r['name']}.jpg` 로 넣어주세요.\n"
+                f"(이 쪽지는 지워도 됩니다)\n", encoding="utf-8")
 
     # 스틸만 받는 요청을 1·2부에 섞으면 "이것도 Flow를 돌려야 하나"가 된다 — 따로 세운다
     stills = [x for x in pend if x[2] == "still"]
