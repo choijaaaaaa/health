@@ -63,6 +63,44 @@ ROOT = Path(__file__).resolve().parent.parent
 _ALLOWED_PLATFORMS = {"네이버 블로그", "네이버 클립"}
 
 
+def uploadable_topics() -> set[str]:
+    """지금 올릴 수 있는 topic — 반투명 인체 포맷으로 **영상과 카드가 둘 다, 최신으로** 있는 것.
+
+    WHY(2026-09-24 사용자 "신규 포맷기준으로 카드뉴스랑 영상까지 다 완성된거 빼고 전부 싸그리
+    없애봐 뭐가 새거여서 업로드 가능한지를 모르겠네"): 미션컨트롤에 380여 topic이 올라가 있었는데
+    대부분은 옛 포맷이거나 아직 영상이 없는 것이라, 정작 지금 올릴 수 있는 10여 개가 묻혔다.
+    "목록에 있다"가 "올릴 수 있다"를 뜻하게 만든다.
+
+    세 조건을 다 봐야 한다 — 하나라도 빼면 못 올릴 게 목록에 남는다:
+      1. `xray.json`이 있다(반투명 인체 포맷 topic이다)
+      2. `shorts_xray_test.mp4`가 있다(칠판만 있는 중간본 `shorts.mp4`가 아니다)
+      3. 그 영상이 원고·시간표·스펙보다 **새것**이다(고치고 다시 안 조립한 건 올리면 안 된다)
+      4. 카드뉴스 이미지가 있다
+
+    조립이 끝나면 `xray_build.py`가 이 동기화를 다시 부르므로 자동으로 목록에 들어온다.
+    """
+    out: set[str] = set()
+    data_dir = ROOT / "data"
+    if not data_dir.is_dir():
+        return out
+    for topic_dir in tracks.iter_topic_dirs(data_dir):
+        topic = topic_dir.name
+        if not (topic_dir / "xray.json").exists():
+            continue
+        odir = tracks.output_dir(topic)
+        vid = odir / "shorts_xray_test.mp4"
+        cards = odir / "card_news"
+        if not vid.is_file() or not cards.is_dir() or not any(cards.glob("*.jpg")):
+            continue
+        srcs = [topic_dir / "xray.json", topic_dir / "narration.txt",
+                topic_dir / "card_news_spec.json", topic_dir / "ko" / "card_news_spec.json"]
+        newest = max((p.stat().st_mtime for p in srcs if p.exists()), default=0)
+        if newest > vid.stat().st_mtime:
+            continue
+        out.add(topic)
+    return out
+
+
 def collect_rows() -> list[dict]:
     """한국어 캡션 파일을 스캔해 수동 포스팅 대상 플랫폼만 골라 행 목록으로 만든다.
 
@@ -78,10 +116,13 @@ def collect_rows() -> list[dict]:
     rows: list[dict] = []
     if not data_dir.is_dir():
         return rows
+    ok = uploadable_topics()
 
     # WHY iter_topic_dirs인지(2026-09-24): 1단 iterdir은 트랙 폴더(data/육아/)를 topic
     # 하나로 보고 그 밑의 진짜 topic을 통째로 놓친다 — 트랙 topic이 영영 안 올라간다.
     for topic_dir in tracks.iter_topic_dirs(data_dir):
+        if topic_dir.name not in ok:
+            continue
         captions_path = topic_dir / "platform_captions.json"
         if not captions_path.exists():
             captions_path = topic_dir / "ko" / "platform_captions.json"
@@ -130,7 +171,10 @@ def collect_topic_meta() -> list[dict]:
     rows: list[dict] = []
     if not data_dir.is_dir():
         return rows
+    ok = uploadable_topics()
     for topic_dir in tracks.iter_topic_dirs(data_dir):
+        if topic_dir.name not in ok:
+            continue
         captions_path = topic_dir / "platform_captions.json"
         # WHY ko/ 폴백(2026-09-24): collect_rows()와 달리 여기엔 폴백이 없어서 언어
         # 폴더를 쓰는 topic의 products/ad_tag가 통째로 빠졌다 — 신규 topic이 정확히
@@ -171,7 +215,8 @@ def collect_topics_index() -> list[dict]:
     path = ROOT / "output" / "topics.json"
     if not path.exists():
         return []
-    return json.loads(path.read_text(encoding="utf-8"))
+    ok = uploadable_topics()
+    return [r for r in json.loads(path.read_text(encoding="utf-8")) if r.get("topic") in ok]
 
 
 def push_topics_index(rows: list[dict]) -> int:
