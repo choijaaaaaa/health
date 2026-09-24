@@ -43,25 +43,29 @@
       "from": "먼저 제로 탄산음료예요.",
       "item": "탄산음료",
       "mech": "m_urine_overproduction",
-      "label": "다뇨"
+      "label": "다뇨",
+      "act": "act_drink_caffeine"
     },
     {
       "from": "두 번째로는 무설탕",
       "item": "사탕",
       "mech": "m_osmotic_water_pull",
-      "label": "설사"
+      "label": "설사",
+      "act": "act_rush_to_toilet"
     },
     {
       "from": "마지막으로 무설탕 껌이에요.",
       "item": "껌",
       "mech": "m_bacteria_growth",
-      "label": "세균 번식"
+      "label": "세균 번식",
+      "act": "act_shift_uncomfortably_seated"
     },
     {
       "from": "배탈이 안 나는",
       "item": "껌",
       "mech": "m_bacteria_growth",
-      "label": "세균 번식"
+      "label": "세균 번식",
+      "act": "act_drink_caffeine"
     },
     {
       "from": "빈속에 몰아 마시지",
@@ -71,5 +75,6 @@
       "label": "세균 번식"
     }
   ],
-  "opening_until": 4.8
+  "opening_until": 4.8,
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전(2026-09-24 행위 칸 배정). ①5.1~19.7초 제로 탄산음료: act_drink_caffeine — 컵을 들어 고개를 젖혀 마시고 식도·위가 켜진다. 이 구간이 말하는 행동이 '얼음컵째 들이켠다' 그 자체다(색인 fits에 '음료 섭취·공복에 마심'). ②19.7~29.9초 무설탕 사탕: act_rush_to_toilet — 방광이 켜진 뒤 급히 걸어가고 마지막에 배를 감싼다. '삼투압으로 장에 물을 끌어당겨 변이 묽어진다'가 시청자에게 실제로 벌어지는 일이라 그 결과 동작을 붙였다. ③29.9~43.8초 무설탕 껌: act_shift_uncomfortably_seated — 앉은 채 계속 들썩이다 아랫배를 누르고 상체를 숙인다. '가스가 차고 배가 더부룩해진다'와 맞고, ②의 '급히 화장실로 간다'와 동작이 달라 항목이 바뀐 게 보인다. ④43.8~55.0초 허용량: act_drink_caffeine을 한 번 더 — '한 번에 체중 1kg당 0.4g'은 한 번에 얼마나 마시느냐의 이야기라 마시는 동작으로 돌아오는 게 맞다(①과 22초 떨어져 있어 붙어 보이지 않는다). ⑤55.0초부터는 결론이라 칸을 만들지 않는다."
 }

@@ -25,25 +25,29 @@
       "from": "먼저 굶는",
       "item": "체중계",
       "mech": "m_crystal_precipitation",
-      "label": "담즙"
+      "label": "담즙",
+      "act": "act_nausea_push_plate_away"
     },
     {
       "from": "이렇게 생긴 돌이",
       "item": "담석",
       "mech": "m_pressure_buildup",
-      "label": "담즙 분비"
+      "label": "담즙 분비",
+      "act": "act_epigastric_bore_to_back"
     },
     {
       "from": "두 번째로는 아침을",
       "item": "시계",
       "mech": "m_stasis_thickening",
-      "label": "담낭"
+      "label": "담낭",
+      "act": "act_nausea_push_plate_away"
     },
     {
       "from": "마지막으로 지방을",
       "item": "샐러드",
       "mech": "m_stasis_thickening",
-      "label": "담낭"
+      "label": "담낭",
+      "act": "act_large_meal_after_fasting"
     },
     {
       "from": "그러니 체중은",
@@ -53,7 +57,7 @@
       "label": "담낭"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_pressure_buildup은 '돌이 담관을 막아 담낭이 부푼다'는 문장 전용 — 기존 클립이 담낭 폐색 장면과 그대로 맞는다.",
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_pressure_buildup은 '돌이 담관을 막아 담낭이 부푼다'는 문장 전용 — 기존 클립이 담낭 폐색 장면과 그대로 맞는다. 왼쪽 행위 칸(2026-09-24 배정). ①4.6~20.3초 굶는 다이어트: act_nausea_push_plate_away — 식탁 앞에 앉아 손바닥으로 그릇을 밀어낸다. 끼니를 거부하는 동작이 이 항목 그대로다. ②20.3~25.4초 돌이 담관을 막음: act_epigastric_bore_to_back — 무릎 꿇고 상체를 말아 명치를 누르고, 그 빛이 등으로 관통한다(색인 fits에 '담석 통증'이 직접 적혀 있다). '오른쪽 윗배가 쑤셔요'의 자세다. ③25.4~32.5초 아침 거르기: 다시 act_nausea_push_plate_away — 말 자체가 ①과 같은 '안 먹는다'라 같은 동작이 맞고, 사이에 ②(무릎 꿇은 산통 자세)가 끼어 있어 화면이 안 바뀐 것처럼 보이지 않는다. ④32.5~44.1초 지방을 끊는 식단: act_large_meal_after_fasting — 식사를 하는 장면. 이 항목만 '먹기는 먹는데' 쪽이라, 왼쪽에서 밥을 먹는 동안 오른쪽 m_stasis_thickening의 근육 고리는 끝내 수축하지 않는 대비가 그대로 이 항목의 요지다. 앞의 '그릇을 밀어냄'과 정반대 동작이라 항목이 바뀐 게 바로 보인다.",
   "summary_from": "그러니 체중은",
   "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
 }

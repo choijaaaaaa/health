@@ -1,5 +1,6 @@
 {
   "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "_act_why": "행위(act) 배정 근거(2026-09-24, 프레임 직접 확인) — ①껍질 구간은 '빈 껍질만 모양 그대로 빠져나온다'가 결론이라 변기에 앉아 대장이 점등되는 act_strain_on_toilet으로 훅('변에 알갱이가 그대로 나왔다면')을 그림으로 받는다. ②'씹지 않고 삼키는 습관'은 숟가락을 쉬지 않고 입으로 나르는 act_large_meal_after_fasting이 그 동작 자체다. ③'한 번에 먹는 양'은 위가 점등된 채 그릇을 밀어내는 act_nausea_push_plate_away(많이 먹다 속이 부대껴 그만 먹는 자리). ④'가스가 차고 장벽이 늘어나 배가 아프다'는 배를 감싸 쥐고 웅크리는 act_grab_belly. 어금니가 점등되는 act_hold_cheek은 볼을 감싸 쥔 치통 동작이라 '씹지 않는 습관'과 행동이 달라서 뺐다. 라벨 '유당불내증'은 셀룰로스 topic과 무관한 오기라 '소장 점막'으로 고쳤다.",
   "top_title": "변에 알갱이가 그대로 나왔다면",
   "inset": {
     "clip": "assets_library/xray/output/m_enzyme_deficiency.mp4",
@@ -43,24 +44,28 @@
       "from": "먼저 알갱이를 감싼",
       "item": "옥수수",
       "mech": "m_enzyme_deficiency",
-      "label": "유당불내증"
+      "act": "act_strain_on_toilet",
+      "label": "소장 점막"
     },
     {
       "from": "두 번째로는 씹지",
       "item": "어금니",
       "mech": "m_bacteria_growth",
+      "act": "act_large_meal_after_fasting",
       "label": "세균 번식"
     },
     {
       "from": "마지막으로는 한 번에",
       "item": "소화불량",
       "mech": "m_wall_stretch_pain",
+      "act": "act_nausea_push_plate_away",
       "label": "가스가 참"
     },
     {
       "from": "식이섬유는 많이 먹을수록",
       "item": "소화불량",
       "mech": "m_wall_stretch_pain",
+      "act": "act_grab_belly",
       "label": "가스가 참"
     },
     {

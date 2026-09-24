@@ -24,18 +24,21 @@
       "from": "용종은 대장",
       "item": "장",
       "mech": "m_cell_overgrowth",
+      "act": "act_stand_still_unaware",
       "label": "장 점막"
     },
     {
       "from": "대한대장항문",
       "item": "대장내시경",
       "mech": "m_cell_overgrowth",
+      "act": "act_strain_on_toilet",
       "label": "장 점막"
     },
     {
       "from": "먼저 줄일",
       "item": "가공육",
       "mech": "m_toxin_load",
+      "act": "act_large_meal_after_fasting",
       "label": "독소가 쌓임"
     },
     {
@@ -46,7 +49,7 @@
       "label": "독소가 쌓임"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_cell_overgrowth는 라이브러리에 없어 data/소화_20/clip_requests.json으로 렌더를 요청해둔 상태다 — 비슷한 클립으로 대체하지 않는다.",
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. m_cell_overgrowth는 라이브러리에 없어 data/소화_20/clip_requests.json으로 렌더를 요청해 받았다 — 비슷한 클립으로 대체하지 않는다. 행위(act) 배정 근거(2026-09-24, 프레임 직접 확인) — ①정의 구간('세포가 늘어나 혹처럼 솟아오른다', '암으로 바뀌는 데 5~10년')은 가만히 선 채 아랫배 한 점만 서서히 밝아지며 커지는 act_stand_still_unaware가 그 과정 자체다(점등 자리가 우하복부라 대장 topic과도 맞다). ②'대부분 증상이 없었다 + 분변잠혈검사 음성이면 안심한다' 구간은 변기에 앉아 힘을 주다 대장 전체가 점등되는 act_strain_on_toilet — 훅('배변이 편하면 없는 걸까요?')이 반박하는 바로 그 안심의 근거를 화면에 세운다. ③가공육 구간은 숟가락을 쉬지 않고 나르며 식도–위–대장이 차례로 켜지는 act_large_meal_after_fasting. 세 구간 모두 다른 클립이라 칸이 매번 바뀐다. ⚠️ ①②를 맞바꾼 이유: 20.9초짜리 ② 구간에 4초 클립(act_stand_still_unaware)을 두면 5.2배로 늘려야 해 정지 화면이 된다(XRAY_FORMAT 상한 4배). 6초 클립을 긴 구간에 두면 3.5배로 들어간다.",
   "summary_from": "채소는 하루",
   "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
 }

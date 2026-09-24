@@ -24,24 +24,28 @@
       "from": "먼저 그 유산균",
       "item": "영양제",
       "mech": "m_bacteria_growth",
+      "act": "act_take_supplement",
       "label": "소장 세균"
     },
     {
       "from": "소장에 이미 세균이",
       "item": "영양제",
       "mech": "m_acid_deficiency",
+      "act": "act_grab_belly",
       "label": "위산"
     },
     {
       "from": "두 번째는 양파",
       "item": "양배추",
       "mech": "m_gas_fermentation",
+      "act": "act_large_meal_after_fasting",
       "label": "장내 가스"
     },
     {
       "from": "마지막은 간식",
       "item": "달력",
       "mech": "m_wall_stretch_pain",
+      "act": "act_take_supplement",
       "label": "장벽"
     },
     {
@@ -52,7 +56,7 @@
       "label": "세균 번식"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(유산균·간식은 사진이 0장이라 배정표에 있는 영양제·달력을 쓴다). 유산균 항목과 간식 항목은 결과가 똑같이 '세균이 계속 늘어난다'라서 m_bacteria_growth를 두 번 쓴다 — 화면과 나레이션이 어긋나지 않는다.",
+  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(유산균·간식은 사진이 0장이라 배정표에 있는 영양제·달력을 쓴다). 유산균 항목과 간식 항목은 결과가 똑같이 '세균이 계속 늘어난다'라서 m_bacteria_growth를 두 번 쓴다 — 화면과 나레이션이 어긋나지 않는다. 행위(act) 배정 근거(2026-09-24, 프레임 직접 확인) — ①유산균 구간은 손으로 무언가를 입에 털어 넣고 식도–위가 켜지는 act_take_supplement. ②'균을 더 넣으면 가스와 팽만이 심해진다'는 상체를 숙여 배를 감싸 쥐고 장이 통째로 점등되는 act_grab_belly. ③발효당 음식 구간은 식탁 앞에서 숟가락을 나르는 act_large_meal_after_fasting. ④간식 구간은 '두세 시간마다 뭘 넣으면 그 파동이 멈춘다'가 핵심이라 입에 넣는 동작이 필요한데, 간식 전용 클립이 라이브러리에 없고 act_take_supplement 프레임에는 알약·약병이 보이지 않아 '무언가를 입에 넣는다'로 그대로 읽힌다 — ①과 같은 클립이지만 세 구간(40초) 떨어져 있어 화면이 멈춘 것처럼 보이지 않는다. 마실 것을 드는 act_drink_caffeine은 마지막에 뇌가 켜져 각성을 말하게 되고, 같은 구간의 해결책이 '물만 드세요'라 컵을 문제 행동으로 세우면 어긋나서 뺐다.",
   "summary_from": "대한내과학회지는",
   "_summary_why": "이 구절부터 결론(검사 기준 + 병원 신호) — 영상 칸 없이 칠판 전체로 간다."
 }
