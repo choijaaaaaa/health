@@ -45,7 +45,7 @@
       "from": "마지막은 술이에요",
       "item": "맥주",
       "mech": "m_toxin_load",
-      "act": null,
+      "act": "act_drink_alcohol_with_painkiller",
       "label": "위 점막"
     },
     {

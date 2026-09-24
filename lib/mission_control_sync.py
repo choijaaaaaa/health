@@ -97,8 +97,39 @@ def uploadable_topics() -> set[str]:
         newest = max((p.stat().st_mtime for p in srcs if p.exists()), default=0)
         if newest > vid.stat().st_mtime:
             continue
+        # 🚨 파일이 있다고 완성이 아니다 — **지금 기준으로 지적이 0건이어야 한다.**
+        # 2026-09-24 고령_15가 이 목록에 올라가 있었는데, 팔이 셋 나오는 클립을 쓰고 배지가
+        # 화면 밖으로 넘치는 상태였다. 파일 존재·신선도만 보던 탓에 "문제 있던 게 그대로
+        # 올라간" 것이다. 조립 시점에 preflight가 통과했더라도 그 뒤에 검사가 추가되면
+        # 다시 걸려야 한다 — 그래서 sync마다 다시 본다.
+        if _preflight_issues(topic):
+            continue
         out.add(topic)
     return out
+
+
+def _preflight_issues(topic: str) -> int:
+    """`scripts/preflight_xray.py`와 같은 검사를 돌려 고칠 지적 수를 센다.
+
+    미수령 클립은 사람이 렌더해야 하는 것이라 제외한다(고칠 수 있는 문제가 아니다) —
+    다만 그 클립이 없어서 생기는 **행위 칸 공백은 그대로 지적으로 남는다**, 그 상태로
+    내보내면 기전만 크게 나가기 때문이다.
+    """
+    from lib import content_review as cr
+    checks = (cr.check_xray_timeline_resolves, cr.check_xray_pacing, cr.check_summary_single_block,
+              cr.check_mech_variety, cr.check_act_coverage, cr.check_plain_language,
+              cr.check_card_narration_alignment, cr.check_xray_clips, cr.check_content_depth,
+              cr.check_search_keyword)
+    found = []
+    for fn in checks:
+        try:
+            found += fn(topic)
+        except Exception:
+            return 1          # 검사가 죽으면 판단할 수 없다 — 내보내지 않는다
+    spoken = (ROOT / "output" / topic / "narration.mp3").is_file()
+    return sum(1 for i in found
+               if "안 받은 클립" not in i["issue"]
+               and not (spoken and "나레이션이 실측" in i["issue"]))
 
 
 def collect_rows() -> list[dict]:

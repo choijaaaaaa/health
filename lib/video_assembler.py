@@ -737,13 +737,22 @@ def _make_item_row_png(item_schedule: list[dict], active: str, out_path: Path, l
             _make_item_label_png(it["illust"], it["name"], fp, icon_size=120,
                                  font_size=40, lang=lang)
             cells.append(Image.open(fp).convert("RGBA"))
-    gap = 36
+    gap = 36 if len(cells) <= 5 else 20
     w = sum(c.width for c in cells) + gap * (len(cells) - 1)
     h = max(c.height for c in cells)
     row = Image.new("RGBA", (w, h), (0, 0, 0, 0))
     x = 0
     for c in cells:
         row.alpha_composite(c, (x, (h - c.height) // 2)); x += c.width + gap
+
+    # 🚨 폭 제한이 없으면 항목이 많은 topic에서 줄이 화면 밖으로 넘쳐 **양끝 배지가 잘린다**
+    # (2026-09-24 고령_15 실측: 7개짜리 줄에서 첫 배지와 마지막 배지가 반씩 잘려 나갔다).
+    # 네이버 클립이 양옆을 잘라내는 몫(CHALKBOARD_STRIP_W)까지 빼고 남는 폭에 맞춰 통째로 줄인다 —
+    # 배지를 빼면 "몇 가지를 챙기면 되는지"가 안 맞고, 줄바꿈하면 칠판 자막을 덮는다.
+    limit = W - CHALKBOARD_STRIP_W - 80
+    if row.width > limit:
+        k = limit / row.width
+        row = row.resize((limit, max(1, round(row.height * k))), Image.LANCZOS)
     row.save(out_path)
 
 
