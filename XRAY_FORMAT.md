@@ -199,6 +199,21 @@ top_title     "명치가 쥐어짜듯 아프다면"        ← 증상. 검색어
 - 미드저니 프롬프트도 아기 단어를 **먼저 피한다** — "early-developmental body proportions"로 비례를
   묘사하고, 막히거나 어른 비례로 나오면 쓰라고 직접 표현 문구를 대안으로 같이 준다.
 
+### 부위 클립은 캐논 스틸 하나에서 여러 개가 나온다
+
+시트에 따로 안 올라간다 — 스틸이 오면 `scripts/make_part_clip.py`로 세션이 만든다.
+🚨 **`--region` 없이 만들지 마라**(전신·몸통 스틸은 피사체 전체가 호박색이 된다). region 값은
+실제 스틸을 보고 재서 `assets_library/xray/part_regions.json`에 스틸 파일명으로 적는다.
+
+| 스틸 | 여기서 나오는 부위 클립 |
+|---|---|
+| `baby_canon_organs` | `part_baby_whole`(전신 발진) · `part_baby_forehead`(열) · `part_baby_hand_foot`(수족구) |
+| `baby_cu_torso` | `part_baby_stomach` · `part_baby_intestine` · `part_baby_liver` · `part_baby_belly` |
+| `baby_cu_head_side` | `part_baby_middle_ear` · `part_baby_nose` |
+| `baby_cu_airway` | `part_baby_bronchiole` |
+| `baby_cu_mouth_throat` | `part_baby_mouth` |
+| `baby_cu_skin_layers` | `part_baby_skin` |
+
 ### 행위 칸은 보호자다
 
 행위 클립 48종이 전부 "혼자 있는 성인이 자기 몸을 만지는" 장면이라 육아엔 하나도 안 맞는다
