@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import json
 import shutil
+import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,6 +27,36 @@ WORK = ROOT / "assets_library" / "xray" / "작업" / "1_스틸"
 SHEET = ROOT / "assets_library" / "xray" / "작업" / "0_작업지시.md"
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 INBOX = ROOT / "assets_library" / "xray" / "작업" / "2_완성클립"
+
+
+DOWNLOADS = Path.home() / "Downloads"
+CONSUMED = ROOT / "assets_library" / "xray" / "작업" / ".받은것.json"
+
+
+def _unopened_deliveries() -> list[Path]:
+    """다운로드 폴더에 아직 안 푼 미드저니 zip이 있는가.
+
+    WHY(2026-09-24): 사용자가 미드저니 5장을 이미 뽑아 zip으로 줬는데 그걸 안 풀고
+    시트를 다시 만들어 "03~07은 미드저니부터"로 내보냈다 — 같은 걸 또 뽑으라는 말이
+    됐다("아까 미드저니꺼 5개도 뽑아줬는데 다시또뽑으라는거냐"). 시트가 사람에게
+    일을 시키기 전에 **이미 받은 게 없는지 먼저 본다.**
+    """
+    try:
+        done = set(json.loads(CONSUMED.read_text(encoding="utf-8")))
+    except (OSError, json.JSONDecodeError):
+        done = set()
+    return [z for z in sorted(DOWNLOADS.glob("midjourney_session*.zip"))
+            if z.name not in done]
+
+
+def mark_consumed(paths) -> None:
+    """푼 zip을 기록한다 — 다음부터 경고에 안 뜬다."""
+    try:
+        done = set(json.loads(CONSUMED.read_text(encoding="utf-8")))
+    except (OSError, json.JSONDecodeError):
+        done = set()
+    done |= {Path(p).name for p in paths}
+    CONSUMED.write_text(json.dumps(sorted(done), ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def _pending() -> list[list]:
@@ -107,6 +138,11 @@ def main() -> None:
     SHEET.write_text("".join(L), encoding="utf-8")
     print(f"{SHEET.relative_to(ROOT)} — {len(pend)}종 (스틸 있음 {len(ready)} / 미드저니부터 {len(todo)})")
     print(f"스틸 폴더: {WORK.relative_to(ROOT)}")
+    if todo and (pending_zip := _unopened_deliveries()):
+        print(f"\n🚨 아직 안 푼 미드저니 zip {len(pending_zip)}개가 다운로드 폴더에 있다 —"
+              " 이것부터 확인해라. 같은 걸 또 뽑으라고 내보내게 된다:")
+        for z in pending_zip:
+            print(f"   - {z.name}  ({time.strftime('%m-%d %H:%M', time.localtime(z.stat().st_mtime))})")
 
 
 if __name__ == "__main__":
