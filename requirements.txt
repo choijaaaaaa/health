@@ -7,3 +7,4 @@ google-api-python-client
 google-auth-oauthlib
 google-auth-httplib2
 pytrends
+playwright==1.63.0  # 브랜드커넥트 로컬 검색기(lib/brandconnect.py)

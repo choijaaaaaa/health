@@ -1,1247 +1,8107 @@
 {
- "updated_at": "2026-09-23 18:14",
+ "updated_at": "2026-09-24 14:37",
  "rows": [
   {
-   "keyword": "외과",
-   "pc": 2890,
-   "mobile": 33500,
-   "total": 36390,
+   "keyword": "소아과",
+   "pc": 3440,
+   "mobile": 148200,
+   "total": 151640,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹",
+   "keyword": "유산균",
+   "pc": 20800,
+   "mobile": 93800,
+   "total": 114600,
+   "competition": "중간"
+  },
+  {
+   "keyword": "파킨슨병",
+   "pc": 6620,
+   "mobile": 47300,
+   "total": 53920,
+   "competition": "높음"
+  },
+  {
+   "keyword": "집들이선물",
+   "pc": 11400,
+   "mobile": 32600,
+   "total": 44000,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분제",
    "pc": 4160,
-   "mobile": 26000,
-   "total": 30160,
+   "mobile": 26100,
+   "total": 30260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "접촉성피부염",
+   "pc": 3180,
+   "mobile": 22600,
+   "total": 25780,
    "competition": "높음"
   },
   {
-   "keyword": "스포츠양말",
+   "keyword": "목디스크증상",
+   "pc": 2860,
+   "mobile": 21800,
+   "total": 24660,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아검진",
    "pc": 6060,
-   "mobile": 13600,
-   "total": 19660,
+   "mobile": 18000,
+   "total": 24060,
    "competition": "높음"
   },
   {
-   "keyword": "다리쥐나는이유",
-   "pc": 780,
-   "mobile": 15600,
-   "total": 16380,
+   "keyword": "농가진",
+   "pc": 3290,
+   "mobile": 20300,
+   "total": 23590,
    "competition": "높음"
   },
   {
-   "keyword": "의원",
-   "pc": 1320,
-   "mobile": 14400,
-   "total": 15720,
+   "keyword": "척추측만증",
+   "pc": 2790,
+   "mobile": 20100,
+   "total": 22890,
    "competition": "높음"
   },
   {
-   "keyword": "의료용압박스타킹",
-   "pc": 2210,
-   "mobile": 13300,
-   "total": 15510,
+   "keyword": "철분많은음식",
+   "pc": 1810,
+   "mobile": 20600,
+   "total": 22410,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두드러기",
+   "pc": 2570,
+   "mobile": 19500,
+   "total": 22070,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식",
+   "pc": 2320,
+   "mobile": 19600,
+   "total": 21920,
+   "competition": "높음"
+  },
+  {
+   "keyword": "빈혈에좋은음식",
+   "pc": 1580,
+   "mobile": 18100,
+   "total": 19680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부붉은반점",
+   "pc": 770,
+   "mobile": 18500,
+   "total": 19270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유산균추천",
+   "pc": 3310,
+   "mobile": 15400,
+   "total": 18710,
    "competition": "중간"
   },
   {
-   "keyword": "종아리압박밴드",
-   "pc": 1470,
-   "mobile": 12200,
-   "total": 13670,
-   "competition": "높음"
+   "keyword": "아기유산균",
+   "pc": 1700,
+   "mobile": 16100,
+   "total": 17800,
+   "competition": "중간"
   },
   {
-   "keyword": "심장내과",
-   "pc": 1820,
-   "mobile": 11600,
-   "total": 13420,
-   "competition": "높음"
+   "keyword": "해열제교차복용",
+   "pc": 450,
+   "mobile": 17300,
+   "total": 17750,
+   "competition": "낮음"
   },
   {
-   "keyword": "종아리통증",
-   "pc": 860,
-   "mobile": 11300,
-   "total": 12160,
-   "competition": "높음"
-  },
-  {
-   "keyword": "종합병원",
-   "pc": 1380,
-   "mobile": 8050,
-   "total": 9430,
-   "competition": "높음"
-  },
-  {
-   "keyword": "흉부외과",
+   "keyword": "피부발진",
    "pc": 980,
-   "mobile": 7750,
-   "total": 8730,
+   "mobile": 16500,
+   "total": 17480,
    "competition": "높음"
   },
   {
-   "keyword": "사타구니통증",
-   "pc": 480,
-   "mobile": 7320,
-   "total": 7800,
+   "keyword": "땀띠",
+   "pc": 1520,
+   "mobile": 15500,
+   "total": 17020,
    "competition": "높음"
   },
   {
-   "keyword": "종아리압박스타킹",
-   "pc": 4760,
-   "mobile": 3000,
-   "total": 7760,
+   "keyword": "중이염",
+   "pc": 2560,
+   "mobile": 14200,
+   "total": 16760,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움증",
+   "pc": 1220,
+   "mobile": 15500,
+   "total": 16720,
+   "competition": "높음"
+  },
+  {
+   "keyword": "낙산균",
+   "pc": 3030,
+   "mobile": 13500,
+   "total": 16530,
    "competition": "중간"
   },
   {
-   "keyword": "임산부압박스타킹",
-   "pc": 960,
-   "mobile": 6630,
-   "total": 7590,
+   "keyword": "살리실산",
+   "pc": 1670,
+   "mobile": 14700,
+   "total": 16370,
+   "competition": "중간"
+  },
+  {
+   "keyword": "보리차",
+   "pc": 3090,
+   "mobile": 13100,
+   "total": 16190,
+   "competition": "중간"
+  },
+  {
+   "keyword": "항문가려움",
+   "pc": 770,
+   "mobile": 15100,
+   "total": 15870,
    "competition": "높음"
   },
   {
-   "keyword": "다리저림",
-   "pc": 740,
-   "mobile": 6750,
-   "total": 7490,
+   "keyword": "모기물렸을때",
+   "pc": 970,
+   "mobile": 14300,
+   "total": 15270,
    "competition": "높음"
   },
   {
-   "keyword": "저주파치료기",
+   "keyword": "햇빛알레르기",
+   "pc": 1230,
+   "mobile": 14000,
+   "total": 15230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중이염증상",
+   "pc": 1320,
+   "mobile": 13800,
+   "total": 15120,
+   "competition": "높음"
+  },
+  {
+   "keyword": "치발기",
+   "pc": 1820,
+   "mobile": 13200,
+   "total": 15020,
+   "competition": "중간"
+  },
+  {
+   "keyword": "터미타임",
+   "pc": 1200,
+   "mobile": 13800,
+   "total": 15000,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아선물",
+   "pc": 2780,
+   "mobile": 11900,
+   "total": 14680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "캐치티니핑",
+   "pc": 2390,
+   "mobile": 11100,
+   "total": 13490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부묘기증",
+   "pc": 1800,
+   "mobile": 11400,
+   "total": 13200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "도라지배즙",
+   "pc": 6050,
+   "mobile": 7030,
+   "total": 13080,
+   "competition": "중간"
+  },
+  {
+   "keyword": "루솔이유식",
+   "pc": 860,
+   "mobile": 11600,
+   "total": 12460,
+   "competition": "중간"
+  },
+  {
+   "keyword": "배도라지즙",
+   "pc": 1750,
+   "mobile": 10300,
+   "total": 12050,
+   "competition": "중간"
+  },
+  {
+   "keyword": "척추협착증",
+   "pc": 1420,
+   "mobile": 10600,
+   "total": 12020,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식식단표",
+   "pc": 970,
+   "mobile": 10100,
+   "total": 11070,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부건선",
    "pc": 1080,
-   "mobile": 5660,
-   "total": 6740,
+   "mobile": 9850,
+   "total": 10930,
    "competition": "높음"
   },
   {
-   "keyword": "적외선치료기",
-   "pc": 910,
-   "mobile": 4990,
+   "keyword": "돌아기선물",
+   "pc": 1280,
+   "mobile": 8970,
+   "total": 10250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌아기선물",
+   "pc": 1280,
+   "mobile": 8970,
+   "total": 10250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "엉덩이뾰루지",
+   "pc": 410,
+   "mobile": 9800,
+   "total": 10210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부철분제",
+   "pc": 2090,
+   "mobile": 7920,
+   "total": 10010,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기돌선물",
+   "pc": 1170,
+   "mobile": 8680,
+   "total": 9850,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소양증",
+   "pc": 1390,
+   "mobile": 7820,
+   "total": 9210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "몸에붉은반점",
+   "pc": 530,
+   "mobile": 8440,
+   "total": 8970,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기백일선물",
+   "pc": 860,
+   "mobile": 8060,
+   "total": 8920,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시판이유식",
+   "pc": 670,
+   "mobile": 8240,
+   "total": 8910,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분",
+   "pc": 1720,
+   "mobile": 7170,
+   "total": 8890,
+   "competition": "중간"
+  },
+  {
+   "keyword": "철분부족증상",
+   "pc": 1100,
+   "mobile": 7580,
+   "total": 8680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아정형외과",
+   "pc": 640,
+   "mobile": 7940,
+   "total": 8580,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분영양제",
+   "pc": 1370,
+   "mobile": 7160,
+   "total": 8530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "헤모글로빈수치",
+   "pc": 920,
+   "mobile": 7480,
+   "total": 8400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기철분제",
+   "pc": 450,
+   "mobile": 7720,
+   "total": 8170,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부곰팡이균",
+   "pc": 610,
+   "mobile": 7260,
+   "total": 7870,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키즈유산균",
+   "pc": 1150,
+   "mobile": 6710,
+   "total": 7860,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아유산균",
+   "pc": 750,
+   "mobile": 6940,
+   "total": 7690,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식시작시기",
+   "pc": 480,
+   "mobile": 7170,
+   "total": 7650,
+   "competition": "중간"
+  },
+  {
+   "keyword": "임신소양증",
+   "pc": 840,
+   "mobile": 6790,
+   "total": 7630,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이유산균",
+   "pc": 1250,
+   "mobile": 6350,
+   "total": 7600,
+   "competition": "중간"
+  },
+  {
+   "keyword": "두드러기증상",
+   "pc": 510,
+   "mobile": 7010,
+   "total": 7520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "간지럼",
+   "pc": 710,
+   "mobile": 6470,
+   "total": 7180,
+   "competition": "중간"
+  },
+  {
+   "keyword": "뒷목통증",
+   "pc": 810,
+   "mobile": 6350,
+   "total": 7160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "100일선물",
+   "pc": 990,
+   "mobile": 6060,
+   "total": 7050,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아식",
+   "pc": 860,
+   "mobile": 6170,
+   "total": 7030,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기비타민D",
+   "pc": 490,
+   "mobile": 6520,
+   "total": 7010,
+   "competition": "중간"
+  },
+  {
+   "keyword": "스승의날",
+   "pc": 950,
+   "mobile": 5890,
+   "total": 6840,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손가락수포",
+   "pc": 720,
+   "mobile": 5940,
+   "total": 6660,
+   "competition": "높음"
+  },
+  {
+   "keyword": "홍반",
+   "pc": 900,
+   "mobile": 5620,
+   "total": 6520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식",
+   "pc": 500,
+   "mobile": 5940,
+   "total": 6440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "귀통증",
+   "pc": 550,
+   "mobile": 5770,
+   "total": 6320,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어루러기",
+   "pc": 1150,
+   "mobile": 5170,
+   "total": 6320,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자외선",
+   "pc": 1030,
+   "mobile": 5260,
+   "total": 6290,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자세교정",
+   "pc": 1060,
+   "mobile": 5070,
+   "total": 6130,
+   "competition": "중간"
+  },
+  {
+   "keyword": "영유아건강검진",
+   "pc": 1880,
+   "mobile": 4020,
    "total": 5900,
-   "competition": "중간"
-  },
-  {
-   "keyword": "수면양말",
-   "pc": 1380,
-   "mobile": 3980,
-   "total": 5360,
    "competition": "높음"
   },
   {
-   "keyword": "대장항문외과",
-   "pc": 440,
-   "mobile": 4650,
-   "total": 5090,
-   "competition": "높음"
-  },
-  {
-   "keyword": "허벅지통증",
-   "pc": 260,
-   "mobile": 4120,
-   "total": 4380,
-   "competition": "높음"
-  },
-  {
-   "keyword": "신스프린트",
-   "pc": 960,
-   "mobile": 3390,
-   "total": 4350,
-   "competition": "중간"
-  },
-  {
-   "keyword": "정강이통증",
-   "pc": 380,
-   "mobile": 3930,
-   "total": 4310,
-   "competition": "높음"
-  },
-  {
-   "keyword": "항문소양증",
-   "pc": 390,
-   "mobile": 3710,
-   "total": 4100,
-   "competition": "높음"
-  },
-  {
-   "keyword": "혈관외과",
-   "pc": 580,
-   "mobile": 3030,
-   "total": 3610,
-   "competition": "높음"
-  },
-  {
-   "keyword": "섬유근육통증상",
-   "pc": 300,
-   "mobile": 3080,
-   "total": 3380,
-   "competition": "높음"
-  },
-  {
-   "keyword": "다리통증",
-   "pc": 200,
-   "mobile": 3120,
-   "total": 3320,
-   "competition": "높음"
-  },
-  {
-   "keyword": "오른쪽다리저림",
-   "pc": 260,
-   "mobile": 2840,
-   "total": 3100,
-   "competition": "높음"
-  },
-  {
-   "keyword": "팔통증",
+   "keyword": "몸이가려운증상",
    "pc": 250,
+   "mobile": 5630,
+   "total": 5880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "화상물집",
+   "pc": 470,
+   "mobile": 5400,
+   "total": 5870,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분제복용시간",
+   "pc": 510,
+   "mobile": 5310,
+   "total": 5820,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두드러기원인",
+   "pc": 490,
+   "mobile": 5310,
+   "total": 5800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "귀먹먹함",
+   "pc": 600,
+   "mobile": 5190,
+   "total": 5790,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네베이비스텝",
+   "pc": 210,
+   "mobile": 5530,
+   "total": 5740,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사경",
+   "pc": 950,
+   "mobile": 4770,
+   "total": 5720,
+   "competition": "높음"
+  },
+  {
+   "keyword": "생리통",
+   "pc": 700,
+   "mobile": 4940,
+   "total": 5640,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식체험팩",
+   "pc": 340,
+   "mobile": 5230,
+   "total": 5570,
+   "competition": "높음"
+  },
+  {
+   "keyword": "액상철분제",
+   "pc": 1230,
+   "mobile": 4210,
+   "total": 5440,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어버이날",
+   "pc": 1060,
+   "mobile": 4360,
+   "total": 5420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "뉴트로지나바디로션",
+   "pc": 590,
+   "mobile": 4670,
+   "total": 5260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부가려움증원인",
+   "pc": 390,
+   "mobile": 4840,
+   "total": 5230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "축농증수술",
+   "pc": 710,
+   "mobile": 4280,
+   "total": 4990,
+   "competition": "높음"
+  },
+  {
+   "keyword": "빈혈영양제",
+   "pc": 480,
+   "mobile": 4450,
+   "total": 4930,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상베개",
+   "pc": 570,
+   "mobile": 4310,
+   "total": 4880,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기100일선물",
+   "pc": 880,
+   "mobile": 3930,
+   "total": 4810,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기100일선물",
+   "pc": 880,
+   "mobile": 3930,
+   "total": 4810,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장호르몬주사",
+   "pc": 700,
+   "mobile": 4090,
+   "total": 4790,
+   "competition": "높음"
+  },
+  {
+   "keyword": "배도라지",
+   "pc": 940,
+   "mobile": 3740,
+   "total": 4680,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기배도라지즙",
+   "pc": 360,
+   "mobile": 4100,
+   "total": 4460,
+   "competition": "중간"
+  },
+  {
+   "keyword": "성장판검사",
+   "pc": 490,
+   "mobile": 3970,
+   "total": 4460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판검사",
+   "pc": 490,
+   "mobile": 3970,
+   "total": 4460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장클리닉",
+   "pc": 530,
+   "mobile": 3920,
+   "total": 4450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "왜소증",
+   "pc": 610,
+   "mobile": 3790,
+   "total": 4400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기보리차",
+   "pc": 330,
+   "mobile": 4060,
+   "total": 4390,
+   "competition": "중간"
+  },
+  {
+   "keyword": "초등학생평균키",
+   "pc": 550,
+   "mobile": 3800,
+   "total": 4350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "몸가려움증",
+   "pc": 200,
+   "mobile": 3980,
+   "total": 4180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식",
+   "pc": 400,
+   "mobile": 3720,
+   "total": 4120,
+   "competition": "중간"
+  },
+  {
+   "keyword": "신생아딸꾹질",
+   "pc": 80,
+   "mobile": 3980,
+   "total": 4060,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기선물",
+   "pc": 880,
+   "mobile": 3170,
+   "total": 4050,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중기이유식",
+   "pc": 270,
+   "mobile": 3730,
+   "total": 4000,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식브랜드",
+   "pc": 340,
+   "mobile": 3570,
+   "total": 3910,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이철분제",
+   "pc": 910,
+   "mobile": 2990,
+   "total": 3900,
+   "competition": "중간"
+  },
+  {
+   "keyword": "철분제추천",
+   "pc": 840,
+   "mobile": 2990,
+   "total": 3830,
+   "competition": "높음"
+  },
+  {
+   "keyword": "뒤통수",
+   "pc": 760,
+   "mobile": 2980,
+   "total": 3740,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네베이비스텝2",
+   "pc": 320,
+   "mobile": 3380,
+   "total": 3700,
+   "competition": "중간"
+  },
+  {
+   "keyword": "낙산균유산균",
+   "pc": 370,
+   "mobile": 3320,
+   "total": 3690,
+   "competition": "높음"
+  },
+  {
+   "keyword": "수전증",
+   "pc": 510,
+   "mobile": 3040,
+   "total": 3550,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자기주도이유식",
+   "pc": 200,
+   "mobile": 3320,
+   "total": 3520,
+   "competition": "중간"
+  },
+  {
+   "keyword": "100일아기선물",
+   "pc": 590,
+   "mobile": 2860,
+   "total": 3450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "그림자극장",
+   "pc": 530,
+   "mobile": 2920,
+   "total": 3450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식준비물",
+   "pc": 300,
+   "mobile": 3140,
+   "total": 3440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "항문",
+   "pc": 440,
+   "mobile": 2980,
+   "total": 3420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기헬멧",
+   "pc": 270,
+   "mobile": 3100,
+   "total": 3370,
+   "competition": "중간"
+  },
+  {
+   "keyword": "드시모네베이비스텝1",
+   "pc": 190,
+   "mobile": 3130,
+   "total": 3320,
+   "competition": "중간"
+  },
+  {
+   "keyword": "동전습진",
+   "pc": 320,
+   "mobile": 2990,
+   "total": 3310,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기머리보호대",
+   "pc": 230,
+   "mobile": 3030,
+   "total": 3260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중이염원인",
+   "pc": 280,
+   "mobile": 2950,
+   "total": 3230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "백일선물",
+   "pc": 640,
+   "mobile": 2580,
+   "total": 3220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "후기이유식",
+   "pc": 250,
+   "mobile": 2890,
+   "total": 3140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아마비",
+   "pc": 660,
+   "mobile": 2460,
+   "total": 3120,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기영양제",
+   "pc": 420,
    "mobile": 2650,
+   "total": 3070,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기영양제",
+   "pc": 420,
+   "mobile": 2650,
+   "total": 3070,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손바닥수포",
+   "pc": 300,
+   "mobile": 2740,
+   "total": 3040,
+   "competition": "높음"
+  },
+  {
+   "keyword": "평균키",
+   "pc": 370,
+   "mobile": 2670,
+   "total": 3040,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식시기",
+   "pc": 340,
+   "mobile": 2670,
+   "total": 3010,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운고",
+   "pc": 690,
+   "mobile": 2320,
+   "total": 3010,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장주사",
+   "pc": 470,
+   "mobile": 2520,
+   "total": 2990,
+   "competition": "높음"
+  },
+  {
+   "keyword": "항문가려움연고",
+   "pc": 220,
+   "mobile": 2740,
+   "total": 2960,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분효능",
+   "pc": 590,
+   "mobile": 2350,
+   "total": 2940,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비듬",
+   "pc": 360,
+   "mobile": 2580,
+   "total": 2940,
+   "competition": "높음"
+  },
+  {
+   "keyword": "발등가려움",
+   "pc": 200,
+   "mobile": 2730,
+   "total": 2930,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분이많은음식",
+   "pc": 610,
+   "mobile": 2290,
    "total": 2900,
    "competition": "높음"
   },
   {
-   "keyword": "손톱가로줄",
-   "pc": 230,
-   "mobile": 2630,
-   "total": 2860,
+   "keyword": "비듬생기는이유",
+   "pc": 220,
+   "mobile": 2680,
+   "total": 2900,
    "competition": "높음"
   },
   {
-   "keyword": "압박밴드",
-   "pc": 360,
-   "mobile": 2110,
-   "total": 2470,
+   "keyword": "사두증",
+   "pc": 400,
+   "mobile": 2480,
+   "total": 2880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부비타민C",
+   "pc": 550,
+   "mobile": 2300,
+   "total": 2850,
    "competition": "중간"
   },
   {
-   "keyword": "무릎밴드",
-   "pc": 490,
-   "mobile": 1850,
-   "total": 2340,
-   "competition": "중간"
+   "keyword": "아기설사",
+   "pc": 100,
+   "mobile": 2730,
+   "total": 2830,
+   "competition": "높음"
   },
   {
-   "keyword": "다리저림원인",
+   "keyword": "단두증",
    "pc": 190,
-   "mobile": 2110,
-   "total": 2300,
+   "mobile": 2640,
+   "total": 2830,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹효과",
-   "pc": 270,
-   "mobile": 2020,
-   "total": 2290,
+   "keyword": "유아유산균",
+   "pc": 280,
+   "mobile": 2520,
+   "total": 2800,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유아유산균",
+   "pc": 280,
+   "mobile": 2520,
+   "total": 2800,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기퓨레",
+   "pc": 190,
+   "mobile": 2570,
+   "total": 2760,
+   "competition": "중간"
+  },
+  {
+   "keyword": "엉덩이땀띠",
+   "pc": 100,
+   "mobile": 2590,
+   "total": 2690,
    "competition": "높음"
   },
   {
-   "keyword": "발바닥저림",
+   "keyword": "아기두상베개",
+   "pc": 490,
+   "mobile": 2180,
+   "total": 2670,
+   "competition": "중간"
+  },
+  {
+   "keyword": "예상키계산법",
+   "pc": 190,
+   "mobile": 2460,
+   "total": 2650,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "모세기관지염",
+   "pc": 290,
+   "mobile": 2280,
+   "total": 2570,
+   "competition": "높음"
+  },
+  {
+   "keyword": "낙산균효능",
+   "pc": 230,
+   "mobile": 2300,
+   "total": 2530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "변비없는철분제",
+   "pc": 1070,
+   "mobile": 1450,
+   "total": 2520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "예상키",
    "pc": 150,
-   "mobile": 1990,
+   "mobile": 2360,
+   "total": 2510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "좁쌀베개",
+   "pc": 130,
+   "mobile": 2350,
+   "total": 2480,
+   "competition": "중간"
+  },
+  {
+   "keyword": "얼굴가려움",
+   "pc": 250,
+   "mobile": 2200,
+   "total": 2450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중이염치료",
+   "pc": 260,
+   "mobile": 2130,
+   "total": 2390,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기유산균비타민D",
+   "pc": 220,
+   "mobile": 2140,
+   "total": 2360,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이앓이",
+   "pc": 200,
+   "mobile": 2140,
+   "total": 2340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운고연고",
+   "pc": 310,
+   "mobile": 2030,
+   "total": 2340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "식욕촉진제",
+   "pc": 370,
+   "mobile": 1960,
+   "total": 2330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철결핍성빈혈",
+   "pc": 380,
+   "mobile": 1930,
+   "total": 2310,
+   "competition": "높음"
+  },
+  {
+   "keyword": "곰보피부",
+   "pc": 210,
+   "mobile": 2070,
+   "total": 2280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아유산균비타민D",
+   "pc": 170,
+   "mobile": 2090,
+   "total": 2260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "사두",
+   "pc": 200,
+   "mobile": 2040,
+   "total": 2240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는방법",
+   "pc": 280,
+   "mobile": 1940,
+   "total": 2220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "100억유산균",
+   "pc": 550,
+   "mobile": 1660,
+   "total": 2210,
+   "competition": "중간"
+  },
+  {
+   "keyword": "몸에두드러기",
+   "pc": 160,
+   "mobile": 2050,
+   "total": 2210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "결절성양진",
+   "pc": 440,
+   "mobile": 1750,
+   "total": 2190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "예상키계산기",
+   "pc": 130,
+   "mobile": 2050,
+   "total": 2180,
+   "competition": "중간"
+  },
+  {
+   "keyword": "모낭충제거",
+   "pc": 220,
+   "mobile": 1950,
+   "total": 2170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움연고",
+   "pc": 240,
+   "mobile": 1920,
+   "total": 2160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식식단표",
+   "pc": 290,
+   "mobile": 1860,
+   "total": 2150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "발무좀",
+   "pc": 190,
+   "mobile": 1950,
    "total": 2140,
    "competition": "높음"
   },
   {
-   "keyword": "오른쪽엉덩이통증",
-   "pc": 140,
-   "mobile": 1770,
-   "total": 1910,
+   "keyword": "키성장",
+   "pc": 710,
+   "mobile": 1420,
+   "total": 2130,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥증상",
-   "pc": 210,
-   "mobile": 1620,
-   "total": 1830,
+   "keyword": "청소년철분제",
+   "pc": 560,
+   "mobile": 1550,
+   "total": 2110,
    "competition": "높음"
   },
   {
-   "keyword": "압박양말",
+   "keyword": "철분음식",
+   "pc": 240,
+   "mobile": 1870,
+   "total": 2110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청소년철분제",
+   "pc": 560,
+   "mobile": 1550,
+   "total": 2110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부철분",
+   "pc": 580,
+   "mobile": 1490,
+   "total": 2070,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유아헬멧",
+   "pc": 280,
+   "mobile": 1760,
+   "total": 2040,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부아토피",
+   "pc": 310,
+   "mobile": 1730,
+   "total": 2040,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기수면교육",
+   "pc": 110,
+   "mobile": 1910,
+   "total": 2020,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중기이유식양",
+   "pc": 80,
+   "mobile": 1930,
+   "total": 2010,
+   "competition": "높음"
+  },
+  {
+   "keyword": "9개월이유식",
+   "pc": 80,
+   "mobile": 1920,
+   "total": 2000,
+   "competition": "높음"
+  },
+  {
+   "keyword": "몽뜨허브",
+   "pc": 220,
+   "mobile": 1760,
+   "total": 1980,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기변비",
+   "pc": 110,
+   "mobile": 1810,
+   "total": 1920,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기두상교정",
+   "pc": 130,
+   "mobile": 1760,
+   "total": 1890,
+   "competition": "높음"
+  },
+  {
+   "keyword": "턱모낭염",
+   "pc": 250,
+   "mobile": 1630,
+   "total": 1880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "모낭염관리",
    "pc": 230,
+   "mobile": 1650,
+   "total": 1880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기아토피",
+   "pc": 300,
+   "mobile": 1580,
+   "total": 1880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장통",
+   "pc": 270,
    "mobile": 1600,
+   "total": 1870,
+   "competition": "높음"
+  },
+  {
+   "keyword": "도라지즙",
+   "pc": 290,
+   "mobile": 1570,
+   "total": 1860,
+   "competition": "중간"
+  },
+  {
+   "keyword": "임산부액상철분제",
+   "pc": 390,
+   "mobile": 1470,
+   "total": 1860,
+   "competition": "중간"
+  },
+  {
+   "keyword": "영아산통",
+   "pc": 120,
+   "mobile": 1720,
+   "total": 1840,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식시작",
+   "pc": 120,
+   "mobile": 1720,
+   "total": 1840,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식준비물",
+   "pc": 310,
+   "mobile": 1530,
+   "total": 1840,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는약",
+   "pc": 210,
+   "mobile": 1630,
+   "total": 1840,
+   "competition": "높음"
+  },
+  {
+   "keyword": "척추후만증",
+   "pc": 360,
+   "mobile": 1470,
    "total": 1830,
    "competition": "높음"
   },
   {
-   "keyword": "베네스트",
+   "keyword": "이유식배달",
+   "pc": 150,
+   "mobile": 1670,
+   "total": 1820,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린선",
+   "pc": 270,
+   "mobile": 1550,
+   "total": 1820,
+   "competition": "중간"
+  },
+  {
+   "keyword": "신생아두상베개",
    "pc": 430,
-   "mobile": 1220,
+   "mobile": 1380,
+   "total": 1810,
+   "competition": "중간"
+  },
+  {
+   "keyword": "철분제효능",
+   "pc": 170,
+   "mobile": 1630,
+   "total": 1800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "11개월이유식",
+   "pc": 90,
+   "mobile": 1710,
+   "total": 1800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기두상헬멧",
+   "pc": 100,
+   "mobile": 1700,
+   "total": 1800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "브라이트스타트",
+   "pc": 140,
+   "mobile": 1650,
+   "total": 1790,
+   "competition": "중간"
+  },
+  {
+   "keyword": "햇빛알러지",
+   "pc": 260,
+   "mobile": 1520,
+   "total": 1780,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부철분제추천",
+   "pc": 390,
+   "mobile": 1290,
+   "total": 1680,
+   "competition": "중간"
+  },
+  {
+   "keyword": "초기이유식소고기",
+   "pc": 70,
+   "mobile": 1610,
+   "total": 1680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌아기영양제",
+   "pc": 180,
+   "mobile": 1470,
+   "total": 1650,
+   "competition": "중간"
+  },
+  {
+   "keyword": "돌아기영양제",
+   "pc": 180,
+   "mobile": 1470,
+   "total": 1650,
+   "competition": "중간"
+  },
+  {
+   "keyword": "리틀클라우드",
+   "pc": 120,
+   "mobile": 1530,
    "total": 1650,
    "competition": "높음"
   },
   {
-   "keyword": "종아리슬리브",
-   "pc": 350,
-   "mobile": 1250,
-   "total": 1600,
+   "keyword": "초기이유식시판",
+   "pc": 80,
+   "mobile": 1560,
+   "total": 1640,
+   "competition": "높음"
+  },
+  {
+   "keyword": "무향바디로션",
+   "pc": 150,
+   "mobile": 1480,
+   "total": 1630,
    "competition": "중간"
   },
   {
-   "keyword": "왼쪽종아리통증",
-   "pc": 100,
+   "keyword": "두피사마귀",
+   "pc": 200,
+   "mobile": 1420,
+   "total": 1620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "삼출성중이염",
+   "pc": 270,
+   "mobile": 1340,
+   "total": 1610,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움",
+   "pc": 260,
+   "mobile": 1350,
+   "total": 1610,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴모낭염",
+   "pc": 190,
+   "mobile": 1420,
+   "total": 1610,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기철분",
+   "pc": 110,
+   "mobile": 1490,
+   "total": 1600,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이헬멧",
+   "pc": 250,
+   "mobile": 1340,
+   "total": 1590,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부염증",
+   "pc": 170,
+   "mobile": 1390,
+   "total": 1560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "7개월이유식",
+   "pc": 50,
+   "mobile": 1470,
+   "total": 1520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정",
+   "pc": 110,
+   "mobile": 1400,
+   "total": 1510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이유산균",
+   "pc": 170,
+   "mobile": 1330,
+   "total": 1500,
+   "competition": "높음"
+  },
+  {
+   "keyword": "열성경련",
+   "pc": 260,
+   "mobile": 1230,
+   "total": 1490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기딸랑이",
+   "pc": 120,
+   "mobile": 1370,
+   "total": 1490,
+   "competition": "중간"
+  },
+  {
+   "keyword": "조카100일선물",
+   "pc": 300,
+   "mobile": 1180,
+   "total": 1480,
+   "competition": "높음"
+  },
+  {
+   "keyword": "첫돌선물",
+   "pc": 250,
+   "mobile": 1220,
+   "total": 1470,
+   "competition": "높음"
+  },
+  {
+   "keyword": "식중독두드러기",
+   "pc": 140,
+   "mobile": 1330,
+   "total": 1470,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴이간지러워요",
+   "pc": 90,
+   "mobile": 1370,
+   "total": 1460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장호르몬",
+   "pc": 340,
+   "mobile": 1120,
+   "total": 1460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키즈영양제",
+   "pc": 240,
+   "mobile": 1210,
+   "total": 1450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분부족",
+   "pc": 210,
+   "mobile": 1240,
+   "total": 1450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "8개월이유식",
+   "pc": 50,
+   "mobile": 1400,
+   "total": 1450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "지오헬멧",
+   "pc": 170,
    "mobile": 1280,
+   "total": 1450,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부건조증",
+   "pc": 220,
+   "mobile": 1230,
+   "total": 1450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아비타민D",
+   "pc": 180,
+   "mobile": 1260,
+   "total": 1440,
+   "competition": "중간"
+  },
+  {
+   "keyword": "임산부철분제용량",
+   "pc": 150,
+   "mobile": 1290,
+   "total": 1440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네유산균베이비",
+   "pc": 60,
+   "mobile": 1360,
+   "total": 1420,
+   "competition": "중간"
+  },
+  {
+   "keyword": "키크는법",
+   "pc": 190,
+   "mobile": 1230,
+   "total": 1420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바르는모기약",
+   "pc": 170,
+   "mobile": 1230,
+   "total": 1400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판검사비용",
+   "pc": 150,
+   "mobile": 1240,
+   "total": 1390,
+   "competition": "높음"
+  },
+  {
+   "keyword": "몸이간지러워요",
+   "pc": 70,
+   "mobile": 1310,
    "total": 1380,
    "competition": "높음"
   },
   {
-   "keyword": "허벅지압박스타킹",
-   "pc": 110,
+   "keyword": "신생아비타민D유산균",
+   "pc": 100,
    "mobile": 1270,
-   "total": 1380,
-   "competition": "중간"
+   "total": 1370,
+   "competition": "높음"
   },
   {
-   "keyword": "잘때압박스타킹",
+   "keyword": "아기코막힘",
    "pc": 70,
-   "mobile": 1290,
+   "mobile": 1300,
+   "total": 1370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생영양제",
+   "pc": 230,
+   "mobile": 1140,
+   "total": 1370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "하니헬멧",
+   "pc": 170,
+   "mobile": 1190,
+   "total": 1360,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "엉덩이가려움",
+   "pc": 90,
+   "mobile": 1270,
    "total": 1360,
    "competition": "높음"
   },
   {
-   "keyword": "종아리저림",
-   "pc": 150,
-   "mobile": 1180,
-   "total": 1330,
-   "competition": "높음"
-  },
-  {
-   "keyword": "허벅지형압박스타킹",
-   "pc": 1230,
-   "mobile": 100,
-   "total": 1330,
-   "competition": "높음"
-  },
-  {
-   "keyword": "페인큐",
-   "pc": 270,
-   "mobile": 950,
-   "total": 1220,
+   "keyword": "빈혈에좋은영양제",
+   "pc": 140,
+   "mobile": 1200,
+   "total": 1340,
    "competition": "중간"
   },
   {
-   "keyword": "오른쪽다리통증",
-   "pc": 70,
-   "mobile": 1110,
+   "keyword": "비바헬멧",
+   "pc": 130,
+   "mobile": 1200,
+   "total": 1330,
+   "competition": "중간"
+  },
+  {
+   "keyword": "서울소아정형외과",
+   "pc": 160,
+   "mobile": 1170,
+   "total": 1330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "겨드랑이땀띠",
+   "pc": 110,
+   "mobile": 1190,
+   "total": 1300,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손가락한포진연고",
+   "pc": 150,
+   "mobile": 1140,
+   "total": 1290,
+   "competition": "높음"
+  },
+  {
+   "keyword": "근긴장이상증",
+   "pc": 260,
+   "mobile": 1020,
+   "total": 1280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이선물",
+   "pc": 380,
+   "mobile": 890,
+   "total": 1270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "안짱다리교정",
+   "pc": 120,
+   "mobile": 1150,
+   "total": 1270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여성철분제",
+   "pc": 430,
+   "mobile": 820,
+   "total": 1250,
+   "competition": "중간"
+  },
+  {
+   "keyword": "완선",
+   "pc": 250,
+   "mobile": 1000,
+   "total": 1250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기눈꼽",
+   "pc": 30,
+   "mobile": 1220,
+   "total": 1250,
+   "competition": "중간"
+  },
+  {
+   "keyword": "6개월이유식",
+   "pc": 60,
+   "mobile": 1180,
+   "total": 1240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "약국철분제",
+   "pc": 200,
+   "mobile": 1040,
+   "total": 1240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "백선증",
+   "pc": 300,
+   "mobile": 940,
+   "total": 1240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴간지러움",
+   "pc": 120,
+   "mobile": 1120,
+   "total": 1240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌아기유산균",
+   "pc": 140,
+   "mobile": 1090,
+   "total": 1230,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유아철분제",
+   "pc": 110,
+   "mobile": 1120,
+   "total": 1230,
+   "competition": "중간"
+  },
+  {
+   "keyword": "액상철분",
+   "pc": 410,
+   "mobile": 820,
+   "total": 1230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아영양제",
+   "pc": 190,
+   "mobile": 1040,
+   "total": 1230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기중이염",
+   "pc": 140,
+   "mobile": 1080,
+   "total": 1220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사춘기테스트",
+   "pc": 120,
+   "mobile": 1090,
+   "total": 1210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임신철분제",
+   "pc": 920,
+   "mobile": 280,
+   "total": 1200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상",
+   "pc": 150,
+   "mobile": 1050,
+   "total": 1200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유황가루",
+   "pc": 120,
+   "mobile": 1080,
+   "total": 1200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손한포진",
+   "pc": 170,
+   "mobile": 1030,
+   "total": 1200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사춘기증상",
+   "pc": 110,
+   "mobile": 1090,
+   "total": 1200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "죽이유식",
+   "pc": 60,
+   "mobile": 1130,
+   "total": 1190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "백일아기선물",
+   "pc": 150,
+   "mobile": 1030,
    "total": 1180,
    "competition": "높음"
   },
   {
-   "keyword": "임산부스타킹",
-   "pc": 190,
-   "mobile": 960,
+   "keyword": "얼굴피부염",
+   "pc": 120,
+   "mobile": 1060,
+   "total": 1180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아좁쌀베개",
+   "pc": 60,
+   "mobile": 1110,
+   "total": 1170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "오가니스트바디워시",
+   "pc": 90,
+   "mobile": 1070,
+   "total": 1160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한약방",
+   "pc": 200,
+   "mobile": 950,
    "total": 1150,
    "competition": "높음"
   },
   {
-   "keyword": "종아리압박밴드효과",
-   "pc": 140,
-   "mobile": 990,
+   "keyword": "어린이마그네슘",
+   "pc": 120,
+   "mobile": 1030,
+   "total": 1150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식체험",
+   "pc": 70,
+   "mobile": 1070,
+   "total": 1140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식시기",
+   "pc": 110,
+   "mobile": 1020,
    "total": 1130,
    "competition": "높음"
   },
   {
-   "keyword": "압스",
-   "pc": 250,
-   "mobile": 880,
-   "total": 1130,
-   "competition": "낮음"
-  },
-  {
-   "keyword": "허벅지압박밴드",
-   "pc": 130,
-   "mobile": 1000,
-   "total": 1130,
-   "competition": "높음"
-  },
-  {
-   "keyword": "수면압박스타킹",
-   "pc": 150,
-   "mobile": 960,
+   "keyword": "몸두드러기",
+   "pc": 100,
+   "mobile": 1010,
    "total": 1110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시판이유식추천",
+   "pc": 50,
+   "mobile": 1050,
+   "total": 1100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "완료기이유식",
+   "pc": 60,
+   "mobile": 1040,
+   "total": 1100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이자전거헬멧",
+   "pc": 140,
+   "mobile": 960,
+   "total": 1100,
    "competition": "중간"
   },
   {
-   "keyword": "외과병원",
+   "keyword": "땀띠가려움",
    "pc": 90,
-   "mobile": 990,
-   "total": 1080,
+   "mobile": 1010,
+   "total": 1100,
    "competition": "높음"
   },
   {
-   "keyword": "발저림",
-   "pc": 150,
-   "mobile": 900,
+   "keyword": "신생아배꼽",
+   "pc": 40,
+   "mobile": 1050,
+   "total": 1090,
+   "competition": "높음"
+  },
+  {
+   "keyword": "9개월아기이유식",
+   "pc": 50,
+   "mobile": 1010,
+   "total": 1060,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판",
+   "pc": 190,
+   "mobile": 870,
+   "total": 1060,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피바디로션",
+   "pc": 140,
+   "mobile": 910,
    "total": 1050,
    "competition": "높음"
   },
   {
-   "keyword": "종아리근육통증",
-   "pc": 100,
-   "mobile": 940,
-   "total": 1040,
+   "keyword": "두드러기연고",
+   "pc": 130,
+   "mobile": 900,
+   "total": 1030,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹추천",
-   "pc": 190,
-   "mobile": 740,
+   "keyword": "피부곰팡이",
+   "pc": 120,
+   "mobile": 910,
+   "total": 1030,
+   "competition": "높음"
+  },
+  {
+   "keyword": "기저귀크림",
+   "pc": 90,
+   "mobile": 940,
+   "total": 1030,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴습진",
+   "pc": 110,
+   "mobile": 910,
+   "total": 1020,
+   "competition": "높음"
+  },
+  {
+   "keyword": "그림자놀이",
+   "pc": 210,
+   "mobile": 800,
+   "total": 1010,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두피에뾰루지",
+   "pc": 120,
+   "mobile": 890,
+   "total": 1010,
+   "competition": "높음"
+  },
+  {
+   "keyword": "만성중이염",
+   "pc": 160,
+   "mobile": 840,
+   "total": 1000,
+   "competition": "높음"
+  },
+  {
+   "keyword": "셀티아이베이비",
+   "pc": 180,
+   "mobile": 810,
+   "total": 990,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기성장발달",
+   "pc": 130,
+   "mobile": 860,
+   "total": 990,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네베이비",
+   "pc": 40,
+   "mobile": 940,
+   "total": 980,
+   "competition": "중간"
+  },
+  {
+   "keyword": "영아돌연사증후군",
+   "pc": 110,
+   "mobile": 870,
+   "total": 980,
+   "competition": "중간"
+  },
+  {
+   "keyword": "100일아기장난감",
+   "pc": 100,
+   "mobile": 880,
+   "total": 980,
+   "competition": "중간"
+  },
+  {
+   "keyword": "항균비누",
+   "pc": 220,
+   "mobile": 760,
+   "total": 980,
+   "competition": "중간"
+  },
+  {
+   "keyword": "키즈철분",
+   "pc": 50,
+   "mobile": 920,
+   "total": 970,
+   "competition": "중간"
+  },
+  {
+   "keyword": "색소성자반증",
+   "pc": 130,
+   "mobile": 840,
+   "total": 970,
+   "competition": "높음"
+  },
+  {
+   "keyword": "과일퓨레",
+   "pc": 130,
+   "mobile": 830,
+   "total": 960,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식시판",
+   "pc": 110,
+   "mobile": 850,
+   "total": 960,
+   "competition": "높음"
+  },
+  {
+   "keyword": "눈가비립종제거",
+   "pc": 180,
+   "mobile": 780,
+   "total": 960,
+   "competition": "높음"
+  },
+  {
+   "keyword": "팩음료",
+   "pc": 330,
+   "mobile": 620,
+   "total": 950,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분제복용법",
+   "pc": 370,
+   "mobile": 570,
+   "total": 940,
+   "competition": "높음"
+  },
+  {
+   "keyword": "닭고기이유식",
+   "pc": 20,
+   "mobile": 920,
+   "total": 940,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴붉은반점",
+   "pc": 60,
+   "mobile": 880,
+   "total": 940,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비대칭",
+   "pc": 180,
+   "mobile": 750,
    "total": 930,
    "competition": "높음"
   },
   {
-   "keyword": "의료용압박밴드",
-   "pc": 330,
-   "mobile": 550,
+   "keyword": "비헴철철분제",
+   "pc": 80,
+   "mobile": 840,
+   "total": 920,
+   "competition": "중간"
+  },
+  {
+   "keyword": "한랭알레르기",
+   "pc": 130,
+   "mobile": 790,
+   "total": 920,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자외선차단",
+   "pc": 250,
+   "mobile": 670,
+   "total": 920,
+   "competition": "중간"
+  },
+  {
+   "keyword": "두돌아기영양제",
+   "pc": 110,
+   "mobile": 790,
+   "total": 900,
+   "competition": "중간"
+  },
+  {
+   "keyword": "식물성글리세린",
+   "pc": 200,
+   "mobile": 700,
+   "total": 900,
+   "competition": "높음"
+  },
+  {
+   "keyword": "스승의날선물",
+   "pc": 170,
+   "mobile": 730,
+   "total": 900,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식무료체험",
+   "pc": 70,
+   "mobile": 810,
+   "total": 880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "출산후철분제",
+   "pc": 40,
+   "mobile": 840,
    "total": 880,
    "competition": "중간"
   },
   {
-   "keyword": "혈관외과병원",
+   "keyword": "성장판검사병원",
+   "pc": 70,
+   "mobile": 810,
+   "total": 880,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식재료",
+   "pc": 170,
+   "mobile": 700,
+   "total": 870,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이정형외과",
+   "pc": 50,
+   "mobile": 820,
+   "total": 870,
+   "competition": "높음"
+  },
+  {
+   "keyword": "글루타셀스프레이",
+   "pc": 120,
+   "mobile": 750,
+   "total": 870,
+   "competition": "중간"
+  },
+  {
+   "keyword": "엉덩이습진",
+   "pc": 100,
+   "mobile": 770,
+   "total": 870,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식초기",
    "pc": 60,
    "mobile": 800,
    "total": 860,
    "competition": "높음"
   },
   {
-   "keyword": "수면용압박스타킹",
-   "pc": 80,
-   "mobile": 780,
+   "keyword": "철분제액상",
+   "pc": 360,
+   "mobile": 500,
    "total": 860,
-   "competition": "중간"
+   "competition": "높음"
   },
   {
-   "keyword": "외과의원",
-   "pc": 80,
-   "mobile": 770,
+   "keyword": "돌아기비타민D",
+   "pc": 50,
+   "mobile": 800,
    "total": 850,
    "competition": "높음"
   },
   {
-   "keyword": "다리가아파요",
+   "keyword": "6학년평균키",
+   "pc": 60,
+   "mobile": 790,
+   "total": 850,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기열",
    "pc": 30,
-   "mobile": 780,
+   "mobile": 810,
+   "total": 840,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이러브밴드",
+   "pc": 90,
+   "mobile": 750,
+   "total": 840,
+   "competition": "중간"
+  },
+  {
+   "keyword": "신생아딸랑이",
+   "pc": 90,
+   "mobile": 750,
+   "total": 840,
+   "competition": "중간"
+  },
+  {
+   "keyword": "침독크림",
+   "pc": 70,
+   "mobile": 760,
+   "total": 830,
+   "competition": "중간"
+  },
+  {
+   "keyword": "농포",
+   "pc": 170,
+   "mobile": 650,
+   "total": 820,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증",
+   "pc": 200,
+   "mobile": 610,
    "total": 810,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹의료용",
-   "pc": 260,
-   "mobile": 550,
-   "total": 810,
+   "keyword": "첫이유식",
+   "pc": 50,
+   "mobile": 750,
+   "total": 800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "10개월이유식",
+   "pc": 50,
+   "mobile": 750,
+   "total": 800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비바3D헬멧",
+   "pc": 40,
+   "mobile": 760,
+   "total": 800,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아짱구베개",
+   "pc": 60,
+   "mobile": 740,
+   "total": 800,
    "competition": "중간"
   },
   {
-   "keyword": "다리압박밴드",
-   "pc": 130,
-   "mobile": 660,
+   "keyword": "FED유산균",
+   "pc": 50,
+   "mobile": 740,
+   "total": 790,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유아비타민C",
+   "pc": 60,
+   "mobile": 730,
+   "total": 790,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기킥보드헬멧",
+   "pc": 70,
+   "mobile": 720,
    "total": 790,
    "competition": "높음"
   },
   {
-   "keyword": "발이저려요",
-   "pc": 20,
-   "mobile": 720,
+   "keyword": "강동구안과",
+   "pc": 260,
+   "mobile": 530,
+   "total": 790,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중학생철분제",
+   "pc": 410,
+   "mobile": 370,
+   "total": 780,
+   "competition": "높음"
+  },
+  {
+   "keyword": "루솔진한배도라지즙",
+   "pc": 90,
+   "mobile": 680,
+   "total": 770,
+   "competition": "중간"
+  },
+  {
+   "keyword": "청소년철분제추천",
+   "pc": 290,
+   "mobile": 480,
+   "total": 770,
+   "competition": "높음"
+  },
+  {
+   "keyword": "콜드크림",
+   "pc": 110,
+   "mobile": 660,
+   "total": 770,
+   "competition": "높음"
+  },
+  {
+   "keyword": "수면교육",
+   "pc": 100,
+   "mobile": 660,
+   "total": 760,
+   "competition": "높음"
+  },
+  {
+   "keyword": "다리가려움",
+   "pc": 30,
+   "mobile": 730,
+   "total": 760,
+   "competition": "높음"
+  },
+  {
+   "keyword": "22개월아기발달",
+   "pc": 70,
+   "mobile": 680,
+   "total": 750,
+   "competition": "높음"
+  },
+  {
+   "keyword": "22개월아기발달",
+   "pc": 70,
+   "mobile": 680,
+   "total": 750,
+   "competition": "높음"
+  },
+  {
+   "keyword": "쌍둥이선물",
+   "pc": 120,
+   "mobile": 630,
+   "total": 750,
+   "competition": "높음"
+  },
+  {
+   "keyword": "그림자동화",
+   "pc": 130,
+   "mobile": 610,
+   "total": 740,
+   "competition": "중간"
+  },
+  {
+   "keyword": "피부따가움",
+   "pc": 50,
+   "mobile": 690,
    "total": 740,
    "competition": "높음"
   },
   {
-   "keyword": "손톱파임",
+   "keyword": "한포진약",
+   "pc": 120,
+   "mobile": 610,
+   "total": 730,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분젤리",
+   "pc": 90,
+   "mobile": 630,
+   "total": 720,
+   "competition": "중간"
+  },
+  {
+   "keyword": "초기소고기이유식",
+   "pc": 10,
+   "mobile": 710,
+   "total": 720,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키즈마그네슘",
    "pc": 70,
+   "mobile": 650,
+   "total": 720,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기두상",
+   "pc": 30,
+   "mobile": 680,
+   "total": 710,
+   "competition": "높음"
+  },
+  {
+   "keyword": "온몸이가려워요",
+   "pc": 50,
+   "mobile": 660,
+   "total": 710,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성인땀띠",
+   "pc": 80,
+   "mobile": 630,
+   "total": 710,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시판이유식체험",
+   "pc": 50,
+   "mobile": 650,
+   "total": 700,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식세트",
+   "pc": 80,
+   "mobile": 620,
+   "total": 700,
+   "competition": "중간"
+  },
+  {
+   "keyword": "돌아기이유식",
+   "pc": 40,
+   "mobile": 660,
+   "total": 700,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사타구니무좀",
+   "pc": 80,
+   "mobile": 620,
+   "total": 700,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식재료",
+   "pc": 30,
+   "mobile": 660,
+   "total": 690,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두피뾰루지연고",
+   "pc": 90,
    "mobile": 600,
+   "total": 690,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기자전거헬멧",
+   "pc": 80,
+   "mobile": 610,
+   "total": 690,
+   "competition": "높음"
+  },
+  {
+   "keyword": "살리실산토너",
+   "pc": 70,
+   "mobile": 610,
+   "total": 680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장표",
+   "pc": 70,
+   "mobile": 610,
+   "total": 680,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여성철분제추천",
+   "pc": 100,
+   "mobile": 570,
    "total": 670,
    "competition": "높음"
   },
   {
-   "keyword": "종아리압박",
-   "pc": 230,
-   "mobile": 380,
-   "total": 610,
+   "keyword": "임신여드름",
+   "pc": 90,
+   "mobile": 580,
+   "total": 670,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성인아토피로션",
+   "pc": 70,
+   "mobile": 600,
+   "total": 670,
    "competition": "중간"
   },
   {
-   "keyword": "손톱변형",
+   "keyword": "두전증",
+   "pc": 120,
+   "mobile": 550,
+   "total": 670,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이음료",
+   "pc": 210,
+   "mobile": 450,
+   "total": 660,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기유산균추천",
    "pc": 70,
-   "mobile": 530,
+   "mobile": 590,
+   "total": 660,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이철분",
+   "pc": 60,
+   "mobile": 600,
+   "total": 660,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유황크림",
+   "pc": 90,
+   "mobile": 570,
+   "total": 660,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기변색깔",
+   "pc": 10,
+   "mobile": 650,
+   "total": 660,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이한의원",
+   "pc": 70,
+   "mobile": 590,
+   "total": 660,
+   "competition": "높음"
+  },
+  {
+   "keyword": "국민육아템",
+   "pc": 110,
+   "mobile": 540,
+   "total": 650,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기이유식만들기",
+   "pc": 40,
+   "mobile": 610,
+   "total": 650,
+   "competition": "높음"
+  },
+  {
+   "keyword": "7개월아기이유식",
+   "pc": 40,
+   "mobile": 590,
+   "total": 630,
+   "competition": "높음"
+  },
+  {
+   "keyword": "크니쁘니",
+   "pc": 100,
+   "mobile": 520,
+   "total": 620,
+   "competition": "중간"
+  },
+  {
+   "keyword": "11개월아기이유식",
+   "pc": 30,
+   "mobile": 590,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아두상교정",
+   "pc": 40,
+   "mobile": 580,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "본태성진전증",
+   "pc": 110,
+   "mobile": 510,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는한약",
+   "pc": 100,
+   "mobile": 520,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장호르몬검사",
+   "pc": 100,
+   "mobile": 520,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장검사",
+   "pc": 110,
+   "mobile": 510,
+   "total": 620,
+   "competition": "높음"
+  },
+  {
+   "keyword": "쌀미음",
+   "pc": 40,
+   "mobile": 570,
+   "total": 610,
+   "competition": "높음"
+  },
+  {
+   "keyword": "수원소아정형외과",
+   "pc": 40,
+   "mobile": 560,
+   "total": 600,
+   "competition": "중간"
+  },
+  {
+   "keyword": "가려움",
+   "pc": 140,
+   "mobile": 460,
    "total": 600,
    "competition": "높음"
   },
   {
-   "keyword": "간호사압박스타킹",
-   "pc": 80,
-   "mobile": 500,
+   "keyword": "이유식완료기",
+   "pc": 40,
+   "mobile": 540,
+   "total": 580,
+   "competition": "높음"
+  },
+  {
+   "keyword": "천호역안과",
+   "pc": 130,
+   "mobile": 450,
    "total": 580,
    "competition": "중간"
   },
   {
-   "keyword": "레그슬리브",
-   "pc": 100,
-   "mobile": 480,
+   "keyword": "나이별평균키",
+   "pc": 70,
+   "mobile": 510,
    "total": 580,
-   "competition": "중간"
+   "competition": "높음"
   },
   {
-   "keyword": "압박용밴드",
+   "keyword": "아기주스",
    "pc": 90,
    "mobile": 480,
+   "total": 570,
+   "competition": "중간"
+  },
+  {
+   "keyword": "여에스더철분",
+   "pc": 40,
+   "mobile": 530,
    "total": 570,
    "competition": "높음"
   },
   {
-   "keyword": "올리브영압박스타킹",
-   "pc": 100,
-   "mobile": 460,
+   "keyword": "샤워후가려움",
+   "pc": 40,
+   "mobile": 530,
+   "total": 570,
+   "competition": "높음"
+  },
+  {
+   "keyword": "체질개선",
+   "pc": 140,
+   "mobile": 430,
+   "total": 570,
+   "competition": "높음"
+  },
+  {
+   "keyword": "6개월아기영양제",
+   "pc": 40,
+   "mobile": 520,
    "total": 560,
    "competition": "높음"
   },
   {
-   "keyword": "손톱병원",
+   "keyword": "키즈철분제",
+   "pc": 40,
+   "mobile": 520,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "6개월아기영양제",
+   "pc": 40,
+   "mobile": 520,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장기어린이영양제",
    "pc": 70,
-   "mobile": 450,
+   "mobile": 490,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "13개월유아식",
+   "pc": 30,
+   "mobile": 530,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아자전거헬멧",
+   "pc": 80,
+   "mobile": 480,
+   "total": 560,
+   "competition": "중간"
+  },
+  {
+   "keyword": "쌍둥이출산선물",
+   "pc": 120,
+   "mobile": 440,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장마사지",
+   "pc": 60,
+   "mobile": 500,
+   "total": 560,
+   "competition": "높음"
+  },
+  {
+   "keyword": "베이비유산균",
+   "pc": 40,
+   "mobile": 510,
+   "total": 550,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분제비타민C",
+   "pc": 280,
+   "mobile": 270,
+   "total": 550,
+   "competition": "높음"
+  },
+  {
+   "keyword": "7개월장난감",
+   "pc": 30,
+   "mobile": 520,
+   "total": 550,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이철분제",
+   "pc": 60,
+   "mobile": 480,
+   "total": 540,
+   "competition": "높음"
+  },
+  {
+   "keyword": "머리보호대",
+   "pc": 120,
+   "mobile": 420,
+   "total": 540,
+   "competition": "중간"
+  },
+  {
+   "keyword": "무좀레이저",
+   "pc": 100,
+   "mobile": 440,
+   "total": 540,
+   "competition": "중간"
+  },
+  {
+   "keyword": "6개월아기이유식",
+   "pc": 50,
+   "mobile": 480,
+   "total": 530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "육아필수템",
+   "pc": 160,
+   "mobile": 370,
+   "total": 530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비헴철",
+   "pc": 120,
+   "mobile": 410,
+   "total": 530,
+   "competition": "중간"
+  },
+  {
+   "keyword": "백선연고",
+   "pc": 50,
+   "mobile": 480,
+   "total": 530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피에좋은로션",
+   "pc": 50,
+   "mobile": 480,
+   "total": 530,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유기농주스",
+   "pc": 150,
+   "mobile": 370,
    "total": 520,
    "competition": "중간"
   },
   {
-   "keyword": "의료용종아리압박밴드",
+   "keyword": "유아변비",
+   "pc": 40,
+   "mobile": 480,
+   "total": 520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아두상",
+   "pc": 30,
+   "mobile": 490,
+   "total": 520,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아연비타민D",
+   "pc": 130,
+   "mobile": 380,
+   "total": 510,
+   "competition": "중간"
+  },
+  {
+   "keyword": "소고기미음",
+   "pc": 20,
+   "mobile": 490,
+   "total": 510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손주선물",
+   "pc": 460,
+   "mobile": 50,
+   "total": 510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정헬멧",
+   "pc": 60,
+   "mobile": 450,
+   "total": 510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "종아리가려움",
+   "pc": 20,
+   "mobile": 490,
+   "total": 510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "진주피부과추천",
+   "pc": 50,
+   "mobile": 460,
+   "total": 510,
+   "competition": "높음"
+  },
+  {
+   "keyword": "액상형철분제",
+   "pc": 80,
+   "mobile": 420,
+   "total": 500,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식후기",
+   "pc": 40,
+   "mobile": 460,
+   "total": 500,
+   "competition": "중간"
+  },
+  {
+   "keyword": "베일리바오",
+   "pc": 60,
+   "mobile": 440,
+   "total": 500,
+   "competition": "중간"
+  },
+  {
+   "keyword": "성장판주사",
    "pc": 70,
    "mobile": 430,
    "total": 500,
    "competition": "높음"
   },
   {
-   "keyword": "종아리밴드",
-   "pc": 80,
+   "keyword": "아기배앓이",
+   "pc": 30,
+   "mobile": 460,
+   "total": 490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이날선물",
+   "pc": 90,
    "mobile": 400,
+   "total": 490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상배게",
+   "pc": 50,
+   "mobile": 440,
+   "total": 490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장클리닉",
+   "pc": 90,
+   "mobile": 400,
+   "total": 490,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식만들기",
+   "pc": 40,
+   "mobile": 440,
    "total": 480,
    "competition": "높음"
   },
   {
-   "keyword": "비행기압박스타킹",
-   "pc": 60,
-   "mobile": 410,
+   "keyword": "머리모양",
+   "pc": 30,
+   "mobile": 450,
+   "total": 480,
+   "competition": "중간"
+  },
+  {
+   "keyword": "우리아이예상키",
+   "pc": 40,
+   "mobile": 440,
+   "total": 480,
+   "competition": "높음"
+  },
+  {
+   "keyword": "주니어베개",
+   "pc": 70,
+   "mobile": 400,
+   "total": 470,
+   "competition": "중간"
+  },
+  {
+   "keyword": "엉드름",
+   "pc": 30,
+   "mobile": 440,
    "total": 470,
    "competition": "높음"
   },
   {
-   "keyword": "당뇨양말",
-   "pc": 110,
-   "mobile": 340,
+   "keyword": "아기배즙",
+   "pc": 60,
+   "mobile": 400,
+   "total": 460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "5개월이유식",
+   "pc": 10,
+   "mobile": 450,
+   "total": 460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "잠자리동화",
+   "pc": 30,
+   "mobile": 430,
+   "total": 460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "외사시수술",
+   "pc": 80,
+   "mobile": 380,
+   "total": 460,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식단계",
+   "pc": 40,
+   "mobile": 410,
    "total": 450,
    "competition": "높음"
   },
   {
-   "keyword": "임산부의료용압박스타킹",
-   "pc": 60,
-   "mobile": 370,
+   "keyword": "소아한의원",
+   "pc": 50,
+   "mobile": 400,
+   "total": 450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초경후키",
+   "pc": 40,
+   "mobile": 410,
+   "total": 450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기홍삼",
+   "pc": 30,
+   "mobile": 420,
+   "total": 450,
+   "competition": "중간"
+  },
+  {
+   "keyword": "천호동안과",
+   "pc": 70,
+   "mobile": 380,
+   "total": 450,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아유산균추천",
+   "pc": 30,
+   "mobile": 410,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식순서",
+   "pc": 20,
+   "mobile": 420,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이코피",
+   "pc": 30,
+   "mobile": 410,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유영양제",
+   "pc": 80,
+   "mobile": 360,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기두상교정헬멧",
+   "pc": 50,
+   "mobile": 390,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "향균비누",
+   "pc": 80,
+   "mobile": 360,
+   "total": 440,
+   "competition": "높음"
+  },
+  {
+   "keyword": "조립장난감",
+   "pc": 80,
+   "mobile": 360,
+   "total": 440,
+   "competition": "중간"
+  },
+  {
+   "keyword": "SPATONE",
+   "pc": 70,
+   "mobile": 360,
    "total": 430,
    "competition": "중간"
   },
   {
-   "keyword": "종아리토시",
+   "keyword": "마시는철분제",
    "pc": 50,
    "mobile": 370,
    "total": 420,
    "competition": "높음"
   },
   {
-   "keyword": "남자압박스타킹",
+   "keyword": "사경치료",
+   "pc": 50,
+   "mobile": 370,
+   "total": 420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움연고",
+   "pc": 80,
+   "mobile": 340,
+   "total": 420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "살리실산효능",
    "pc": 60,
-   "mobile": 330,
+   "mobile": 360,
+   "total": 420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "항문가려움증",
+   "pc": 40,
+   "mobile": 380,
+   "total": 420,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네아기유산균",
+   "pc": 30,
+   "mobile": 380,
+   "total": 410,
+   "competition": "높음"
+  },
+  {
+   "keyword": "6개월아기유산균",
+   "pc": 20,
+   "mobile": 390,
+   "total": 410,
+   "competition": "높음"
+  },
+  {
+   "keyword": "스파톤애플",
+   "pc": 70,
+   "mobile": 340,
+   "total": 410,
+   "competition": "중간"
+  },
+  {
+   "keyword": "6개월아기유산균",
+   "pc": 20,
+   "mobile": 390,
+   "total": 410,
+   "competition": "높음"
+  },
+  {
+   "keyword": "모기물린데",
+   "pc": 60,
+   "mobile": 350,
+   "total": 410,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식종류",
+   "pc": 30,
+   "mobile": 370,
+   "total": 400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "리포좀철분",
+   "pc": 50,
+   "mobile": 350,
+   "total": 400,
+   "competition": "중간"
+  },
+  {
+   "keyword": "12개월이유식",
+   "pc": 20,
+   "mobile": 380,
+   "total": 400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식야채",
+   "pc": 20,
+   "mobile": 380,
+   "total": 400,
+   "competition": "중간"
+  },
+  {
+   "keyword": "여자아이장난감",
+   "pc": 60,
+   "mobile": 340,
+   "total": 400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성인사시",
+   "pc": 30,
+   "mobile": 370,
+   "total": 400,
+   "competition": "높음"
+  },
+  {
+   "keyword": "갓난아기선물",
+   "pc": 70,
+   "mobile": 320,
    "total": 390,
    "competition": "높음"
   },
   {
-   "keyword": "임산부압박밴드",
-   "pc": 50,
-   "mobile": 330,
+   "keyword": "아이예상키",
+   "pc": 40,
+   "mobile": 350,
+   "total": 390,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네신생아유산균",
+   "pc": 20,
+   "mobile": 360,
    "total": 380,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥스타킹",
+   "keyword": "초등학생철분제",
+   "pc": 60,
+   "mobile": 320,
+   "total": 380,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인피부가려움증",
+   "pc": 60,
+   "mobile": 320,
+   "total": 380,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생철분제",
+   "pc": 60,
+   "mobile": 320,
+   "total": 380,
+   "competition": "높음"
+  },
+  {
+   "keyword": "7개월아기유산균",
+   "pc": 20,
+   "mobile": 350,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아철분",
    "pc": 30,
-   "mobile": 330,
+   "mobile": 340,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "딸랑이세트",
+   "pc": 50,
+   "mobile": 320,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아사두증",
+   "pc": 10,
+   "mobile": 360,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "엉덩이피부염",
+   "pc": 10,
+   "mobile": 360,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생키",
+   "pc": 60,
+   "mobile": 310,
+   "total": 370,
+   "competition": "높음"
+  },
+  {
+   "keyword": "4개월이유식",
+   "pc": 10,
+   "mobile": 350,
    "total": 360,
    "competition": "높음"
   },
   {
-   "keyword": "골프압박스타킹",
-   "pc": 30,
-   "mobile": 330,
+   "keyword": "초기이유식미음",
+   "pc": 10,
+   "mobile": 350,
+   "total": 360,
+   "competition": "높음"
+  },
+  {
+   "keyword": "대구이유식",
+   "pc": 10,
+   "mobile": 350,
    "total": 360,
    "competition": "중간"
   },
   {
-   "keyword": "하지정맥압박밴드",
+   "keyword": "목피부가려움",
+   "pc": 50,
+   "mobile": 310,
+   "total": 360,
+   "competition": "높음"
+  },
+  {
+   "keyword": "항문질환",
+   "pc": 60,
+   "mobile": 300,
+   "total": 360,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분마그네슘",
+   "pc": 40,
+   "mobile": 310,
+   "total": 350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분영양제추천",
+   "pc": 60,
+   "mobile": 290,
+   "total": 350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "실리콘장난감",
+   "pc": 30,
+   "mobile": 320,
+   "total": 350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "18개월아기선물",
+   "pc": 50,
+   "mobile": 300,
+   "total": 350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키예상",
+   "pc": 20,
+   "mobile": 330,
+   "total": 350,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아변비",
+   "pc": 50,
+   "mobile": 290,
+   "total": 340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아변비",
+   "pc": 50,
+   "mobile": 290,
+   "total": 340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식준비",
+   "pc": 60,
+   "mobile": 280,
+   "total": 340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아킥보드헬멧",
    "pc": 30,
    "mobile": 310,
    "total": 340,
    "competition": "높음"
   },
   {
-   "keyword": "승무원스타킹",
-   "pc": 50,
-   "mobile": 280,
+   "keyword": "손습진치료",
+   "pc": 40,
+   "mobile": 300,
+   "total": 340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "잠실성장클리닉",
+   "pc": 120,
+   "mobile": 220,
+   "total": 340,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아비타민",
+   "pc": 40,
+   "mobile": 290,
    "total": 330,
    "competition": "높음"
   },
   {
-   "keyword": "고탄력스타킹",
+   "keyword": "유아유산균추천",
    "pc": 30,
    "mobile": 300,
    "total": 330,
    "competition": "높음"
   },
   {
-   "keyword": "분당외과",
+   "keyword": "철분보충제",
+   "pc": 100,
+   "mobile": 230,
+   "total": 330,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기첫이유식",
+   "pc": 10,
+   "mobile": 320,
+   "total": 330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기이유식식단",
+   "pc": 40,
+   "mobile": 290,
+   "total": 330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "정강이가려움",
+   "pc": 20,
+   "mobile": 310,
+   "total": 330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판검사방법",
+   "pc": 60,
+   "mobile": 270,
+   "total": 330,
+   "competition": "높음"
+  },
+  {
+   "keyword": "안양소아정형외과",
+   "pc": 40,
+   "mobile": 280,
+   "total": 320,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청주소아정형외과",
+   "pc": 30,
+   "mobile": 290,
+   "total": 320,
+   "competition": "중간"
+  },
+  {
+   "keyword": "성인사시수술",
+   "pc": 30,
+   "mobile": 290,
+   "total": 320,
+   "competition": "높음"
+  },
+  {
+   "keyword": "예상키검사",
+   "pc": 20,
+   "mobile": 290,
+   "total": 310,
+   "competition": "높음"
+  },
+  {
+   "keyword": "크니쁘니주스",
+   "pc": 60,
+   "mobile": 240,
+   "total": 300,
+   "competition": "중간"
+  },
+  {
+   "keyword": "리포퍼철분",
+   "pc": 80,
+   "mobile": 220,
+   "total": 300,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기초유영양제",
+   "pc": 20,
+   "mobile": 280,
+   "total": 300,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피진",
+   "pc": 40,
+   "mobile": 260,
+   "total": 300,
+   "competition": "중간"
+  },
+  {
+   "keyword": "알레르기자반증",
+   "pc": 80,
+   "mobile": 220,
+   "total": 300,
+   "competition": "높음"
+  },
+  {
+   "keyword": "만성습진",
    "pc": 40,
    "mobile": 260,
    "total": 300,
    "competition": "높음"
   },
   {
-   "keyword": "압박반스타킹",
+   "keyword": "키성장한의원",
+   "pc": 70,
+   "mobile": 230,
+   "total": 300,
+   "competition": "높음"
+  },
+  {
+   "keyword": "예상키계산",
    "pc": 30,
    "mobile": 270,
    "total": 300,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥압박스타킹",
-   "pc": 60,
-   "mobile": 230,
-   "total": 290,
-   "competition": "높음"
-  },
-  {
-   "keyword": "다리밴드",
+   "keyword": "두상헬멧",
    "pc": 40,
    "mobile": 250,
    "total": 290,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥류압박스타킹",
-   "pc": 60,
-   "mobile": 220,
+   "keyword": "두상성형",
+   "pc": 30,
+   "mobile": 260,
+   "total": 290,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한포진크림",
+   "pc": 50,
+   "mobile": 240,
+   "total": 290,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기구토",
+   "pc": 10,
+   "mobile": 280,
+   "total": 290,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이음료수",
+   "pc": 70,
+   "mobile": 210,
    "total": 280,
    "competition": "중간"
   },
   {
-   "keyword": "하지정맥류스타킹",
+   "keyword": "어린이철분영양제",
+   "pc": 20,
+   "mobile": 260,
+   "total": 280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "생리철분제",
    "pc": 30,
    "mobile": 250,
    "total": 280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아연젤리",
+   "pc": 40,
+   "mobile": 240,
+   "total": 280,
    "competition": "중간"
   },
   {
-   "keyword": "강남외과",
+   "keyword": "빈혈어지러움",
+   "pc": 30,
+   "mobile": 250,
+   "total": 280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유츄어블",
+   "pc": 40,
+   "mobile": 240,
+   "total": 280,
+   "competition": "중간"
+  },
+  {
+   "keyword": "발바닥한포진연고",
+   "pc": 30,
+   "mobile": 250,
+   "total": 280,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이주스",
+   "pc": 50,
+   "mobile": 220,
+   "total": 270,
+   "competition": "중간"
+  },
+  {
+   "keyword": "홍삼배도라지",
+   "pc": 40,
+   "mobile": 230,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "종근당철분",
    "pc": 60,
    "mobile": 210,
    "total": 270,
    "competition": "높음"
   },
   {
-   "keyword": "혈관병원",
+   "keyword": "어지럼증영양제",
    "pc": 30,
    "mobile": 240,
    "total": 270,
    "competition": "높음"
   },
   {
-   "keyword": "혈관외과명의",
+   "keyword": "키크는식단",
+   "pc": 50,
+   "mobile": 220,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이키성장",
+   "pc": 50,
+   "mobile": 220,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사두헬멧",
+   "pc": 20,
+   "mobile": 250,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이평균키",
+   "pc": 40,
+   "mobile": 230,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이키성장",
+   "pc": 50,
+   "mobile": 220,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키커지는법",
+   "pc": 30,
+   "mobile": 240,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "KD밝은안과",
+   "pc": 50,
+   "mobile": 220,
+   "total": 270,
+   "competition": "중간"
+  },
+  {
+   "keyword": "예방접종후열",
+   "pc": 10,
+   "mobile": 260,
+   "total": 270,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아보리차",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "오가닉주스",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유기농쥬스",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식추천",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식정기배송",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "추석영양제",
+   "pc": 70,
+   "mobile": 190,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아역류",
+   "pc": 10,
+   "mobile": 250,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사두증교정",
+   "pc": 20,
+   "mobile": 240,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "안전모자",
+   "pc": 70,
+   "mobile": 190,
+   "total": 260,
+   "competition": "중간"
+  },
+  {
+   "keyword": "1살아기장난감",
+   "pc": 50,
+   "mobile": 210,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "AMINOACID",
+   "pc": 60,
+   "mobile": 200,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "미백바디워시",
+   "pc": 30,
+   "mobile": 230,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "핀포인트레이저",
+   "pc": 50,
+   "mobile": 210,
+   "total": 260,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기음료",
+   "pc": 30,
+   "mobile": 220,
+   "total": 250,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이배도라지즙",
+   "pc": 30,
+   "mobile": 220,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기철분영양제",
+   "pc": 20,
+   "mobile": 230,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분액상",
+   "pc": 40,
+   "mobile": 210,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아동헬멧",
+   "pc": 40,
+   "mobile": 210,
+   "total": 250,
+   "competition": "중간"
+  },
+  {
+   "keyword": "초등학생자전거헬멧",
+   "pc": 40,
+   "mobile": 210,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유황팩",
+   "pc": 20,
+   "mobile": 230,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "식욕부진원인",
+   "pc": 30,
+   "mobile": 220,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판자극운동",
+   "pc": 30,
+   "mobile": 220,
+   "total": 250,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기쥬스",
+   "pc": 40,
+   "mobile": 200,
+   "total": 240,
+   "competition": "중간"
+  },
+  {
+   "keyword": "드시모네신생아",
+   "pc": 10,
+   "mobile": 230,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기종합영양제",
+   "pc": 20,
+   "mobile": 220,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "닥터프로바",
+   "pc": 50,
+   "mobile": 190,
+   "total": 240,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아기트림",
+   "pc": 10,
+   "mobile": 230,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "수제이유식",
+   "pc": 20,
+   "mobile": 220,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인가려움증",
+   "pc": 40,
+   "mobile": 200,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "팔뚝두드러기",
+   "pc": 10,
+   "mobile": 230,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선로션",
+   "pc": 40,
+   "mobile": 200,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "남자예상키",
+   "pc": 30,
+   "mobile": 210,
+   "total": 240,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유기농배도라지즙",
    "pc": 20,
    "mobile": 210,
    "total": 230,
    "competition": "높음"
   },
   {
-   "keyword": "종아리스타킹",
+   "keyword": "철분헤모케어",
+   "pc": 60,
+   "mobile": 170,
+   "total": 230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기죽",
+   "pc": 20,
+   "mobile": 210,
+   "total": 230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증약",
+   "pc": 20,
+   "mobile": 210,
+   "total": 230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바디용품",
+   "pc": 50,
+   "mobile": 180,
+   "total": 230,
+   "competition": "높음"
+  },
+  {
+   "keyword": "액상유산균",
+   "pc": 30,
+   "mobile": 190,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분아연영양제",
    "pc": 20,
    "mobile": 200,
    "total": 220,
    "competition": "높음"
   },
   {
-   "keyword": "압박팬티스타킹",
+   "keyword": "청소년철분",
    "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유사탕",
+   "pc": 10,
+   "mobile": 210,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는영양제추천",
+   "pc": 120,
+   "mobile": 100,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "쌀미음이유식",
+   "pc": 10,
+   "mobile": 210,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키작은",
+   "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기실리콘장난감",
+   "pc": 10,
+   "mobile": 210,
+   "total": 220,
+   "competition": "중간"
+  },
+  {
+   "keyword": "모기물린데연고",
+   "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부염증상",
+   "pc": 30,
    "mobile": 190,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "다리가려움증",
+   "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기보습제",
+   "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키작은",
+   "pc": 20,
+   "mobile": 200,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "인천성장클리닉",
+   "pc": 50,
+   "mobile": 170,
+   "total": 220,
+   "competition": "높음"
+  },
+  {
+   "keyword": "남자빈혈",
+   "pc": 30,
+   "mobile": 180,
    "total": 210,
    "competition": "높음"
   },
   {
-   "keyword": "남자종아리압박밴드",
+   "keyword": "용인소아정형외과",
+   "pc": 30,
+   "mobile": 180,
+   "total": 210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장발달",
+   "pc": 30,
+   "mobile": 180,
+   "total": 210,
+   "competition": "높음"
+  },
+  {
+   "keyword": "남양야채채움",
+   "pc": 10,
+   "mobile": 190,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유산균비타민D",
    "pc": 30,
    "mobile": 170,
    "total": 200,
    "competition": "높음"
   },
   {
-   "keyword": "산모압박스타킹",
-   "pc": 20,
+   "keyword": "임산부철분제액상",
+   "pc": 30,
    "mobile": 170,
-   "total": 190,
-   "competition": "중간"
-  },
-  {
-   "keyword": "발목압박스타킹",
-   "pc": 20,
-   "mobile": 170,
-   "total": 190,
+   "total": 200,
    "competition": "높음"
   },
   {
-   "keyword": "빅사이즈압박스타킹",
+   "keyword": "빈혈철분제추천",
+   "pc": 20,
+   "mobile": 180,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "마더스랩",
+   "pc": 100,
+   "mobile": 100,
+   "total": 200,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "돌이유식",
+   "pc": 20,
+   "mobile": 180,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사두교정",
+   "pc": 10,
+   "mobile": 190,
+   "total": 200,
+   "competition": "중간"
+  },
+  {
+   "keyword": "몸이가려워요",
+   "pc": 20,
+   "mobile": 180,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부열감",
+   "pc": 40,
+   "mobile": 160,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키즈헬멧",
+   "pc": 30,
+   "mobile": 170,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아정형외과",
+   "pc": 10,
+   "mobile": 190,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "강동안과",
+   "pc": 50,
+   "mobile": 150,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이키성장",
+   "pc": 40,
+   "mobile": 160,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장한약",
+   "pc": 50,
+   "mobile": 150,
+   "total": 200,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기가루유산균",
    "pc": 10,
    "mobile": 180,
    "total": 190,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹후기",
-   "pc": 20,
+   "keyword": "영유아유산균",
+   "pc": 30,
    "mobile": 160,
-   "total": 180,
+   "total": 190,
    "competition": "높음"
   },
   {
-   "keyword": "다리압박스타킹",
-   "pc": 20,
-   "mobile": 160,
-   "total": 180,
+   "keyword": "어린이철분제추천",
+   "pc": 10,
+   "mobile": 180,
+   "total": 190,
    "competition": "높음"
   },
   {
-   "keyword": "의료용압박스타킹추천",
-   "pc": 40,
+   "keyword": "덴프스철분헤모케어",
+   "pc": 50,
    "mobile": 140,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아유산균",
+   "pc": 30,
+   "mobile": 160,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운고밤",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정베개",
+   "pc": 0,
+   "mobile": 190,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비바3D",
+   "pc": 10,
+   "mobile": 180,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "땀띠로션",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "안산소아정형외과",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "만성피부염",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피크림추천",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "3개월아기선물",
+   "pc": 40,
+   "mobile": 150,
+   "total": 190,
+   "competition": "높음"
+  },
+  {
+   "keyword": "SU연세안과",
+   "pc": 20,
+   "mobile": 170,
+   "total": 190,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식업체",
+   "pc": 20,
+   "mobile": 160,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두돌아기철분제",
+   "pc": 10,
+   "mobile": 170,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기액상철분제",
+   "pc": 10,
+   "mobile": 170,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "남자철분제",
+   "pc": 10,
+   "mobile": 170,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청경채미음",
+   "pc": 10,
+   "mobile": 170,
    "total": 180,
    "competition": "중간"
   },
   {
-   "keyword": "하체혈액순환",
+   "keyword": "턱끝",
+   "pc": 40,
+   "mobile": 140,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아청소년정형외과",
+   "pc": 10,
+   "mobile": 170,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장한약",
+   "pc": 40,
+   "mobile": 140,
+   "total": 180,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이쥬스",
+   "pc": 30,
+   "mobile": 140,
+   "total": 170,
+   "competition": "중간"
+  },
+  {
+   "keyword": "8개월아기유산균",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영아철분제",
+   "pc": 0,
+   "mobile": 170,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아철분제",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "남성철분제",
+   "pc": 20,
+   "mobile": 150,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아연철분",
+   "pc": 20,
+   "mobile": 150,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "빈혈증",
+   "pc": 30,
+   "mobile": 140,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아영양제",
+   "pc": 40,
+   "mobile": 130,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기초기이유식",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "덴프스철분",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식브랜드추천",
+   "pc": 20,
+   "mobile": 150,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기시판이유식",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아이유식",
+   "pc": 30,
+   "mobile": 140,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "달이면달마다",
+   "pc": 30,
+   "mobile": 140,
+   "total": 170,
+   "competition": "중간"
+  },
+  {
+   "keyword": "8개월아기유산균",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아정형",
+   "pc": 20,
+   "mobile": 150,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "뒤통수납작",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "좁쌀여드름클렌징",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바디제품",
+   "pc": 40,
+   "mobile": 130,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "습진로션",
+   "pc": 10,
+   "mobile": 160,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장병원",
+   "pc": 20,
+   "mobile": 150,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "저신장",
+   "pc": 30,
+   "mobile": 140,
+   "total": 170,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이배도라지",
+   "pc": 10,
+   "mobile": 150,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아배앓이유산균",
+   "pc": 0,
+   "mobile": 160,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌아기유산균추천",
    "pc": 20,
    "mobile": 140,
    "total": 160,
    "competition": "높음"
   },
   {
-   "keyword": "잠실외과",
-   "pc": 30,
-   "mobile": 120,
-   "total": 150,
-   "competition": "높음"
-  },
-  {
-   "keyword": "종아리압박밴드추천",
-   "pc": 30,
-   "mobile": 120,
-   "total": 150,
-   "competition": "높음"
-  },
-  {
-   "keyword": "압박스타킹유발",
+   "keyword": "어지럼증에좋은영양제",
    "pc": 10,
+   "mobile": 150,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아아연",
+   "pc": 20,
    "mobile": 140,
-   "total": 150,
+   "total": 160,
    "competition": "중간"
   },
   {
-   "keyword": "하지정맥류압박밴드",
+   "keyword": "무좀레이저치료",
+   "pc": 20,
+   "mobile": 140,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유황비누효능",
+   "pc": 20,
+   "mobile": 140,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "강남성장클리닉",
+   "pc": 80,
+   "mobile": 80,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키예측",
+   "pc": 10,
+   "mobile": 150,
+   "total": 160,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아중이염",
    "pc": 30,
    "mobile": 120,
    "total": 150,
    "competition": "높음"
   },
   {
-   "keyword": "의료압박스타킹",
-   "pc": 10,
-   "mobile": 140,
+   "keyword": "아기유기농주스",
+   "pc": 0,
+   "mobile": 150,
    "total": 150,
    "competition": "높음"
   },
   {
-   "keyword": "압박타이즈",
+   "keyword": "성장기철분제",
+   "pc": 0,
+   "mobile": 150,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "고함량철분제",
    "pc": 20,
    "mobile": 130,
    "total": 150,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥명의",
+   "keyword": "아기숟가락이유식",
+   "pc": 10,
+   "mobile": 140,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이성장",
+   "pc": 20,
+   "mobile": 130,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사두증헬멧",
+   "pc": 20,
+   "mobile": 130,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아골절",
+   "pc": 30,
+   "mobile": 120,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정기",
+   "pc": 20,
+   "mobile": 130,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아동용헬멧",
+   "pc": 20,
+   "mobile": 130,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이안전모",
+   "pc": 40,
+   "mobile": 110,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이아토피로션",
+   "pc": 0,
+   "mobile": 150,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시어버터바디로션",
+   "pc": 10,
+   "mobile": 140,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장한의원",
+   "pc": 50,
+   "mobile": 100,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여자예상키",
+   "pc": 20,
+   "mobile": 130,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "서울성장클리닉",
+   "pc": 50,
+   "mobile": 100,
+   "total": 150,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이보리차",
    "pc": 10,
    "mobile": 130,
    "total": 140,
    "competition": "높음"
   },
   {
-   "keyword": "강남역외과",
-   "pc": 30,
-   "mobile": 100,
+   "keyword": "청소년빈혈",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "중간"
+  },
+  {
+   "keyword": "닥터웰퀸즈",
+   "pc": 20,
+   "mobile": 120,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "12개월아기이유식",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분비타민",
+   "pc": 20,
+   "mobile": 120,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "빈혈영양제추천",
+   "pc": 20,
+   "mobile": 120,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식시판",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기머리교정",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아머리모양",
+   "pc": 0,
+   "mobile": 140,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가간지러워요",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인피부가려움",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴이가려워요",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부트러블",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여드름물파스",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기바디크림",
+   "pc": 0,
+   "mobile": 140,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "MATIS",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "중간"
+  },
+  {
+   "keyword": "AHA토너",
+   "pc": 20,
+   "mobile": 120,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아안과",
+   "pc": 0,
+   "mobile": 140,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장클리닉병원",
+   "pc": 10,
+   "mobile": 130,
+   "total": 140,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식유산균",
+   "pc": 0,
+   "mobile": 130,
    "total": 130,
    "competition": "높음"
   },
   {
-   "keyword": "남성용압박스타킹",
+   "keyword": "영아유산균",
    "pc": 20,
    "mobile": 110,
    "total": 130,
-   "competition": "높음"
+   "competition": "중간"
   },
   {
-   "keyword": "종아리압박밴드의료용",
+   "keyword": "드롭유산균",
    "pc": 10,
    "mobile": 120,
    "total": 130,
    "competition": "높음"
   },
   {
-   "keyword": "의료용압박스타킹허벅지",
+   "keyword": "유아음료",
+   "pc": 30,
+   "mobile": 100,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "마그네슘철분영양제",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "헤모론철분",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "중간"
+  },
+  {
+   "keyword": "성인철분제",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "매일이유식",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이젤리영양제",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영아유산균",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "중간"
+  },
+  {
+   "keyword": "중기이유식식단",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "모낭염완치",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부건조가려움",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이평발",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "다크스팟",
+   "pc": 30,
+   "mobile": 100,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아성장클리닉",
+   "pc": 20,
+   "mobile": 110,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "석촌동안과",
+   "pc": 10,
+   "mobile": 120,
+   "total": 130,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비피더스유산균키즈",
+   "pc": 10,
+   "mobile": 110,
+   "total": 120,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장영양제추천",
+   "pc": 20,
+   "mobile": 100,
+   "total": 120,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운고스틱",
    "pc": 20,
    "mobile": 100,
    "total": 120,
    "competition": "중간"
   },
   {
-   "keyword": "하지정맥류의료용압박스타킹",
-   "pc": 20,
-   "mobile": 100,
+   "keyword": "갈락토미세스원액",
+   "pc": 10,
+   "mobile": 110,
    "total": 120,
    "competition": "높음"
   },
   {
-   "keyword": "발저림증상",
+   "keyword": "오돌토돌피부",
+   "pc": 10,
+   "mobile": 110,
+   "total": 120,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아배도라지",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "중간"
+  },
+  {
+   "keyword": "배도라지즙아기",
    "pc": 10,
    "mobile": 100,
    "total": 110,
    "competition": "높음"
   },
   {
-   "keyword": "승무원압박스타킹",
+   "keyword": "드시모네유산균베이비스텝2",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "중간"
+  },
+  {
+   "keyword": "9개월아기유산균",
+   "pc": 0,
+   "mobile": 110,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이빈혈",
    "pc": 10,
    "mobile": 100,
    "total": 110,
    "competition": "높음"
   },
   {
-   "keyword": "의료기기압박스타킹",
+   "keyword": "중성지질",
+   "pc": 30,
+   "mobile": 80,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시판초기이유식",
+   "pc": 0,
+   "mobile": 110,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식메뉴",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "교정헬멧",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아평발",
+   "pc": 30,
+   "mobile": 80,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "0세교구",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부알로에젤",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "얼굴피부가려움증",
+   "pc": 20,
+   "mobile": 90,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선보습제",
+   "pc": 20,
+   "mobile": 90,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "300일아기선물",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성인아토피바디로션",
+   "pc": 0,
+   "mobile": 110,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "다리각질제거",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바디보습크림",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장약",
+   "pc": 10,
+   "mobile": 100,
+   "total": 110,
+   "competition": "높음"
+  },
+  {
+   "keyword": "18개월아기유산균",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유산균드롭",
    "pc": 20,
    "mobile": 80,
    "total": 100,
    "competition": "높음"
   },
   {
-   "keyword": "수면압박밴드",
+   "keyword": "코코몽하늘보리",
    "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기그림자놀이",
+   "pc": 10,
    "mobile": 90,
-   "total": 90,
-   "competition": "높음"
-  },
-  {
-   "keyword": "압박스타킹팬티형",
-   "pc": 0,
-   "mobile": 90,
-   "total": 90,
-   "competition": "높음"
-  },
-  {
-   "keyword": "의료용허벅지압박스타킹",
-   "pc": 0,
-   "mobile": 90,
-   "total": 90,
-   "competition": "높음"
-  },
-  {
-   "keyword": "송파외과",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "의료용스타킹",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "생체전류",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "다리압박",
-   "pc": 30,
-   "mobile": 50,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "의료용종아리압박스타킹",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "종아리압박붕대",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "팬티형압박스타킹",
-   "pc": 10,
-   "mobile": 70,
-   "total": 80,
-   "competition": "높음"
-  },
-  {
-   "keyword": "강남외과병원",
-   "pc": 20,
-   "mobile": 50,
-   "total": 70,
-   "competition": "높음"
-  },
-  {
-   "keyword": "의료용압박스타킹팬티형",
-   "pc": 10,
-   "mobile": 60,
-   "total": 70,
-   "competition": "높음"
-  },
-  {
-   "keyword": "환기방법",
-   "pc": 10,
-   "mobile": 50,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "손톱재생",
-   "pc": 0,
-   "mobile": 60,
-   "total": 60,
-   "competition": "중간"
-  },
-  {
-   "keyword": "울퉁불퉁손톱",
-   "pc": 10,
-   "mobile": 50,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "손톱패임",
-   "pc": 10,
-   "mobile": 50,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "살색압박스타킹",
-   "pc": 10,
-   "mobile": 50,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "종아리압박스타킹추천",
-   "pc": 10,
-   "mobile": 50,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "임부스타킹",
-   "pc": 30,
-   "mobile": 30,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "무릎압박스타킹",
-   "pc": 0,
-   "mobile": 60,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "비너스압박스타킹",
-   "pc": 0,
-   "mobile": 60,
-   "total": 60,
-   "competition": "높음"
-  },
-  {
-   "keyword": "휜손톱",
-   "pc": 0,
-   "mobile": 50,
-   "total": 50,
-   "competition": "중간"
-  },
-  {
-   "keyword": "외과전문병원",
-   "pc": 10,
-   "mobile": 40,
-   "total": 50,
+   "total": 100,
    "competition": "낮음"
   },
   {
-   "keyword": "독일압박스타킹",
+   "keyword": "단두증헬멧",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유아사경",
+   "pc": 20,
+   "mobile": 80,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기머리모양",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "등가려움증",
+   "pc": 20,
+   "mobile": 80,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기안전모",
+   "pc": 10,
+   "mobile": 90,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두드러기크림",
+   "pc": 10,
+   "mobile": 90,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "무릎모공각화증",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "중간"
+  },
+  {
+   "keyword": "애기용품",
+   "pc": 10,
+   "mobile": 90,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기경추베개",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "오가닉바디워시",
+   "pc": 0,
+   "mobile": 100,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크기",
+   "pc": 10,
+   "mobile": 90,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장치료",
+   "pc": 30,
+   "mobile": 70,
+   "total": 100,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기유산균드시모네",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "중간"
+  },
+  {
+   "keyword": "신생아프로바이오틱스",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기액상유산균",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식6개월",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철결핍성빈혈약",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "중간"
+  },
+  {
+   "keyword": "리포퍼",
+   "pc": 20,
+   "mobile": 70,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장제",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기미음",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "식물성철분제",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장솔루션",
+   "pc": 20,
+   "mobile": 70,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "쌀이유식",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "뉴질랜드초유단백질",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기초유",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아이유식",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아머리보호대",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "실리콘딸랑이",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "중간"
+  },
+  {
+   "keyword": "긁지말고뿌리세요",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아토피보습제추천",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아동자전거헬멧",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아평발교정",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선바디로션",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바디용품선물세트",
+   "pc": 20,
+   "mobile": 70,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한포진로션",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인선물",
+   "pc": 20,
+   "mobile": 70,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기빈혈",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "굽은다리안과",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "성장장애",
+   "pc": 20,
+   "mobile": 70,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "고등학생키",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자녀키계산",
+   "pc": 10,
+   "mobile": 80,
+   "total": 90,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "사시병원",
+   "pc": 0,
+   "mobile": 90,
+   "total": 90,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기드시모네",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "중간"
+  },
+  {
+   "keyword": "키즈음료",
+   "pc": 20,
+   "mobile": 60,
+   "total": 80,
+   "competition": "중간"
+  },
+  {
+   "keyword": "사춘기영양제",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판닫히면",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가루철분제",
+   "pc": 20,
+   "mobile": 60,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장발육",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "밥잘안먹는아이",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식5개월",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영국철분제",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는성분",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식배송",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유캔디",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식유기농",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "VIVA3D",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "영유아헬멧",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움스프레이",
+   "pc": 20,
+   "mobile": 60,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여성올인원로션",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아안전모",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성남소아정형외과",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청소년아토피",
+   "pc": 20,
+   "mobile": 60,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시카바디로션",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움크림",
+   "pc": 20,
+   "mobile": 60,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장발육",
+   "pc": 10,
+   "mobile": 70,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사시수술병원",
+   "pc": 0,
+   "mobile": 80,
+   "total": 80,
+   "competition": "높음"
+  },
+  {
+   "keyword": "베이비스텝2",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "중간"
+  },
+  {
+   "keyword": "미음이유식",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장기칼슘",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "냉동이유식",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "중간"
+  },
+  {
+   "keyword": "한우미음",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식새벽배송",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "중간"
+  },
+  {
+   "keyword": "철분제츄어블",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식브랜드",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식추천",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중기이유식메뉴",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유비타민",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식배달",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "단두증교정",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아헬멧보호대",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아헬멧추천",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등헬멧",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증로션",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "중간"
+  },
+  {
+   "keyword": "소아무지외반증",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시흥소아정형외과",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "진정에센스",
+   "pc": 0,
+   "mobile": 70,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는한의원",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이성장",
+   "pc": 10,
+   "mobile": 60,
+   "total": 70,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네베이비유산균",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기유산균아연",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "젤리철분제",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인철분제",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "씹어먹는철분제",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기중기이유식",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장기청소년영양제",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이키크는약",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생키크는영양제",
+   "pc": 20,
+   "mobile": 40,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기영양밥",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아머리뼈",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "아토건비누",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아머리교정",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인성피부가려움증",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "식물성바세린",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "중간"
+  },
+  {
+   "keyword": "자운고연고만들기",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "글루타셀업스프레이",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "중간"
+  },
+  {
+   "keyword": "네롤리워터",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선보습크림",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "만2세교구",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "멜로디봉",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한포진보습제",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "지성피부비누",
+   "pc": 20,
+   "mobile": 40,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장판자가진단",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키검사",
+   "pc": 0,
+   "mobile": 60,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "풍납동안과",
+   "pc": 10,
+   "mobile": 50,
+   "total": 60,
+   "competition": "높음"
+  },
+  {
+   "keyword": "17개월아기유산균",
    "pc": 0,
    "mobile": 50,
    "total": 50,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹간호사",
+   "keyword": "유아도라지배즙",
    "pc": 0,
    "mobile": 50,
    "total": 50,
    "competition": "높음"
   },
   {
-   "keyword": "압박스타킹무릎형",
+   "keyword": "유아음료수",
    "pc": 10,
    "mobile": 40,
    "total": 50,
    "competition": "높음"
   },
   {
-   "keyword": "논현동외과",
+   "keyword": "유아성경",
    "pc": 0,
    "mobile": 50,
    "total": 50,
    "competition": "높음"
   },
   {
-   "keyword": "정맥류스타킹",
+   "keyword": "두돌아기철분",
    "pc": 0,
    "mobile": 50,
    "total": 50,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥흉부외과",
+   "keyword": "키즈영양제추천",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분엽산영양제",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여중생영양제",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "처음이유식",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "변비없는철분",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "고함량철분",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "독일철분제",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "천연철분제",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장보조제",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이키크는약",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아식이섬유",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기이유식초기",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초기2이유식",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기철분젤리",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키즈멀티비타민구미",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식체험팩신청",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식판매",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영유아이유식",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식주문",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사경증치료",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "잼잼몬스터",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "친환경장난감",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌남아선물",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정센터",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사두증치료",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기사경치료",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손발톱건선",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유황로션",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이승마헬멧",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "SCI분말",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "모공각화증로션추천",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "중간"
+  },
+  {
+   "keyword": "송파소아정형외과",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움바디로션",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "경기도소아정형외과",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "민감성피부로션",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청소년모공각화증",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "중간"
+  },
+  {
+   "keyword": "치료용벤치",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "세안용비누",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청소년여드름세안제",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "대구성장한의원",
+   "pc": 30,
+   "mobile": 20,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장부진",
+   "pc": 20,
+   "mobile": 30,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이칼슘",
+   "pc": 0,
+   "mobile": 50,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "인천성장판검사",
+   "pc": 10,
+   "mobile": 40,
+   "total": 50,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유산균유아",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두뇌발달",
    "pc": 10,
    "mobile": 30,
    "total": 40,
    "competition": "높음"
   },
   {
-   "keyword": "조갑횡구증",
+   "keyword": "그림자극장베이비",
+   "pc": 10,
+   "mobile": 30,
+   "total": 40,
+   "competition": "중간"
+  },
+  {
+   "keyword": "초기이유식배달",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "6개월이유식시작",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두뇌발달",
+   "pc": 10,
+   "mobile": 30,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "맛있는이유식",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "변비안생기는철분제",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생면역력",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인빈혈영양제",
    "pc": 0,
    "mobile": 40,
    "total": 40,
    "competition": "중간"
   },
   {
-   "keyword": "누런손톱",
+   "keyword": "돌지난아기이유식",
    "pc": 0,
    "mobile": 40,
    "total": 40,
    "competition": "높음"
   },
   {
-   "keyword": "관악구외과",
-   "pc": 10,
-   "mobile": 30,
+   "keyword": "초기이유식1단계",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "COLOSTRUMMILK",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식가격",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "꼬꼬노리도토링",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아가장난감",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "신생아두상교정헬멧",
+   "pc": 0,
+   "mobile": 40,
    "total": 40,
    "competition": "중간"
   },
   {
-   "keyword": "혈액순환스타킹",
-   "pc": 0,
-   "mobile": 40,
-   "total": 40,
-   "competition": "높음"
-  },
-  {
-   "keyword": "무발압박스타킹",
-   "pc": 0,
-   "mobile": 40,
-   "total": 40,
-   "competition": "높음"
-  },
-  {
-   "keyword": "다리부종압박스타킹",
+   "keyword": "피부가려움크림",
    "pc": 10,
    "mobile": 30,
    "total": 40,
    "competition": "높음"
   },
   {
-   "keyword": "휜손톱교정",
+   "keyword": "자운고만들기",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움증로션",
+   "pc": 10,
+   "mobile": 30,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "팔피부오돌토돌",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증바디워시",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "애플계면활성제",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한포진비누",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "중간"
+  },
+  {
+   "keyword": "남성용바디로션",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "수입바디로션",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "몸각질제거제",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "기미비누",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이성장클리닉",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "미래키계산",
+   "pc": 0,
+   "mobile": 40,
+   "total": 40,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "사상체질진단",
+   "pc": 10,
+   "mobile": 30,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성조숙증한약",
+   "pc": 10,
+   "mobile": 30,
+   "total": 40,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네유산균아기",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "아기생유산균",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "닥터아돌베이비",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "36개월유산균",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기면역유산균",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌유산균",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이비타민K",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키움정플러스",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "남자철분영양제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "마시는철분",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유기농철분제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "임산부철분영양제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아영양제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "1단계이유식",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "생후6개월이유식",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아기식품",
    "pc": 10,
    "mobile": 20,
    "total": 30,
    "competition": "높음"
   },
   {
-   "keyword": "손톱진균증",
+   "keyword": "마더스랩철분제",
    "pc": 0,
    "mobile": 30,
    "total": 30,
    "competition": "높음"
   },
   {
-   "keyword": "역삼동외과",
+   "keyword": "이유식구매",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "시판중기이유식",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "간편이유식",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "손자선물",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분프리미엄",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장비타민",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "머리교정",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아두상교정",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정헬멧가격",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아머리보호",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "마스크알레르기",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "노인보습제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려운피부",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선카페",
+   "pc": 10,
+   "mobile": 20,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한방자운고",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증스프레이",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움증바디로션",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이헬멧추천",
+   "pc": 10,
+   "mobile": 20,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "영아헬멧",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한의원화장품",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부건조증약",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "약산성비누만들기",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아미노산크림",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "중간"
+  },
+  {
+   "keyword": "발바닥아토피",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아크네토너",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "머리가려움증샴푸",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "습진보습제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "암환자보습제",
+   "pc": 0,
+   "mobile": 30,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장보약",
+   "pc": 10,
+   "mobile": 20,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "대구키성장한의원",
    "pc": 20,
    "mobile": 10,
    "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아비만한약",
+   "pc": 10,
+   "mobile": 20,
+   "total": 30,
+   "competition": "높음"
+  },
+  {
+   "keyword": "베이비프로바이오틱스",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "드시모네베이비2",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
    "competition": "중간"
   },
   {
-   "keyword": "신논현역외과",
+   "keyword": "아이꼬야주스",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "아기과채주스",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아면역력",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아동철분제",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이액상철분",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "마시는빈혈약",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비카빔",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "STAGBLOOD",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "부작용없는철분제",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "사춘기키성장",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초등학생키성장영양제",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키성장칼슘",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분가루",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여성빈혈영양제",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식초기2단계",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "여성철분영양제",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이건강기능식품",
    "pc": 10,
-   "mobile": 20,
-   "total": 30,
+   "mobile": 10,
+   "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "간호사스타킹",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "다리부종스타킹",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "압박밴드추천",
+   "keyword": "어린이건강식품",
    "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "초유의효능",
+   "pc": 0,
    "mobile": 20,
-   "total": 30,
+   "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥밴드",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "압박용스타킹",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "의료용압박팬티스타킹",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "종아리형압박스타킹",
+   "keyword": "키성장건강기능식품",
    "pc": 10,
-   "mobile": 20,
-   "total": 30,
+   "mobile": 10,
+   "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "부종스타킹",
-   "pc": 0,
-   "mobile": 30,
-   "total": 30,
-   "competition": "높음"
-  },
-  {
-   "keyword": "손톱진균",
+   "keyword": "이유식사이트",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "찢어지는손톱",
+   "keyword": "베이비그림자극장",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "혈액순환압박스타킹",
+   "keyword": "손녀선물",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "남성종아리압박밴드",
+   "keyword": "어린이젤리스틱",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "하지정맥류밴드",
+   "keyword": "두상교정모자",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "무릎형압박스타킹",
+   "keyword": "비에이치바이오닉스",
+   "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "아이두상교정",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "얇은압박스타킹",
+   "keyword": "소아도수치료",
    "pc": 0,
    "mobile": 20,
    "total": 20,
    "competition": "높음"
   },
   {
-   "keyword": "강남구외과",
+   "keyword": "노인가려움",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운스킨밤",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "가려움완화로션",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "알러지클리닉",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "노인성가려움증",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "매불쇼글루타셀",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "기능성로션",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정클리닉",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "베이비레벨",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "유기농글리세린",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아동용자전거헬멧",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움완화크림",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "돌아가선물",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움비누",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "바디케어브랜드",
+   "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "항균펩타이드",
+   "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "청소년비누",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "안산허리",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "보조도구",
+   "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "등여드름화장품",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피스킨",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "PHA클렌저",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "약알칼리성폼클렌징추천",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건성용로션",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "릴리소다",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "중간"
+  },
+  {
+   "keyword": "병원비비크림",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아성장",
+   "pc": 10,
+   "mobile": 10,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성장예측",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "성장클리닉한의원",
+   "pc": 0,
+   "mobile": 20,
+   "total": 20,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중이염한의원",
    "pc": 0,
    "mobile": 10,
    "total": 10,
    "competition": "높음"
   },
   {
-   "keyword": "의료스타킹",
+   "keyword": "유아유산균비교",
    "pc": 0,
    "mobile": 10,
    "total": 10,
    "competition": "높음"
   },
   {
-   "keyword": "압박밴드스타킹",
+   "keyword": "드시모네베이비1",
    "pc": 0,
    "mobile": 10,
    "total": 10,
    "competition": "높음"
   },
   {
-   "keyword": "언주역외과",
+   "keyword": "3살아기유산균",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "레드마임스파톤",
    "pc": 0,
    "mobile": 10,
    "total": 10,
    "competition": "중간"
   },
   {
-   "keyword": "림프부종스타킹",
+   "keyword": "금와담",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "유아건강식품",
    "pc": 0,
    "mobile": 10,
    "total": 10,
    "competition": "높음"
   },
   {
-   "keyword": "슬릭백탈모",
+   "keyword": "키성장도움",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "덴프스철분제",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "중간"
+  },
+  {
+   "keyword": "어린이이유식",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "이유식준비기",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "중간"
+  },
+  {
+   "keyword": "이유식패키지",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "중기이유식1단계",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "츄어블엽산",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "아이영양식",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "시판이유식업체",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "철분플러스",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "아기아연젤리",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "두상교정모",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "유아장난감브랜드",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "중간"
+  },
+  {
+   "keyword": "1살여아장난감",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "도토링고리치발기",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "상열하한증",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "심한가려움증",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움보습제",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "가려움보습제",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "피부가려움증크림",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여드름세안비누",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여드름피부비누",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "노인성가려움",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "밀크아미노산",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "어린이장난감브랜드",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아족부",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건조한피부가려움",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소듐코코일이세치오네이트",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여드름피부기초",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "마카다미아넛오일",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "트라넥산삼",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "퍼퓸워시",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "멘톨비누만들기",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "솔베스30",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "각질보습",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "치료교구",
+   "pc": 10,
+   "mobile": 0,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "소아성장한의원",
+   "pc": 10,
+   "mobile": 0,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한의원성장치료",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "최종예상키",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "어린이성장한약",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한의원성장클리닉",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키크는보약",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "키한의원",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "한의원성장판검사",
+   "pc": 0,
+   "mobile": 10,
+   "total": 10,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아이꼬야배도라지",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "쎌티아이베이비",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "키즈정",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "닥터에스더락토철분",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "임신부철분",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "WCS철분제",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "키성장솔루션업",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "우리아이키크는영양간식",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "트루엔키즈팡팡쾌변젤리",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "팡팡쾌변젤리",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "씹어먹는철분",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "황기추출물등복합물",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "애기이유식",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "초유100",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "여성빈혈철분제",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "로아수",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "자로탕",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "교정모",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "중간"
+  },
+  {
+   "keyword": "애기두상",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "비단멍게펩타이드",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "가려움증보습제",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "피부가려움증보습제",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "엔비베베더마밤스틱",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "중간"
+  },
+  {
+   "keyword": "겨울철피부가려움",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "달맞이꽃화장품",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피스킨로션",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "자운고밤만들기",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "겨울피부가려움",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이안전헬멧",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "건선피부로션",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "놀이교구대여",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이놀이세트",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "SCI가루",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "엘판84",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "중간"
+  },
+  {
+   "keyword": "건선화장품",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "착한성분",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "천연클렌징비누",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "함포진",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "치료용품",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "어린이날아기선물",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "성인아토피관리",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "자운고인퓨즈오일",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "천연비누제조사",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "올리브영약알칼리성클렌징폼",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "아토피제품",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "겨울철가려움",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "베베랩",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "HCO60",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "LES계면활성제",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "솔베스",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "중간"
+  },
+  {
+   "keyword": "화장품비타민E",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "갈라지는피부",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "타임에센셜오일",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "어린이성장한의원",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "성장프로그램",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "키커시럽",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "낮음"
+  },
+  {
+   "keyword": "키성장약추천",
+   "pc": 0,
+   "mobile": 0,
+   "total": 0,
+   "competition": "높음"
+  },
+  {
+   "keyword": "성조숙증이란",
    "pc": 0,
    "mobile": 0,
    "total": 0,
