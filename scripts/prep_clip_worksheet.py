@@ -18,8 +18,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 LIB = ROOT / "assets_library" / "xray" / "output"
 STILLS = ROOT / "assets_library" / "xray" / "stills"
-WORK = ROOT / "assets_library" / "xray" / "작업" / "스틸"
-SHEET = ROOT / "assets_library" / "xray" / "작업" / "지금_뽑을것.md"
+WORK = ROOT / "assets_library" / "xray" / "작업" / "1_스틸"
+SHEET = ROOT / "assets_library" / "xray" / "작업" / "0_작업지시.md"
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 
 
