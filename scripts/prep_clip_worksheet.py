@@ -63,6 +63,11 @@ def _pending() -> list[list]:
     out, seen = [], set()
     for f in sorted((ROOT / "data").glob("*/clip_requests.json")):
         topic = f.parent.name
+        # `_shared`(육아 트랙 아기 캐논 스틸)는 별도 폴더에서 따로 관리한다 — 2026-09-24
+        # 사용자 확인. 같은 시트에 섞였더니 프롬프트가 길어 이 프로젝트 요청이 아래로
+        # 밀려 "애기 이야기만 있다"가 됐다.
+        if topic.startswith("_"):
+            continue
         try:
             reqs = json.loads(f.read_text(encoding="utf-8")).get("requests", [])
         except json.JSONDecodeError:
