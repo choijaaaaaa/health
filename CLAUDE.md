@@ -25,13 +25,20 @@
 
 ## 채널·배포
 
-- **배포처는 네이버 블로그(카드뉴스)와 네이버 클립(영상) 둘뿐이다.** 유튜브·인스타·틱톡·페북·쓰레드는
-  안 올린다. `_ALLOWED_PLATFORMS`(`lib/dashboard.py`·`lib/mission_control_sync.py`)가 이 둘만 띄운다.
+- **배포처는 네이버 블로그(카드뉴스)·네이버 클립(영상)·유튜브 쇼츠(영상)다**(2026-09-24 사용자 "이거 유튜브에도
+  올릴건데"). 인스타·틱톡·페북·쓰레드는 안 올린다.
+- 🚨 **영상은 항상 두 벌** — `xray_build`가 한 번에 둘 다 만든다. 이름으로 가른다:
+  | deploy 파일 | 제품 보러 가기 화살표 | 광고 표시 | 이유 |
+  |---|---|---|---|
+  | `네이버클립.mp4` | O | X | 클립은 플랫폼이 제휴 배너를 자체 표기와 함께 붙이고, 화살표가 그 배너를 가리킨다 |
+  | `유튜브.mp4` | X | O | 가리킬 배너가 없고, 설명란 제휴 링크는 화면에 직접 밝혀야 한다 |
+  2026-09-21에 지시받고 부품(`rebuild_video --no-cta`, `xray_splice --base nocta`)까지 만들어놓고 조립이 한 벌만
+  돌아 유튜브판이 한 번도 안 나왔다 — `verify_output`이 두 벌 다 있는지 본다.
 - **채널명 「건강만사전」** — 엔딩 카드(`video_assembler.BRAND_NAME`)·카드 CTA·해시태그 `#건강만사전`(태그 줄 맨 앞)·
   대시보드 제목. **내부 식별자는 안 바꾼다**(폴더명 `health-shorts`, R2 프리픽스 `health-shorts/card_news/`,
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
-- **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `shorts.mp4` + `card_news/*.jpg`.
+- **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),
   `scripts/cleanup_deploy.py --commit`(두 플랫폼 다 체크된 topic 사본만 지운다).
 - **나간 건 지운다** — 카드는 R2가 서빙하므로 로컬은 사본이다. `scripts/prune_published.py --commit`.

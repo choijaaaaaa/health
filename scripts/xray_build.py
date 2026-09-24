@@ -225,8 +225,6 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("topic")
     ap.add_argument("--dry-run", action="store_true")
-    ap.add_argument("--ad-tag", action="store_true", help="유튜브판(광고 표시 얹음)")
-    ap.add_argument("--base", help="덧씌울 원본 디렉토리(예: nocta)")
     # WHY 미리보기 모드가 따로 있는지: 없는 행위 클립을 만나면 평소엔 멈춰야 한다(비슷한 걸로 때우면
     # 화면과 나레이션이 어긋나는 사고가 반복됐다). 다만 클립을 아직 다 못 받은 상태에서 **구성이
     # 어떻게 보이는지** 확인해야 할 때가 있다. 그때도 대체 클립은 절대 쓰지 않고, 그 구간만 기전
@@ -248,13 +246,24 @@ def main() -> None:
             print(f"  도입부 끝을 자막에 맞춰 {cfg['opening_until']} → {want}초로 보정")
             cfg["opening_until"] = want
             xray_path.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    # 🚨 영상은 **항상 두 벌** 만든다(2026-09-21 사용자 지시, 2026-09-24 재지적 "영상 두개씩
+    # 만들어야한다고 했는데 반영안했노"): 부품(rebuild_video --no-cta, xray_splice --base nocta)은
+    # 있었는데 조립이 네이버판 한 벌만 돌고 끝나서 유튜브판이 한 번도 안 나왔다.
+    #   네이버 클립판  output/<topic>/shorts_xray_test.mp4        — "제품 보러 가기" 화살표 O, 광고 표시 X
+    #                  (클립은 플랫폼이 제휴 배너를 자체 표기와 함께 붙인다 — 화살표가 그 배너를 가리킨다)
+    #   유튜브판        output/<topic>/nocta/shorts_xray_test.mp4  — 화살표 X, 광고 표시 O
+    #                  (가리킬 배너가 없고, 설명란 제휴 링크는 우리가 화면에 직접 밝혀야 한다)
+    variants = [("", False), ("nocta", True)]
     if not a.dry_run:
-        subprocess.run([PY, "-m", "lib.rebuild_video", a.topic], cwd=ROOT, check=True)
-        # 결론 구간은 영상 칸 없이 칠판을 크게 쓴다("그래서 뭘 하면 되는지"를 읽히는 자리다).
-        # 그 칠판 전체 버전을 여기서 같이 만든다 — 따로 돌려야 하는 단계로 두면 빠지고, 빠져도
-        # xray_splice가 조용히 건너뛰어 영상 칸이 끝까지 남는다(2026-09-24 실측).
-        if cfg.get("summary_from"):
-            subprocess.run([PY, "-m", "lib.rebuild_video", a.topic, "--board"], cwd=ROOT, check=True)
+        for base, yt in variants:
+            flag = ["--no-cta"] if yt else []
+            subprocess.run([PY, "-m", "lib.rebuild_video", a.topic, *flag], cwd=ROOT, check=True)
+            # 결론 구간은 영상 칸 없이 칠판을 크게 쓴다("그래서 뭘 하면 되는지"를 읽히는 자리다).
+            # 그 칠판 전체 버전을 여기서 같이 만든다 — 따로 돌려야 하는 단계로 두면 빠지고, 빠져도
+            # xray_splice가 조용히 건너뛰어 영상 칸이 끝까지 남는다(2026-09-24 실측).
+            if cfg.get("summary_from"):
+                subprocess.run([PY, "-m", "lib.rebuild_video", a.topic, "--board", *flag],
+                               cwd=ROOT, check=True)
 
     args = []
     # 도입부: 전부 시각 0 — fill_until까지 한 묶음으로 이어 붙여 전체 화면으로 덮는다
@@ -319,14 +328,12 @@ def main() -> None:
         # 제목카드만큼 밀려 있으므로 여기서 더해 넘긴다 — 2026-09-24 실측: 그냥 넘기던 탓에 도입부가
         # 늘 0.2초 일찍 잘려 훅 마지막 말이 칠판으로 넘어가 있었다("0.5초정도 나오고 넘어가버리잖아").
         cmd += ["--fill-until", f"{cfg['opening_until'] + TITLE_CARD_SEC:.2f}"]
-    if a.ad_tag:
-        cmd.append("--ad-tag")
-    if a.base:
-        cmd += ["--base", a.base]
-
     print(" ".join(cmd))
     if not a.dry_run:
-        subprocess.run(cmd, cwd=ROOT, check=True)
+        # 위쪽 칸 클립(tmp)은 두 벌이 같으므로 한 번만 만들고 덧씌우기만 두 번 한다
+        for base, yt in variants:
+            extra = (["--base", base] if base else []) + (["--ad-tag"] if yt else [])
+            subprocess.run([*cmd, *extra], cwd=ROOT, check=True)
         _rebuild_cards(a.topic)
         _publish(a.topic)
 

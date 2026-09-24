@@ -119,10 +119,17 @@ def stage(dry_run: bool) -> None:
 
     for topic, topic_dir in _iter_topics():
         dest_dir = DEPLOY_DIR / topic
-        if _copy_if_newer(_final_video(topic_dir), dest_dir / "shorts.mp4", dry_run, seen):
-            copied += 1
-        else:
-            skipped += 1
+        # 네이버 클립판(제품 보러 가기 O·광고 표시 X)과 유튜브판(화살표 X·광고 표시 O)을 **이름으로**
+        # 가른다 — 같은 이름으로 두면 올릴 때 어느 쪽인지 열어봐야 안다(2026-09-24).
+        pairs = [(_final_video(topic_dir), dest_dir / "네이버클립.mp4")]
+        yt = topic_dir / "nocta" / "shorts_xray_test.mp4"
+        if yt.is_file():
+            pairs.append((yt, dest_dir / "유튜브.mp4"))
+        for src, dst in pairs:
+            if _copy_if_newer(src, dst, dry_run, seen):
+                copied += 1
+            else:
+                skipped += 1
 
         card_dir = topic_dir / "card_news"
         if card_dir.is_dir():
@@ -144,7 +151,7 @@ def stage(dry_run: bool) -> None:
     # ("매운 음식" → "빈속 커피") 옛 카드가 새 카드와 나란히 남고, 업로드할 때 둘 다 집어
     # 올리게 된다(2026-09-24 실측: 소화_14 deploy에 "매운 음식" 카드 2장이 남아 있었다).
     # 영상·그 밖의 파일은 예전처럼 알리기만 한다 — 이름이 안 바뀌므로 남아 있으면 다른 사정이다.
-    removed = [p for p in stale if p.parent.name == "card_news"]
+    removed = [p for p in stale if p.parent.name == "card_news" or p.name == "shorts.mp4"]
     for p in removed:
         p.unlink()
     if removed:

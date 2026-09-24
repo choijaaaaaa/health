@@ -101,12 +101,22 @@ def check(topic: str) -> list[str]:
         if "네이버 클립" not in names:
             bad.append("platform_captions.json에 네이버 클립 항목이 없습니다 — 올릴 자리가 안 생깁니다")
 
-    # 8. deploy 사본이 지금 영상과 같은가
-    dep = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts" / topic / "shorts.mp4"
-    if not dep.is_file():
-        bad.append("deploy에 사본이 없습니다")
-    elif dep.stat().st_size != vid.stat().st_size:
-        bad.append("deploy 사본이 지금 영상과 다릅니다 — stage_for_deploy를 다시 도세요")
+    # 8. 두 벌 다 있고 deploy 사본이 지금 영상과 같은가 — 유튜브판이 한 번도 안 나온 채
+    #    몇 주를 갔다(2026-09-24 "영상 두개씩 만들어야한다고 했는데 반영안했노")
+    yt = odir / "nocta" / "shorts_xray_test.mp4"
+    if not yt.is_file():
+        bad.append("유튜브판(nocta/)이 없습니다 — 화살표 없이 광고 표시만 있는 판을 같이 만들어야 합니다")
+    elif yt.stat().st_mtime < vt - 600:
+        bad.append("유튜브판이 네이버판보다 낡았습니다 — 같이 다시 조립해야 합니다")
+    dep_dir = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts" / topic
+    for src, name in ((vid, "네이버클립.mp4"), (yt, "유튜브.mp4")):
+        dep = dep_dir / name
+        if not src.is_file():
+            continue
+        if not dep.is_file():
+            bad.append(f"deploy에 {name}이 없습니다")
+        elif dep.stat().st_size != src.stat().st_size:
+            bad.append(f"deploy의 {name}이 지금 영상과 다릅니다 — stage_for_deploy를 다시 도세요")
 
     return bad
 
