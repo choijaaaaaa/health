@@ -53,6 +53,18 @@
       "from": "마지막으로 무설탕 껌이에요.",
       "item": "껌",
       "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "배탈이 안 나는",
+      "item": "껌",
+      "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "빈속에 몰아 마시지",
+      "item": "껌",
+      "mech": "m_bacteria_growth",
+      "act": null,
+      "label": null
     }
   ],
   "opening_until": 4.8

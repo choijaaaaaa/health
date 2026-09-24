@@ -50,10 +50,27 @@
       "mech": "m_pressure_buildup"
     },
     {
+      "from": "질병관리청은 허리둘레가 남자",
+      "item": "체중계",
+      "mech": "m_pressure_buildup"
+    },
+    {
       "from": "마지막으로 박하사탕이에요.",
       "item": "사탕",
       "mech": "m_tissue_laxity"
+    },
+    {
+      "from": "그러니 저녁은 잠들기",
+      "item": "사탕",
+      "mech": "m_tissue_laxity"
+    },
+    {
+      "from": "위가 식도보다 왼쪽에",
+      "item": "사탕",
+      "mech": "m_tissue_laxity",
+      "act": null,
+      "label": null
     }
   ],
-  "opening_until": 3.52
+  "opening_until": 3.36
 }

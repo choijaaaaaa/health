@@ -53,6 +53,18 @@
       "from": "마지막으로 변비예요.",
       "item": "귀리",
       "mech": "m_backflow_pooling"
+    },
+    {
+      "from": "관리는 종아리 근육을",
+      "item": "귀리",
+      "mech": "m_backflow_pooling"
+    },
+    {
+      "from": "발목 안쪽 피부가",
+      "item": "귀리",
+      "mech": "m_backflow_pooling",
+      "act": null,
+      "label": null
     }
   ],
   "opening_until": 5.76

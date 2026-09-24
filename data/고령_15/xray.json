@@ -96,6 +96,13 @@
       "item": "주사기",
       "mech": "m_virus_persistence",
       "label": "신경절"
+    },
+    {
+      "from": "그러니 한쪽에만",
+      "item": "주사기",
+      "mech": "m_virus_persistence",
+      "act": null,
+      "label": "신경절"
     }
   ],
   "summary_from": "그러니 한쪽에만",

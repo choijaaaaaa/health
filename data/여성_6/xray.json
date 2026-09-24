@@ -45,7 +45,17 @@
       "mech": "m_blood_loss"
     },
     {
+      "from": "자궁내막 바로 아래",
+      "item": "생리대",
+      "mech": "m_blood_loss"
+    },
+    {
       "from": "두 번째로는 빈혈이에요.",
+      "item": "빈혈",
+      "mech": "m_oxygen_transport_drop"
+    },
+    {
+      "from": "적혈구가 줄어 산소를",
       "item": "빈혈",
       "mech": "m_oxygen_transport_drop"
     },
@@ -53,7 +63,19 @@
       "from": "마지막으로 체지방이에요.",
       "item": "체중계",
       "mech": "m_fat_accumulation"
+    },
+    {
+      "from": "음식으로 근종 자체가",
+      "item": "체중계",
+      "mech": "m_fat_accumulation"
+    },
+    {
+      "from": "숨이 찰 만큼",
+      "item": "체중계",
+      "mech": "m_fat_accumulation",
+      "act": null,
+      "label": null
     }
   ],
-  "opening_until": 4.8
+  "opening_until": 5.44
 }

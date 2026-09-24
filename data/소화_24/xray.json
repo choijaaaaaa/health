@@ -53,6 +53,18 @@
       "from": "마지막으로는 한 번에",
       "item": "소화불량",
       "mech": "m_wall_stretch_pain"
+    },
+    {
+      "from": "식이섬유는 많이 먹을수록",
+      "item": "소화불량",
+      "mech": "m_wall_stretch_pain"
+    },
+    {
+      "from": "보건복지부 2020년 한국인",
+      "item": "소화불량",
+      "mech": "m_wall_stretch_pain",
+      "act": null,
+      "label": null
     }
   ],
   "opening_until": 4.24

@@ -53,6 +53,18 @@
       "from": "마지막으로 피지 과다예요.",
       "item": "체중계",
       "mech": "m_sebum_overproduction"
+    },
+    {
+      "from": "60킬로그램이면 3킬로그램이에요.",
+      "item": "체중계",
+      "mech": "m_sebum_overproduction"
+    },
+    {
+      "from": "질병관리청 국가건강정보포털은 가임기",
+      "item": "체중계",
+      "mech": "m_sebum_overproduction",
+      "act": null,
+      "label": null
     }
   ],
   "opening_until": 5.28

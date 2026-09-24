@@ -50,7 +50,17 @@
       "mech": "m_emptying_delay"
     },
     {
+      "from": "허가사항에 적힌 부작용은",
+      "item": "체중감량주사",
+      "mech": "m_emptying_delay"
+    },
+    {
       "from": "먼저 구토예요",
+      "item": "달력",
+      "mech": "m_emptying_delay"
+    },
+    {
+      "from": "위 배출이 늦어져",
       "item": "달력",
       "mech": "m_emptying_delay"
     },
@@ -63,6 +73,13 @@
       "from": "마지막으로 췌장이에요",
       "item": "체중감량주사",
       "mech": "m_duct_blockage"
+    },
+    {
+      "from": "증량은 0.25mg으로",
+      "item": "체중감량주사",
+      "mech": "m_duct_blockage",
+      "act": null,
+      "label": null
     }
   ],
   "opening_until": 5.36

@@ -41,78 +41,71 @@
     "소금",
     "혈압계"
   ],
-  "summary_from": "건강보험심사평가원 자료로",
+  "summary_from": "속이 메스껍고 하품이",
   "timeline": [
     {
       "from": "배가 아프고 변의가",
       "item": "휴지",
       "mech": "m_vagal_slowdown",
       "act": "act_rush_to_toilet",
-      "label": "미주신경"
+      "label": "신경"
     },
     {
-      "from": "방아쇠는 화장실에서",
+      "from": "힘주기, 더운 곳에",
       "item": "변기",
       "mech": "m_blood_flow_drop",
       "act": "act_strain_on_toilet",
       "label": "심장으로 오는 피"
     },
     {
-      "from": "먼저 화장실에서",
+      "from": "먼저 힘주기예요",
+      "item": "변기",
+      "mech": "m_blood_flow_drop",
+      "act": "act_strain_on_toilet",
+      "label": "가슴 안쪽 압력"
+    },
+    {
+      "from": "변기에 5분 넘게",
       "item": "변기",
       "mech": "m_vagal_slowdown",
       "act": "act_strain_on_toilet",
-      "label": "미주신경"
+      "label": "신경"
     },
     {
-      "from": "두 번째로는 더운",
+      "from": "두 번째는 더운",
       "item": "압박스타킹",
       "mech": "m_vessel_dilation",
       "act": "act_wipe_sweat",
       "label": "피부 혈관"
     },
     {
-      "from": "마지막으로 수분",
-      "item": "이온음료",
-      "mech": "m_dehydration",
+      "from": "오래 서 있어야 하면",
+      "item": "압박스타킹",
+      "mech": "m_blood_flow_drop",
       "act": "act_stand_still_unaware",
-      "label": "혈액량"
+      "label": "다리 정맥"
     },
     {
-      "from": "질병관리청은 하루",
-      "item": "소금",
-      "mech": "m_blood_flow_drop",
+      "from": "마지막은 물 부족이에요",
+      "item": "이온음료",
+      "mech": "m_dehydration",
+      "act": "act_toilet_check",
+      "label": "체액량"
+    },
+    {
+      "from": "하루에 물 2리터",
+      "item": "이온음료",
+      "mech": "m_dehydration",
       "act": "act_drink_caffeine",
       "label": "혈압"
     },
     {
-      "from": "서울아산병원은 속이",
+      "from": "속이 메스껍고 하품이",
       "item": "식은땀",
       "mech": "m_vagal_slowdown",
-      "act": "act_sink_to_floor",
-      "label": "실신 직전"
-    },
-    {
-      "from": "이때 참지 말고",
-      "item": "의자",
-      "mech": "m_blood_flow_drop",
-      "act": "act_sink_to_floor",
-      "label": "다리 정맥"
-    },
-    {
-      "from": "약부터 찾기 쉽지만",
-      "item": "알약",
-      "mech": "m_vagal_slowdown",
       "act": null,
-      "label": "미주신경"
-    },
-    {
-      "from": "건강보험심사평가원 자료로",
-      "item": "혈압계",
-      "mech": "m_blood_flow_drop",
-      "act": null,
-      "label": "혈압"
+      "label": "신경"
     }
   ],
-  "opening_until": 5.8
+  "opening_until": 3.68
 }

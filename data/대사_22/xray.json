@@ -95,6 +95,13 @@
       "mech": "m_blood_loss",
       "act": "act_slump_at_desk",
       "label": "빈혈"
+    },
+    {
+      "from": "확인은 피 한 번이면",
+      "item": "생리대",
+      "mech": "m_blood_loss",
+      "act": null,
+      "label": "빈혈"
     }
   ],
   "opening_until": 4.96

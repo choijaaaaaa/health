@@ -39,6 +39,13 @@
       "from": "마지막은 술",
       "item": "맥주",
       "mech": "m_toxin_load"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "맥주",
+      "mech": "m_toxin_load",
+      "act": null,
+      "label": null
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. 기전 배정 근거 — 탄산음료는 위에 가스가 차 압력이 오르는 것이라 m_pressure_buildup(플라스크가 차오름), 스트레스는 위 운동 리듬을 흐트러뜨리는 신경 과흥분이라 m_nerve_overdrive, 빈속 커피는 음식 없이 위산이 위벽에 닿는 장면이라 m_acid_secretion, 술은 독성 물질이 조직으로 스며드는 m_toxin_load.",

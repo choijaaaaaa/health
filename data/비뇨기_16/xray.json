@@ -102,6 +102,13 @@
       "mech": "m_osmotic_water_pull",
       "act": "act_toilet_check",
       "label": "소변 농도"
+    },
+    {
+      "from": "그러니 검사 사흘 전부터",
+      "item": "물컵",
+      "mech": "m_osmotic_water_pull",
+      "act": null,
+      "label": "소변 농도"
     }
   ],
   "opening_until": 5.52

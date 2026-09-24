@@ -26,6 +26,11 @@
       "mech": "m_bacteria_growth"
     },
     {
+      "from": "소장에 이미 세균이",
+      "item": "영양제",
+      "mech": "m_bacteria_growth"
+    },
+    {
       "from": "두 번째는 양파",
       "item": "양배추",
       "mech": "m_gas_fermentation"
@@ -34,6 +39,13 @@
       "from": "마지막은 간식",
       "item": "달력",
       "mech": "m_bacteria_growth"
+    },
+    {
+      "from": "대한내과학회지는",
+      "item": "달력",
+      "mech": "m_bacteria_growth",
+      "act": null,
+      "label": null
     }
   ],
   "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(유산균·간식은 사진이 0장이라 배정표에 있는 영양제·달력을 쓴다). 유산균 항목과 간식 항목은 결과가 똑같이 '세균이 계속 늘어난다'라서 m_bacteria_growth를 두 번 쓴다 — 화면과 나레이션이 어긋나지 않는다.",
