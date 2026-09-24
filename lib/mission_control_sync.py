@@ -128,7 +128,7 @@ def _preflight_issues(topic: str) -> int:
     """
     from lib import content_review as cr
     checks = (cr.check_xray_timeline_resolves, cr.check_xray_pacing, cr.check_summary_single_block,
-              cr.check_mech_variety, cr.check_act_coverage, cr.check_plain_language,
+              cr.check_mech_variety, cr.check_act_coverage, cr.check_plain_language, cr.check_connective_flow,
               cr.check_card_narration_alignment, cr.check_xray_clips, cr.check_content_depth,
               cr.check_search_keyword)
     found = []

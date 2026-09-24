@@ -723,6 +723,34 @@ _JARGON = {
 }
 
 
+
+# 문장 첫머리 이음새 — 인과(그래서·그러니)·반전(하지만·그런데)·질문 전환(그렇다면)·덧붙임(특히·다만·물론)
+_CONNECTIVES = re.compile(r"(^|[.?!]\s+)(그리고|그래서|그러니|그러니까|그런데|하지만|그렇지만|그렇다면|그래도|게다가|"
+                          r"특히|다만|물론|또|반대로|결국|왜냐하면|즉)(?=[\s,])", re.M)
+MIN_CONNECTIVES = 5
+
+
+def check_connective_flow(topic: str, lang: str = "kor") -> list[dict]:
+    """문장과 문장 사이에 이음새가 있는가.
+
+    WHY(2026-09-24 사용자): "역접이나 순접 같은 게 없네. 그리고, 그러나, 그래서, 그렇지만, 그렇기 때문에
+    이런 접속사가 존나 없어서 너무 부자연스러운 경우가 많구나." 실측: 대본 25편이 18문장 안팎에 문장 첫 이음새
+    0~4개였다 — "~해요. ~해요. ~해요."로 끊겨 원인→결과, 통념→반박 흐름이 귀로 안 들어온다.
+    기준 대본(대사_22 수정본)은 19문장에 7개. 모든 문장에 붙이라는 게 아니라 **논리가 꺾이는 자리**에 붙인다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = next((p for p in (_data_dir(topic) / "narration.txt", _data_dir(topic) / "ko" / "narration.txt")
+                 if p.exists()), None)
+    if path is None:
+        return []
+    n = len(_CONNECTIVES.findall(path.read_text(encoding="utf-8")))
+    if n >= MIN_CONNECTIVES:
+        return []
+    return [{"quote": f"{n}개", "severity": "medium",
+             "issue": f"문장 첫 이음새가 {n}개뿐입니다(최소 {MIN_CONNECTIVES}개) — 원인→결과엔 '그래서·그러니', "
+                      "통념→반박엔 '하지만·그런데', 새 질문엔 '그렇다면', 덧붙임엔 '특히·다만·물론'을 논리가 꺾이는 "
+                      "자리에 넣으세요."}]
+
 def check_plain_language(topic: str, lang: str = "kor") -> list[dict]:
     """기관명을 반복해 붙이지 않았는지, 전문용어를 설명 없이 던지지 않았는지.
 
