@@ -109,6 +109,12 @@ def uploadable_topics() -> set[str]:
         # 다시 걸려야 한다 — 그래서 sync마다 다시 본다.
         if _preflight_issues(topic):
             continue
+        # 🚨 대본을 사용자가 **글로 승인**한 topic만 올린다(2026-09-24): 대본을 덜 다듬은 채
+        # TTS→조립→지적→재TTS를 반복해 돈만 나갔다. 승인은 xray.json의 `script_approved`(날짜)로
+        # 남긴다 — 승인 뒤 원고를 또 고치면 narration.txt가 영상보다 새것이 돼 위에서 걸린다.
+        cfg = json.loads((topic_dir / "xray.json").read_text(encoding="utf-8"))
+        if not cfg.get("script_approved"):
+            continue
         out.add(topic)
     return out
 

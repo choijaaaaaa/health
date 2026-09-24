@@ -34,50 +34,44 @@
     "체중계",
     "체중감량주사"
   ],
-  "summary_from": "증량은 0.25mg으로",
+  "summary_from": "그러니 증량한 주에는",
   "timeline": [
     {
-      "from": "허가사항에 적힌 부작용은",
-      "item": "체중감량주사",
-      "mech": "m_wall_stretch_pain",
-      "act": "act_grab_belly",
-      "label": "위벽"
-    },
-    {
-      "from": "먼저 구토예요",
+      "from": "이 메스꺼움은 두 군데서",
       "item": "소화불량",
       "mech": "m_emptying_delay",
       "act": "act_large_meal_after_fasting",
       "label": "위 배출"
     },
     {
-      "from": "오심은 8일이면",
+      "from": "다른 하나는 뇌예요",
+      "item": "소화불량",
+      "mech": "part_brain",
+      "act": "pilot_B",
+      "label": "뇌"
+    },
+    {
+      "from": "그래서 오는 시기가",
+      "item": "체중감량주사",
+      "mech": "m_receptor_desensitization",
+      "act": "act_grab_belly",
+      "label": "약 수용체"
+    },
+    {
+      "from": "같은 용량을 유지하면",
       "item": "달력",
-      "mech": "m_motility_slowdown",
-      "act": "act_strain_on_toilet",
-      "label": "장 운동"
+      "mech": "m_emptying_delay",
+      "act": "act_nausea_push_plate_away",
+      "label": "위 배출"
     },
     {
-      "from": "두 번째는 탈모예요",
-      "item": "머리카락",
-      "mech": "m_follicle_weakening",
-      "act": "act_hair_shedding",
-      "label": "모낭"
-    },
-    {
-      "from": "마지막은 췌장이에요",
-      "item": "주사기",
-      "mech": "m_duct_blockage",
-      "act": "act_epigastric_bore_to_back",
-      "label": "췌관"
-    },
-    {
-      "from": "증량은 0.25mg으로",
-      "item": "달력",
-      "mech": "m_duct_blockage",
+      "from": "그러니 증량한 주에는",
+      "item": "소화불량",
+      "mech": "m_emptying_delay",
       "act": null,
-      "label": "췌관"
+      "label": "위"
     }
   ],
-  "opening_until": 14.0
+  "opening_until": 14.56,
+  "script_approved": "2026-09-24"
 }
