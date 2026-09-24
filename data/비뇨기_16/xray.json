@@ -1,6 +1,6 @@
 {
   "_why": "전면 재작성(2026-09-23). 네이버 자동완성에서 실제 수요가 확인된 갈래(탈모·배탈·크레아티닌 수치)로 각도를 바꿨고, 클립은 프레임을 직접 뽑아 확인해 골랐다.",
-  "top_title": "머리 빠지고 신장 수치 높다면",
+  "top_title": "신장 수치가 높게 나왔다면",
   "inset": {
     "clip": "assets_library/xray/output/part_kidney.mp4",
     "crop": [
@@ -30,79 +30,65 @@
     "혈액검사"
   ],
   "_clip_notes": "act_hair_shedding 3.0~5.6초 = 손이 머리에서 떨어지며 머리카락 가닥이 딸려 나오고 두피 점등(프레임 확인). act_toilet_check = 서서 소변보며 방광→양쪽 신장까지 점등(프레임 확인, clip_index도 '신장 이상 신호'로 적고 있다). part_kidney는 CLIP_NOTES의 region 수정본이라 신장만 켜진다. act_urgent_watery_bowel은 아직 없어 clip_requests.json에 요청함 — 차선은 act_rush_to_toilet 4.5~6.0초(4.3초부터 장이 켜진 채 급히 걸어간다, 그 앞 구간은 방광이라 쓰면 안 된다).",
-  "summary_from": "그러니 검사 사흘 전부터",
+  "summary_from": "그러니 수치 하나에",
   "timeline": [
     {
-      "from": "수치가 높으면 신장이",
+      "from": "확인할 건 근육량",
       "item": "혈액검사",
       "mech": "m_filtration_overload",
-      "act": "act_take_supplement",
-      "label": "크레아티닌"
-    },
-    {
-      "from": "신장이 멀쩡해도",
-      "item": "혈액검사",
-      "mech": "m_osmotic_water_pull",
       "act": "act_toilet_check",
-      "label": "소변 농도"
+      "label": "사구체"
     },
     {
-      "from": "수치를 올리는 건",
+      "from": "먼저 근육량이에요",
       "item": "아령",
       "mech": "m_muscle_wasting",
       "act": "act_take_supplement",
       "label": "근육"
     },
     {
-      "from": "먼저 크레아틴이에요",
-      "item": "아령",
+      "from": "이럴 땐 근육 영향을",
+      "item": "혈액검사",
       "mech": "m_filtration_overload",
       "act": "act_take_supplement",
-      "label": "근육→신장"
+      "label": "크레아티닌"
     },
     {
-      "from": "하루 3그램만",
-      "item": "아령",
-      "mech": "m_nutrient_absorption_block",
+      "from": "두 번째는 단백뇨예요",
+      "item": "혈액검사",
+      "mech": "m_barrier_leak",
       "act": "act_toilet_check",
-      "label": "근육 저장"
+      "label": "사구체 여과막"
     },
     {
-      "from": "두 번째는 단백질",
-      "item": "닭가슴살",
-      "mech": "m_toxin_load",
-      "act": "act_take_supplement",
-      "label": "질소 찌꺼기"
-    },
-    {
-      "from": "운동 직후 근육이",
-      "item": "닭가슴살",
-      "mech": "m_muscle_wasting",
-      "act": "act_take_supplement",
-      "label": "근육 손상"
-    },
-    {
-      "from": "마지막은 탈수예요",
-      "item": "물컵",
-      "mech": "m_dehydration",
-      "act": "act_toilet_check",
-      "label": "체액량"
-    },
-    {
-      "from": "몸에 물이 모자라면",
-      "item": "물컵",
+      "from": "소변검사에서 알부민이",
+      "item": "혈액검사",
       "mech": "m_osmotic_water_pull",
       "act": "act_toilet_check",
-      "label": "소변 농도"
+      "label": "소변"
     },
     {
-      "from": "그러니 검사 사흘 전부터",
-      "item": "물컵",
-      "mech": "m_osmotic_water_pull",
+      "from": "마지막은 석 달 추세예요",
+      "item": "달력",
+      "mech": "m_microvessel_damage",
+      "act": "act_take_supplement",
+      "label": "모세혈관"
+    },
+    {
+      "from": "사구체여과율 60",
+      "item": "달력",
+      "mech": "m_fibrosis",
+      "act": "act_toilet_check",
+      "label": "신장 조직"
+    },
+    {
+      "from": "그러니 수치 하나에",
+      "item": "혈액검사",
+      "mech": "m_filtration_overload",
       "act": null,
-      "label": "소변 농도"
+      "label": "사구체"
     }
   ],
-  "opening_until": 13.76,
+  "opening_until": 13.52,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

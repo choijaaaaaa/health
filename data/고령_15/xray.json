@@ -21,12 +21,6 @@
   ],
   "timeline": [
     {
-      "from": "대상포진은 옮지 않는다고",
-      "item": "피부발진",
-      "mech": "m_virus_reactivation",
-      "label": "물집"
-    },
-    {
       "from": "옮으면 대상포진이 아니라",
       "item": "피부반점",
       "mech": "m_virus_replication",

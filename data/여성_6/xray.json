@@ -32,12 +32,6 @@
   "summary_from": "숨이 찰 만큼",
   "timeline": [
     {
-      "from": "먼저 근종의 위치예요.",
-      "item": "생리대",
-      "mech": "m_blood_loss",
-      "label": "출혈"
-    },
-    {
       "from": "자궁내막 바로 아래",
       "item": "생리대",
       "mech": "m_blood_loss",

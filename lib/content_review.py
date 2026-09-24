@@ -495,7 +495,7 @@ V2_MIN_NUMBERS = 3
 # "명·세·살"은 건강 콘텐츠에서 가장 흔한 단위인데 빠져 있었다(2026-09-23) — "인구 천 명당 17.2명",
 # "만 50세부터"처럼 실행에 직결되는 수치가 통째로 안 잡혀 원고를 멀쩡히 쓰고도 미달로 걸렸다.
 _NUM_WITH_UNIT = re.compile(
-    r"\d[\d,.]*\s?(?:mg|g|kg|ml|L|밀리그램|그램|칼로리|kcal|도|℃|%|퍼센트|배|분|시간|일|주|개월|년|회|번|잔|컵|알|정|포|명|세|살|리터|밀리리터|티스푼|큰술|작은술|단계|층|줄)")
+    r"\d[\d,.]*\s?[만억]?\s?(?:mg|g|kg|ml|L|밀리그램|그램|칼로리|kcal|도|℃|%|퍼센트|배|분|시간|일|주|개월|년|회|번|잔|컵|알|정|포|명|세|살|리터|밀리리터|티스푼|큰술|작은술|단계|층|줄)")
 _MYTH_PATTERNS = [
     re.compile(r"(좋다고|낫는다고|도움이 된다고|괜찮다고|효과가 있다고)\s*(들으|알려|생각|믿)"),
     re.compile(r"(알려져 ?있지만|생각하기 쉽지만|흔히 ?아는 것과 달리|사실은 ?반대)"),
@@ -859,6 +859,13 @@ def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
                                        f"{until}초에 칠판으로 넘어갑니다. " if cut else " — ")
                                     + "문장이 끝나는 시각에 맞추세요."})
 
+    # 🚨 도입부(전체 화면) 안에서 시작하는 구간이 있으면 칸이 도입 영상 위에 겹쳐 그려진다.
+    if until is not None:
+        inside = [r for r in rows if r["start"] < until - 0.05]
+        if inside:
+            issues.append({"quote": f"{inside[0]['start']:.1f}초", "severity": "high",
+                           "issue": f"도입부가 {until}초까지인데 {len(inside)}개 구간이 그 안에서 시작합니다 — "
+                                    "전체 화면 도입 영상 위에 칸이 겹쳐 그려집니다."})
     if rows:
         gap_start = until if until is not None else 0.0
         gaps = [(gap_start, rows[0]["start"])]

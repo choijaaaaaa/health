@@ -37,12 +37,6 @@
   "summary_from": "증량은 0.25mg으로",
   "timeline": [
     {
-      "from": "이럴 때 펜 하나를",
-      "item": "체중감량주사",
-      "mech": "m_emptying_delay",
-      "label": "위 배출"
-    },
-    {
       "from": "허가사항에 적힌 부작용은",
       "item": "체중감량주사",
       "mech": "m_wall_stretch_pain",

@@ -22,13 +22,6 @@
   "opening_until": 15.76,
   "timeline": [
     {
-      "from": "이럴 때 저분자로",
-      "item": "영양제",
-      "mech": "m_tissue_laxity",
-      "act": "act_take_supplement",
-      "label": "진피 콜라겐"
-    },
-    {
       "from": "어디까지 가는지는",
       "item": "영양제",
       "mech": "part_skin",

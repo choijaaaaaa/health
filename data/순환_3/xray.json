@@ -32,12 +32,6 @@
   "summary_from": "발목 안쪽 피부가",
   "timeline": [
     {
-      "from": "먼저 뜨거운 반신욕과",
-      "item": "사우나",
-      "mech": "m_vessel_dilation",
-      "label": "혈관 확장"
-    },
-    {
       "from": "두 번째로는 짠",
       "item": "소금",
       "mech": "m_fluid_retention",

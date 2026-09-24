@@ -32,12 +32,6 @@
   "summary_from": "질병관리청 국가건강정보포털은 가임기",
   "timeline": [
     {
-      "from": "먼저 인슐린저항성이에요.",
-      "item": "영양제",
-      "mech": "m_receptor_desensitization",
-      "label": "내성이 생김"
-    },
-    {
       "from": "두 번째로는 남성호르몬",
       "item": "귀리",
       "mech": "m_hormone_surge",

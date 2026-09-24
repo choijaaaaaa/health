@@ -39,13 +39,6 @@
   "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체로 간다.",
   "timeline": [
     {
-      "from": "장에 좋다고 식이섬유를",
-      "item": "귀리",
-      "mech": "m_motility_slowdown",
-      "act": "act_strain_on_toilet",
-      "label": "장운동"
-    },
-    {
       "from": "예민한 장을 건드리는 건",
       "item": "알약",
       "mech": "m_nerve_overdrive",

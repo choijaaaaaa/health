@@ -33,13 +33,6 @@
   "summary_from": "확인은 피 한 번이면",
   "timeline": [
     {
-      "from": "갑상선 질환 하면",
-      "item": "갑상선",
-      "mech": "m_hormone_drop",
-      "act": "act_touch_neck",
-      "label": "갑상선"
-    },
-    {
       "from": "저하증이 먼저 티를",
       "item": "갑상선",
       "mech": "m_hormone_drop",

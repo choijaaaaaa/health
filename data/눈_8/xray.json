@@ -36,13 +36,6 @@
   "summary_from": "점이 거슬릴 땐",
   "timeline": [
     {
-      "from": "인공눈물을 넣고",
-      "item": "인공눈물",
-      "act": "act_rub_eyes",
-      "mech": "m_vitreous_floaters",
-      "label": "유리체"
-    },
-    {
       "from": "따져볼 건 영양제",
       "item": "영양제",
       "act": "act_take_supplement",

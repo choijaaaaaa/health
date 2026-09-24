@@ -36,13 +36,6 @@
   "summary_from": "속이 메스껍고 하품이",
   "timeline": [
     {
-      "from": "배가 아프고 변의가",
-      "item": "휴지",
-      "mech": "m_vagal_slowdown",
-      "act": "act_rush_to_toilet",
-      "label": "신경"
-    },
-    {
       "from": "힘주기, 더운 곳에",
       "item": "변기",
       "mech": "m_blood_flow_drop",
