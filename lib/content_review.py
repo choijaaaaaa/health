@@ -1016,7 +1016,15 @@ WEAK_SUBSTITUTES = ("무알코올", "무알콜", "논알콜", "전자담배", "�
 
 def review_topic(topic: str, lang: str = "kor") -> list[dict]:
     """기계적(비-API) 검사만 수행한다 — 논리/과장/번역독립성 판단은 파일
-    상단 MANUAL_REVIEW_CHECKLIST를 세션이 직접 확인할 것."""
+    상단 MANUAL_REVIEW_CHECKLIST를 세션이 직접 확인할 것.
+
+    🚨 폴더가 없으면 "문제 없음"이 아니라 실패로 답한다(2026-09-24). 검사 함수들은 파일이
+    없으면 각자 빈 목록을 돌려주도록 만들어져 있어서(옛 topic 호환), 경로를 잘못 짚으면
+    **한 건도 안 걸린 채 통과처럼 보인다** — 육아 트랙 원고 두 편이 실제로 그렇게 통과했다."""
+    if not _data_dir(topic).is_dir():
+        return [{"quote": topic, "severity": "high",
+                 "issue": f"`{_data_dir(topic).relative_to(ROOT)}` 폴더가 없다 — 검사가 한 건도 안 돌았다. "
+                          "topic 이름과 트랙 폴더(lib/tracks.py)를 확인하세요."}]
     return (
         check_opening_hook(topic, lang)
         + check_products_in_brandconnect(topic, lang)
