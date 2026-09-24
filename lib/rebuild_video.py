@@ -607,6 +607,19 @@ def derive(topic: str) -> dict:
                 continue
             if key not in item_label_overrides or len(it["name"]) < len(item_label_overrides[key]):
                 item_label_overrides[key] = it["name"]
+    # 🚨 배지 이름은 **카드 품목 이름**이어야 한다(2026-09-24): 조립기는 사진 파일명에서 이름을 뽑는데,
+    # 공용 사진 풀에서 바로 온 사진은 파일명이 사진 ID(`pexels_8575750_…`)라 배지에 그 문자열이 그대로
+    # 찍혔다(고령_15 '처방전' 실측). 사진 경로 → 품목 이름을 한국어에서도 넘겨준다.
+    if lang == "kor":
+        item_label_overrides = item_label_overrides or {}
+        for it in items:
+            nm = _char_name(it["char_file"])
+            mp = _char_media_path(nm)
+            if not mp:
+                continue
+            st = re.sub(r"_real_\d+$", "", re.sub(r"_(motion|illust)$", "", Path(mp).stem))
+            if st != nm:
+                item_label_overrides.setdefault(st, nm)
     # WHY spec["topic_word"] 우선(2026-08-03 버그 수정, 갑상선_1/en 영상 조립
     # 중 실제 발견): base_name에서 뽑는 방식은 파일명에 언어 단어가 실제로 박혀
     # 있는 topic(가슴쓰림_1/en처럼 예전에 flat 구조였다가 마이그레이션된 경우,
