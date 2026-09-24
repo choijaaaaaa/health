@@ -1,0 +1,90 @@
+{
+  "_why": "마운자로 변비 하나를 기전의 층위로 판다 — 위 배출 지연 → 장에 머무는 동안 물기가 빠짐 → 물을 덜 마셔 한 번 더 굳음 → 그래서 오래 감(위고비 47일·마운자로 7명 중 1명). 기전 클립은 프레임을 직접 뽑아 확인했다: m_content_hardening은 둥근 호박색 방울이 울퉁불퉁한 덩어리로 굳어 관을 막아 '물기가 빠져 딱딱하게 굳음' 그대로, m_dehydration은 표면의 물방울이 줄어들다 갈라져 '물을 덜 마셔 한 번 더 굳음'에 맞고, m_motility_slowdown은 관이 부풀었다 수축이 약해져 덩어리가 중간에 멈춘다. 행위는 act_strain_on_toilet(변기에 앉아 힘주기, 마지막에 장 전체 점등)가 중심이다. 3번 행(물을 덜 마심)의 행위는 라이브러리에 없다 — act_drink_caffeine은 마지막에 뇌가 켜지고 '마시는' 동작이라 반대 뜻이 된다 — clip_requests.json에 act_full_belly_refuse_water를 새로 요청하고 act는 비워뒀다(받으면 채운다). act_inject_belly는 이름과 달리 주사 장면이 아니라 왼쪽 아랫배를 감싸 쥐고 하행결장이 점등되는 클립이라 '변비가 오래 감' 행에 쓴다(끝에 다리까지 번지는 점등은 약하게 맞음). 5번 행은 act_strain_on_toilet을 도입부·2번 행에 이미 두 번 써서 act_shift_uncomfortably_seated(앉은 채 들썩이다 아랫배를 누름)로 뒀다 — 첫 프레임에 방광 자리가 점등돼 약하게 맞는다.",
+  "top_title": "변비만 몇 주째 그대로라면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_intestines.mp4",
+    "crop": [
+      0,
+      420,
+      720,
+      510
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_strain_on_toilet.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_large_meal_after_fasting.mp4"
+    }
+  ],
+  "_mech": [
+    "m_emptying_delay",
+    "m_content_hardening",
+    "m_dehydration",
+    "m_motility_slowdown",
+    "part_intestines"
+  ],
+  "_act": [
+    "act_strain_on_toilet",
+    "act_large_meal_after_fasting",
+    "act_nausea_push_plate_away",
+    "act_full_belly_refuse_water",
+    "act_inject_belly",
+    "act_shift_uncomfortably_seated"
+  ],
+  "_items": [
+    "체중감량주사",
+    "변기",
+    "물컵",
+    "달력",
+    "자두"
+  ],
+  "summary_from": "그러니 섬유는",
+  "timeline": [
+    {
+      "from": "이 약은 음식이",
+      "item": "체중감량주사",
+      "mech": "m_emptying_delay",
+      "act": "act_nausea_push_plate_away",
+      "label": "위 배출"
+    },
+    {
+      "from": "내용물이 장에",
+      "item": "변기",
+      "mech": "m_content_hardening",
+      "act": "act_strain_on_toilet",
+      "label": "대장"
+    },
+    {
+      "from": "여기에 배가 늘",
+      "item": "물컵",
+      "mech": "m_dehydration",
+      "act": null,
+      "label": "장 속 수분"
+    },
+    {
+      "from": "그래서 변비는 다른",
+      "item": "달력",
+      "mech": "m_motility_slowdown",
+      "act": "act_inject_belly",
+      "label": "장 운동"
+    },
+    {
+      "from": "며칠 버티면 지나가는",
+      "item": "달력",
+      "mech": "part_intestines",
+      "act": "act_shift_uncomfortably_seated",
+      "label": "소장·대장"
+    },
+    {
+      "from": "그러니 섬유는",
+      "item": "자두",
+      "mech": "m_motility_slowdown",
+      "act": null,
+      "label": "장"
+    }
+  ],
+  "opening_until": 11.84
+}

@@ -1,0 +1,86 @@
+{
+  "_why": "새 topic(2026-09-24). 증상 하나 = '마운자로 끊은 뒤 요요'를 기전의 층위로 판다: 뇌(맞는 동안 식욕 억제 → 약이 빠지면 억제도 사라짐) → 몸(빠진 체중을 되찾으려는 보상 반응) → 임상 SURMOUNT-4(가짜 약 전환 +14.0%, 생활지도는 계속) → 같은 시험에서 계속 맞은 쪽(-5.5%) → 사후분석(10명 중 8명이 4분의 1 넘게 되찾음, 그래도 시작 체중보다는 가벼움). 도입부는 훅('뺐는데')에 m_fat_breakdown, 통념 반박('끊고 식단만 지키면 → 안 됐다')에 act_large_meal_after_fasting(돌아온 식욕이 식단을 이긴다). 기전 클립은 프레임을 직접 뽑아 확인했다: m_hormone_drop은 구슬이 수용체 구멍으로 쏟아지다 끊겨 마지막엔 빈 원반만 남아 '약이 빠지면 억제가 사라진다'·'가짜 약으로 바꿨다'에 맞고, m_fat_accumulation은 전신 지방 방울 → 세포 단면 → 피하 지방층이 부풀어 표면을 밀어 올려 되찾는 체중에 맞으며, m_fat_breakdown은 기름방울이 쪼개져 빠져나가 '계속 맞은 사람은 더 빠졌다'에 맞는다. 행위 칸: act_nausea_push_plate_away(그릇을 밀어내는 입맛 없음 — 맞는 동안의 식욕 억제. 입을 막는 손 때문에 메스꺼움으로도 읽혀 약하게 맞음). 3·5번째 칸(다시 늘었다/되찾았다)은 체중계에 올라서는 행위, 4번째 칸(식사·운동 지도를 계속 받았는데도)은 운동하는 행위가 라이브러리에 없어 act를 비우고 clip_requests.json에 act_scale_regain·act_dumbbell_workout을 요청했다 — 오면 3·5번째에 act_scale_regain, 4번째에 act_dumbbell_workout을 넣는다.",
+  "top_title": "끊으면 살이 다시 찔까 걱정된다면",
+  "inset": {
+    "clip": "assets_library/xray/output/m_fat_accumulation.mp4",
+    "crop": [
+      0,
+      440,
+      720,
+      510
+    ],
+    "label": "지방세포"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/m_fat_breakdown.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_large_meal_after_fasting.mp4"
+    }
+  ],
+  "_mech": [
+    "m_hormone_drop",
+    "m_fat_accumulation",
+    "m_fat_breakdown",
+    "m_muscle_wasting"
+  ],
+  "_act": [
+    "act_nausea_push_plate_away",
+    "act_large_meal_after_fasting"
+  ],
+  "_items": [
+    "뇌",
+    "체중계",
+    "체중감량주사",
+    "운동화",
+    "달력",
+    "처방전"
+  ],
+  "opening_until": 10.72,
+  "summary_from": "그러니 끊을지",
+  "timeline": [
+    {
+      "from": "이 약은 맞는 동안",
+      "item": "뇌",
+      "mech": "m_hormone_drop",
+      "act": "act_nausea_push_plate_away",
+      "label": "뇌"
+    },
+    {
+      "from": "여기에 몸 자체도",
+      "item": "체중계",
+      "mech": "m_fat_accumulation",
+      "act": "act_large_meal_after_fasting",
+      "label": "지방세포"
+    },
+    {
+      "from": "식약처 허가사항에 실린",
+      "item": "체중감량주사",
+      "mech": "m_hormone_drop",
+      "act": null,
+      "label": "약 신호"
+    },
+    {
+      "from": "식사와 운동 지도를",
+      "item": "운동화",
+      "mech": "m_fat_breakdown",
+      "act": null,
+      "label": "체지방"
+    },
+    {
+      "from": "끊은 사람 10명 중",
+      "item": "달력",
+      "mech": "m_fat_accumulation",
+      "act": null,
+      "label": "피하지방"
+    },
+    {
+      "from": "그러니 끊을지",
+      "item": "처방전",
+      "mech": "m_muscle_wasting",
+      "act": null,
+      "label": "근육"
+    }
+  ]
+}

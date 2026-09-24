@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_thyroid.mp4"
     }
   ],
-  "summary_from": "아침에만 붓고 오후에",
+  "summary_from": "물론 아침에만 붓고",
   "timeline": [
     {
       "from": "갑상선호르몬은 몸의",
@@ -29,28 +29,28 @@
       "label": "갑상선"
     },
     {
-      "from": "피부가 얇은 눈두덩부터",
+      "from": "물이 아니라 물질이 차 있으니",
       "item": "부종",
       "mech": "m_fluid_retention",
       "act": "act_press_swollen_eyelid",
       "label": "눈두덩"
     },
     {
-      "from": "목소리도 같은 이유예요",
+      "from": "목소리가 잠기는 것도",
       "item": "확성기",
       "mech": "m_mucus_overproduction",
       "act": "act_cough",
       "label": "성대"
     },
     {
-      "from": "원인은 10명 중",
+      "from": "그렇다면 호르몬은 왜",
       "item": "가족력",
       "mech": "m_autoimmune_attack",
       "act": "act_touch_neck",
       "label": "갑상선 세포"
     },
     {
-      "from": "아침에만 붓고 오후에",
+      "from": "물론 아침에만 붓고",
       "item": "혈액검사",
       "mech": "m_hormone_drop",
       "act": null,

@@ -43,7 +43,7 @@
       "label": "위벽"
     },
     {
-      "from": "그럼 벽은 무엇이",
+      "from": "그렇다면 벽은 무엇이",
       "item": "이부프로펜",
       "mech": "m_hormone_drop",
       "act": "act_take_supplement",

@@ -36,7 +36,7 @@
       "label": "각질층"
     },
     {
-      "from": "그럼 턱선은 왜",
+      "from": "그렇다면 턱선은 왜",
       "item": "햇빛",
       "mech": "m_uv_radiation_damage",
       "act": "act_shield_eyes_from_light",
