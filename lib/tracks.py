@@ -62,12 +62,15 @@ def iter_topic_dirs(base: Path) -> list[Path]:
     """base(data/ 또는 output/) 밑의 topic 폴더 전부 — 트랙 폴더는 한 단계 더 들어가서 편다.
 
     `_audit`·`_retired`처럼 밑줄로 시작하는 살림 폴더는 topic이 아니라서 뺀다."""
+    def usable(p: Path) -> bool:
+        return p.is_dir() and not p.name.startswith(("_", "."))
+
     out: list[Path] = []
     for p in sorted(base.iterdir()):
-        if not p.is_dir() or p.name.startswith("_") or p.name.startswith("."):
+        if not usable(p):
             continue
         if p.name in track_dirs():
-            out += sorted(q for q in p.iterdir() if q.is_dir())
+            out += sorted(q for q in p.iterdir() if usable(q))
         else:
             out.append(p)
     return out
