@@ -28,6 +28,7 @@ from pathlib import Path
 
 import requests
 
+from lib import tracks
 from lib.mission_control_log import report_issue
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -238,7 +239,7 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
         raise
     audio_bytes, words = _apply_tempo(audio_bytes, words, AUDIO_TEMPO)
 
-    out_dir = ROOT / "output" / topic
+    out_dir = tracks.output_dir(topic)
     out_dir.mkdir(parents=True, exist_ok=True)
     audio_path = out_dir / "narration.mp3"
     srt_path = out_dir / "narration.srt"

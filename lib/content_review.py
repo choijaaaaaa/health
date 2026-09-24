@@ -30,7 +30,20 @@ import subprocess
 import sys
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
+
+
+# WHY 트랙 경로를 이 모듈에서 한 번 더 감싸는지: 폴더 규칙 자체는 lib/tracks.py 한 곳에서
+# 정하지만, 이 모듈의 ROOT는 테스트가 tmp_path로 갈아끼운다(tests/test_content_review.py) —
+# tracks.ROOT를 그대로 쓰면 갈아낀 루트를 무시하고 저장소 실데이터를 읽는다.
+def _data_dir(topic: str) -> Path:
+    return ROOT / tracks.data_dir(topic).relative_to(tracks.ROOT)
+
+
+def _output_dir(topic: str) -> Path:
+    return ROOT / tracks.output_dir(topic).relative_to(tracks.ROOT)
 
 
 # WHY 지역 소싱 기준 별도 추가(2026-08-03): 한국 콘텐츠는 원래 한국에서 흔히 구할 수
@@ -74,7 +87,7 @@ def _topic_dir(topic: str, lang: str = "kor") -> Path:
     구조로 바뀌었다. lang="kor"이면 ko/, 다른 언어는 GLOBAL_LANG_LABELS_FALLBACK을
     코드→이름의 역방향으로 찾아 그 코드 폴더를 본다. 중첩 폴더가 없으면(예전
     단일 언어 구조 topic 대비) topic 폴더 자체로 폴백한다."""
-    base = ROOT / "data" / topic
+    base = _data_dir(topic)
     nested = base / _lang_code(lang)
     return nested if nested.exists() else base
 
@@ -89,7 +102,7 @@ def _caption_dirs(topic: str, lang: str = "kor") -> list[Path]:
     않고 지나갔다. 실제로 네이버 캡션 16개를 새로 쓰는 동안 서브에이전트
     셋이 각각 "content_review가 내 파일을 안 본다"고 따로 보고했다.
     """
-    base = ROOT / "data" / topic
+    base = _data_dir(topic)
     dirs = [_topic_dir(topic, lang)]
     if lang == "kor" and base not in dirs and (base / "platform_captions.json").exists():
         dirs.append(base)
@@ -329,7 +342,7 @@ def check_opening_hook(topic: str, lang: str = "kor") -> list[dict]:
     WHY 이 검사가 필요한지: 훅 문형 규칙은 문서에만 있을 땐 지켜지지 않았다 —
     실측 115편 중 71편이 조건절 훅이었고 최장 11.9초짜리도 있었다. 기계가 잡지
     않으면 다음 topic에서 또 들어온다."""
-    base = ROOT / "data" / topic
+    base = _data_dir(topic)
     path = next((p for p in (base / lang / "narration.txt", base / "ko" / "narration.txt",
                              base / "narration.txt") if p.exists()), None)
     if path is None:
@@ -354,7 +367,7 @@ def check_opening_hook(topic: str, lang: str = "kor") -> list[dict]:
     # 반투명 인체 포맷(data/<topic>/xray.json)은 도입부를 Flow 클립 두 개(행위 4초 + 부위 4초 = 8초)로 채운다.
     # 칠판으로 넘어가기 전까지의 나레이션 = 첫 두 문장이 8초를 넘으면 클립을 늘려야 하고, 늘린 도입부는
     # "너무 긴 편"이었다(2026-09-19 사용자, 소화_9 시험본 13.6초 → "대충 8초 정도로 끊어야").
-    if (ROOT / "data" / topic / "xray.json").exists():
+    if (_data_dir(topic) / "xray.json").exists():
         sents = re.split(r"(?<=[.!?])\s+", text.replace("\n", " ").strip())
         opening = re.sub(r"\s+", "", sents[0])
         if len(opening) > XRAY_OPENING_MAX_CHARS:
@@ -462,7 +475,7 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
                 "severity": "high",
             })
 
-    base = ROOT / "data" / topic
+    base = _data_dir(topic)
     nar_path = next((p for p in (base / "narration.txt", base / "ko" / "narration.txt")
                      if p.exists()), None)
     if nar_path:
@@ -516,7 +529,7 @@ def _narration_seconds(topic: str, dense_chars: int) -> tuple[float, bool]:
     WHY 실측을 우선하는지(2026-09-24): 발화 속도는 topic마다 5.83~6.40자/초로 흔들려서(문장 길이·숫자
     읽기·문장 사이 쉼의 양이 달라서다) 상수 하나로 환산하면 ±4초가 그냥 난다. 순환_12는 추정 86초로
     상한을 넘었는데 실제 음성은 82.9초였다 — 멀쩡한 원고를 줄이게 만드는 종류의 오탐이다."""
-    audio = ROOT / "output" / topic / "narration.mp3"
+    audio = _output_dir(topic) / "narration.mp3"
     if audio.exists():
         try:
             out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
@@ -536,9 +549,9 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
         return []
     # ⚠️ 스펙 위치가 topic마다 다르다(check_search_keyword와 같은 사정) — flat만 보면 ko/ 폴더를 쓰는
     # topic이 content_v2 마커를 달아도 깊이 검사가 조용히 꺼진 채 "문제 없음"으로 통과한다.
-    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
-                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
-    nar_path = ROOT / "data" / topic / "narration.txt"
+    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
+                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
+    nar_path = _data_dir(topic) / "narration.txt"
     if spec_path is None or not nar_path.exists():
         return []
     try:
@@ -580,7 +593,7 @@ def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
     반복된 사고다). 없으면 `data/<topic>/clip_requests.json`에 적고 사용자에게 요청한 뒤 조립을 멈춘다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "xray.json"
+    path = _data_dir(topic) / "xray.json"
     if not path.exists():
         return []
     try:
@@ -600,7 +613,7 @@ def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
             issues.append({"quote": ref, "severity": "high",
                            "issue": "클립이 없습니다 — 비슷한 클립으로 바꾸지 말고 "
                                     f"`data/{topic}/clip_requests.json`에 적어 사용자에게 렌더를 요청하세요."})
-    req = ROOT / "data" / topic / "clip_requests.json"
+    req = _data_dir(topic) / "clip_requests.json"
     if req.exists():
         try:
             pending = [r for r in json.loads(req.read_text(encoding="utf-8")).get("requests", [])
@@ -638,9 +651,9 @@ def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
     항목 누락은 확정적이라 high, 제목은 어휘 일치 휴리스틱이라 medium으로 둔다."""
     if lang not in ("kor", "ko"):
         return []
-    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
-                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
-    nar_path = ROOT / "data" / topic / "narration.txt"
+    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
+                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
+    nar_path = _data_dir(topic) / "narration.txt"
     if spec_path is None or not nar_path.exists():
         return []
     try:
@@ -706,7 +719,7 @@ def check_plain_language(topic: str, lang: str = "kor") -> list[dict]:
     이해도 안되게"). 한 항목은 **행동 → 원인 → 아이템** 세 마디면 된다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "narration.txt"
+    path = _data_dir(topic) / "narration.txt"
     if not path.exists():
         return []
     text = path.read_text(encoding="utf-8")
@@ -735,7 +748,7 @@ def check_summary_single_block(topic: str, lang: str = "kor") -> list[dict]:
     바뀌는데 정작 말은 몇 마디뿐이라 따로 논다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "xray.json"
+    path = _data_dir(topic) / "xray.json"
     if not path.exists():
         return []
     try:
@@ -763,7 +776,7 @@ def check_xray_timeline_resolves(topic: str, lang: str = "kor") -> list[dict]:
     깨진 걸 조용히 넘기는 검사는 없는 것만 못하다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "xray.json"
+    path = _data_dir(topic) / "xray.json"
     if not path.exists():
         return []
     try:
@@ -797,7 +810,7 @@ def check_mech_variety(topic: str, lang: str = "kor") -> list[dict]:
     있는 것이었다. 흐릿한 같은 그림이 반복되면 영상이 아니라 정지 이미지로 읽힌다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "xray.json"
+    path = _data_dir(topic) / "xray.json"
     if not path.exists():
         return []
     try:
@@ -830,7 +843,7 @@ def check_act_coverage(topic: str, lang: str = "kor") -> list[dict]:
     맞는 클립이 없으면 요청하고 그 구간은 비워두되, **비어 있다는 사실은 보여야 한다.**"""
     if lang not in ("kor", "ko"):
         return []
-    if not (ROOT / "data" / topic / "xray.json").exists():
+    if not (_data_dir(topic) / "xray.json").exists():
         return []
     try:
         from lib.xray_timeline import resolve, summary_start
@@ -859,7 +872,7 @@ def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
     둘 다 파일만 봐선 안 보이고 영상을 틀어봐야 보이는 종류라 검사로 못 박는다."""
     if lang not in ("kor", "ko"):
         return []
-    path = ROOT / "data" / topic / "xray.json"
+    path = _data_dir(topic) / "xray.json"
     if not path.exists():
         return []
     try:
@@ -919,8 +932,8 @@ def check_search_keyword(topic: str, lang: str = "kor") -> list[dict]:
         return []
     # ⚠️ 스펙 위치가 topic마다 다르다(캡션과 같은 사정 — "한국어 캡션 파일은 topic마다 위치가 다르다" 절).
     # flat만 보면 ko/ 폴더를 쓰는 54개 topic이 검사 없이 통과한다.
-    spec_path = next((p for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
-                                  ROOT / "data" / topic / "card_news_spec.json") if p.exists()), None)
+    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
+                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
     if spec_path is None:
         return []
     try:
@@ -956,8 +969,8 @@ def check_products_in_brandconnect(topic: str, lang: str = "kor") -> list[dict]:
     if lang not in ("kor", "ko"):
         return []
     try:
-        cap = next(p for p in (ROOT / "data" / topic / "platform_captions.json",
-                               ROOT / "data" / topic / "ko" / "platform_captions.json") if p.exists())
+        cap = next(p for p in (_data_dir(topic) / "platform_captions.json",
+                               _data_dir(topic) / "ko" / "platform_captions.json") if p.exists())
         products = json.loads(cap.read_text(encoding="utf-8")).get("products") or []
     except (StopIteration, json.JSONDecodeError):
         return []
@@ -972,7 +985,7 @@ def check_products_in_brandconnect(topic: str, lang: str = "kor") -> list[dict]:
     if unav.exists():
         for k in json.loads(unav.read_text(encoding="utf-8")).get("health", {}).get("없음", []):
             known[k] = False; status[k] = "없음"
-    per = ROOT / "data" / topic / "brandconnect.json"
+    per = _data_dir(topic) / "brandconnect.json"
     if per.exists():
         known.update({k: v.get("found") for k, v in json.loads(per.read_text(encoding="utf-8"))["products"].items()})
     issues = []
@@ -1045,10 +1058,10 @@ def review_all() -> dict[str, list[dict]]:
     """data/ 밑 모든 topic을 순회하며 기계적 검사만 수행(한국어만, --all은
     문서상 한국어 전용) — 기존 topic 전수 감사용(일회성 실행)."""
     results: dict[str, list[dict]] = {}
-    topic_dirs = sorted(
-        d for d in (ROOT / "data").iterdir()
-        if d.is_dir() and ((d / "ko" / "narration.txt").exists() or (d / "narration.txt").exists())
-    )
+    topic_dirs = [
+        d for d in tracks.iter_topic_dirs(ROOT / "data")
+        if (d / "ko" / "narration.txt").exists() or (d / "narration.txt").exists()
+    ]
     for d in topic_dirs:
         topic = d.name
         issues = review_topic(topic)

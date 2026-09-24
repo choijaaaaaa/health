@@ -17,6 +17,8 @@ import re
 import sys
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 
@@ -25,7 +27,8 @@ BLOG_LANGS = ("de", "en", "es", "fr", "it", "ja", "ko", "nl", "sv")
 
 def _naver_caption(topic: str) -> str | None:
     """한국어 캡션은 topic마다 flat 또는 ko/ 한 곳에만 있다(CLAUDE.md 참고)."""
-    for path in (DATA / topic / "platform_captions.json", DATA / topic / "ko" / "platform_captions.json"):
+    base = tracks.data_dir(topic)
+    for path in (base / "platform_captions.json", base / "ko" / "platform_captions.json"):
         if not path.exists():
             continue
         try:
@@ -40,7 +43,8 @@ def _naver_caption(topic: str) -> str | None:
 
 
 def _card_spec(topic: str) -> dict | None:
-    for path in (DATA / topic / "ko" / "card_news_spec.json", DATA / topic / "card_news_spec.json"):
+    base = tracks.data_dir(topic)
+    for path in (base / "ko" / "card_news_spec.json", base / "card_news_spec.json"):
         if path.exists():
             try:
                 return json.loads(path.read_text(encoding="utf-8"))
@@ -50,7 +54,7 @@ def _card_spec(topic: str) -> dict | None:
 
 
 def topics() -> list[str]:
-    return sorted(p.name for p in DATA.iterdir() if p.is_dir() and not p.name.startswith("_"))
+    return sorted(p.name for p in tracks.iter_topic_dirs(DATA))
 
 
 def _share(counter: collections.Counter, total: int, top: int = 3) -> list[str]:
@@ -122,7 +126,7 @@ def blog_h2_report() -> dict:
     articles = collections.Counter()
     for topic in topics():
         for lang in BLOG_LANGS:
-            path = DATA / topic / lang / "platform_captions.json"
+            path = tracks.data_dir(topic) / lang / "platform_captions.json"
             if not path.exists():
                 continue
             try:

@@ -27,6 +27,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 XRAY = ROOT / "assets_library" / "xray"
 INBOX = XRAY / "작업" / "2_완성클립"
 LIB = XRAY / "output"
@@ -35,7 +39,8 @@ LIB = XRAY / "output"
 def _known() -> dict[str, dict]:
     """요청해둔 클립 이름 → 요청 본문. 오타로 엉뚱한 파일이 들어오는 걸 막는다."""
     out: dict[str, dict] = {}
-    for f in (ROOT / "data").glob("*/clip_requests.json"):
+    # 트랙 폴더(data/육아/…)는 한 단계 깊어서 평평한 글롭에 안 걸린다
+    for f in tracks.glob_topic_files(ROOT / "data", "*/clip_requests.json"):
         try:
             for r in json.loads(f.read_text(encoding="utf-8")).get("requests", []):
                 if r.get("name"):

@@ -24,6 +24,7 @@ from pathlib import Path
 
 import requests
 
+from lib import tracks
 from lib.korean_numbers import to_speech
 from lib.mission_control_log import report_issue
 from dotenv import load_dotenv
@@ -445,7 +446,7 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     audio_bytes, words = _insert_sentence_pauses(spoken, audio_bytes, words)
     audio_bytes, words = _apply_tempo(audio_bytes, words, AUDIO_TEMPO)
 
-    out_dir = ROOT / "output" / topic
+    out_dir = tracks.output_dir(topic)
     out_dir.mkdir(parents=True, exist_ok=True)
     audio_path = out_dir / "narration.mp3"
     srt_path = out_dir / "narration.srt"

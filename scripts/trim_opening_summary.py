@@ -20,6 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from lib import tracks  # noqa: E402
+
 # 잘라낼 대상 — 조건절 + 자격심사/CTA 꼬리. lib.content_review.BANNED_HOOK_TAIL과 같은 기준.
 SUMMARY_RE = re.compile(
     r"(?:다|라)면[^.!?]{0,20}?"
@@ -91,8 +93,8 @@ def cut_point(audio: Path, first_end: float, second_start: float) -> float:
 
 
 def resolve(topic: str) -> tuple[Path, Path, Path] | None:
-    out = ROOT / "output" / topic
-    data = ROOT / "data" / topic
+    out = tracks.output_dir(topic)
+    data = tracks.data_dir(topic)
     mp3 = next((p for p in [out / "narration.mp3", *sorted(out.glob("*_narration.mp3"))]
                 if p.exists()), None)
     srt = next((p for p in [out / "narration.srt", *sorted(out.glob("*_narration.srt"))]
@@ -144,7 +146,8 @@ def main() -> None:
     ap.add_argument("--commit", action="store_true")
     args = ap.parse_args()
 
-    topics = args.topics or sorted(p.parent.name for p in (ROOT / "output").glob("*/narration.srt"))
+    topics = args.topics or sorted(
+        p.parent.name for p in tracks.glob_topic_files(ROOT / "output", "*/narration.srt"))
     hits = [m for t in topics if (m := trim(t, args.commit))]
     head = "" if args.commit else "[DRY RUN] "
     print(f"{head}도입부 써머리 대사 제거 대상 {len(hits)}편 / 검사 {len(topics)}편\n")

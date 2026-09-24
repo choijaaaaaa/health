@@ -10,11 +10,17 @@ import time
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 PY = str(ROOT / ".venv" / "bin" / "python3")
 
 
 def main() -> None:
-    topics = sorted(p.parent.name for p in (ROOT / "output").glob("*/shorts.mp4"))
+    # topic 이름은 평평하게 — rebuild_video가 받는 건 트랙 없는 이름이다
+    topics = sorted(
+        p.parent.name for p in tracks.glob_topic_files(ROOT / "output", "*/shorts.mp4"))
     if sys.argv[1:]:
         topics = [t for t in topics if t in sys.argv[1:]]
     ok, fail = [], []

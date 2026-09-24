@@ -23,6 +23,7 @@ import argparse
 import os
 import shutil
 import subprocess
+import sys
 import urllib.parse
 from pathlib import Path
 
@@ -30,6 +31,10 @@ import requests
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 DEPLOY = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 VERNHAVEN_ENV = ROOT.parent / "verticals" / "vernhaven-blog" / ".env.local"
 
@@ -71,11 +76,12 @@ def main() -> None:
                if "블로그" in (x.get("platform") or "")}
 
     freed = 0
-    lang_dirs = [ROOT / "output" / t / lang for t, lang in sorted(ingested)
-                 if (ROOT / "output" / t / lang).is_dir()]
+    # Supabase가 주는 topic은 평평한 이름이라 트랙 폴더를 tracks가 붙여줘야 찾는다
+    lang_dirs = [tracks.output_dir(t) / lang for t, lang in sorted(ingested)
+                 if (tracks.output_dir(t) / lang).is_dir()]
     media: list[Path] = []
     for t in sorted(blogged):
-        base = ROOT / "output" / t
+        base = tracks.output_dir(t)
         if not base.is_dir():
             continue
         if (base / "card_news").is_dir():

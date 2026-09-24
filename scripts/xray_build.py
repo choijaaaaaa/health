@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
+from lib import tracks                                       # noqa: E402
 from lib.xray_timeline import _cues, resolve, summary_start  # noqa: E402
 
 PY = str(ROOT / ".venv" / "bin" / "python3")
@@ -157,12 +158,13 @@ def _rebuild_cards(topic: str) -> None:
     "빈속 커피"를 말하는데 카드 이미지엔 "매운 음식"이 박혀 있었다 — 파일 시각을 봐야만 드러나는
     종류라, 사람이 기억해야 하는 단계로 두면 또 어긋난다."""
     from lib.card_news import generate
-    spec = next((p for p in (ROOT / "data" / topic / "card_news_spec.json",
-                             ROOT / "data" / topic / "ko" / "card_news_spec.json")
+    data = tracks.data_dir(topic)
+    spec = next((p for p in (data / "card_news_spec.json",
+                             data / "ko" / "card_news_spec.json")
                  if p.exists()), None)
     if spec is None:
         return
-    out = ROOT / "output" / topic / "card_news"
+    out = tracks.output_dir(topic) / "card_news"
     out.mkdir(parents=True, exist_ok=True)
     for old in out.glob("*.jpg"):
         old.unlink()          # 항목이 줄면 옛 카드가 남아 섞인다
@@ -187,7 +189,8 @@ def main() -> None:
                     help="못 받은 행위 클립이 있어도 그 구간만 기전 단독으로 두고 끝까지 조립(발행 금지)")
     a = ap.parse_args()
 
-    cfg = json.loads((ROOT / "data" / a.topic / "xray.json").read_text(encoding="utf-8"))
+    xray_path = tracks.data_dir(a.topic) / "xray.json"
+    cfg = json.loads(xray_path.read_text(encoding="utf-8"))
     # 🚨 도입부 끝 시각은 **지금 자막에서 다시 잰다.** TTS를 다시 돌리면 문장 끝이 0.1~0.5초씩
     # 움직이는데 xray.json 값은 옛 상태로 남아, 훅/통념 반박의 마지막 말이 0.5초쯤 칠판으로
     # 넘어간다("또 찌꺼기 약간 넘겼네, 0.5초정도 나왔다가 사라지는"). 손으로 맞추면 TTS를 돌릴
@@ -200,8 +203,7 @@ def main() -> None:
         if abs(want - cfg["opening_until"]) > 0.05:
             print(f"  도입부 끝을 자막에 맞춰 {cfg['opening_until']} → {want}초로 보정")
             cfg["opening_until"] = want
-            path = ROOT / "data" / a.topic / "xray.json"
-            path.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+            xray_path.write_text(json.dumps(cfg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if not a.dry_run:
         subprocess.run([PY, "-m", "lib.rebuild_video", a.topic], cwd=ROOT, check=True)
         # 결론 구간은 영상 칸 없이 칠판을 크게 쓴다("그래서 뭘 하면 되는지"를 읽히는 자리다).

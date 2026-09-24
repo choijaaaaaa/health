@@ -20,6 +20,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 STILLS = ROOT / "assets_library" / "xray" / "stills"
 JOB_RE = re.compile(r"^(?P<prefix>.+)_(?P<uid>[0-9a-f-]{36})_(?P<idx>[0-3])\.png$")
 
@@ -39,7 +43,8 @@ def pending_requests() -> list[tuple[str, str]]:
     """(topic, 이름) — 시트와 같은 순서(토픽 폴더명 정렬, 파일 안 순서)."""
     lib = ROOT / "assets_library" / "xray" / "output"
     out, seen = [], set()
-    for f in sorted((ROOT / "data").glob("*/clip_requests.json")):
+    # 트랙 폴더(data/육아/…)는 한 단계 깊어서 평평한 글롭에 안 걸린다
+    for f in tracks.glob_topic_files(ROOT / "data", "*/clip_requests.json"):
         for r in json.loads(f.read_text(encoding="utf-8")).get("requests", []):
             n = r.get("name")
             if n and n not in seen and not (lib / f"{n}.mp4").exists():

@@ -10,10 +10,15 @@
 from __future__ import annotations
 
 import json
+import sys
 from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 XRAY = ROOT / "assets_library" / "xray"
 RENDERED = XRAY / "output"
 SHEET = XRAY / "작업" / "REQUEST.md"
@@ -64,7 +69,8 @@ def collect() -> list[tuple[str, dict]]:
     """topic별 요청 중 아직 렌더 안 된 것만. 같은 클립을 여러 topic이 요청하면 첫 건만 남긴다."""
     out: list[tuple[str, dict]] = []
     seen: set[str] = set()
-    for p in sorted((ROOT / "data").glob("*/clip_requests.json")):
+    # 트랙 폴더(data/육아/…)는 한 단계 깊어서 평평한 글롭에 안 걸린다
+    for p in tracks.glob_topic_files(ROOT / "data", "*/clip_requests.json"):
         topic = p.parent.name
         try:
             reqs = json.loads(p.read_text(encoding="utf-8")).get("requests", [])

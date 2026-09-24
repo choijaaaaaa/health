@@ -17,6 +17,7 @@ from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+from lib import tracks                                 # noqa: E402
 from lib.xray_timeline import resolve, summary_start   # noqa: E402
 
 PANEL_X, PANEL_Y, PANEL_W, PANEL_H = 60, 190, 960, 680
@@ -50,7 +51,7 @@ def has_divider(video: Path, t: float) -> bool:
 
 def main() -> None:
     topic = sys.argv[1]
-    video = ROOT / "output" / topic / "shorts_xray_test.mp4"
+    video = tracks.output_dir(topic) / "shorts_xray_test.mp4"
     if not video.exists():
         raise SystemExit(f"영상 없음: {video.relative_to(ROOT)}")
     rows = resolve(topic) or []

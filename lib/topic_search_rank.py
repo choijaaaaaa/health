@@ -24,6 +24,7 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
+from lib import tracks
 from lib.naver_keywords import autocomplete
 from lib.naver_searchad import volumes
 
@@ -67,8 +68,8 @@ def upgrade_keyword(seed: str, related: list[dict], volume: int) -> tuple[str, i
 
 
 def _spec(topic: str) -> dict | None:
-    for p in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
-              ROOT / "data" / topic / "card_news_spec.json"):
+    base = tracks.data_dir(topic)
+    for p in (base / "ko" / "card_news_spec.json", base / "card_news_spec.json"):
         if p.exists():
             return json.loads(p.read_text(encoding="utf-8"))
     return None
@@ -108,7 +109,7 @@ def unposted() -> set[str]:
 
 
 def all_topics() -> set[str]:
-    return {d.name for d in (ROOT / "data").iterdir() if d.is_dir() and not d.name.startswith("_")}
+    return {d.name for d in tracks.iter_topic_dirs(ROOT / "data")}
 
 
 def measure(topics: list[str], seed_override: dict[str, list[str]] | None = None,

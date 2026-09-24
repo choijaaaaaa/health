@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from lib import content_review as cr          # noqa: E402
+from lib import tracks                       # noqa: E402
 from lib.xray_timeline import resolve         # noqa: E402
 
 # 축마다 "무엇을 막는 검사인지"를 적어둔다 — 경고만 보고는 왜 걸렸는지 모른다.
@@ -42,7 +43,9 @@ def labels_missing(topic: str) -> int:
 
 
 def main() -> None:
-    topics = sys.argv[1:] or sorted(p.parent.name for p in (ROOT / "data").glob("*/xray.json"))
+    # topic 이름은 평평하게 — 트랙은 경로에만 있고 이름에는 없다
+    topics = sys.argv[1:] or sorted(
+        p.parent.name for p in tracks.glob_topic_files(ROOT / "data", "*/xray.json"))
     total = 0
     for t in topics:
         found = []

@@ -9,12 +9,14 @@ import json
 import re
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 _TS = re.compile(r"(\d+):(\d+):(\d+),(\d+) --> (\d+):(\d+):(\d+),(\d+)")
 
 
 def _cues(topic: str) -> list[tuple[float, float, str]]:
-    srt = next((ROOT / "output" / topic).glob("*narration.srt"))
+    srt = next(tracks.output_dir(topic).glob("*narration.srt"))
     out = []
     for block in srt.read_text(encoding="utf-8").strip().split("\n\n"):
         ls = block.strip().split("\n")
@@ -43,7 +45,7 @@ def resolve(topic: str) -> list[dict] | None:
     WHY `act`도 같이 내보내는지(2026-09-24 실측): 위쪽 칸은 **왼쪽 행위 · 오른쪽 기전**으로 나뉘는데,
     이 함수가 act를 떼고 돌려주는 바람에 topic이 timeline에 act를 적어도 xray_build가 못 받아
     기전만 크게 나갔다 — 항목마다 행위를 넣을 자리가 아예 없는 것처럼 보였다."""
-    path = ROOT / "data" / topic / "xray.json"
+    path = tracks.data_dir(topic) / "xray.json"
     if not path.exists():
         return None
     tl = json.loads(path.read_text(encoding="utf-8")).get("timeline")
@@ -64,7 +66,7 @@ def summary_start(topic: str) -> float | None:
     """해결책·요약 구간이 시작하는 시각(초). xray.json의 summary_from 구절 기준, 없으면 None.
 
     WHY(2026-09-20 사용자 "제품 보러 가기는 마지막 써머리 때만"): CTA 화살표를 이 시각부터만 띄운다."""
-    path = ROOT / "data" / topic / "xray.json"
+    path = tracks.data_dir(topic) / "xray.json"
     if not path.exists():
         return None
     phrase = json.loads(path.read_text(encoding="utf-8")).get("summary_from")

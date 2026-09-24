@@ -16,6 +16,8 @@ import re
 import sys
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 SHINGLE = 8
@@ -23,7 +25,8 @@ OVERLAP_LIMIT = 20  # SEO 커버리지가 이 %를 넘으면 다시 쓸 것
 
 
 def _naver_caption(topic: str) -> str | None:
-    for path in (DATA / topic / "platform_captions.json", DATA / topic / "ko" / "platform_captions.json"):
+    base = tracks.data_dir(topic)
+    for path in (base / "platform_captions.json", base / "ko" / "platform_captions.json"):
         if not path.exists():
             continue
         try:
@@ -38,7 +41,7 @@ def _naver_caption(topic: str) -> str | None:
 
 
 def _ko_body(topic: str) -> str | None:
-    path = DATA / topic / "ko" / "platform_captions.json"
+    path = tracks.data_dir(topic) / "ko" / "platform_captions.json"
     if not path.exists():
         return None
     try:
@@ -72,9 +75,7 @@ def overlap(topic: str) -> tuple[int, int, int] | None:
 
 
 def main() -> None:
-    topics = sys.argv[1:] or sorted(
-        d.name for d in DATA.iterdir() if d.is_dir() and not d.name.startswith("_")
-    )
+    topics = sys.argv[1:] or sorted(d.name for d in tracks.iter_topic_dirs(DATA))
     rows = [(t, *r) for t in topics if (r := overlap(t))]
     rows.sort(key=lambda x: -x[2])
     print(f"{'topic':14}{'자카드%':>8}{'네이버와 겹침%':>14}{'글자수':>8}")

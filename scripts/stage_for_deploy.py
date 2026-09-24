@@ -30,21 +30,32 @@ from __future__ import annotations
 
 import argparse
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 OUTPUT_DIR = ROOT / "output"
 DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 
 
 def _iter_topics() -> list[tuple[str, Path]]:
     """shorts.mp4가 있는 topic 폴더만 대상(카드뉴스만 있는 topic은 네이버
-    블로그 쪽만 트랙이라 업로드 파일 자체가 없음 — 위 WHY 절 참고)."""
+    블로그 쪽만 트랙이라 업로드 파일 자체가 없음 — 위 WHY 절 참고).
+
+    🚨 `iter_topic_dirs`로 도는 이유: `output/`를 1단 iterdir하면 트랙 폴더
+    (`output/육아/`)가 topic으로 잡히고 그 밑에 shorts.mp4가 없어서 육아 트랙이
+    **통째로, 에러도 경고도 없이** 빠진다. 돌려주는 이름은 여전히 평평한
+    topic(`육아_1`)이라 배포 폴더는 지금처럼 평평하게 유지된다 —
+    `scripts/cleanup_deploy.py`가 Supabase에서 온 평평한 이름으로 같은 자리를 지운다."""
     if not OUTPUT_DIR.is_dir():
         return []
     found = []
-    for topic_dir in sorted(OUTPUT_DIR.iterdir()):
-        if not topic_dir.is_dir() or not (topic_dir / "shorts.mp4").is_file():
+    for topic_dir in tracks.iter_topic_dirs(OUTPUT_DIR):
+        if not (topic_dir / "shorts.mp4").is_file():
             continue
         found.append((topic_dir.name, topic_dir))
     return found

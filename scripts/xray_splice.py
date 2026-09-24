@@ -18,6 +18,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+from lib import tracks  # noqa: E402
 from lib.video_assembler import (NAVER_SAFE_RIGHT, NAVER_SAFE_TOP, W, H, XRAY_PANEL,  # noqa: E402
                                  _make_ad_tag_png, _make_chalk_caption_png, chunk_caption_entries)
 
@@ -114,7 +115,7 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png
     ("새로뽑은세개영상에 위라고 적어놓고 사람들 이해를 돕는게 훨씬낫지")."""
     from lib.xray_timeline import resolve
     from lib.video_assembler import _make_pill_label_png
-    cfg = json.loads((ROOT / "data" / topic / "xray.json").read_text(encoding="utf-8"))
+    cfg = json.loads((tracks.data_dir(topic) / "xray.json").read_text(encoding="utf-8"))
     tl = resolve(topic)
     if not tl:
         return cur, n
@@ -207,9 +208,9 @@ def _summary_board(topic, inputs, fc, cur, n, base_dir: str = ""):
     해줘야하는지는 기존 포맷이 더 맞지"): 결론은 "그래서 뭘 하면 되는지"를 읽히는 게 목적이라 영상 칸 없이
     칠판을 크게 쓰고 자막도 넉넉하게(두 줄 제한 없이) 둔다. 칠판 전체 버전은 같은 나레이션으로 따로 조립한
     완성본이라 타이밍이 그대로 맞는다 — 그 시각부터 화면 전체를 덮기만 하면 된다."""
-    cfg = json.loads((ROOT / "data" / topic / "xray.json").read_text(encoding="utf-8"))
+    cfg = json.loads((tracks.data_dir(topic) / "xray.json").read_text(encoding="utf-8"))
     summary = cfg.get("summary_from")
-    board = ROOT / "output" / topic / base_dir / "board" / "shorts.mp4"  # rebuild_video --board 결과(같은 시드)
+    board = tracks.output_dir(topic) / base_dir / "board" / "shorts.mp4"  # rebuild_video --board 결과(같은 시드)
     if not summary:
         return cur, n
     if not board.exists():
@@ -241,8 +242,9 @@ def main() -> None:
                     help="클립들을 첫 시각부터 이어 붙이고, 이 영상 시각까지 채우도록 전부 같은 비율로 느리게 늘린다")
     a = ap.parse_args()
 
-    base = ROOT / "output" / a.topic / a.base / "shorts.mp4"
-    cues = _srt(next((ROOT / "output" / a.topic).glob("*narration.srt")))
+    out_dir = tracks.output_dir(a.topic)
+    base = out_dir / a.base / "shorts.mp4"
+    cues = _srt(next(out_dir.glob("*narration.srt")))
     inserts = []
     trims, foci = [], []
     for spec in a.inserts:
@@ -378,7 +380,7 @@ def main() -> None:
             cur, n = _summary_board(a.topic, inputs, fc, cur, n, a.base)
         fc.append(f"{''.join(amix)}amix=inputs={len(amix)}:duration=first:normalize=0[aout]")
         # --base nocta면 결과도 nocta/ 안에 둔다 — 안 그러면 유튜브판이 네이버판을 덮어쓴다(2026-09-21 실측)
-        out = ROOT / "output" / a.topic / a.base / a.out
+        out = tracks.output_dir(a.topic) / a.base / a.out
         out.parent.mkdir(parents=True, exist_ok=True)
         r = subprocess.run(["ffmpeg", "-y", *inputs, "-filter_complex", ";".join(fc),
                             "-map", f"[{cur}]", "-map", "[aout]", "-c:v", "libx264", "-crf", "19",

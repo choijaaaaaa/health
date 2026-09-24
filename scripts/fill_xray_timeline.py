@@ -21,6 +21,10 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 LEAD = ("먼저", "두 번째로는", "두번째로는", "마지막으로")
 
 
@@ -33,7 +37,7 @@ def _cue_lines(topic: str) -> list[str]:
     """자막 줄 원문. ⚠️ 나레이션 원문에서 구절을 뽑으면 자막 줄 경계를 넘어가 못 찾는다
     (2026-09-23 실측: "먼저 단백질이에요. 콜라겐이"가 자막에선 두 줄로 갈려 있었다).
     자막이 있으면 거기서 뽑아야 `_time_of`의 문자열 검색이 반드시 맞는다."""
-    d = ROOT / "output" / topic
+    d = tracks.output_dir(topic)
     srt = next(iter(sorted(d.glob("*narration.srt"))), None) if d.is_dir() else None
     if not srt:
         return []
@@ -46,12 +50,13 @@ def _cue_lines(topic: str) -> list[str]:
 
 
 def fill(topic: str) -> str:
-    path = ROOT / "data" / topic / "xray.json"
+    data = tracks.data_dir(topic)
+    path = data / "xray.json"
     cfg = json.loads(path.read_text(encoding="utf-8"))
     lines = _cue_lines(topic)
     if not lines:
-        nar = next(p for p in (ROOT / "data" / topic / "narration.txt",
-                               ROOT / "data" / topic / "ko" / "narration.txt") if p.exists())
+        nar = next(p for p in (data / "narration.txt",
+                               data / "ko" / "narration.txt") if p.exists())
         lines = [l.strip() for l in nar.read_text(encoding="utf-8").splitlines() if l.strip()]
 
     mech, items = cfg.get("_mech") or [], cfg.get("_items") or []

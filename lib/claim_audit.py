@@ -15,6 +15,8 @@ import json
 import re
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 AUDIT_DIR = ROOT / "data" / "_audit"
 KNOWN_ISSUES = AUDIT_DIR / "ko_known_issues.json"
@@ -144,9 +146,9 @@ def scan_title_frames(min_share: float = 0.12) -> list[str]:
     임계 이상 쏠린 것을 그때그때 찾아낸다."""
     root = ROOT / "data"
     titles = []
-    for d in sorted(root.iterdir()):
+    for d in tracks.iter_topic_dirs(root):
         f = d / "platform_captions.json"
-        if not d.is_dir() or not f.exists():
+        if not f.exists():
             continue
         try:
             spec = json.loads(f.read_text(encoding="utf-8"))
@@ -174,7 +176,7 @@ def scan_title_frames(min_share: float = 0.12) -> list[str]:
 
 def audit_topic(topic: str) -> dict:
     """topic 하나를 감사한다. regressions는 반드시 고쳐야 하고 warnings는 사람이 판단."""
-    path = ROOT / "data" / topic / "platform_captions.json"
+    path = tracks.data_dir(topic) / "platform_captions.json"
     if not path.exists():
         return {"topic": topic, "skipped": "platform_captions.json 없음"}
     try:
@@ -199,8 +201,8 @@ def _cli() -> None:
     a = ap.parse_args()
 
     if a.all:
-        topics = sorted(p.name for p in (ROOT / "data").iterdir()
-                        if p.is_dir() and (p / "platform_captions.json").exists())
+        topics = sorted(p.name for p in tracks.iter_topic_dirs(ROOT / "data")
+                        if (p / "platform_captions.json").exists())
     elif a.topics:
         topics = a.topics
     else:

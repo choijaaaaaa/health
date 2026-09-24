@@ -34,6 +34,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 PROFILE = Path.home() / ".config" / "health-shorts" / "brandconnect-chrome"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
@@ -349,10 +351,20 @@ def seed_items(domain: str) -> list[str]:
     return [x for g in groups.values() for x in g]
 
 
-def all_products() -> list[str]:
+def all_products(domain: str = "health") -> list[str]:
+    """그 도메인 트랙의 topic들이 실제로 쓰는 품목 이름.
+
+    WHY 도메인으로 가르는지(2026-09-24): 전 topic을 한 번에 훑으면 health 스윕이 육아 topic의
+    "아기 로션"·"유아 해열제"까지 삼킨다 — choose()가 health 도메인에선 _KID_WORDS를 빼므로 전부
+    거짓 "없음"이 되고, 그대로 추천 금지 목록(brandconnect_unavailable.json)에 올라 쓸 수 있는
+    품목을 영영 못 쓰게 된다."""
     seen, out = set(), []
-    for f in sorted(list((ROOT / "data").glob("*/platform_captions.json")) +
-                    list((ROOT / "data").glob("*/ko/platform_captions.json"))):
+    files = []
+    for d in tracks.iter_topic_dirs(ROOT / "data"):
+        if tracks.domain_of(d.name) != domain:
+            continue
+        files += [d / "platform_captions.json", d / "ko" / "platform_captions.json"]
+    for f in sorted(files):
         try:
             for p in json.loads(f.read_text(encoding="utf-8")).get("products") or []:
                 if p.strip() and p.strip() not in seen:
@@ -365,7 +377,8 @@ def all_products() -> list[str]:
 def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str = "health",
           recheck_missing: bool = True) -> None:
     """전 품목을 검색해 카탈로그를 만들고, 링크가 없는 품목은 발급한다. 중단 후 재실행하면 이어서.
-    health: topic 품목 + seed(health), 링크를 global_product_links에도 저장.
+    health: 기본 트랙 topic 품목 + seed(health), 링크를 global_product_links에도 저장.
+    baby: seed(baby) + 육아 트랙 topic 품목, health와 같은 계정이라 링크도 똑같이 저장한다.
     pet: seed(pet)만, 링크는 카탈로그 파일에만."""
     catalog_path = {"pet": CATALOG_PET, "baby": CATALOG_BABY}.get(domain, CATALOG)
     # 댕냥사전은 브랜드커넥트 계정(스페이스 ID)이 다르다(2026-09-19 사용자) — 이 계정으로 발급한 링크는 수수료가
@@ -377,11 +390,13 @@ def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str
     if sys.platform == "darwin":
         subprocess.Popen(["caffeinate", "-ims", "-w", str(os.getpid())])
     cat = json.loads(catalog_path.read_text(encoding="utf-8")) if catalog_path.exists() else {}
-    have = existing_naver_links() if domain == "health" else {}
+    have = existing_naver_links() if domain in ("health", "baby") else {}
     if only:
         names = only
-    elif domain in ("pet", "baby"):
+    elif domain == "pet":
         names = seed_items(domain)
+    elif domain == "baby":
+        names = list(dict.fromkeys(seed_items("baby") + all_products("baby")))
     else:
         names = list(dict.fromkeys(all_products() + seed_items("health")))
     # 오류로 끝난 품목은 다시 시도한다 — 창이 닫혀 200건 넘게 오류로만 기록된 뒤 재실행해도 건너뛰던 문제
@@ -405,7 +420,10 @@ def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str
                        "sample": [r["name"][:60] for r in raw[:5]] if not pick else None}
                 if pick and issue_missing and name not in have:
                     link = issue(pg, pick)
-                    if domain == "health":
+                    # WHY baby도 저장하는지(2026-09-24): 육아 트랙은 브랜드커넥트 계정이 health와 같아
+                    # 발급까지 하면서 저장만 안 했다 — 대시보드·mission-control "미등록 링크"엔 안 뜨고
+                    # 재실행마다 같은 상품을 다시 발급했다. pet은 계정이 달라 발급 자체를 안 한다.
+                    if domain in ("health", "baby"):
                         save_link(name, link)
                     ent.update(link=link, link_saved=True)
                 elif name in have:
@@ -426,7 +444,7 @@ def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str
 
 
 def _captions_path(topic: str) -> Path:
-    base = ROOT / "data" / topic
+    base = tracks.data_dir(topic)
     return next(p for p in (base / "platform_captions.json", base / "ko" / "platform_captions.json") if p.exists())
 
 
@@ -437,11 +455,13 @@ def check_topic(topic: str) -> dict:
     for i, name in enumerate(products):
         if i:
             time.sleep(random.uniform(*PAUSE))
-        pick = choose(_q(name), search(_q(name), limit=40))
+        # WHY domain을 넘기는지(2026-09-24): 안 넘기면 health 기준이라 육아 topic의 "아기 로션"류가
+        # _KID_WORDS에 걸려 전부 거짓 "없음"으로 찍히고, content_review가 그 파일을 그대로 믿는다.
+        pick = choose(_q(name), search(_q(name), limit=40), tracks.domain_of(topic))
         out["products"][name] = {"found": bool(pick), "chosen": pick}
         print(f"  {'O' if pick else 'X'} {name}"
               + (f" — {pick['name'][:40]} (수수료 {pick['commission']}%, 리뷰 {pick['reviews']})" if pick else " — 없음"))
-    path = ROOT / "data" / topic / "brandconnect.json"
+    path = tracks.data_dir(topic) / "brandconnect.json"
     path.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     missing = [n for n, v in out["products"].items() if not v["found"]]
     print(f"[brandconnect] {topic}: {len(products) - len(missing)}/{len(products)} 제휴 가능"
@@ -469,8 +489,9 @@ def write_unavailable() -> dict:
     """두 카탈로그에서 "없음"(추천 금지)과 "확인필요"(사람이 볼 것)를 모아 한 파일로 쓴다 — content_review·리서치가 읽는다."""
     out = {"updated_at": time.strftime("%Y-%m-%d %H:%M"),
            "_why": "브랜드커넥트에 없는 품목은 링크를 못 붙인다 — 해결책 상품으로 추천하지 않는다. "
-                   "pet은 댕냥사전용(계정이 달라 health 계정으로 발급 금지).", "health": {}, "pet": {}}
-    for domain, path in (("health", CATALOG), ("pet", CATALOG_PET)):
+                   "pet은 댕냥사전용(계정이 달라 health 계정으로 발급 금지). baby는 육아 트랙용"
+                   "(계정은 health와 같다).", "health": {}, "pet": {}, "baby": {}}
+    for domain, path in (("health", CATALOG), ("pet", CATALOG_PET), ("baby", CATALOG_BABY)):
         cat = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
         none = {k for k, v in cat.items() if v.get("status") == "없음" and k not in VAGUE}
         if domain == "health":
@@ -503,7 +524,7 @@ if __name__ == "__main__":
         rechoose([a for a in sys.argv[2:] if not a.startswith("--")] or None)
     elif cmd == "unavailable":
         u = write_unavailable()
-        for d in ("health", "pet"):
+        for d in ("health", "pet", "baby"):
             print(f"{d}: 없음 {len(u[d]['없음'])} / 확인필요 {len(u[d]['확인필요'])}")
     else:
         print(__doc__ or "사용: login | search <검색어> | check <topic>")

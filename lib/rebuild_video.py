@@ -16,6 +16,7 @@ from pathlib import Path
 
 from PIL import Image
 
+from lib import tracks
 from lib.video_assembler import _parse_srt, assemble, DEFAULT_END_CARD_TEXT
 from lib.templates.proto_before_after_transition import render as _render_before_after_transition
 from lib.templates.proto_checklist import render as _render_checklist
@@ -142,8 +143,8 @@ def _resolve_data_topic(topic: str) -> str:
     파일이 없고 "<topic>/ko" 자리에 있으면 그쪽으로 폴백한다(select_format·
     output 경로 유도 등 다른 곳은 여전히 원래 bare topic 문자열을 그대로 쓴다 —
     이 폴백은 data/ 읽기 전용)."""
-    if "/" not in topic and not (ROOT / "data" / topic / "card_news_spec.json").exists():
-        nested = ROOT / "data" / topic / "ko"
+    if "/" not in topic and not (tracks.data_dir(topic) / "card_news_spec.json").exists():
+        nested = tracks.data_dir(f"{topic}/ko")
         if (nested / "card_news_spec.json").exists():
             return f"{topic}/ko"
     return topic
@@ -531,7 +532,7 @@ def build_motion_schedule(
 
 def derive(topic: str) -> dict:
     data_topic = _resolve_data_topic(topic)
-    spec = json.loads((ROOT / "data" / data_topic / "card_news_spec.json").read_text())
+    spec = json.loads((tracks.data_dir(data_topic) / "card_news_spec.json").read_text())
     items = spec["items"]
     # WHY video_title(2026-09-19): 이미 게시한 영상을 새 포맷으로 재업로드할 때 기존 게시물과 겹쳐 보이지 않게
     # 영상 표지(=썸네일) 문구만 바꾼다. card_news_spec의 title을 고치면 이미 나간 카드뉴스 이미지까지 바뀌므로
@@ -555,7 +556,7 @@ def derive(topic: str) -> dict:
 
     cover_char_file = spec.get("cover_char_file") or items[0]["char_file"]
 
-    topic_dir = ROOT / "output" / topic
+    topic_dir = tracks.output_dir(topic)
     # WHY glob 우선 + 폴백(2026-08-03): 위 _resolve_output_file WHY 참고 — 파일명
     # 규칙이 폴더 구조랑 안 맞는 실제 사례(가슴쓰림_1/en)가 있어서, 먼저 폴더
     # 안을 뒤져서 실제 있는 파일을 쓰고, 아직 아무것도 없는 새 topic이면(첫
@@ -675,9 +676,9 @@ def derive(topic: str) -> dict:
         # ⚠️ 스펙이 `ko/`에 있어도 나레이션은 flat에 있는 topic이 있다(2026-09-23 대사_22 실측 —
         # 검사기는 flat을 보고 조립기는 ko/를 봐서 조립만 FileNotFoundError로 죽었다). 둘 다 찾는다.
         narration_txt = next(
-            p for p in (ROOT / "data" / data_topic / "narration.txt",
-                        ROOT / "data" / topic / "narration.txt",
-                        ROOT / "data" / topic / "ko" / "narration.txt") if p.exists()
+            p for p in (tracks.data_dir(data_topic) / "narration.txt",
+                        tracks.data_dir(topic) / "narration.txt",
+                        tracks.data_dir(f"{topic}/ko") / "narration.txt") if p.exists()
         ).read_text()
         kwargs["motion_path"] = None
         kwargs["motion_schedule"] = build_motion_schedule(items, srt_entries, narration_txt, lang=lang)
@@ -734,7 +735,7 @@ def _cta_start_sec(topic: str, items: list[dict], srt_entries: list[tuple[float,
 def _xray_kwargs(topic: str) -> dict:
     """data/<topic>/xray.json → assemble() 인자. 파일이 없으면 빈 dict(기존 칠판 포맷)."""
     import json
-    path = ROOT / "data" / topic / "xray.json"
+    path = tracks.data_dir(topic) / "xray.json"
     if not path.exists():
         return {}
     cfg = json.loads(path.read_text(encoding="utf-8"))
@@ -776,10 +777,10 @@ def rebuild(topic: str, board_variant: bool = False, no_cta: bool = False):
             # 유무·언어 감지 같은 derive()의 경로 유도 로직이 그대로 필요하다 —
             # 중복 구현하는 대신 derive()가 이미 계산해둔 audio/srt/out/lang을
             # 재사용하고, 새 템플릿 시그니처에 맞는 spec_path만 추가로 계산한다.
-            spec_path = ROOT / "data" / _resolve_data_topic(topic) / "card_news_spec.json"
+            spec_path = tracks.data_dir(_resolve_data_topic(topic)) / "card_news_spec.json"
             try:
                 _TEMPLATE_RENDERERS[fmt](
-                    topic_dir=str(ROOT / "output" / topic),
+                    topic_dir=str(tracks.output_dir(topic)),
                     lang=kwargs["lang"],
                     audio_path=kwargs["audio_path"],
                     srt_path=kwargs["srt_path"],

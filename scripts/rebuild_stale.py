@@ -14,16 +14,20 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
 
 
 def stale(topics: list[str] | None = None) -> list[str]:
     out = []
-    for cfg in sorted((ROOT / "data").glob("*/xray.json")):
+    for cfg in tracks.glob_topic_files(ROOT / "data", "*/xray.json"):
         t = cfg.parent.name
         if topics and t not in topics:
             continue
-        vid = ROOT / "output" / t / "shorts_xray_test.mp4"
-        srcs = [cfg, cfg.parent / "narration.txt", ROOT / "output" / t / "narration.mp3"]
+        odir = tracks.output_dir(t)
+        vid = odir / "shorts_xray_test.mp4"
+        srcs = [cfg, cfg.parent / "narration.txt", odir / "narration.mp3"]
         newest = max((s.stat().st_mtime for s in srcs if s.exists()), default=0)
         if not vid.exists() or newest > vid.stat().st_mtime:
             out.append(t)

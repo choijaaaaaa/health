@@ -21,9 +21,14 @@ from __future__ import annotations
 import argparse
 import json
 import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+from lib import tracks  # noqa: E402
+
 DATA = ROOT / "data"
 RETIRED = DATA / "_retired"
 LEDGER = RETIRED / "_ledger.json"
@@ -40,13 +45,16 @@ def _has_global(topic: str) -> list[str]:
     (vernhaven)용 9개 언어 `blog_seo` 원고가 들어 있는 topic이 있다(미세먼지_12·피부_26). 폴더를
     옮기면 그쪽 재인입이 조용히 누락된다 — 영상 트랙에서만 빼고 폴더는 제자리에 둔다.
     """
-    d = DATA / topic
+    # 🚨 `DATA / topic`을 그대로 쓰면 육아 트랙에서 `data/육아`를 열어 **topic 폴더를
+    # 언어로 읽는다.** 트랙 폴더를 건너뛴 진짜 topic 폴더는 tracks가 준다.
+    d = tracks.data_dir(topic)
     return sorted(x.name for x in d.iterdir()
                   if x.is_dir() and x.name != "ko" and (x / "platform_captions.json").exists())
 
 
 def _mark_video_retired(topic: str, v: dict, commit: bool) -> None:
-    for p in (DATA / topic / "ko" / "card_news_spec.json", DATA / topic / "card_news_spec.json"):
+    data = tracks.data_dir(topic)
+    for p in (data / "ko" / "card_news_spec.json", data / "card_news_spec.json"):
         if not p.exists():
             continue
         if commit:
@@ -64,7 +72,7 @@ def retire(verdicts: dict, commit: bool) -> None:
     ledger = _ledger()
     moved = marked = 0
     for topic, v in sorted(drops.items()):
-        src = DATA / topic
+        src = tracks.data_dir(topic)
         if not src.is_dir():
             print(f"  건너뜀(없음) {topic}")
             continue
@@ -98,7 +106,10 @@ def restore(topics: list[str]) -> None:
         if not src.is_dir():
             print(f"  없음 {topic}")
             continue
-        shutil.move(str(src), str(DATA / topic))
+        # 격리 폴더는 평평하게 두되(`_retired/육아_1`) 되돌릴 자리는 트랙 폴더 안이다
+        dst = tracks.data_dir(topic)
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.move(str(src), str(dst))
         ledger.pop(topic, None)
         print(f"  복구 {topic}")
     LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, indent=1), encoding="utf-8")

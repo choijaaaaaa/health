@@ -17,6 +17,8 @@ import re
 import sys
 from pathlib import Path
 
+from lib import tracks
+
 ROOT = Path(__file__).resolve().parent.parent
 
 _NUM = re.compile(
@@ -26,15 +28,15 @@ _NUM = re.compile(
 
 
 def _spec_path(topic: str) -> Path | None:
-    for cand in (ROOT / "data" / topic / "ko" / "card_news_spec.json",
-                 ROOT / "data" / topic / "card_news_spec.json"):
+    base = tracks.data_dir(topic)
+    for cand in (base / "ko" / "card_news_spec.json", base / "card_news_spec.json"):
         if cand.exists():
             return cand
     return None
 
 
 def _article_text(topic: str) -> str | None:
-    path = ROOT / "data" / topic / "ko" / "platform_captions.json"
+    path = tracks.data_dir(topic) / "ko" / "platform_captions.json"
     if not path.exists():
         return None
     try:
@@ -67,10 +69,7 @@ def numbers_only_in_cards(topic: str) -> list[str]:
 
 
 def main() -> None:
-    topics = sys.argv[1:] or sorted(
-        d.name for d in (ROOT / "data").iterdir()
-        if d.is_dir() and not d.name.startswith("_")
-    )
+    topics = sys.argv[1:] or sorted(d.name for d in tracks.iter_topic_dirs(ROOT / "data"))
     flagged = 0
     for topic in topics:
         only = numbers_only_in_cards(topic)

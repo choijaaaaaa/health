@@ -19,6 +19,8 @@ from pathlib import Path
 import requests
 from dotenv import load_dotenv
 
+from lib import tracks
+
 load_dotenv()
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -49,8 +51,8 @@ def _load_local_topics() -> list[dict]:
         topic = t["topic"]
         if "/" in topic:  # ko 외 언어·blog_seo 등은 이 감사 대상에서 제외
             continue
-        for candidate in (ROOT / "data" / topic / "platform_captions.json",
-                           ROOT / "data" / topic / "ko" / "platform_captions.json"):
+        base = tracks.data_dir(topic)
+        for candidate in (base / "platform_captions.json", base / "ko" / "platform_captions.json"):
             if candidate.exists():
                 spec = json.loads(candidate.read_text(encoding="utf-8"))
                 title = spec.get("title", "")

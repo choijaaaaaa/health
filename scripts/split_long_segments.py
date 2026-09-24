@@ -19,6 +19,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+from lib import tracks                                        # noqa: E402
 from lib.xray_timeline import _cues, resolve, summary_start   # noqa: E402
 
 LIB = ROOT / "assets_library" / "xray" / "output"
@@ -43,7 +44,7 @@ def worst_ratio(row: dict) -> float:
 def main() -> None:
     apply = "--apply" in sys.argv
     total = 0
-    for cfg in sorted((ROOT / "data").glob("*/xray.json")):
+    for cfg in tracks.glob_topic_files(ROOT / "data", "*/xray.json"):
         topic = cfg.parent.name
         try:
             rows, cues, ts = resolve(topic), _cues(topic), summary_start(topic)
