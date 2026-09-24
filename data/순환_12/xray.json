@@ -1,6 +1,6 @@
 {
   "_why": "원고 전면 재작성(2026-09-24) — 각도를 헌혈·목욕탕에서 자동완성 2위 '미주신경성 실신 똥'(배변·배뇨 상황실신)으로 바꿈. 클립은 프레임을 직접 뽑아 확인하고 골랐다.",
-  "top_title": "눈앞이 하얘지고 식은땀이 난다면",
+  "top_title": "화장실에서 힘주다 눈앞이 하얘진다면",
   "inset": {
     "clip": "assets_library/xray/output/m_vagal_slowdown.mp4",
     "crop": [
@@ -14,19 +14,11 @@
   "opening": [
     {
       "clip": "assets_library/xray/output/act_strain_on_toilet.mp4",
-      "range": [
-        1.6,
-        3.0
-      ],
       "_pending": "clip_requests.json — 아직 안 받음. 라이브러리의 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질과 구별이 안 되고, act_sink_to_floor는 선 자세 붕괴라 화장실 맥락이 없다.",
       "_swap_why": "act_toilet_strain_faint 미수령 — 받으면 되돌릴 것"
     },
     {
-      "clip": "assets_library/xray/output/part_brain.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/part_brain.mp4"
     }
   ],
   "_mech": [
@@ -60,9 +52,9 @@
     {
       "from": "먼저 힘주기예요",
       "item": "변기",
-      "mech": "m_blood_flow_drop",
+      "mech": "m_oxygen_transport_drop",
       "act": "act_strain_on_toilet",
-      "label": "가슴 안쪽 압력"
+      "label": "뇌로 가는 산소"
     },
     {
       "from": "변기에 5분 넘게",
@@ -107,5 +99,6 @@
       "label": "신경"
     }
   ],
-  "opening_until": 3.68
+  "opening_until": 9.68,
+  "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

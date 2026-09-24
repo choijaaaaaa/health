@@ -503,6 +503,7 @@ _MYTH_PATTERNS = [
     # 위 셋에 안 걸려 멀쩡한 원고가 실패했다(2026-09-24 대사_22 실측).
     re.compile(r"(떠올리|여기|착각하|믿|넘기|생각하)(지만|는데|기 쉽지만)"),
     re.compile(r"(반대(쪽|로)|~?가 아니라)"),
+    re.compile(r"(분|사람|경우)이 많은데"),
     re.compile(r"오히려"),
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
@@ -785,6 +786,42 @@ def check_xray_timeline_resolves(topic: str, lang: str = "kor") -> list[dict]:
     return []
 
 
+MAX_SAME_MECH = 2      # 같은 기전 클립이 설명 구간에서 이보다 자주 나오면 같은 그림이 반복된다
+
+
+def check_mech_variety(topic: str, lang: str = "kor") -> list[dict]:
+    """한 기전 클립을 여러 구간에 돌려쓰지 않았는지.
+
+    WHY(2026-09-24 눈_8 실측 지적 "위에 이미지 하나 박아놓고 대사만 치네"): 7구간 중 4구간이
+    같은 `m_vitreous_floaters`였고, 그 클립은 색인에 **"호박색 점등이 없어 약하다"**고 적혀
+    있는 것이었다. 흐릿한 같은 그림이 반복되면 영상이 아니라 정지 이미지로 읽힌다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = ROOT / "data" / topic / "xray.json"
+    if not path.exists():
+        return []
+    try:
+        from lib.xray_timeline import resolve, summary_start
+        rows, ts = resolve(topic) or [], summary_start(topic)
+    except Exception:
+        return []
+    body = [r for r in rows if ts is None or r["start"] < ts - 0.05]
+    if len(body) < 3:
+        return []
+    counts: dict[str, int] = {}
+    for r in body:
+        if r.get("mech"):
+            counts[r["mech"]] = counts.get(r["mech"], 0) + 1
+    over = {k: v for k, v in counts.items() if v > MAX_SAME_MECH}
+    if not over:
+        return []
+    worst = max(over, key=over.get)
+    return [{"quote": worst, "severity": "medium",
+             "issue": f"기전 클립 '{worst}'이(가) 설명 구간 {len(body)}개 중 {over[worst]}번 나옵니다 "
+                      f"(권장 {MAX_SAME_MECH}번 이하) — 같은 그림이 반복되면 정지 이미지로 보입니다. "
+                      "구간마다 다른 기전을 고르거나 없으면 요청하세요."}]
+
+
 def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
     """도입부 컷이 문장을 자르지 않는지, 위쪽 칸이 오래 비어 있지 않은지.
 
@@ -953,6 +990,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_xray_pacing(topic, lang)
         + check_plain_language(topic, lang)
         + check_summary_single_block(topic, lang)
+        + check_mech_variety(topic, lang)
     )
 
 

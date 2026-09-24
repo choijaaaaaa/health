@@ -13,18 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_inject_belly.mp4",
-      "range": [
-        1.5,
-        3.9
-      ]
+      "clip": "assets_library/xray/output/act_inject_belly.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_stomach.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/part_stomach.mp4"
     }
   ],
   "_mech": [
@@ -82,5 +74,5 @@
       "label": null
     }
   ],
-  "opening_until": 5.36
+  "opening_until": 17.2
 }

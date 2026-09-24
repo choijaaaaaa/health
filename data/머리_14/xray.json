@@ -13,21 +13,13 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_take_supplement.mp4",
-      "range": [
-        0.8,
-        3.2
-      ]
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_skin.mp4",
-      "range": [
-        1.4,
-        3.8
-      ]
+      "clip": "assets_library/xray/output/part_skin.mp4"
     }
   ],
-  "opening_until": 5.44,
+  "opening_until": 15.76,
   "timeline": [
     {
       "from": "이럴 때 저분자로",

@@ -13,18 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_press_one_side_lower_abdomen.mp4",
-      "range": [
-        2.6,
-        4.0
-      ]
+      "clip": "assets_library/xray/output/act_press_one_side_lower_abdomen.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_uterus_ovary.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/part_uterus_ovary.mp4"
     }
   ],
   "_mech": [
@@ -77,5 +69,6 @@
       "label": null
     }
   ],
-  "opening_until": 5.44
+  "opening_until": 13.04,
+  "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

@@ -13,18 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_take_supplement.mp4",
-      "range": [
-        1.4,
-        3.7
-      ]
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_kidney.mp4",
-      "range": [
-        1.0,
-        3.3
-      ]
+      "clip": "assets_library/xray/output/part_kidney.mp4"
     }
   ],
   "_mech": [
@@ -50,16 +42,16 @@
     {
       "from": "신장이 멀쩡해도",
       "item": "혈액검사",
-      "mech": "m_filtration_overload",
+      "mech": "m_osmotic_water_pull",
       "act": "act_toilet_check",
-      "label": "사구체"
+      "label": "소변 농도"
     },
     {
       "from": "수치를 올리는 건",
       "item": "아령",
-      "mech": "m_filtration_overload",
+      "mech": "m_muscle_wasting",
       "act": "act_take_supplement",
-      "label": "신장"
+      "label": "근육"
     },
     {
       "from": "먼저 크레아틴이에요",
@@ -71,14 +63,14 @@
     {
       "from": "하루 3그램만",
       "item": "아령",
-      "mech": "m_filtration_overload",
+      "mech": "m_nutrient_absorption_block",
       "act": "act_toilet_check",
-      "label": "사구체"
+      "label": "근육 저장"
     },
     {
       "from": "두 번째는 단백질",
       "item": "닭가슴살",
-      "mech": "m_filtration_overload",
+      "mech": "m_toxin_load",
       "act": "act_take_supplement",
       "label": "질소 찌꺼기"
     },
@@ -111,5 +103,6 @@
       "label": "소변 농도"
     }
   ],
-  "opening_until": 5.52
+  "opening_until": 13.76,
+  "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

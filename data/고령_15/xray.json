@@ -1,6 +1,6 @@
 {
   "_why": "전량 재제작 파일럿(2026-09-23, 원고 재작성 후 2026-09-24 시간표 재작성). 도입부 훅이 4.8초라 Flow 2컷을 각 2.4초로 나눠 배속 없이(1.0배) 훅 문장 끝에 정확히 맞춘다 — 소화_9 시험본(13.6초)이 '너무 길다'는 지적을 받았고 구도 전환이 느린 게 지루함의 원인이라 짧은 컷이 낫다.",
-  "top_title": "대상포진, 후유증 막는 대처법",
+  "top_title": "한쪽만 띠처럼 따끔거린다면",
   "inset": {
     "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
     "crop": [
@@ -13,18 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_scratch_skin.mp4",
-      "range": [
-        2.0,
-        4.4
-      ]
+      "clip": "assets_library/xray/output/act_scratch_skin.mp4"
     },
     {
-      "clip": "assets_library/xray/output/m_virus_reactivation.mp4",
-      "range": [
-        1.6,
-        4.0
-      ]
+      "clip": "assets_library/xray/output/m_virus_reactivation.mp4"
     }
   ],
   "timeline": [
@@ -106,5 +98,6 @@
     }
   ],
   "summary_from": "그러니 한쪽에만",
-  "opening_until": 4.8
+  "opening_until": 12.32,
+  "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }
