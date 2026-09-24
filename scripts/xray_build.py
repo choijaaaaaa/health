@@ -198,6 +198,29 @@ def _opening_end(topic: str, cues) -> float:
     return cues[0][1]
 
 
+def _publish(topic: str) -> None:
+    """조립한 영상을 **사람이 볼 수 있는 자리까지** 올린다.
+
+    WHY(2026-09-24): 조립만 하고 끝내면 아무 데도 안 보인다. 세 단계가 다 필요한데
+    하나씩 빼먹어 "만든 줄 알았는데 목록에 없다"를 반복했다:
+      1. deploy 폴더 — 업로드할 때 여는 자리
+      2. 개별 대시보드 — 이걸 만들어야 `output/topics.json`에 등록되고,
+         그래야 미션컨트롤 목록에 뜬다(ko/ 폴더를 쓰는 topic이 통째로 빠져 있었다)
+      3. 미션컨트롤 동기화 — 사용자 지시 "영상 하나씩 완료될 때마다 미션콘트롤에 올려라"
+    """
+    data = tracks.data_dir(topic)
+    caps = next((p for p in (data / "platform_captions.json",
+                             data / "ko" / "platform_captions.json") if p.exists()), None)
+    out = tracks.output_dir(topic)
+    subprocess.run([PY, "scripts/stage_for_deploy.py"], cwd=ROOT, check=False)
+    if caps:
+        subprocess.run([PY, "-m", "lib.dashboard", str(caps), str(out / "card_news"),
+                        str(out / "shorts_xray_test.mp4"), str(out / "dashboard.html")],
+                       cwd=ROOT, check=False)
+    subprocess.run([PY, "-m", "lib.mission_control_sync", "--commit"], cwd=ROOT, check=False)
+
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("topic")
@@ -305,10 +328,7 @@ def main() -> None:
     if not a.dry_run:
         subprocess.run(cmd, cwd=ROOT, check=True)
         _rebuild_cards(a.topic)
-        # 🚨 조립으로 끝내지 않는다 — deploy 폴더에 넣어야 업로드 쪽에서 보인다.
-        # 만들어만 두고 옮기지 않아 "영상 조립 다된건 deploy 안에다 넣어야지"를 두 번 들었다.
-        # 사람이 기억해야 하는 단계로 두면 또 빠진다.
-        subprocess.run([PY, "scripts/stage_for_deploy.py"], cwd=ROOT, check=False)
+        _publish(a.topic)
 
 
 if __name__ == "__main__":
