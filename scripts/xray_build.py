@@ -237,6 +237,10 @@ def main() -> None:
     print(" ".join(cmd))
     if not a.dry_run:
         subprocess.run(cmd, cwd=ROOT, check=True)
+        # 🚨 조립으로 끝내지 않는다 — deploy 폴더에 넣어야 업로드 쪽에서 보인다.
+        # 만들어만 두고 옮기지 않아 "영상 조립 다된건 deploy 안에다 넣어야지"를 두 번 들었다.
+        # 사람이 기억해야 하는 단계로 두면 또 빠진다.
+        subprocess.run([PY, "scripts/stage_for_deploy.py"], cwd=ROOT, check=False)
 
 
 if __name__ == "__main__":
