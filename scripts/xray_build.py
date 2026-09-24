@@ -26,7 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from lib.xray_timeline import resolve  # noqa: E402
+from lib.xray_timeline import resolve, summary_start  # noqa: E402
 
 PY = str(ROOT / ".venv" / "bin" / "python3")
 LIB = "assets_library/xray/output"
@@ -187,6 +187,12 @@ def main() -> None:
 
     # 항목 구간마다 위쪽 칸을 갈아 끼운다. `act`가 있으면 **왼쪽 행위 · 오른쪽 기전**으로 나눠 넣는다.
     tl = resolve(a.topic) or []
+    # 🚨 결론 구절부터는 칠판 전체 버전이 화면을 덮으므로 칸을 만들 필요가 없다. 만들면 시간만
+    # 버리고, 17초 구간에 4초 클립을 넣게 돼 "못 채운다"는 경고까지 뜬다(2026-09-24 눈_8 실측).
+    # 결론 행 자체는 남겨둬야 한다 — 그게 있어야 **앞 행이 거기서 끊긴다.**
+    ts = summary_start(a.topic)
+    if ts is not None:
+        tl = [r for r in tl if r["start"] < ts - 0.05]
     acts = cfg.get("_acts") or []
     tmp = Path(tempfile.mkdtemp(prefix="xray_loop_"))
     for i, row in enumerate(tl):
