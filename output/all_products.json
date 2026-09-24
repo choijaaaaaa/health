@@ -42,11 +42,6 @@
   ],
   "가습기": [
     {
-      "title": "아침 입냄새, 양치 탓이라 생각하셨다면 이제 그만 - 침 줄어드는 이유와 관리법",
-      "topic": "냄새_5/ko",
-      "url": "output/%EB%83%84%EC%83%88_5/ko/dashboard.html"
-    },
-    {
       "title": "비용종, 코막힘과 후각저하가 계속된다면 지금 확인하세요 - 물혹 줄이는 습관 3가지",
       "topic": "코_10/ko",
       "url": "output/%EC%BD%94_10/ko/dashboard.html"
@@ -107,7 +102,7 @@
       "url": "output/%ED%94%BC%EB%B6%80_20/dashboard.html"
     }
   ],
-  "각질연화 패치": [
+  "각질제거제": [
     {
       "title": "티눈과 굳은살, 발가락 사이가 자꾸 배긴다면 지금 확인하세요 - 각질 줄이는 습관",
       "topic": "손발_7",
@@ -156,6 +151,11 @@
       "title": "방금 놓아둔 물건이 어디 있는지 기억이 안 나고 하려던 말이 자꾸 맴돈다면 - 기억력 흐리는 음식 피하는 법",
       "topic": "머리_4",
       "url": "output/%EB%A8%B8%EB%A6%AC_4/dashboard.html"
+    },
+    {
+      "title": "담석증, 기름진 음식 탓만이 아니라 굶는 다이어트 때문 - 담석 막는 습관 3가지",
+      "topic": "소화_13",
+      "url": "output/%EC%86%8C%ED%99%94_13/dashboard.html"
     },
     {
       "title": "점심만 먹으면 쏟아지는 졸음 주목! - 식곤증 부르는 음식 피하는 법",
@@ -229,7 +229,7 @@
       "url": "output/%EC%86%8C%ED%99%94_4/dashboard.html"
     },
     {
-      "title": "저녁마다 종아리가 퉁퉁 붓고 다리에 핏줄이 울퉁불퉁 튀어나와 보인다면 - 정맥류 키우는 음식 피하는 법",
+      "title": "하지정맥류, 반신욕과 짠 국물이 키웁니다 - 다리 부기 줄이는 관리 3가지",
       "topic": "순환_3",
       "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html"
     },
@@ -246,16 +246,18 @@
       "url": "output/%EA%B3%A0%EB%A0%B9_2/ko/dashboard.html"
     }
   ],
+  "고등어": [
+    {
+      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
+      "topic": "여성_6",
+      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
+    }
+  ],
   "고등어 통조림": [
     {
       "title": "자궁내막증, 심한 생리통 아니라 골반통 신호일 수 있어요 - 완화 습관",
       "topic": "여성_10",
       "url": "output/%EC%97%AC%EC%84%B1_10/dashboard.html"
-    },
-    {
-      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
-      "topic": "여성_6",
-      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
     }
   ],
   "고령친화식품": [
@@ -279,13 +281,6 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_5/dashboard.html"
     }
   ],
-  "골반저근 자극기": [
-    {
-      "title": "요실금, 기침하거나 웃을 때 혹시 소변이 새지 않으셨나요 - 새는 양 줄이는 습관 3가지",
-      "topic": "비뇨기_6",
-      "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_6/dashboard.html"
-    }
-  ],
   "골전도 이어폰": [
     {
       "title": "이어폰 소음성 난청, 먹먹함 자주 느낀다면 - 청력 지키는 이어폰 습관 3가지",
@@ -305,31 +300,6 @@
       "title": "미세먼지, 좋은 날에도 위험한 오존 - 여름철 노출 줄이는 법",
       "topic": "미세먼지_10",
       "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_10/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날 유독 잠 설쳤다면 - 수면 방해 줄이는 습관 3가지",
-      "topic": "미세먼지_6",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_6/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날 유독 멍하고 단어가 안 떠오른다면 - 뇌 건강 지키는 습관 3가지",
-      "topic": "미세먼지_7",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_7/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날, 아이가 자꾸 콧물이나 기침을 한다면 - 노출 줄이는 습관 3가지",
-      "topic": "미세먼지_8",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_8/dashboard.html"
-    },
-    {
-      "title": "미세먼지, 간과 신장에도 쌓인다는 사실 - 지방간과 신장 부담 줄이는 법",
-      "topic": "미세먼지_9",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_9/dashboard.html"
-    },
-    {
-      "title": "방향제 비염, 디퓨저나 캔들 켠 뒤로 콧물 늘었다면 - 향 자극 줄이는 습관 3가지",
-      "topic": "코_19",
-      "url": "output/%EC%BD%94_19/dashboard.html"
     }
   ],
   "구강세정기": [
@@ -370,16 +340,14 @@
       "url": "output/%EB%8C%80%EC%82%AC_4/dashboard.html"
     },
     {
+      "title": "과민성대장증후군, 약과 유산균을 아무렇게나 먹으면 그때뿐입니다",
+      "topic": "소화_11",
+      "url": "output/%EC%86%8C%ED%99%94_11/dashboard.html"
+    },
+    {
       "title": "배 팽만감·잔변감·3일째 무소식, 하나라도 해당되면 - 변비 부르는 음식 피하는 법",
       "topic": "소화_3",
       "url": "output/%EC%86%8C%ED%99%94_3/dashboard.html"
-    }
-  ],
-  "귀마개": [
-    {
-      "title": "수면 이혼, 배우자 코골이나 뒤척임 때문에 자꾸 깬다면 - 따로 안 자도 숙면하는 법",
-      "topic": "수면_13",
-      "url": "output/%EC%88%98%EB%A9%B4_13/dashboard.html"
     }
   ],
   "귀지연화제": [
@@ -411,11 +379,6 @@
       "url": "output/%EC%86%8C%ED%99%94_3/dashboard.html"
     },
     {
-      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
-      "topic": "여성_6",
-      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
-    },
-    {
       "title": "점심 먹고 나면 밀려오는 나른함 - 식후 졸음 줄이는 법",
       "topic": "피로_2",
       "url": "output/%ED%94%BC%EB%A1%9C_2/dashboard.html"
@@ -438,18 +401,6 @@
       "title": "저체온증, 물놀이 중 오한 온다면 이제 그만 - 저체온증 막는 습관 3가지",
       "topic": "계절질환_7",
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_7/dashboard.html"
-    }
-  ],
-  "금연패치": [
-    {
-      "title": "조기심실수축, 심장이 쿵 내려앉거나 건너뛰는 느낌이 든다면 - 조기수축 줄이는 습관 3가지",
-      "topic": "순환_20",
-      "url": "output/%EC%88%9C%ED%99%98_20/dashboard.html"
-    },
-    {
-      "title": "자궁선근증, 해마다 심해지는 생리통이 나이 탓이 아니라 - 구별법과 관리 습관",
-      "topic": "여성_20",
-      "url": "output/%EC%97%AC%EC%84%B1_20/dashboard.html"
     }
   ],
   "기능성 티셔츠": [
@@ -475,7 +426,7 @@
   ],
   "냉찜질팩": [
     {
-      "title": "반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법",
+      "title": "반월상연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법",
       "topic": "근골격_13/ko",
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_13/ko/dashboard.html"
     },
@@ -503,11 +454,6 @@
       "title": "족저근막염, 아침 첫걸음 발뒤꿈치 찌릿하다면 - 예방하는 신발 습관 3가지",
       "topic": "근골격_16",
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_16/dashboard.html"
-    },
-    {
-      "title": "손가락 활차 손상, 크림프 자세로 잡을 때마다 찌릿하다면 - 손가락 지키는 클라이밍 습관",
-      "topic": "근골격_21",
-      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_21/dashboard.html"
     },
     {
       "title": "골프엘보, 팔꿈치 안쪽 욱신거린다면 - 그립 힘 빼는 예방법",
@@ -586,7 +532,7 @@
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_17/dashboard.html"
     },
     {
-      "title": "위고비, 마운자로 맞고 계셨다면 잠깐 - 근손실 막고 요요 줄이는 습관",
+      "title": "위고비 부작용, 허가사항에 적힌 순서와 실제 기간 - 구토 탈모 췌장염",
       "topic": "대사_14",
       "url": "output/%EB%8C%80%EC%82%AC_14/dashboard.html"
     },
@@ -723,16 +669,14 @@
       "url": "output/%EB%83%84%EC%83%88_8/dashboard.html"
     },
     {
+      "title": "손발 다한증, 사계절 손발이 축축하게 젖는다면 지금 확인하세요 - 땀 줄이는 습관 3가지",
+      "topic": "손발_10",
+      "url": "output/%EC%86%90%EB%B0%9C_10/dashboard.html"
+    },
+    {
       "title": "겨드랑이가 자꾸 거뭇해지는 거, 사실 이 습관 때문이에요 - 색소침착 관리법 3가지",
       "topic": "피부_22",
       "url": "output/%ED%94%BC%EB%B6%80_22/dashboard.html"
-    }
-  ],
-  "데일리렌즈": [
-    {
-      "title": "거대유두결막염, 렌즈 끼면 눈꺼풀 안쪽이 오돌토돌하다면 - 자극 줄이는 렌즈 습관 3가지",
-      "topic": "눈_19",
-      "url": "output/%EB%88%88_19/dashboard.html"
     }
   ],
   "도넛방석": [
@@ -833,11 +777,6 @@
       "url": "output/%EB%A8%B8%EB%A6%AC_1/ko/dashboard.html"
     },
     {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4/ko",
-      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
-    },
-    {
       "title": "콧물이 줄줄 흐르고 코가 꽉 막혀서 숨쉬기 답답하다면 - 비염 키우는 음식 피하는 법",
       "topic": "코_1/ko",
       "url": "output/%EC%BD%94_1/ko/dashboard.html"
@@ -861,11 +800,6 @@
       "title": "차만 타면 머리가 핑 돌고 식은땀까지 난다면 - 멀미를 악화시키는 음식·식습관 3가지",
       "topic": "어지럼증_2",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2/dashboard.html"
-    },
-    {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4",
-      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
     },
     {
       "title": "자다가 코를 심하게 골거나 숨이 막히는 느낌이 든다면 주목! - 코골이 부르는 음식 피하는 법",
@@ -945,19 +879,9 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_9/ko/dashboard.html"
     },
     {
-      "title": "가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법",
-      "topic": "소화_1/ko",
-      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
-    },
-    {
       "title": "심계항진, 갑자기 심장이 쿵쾅대거나 건너뛴다면 이제 그만 - 두근거림 줄이는 습관 3가지",
       "topic": "순환_9/ko",
       "url": "output/%EC%88%9C%ED%99%98_9/ko/dashboard.html"
-    },
-    {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4/ko",
-      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
     },
     {
       "title": "눈 밑이 자꾸 파르르 떨린다면 주목! - 눈 떨림 부르는 음식 피하는 법",
@@ -1020,11 +944,6 @@
       "url": "output/%EC%97%AC%EC%84%B1_2/dashboard.html"
     },
     {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4",
-      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
-    },
-    {
       "title": "자고 일어났는데 턱이 뻐근하고 어금니가 시큰거린다면 - 이갈이 심해지는 습관 3가지",
       "topic": "입_5",
       "url": "output/%EC%9E%85_5/dashboard.html"
@@ -1040,11 +959,6 @@
       "title": "이상후각증, 커피나 고기 냄새가 갑자기 역겹게 느껴진다면 - 후각훈련으로 냄새 되돌리는 법",
       "topic": "코_11",
       "url": "output/%EC%BD%94_11/dashboard.html"
-    },
-    {
-      "title": "방향제 비염, 디퓨저나 캔들 켠 뒤로 콧물 늘었다면 - 향 자극 줄이는 습관 3가지",
-      "topic": "코_19",
-      "url": "output/%EC%BD%94_19/dashboard.html"
     }
   ],
   "땀띠분": [
@@ -1164,11 +1078,6 @@
       "url": "output/%EB%88%88_7/dashboard.html"
     },
     {
-      "title": "비문증, 눈앞에 날파리나 번쩍임이 하나라도 있다면 - 위험 신호 구분법",
-      "topic": "눈_8",
-      "url": "output/%EB%88%88_8/dashboard.html"
-    },
-    {
       "title": "노안, 전 세계 4명 중 1명이 겪는다는데 혹시 나도? - 노안 줄이는 습관",
       "topic": "눈_9",
       "url": "output/%EB%88%88_9/dashboard.html"
@@ -1225,6 +1134,11 @@
       "url": "output/%EB%A8%B8%EB%A6%AC_11/dashboard.html"
     },
     {
+      "title": "위경련, 명치가 쥐어짜듯 아프고 식은땀까지 난다면 - 명치 통증 줄이는 습관 3가지",
+      "topic": "소화_14",
+      "url": "output/%EC%86%8C%ED%99%94_14/dashboard.html"
+    },
+    {
       "title": "승모판탈출증, 100명 중 2~3명이 겪는다는데 혹시 나도? - 관리 습관 3가지",
       "topic": "순환_18",
       "url": "output/%EC%88%9C%ED%99%98_18/dashboard.html"
@@ -1269,17 +1183,17 @@
   ],
   "마사지오일": [
     {
+      "title": "신생아 변비, 3일째 힘만 주고 있다면 - 날짜보다 먼저 볼 것 3가지",
+      "topic": "육아_10",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_10/dashboard.html"
+    },
+    {
       "title": "튼살, 배나 허벅지에 자꾸 생긴다면 - 번지지 않게 관리하는 법",
       "topic": "피부_17",
       "url": "output/%ED%94%BC%EB%B6%80_17/dashboard.html"
     }
   ],
   "마스크": [
-    {
-      "title": "미세먼지, 간과 신장에도 쌓인다는 사실 - 지방간과 신장 부담 줄이는 법",
-      "topic": "미세먼지_9",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_9/dashboard.html"
-    },
     {
       "title": "혈관운동성 비염, 찬바람에 콧물 흐른다면 - 온도차 콧물 줄이는 습관 3가지",
       "topic": "코_14",
@@ -1312,7 +1226,7 @@
   ],
   "만보기": [
     {
-      "title": "대장 용종, 검진에서 10명 중 3명꼴로 발견된다면 - 용종 위험 줄이는 습관 3가지",
+      "title": "대장 용종, 배변이 편하면 없는 걸까요? - 45세 검진과 위험 줄이는 습관",
       "topic": "소화_20",
       "url": "output/%EC%86%8C%ED%99%94_20/dashboard.html"
     },
@@ -1334,13 +1248,6 @@
       "title": "위산부족, 소화제를 먹어도 그때뿐이었다면 - 위산 부족 채우는 습관 3가지",
       "topic": "소화_25",
       "url": "output/%EC%86%8C%ED%99%94_25/dashboard.html"
-    }
-  ],
-  "멀미약": [
-    {
-      "title": "전정신경염, 감기 뒤 어지럼증이 며칠째 지속된다면 지금 확인하세요 - 회복 돕는 습관",
-      "topic": "어지럼증_7",
-      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_7/dashboard.html"
     }
   ],
   "메쉬 운동화": [
@@ -1516,7 +1423,7 @@
   ],
   "무릎보호대": [
     {
-      "title": "반월판연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법",
+      "title": "반월상연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법",
       "topic": "근골격_13/ko",
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_13/ko/dashboard.html"
     },
@@ -1611,35 +1518,11 @@
       "url": "output/%EC%BD%94_3/dashboard.html"
     }
   ],
-  "무알코올 음료": [
-    {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4/ko",
-      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
-    },
-    {
-      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
-      "topic": "여성_4",
-      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
-    }
-  ],
   "무자극 구강청결제": [
     {
       "title": "구강작열감증후군, 혹시 이유 없이 혀나 입천장이 화끈거리지 않나요? - 증상 줄이는 습관",
       "topic": "입_10",
       "url": "output/%EC%9E%85_10/dashboard.html"
-    }
-  ],
-  "무좀 연고": [
-    {
-      "title": "사타구니 냄새, 매일 씻어도 여름마다 심해진다면 이제 그만 - 냄새 줄이는 습관 3가지",
-      "topic": "냄새_10",
-      "url": "output/%EB%83%84%EC%83%88_10/dashboard.html"
-    },
-    {
-      "title": "발냄새, 신발 벗을 때마다 신경 쓰이셨다면 잠깐 - 냄새 안 나는 발 관리법 3가지",
-      "topic": "냄새_7",
-      "url": "output/%EB%83%84%EC%83%88_7/dashboard.html"
     }
   ],
   "무카페인 차": [
@@ -1698,11 +1581,11 @@
       "url": "output/%EB%88%88_20/dashboard.html"
     }
   ],
-  "미끄럼 방지 슬리퍼": [
+  "물티슈": [
     {
-      "title": "약물 유발 어지럼증, 혈압약이나 수면제 드시다가 - 낙상 줄이는 복약 습관 3가지",
-      "topic": "어지럼증_11",
-      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_11/dashboard.html"
+      "title": "기저귀 발진, 연고를 바꾸기 전에 젖어 있던 시간부터 - 안 낫는 발진 구분법",
+      "topic": "육아_6",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_6/dashboard.html"
     }
   ],
   "미끄럼방지 매트": [
@@ -1719,37 +1602,11 @@
       "url": "output/%EC%9E%85_9/dashboard.html"
     }
   ],
-  "미세먼지 마스크": [
-    {
-      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
-      "topic": "미세먼지_11",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날 실외 운동, 그냥 나가면 위험한 이유 3가지",
-      "topic": "미세먼지_4",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_4/dashboard.html"
-    }
-  ],
-  "미세먼지 차단 안경": [
-    {
-      "title": "미세먼지 심한 날, 3명 중 1명이 겪는다는 눈 자극 - 눈 지키는 습관 3가지",
-      "topic": "미세먼지_3",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_3/dashboard.html"
-    }
-  ],
   "미세모 칫솔": [
     {
       "title": "치아 시림, 얼음 씹거나 찬물 마시면 시리다면 - 줄이는 습관 3가지",
       "topic": "입_14",
       "url": "output/%EC%9E%85_14/dashboard.html"
-    }
-  ],
-  "밀크씨슬": [
-    {
-      "title": "미세먼지, 간과 신장에도 쌓인다는 사실 - 지방간과 신장 부담 줄이는 법",
-      "topic": "미세먼지_9",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_9/dashboard.html"
     }
   ],
   "바나나": [
@@ -1893,13 +1750,6 @@
       "url": "output/%EC%86%90%EB%B0%9C_9/ko/dashboard.html"
     }
   ],
-  "발한억제제": [
-    {
-      "title": "손발 다한증, 사계절 손발이 축축하게 젖는다면 지금 확인하세요 - 땀 줄이는 습관 3가지",
-      "topic": "손발_10",
-      "url": "output/%EC%86%90%EB%B0%9C_10/dashboard.html"
-    }
-  ],
   "방한장갑": [
     {
       "title": "레이노 증후군, 손끝이 파랗게 변한다면 이제 그만 - 발작 줄이는 습관 3가지",
@@ -1914,24 +1764,14 @@
       "url": "output/%EA%B7%80_11/dashboard.html"
     },
     {
-      "title": "급성 음향외상, 콘서트 다녀온 뒤 귀가 먹먹하다면 - 청력 지키는 소음 노출 습관",
-      "topic": "귀_14",
-      "url": "output/%EA%B7%80_14/dashboard.html"
-    },
-    {
-      "title": "약물성 이명, 진통제·항생제 먹고 귀 울린다면 - 이명 부르는 약 3가지",
-      "topic": "귀_17",
-      "url": "output/%EA%B7%80_17/dashboard.html"
-    },
-    {
       "title": "청각과민증, 씹는 소리와 타이핑 소리가 유독 괴로우셨다면 잠깐 - 완화하는 습관 3가지",
       "topic": "귀_5",
       "url": "output/%EA%B7%80_5/dashboard.html"
     },
     {
-      "title": "오르토솜니아, 수면 추적기 점수 집착이 부르는 불면과 줄이는 법",
-      "topic": "수면_18",
-      "url": "output/%EC%88%98%EB%A9%B4_18/dashboard.html"
+      "title": "신생아 배앓이, 저녁마다 몇 시간씩 운다면 - 울음 버티는 대처법 3가지",
+      "topic": "육아_9",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_9/dashboard.html"
     }
   ],
   "벌레기피제": [
@@ -1962,6 +1802,11 @@
   ],
   "보냉백": [
     {
+      "title": "위고비 부작용, 허가사항에 적힌 순서와 실제 기간 - 구토 탈모 췌장염",
+      "topic": "대사_14",
+      "url": "output/%EB%8C%80%EC%82%AC_14/dashboard.html"
+    },
+    {
       "title": "식중독, 여름철 배 아프고 설사가 계속된다면 - 예방하는 조리 습관",
       "topic": "소화_8",
       "url": "output/%EC%86%8C%ED%99%94_8/dashboard.html"
@@ -1984,11 +1829,6 @@
       "title": "화장실 다녀온 지 얼마 안 됐는데 또 소변이 마렵고 볼일 볼 때마다 따끔거린다면 - 방광염 키우는 음식 피하는 법",
       "topic": "비뇨기_1/ko",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_1/ko/dashboard.html"
-    },
-    {
-      "title": "가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법",
-      "topic": "소화_1/ko",
-      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
     },
     {
       "title": "배 팽만감·잔변감·3일째 무소식, 하나라도 해당되면 - 변비 부르는 음식 피하는 법",
@@ -2032,11 +1872,6 @@
     }
   ],
   "보리차 티백": [
-    {
-      "title": "빙수 먹고 배 아픈 게 나만 그런가 싶었다면 - 여름 찬 음식 즐기는 법",
-      "topic": "소화_23",
-      "url": "output/%EC%86%8C%ED%99%94_23/dashboard.html"
-    },
     {
       "title": "혈당 스파이크, 사실 식후 이 행동 때문이라면 - 혈당 스파이크 줄이는 습관 3가지",
       "topic": "혈당_7",
@@ -2122,13 +1957,6 @@
       "url": "output/%ED%98%88%EB%8B%B9_2/dashboard.html"
     }
   ],
-  "비강 스프레이": [
-    {
-      "title": "미세먼지 나쁜 날 유독 잠 설쳤다면 - 수면 방해 줄이는 습관 3가지",
-      "topic": "미세먼지_6",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_6/dashboard.html"
-    }
-  ],
   "비강세척기": [
     {
       "title": "비용종, 코막힘과 후각저하가 계속된다면 지금 확인하세요 - 물혹 줄이는 습관 3가지",
@@ -2141,11 +1969,6 @@
       "title": "항공성 중이염, 비행기 타면 귀가 아프다면 - 통증 줄이는 탑승 습관 3가지",
       "topic": "귀_13",
       "url": "output/%EA%B7%80_13/dashboard.html"
-    },
-    {
-      "title": "다이빙성 귀 압착증, 물놀이 후 귀 먹먹하다면 - 압력조절 습관 3가지",
-      "topic": "귀_15",
-      "url": "output/%EA%B7%80_15/dashboard.html"
     }
   ],
   "비강확장 테이프": [
@@ -2176,11 +1999,6 @@
   ],
   "비오틴 영양제": [
     {
-      "title": "콜라겐, 10개 중 9개가 기능성 인정 못 받았다는데 - 모발엔 이 영양소",
-      "topic": "머리_14",
-      "url": "output/%EB%A8%B8%EB%A6%AC_14/dashboard.html"
-    },
-    {
       "title": "원형탈모, 동전만 한 크기로 머리카락이 빠졌다면 지금 확인하세요 - 초기 대응법",
       "topic": "머리_7",
       "url": "output/%EB%A8%B8%EB%A6%AC_7/dashboard.html"
@@ -2203,6 +2021,11 @@
       "title": "당뇨병성 말초신경병증, 10년 앓으면 2명 중 1명이 겪는다는데 - 신경 손상 늦추는 습관",
       "topic": "대사_9/ko",
       "url": "output/%EB%8C%80%EC%82%AC_9/ko/dashboard.html"
+    },
+    {
+      "title": "소장세균과다증식, 유산균 먹는데 왜 더 부풀까요 - 장 속 가스 줄이는 습관 3가지",
+      "topic": "소화_21",
+      "url": "output/%EC%86%8C%ED%99%94_21/dashboard.html"
     }
   ],
   "비타민C": [
@@ -2213,6 +2036,11 @@
     }
   ],
   "비타민C 영양제": [
+    {
+      "title": "콜라겐 효과, 바르는 것과 먹는 것과 음식 - 어디까지 가는지 3가지",
+      "topic": "머리_14",
+      "url": "output/%EB%A8%B8%EB%A6%AC_14/dashboard.html"
+    },
     {
       "title": "빈혈, 생리량 유독 많고 쉽게 피곤하다면 - 철분결핍성 빈혈 막는 습관 3가지",
       "topic": "여성_13",
@@ -2244,11 +2072,6 @@
       "title": "완경기 골다공증, 사실 폐경 후 5-7년 사이 다 정해져요 - 급속 소실기 관리법",
       "topic": "여성_18",
       "url": "output/%EC%97%AC%EC%84%B1_18/dashboard.html"
-    },
-    {
-      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
-      "topic": "여성_6",
-      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
     }
   ],
   "빙수기": [
@@ -2319,98 +2142,14 @@
       "url": "output/%EA%B7%80_12/dashboard.html"
     },
     {
+      "title": "RSV 바이러스, 아기만 입원하는 이유 - 모세기관지염 집에서 보는 법 3가지",
+      "topic": "육아_7",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_7/dashboard.html"
+    },
+    {
       "title": "알레르기성 비염, 가을에 더 심해진다면 - 완화 습관 4가지",
       "topic": "코_15",
       "url": "output/%EC%BD%94_15/dashboard.html"
-    }
-  ],
-  "생리식염수 스프레이": [
-    {
-      "title": "이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관",
-      "topic": "귀_7/ko",
-      "url": "output/%EA%B7%80_7/ko/dashboard.html"
-    },
-    {
-      "title": "비용종, 코막힘과 후각저하가 계속된다면 지금 확인하세요 - 물혹 줄이는 습관 3가지",
-      "topic": "코_10/ko",
-      "url": "output/%EC%BD%94_10/ko/dashboard.html"
-    },
-    {
-      "title": "약물성 비염, 코 스프레이 5일 넘게 쓰신다면 - 의존 끊는 법 3가지",
-      "topic": "코_12",
-      "url": "output/%EC%BD%94_12/dashboard.html"
-    },
-    {
-      "title": "코 파는 습관, 무의식중에 자주 하신다면 - 세균 감염 막는 습관 3가지",
-      "topic": "코_13",
-      "url": "output/%EC%BD%94_13/dashboard.html"
-    },
-    {
-      "title": "혈관운동성 비염, 찬바람에 콧물 흐른다면 - 온도차 콧물 줄이는 습관 3가지",
-      "topic": "코_14",
-      "url": "output/%EC%BD%94_14/dashboard.html"
-    },
-    {
-      "title": "임신성 비염, 갑자기 코가 막히고 콧물이 늘었다면 - 코막힘 관리법 3가지",
-      "topic": "코_16",
-      "url": "output/%EC%BD%94_16/dashboard.html"
-    },
-    {
-      "title": "수영장 다녀온 뒤 콧물 안 멈추고 코막힘 심하다면 - 염소 자극 줄이는 습관 3가지",
-      "topic": "코_17",
-      "url": "output/%EC%BD%94_17/dashboard.html"
-    },
-    {
-      "title": "미각성 비염, 매운 음식에 콧물 난다면 지금 확인하세요 - 콧물 줄이는 습관 3가지",
-      "topic": "코_18",
-      "url": "output/%EC%BD%94_18/dashboard.html"
-    },
-    {
-      "title": "방향제 비염, 디퓨저나 캔들 켠 뒤로 콧물 늘었다면 - 향 자극 줄이는 습관 3가지",
-      "topic": "코_19",
-      "url": "output/%EC%BD%94_19/dashboard.html"
-    },
-    {
-      "title": "코털 왁싱, 유행이라고 그대로 따라 했다면 - 감염 없이 다듬는 방법 3가지",
-      "topic": "코_20",
-      "url": "output/%EC%BD%94_20/dashboard.html"
-    },
-    {
-      "title": "위축성 비염, 코딱지 크고 냄새난다면 - 코 점막 지키는 습관 3가지",
-      "topic": "코_21",
-      "url": "output/%EC%BD%94_21/dashboard.html"
-    },
-    {
-      "title": "축농증, 혹시 콧물이 계속 막히지 않나요 - 콧속 배출 돕는 습관",
-      "topic": "코_4",
-      "url": "output/%EC%BD%94_4/dashboard.html"
-    },
-    {
-      "title": "후각 저하, 냄새가 둔해졌는데 방치하셨다면 잠깐 - 후각 지키는 습관",
-      "topic": "코_5",
-      "url": "output/%EC%BD%94_5/dashboard.html"
-    },
-    {
-      "title": "비중격만곡증, 코 한쪽만 계속 막혀서 답답하신가요? - 한쪽 코막힘 관리법",
-      "topic": "코_7",
-      "url": "output/%EC%BD%94_7/dashboard.html"
-    }
-  ],
-  "생리식염수 코세척액": [
-    {
-      "title": "구강호흡, 자고 나면 입이 바싹 말라있다면 이유가 있어요 - 안전하게 코호흡 되찾는 법",
-      "topic": "수면_15",
-      "url": "output/%EC%88%98%EB%A9%B4_15/dashboard.html"
-    },
-    {
-      "title": "후비루, 콧물이 목 뒤로 자꾸 넘어가는 게 나만 그런가 싶었다면 - 헛기침 줄이는 습관",
-      "topic": "코_6",
-      "url": "output/%EC%BD%94_6/dashboard.html"
-    },
-    {
-      "title": "부비동염 두통, 눈 밑과 이마가 아프다면 - 두통 줄이는 습관",
-      "topic": "코_8",
-      "url": "output/%EC%BD%94_8/dashboard.html"
     }
   ],
   "생수": [
@@ -2480,6 +2219,11 @@
   ],
   "선크림": [
     {
+      "title": "콜라겐 효과, 바르는 것과 먹는 것과 음식 - 어디까지 가는지 3가지",
+      "topic": "머리_14",
+      "url": "output/%EB%A8%B8%EB%A6%AC_14/dashboard.html"
+    },
+    {
       "title": "입술포진, 혹시 입술이 따끔거리다가 물집이 잡히지 않나요? - 재발 줄이는 습관 3가지",
       "topic": "입_19",
       "url": "output/%EC%9E%85_19/dashboard.html"
@@ -2488,6 +2232,18 @@
       "title": "자외선 화상, 해수욕 다녀오면 피부가 화끈거린다면 - 차단 습관",
       "topic": "피부_7",
       "url": "output/%ED%94%BC%EB%B6%80_7/dashboard.html"
+    }
+  ],
+  "선풍기": [
+    {
+      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
+      "topic": "여성_4/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
+    },
+    {
+      "title": "갱년기증상 중 열감, 밤마다 깨는 이유 - 내 방아쇠 찾는 법",
+      "topic": "여성_4",
+      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
     }
   ],
   "섬유탈취제": [
@@ -2552,6 +2308,11 @@
       "title": "명치에서 등까지 통증이 뻗친다, 대변이 물에 뜬다 — 하나라도 해당되면 - 췌장 굳게 만드는 냉장고 음식",
       "topic": "대사_2",
       "url": "output/%EB%8C%80%EC%82%AC_2/dashboard.html"
+    },
+    {
+      "title": "이유식 시작 시기, 150일 180일 말이 갈릴 때 - 날짜 아닌 발달 신호로 정하는 법",
+      "topic": "육아_3",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_3/dashboard.html"
     }
   ],
   "소화제": [
@@ -2561,19 +2322,9 @@
       "url": "output/%EB%83%84%EC%83%88_4/dashboard.html"
     },
     {
-      "title": "위경련, 스트레스 받을 때 참고 계셨다면 - 명치 통증 줄이는 습관 3가지",
-      "topic": "소화_14",
-      "url": "output/%EC%86%8C%ED%99%94_14/dashboard.html"
-    },
-    {
       "title": "급체, 먹고 나서 자주 체하고 있다면 이유가 있어요 - 위 배출을 돕는 습관 5가지",
       "topic": "소화_19",
       "url": "output/%EC%86%8C%ED%99%94_19/dashboard.html"
-    },
-    {
-      "title": "빙수 먹고 배 아픈 게 나만 그런가 싶었다면 - 여름 찬 음식 즐기는 법",
-      "topic": "소화_23",
-      "url": "output/%EC%86%8C%ED%99%94_23/dashboard.html"
     },
     {
       "title": "말차, 마실 때마다 속이 쓰리고 있다면 - 속쓰림 없이 마시는 법",
@@ -2593,7 +2344,7 @@
       "url": "output/%EC%86%8C%ED%99%94_12/dashboard.html"
     },
     {
-      "title": "소장세균과다증식(SIBO), 가스차고 더부룩하다면 - 장내 세균 균형 잡는 습관 3가지",
+      "title": "소장세균과다증식, 유산균 먹는데 왜 더 부풀까요 - 장 속 가스 줄이는 습관 3가지",
       "topic": "소화_21",
       "url": "output/%EC%86%8C%ED%99%94_21/dashboard.html"
     },
@@ -2611,6 +2362,13 @@
       "title": "복부팽만, 스프링클 케이크 먹고 배 아프다면 주목! - 소화 편하게 즐기는 법 3가지",
       "topic": "소화_27",
       "url": "output/%EC%86%8C%ED%99%94_27/dashboard.html"
+    }
+  ],
+  "속싸개": [
+    {
+      "title": "신생아 배앓이, 저녁마다 몇 시간씩 운다면 - 울음 버티는 대처법 3가지",
+      "topic": "육아_9",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_9/dashboard.html"
     }
   ],
   "손가락 부목": [
@@ -2673,6 +2431,11 @@
       "title": "수족구병, 혹시 아이 손발에 물집이 올라오지 않나요? - 확산 막는 손 습관 3가지",
       "topic": "손발_19",
       "url": "output/%EC%86%90%EB%B0%9C_19/dashboard.html"
+    },
+    {
+      "title": "RSV 바이러스, 아기만 입원하는 이유 - 모세기관지염 집에서 보는 법 3가지",
+      "topic": "육아_7",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_7/dashboard.html"
     }
   ],
   "손톱영양제": [
@@ -2683,11 +2446,6 @@
     }
   ],
   "수경": [
-    {
-      "title": "다이빙성 귀 압착증, 물놀이 후 귀 먹먹하다면 - 압력조절 습관 3가지",
-      "topic": "귀_15",
-      "url": "output/%EA%B7%80_15/dashboard.html"
-    },
     {
       "title": "수영장 다녀온 뒤 콧물 안 멈추고 코막힘 심하다면 - 염소 자극 줄이는 습관 3가지",
       "topic": "코_17",
@@ -2723,6 +2481,11 @@
       "title": "섬망, 어르신이 갑자기 딴사람처럼 헛소리한다면 - 치매와 다른 섬망 대처법 3가지",
       "topic": "고령_13",
       "url": "output/%EA%B3%A0%EB%A0%B9_13/dashboard.html"
+    },
+    {
+      "title": "수면관성, 알람 꺼도 멍하다면 사실 깨어난 타이밍 때문이에요 - 개운한 기상 습관 3가지",
+      "topic": "수면_12",
+      "url": "output/%EC%88%98%EB%A9%B4_12/dashboard.html"
     }
   ],
   "수면안대": [
@@ -2737,19 +2500,9 @@
       "url": "output/%EB%A8%B8%EB%A6%AC_9/dashboard.html"
     },
     {
-      "title": "수면 이혼, 배우자 코골이나 뒤척임 때문에 자꾸 깬다면 - 따로 안 자도 숙면하는 법",
-      "topic": "수면_13",
-      "url": "output/%EC%88%98%EB%A9%B4_13/dashboard.html"
-    },
-    {
       "title": "사회적 시차, 월요일 피로가 야근이 아닌 주말 늦잠 때문일 수 있어요 - 리듬 지키는 습관",
       "topic": "수면_16",
       "url": "output/%EC%88%98%EB%A9%B4_16/dashboard.html"
-    },
-    {
-      "title": "오르토솜니아, 수면 추적기 점수 집착이 부르는 불면과 줄이는 법",
-      "topic": "수면_18",
-      "url": "output/%EC%88%98%EB%A9%B4_18/dashboard.html"
     },
     {
       "title": "수면위상전진증후군, 새벽에 자꾸 깼다면 잠깐 - 새벽 각성 줄이는 습관 3가지",
@@ -2760,13 +2513,6 @@
       "title": "산후우울증, 혹시 출산 후 눈물 나고 잠 못 주무시나요? - 산후우울증 관리법 3가지",
       "topic": "여성_17",
       "url": "output/%EC%97%AC%EC%84%B1_17/dashboard.html"
-    }
-  ],
-  "수면유도등": [
-    {
-      "title": "오르토솜니아, 수면 추적기 점수 집착이 부르는 불면과 줄이는 법",
-      "topic": "수면_18",
-      "url": "output/%EC%88%98%EB%A9%B4_18/dashboard.html"
     }
   ],
   "수분크림": [
@@ -2804,11 +2550,30 @@
       "url": "output/%EC%97%AC%EC%84%B1_14/dashboard.html"
     }
   ],
+  "수유등": [
+    {
+      "title": "신생아 황달, 2주가 지나도 노란기가 안 빠진다면 - 위험한 황달 가려내는 신호 3가지",
+      "topic": "육아_4",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_4/dashboard.html"
+    }
+  ],
   "수유브라": [
     {
       "title": "유선염, 모유수유 중 가슴이 뜨겁고 아프다면 - 유선염 키우는 습관 피하는 법",
       "topic": "여성_19",
       "url": "output/%EC%97%AC%EC%84%B1_19/dashboard.html"
+    }
+  ],
+  "수유쿠션": [
+    {
+      "title": "신생아 황달, 2주가 지나도 노란기가 안 빠진다면 - 위험한 황달 가려내는 신호 3가지",
+      "topic": "육아_4",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_4/dashboard.html"
+    },
+    {
+      "title": "신생아 배앓이, 저녁마다 몇 시간씩 운다면 - 울음 버티는 대처법 3가지",
+      "topic": "육아_9",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_9/dashboard.html"
     }
   ],
   "숙면 아이마스크": [
@@ -2821,13 +2586,6 @@
       "title": "인슐린저항성, 성인 10명 중 4명이 겪는다는데 혹시 나도? - 인슐린 둔감도 낮추는 습관",
       "topic": "대사_5",
       "url": "output/%EB%8C%80%EC%82%AC_5/dashboard.html"
-    }
-  ],
-  "숙취해소제": [
-    {
-      "title": "몸 냄새, 술 마신 다음 날 시큼하다면 지금 확인하세요 - 냄새 오래가는 이유와 관리법",
-      "topic": "냄새_14",
-      "url": "output/%EB%83%84%EC%83%88_14/dashboard.html"
     }
   ],
   "순면 속옷": [
@@ -2919,7 +2677,7 @@
   ],
   "습윤밴드": [
     {
-      "title": "대상포진, 몸 한쪽 따끔거리는 통증 있다면 - 후유증 막는 대처법 3가지",
+      "title": "대상포진, 물집 진물엔 수두 바이러스가 - 전염·치료 시기·백신 3가지",
       "topic": "고령_15",
       "url": "output/%EA%B3%A0%EB%A0%B9_15/dashboard.html"
     },
@@ -2952,11 +2710,6 @@
   ],
   "식염수 비강세척액": [
     {
-      "title": "아침 입냄새, 양치 탓이라 생각하셨다면 이제 그만 - 침 줄어드는 이유와 관리법",
-      "topic": "냄새_5/ko",
-      "url": "output/%EB%83%84%EC%83%88_5/ko/dashboard.html"
-    },
-    {
       "title": "구취, 양치질만 열심히 하고 계셨다면 이제 그만 - 진짜 원인 짚는 법",
       "topic": "냄새_3",
       "url": "output/%EB%83%84%EC%83%88_3/dashboard.html"
@@ -2967,13 +2720,6 @@
       "title": "비강건조증, 자면서 입으로 숨 쉬는 10명 중 6명 - 코 촉촉하게 지키는 습관 3가지",
       "topic": "코_9",
       "url": "output/%EC%BD%94_9/dashboard.html"
-    }
-  ],
-  "식이섬유": [
-    {
-      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
-      "topic": "미세먼지_11",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/dashboard.html"
     }
   ],
   "식이섬유 보충제": [
@@ -2993,12 +2739,12 @@
       "url": "output/%EB%8C%80%EC%82%AC_5/dashboard.html"
     },
     {
-      "title": "담석증, 기름진 음식 먹으면 오른쪽 윗배 아프다면 - 담석 위험 줄이는 습관 3가지",
+      "title": "담석증, 기름진 음식 탓만이 아니라 굶는 다이어트 때문 - 담석 막는 습관 3가지",
       "topic": "소화_13",
       "url": "output/%EC%86%8C%ED%99%94_13/dashboard.html"
     },
     {
-      "title": "대장 용종, 검진에서 10명 중 3명꼴로 발견된다면 - 용종 위험 줄이는 습관 3가지",
+      "title": "대장 용종, 배변이 편하면 없는 걸까요? - 45세 검진과 위험 줄이는 습관",
       "topic": "소화_20",
       "url": "output/%EC%86%8C%ED%99%94_20/dashboard.html"
     },
@@ -3080,6 +2826,11 @@
   ],
   "실리콘 빨대": [
     {
+      "title": "수족구 초기증상, 손발 물집보다 입안이 먼저 헐어요 - 탈수 막는 돌봄 3가지",
+      "topic": "육아_2",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_2/dashboard.html"
+    },
+    {
       "title": "치아 착색, 양치 열심히 해도 누렇다면 - 착색 막는 습관",
       "topic": "입_9",
       "url": "output/%EC%9E%85_9/dashboard.html"
@@ -3097,6 +2848,13 @@
       "title": "접촉성피부염, 여름철 피부가 자꾸 붉어진다면 - 접촉 줄이는 습관 세 가지",
       "topic": "피부_16",
       "url": "output/%ED%94%BC%EB%B6%80_16/dashboard.html"
+    }
+  ],
+  "아기 빨대컵": [
+    {
+      "title": "이유식 시작 시기, 150일 180일 말이 갈릴 때 - 날짜 아닌 발달 신호로 정하는 법",
+      "topic": "육아_3",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_3/dashboard.html"
     }
   ],
   "아로마 오일 세트": [
@@ -3132,19 +2890,7 @@
       "url": "output/%EC%BD%94_1/ko/dashboard.html"
     }
   ],
-  "아스피린": [
-    {
-      "title": "심근경색, 명치가 체한 것처럼 답답하다면 - 소화불량과 구별법 3가지",
-      "topic": "순환_17",
-      "url": "output/%EC%88%9C%ED%99%98_17/dashboard.html"
-    }
-  ],
   "아연 보충제": [
-    {
-      "title": "콜라겐, 10개 중 9개가 기능성 인정 못 받았다는데 - 모발엔 이 영양소",
-      "topic": "머리_14",
-      "url": "output/%EB%A8%B8%EB%A6%AC_14/dashboard.html"
-    },
     {
       "title": "탈모, 다이어트 주사 맞고 나서 머리숱이 줄어들고 있다면 - GLP-1 탈모 회복법",
       "topic": "머리_16",
@@ -3313,7 +3059,7 @@
       "url": "output/%EC%88%9C%ED%99%98_10/dashboard.html"
     },
     {
-      "title": "미주신경성 실신, 헌혈이나 목욕탕에서 쓰러졌다면 - 전조증상 대처법 4가지",
+      "title": "미주신경성 실신, 화장실에서 힘주다 쓰러진다면 - 전조 신호와 대처법 3가지",
       "topic": "순환_12",
       "url": "output/%EC%88%9C%ED%99%98_12/dashboard.html"
     },
@@ -3321,6 +3067,11 @@
       "title": "모세혈관확장증, 다리 실핏줄 번진다면 - 번짐 막는 습관 3가지",
       "topic": "순환_14",
       "url": "output/%EC%88%9C%ED%99%98_14/dashboard.html"
+    },
+    {
+      "title": "하지정맥류, 반신욕과 짠 국물이 키웁니다 - 다리 부기 줄이는 관리 3가지",
+      "topic": "순환_3",
+      "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html"
     },
     {
       "title": "체위성빈맥증후군, 일어설 때 심장 쿵쾅대고 힘 빠진다면 잠깐 - 심박수 급증 다스리는 습관",
@@ -3383,11 +3134,13 @@
       "title": "다약제복용, 어지럽거나 깜빡깜빡하시나요 - 약 상호작용 줄이는 습관 3가지",
       "topic": "고령_7",
       "url": "output/%EA%B3%A0%EB%A0%B9_7/dashboard.html"
-    },
+    }
+  ],
+  "양배추": [
     {
-      "title": "약물성 이명, 진통제·항생제 먹고 귀 울린다면 - 이명 부르는 약 3가지",
-      "topic": "귀_17",
-      "url": "output/%EA%B7%80_17/dashboard.html"
+      "title": "역류성식도염, 누우면 신물이 목까지 올라온다면 - 밤중 역류 줄이는 습관 3가지",
+      "topic": "소화_1/ko",
+      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
     }
   ],
   "양산": [
@@ -3411,13 +3164,6 @@
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_7/dashboard.html"
     }
   ],
-  "어린이 마스크": [
-    {
-      "title": "미세먼지 나쁜 날, 아이가 자꾸 콧물이나 기침을 한다면 - 노출 줄이는 습관 3가지",
-      "topic": "미세먼지_8",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_8/dashboard.html"
-    }
-  ],
   "엄지 손목 보호대": [
     {
       "title": "손목건초염, 엄지 쪽 손목 시큰거림 사실 이 습관 때문이에요 - 힘줄 지키는 습관",
@@ -3432,6 +3178,13 @@
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_1/ko/dashboard.html"
     }
   ],
+  "엑스트라버진 올리브유": [
+    {
+      "title": "담석증, 기름진 음식 탓만이 아니라 굶는 다이어트 때문 - 담석 막는 습관 3가지",
+      "topic": "소화_13",
+      "url": "output/%EC%86%8C%ED%99%94_13/dashboard.html"
+    }
+  ],
   "여성청결제": [
     {
       "title": "질건조증, 이유 없이 뻑뻑하고 화끈거리시나요? - 건조감 줄이는 습관 3가지",
@@ -3440,6 +3193,11 @@
     }
   ],
   "역류방지 베개": [
+    {
+      "title": "역류성식도염, 누우면 신물이 목까지 올라온다면 - 밤중 역류 줄이는 습관 3가지",
+      "topic": "소화_1/ko",
+      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
+    },
     {
       "title": "후비루, 콧물이 목 뒤로 자꾸 넘어가는 게 나만 그런가 싶었다면 - 헛기침 줄이는 습관",
       "topic": "코_6",
@@ -3472,13 +3230,6 @@
       "url": "output/%EC%86%8C%ED%99%94_22/dashboard.html"
     }
   ],
-  "연하보조식품": [
-    {
-      "title": "연하장애, 자꾸 사레 들린다면 사실 목 근육 탓이에요 - 사레 줄이는 식사 습관 3가지",
-      "topic": "고령_6",
-      "url": "output/%EA%B3%A0%EB%A0%B9_6/dashboard.html"
-    }
-  ],
   "옆베개": [
     {
       "title": "서맥, 맥박이 느리고 어지러운데 혹시 그냥 넘기시나요? - 관리법 3가지",
@@ -3498,16 +3249,6 @@
       "title": "고지혈증, 콜레스테롤 수치 높다고 나온다면 - 낮추는 식습관",
       "topic": "대사_4",
       "url": "output/%EB%8C%80%EC%82%AC_4/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날 마스크만 챙기고 계셨다면 - 혈관 심장 지키는 습관 3가지",
-      "topic": "미세먼지_5",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_5/dashboard.html"
-    },
-    {
-      "title": "미세먼지 나쁜 날 유독 멍하고 단어가 안 떠오른다면 - 뇌 건강 지키는 습관 3가지",
-      "topic": "미세먼지_7",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_7/dashboard.html"
     },
     {
       "title": "협심증, 밥 먹거나 계단 오르면 가슴 조인다면 이유가 있어요 - 유발 상황 3가지",
@@ -3619,7 +3360,7 @@
       "url": "output/%EB%88%88_4/dashboard.html"
     },
     {
-      "title": "위경련, 스트레스 받을 때 참고 계셨다면 - 명치 통증 줄이는 습관 3가지",
+      "title": "위경련, 명치가 쥐어짜듯 아프고 식은땀까지 난다면 - 명치 통증 줄이는 습관 3가지",
       "topic": "소화_14",
       "url": "output/%EC%86%8C%ED%99%94_14/dashboard.html"
     },
@@ -3777,25 +3518,11 @@
       "url": "output/%ED%98%88%EB%8B%B9_11/dashboard.html"
     }
   ],
-  "웨이크업라이트": [
-    {
-      "title": "수면관성, 알람 꺼도 멍하다면 사실 깨어난 타이밍 때문이에요 - 개운한 기상 습관 3가지",
-      "topic": "수면_12",
-      "url": "output/%EC%88%98%EB%A9%B4_12/dashboard.html"
-    }
-  ],
   "위장약": [
     {
       "title": "위염, 매운 음식 먹으면 속이 쓰리고 아프다면 - 위 점막 지키는 습관",
       "topic": "소화_9",
       "url": "output/%EC%86%8C%ED%99%94_9/dashboard.html"
-    }
-  ],
-  "유당분해효소": [
-    {
-      "title": "유당불내증, 우유만 마시면 배 아프고 설사한다면 주목! - 유제품 즐기는 방법 3가지",
-      "topic": "소화_17",
-      "url": "output/%EC%86%8C%ED%99%94_17/dashboard.html"
     }
   ],
   "유두크림": [
@@ -3812,14 +3539,14 @@
       "url": "output/%EB%8C%80%EC%82%AC_18/dashboard.html"
     },
     {
-      "title": "과민성대장증후군, 변비, 설사 중 하나라도 해당된다면 - 장 편하게 하는 습관 3가지",
+      "title": "과민성대장증후군, 약과 유산균을 아무렇게나 먹으면 그때뿐입니다",
       "topic": "소화_11",
       "url": "output/%EC%86%8C%ED%99%94_11/dashboard.html"
     },
     {
-      "title": "소장세균과다증식(SIBO), 가스차고 더부룩하다면 - 장내 세균 균형 잡는 습관 3가지",
-      "topic": "소화_21",
-      "url": "output/%EC%86%8C%ED%99%94_21/dashboard.html"
+      "title": "유당불내증, 우유만 마시면 배 아프고 설사한다면 주목! - 유제품 즐기는 방법 3가지",
+      "topic": "소화_17",
+      "url": "output/%EC%86%8C%ED%99%94_17/dashboard.html"
     },
     {
       "title": "옥수수, 껍질째 씹지도 않고 삼키고 계셨다면 이제 그만 - 소화 잘되게 옥수수 먹는 법",
@@ -3845,6 +3572,16 @@
       "title": "위염, 매운 음식 먹으면 속이 쓰리고 아프다면 - 위 점막 지키는 습관",
       "topic": "소화_9",
       "url": "output/%EC%86%8C%ED%99%94_9/dashboard.html"
+    },
+    {
+      "title": "신생아 변비, 3일째 힘만 주고 있다면 - 날짜보다 먼저 볼 것 3가지",
+      "topic": "육아_10",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_10/dashboard.html"
+    },
+    {
+      "title": "아기 설사, 이온음료가 설사를 키우는 이유 - 아기 탈수 증상 확인법",
+      "topic": "육아_8",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_8/dashboard.html"
     }
   ],
   "유산균 프로바이오틱스": [
@@ -3875,18 +3612,6 @@
       "url": "output/%EC%97%AC%EC%84%B1_7/dashboard.html"
     }
   ],
-  "이부프로펜": [
-    {
-      "title": "배란통, 한쪽 아랫배만 콕콕 - 하루 넘게 아프면 배란통이 아니에요",
-      "topic": "여성_12",
-      "url": "output/%EC%97%AC%EC%84%B1_12/dashboard.html"
-    },
-    {
-      "title": "자궁선근증, 해마다 심해지는 생리통이 나이 탓이 아니라 - 구별법과 관리 습관",
-      "topic": "여성_20",
-      "url": "output/%EC%97%AC%EC%84%B1_20/dashboard.html"
-    }
-  ],
   "이산화탄소 측정기": [
     {
       "title": "피로, 종일 환기 안 했다면 지금 확인하세요 - 이산화탄소 줄이는 환기 습관 3가지",
@@ -3913,11 +3638,6 @@
       "title": "항공성 중이염, 비행기 타면 귀가 아프다면 - 통증 줄이는 탑승 습관 3가지",
       "topic": "귀_13",
       "url": "output/%EA%B7%80_13/dashboard.html"
-    },
-    {
-      "title": "급성 음향외상, 콘서트 다녀온 뒤 귀가 먹먹하다면 - 청력 지키는 소음 노출 습관",
-      "topic": "귀_14",
-      "url": "output/%EA%B7%80_14/dashboard.html"
     },
     {
       "title": "이어폰 소음성 난청, 먹먹함 자주 느낀다면 - 청력 지키는 이어폰 습관 3가지",
@@ -3957,11 +3677,6 @@
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_9/dashboard.html"
     },
     {
-      "title": "몸 냄새, 술 마신 다음 날 시큼하다면 지금 확인하세요 - 냄새 오래가는 이유와 관리법",
-      "topic": "냄새_14",
-      "url": "output/%EB%83%84%EC%83%88_14/dashboard.html"
-    },
-    {
       "title": "소변 색깔, 한국인 10명 중 6명이 물이 부족하다는데 - 색깔별로 다른 몸 상태 신호",
       "topic": "비뇨기_10",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_10/dashboard.html"
@@ -3977,7 +3692,7 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_19/dashboard.html"
     },
     {
-      "title": "미주신경성 실신, 헌혈이나 목욕탕에서 쓰러졌다면 - 전조증상 대처법 4가지",
+      "title": "미주신경성 실신, 화장실에서 힘주다 쓰러진다면 - 전조 신호와 대처법 3가지",
       "topic": "순환_12",
       "url": "output/%EC%88%9C%ED%99%98_12/dashboard.html"
     },
@@ -4020,6 +3735,13 @@
       "title": "피로, 물은 마시는데도 몸이 계속 무겁고 졸리다면 - 여름철 탈수 피로 줄이는 수분 습관",
       "topic": "피로_4",
       "url": "output/%ED%94%BC%EB%A1%9C_4/dashboard.html"
+    }
+  ],
+  "이유식 실리콘 스푼": [
+    {
+      "title": "이유식 시작 시기, 150일 180일 말이 갈릴 때 - 날짜 아닌 발달 신호로 정하는 법",
+      "topic": "육아_3",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_3/dashboard.html"
     }
   ],
   "인공눈물": [
@@ -4087,11 +3809,6 @@
       "title": "미세먼지, 좋은 날에도 위험한 오존 - 여름철 노출 줄이는 법",
       "topic": "미세먼지_10",
       "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_10/dashboard.html"
-    },
-    {
-      "title": "미세먼지 심한 날, 3명 중 1명이 겪는다는 눈 자극 - 눈 지키는 습관 3가지",
-      "topic": "미세먼지_3",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_3/dashboard.html"
     }
   ],
   "인공타액 스프레이": [
@@ -4148,7 +3865,7 @@
       "url": "output/%EB%88%88_7/dashboard.html"
     },
     {
-      "title": "비문증, 눈앞에 날파리나 번쩍임이 하나라도 있다면 - 위험 신호 구분법",
+      "title": "비문증 치료, 없애는 방법을 찾기 전에 알아야 할 것",
       "topic": "눈_8",
       "url": "output/%EB%88%88_8/dashboard.html"
     }
@@ -4189,7 +3906,7 @@
       "url": "output/%EC%86%8C%ED%99%94_7/dashboard.html"
     },
     {
-      "title": "저녁마다 종아리가 퉁퉁 붓고 다리에 핏줄이 울퉁불퉁 튀어나와 보인다면 - 정맥류 키우는 음식 피하는 법",
+      "title": "하지정맥류, 반신욕과 짠 국물이 키웁니다 - 다리 부기 줄이는 관리 3가지",
       "topic": "순환_3",
       "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html"
     },
@@ -4273,11 +3990,6 @@
       "title": "대동맥판막협착증, 계단 오르면 숨차고 답답하다면 - 판막 좁아지는 신호 3가지",
       "topic": "순환_19",
       "url": "output/%EC%88%9C%ED%99%98_19/dashboard.html"
-    },
-    {
-      "title": "저녁마다 종아리가 퉁퉁 붓고 다리에 핏줄이 울퉁불퉁 튀어나와 보인다면 - 정맥류 키우는 음식 피하는 법",
-      "topic": "순환_3",
-      "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html"
     },
     {
       "title": "심장이 갑자기 쿵쾅대고 뒷목이 뻐근하며 머리까지 지끈거리는 거, 사실 이 음식 때문일 수 있어요 - 혈압 확 올리는 의외의 음식들",
@@ -4382,6 +4094,11 @@
       "url": "output/%ED%94%BC%EB%B6%80_18/ko/dashboard.html"
     },
     {
+      "title": "기저귀 발진, 연고를 바꾸기 전에 젖어 있던 시간부터 - 안 낫는 발진 구분법",
+      "topic": "육아_6",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_6/dashboard.html"
+    },
+    {
       "title": "지루성피부염, 두피 각질을 긁고 계셨다면 이제 그만 - 자극 줄이는 습관 세 가지",
       "topic": "피부_10",
       "url": "output/%ED%94%BC%EB%B6%80_10/dashboard.html"
@@ -4409,13 +4126,6 @@
       "url": "output/%EC%BD%94_23/dashboard.html"
     }
   ],
-  "저지방 식단 관리 식품": [
-    {
-      "title": "담석증, 기름진 음식 먹으면 오른쪽 윗배 아프다면 - 담석 위험 줄이는 습관 3가지",
-      "topic": "소화_13",
-      "url": "output/%EC%86%8C%ED%99%94_13/dashboard.html"
-    }
-  ],
   "저지방 식품": [
     {
       "title": "손발이 저리고 차갑고 잘 붓는다면 주목! - 60대 음식 똑똑하게 고르는 법",
@@ -4432,19 +4142,9 @@
   ],
   "저포드맵 식품": [
     {
-      "title": "과민성대장증후군, 변비, 설사 중 하나라도 해당된다면 - 장 편하게 하는 습관 3가지",
-      "topic": "소화_11",
-      "url": "output/%EC%86%8C%ED%99%94_11/dashboard.html"
-    },
-    {
       "title": "소화불량, 위내시경은 멀쩡한데도 계속 더부룩하다면 - 기능성소화불량 다스리는 습관 3가지",
       "topic": "소화_12",
       "url": "output/%EC%86%8C%ED%99%94_12/dashboard.html"
-    },
-    {
-      "title": "소장세균과다증식(SIBO), 가스차고 더부룩하다면 - 장내 세균 균형 잡는 습관 3가지",
-      "topic": "소화_21",
-      "url": "output/%EC%86%8C%ED%99%94_21/dashboard.html"
     }
   ],
   "저항밴드": [
@@ -4481,6 +4181,28 @@
       "title": "저나트륨혈증, 물 많이 마셨는데 어지럽다면 - 물 안전하게 마시는 습관",
       "topic": "어지럼증_14",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_14/dashboard.html"
+    },
+    {
+      "title": "해열제 교차복용, 한 번 먹였는데 열이 다시 오를 때 - 간격·횟수·몸무게 3가지",
+      "topic": "육아_1",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_1/dashboard.html"
+    },
+    {
+      "title": "수족구 초기증상, 손발 물집보다 입안이 먼저 헐어요 - 탈수 막는 돌봄 3가지",
+      "topic": "육아_2",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_2/dashboard.html"
+    },
+    {
+      "title": "돌발진 열꽃, 열이 내린 뒤에 올라오는 이유 - 열성경련 대처법 3가지",
+      "topic": "육아_5",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_5/dashboard.html"
+    }
+  ],
+  "전해질 음료": [
+    {
+      "title": "위고비 부작용, 허가사항에 적힌 순서와 실제 기간 - 구토 탈모 췌장염",
+      "topic": "대사_14",
+      "url": "output/%EB%8C%80%EC%82%AC_14/dashboard.html"
     }
   ],
   "점도증진제": [
@@ -4498,11 +4220,6 @@
     }
   ],
   "제로음료": [
-    {
-      "title": "제로음료 속 알룰로스, 물 없이 벌컥벌컥 마셨다면 잠깐 - 물과 함께 안전하게 즐기는 법",
-      "topic": "비뇨기_18",
-      "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_18/dashboard.html"
-    },
     {
       "title": "제로슈거 음료, 혈당 안 오른다는 거 사실 감미료 나름이에요 - 제로슈거 음료 고르는 법",
       "topic": "혈당_10",
@@ -4523,13 +4240,6 @@
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_12/dashboard.html"
     }
   ],
-  "제한제": [
-    {
-      "title": "액취증, 매일 씻어도 냄새 그대로라면 - 겨드랑이 냄새 줄이는 법",
-      "topic": "냄새_8",
-      "url": "output/%EB%83%84%EC%83%88_8/dashboard.html"
-    }
-  ],
   "조리가위": [
     {
       "title": "질식사고, 떡이나 젤리 드신다면 확인하세요 - 기도폐쇄 예방 습관",
@@ -4544,25 +4254,11 @@
       "url": "output/%EB%A8%B8%EB%A6%AC_8/dashboard.html"
     }
   ],
-  "지사제": [
-    {
-      "title": "장 트러블, 국물닭발 매운 음식 화장실 급했다면 - 장 편하게 즐기는 법 3가지",
-      "topic": "소화_28",
-      "url": "output/%EC%86%8C%ED%99%94_28/dashboard.html"
-    }
-  ],
   "지팡이": [
     {
       "title": "척추관협착증, 걸을 때 다리가 저리고 앉으면 편해진다면 - 허리디스크와 구별법",
       "topic": "근골격_10",
       "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_10/dashboard.html"
-    }
-  ],
-  "진통제": [
-    {
-      "title": "대상포진, 몸 한쪽 따끔거리는 통증 있다면 - 후유증 막는 대처법 3가지",
-      "topic": "고령_15",
-      "url": "output/%EA%B3%A0%EB%A0%B9_15/dashboard.html"
     }
   ],
   "질 보습제": [
@@ -4605,6 +4301,11 @@
       "title": "게실염, 혹시 왼쪽 아랫배가 콕콕 쑤시지 않나요 - 게실염 위험 낮추는 습관 3가지",
       "topic": "소화_15/ko",
       "url": "output/%EC%86%8C%ED%99%94_15/ko/dashboard.html"
+    },
+    {
+      "title": "과민성대장증후군, 약과 유산균을 아무렇게나 먹으면 그때뿐입니다",
+      "topic": "소화_11",
+      "url": "output/%EC%86%8C%ED%99%94_11/dashboard.html"
     }
   ],
   "창문잠금장치": [
@@ -4650,6 +4351,11 @@
       "title": "자궁선근증, 해마다 심해지는 생리통이 나이 탓이 아니라 - 구별법과 관리 습관",
       "topic": "여성_20",
       "url": "output/%EC%97%AC%EC%84%B1_20/dashboard.html"
+    },
+    {
+      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
+      "topic": "여성_6",
+      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
     },
     {
       "title": "위축성 비염, 코딱지 크고 냄새난다면 - 코 점막 지키는 습관 3가지",
@@ -4712,6 +4418,21 @@
       "title": "수족구병, 혹시 아이 손발에 물집이 올라오지 않나요? - 확산 막는 손 습관 3가지",
       "topic": "손발_19",
       "url": "output/%EC%86%90%EB%B0%9C_19/dashboard.html"
+    },
+    {
+      "title": "해열제 교차복용, 한 번 먹였는데 열이 다시 오를 때 - 간격·횟수·몸무게 3가지",
+      "topic": "육아_1",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_1/dashboard.html"
+    },
+    {
+      "title": "수족구 초기증상, 손발 물집보다 입안이 먼저 헐어요 - 탈수 막는 돌봄 3가지",
+      "topic": "육아_2",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_2/dashboard.html"
+    },
+    {
+      "title": "돌발진 열꽃, 열이 내린 뒤에 올라오는 이유 - 열성경련 대처법 3가지",
+      "topic": "육아_5",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_5/dashboard.html"
     }
   ],
   "체중계": [
@@ -4719,11 +4440,6 @@
       "title": "노쇠, 이유 없이 기운 없고 살 빠진다면 - 노쇠 늦추는 습관 3가지",
       "topic": "고령_10",
       "url": "output/%EA%B3%A0%EB%A0%B9_10/dashboard.html"
-    },
-    {
-      "title": "위고비, 마운자로 맞고 계셨다면 잠깐 - 근손실 막고 요요 줄이는 습관",
-      "topic": "대사_14",
-      "url": "output/%EB%8C%80%EC%82%AC_14/dashboard.html"
     },
     {
       "title": "요요현상, 덜 먹는데도 살이 더 잘 찐다면 - 대사량 지키는 다이어트 습관",
@@ -4736,6 +4452,11 @@
       "url": "output/%EC%86%8C%ED%99%94_2/dashboard.html"
     },
     {
+      "title": "대장 용종, 배변이 편하면 없는 걸까요? - 45세 검진과 위험 줄이는 습관",
+      "topic": "소화_20",
+      "url": "output/%EC%86%8C%ED%99%94_20/dashboard.html"
+    },
+    {
       "title": "심부전, 숨차고 붓는 게 나이 아니라 심장 신호일 수 있어요 - 악화 막는 습관 3가지",
       "topic": "순환_16",
       "url": "output/%EC%88%9C%ED%99%98_16/dashboard.html"
@@ -4744,6 +4465,28 @@
       "title": "갱년기 체중증가, 배만 나오는 게 나만 그런가 싶었다면 - 내장지방 줄이는 습관 3가지",
       "topic": "여성_15",
       "url": "output/%EC%97%AC%EC%84%B1_15/dashboard.html"
+    },
+    {
+      "title": "자궁근종, 생리량 급증과 골반 압박감 - 위험 낮추는 습관",
+      "topic": "여성_6",
+      "url": "output/%EC%97%AC%EC%84%B1_6/dashboard.html"
+    },
+    {
+      "title": "아기 설사, 이온음료가 설사를 키우는 이유 - 아기 탈수 증상 확인법",
+      "topic": "육아_8",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_8/dashboard.html"
+    }
+  ],
+  "체지방 체중계": [
+    {
+      "title": "역류성식도염, 누우면 신물이 목까지 올라온다면 - 밤중 역류 줄이는 습관 3가지",
+      "topic": "소화_1/ko",
+      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
+    },
+    {
+      "title": "담석증, 기름진 음식 탓만이 아니라 굶는 다이어트 때문 - 담석 막는 습관 3가지",
+      "topic": "소화_13",
+      "url": "output/%EC%86%8C%ED%99%94_13/dashboard.html"
     }
   ],
   "체지방 측정계": [
@@ -4796,35 +4539,26 @@
       "url": "output/%EC%88%98%EB%A9%B4_11/dashboard.html"
     }
   ],
-  "카페인 함유 각성 음료": [
-    {
-      "title": "기면증, 낮에 못 참게 잠들고 웃을 때 힘까지 풀렸다면 잠깐 - 수면발작 줄이는 습관",
-      "topic": "수면_6",
-      "url": "output/%EC%88%98%EB%A9%B4_6/dashboard.html"
-    }
-  ],
-  "카페인정": [
-    {
-      "title": "수면관성, 알람 꺼도 멍하다면 사실 깨어난 타이밍 때문이에요 - 개운한 기상 습관 3가지",
-      "topic": "수면_12",
-      "url": "output/%EC%88%98%EB%A9%B4_12/dashboard.html"
-    }
-  ],
   "칼슘 영양제": [
+    {
+      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
+      "topic": "여성_4/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
+    },
     {
       "title": "조기폐경, 단순 생리불순이 아니라 - 난소 기능 저하 확인법",
       "topic": "여성_9/ko",
       "url": "output/%EC%97%AC%EC%84%B1_9/ko/dashboard.html"
     },
     {
-      "title": "대장 용종, 검진에서 10명 중 3명꼴로 발견된다면 - 용종 위험 줄이는 습관 3가지",
-      "topic": "소화_20",
-      "url": "output/%EC%86%8C%ED%99%94_20/dashboard.html"
-    },
-    {
       "title": "완경기 골다공증, 사실 폐경 후 5-7년 사이 다 정해져요 - 급속 소실기 관리법",
       "topic": "여성_18",
       "url": "output/%EC%97%AC%EC%84%B1_18/dashboard.html"
+    },
+    {
+      "title": "갱년기증상 중 열감, 밤마다 깨는 이유 - 내 방아쇠 찾는 법",
+      "topic": "여성_4",
+      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
     }
   ],
   "캐모마일차": [
@@ -4835,11 +4569,6 @@
     }
   ],
   "케겔 운동기구": [
-    {
-      "title": "야간뇨, 전립선 아니라 어제 마신 술 때문일 수 있어요 - 방광 자극하는 음주 습관 3가지",
-      "topic": "비뇨기_15",
-      "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_15/dashboard.html"
-    },
     {
       "title": "요실금, 기침하거나 웃을 때 혹시 소변이 새지 않으셨나요 - 새는 양 줄이는 습관 3가지",
       "topic": "비뇨기_6",
@@ -4879,9 +4608,84 @@
   ],
   "코세척기": [
     {
+      "title": "이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관",
+      "topic": "귀_7/ko",
+      "url": "output/%EA%B7%80_7/ko/dashboard.html"
+    },
+    {
+      "title": "비용종, 코막힘과 후각저하가 계속된다면 지금 확인하세요 - 물혹 줄이는 습관 3가지",
+      "topic": "코_10/ko",
+      "url": "output/%EC%BD%94_10/ko/dashboard.html"
+    },
+    {
+      "title": "구강호흡, 자고 나면 입이 바싹 말라있다면 이유가 있어요 - 안전하게 코호흡 되찾는 법",
+      "topic": "수면_15",
+      "url": "output/%EC%88%98%EB%A9%B4_15/dashboard.html"
+    },
+    {
+      "title": "약물성 비염, 코 스프레이 5일 넘게 쓰신다면 - 의존 끊는 법 3가지",
+      "topic": "코_12",
+      "url": "output/%EC%BD%94_12/dashboard.html"
+    },
+    {
+      "title": "코 파는 습관, 무의식중에 자주 하신다면 - 세균 감염 막는 습관 3가지",
+      "topic": "코_13",
+      "url": "output/%EC%BD%94_13/dashboard.html"
+    },
+    {
+      "title": "혈관운동성 비염, 찬바람에 콧물 흐른다면 - 온도차 콧물 줄이는 습관 3가지",
+      "topic": "코_14",
+      "url": "output/%EC%BD%94_14/dashboard.html"
+    },
+    {
+      "title": "임신성 비염, 갑자기 코가 막히고 콧물이 늘었다면 - 코막힘 관리법 3가지",
+      "topic": "코_16",
+      "url": "output/%EC%BD%94_16/dashboard.html"
+    },
+    {
       "title": "수영장 다녀온 뒤 콧물 안 멈추고 코막힘 심하다면 - 염소 자극 줄이는 습관 3가지",
       "topic": "코_17",
       "url": "output/%EC%BD%94_17/dashboard.html"
+    },
+    {
+      "title": "미각성 비염, 매운 음식에 콧물 난다면 지금 확인하세요 - 콧물 줄이는 습관 3가지",
+      "topic": "코_18",
+      "url": "output/%EC%BD%94_18/dashboard.html"
+    },
+    {
+      "title": "코털 왁싱, 유행이라고 그대로 따라 했다면 - 감염 없이 다듬는 방법 3가지",
+      "topic": "코_20",
+      "url": "output/%EC%BD%94_20/dashboard.html"
+    },
+    {
+      "title": "위축성 비염, 코딱지 크고 냄새난다면 - 코 점막 지키는 습관 3가지",
+      "topic": "코_21",
+      "url": "output/%EC%BD%94_21/dashboard.html"
+    },
+    {
+      "title": "축농증, 혹시 콧물이 계속 막히지 않나요 - 콧속 배출 돕는 습관",
+      "topic": "코_4",
+      "url": "output/%EC%BD%94_4/dashboard.html"
+    },
+    {
+      "title": "후각 저하, 냄새가 둔해졌는데 방치하셨다면 잠깐 - 후각 지키는 습관",
+      "topic": "코_5",
+      "url": "output/%EC%BD%94_5/dashboard.html"
+    },
+    {
+      "title": "후비루, 콧물이 목 뒤로 자꾸 넘어가는 게 나만 그런가 싶었다면 - 헛기침 줄이는 습관",
+      "topic": "코_6",
+      "url": "output/%EC%BD%94_6/dashboard.html"
+    },
+    {
+      "title": "비중격만곡증, 코 한쪽만 계속 막혀서 답답하신가요? - 한쪽 코막힘 관리법",
+      "topic": "코_7",
+      "url": "output/%EC%BD%94_7/dashboard.html"
+    },
+    {
+      "title": "부비동염 두통, 눈 밑과 이마가 아프다면 - 두통 줄이는 습관",
+      "topic": "코_8",
+      "url": "output/%EC%BD%94_8/dashboard.html"
     }
   ],
   "코털가위": [
@@ -4914,9 +4718,19 @@
   ],
   "쿨매트": [
     {
+      "title": "밤에 이불을 걷었다 덮었다 하고, 낮엔 갑자기 얼굴이 화끈거린다면 - 갱년기 열감·야간발한 부르는 음식",
+      "topic": "여성_4/ko",
+      "url": "output/%EC%97%AC%EC%84%B1_4/ko/dashboard.html"
+    },
+    {
       "title": "열대야, 밤에도 25도 안 내려가 잠들기 힘들다면 - 숙면 방해 습관 3가지",
       "topic": "계절질환_3",
       "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_3/dashboard.html"
+    },
+    {
+      "title": "갱년기증상 중 열감, 밤마다 깨는 이유 - 내 방아쇠 찾는 법",
+      "topic": "여성_4",
+      "url": "output/%EC%97%AC%EC%84%B1_4/dashboard.html"
     }
   ],
   "쿨패치": [
@@ -4950,11 +4764,6 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_14/dashboard.html"
     },
     {
-      "title": "야간뇨, 전립선 아니라 어제 마신 술 때문일 수 있어요 - 방광 자극하는 음주 습관 3가지",
-      "topic": "비뇨기_15",
-      "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_15/dashboard.html"
-    },
-    {
       "title": "신우신염, 방광염이 낫지 않고 열까지 난다면 - 신장 지키는 습관",
       "topic": "비뇨기_8",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_8/dashboard.html"
@@ -4967,13 +4776,6 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_16/dashboard.html"
     }
   ],
-  "클라이밍 초크": [
-    {
-      "title": "손가락 활차 손상, 크림프 자세로 잡을 때마다 찌릿하다면 - 손가락 지키는 클라이밍 습관",
-      "topic": "근골격_21",
-      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_21/dashboard.html"
-    }
-  ],
   "키위": [
     {
       "title": "코피가 부쩍 자주 나고 한 번 나면 잘 멎지 않는다면 - 코피 자주 나게 하는 습관 피하는 법",
@@ -4982,11 +4784,6 @@
     }
   ],
   "탄력밴드": [
-    {
-      "title": "위고비, 마운자로 맞고 계셨다면 잠깐 - 근손실 막고 요요 줄이는 습관",
-      "topic": "대사_14",
-      "url": "output/%EB%8C%80%EC%82%AC_14/dashboard.html"
-    },
     {
       "title": "요요현상, 덜 먹는데도 살이 더 잘 찐다면 - 대사량 지키는 다이어트 습관",
       "topic": "대사_16",
@@ -5008,13 +4805,6 @@
       "title": "양치할 때 잇몸에서 피가 자주 난다면 주목! - 잇몸출혈 부르는 음식 피하는 법",
       "topic": "입_3",
       "url": "output/%EC%9E%85_3/dashboard.html"
-    }
-  ],
-  "탈취스프레이": [
-    {
-      "title": "머리카락 냄새, 씻어도 안 빠지는 진짜 이유와 줄이는 법",
-      "topic": "냄새_13",
-      "url": "output/%EB%83%84%EC%83%88_13/dashboard.html"
     }
   ],
   "텀블러": [
@@ -5074,11 +4864,6 @@
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_14/dashboard.html"
     },
     {
-      "title": "야간뇨, 전립선 아니라 어제 마신 술 때문일 수 있어요 - 방광 자극하는 음주 습관 3가지",
-      "topic": "비뇨기_15",
-      "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_15/dashboard.html"
-    },
-    {
       "title": "크레아틴, 헬스인 10명 중 4명이 챙긴다는데 - 신장 수치 오해 부르는 습관 3가지",
       "topic": "비뇨기_16",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_16/dashboard.html"
@@ -5114,13 +4899,6 @@
       "url": "output/%ED%94%BC%EB%A1%9C_4/dashboard.html"
     }
   ],
-  "테이핑 밴드": [
-    {
-      "title": "손가락 활차 손상, 크림프 자세로 잡을 때마다 찌릿하다면 - 손가락 지키는 클라이밍 습관",
-      "topic": "근골격_21",
-      "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_21/dashboard.html"
-    }
-  ],
   "통곡물 시리얼": [
     {
       "title": "저혈당, 사실 당뇨병 없어도 식후에 이렇게 와요 - 반응성 저혈당 부르는 습관 3가지",
@@ -5140,18 +4918,18 @@
       "url": "output/%EC%9E%85_3/dashboard.html"
     }
   ],
-  "통밀 식품": [
-    {
-      "title": "가슴이 타는 듯 쓰리고 신물이 자꾸 올라온다면 주목! - 역류성 식도염 부르는 음식 피하는 법",
-      "topic": "소화_1/ko",
-      "url": "output/%EC%86%8C%ED%99%94_1/ko/dashboard.html"
-    }
-  ],
   "통풍 메쉬 모자": [
     {
       "title": "두피 냄새, 머리 자주 감고 계셨다면 잠깐 - 두피 냄새 줄이는 습관 3가지",
       "topic": "냄새_2/ko",
       "url": "output/%EB%83%84%EC%83%88_2/ko/dashboard.html"
+    }
+  ],
+  "투약기": [
+    {
+      "title": "해열제 교차복용, 한 번 먹였는데 열이 다시 오를 때 - 간격·횟수·몸무게 3가지",
+      "topic": "육아_1",
+      "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_1/dashboard.html"
     }
   ],
   "튼살크림": [
@@ -5209,6 +4987,11 @@
     }
   ],
   "페퍼민트차": [
+    {
+      "title": "소장세균과다증식, 유산균 먹는데 왜 더 부풀까요 - 장 속 가스 줄이는 습관 3가지",
+      "topic": "소화_21",
+      "url": "output/%EC%86%8C%ED%99%94_21/dashboard.html"
+    },
     {
       "title": "복부팽만, 스프링클 케이크 먹고 배 아프다면 주목! - 소화 편하게 즐기는 법 3가지",
       "topic": "소화_27",
@@ -5275,16 +5058,23 @@
       "url": "output/%EB%8C%80%EC%82%AC_13/dashboard.html"
     }
   ],
+  "풋샴푸": [
+    {
+      "title": "사타구니 냄새, 매일 씻어도 여름마다 심해진다면 이제 그만 - 냄새 줄이는 습관 3가지",
+      "topic": "냄새_10",
+      "url": "output/%EB%83%84%EC%83%88_10/dashboard.html"
+    },
+    {
+      "title": "발냄새, 신발 벗을 때마다 신경 쓰이셨다면 잠깐 - 냄새 안 나는 발 관리법 3가지",
+      "topic": "냄새_7",
+      "url": "output/%EB%83%84%EC%83%88_7/dashboard.html"
+    }
+  ],
   "프로바이오틱스": [
     {
       "title": "만성염증, 피로감이나 붓기, 체중정체 하나라도 있다면 - 염증 잡는 식습관 3가지",
       "topic": "대사_21",
       "url": "output/%EB%8C%80%EC%82%AC_21/dashboard.html"
-    },
-    {
-      "title": "미세먼지, 장까지 간다는 사실 몰랐다면 저장부터 하세요 - 장 건강 지키는 습관 3가지",
-      "topic": "미세먼지_11",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_11/dashboard.html"
     }
   ],
   "필라테스밴드": [
@@ -5304,13 +5094,6 @@
       "title": "모공각화증(닭살 피부), 팔뚝에 오돌토돌 자꾸 올라온다면 - 각질 덜 쌓이게 하는 관리법",
       "topic": "피부_15",
       "url": "output/%ED%94%BC%EB%B6%80_15/dashboard.html"
-    }
-  ],
-  "필박스": [
-    {
-      "title": "약물 유발 어지럼증, 혈압약이나 수면제 드시다가 - 낙상 줄이는 복약 습관 3가지",
-      "topic": "어지럼증_11",
-      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_11/dashboard.html"
     }
   ],
   "핫팩": [
@@ -5387,20 +5170,6 @@
       "url": "output/%EB%A8%B8%EB%A6%AC_12/dashboard.html"
     }
   ],
-  "헤어미스트": [
-    {
-      "title": "머리카락 냄새, 씻어도 안 빠지는 진짜 이유와 줄이는 법",
-      "topic": "냄새_13",
-      "url": "output/%EB%83%84%EC%83%88_13/dashboard.html"
-    }
-  ],
-  "헤어밴드": [
-    {
-      "title": "머리카락 냄새, 씻어도 안 빠지는 진짜 이유와 줄이는 법",
-      "topic": "냄새_13",
-      "url": "output/%EB%83%84%EC%83%88_13/dashboard.html"
-    }
-  ],
   "헤파 필터 공기청정기": [
     {
       "title": "미세먼지 나쁜 날, 밖이 아니라 오히려 집 안 공기가 더 나빠요 - 실내 공기 지키는 습관",
@@ -5409,11 +5178,6 @@
     }
   ],
   "혀클리너": [
-    {
-      "title": "아침 입냄새, 양치 탓이라 생각하셨다면 이제 그만 - 침 줄어드는 이유와 관리법",
-      "topic": "냄새_5/ko",
-      "url": "output/%EB%83%84%EC%83%88_5/ko/dashboard.html"
-    },
     {
       "title": "설태, 거울 보면 혀가 하얗게 뒤덮여 있다면 - 없애는 습관 3가지",
       "topic": "입_7",
@@ -5562,11 +5326,6 @@
       "url": "output/%EB%8C%80%EC%82%AC_7/dashboard.html"
     },
     {
-      "title": "미세먼지 나쁜 날 마스크만 챙기고 계셨다면 - 혈관 심장 지키는 습관 3가지",
-      "topic": "미세먼지_5",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_5/dashboard.html"
-    },
-    {
       "title": "단백질 보충제, 근육 늘리려고 매일 드신다면 - 신장 부담 줄이는 습관",
       "topic": "비뇨기_12",
       "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_12/dashboard.html"
@@ -5582,7 +5341,7 @@
       "url": "output/%EC%88%9C%ED%99%98_11/dashboard.html"
     },
     {
-      "title": "미주신경성 실신, 헌혈이나 목욕탕에서 쓰러졌다면 - 전조증상 대처법 4가지",
+      "title": "미주신경성 실신, 화장실에서 힘주다 쓰러진다면 - 전조 신호와 대처법 3가지",
       "topic": "순환_12",
       "url": "output/%EC%88%9C%ED%99%98_12/dashboard.html"
     },
@@ -5615,11 +5374,6 @@
       "title": "어지럼증에 이런 증상 같이 온다면 지금 확인하세요 - 뇌졸중 신호 구별법",
       "topic": "어지럼증_10",
       "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_10/dashboard.html"
-    },
-    {
-      "title": "약물 유발 어지럼증, 혈압약이나 수면제 드시다가 - 낙상 줄이는 복약 습관 3가지",
-      "topic": "어지럼증_11",
-      "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_11/dashboard.html"
     },
     {
       "title": "식후저혈압, 맵고 뜨거운 음식 먹으면 어지럽다면 - 식후 어지럼증 줄이는 습관",
@@ -5666,13 +5420,6 @@
       "title": "저온화상, 뜨거워서가 아니라 전기장판 때문일 수 있어요 - 화상 예방 습관",
       "topic": "고령_14",
       "url": "output/%EA%B3%A0%EB%A0%B9_14/dashboard.html"
-    }
-  ],
-  "휴대용 공기질 측정기": [
-    {
-      "title": "미세먼지 나쁜 날 실외 운동, 그냥 나가면 위험한 이유 3가지",
-      "topic": "미세먼지_4",
-      "url": "output/%EB%AF%B8%EC%84%B8%EB%A8%BC%EC%A7%80_4/dashboard.html"
     }
   ],
   "휴대용 선풍기": [

@@ -87,6 +87,31 @@ def _final_video(topic_dir: Path) -> Path:
     return plain
 
 
+
+def _missing_clip_caption(topics: list[str]) -> list[str]:
+    """영상은 있는데 `네이버 클립` 캡션 항목이 없는 topic.
+
+    WHY(2026-09-24): 영상을 조립해 deploy까지 넣어도 `platform_captions.json`에 네이버 클립
+    항목이 없으면 미션컨트롤·대시보드에 업로드할 자리가 안 생긴다 — 만든 줄 알았는데 올릴
+    데가 없는 상태가 된다(실측 6편). 영상을 옮기는 이 자리에서 같이 본다.
+    """
+    import json
+    out = []
+    for t in topics:
+        for cand in (ROOT / "data" / t / "platform_captions.json",
+                     ROOT / "data" / t / "ko" / "platform_captions.json"):
+            if not cand.is_file():
+                continue
+            try:
+                names = [p.get("name") for p in json.loads(cand.read_text(encoding="utf-8")).get("platforms", [])]
+            except json.JSONDecodeError:
+                break
+            if "네이버 클립" not in names:
+                out.append(t)
+            break
+    return out
+
+
 def stage(dry_run: bool) -> None:
     DEPLOY_DIR.mkdir(parents=True, exist_ok=True)
     copied = skipped = 0
@@ -131,6 +156,12 @@ def stage(dry_run: bool) -> None:
         print(f"\n⚠️  deploy/health-shorts/에 원본을 못 찾은 파일 {len(rest)}개(삭제 안 함, 직접 확인할 것):")
         for p in rest:
             print("   -", p.relative_to(DEPLOY_DIR))
+
+    if no_cap := _missing_clip_caption([t for t, _ in _iter_topics()]):
+        print(f"\n🚨 영상은 있는데 `네이버 클립` 캡션이 없는 topic {len(no_cap)}개 — "
+              "미션컨트롤에 업로드할 자리가 안 생긴다. platform_captions.json에 항목을 넣어라:")
+        for t in no_cap:
+            print("   -", t)
 
     print(f"\n완료 — 새로 복사/갱신 {copied}건, 이미 최신 {skipped}건")
     print(f"deploy 위치: {DEPLOY_DIR}")
