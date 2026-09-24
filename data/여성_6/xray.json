@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "_why": "새 대본(2026-09-24 재작성, 체지방 칸 삭제) 기준 — 위치 하나를 기전 층위로: 자궁 벽 3층·생리혈은 내막에서 → 내막 쪽 근종은 작아도 쏟아짐 → 바깥쪽은 커도 눌리기만(방광·직장) → 40%지만 절반은 무증상 → 출혈형은 빈혈. 도입부 통념 반박('크기보다 층')은 근종이 자라 솟는 m_cell_overgrowth로.",
   "top_title": "자궁근종, 크기보다 위치",
   "inset": {
     "clip": "assets_library/xray/output/m_blood_loss.mp4",
@@ -13,60 +13,57 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_press_one_side_lower_abdomen.mp4"
+      "clip": "assets_library/xray/output/act_shift_uncomfortably_seated.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_uterus_ovary.mp4"
+      "clip": "assets_library/xray/output/m_cell_overgrowth.mp4"
     }
   ],
-  "_mech": [
-    "m_blood_loss",
-    "m_oxygen_transport_drop",
-    "m_fat_accumulation"
-  ],
-  "_items": [
-    "생리대",
-    "빈혈",
-    "체중계"
-  ],
-  "summary_from": "음식으로 근종 자체가",
+  "summary_from": "초음파로 위치부터",
   "timeline": [
     {
-      "from": "자궁내막 바로 아래",
+      "from": "자궁 벽은 안쪽 내막",
+      "item": "생리대",
+      "mech": "part_uterus_ovary",
+      "act": "act_press_one_side_lower_abdomen",
+      "label": "자궁 벽"
+    },
+    {
+      "from": "근종이 내막 바로 아래에서",
       "item": "생리대",
       "mech": "m_blood_loss",
       "act": "act_shift_uncomfortably_seated",
-      "label": "출혈"
+      "label": "자궁 내막"
     },
     {
-      "from": "두 번째로는 빈혈이에요.",
-      "item": "빈혈",
-      "mech": "m_oxygen_transport_drop",
-      "act": "act_doze_off_sitting",
-      "label": "빈혈"
+      "from": "반대로 바깥쪽으로 자란",
+      "item": "변기",
+      "mech": "m_wall_outpouching",
+      "act": "act_strain_on_toilet",
+      "label": "자궁 바깥 벽"
     },
     {
-      "from": "적혈구가 줄어 산소를",
+      "from": "질병관리청은 35세 이상",
+      "item": "노화",
+      "mech": "part_uterus_ovary",
+      "act": "act_stand_still_unaware",
+      "label": "자궁"
+    },
+    {
+      "from": "출혈형이 무서운 건",
       "item": "빈혈",
       "mech": "m_oxygen_transport_drop",
       "act": "act_gasp_for_breath",
-      "label": "빈혈"
+      "label": "적혈구"
     },
     {
-      "from": "마지막으로 체지방이에요.",
-      "item": "체중계",
-      "mech": "m_fat_accumulation",
-      "act": "act_large_meal_after_fasting",
-      "label": "내장지방"
-    },
-    {
-      "from": "음식으로 근종 자체가",
-      "item": "체중계",
-      "mech": "m_fat_accumulation",
+      "from": "초음파로 위치부터",
+      "item": "달력",
+      "mech": "m_blood_loss",
       "act": null,
-      "label": "내장지방"
+      "label": "자궁 내막"
     }
   ],
-  "opening_until": 12.64,
+  "opening_until": 10.88,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

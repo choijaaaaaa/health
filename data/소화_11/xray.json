@@ -1,6 +1,6 @@
 {
-  "_why": "원고 전면 재작성(2026-09-24). 각도를 '스트레스·고포드맵·거친 섬유'에서 '사람들이 실제로 검색하는 약(자동완성 1위)과 유산균(3위)'으로 바꿨다 — 옛 원고의 고포드맵 항목은 소화_21(SIBO)·소화_5(복부팽만)와 통째로 겹쳐 있었다. 클립은 lib.clip_index에서 골랐고 avoid 기록을 그대로 반영했다.",
-  "top_title": "과민성대장증후군, 약과 유산균 제대로 쓰기",
+  "_why": "원고 전면 재작성(2026-09-24) — 약·유산균·몰아 먹는 식사 나열을 빼고 '약이 왜 그때뿐인가' 하나로 좁혔다: 장 신경의 예민함 → 변 모양으로 갈리는 형 → 형을 모르고 쓰면 지사제↔변비약 시소. 칸도 그 층위로 나눴다.",
+  "top_title": "약 먹어도 며칠 뒤 또 배가 아프다면",
   "inset": {
     "clip": "assets_library/xray/output/part_intestines.mp4",
     "crop": [
@@ -19,62 +19,51 @@
       "clip": "assets_library/xray/output/part_intestines.mp4"
     }
   ],
-  "_acts": [
-    "act_strain_on_toilet",
-    "act_take_supplement",
-    "act_large_meal_after_fasting"
-  ],
-  "_mech": [
-    "m_motility_slowdown",
-    "m_nerve_overdrive",
-    "m_arousal_spike"
-  ],
-  "_items": [
-    "알약",
-    "영양제",
-    "흰쌀밥"
-  ],
-  "_clip_notes": "색인(lib.clip_index)에서 고른 근거와 잘라 쓸 구간. ①도입부 act_rush_to_toilet은 앞모습에서 방광이 켜지는 구간이 먼저라 4.3초부터(옆모습으로 돌아 장 전체가 켜진 채 걸어가는 구간)만 쓴다 — 색인 avoid에 적힌 그대로다. ②1번 항목 행위는 act_take_supplement가 아니라 act_strain_on_toilet이다: 2번 항목(유산균)이 알약 삼키는 동작을 쓰므로 둘 다 같은 클립을 쓰면 화면이 구별되지 않는다. 1번 항목의 결론이 '변비형이 지사제를 집으면 내용물이 멈춘다'라 변기에서 힘주는 동작이 그 상태 자체다(색인 fits: 변비·배변 시 힘주기·딱딱한 변). ③m_nerve_overdrive는 색인 fits에 '내장 과감각·통증 증폭'이 그대로 적혀 있어 2번 항목 기전에 맞다 — m_wall_stretch_pain은 앞 2초가 무릎 관절처럼 보이는데 조립기가 클립을 0초부터 루프하므로 그 구간을 피할 방법이 없어 쓰지 않았다. ④m_arousal_spike는 avoid대로 나레이션에서 관이 신경인지 혈관인지 특정하지 않았다('대장을 밀어내는 신호가 터지듯 몰려'). ⑤3번 항목 행위 act_large_meal_after_fasting은 라이브러리에 없어 clip_requests.json에 요청했다 — 차선은 act_shift_uncomfortably_seated(앉은 채 들썩이다 아랫배를 누름)지만 그건 먹는 행동이 아니라 결과라 비슷한 걸로 때우지 않는다. act_grab_belly는 색인 avoid대로 어느 소화기 질환에나 붙는 뭉뚱그린 동작이라 제외했다.",
-  "summary_from": "끼니를 거르지 말고",
-  "_summary_why": "이 구절부터 해결책 — 영상 칸 없이 칠판 전체로 간다.",
+  "summary_from": "그러니 약은 정해진",
   "timeline": [
     {
-      "from": "예민한 장을 건드리는 건",
+      "from": "약이 그때뿐인 건",
       "item": "알약",
-      "mech": "m_nerve_overdrive",
+      "mech": "m_motility_speedup",
       "act": "act_take_supplement",
+      "label": "장"
+    },
+    {
+      "from": "문제는 장 신경이에요",
+      "item": "소화불량",
+      "mech": "m_nerve_overdrive",
+      "act": "act_urgent_watery_bowel",
       "label": "장 신경"
     },
     {
-      "from": "먼저 약이에요",
-      "item": "알약",
+      "from": "게다가 이 병은",
+      "item": "변기",
+      "mech": "m_content_hardening",
       "act": "act_strain_on_toilet",
+      "label": "대장 끝"
+    },
+    {
+      "from": "설사형과 변비형을",
+      "item": "변기",
+      "mech": "m_osmotic_water_pull",
+      "act": "act_rush_to_toilet",
+      "label": "대장"
+    },
+    {
+      "from": "형을 모르고 약을",
+      "item": "알약",
       "mech": "m_motility_slowdown",
-      "label": "변비"
-    },
-    {
-      "from": "두 번째는 유산균이에요",
-      "item": "영양제",
       "act": "act_take_supplement",
-      "mech": "m_nerve_overdrive",
-      "label": "신경 과흥분"
+      "label": "장 근육"
     },
     {
-      "from": "마지막은 몰아 먹는 식사예요",
-      "item": "흰쌀밥",
-      "act": "act_large_meal_after_fasting",
-      "mech": "m_arousal_spike",
-      "label": "신호 폭증"
-    },
-    {
-      "from": "끼니를 거르지 말고",
-      "item": "흰쌀밥",
-      "mech": "m_arousal_spike",
+      "from": "그러니 약은 정해진",
+      "item": "바나나",
+      "mech": "m_motility_slowdown",
       "act": null,
-      "label": "신호 폭증"
+      "label": "장"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 칸(왼쪽 act · 오른쪽 mech)이 바뀐다. item은 assets-shared 사진 품목명이어야 한다(약·유산균·식사는 사진이 없어 배정표에 있는 알약·영양제·흰쌀밥을 쓴다).",
-  "opening_until": 13.44,
-  "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①13.7~18.8 약이 그때뿐 + '검사에선 장이 멀쩡': act_take_supplement + m_motility_speedup(호박색 없이 고리가 관을 차례로 조이는 평범한 연동 — 멀쩡한 장). ②18.8~31.6 장 신경이 크게 받아들여 급한 신호로 키움, 약은 그 예민함을 못 끔: act_urgent_watery_bowel(아랫배를 움켜쥐자 섬광) + m_nerve_overdrive. 4초짜리 '지사제나 변비약은' 문장을 따로 떼면 칸이 깜빡여 한 구간(12.8초)으로 뒀다. ③31.6~40.0 변 모양으로 형이 갈림(딱딱한 변 쪽): act_strain_on_toilet + m_content_hardening(관 속 내용물이 굳어 막힘 — 색인 fits '변이 딱딱해짐'). ④40.0~44.6 설사형·변비형·혼합형: act_rush_to_toilet + m_osmotic_water_pull(묽은 변). 도입부와 같은 행위지만 첫 칸이 아니고 사이에 세 칸이 있다. ⑤44.6~55.4 지사제를 넉넉히 먹으면 장이 느려져 변비: act_take_supplement(①과 세 칸 떨어짐) + m_motility_slowdown(덩어리가 관 중간에 멈춤). '변비약을 먹으면 다시 설사로'는 3초뿐이라 따로 칸을 두지 않았다. 도입부는 통클립 두 개(act_rush_to_toilet → part_intestines).",
+  "opening_until": 13.36
 }

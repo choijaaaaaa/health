@@ -1,6 +1,6 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "역류성식도염, 밤중 역류 줄이기",
+  "_why": "원고 전면 재작성(2026-09-24) — 벨트·허리둘레·박하사탕을 빼고 '누우면 꺼지는 장치 두 개(중력·침)' + 위가 차 있는 시간으로 밤 역류 하나를 팠다. 칸도 그 층위로 나눴다.",
+  "top_title": "누우면 신물이 올라온다면",
   "inset": {
     "clip": "assets_library/xray/output/m_reflux_backflow.mp4",
     "crop": [
@@ -13,68 +13,64 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_toss_turn.mp4",
-      "range": [
-        3.4,
-        5.0
-      ]
+      "clip": "assets_library/xray/output/act_sleep_paralysis.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_stomach.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/m_reflux_backflow.mp4"
     }
-  ],
-  "_mech": [
-    "m_reflux_backflow",
-    "m_pressure_buildup",
-    "m_tissue_laxity"
-  ],
-  "_items": [
-    "시계",
-    "체중계",
-    "사탕"
   ],
   "summary_from": "그러니 저녁은 잠들기",
   "timeline": [
     {
-      "from": "먼저 잠들기 직전",
-      "item": "시계",
+      "from": "밤에 유독 심한 건",
+      "item": "식후눕기",
+      "mech": "part_stomach",
+      "act": "act_toss_turn",
+      "label": "위"
+    },
+    {
+      "from": "하나는 중력이에요",
+      "item": "식후눕기",
       "mech": "m_reflux_backflow",
-      "label": "역류",
-      "act": "act_large_meal_after_fasting"
+      "act": "act_sleep_paralysis",
+      "label": "식도 입구"
     },
     {
-      "from": "두 번째로는 배를",
-      "item": "체중계",
-      "mech": "m_pressure_buildup",
-      "label": "복압",
-      "act": "act_grab_belly"
+      "from": "다른 하나는 침이에요",
+      "item": "베개",
+      "mech": "m_motility_speedup",
+      "act": "act_drink_caffeine",
+      "label": "식도"
     },
     {
-      "from": "질병관리청은 허리둘레가 남자",
-      "item": "체중계",
-      "mech": "m_pressure_buildup",
-      "label": "복압",
-      "act": "act_shift_uncomfortably_seated"
+      "from": "잠들면 삼킴이 줄어서",
+      "item": "베개",
+      "mech": "m_mucosa_irritant_contact",
+      "act": "act_snore",
+      "label": "식도 점막"
     },
     {
-      "from": "마지막으로 박하사탕이에요.",
-      "item": "사탕",
-      "mech": "m_tissue_laxity",
-      "label": "식도 조임근",
-      "act": "act_take_supplement"
+      "from": "가슴쓰림보다 밤 기침이나",
+      "item": "베개",
+      "mech": "m_cell_damage",
+      "act": "act_cough",
+      "label": "목"
+    },
+    {
+      "from": "여기에 위가 차 있으면",
+      "item": "튀김",
+      "mech": "m_emptying_delay",
+      "act": "act_large_meal_after_fasting",
+      "label": "위 출구"
     },
     {
       "from": "그러니 저녁은 잠들기",
-      "item": "사탕",
-      "mech": "m_tissue_laxity",
+      "item": "시계",
+      "mech": "m_emptying_delay",
       "act": null,
-      "label": "식도 조임근"
+      "label": "위"
     }
   ],
-  "opening_until": 3.2,
-  "_timeline_why": "왼쪽 행위 · 오른쪽 기전(2026-09-24 행위 칸 배정·라벨 정정). ①3.7~18.9초 잠들기 직전 식사: act_large_meal_after_fasting — 식탁 가득한 그릇 앞에서 숟가락을 쉬지 않고 나르고 식도–위가 차례로 켜진다. 이 항목이 말하는 행동이 '자기 직전에 먹는 것'이라 식사 장면이 맞다. ②18.9~29.1초 배를 조이는 습관: act_grab_belly — 두 팔로 배를 감싸 조이고 위·장이 넓게 켜진다. '벨트·보정속옷이 배 안 압력을 올린다'를 몸으로 보여주는 동작이다. ③29.1~39.1초 허리둘레 기준: act_shift_uncomfortably_seated — 앉은 채 배가 접혀 눌리는 자세로 들썩이다 아랫배를 누른다. ②와 붙어 있는 구간이라 같은 클립을 쓰지 않고, 복부 압력이라는 같은 이야기를 '서서 조임 → 앉아서 눌림'으로 다른 그림으로 잇는다. ④39.1~52.2초 박하사탕: act_take_supplement — 속이 답답할 때 뭔가를 입에 털어 넣는 동작(알약을 털어 넣고 식도·위가 켜진다). 사탕을 무는 전용 클립은 라이브러리에 없고, '입에 넣는 동작'으로는 이게 유일하다. ⑤52.2~65.6초 저녁 시간·수면 자세: act_toss_turn — 서 있다가 옆으로 누워 웅크린다. 상체를 올려 눕는 이야기를 하는 자리라 눕는 동작이 맞다(도입부에서 3.4~5.0초 구간만 잘라 썼고 여기선 통클립이라 그림이 다르다). 라벨 정정: ②③이 '담즙 분비'로 적혀 있었는데 역류 topic에 담즙은 나오지 않는다 — m_pressure_buildup이 실제로 보여주는 건 차오르는 압력이라 '복압'으로, ④~⑥의 '탄력 저하'는 늘어지는 부위를 짚어 '식도 조임근'으로 바꿨다(나레이션 '조임근이 늘어지면 위산이 막힘없이 올라와요'와 같은 말)."
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①11.1~16.6 '누우면 장치 두 개가 꺼진다': act_toss_turn(서 있다 옆으로 눕는다) + part_stomach. ②16.6~24.5 중력: act_sleep_paralysis(바닥에 똑바로 누운 몸, 입~식도가 점등 — 프레임 확인) + m_reflux_backflow(위의 액체가 식도로 밀려 올라감). 도입부 첫 클립과 같은 행위지만 첫 칸이 아니고 '누우면 위와 식도가 나란해진다'가 이 자세 그 자체다. ③24.5~29.9 침으로 씻어 내림: act_drink_caffeine(깨어서 삼키는 동작, 끝에 뇌가 켜져 '깨어 있을 땐'과 맞는다) + m_motility_speedup(식도 고리가 차례로 조이며 내려보냄). ④29.9~34.2 잠들면 삼킴이 줄어 위산이 머묾: act_snore(누워 입 벌린 채 잠듦) + m_mucosa_irritant_contact(점막에 떨어진 산이 닿은 자리부터 달아오름). ⑤34.2~38.8 밤 기침·쉰 목: act_cough + m_cell_damage(산이 점막 틈으로 파고듦). ⑥38.8~47.8 위가 차 있음: act_large_meal_after_fasting + m_emptying_delay(출구가 좁아 방울만 통과, 위가 가득 참). 도입부는 통클립 두 개 — 누운 몸에서 식도까지 켜지는 act_sleep_paralysis → m_reflux_backflow(훅 '신물이 목까지').",
+  "opening_until": 10.8
 }

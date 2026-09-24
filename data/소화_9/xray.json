@@ -1,6 +1,6 @@
 {
-  "_why": "반투명 인체 포맷 시험(2026-09-18). inset은 pilot_A 마지막 장면(카메라 정지, 위가 빛나는 몸통)을 원형으로 잘라 불빛만 맥동시킨다 — 줌 구간을 반복하면 정신없다는 지적으로 고정 장면으로 바꿨다.",
-  "top_title": "위염, 위 점막 지키는 습관",
+  "_why": "원고 전면 재작성(2026-09-24) — 커피·진통제·짠 음식 나열에서 '매운 게 원인이 아니라 얇아진 위벽을 드러내는 신호'로 축을 바꿨다. 칸은 위벽이 버티는 원리 → 매운맛이 크게 느껴지는 이유 → 벽을 깎는 둘(소염진통제·빈속 커피)로 나눴다.",
+  "top_title": "매운 것만 먹으면 속이 쓰리다면",
   "inset": {
     "clip": "assets_library/xray/output/pilot_A.mp4",
     "crop": [
@@ -13,43 +13,64 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/pilot_B2.mp4"
+      "clip": "assets_library/xray/output/act_shared_pot_dipping.mp4"
     },
     {
-      "clip": "assets_library/xray/output/pilot_A.mp4"
+      "clip": "assets_library/xray/output/part_stomach.mp4"
     }
   ],
+  "summary_from": "그러니 소염진통제는",
   "timeline": [
     {
-      "from": "먼저 커피",
+      "from": "위는 강한 산을",
+      "item": "속쓰림",
+      "mech": "m_mucus_barrier",
+      "act": "pilot_B",
+      "label": "위 점막"
+    },
+    {
+      "from": "매운맛은 사실 맛이",
+      "item": "고추",
+      "mech": "m_nerve_overdrive",
+      "act": "act_shared_pot_dipping",
+      "label": "위 신경"
+    },
+    {
+      "from": "매운 음식은 원인이라기보다",
+      "item": "고추",
+      "mech": "m_tissue_thinning",
+      "act": "act_grab_belly",
+      "label": "위벽"
+    },
+    {
+      "from": "그럼 벽은 무엇이",
+      "item": "이부프로펜",
+      "mech": "m_hormone_drop",
+      "act": "act_take_supplement",
+      "label": "위벽 세포"
+    },
+    {
+      "from": "진통제를 며칠 연달아",
+      "item": "이부프로펜",
+      "mech": "m_ph_disruption",
+      "act": "pilot_B",
+      "label": "위 점막"
+    },
+    {
+      "from": "둘째는 빈속에 마시는",
       "item": "커피",
       "mech": "m_acid_secretion",
-      "label": "위산 과다",
-      "act": "act_drink_caffeine"
+      "act": "act_drink_caffeine",
+      "label": "위산 분비 세포"
     },
     {
-      "from": "두 번째로는",
-      "item": "이부프로펜",
+      "from": "그러니 소염진통제는",
+      "item": "알약",
       "mech": "m_mucus_barrier",
-      "label": "점액 보호막",
-      "act": "act_take_supplement"
-    },
-    {
-      "from": "마지막으로 짠",
-      "item": "소금",
-      "mech": "m_cell_damage",
-      "label": "점막 손상",
-      "act": "act_shared_pot_dipping"
-    },
-    {
-      "from": "카페인은 하루",
-      "item": "소금",
-      "mech": "m_cell_damage",
       "act": null,
-      "label": "점막 손상"
+      "label": "위"
     }
   ],
-  "_timeline_why": "구절이 나오는 시각부터 칠판 항목 라벨(item)과 위쪽 영상 칸(mech = assets_library/xray/output/<이름>.mp4)이 바뀐다.",
-  "summary_from": "카페인은 하루",
-  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다."
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①12.8~23.8 위가 자기 산에 안 녹는 이유: pilot_B(배를 감싸 웅크림, 위만 점등 — 속쓰림) + m_mucus_barrier(점액이 세포를 덮어씌움). ②23.8~31.4 매운맛은 통증 자극: act_shared_pot_dipping(찌개를 떠먹고 국물이 호박색으로 달아오름 = 매운 음식) + m_nerve_overdrive(통증 증폭). ③31.4~35.7 '벽이 얇아졌다는 신호': act_grab_belly + m_tissue_thinning(층이 얇아짐). ④35.7~47.6 소염진통제가 점액 신호를 끔: act_take_supplement(알약) + m_hormone_drop(신호 알갱이가 끊기고 빈 구멍만 남음). ⑤47.6~51.6 며칠 연달아 먹으면 쓰려옴: pilot_B + m_ph_disruption(표면 보호 구조가 쓰러져 민둥해짐). ⑥51.6~63.0 빈속 커피: act_drink_caffeine + m_acid_secretion. 도입부는 통클립 두 개 — 매운 찌개를 떠먹는 act_shared_pot_dipping(훅 '매운 걸 먹은 날마다') → part_stomach(위만 점등).",
+  "opening_until": 11.6
 }

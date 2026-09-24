@@ -1,5 +1,5 @@
 {
-  "_why": "원고 전면 재작성(2026-09-24) — 각도를 헌혈·목욕탕에서 자동완성 2위 '미주신경성 실신 똥'(배변·배뇨 상황실신)으로 바꿈. 클립은 프레임을 직접 뽑아 확인하고 골랐다.",
+  "_why": "새 대본(2026-09-24 재작성, '더운 곳에 서 있기' 삭제) 기준으로 칸을 기전 층위로 다시 나눔 — 미주신경이 켜져 장·심장이 동시에 반응(복통=이미 혈압 하강) → 걷는 동안 피가 다리로 → 힘주기가 심장으로 오는 피를 막음 → 뇌까지 못 감 → 누가 잘 쓰러지나(상황·탈수). act_toilet_strain_faint 수령 완료로 도입부 복귀.",
   "top_title": "화장실에서 힘주다 눈앞이 하얘진다면",
   "inset": {
     "clip": "assets_library/xray/output/m_vagal_slowdown.mp4",
@@ -9,89 +9,68 @@
       720,
       500
     ],
-    "label": "뇌"
+    "label": "미주신경"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_strain_on_toilet.mp4",
-      "_pending": "clip_requests.json — 아직 안 받음. 라이브러리의 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질과 구별이 안 되고, act_sink_to_floor는 선 자세 붕괴라 화장실 맥락이 없다.",
-      "_swap_why": "act_toilet_strain_faint 미수령 — 받으면 되돌릴 것"
+      "clip": "assets_library/xray/output/act_toilet_strain_faint.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_brain.mp4"
+      "clip": "assets_library/xray/output/act_rush_to_toilet.mp4"
     }
-  ],
-  "_mech": [
-    "m_vagal_slowdown",
-    "m_vessel_dilation",
-    "m_blood_flow_drop"
-  ],
-  "_items": [
-    "변기",
-    "압박스타킹",
-    "이온음료",
-    "소금",
-    "혈압계"
   ],
   "summary_from": "속이 메스껍고 하품이",
   "timeline": [
     {
-      "from": "힘주기, 더운 곳에",
-      "item": "변기",
+      "from": "배와 심장에 함께 닿아",
+      "item": "맥박",
+      "mech": "m_vagal_slowdown",
+      "act": "act_urgent_watery_bowel",
+      "label": "미주신경"
+    },
+    {
+      "from": "배가 아플 때 이미 혈압은",
+      "item": "맥박",
+      "mech": "m_blood_shunting",
+      "act": "act_rush_to_toilet",
+      "label": "다리 혈관"
+    },
+    {
+      "from": "거기서 숨을 참고",
+      "item": "실신",
       "mech": "m_blood_flow_drop",
       "act": "act_strain_on_toilet",
       "label": "심장으로 오는 피"
     },
     {
-      "from": "먼저 힘주기예요",
-      "item": "변기",
+      "from": "줄어든 피가 한 번 더",
+      "item": "실신",
       "mech": "m_oxygen_transport_drop",
-      "act": "act_strain_on_toilet",
-      "label": "뇌로 가는 산소"
+      "act": "act_sink_to_floor",
+      "label": "뇌로 가는 피"
     },
     {
-      "from": "변기에 5분 넘게",
-      "item": "변기",
+      "from": "그래서 변비로 오래",
+      "item": "알람시계",
       "mech": "m_vagal_slowdown",
-      "act": "act_strain_on_toilet",
-      "label": "신경"
-    },
-    {
-      "from": "두 번째는 더운",
-      "item": "압박스타킹",
-      "mech": "m_vessel_dilation",
-      "act": "act_wipe_sweat",
-      "label": "피부 혈관"
-    },
-    {
-      "from": "오래 서 있어야 하면",
-      "item": "압박스타킹",
-      "mech": "m_blood_flow_drop",
-      "act": "act_stand_still_unaware",
-      "label": "다리 정맥"
-    },
-    {
-      "from": "마지막은 물 부족이에요",
-      "item": "이온음료",
-      "mech": "m_dehydration",
       "act": "act_toilet_check",
-      "label": "체액량"
+      "label": "미주신경"
     },
     {
-      "from": "하루에 물 2리터",
-      "item": "이온음료",
-      "mech": "m_dehydration",
-      "act": "act_drink_caffeine",
-      "label": "혈압"
+      "from": "땀을 많이 흘렸거나",
+      "item": "알람시계",
+      "mech": "m_electrolyte_imbalance",
+      "act": "act_wipe_sweat",
+      "label": "혈액량"
     },
     {
       "from": "속이 메스껍고 하품이",
       "item": "의자",
       "mech": "m_vagal_slowdown",
       "act": null,
-      "label": "신경"
+      "label": "미주신경"
     }
   ],
-  "opening_until": 9.28,
+  "opening_until": 11.76,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

@@ -522,6 +522,10 @@ _MYTH_PATTERNS = [
     re.compile(r"(떠올리|여기|착각하|믿|넘기|생각하)(지만|는데|기 쉽지만)"),
     re.compile(r"(반대(쪽|로)|~?가 아니라)"),
     re.compile(r"(분|사람|경우)이 많은데"),
+    re.compile(r"다고들\s*(하는데|하지만|해요)"),   # "몇 잔을 마셔도 괜찮다고들 하는데"(비뇨기_18 오탐)
+    # 시청자가 믿는 것 → 뒤집기. "다들 배탈인 줄 알고 … 그런데", "좋다고 … 챙기지만", "순서가 반대예요"(2026-09-24 오탐)
+    re.compile(r"(다고|줄\s*알고)[^?!]{0,60}(지만|그런데|는데)"),   # 한 문장 넘어 "그런데"로 뒤집는 경우까지
+    re.compile(r"순서가\s*반대"),
     re.compile(r"오히려"),
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
@@ -557,8 +561,8 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
         return []
     # ⚠️ 스펙 위치가 topic마다 다르다(check_search_keyword와 같은 사정) — flat만 보면 ko/ 폴더를 쓰는
     # topic이 content_v2 마커를 달아도 깊이 검사가 조용히 꺼진 채 "문제 없음"으로 통과한다.
-    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
-                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
+    spec_path = next((p for p in (_data_dir(topic) / "card_news_spec.json",
+                                  _data_dir(topic) / "ko" / "card_news_spec.json") if p.exists()), None)
     nar_path = _data_dir(topic) / "narration.txt"
     if spec_path is None or not nar_path.exists():
         return []
@@ -660,8 +664,8 @@ def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
     항목 누락은 확정적이라 high, 제목은 어휘 일치 휴리스틱이라 medium으로 둔다."""
     if lang not in ("kor", "ko"):
         return []
-    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
-                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
+    spec_path = next((p for p in (_data_dir(topic) / "card_news_spec.json",
+                                  _data_dir(topic) / "ko" / "card_news_spec.json") if p.exists()), None)
     nar_path = _data_dir(topic) / "narration.txt"
     if spec_path is None or not nar_path.exists():
         return []
@@ -942,8 +946,8 @@ def check_search_keyword(topic: str, lang: str = "kor") -> list[dict]:
         return []
     # ⚠️ 스펙 위치가 topic마다 다르다(캡션과 같은 사정 — "한국어 캡션 파일은 topic마다 위치가 다르다" 절).
     # flat만 보면 ko/ 폴더를 쓰는 54개 topic이 검사 없이 통과한다.
-    spec_path = next((p for p in (_data_dir(topic) / "ko" / "card_news_spec.json",
-                                  _data_dir(topic) / "card_news_spec.json") if p.exists()), None)
+    spec_path = next((p for p in (_data_dir(topic) / "card_news_spec.json",
+                                  _data_dir(topic) / "ko" / "card_news_spec.json") if p.exists()), None)
     if spec_path is None:
         return []
     try:

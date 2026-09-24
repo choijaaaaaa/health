@@ -1,73 +1,69 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "_why": "원고 전면 재작성(2026-09-24) — 제로 탄산·사탕·껌 세 품목 나열을 빼고 '알룰로스가 지나가는 길' 하나(소장 흡수 한계 → 소변 배출 → 대장 삼투압 → 세균 발효 → 한 번에 들어간 양)로 팠다. 칸도 그 길의 층위로 나눴다.",
   "top_title": "제로음료 마시고 배가 끓는다면",
   "inset": {
-    "clip": "assets_library/xray/output/m_urine_overproduction.mp4",
+    "clip": "assets_library/xray/output/part_intestines.mp4",
     "crop": [
       0,
-      400,
+      420,
       720,
-      500
+      510
     ],
     "label": "장"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_grab_belly.mp4",
-      "range": [
-        2.6,
-        4.0
-      ]
+      "clip": "assets_library/xray/output/act_grab_belly.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_intestines.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/part_intestines.mp4"
     }
-  ],
-  "_mech": [
-    "m_urine_overproduction",
-    "m_osmotic_water_pull",
-    "m_bacteria_growth"
-  ],
-  "_items": [
-    "탄산음료",
-    "사탕",
-    "껌"
   ],
   "summary_from": "배탈이 안 나는 선은",
   "timeline": [
     {
-      "from": "먼저 제로 탄산음료예요.",
+      "from": "부글거림은 알룰로스가",
+      "item": "탄산음료",
+      "mech": "m_nutrient_absorption_block",
+      "act": "act_drink_caffeine",
+      "label": "소장"
+    },
+    {
+      "from": "들어간 몫은 쓰이지",
       "item": "탄산음료",
       "mech": "m_urine_overproduction",
-      "label": "다뇨",
-      "act": "act_drink_caffeine"
+      "act": "act_toilet_check",
+      "label": "신장"
     },
     {
-      "from": "두 번째로는 무설탕",
-      "item": "사탕",
+      "from": "탈은 소장이 못 받은",
+      "item": "변기",
       "mech": "m_osmotic_water_pull",
-      "label": "설사",
-      "act": "act_rush_to_toilet"
+      "act": "act_urgent_watery_bowel",
+      "label": "대장"
     },
     {
-      "from": "마지막으로 무설탕 껌이에요.",
-      "item": "껌",
-      "mech": "m_bacteria_growth",
-      "label": "세균 번식",
-      "act": "act_shift_uncomfortably_seated"
+      "from": "거기서 장내 세균이",
+      "item": "소화불량",
+      "mech": "m_gas_fermentation",
+      "act": "act_shift_uncomfortably_seated",
+      "label": "장내 세균"
+    },
+    {
+      "from": "그래서 탈을 가르는 건",
+      "item": "탄산음료",
+      "mech": "m_nutrient_absorption_block",
+      "act": "act_drink_caffeine",
+      "label": "소장 입구"
     },
     {
       "from": "배탈이 안 나는 선은",
-      "item": "껌",
-      "mech": "m_bacteria_growth",
+      "item": "흰쌀밥",
+      "mech": "m_nutrient_absorption_block",
       "act": null,
-      "label": "세균 번식"
+      "label": "소장"
     }
   ],
-  "opening_until": 4.72,
-  "_timeline_why": "왼쪽 행위 · 오른쪽 기전(2026-09-24 행위 칸 배정). ①5.1~19.7초 제로 탄산음료: act_drink_caffeine — 컵을 들어 고개를 젖혀 마시고 식도·위가 켜진다. 이 구간이 말하는 행동이 '얼음컵째 들이켠다' 그 자체다(색인 fits에 '음료 섭취·공복에 마심'). ②19.7~29.9초 무설탕 사탕: act_rush_to_toilet — 방광이 켜진 뒤 급히 걸어가고 마지막에 배를 감싼다. '삼투압으로 장에 물을 끌어당겨 변이 묽어진다'가 시청자에게 실제로 벌어지는 일이라 그 결과 동작을 붙였다. ③29.9~43.8초 무설탕 껌: act_shift_uncomfortably_seated — 앉은 채 계속 들썩이다 아랫배를 누르고 상체를 숙인다. '가스가 차고 배가 더부룩해진다'와 맞고, ②의 '급히 화장실로 간다'와 동작이 달라 항목이 바뀐 게 보인다. ④43.8~55.0초 허용량: act_drink_caffeine을 한 번 더 — '한 번에 체중 1kg당 0.4g'은 한 번에 얼마나 마시느냐의 이야기라 마시는 동작으로 돌아오는 게 맞다(①과 22초 떨어져 있어 붙어 보이지 않는다). ⑤55.0초부터는 결론이라 칸을 만들지 않는다."
+  "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①12.9~22.7 소장 흡수 한계: act_drink_caffeine(컵째 들이켬 = 훅의 '얼음컵째') + m_nutrient_absorption_block(프레임 확인: 판 구멍에 일부만 들어가고 금빛 구슬들이 표면에 줄줄이 남는다 = '한 번에 들일 양에 한계'). ②22.7~30.1 소변 배출: act_toilet_check(변기 앞 소변, 방광·신장 점등) + m_urine_overproduction. ③30.1~39.1 대장 삼투압: act_urgent_watery_bowel(아랫배 움켜쥠, 설사) + m_osmotic_water_pull. ④39.1~44.5 발효: act_shift_uncomfortably_seated(아랫배 더부룩) + m_gas_fermentation(세균에서 기포가 차오름). ⑤44.5~53.2 한 번에 들어간 양: ①과 같은 짝으로 돌아온다 — '빈속에 들이켠 음료가 한꺼번에 쏟아져 넘친다'가 ①의 흡수 한계 그림 그대로라서(①과 22초 떨어져 있다). 도입부는 통클립 두 개(act_grab_belly 부글거림 → part_intestines). inset은 옛 m_urine_overproduction에 '장' 라벨이 붙어 있던 걸 part_intestines로 바로잡았다.",
+  "opening_until": 12.56
 }

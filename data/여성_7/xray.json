@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 배치1(2026-09-23). 클립은 에이전트가 프레임을 직접 확인해 고름.",
+  "_why": "새 대본(2026-09-24 재작성, 번호 나열 삭제 → 인슐린 한 줄 연쇄) 기준 칸: 인슐린저항성(수용체 포화) → 남는 인슐린이 난소를 자극·남성호르몬·배란 건너뜀 → 같은 남성호르몬이 턱·목 피지샘(act_jaw_acne_to_ovary, 여성 체형, 턱·목 피지샘→난소 점등) → 계속 높은 인슐린·당뇨 약 4배. act_check_jaw_mirror는 남성 체형이라 안 씀. 도입부 통념 반박('살쪄서 생리가 꼬였다')은 m_fat_accumulation.",
   "top_title": "다낭성난소증후군, 인슐린부터",
   "inset": {
     "clip": "assets_library/xray/output/m_receptor_desensitization.mp4",
@@ -9,50 +9,54 @@
       720,
       500
     ],
-    "label": "난소"
+    "label": "인슐린 수용체"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_press_one_side_lower_abdomen.mp4"
+      "clip": "assets_library/xray/output/part_uterus_ovary.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_uterus_ovary.mp4"
+      "clip": "assets_library/xray/output/m_fat_accumulation.mp4"
     }
   ],
-  "_mech": [
-    "m_receptor_desensitization",
-    "m_hormone_surge",
-    "m_sebum_overproduction"
-  ],
-  "_items": [
-    "영양제",
-    "귀리",
-    "체중계"
-  ],
-  "summary_from": "서울대학교병원은 원래 체중",
+  "summary_from": "그러니 표적은 인슐린이에요",
   "timeline": [
     {
-      "from": "두 번째로는 남성호르몬",
-      "item": "귀리",
+      "from": "뿌리는 인슐린저항성이에요",
+      "item": "혈당계",
+      "mech": "m_receptor_desensitization",
+      "act": "act_large_meal_after_fasting",
+      "label": "인슐린 수용체"
+    },
+    {
+      "from": "남아도는 인슐린은",
+      "item": "생리대",
       "mech": "m_hormone_surge",
-      "act": "act_stand_still_unaware",
-      "label": "호르몬 급증"
+      "act": "act_press_one_side_lower_abdomen",
+      "label": "난소"
     },
     {
-      "from": "마지막으로 피지 과다예요.",
-      "item": "체중계",
+      "from": "같은 남성호르몬이 피지샘을",
+      "item": "턱",
       "mech": "m_sebum_overproduction",
-      "label": "피지 과다",
-      "act": "act_jaw_acne_to_ovary"
+      "act": "act_jaw_acne_to_ovary",
+      "label": "피지샘"
     },
     {
-      "from": "서울대학교병원은 원래 체중",
+      "from": "그래서 생리 문제로만",
+      "item": "혈당계",
+      "mech": "m_glucose_spike",
+      "act": "act_large_meal_after_fasting",
+      "label": "혈관 속 당"
+    },
+    {
+      "from": "그러니 표적은 인슐린이에요",
       "item": "체중계",
-      "mech": "m_sebum_overproduction",
+      "mech": "m_fat_breakdown",
       "act": null,
-      "label": "피지 과다"
+      "label": "지방세포"
     }
   ],
-  "opening_until": 19.36,
+  "opening_until": 14.56,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

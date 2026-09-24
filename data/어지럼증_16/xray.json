@@ -1,5 +1,5 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "_why": "새 대본(2026-09-24 재작성)은 이석증 하나만 다룬다 — 메니에르병·전정신경염 칸 삭제. 칸은 기전 층위로: 이석이 반고리관으로 들어감 → 고개를 움직이면 결정이 굴러 림프액을 끔(감각 불일치) → 그래서 자세 바꿀 때만 돎 → 가라앉으면 멈춤(1분 기준) → 듣는 기관과 무관(귀 먹먹·이명이면 이석증 아님). 도입부는 range 없이 통클립.",
   "top_title": "이석증 증상, 다른 어지럼과 구별",
   "inset": {
     "clip": "assets_library/xray/output/m_otolith_displacement.mp4",
@@ -13,74 +13,56 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_toss_turn.mp4",
-      "range": [
-        3.4,
-        5.0
-      ]
+      "clip": "assets_library/xray/output/act_toss_turn.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_ear_inner.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/part_ear_inner.mp4"
     }
-  ],
-  "_mech": [
-    "m_otolith_displacement",
-    "m_pressure_buildup",
-    "m_inflammation"
-  ],
-  "_items": [
-    "시계",
-    "보청기",
-    "면역세포"
   ],
   "summary_from": "이석증이면 이비인후과에서",
   "timeline": [
     {
-      "from": "먼저 지속 시간이에요.",
-      "item": "시계",
+      "from": "귓속엔 머리 기울기를",
+      "item": "귀",
       "mech": "m_otolith_displacement",
       "act": "act_hold_head",
+      "label": "이석"
+    },
+    {
+      "from": "고개를 움직이면 이 결정이",
+      "item": "어지럼증",
+      "mech": "m_sensory_mismatch",
+      "act": "pilot_C2",
+      "label": "귀 속 감각세포"
+    },
+    {
+      "from": "그래서 눕거나 일어날 때",
+      "item": "어지럼증",
+      "mech": "m_otolith_displacement",
+      "act": "act_toss_turn",
       "label": "반고리관"
     },
     {
-      "from": "대한이비인후과학회는 이 어지럼이",
+      "from": "결정이 바닥에 가라앉으면",
       "item": "시계",
-      "mech": "m_otolith_displacement",
-      "act": "pilot_C2",
-      "label": "평형기관"
+      "mech": "m_crystal_precipitation",
+      "act": "pilot_C",
+      "label": "이석"
     },
     {
-      "from": "두 번째로는 귀",
-      "item": "보청기",
-      "mech": "m_pressure_buildup",
+      "from": "듣는 기관과는 상관없어",
+      "item": "귀",
+      "mech": "m_pressure_imbalance",
       "act": "act_cover_ear",
-      "label": "속귀"
-    },
-    {
-      "from": "속귀 림프액이 늘어",
-      "item": "보청기",
-      "mech": "m_pressure_buildup",
-      "act": "act_hold_head",
-      "label": "속귀 림프액"
-    },
-    {
-      "from": "마지막으로 자세와 상관없이",
-      "item": "면역세포",
-      "mech": "m_inflammation",
-      "act": "act_slow_walk",
-      "label": "전정신경"
+      "label": "달팽이관"
     },
     {
       "from": "이석증이면 이비인후과에서",
-      "item": "면역세포",
-      "mech": "m_inflammation",
+      "item": "베개",
+      "mech": "m_sensory_mismatch",
       "act": null,
-      "label": "전정신경"
+      "label": "반고리관"
     }
   ],
-  "opening_until": 4.4
+  "opening_until": 9.92
 }

@@ -1,79 +1,68 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
+  "_why": "새 대본(2026-09-24 재작성) 기준 — 커피·술·잠자리 3가지 나열 칸을 걷고 기전 층위로: 체온조절중추가 참아주는 폭이 좁아짐 → 혈관 열고 땀(뒤따르는 오한) → 체온을 올리는 방아쇠(술·이불) → 커피 연구(설문 한 번, 차이 작음) → 60~70%·4~5년. 도입부는 range 없이 통클립, 통념 반박(콩·석류즙)은 먹는 동작으로.",
   "top_title": "갱년기 열감, 방아쇠 찾기",
   "inset": {
-    "clip": "assets_library/xray/output/m_adenosine_block.mp4",
+    "clip": "assets_library/xray/output/m_hormone_drop.mp4",
     "crop": [
       0,
       400,
       720,
       500
     ],
-    "label": "난소"
+    "label": "체온조절중추"
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_wipe_sweat.mp4",
-      "range": [
-        2.6,
-        4.0
-      ]
+      "clip": "assets_library/xray/output/act_wipe_sweat.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_uterus_ovary.mp4",
-      "range": [
-        2.0,
-        3.4
-      ]
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
     }
   ],
-  "_mech": [
-    "m_adenosine_block",
-    "m_vessel_dilation",
-    "m_sweat_overproduction"
-  ],
-  "_items": [
-    "커피",
-    "와인",
-    "이불"
-  ],
-  "summary_from": "석류즙이나 콩이",
+  "summary_from": "2주 동안 열감이 온",
   "timeline": [
     {
-      "from": "먼저 커피예요.",
-      "item": "커피",
-      "mech": "m_adenosine_block",
-      "act": "act_drink_caffeine",
-      "label": "뇌 수용체"
-    },
-    {
-      "from": "메이요클리닉이 갱년기 여성",
-      "item": "커피",
+      "from": "열감은 뇌의 체온조절중추에서",
+      "item": "홍조",
       "mech": "m_hormone_drop",
-      "act": "act_wipe_sweat",
-      "label": "호르몬"
+      "act": "act_toss_turn",
+      "label": "체온조절중추"
     },
     {
-      "from": "두 번째로는 술이에요.",
+      "from": "그래서 피부 혈관을 한꺼번에",
+      "item": "홍조",
+      "mech": "m_sweat_overproduction",
+      "act": "act_wipe_sweat",
+      "label": "땀샘"
+    },
+    {
+      "from": "그러니 체온을 살짝",
       "item": "와인",
       "mech": "m_vessel_dilation",
       "act": "act_drink_alcohol_with_painkiller",
       "label": "피부 혈관"
     },
     {
-      "from": "마지막으로 더운 잠자리예요.",
-      "item": "이불",
-      "mech": "m_sweat_overproduction",
-      "act": "act_toss_turn",
-      "label": "땀샘"
+      "from": "커피는 메이요클리닉이",
+      "item": "커피",
+      "mech": "m_adenosine_block",
+      "act": "act_drink_caffeine",
+      "label": "뇌 수용체"
     },
     {
-      "from": "석류즙이나 콩이",
-      "item": "이불",
-      "mech": "m_sweat_overproduction",
+      "from": "질병관리청은 폐경이행기",
+      "item": "시계",
+      "mech": "m_ovarian_reserve_decline",
+      "act": "act_toss_turn",
+      "label": "난소"
+    },
+    {
+      "from": "2주 동안 열감이 온",
+      "item": "달력",
+      "mech": "m_hormone_drop",
       "act": null,
-      "label": "땀샘"
+      "label": "체온조절중추"
     }
   ],
-  "opening_until": 4.72
+  "opening_until": 13.52
 }

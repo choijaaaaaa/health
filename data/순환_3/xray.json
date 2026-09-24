@@ -1,6 +1,6 @@
 {
-  "_why": "전량 재제작 배치2(2026-09-23). 클립은 원고 에이전트가 프레임을 직접 확인해 고름.",
-  "top_title": "하지정맥류, 다리 부기 줄이기",
+  "_why": "새 대본(2026-09-24 재작성, 판막 하나를 기전 중심으로) 기준으로 칸을 다시 나눔 — 판막이 늘어져 역류 → 서 있는 동안 종아리에 고임(양말 자국) → 판막에 짐을 얹는 습관(국물 나트륨·변기 힘주기). 해결책(발뒤꿈치 들기)은 칠판 구간이라 act_heel_raise_calf_pump는 안 씀. 도입부는 훅=다리 정맥 전체, 통념 반박('열은 오히려 더 넓혀요')=혈관 확장으로 맞추고 act_bulging_leg_veins는 판막 칸으로 옮김.",
+  "top_title": "하지정맥류, 저녁마다 다리가 붓는다면",
   "inset": {
     "clip": "assets_library/xray/output/m_vessel_dilation.mp4",
     "crop": [
@@ -13,46 +13,50 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_bulging_leg_veins.mp4"
+      "clip": "assets_library/xray/output/part_legs_veins.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_legs_veins.mp4"
+      "clip": "assets_library/xray/output/m_vessel_dilation.mp4"
     }
   ],
-  "_mech": [
-    "m_vessel_dilation",
-    "m_fluid_retention",
-    "m_backflow_pooling"
-  ],
-  "_items": [
-    "사우나",
-    "소금",
-    "귀리"
-  ],
-  "summary_from": "관리는 종아리 근육을",
+  "summary_from": "목표는 판막을 되돌리는",
   "timeline": [
     {
-      "from": "두 번째로는 짠",
-      "item": "소금",
-      "mech": "m_fluid_retention",
-      "act": "act_shared_pot_dipping",
-      "label": "종아리 조직"
+      "from": "다리 정맥에는 피가 거꾸로",
+      "item": "거미줄혈관",
+      "mech": "m_backflow_pooling",
+      "act": "act_bulging_leg_veins",
+      "label": "정맥 판막"
     },
     {
-      "from": "마지막으로 변비예요.",
-      "item": "귀리",
+      "from": "그러면 서 있는 동안",
+      "item": "부종",
+      "mech": "m_vessel_dilation",
+      "act": "act_sniff_self",
+      "label": "종아리 정맥"
+    },
+    {
+      "from": "그래서 판막에 짐을",
+      "item": "설렁탕곰탕",
+      "mech": "m_fluid_retention",
+      "act": "act_shared_pot_dipping",
+      "label": "혈관 속 수분"
+    },
+    {
+      "from": "변기에서 오래 힘주면",
+      "item": "변기",
       "mech": "m_backflow_pooling",
       "act": "act_strain_on_toilet",
       "label": "정맥 판막"
     },
     {
-      "from": "관리는 종아리 근육을",
-      "item": "압박스타킹",
-      "mech": "m_backflow_pooling",
+      "from": "목표는 판막을 되돌리는",
+      "item": "운동화",
+      "mech": "m_tissue_laxity",
       "act": null,
       "label": "정맥 판막"
     }
   ],
-  "opening_until": 16.8,
+  "opening_until": 13.28,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }
