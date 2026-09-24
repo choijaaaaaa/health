@@ -96,6 +96,21 @@ def track_of_path(path: Path) -> str | None:
     return next((names[q.name] for q in path.parents if q.name in names), None)
 
 
+def topic_of_path(path: Path, base: Path) -> str | None:
+    """`output/육아/육아_1/card_news` 같은 경로에서 **평평한 topic 이름**을 읽는다.
+
+    🚨 topic 식별자에는 트랙 폴더를 넣지 않는다 — 이 저장소에서 `topic` 안의 `/`는 이미
+    **언어**를 뜻한다(`가슴쓰림_1/en`). `육아/육아_1`로 부르면 dashboard·youtube_upload·
+    fish_tts가 `육아_1`을 언어 코드로 읽는다. 트랙은 경로에만 있고 이름에는 없다."""
+    try:
+        parts = path.resolve().relative_to(base.resolve()).parts
+    except ValueError:
+        return None
+    if not parts:
+        return None
+    return parts[1] if parts[0] in track_dirs() and len(parts) > 1 else parts[0]
+
+
 def work_paths(track: str | None) -> tuple[Path, Path, Path]:
     """(작업지시 시트, 스틸 폴더, 완성클립 받는 곳). 이름은 tests/test_xray_worksheet_path.py가 막는다."""
     work = ROOT / "assets_library" / "xray" / (TRACKS[track]["work"] if track else DEFAULT["work"])

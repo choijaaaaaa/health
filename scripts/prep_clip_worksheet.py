@@ -112,6 +112,31 @@ def _existing_still(sub: str, name: str, track: str | None) -> Path | None:
     return None
 
 
+def _harvest_loose_stills(pend: list[list], work: Path, track: str | None) -> None:
+    """`1_스틸/`에만 있고 stills/에는 없는 스틸을 먼저 원본 자리로 옮긴다.
+
+    🚨 아래에서 이 폴더를 통째로 지우고 다시 채운다 — 사람이 방금 넣은 스틸이
+    stills/act|mech/에 사본이 없으면 그대로 사라진다. 이 저장소는 세션 여럿이
+    같이 쓰고(육아 트랙 등) 시트 갱신은 아무 세션이나 돌리므로, 내가 안 지워도
+    남이 지운다. 지우기 전에 원본 자리로 건져낸다(2026-09-24).
+    """
+    if not work.exists():
+        return
+    want = {r["name"]: sub for _t, r, sub in pend}
+    for f in sorted(work.glob("*.jpg")):
+        name = f.stem.split("_", 1)[1] if f.stem[:2].isdigit() and "_" in f.stem else f.stem
+        sub = want.get(name)
+        if not sub:
+            continue
+        # 스틸 자체가 산출물인 요청(아기 캐논 등)은 act/mech로 가르지 않고 트랙 스틸 폴더에 둔다
+        dst = (tracks.stills_dir(track) if sub == "still" else STILLS / sub) / f"{name}.jpg"
+        if dst.exists():
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(f, dst)
+        print(f"  건져냄: {f.name} → {dst.relative_to(ROOT)}")
+
+
 def main() -> None:
     # 트랙마다 시트를 따로 낸다 — 한 폴더에 섞이면 번호가 엉켜 "몇 번을 뽑으라는 거냐"가 된다
     for track in [None, *tracks.TRACKS]:
@@ -125,6 +150,7 @@ def build(track: str | None) -> None:
         return
     # 스틸이 있는 것을 앞 번호로 — 바로 Flow만 돌리면 되는 것부터 보이게
     pend.sort(key=lambda x: (_existing_still(x[2], x[1]["name"], track) is None, x[0]))
+    _harvest_loose_stills(pend, work, track)
     if work.exists():
         shutil.rmtree(work)
     work.mkdir(parents=True)
