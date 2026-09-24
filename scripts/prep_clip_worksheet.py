@@ -153,8 +153,15 @@ def build(track: str | None) -> None:
     pend = _pending(track)
     if not pend and not sheet.exists():
         return
-    # 스틸이 있는 것을 앞 번호로 — 바로 Flow만 돌리면 되는 것부터 보이게
-    pend.sort(key=lambda x: (_existing_still(x[2], x[1]["name"], track) is None, x[0]))
+    # 번호는 시트에 실리는 차례(0부 스틸 → 1부 Flow만 → 2부 미드저니부터)와 같아야 한다.
+    # 안 그러면 "01~09 미드저니 먼저 / 03~11 스틸만"처럼 구간이 겹쳐 무엇부터 할지 알 수 없다.
+    def order(x):
+        _topic, r, sub = x
+        if sub == "still":
+            return (0, _topic)
+        return (1 if _existing_still(sub, r["name"], track) else 2, _topic)
+
+    pend.sort(key=order)
     _harvest_loose_stills(pend, work, track)
     if work.exists():
         shutil.rmtree(work)
