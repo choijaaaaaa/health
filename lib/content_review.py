@@ -506,7 +506,10 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
 # 본보기 소화_14조차 82.3초다. 숫자를 지킬 수 없는 채로 두면 경고가 상시 켜져 있어 아무도 안 본다.
 # 실제로 만들어져 통과한 길이에 맞춰 85초로 둔다.
 V2_MIN_SECONDS, V2_MAX_SECONDS = 62, 85
-V2_MIN_NUMBERS = 3
+# 2026-09-24 3 → 1: "증상 하나를 깊게"로 대본 방향을 바꾼 뒤(사용자 "임상 이야기만 좀 하고 치워버려"),
+# 숫자 개수를 채우라는 검사가 오히려 '숫자만 던지기'를 부른다. 실행할 수 있는 수치는 하나라도 있어야 하지만
+# 몇 개를 박느냐보다 그 숫자가 '언제·얼마나·그래서 뭘'을 받치는지가 기준이다(XRAY_FORMAT 2절).
+V2_MIN_NUMBERS = 1
 # "명·세·살"은 건강 콘텐츠에서 가장 흔한 단위인데 빠져 있었다(2026-09-23) — "인구 천 명당 17.2명",
 # "만 50세부터"처럼 실행에 직결되는 수치가 통째로 안 잡혀 원고를 멀쩡히 쓰고도 미달로 걸렸다.
 _NUM_WITH_UNIT = re.compile(
@@ -522,6 +525,9 @@ _MYTH_PATTERNS = [
     re.compile(r"오히려"),
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
+                    # "신장내과로 가세요"·"안과로 가세요"·"119를 부르세요" — 진료과·응급 연락도 병원 신호다(오탐 수정)
+                    re.compile(r"[가-힣]{0,6}(내과|외과|안과|이비인후과|산부인과|피부과|비뇨의학과|정형외과)(로|에|부터)"),
+                    re.compile(r"119"),
                     re.compile(r"(이런 ?증상|이럴 ?때|다음 중 하나라도)")]
 
 
@@ -707,7 +713,7 @@ MAX_ORG_MENTIONS = 2
 
 # 설명 없이 던지면 못 알아듣는 말. 값은 "이 말을 풀어줬는지" 확인할 쉬운 표현이다.
 _JARGON = {
-    "미주신경": "신경", "사구체여과율": "신장", "크레아티닌": "노폐물", "하시모토": "면역",
+    "미주신경": "신경", "사구체여과율": "신장", "크레아티닌": ("노폐물", "찌꺼기"), "하시모토": "면역",
     "갑상선자극호르몬": "호르몬", "베타차단제": "약", "전정": "귀", "포드맵": "당",
     "인슐린 저항성": "혈당", "사이토카인": "염증", "프로스타글란딘": "통증",
 }
@@ -737,9 +743,10 @@ def check_plain_language(topic: str, lang: str = "kor") -> list[dict]:
                                 f"(권장 {MAX_ORG_MENTIONS}개 이하) — 숫자를 받치는 자리가 아니면 "
                                 "사실만 말하세요."})
     for term, plain in _JARGON.items():
-        if term in text and plain not in text:
+        plains = plain if isinstance(plain, tuple) else (plain,)
+        if term in text and not any(x in text for x in plains):
             issues.append({"quote": term, "severity": "medium",
-                           "issue": f"'{term}'을(를) 설명 없이 씁니다 — 쉬운 말('{plain}')로 한 번 풀거나 빼세요."})
+                           "issue": f"'{term}'을(를) 설명 없이 씁니다 — 쉬운 말('{plains[0]}')로 한 번 풀거나 빼세요."})
     return issues
 
 
