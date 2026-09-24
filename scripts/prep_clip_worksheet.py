@@ -104,10 +104,35 @@ def _existing_still(sub: str, name: str) -> Path | None:
     return None
 
 
+def _harvest_loose_stills(pend: list[list]) -> None:
+    """`1_스틸/`에만 있고 stills/에는 없는 스틸을 먼저 원본 자리로 옮긴다.
+
+    🚨 아래에서 이 폴더를 통째로 지우고 다시 채운다 — 사람이 방금 넣은 스틸이
+    stills/act|mech/에 사본이 없으면 그대로 사라진다. 이 저장소는 세션 여럿이
+    같이 쓰고(육아 트랙 등) 시트 갱신은 아무 세션이나 돌리므로, 내가 안 지워도
+    남이 지운다. 지우기 전에 원본 자리로 건져낸다(2026-09-24).
+    """
+    if not WORK.exists():
+        return
+    want = {r["name"]: sub for _t, r, sub in pend}
+    for f in sorted(WORK.glob("*.jpg")):
+        name = f.stem.split("_", 1)[1] if f.stem[:2].isdigit() and "_" in f.stem else f.stem
+        sub = want.get(name)
+        if not sub:
+            continue
+        dst = STILLS / sub / f"{name}.jpg"
+        if dst.exists():
+            continue
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(f, dst)
+        print(f"  건져냄: {f.name} → stills/{sub}/{dst.name}")
+
+
 def main() -> None:
     pend = _pending()
     # 스틸이 있는 것을 앞 번호로 — 바로 Flow만 돌리면 되는 것부터 보이게
     pend.sort(key=lambda x: (_existing_still(x[2], x[1]["name"]) is None, x[0]))
+    _harvest_loose_stills(pend)
     if WORK.exists():
         shutil.rmtree(WORK)
     WORK.mkdir(parents=True)
