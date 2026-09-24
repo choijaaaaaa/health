@@ -1,0 +1,71 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 아기를 세워 안고 먹이는 act_baby_feed_upright 4초 + 간 점등 part_baby_liver 4초 — 통념 반박이 '물이나 포도당액은 칼로리만 줄여 황달을 키운다'로 끝나 도입 전체가 수유 이야기이고, 색소를 처리하는 자리인 간을 이어서 켜면 다음 구간(간 효소)으로 그대로 넘어간다.",
+  "top_title": "눈 흰자위가 2주째 노랗다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_liver.mp4",
+    "crop": [
+      0,
+      370,
+      720,
+      510
+    ],
+    "label": "간"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_feed_upright.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_liver.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "황달의 갈림길은",
+      "item": "물컵",
+      "mech": "m_enzyme_deficiency",
+      "act": "act_baby_feed_upright",
+      "label": "간 효소"
+    },
+    {
+      "from": "먼저 생후 24시간이에요",
+      "item": "달력",
+      "mech": "m_rbc_breakdown",
+      "act": "act_baby_press_skin",
+      "label": "혈액"
+    },
+    {
+      "from": "두 번째는 생후 2주예요",
+      "item": "모유수유",
+      "mech": "m_toxin_load",
+      "act": "act_baby_feed_upright",
+      "label": "피부 조직"
+    },
+    {
+      "from": "이때 모유부터 끊는 분이 많은데",
+      "item": "모유수유",
+      "mech": "m_enzyme_deficiency",
+      "act": "act_baby_press_skin",
+      "label": "간"
+    },
+    {
+      "from": "마지막은 기저귀 변 색이에요",
+      "item": "기저귀",
+      "mech": "m_duct_blockage",
+      "act": "act_baby_check_diaper",
+      "label": "담관"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "수유쿠션",
+      "mech": "m_rbc_breakdown",
+      "act": null,
+      "label": "혈액"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — 항목 예고 구간은 '왜 신생아만 노래지나'의 답이라 호박색 구슬이 자리를 못 찾고 관을 그냥 통과해 떨어지는 m_enzyme_deficiency(아직 덜 여문 간 효소). 생후 24시간 구간은 나레이션이 '혈액형이 안 맞아 적혈구가 깨지고 있거나'라고 그대로 말하므로 원반 세포가 깨지며 호박색 색소가 혈장으로 쏟아지는 m_rbc_breakdown. 생후 2주 구간은 색소가 몸에 오래 남아 배는 상태라 세포 핵이 먼저 물들고 세포 전체가 갈색으로 차는 m_toxin_load. 이어지는 '이때 모유부터 끊는 분이 많은데'는 후기 모유 황달 설명이고 그 기전이 간 효소 작용이 늦춰지는 것이라 m_enzyme_deficiency를 한 번 더 쓴다(설명 구간 5개 중 2회, 다양성 상한 안 — 16.7초짜리 한 덩어리로 두면 4초 클립을 4배 넘게 늘려야 해서 자막 문장 시작에서 쪼갰다). 기저귀 변 색은 담즙이 안 내려온다는 뜻이라 관 목이 울퉁불퉁 좁아지며 막히는 m_duct_blockage(색인의 쓰임새에 '담관 막힘'이 그대로 적혀 있다) — m_waste_buildup은 호박색 바늘 결정이 끼는 요산 그림이라 담즙과 모양이 다르다. ⚠️ m_uv_radiation_damage는 광선이지만 콜라겐이 끊기는 손상 장면이라 쓰지 않았고, m_phototherapy_conversion도 이 원고가 광선치료를 한 번도 말하지 않으므로(결론의 '창가 빛'은 치료가 아니라 색을 비교하는 자리다) 넣지 않았다.",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(밤에도 거르지 않는 하루 10회 이상 수유·수유등·창가 빛에서 손등 비교) — 영상 칸 없이 칠판 전체로 간다. 배지는 해결책 품목인 수유쿠션.",
+  "opening_until": 13.84,
+  "_format_why": "견본 소화_14와 같은 구성. opening_until은 통념 반박 문장이 끝나는 자막 시각(13.84초)이고 첫 구간은 14.16초라 칸이 도입 영상 위에 겹치지 않는다."
+}

@@ -1,0 +1,64 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 겨드랑이에 체온계를 물려 재는 act_baby_take_temperature 4초 + 이마 점등 part_baby_forehead 4초 — 훅이 '한 번 먹였는데 두 시간 만에 다시 불덩이'라 열을 재는 손과 달아오른 이마가 그대로 훅의 그림이다. 통념 반박(교차복용은 기본이 아니라 차선책)이 끝나는 15.36초까지 통클립으로 덮는다.",
+  "top_title": "약을 먹여도 열이 다시 오른다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_forehead.mp4",
+    "crop": [
+      0,
+      0,
+      720,
+      510
+    ],
+    "label": "이마"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_take_temperature.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_forehead.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "교차복용의 갈림길은",
+      "item": "해열제시럽",
+      "mech": "m_alternating_dose",
+      "act": "act_baby_take_temperature",
+      "label": "혈관"
+    },
+    {
+      "from": "먼저 간격이에요",
+      "item": "알람시계",
+      "mech": "m_drug_absorption",
+      "act": "act_draw_medicine_syringe",
+      "label": "장 점막"
+    },
+    {
+      "from": "두 번째는 횟수예요",
+      "item": "감기약",
+      "mech": "m_toxin_load",
+      "act": "act_baby_take_temperature",
+      "label": "간"
+    },
+    {
+      "from": "마지막은 몸무게예요",
+      "item": "아기체중계",
+      "mech": "m_glucose_spike",
+      "act": "act_draw_medicine_syringe",
+      "label": "장 융모"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "투약기",
+      "mech": "m_drug_absorption",
+      "act": null,
+      "label": "장 점막"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — 항목 예고 구간은 '교차복용이 뭔지'를 그대로 그려야 해서 두 무리가 한 관에서 교대하는 m_alternating_dose. 간격은 '앞 약이 빠지기 전에 다음 분량이 겹친다'가 요지라 농도가 올랐다가 내려오는 구간까지 있는 m_drug_absorption(m_glucose_spike는 혈관이 차는 데서 끝나 '빠지는' 구간이 없다). 횟수는 하루 상한을 넘기고 감기약의 같은 성분까지 겹칠 때 간에 쌓이는 이야기라 호박색 액체가 세포 핵부터 물들이는 m_toxin_load — m_receptor_desensitization은 '내성이 생긴다'로 읽혀 해열제엔 틀린 설명이 된다. 몸무게는 같은 한 회분이 작은 몸에선 더 짙어진다는 뜻이라 장 융모의 구슬이 혈관으로 빨려 올라가 혈관을 가득 채우는 m_glucose_spike(여기선 내려오는 구간이 필요 없다). 행위 칸은 체온 재기와 눈금 주사기로 한 칸씩 번갈아 둔다 — 간격·몸무게는 재서 정하는 것이고, 예고·횟수는 열을 재고 세는 자리다.",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(눈금 주사기·몸무게 메모·먹인 시각 기록) — 영상 칸 없이 칠판 전체로 간다. 배지는 해결책 품목인 투약기.",
+  "opening_until": 15.36,
+  "_format_why": "견본 소화_14와 같은 구성. opening_until은 통념 반박 마지막 문장('한 가지 약으로 안 잡힐 때의 차선책이에요')이 끝나는 자막 시각 — 첫 구간(15.68초)보다 앞이라 칸이 도입 영상 위에 겹치지 않는다."
+}

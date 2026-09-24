@@ -1,0 +1,64 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 겨드랑이에 체온계를 끼워 팔을 닫아주는 act_baby_take_temperature 통클립 + 누운 전신이 켜지는 part_baby_whole — 훅이 '사흘 내내 40도 고열'이라 열을 재는 손 자체가 훅 화면이고, 통념 반박('열이 내린 뒤에 발진이 나온다')은 몸통부터 번지는 전신 점등으로 받는다. range를 두지 않는 이유는 도입부 16.4초를 두 클립으로 늘려야 해서다(범위를 자르면 3~6배 배속이라 정지 화면이 된다).",
+  "top_title": "사흘 고열 끝에 온몸이 붉어졌다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_whole.mp4",
+    "crop": [
+      0,
+      420,
+      720,
+      510
+    ],
+    "label": "몸통"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_take_temperature.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_whole.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "돌발진의 갈림길은",
+      "item": "열꽃",
+      "mech": "m_virus_replication",
+      "act": "act_draw_medicine_syringe",
+      "label": "목 점막"
+    },
+    {
+      "from": "먼저 열이 지나는 순서예요",
+      "item": "체온계",
+      "mech": "m_viremia_spread",
+      "act": "act_baby_take_temperature",
+      "label": "몸통 피부"
+    },
+    {
+      "from": "두 번째는 열성경련이에요",
+      "item": "경련",
+      "mech": "m_electrical_misfire",
+      "act": "act_baby_side_lying",
+      "label": "뇌"
+    },
+    {
+      "from": "마지막은 수족구 구분이에요",
+      "item": "손발물집",
+      "mech": "m_blister_formation",
+      "act": "act_baby_check_hand_foot",
+      "label": "입안 점막"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "전해질음료",
+      "mech": "m_electrolyte_imbalance",
+      "act": null,
+      "label": "체액"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — ①갈림길 예고는 돌발진의 원인(사람 헤르페스 바이러스 6형)이 세포 안에서 불어나 터지는 m_virus_replication으로 받는다. ②'열이 사흘 가고, 내린 뒤에야 몸통부터 발진'은 바이러스가 혈류를 타고 돌다 피부 밑 모세혈관에 걸려 표면이 번지는 m_viremia_spread가 그 순서를 그대로 보여준다(m_virus_reactivation은 신경을 타고 가는 대상포진 경로라 경로가 다르다). ③🚨열성경련은 '따도 안 멈춘다, 뇌에서 나는 일이다'가 이 편의 핵심이라 손발이 아니라 뇌의 전기 신호가 엉키는 m_electrical_misfire(색인: 경련·발작·전기 신호가 꼬임)를 쓰고, 왼쪽 행위는 옆으로 눕혀 시간을 재는 act_baby_side_lying(입 앞이 비어 있는 스틸)으로 붙여 '따는 장면'이 화면에 아예 없게 했다. ④수족구 구분은 물집이 고였다 터져 얕게 헐어 남는 m_blister_formation이 '입안부터 헐고'와 그대로 맞는다. ⑤결론은 사흘 열에 빠지는 수분·전해질이라 m_electrolyte_imbalance(칠판이 덮으므로 화면엔 안 나온다).",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다.",
+  "opening_until": 16.4,
+  "_format_why": "견본(2026-09-24 확정). 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체, 배지는 해결책 품목."
+}

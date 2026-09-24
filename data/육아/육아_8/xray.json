@@ -1,0 +1,85 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 기저귀를 열어 확인하는 act_baby_lift_legs_clean 통클립 + part_baby_intestine 점등 — 훅 자체가 '기저귀를 열 때마다 물처럼 번져 있는데'라서 행위 클립이 훅과 그대로 겹친다. 이 topic이 기다리는 클립은 전부 다른 육아 topic·_shared에 이미 요청이 올라가 있다(act_baby_lift_legs_clean=육아_6, act_draw_medicine_syringe=육아_1, act_baby_feed_upright=육아_9, act_mix_formula_bottle=육아_10, m_ors_cotransport·part_baby_intestine=_shared). 중복 요청을 만들지 않으려고 이 폴더에는 clip_requests.json을 두지 않는다.",
+  "top_title": "기저귀가 물처럼 번진다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_intestine.mp4",
+    "crop": [
+      0,
+      370,
+      720,
+      510
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_lift_legs_clean.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_intestine.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "아기 설사의 갈림길은",
+      "item": "이온음료",
+      "mech": "m_osmotic_water_pull",
+      "act": "act_draw_medicine_syringe",
+      "label": "장"
+    },
+    {
+      "from": "하루 몇 번인지만",
+      "item": "기저귀",
+      "mech": "m_motility_speedup",
+      "act": "act_baby_lift_legs_clean",
+      "label": "장 연동운동"
+    },
+    {
+      "from": "집에선 무게 대신",
+      "item": "체중계",
+      "mech": "m_osmotic_water_pull",
+      "act": "act_baby_lift_legs_clean",
+      "label": "장 내강"
+    },
+    {
+      "from": "두 번째는 소변이에요",
+      "item": "기저귀",
+      "mech": "m_dehydration",
+      "act": "act_baby_lift_legs_clean",
+      "label": "체액"
+    },
+    {
+      "from": "기저귀를 갈아도",
+      "item": "경구수액",
+      "mech": "m_electrolyte_imbalance",
+      "act": "act_draw_medicine_syringe",
+      "label": "전해질"
+    },
+    {
+      "from": "마지막은 먹이기예요",
+      "item": "분유",
+      "mech": "m_barrier_leak",
+      "act": "act_baby_feed_upright",
+      "label": "장 점막"
+    },
+    {
+      "from": "분유를 묽게 타거나",
+      "item": "분유",
+      "mech": "m_nutrient_depletion",
+      "act": "act_mix_formula_bottle",
+      "label": "장 세포"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "경구수액",
+      "mech": "m_ors_cotransport",
+      "act": "act_draw_medicine_syringe",
+      "label": "장 상피"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — ①갈림길 구간은 바로 앞 통념 반박(주스·단맛 음료가 오히려 설사를 악화시킨다)을 이어받아 m_osmotic_water_pull(흡수 안 된 당이 장에 남아 물을 끌어낸다). ②설사 기준(하루 대변량 10g/kg)은 장이 내용물을 빨리 밀어내 물을 붙잡을 틈이 없다는 뜻이라 m_motility_speedup — 이 클립은 색인 주의문대로 빠른지 느린지를 화면만으론 못 읽으므로 부위 라벨을 '장 연동운동'으로 못 박고 대변량이 는다는 문장 위에만 깐다. ③'물처럼 번진 첫날'은 장 안으로 물이 몰린 그림 그대로라 m_osmotic_water_pull을 한 번 더(연속 배치는 피해 ②를 사이에 둔다). ④콩팥이 미숙해 체액을 못 붙잡는 구간은 m_dehydration(물방울이 줄다 갈라진다). ⑤기저귀가 안 젖고 입이 마르는 구간은 m_electrolyte_imbalance(관 속 구슬이 빠져나가 텅 빈다)로 '빠져나간 양'을 보여준다. ⑥굶기지 말라는 구간은 m_barrier_leak — 장벽 세포 사이가 벌어져 있는 그림이 있어야 '굶기면 그 틈이 안 메워진다'가 성립한다. ⑦희석 분유·설사분유를 말리는 구간은 m_nutrient_depletion(세포 저장분이 바닥나 회복이 더디다). ⑧결론은 신규 m_ors_cotransport(나트륨과 당이 같은 통로로 물을 끌고 들어온다) — 도입부에서 반박한 '주스가 물을 끌어낸다'의 정확한 반대 그림이다. m_wall_stretch_pain은 후보였지만 색인 주의문이 '앞 2초가 관절처럼 보이니 뒷구간만 잘라 쓰라'고 못 박는데 timeline에는 mech 구간을 자르는 자리가 없어 제외했다.",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다. 배지는 원인(이온음료)이 아니라 결론이 시키는 품목(경구수액)이다.",
+  "opening_until": 15.6,
+  "_format_why": "견본 소화_14(2026-09-24 확정) 그대로. 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체."
+}

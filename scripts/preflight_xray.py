@@ -64,7 +64,7 @@ def main() -> None:
         # 금지한다(글자수 과금, CLAUDE.md "TTS 재생성 기준"). 87초짜리 2초 때문에 돈을 쓰게
         # 하는 검사가 된다 — 다음 원고를 쓸 때 미리 맞추라는 뜻이지 이미 뽑은 걸 다시 뽑으라는
         # 뜻이 아니다. 음성이 아직 없는 topic에서는 그대로 막힌다(그때가 고칠 수 있는 때다).
-        spoken = (ROOT / "output" / t / "narration.mp3").is_file()
+        spoken = (tracks.output_dir(t) / "narration.mp3").is_file()
         pend += [i for i in found
                  if spoken and "나레이션이 실측" in i["issue"] and i not in pend]
         real = [i for i in found if i not in pend]

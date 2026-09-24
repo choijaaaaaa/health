@@ -1,0 +1,64 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 다리를 들어 엉덩이를 마른 수건으로 톡톡 두드려 말리는 act_baby_lift_legs_clean 통클립 + 표피·진피가 층으로 보이는 part_baby_skin — 훅이 '엉덩이가 벌겋게 익고'라 기저귀를 연 그 자리가 훅 화면이고, 통념 반박(파우더는 폐로 흡인될 수 있다)은 가루 대신 수건으로 말리는 같은 손이 받는다. range 없이 통클립으로 쓴다(12.96초를 두 클립이 나눠 덮는다).",
+  "top_title": "기저귀만 갈면 자지러지게 운다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_skin.mp4",
+    "crop": [
+      0,
+      385,
+      720,
+      510
+    ],
+    "label": "엉덩이 피부"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_lift_legs_clean.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_skin.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "연고보다 먼저 볼 갈림길은",
+      "item": "젖은기저귀",
+      "mech": "m_cell_damage",
+      "act": "act_baby_fasten_diaper_loose",
+      "label": "엉덩이 피부"
+    },
+    {
+      "from": "먼저 젖어 있던 시간이에요",
+      "item": "마른수건",
+      "mech": "m_skin_maceration",
+      "act": "act_baby_lift_legs_clean",
+      "label": "각질층"
+    },
+    {
+      "from": "두 번째는 조인 기저귀예요",
+      "item": "기저귀밴드",
+      "mech": "m_friction_abrasion",
+      "act": "act_baby_fasten_diaper_loose",
+      "label": "허리 접힌 살"
+    },
+    {
+      "from": "마지막은 곰팡이예요",
+      "item": "칸디다발진",
+      "mech": "m_fungal_growth",
+      "act": "act_baby_lift_legs_clean",
+      "label": "사타구니 접힌 살"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "산화아연크림",
+      "mech": "m_ph_disruption",
+      "act": null,
+      "label": "피부 장벽"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — ①갈림길 예고는 '연고보다 먼저 볼 것'이라 대소변 속 자극 물질이 세포 사이 틈으로 쐐기처럼 파고드는 m_cell_damage(색인: 자극 물질이 안으로 들어감)로 총론을 받는다. ②'오줌에 불은 각질층이 물러져 벗겨진다'는 젖어서 판이 불어 결합이 풀리고 통째로 들려 벗겨지는 m_skin_maceration 그대로다 — m_dehydration은 갈라진 가뭄 땅이라 정반대라서 배제했다. ③'꽉 조이면 고무줄 닿는 허리가 쓸린다'는 잔털 난 표면이 눌려 문질러지고 부스러기가 들리는 m_friction_abrasion이고, 점등 없이 전부 옅은 청록이라 붉게 익은 느낌을 과장하지 않는다. ④칸디다는 호박색 균사가 그물처럼 표면을 덮는 m_fungal_growth(색인: 칸디다, 습한 곳에 번식)가 이름까지 맞는다. ⑤결론은 무너진 표면 보호층을 크림으로 다시 덮는 이야기라 보호 구조물이 쓰러져 민둥해지는 m_ph_disruption을 뒤집어 쓴다(칠판이 덮으므로 화면엔 안 나온다).",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다.",
+  "opening_until": 12.96,
+  "_format_why": "견본(2026-09-24 확정). 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체, 배지는 해결책 품목."
+}

@@ -1,0 +1,71 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 숟가락으로 미음을 뜨는 act_scoop_puree_spoon 4초 + 장 점등 part_baby_intestine 4초 — 훅이 '150일이 맞다 180일이 맞다'라 날짜 대신 아기 장이 언제 준비되는지가 본론임을 도입에서 먼저 보여준다.",
+  "top_title": "150일이냐 180일이냐 못 정하겠다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_intestine.mp4",
+    "crop": [
+      0,
+      370,
+      720,
+      510
+    ],
+    "label": "장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_scoop_puree_spoon.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_intestine.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "이유식 시작을 가르는 건",
+      "item": "계란",
+      "mech": "m_barrier_leak",
+      "act": "act_scoop_puree_spoon",
+      "label": "장벽"
+    },
+    {
+      "from": "먼저 날짜예요",
+      "item": "달력",
+      "mech": "m_nutrient_depletion",
+      "act": "act_mix_formula_bottle",
+      "label": "철분 저장"
+    },
+    {
+      "from": "배 속에서 받아 온 철분은",
+      "item": "달력",
+      "mech": "m_oxygen_transport_drop",
+      "act": "act_scoop_puree_spoon",
+      "label": "혈액"
+    },
+    {
+      "from": "두 번째는 발달 신호예요",
+      "item": "아기의자",
+      "mech": "m_immune_sensitization",
+      "act": "act_baby_feed_upright",
+      "label": "장 점막"
+    },
+    {
+      "from": "마지막은 수유량이에요",
+      "item": "젖병",
+      "mech": "m_nutrient_depletion",
+      "act": "act_mix_formula_bottle",
+      "label": "영양 저장"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "아기의자",
+      "mech": "m_immune_sensitization",
+      "act": null,
+      "label": "장 점막"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — 항목 예고 구간은 통념 반박(알레르기 걱정으로 계란·생선을 미룬다)을 이어받는 자리라 타일처럼 맞붙은 세포 틈으로 소화 안 된 물질이 떨어지는 m_barrier_leak. 날짜 구간은 시간이 갈수록 저장분이 줄어드는 이야기라 세포 속 호박색 알갱이가 한 줌으로 줄어드는 m_nutrient_depletion, 이어지는 '철분은 6개월쯤 바닥나는데 모유는 철분이 적어 빈혈 쪽으로 기울어요'는 적혈구가 드문드문해지는 m_oxygen_transport_drop으로 따로 끊었다(한 덩어리로 두면 17.5초라 4초 클립을 4배 넘게 늘려야 한다 — 자막 문장 시작 '배 속에서 받아 온 철분은'에서 쪼갰다). 발달 신호 구간은 '혀로 밀어내면 아직 이르니'로 닫히는데, 아직 덜 여문 장 점막에서 낯선 단백질에 항체가 붙어 저장되는 감작이 그 '이르다'의 내용이라 m_immune_sensitization — m_histamine_release는 감작이 끝난 뒤 두 번째 노출이라 순서가 반대다. 수유량 구간은 '분유를 바로 줄이면 영양이 모자라요'라 m_nutrient_depletion을 한 번 더 쓴다(설명 구간 5개 중 2회로 다양성 상한 안).",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(달력 대신 아기를 보고, 쌀미음에 소고기로 철분을 채우고, 새 음식을 한 가지씩 3~7일) — 영상 칸 없이 칠판 전체로 간다. 배지는 해결책 품목인 아기의자.",
+  "opening_until": 16.32,
+  "_format_why": "견본 소화_14와 같은 구성. opening_until은 통념 반박 문장이 끝나는 자막 시각(16.32초)이고 첫 구간은 16.64초라 칸이 도입 영상 위에 겹치지 않는다."
+}

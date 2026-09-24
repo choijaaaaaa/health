@@ -1,0 +1,85 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 시계 방향 배 마사지 act_baby_belly_massage 통클립 + part_baby_intestine 점등 — 이 편의 해결책이 관장·꿀물이 아니라 마사지라서 도입부부터 그 손을 보여준다. 🚨 기전은 같은 배 속 이야기인 육아_9(신생아 배앓이)와 한 개도 겹치지 않는다 — 양쪽 후보에 다 있던 m_motility_slowdown은 '변이 관 중간에 멈춘다'가 이 편의 본론이라 육아_10에만 남겼고, m_wall_stretch_pain은 색인 주의문(앞 2초가 관절처럼 보이니 뒷구간만 잘라 쓸 것) 때문에 뺐다. timeline에는 mech 구간을 잘라 쓰는 자리가 없다.",
+  "top_title": "얼굴이 새빨개지도록 힘만 준다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_intestine.mp4",
+    "crop": [
+      0,
+      370,
+      720,
+      510
+    ],
+    "label": "대장"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_belly_massage.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_intestine.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "갈림길은 날짜 세기",
+      "item": "분유",
+      "mech": "m_dehydration",
+      "act": "act_mix_formula_bottle",
+      "label": "콩팥"
+    },
+    {
+      "from": "서울아산병원은 모유 먹는",
+      "item": "달력",
+      "mech": "m_motility_slowdown",
+      "act": "act_baby_lift_legs_clean",
+      "label": "대장"
+    },
+    {
+      "from": "대장은 머무는 변에서",
+      "item": "기저귀",
+      "mech": "m_water_reabsorption",
+      "act": "act_baby_lift_legs_clean",
+      "label": "대장 벽"
+    },
+    {
+      "from": "두 번째는 꿀물과 관장이에요",
+      "item": "꿀",
+      "mech": "m_tissue_tear",
+      "act": "act_baby_belly_massage",
+      "label": "항문"
+    },
+    {
+      "from": "꿀은 소독할 수 없어",
+      "item": "마사지오일",
+      "mech": "m_bacteria_growth",
+      "act": "act_baby_belly_massage",
+      "label": "장내"
+    },
+    {
+      "from": "마지막은 이유식 먹거리예요",
+      "item": "자두",
+      "mech": "m_content_hardening",
+      "act": "act_scoop_puree_spoon",
+      "label": "직장"
+    },
+    {
+      "from": "12개월이 지나면",
+      "item": "바나나",
+      "mech": "m_water_reabsorption",
+      "act": "act_scoop_puree_spoon",
+      "label": "대장 벽"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "마사지오일",
+      "mech": "m_motility_slowdown",
+      "act": "act_baby_belly_massage",
+      "label": "대장"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — ①갈림길 구간은 바로 앞 통념 반박(분유를 진하게 타면 콩팥에 부담을 주고 오히려 탈수와 변비를 부른다)을 이어받아 m_dehydration(물방울이 줄다 갈라진다), 부위는 그 문장이 짚은 콩팥. ②5일에 한 번도 정상이라는 구간은 변이 오래 머문다는 사실 자체를 보여줘야 해서 m_motility_slowdown(수축이 약해져 덩어리가 관 중간에 멈춘다). ③'대장은 머무는 변에서 물을 계속 빨아들이니'는 신규 m_water_reabsorption이 그대로 그 문장이다 — 기존 m_content_hardening은 이미 굳은 결과만 보여주고 물이 빠지는 원인 컷이 없어서 이 클립을 따로 요청해 뒀다. ④의사 지시 없는 관장을 말리는 구간은 m_tissue_tear(맞붙은 층이 V자로 찢어진다) — 왜 함부로 넣으면 안 되는지가 한 컷으로 보인다. ⑤꿀을 소독할 수 없다는 구간은 m_bacteria_growth(표면에 막대균이 번져 덮는다)로 '끓여도 안 죽는 것이 장에서 번진다'를 받는다. ⑥돌 전 자두·배 구간은 m_content_hardening(액체 방울이 울퉁불퉁한 돌덩이로 굳어 관을 막는다) — 막힌 그림이 있어야 무엇을 풀어야 하는지가 읽힌다. ⑦생우유·치즈·바나나를 줄이라는 구간은 m_water_reabsorption을 한 번 더(③과 23초 떨어져 있다) — 수분이 빠져나가는 쪽을 다시 보여줘야 먹거리 조절의 이유가 된다.",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다. 배지는 원인(꿀·바나나)이 아니라 결론이 시키는 품목(마사지오일)이다.",
+  "opening_until": 13.92,
+  "_format_why": "견본 소화_14(2026-09-24 확정) 그대로. 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체."
+}

@@ -614,7 +614,8 @@ def check_xray_clips(topic: str, lang: str = "kor") -> list[dict]:
         if not (ROOT / ref).exists() and not (lib / Path(ref).name).exists():
             issues.append({"quote": ref, "severity": "high",
                            "issue": "클립이 없습니다 — 비슷한 클립으로 바꾸지 말고 "
-                                    f"`data/{topic}/clip_requests.json`에 적어 사용자에게 렌더를 요청하세요."})
+                                    f"`{_data_dir(topic).relative_to(ROOT)}/clip_requests.json`에 적어 사용자에게 "
+                                    "렌더를 요청하세요."})
     req = _data_dir(topic) / "clip_requests.json"
     if req.exists():
         try:

@@ -1,0 +1,64 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 생리식염수 병을 뒤집어 한 방울씩 떨어뜨리는 act_nasal_saline_bottle 통클립 + 끝이 실처럼 가늘어지는 part_baby_bronchiole — 훅이 '콧물만 나던 아기가 쌕쌕거린다'라 숨길을 뚫어주는 손이 훅 화면이고, 통념 반박(영유아용 RSV 백신은 없다)은 막히는 그 숨길 점등이 받는다. range 없이 통클립으로 16.48초를 덮는다.",
+  "top_title": "콧물만 나던 아기가 쌕쌕거린다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_bronchiole.mp4",
+    "crop": [
+      0,
+      385,
+      720,
+      510
+    ],
+    "label": "세기관지"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_nasal_saline_bottle.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_bronchiole.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "아기 RSV의 갈림길은",
+      "item": "손소독제",
+      "mech": "m_mucus_overproduction",
+      "act": "act_wash_hands_soap",
+      "label": "기관지 점막"
+    },
+    {
+      "from": "먼저 기관지 굵기예요",
+      "item": "아기",
+      "mech": "m_narrow_tube_contrast",
+      "act": "act_nasal_saline_bottle",
+      "label": "세기관지"
+    },
+    {
+      "from": "두 번째는 항체 주사예요",
+      "item": "예방접종",
+      "mech": "m_antibody_neutralization",
+      "act": "act_draw_medicine_syringe",
+      "label": "혈액 속 항체"
+    },
+    {
+      "from": "마지막은 전염 기간이에요",
+      "item": "어린이집",
+      "mech": "m_virus_replication",
+      "act": "act_wash_hands_soap",
+      "label": "코·목 점막"
+    },
+    {
+      "from": "오늘부터는",
+      "item": "생리식염수",
+      "mech": "m_mucus_overproduction",
+      "act": null,
+      "label": "콧속"
+    }
+  ],
+  "_timeline_why": "기전 배정 근거 — ①갈림길 예고는 RSV가 관 벽 세포에서 점액을 뿜어 통로를 좁히는 m_mucus_overproduction으로 '어른도 걸리는 그 감기'를 먼저 세운다. ②🚨이 편의 핵심 논지가 '같은 점액이어도 아기 기관지는 원래 가늘어서 완전히 막힌다'라 굵은 관과 가는 관을 한 화면에 놓고 같은 속도로 점액이 쌓이게 하는 m_narrow_tube_contrast여야 한다 — 관 하나만 나오는 m_mucus_overproduction이나 관이 눌려 납작해지는 m_airway_collapse로는 '아기라서'가 안 드러난다. ③항체 주사는 '백신이 아니라 이미 만들어진 항체를 넣는 것'이 논지라, 몸이 항체를 만들어 세우는 m_immune_sensitization을 쓰면 이 편이 부정하는 백신 원리를 그리게 된다 — 들어온 항체가 바이러스 돌기를 덮어 세포에 못 붙게 막는 m_antibody_neutralization을 새로 요청했다. ④전염 기간은 '증상 뒤에도 바이러스가 계속 나온다'라 블록이 깨지며 입자가 쏟아져 나오는 m_virus_replication의 마지막 장면이 그대로 배출이다. ⑤결론은 수유 전 콧물 빼기라 m_mucus_overproduction을 다시 쓴다(칠판이 덮으므로 화면엔 안 나온다).",
+  "summary_from": "오늘부터는",
+  "_summary_why": "이 구절부터 결론(해결책) — 영상 칸 없이 칠판 전체(shorts_board.mp4)로 간다.",
+  "opening_until": 16.48,
+  "_format_why": "견본(2026-09-24 확정). 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체, 배지는 해결책 품목."
+}
