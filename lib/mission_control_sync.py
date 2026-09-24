@@ -109,12 +109,9 @@ def uploadable_topics() -> set[str]:
         # 다시 걸려야 한다 — 그래서 sync마다 다시 본다.
         if _preflight_issues(topic):
             continue
-        # 🚨 대본을 사용자가 **글로 승인**한 topic만 올린다(2026-09-24): 대본을 덜 다듬은 채
-        # TTS→조립→지적→재TTS를 반복해 돈만 나갔다. 승인은 xray.json의 `script_approved`(날짜)로
-        # 남긴다 — 승인 뒤 원고를 또 고치면 narration.txt가 영상보다 새것이 돼 위에서 걸린다.
-        cfg = json.loads((topic_dir / "xray.json").read_text(encoding="utf-8"))
-        if not cfg.get("script_approved"):
-            continue
+        # ⚠️ 여기에 "사용자 승인 표시" 같은 조건을 넣지 말 것(2026-09-25): 넣었더니 밤새 완성된 6편이
+        # 목록에 하나도 안 올라갔다 — 사용자 지시는 "영상 하나씩 완료될 때마다 미션컨트롤에 올려라"이고,
+        # 사용자는 **올라온 영상을 보고** 판단한다. 검사 통과·최신이면 바로 올린다.
         out.add(topic)
     return out
 
