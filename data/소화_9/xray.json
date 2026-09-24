@@ -24,19 +24,22 @@
       "from": "먼저 커피",
       "item": "커피",
       "mech": "m_acid_secretion",
-      "label": "위산 과다"
+      "label": "위산 과다",
+      "act": "act_drink_caffeine"
     },
     {
       "from": "두 번째로는",
       "item": "이부프로펜",
       "mech": "m_mucus_barrier",
-      "label": "점액 보호막"
+      "label": "점액 보호막",
+      "act": "act_take_supplement"
     },
     {
       "from": "마지막으로 짠",
       "item": "소금",
       "mech": "m_cell_damage",
-      "label": "점막 손상"
+      "label": "점막 손상",
+      "act": "act_shared_pot_dipping"
     },
     {
       "from": "카페인은 하루",

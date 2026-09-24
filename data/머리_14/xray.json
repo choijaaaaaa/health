@@ -19,13 +19,14 @@
       "clip": "assets_library/xray/output/part_skin.mp4"
     }
   ],
-  "opening_until": 15.76,
+  "opening_until": 15.28,
   "timeline": [
     {
       "from": "어디까지 가는지는",
       "item": "영양제",
       "mech": "part_skin",
-      "label": "피부"
+      "label": "피부",
+      "act": "act_take_supplement"
     },
     {
       "from": "먼저 바르는 콜라겐",
@@ -45,19 +46,22 @@
       "from": "마지막은 음식 콜라겐",
       "item": "돼지껍질튀김",
       "mech": "part_intestines",
-      "label": "장"
+      "label": "장",
+      "act": "act_large_meal_after_fasting"
     },
     {
       "from": "피부로 직행하지",
       "item": "돼지껍질튀김",
       "mech": "m_fat_accumulation",
-      "label": "지방세포"
+      "label": "지방세포",
+      "act": "act_shared_pot_dipping"
     },
     {
       "from": "세 가지 다",
       "item": "선크림",
       "mech": "m_uv_radiation_damage",
-      "label": "진피 콜라겐"
+      "label": "진피 콜라겐",
+      "act": "act_apply_face_cream"
     },
     {
       "from": "흐린 날에도",

@@ -25,7 +25,7 @@
       "item": "아기",
       "mech": "m_virus_persistence",
       "label": "신경절",
-      "act": null
+      "act": "act_shingles_band"
     },
     {
       "from": "수두를 앓은 적",
@@ -60,7 +60,7 @@
       "item": "백신",
       "mech": "m_immune_decline",
       "label": "면역세포",
-      "act": null
+      "act": "act_vaccine_shot_arm"
     },
     {
       "from": "2006년 천 명당",
@@ -81,7 +81,7 @@
       "item": "주사기",
       "mech": "m_virus_persistence",
       "label": "신경절",
-      "act": null
+      "act": "act_vaccine_shot_arm"
     },
     {
       "from": "그러니 한쪽에만",

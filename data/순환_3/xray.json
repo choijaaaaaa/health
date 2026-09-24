@@ -49,7 +49,7 @@
       "from": "관리는 종아리 근육을",
       "item": "귀리",
       "mech": "m_backflow_pooling",
-      "act": null,
+      "act": "act_heel_raise_calf_pump",
       "label": "종아리 정맥"
     },
     {
@@ -60,6 +60,6 @@
       "label": "종아리 정맥"
     }
   ],
-  "opening_until": 16.4,
+  "opening_until": 16.8,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

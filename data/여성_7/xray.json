@@ -42,7 +42,8 @@
       "from": "마지막으로 피지 과다예요.",
       "item": "체중계",
       "mech": "m_sebum_overproduction",
-      "label": "피지 과다"
+      "label": "피지 과다",
+      "act": "act_jaw_acne_to_ovary"
     },
     {
       "from": "60킬로그램이면 3킬로그램이에요.",
@@ -55,10 +56,10 @@
       "from": "질병관리청 국가건강정보포털은 가임기",
       "item": "체중계",
       "mech": "m_sebum_overproduction",
-      "act": null,
+      "act": "act_jaw_acne_to_ovary",
       "label": "피지 과다"
     }
   ],
-  "opening_until": 12.24,
+  "opening_until": 12.0,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }
