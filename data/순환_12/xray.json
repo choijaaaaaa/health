@@ -13,12 +13,13 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_toilet_strain_faint.mp4",
+      "clip": "assets_library/xray/output/act_strain_on_toilet.mp4",
       "range": [
         1.6,
         3.0
       ],
-      "_pending": "clip_requests.json — 아직 안 받음. 라이브러리의 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질과 구별이 안 되고, act_sink_to_floor는 선 자세 붕괴라 화장실 맥락이 없다."
+      "_pending": "clip_requests.json — 아직 안 받음. 라이브러리의 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질과 구별이 안 되고, act_sink_to_floor는 선 자세 붕괴라 화장실 맥락이 없다.",
+      "_swap_why": "act_toilet_strain_faint 미수령 — 받으면 되돌릴 것"
     },
     {
       "clip": "assets_library/xray/output/part_brain.mp4",

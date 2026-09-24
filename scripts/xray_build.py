@@ -174,6 +174,13 @@ def main() -> None:
     args = []
     # 도입부: 전부 시각 0 — fill_until까지 한 묶음으로 이어 붙여 전체 화면으로 덮는다
     for o in cfg.get("opening", []):
+        # 도입부 클립도 아직 못 받았을 수 있다 — timeline 쪽만 걸러내다 여기서 ffmpeg가 죽었다
+        # (2026-09-24 순환_12 실측: opening이 미수령 act_toilet_strain_faint를 가리켜 exit 254).
+        if not (ROOT / o["clip"]).exists():
+            if not a.preview:
+                raise SystemExit(f"도입부 클립 없음: {o['clip']} — clip_requests.json에 적을 것")
+            print(f"  ⚠️ 미리보기: 도입부 클립 {Path(o['clip']).stem}가 없어 건너뜁니다")
+            continue
         rng = o.get("range")
         args.append(f"0:{o['clip']}" + (f"@{rng[0]}-{rng[1]}" if rng else ""))
 
