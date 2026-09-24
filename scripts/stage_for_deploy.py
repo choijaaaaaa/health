@@ -104,9 +104,21 @@ def stage(dry_run: bool) -> None:
     stale = [] if dry_run else [
         p for p in DEPLOY_DIR.rglob("*") if p.is_file() and p not in seen
     ]
-    if stale:
-        print(f"\n⚠️  deploy/health-shorts/에 원본을 못 찾은 파일 {len(stale)}개(삭제 안 함, 직접 확인할 것):")
-        for p in stale:
+    # 🚨 카드뉴스는 원본이 사라진 파일을 **지운다.** 파일명이 항목 이름이라 원고를 고치면
+    # ("매운 음식" → "빈속 커피") 옛 카드가 새 카드와 나란히 남고, 업로드할 때 둘 다 집어
+    # 올리게 된다(2026-09-24 실측: 소화_14 deploy에 "매운 음식" 카드 2장이 남아 있었다).
+    # 영상·그 밖의 파일은 예전처럼 알리기만 한다 — 이름이 안 바뀌므로 남아 있으면 다른 사정이다.
+    removed = [p for p in stale if p.parent.name == "card_news"]
+    for p in removed:
+        p.unlink()
+    if removed:
+        print(f"\n옛 카드뉴스 {len(removed)}장 삭제(원고가 바뀌어 항목명이 달라진 것):")
+        for p in removed:
+            print("   -", p.name)
+    rest = [p for p in stale if p not in removed]
+    if rest:
+        print(f"\n⚠️  deploy/health-shorts/에 원본을 못 찾은 파일 {len(rest)}개(삭제 안 함, 직접 확인할 것):")
+        for p in rest:
             print("   -", p.relative_to(DEPLOY_DIR))
 
     print(f"\n완료 — 새로 복사/갱신 {copied}건, 이미 최신 {skipped}건")

@@ -126,10 +126,19 @@ def _group_sentences(text: str, words: list[dict]) -> list[tuple[str | None, lis
     return entries
 
 
-def _build_srt(text: str, words: list[dict]) -> str:
+def _build_srt(text: str, words: list[dict], display: str | None = None) -> str:
+    """`text`로 정렬하고, `display`가 있으면 그 문장으로 바꿔 쓴다.
+
+    WHY(2026-09-24): 숫자를 한글로 푼 텍스트로 합성하므로 단어 타임스탬프는 그 텍스트 기준이다.
+    정렬은 합성에 쓴 텍스트로 해야 맞고(글자 수 비례로 나눈다), 화면에 뜨는 글자는 숫자가 살아 있는
+    원문이어야 한다. 원문으로 정렬하면 길이가 안 맞아 **마지막에 중복 조각이 생긴다**(실측:
+    "멎지 않으면 다음 주사 를 미루 고 바로 진료 받으세요"가 한 번 더 붙었다)."""
     entries = _group_sentences(text, words)
+    shown = _split_sentences(display) if display else None
     lines = []
     for i, (sent, chunk) in enumerate(entries, start=1):
+        if shown and i - 1 < len(shown):
+            sent = shown[i - 1]
         start = _format_srt_time(chunk[0]["start"])
         end = _format_srt_time(chunk[-1]["end"])
         display_text = sent if sent is not None else " ".join(w["text"] for w in chunk)
@@ -441,7 +450,7 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     audio_path = out_dir / "narration.mp3"
     srt_path = out_dir / "narration.srt"
     audio_path.write_bytes(audio_bytes)
-    srt_path.write_text(_build_srt(text, words))
+    srt_path.write_text(_build_srt(spoken, words, display=text))
 
     duration = words[-1]["end"] if words else None
     return {

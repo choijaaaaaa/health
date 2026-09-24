@@ -1,0 +1,100 @@
+#!/usr/bin/env python3
+"""아직 못 받은 클립을 **스틸까지 한 폴더에 번호순으로 모아** 작업 시트로 낸다.
+
+WHY(2026-09-24): 시트에 번호를 붙여놓고 스틸은 `stills/act/`·`stills/mech/`에 원래 이름으로
+흩어져 있어 매칭이 안 됐다 — "번호별로 뭔지 그게 중요한건데". 시트 번호와 스틸 파일 앞 번호를
+같게 맞추고, act/mech를 가르지 않고 `작업/스틸/` 한 곳에 모은다.
+
+결과 영상만 번호 없이 원래 이름으로 저장한다(`RENDER/<이름>.mp4`) — 조립기가 그 이름으로 찾는다.
+
+    .venv/bin/python3 scripts/prep_clip_worksheet.py
+"""
+from __future__ import annotations
+
+import json
+import shutil
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+LIB = ROOT / "assets_library" / "xray" / "output"
+STILLS = ROOT / "assets_library" / "xray" / "stills"
+WORK = ROOT / "assets_library" / "xray" / "작업" / "스틸"
+SHEET = ROOT / "assets_library" / "xray" / "작업" / "지금_뽑을것.md"
+CANON = "assets_library/xray/stills/canon_organs.jpg"
+
+
+def _pending() -> list[list]:
+    out, seen = [], set()
+    for f in sorted((ROOT / "data").glob("*/clip_requests.json")):
+        topic = f.parent.name
+        try:
+            reqs = json.loads(f.read_text(encoding="utf-8")).get("requests", [])
+        except json.JSONDecodeError:
+            continue
+        for r in reqs:
+            n = r.get("name")
+            if not n or n in seen or (LIB / f"{n}.mp4").exists():
+                continue
+            seen.add(n)
+            out.append([topic, r, "mech" if n.startswith("m_") else "act"])
+    return out
+
+
+def _existing_still(sub: str, name: str) -> Path | None:
+    """번호가 붙었든 안 붙었든 그 이름으로 끝나는 스틸을 찾는다."""
+    for p in (STILLS / sub).glob(f"*{name}.jpg"):
+        return p
+    for p in WORK.glob(f"*{name}.jpg"):
+        return p
+    return None
+
+
+def main() -> None:
+    pend = _pending()
+    # 스틸이 있는 것을 앞 번호로 — 바로 Flow만 돌리면 되는 것부터 보이게
+    pend.sort(key=lambda x: (_existing_still(x[2], x[1]["name"]) is None, x[0]))
+    if WORK.exists():
+        shutil.rmtree(WORK)
+    WORK.mkdir(parents=True)
+    for i, (topic, r, sub) in enumerate(pend, 1):
+        src = _existing_still(sub, r["name"])
+        r["_no"], r["_work"] = f"{i:02d}", f"{i:02d}_{r['name']}.jpg"
+        if src:
+            shutil.copy2(src, WORK / r["_work"])
+
+    ready = [x for x in pend if (WORK / x[1]["_work"]).exists()]
+    todo = [x for x in pend if x not in ready]
+    L = [f"# 지금 뽑을 클립 {len(pend)}종\n",
+         f"\n**스틸은 전부 `{WORK.relative_to(ROOT)}/`에 번호순으로 모아뒀다.** 그 폴더만 열면 된다.\n",
+         "\n결과는 `assets_library/xray/RENDER/<클립이름>.mp4`로 저장(번호 없이, 원래 이름으로).\n",
+         "\n🚨 Flow는 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.\n",
+         "\n| # | 이름 | topic | 스틸 |\n|---|---|---|---|\n"]
+    for topic, r, _sub in pend:
+        L.append(f"| {r['_no']} | `{r['name']}` | {topic} | "
+                 f"{'✅ 있음' if (WORK / r['_work']).exists() else '❌ 미드저니부터'} |\n")
+
+    L.append(f"\n---\n\n# 1부 · 스틸 있음 — Flow만 ({len(ready)}종)\n")
+    for topic, r, _sub in ready:
+        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초)\n")
+        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
+        L.append(f"\n```\n{r.get('flow', '')}\n```\n")
+
+    L.append(f"\n---\n\n# 2부 · 미드저니부터 ({len(todo)}종)\n")
+    L.append("\n`act_`는 **Omni Reference**, `m_`는 **Style Reference**"
+             "(Omni 금지 — 클로즈업에 전신 인체가 끼어든다).\n")
+    L.append("\n뽑은 스틸은 같은 폴더에 `<번호>_<이름>.jpg`로 넣으면 된다.\n")
+    for topic, r, sub in todo:
+        mode = "Style Reference (⚠️ Omni 금지)" if sub == "mech" else "Omni Reference"
+        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초)\n")
+        L.append(f"\n**레퍼런스**: `{r.get('ref') or CANON}` — {mode} / 저장: `{r['_work']}`\n")
+        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
+        L.append(f"\n### 미드저니\n```\n{r.get('midjourney', '')}\n```\n")
+        L.append(f"\n### Flow\n```\n{r.get('flow', '')}\n```\n")
+
+    SHEET.write_text("".join(L), encoding="utf-8")
+    print(f"{SHEET.relative_to(ROOT)} — {len(pend)}종 (스틸 있음 {len(ready)} / 미드저니부터 {len(todo)})")
+    print(f"스틸 폴더: {WORK.relative_to(ROOT)}")
+
+
+if __name__ == "__main__":
+    main()
