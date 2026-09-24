@@ -65,5 +65,5 @@
     }
   ],
   "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①12.9~22.7 소장 흡수 한계: act_drink_caffeine(컵째 들이켬 = 훅의 '얼음컵째') + m_nutrient_absorption_block(프레임 확인: 판 구멍에 일부만 들어가고 금빛 구슬들이 표면에 줄줄이 남는다 = '한 번에 들일 양에 한계'). ②22.7~30.1 소변 배출: act_toilet_check(변기 앞 소변, 방광·신장 점등) + m_urine_overproduction. ③30.1~39.1 대장 삼투압: act_urgent_watery_bowel(아랫배 움켜쥠, 설사) + m_osmotic_water_pull. ④39.1~44.5 발효: act_shift_uncomfortably_seated(아랫배 더부룩) + m_gas_fermentation(세균에서 기포가 차오름). ⑤44.5~53.2 한 번에 들어간 양: ①과 같은 짝으로 돌아온다 — '빈속에 들이켠 음료가 한꺼번에 쏟아져 넘친다'가 ①의 흡수 한계 그림 그대로라서(①과 22초 떨어져 있다). 도입부는 통클립 두 개(act_grab_belly 부글거림 → part_intestines). inset은 옛 m_urine_overproduction에 '장' 라벨이 붙어 있던 걸 part_intestines로 바로잡았다.",
-  "opening_until": 12.56
+  "opening_until": 14.0
 }

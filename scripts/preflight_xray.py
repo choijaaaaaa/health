@@ -29,6 +29,7 @@ CHECKS = [
     (cr.check_act_coverage,           "설명 구간마다 행위 클립이 붙어 있는가(왼쪽 행동·오른쪽 기전)"),
     (cr.check_plain_language,         "수치 없이 기관명만 붙이거나 전문용어를 설명 없이 던지지 않는가"),
     (cr.check_connective_flow,        "문장 사이에 이음새(그래서·하지만·그렇다면)가 있어 흐름이 들리는가"),
+    (cr.check_perceivable_units,      "양을 ml·캔·잔·개처럼 체감되는 단위로 말했는가(무게만 던지지 않는가)"),
     (cr.check_card_narration_alignment, "카드가 지금 나레이션과 같은 이야기를 하는가"),
     (cr.check_xray_clips,             "참조한 클립이 실제로 있는가 / 미수령 요청이 남았는가"),
     (cr.check_content_depth,          "수치·통념 반박·병원 신호가 있는가, 길이가 맞는가"),

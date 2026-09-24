@@ -751,6 +751,40 @@ def check_connective_flow(topic: str, lang: str = "kor") -> list[dict]:
                       "통념→반박엔 '하지만·그런데', 새 질문엔 '그렇다면', 덧붙임엔 '특히·다만·물론'을 논리가 꺾이는 "
                       "자리에 넣으세요."}]
 
+
+# 사람이 체감하는 양의 단위 — 무게(그램·mg)를 말할 땐 같은 문장에 이런 게 붙어야 들어온다
+# 앞에 수가 붙은 것만 단위로 친다 — 그냥 "장"·"알"이면 창자(장)·알부민까지 단위로 오인했다
+_FAMILIAR_UNITS = re.compile(r"(?:\d+|한|두|세|네|다섯|여섯|일곱|여덟|아홉|열|서너|두세|너덧|반)\s*(?:잔|캔|컵|병|개|장|접시|그릇|숟가락|스푼|줌|토막|알)"
+                             r"|\d+\s*(?:mL|ml|밀리리터|리터|L)(?![a-zA-Z])|절반")
+# 조사가 붙은 "24그램이에요"도 잡는다. "1그램당"처럼 비율의 분모는 양이 아니라서 뺀다
+_WEIGHT = re.compile(r"\d+(?:\.\d+)?\s*(?:밀리그램|그램|킬로그램당|mg|g)(?!당|[a-zA-Z])")
+# 검사 수치(소변 알부민 30mg/g 등)는 먹는 양이 아니라 검사지에 찍히는 값이라 체감 단위로 바꿀 대상이 아니다
+_LAB_CONTEXT = re.compile(r"소변|혈액|혈중|검사|수치")
+
+
+def check_perceivable_units(topic: str, lang: str = "kor") -> list[dict]:
+    """양을 사람이 체감하는 단위로 말했는가.
+
+    WHY(2026-09-25 사용자): "양을 킬로그램으로 넣어버리면 사람들이 인지하기 힘듦. 사람들이 인지하는 양의
+    단위는 ml, l임." 비뇨기_18이 제로음료 이야기를 "체중 1킬로그램당 0.4그램, 60킬로그램이면 24그램"으로
+    말했다 — 몇 캔인지 알 수가 없다. 반대로 소화_9 "하루 400mg, 커피전문점 세 잔까지"는 바로 들어온다.
+    무게를 말하는 문장에 잔·캔·ml·개·접시 같은 체감 단위가 같이 없으면 잡는다."""
+    if lang not in ("kor", "ko"):
+        return []
+    path = next((p for p in (_data_dir(topic) / "narration.txt", _data_dir(topic) / "ko" / "narration.txt")
+                 if p.exists()), None)
+    if path is None:
+        return []
+    sents = [x.strip() for x in re.split(r"(?<=[.?!])\s+", path.read_text(encoding="utf-8")) if x.strip()]
+    # 체감 단위는 바로 다음 문장에서 풀어줘도 된다("100밀리그램을 채우세요. 파프리카 반 개면 하루치예요.")
+    bad = [sent for i, sent in enumerate(sents)
+           if _WEIGHT.search(sent) and not _LAB_CONTEXT.search(sent)
+           and not _FAMILIAR_UNITS.search(sent + " " + (sents[i + 1] if i + 1 < len(sents) else ""))]
+    return [{"quote": b[:60], "severity": "medium",
+             "issue": "무게로만 양을 말합니다 — 음료는 ml·캔·잔, 음식은 개·접시·숟가락처럼 체감되는 단위로 바꾸거나 "
+                      "옆에 붙이세요('하루 400mg, 커피전문점 세 잔까지')."} for b in bad]
+
+
 def check_plain_language(topic: str, lang: str = "kor") -> list[dict]:
     """기관명을 반복해 붙이지 않았는지, 전문용어를 설명 없이 던지지 않았는지.
 
