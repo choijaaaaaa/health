@@ -19,6 +19,10 @@ ROOT = Path(__file__).resolve().parent.parent
 LIB = ROOT / "assets_library" / "xray" / "output"
 STILLS = ROOT / "assets_library" / "xray" / "stills"
 WORK = ROOT / "assets_library" / "xray" / "작업" / "1_스틸"
+# 🚨 이 세 경로는 고정이다 — 이름을 바꾸지 말 것(2026-09-24 사용자 "이름도 매번바뀌고").
+# 시트를 `지금_뽑을것.md`에서 이 이름으로 한 번 바꿨더니, 편집기에 열어둔 파일이
+# 사라져서 "내가 뭘 뽑아야 하는지" 자체를 다시 물어야 했다. 정리가 더 낫겠다 싶어도
+# 바꾸지 말 것 — tests/test_xray_worksheet_path.py가 막는다.
 SHEET = ROOT / "assets_library" / "xray" / "작업" / "0_작업지시.md"
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 INBOX = ROOT / "assets_library" / "xray" / "작업" / "2_완성클립"
