@@ -13,7 +13,7 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_inject_belly.mp4"
+      "clip": "assets_library/xray/output/act_nausea_push_plate_away.mp4"
     },
     {
       "clip": "assets_library/xray/output/part_stomach.mp4"
@@ -47,7 +47,7 @@
       "from": "먼저 구토예요",
       "item": "소화불량",
       "mech": "m_emptying_delay",
-      "act": "act_nausea_push_plate_away",
+      "act": "act_large_meal_after_fasting",
       "label": "위 배출"
     },
     {
