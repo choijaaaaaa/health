@@ -719,7 +719,13 @@ def _make_item_label_png(illust_path: str | None, name: str, out_path: Path,
 
 
 def _make_item_row_png(item_schedule: list[dict], active: str, out_path: Path, lang: str = "kor") -> None:
-    """해결 항목 전부를 가로로 나열한 라벨 줄. 지금 말하는 항목(active)만 크고 밝게, 나머지는 작고 어둡게."""
+    """해결 항목 전부를 가로로 나열한 라벨 줄 — **전부 같은 크기로 켜둔다.**
+
+    WHY(2026-09-24 사용자 "여기 위에 아이콘 네개 다 점등하자. 싱크 맞추는게 불가능하겠다"): 예전엔
+    지금 말하는 항목만 크고 밝게, 나머지는 45% 투명·70% 밝기로 죽였다. 그런데 어느 항목을 말하는
+    중인지는 문단 경계로 추정하는 값이라 정확히 맞출 수가 없고, 어긋나면 **엉뚱한 아이콘이 혼자 밝게**
+    떠서 보는 사람을 헷갈리게 한다. 넷 다 켜두면 틀릴 일이 없고, 지금 무슨 얘기인지는 칠판 자막과
+    위쪽 칸이 이미 말해준다."""
     names, seen = [], set()
     for it in item_schedule:
         if it["name"] not in seen:
@@ -728,15 +734,9 @@ def _make_item_row_png(item_schedule: list[dict], active: str, out_path: Path, l
     with tempfile.TemporaryDirectory() as td:
         for k, it in enumerate(names):
             fp = Path(td) / f"c{k}.png"
-            on = it["name"] == active
-            _make_item_label_png(it["illust"], it["name"], fp, icon_size=132 if on else 104,
-                                 font_size=44 if on else 36, lang=lang)
-            im = Image.open(fp).convert("RGBA")
-            if not on:
-                a = im.getchannel("A").point(lambda v: int(v * 0.45))
-                im = Image.eval(im.convert("RGB"), lambda v: int(v * 0.7)).convert("RGBA")
-                im.putalpha(a)
-            cells.append(im)
+            _make_item_label_png(it["illust"], it["name"], fp, icon_size=120,
+                                 font_size=40, lang=lang)
+            cells.append(Image.open(fp).convert("RGBA"))
     gap = 36
     w = sum(c.width for c in cells) + gap * (len(cells) - 1)
     h = max(c.height for c in cells)

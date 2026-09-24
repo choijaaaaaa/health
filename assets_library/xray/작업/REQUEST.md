@@ -23,7 +23,7 @@
 이 파일은 `scripts/build_clip_request_sheet.py`가 각 topic의 `clip_requests.json`에서 다시 만든다.
 **직접 고치지 마라** — 고칠 내용은 해당 topic의 `clip_requests.json`에 넣는다.
 
-**2026-09-24 기준 21종**
+**2026-09-24 기준 22종**
 ---
 
 ## 1. `act_shingles_band` — 고령_15
@@ -236,7 +236,25 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the rin
 
 ---
 
-## 16. `act_shared_pot_dipping` — 소화_18
+## 16. `act_drink_alcohol_with_painkiller` — 소화_14
+
+**왜 필요한가**: 위경련 세 번째 항목(술). 이 포맷은 왼쪽에 '이 행동이', 오른쪽에 '몸 안에선'을 나란히 놓는데 술을 마시는 행위 클립이 라이브러리에 아예 없어 이 구간만 기전 단독으로 나간다. 필요한 건 '술과 진통제를 같이 삼키는 순간'이 눈에 보이는 동작이다 — 나레이션이 '알코올이 위 점막을 직접 자극하는데 여기에 진통제까지 겹치면'이라 둘이 한 화면에 있어야 한다. 피해야 할 동작: 잔을 들어올려 건배하는 장면(사교 맥락으로 읽혀 위 자극이 안 보인다), 배를 움켜쥐는 통증 동작(이미 라이브러리에 있고 어느 소화기 질환에나 붙는다). 반복 리듬은 '한 모금 삼킴 → 알약을 입에 털어 넣음 → 다시 한 모금'으로 두 번, 두 번째가 더 빠르게. 무게중심은 식탁에 한쪽 팔꿈치를 괴고 상체가 살짝 앞으로.
+
+**레퍼런스**: `assets_library/xray/stills/canon_organs.jpg` — **Omni Reference**로 넣는다
+
+### 미드저니 (start 스틸 → `assets_library/xray/stills/act/act_drink_alcohol_with_painkiller.jpg`)
+```
+Medical holographic visualization of a single translucent glass-like human figure seated at a plain table, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. One plain tumbler of clear liquid stands on the table and the figure holds it halfway to the mouth with one hand, while the other hand tips two small round tablets from a plain blister strip toward the open mouth, one elbow propped on the table so the upper body leans slightly forward. The stomach wall inside the torso is visible through the glass shell as a smooth intact lining. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, bottles with labels, brand marks, other people, toasting, duplicated limbs
+```
+
+### Flow (6초)
+```
+One continuous shot in a single unbroken scene with no scene cuts, the camera easing slowly forward toward the torso. 0-1.5s: from the very first frame the tumbler reaches the mouth and the figure swallows once, the throat and oesophagus lighting hot amber as the liquid runs down into the stomach. 1.5-3s: the other hand tips two tablets into the mouth and the figure swallows again, a second amber streak running the same path, the elbow staying propped and the upper body leaning a little further forward. 3-4.5s: inside the stomach the smooth lining starts to roughen where the amber pools, small patches lifting away from the wall, and the camera keeps pushing in until the stomach fills the frame. 4.5-6s: the figure lifts the tumbler for a second faster sip and the roughened patches spread and throb amber twice, staying fully lit until the very last frame. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth drone with two wet swallow sounds and a thin rising sting, no music, no dialogue.
+```
+
+---
+
+## 17. `act_shared_pot_dipping` — 소화_18
 
 **왜 필요한가**: 헬리코박터는 보균자 대부분이 평생 무증상이라 '아픈 동작'이 아예 없는 병이다. 지금 opening에 쓰던 act_grab_belly는 배를 움켜쥐고 대장이 점등하는 클립이라 장염·생리통에도 붙는 뭉뚱그린 동작인 데다 점등 장기(대장)까지 틀렸다. 이 병 고유의 장면은 증상이 아니라 전파 경로다 — 각자 쓰던 숟가락을 한 냄비에 번갈아 담갔다 입으로 가져가는 동작이 침이 섞이는 순간을 그대로 보여준다.
 
@@ -249,7 +267,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 17. `m_cell_overgrowth` — 소화_20
+## 18. `m_cell_overgrowth` — 소화_20
 
 **왜 필요한가**: 대장 용종 편(소화_20) 기전 컷. 들어갈 문장: "대장 점막 세포가 비정상적으로 늘어나 혹처럼 솟아오른 조직이 용종이에요". 대장암·자궁근종·물혹처럼 '세포가 과하게 늘어나 덩어리가 된다'는 기전은 앞으로도 재사용된다(범용 12종에 증식 계열이 통째로 빠져 있다).
 
@@ -262,7 +280,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the sma
 
 ---
 
-## 18. `m_gas_fermentation` — 소화_21
+## 19. `m_gas_fermentation` — 소화_21
 
 **왜 필요한가**: 소장 세균이 발효당(포드맵)을 먹어 가스를 뿜어내고, 그 가스가 장벽을 밀어 올려 배가 부푸는 장면. 소화_21 두 번째 항목('양파, 마늘, 밀가루 같은 발효당') 구간에 4초 통째로 들어간다. 소화·대사 계열 topic(복부팽만·과민성 장 증후군·유당불내증)에서 계속 재사용할 수 있는 범용 기전이다.
 
@@ -277,7 +295,7 @@ Three quick shots cut together, about 1.3 seconds each. Shot 1 (0-1.3s): the war
 
 ---
 
-## 19. `act_toilet_strain_faint` — 순환_12
+## 20. `act_toilet_strain_faint` — 순환_12
 
 **왜 필요한가**: 미주신경성 실신 topic(순환_12) 도입부 행위 클립. 기존 act_strain_on_toilet은 힘주는 자세만 있어 변비·치질·과민성대장 어디에나 붙고 실신이 안 보인다. act_sink_to_floor는 선 자세에서의 붕괴라 화장실 맥락이 없다. 나레이션 훅이 '화장실에서 힘주다가 눈앞이 하얘지고 식은땀이 난 적 있으신가요?'라 두 요소(힘주기 → 무너짐)가 한 동작 안에 이어져야 한다.
 
@@ -290,7 +308,7 @@ Seconds 0.0-1.5: he holds his breath and bears down - shoulders ride UP toward h
 
 ---
 
-## 20. `act_bulging_leg_veins` — 순환_3
+## 21. `act_bulging_leg_veins` — 순환_3
 
 **왜 필요한가**: 하지정맥류의 시각 특징은 종아리에 굵게 도드라진 핏줄인데, 지금 쓰는 act_rub_leg에는 그냥 다리를 짚는 동작만 있고 튀어나온 정맥이 안 보인다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 
@@ -303,7 +321,7 @@ One continuous shot in a single unbroken scene with no scene cuts, the camera ea
 
 ---
 
-## 21. `act_check_jaw_mirror` — 여성_7
+## 22. `act_check_jaw_mirror` — 여성_7
 
 **왜 필요한가**: 다낭성난소증후군은 통증 질환이 아닌데 지금은 act_press_one_side_lower_abdomen(아랫배 누르기)를 쓰고 있다. 실제로 사람이 알아채는 신호는 턱선 여드름과 굵은 털이라 그걸 확인하는 동작이 맞다. 동작은 그 병 특유로 — 닿기를 피하거나 멈칫하는 순간까지 넣는다.
 

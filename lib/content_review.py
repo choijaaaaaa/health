@@ -822,6 +822,32 @@ def check_mech_variety(topic: str, lang: str = "kor") -> list[dict]:
                       "구간마다 다른 기전을 고르거나 없으면 요청하세요."}]
 
 
+def check_act_coverage(topic: str, lang: str = "kor") -> list[dict]:
+    """설명 구간마다 행위 클립이 붙어 있는지.
+
+    WHY(2026-09-24): 이 포맷의 핵심이 "왼쪽 행동 · 오른쪽 기전"인데, act를 안 적으면 기전만 크게
+    나가고 검사는 조용히 통과했다. 견본으로 고른 소화_14조차 설명 구간 7개 중 act가 0개였다.
+    맞는 클립이 없으면 요청하고 그 구간은 비워두되, **비어 있다는 사실은 보여야 한다.**"""
+    if lang not in ("kor", "ko"):
+        return []
+    if not (ROOT / "data" / topic / "xray.json").exists():
+        return []
+    try:
+        from lib.xray_timeline import resolve, summary_start
+        rows, ts = resolve(topic) or [], summary_start(topic)
+    except Exception:
+        return []
+    body = [r for r in rows if ts is None or r["start"] < ts - 0.05]
+    if not body:
+        return []
+    missing = [r for r in body if not r.get("act")]
+    if not missing:
+        return []
+    return [{"quote": ", ".join(f"{r['start']:.0f}초" for r in missing[:5]), "severity": "medium",
+             "issue": f"설명 구간 {len(body)}개 중 {len(missing)}개에 행위 클립이 없습니다 — "
+                      "기전만 크게 나갑니다. 맞는 클립이 없으면 clip_requests.json에 적으세요."}]
+
+
 def check_xray_pacing(topic: str, lang: str = "kor") -> list[dict]:
     """도입부 컷이 문장을 자르지 않는지, 위쪽 칸이 오래 비어 있지 않은지.
 
@@ -998,6 +1024,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_plain_language(topic, lang)
         + check_summary_single_block(topic, lang)
         + check_mech_variety(topic, lang)
+        + check_act_coverage(topic, lang)
     )
 
 

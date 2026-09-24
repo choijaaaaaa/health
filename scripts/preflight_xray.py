@@ -25,6 +25,7 @@ CHECKS = [
     (cr.check_xray_pacing,            "도입부가 문장을 자르지 않는가 / 칸이 8초 넘게 비지 않는가 / 도입부 안에 칸이 겹치지 않는가"),
     (cr.check_summary_single_block,   "결론 구간이 여러 행으로 쪼개져 품목만 바뀌지 않는가"),
     (cr.check_mech_variety,           "같은 기전 클립을 3번 이상 돌려쓰지 않는가(정지 이미지로 보인다)"),
+    (cr.check_act_coverage,           "설명 구간마다 행위 클립이 붙어 있는가(왼쪽 행동·오른쪽 기전)"),
     (cr.check_plain_language,         "수치 없이 기관명만 붙이거나 전문용어를 설명 없이 던지지 않는가"),
     (cr.check_card_narration_alignment, "카드가 지금 나레이션과 같은 이야기를 하는가"),
     (cr.check_xray_clips,             "참조한 클립이 실제로 있는가 / 미수령 요청이 남았는가"),

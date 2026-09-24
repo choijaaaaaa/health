@@ -24,6 +24,7 @@ from pathlib import Path
 
 import requests
 
+from lib.korean_numbers import to_speech
 from lib.mission_control_log import report_issue
 from dotenv import load_dotenv
 
@@ -416,8 +417,12 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     if lang == "kor" and voice_name != DEFAULT_VOICE_BY_LANG["kor"]:
         raise ValueError(f"[fish_tts] 한국어 나레이션은 '{DEFAULT_VOICE_BY_LANG['kor']}'만 쓴다 — 받은 값: {voice_name}")
 
+    # 🚨 API에는 숫자를 한글로 푼 텍스트를 보낸다 — 아라비아 숫자를 그대로 넘기면 읽기가 뭉개지거나
+    # 끊긴다(2026-09-24 실측: "40세가 넘어"에서 발음이 무너졌다. 음량은 안 끊겼으니 무음이 아니다).
+    # 자막(_build_srt)은 아래에서 **원문 text**로 만든다 — 화면에 "사백 밀리그램"이 뜨면 읽기 힘들다.
+    spoken = to_speech(text) if lang == "kor" else text
     try:
-        audio_bytes, words = _call_tts_batched(text, voice_name, lang)
+        audio_bytes, words = _call_tts_batched(spoken, voice_name, lang)
         if not words:
             raise RuntimeError("[fish_tts] 응답에 word timestamp가 없음 — API 응답 형식이 바뀌었을 수 있음")
     except Exception as e:
@@ -428,7 +433,7 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
             entity=topic, message=str(e),
         )
         raise
-    audio_bytes, words = _insert_sentence_pauses(text, audio_bytes, words)
+    audio_bytes, words = _insert_sentence_pauses(spoken, audio_bytes, words)
     audio_bytes, words = _apply_tempo(audio_bytes, words, AUDIO_TEMPO)
 
     out_dir = ROOT / "output" / topic
