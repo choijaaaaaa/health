@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -175,6 +176,28 @@ def _rebuild_cards(topic: str) -> None:
         print(f"  ⚠️ 카드뉴스 갱신 실패: {e}")
 
 
+def _opening_end(topic: str, cues) -> float:
+    """도입부(훅 + 통념 반박)가 끝나는 나레이션 시각.
+
+    🚨 자막 문구를 패턴으로 추측하면 안 된다(2026-09-24 육아 트랙 실측). 예전엔 앞 5개 자막에
+    통념 반박 패턴을 돌려 **마지막** 매치를 썼는데, 항목 설명에도 같은 말투가 흔히 나온다 —
+    "하루 몇 번인지만 세는 분이 많은데"·"변비가 아니라고"가 걸려 도입부가 13.9초에서 28.2초로
+    덮어써지고, 전체 화면 도입 클립이 첫 두 구간 위를 통째로 덮었다.
+
+    원고 구조상 도입부는 **세 번째 문단(항목 예고 "~의 갈림길은 …") 직전**까지다. 그 문단의
+    첫 문장이 시작되는 자막을 찾아 바로 앞 자막의 끝을 쓴다 — 문단 경계는 사람이 쓴 것이라
+    말투 변화에 흔들리지 않는다."""
+    paras = [x.strip() for x in (tracks.data_dir(topic) / "narration.txt")
+             .read_text(encoding="utf-8").split("\n\n") if x.strip()]
+    if len(paras) >= 3:
+        head = re.sub(r"\s+", "", paras[2])[:12]
+        for i, c in enumerate(cues):
+            if i and head and re.sub(r"\s+", "", c[2]).startswith(head):
+                return cues[i - 1][1]
+    # 문단 구조가 다른 옛 topic 폴백 — 훅 한 문장만 덮는다
+    return cues[0][1]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("topic")
@@ -196,10 +219,8 @@ def main() -> None:
     # 넘어간다("또 찌꺼기 약간 넘겼네, 0.5초정도 나왔다가 사라지는"). 손으로 맞추면 TTS를 돌릴
     # 때마다 또 틀리므로 여기서 계산한다.
     if cfg.get("opening_until") is not None:
-        from lib.content_review import _MYTH_PATTERNS
         cues = _cues(a.topic)
-        myth = [c for c in cues[:5] if any(m.search(c[2]) for m in _MYTH_PATTERNS)]
-        want = round((myth[-1] if myth else cues[0])[1], 2)
+        want = round(_opening_end(a.topic, cues), 2)
         if abs(want - cfg["opening_until"]) > 0.05:
             print(f"  도입부 끝을 자막에 맞춰 {cfg['opening_until']} → {want}초로 보정")
             cfg["opening_until"] = want
