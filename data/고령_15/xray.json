@@ -13,7 +13,7 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_scratch_skin.mp4"
+      "clip": "assets_library/xray/output/act_shingles_band.mp4"
     },
     {
       "clip": "assets_library/xray/output/m_virus_reactivation.mp4"
@@ -21,29 +21,25 @@
   ],
   "timeline": [
     {
-      "from": "옮으면 대상포진이 아니라",
-      "item": "피부반점",
-      "mech": "m_virus_replication",
-      "label": "피부 세포"
-    },
-    {
       "from": "놓치기 쉬운 건",
       "item": "아기",
       "mech": "m_virus_persistence",
-      "label": "신경절"
+      "label": "신경절",
+      "act": null
     },
     {
       "from": "수두를 앓은 적",
       "item": "아기",
       "mech": "m_barrier_leak",
-      "act": "act_scratch_skin",
+      "act": "act_cover_blister_gauze",
       "label": "피부 장벽"
     },
     {
       "from": "물집이 딱지로 변할",
       "item": "수건",
       "mech": "m_layer_separation",
-      "label": "피부"
+      "label": "피부",
+      "act": "act_cover_blister_gauze"
     },
     {
       "from": "두 번째는 치료 시기예요",
@@ -63,25 +59,29 @@
       "from": "마지막은 백신이에요",
       "item": "백신",
       "mech": "m_immune_decline",
-      "label": "면역세포"
+      "label": "면역세포",
+      "act": null
     },
     {
       "from": "2006년 천 명당",
       "item": "달력",
       "mech": "m_virus_reactivation",
-      "label": "신경절"
+      "label": "신경절",
+      "act": "act_shingles_band"
     },
     {
       "from": "환자의 64퍼센트가",
       "item": "노화",
       "mech": "m_immune_decline",
-      "label": "면역세포"
+      "label": "면역세포",
+      "act": "act_slow_walk"
     },
     {
       "from": "2017년 나온 사백신은",
       "item": "주사기",
       "mech": "m_virus_persistence",
-      "label": "신경절"
+      "label": "신경절",
+      "act": null
     },
     {
       "from": "그러니 한쪽에만",
@@ -92,6 +92,6 @@
     }
   ],
   "summary_from": "그러니 한쪽에만",
-  "opening_until": 12.32,
+  "opening_until": 14.88,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }
