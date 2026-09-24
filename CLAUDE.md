@@ -318,7 +318,9 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   `platforms[]`에 `type: "video"`가 있는지로 자동 파생된다.
 - 상품 링크는 대시보드 입력창이 `/api/product-links.js`·`/api/global-product-links.js`로 DB에 직접 쓴다.
   `output/all_products.json`은 대시보드 생성마다 갱신된다.
-- `lib/card_news_hub.py`(babbleroot/furrowly/sparelow 네이버 포스팅 허브)는 **2026-08-21 중단된 워크플로우**다 — 코드만 남아 있다.
+- `lib/card_news_hub.py --commit`은 vernhaven admin **네이버 카드뉴스 탭**(`naver_card_news`)에 babbleroot·furrowly·sparelow
+  콘텐츠를 채운다. 탭은 **쓰고 있지만**(2026-09-24 확인) **새 항목은 08-16 이후 안 채워졌다** — 채우려면 각 content
+  저장소에서 네이버 파일을 만든 뒤 다시 돌린다. `posted`는 payload에서 뺀다(사람이 체크한 게시 상태를 안 지우게).
 
 ## 테스트
 
