@@ -979,14 +979,18 @@ def check_products_in_brandconnect(topic: str, lang: str = "kor") -> list[dict]:
         return []
     known: dict = {}
     status: dict = {}
-    cat = ROOT / "data" / "_audit" / "brandconnect_catalog.json"
+    # 트랙마다 카탈로그가 다르다 — 육아 품목은 health 스윕이 `_KID_WORDS`로 걸러내므로
+    # 그쪽 카탈로그엔 없거나 "없음"으로 찍힌다(2026-09-24). 도메인에 맞는 걸 봐야 한다.
+    domain = tracks.domain_of(topic)
+    cat = ROOT / "data" / "_audit" / (f"brandconnect_catalog_{domain}.json"
+                                      if domain != "health" else "brandconnect_catalog.json")
     if cat.exists():
         for k, v in json.loads(cat.read_text(encoding="utf-8")).items():
             known[k] = v.get("found"); status[k] = v.get("status")
     # 표본을 사람이 보고 "본품 없음"으로 판정한 품목(일반의약품 등)은 카탈로그 status와 무관하게 없음으로 친다
     unav = ROOT / "data" / "brandconnect_unavailable.json"
     if unav.exists():
-        for k in json.loads(unav.read_text(encoding="utf-8")).get("health", {}).get("없음", []):
+        for k in json.loads(unav.read_text(encoding="utf-8")).get(domain, {}).get("없음", []):
             known[k] = False; status[k] = "없음"
     per = _data_dir(topic) / "brandconnect.json"
     if per.exists():
