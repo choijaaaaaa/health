@@ -29,7 +29,7 @@
     "소금",
     "귀리"
   ],
-  "summary_from": "발목 안쪽 피부가",
+  "summary_from": "관리는 종아리 근육을",
   "timeline": [
     {
       "from": "두 번째로는 짠",
@@ -47,17 +47,10 @@
     },
     {
       "from": "관리는 종아리 근육을",
-      "item": "귀리",
-      "mech": "m_backflow_pooling",
-      "act": "act_heel_raise_calf_pump",
-      "label": "종아리 정맥"
-    },
-    {
-      "from": "발목 안쪽 피부가",
-      "item": "귀리",
+      "item": "압박스타킹",
       "mech": "m_backflow_pooling",
       "act": null,
-      "label": "종아리 정맥"
+      "label": "정맥 판막"
     }
   ],
   "opening_until": 16.8,

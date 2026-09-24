@@ -24,9 +24,6 @@ sys.path.insert(0, str(ROOT))
 from lib import tracks                                       # noqa: E402
 from lib.xray_timeline import resolve, summary_start         # noqa: E402
 
-# 결론 칠판은 영상 칸이 없어 화면이 거의 안 바뀐다 — 이보다 길면 시청자에겐 멈춘 것으로 보인다.
-# 12초는 승인받은 견본(소화_14)의 결론 길이(약 13초)를 기준으로 잡았다.
-MAX_SUMMARY_SEC = 13.5
 MIN_FREEZE_SEC = 4.0      # 이보다 오래 한 프레임이 이어지면 지적
 
 
@@ -73,18 +70,14 @@ def check(topic: str) -> list[str]:
     if not _probe(vid, "stream=codec_type").count("audio"):
         bad.append("오디오 트랙이 없습니다")
 
-    # 4. 결론 칠판이 너무 길지 않은가 — 칸이 없어 화면이 안 바뀐다
+    # 4. 설명 구간이 멈춰 있는가 — 칠판(해결책) 구간의 정지는 **의도된 것**이라 세지 않는다.
+    #    2026-09-24 사용자 확정: 해결책은 칠판만 나오는 씬에서 하나하나 짚는다("씬 전환이
+    #    되어야 이해가 잘되지"). 거기서 화면이 안 바뀌는 건 설계지 결함이 아니다.
     ts = summary_start(topic)
-    if ts is not None and adur:
-        sec = adur - ts
-        if sec > MAX_SUMMARY_SEC:
-            bad.append(f"결론 칠판이 {sec:.0f}초입니다({MAX_SUMMARY_SEC}초 넘음) — 그동안 화면이 "
-                       f"안 바뀌어 멈춘 것처럼 보입니다. summary_from을 뒤로 옮기세요")
-
-    # 5. 실제로 멈춘 구간이 있는가
     for st, d in _freezes(vid):
-        where = "결론" if ts is not None and st >= ts else "설명 구간"
-        bad.append(f"{st:.0f}초부터 {d:.0f}초간 화면이 멈춰 있습니다({where})")
+        if ts is not None and st >= ts - 1.0:
+            continue
+        bad.append(f"{st:.0f}초부터 {d:.0f}초간 설명 구간 화면이 멈춰 있습니다")
 
     # 6. 구간마다 너무 늘려 정지 화면이 됐는가
     for r in resolve(topic) or []:
