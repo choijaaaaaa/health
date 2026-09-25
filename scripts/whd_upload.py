@@ -161,28 +161,83 @@ def upload(yt, topic: str, privacy: str, publish_at: str | None) -> str:
     return resp["id"]
 
 
+def _whd_rows() -> list[dict]:
+    import requests
+    r = requests.get(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers=yu._SB_HEADERS,
+                     params={"select": "topic,video_id,publish_at,status", "topic": f"like.{KEY_PREFIX}*"}, timeout=30)
+    r.raise_for_status()
+    return r.json()
+
+
+def next_free_slots(n: int, hour: int) -> list[str]:
+    """이미 예약된 아침 날짜를 건너뛰고 다음 빈 슬롯 n개 — 하루 업로드 한도 때문에 여러 날에 걸쳐
+    나눠 올려도 하루 한 편이 겹치거나 비지 않게."""
+    taken = {dt.datetime.fromisoformat(r["publish_at"].replace("Z", "+00:00")).astimezone(KST).date()
+             for r in _whd_rows() if r.get("publish_at")}
+    now = dt.datetime.now(KST)
+    day = now.date() if now < dt.datetime.combine(now.date(), dt.time(hour), KST) - dt.timedelta(minutes=30) \
+        else now.date() + dt.timedelta(days=1)
+    out = []
+    while len(out) < n:
+        if day not in taken:
+            out.append(dt.datetime.combine(day, dt.time(hour), KST).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+        day += dt.timedelta(days=1)
+    return out
+
+
+def _priority(topic: str) -> tuple:
+    # 조회수가 잘 나오는 위고비·마운자로 영상을 앞으로(사용자 2026-09-25 "이쪽이 조회수가 개좋아서")
+    title = (_caption(topic) or ("", ""))[0]
+    return (0 if ("위고비" in title or "마운자로" in title) else 1, topic)
+
+
+def _kst(iso: str) -> str:
+    return f"{dt.datetime.fromisoformat(iso.replace('Z', '+00:00')).astimezone(KST):%m-%d %H:%M}"
+
+
 def main() -> None:
+    from googleapiclient.errors import HttpError
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("whoami")
     sub.add_parser("plan")
+    sub.add_parser("status")
     u = sub.add_parser("upload"); u.add_argument("topic"); u.add_argument("--private", action="store_true")
     u.add_argument("--publish-at")
-    s = sub.add_parser("schedule"); s.add_argument("--days", type=int, default=7); s.add_argument("--commit", action="store_true")
+    r = sub.add_parser("reschedule"); r.add_argument("topic"); r.add_argument("date", help="YYYY-MM-DD(KST 아침 슬롯)")
+    s = sub.add_parser("schedule"); s.add_argument("--count", type=int, default=5); s.add_argument("--commit", action="store_true")
     a = ap.parse_args()
 
     if a.cmd == "whoami":
         _, name = _service_checked(); print(f"✅ 토큰 채널: {name} ({os.environ['YOUTUBE_WHD_CHANNEL_ID']})"); return
+    if a.cmd == "status":
+        for row in sorted(_whd_rows(), key=lambda x: x.get("publish_at") or ""):
+            print(f"  {_kst(row['publish_at']) if row.get('publish_at') else '예약 없음':12s} {row['topic'][len(KEY_PREFIX):]:10s} "
+                  f"{row['status']:9s} https://youtube.com/shorts/{row.get('video_id')}")
+        return
+    if a.cmd == "reschedule":
+        row = next((x for x in _whd_rows() if x["topic"] == KEY_PREFIX + a.topic), None)
+        if not row or not row.get("video_id"):
+            raise SystemExit(f"❌ {a.topic}: 올라간 기록이 없음")
+        when = dt.datetime.combine(dt.date.fromisoformat(a.date), dt.time(MORNING_HOUR), KST) \
+            .astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        yt, _ = _service_checked()
+        cur = yt.videos().list(part="status", id=row["video_id"]).execute()["items"][0]["status"]
+        body = {"privacyStatus": "private", "publishAt": when, "selfDeclaredMadeForKids": False,
+                "containsSyntheticMedia": cur.get("containsSyntheticMedia", True)}
+        yt.videos().update(part="status", body={"id": row["video_id"], "status": body}).execute()
+        yu._sb_finalize_upload(KEY_PREFIX + a.topic, row["video_id"], "public", when)
+        print(f"✅ {a.topic} → {_kst(when)} 공개 예약"); return
 
     rows = ready_topics()
-    ok = [t for t, why in rows if not why]
+    ok = sorted([t for t, why in rows if not why], key=_priority)
     if a.cmd == "plan" or (a.cmd == "schedule" and not a.commit):
         for t, why in rows:
             print(("✅ " if not why else "⛔ ") + t + ("" if not why else "  — " + " / ".join(why)))
-        times = slots(min(a.days if a.cmd == "schedule" else len(ok), len(ok)), MORNING_HOUR)
-        print(f"\n아침 {MORNING_HOUR}시 슬롯 예약안:")
-        for t, when in zip(ok, times):
-            print(f"  {dt.datetime.fromisoformat(when.replace('Z', '+00:00')).astimezone(KST):%m-%d %H:%M}  {t}")
+        n = len(ok) if a.cmd == "plan" else min(a.count, len(ok))
+        print(f"\n아침 {MORNING_HOUR}시 빈 슬롯 예약안:")
+        for t, when in zip(ok[:n], next_free_slots(n, MORNING_HOUR)):
+            print(f"  {_kst(when)}  {t}")
         return
 
     yt, name = _service_checked()
@@ -191,9 +246,16 @@ def main() -> None:
             raise SystemExit(f"❌ {a.topic}은 아직 올릴 수 없음: {dict(rows).get(a.topic, ['목록에 없음'])}")
         vid = upload(yt, a.topic, "private" if a.private else "public", a.publish_at)
         print(f"✅ {name}에 업로드: https://youtube.com/shorts/{vid}"); return
-    for t, when in zip(ok, slots(a.days, MORNING_HOUR)):
-        vid = upload(yt, t, "public", when)
-        print(f"✅ {t} → {when} 예약: https://youtube.com/shorts/{vid}")
+    todo = ok[:a.count]
+    for t, when in zip(todo, next_free_slots(len(todo), MORNING_HOUR)):
+        try:
+            vid = upload(yt, t, "public", when)
+        except HttpError as e:
+            # 하루 업로드 한도에 걸리면 여기서 멈춘다 — 남은 건 다음 실행이 빈 슬롯부터 이어서 채운다
+            if any(k in str(e) for k in ("uploadLimitExceeded", "quotaExceeded")):
+                print(f"⏸ 오늘 업로드 한도 도달 — {t}부터는 다음 실행에서"); break
+            raise
+        print(f"✅ {t} → {_kst(when)} 예약: https://youtube.com/shorts/{vid}")
 
 
 if __name__ == "__main__":
