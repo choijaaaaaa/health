@@ -861,6 +861,20 @@ def check_perceivable_units(topic: str, lang: str = "kor") -> list[dict]:
     bad = [sent for i, sent in enumerate(sents)
            if _WEIGHT.search(sent) and not _LAB_CONTEXT.search(sent)
            and not _FAMILIAR_UNITS.search(sent + " " + (sents[i + 1] if i + 1 < len(sents) else ""))]
+    # 카드도 본다 — 대본만 고치고 카드에 "소금 6~9그램"이 남은 채 나갔다(2026-09-25 순환_12·소화_20)
+    spec_p = next((p for p in (_data_dir(topic) / "card_news_spec.json", _data_dir(topic) / "ko" / "card_news_spec.json")
+                   if p.exists()), None)
+    if spec_p:
+        spec = json.loads(spec_p.read_text(encoding="utf-8"))
+        lines = []
+        for it in spec.get("items", []):
+            lines += [it.get("name", "")] + [x for x in it.get("body", []) if x]
+        cl = spec.get("closing", {})
+        lines += [" ".join(h) for h in cl.get("headline", [])] + list(cl.get("tip", []))
+        # 카드는 한 문장이 여러 줄로 쪼개져 있어 앞 줄(검사 맥락)과 뒤 두 줄(체감 단위)까지 같이 본다
+        bad += ["[카드] " + ln for i, ln in enumerate(lines)
+                if _WEIGHT.search(ln) and not _LAB_CONTEXT.search(" ".join(lines[max(0, i - 1):i + 1]))
+                and not _FAMILIAR_UNITS.search(" ".join(lines[i:i + 3]))]
     return [{"quote": b[:60], "severity": "medium",
              "issue": "무게로만 양을 말합니다 — 음료는 ml·캔·잔, 음식은 개·접시·숟가락처럼 체감되는 단위로 바꾸거나 "
                       "옆에 붙이세요('하루 400mg, 커피전문점 세 잔까지')."} for b in bad]
