@@ -15,9 +15,9 @@ ROOT = Path(__file__).resolve().parent.parent
 # domain: 브랜드커넥트 상품 판정 기준(유아용품을 빼느냐 마느냐가 갈린다).
 # work: 미드저니·Flow 작업 자리. 트랙마다 따로 둬야 시트 번호가 섞이지 않는다.
 TRACKS: dict[str, dict] = {
-    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "작업_육아", "stills": "baby"},
+    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "건강만사전_육아", "stills": "baby"},
 }
-DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "작업", "stills": None}
+DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None}
 
 
 def _base(topic: str) -> str:
@@ -114,7 +114,15 @@ def topic_of_path(path: Path, base: Path) -> str | None:
     return parts[1] if parts[0] in track_dirs() and len(parts) > 1 else parts[0]
 
 
+# 🚨 사람이 작업하는 자리는 저장소 안이 아니라 `ai-video-network/deploy/작업/` 한 단계에 모은다
+# (2026-09-25 사용자 "매번 폴더 막 들어가서 작업하기 존나 힘드니까 deploy 폴더 안에 … 프롬프트 넣을 md랑
+# 스틸 넣을 공간만"). 건강만사전·댕냥사전·세상만사전이 같은 자리에 `<브랜드>.md` + `<브랜드>_스틸/`로 나란히 선다.
+DEPLOY_WORK = ROOT.parent / "ai-video-network" / "deploy" / "작업"
+
+
 def work_paths(track: str | None) -> tuple[Path, Path, Path]:
-    """(작업지시 시트, 스틸 폴더, 완성클립 받는 곳). 이름은 tests/test_xray_worksheet_path.py가 막는다."""
-    work = ROOT / "assets_library" / "xray" / (TRACKS[track]["work"] if track else DEFAULT["work"])
-    return work / "0_작업지시.md", work / "1_스틸", work / "2_완성클립"
+    """(작업지시 시트, 스틸 폴더, 완성클립 받는 곳). 스틸과 Flow 결과 mp4는 같은 폴더에서 받는다 —
+    사람이 열 폴더를 하나로 줄이려고. 이름은 tests/test_xray_worksheet_path.py가 막는다."""
+    name = TRACKS[track]["work"] if track else DEFAULT["work"]
+    stills = DEPLOY_WORK / f"{name}_스틸"
+    return DEPLOY_WORK / f"{name}.md", stills, stills

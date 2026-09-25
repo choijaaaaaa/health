@@ -72,7 +72,7 @@
 ## 트랙과 폴더
 
 - 기본(건강) topic은 `data/<topic>/`·`output/<topic>/`에 평평하게 둔다.
-- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·`assets_library/xray/작업_육아/`·
+- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·`deploy/작업/건강만사전_육아*`·
   `stills/baby/`. 🚨 **topic 이름은 `육아_1`로 평평하다 — 접히는 건 경로뿐**이다. 이 저장소에서 topic 안의
   `/`는 **언어**를 뜻해서(`가슴쓰림_1/en`), `육아/육아_1`로 부르면 언어 코드로 읽혀 조용히 깨진다.
   경로는 반드시 `lib/tracks.py`(`data_dir`·`output_dir`·`iter_topic_dirs`·`glob_topic_files`)로 푼다.
@@ -249,8 +249,8 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - **광고 배너 CTA**(`lib/ad_cta.py` 정본) — 세로 위치는 칠판 상단 기준(`CTA_CY_FROM_BOARD_TOP`), 등장은
   `CTA_START_SEC=5.0`(썸네일 후보 프레임을 가리지 않게. `enable`로 건다 — fade는 안 먹는다). `.pre_cta.mp4`는 쓰지 말 것.
 - 🚨 **없는 클립은 요청한다, 비슷한 걸로 때우지 않는다** — `data/<topic>/clip_requests.json`에 적고 그 topic은 조립을
-  멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`작업/0_작업지시.md`·`작업_육아/0_작업지시.md`
-  — 이름 고정, `tests/test_xray_worksheet_path.py`). 받은 클립은 `2_완성클립/`에 넣고 `scripts/collect_clips.py --commit`.
+  멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`../ai-video-network/deploy/작업/건강만사전.md`·`건강만사전_육아.md`
+  — 이름 고정, `tests/test_xray_worksheet_path.py`). 받은 클립은 `건강만사전_스틸/`에 넣고 `scripts/collect_clips.py --commit`.
   스틸만 받는 요청은 `"kind": "still"`. 아무 topic도 안 쓰는 요청은 지운다(사람 렌더 시간 낭비).
 - 클립은 **색인으로 찾는다**(`-m lib.clip_index --for <증상어>`, `--show <이름>`) — 이름이 실제와 다른 클립이 많다.
   `avoid`를 어기지 말 것.
@@ -274,7 +274,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - 아기는 **미드저니 정지 스틸 + `make_part_clip.py`**로만 움직인다. 행위 칸은 보호자 — 비접촉(사물·손만)은 Flow,
   아기에게 해주는 동작은 스틸+코드.
 - **현황**: 10편 원고·카드(90장)·TTS·대시보드·DB 등록·품목(32종, 링크 보유) 완료. **영상만 클립 대기** —
-  `작업_육아/0_작업지시.md` 35종을 받으면 `collect_clips.py --commit` → 부위 클립(region은 스틸 보고 실측) →
+  `deploy/작업/건강만사전_육아.md` 35종을 받으면 `collect_clips.py --commit` → 부위 클립(region은 스틸 보고 실측) →
   `xray_build.py` → `verify_output.py`.
 
 ## blog_seo 서브트랙 (9개 언어)

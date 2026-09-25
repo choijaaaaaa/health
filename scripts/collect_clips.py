@@ -5,13 +5,12 @@ WHY(2026-09-24 사용자 "폴더도 좀 어디다넣을지도 구조화하고 �
 스틸과 결과물이 매번 다른 자리에 생겨서, 어디서 작업해야 하는지 물어봐야 알 수 있었다. 작업 자리를
 한 곳으로 고정한다.
 
-    assets_library/xray/작업/
-      0_작업지시.md     ← 이 파일만 읽으면 된다(번호·프롬프트)
-      1_스틸/           ← 여기 스틸이 번호순으로 있다. 미드저니로 새로 뽑은 것도 여기 넣는다
-      2_완성클립/       ← Flow 결과를 **클립 이름 그대로** 여기 넣는다
+    ai-video-network/deploy/작업/          (2026-09-25 저장소 밖 한 단계로 옮김)
+      건강만사전.md         ← 이 파일만 읽으면 된다(번호·프롬프트)
+      건강만사전_스틸/      ← 스틸이 번호순으로 있다. 미드저니로 새로 뽑은 것도, Flow 결과 mp4도 여기
       _지난것/          ← 끝난 시트 보관
 
-`2_완성클립/`에 넣고 이걸 돌리면 라이브러리(`output/`)로 옮기고 시트를 다시 만든다.
+`건강만사전_스틸/`에 mp4를 넣고 이걸 돌리면 라이브러리(`output/`)로 옮기고 시트를 다시 만든다.
 번호가 다시 매겨지므로 **남은 것만 1번부터** 보인다.
 
     .venv/bin/python3 scripts/collect_clips.py            # 뭐가 들어올지만
@@ -32,7 +31,9 @@ sys.path.insert(0, str(ROOT))
 from lib import tracks  # noqa: E402
 
 XRAY = ROOT / "assets_library" / "xray"
-INBOX = XRAY / "작업" / "2_완성클립"
+# 받는 곳은 트랙마다 deploy/작업/<브랜드>_스틸/ — 스틸 옆에 mp4를 그대로 넣으면 된다
+INBOX = tracks.work_paths(None)[2]
+INBOXES = [INBOX] + [tracks.work_paths(t)[2] for t in tracks.TRACKS]
 LIB = XRAY / "output"
 
 
@@ -55,11 +56,12 @@ def main() -> None:
     ap.add_argument("--commit", action="store_true")
     a = ap.parse_args()
 
-    INBOX.mkdir(parents=True, exist_ok=True)
+    for d in INBOXES:
+        d.mkdir(parents=True, exist_ok=True)
     known = _known()
-    found = sorted(INBOX.glob("*.mp4"))
+    found = sorted(f for d in INBOXES for f in d.glob("*.mp4"))
     if not found:
-        print(f"{INBOX.relative_to(ROOT)}/ 가 비어 있다 — Flow 결과를 **클립 이름 그대로** 넣어라.")
+        print(f"{INBOX.relative_to(ROOT.parent)}/ 에 mp4가 없다 — Flow 결과를 **클립 이름 그대로** 넣어라.")
     moved, unknown = [], []
     for f in found:
         # 번호를 앞에 붙여 저장했어도 받아준다("04_act_inject_belly.mp4")

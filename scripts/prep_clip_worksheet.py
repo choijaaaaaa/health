@@ -27,13 +27,13 @@ STILLS = ROOT / "assets_library" / "xray" / "stills"
 # 🚨 기본(건강) 트랙의 작업 자리. 이름을 바꾸지 말 것(2026-09-24 사용자 "이름도 매번바뀌고") —
 # 시트를 `지금_뽑을것.md`에서 이 이름으로 한 번 바꿨더니 편집기에 열어둔 파일이 사라져서
 # "내가 뭘 뽑아야 하는지"를 다시 물어야 했다. tests/test_xray_worksheet_path.py가 막는다.
-# 트랙별 자리는 lib/tracks.py의 work_paths()가 준다(육아는 작업_육아/).
+# 트랙별 자리는 lib/tracks.py의 work_paths()가 준다(deploy/작업/ 안에 건강만사전.md·건강만사전_육아.md).
 SHEET, WORK, INBOX = tracks.work_paths(None)
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 
 
 DOWNLOADS = Path.home() / "Downloads"
-CONSUMED = ROOT / "assets_library" / "xray" / "작업" / ".받은것.json"
+CONSUMED = SHEET.parent / ".받은것_건강만사전.json"
 
 
 def _unopened_deliveries() -> list[Path]:
@@ -126,7 +126,7 @@ def _existing_still(sub: str, name: str, track: str | None) -> Path | None:
 
 
 def _harvest_loose_stills(pend: list[list], work: Path, track: str | None) -> None:
-    """`1_스틸/`에만 있고 stills/에는 없는 스틸을 먼저 원본 자리로 옮긴다.
+    """스틸 폴더에만 있고 stills/에는 없는 스틸을 먼저 원본 자리로 옮긴다.
 
     🚨 아래에서 이 폴더를 통째로 지우고 다시 채운다 — 사람이 방금 넣은 스틸이
     stills/act|mech/에 사본이 없으면 그대로 사라진다. 이 저장소는 세션 여럿이
@@ -159,7 +159,11 @@ def main() -> None:
 def build(track: str | None) -> None:
     sheet, work, inbox = tracks.work_paths(track)
     pend = _pending(track)
-    if not pend and not sheet.exists():
+    if not pend:
+        # 비어도 파일은 둔다 — 사람이 deploy/작업/을 열었을 때 "이 브랜드는 할 게 없다"가 바로 보이게
+        sheet.parent.mkdir(parents=True, exist_ok=True); work.mkdir(parents=True, exist_ok=True)
+        sheet.write_text("# 지금 뽑을 클립 없음\n\n요청이 생기면 이 파일이 번호순 작업지시로 바뀐다.\n", encoding="utf-8")
+        print(f"{sheet.relative_to(ROOT.parent)} — 0종")
         return
     # 번호는 시트에 실리는 차례(0부 스틸 → 1부 Flow만 → 2부 미드저니부터)와 같아야 한다.
     # 안 그러면 "01~09 미드저니 먼저 / 03~11 스틸만"처럼 구간이 겹쳐 무엇부터 할지 알 수 없다.
@@ -185,7 +189,7 @@ def build(track: str | None) -> None:
             # 되는지를 그 자리에 적어둔다.
             (work / f"{i:02d}_{r['name']}_스틸없음.txt").write_text(
                 f"{r['name']} — 스틸이 아직 없습니다.\n\n"
-                f"0_작업지시.md의 {i:02d}번에 미드저니 프롬프트가 있습니다.\n"
+                f"{sheet.name}의 {i:02d}번에 미드저니 프롬프트가 있습니다.\n"
                 f"그걸로 이미지를 뽑아 이 폴더에 `{i:02d}_{r['name']}.jpg` 로 넣어주세요.\n"
                 f"(이 쪽지는 지워도 됩니다)\n", encoding="utf-8")
 
@@ -200,10 +204,10 @@ def build(track: str | None) -> None:
                        else f"{xs[0][1]['_no']}~{xs[-1][1]['_no']}")
     L = [f"# 지금 뽑을 클립 {len(pend)}종" + (f" — {track} 트랙" if track else "") + "\n",
          f"\n## 내가 할 일\n",
-         f"\n- **{span(ready)} → Flow만** 돌린다(스틸은 이미 `{work.relative_to(ROOT)}/`에 있다).\n",
+         f"\n- **{span(ready)} → Flow만** 돌린다(스틸은 이미 `{work.relative_to(ROOT.parent)}/`에 있다).\n",
          f"- **{span(todo)} → 미드저니 먼저**, 나온 스틸을 그 폴더에 `<번호>_<이름>.jpg`로 넣고 Flow.\n",
          f"- **{span(stills)} → 미드저니만**. **Flow 안 돌린다** — 스틸만 주면 코드가 클립을 만든다.\n",
-         f"\n**받은 영상은 `{inbox.relative_to(ROOT)}/`에 클립 이름 그대로 넣는다**"
+         f"\n**받은 영상은 `{inbox.relative_to(ROOT.parent)}/`에 클립 이름 그대로 넣는다**"
          " — 그 뒤 `scripts/collect_clips.py --commit`이 라이브러리로 들인다.\n",
          "\n🚨 Flow는 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.\n",
          "\n| # | 이름 | topic | 할 일 |\n|---|---|---|---|\n"]
@@ -215,7 +219,7 @@ def build(track: str | None) -> None:
     if stills:
         L.append(f"\n---\n\n# 0부 · 미드저니만 — 스틸 {len(stills)}장 (Flow 안 돌린다)\n")
         L.append(f"\n🚨 **이 번호들은 영상을 뽑지 않는다.** 미드저니 스틸 한 장씩만 "
-                 f"`{work.relative_to(ROOT)}/`에 `<번호>_<이름>.jpg`로 넣으면 된다 — "
+                 f"`{work.relative_to(ROOT.parent)}/`에 `<번호>_<이름>.jpg`로 넣으면 된다 — "
                  "푸시인과 점등은 코드가 입힌다.\n")
         for topic, r, _sub in stills:
             L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}\n")
@@ -247,9 +251,9 @@ def build(track: str | None) -> None:
 
     sheet.parent.mkdir(parents=True, exist_ok=True)
     sheet.write_text("".join(L), encoding="utf-8")
-    print(f"{sheet.relative_to(ROOT)} — {len(pend)}종 (스틸 있음 {len(ready)} / "
+    print(f"{sheet.relative_to(ROOT.parent)} — {len(pend)}종 (스틸 있음 {len(ready)} / "
           f"미드저니부터 {len(todo)} / 스틸만 {len(stills)})")
-    print(f"  스틸 폴더: {work.relative_to(ROOT)}")
+    print(f"  스틸 폴더: {work.relative_to(ROOT.parent)}")
     if todo and (pending_zip := _unopened_deliveries()):
         print(f"\n🚨 아직 안 푼 미드저니 zip {len(pending_zip)}개가 다운로드 폴더에 있다 —"
               " 이것부터 확인해라. 같은 걸 또 뽑으라고 내보내게 된다:")

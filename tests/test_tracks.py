@@ -70,7 +70,9 @@ def test_track_of_path_reads_the_folder_not_the_name():
 
 def test_work_and_stills_dirs_are_split_per_track():
     sheet, stills, inbox = tracks.work_paths("육아")
-    assert sheet.parent.name == "작업_육아" and stills.name == "1_스틸" and inbox.name == "2_완성클립"
-    assert tracks.work_paths(None)[0].parent.name == "작업"
+    # 트랙마다 시트·스틸 폴더가 따로여야 번호가 안 섞인다(deploy/작업/ 안에 나란히)
+    assert sheet.name == "건강만사전_육아.md" and stills.name == "건강만사전_육아_스틸" and inbox == stills
+    assert tracks.work_paths(None)[0].name == "건강만사전.md"
+    assert sheet.parent == tracks.work_paths(None)[0].parent
     assert tracks.stills_dir("육아").name == "baby"
     assert tracks.stills_dir(None).name == "stills"
