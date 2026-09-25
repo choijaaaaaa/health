@@ -652,6 +652,43 @@ def _bigrams(text: str) -> set[str]:
     return {s[i:i + 2] for i in range(len(s) - 1)}
 
 
+def blog_card_sections(topic: str) -> tuple[list[str], list[str]] | None:
+    """(블로그 캡션의 번호 칸 제목들, 카드 순서대로 기대하는 제목들). 둘 중 하나라도 없으면 None."""
+    d = _data_dir(topic)
+    spec_p = next((p for p in (d / "card_news_spec.json", d / "ko" / "card_news_spec.json") if p.exists()), None)
+    cap_p = next((p for p in (d / "platform_captions.json", d / "ko" / "platform_captions.json") if p.exists()), None)
+    if not spec_p or not cap_p:
+        return None
+    spec = json.loads(spec_p.read_text(encoding="utf-8"))
+    blog = next((x for x in json.loads(cap_p.read_text(encoding="utf-8")).get("platforms", [])
+                 if x.get("name") == "네이버 블로그"), None)
+    if not blog:
+        return None
+    got = [m.strip() for m in re.findall(r"\n\d\d · ([^\n]*)", "\n" + blog.get("caption", ""))]
+    want = ["표지"] + [it["name"].strip() for it in spec.get("items", [])] + ["마무리"]
+    return got, want
+
+
+def check_blog_card_alignment(topic: str, lang: str = "kor") -> list[dict]:
+    """네이버 블로그 캡션의 번호 칸("01 · 제목")이 지금 카드뉴스 순서·제목과 같은가.
+
+    WHY(2026-09-25 사용자 "머리_14 이런 건 캡션이랑 이미지랑 일치하지도 않고"): 블로그 글은 "번호 위치에
+    해당 카드 이미지를 직접 삽입"하는 구조라, 대본을 새로 써서 카드가 바뀌었는데 글을 그대로 두면 칸마다
+    엉뚱한 카드가 박힌다. 대본 재작성 때 카드만 새로 만들고 글은 옛 구성으로 남긴 topic이 19개였다."""
+    if lang not in ("kor", "ko"):
+        return []
+    pair = blog_card_sections(topic)
+    if not pair:
+        return []
+    got, want = pair
+    if got == want:
+        return []
+    diff = next((f"{i:02d}번 칸 글 '{g}' ≠ 카드 '{w}'" for i, (g, w) in enumerate(zip(got, want)) if g != w),
+                f"글 {len(got)}칸 / 카드 {len(want)}장")
+    return [{"quote": diff, "severity": "high",
+             "issue": f"블로그 글의 번호 칸이 카드뉴스와 안 맞습니다({diff}) — 카드 순서·제목대로 글을 다시 나누세요."}]
+
+
 def check_card_narration_alignment(topic: str, lang: str = "kor") -> list[dict]:
     """카드뉴스 제목·항목이 지금 나레이션과 같은 이야기를 하는지.
 

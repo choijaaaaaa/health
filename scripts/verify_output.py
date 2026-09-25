@@ -106,6 +106,11 @@ def check(topic: str) -> list[str]:
         elif clip.get("url") != NAVER_CLIP_UPLOAD_URL:
             bad.append(f"네이버 클립 업로드 주소가 {clip.get('url')!r}입니다 — {NAVER_CLIP_UPLOAD_URL} 이어야 합니다")
 
+    # 7-1. 블로그 글의 번호 칸이 지금 카드와 같은 순서·제목인가 — 대본 재작성 때 카드만 새로 만들고
+    #      글을 옛 구성으로 남겨, 칸마다 엉뚱한 카드 이미지가 들어갔다(2026-09-25, 21개 topic)
+    from lib.content_review import check_blog_card_alignment
+    bad += [x["issue"] for x in check_blog_card_alignment(topic)]
+
     # 8. 두 벌 다 있고 deploy 사본이 지금 영상과 같은가 — 유튜브판이 한 번도 안 나온 채
     #    몇 주를 갔다(2026-09-24 "영상 두개씩 만들어야한다고 했는데 반영안했노")
     yt = odir / "nocta" / "shorts_xray_test.mp4"
