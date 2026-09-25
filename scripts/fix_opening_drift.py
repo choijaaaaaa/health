@@ -40,22 +40,17 @@ def fix(topic: str, commit: bool) -> list[str]:
         return []
 
     notes: list[str] = []
-    # 1. 자막 끝으로 스냅 — 문장을 자르지 않게. 다만 **시간표 첫 구간을 넘어서지 않는다**:
-    #    가장 가까운 끝으로만 붙이면 "먼저 제로 탄산음료예요" 같은 첫 항목 선언까지 도입부가
-    #    먹어버린다(실측). 겹침을 없애는 쪽으로만 움직이고, 모자라면 줄인다.
-    starts = []
-    for row in cfg.get("timeline", []):
-        try:
-            starts.append(_time_of(row["from"], cues))
-        except ValueError:
-            pass
-    ceiling = min(starts) + 0.05 if starts else float("inf")
-    ends = [en for _st, en, _t in cues if en <= ceiling] or [en for _st, en, _t in cues]
-    snapped = min(ends, key=lambda e: abs(e - until))
-    if abs(snapped - until) > 0.05:
-        notes.append(f"도입부 {until} → {snapped}초(자막 끝에 맞춤)")
-        cfg["opening_until"] = snapped
-        until = snapped
+    # 1. 도입부 끝은 **조립기(xray_build)가 쓰는 규칙 그대로** — 셋째 문단 직전 자막의 끝.
+    #    예전엔 여기서 "첫 칸 시작을 넘지 않는 가장 가까운 자막 끝"으로 따로 계산했는데, 조립기는
+    #    조립 직전에 문단 규칙으로 다시 재서 덮어쓴다. 둘이 다르면 검사는 통과하고 조립만 실패한다
+    #    (2026-09-25 비뇨기_18: 여기선 12.4초, 조립기는 16.4초 → 첫 칸과 겹쳐 xray_splice 실패).
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from xray_build import _opening_end            # noqa: E402
+    want = round(_opening_end(topic, cues), 2)
+    if abs(want - until) > 0.05:
+        notes.append(f"도입부 {until} → {want}초(조립기와 같은 문단 규칙)")
+        cfg["opening_until"] = want
+        until = want
 
     # 2. 도입부 안에서 시작하는 행은 흡수 — 남으면 전체 화면 위에 칸이 겹친다
     kept, dropped = [], []

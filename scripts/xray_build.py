@@ -192,7 +192,10 @@ def _opening_end(topic: str, cues) -> float:
     if len(paras) >= 3:
         head = re.sub(r"\s+", "", paras[2])[:12]
         for i, c in enumerate(cues):
-            if i and head and re.sub(r"\s+", "", c[2]).startswith(head):
+            cue = re.sub(r"\s+", "", c[2])
+            # 문단이 "왜 그럴까요?"처럼 짧은 자막으로 시작하면 자막이 head(12자)보다 짧다 —
+            # 한쪽이 다른 쪽의 앞부분이면 같은 시작으로 본다(대사_23 실측: 못 찾고 훅만 덮었다)
+            if i and head and cue and (cue.startswith(head) or head.startswith(cue)):
                 return cues[i - 1][1]
     # 문단 구조가 다른 옛 topic 폴백 — 훅 한 문장만 덮는다
     return cues[0][1]
