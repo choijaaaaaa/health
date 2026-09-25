@@ -455,8 +455,15 @@ def _is_real_photo_path(path) -> bool:
     """이 이미지가 실사진 풀에서 온 것인지. WHY(2026-09-01, 일러스트 전면 대체):
     실사진은 단색 크로마 배경으로 생성된 게 아니라 꽉 찬 사진이라, 크로마 제거를
     걸면 사진 안에서 배경색과 비슷한 영역마다 구멍이 뚫린다 — card_news.py의
-    _photo_medallion이 _remove_chroma_bg를 버린 것과 같은 이유다."""
-    return path is not None and Path(path).parent.name == "real"
+    _photo_medallion이 _remove_chroma_bg를 버린 것과 같은 이유다.
+
+    공용 사진 풀(`assets-shared/files/`)도 실사진이다 — 이걸 빠뜨려서 2026-09-25 밤샘 조립분에서
+    코너 사진이 원형으로 안 잘리고 직사각형째 구멍 뚫려 나오고, 품목 배지가 통째로 키잉돼 흰
+    동그라미만 남았다(소화_20·소화_21·순환_12 실측)."""
+    if path is None:
+        return False
+    p = Path(path)
+    return p.parent.name == "real" or (p.parent.name == "files" and p.parent.parent.name == "assets-shared")
 
 
 def _resolve_char_image(char_file: str | None, assets_root: Path) -> Path | None:
@@ -3658,6 +3665,10 @@ def assemble(
                     base = re.sub(r"_real_\d+$", "", base)
                 assets_root = motion_p.parent.parent
                 illust_p = _resolve_char_image(f"{base}_illust.jpg", assets_root)
+                # 공용 사진 풀 사진은 파일명이 품목명이 아니라서(pexels_…) 위 조회가 못 찾고 배지가 흰 원으로
+                # 비었다(2026-09-25 소화_20 '대장용종' 실측) — 코너에 쓴 그 사진이 곧 배지 사진이다.
+                if illust_p is None and _is_real_photo_path(motion_p):
+                    illust_p = motion_p
                 item_schedule.append({
                     "start": seg_start,
                     "end": seg_end,

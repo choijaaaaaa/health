@@ -226,7 +226,9 @@ def nearest_bg_color_for_motion(name: str) -> str:
     # 걸면 사진 안에서 그 색과 비슷한 영역마다 구멍이 뚫린다(card_news.py의
     # _photo_medallion이 _remove_chroma_bg를 버린 것과 같은 이유). "none"은
     # video_assembler가 colorkey를 건너뛰라는 신호다.
-    if media_path.startswith(str(REAL_DIR)):
+    # 공용 사진 풀(assets-shared/files)도 실사진 — 판별은 video_assembler와 한 함수로 맞춘다
+    from lib.video_assembler import _is_real_photo_path
+    if media_path.startswith(str(REAL_DIR)) or _is_real_photo_path(media_path):
         return "none"
     with tempfile.TemporaryDirectory() as tmp:
         frame_path = Path(tmp) / "frame.png"
