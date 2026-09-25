@@ -8,7 +8,7 @@
     "날짜 아닌 발달 신호로 정하는 법"
   ],
   "eyebrow": "이유식 시작 시기 판단법",
-  "cover_char_file": "달력_illust.jpg",
+  "cover_char_file": "쌀미음_illust.jpg",
   "cover_scrim_color": "#3C5A3E",
   "items": [
     {
@@ -44,7 +44,7 @@
     },
     {
       "name": "날짜는 이렇게",
-      "char_file": "달력_illust.jpg",
+      "char_file": "이유식_illust.jpg",
       "body": [
         "150일, 160일, 180일 중",
         "하나를 고르는 문제가 아니에요",
@@ -69,7 +69,7 @@
     },
     {
       "name": "발달 신호는 이렇게",
-      "char_file": "아기의자_illust.jpg",
+      "char_file": "유아수저_illust.jpg",
       "body": [
         "숟가락을 혀로 밀어내고",
         "턱에 흘리는 건 정상이에요",

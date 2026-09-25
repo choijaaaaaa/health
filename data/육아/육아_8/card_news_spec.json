@@ -13,7 +13,7 @@
   "items": [
     {
       "name": "이온음료·주스로 수분 보충한다는 오해",
-      "char_file": "이온음료_illust.jpg",
+      "char_file": "과일즙_illust.jpg",
       "body": [
         "질병관리청 국가건강정보포털은",
         "주스나 단맛이 나는 음료, 우유와",
@@ -40,7 +40,7 @@
     },
     {
       "name": "기준은 이렇게",
-      "char_file": "체중계_illust.jpg",
+      "char_file": "아기체중계_illust.jpg",
       "body": [
         "횟수 대신 묽기를 보세요",
         "변이 기저귀에 물처럼 번지기",
@@ -65,7 +65,7 @@
     },
     {
       "name": "소변은 이렇게",
-      "char_file": "경구수액_illust.jpg",
+      "char_file": "젖은기저귀_illust.jpg",
       "body": [
         "기저귀를 갈아도 거의 젖어 있지 않고",
         "입안이 마르면 수분이 모자란 상태예요",
@@ -90,7 +90,7 @@
     },
     {
       "name": "먹이기는 이렇게",
-      "char_file": "유산균_illust.jpg",
+      "char_file": "아기유산균_illust.jpg",
       "body": [
         "수분을 채운 뒤에는 모유나 분유를",
         "원래 농도로 바로 다시 물리세요",
