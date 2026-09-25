@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/m_cell_overgrowth.mp4"
     }
   ],
-  "summary_from": "초음파로 위치부터",
+  "summary_from": "그러니 먼저 근종이",
   "timeline": [
     {
       "from": "자궁 벽은 안쪽 내막",
@@ -57,13 +57,13 @@
       "label": "적혈구"
     },
     {
-      "from": "초음파로 위치부터",
+      "from": "그러니 먼저 근종이",
       "item": "달력",
       "mech": "m_blood_loss",
       "act": null,
       "label": "자궁 내막"
     }
   ],
-  "opening_until": 10.88,
+  "opening_until": 9.92,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

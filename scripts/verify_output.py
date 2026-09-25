@@ -18,6 +18,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+NAVER_CLIP_UPLOAD_URL = "https://clipcreators.naver.com/web/contents/clips"
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
@@ -97,9 +98,13 @@ def check(topic: str) -> list[str]:
     caps = next((p for p in (ddir / "platform_captions.json", ddir / "ko" / "platform_captions.json")
                  if p.is_file()), None)
     if caps:
-        names = [x.get("name") for x in json.loads(caps.read_text(encoding="utf-8")).get("platforms", [])]
-        if "네이버 클립" not in names:
+        plats = json.loads(caps.read_text(encoding="utf-8")).get("platforms", [])
+        clip = next((x for x in plats if x.get("name") == "네이버 클립"), None)
+        if clip is None:
             bad.append("platform_captions.json에 네이버 클립 항목이 없습니다 — 올릴 자리가 안 생깁니다")
+        # 원고 재작성 에이전트가 업로드 주소 자리에 제휴 링크(naver.me)를 넣은 적이 있다(머리_14, 2026-09-25)
+        elif clip.get("url") != NAVER_CLIP_UPLOAD_URL:
+            bad.append(f"네이버 클립 업로드 주소가 {clip.get('url')!r}입니다 — {NAVER_CLIP_UPLOAD_URL} 이어야 합니다")
 
     # 8. 두 벌 다 있고 deploy 사본이 지금 영상과 같은가 — 유튜브판이 한 번도 안 나온 채
     #    몇 주를 갔다(2026-09-24 "영상 두개씩 만들어야한다고 했는데 반영안했노")

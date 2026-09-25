@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/act_rush_to_toilet.mp4"
     }
   ],
-  "summary_from": "속이 메스껍고 하품이",
+  "summary_from": "그러니 속이 메스껍고",
   "timeline": [
     {
       "from": "배와 심장에 함께 닿아",
@@ -64,13 +64,13 @@
       "label": "혈액량"
     },
     {
-      "from": "속이 메스껍고 하품이",
+      "from": "그러니 속이 메스껍고",
       "item": "의자",
       "mech": "m_vagal_slowdown",
       "act": null,
       "label": "미주신경"
     }
   ],
-  "opening_until": 11.76,
+  "opening_until": 12.08,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다."
 }

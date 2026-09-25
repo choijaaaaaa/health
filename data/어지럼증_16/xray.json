@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_ear_inner.mp4"
     }
   ],
-  "summary_from": "이석증이면 이비인후과에서",
+  "summary_from": "그러니 이석증이면",
   "timeline": [
     {
       "from": "귓속엔 머리 기울기를",
@@ -57,12 +57,12 @@
       "label": "달팽이관"
     },
     {
-      "from": "이석증이면 이비인후과에서",
+      "from": "그러니 이석증이면",
       "item": "베개",
       "mech": "m_sensory_mismatch",
       "act": null,
       "label": "반고리관"
     }
   ],
-  "opening_until": 9.92
+  "opening_until": 8.96
 }

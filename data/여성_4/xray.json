@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/act_take_supplement.mp4"
     }
   ],
-  "summary_from": "2주 동안 열감이 온",
+  "summary_from": "그러니 2주 동안",
   "timeline": [
     {
       "from": "열감은 뇌의 체온조절중추에서",
@@ -57,12 +57,12 @@
       "label": "난소"
     },
     {
-      "from": "2주 동안 열감이 온",
+      "from": "그러니 2주 동안",
       "item": "달력",
       "mech": "m_hormone_drop",
       "act": null,
       "label": "체온조절중추"
     }
   ],
-  "opening_until": 13.52
+  "opening_until": 13.6
 }

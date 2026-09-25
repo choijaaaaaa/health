@@ -730,6 +730,50 @@ _CONNECTIVES = re.compile(r"(^|[.?!]\s+)(그리고|그래서|그러니|그러니
 MIN_CONNECTIVES = 5
 
 
+_IMPERATIVE_END = re.compile(r"세요[.!]?$")
+# 조건·이유가 붙은 명령("~하면 가세요", "~라서 드세요")이나 앞 문장에 이어지는 명령("그러니 ~하세요")은
+# 이유를 이미 달고 있으니 맨 명령으로 치지 않는다
+_REASONED = re.compile(r"^(그러니|그래서|그러면|그러니까|따라서)|(면|니까|거든|라서|이니|하니|으니|려면)[ ,]")
+MAX_BARE_OVER_REASON = 0
+
+
+def check_board_flow(topic: str, lang: str = "kor") -> list[dict]:
+    """해결책 칠판 구간이 "이유 → 그러니 할 일"로 이어지는가.
+
+    WHY(2026-09-25 사용자): "어떤 거 하라고 제안하는 마지막 칠판씬에서 글이 매끄럽지 않고 그냥 줄줄줄
+    읽는 느낌만 낸다. 순환_3도 심각하다." 순환_3 칠판은 "~하세요"만 6문장 연달아였고, 칭찬받은
+    소화_18은 할 일마다 이유 한 문장("이 균은 다섯 살 전에 가족의 침을 타고 들어와요")을 앞에 둔다.
+    또 이음새 넣기 때 "그러니"만 앞 칸에 남기고 칠판을 그 뒤에서 시작해, 씬 전환 직전에 "그러니"
+    한마디가 뚝 떨어져 읽힌 topic이 5개였다 — 칠판은 문장 첫머리에서 시작해야 한다."""
+    if lang not in ("kor", "ko"):
+        return []
+    d = _data_dir(topic)
+    x, n = d / "xray.json", d / "narration.txt"
+    if not x.exists() or not n.exists():
+        return []
+    sf = json.loads(x.read_text(encoding="utf-8")).get("summary_from")
+    text = n.read_text(encoding="utf-8")
+    i = text.find(sf) if sf else -1
+    if i < 0:
+        return []
+    issues = []
+    before = text[:i].rstrip(" ")
+    if before and not before.endswith(("\n", ".", "?", "!")):
+        issues.append({"quote": before[-20:] + "|" + sf, "severity": "high",
+                       "issue": "칠판이 문장 한가운데서 시작합니다 — summary_from을 그 문장 첫머리(그러니·그래서 포함)로 옮기세요."})
+    bare = reason = 0
+    for sent in (x.strip() for x in re.split(r"(?<=[.?!])\s+", text[i:]) if x.strip()):
+        if not _IMPERATIVE_END.search(sent):
+            reason += 1
+        elif not _REASONED.search(sent):
+            bare += 1
+    if bare - reason > MAX_BARE_OVER_REASON:
+        issues.append({"quote": sf, "severity": "medium",
+                       "issue": f"칠판 구간이 이유 없는 '~하세요' {bare}문장, 설명 {reason}문장입니다 — 체크리스트처럼 들립니다. "
+                                "할 일마다 왜 그런지 한 문장을 먼저 두고 '그러니'로 이으세요(견본 소화_18)."})
+    return issues
+
+
 def check_connective_flow(topic: str, lang: str = "kor") -> list[dict]:
     """문장과 문장 사이에 이음새가 있는가.
 

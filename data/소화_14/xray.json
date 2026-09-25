@@ -63,7 +63,7 @@
       "label": "위벽"
     },
     {
-      "from": "통증이 오면 배를",
+      "from": "그러니 스트레스가 방아쇠라면",
       "item": "온찜질",
       "mech": "m_acid_secretion",
       "act": null,
@@ -71,8 +71,8 @@
     }
   ],
   "_timeline_why": "새 대본(2026-09-24)에 맞춰 견본 칸 구성을 그대로 옮겼다 — 방아쇠 예고(압력·배 움켜쥠) → 스트레스 → 빈속 커피(act_drink_caffeine·m_acid_secretion) → 술(act_drink_alcohol_with_painkiller·m_toxin_load). 바뀐 점: 스트레스 항목이 '열 명 중 서너 명은 적은 공기에도 통증 → 마감 주에 몰려 아픔'으로 깊어져 두 칸으로 나눴다 — 선언+'위를 읽는 감각이 예민'은 견본대로 act_hold_head·m_nerve_overdrive, '적은 공기만 들어가도 통증'은 차오르는 압력 m_pressure_buildup에 책상 앞에서 무너지는 act_slump_at_desk(마감 주). m_arousal_spike는 프레임을 보니 호박색 없이 흐릿해서 뺐다. 술 항목의 진짜 위험이 '다음 날 진통제'로 옮겨가 소염진통제 문장을 따로 떼어 알약을 삼키는 act_take_supplement·위궤양 출혈 m_tissue_tear로 붙였다(act_drink_alcohol_with_painkiller엔 알약이 안 나온다). 구간 4.0~10.7초.",
-  "summary_from": "통증이 오면 배를",
+  "summary_from": "그러니 스트레스가 방아쇠라면",
   "_summary_why": "해결책 첫 문장 '통증이 오면 배를 따뜻하게'부터 칠판 전체. 배지는 그 행동 품목(온찜질).",
-  "opening_until": 10.24,
+  "opening_until": 10.56,
   "_format_why": "견본(2026-09-24 확정). 도입부=훅+통념 반박 전체 화면 / 항목마다 왼쪽 행위·오른쪽 기전 / 부위 라벨은 기전 쪽 오른쪽 아래 / 결론은 칠판 전체, 배지는 해결책 품목."
 }
