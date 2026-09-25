@@ -30,6 +30,19 @@ CAPTION_MAX_LINES = 2         # 칠판은 한 문장을 통째로 띄우지만 �
 CLIP_SFX_VOLUME = 0.35        # Flow 클립 자체 효과음(험·심장박동) — 나레이션을 덮지 않게 낮춘다
 
 
+def _atempo_chain(factor: float) -> str:
+    """atempo 필터 문자열. ffmpeg atempo는 한 단에 0.5~100배만 받아서, 도입 클립을 2배 넘게 늘리면
+    (비뇨기_18: 도입부 16.6초에 Flow 두 컷 → 0.49배) "Result too large"로 조립 전체가 죽었다.
+    0.5 밑은 여러 단으로 나눠 곱이 같게 만든다."""
+    if abs(factor - 1.0) < 1e-6:
+        return ""
+    parts = []
+    while factor < 0.5:
+        parts.append(0.5); factor /= 0.5
+    parts.append(factor)
+    return "".join(f"atempo={x:.4f}," for x in parts)
+
+
 def _has_audio(path: Path) -> bool:
     r = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "a", "-show_entries", "stream=index",
                         "-of", "csv=p=0", str(path)], capture_output=True, text=True)
@@ -344,7 +357,7 @@ def main() -> None:
             # scripts/make_part_clip.py가 스틸에서 만든 것이라 오디오 트랙이 아예 없다. 없는 [n:a]를 참조하면
             # ffmpeg가 "matches no streams"로 전체 조립을 실패시킨다(소화_14에서 실측).
             if _has_audio(clip):
-                tempo = f"atempo={1 / speed:.4f}," if speed != 1.0 else ""
+                tempo = _atempo_chain(1 / speed)
                 acut = f"atrim=start={rng[0]}:end={rng[1]},asetpts=PTS-STARTPTS," if rng else ""
                 fc.append(f"[{n}:a]{acut}{tempo}volume={CLIP_SFX_VOLUME},"
                           f"adelay={int(t0 * 1000)}|{int(t0 * 1000)}[s{i}]")
