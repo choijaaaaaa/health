@@ -37,6 +37,10 @@
 - **채널명 「건강만사전」** — 엔딩 카드(`video_assembler.BRAND_NAME`)·카드 CTA·해시태그 `#건강만사전`(태그 줄 맨 앞)·
   대시보드 제목. **내부 식별자는 안 바꾼다**(폴더명 `health-shorts`, R2 프리픽스 `health-shorts/card_news/`,
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
+- 🚨 **유튜브 채널은 「세상건강사전」 @worldshealthdictionary**(2026-09-25, 옛 인물사전 채널, 댕냥사전과 공용 — 아침 7시 건강숏츠,
+  오후 5시 댕냥사전은 그쪽 세션 담당). 업로드는 **`scripts/whd_upload.py`로만** — `lib/youtube_upload.py`를 그대로 돌리면
+  개인 채널(@choiguevara)로 네이버판 영상이 올라간다. 매일 10:30 크론이 빈 아침 슬롯을 채운다(`status`로 현황).
+  키는 `.env`의 `YOUTUBE_WHD_*`, OAuth 앱이 테스트 상태라 **토큰이 7일마다 만료** — 만료되면 사용자 재로그인 필요.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
 - **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),
