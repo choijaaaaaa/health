@@ -42,7 +42,7 @@
       "from": "몸은 체중이 빠르게",
       "item": "체중감량주사",
       "mech": "m_fat_breakdown",
-      "act": null,
+      "act": "act_loose_waistband",
       "label": "지방"
     },
     {
@@ -56,14 +56,14 @@
       "from": "모낭이 죽은 게 아니라",
       "item": "달력",
       "mech": "part_scalp",
-      "act": null,
+      "act": "act_hairline_regrowth",
       "label": "두피"
     },
     {
       "from": "임상에서 마운자로 탈모는",
       "item": "체중감량주사",
       "mech": "m_follicle_weakening",
-      "act": null,
+      "act": "act_part_line_check",
       "label": "머리카락"
     },
     {

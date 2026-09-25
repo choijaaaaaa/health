@@ -11,6 +11,7 @@ WHY(2026-09-24): 시트에 번호를 붙여놓고 스틸은 `stills/act/`·`stil
 """
 from __future__ import annotations
 
+import datetime as dt
 import json
 import shutil
 import sys
@@ -104,7 +105,13 @@ def _done(r: dict, track: str | None) -> bool:
     mp4가 없으면 미완"이라는 기존 판정이 이 요청들엔 영영 참이라 시트에서 안 내려간다."""
     if r.get("kind") == "still":
         return (tracks.stills_dir(track) / f"{r['name']}.jpg").exists()
-    return (LIB / f"{r['name']}.mp4").exists()
+    clip = LIB / f"{r['name']}.mp4"
+    # "redo": "<ISO 시각>" — 받은 클립이 요청과 달라 다시 뽑는 중. 그 시각 뒤에 새 클립이 들어오기 전까진
+    # 시트에 남긴다(2026-09-25 act_full_belly_refuse_water: 물을 밀어내야 하는데 꿀꺽 마셔서 재요청했는데,
+    # 라이브러리에 옛 클립이 있다는 이유로 시트에서 빠져 프롬프트를 찾을 데가 없었다).
+    if r.get("redo"):
+        return clip.exists() and dt.datetime.fromtimestamp(clip.stat().st_mtime) > dt.datetime.fromisoformat(r["redo"])
+    return clip.exists()
 
 
 def _existing_still(sub: str, name: str, track: str | None) -> Path | None:

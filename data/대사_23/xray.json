@@ -58,21 +58,21 @@
       "from": "식약처 허가사항에 실린",
       "item": "체중감량주사",
       "mech": "m_hormone_drop",
-      "act": null,
+      "act": "act_scale_regain",
       "label": "약 신호"
     },
     {
       "from": "식사와 운동 지도를",
       "item": "운동화",
       "mech": "m_fat_breakdown",
-      "act": null,
+      "act": "act_dumbbell_workout",
       "label": "체지방"
     },
     {
       "from": "끊은 사람 10명 중",
       "item": "달력",
       "mech": "m_fat_accumulation",
-      "act": null,
+      "act": "act_scale_regain",
       "label": "피하지방"
     },
     {

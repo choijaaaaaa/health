@@ -61,7 +61,7 @@
       "from": "여기에 배가 늘",
       "item": "물컵",
       "mech": "m_dehydration",
-      "act": null,
+      "act": "act_full_belly_refuse_water",
       "label": "장 속 수분"
     },
     {
