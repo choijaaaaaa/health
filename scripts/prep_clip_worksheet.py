@@ -167,11 +167,13 @@ def build(track: str | None) -> None:
         return
     # 번호는 시트에 실리는 차례(0부 스틸 → 1부 Flow만 → 2부 미드저니부터)와 같아야 한다.
     # 안 그러면 "01~09 미드저니 먼저 / 03~11 스틸만"처럼 구간이 겹쳐 무엇부터 할지 알 수 없다.
+    # 🚨 미드저니가 필요한 번호를 앞(01~)으로 몬다(2026-09-26 사용자 "몇 번을 말해 미드저니를 위쪽으로 몰아서
+    # 쫙 뽑게 하라니까"). 사람은 미드저니를 한 번에 다 뽑고 → 세션이 확인·정리 → Flow를 한 번에 돈다.
     def order(x):
         _topic, r, sub = x
         if sub == "still":
             return (0, _topic)
-        return (1 if _existing_still(sub, r["name"], track) else 2, _topic)
+        return (2 if _existing_still(sub, r["name"], track) else 1, _topic)
 
     pend.sort(key=order)
     _harvest_loose_stills(pend, work, track)
@@ -197,57 +199,51 @@ def build(track: str | None) -> None:
     stills = [x for x in pend if x[2] == "still"]
     ready = [x for x in pend if x[2] != "still" and (work / x[1]["_work"]).exists()]
     todo = [x for x in pend if x[2] != "still" and x not in ready]
-    # 맨 위 두 줄이 "내가 지금 뭘 하면 되는지"를 번호로 답해야 한다 — 표까지 읽게 하면
-    # "몇번몇번 플로우랑 미드저니 뭐지?"를 또 묻게 된다(2026-09-24).
+    # 맨 위가 "지금 뭘 하면 되는지"를 번호로 답해야 한다. 미드저니는 전부 1부에 몰고, Flow는 전부 2부에 몬다 —
+    # 한 항목 안에 미드저니·Flow를 같이 두면 미드저니를 뽑으려고 Flow 프롬프트 사이를 헤집어야 했다.
+    mj = stills + todo                     # 미드저니가 필요한 것(번호 01부터 연속)
+    flow = todo + ready                    # Flow를 돌릴 것(미드저니 확인이 끝난 뒤)
+    flow.sort(key=lambda x: x[1]["_no"])
     span = lambda xs: ("없음" if not xs
                        else "·".join(r["_no"] for _t, r, _s in xs) if len(xs) <= 4
                        else f"{xs[0][1]['_no']}~{xs[-1][1]['_no']}")
-    L = [f"# 지금 뽑을 클립 {len(pend)}종" + (f" — {track} 트랙" if track else "") + "\n",
-         f"\n## 내가 할 일\n",
-         f"\n- **{span(ready)} → Flow만** 돌린다(스틸은 이미 `{work.relative_to(ROOT.parent)}/`에 있다).\n",
-         f"- **{span(todo)} → 미드저니 먼저**, 나온 스틸을 그 폴더에 `<번호>_<이름>.jpg`로 넣고 Flow.\n",
-         f"- **{span(stills)} → 미드저니만**. **Flow 안 돌린다** — 스틸만 주면 코드가 클립을 만든다.\n",
-         f"\n**받은 영상은 `{inbox.relative_to(ROOT.parent)}/`에 클립 이름 그대로 넣는다**"
-         " — 그 뒤 `scripts/collect_clips.py --commit`이 라이브러리로 들인다.\n",
-         "\n🚨 Flow는 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.\n",
-         "\n| # | 이름 | topic | 할 일 |\n|---|---|---|---|\n"]
+    folder = work.relative_to(ROOT.parent)
+    L = [f"# 지금 뽑을 것 {len(pend)}종" + (f" — {track} 트랙" if track else "") + "\n",
+         "\n## 내가 할 일 (이 순서대로)\n",
+         f"\n1. **미드저니 {span(mj)} — 1부를 위에서부터 쫙 뽑는다.** 결과는 `{folder}/`에 넣거나 zip째 다운로드 폴더에 둔다.\n",
+         "2. **세션에 말한다** — 세션이 확인·분류해서 번호 이름으로 정리하고 이 시트를 다시 만든다.\n",
+         f"3. **Flow {span(flow)} — 2부를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n",
+         f"   결과 mp4는 `{folder}/`에 클립 이름 그대로 넣거나 다운로드 폴더에 둔다.\n",
+         "\n| # | 이름 | topic | 미드저니 | Flow |\n|---|---|---|---|---|\n"]
     for topic, r, sub_ in pend:
-        할일 = ("미드저니만(스틸)" if sub_ == "still"
-                else "Flow만" if (work / r["_work"]).exists() else "미드저니 → Flow")
-        L.append(f"| {r['_no']} | `{r['name']}` | {topic} | {할일} |\n")
+        has = (work / r["_work"]).exists()
+        L.append(f"| {r['_no']} | `{r['name']}` | {topic} | {'✅ 있음' if has else '뽑기'} | "
+                 f"{'— (스틸만)' if sub_ == 'still' else '돌리기'} |\n")
 
-    if stills:
-        L.append(f"\n---\n\n# 0부 · 미드저니만 — 스틸 {len(stills)}장 (Flow 안 돌린다)\n")
-        L.append(f"\n🚨 **이 번호들은 영상을 뽑지 않는다.** 미드저니 스틸 한 장씩만 "
-                 f"`{work.relative_to(ROOT.parent)}/`에 `<번호>_<이름>.jpg`로 넣으면 된다 — "
-                 "푸시인과 점등은 코드가 입힌다.\n")
-        for topic, r, _sub in stills:
-            L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}\n")
-            L.append(f"\n**레퍼런스**: `{r.get('ref') or CANON}` — "
-                     f"{r.get('ref_mode') or 'Omni Reference'} / 저장: `{r['_work']}`\n")
-            L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
-            L.append(f"\n### 미드저니\n```\n{r.get('midjourney', '')}\n```\n")
-            if r.get("midjourney_alt"):
-                L.append("\n<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
-                         f"```\n{r['midjourney_alt']}\n```\n\n</details>\n")
-
-    L.append(f"\n---\n\n# 1부 · 스틸 있음 — Flow만 ({len(ready)}종)\n")
-    for topic, r, _sub in ready:
-        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초)\n")
-        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
-        L.append(f"\n```\n{r.get('flow', '')}\n```\n")
-
-    L.append(f"\n---\n\n# 2부 · 미드저니부터 ({len(todo)}종)\n")
-    L.append("\n`act_`는 **Omni Reference**, `m_`는 **Style Reference**"
-             "(Omni 금지 — 클로즈업에 전신 인체가 끼어든다).\n")
-    L.append("\n뽑은 스틸은 같은 폴더에 `<번호>_<이름>.jpg`로 넣으면 된다.\n")
-    for topic, r, sub in todo:
+    L.append(f"\n---\n\n# 1부 · 미드저니 — {len(mj)}장 쫙 먼저\n")
+    if mj:
+        L.append("\n`act_`는 **Omni Reference**, `m_`는 **Style Reference**(Omni 금지 — 클로즈업에 전신 인체가 끼어든다). "
+                 "저장 이름은 번호마다 적혀 있다.\n")
+    else:
+        L.append("\n미드저니는 없다 — 스틸이 전부 있다. 2부 Flow로 바로 간다.\n")
+    for topic, r, sub in mj:
         mode = r.get("ref_mode") or ("Style Reference (⚠️ Omni 금지)" if sub == "mech" else "Omni Reference")
-        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초)\n")
+        tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
+        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
         L.append(f"\n**레퍼런스**: `{r.get('ref') or CANON}` — {mode} / 저장: `{r['_work']}`\n")
+        L.append(f"\n```\n{r.get('midjourney', '')}\n```\n")
+        if r.get("midjourney_alt"):
+            L.append("\n<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
+                     f"```\n{r['midjourney_alt']}\n```\n\n</details>\n")
         L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
-        L.append(f"\n### 미드저니\n```\n{r.get('midjourney', '')}\n```\n")
-        L.append(f"\n### Flow\n```\n{r.get('flow', '')}\n```\n")
+
+    L.append(f"\n---\n\n# 2부 · Flow — {len(flow)}개 (미드저니 확인 끝난 뒤)\n")
+    L.append("\n🚨 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.\n")
+    for topic, r, _sub in flow:
+        wait = "" if (work / r["_work"]).exists() else " · ⏳ 1부 스틸 먼저"
+        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초){wait}\n")
+        L.append(f"\n스틸: `{r['_work']}`\n\n```\n{r.get('flow', '')}\n```\n")
+        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
 
     sheet.parent.mkdir(parents=True, exist_ok=True)
     sheet.write_text("".join(L), encoding="utf-8")
