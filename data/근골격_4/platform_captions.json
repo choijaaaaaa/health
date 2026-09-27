@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 아침마다 목이 뻣뻣하고 어깨가 무겁게 뭉친다면, 사실 이 음식들 때문일 수 있어요\n\n설명란:\n라면 국물·커피·맥주가 수분 균형과 마그네슘을 흔들어서 목·어깨 근육이 더 뭉치게 만들 수 있어요.\n\n라면(나트륨), 커피(카페인), 맥주(알코올) — 줄이고 케일·호두·다크초콜릿으로 마그네슘을 채우면 뭉침이 줄어드는 데 도움이 될 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·좋아요 해주세요 👆\n\n#건강만사전 #Shorts #목뻣뻣함 #어깨뭉침 #거북목 #건강정보",
       "suppress_product_block": true
     },

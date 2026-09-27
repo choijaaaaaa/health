@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 심계항진 갑자기 심장 쿵쾅댄다면 두근거림 줄이는 습관 3가지\n\n설명란:\n가만히 있어도 심장이 갑자기 쿵쾅대거나 건너뛰는 느낌, 검사해도 이상 없다면 부정맥이 아니라 심계항진일 수 있어요.\n\n카페인, 스트레스, 수면부족 — 흔한 원인 3가지와 줄이는 방법을 알려드려요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #심계항진 #두근거림 #가슴두근거림 #건강정보",
       "suppress_product_block": true
     },

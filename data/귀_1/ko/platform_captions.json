@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 조용한 곳에서 들리는 삐- 소리, 스트레스 때문이 아니라 이명 부르는 음식 때문일 수 있어요\n\n설명란:\n내이 림프액 압력이나 혈류가 흔들리면 이명이 생길 수 있어요.\n\n맥주(혈관 확장), 에너지드링크(카페인 과다), 김치찌개(나트륨 과다) — 대체 습관으로 바꾸는 것만으로 도움될 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #이명 #귀울림 #메니에르병 #건강정보",
       "suppress_product_block": true
     },

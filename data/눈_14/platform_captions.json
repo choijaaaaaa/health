@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 광각막염, 물놀이 후 눈이 화끈거린다면 이 3가지 확인\n\n설명란:\n광각막염(자외선각막염)은 강한 자외선에 각막이 화상을 입은 것처럼 손상되는 증상이에요. 자외선 차단 선글라스 쓰기, 증상 나타나면 인공눈물과 냉찜질로 진정시키기, 반복되면 안과 진료받기 — 이 세 가지만 지켜도 눈은 금방 제자리를 찾아가요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #광각막염 #자외선각막염 #건강정보",
       "suppress_product_block": true
     },

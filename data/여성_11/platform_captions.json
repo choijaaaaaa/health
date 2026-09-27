@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 월경전증후군, 생리 며칠 전마다 예민해지고 붓는다면 이 3가지 습관\n\n설명란:\n월경전증후군(PMS)은 황체기에 프로게스테론이 줄고 알도스테론이 나트륨과 수분을 붙잡으면서 생기는 증상이에요. 나트륨 줄이기, 카페인·알코올 줄이기, 가벼운 유산소 운동 — 이 세 가지만 지켜도 증상이 한결 가벼워져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #월경전증후군 #PMS #건강정보",
       "suppress_product_block": true
     },

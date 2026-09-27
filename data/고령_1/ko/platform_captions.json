@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 손발이 저리고 차갑고 잘 붓는다면 주목! 60대 음식 똑똑하게 고르는 법\n\n설명란:\n포화지방은 혈관에 지방을 쌓고 나트륨은 수분을 붙잡아둬서 손발 저림·붓기로 이어져요. 사골국(포화지방), 믹스커피(팜유), 과일즙(식이섬유 손실) — 무조건 끊지 않아도, 저지방 사골육수·우유 넣은 커피·무가당 스무디로 바꾸는 것만으로 혈관 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #고지혈증 #혈관건강 #60대건강 #건강정보",
       "suppress_product_block": true
     },

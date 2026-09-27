@@ -27,10 +27,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 눈 흰자에 핏자국 생겼다면 결막하출혈일 수 있어요\n\n설명란:\n눈 흰자에 갑자기 붉은 핏자국이 번지면 많이 놀라지만, 대부분 통증도 시력 저하도 없이 저절로 낫는 결막하출혈이에요. 눈 비비는 습관, 기침·재채기·힘주기, 항응고제·아스피린 복용이 대표 원인이고, 7~10일이면 흡수돼 1~3주 안에 사라져요. 통증·시력 저하가 같이 오거나 자주 반복되면 안과 진료가 필요해요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #결막하출혈 #눈흰자출혈 #눈실핏줄 #건강정보"
     },
     {

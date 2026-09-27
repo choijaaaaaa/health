@@ -23,9 +23,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 간식이나 밥 먹고 나면 유독 졸리다면 주목! 당뇨 부르는 음식 4가지\n\n설명란:\n정제 탄수화물·당분으로 혈당이 확 치솟았다가 반응성 저혈당으로 뚝 떨어지면서 식후 졸음이 몰려옵니다. 흑당버블티(한 잔 평균 당류 41.6g, 서울시 조사), 단팥빵, 찹쌀떡(GI 82), 양념갈비(고온 건열 조리 시 당독소 급증) — 혈당을 급격히 올리는 대표 음식들과 먹는 순서를 바꿔 부담을 줄이는 방법을 정리했습니다.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #당뇨부르는음식 #혈당스파이크 #식후졸음 #건강정보",
       "suppress_product_block": true
     },

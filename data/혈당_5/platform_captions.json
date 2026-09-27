@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 당뇨 없어도 손 떨리고 식은땀 난다면 반응성 저혈당\n\n설명란:\n식후 한두 시간에서 세 시간 사이 손 떨림·식은땀·어지럼증이 온다면 반응성 저혈당 신호일 수 있어요. 빈속의 사탕·초콜릿, 탄산음료·과일주스, 반찬 없이 급하게 먹는 흰쌀밥 — 혈당을 급격히 올렸다 뚝 떨어뜨리는 대표 습관 세 가지와, 채소·단백질 먼저 먹고 식사 간격을 규칙적으로 가져가는 완화법을 정리했습니다.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #저혈당 #반응성저혈당 #혈당스파이크 #건강정보",
       "suppress_product_block": true
     },

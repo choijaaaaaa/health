@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 편두통, 관자놀이가 지끈거리고 빛만 봐도 눈이 시리다면 유발 음식 가려내는 두통 일기\n\n설명란:\n숙성치즈·와인 속 티라민, 핫도그·소시지 속 아질산염, 갑자기 끊는 카페인 — 질병관리청이 편두통 유발 요인으로 언급하는 항목들이에요.\n\n다만 유발 음식은 대부분 환자 본인이 보고한 것이라 사람마다 달라요. 목록을 다 끊는 대신 두통 일기를 써서 나에게 겹치는 것부터 찾고, 커피는 매일 같은 양으로 유지하세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #편두통 #편두통원인 #티라민 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 코르티솔, 운동해도 안 빠지는 뱃살이라면 이 3가지 습관\n\n설명란:\n스트레스 호르몬인 코르티솔은 내장지방 조직에 특히 쌓이기 쉬워요. 공복 커피 타이밍 조절, 고강도 운동 후 회복, 규칙적인 수면 — 이 세 가지만 지켜도 코르티솔 부담이 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #코르티솔 #내장지방 #건강정보",
       "suppress_product_block": true
     },

@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 인슐린저항성, 성인 10명 중 4명이 겪는다는데 혹시 나도 - 인슐린 둔감도 낮추는 습관\n\n설명란:\n복부비만·운동부족·수면부족이 세포를 인슐린에 둔감하게 만들어요. 대한당뇨병학회 2025 당뇨병 진료지침은 당뇨병전단계 성인에게 체중 5% 이상 감량과 유지, 주 150분 이상 중강도 유산소운동, 저항운동 병행을 권고해요. 여기에 규칙적인 6~8시간 수면까지 더해보세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #인슐린저항성 #당뇨병전단계 #복부비만 #건강정보",
       "suppress_product_block": true
     },

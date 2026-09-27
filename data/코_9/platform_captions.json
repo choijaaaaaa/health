@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 비강건조증, 코 안 건조하고 딱지 잘 생긴다면 이 3가지 습관 확인\n\n설명란:\n입 벌리고 자기(구강호흡), 손으로 코 만지기(점막 손상), 알레르기약 장기 복용(항히스타민 부작용) — 코 안을 마르게 하는 뜻밖의 습관이에요.\n\n코막힘부터 해결하고, 자기 전 보습제로 점막을 보호하고, 코딱지는 식염수로 부드럽게 풀어주면 코 안이 확실히 촉촉해져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #비강건조증 #코건조증 #건강정보",
       "suppress_product_block": true
     },

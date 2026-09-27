@@ -28,10 +28,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 비용종, 코막힘·후각저하 계속된다면 물혹 줄이는 습관 3가지\n\n설명란:\n콧물이 아니라 코가 항상 막혀있는 느낌이 계속된다면 비용종(콧속 물혹) 때문일 수 있어요. 흡연, 건조한 실내, 코막힘 방치가 물혹을 더 키워요.\n\n금연하고 가습기로 습도를 맞추고 생리식염수로 코를 세척하면 증상 완화에 도움이 돼요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #비용종 #코막힘 #후각저하 #만성부비동염 #건강정보"
     },
     {

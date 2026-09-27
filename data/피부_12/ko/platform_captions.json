@@ -28,10 +28,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 얼굴이 자꾸 붉어지고 화끈거린다면 - 여드름 아닌 주사 구별법과 관리 습관\n\n설명란:\n자외선, 맵고 뜨거운 음식과 술, 사우나 같은 급격한 온도 변화 — 주사를 악화시키는 습관 세 가지예요.\n\n자외선차단제는 2~3시간마다 덧바르고, 맵고 뜨거운 음식과 술은 줄이고, 사우나 대신 미온수로 세안해보세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #주사 #로자시아 #얼굴홍조 #건강정보"
     },
     {

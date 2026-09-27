@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 결막염, 눈 빨갛고 간지러운 게 나만 그런가 싶었다면 - 눈 지키는 습관\n\n설명란:\n눈 만지기, 렌즈 위생 소홀, 수건 공유가 결막염 전염을 더 키워요. 눈 만지기 전엔 손 씻고, 렌즈는 자기 전 빼서 매일 세척하고, 수건은 따로 쓰면 전염을 확실히 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #결막염 #눈충혈 #건강정보",
       "suppress_product_block": true
     },

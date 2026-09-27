@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 쉬어도 피곤하고 오른쪽 윗배가 묵직하게 뻐근한데 그냥 넘기고 계셨다면 잠깐 지방간 부르는 냉장고 음식\n\n설명란:\n과일주스·흰쌀밥·가공육을 자주 먹으면 간에 지방이 계속 쌓일 수 있어요.\n\n과일주스(과당→대부분 간에서 대사), 흰쌀밥(혈당지수 84), 가공육(WHO 1군 발암물질) — 무조건 끊지 않아도, 생과일·현미밥·살코기와 두부로 바꾸는 것만으로 간 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #지방간 #간건강 #현미밥 #건강정보",
       "suppress_product_block": true
     },

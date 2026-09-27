@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 코 필러 맞은 후, 코끝이 하얗게 질린다면 지금 확인하세요\n\n설명란:\n코 필러 시술 후 혈관이 막히면 조직이 산소 부족에 빠지고, 몇 시간 안에 대처하지 못하면 괴사로 이어질 수 있어요. 심한 통증, 피부색 변화, 골든타임 — 이 세 가지 위험 신호를 기억하고, 시술 전엔 초음파로 혈관을 확인하는 병원인지, 부작용 시 즉시 대응 가능한지 확인하세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #코필러 #필러부작용 #건강정보",
       "suppress_product_block": true
     },

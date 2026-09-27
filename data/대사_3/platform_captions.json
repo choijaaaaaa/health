@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 이유 없이 피곤하고 추위를 잘 타고 목까지 살짝 부었다면 주목! 갑상선 기능 방해하는 뜻밖의 음식\n\n설명란:\n미역국(요오드 과다), 생 케일·브로콜리 스무디(고이트린), 두유(약 흡수 방해) — 갑상선 기능을 은근히 방해하는 뜻밖의 음식 3가지예요.\n\n무조건 끊지 않아도, 미역국은 하루 1~2회, 채소는 익혀서, 두유는 시간차를 두고 먹으면 갑상선 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #갑상선건강 #갑상선기능저하증 #요오드과다 #건강정보",
       "suppress_product_block": true
     },

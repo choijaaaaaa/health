@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 트림·방귀가 유독 잦고 독하다면 주목! 방귀냄새 부르는 음식 피하는 법\n\n설명란:\n콩류·십자화과 채소·액상과당은 소장에서 흡수되지 않고 대장에서 발효되면서 가스와 냄새를 만들어요. 병아리콩(라피노스), 케일(황화합물), 버블티(전분+액상과당) — 무조건 끊지 않아도, 조리법과 양만 조절해도 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #방귀냄새 #트림 #가스차는이유 #건강정보",
       "suppress_product_block": true
     },

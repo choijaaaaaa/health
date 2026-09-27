@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 서맥 맥박이 느리고 어지럽다면 관리하는 습관 3가지\n\n설명란:\n스마트워치가 심박수 낮다고 알려주거나, 맥박이 유난히 느리고 어지러운 적 있나요? 1분간 심박수 60회 미만이면 서맥이라고 해요.\n\n수면무호흡증, 약물, 미주신경 자극 — 흔한 원인 3가지와 관리하는 방법을 알려드려요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #서맥 #느린맥박 #심박수 #건강정보",
       "suppress_product_block": true
     },

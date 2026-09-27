@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 브레인포그, 머릿속이 뿌옇게 흐려지고 있다면 - 벗어나는 습관 4가지\n\n설명란:\n머릿속이 안개 낀 것처럼 멍하고 집중이 안 된다면 브레인포그를 의심해봐야 해요. 갑상선·빈혈 같은 숨은 원인 확인(최신 연구로 확인), 규칙적인 수면, 디지털 디톡스, 가벼운 운동 네 가지만 챙기면 브레인포그는 확실히 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #브레인포그 #브레인포그증상 #집중력저하 #건강정보 #뇌건강",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 손목터널증후군, 손목 저림 심해지기 전에 확인하세요 - 손목 지키는 습관\n\n설명란:\n스마트폰·키보드마우스·수면 자세가 손목 신경 압박을 더 키워요. 스마트폰은 손목 편 상태로, 키보드·마우스는 손목받침대로, 잘 땐 손목보호대를 착용하면 손목 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #손목터널증후군 #손목저림 #건강정보",
       "suppress_product_block": true
     },

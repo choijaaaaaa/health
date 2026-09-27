@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 구각염, 입꼬리를 자꾸 핥고 계셨다면 이제 그만하세요 - 재발 줄이는 습관 3가지\n\n설명란:\n입꼬리에 침이 고이는 습관, 비타민B 부족한 식사, 피로와 면역력 저하가 구각염을 부르는 대표 원인이에요. 핥는 대신 보습 연고를 바르고, 비타민B가 풍부한 음식을 챙기고, 충분히 자면 재발을 줄이는 데 도움이 돼요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #구각염 #입꼬리갈라짐 #건강정보",
       "suppress_product_block": true
     },

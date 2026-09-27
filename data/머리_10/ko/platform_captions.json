@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 두피 모낭염, 뾰루지 나고 만지면 아프다면 재발 줄이는 관리 습관 3가지\n\n설명란:\n땀 찬 모자, 맞지 않는 샴푸, 손으로 짜는 습관 — 다 두피 모낭염을 악화시킬 수 있어요.\n\n모자는 통풍 잘 되게, 샴푸는 두피 전용으로 바꾸고 뾰루지는 절대 손대지 마세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #두피모낭염 #두피뾰루지 #두피관리 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 양치해도 충치 자꾸 생긴다면 치아 상하게 하는 음식\n\n설명란:\n탄산음료·과일주스(산도), 단 음식(세균 산 생성) — 치아를 상하게 할 수 있는 뜻밖의 음식이에요.\n\n무조건 끊지 않아도, 먹는 방법만 바꾸면 치아 손상을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #충치 #치아건강 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 에어팟 청력테스트, 괜찮다고 나왔다면 - 보청기 기능 주의할 점 3가지\n\n설명란:\n무선이어폰의 청력테스트·보청기 기능은 경도~중도 난청까지만 도움이 되고, 소리 크기만 재는 검사라 원인까지는 가려내지 못해요. 돌발성 난청처럼 응급한 상황이라면 골든타임 안에 병원부터 가야 하고, 보청기처럼 하루 종일 착용하면 외이도염·중이염 위험도 커져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #에어팟청력테스트 #보청기기능 #난청 #귀건강",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 야간뇨, 전립선 말고도 있는 원인 3가지\n\n설명란:\n자다가 소변 때문에 두 번 이상 깬다면 전립선 문제만이 아닐 수 있어요. 저녁의 커피·술, 자주 붓는 다리, 심한 코골이까지 — 야간뇨를 부르는 흔한 원인 세 가지와, 자기 전 마시는 양을 줄이고 다리를 올리고 코골이를 점검하는 완화법을 정리했습니다.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #야간뇨 #전립선 #수면무호흡 #건강정보",
       "suppress_product_block": true
     },

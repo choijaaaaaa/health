@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 두피 냄새 안 없어진다면 이 3가지 습관부터 확인\n\n설명란:\n잦은 샴푸(피지 반동 분비), 덜 말리고 자기(말라세지아 번식), 모자 장시간 착용(통풍 차단) — 두피 냄새를 키우는 뜻밖의 습관이에요.\n\n무조건 끊지 않아도, 하루 한 번 순한 세정 + 완전 건조 + 중간 통풍만으로 두피 냄새를 확실히 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #두피냄새 #두피관리 #건강정보",
       "suppress_product_block": true
     },

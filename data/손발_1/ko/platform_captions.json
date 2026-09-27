@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 손톱 자꾸 갈라지고 얇아진다면 손톱 약하게 하는 음식\n\n설명란:\n술(비오틴 소모), 카페인(미네랄 흡수 방해), 인스턴트 식품(영양 밀도 낮음) — 손톱을 약하게 만들 수 있는 뜻밖의 음식이에요.\n\n무조건 끊지 않아도, 양을 줄이고 바꾸면 손톱이 한결 튼튼해질 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #손톱건강 #손톱갈라짐 #건강정보",
       "suppress_product_block": true
     },

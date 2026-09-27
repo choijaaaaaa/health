@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 턱·볼 라인에 여드름이 자꾸 올라온다면 주목! 성인여드름 부르는 음식 피하는 법\n\n설명란:\n고GI 음식(인슐린 스파이크), 유제품(IGF-1 자극), 튀긴 음식(염증 반응) — 무조건 끊지 않아도, 저GI 잡곡이나 식물성 대안으로 바꾸는 것만으로 여드름 빈도를 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #성인여드름 #턱여드름 #혈당스파이크 #건강정보",
       "suppress_product_block": true
     },

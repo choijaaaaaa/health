@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 녹내장, 안압은 정상인데 시야가 좁아진다면 안압 관리법\n\n설명란:\n녹내장은 안압이 높아서만 생기는 게 아니라, 정상 안압에서도 흔하게 발견됩니다. 방수 배출과 안압, 시신경 손상의 기전부터 위험군, 안압을 올리는 습관, 바로 응급실로 가야 하는 신호까지 정리했습니다.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #녹내장 #안압 #눈건강",
       "suppress_product_block": true
     },

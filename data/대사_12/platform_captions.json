@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 중성지방 수치, 콜레스테롤은 정상인데 유독 높으시다면\n\n설명란:\n간에서 여분의 포도당·알코올로 만들어지는 중성지방은 콜레스테롤과 달리 당류·알코올·활동량에 훨씬 크게 반응해요. 정제 탄수화물 줄이기, 음주 절제하기, 하루 30분 유산소 운동 — 이 세 가지만 지켜도 수치가 눈에 띄게 낮아져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #중성지방 #고중성지방혈증 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 낙상, 요즘 자주 휘청거리신다면 - 낙상 막는 습관 3가지\n\n설명란:\n다리 힘이 아니라 순발력 부족이 진짜 원인이에요. 순발력 운동(빠르게 앉았다 일어서기, 한 발 서기), 집 안 환경 점검(미끄럼 방지 매트·손잡이), 복용약 확인(4가지 이상이면 기립성저혈압 주의)까지 세 가지만 챙기면 낙상 위험은 확실히 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #낙상 #낙상예방 #고령자건강 #균형감각 #건강정보",
       "suppress_product_block": true
     },

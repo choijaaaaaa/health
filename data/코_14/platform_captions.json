@@ -27,10 +27,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 혈관운동성 비염, 찬바람·뜨거운 음식만 먹어도 콧물 흐른다면 지금 확인하세요\n\n설명란:\n알레르기 검사는 정상으로 나오는데도 온도 변화나 자극적인 음식만 먹으면 콧물·코막힘이 심해진다면 혈관운동성 비염일 수 있어요. 온도차 완충하기, 자극적인 음식 조절하기, 생리식염수로 점막 진정시키기 — 이 세 가지로 관리해보세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #혈관운동성비염 #비염 #건강정보"
     },
     {

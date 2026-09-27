@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 눈이 침침하고 빛 번짐이 심하며 밤에 유독 안 보이고 뻑뻑하신가요? 눈 건강 해치는 의외의 음식·습관\n\n설명란:\n단 음료·튀김을 자주 먹고 어두운 방에서 스마트폰까지 보면 눈 속 산화 스트레스가 쌓이고 눈 깜빡임이 줄어서 백내장·황반변성·안구건조증 위험이 커져요.\n\n단 음료(혈당·AGEs), 튀김·가공식품(서구식 식단 위험 3배), 스마트폰·야식(깜빡임 감소) — 다 끊지 않아도 녹황색 채소·등푸른 생선·20-20-20 법칙으로 바꾸면 눈 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #눈건강 #백내장 #황반변성 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 사타구니 냄새, 매일 씻어도 여름마다 심한 진짜 이유\n\n설명란:\n안 씻어서가 아니라 피지선과 접힌 구조 때문에 열과 습기가 잘 갇혀서예요.\n\n꽉 끼는 속옷 대신 순면 속옷, 씻은 뒤엔 완전히 말리기만 해도 냄새가 눈에 띄게 줄어요.\n\n붉어지거나 가려움이 심하면 완선 같은 감염일 수 있으니 피부과 진료도 고려해보세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #사타구니냄새 #완선 #건강정보",
       "suppress_product_block": true
     },

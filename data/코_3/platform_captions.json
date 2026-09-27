@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 자다가 코를 심하게 골거나 숨이 막히는 느낌이 든다면 주목! 코골이 부르는 음식 피하는 법\n\n설명란:\n목 근육이 늘어지거나 기도에 지방·점액이 쌓이면 코골이가 심해져요. 맥주(근육 이완), 치즈(점액 증가), 라면 같은 야식(목 지방 증가) — 무조건 끊지 않아도, 양과 타이밍만 조절해도 코골이를 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #코골이 #수면무호흡 #건강정보",
       "suppress_product_block": true
     },

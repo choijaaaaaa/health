@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 예전보다 키가 줄고 허리가 자꾸 굽고 있다면, 이유가 있어요 - 골다공증 부르는 음식 피하는 법\n\n설명란:\n혈중 칼슘이 부족해지면 몸이 뼈에서 칼슘을 꺼내 쓰면서 골밀도가 낮아져요.\n\n탄산음료(인산), 커피(카페인), 소시지(나트륨) — 양을 줄이고 칼슘 식품으로 균형을 맞추면 뼈 건강에 도움이 돼요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #골다공증 #골밀도 #칼슘부족 #건강정보",
       "suppress_product_block": true
     },

@@ -40,7 +40,8 @@ from lib import youtube_upload as yu  # noqa: E402
 
 KST = dt.timezone(dt.timedelta(hours=9))
 # 채널 → 어느 트랙 topic을 올리나. 육아 트랙이 아기 건강, 나머지(트랙 없음)가 성인 건강.
-CHANNELS = {"adult": {"track": None}, "baby": {"track": "육아"}}
+CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정보", "건강쇼츠"]},
+            "baby": {"track": "육아", "base_tags": ["건강만사전", "육아정보", "아기건강", "육아"]}}
 # 예약 게시 시각(KST). 환경변수로 바꾼다(하드코딩 금지 규칙).
 PUBLISH_HOUR = int(os.environ.get("HEALTH_YT_PUBLISH_HOUR", "18"))
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
@@ -52,6 +53,7 @@ class Channel:
         if code not in CHANNELS:
             raise SystemExit(f"채널은 {list(CHANNELS)} 중 하나")
         self.code, self.track = code, CHANNELS[code]["track"]
+        self.base_tags = CHANNELS[code]["base_tags"]
         self.env = f"YOUTUBE_{code.upper()}_"
         self.key = f"{code}/"          # youtube_uploaded 표 키 접두어 — 채널끼리 안 섞이게
 
@@ -153,6 +155,15 @@ def _kst(iso: str) -> str:
     return f"{dt.datetime.fromisoformat(iso.replace('Z', '+00:00')).astimezone(KST):%m-%d %H:%M}"
 
 
+def _tags(desc: str, base: list[str]) -> list[str]:
+    """영상 태그 = 설명란 해시태그 + 채널 기본 태그(중복 없이, 유튜브 태그 한도 500자 안)."""
+    out: list[str] = []
+    for t in [w[1:] for w in desc.split() if w.startswith("#")] + base:
+        if t and t not in out and len(",".join(out + [t])) <= 480:
+            out.append(t)
+    return out
+
+
 def upload(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publish_at: str | None) -> str:
     title, desc = _caption(topic)
     desc = _products_block(topic) + desc.replace(OLD_BRAND_TAG, "#" + channel_title.replace(" ", ""))
@@ -166,7 +177,7 @@ def upload(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publis
         resp = yt.videos().insert(
             part="snippet,status",
             body={"snippet": {"title": title, "description": desc,
-                              "tags": [w[1:] for w in desc.split() if w.startswith("#")],
+                              "tags": _tags(desc, ch.base_tags),
                               "categoryId": yu.HOWTO_AND_STYLE_CATEGORY,
                               "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
                   "status": status},

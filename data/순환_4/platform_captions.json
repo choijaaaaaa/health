@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 손발 끝이 자꾸 저리고 시린가요? - 손발 저림 부르는 음식 피하는 법\n\n설명란:\n비타민B군이 부족하거나 혈당이 자꾸 오르내리면 말초혈관이 손상되면서 손발 저림이 생길 수 있어요.\n\n술(비타민B1 고갈), 흰쌀밥(혈당 급변), 커피(말초혈관 수축) — 무조건 끊지 않아도 횟수를 줄이고 잡곡밥·저카페인으로 바꾸는 것만으로 도움될 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #손발저림 #말초신경병증 #비타민B12 #건강정보",
       "suppress_product_block": true
     },

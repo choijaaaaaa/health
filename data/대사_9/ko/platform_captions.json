@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 당뇨병성 말초신경병증, 10년 앓으면 2명 중 1명이 겪는다는데 - 신경 손상 늦추는 습관\n\n설명란:\n혈당 관리 소홀과 흡연·잦은 음주가 당뇨병성 말초신경병증을 앞당기고, 발 상처를 못 알아채면 특히 위험해요. 혈당을 정상 범위로 관리하고, 금연·절주하고, 매일 발 상태를 눈으로 확인하면 신경 손상 진행 속도가 느려져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #당뇨병성말초신경병증 #당뇨합병증 #말초신경병증 #건강정보",
       "suppress_product_block": true
     },

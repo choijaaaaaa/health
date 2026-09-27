@@ -28,10 +28,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 다이어트 주사, 위고비나 마운자로 맞고 나서 어지럽다면\n\n설명란:\n위고비나 마운자로 같은 체중감량주사를 맞은 뒤 어지럼증이 심해졌다면 식욕억제로 인한 에너지 부족, 위장 부작용으로 인한 탈수, 체중감소로 인한 혈압 변화 세 가지를 확인해보세요. 식사는 소량씩 자주, 전해질은 물과 함께, 혈압은 주기적으로 재는 것만으로도 확실히 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #다이어트주사 #위고비 #마운자로 #어지럼증"
     },
     {

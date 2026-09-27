@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 돌발성 난청, 혹시 갑자기 한쪽 귀가 안 들리지 않나요? - 72시간 골든타임과 위험 신호\n\n설명란:\n스트레스·과로·수면부족, 이어폰 장시간 큰 소리 사용이 돌발성 난청 위험을 키워요. 무엇보다 한쪽 귀 먹먹함이나 이명, 어지럼증이 갑자기 생겼다면 며칠 지켜보지 말고 최대한 빨리, 가능하면 당일 이비인후과 진료를 받으세요. 72시간 골든타임 안에 치료를 시작하면 청력이 돌아올 가능성이 커져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #돌발성난청 #난청 #건강정보",
       "suppress_product_block": true
     },

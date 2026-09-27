@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 게실염, 혹시 왼쪽 아랫배가 콕콕 쑤시지 않나요 - 게실염 위험 낮추는 습관 3가지\n\n설명란:\n왼쪽 아랫배 통증, 발열, 복부팽만이 반복된다면 게실염을 의심해봐야 해요. 씨앗·견과류는 걱정하지 않아도 되고(최신 연구로 확인됨), 고섬유질 식단(하루 25~30g), 충분한 수분, 규칙적인 운동 세 가지만 챙기면 게실염 위험이 확실히 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #게실염 #게실염증상 #왼쪽아랫배통증 #식이섬유 #장건강 #건강정보",
       "suppress_product_block": true
     },

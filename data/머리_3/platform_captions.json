@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 탈모, 머리 감을 때마다 한 움큼씩 빠지고 정수리가 휑해 보인다면 식탁 점검 3가지\n\n설명란:\n유전성 남성형·여성형 탈모는 식단으로 막을 수 없어요. 하지만 영양 결핍으로 생기는 휴지기 탈모는 원인을 없애면 6~12개월에 걸쳐 회복돼요.\n\n단 음식으로 때우는 끼니, 라면 한 그릇으로 끝내는 한 끼, 급격한 다이어트 — 공통점은 단백질과 철분이 빠진다는 거예요. 그릭요거트에 견과류, 건면에 달걀을 더하고 다이어트 속도를 늦추세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #탈모예방 #탈모원인 #두피건강 #건강정보",
       "suppress_product_block": true
     },

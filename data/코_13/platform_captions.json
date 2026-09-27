@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 코 파는 습관, 무의식중에 자주 하고 있다면 지금 확인하세요\n\n설명란:\n코를 파면서 생기는 점막 상처로 황색포도상구균이 침투하면 코 안에 농양이 생기고, 안면위험삼각 부위 특성상 심하면 뇌농양·뇌수막염 같은 합병증으로도 이어질 수 있어요. 생리식염수로 촉촉하게 유지하기, 실내 습도 40~60% 챙기기, 만지기 전엔 손 씻기 — 이 세 가지만 지키면 충동과 감염 위험을 함께 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #코파는습관 #비강건강 #건강정보",
       "suppress_product_block": true
     },

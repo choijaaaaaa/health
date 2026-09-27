@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 자다가 소변 때문에 자주 깨는 사람, 40대 이상에서 꽤 많이 겪는다는데 - 전립선 편하게 하는 음식 피하는 법\n\n설명란:\n매운 음식은 방광과 요도를 직접 자극하고, 커피와 술은 항이뇨호르몬을 억제해서 소변량을 늘려요. 완전히 끊지 않아도 저녁 시간대에 양과 타이밍만 조절하면 밤에 깨는 횟수를 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #전립선건강 #야간뇨 #건강정보",
       "suppress_product_block": true
     },

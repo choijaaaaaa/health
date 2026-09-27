@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 이유 없이 얼음이 자꾸 씹고 싶고 계단만 올라도 숨차고 어지럽다면 주목! 빈혈 부르는 의외의 음식 습관\n\n설명란:\n질병관리청이 꼽는 빈혈 신호는 피로감, 어지럼증, 숨참, 두통, 창백함이에요. 철결핍성 빈혈은 여성 5명 중 1명에게서 발견될 만큼 흔해요.\n\n커피·차, 우유, 식물성 철분 위주 식단 — 무조건 끊지 않아도 먹는 타이밍과 조합만 바꾸면 철분 흡수를 지킬 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #빈혈 #철분부족 #철결핍성빈혈 #건강정보",
       "suppress_product_block": true
     },

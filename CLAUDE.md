@@ -37,7 +37,7 @@
 - **채널명 「건강만사전」** — 엔딩 카드(`video_assembler.BRAND_NAME`)·카드 CTA·해시태그 `#건강만사전`(태그 줄 맨 앞)·
   대시보드 제목. **내부 식별자는 안 바꾼다**(폴더명 `health-shorts`, R2 프리픽스 `health-shorts/card_news/`,
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
-- 🚨 **유튜브: 건강숏츠는 새 건강 채널로 간다(개설 대기)** — 2026-09-27 사용자 "사람 건강이랑 애완동물 건강이 섞이면 유입에 방해". 「세상건강사전」 @worldshealthdictionary는 **댕냥사전 전용**이 됐고, 거기 올렸던 건강 영상은 공개 2편을 삭제하고(9/27) 예약 4편은 비공개로 내렸다. `scripts/whd_upload.py`는 업로드를 막아뒀다 — 새 채널 키가 생기면 그 채널용으로 바꿔 쓴다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널(@choiguevara)로 네이버판이 올라가니 쓰지 말 것.
+- 🚨 **유튜브는 채널 두 개, 둘 다 이름 「건강만사전」**(2026-09-27): 성인 건강 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 아기 건강 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙. **매일 18시 예약 게시**, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 크론이 빈 슬롯을 채운다(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
 - **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),

@@ -27,10 +27,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 화장실 자주 가고 따끔거린다면 방광염 키우는 음식 피하는 법\n\n설명란:\n카페인(방광 자극), 매운 음식(캡사이신 자극), 탄산음료(설탕+탄산) — 방광염 증상을 더 키울 수 있는 뜻밖의 음식 3가지예요.\n\n무조건 끊지 않아도, 양을 줄이고 바꾸면 증상 부담을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #방광염 #요로감염 #방광염음식 #건강정보"
     },
     {

@@ -26,10 +26,10 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
       "suppress_product_block": true,
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 조기폐경, 단순 생리불순이 아니라 난소 기능 저하 확인법\n\n설명란:\n원인 불명과 치료 이력, 생활습관 — 조기폐경 위험을 키우는 두 가지 이유예요.\n\n생리 불규칙 4개월 이상이면 검사받고, 호르몬치료와 칼슘·운동을 함께 챙기세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #조기폐경 #조기난소부전 #난소기능저하 #건강정보"
     },
     {

@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 손발 다한증, 사계절 손발이 축축하게 젖는다면 지금 확인하세요 - 땀 줄이는 습관 3가지\n\n설명란:\n카페인·매운 음식, 통풍 안 되는 신발과 면 양말, 젖은 채로 방치하는 습관이 손발 다한증을 키워요. 카페인은 줄이고, 신발은 통풍 잘되는 걸로, 손발은 자주 씻고 완전히 말려보세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #손발다한증 #다한증 #건강정보",
       "suppress_product_block": true
     },

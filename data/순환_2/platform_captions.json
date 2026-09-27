@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 혹시 아침엔 얼굴이 붓고 저녁엔 다리가 무겁게 붓나요? - 부종 부르는 음식 피하는 법\n\n설명란:\n나트륨이 많아지면 삼투압 때문에 수분이 몸에 붙잡히고, 감초 같은 성분은 코르티솔 대사에 관여해서 나트륨을 더 오래 붙들게 만들어요.\n\n감초(호르몬 대사), 라면(고나트륨), 치즈(나트륨+포화지방) — 양을 줄이고 대체 식품으로 바꾸는 것만으로 부기를 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #부종 #얼굴부종 #다리부종 #건강정보",
       "suppress_product_block": true
     },

@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 오십견, 혹시 팔이 위로 안 올라가지 않나요 - 어깨 지키는 습관\n\n설명란:\n어깨 장기간 안 움직이기, 혈당 관리 소홀, 갑상선 기능 이상 방치가 오십견 위험을 더 키워요. 어깨는 통증 범위 안에서 조금씩 움직이고, 혈당은 꾸준히 관리하고, 갑상선 증상 있으면 검사받으면 어깨 굳음을 예방하는 데 도움이 돼요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #오십견 #동결견 #건강정보",
       "suppress_product_block": true
     },

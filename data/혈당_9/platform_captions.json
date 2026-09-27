@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "suppress_product_block": true,
       "caption": "제목: 혈당 스파이크, 사실 순서 때문이에요\n\n설명:\n밥이나 빵, 단 음식부터 줄여야 한다고 생각하기 쉽지만, 사실 뭘 먹느냐 못지않게 중요한 게 먹는 순서예요. 채소와 단백질을 먼저 먹고 밥을 마지막에 먹으면, 밥부터 먹었을 때보다 식후 혈당 최고치가 30% 가까이 낮아진다는 연구 결과가 있어요.\n\n채소 → 단백질 → 탄수화물, 이 순서만 지켜도 혈당 곡선이 확 달라져요.\n\n다만 당뇨병 진단을 받았거나 혈당 관리 중이라면 식사 순서를 바꾸기 전에 담당 의사와 먼저 상의하세요.\n\n더 유용한 건강정보 궁금하면 구독·좋아요 부탁드려요.\n\n#건강만사전 #혈당스파이크 #식사순서 #혈당관리 #건강정보"
     },

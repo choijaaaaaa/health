@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 수면무호흡증, 자다가 숨 막히셨다면 잠깐 - 숨 편히 쉬는 습관\n\n설명란:\n똑바로 누워 자기, 높은 베개, 수면제·근육이완제 복용이 자는 동안 기도 막힘을 더 키워요. 옆으로 눕는 자세를 연습하고, 베개는 낮게, 약 복용 중이면 의사와 상담하면 숨쉬기가 훨씬 편해질 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #수면무호흡증 #코골이 #건강정보",
       "suppress_product_block": true
     },

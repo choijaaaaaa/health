@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 미세먼지 나쁜 날, 밖이 아니라 오히려 집 안 공기가 더 나빠요 - 실내 공기 지키는 습관\n\n설명란:\n환기 아예 안 하기, 요리할 때 후드 안 켜기, 청소할 때 환기 잊기가 실내 공기를 더 나쁘게 만들어요. 짧게라도 환기하고, 요리할 땐 후드와 창문을 같이 열고, 청소할 때도 환기하면 실내 공기가 확실히 달라져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #미세먼지 #실내공기질 #건강정보",
       "suppress_product_block": true
     },

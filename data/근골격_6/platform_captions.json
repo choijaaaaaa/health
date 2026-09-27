@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 엄지발가락이나 무릎이 갑자기 벌겋게 붓고 아프다면 주목! 통풍 부르는 음식 피하는 법\n\n설명란:\n퓨린이 많은 음식을 먹으면 요산이 쌓여서 관절에 침착되며 통풍 발작을 일으켜요. 고등어(고퓨린 생선), 맥주(퓨린+알코올), 양념갈비(붉은고기) — 무조건 끊지 않아도, 대체 식품과 물 섭취만 늘려도 통풍 발작 위험을 줄일 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #통풍 #요산 #퓨린 #건강정보",
       "suppress_product_block": true
     },

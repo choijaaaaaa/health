@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 위하수, 마른 체형이라 그러려니 했던 더부룩함 - 위 처짐 줄이는 습관 3가지\n\n설명란:\n급하게 먹는 습관·식후 자세·약한 복부 근력이 위 처짐을 키워요. 나눠서 천천히 드시고, 식후엔 바로 눕지 말고, 코어 운동을 꾸준히 하면 처짐과 더부룩함이 줄어들어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #위하수 #더부룩함 #건강정보",
       "suppress_product_block": true
     },

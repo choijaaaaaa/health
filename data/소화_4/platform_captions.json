@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 점심만 먹으면 쏟아지는 졸음 주목! 식곤증 부르는 음식 피하는 법\n\n설명란:\n혈당지수 높은 음식을 먹으면 혈당이 확 올랐다가 인슐린 때문에 급격히 떨어지는 '혈당 크래시'가 와서 식후 졸음이 심해져요. 흰쌀밥(고GI 주식), 단팥빵(정제당 간식), 찹쌀떡(고GI 간식) — 무조건 끊지 않아도, 먹는 순서와 양만 조절해도 오후가 훨씬 가벼워져요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #식곤증 #혈당스파이크 #고GI음식 #건강정보",
       "suppress_product_block": true
     },

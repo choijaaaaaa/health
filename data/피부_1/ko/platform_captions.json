@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 피부가 푸석하고 칙칙해지고 잔주름까지 늘었다면, 나이 탓이 아니라 이 음식 때문일 수 있어요 - 콜라겐 무너뜨리는 의외의 음식\n\n설명란:\n단 음료·디저트로 생기는 당독소(AGEs), 도넛 같은 트랜스지방, 과도한 카페인이 콜라겐을 무너뜨려요. 저당 베리류·올리브오일 조리·보리차로 바꾸면 콜라겐 파괴 속도를 늦출 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #피부노화 #콜라겐 #당독소 #건강정보",
       "suppress_product_block": true
     },

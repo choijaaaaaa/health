@@ -26,9 +26,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 근감소증, 계단 오를 때 유독 힘들다면 - 근육 지키는 습관 3가지\n\n설명란:\n아침 단백질 부족, 걷기 위주의 운동 습관, 탄수화물로 때우는 식사 — 근육이 빠지는 세 가지 큰 이유예요. 아침에 계란·두부·우유로 단백질을 채우고, 근력운동을 더하고, 다진 고기·연두부·흰살생선처럼 씹기 편한 단백질 식품으로 바꾸면 근육 손실 속도를 늦출 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #근감소증 #근육건강 #고령건강 #단백질섭취 #건강정보",
       "suppress_product_block": true
     },

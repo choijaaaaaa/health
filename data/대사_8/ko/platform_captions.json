@@ -28,9 +28,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 다이어트 정체기, 10명 중 8명이 겪는다는데 혹시 나도 - 정체기 뚫는 습관\n\n설명란:\n대사 적응·근육량 감소·NEAT 감소가 체중감량 정체기를 만들어요. 다이어트 브레이크로 대사를 쉬어주고, 저항운동으로 근육을 지키고, 일상 속 움직임을 의식적으로 늘리면 정체기를 넘어설 수 있어요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #체중감량정체기 #다이어트정체기 #대사적응 #건강정보",
       "suppress_product_block": true
     },

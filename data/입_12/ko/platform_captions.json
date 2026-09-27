@@ -27,9 +27,9 @@
     },
     {
       "name": "유튜브 쇼츠",
-      "url": "https://www.youtube.com/@worthitshopping",
+      "url": "https://www.youtube.com/channel/UCXd1cEGkEs1nBjiAaAPuCRw",
       "type": "video",
-      "action": "영상 다운로드 → 쇼츠로 업로드 → 제목/설명란에 캡션 붙여넣기",
+      "action": "scripts/yt_upload.py가 매일 18시 예약 게시",
       "caption": "제목: 사랑니, 혹시 어금니 안쪽이 욱신거리며 붓지 않나요? - 발치 여부 판단 기준\n\n설명란:\n사랑니가 잇몸을 반쯤만 뚫고 나오면 지치주위염으로 붓고 아프고, 비스듬히 나면 옆니를 밀어 충치나 손상을 줘요. 통증 없이 깨끗하게 관리되면 지켜봐도 되지만, 염증이 반복되거나 옆니에 영향을 주면 20대 초중반에 발치를 고려하세요.\n\n더 유용한 건강정보 궁금하면 구독·팔로우 해주세요 👆\n\n#건강만사전 #Shorts #사랑니 #매복사랑니 #건강정보",
       "suppress_product_block": true
     },
