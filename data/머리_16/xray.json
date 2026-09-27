@@ -49,8 +49,15 @@
       "from": "그러면 자라던 머리카락",
       "item": "머리카락",
       "mech": "m_follicle_weakening",
-      "act": "act_hair_shedding",
+      "act": "act_scalp_care",
       "label": "모낭"
+    },
+    {
+      "from": "문제는 쉬는 단계에",
+      "item": "머리카락",
+      "mech": "part_scalp",
+      "act": "act_hair_shedding",
+      "label": "빠지는 머리카락"
     },
     {
       "from": "머리카락 뿌리인 모낭이",
@@ -74,7 +81,7 @@
       "label": "지방"
     }
   ],
-  "opening_until": 13.76,
+  "opening_until": 14.24,
   "board_items": [
     "처방전",
     "닭가슴살"
