@@ -18,7 +18,11 @@ _NATIVE = ["", "한", "두", "세", "네", "다섯", "여섯", "일곱", "여덟
            "열한", "열두", "열세", "열네", "열다섯", "열여섯", "열일곱", "열여덟", "열아홉", "스무"]
 
 # 고유어로 세는 단위 — "네 잔", "세 번". 나머지는 한자어("사십 세", "사백 밀리그램").
-_NATIVE_UNITS = ("개", "잔", "컵", "번", "마리", "살", "시", "군데", "가지", "방울", "알")
+# 2026-09-28 "명" 추가 — "7명 중 1명"을 "칠 명 중 일 명"으로 읽었다(소화_31, 사용자 "일곱 명 중 한 명 이렇게 가야").
+_NATIVE_UNITS = ("개", "잔", "컵", "번", "마리", "살", "시", "군데", "가지", "방울", "알",
+                 "명", "달", "캔", "장", "병", "접시", "숟가락", "그릇", "곳", "켤레")
+# 고유어 단위로 시작하지만 한자어로 읽는 말 — "3개월"은 "세 개월"이 아니라 "삼 개월"
+_SINO_WORDS = ("개월", "개국", "개년")
 # 단위 그대로 읽으면 어색한 기호는 한글로 바꿔 준다.
 _UNIT_WORD = {"%": "퍼센트", "mg": "밀리그램", "g": "그램", "kg": "킬로그램",
               "mL": "밀리리터", "ml": "밀리리터", "L": "리터", "l": "리터",
@@ -59,7 +63,7 @@ def _read(num: str, unit: str) -> str:
         body = _sino(int(whole or 0)) + " 점 " + " ".join(_SINO[int(d)] for d in frac)
     else:
         n = int(num)
-        body = _native(n) if unit.startswith(_NATIVE_UNITS) else _sino(n)
+        body = _native(n) if unit in _NATIVE_UNITS else _sino(n)
     return body + (" " + _UNIT_WORD.get(unit, unit) if unit else "")
 
 
@@ -74,7 +78,10 @@ def to_speech(text: str) -> str:
         num, big, unit = m.group(1).replace(",", ""), m.group(2), m.group(3) or ""
         # 단위 자리에 조사·어미가 걸린 경우(40세가 → unit="세가")는 단위만 떼어 읽고 나머지는 붙인다
         tail = ""
-        if unit and unit not in _UNIT_WORD:
+        sino_word = next((w for w in _SINO_WORDS if unit.startswith(w)), None)
+        if sino_word:
+            unit, tail = sino_word, unit[len(sino_word):]
+        elif unit and unit not in _UNIT_WORD:
             for k in range(len(unit), 0, -1):
                 if unit[:k].endswith(_NATIVE_UNITS) or k == 1:
                     tail = unit[k:]
@@ -83,4 +90,8 @@ def to_speech(text: str) -> str:
         if big:
             return _sino(int(float(num))) + big + (" " + _UNIT_WORD.get(unit, unit) if unit else "") + tail
         return _read(num, unit) + tail
+    # "3에서 4명", "3~4명" — 앞 숫자에도 단위를 붙여 "세 명에서 네 명"으로 읽는다("삼 에서 사 명" 방지)
+    _units = "|".join(sorted(set(_NATIVE_UNITS) | {"그램", "킬로그램", "밀리그램", "퍼센트", "배", "주", "년", "일", "개월",
+                                                   "시간", "분", "초", "센티미터", "리터", "밀리리터"}, key=len, reverse=True))
+    text = re.sub(rf"(\d+)\s*(?:에서|~|∼)\s*(\d+)\s*({_units})", r"\1\3에서 \2\3", text)
     return _PAT.sub(sub, text)
