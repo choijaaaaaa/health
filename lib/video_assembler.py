@@ -3958,7 +3958,10 @@ def assemble(
                                 f"enable='{enable_expr}'[{nxt}]")
             current = nxt
 
-        if item_schedule:
+        # 반투명 인체 포맷의 칸 구간(panel_on)은 칠판 왼쪽 위 품목 사진을 띄우지 않는다 — 위쪽 칸이 행동·기전을
+        # 이미 보여준다(2026-09-28 사용자 "그 사진 필요없어, 두 개 있는 거 둘 다 없애야 해, 이상해"). 요약 칠판
+        # (panel_on=False)의 해결책 제품 줄은 남긴다.
+        if item_schedule and not panel_on:
             # 광고 표시와 같은 이유로 네이버 UI(분석 버튼·우측 버튼 열) 밖으로 내린다
             _top = max(title_h + 16, NAVER_SAFE_TOP)
             label_y = _top + ad_tag_h + 8 if ad_tag else _top
