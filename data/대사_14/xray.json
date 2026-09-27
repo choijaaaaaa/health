@@ -34,7 +34,7 @@
     "체중계",
     "체중감량주사"
   ],
-  "summary_from": "그러니 증량한 주에는",
+  "summary_from": "그러니 용량을 올린 주에는",
   "timeline": [
     {
       "from": "이 메스꺼움은 두 군데서",
@@ -65,13 +65,13 @@
       "label": "위 배출"
     },
     {
-      "from": "그러니 증량한 주에는",
+      "from": "그러니 용량을 올린 주에는",
       "item": "소화불량",
       "mech": "m_emptying_delay",
       "act": null,
       "label": "위"
     }
   ],
-  "opening_until": 14.56,
+  "opening_until": 15.44,
   "script_approved": "2026-09-24"
 }

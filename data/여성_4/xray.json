@@ -22,7 +22,7 @@
   "summary_from": "그러니 2주 동안",
   "timeline": [
     {
-      "from": "열감은 뇌의 체온조절중추에서",
+      "from": "열감은 뇌 속 온도조절",
       "item": "홍조",
       "mech": "m_hormone_drop",
       "act": "act_toss_turn",
@@ -43,14 +43,14 @@
       "label": "피부 혈관"
     },
     {
-      "from": "커피는 메이요클리닉이",
+      "from": "커피는 메이요클리닉 조사에서",
       "item": "커피",
       "mech": "m_adenosine_block",
       "act": "act_drink_caffeine",
       "label": "뇌 수용체"
     },
     {
-      "from": "질병관리청은 폐경이행기",
+      "from": "질병관리청은 폐경 전후",
       "item": "시계",
       "mech": "m_ovarian_reserve_decline",
       "act": "act_toss_turn",

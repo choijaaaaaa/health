@@ -940,6 +940,27 @@ def check_summary_single_block(topic: str, lang: str = "kor") -> list[dict]:
     return []
 
 
+def check_timeline_in_narration(topic: str, lang: str = "kor") -> list[dict]:
+    """시간표 구절이 **지금 대본 글**에 있는가 — 자막(srt)이 아니라 narration.txt 기준.
+
+    WHY(2026-09-27): 대본을 고치고 TTS를 아직 안 돌린 사이엔 자막이 옛 문장 그대로라,
+    check_xray_timeline_resolves는 옛 자막에서 구절을 찾아 통과시킨다. 19편을 쉬운 말로 고칠 때
+    구절 7개가 깨졌는데 검사가 0건이었다 — TTS를 돌린 뒤에야 조립이 죽었을 것이다."""
+    if lang not in ("kor", "ko"):
+        return []
+    d = _data_dir(topic)
+    x, n = d / "xray.json", d / "narration.txt"
+    if not x.exists() or not n.exists():
+        return []
+    norm = lambda v: re.sub(r"\s+", "", v or "")
+    text = norm(n.read_text(encoding="utf-8"))
+    cfg = json.loads(x.read_text(encoding="utf-8"))
+    phrases = [r.get("from") for r in cfg.get("timeline", [])] + [cfg.get("summary_from")]
+    return [{"quote": ph, "severity": "high",
+             "issue": f"시간표 구절 '{ph}'이 지금 대본 글에 없습니다 — 대본을 고치고 xray.json을 안 따라 고쳤습니다."}
+            for ph in phrases if ph and norm(ph) not in text]
+
+
 def check_xray_timeline_resolves(topic: str, lang: str = "kor") -> list[dict]:
     """xray.json timeline의 구절이 지금 자막에서 실제로 찾히는지.
 

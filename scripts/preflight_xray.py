@@ -22,6 +22,7 @@ from lib.xray_timeline import resolve         # noqa: E402
 
 # 축마다 "무엇을 막는 검사인지"를 적어둔다 — 경고만 보고는 왜 걸렸는지 모른다.
 CHECKS = [
+    (cr.check_timeline_in_narration,  "시간표 구절이 지금 대본 글에 있는가(TTS 전, 자막이 옛것일 때도)"),
     (cr.check_xray_timeline_resolves, "시간표 구절이 지금 자막에 있는가(원고를 고치고 시간표를 안 고침)"),
     (cr.check_xray_pacing,            "도입부가 문장을 자르지 않는가 / 칸이 8초 넘게 비지 않는가 / 도입부 안에 칸이 겹치지 않는가"),
     (cr.check_summary_single_block,   "결론 구간이 여러 행으로 쪼개져 품목만 바뀌지 않는가"),
