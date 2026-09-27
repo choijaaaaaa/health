@@ -43,14 +43,14 @@
       "label": "유리체 섬유"
     },
     {
-      "from": "그런데 루테인은 망막",
+      "from": "이제 앞의 두 방법이",
       "item": "영양제",
       "mech": "part_eye",
       "act": "act_take_supplement",
       "label": "황반"
     },
     {
-      "from": "지켜볼 건 대략",
+      "from": "다만 지켜볼 게 대략",
       "item": "노화",
       "mech": "m_layer_separation",
       "act": "act_shield_eyes_from_light",
