@@ -3583,6 +3583,7 @@ def assemble(
     # None이면 ad_cta.CTA_START_SEC(5초) 그대로.
     cta_start_at: float | None = None,
     board_row_items: list[dict] | None = None,
+    corner_photo: bool = True,
     # WHY(2026-09-21 사용자 "제품 보러 가기 있는 버전과 없는 버전으로 나눠서, 없는 버전은 유튜브에"): CTA
     # 화살표는 네이버 클립이 영상 아래 붙이는 제휴 배너를 가리키는 장치다 — 그 배너가 없는 플랫폼에선 화살표가
     # 허공을 가리킨다. False면 화살표만 빼고 법정 광고 표시는 그대로 둔다.
@@ -3784,7 +3785,9 @@ def assemble(
         main_dur = total_duration - intro_duration
         main_out = tmp_path / "main.mp4"
         char_seed_val = sum(ord(c) * (i * 5 + 2) for i, c in enumerate(title))
-        char_shown = char_seed_val % 6 != 0
+        # 반투명 인체 포맷은 구석의 동그란 실사진을 끈다(2026-09-28 사용자 "기전 설명할 때랑 써머리 칠판에 실사진
+        # 구석탱이에 나오는 거 없애자, 필요없다") — 위쪽 칸·품목 줄이 이미 그 역할을 한다
+        char_shown = corner_photo and char_seed_val % 6 != 0
         char_on_left = (char_seed_val // 6) % 2 == 0
         char_x = "30" if char_on_left else "main_w-overlay_w-30"
         if char_shown:

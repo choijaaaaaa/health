@@ -717,6 +717,7 @@ def derive(topic: str) -> dict:
             # 영상 전체에 나온 품목(원인 쪽 변기·소화불량까지)을 한 줄에 다 모았고, 품목도 문장 속 단어를 글자
             # 그대로 따라가 엉뚱한 사진이 해결책처럼 떴다. xray.json `board_items`에 해결책마다 실제로 권하는
             # 행동·제품의 사진 품목을 적는다.
+            kwargs["corner_photo"] = False   # 반투명 인체 포맷은 구석 실사진을 안 띄운다(2026-09-28 사용자)
             _cfg = json.loads((tracks.data_dir(topic) / "xray.json").read_text(encoding="utf-8"))
             if _cfg.get("board_items"):
                 kwargs["board_row_items"] = [{"name": n, "illust": _char_media_path(n)} for n in _cfg["board_items"]]
