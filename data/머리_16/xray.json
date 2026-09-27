@@ -68,11 +68,15 @@
     },
     {
       "from": "그러니 약은 혼자",
-      "item": "저탄고단백식단",
+      "item": "처방전",
       "mech": "m_fat_breakdown",
       "act": null,
       "label": "지방"
     }
   ],
-  "opening_until": 13.76
+  "opening_until": 13.76,
+  "board_items": [
+    "처방전",
+    "닭가슴살"
+  ]
 }

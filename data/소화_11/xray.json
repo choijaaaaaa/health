@@ -58,12 +58,17 @@
     },
     {
       "from": "그러니 약은 정해진",
-      "item": "바나나",
+      "item": "알약",
       "mech": "m_motility_slowdown",
       "act": null,
       "label": "장"
     }
   ],
   "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①13.7~18.8 약이 그때뿐 + '검사에선 장이 멀쩡': act_take_supplement + m_motility_speedup(호박색 없이 고리가 관을 차례로 조이는 평범한 연동 — 멀쩡한 장). ②18.8~31.6 장 신경이 크게 받아들여 급한 신호로 키움, 약은 그 예민함을 못 끔: act_urgent_watery_bowel(아랫배를 움켜쥐자 섬광) + m_nerve_overdrive. 4초짜리 '지사제나 변비약은' 문장을 따로 떼면 칸이 깜빡여 한 구간(12.8초)으로 뒀다. ③31.6~40.0 변 모양으로 형이 갈림(딱딱한 변 쪽): act_strain_on_toilet + m_content_hardening(관 속 내용물이 굳어 막힘 — 색인 fits '변이 딱딱해짐'). ④40.0~44.6 설사형·변비형·혼합형: act_rush_to_toilet + m_osmotic_water_pull(묽은 변). 도입부와 같은 행위지만 첫 칸이 아니고 사이에 세 칸이 있다. ⑤44.6~55.4 지사제를 넉넉히 먹으면 장이 느려져 변비: act_take_supplement(①과 세 칸 떨어짐) + m_motility_slowdown(덩어리가 관 중간에 멈춤). '변비약을 먹으면 다시 설사로'는 3초뿐이라 따로 칸을 두지 않았다. 도입부는 통클립 두 개(act_rush_to_toilet → part_intestines).",
-  "opening_until": 14.4
+  "opening_until": 14.4,
+  "board_items": [
+    "알약",
+    "달력",
+    "유산균"
+  ]
 }

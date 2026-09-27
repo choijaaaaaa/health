@@ -64,5 +64,9 @@
       "label": "체온조절중추"
     }
   ],
-  "opening_until": 13.6
+  "opening_until": 13.6,
+  "board_items": [
+    "달력",
+    "이불"
+  ]
 }

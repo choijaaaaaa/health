@@ -3581,6 +3581,7 @@ def assemble(
     # 있으면 원인 설명 구간에서도 시선을 아래로 끌어간다. 해결책·요약이 시작하는 시각을 받아 그때부터만 띄운다.
     # None이면 ad_cta.CTA_START_SEC(5초) 그대로.
     cta_start_at: float | None = None,
+    board_row_items: list[dict] | None = None,
     # WHY(2026-09-21 사용자 "제품 보러 가기 있는 버전과 없는 버전으로 나눠서, 없는 버전은 유튜브에"): CTA
     # 화살표는 네이버 클립이 영상 아래 붙이는 제휴 배너를 가리키는 장치다 — 그 배너가 없는 플랫폼에선 화살표가
     # 허공을 가리킨다. False면 화살표만 빼고 법정 광고 표시는 그대로 둔다.
@@ -3970,7 +3971,8 @@ def assemble(
                 if xray_inset and not panel_on:
                     # 결론 칠판: 해결 항목 전부를 한 줄로 나열하고 지금 말하는 항목만 밝게 — 시청자가 "몇 가지를
                     # 챙기면 되는지"를 한눈에 본다(2026-09-19 "기존처럼 나열해놓고 아이템을 사람들이 인지할수있게")
-                    _make_item_row_png(item_schedule, item["name"], label_png, lang=lang)
+                    # 해결책 품목이 따로 정해져 있으면 그것만 줄에 올린다(원인 쪽 품목이 해결책처럼 보이지 않게)
+                    _make_item_row_png(board_row_items or item_schedule, item["name"], label_png, lang=lang)
                     lx, ly = "(main_w-overlay_w)/2", XRAY_ITEM_LABEL_Y
                 else:
                     _make_item_label_png(item["illust"], item["name"], label_png, lang=lang)

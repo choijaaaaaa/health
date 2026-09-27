@@ -38,7 +38,7 @@
     "처방전"
   ],
   "opening_until": 11.6,
-  "summary_from": "그러니 끊는 순간",
+  "summary_from": "그러니 언제, 어떻게",
   "timeline": [
     {
       "from": "이 약은 맞는 동안",
@@ -76,11 +76,16 @@
       "label": "피하지방"
     },
     {
-      "from": "그러니 끊는 순간",
+      "from": "그러니 언제, 어떻게",
       "item": "처방전",
       "mech": "m_muscle_wasting",
       "act": null,
       "label": "근육"
     }
+  ],
+  "board_items": [
+    "처방전",
+    "아령",
+    "닭가슴살"
   ]
 }

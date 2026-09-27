@@ -66,12 +66,16 @@
     },
     {
       "from": "그러니 용량을 올린 주에는",
-      "item": "소화불량",
+      "item": "다이어트도시락",
       "mech": "m_emptying_delay",
       "act": null,
       "label": "위"
     }
   ],
   "opening_until": 15.44,
-  "script_approved": "2026-09-24"
+  "script_approved": "2026-09-24",
+  "board_items": [
+    "다이어트도시락",
+    "처방전"
+  ]
 }

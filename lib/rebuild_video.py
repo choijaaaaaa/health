@@ -707,6 +707,14 @@ def derive(topic: str) -> dict:
                  nearest_bg_color_for_motion(r["item"]))
                 for i, r in enumerate(_tl)
             ]
+            # 🚨 해결책 칠판의 품목 줄은 **해결책 품목만**(2026-09-27 사용자 "해결책 칠판에서는 위 이미지를 해결책에
+            # 대한 소싱된 이미지로 … 바나나를 먹는 게 해결책이 아니라 바나나 형태로 되는 게 중요한 건데"). 예전엔
+            # 영상 전체에 나온 품목(원인 쪽 변기·소화불량까지)을 한 줄에 다 모았고, 품목도 문장 속 단어를 글자
+            # 그대로 따라가 엉뚱한 사진이 해결책처럼 떴다. xray.json `board_items`에 해결책마다 실제로 권하는
+            # 행동·제품의 사진 품목을 적는다.
+            _cfg = json.loads((tracks.data_dir(topic) / "xray.json").read_text(encoding="utf-8"))
+            if _cfg.get("board_items"):
+                kwargs["board_row_items"] = [{"name": n, "illust": _char_media_path(n)} for n in _cfg["board_items"]]
         kwargs["bg_color"] = nearest_bg_color_for_motion(_char_name(items[0]["char_file"]))
         cta_at = _cta_start_sec(topic, items, srt_entries)
         if cta_at is not None:
