@@ -38,7 +38,7 @@
     "처방전"
   ],
   "opening_until": 11.6,
-  "summary_from": "그러니 끊을지",
+  "summary_from": "그러니 끊는 순간",
   "timeline": [
     {
       "from": "이 약은 맞는 동안",
@@ -48,7 +48,7 @@
       "label": "뇌"
     },
     {
-      "from": "여기에 몸 자체도",
+      "from": "그런데 몸은 줄어든",
       "item": "체중계",
       "mech": "m_fat_accumulation",
       "act": "act_large_meal_after_fasting",
@@ -76,7 +76,7 @@
       "label": "피하지방"
     },
     {
-      "from": "그러니 끊을지",
+      "from": "그러니 끊는 순간",
       "item": "처방전",
       "mech": "m_muscle_wasting",
       "act": null,

@@ -39,7 +39,7 @@
   "summary_from": "그러니 약은 혼자",
   "timeline": [
     {
-      "from": "몸은 체중이 빠르게",
+      "from": "그런데 체중이 빠르게",
       "item": "체중감량주사",
       "mech": "m_fat_breakdown",
       "act": "act_loose_waistband",
@@ -53,7 +53,7 @@
       "label": "모낭"
     },
     {
-      "from": "모낭이 죽은 게 아니라",
+      "from": "머리카락 뿌리인 모낭이",
       "item": "달력",
       "mech": "part_scalp",
       "act": "act_hairline_regrowth",
