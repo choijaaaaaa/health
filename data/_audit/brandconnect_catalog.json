@@ -4841,10 +4841,26 @@
   ]
  },
  "칼슘 영양제": {
-  "checked_at": "2026-09-19 16:47",
+  "checked_at": "2026-09-27 20:00",
   "found": true,
   "status": "있음",
   "chosen": {
+   "id": 907033716506272,
+   "name": "[3개월분] 닥터브라이언 칼마디 칼슘 마그네슘 비타민D 아연 종합영양제 90정, 1개",
+   "store": "닥터브라이언",
+   "price": 15900,
+   "commission": 5.0,
+   "reviews": 16665,
+   "rating": 4.9,
+   "url": "https://smartstore.naver.com/main/products/4685898105",
+   "link": "https://naver.me/FJODlWtK"
+  },
+  "hits": 40,
+  "domain": "health",
+  "sample": null,
+  "link": "https://naver.me/FJODlWtK",
+  "link_saved": true,
+  "rejected": {
    "id": 834513859410547,
    "name": "차일드라이프 액상칼슘마그네슘 비타민D 아연 유아 어린이 키즈 칼슘 영양제 473ml, 1개",
    "store": "온누리Store",
@@ -4854,11 +4870,7 @@
    "rating": 4.89,
    "url": "https://smartstore.naver.com/main/products/6630729867",
    "link": null
-  },
-  "hits": 40,
-  "domain": "health",
-  "sample": null,
-  "link": "https://naver.me/FdqSwz4u"
+  }
  },
  "만보기": {
   "checked_at": "2026-09-19 16:47",
