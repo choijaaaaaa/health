@@ -75,7 +75,7 @@
     },
     {
       "from": "그러니 약은 혼자",
-      "item": "처방전",
+      "item": "단백질 보충제",
       "mech": "m_fat_breakdown",
       "act": null,
       "label": "지방"
@@ -83,7 +83,7 @@
   ],
   "opening_until": 14.24,
   "board_items": [
-    "처방전",
-    "닭가슴살"
+    "단백질 보충제",
+    "처방전"
   ]
 }

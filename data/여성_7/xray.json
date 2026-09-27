@@ -51,17 +51,17 @@
     },
     {
       "from": "그래서 잡아야 할 건",
-      "item": "체중계",
+      "item": "이노시톨 영양제",
       "mech": "m_fat_breakdown",
       "act": null,
       "label": "지방세포"
     }
   ],
-  "opening_until": 13.52,
+  "opening_until": 13.28,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다.",
   "board_items": [
-    "체중계",
+    "이노시톨 영양제",
     "귀리",
-    "영양제"
+    "체중계"
   ]
 }

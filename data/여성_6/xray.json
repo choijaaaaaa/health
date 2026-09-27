@@ -58,17 +58,17 @@
     },
     {
       "from": "그러니 먼저 근종이",
-      "item": "달력",
+      "item": "철분제",
       "mech": "m_blood_loss",
       "act": null,
       "label": "자궁 내막"
     }
   ],
-  "opening_until": 9.92,
+  "opening_until": 13.28,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다.",
   "board_items": [
+    "철분제",
     "달력",
-    "혈액검사",
-    "영양제"
+    "혈액검사"
   ]
 }

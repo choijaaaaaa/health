@@ -58,15 +58,16 @@
     },
     {
       "from": "그러니 2주 동안",
-      "item": "달력",
+      "item": "쿨매트",
       "mech": "m_hormone_drop",
       "act": null,
       "label": "체온조절중추"
     }
   ],
-  "opening_until": 13.6,
+  "opening_until": 16.32,
   "board_items": [
-    "달력",
-    "이불"
+    "쿨매트",
+    "선풍기",
+    "달력"
   ]
 }

@@ -184,6 +184,11 @@ def _char_media_path(name: str) -> str:
     중단하기로 확정 — Kling도 정지 루프 mp4도 더 이상 새로 안 만듦). 어느 쪽이든
     video_assembler.py의 _build_character_loop/_build_character_segment가
     `_is_static_image()`로 확장자를 보고 알아서 분기한다."""
+    # 제휴 링크를 거는 바로 그 상품 사진(scripts/fetch_product_photos.py로 받아 눈으로 승인한 것)을 먼저 쓴다 —
+    # 해결책 칠판에 "무엇을 사면 되는지"가 보여야 한다(2026-09-27 사용자 "해결책에 대한 소싱된 이미지로")
+    product = ROOT / "assets_library" / "real" / "_products" / f"{name}.jpg"
+    if product.exists():
+        return str(product)
     motion_path = MOTION_DIR / f"{name}_motion.mp4"
     if motion_path.exists():
         return str(motion_path)

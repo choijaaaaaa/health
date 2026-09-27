@@ -463,7 +463,8 @@ def _is_real_photo_path(path) -> bool:
     if path is None:
         return False
     p = Path(path)
-    return p.parent.name == "real" or (p.parent.name == "files" and p.parent.parent.name == "assets-shared")
+    return (p.parent.name == "real" or (p.parent.name == "_products" and p.parent.parent.name == "real")
+            or (p.parent.name == "files" and p.parent.parent.name == "assets-shared"))
 
 
 def _resolve_char_image(char_file: str | None, assets_root: Path) -> Path | None:

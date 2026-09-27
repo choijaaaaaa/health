@@ -14,3 +14,7 @@ def test_illustration_and_none_are_not_real():
     assert not _is_real_photo_path("assets_library/illust/시계_illust.jpg")
     assert not _is_real_photo_path("some/other/files/x.jpg")
     assert not _is_real_photo_path(None)
+
+
+def test_product_photo_is_real():
+    assert _is_real_photo_path("assets_library/real/_products/차전자피.jpg")

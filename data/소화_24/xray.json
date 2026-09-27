@@ -65,7 +65,7 @@
       "label": "장"
     }
   ],
-  "opening_until": 10.96,
+  "opening_until": 13.28,
   "_opening_why": "훅 '변에 노란 알갱이가 그대로' + '안 맞는다며 끊는다' 반박까지 전체 화면(10.56초). 변기에 앉은 act_strain_on_toilet → 장 전체가 켜지는 part_intestines. 예전엔 act_grab_belly·part_intestines를 1.4초씩 잘라 써서 3~6배로 늘어났다 — range를 빼고 통클립 6+4초로 약 1.1배.",
   "board_items": [
     "어금니",
