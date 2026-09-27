@@ -208,6 +208,11 @@ def main() -> None:
     s = sub.add_parser("schedule"); s.add_argument("--count", type=int, default=5); s.add_argument("--commit", action="store_true")
     a = ap.parse_args()
 
+    # 🚨 2026-09-27 사용자: "사람 건강이랑 애완동물 건강이 섞이면 유입에 방해 — 이 페이지는 애완동물로, 건강은 새 페이지".
+    # 세상건강사전(@worldshealthdictionary)은 댕냥사전 전용이 됐다. 건강숏츠는 새 채널이 생기기 전까지 올리지 않는다.
+    if a.cmd in ("upload", "schedule") and getattr(a, "commit", True):
+        raise SystemExit("❌ 세상건강사전은 댕냥사전 채널로 바뀌었다 — 건강숏츠는 새 건강 채널 키가 생기면 그쪽으로 올린다")
+
     if a.cmd == "whoami":
         _, name = _service_checked(); print(f"✅ 토큰 채널: {name} ({os.environ['YOUTUBE_WHD_CHANNEL_ID']})"); return
     if a.cmd == "status":
