@@ -36,6 +36,13 @@
       "label": "난소"
     },
     {
+      "from": "그러면 난자를 품은",
+      "item": "생리대",
+      "mech": "m_ovarian_reserve_decline",
+      "act": "act_press_one_side_lower_abdomen",
+      "label": "멈춘 난포"
+    },
+    {
       "from": "게다가 같은 남성호르몬이",
       "item": "턱",
       "mech": "m_sebum_overproduction",
