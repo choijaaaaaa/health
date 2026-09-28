@@ -15,3 +15,8 @@ def test_range_repeats_unit():
 def test_months_stay_sino():
     assert to_speech("3개월") == "삼 개월"
     assert to_speech("2잔") == "두 잔"
+
+
+def test_percent_and_month_ranges():
+    assert to_speech("60~70%") == "육십 퍼센트에서 칠십 퍼센트"
+    assert to_speech("6개월에서 9개월") == "육 개월에서 구 개월"

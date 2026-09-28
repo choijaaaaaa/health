@@ -93,5 +93,5 @@ def to_speech(text: str) -> str:
     # "3에서 4명", "3~4명" — 앞 숫자에도 단위를 붙여 "세 명에서 네 명"으로 읽는다("삼 에서 사 명" 방지)
     _units = "|".join(sorted(set(_NATIVE_UNITS) | {"그램", "킬로그램", "밀리그램", "퍼센트", "배", "주", "년", "일", "개월",
                                                    "시간", "분", "초", "센티미터", "리터", "밀리리터"}, key=len, reverse=True))
-    text = re.sub(rf"(\d+)\s*(?:에서|~|∼)\s*(\d+)\s*({_units})", r"\1\3에서 \2\3", text)
+    text = re.sub(rf"(\d+)\s*(?:에서|~|∼)\s*(\d+)\s*({_units}|%)", r"\1\3에서 \2\3", text)
     return _PAT.sub(sub, text)
