@@ -36,25 +36,18 @@
       "label": "땀샘"
     },
     {
-      "from": "이렇게 예민해진 장치에는",
+      "from": "이렇게 예민해진 장치는",
       "item": "와인",
       "mech": "m_vessel_dilation",
       "act": "act_drink_alcohol_with_painkiller",
       "label": "피부 혈관"
     },
     {
-      "from": "커피는 사람에 따라",
+      "from": "커피는 사람마다",
       "item": "커피",
       "mech": "m_adenosine_block",
       "act": "act_drink_caffeine",
       "label": "뇌 수용체"
-    },
-    {
-      "from": "그렇다고 참으면 금방",
-      "item": "시계",
-      "mech": "m_ovarian_reserve_decline",
-      "act": "act_toss_turn",
-      "label": "난소"
     },
     {
       "from": "그러니 내 열감을",
