@@ -236,11 +236,14 @@ def build(track: str | None) -> None:
                        else "·".join(r["_no"] for _t, r, _s in xs) if len(xs) <= 4
                        else f"{xs[0][1]['_no']}~{xs[-1][1]['_no']}")
     folder = work.relative_to(ROOT.parent)
+    # 끝난 단계는 안 남긴다(2026-09-27 "미드저니도 다뽑았으면 없어져도되잖아") — 미드저니가 0장이면 Flow만 적는다
+    steps = ([f"\n1. **미드저니 {span(mj)} — 1부를 위에서부터 쫙 뽑는다.** 결과는 `{folder}/`에 넣거나 zip째 다운로드 폴더에 둔다.\n",
+              "2. **세션에 말한다** — 세션이 확인·분류해서 번호 이름으로 정리하고 이 시트를 다시 만든다.\n",
+              f"3. **Flow {span(flow)} — 2부를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n"]
+             if mj else
+             [f"\n1. **Flow {span(flow)} — 아래를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n"])
     L = [f"# 지금 뽑을 것 {len(pend)}종" + (f" — {track} 트랙" if track else "") + "\n",
-         "\n## 내가 할 일 (이 순서대로)\n",
-         f"\n1. **미드저니 {span(mj)} — 1부를 위에서부터 쫙 뽑는다.** 결과는 `{folder}/`에 넣거나 zip째 다운로드 폴더에 둔다.\n",
-         "2. **세션에 말한다** — 세션이 확인·분류해서 번호 이름으로 정리하고 이 시트를 다시 만든다.\n",
-         f"3. **Flow {span(flow)} — 2부를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n",
+         "\n## 내가 할 일 (이 순서대로)\n", *steps,
          f"   결과 mp4는 `{folder}/`에 클립 이름 그대로 넣거나 다운로드 폴더에 둔다.\n",
          "\n| # | 이름 | topic | 미드저니 | Flow |\n|---|---|---|---|---|\n"]
     for topic, r, sub_ in pend:
@@ -248,12 +251,10 @@ def build(track: str | None) -> None:
         L.append(f"| {r['_no']} | `{r['name']}` | {topic} | {'✅ 있음' if has else '뽑기'} | "
                  f"{'— (스틸만)' if sub_ == 'still' else '돌리기'} |\n")
 
-    L.append(f"\n---\n\n# 1부 · 미드저니 — {len(mj)}장 쫙 먼저\n")
     if mj:
+        L.append(f"\n---\n\n# 1부 · 미드저니 — {len(mj)}장 쫙 먼저\n")
         L.append("\n`act_`는 **Omni Reference**, `m_`는 **Style Reference**(Omni 금지 — 클로즈업에 전신 인체가 끼어든다). "
                  "저장 이름은 번호마다 적혀 있다.\n")
-    else:
-        L.append("\n미드저니는 없다 — 스틸이 전부 있다. 2부 Flow로 바로 간다.\n")
     refs = _mj_refs() if mj else {}
     for topic, r, sub in mj:
         mode = r.get("ref_mode") or ("Style Reference (⚠️ Omni 금지)" if sub == "mech" else "Omni Reference")
