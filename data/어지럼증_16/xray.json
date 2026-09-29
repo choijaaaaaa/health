@@ -22,7 +22,7 @@
   "summary_from": "그러니 고개를 움직일 때만",
   "timeline": [
     {
-      "from": "원인은 귓속에",
+      "from": "원인은 귓속 돌가루",
       "item": "귀",
       "mech": "m_otolith_displacement",
       "act": "act_hold_head",
@@ -36,21 +36,21 @@
       "label": "귀 속 감각세포"
     },
     {
-      "from": "결국 눕거나 일어날 때",
+      "from": "그래서 이석증은 눕거나",
       "item": "어지럼증",
       "mech": "m_otolith_displacement",
       "act": "act_toss_turn",
       "label": "반고리관"
     },
     {
-      "from": "굴러떨어지던 돌가루가",
+      "from": "돌가루가 바닥에 가라앉으면",
       "item": "시계",
       "mech": "m_crystal_precipitation",
       "act": "pilot_C",
       "label": "이석"
     },
     {
-      "from": "또 소리를 듣는 곳과는",
+      "from": "소리 듣는 곳과는",
       "item": "귀",
       "mech": "m_pressure_imbalance",
       "act": "act_cover_ear",
