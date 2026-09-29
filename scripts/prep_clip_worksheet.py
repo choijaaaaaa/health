@@ -58,7 +58,8 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
         return prompt if "--ar " in prompt else f"{prompt.split(' --', 1)[0].rstrip()} --ar 9:16" + (" --" + prompt.split(" --", 1)[1] if " --" in prompt else "")
     # 댕냥사전 시트와 같은 꼴 "본문 --ar 9:16 --sref/--oref <url> --no …"(2026-09-29 사용자 "ref 구문이 앞으로 가야 하는 것 같다,
     # 9:16이 설정된 16:9로 나온다") — 본문 속 "vertical 9:16"은 비율 파라미터가 아니라 계정 기본값(16:9)으로 나왔다.
-    tag = f"{'--sref' if 'Style' in mode else '--oref'} {url}"
+    # --oref(Omni)는 V7 전용 — 계정 기본 버전이 V7이 아니라 --v 7이 없으면 첨부가 안 먹는다(2026-09-29 실측: 붙이면 됨, 빼면 안 됨)
+    tag = f"--sref {url}" if 'Style' in mode else f"--oref {url} --v 7"
     body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
     no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
     return f"{body} --ar 9:16 {tag}{no}"
