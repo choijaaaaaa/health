@@ -36,6 +36,29 @@ DOWNLOADS = Path.home() / "Downloads"
 CONSUMED = SHEET.parent / ".받은것_건강만사전.json"
 
 
+
+def _mj_refs() -> dict[str, str]:
+    from lib.mj_refs import all_refs
+    return all_refs()
+
+
+def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
+    """레퍼런스 이미지를 DB의 공개 URL로 프롬프트 안에 박는다(`--sref`/`--oref <url>`).
+
+    WHY(2026-09-29 사용자 "canon organs나 댕냥사전 이미지같은것들도 내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에
+    링크 넣으라고 했자나"): 시트가 "레퍼런스: assets_library/…/canon_organs.jpg"처럼 로컬 경로만 적어 사용자가 매번 파일을
+    찾아 첨부했다. 댕냥사전 build_work_sheet._with_sref와 같은 방식 — `--no` 목록은 다음 `--`까지 이어지므로 그 앞에 넣는다."""
+    from lib.mj_refs import ensure
+    rel = ref.split("assets_library/xray/", 1)[-1]
+    try:
+        url = ensure(rel, refs)
+    except FileNotFoundError:
+        # 레퍼런스 자체가 같은 시트에서 먼저 뽑을 스틸(육아 baby_canon_organs 등)이면 아직 파일이 없다 —
+        # 시트를 못 만들고 멈추지 말고, 그 스틸이 들어온 뒤 시트를 다시 만들면 링크가 박힌다
+        return prompt
+    tag = f"{'--sref' if 'Style' in mode else '--oref'} {url}"
+    return prompt.replace(" --no ", f" {tag} --no ", 1) if " --no " in prompt else f"{prompt} {tag}"
+
 def _unopened_deliveries() -> list[Path]:
     """다운로드 폴더에 아직 안 푼 미드저니 zip이 있는가.
 
@@ -226,12 +249,16 @@ def build(track: str | None) -> None:
                  "저장 이름은 번호마다 적혀 있다.\n")
     else:
         L.append("\n미드저니는 없다 — 스틸이 전부 있다. 2부 Flow로 바로 간다.\n")
+    refs = _mj_refs() if mj else {}
     for topic, r, sub in mj:
         mode = r.get("ref_mode") or ("Style Reference (⚠️ Omni 금지)" if sub == "mech" else "Omni Reference")
         tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
         L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
-        L.append(f"\n**레퍼런스**: `{r.get('ref') or CANON}` — {mode} / 저장: `{r['_work']}`\n")
-        L.append(f"\n```\n{r.get('midjourney', '')}\n```\n")
+        prompt = _with_ref(r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
+        how = (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Style' if 'Style' in mode else 'Omni'})" if "ref https://" in prompt
+               else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
+        L.append(f"\n저장: `{r['_work']}` · {how}\n")
+        L.append(f"\n```\n{prompt}\n```\n")
         if r.get("midjourney_alt"):
             L.append("\n<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
                      f"```\n{r['midjourney_alt']}\n```\n\n</details>\n")
