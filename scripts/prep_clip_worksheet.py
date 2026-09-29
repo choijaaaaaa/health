@@ -54,11 +54,14 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
         url = ensure(rel, refs)
     except FileNotFoundError:
         # 레퍼런스 자체가 같은 시트에서 먼저 뽑을 스틸(육아 baby_canon_organs 등)이면 아직 파일이 없다 —
-        # 시트를 못 만들고 멈추지 말고, 그 스틸이 들어온 뒤 시트를 다시 만들면 링크가 박힌다
-        return prompt
-    # Omni Reference는 V7에서만 먹는다 — 기본 버전이 다르면 --oref가 조용히 무시돼 첨부가 안 된 것처럼 보인다(2026-09-29)
-    tag = f"--sref {url}" if 'Style' in mode else (f"--oref {url}" + ("" if "--v " in prompt else " --v 7"))
-    return prompt.replace(" --no ", f" {tag} --no ", 1) if " --no " in prompt else f"{prompt} {tag}"
+        # 시트를 못 만들고 멈추지 말고, 그 스틸이 들어온 뒤 시트를 다시 만들면 링크가 박힌다(비율은 지금도 박는다)
+        return prompt if "--ar " in prompt else f"{prompt.split(' --', 1)[0].rstrip()} --ar 9:16" + (" --" + prompt.split(" --", 1)[1] if " --" in prompt else "")
+    # 댕냥사전 시트와 같은 꼴 "본문 --ar 9:16 --sref/--oref <url> --no …"(2026-09-29 사용자 "ref 구문이 앞으로 가야 하는 것 같다,
+    # 9:16이 설정된 16:9로 나온다") — 본문 속 "vertical 9:16"은 비율 파라미터가 아니라 계정 기본값(16:9)으로 나왔다.
+    tag = f"{'--sref' if 'Style' in mode else '--oref'} {url}"
+    body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
+    no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
+    return f"{body} --ar 9:16 {tag}{no}"
 
 def _unopened_deliveries() -> list[Path]:
     """다운로드 폴더에 아직 안 푼 미드저니 zip이 있는가.
