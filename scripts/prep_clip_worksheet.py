@@ -56,7 +56,8 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
         # 레퍼런스 자체가 같은 시트에서 먼저 뽑을 스틸(육아 baby_canon_organs 등)이면 아직 파일이 없다 —
         # 시트를 못 만들고 멈추지 말고, 그 스틸이 들어온 뒤 시트를 다시 만들면 링크가 박힌다
         return prompt
-    tag = f"{'--sref' if 'Style' in mode else '--oref'} {url}"
+    # Omni Reference는 V7에서만 먹는다 — 기본 버전이 다르면 --oref가 조용히 무시돼 첨부가 안 된 것처럼 보인다(2026-09-29)
+    tag = f"--sref {url}" if 'Style' in mode else (f"--oref {url}" + ("" if "--v " in prompt else " --v 7"))
     return prompt.replace(" --no ", f" {tag} --no ", 1) if " --no " in prompt else f"{prompt} {tag}"
 
 def _unopened_deliveries() -> list[Path]:
