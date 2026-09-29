@@ -57,7 +57,7 @@
       "label": "유리체 덩어리"
     },
     {
-      "from": "다만 20명 중 1명꼴로는",
+      "from": "그런데 20명 중 1명꼴로는",
       "item": "노화",
       "mech": "m_layer_separation",
       "act": "act_shield_eyes_from_light",
