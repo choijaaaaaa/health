@@ -72,7 +72,7 @@
     }
   ],
   "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①12.8~23.8 위가 자기 산에 안 녹는 이유: pilot_B(배를 감싸 웅크림, 위만 점등 — 속쓰림) + m_mucus_barrier(점액이 세포를 덮어씌움). ②23.8~31.4 매운맛은 통증 자극: act_shared_pot_dipping(찌개를 떠먹고 국물이 호박색으로 달아오름 = 매운 음식) + m_nerve_overdrive(통증 증폭). ③31.4~35.7 '벽이 얇아졌다는 신호': act_grab_belly + m_tissue_thinning(층이 얇아짐). ④35.7~47.6 소염진통제가 점액 신호를 끔: act_take_supplement(알약) + m_hormone_drop(신호 알갱이가 끊기고 빈 구멍만 남음). ⑤47.6~51.6 며칠 연달아 먹으면 쓰려옴: pilot_B + m_ph_disruption(표면 보호 구조가 쓰러져 민둥해짐). ⑥51.6~63.0 빈속 커피: act_drink_caffeine + m_acid_secretion. 도입부는 통클립 두 개 — 매운 찌개를 떠먹는 act_shared_pot_dipping(훅 '매운 걸 먹은 날마다') → part_stomach(위만 점등).",
-  "opening_until": 13.28,
+  "opening_until": 10.1,
   "board_items": [
     "알약",
     "커피"
