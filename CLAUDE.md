@@ -253,7 +253,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - 🚨 **없는 클립은 요청한다, 비슷한 걸로 때우지 않는다** — `data/<topic>/clip_requests.json`에 적고 그 topic은 조립을
   멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`../ai-video-network/deploy/작업/건강만사전.md`·`건강만사전_육아.md`
   — 이름 고정, `tests/test_xray_worksheet_path.py`). 받은 클립은 `건강만사전_스틸/`에 넣고 `scripts/collect_clips.py --commit`.
-  미드저니 레퍼런스(canon_organs 등)는 **로컬 경로를 적지 말고** `lib/mj_refs.py`로 R2+D1(`mj_references`, project=health-shorts)에 올려 시트 프롬프트에 `--oref`/`--sref <url>`로 박는다 — 시트 생성기가 자동으로 한다(2026-09-29 사용자 "내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에 링크").
+  미드저니 레퍼런스(canon_organs 등)는 **로컬 경로를 적지 말고** `lib/mj_refs.py`로 R2+D1(`mj_references`, project=health-shorts)에 올려 시트 프롬프트에 `--sref <url>`로 박는다(Omni `--oref`는 모양까지 따라 해 장면이 뒤틀려 쓰지 않는다) — 시트 생성기가 자동으로 한다(2026-09-29 사용자 "내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에 링크").
   스틸만 받는 요청은 `"kind": "still"`. 아무 topic도 안 쓰는 요청은 지운다(사람 렌더 시간 낭비).
 - 클립은 **색인으로 찾는다**(`-m lib.clip_index --for <증상어>`, `--show <이름>`) — 이름이 실제와 다른 클립이 많다.
   `avoid`를 어기지 말 것.

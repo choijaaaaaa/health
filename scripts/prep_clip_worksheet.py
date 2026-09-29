@@ -43,7 +43,7 @@ def _mj_refs() -> dict[str, str]:
 
 
 def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
-    """레퍼런스 이미지를 DB의 공개 URL로 프롬프트 안에 박는다(`--sref`/`--oref <url>`).
+    """레퍼런스 이미지를 DB의 공개 URL로 프롬프트 안에 박는다(`--sref <url>`).
 
     WHY(2026-09-29 사용자 "canon organs나 댕냥사전 이미지같은것들도 내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에
     링크 넣으라고 했자나"): 시트가 "레퍼런스: assets_library/…/canon_organs.jpg"처럼 로컬 경로만 적어 사용자가 매번 파일을
@@ -56,10 +56,11 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
         # 레퍼런스 자체가 같은 시트에서 먼저 뽑을 스틸(육아 baby_canon_organs 등)이면 아직 파일이 없다 —
         # 시트를 못 만들고 멈추지 말고, 그 스틸이 들어온 뒤 시트를 다시 만들면 링크가 박힌다(비율은 지금도 박는다)
         return prompt if "--ar " in prompt else f"{prompt.split(' --', 1)[0].rstrip()} --ar 9:16" + (" --" + prompt.split(" --", 1)[1] if " --" in prompt else "")
-    # 댕냥사전 시트와 같은 꼴 "본문 --ar 9:16 --sref/--oref <url> --no …"(2026-09-29 사용자 "ref 구문이 앞으로 가야 하는 것 같다,
+    # 댕냥사전 시트와 같은 꼴 "본문 --ar 9:16 --sref <url> --no …"(2026-09-29 사용자 "ref 구문이 앞으로 가야 하는 것 같다,
     # 9:16이 설정된 16:9로 나온다") — 본문 속 "vertical 9:16"은 비율 파라미터가 아니라 계정 기본값(16:9)으로 나왔다.
-    # --oref(Omni)는 V7 전용 — 계정 기본 버전이 V7이 아니라 --v 7이 없으면 첨부가 안 먹는다(2026-09-29 실측: 붙이면 됨, 빼면 안 됨)
-    tag = f"--sref {url}" if 'Style' in mode else f"--oref {url} --v 7"
+    # 전부 --sref(Style Reference). WHY(2026-09-29 사용자 "--sref가 맞네… oref 할 때 옴니로 들어가서 개판으로 출력"):
+    # Omni는 캐논의 모양·자세까지 따라 하려다 장면이 뒤틀린다. 반투명 캐논은 질감·색만 따르면 된다(댕냥사전과 같은 결론).
+    tag = f"--sref {url}"
     body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
     no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
     return f"{body} --ar 9:16 {tag}{no}"
@@ -253,11 +254,11 @@ def build(track: str | None) -> None:
 
     if mj:
         L.append(f"\n---\n\n# 1부 · 미드저니 — {len(mj)}장 쫙 먼저\n")
-        L.append("\n`act_`는 **Omni Reference**, `m_`는 **Style Reference**(Omni 금지 — 클로즈업에 전신 인체가 끼어든다). "
+        L.append("\n레퍼런스는 전부 **Style Reference**(`--sref`, 프롬프트 안 링크) — Omni는 모양까지 따라 해 장면이 뒤틀린다. "
                  "저장 이름은 번호마다 적혀 있다.\n")
     refs = _mj_refs() if mj else {}
     for topic, r, sub in mj:
-        mode = r.get("ref_mode") or ("Style Reference (⚠️ Omni 금지)" if sub == "mech" else "Omni Reference")
+        mode = r.get("ref_mode") or "Style Reference"
         tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
         L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
         prompt = _with_ref(r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
