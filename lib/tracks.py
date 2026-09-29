@@ -15,9 +15,13 @@ ROOT = Path(__file__).resolve().parent.parent
 # domain: 브랜드커넥트 상품 판정 기준(유아용품을 빼느냐 마느냐가 갈린다).
 # work: 미드저니·Flow 작업 자리. 트랙마다 따로 둬야 시트 번호가 섞이지 않는다.
 TRACKS: dict[str, dict] = {
-    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "건강만사전_육아", "stills": "baby"},
+    # 🚨 육아 트랙 브랜드는 「육아만사전」(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 … 다 반영") —
+    # 작업대 시트·엔딩 카드·해시태그·미션컨트롤 탭이 이 이름을 쓴다. 내부 식별자(폴더 `육아/`, topic `육아_N`)는 그대로.
+    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "육아만사전", "stills": "baby",
+           "brand": "육아만사전", "end_card": "육아만사전 · 더 많은 육아정보는 구독·좋아요·팔로우"},
 }
-DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None}
+DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
+           "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우"}
 
 
 def _base(topic: str) -> str:
@@ -126,3 +130,15 @@ def work_paths(track: str | None) -> tuple[Path, Path, Path]:
     name = TRACKS[track]["work"] if track else DEFAULT["work"]
     stills = DEPLOY_WORK / f"{name}_스틸"
     return DEPLOY_WORK / f"{name}.md", stills, stills
+
+
+def brand(topic: str) -> str:
+    """이 topic이 나가는 채널 브랜드 이름(건강만사전 / 육아만사전)."""
+    t = track_of(topic)
+    return (TRACKS[t] if t else DEFAULT)["brand"]
+
+
+def end_card_text(topic: str) -> str:
+    """영상 엔딩 카드 문구 — 브랜드마다 다르다."""
+    t = track_of(topic)
+    return (TRACKS[t] if t else DEFAULT)["end_card"]

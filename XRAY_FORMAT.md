@@ -208,7 +208,7 @@
 ai-video-network/deploy/작업/        ← 2026-09-25 저장소 밖 한 단계로 옮김(건강만사전·댕냥사전·세상만사전 공용 작업대)
   건강만사전.md          ← 사람이 여는 유일한 파일(번호·프롬프트·몇 번이 Flow만인지)
   건강만사전_스틸/       ← 번호 붙은 스틸 + Flow 결과 mp4(클립 이름 그대로)
-  건강만사전_육아.md / 건강만사전_육아_스틸/
+  육아만사전.md / 육아만사전_스틸/
 ```
 
 `scripts/prep_clip_worksheet.py`가 시트를 다시 만들고, `scripts/collect_clips.py --commit`이
@@ -287,7 +287,7 @@ top_title     "명치가 쥐어짜듯 아프다면"        ← 증상. 검색어
   `baby_cu_head_side`(**짧고 거의 수평인 이관** — 아기 중이염 기전이 여기 달려 있다) ·
   `baby_cu_airway`(끝이 실처럼 가늘어지는 세기관지) · `baby_cu_mouth_throat` · `baby_cu_skin_layers`.
 - 요청은 `data/육아/_shared/clip_requests.json`에 `"kind": "still"`로 적는다(Flow 프롬프트 없음).
-  시트는 `deploy/작업/건강만사전_육아.md`의 **0부**로 따로 선다.
+  시트는 `deploy/작업/육아만사전.md`의 **0부**로 따로 선다.
 - 미드저니 프롬프트도 아기 단어를 **먼저 피한다** — "early-developmental body proportions"로 비례를
   묘사하고, 막히거나 어른 비례로 나오면 쓰라고 직접 표현 문구를 대안으로 같이 준다.
 
@@ -327,7 +327,7 @@ top_title     "명치가 쥐어짜듯 아프다면"        ← 증상. 검색어
 |---|---|---|
 | 스펙 | `data/육아/<topic>/` | `data/<topic>/` |
 | 산출물 | `output/육아/<topic>/` | `output/<topic>/` |
-| 작업 시트·스틸 | `deploy/작업/건강만사전_육아*` | `deploy/작업/건강만사전*` |
+| 작업 시트·스틸 | `deploy/작업/육아만사전*` | `deploy/작업/건강만사전*` |
 | 캐논 스틸 | `assets_library/xray/stills/baby/` | `.../stills/` |
 
 🚨 **topic 이름은 `육아_1`로 평평하다 — 접히는 건 경로뿐이다.** 이 저장소에서 topic 안의 `/`는 이미

@@ -37,7 +37,7 @@
 - **채널명 「건강만사전」** — 엔딩 카드(`video_assembler.BRAND_NAME`)·카드 CTA·해시태그 `#건강만사전`(태그 줄 맨 앞)·
   대시보드 제목. **내부 식별자는 안 바꾼다**(폴더명 `health-shorts`, R2 프리픽스 `health-shorts/card_news/`,
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
-- 🚨 **유튜브는 채널 두 개, 둘 다 이름 「건강만사전」**(2026-09-27): 성인 건강 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 아기 건강 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙. **매일 18시 예약 게시**, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 launchd(com.healthshorts.ytupload → ~/.claude/cron-scripts/health_yt.sh)가 빈 슬롯을 채운다 — 크론은 맥이 잠들면 건너뛰어 9/28에 옮김(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
+- 🚨 **유튜브는 채널 두 개** — 성인 건강 「건강만사전」 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 육아 「육아만사전」 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙(2026-09-30 이름 분리). **매일 18시 예약 게시**, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 launchd(com.healthshorts.ytupload → ~/.claude/cron-scripts/health_yt.sh)가 빈 슬롯을 채운다 — 크론은 맥이 잠들면 건너뛰어 9/28에 옮김(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
 - **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),
@@ -69,7 +69,7 @@
 ## 트랙과 폴더
 
 - 기본(건강) topic은 `data/<topic>/`·`output/<topic>/`에 평평하게 둔다.
-- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·`deploy/작업/건강만사전_육아*`·
+- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·`deploy/작업/육아만사전*`·
   `stills/baby/`. 🚨 **topic 이름은 `육아_1`로 평평하다 — 접히는 건 경로뿐**이다. 이 저장소에서 topic 안의
   `/`는 **언어**를 뜻해서(`가슴쓰림_1/en`), `육아/육아_1`로 부르면 언어 코드로 읽혀 조용히 깨진다.
   경로는 반드시 `lib/tracks.py`(`data_dir`·`output_dir`·`iter_topic_dirs`·`glob_topic_files`)로 푼다.
@@ -251,7 +251,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - **광고 배너 CTA**(`lib/ad_cta.py` 정본) — 세로 위치는 칠판 상단 기준(`CTA_CY_FROM_BOARD_TOP`), 등장은
   `CTA_START_SEC=5.0`(썸네일 후보 프레임을 가리지 않게. `enable`로 건다 — fade는 안 먹는다). `.pre_cta.mp4`는 쓰지 말 것.
 - 🚨 **없는 클립은 요청한다, 비슷한 걸로 때우지 않는다** — `data/<topic>/clip_requests.json`에 적고 그 topic은 조립을
-  멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`../ai-video-network/deploy/작업/건강만사전.md`·`건강만사전_육아.md`
+  멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`../ai-video-network/deploy/작업/건강만사전.md`·`육아만사전.md`
   — 이름 고정, `tests/test_xray_worksheet_path.py`). 받은 클립은 `건강만사전_스틸/`에 넣고 `scripts/collect_clips.py --commit`.
   미드저니 레퍼런스(canon_organs 등)는 **로컬 경로를 적지 말고** `lib/mj_refs.py`로 R2+D1(`mj_references`, project=health-shorts)에 올려 시트 프롬프트에 `--sref <url>`로 박는다(Omni `--oref`는 모양까지 따라 해 장면이 뒤틀려 쓰지 않는다) — 시트 생성기가 자동으로 한다(2026-09-29 사용자 "내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에 링크").
   스틸만 받는 요청은 `"kind": "still"`. 아무 topic도 안 쓰는 요청은 지운다(사람 렌더 시간 낭비).
@@ -264,7 +264,9 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   주사·백신 같은 의료 처치도 기구를 빼고 몸 안 변화만 요청한다(기구는 스틸로).
 - `opening_until`은 원고 **세 번째 문단(항목 예고) 직전** 자막의 끝이다 — `xray_build`가 그 경계로 다시 잰다.
 
-## 육아 트랙 (2026-09-24 착수, 시험 배치 10편)
+## 육아 트랙 — 브랜드 「육아만사전」 (2026-09-24 착수, 시험 배치 10편)
+
+- 🚨 **육아 topic은 「육아만사전」으로 나간다**(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 미션콘트롤부터 전반적인거 다 반영"): 엔딩 카드·카드 CTA·해시태그 `#육아만사전`·작업대 `deploy/작업/육아만사전.md`·유튜브 기본 태그·미션컨트롤 업로드 탭 "육아 — 육아만사전". 이름은 `lib/tracks.py`의 `brand`/`end_card`가 정본. 내부 식별자(`data/육아/`, topic `육아_N`, R2 `health-shorts/card_news/`)는 그대로.
 
 시청자가 20~30대 부모로 갈리므로 10편 올려보고 조회수로 확장을 판단한다. 포맷 차이는 `XRAY_FORMAT.md` 6절.
 
@@ -277,7 +279,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - 아기는 **미드저니 정지 스틸 + `make_part_clip.py`**로만 움직인다. 행위 칸은 보호자 — 비접촉(사물·손만)은 Flow,
   아기에게 해주는 동작은 스틸+코드.
 - **현황**: 10편 원고·카드(90장)·TTS·대시보드·DB 등록·품목(32종, 링크 보유) 완료. **영상만 클립 대기** —
-  `deploy/작업/건강만사전_육아.md` 35종을 받으면 `collect_clips.py --commit` → 부위 클립(region은 스틸 보고 실측) →
+  `deploy/작업/육아만사전.md` 35종을 받으면 `collect_clips.py --commit` → 부위 클립(region은 스틸 보고 실측) →
   `xray_build.py` → `verify_output.py`.
 
 ## blog_seo 서브트랙 (9개 언어)

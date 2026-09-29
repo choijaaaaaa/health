@@ -27,7 +27,7 @@ STILLS = ROOT / "assets_library" / "xray" / "stills"
 # 🚨 기본(건강) 트랙의 작업 자리. 이름을 바꾸지 말 것(2026-09-24 사용자 "이름도 매번바뀌고") —
 # 시트를 `지금_뽑을것.md`에서 이 이름으로 한 번 바꿨더니 편집기에 열어둔 파일이 사라져서
 # "내가 뭘 뽑아야 하는지"를 다시 물어야 했다. tests/test_xray_worksheet_path.py가 막는다.
-# 트랙별 자리는 lib/tracks.py의 work_paths()가 준다(deploy/작업/ 안에 건강만사전.md·건강만사전_육아.md).
+# 트랙별 자리는 lib/tracks.py의 work_paths()가 준다(deploy/작업/ 안에 건강만사전.md·육아만사전.md).
 SHEET, WORK, INBOX = tracks.work_paths(None)
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 

@@ -41,7 +41,7 @@ from lib import youtube_upload as yu  # noqa: E402
 KST = dt.timezone(dt.timedelta(hours=9))
 # 채널 → 어느 트랙 topic을 올리나. 육아 트랙이 아기 건강, 나머지(트랙 없음)가 성인 건강.
 CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정보", "건강쇼츠"]},
-            "baby": {"track": "육아", "base_tags": ["건강만사전", "육아정보", "아기건강", "육아"]}}
+            "baby": {"track": "육아", "base_tags": ["육아만사전", "육아정보", "아기건강", "육아"]}}
 # 예약 게시 시각(KST). 환경변수로 바꾼다(하드코딩 금지 규칙).
 PUBLISH_HOUR = int(os.environ.get("HEALTH_YT_PUBLISH_HOUR", "18"))
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다

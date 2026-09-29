@@ -652,7 +652,8 @@ def derive(topic: str) -> dict:
     # 반영 안 됨) — spec["closing"]["cta"]가 이미 그 언어로 작성된 동일한 문구이니
     # 비한국어 topic은 이걸 그대로 쓰고, 없으면(옛 flat topic) 기존 기본값 유지.
     end_card_text = spec.get("closing", {}).get("cta") if lang != "kor" else None
-    end_card_text = end_card_text or DEFAULT_END_CARD_TEXT
+    # 한국어는 트랙 브랜드 문구(건강만사전/육아만사전, 2026-09-30) — 육아 topic에 건강만사전 엔딩이 붙지 않게
+    end_card_text = end_card_text or (tracks.end_card_text(topic) if lang == "kor" else DEFAULT_END_CARD_TEXT)
 
     distinct_chars = {it["char_file"] for it in items}
     kwargs = dict(
