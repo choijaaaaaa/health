@@ -21,7 +21,7 @@
   ],
   "timeline": [
     {
-      "from": "번갈아 먹일 때 조심할",
+      "from": "번갈아 먹이더라도 간격은",
       "item": "해열제시럽",
       "mech": "m_alternating_dose",
       "act": "act_baby_take_temperature",
@@ -35,7 +35,7 @@
       "label": "장 점막"
     },
     {
-      "from": "약을 바꿔 먹여도",
+      "from": "약을 바꿨다고 하루",
       "item": "감기약",
       "mech": "m_toxin_load",
       "act": "act_baby_take_temperature",

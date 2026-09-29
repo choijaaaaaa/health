@@ -37,14 +37,14 @@
       "label": "혈관"
     },
     {
-      "from": "진짜 손상은 소변에서",
+      "from": "진짜 신장 손상은",
       "item": "방광",
       "mech": "m_filtration_overload",
       "act": "act_toilet_check",
       "label": "사구체 거름막"
     },
     {
-      "from": "게다가 한 번 높은",
+      "from": "게다가 이 수치는",
       "item": "운동화",
       "mech": "m_dehydration",
       "act": "act_wipe_sweat",

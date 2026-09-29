@@ -39,7 +39,7 @@
   "summary_from": "그러니 약은 혼자",
   "timeline": [
     {
-      "from": "그런데 체중이 빠르게",
+      "from": "그런데 몸은 체중이",
       "item": "체중감량주사",
       "mech": "m_fat_breakdown",
       "act": "act_loose_waistband",
@@ -67,7 +67,7 @@
       "label": "두피"
     },
     {
-      "from": "다만 여성이 더",
+      "from": "이 탈모는 여성에게",
       "item": "체중감량주사",
       "mech": "m_follicle_weakening",
       "act": "act_part_line_check",

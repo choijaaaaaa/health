@@ -36,7 +36,7 @@
       "label": "다리 혈관"
     },
     {
-      "from": "그 상태로 숨을",
+      "from": "그 상태로 변기에",
       "item": "실신",
       "mech": "m_blood_flow_drop",
       "act": "act_strain_on_toilet",
@@ -50,7 +50,7 @@
       "label": "뇌로 가는 피"
     },
     {
-      "from": "이런 이유로 변비로",
+      "from": "그래서 변비로 오래",
       "item": "알람시계",
       "mech": "m_vagal_slowdown",
       "act": "act_toilet_check",

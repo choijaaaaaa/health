@@ -22,7 +22,7 @@
   "summary_from": "그러니 2주 동안",
   "timeline": [
     {
-      "from": "열감은 음식이 아니라",
+      "from": "열감은 사실 뇌 속",
       "item": "홍조",
       "mech": "m_hormone_drop",
       "act": "act_toss_turn",
@@ -43,7 +43,7 @@
       "label": "피부 혈관"
     },
     {
-      "from": "커피는 조사에서 마신",
+      "from": "커피는 한 조사에서",
       "item": "커피",
       "mech": "m_adenosine_block",
       "act": "act_drink_caffeine",
