@@ -23,21 +23,21 @@
   "summary_from": "그러니 옥수수를 끊지",
   "timeline": [
     {
-      "from": "옥수수 알갱이 속은",
+      "from": "옥수수 알은 포장지에",
       "item": "옥수수",
       "mech": "m_enzyme_deficiency",
       "act": "act_large_meal_after_fasting",
       "label": "소화효소"
     },
     {
-      "from": "게다가 옥수수 식이섬유는",
+      "from": "게다가 옥수수 섬유는",
       "item": "옥수수",
       "mech": "m_nutrient_absorption_block",
       "act": "pilot_A",
       "label": "소장 점막"
     },
     {
-      "from": "결국 속의 전분만",
+      "from": "결국 몸은 속의",
       "item": "변기",
       "mech": "m_glucose_spike",
       "act": "act_strain_on_toilet",
