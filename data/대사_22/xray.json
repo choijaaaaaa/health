@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_thyroid.mp4"
     }
   ],
-  "summary_from": "다만 부기가 다",
+  "summary_from": "그러니 몇 달째",
   "timeline": [
     {
       "from": "목 앞의 갑상선에서",
@@ -50,7 +50,7 @@
       "label": "갑상선 세포"
     },
     {
-      "from": "다만 부기가 다",
+      "from": "그러니 몇 달째",
       "item": "혈액검사",
       "mech": "m_hormone_drop",
       "act": null,
@@ -61,7 +61,6 @@
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다.",
   "board_items": [
     "혈액검사",
-    "영양제",
     "알약"
   ]
 }
