@@ -24,6 +24,13 @@
     {
       "from": "열감은 사실 뇌 속",
       "item": "홍조",
+      "mech": "m_core_temp_drop",
+      "act": "act_toss_turn",
+      "label": "체온조절중추"
+    },
+    {
+      "from": "여성호르몬 에스트로겐이 줄면",
+      "item": "홍조",
       "mech": "m_hormone_drop",
       "act": "act_toss_turn",
       "label": "체온조절중추"
