@@ -23,7 +23,7 @@
   "summary_from": "그러니 재검 때는",
   "timeline": [
     {
-      "from": "검사지의 신장 수치는",
+      "from": "신장은 피를 거르는",
       "item": "신장",
       "mech": "part_kidney",
       "act": "act_clutch_low_back",
@@ -37,18 +37,18 @@
       "label": "혈관"
     },
     {
-      "from": "진짜 신장 손상은",
-      "item": "방광",
-      "mech": "m_filtration_overload",
-      "act": "act_toilet_check",
-      "label": "사구체 거름막"
-    },
-    {
-      "from": "게다가 이 수치는",
+      "from": "물을 적게 마시거나",
       "item": "운동화",
       "mech": "m_dehydration",
       "act": "act_wipe_sweat",
       "label": "신장 조직"
+    },
+    {
+      "from": "그렇다면 진짜 고장은",
+      "item": "방광",
+      "mech": "m_filtration_overload",
+      "act": "act_toilet_check",
+      "label": "사구체 거름막"
     },
     {
       "from": "그러니 재검 때는",
