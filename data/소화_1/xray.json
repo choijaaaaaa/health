@@ -22,7 +22,7 @@
   "summary_from": "그러니 저녁은 잠들기",
   "timeline": [
     {
-      "from": "밤에 유독 심한 건",
+      "from": "그렇다면 왜 누우면",
       "item": "식후눕기",
       "mech": "part_stomach",
       "act": "act_toss_turn",
@@ -43,7 +43,7 @@
       "label": "식도"
     },
     {
-      "from": "잠들면 삼킴이 줄어서",
+      "from": "하지만 잠들면 삼키는",
       "item": "베개",
       "mech": "m_mucosa_irritant_contact",
       "act": "act_snore",
@@ -57,7 +57,7 @@
       "label": "목"
     },
     {
-      "from": "여기에 위가 차 있으면",
+      "from": "게다가 위가 차 있으면",
       "item": "튀김",
       "mech": "m_emptying_delay",
       "act": "act_large_meal_after_fasting",

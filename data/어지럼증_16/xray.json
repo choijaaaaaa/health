@@ -22,14 +22,14 @@
   "summary_from": "그러니 이석증이면",
   "timeline": [
     {
-      "from": "귓속엔 머리 기울기를",
+      "from": "원인은 귓속에",
       "item": "귀",
       "mech": "m_otolith_displacement",
       "act": "act_hold_head",
       "label": "이석"
     },
     {
-      "from": "고개를 움직이면 이 결정이",
+      "from": "고개를 움직이면 결정이",
       "item": "어지럼증",
       "mech": "m_sensory_mismatch",
       "act": "pilot_C2",
@@ -43,14 +43,14 @@
       "label": "반고리관"
     },
     {
-      "from": "결정이 바닥에 가라앉으면",
+      "from": "굴러떨어지던 결정이",
       "item": "시계",
       "mech": "m_crystal_precipitation",
       "act": "pilot_C",
       "label": "이석"
     },
     {
-      "from": "듣는 기관과는 상관없어",
+      "from": "또 듣는 기관과는",
       "item": "귀",
       "mech": "m_pressure_imbalance",
       "act": "act_cover_ear",
@@ -64,7 +64,7 @@
       "label": "반고리관"
     }
   ],
-  "opening_until": 9.84,
+  "opening_until": 13.4,
   "board_items": [
     "베개",
     "알약"

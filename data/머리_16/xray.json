@@ -60,14 +60,14 @@
       "label": "빠지는 머리카락"
     },
     {
-      "from": "머리카락 뿌리인 모낭이",
+      "from": "머리카락 뿌리인 모낭은",
       "item": "달력",
       "mech": "part_scalp",
       "act": "act_hairline_regrowth",
       "label": "두피"
     },
     {
-      "from": "임상에서 마운자로 탈모는",
+      "from": "다만 여성이 더",
       "item": "체중감량주사",
       "mech": "m_follicle_weakening",
       "act": "act_part_line_check",
@@ -81,7 +81,7 @@
       "label": "지방"
     }
   ],
-  "opening_until": 14.24,
+  "opening_until": 15.58,
   "board_items": [
     "단백질 보충제",
     "처방전"

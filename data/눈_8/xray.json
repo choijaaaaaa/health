@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_eye.mp4"
     }
   ],
-  "summary_from": "그래서 점이 처음",
+  "summary_from": "그러니 점이 처음",
   "timeline": [
     {
       "from": "눈 안은 유리체라는",
@@ -36,35 +36,35 @@
       "label": "망막"
     },
     {
-      "from": "그래서 젤리가 출렁이니",
+      "from": "그래서 눈을 돌리면",
       "item": "창문",
       "mech": "m_vitreous_floaters",
       "act": "act_shield_eyes_from_light",
       "label": "유리체 섬유"
     },
     {
-      "from": "이제 앞의 두 방법이",
+      "from": "앞의 두 방법이 안",
       "item": "영양제",
       "mech": "part_eye",
       "act": "act_take_supplement",
       "label": "망막 가운데"
     },
     {
-      "from": "그렇다면 덩어리를 아예",
+      "from": "그렇다고 덩어리를",
       "item": "영양제",
       "mech": "m_vitreous_floaters",
       "act": "act_rub_eyes",
       "label": "유리체 덩어리"
     },
     {
-      "from": "대부분은 이렇게 두고",
+      "from": "다만 20명 중 1명꼴로는",
       "item": "노화",
       "mech": "m_layer_separation",
       "act": "act_shield_eyes_from_light",
       "label": "망막 가장자리"
     },
     {
-      "from": "그래서 점이 처음",
+      "from": "그러니 점이 처음",
       "item": "돋보기",
       "mech": "m_shadow_contrast",
       "act": null,

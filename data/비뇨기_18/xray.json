@@ -29,28 +29,28 @@
       "label": "소장"
     },
     {
-      "from": "들어간 몫은 쓰이지",
+      "from": "받아들인 몫은 쓰이지",
       "item": "탄산음료",
       "mech": "m_urine_overproduction",
       "act": "act_toilet_check",
       "label": "신장"
     },
     {
-      "from": "탈은 소장이 못 받은",
+      "from": "문제는 소장이 못 받은",
       "item": "변기",
       "mech": "m_osmotic_water_pull",
       "act": "act_urgent_watery_bowel",
       "label": "대장"
     },
     {
-      "from": "거기서 장내 세균이",
+      "from": "게다가 대장 세균이",
       "item": "소화불량",
       "mech": "m_gas_fermentation",
       "act": "act_shift_uncomfortably_seated",
       "label": "장내 세균"
     },
     {
-      "from": "그래서 배탈이 나느냐는",
+      "from": "결국 배탈은 하루에",
       "item": "탄산음료",
       "mech": "m_nutrient_absorption_block",
       "act": "act_drink_caffeine",

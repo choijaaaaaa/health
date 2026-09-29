@@ -19,10 +19,10 @@
       "clip": "assets_library/xray/output/m_cell_overgrowth.mp4"
     }
   ],
-  "summary_from": "그러니 먼저 근종이",
+  "summary_from": "그러니 먼저 초음파로",
   "timeline": [
     {
-      "from": "자궁 벽은 안쪽 내막",
+      "from": "자궁 벽은 세 겹이에요",
       "item": "생리대",
       "mech": "part_uterus_ovary",
       "act": "act_press_one_side_lower_abdomen",
@@ -43,21 +43,21 @@
       "label": "자궁 바깥 벽"
     },
     {
-      "from": "질병관리청은 35세 이상",
+      "from": "문제는 피가 쏟아지는",
       "item": "노화",
       "mech": "part_uterus_ovary",
       "act": "act_stand_still_unaware",
       "label": "자궁"
     },
     {
-      "from": "출혈형이 무서운 건",
+      "from": "결국 빈혈이 와서",
       "item": "빈혈",
       "mech": "m_oxygen_transport_drop",
       "act": "act_gasp_for_breath",
       "label": "적혈구"
     },
     {
-      "from": "그러니 먼저 근종이",
+      "from": "그러니 먼저 초음파로",
       "item": "철분제",
       "mech": "m_blood_loss",
       "act": null,

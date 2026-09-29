@@ -21,21 +21,21 @@
   ],
   "timeline": [
     {
-      "from": "용종은 대개 피를",
+      "from": "왜 이렇게 놓칠까요",
       "item": "대장용종",
       "mech": "m_cell_overgrowth",
       "act": "act_strain_on_toilet",
       "label": "대장 점막"
     },
     {
-      "from": "몸이 알려주지도",
+      "from": "게다가 몸도 알려주지",
       "item": "장",
       "mech": "part_intestines",
       "act": "act_sniff_self",
       "label": "대장"
     },
     {
-      "from": "용종 중 암이 되는 쪽은",
+      "from": "다행히 시간은 넉넉해요",
       "item": "대장용종",
       "mech": "m_tissue_invasion",
       "act": "act_stand_still_unaware",

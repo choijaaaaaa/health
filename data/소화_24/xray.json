@@ -20,24 +20,24 @@
       "clip": "assets_library/xray/output/part_intestines.mp4"
     }
   ],
-  "summary_from": "그러니 옥수수를 끊을",
+  "summary_from": "그러니 옥수수를 끊지",
   "timeline": [
     {
-      "from": "범인은 알갱이를",
+      "from": "옥수수 알갱이 속은",
       "item": "옥수수",
       "mech": "m_enzyme_deficiency",
       "act": "act_large_meal_after_fasting",
       "label": "소화효소"
     },
     {
-      "from": "옥수수 식이섬유는",
+      "from": "게다가 옥수수 식이섬유는",
       "item": "옥수수",
       "mech": "m_nutrient_absorption_block",
       "act": "pilot_A",
       "label": "소장 점막"
     },
     {
-      "from": "그래서 속의 전분은",
+      "from": "결국 속의 전분만",
       "item": "변기",
       "mech": "m_glucose_spike",
       "act": "act_strain_on_toilet",
@@ -58,14 +58,14 @@
       "label": "대장"
     },
     {
-      "from": "그러니 옥수수를 끊을",
+      "from": "그러니 옥수수를 끊지",
       "item": "어금니",
       "mech": "m_enzyme_deficiency",
       "act": null,
       "label": "장"
     }
   ],
-  "opening_until": 13.28,
+  "opening_until": 15.18,
   "_opening_why": "훅 '변에 노란 알갱이가 그대로' + '안 맞는다며 끊는다' 반박까지 전체 화면(10.56초). 변기에 앉은 act_strain_on_toilet → 장 전체가 켜지는 part_intestines. 예전엔 act_grab_belly·part_intestines를 1.4초씩 잘라 써서 3~6배로 늘어났다 — range를 빼고 통클립 6+4초로 약 1.1배.",
   "board_items": [
     "어금니",

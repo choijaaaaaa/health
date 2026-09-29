@@ -22,35 +22,35 @@
   "summary_from": "그러니 2주 동안",
   "timeline": [
     {
-      "from": "열감은 뇌 속 온도조절",
+      "from": "열감은 음식이 아니라",
       "item": "홍조",
       "mech": "m_hormone_drop",
       "act": "act_toss_turn",
       "label": "체온조절중추"
     },
     {
-      "from": "그래서 피부 혈관을 한꺼번에",
+      "from": "그러면 뇌는 피부 혈관을",
       "item": "홍조",
       "mech": "m_sweat_overproduction",
       "act": "act_wipe_sweat",
       "label": "땀샘"
     },
     {
-      "from": "그러니 체온을 살짝",
+      "from": "이렇게 예민해진 장치엔",
       "item": "와인",
       "mech": "m_vessel_dilation",
       "act": "act_drink_alcohol_with_painkiller",
       "label": "피부 혈관"
     },
     {
-      "from": "커피는 메이요클리닉 조사에서",
+      "from": "커피는 조사에서 마신",
       "item": "커피",
       "mech": "m_adenosine_block",
       "act": "act_drink_caffeine",
       "label": "뇌 수용체"
     },
     {
-      "from": "질병관리청은 폐경 전후",
+      "from": "그렇다고 참으면 금방",
       "item": "시계",
       "mech": "m_ovarian_reserve_decline",
       "act": "act_toss_turn",
@@ -64,7 +64,7 @@
       "label": "체온조절중추"
     }
   ],
-  "opening_until": 16.32,
+  "opening_until": 16.08,
   "board_items": [
     "쿨매트",
     "선풍기",

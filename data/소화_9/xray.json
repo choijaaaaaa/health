@@ -29,7 +29,7 @@
       "label": "위 점막"
     },
     {
-      "from": "매운맛은 사실 맛이",
+      "from": "그래서 매운 걸 먹은 날",
       "item": "고추",
       "mech": "m_nerve_overdrive",
       "act": "act_shared_pot_dipping",
@@ -50,14 +50,14 @@
       "label": "위벽 세포"
     },
     {
-      "from": "진통제를 며칠 연달아",
+      "from": "그래서 며칠 연달아",
       "item": "이부프로펜",
       "mech": "m_ph_disruption",
       "act": "pilot_B",
       "label": "위 점막"
     },
     {
-      "from": "둘째는 빈속에 마시는",
+      "from": "빈속에 마시는 커피도",
       "item": "커피",
       "mech": "m_acid_secretion",
       "act": "act_drink_caffeine",

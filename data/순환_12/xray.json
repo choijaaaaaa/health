@@ -22,42 +22,42 @@
   "summary_from": "그러니 속이 메스껍고",
   "timeline": [
     {
-      "from": "배와 심장에는 몸의 브레이크인",
+      "from": "배와 심장엔 몸의",
       "item": "맥박",
       "mech": "m_vagal_slowdown",
       "act": "act_urgent_watery_bowel",
       "label": "미주신경"
     },
     {
-      "from": "배가 아플 때 이미 혈압은",
+      "from": "즉 배가 아플 땐",
       "item": "맥박",
       "mech": "m_blood_shunting",
       "act": "act_rush_to_toilet",
       "label": "다리 혈관"
     },
     {
-      "from": "거기서 숨을 참고",
+      "from": "그 상태로 숨을",
       "item": "실신",
       "mech": "m_blood_flow_drop",
       "act": "act_strain_on_toilet",
       "label": "심장으로 오는 피"
     },
     {
-      "from": "줄어든 피가 한 번 더",
+      "from": "결국 뇌까지 피가",
       "item": "실신",
       "mech": "m_oxygen_transport_drop",
       "act": "act_sink_to_floor",
       "label": "뇌로 가는 피"
     },
     {
-      "from": "그래서 변비로 오래",
+      "from": "이런 이유로 변비로",
       "item": "알람시계",
       "mech": "m_vagal_slowdown",
       "act": "act_toilet_check",
       "label": "미주신경"
     },
     {
-      "from": "땀을 많이 흘렸거나",
+      "from": "땀을 많이 흘려",
       "item": "알람시계",
       "mech": "m_electrolyte_imbalance",
       "act": "act_wipe_sweat",
@@ -71,7 +71,7 @@
       "label": "미주신경"
     }
   ],
-  "opening_until": 10.64,
+  "opening_until": 13.32,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다.",
   "board_items": [
     "소파",

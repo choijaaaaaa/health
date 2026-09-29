@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_liver.mp4"
     }
   ],
-  "summary_from": "그러니 지방은 끊지",
+  "summary_from": "그러니 기름은 끊지",
   "timeline": [
     {
       "from": "담낭은 기름을 녹이는",
@@ -36,7 +36,7 @@
       "label": "담낭 출구"
     },
     {
-      "from": "반대로 지방이 거의",
+      "from": "반대로 기름이 거의",
       "item": "샐러드",
       "mech": "m_stasis_thickening",
       "act": "act_nausea_push_plate_away",
@@ -50,14 +50,14 @@
       "label": "담낭 속"
     },
     {
-      "from": "미국 국립보건원 자료로",
+      "from": "하루 800칼로리 이하로",
       "item": "체중계",
       "mech": "m_content_hardening",
       "act": "act_nausea_push_plate_away",
       "label": "담관"
     },
     {
-      "from": "그러니 지방은 끊지",
+      "from": "그러니 기름은 끊지",
       "item": "엑스트라버진 올리브유",
       "mech": "m_pressure_buildup",
       "act": null,
