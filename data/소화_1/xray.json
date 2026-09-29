@@ -72,7 +72,7 @@
     }
   ],
   "_timeline_why": "왼쪽 행위 · 오른쪽 기전. ①11.1~16.6 '누우면 장치 두 개가 꺼진다': act_toss_turn(서 있다 옆으로 눕는다) + part_stomach. ②16.6~24.5 중력: act_sleep_paralysis(바닥에 똑바로 누운 몸, 입~식도가 점등 — 프레임 확인) + m_reflux_backflow(위의 액체가 식도로 밀려 올라감). 도입부 첫 클립과 같은 행위지만 첫 칸이 아니고 '누우면 위와 식도가 나란해진다'가 이 자세 그 자체다. ③24.5~29.9 침으로 씻어 내림: act_drink_caffeine(깨어서 삼키는 동작, 끝에 뇌가 켜져 '깨어 있을 땐'과 맞는다) + m_motility_speedup(식도 고리가 차례로 조이며 내려보냄). ④29.9~34.2 잠들면 삼킴이 줄어 위산이 머묾: act_snore(누워 입 벌린 채 잠듦) + m_mucosa_irritant_contact(점막에 떨어진 산이 닿은 자리부터 달아오름). ⑤34.2~38.8 밤 기침·쉰 목: act_cough + m_cell_damage(산이 점막 틈으로 파고듦). ⑥38.8~47.8 위가 차 있음: act_large_meal_after_fasting + m_emptying_delay(출구가 좁아 방울만 통과, 위가 가득 참). 도입부는 통클립 두 개 — 누운 몸에서 식도까지 켜지는 act_sleep_paralysis → m_reflux_backflow(훅 '신물이 목까지').",
-  "opening_until": 12.32,
+  "opening_until": 10.97,
   "board_items": [
     "역류방지 베개",
     "시계"
