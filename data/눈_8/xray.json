@@ -22,14 +22,14 @@
   "summary_from": "그러니 점이 처음",
   "timeline": [
     {
-      "from": "눈 안은 유리체라는",
+      "from": "눈은 카메라랑",
       "item": "물방울",
       "mech": "part_eye",
       "act": "act_rub_eyes",
       "label": "유리체"
     },
     {
-      "from": "나이가 들면 이 젤리",
+      "from": "나이가 들면 이 물 속에",
       "item": "노화",
       "mech": "m_shadow_contrast",
       "act": "act_chase_floater",
@@ -50,7 +50,7 @@
       "label": "망막 가운데"
     },
     {
-      "from": "그렇다고 덩어리를",
+      "from": "그렇다고 부스러기를",
       "item": "영양제",
       "mech": "m_vitreous_floaters",
       "act": "act_rub_eyes",
