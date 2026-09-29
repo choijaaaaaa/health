@@ -38,7 +38,7 @@
     {
       "from": "문제는 문을 못 지나",
       "item": "변기",
-      "mech": "m_osmotic_water_pull",
+      "mech": "m_gut_water_pull",
       "act": "act_urgent_watery_bowel",
       "label": "대장"
     },

@@ -45,7 +45,7 @@
     {
       "from": "그렇다면 코팅은",
       "item": "이부프로펜",
-      "mech": "m_hormone_drop",
+      "mech": "m_mucus_coating_thin",
       "act": "act_take_supplement",
       "label": "위벽 세포"
     },

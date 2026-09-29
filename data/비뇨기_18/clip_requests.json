@@ -1,0 +1,11 @@
+{
+  "requests": [
+    {
+      "name": "m_gut_water_pull",
+      "why": "비뇨기_18 '대장까지 내려간 알룰로스가 소금처럼 장 안으로 물을 끌어당긴다' 칸(2026-09-29 싱크 점검). 기존 m_osmotic_water_pull은 관 벽을 따라 알갱이가 흐를 뿐 물이 끌려오는 게 안 보인다. 장 속 알갱이 무리 쪽으로 장벽 바깥의 물이 스며 들어와 장 안이 물로 차오르는 장면.",
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject filling most of the frame, a cut-away section of a wide soft intestinal tube, a loose cluster of small amber grains sitting inside the tube, the tube wall made of pale cyan cells with clear fluid droplets beading on its outer side",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera easing slowly along the tube. 0-2s: a cut-away section of a wide pale cyan intestinal tube with a loose cluster of small amber grains resting inside it, clear droplets beading on the outside of the tube wall. 2-4s: the clear droplets seep through the wall toward the amber grains, thin streams of water crossing into the tube from every side and pooling around the grains. 4-6s: the inside of the tube fills with sloshing clear water that carries the amber grains along, the tube swelling slightly as it fills. Every structure rendered in the same soft pale cyan glow except the amber, dark empty slate blue-grey void. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue.",
+      "seconds": 6
+    }
+  ]
+}
