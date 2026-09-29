@@ -45,7 +45,7 @@
       "from": "그럼 세균은 왜",
       "item": "시계",
       "mech": "m_motility_speedup",
-      "act": "act_sniff_self",
+      "act": "act_shaky_hands",
       "label": "소장 수축파"
     },
     {

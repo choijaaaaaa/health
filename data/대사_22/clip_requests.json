@@ -8,6 +8,13 @@
       "seconds": 6,
       "_redo_why": "점등이 눈두덩(몸 기준 10%)이 아니라 가슴·명치(29~36%)에 들어갔다. 🚨 Flow가 '얼굴을 만지는 동작'만 받고 '어디가 켜지는지'를 놓친 것 — 프롬프트에서 눈두덩 점등을 **첫 문장에** 두고, 가슴·몸통은 소등 상태로 못 박을 것.",
       "flow_note": "1차 결과에서 눈알 두 개가 통째로 주황으로 켜지고 손이 눈을 덮어 act_rub_eyes와 구분이 안 됐다(2026-09-24). 눈은 뜬 채로 두고 점등은 아래 눈꺼풀 아래 초승달 부위로만 제한한다."
+    },
+    {
+      "name": "act_hoarse_throat",
+      "why": "'성대가 두꺼워져 목소리가 잠긴다' 칸(2026-09-29 싱크 점검). 기존 act_cough는 기침하며 폐가 켜져 성대가 아니라 폐 얘기로 보인다. 목을 감싸고 목소리가 안 나오는 사람, 후두(목젖 뒤 성대)만 점등.",
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, smooth featureless face, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere, upper body three-quarter view, one hand wrapped gently around the front of the throat, mouth slightly open as if trying to speak, the small voice box behind the throat glowing warm amber, the rest of the body pale cyan",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, a medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, smooth featureless face, dark empty slate blue-grey void. 0-2s: the figure stands upper-body in frame and opens the mouth as if to speak, and the small voice box at the front of the throat lights warm amber but stays dull, the camera easing in. 2-4s: one hand rises and wraps around the front of the throat, the amber at the voice box thickening and swelling slightly as the figure tries again, the jaw moving with no clear effort released. 4-6s: the figure lowers the chin and swallows, the amber voice box pulsing twice while the camera holds on the throat. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless, the void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue.",
+      "seconds": 6
     }
   ]
 }

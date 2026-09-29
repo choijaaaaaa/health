@@ -53,7 +53,7 @@
       "from": "그래서 변비로 오래",
       "item": "알람시계",
       "mech": "m_vagal_slowdown",
-      "act": "act_toilet_check",
+      "act": "act_strain_on_toilet",
       "label": "미주신경"
     },
     {

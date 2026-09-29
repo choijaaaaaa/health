@@ -25,7 +25,7 @@
       "from": "눈은 카메라랑",
       "item": "물방울",
       "mech": "part_eye",
-      "act": "act_rub_eyes",
+      "act": "act_shield_eyes_from_light",
       "label": "유리체"
     },
     {
@@ -53,14 +53,14 @@
       "from": "그렇다고 부스러기를",
       "item": "영양제",
       "mech": "m_vitreous_floaters",
-      "act": "act_rub_eyes",
+      "act": "act_eye_exam",
       "label": "유리체 덩어리"
     },
     {
       "from": "그런데 20명 중 1명꼴로는",
       "item": "노화",
       "mech": "m_layer_separation",
-      "act": "act_shield_eyes_from_light",
+      "act": "act_chase_floater",
       "label": "망막 가장자리"
     },
     {

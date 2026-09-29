@@ -1,0 +1,11 @@
+{
+  "requests": [
+    {
+      "name": "m_canal_fluid_swirl",
+      "why": "어지럼증_16 원인 설명 두 칸(15초씩)이 기존 클립 하나로 3.8~3.9배 늘어나 멈춘 화면이 됐다(2026-09-29 싱크 점검). 귓속 고리 모양 관 안의 물이 돌다가, 머리가 멈춰도 굴러떨어지는 알갱이가 물을 계속 밀어 돌리는 장면 — 대본 '커피 젓다 멈춰도 잔 속 커피가 도는 것처럼'과 짝.",
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere, three delicate transparent ring-shaped tubes joined at right angles like loops, filled with clear fluid, a few tiny amber crystal grains resting at the bottom of one loop",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): three delicate transparent ring-shaped tubes joined at right angles float in the dark void, the clear fluid inside one loop sweeping around the ring in a smooth circle and then slowing to a stop, the camera circling slowly. Shot 2 (2-4s): cut closer to the bottom of that loop, a few tiny amber crystal grains break loose from the wall and roll down along the inside of the tube, and the fluid is dragged along behind them, starting to sweep around the ring again on its own. Shot 3 (4-6s): cut to a wide view of the whole loop, the fluid still circling while the ring itself holds perfectly still, the amber grains tumbling slowly to the lowest point until the circling fluid finally fades to rest. Every structure rendered in the same soft pale cyan glow except the amber grains, dark empty slate blue-grey void. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue.",
+      "seconds": 6
+    }
+  ]
+}

@@ -29,11 +29,25 @@
       "label": "이석"
     },
     {
+      "from": "그 관은 머리가 도는",
+      "item": "귀",
+      "mech": "m_canal_fluid_swirl",
+      "act": "act_hold_head",
+      "label": "귓속 관"
+    },
+    {
       "from": "그런데 돌가루가 들어가",
       "item": "어지럼증",
       "mech": "m_sensory_mismatch",
       "act": "pilot_C2",
       "label": "귀 속 감각세포"
+    },
+    {
+      "from": "커피를 숟가락으로",
+      "item": "귀",
+      "mech": "m_canal_fluid_swirl",
+      "act": "pilot_C",
+      "label": "귓속 관"
     },
     {
       "from": "그렇다면 내 어지럼이",
