@@ -39,39 +39,39 @@
   "summary_from": "그러니 약은 혼자",
   "timeline": [
     {
-      "from": "그런데 몸은 체중이",
+      "from": "그런데 살이 빠르게",
       "item": "체중감량주사",
       "mech": "m_fat_breakdown",
       "act": "act_loose_waistband",
       "label": "지방"
     },
     {
-      "from": "그러면 자라던 머리카락",
+      "from": "그래서 자라던 머리카락",
       "item": "머리카락",
       "mech": "m_follicle_weakening",
       "act": "act_scalp_care",
       "label": "모낭"
     },
     {
-      "from": "문제는 쉬는 단계에",
+      "from": "쉬는 단계에 들어간",
       "item": "머리카락",
       "mech": "part_scalp",
       "act": "act_hair_shedding",
       "label": "빠지는 머리카락"
     },
     {
-      "from": "머리카락 뿌리인 모낭은",
-      "item": "달력",
-      "mech": "part_scalp",
-      "act": "act_hairline_regrowth",
-      "label": "두피"
-    },
-    {
-      "from": "이 탈모는 여성에게",
+      "from": "특히 여성에게",
       "item": "체중감량주사",
       "mech": "m_follicle_weakening",
       "act": "act_part_line_check",
       "label": "머리카락"
+    },
+    {
+      "from": "다행히 뿌리는",
+      "item": "달력",
+      "mech": "part_scalp",
+      "act": "act_hairline_regrowth",
+      "label": "두피"
     },
     {
       "from": "그러니 약은 혼자",
