@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_eye.mp4"
     }
   ],
-  "summary_from": "그러니 한 번은 안과에서",
+  "summary_from": "그래서 점이 처음",
   "timeline": [
     {
       "from": "눈 안은 유리체라는",
@@ -57,14 +57,14 @@
       "label": "유리체 덩어리"
     },
     {
-      "from": "다만 지켜볼 게 대략",
+      "from": "대부분은 이렇게 두고",
       "item": "노화",
       "mech": "m_layer_separation",
       "act": "act_shield_eyes_from_light",
       "label": "망막 가장자리"
     },
     {
-      "from": "그러니 한 번은 안과에서",
+      "from": "그래서 점이 처음",
       "item": "돋보기",
       "mech": "m_shadow_contrast",
       "act": null,
