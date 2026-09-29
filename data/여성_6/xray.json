@@ -45,7 +45,7 @@
     {
       "from": "문제는 피가 쏟아지는",
       "item": "노화",
-      "mech": "part_uterus_ovary",
+      "mech": "m_blood_flow_drop",
       "act": "act_stand_still_unaware",
       "label": "자궁"
     },
@@ -64,7 +64,7 @@
       "label": "자궁 내막"
     }
   ],
-  "opening_until": 13.28,
+  "opening_until": 12.14,
   "_opening_why": "훅 + 통념 반박까지 도입부 영상으로. 칸(기전)과 무관한 말은 칠판에 올리지 않는다.",
   "board_items": [
     "철분제",
