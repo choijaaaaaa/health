@@ -43,7 +43,7 @@
       "label": "위벽"
     },
     {
-      "from": "그렇다면 이 보호막은",
+      "from": "그렇다면 이 코팅은",
       "item": "이부프로펜",
       "mech": "m_hormone_drop",
       "act": "act_take_supplement",
