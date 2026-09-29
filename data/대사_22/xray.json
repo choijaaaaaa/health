@@ -22,14 +22,14 @@
   "summary_from": "다만 부기가 다",
   "timeline": [
     {
-      "from": "목 앞의 갑상선이",
+      "from": "목 앞의 갑상선에서",
       "item": "갑상선",
       "mech": "m_hormone_drop",
       "act": "act_touch_neck",
       "label": "갑상선"
     },
     {
-      "from": "이 물질이 물을 붙잡아",
+      "from": "이 물질이 스펀지처럼",
       "item": "부종",
       "mech": "m_fluid_retention",
       "act": "act_press_swollen_eyelid",
