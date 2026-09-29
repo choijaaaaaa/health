@@ -91,7 +91,7 @@
 5. **카드 스펙**(`card_news_spec.json`)·**캡션**(`platform_captions.json`) — 아래 절.
 6. **검사** — `.venv/bin/python3 -m lib.content_review <topic>` 0건 + `MANUAL_REVIEW_CHECKLIST`(파일 상단) 직접
    재검토. 🚨 **TTS 전에** 끝낸다(글자수 과금). 폴더가 없으면 `content_review`가 실패로 답한다.
-7. **TTS** — 아래 "보이스" 절.
+7. **TTS** — 🚨 사용자에게 요청하고 승인받은 뒤에만. 아래 "보이스" 절.
 8. **카드 렌더** `.venv/bin/python3 lib/card_news.py <spec> assets_library/illust <out>/card_news <topic> kor`
    (🚨 lang은 `ko`가 아니라 **`kor`** — `ko`면 한글이 전부 깨진다).
 9. **영상** — `data/<topic>/xray.json` 시간표 → `preflight_xray.py <topic>` 0건 → `xray_build.py <topic>` →
@@ -149,7 +149,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - **6가지 필수**: 실행 가능한 수치 1개 이상(단위까지 — 개수를 채우지 말고 그 숫자가 '언제·얼마나·그래서 뭘'을 받치게, 2026-09-24 3→1) · 통념 반박 1개 · 기전 한 줄 · 해결책은
   얼마나·언제·어떻게 중 2개 이상 · 병원 신호 1줄 · 기관명을 문장 안에. `card_news_spec.json`에
   `"content_v2": true`가 있어야 `check_content_depth()`가 검사한다(없으면 조용히 통과한다).
-- **분량 62~85초 = 공백 제외 380~521자**(통일 보이스·배속 1.0 실측 6.13자/초, topic마다 5.83~6.40으로 흔들린다).
+- **분량 62~85초**(글자수 환산은 `content_review.SPEECH_CHARS_PER_SEC` — 보이스마다 다시 잰다).
   mp3가 있으면 상수 말고 `ffprobe`로 잰다. **도입부(훅 + 통념 반박)는 14초 안팎** — 길면 전체 화면 도입 클립을
   4배 넘게 늘려야 해서 정지 화면이 된다.
 - **기관명은 한 원고에 2번까지**, 수치를 받치는 문장에만. 통계만 말하는 구간을 따로 만들지 않는다.
@@ -231,9 +231,14 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 
 ## 보이스 (TTS)
 
-- 한국어는 **`30대 남자 인터뷰어` 하나만**(`lib/fish_tts.py` `DEFAULT_VOICE_BY_LANG` — 다른 이름을 넘기면 예외).
-  ai-video-network/1biteinfo와 같은 보이스다 — 여기만 바꾸지 말 것. 배속 1.0.
-- 보이스·배속을 바꾸면 발화 속도를 다시 잰다.
+- 한국어는 **타입캐스트 API, 필재(Piljae) 1.1배속 하나만**(`lib/typecast_tts.py` `VOICE_ID`·`AUDIO_TEMPO`, 2026-09-29).
+  `fish_tts`는 한국어를 거부한다(en/ja 등 다른 언어만). 키는 `.env`의 `TYPECAST_API_KEY`.
+- 🚨 **TTS는 사용자가 "뽑아줘"라고 한 topic만 뽑는다** — 원고를 끝내면 사용자에게 요청하고 기다린다. 크레딧이 비싸다
+  (2026-09-29 세션이 25편을 한 번에 뽑았다가 보이스가 바로 바뀌어 전부 버렸다). 실행은
+  `.venv/bin/python3 -m lib.typecast_tts <topic> --approved`, `--approved` 없이는 예외.
+- 보이스·배속을 바꾸면 발화 속도를 다시 잰다(`content_review.SPEECH_CHARS_PER_SEC`, 필재 1.1은 아직 실측 전).
+- 네이버 클립에 이미 나간 10편(대사_14·대사_23·소화_31·고령_15·머리_14·소화_11·순환_3·여성_7·소화_18·소화_14)은
+  옛 Fish 음성 그대로 둔다. 나머지 성인 15편·육아 10편은 필재 음성 승인 대기(지금 들어 있는 건 버릴 상현 시험본).
 
 ## 영상 — 세부는 `XRAY_FORMAT.md`
 

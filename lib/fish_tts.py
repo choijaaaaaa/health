@@ -418,6 +418,9 @@ def synthesize(topic: str, text: str, voice_name: str | None = None, lang: str =
     신경 쓸 필요 없음. out_dir은 typecast_tts.py와 동일하게 topic 인자를
     그대로 output/ 아래 상대경로로 쓴다(언어 세그먼트는 호출부가 topic에
     이미 포함시켜서 넘긴다, 예: "눈_8/en")."""
+    # 🚨 한국어는 타입캐스트로 옮겼다(2026-09-29 사용자 "피쉬오디오 너무 짜친다") — 여기로 뽑으면 한 채널에 목소리가 섞인다
+    if lang == "kor":
+        raise ValueError("[fish_tts] 한국어 나레이션은 lib/typecast_tts.py로 뽑는다(.venv/bin/python3 -m lib.typecast_tts <topic>)")
     if voice_name is None:
         voice_name = _default_voice_name(lang)
         print(f"[fish_tts] 채널 기본 보이스({lang}): {voice_name}")
