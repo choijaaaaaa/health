@@ -19,31 +19,31 @@
       "clip": "assets_library/xray/output/part_stomach.mp4"
     }
   ],
-  "summary_from": "그러니 소염진통제는",
+  "summary_from": "그러니 진통제는",
   "timeline": [
     {
-      "from": "위는 강한 산을",
+      "from": "위는 음식을 녹이는",
       "item": "속쓰림",
       "mech": "m_mucus_barrier",
       "act": "pilot_B",
       "label": "위 점막"
     },
     {
-      "from": "그래서 매운 걸 먹은 날",
+      "from": "매운맛은 사실 맛이",
       "item": "고추",
       "mech": "m_nerve_overdrive",
       "act": "act_shared_pot_dipping",
       "label": "위 신경"
     },
     {
-      "from": "매운 음식은 원인이라기보다",
+      "from": "매운 걸 먹은 날만",
       "item": "고추",
       "mech": "m_tissue_thinning",
       "act": "act_grab_belly",
       "label": "위벽"
     },
     {
-      "from": "그렇다면 이 코팅은",
+      "from": "그렇다면 코팅은",
       "item": "이부프로펜",
       "mech": "m_hormone_drop",
       "act": "act_take_supplement",
@@ -64,7 +64,7 @@
       "label": "위산 분비 세포"
     },
     {
-      "from": "그러니 소염진통제는",
+      "from": "그러니 진통제는",
       "item": "알약",
       "mech": "m_mucus_barrier",
       "act": null,
