@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/m_cell_overgrowth.mp4"
     }
   ],
-  "summary_from": "그러니 먼저 초음파로",
+  "summary_from": "그러니 먼저 산부인과",
   "timeline": [
     {
       "from": "자궁 벽은 세 겹이에요",
@@ -29,7 +29,7 @@
       "label": "자궁 벽"
     },
     {
-      "from": "그래서 근종이 이 벽지",
+      "from": "그런데 근종이 이 벽지",
       "item": "생리대",
       "mech": "m_blood_loss",
       "act": "act_shift_uncomfortably_seated",
@@ -57,7 +57,7 @@
       "label": "적혈구"
     },
     {
-      "from": "그러니 먼저 초음파로",
+      "from": "그러니 먼저 산부인과",
       "item": "철분제",
       "mech": "m_blood_loss",
       "act": null,
