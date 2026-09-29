@@ -22,21 +22,21 @@
   "summary_from": "배탈이 안 나는 선은",
   "timeline": [
     {
-      "from": "부글거림은 그 길에서",
+      "from": "부글거림은 이 당이",
       "item": "탄산음료",
       "mech": "m_nutrient_absorption_block",
       "act": "act_drink_caffeine",
       "label": "소장"
     },
     {
-      "from": "받아들인 몫은 쓰이지",
+      "from": "문을 통과한 몫은",
       "item": "탄산음료",
       "mech": "m_urine_overproduction",
       "act": "act_toilet_check",
       "label": "신장"
     },
     {
-      "from": "문제는 소장이 못 받은",
+      "from": "문제는 문을 못 지나",
       "item": "변기",
       "mech": "m_osmotic_water_pull",
       "act": "act_urgent_watery_bowel",
