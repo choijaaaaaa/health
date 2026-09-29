@@ -22,28 +22,28 @@
   "summary_from": "그러니 저녁은 잠들기",
   "timeline": [
     {
-      "from": "그렇다면 왜 누우면",
+      "from": "그렇다면 왜 하필",
       "item": "식후눕기",
       "mech": "part_stomach",
       "act": "act_toss_turn",
       "label": "위"
     },
     {
-      "from": "하나는 중력이에요",
+      "from": "첫째는 중력이에요",
       "item": "식후눕기",
       "mech": "m_reflux_backflow",
       "act": "act_sleep_paralysis",
       "label": "식도 입구"
     },
     {
-      "from": "다른 하나는 침이에요",
+      "from": "둘째는 침이에요",
       "item": "베개",
       "mech": "m_motility_speedup",
       "act": "act_drink_caffeine",
       "label": "식도"
     },
     {
-      "from": "하지만 잠들면 삼키는",
+      "from": "그런데 잠들면 삼키는",
       "item": "베개",
       "mech": "m_mucosa_irritant_contact",
       "act": "act_snore",
@@ -57,7 +57,7 @@
       "label": "목"
     },
     {
-      "from": "게다가 위가 차 있으면",
+      "from": "여기에 위까지 가득",
       "item": "튀김",
       "mech": "m_emptying_delay",
       "act": "act_large_meal_after_fasting",
