@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/part_ear_inner.mp4"
     }
   ],
-  "summary_from": "그러니 이석증이면",
+  "summary_from": "그러니 고개를 움직일 때만",
   "timeline": [
     {
       "from": "원인은 귓속에",
@@ -29,21 +29,21 @@
       "label": "이석"
     },
     {
-      "from": "고개를 움직이면 결정이",
+      "from": "그런데 돌가루가 들어가",
       "item": "어지럼증",
       "mech": "m_sensory_mismatch",
       "act": "pilot_C2",
       "label": "귀 속 감각세포"
     },
     {
-      "from": "그래서 눕거나 일어날 때",
+      "from": "결국 눕거나 일어날 때",
       "item": "어지럼증",
       "mech": "m_otolith_displacement",
       "act": "act_toss_turn",
       "label": "반고리관"
     },
     {
-      "from": "굴러떨어지던 결정이",
+      "from": "굴러떨어지던 돌가루가",
       "item": "시계",
       "mech": "m_crystal_precipitation",
       "act": "pilot_C",
@@ -57,7 +57,7 @@
       "label": "달팽이관"
     },
     {
-      "from": "그러니 이석증이면",
+      "from": "그러니 고개를 움직일 때만",
       "item": "베개",
       "mech": "m_sensory_mismatch",
       "act": null,
