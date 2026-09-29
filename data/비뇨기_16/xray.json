@@ -51,6 +51,13 @@
       "label": "사구체 거름막"
     },
     {
+      "from": "시스타틴C라는 피검사도",
+      "item": "혈액검사",
+      "mech": "part_kidney",
+      "act": "act_clutch_low_back",
+      "label": "신장"
+    },
+    {
       "from": "그러니 재검 때는",
       "item": "처방전",
       "mech": "part_kidney",
