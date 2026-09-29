@@ -49,7 +49,7 @@
       "label": "소장 수축파"
     },
     {
-      "from": "하지만 이 청소는",
+      "from": "하지만 이 청소차는",
       "item": "시계",
       "mech": "m_motility_slowdown",
       "act": "pilot_A",
@@ -70,6 +70,7 @@
   "opening_until": 15.52,
   "board_items": [
     "시계",
-    "물컵"
+    "물컵",
+    "비타민B12 영양제"
   ]
 }
