@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/act_take_supplement.mp4"
     }
   ],
-  "summary_from": "그러니 2주 동안",
+  "summary_from": "그러니 내 열감을",
   "timeline": [
     {
       "from": "열감은 사실 뇌 속",
@@ -29,21 +29,21 @@
       "label": "체온조절중추"
     },
     {
-      "from": "그러면 뇌는 피부 혈관을",
+      "from": "그러면 뇌는 에어컨을",
       "item": "홍조",
       "mech": "m_sweat_overproduction",
       "act": "act_wipe_sweat",
       "label": "땀샘"
     },
     {
-      "from": "이렇게 예민해진 장치엔",
+      "from": "이렇게 예민해진 장치에는",
       "item": "와인",
       "mech": "m_vessel_dilation",
       "act": "act_drink_alcohol_with_painkiller",
       "label": "피부 혈관"
     },
     {
-      "from": "커피는 한 조사에서",
+      "from": "커피는 사람에 따라",
       "item": "커피",
       "mech": "m_adenosine_block",
       "act": "act_drink_caffeine",
@@ -57,7 +57,7 @@
       "label": "난소"
     },
     {
-      "from": "그러니 2주 동안",
+      "from": "그러니 내 열감을",
       "item": "쿨매트",
       "mech": "m_hormone_drop",
       "act": null,
