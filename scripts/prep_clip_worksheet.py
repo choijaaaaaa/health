@@ -278,7 +278,7 @@ def build(track: str | None) -> None:
         tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
         L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
         # 아기 스틸은 직접 표현 문구(midjourney_alt)가 먼저 — 돌려 말한 기본 문구로는 어른 비례가 나왔다(2026-09-30 실측)
-        baby = Path(r.get('ref') or '').stem.startswith("baby_") and r.get("midjourney_alt")
+        baby = (Path(r.get('ref') or '').stem.startswith("baby_") or r["name"].startswith("baby_")) and r.get("midjourney_alt")
         prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
         how = (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
                else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
