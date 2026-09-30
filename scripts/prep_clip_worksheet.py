@@ -61,6 +61,11 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
     # 전부 --sref(Style Reference). WHY(2026-09-29 사용자 "--sref가 맞네… oref 할 때 옴니로 들어가서 개판으로 출력"):
     # Omni는 캐논의 모양·자세까지 따라 하려다 장면이 뒤틀린다. 반투명 캐논은 질감·색만 따르면 된다(댕냥사전과 같은 결론).
     tag = f"--sref {url}"
+    # 🚨 아기가 나오는 스틸은 아기 캐논을 --oref로(2026-09-30 사용자 "애기 이미지 기준으로… db에 올리고 그걸 참조해야
+    # 하지 않겠냐? 프롬프트 쳐서 넣고 있는데 잘 안 나온다"): --sref는 질감·색만 따라가 몸 비례가 어른으로 나왔다.
+    # 아기 몸 비례는 모양 참조(Omni)라야 고정된다 — Omni는 V7 전용이라 --v 7도 같이.
+    if Path(ref).stem.startswith("baby_"):
+        tag = f"--oref {url} --v 7"
     body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
     no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
     return f"{body} --ar 9:16 {tag}{no}"
@@ -265,12 +270,14 @@ def build(track: str | None) -> None:
         mode = r.get("ref_mode") or "Style Reference"
         tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
         L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
-        prompt = _with_ref(r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
-        how = (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Style' if 'Style' in mode else 'Omni'})" if "ref https://" in prompt
+        # 아기 스틸은 직접 표현 문구(midjourney_alt)가 먼저 — 돌려 말한 기본 문구로는 어른 비례가 나왔다(2026-09-30 실측)
+        baby = Path(r.get('ref') or '').stem.startswith("baby_") and r.get("midjourney_alt")
+        prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
+        how = (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
                else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
         L.append(f"\n저장: `{r['_work']}` · {how}\n")
         L.append(f"\n```\n{prompt}\n```\n")
-        if r.get("midjourney_alt"):
+        if r.get("midjourney_alt") and not baby:
             L.append("\n<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
                      f"```\n{r['midjourney_alt']}\n```\n\n</details>\n")
         L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
