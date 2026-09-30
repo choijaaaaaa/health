@@ -30,6 +30,8 @@ sys.path.insert(0, str(ROOT))
 from lib import tracks  # noqa: E402
 
 CATALOG = ROOT / "data" / "_audit" / "brandconnect_catalog.json"
+# 육아 트랙은 품목을 따로 스윕한 카탈로그에 둔다(같은 계정) — 이걸 안 읽으면 육아 해결책 칠판 사진이 한 장도 안 받아졌다
+CATALOGS = [CATALOG, ROOT / "data" / "_audit" / "brandconnect_catalog_baby.json"]
 CAND = ROOT / "assets_library" / "real" / "_product_candidates"
 PRODUCTS = ROOT / "assets_library" / "real" / "_products"
 
@@ -47,7 +49,11 @@ def topic_products() -> list[str]:
 
 def fetch(names: list[str]) -> None:
     import lib.brandconnect as b
-    cat = json.loads(CATALOG.read_text(encoding="utf-8"))
+    cat: dict = {}
+    for c in CATALOGS:
+        if c.exists():
+            for k, v in json.loads(c.read_text(encoding="utf-8")).items():
+                cat.setdefault(k, v)
     todo = [n for n in (names or topic_products())
             if cat.get(n, {}).get("found") and cat[n].get("chosen") and not (PRODUCTS / f"{n}.jpg").exists()
             and (names or not (CAND / f"{n}.jpg").exists())]
