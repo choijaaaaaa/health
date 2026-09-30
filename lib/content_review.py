@@ -846,7 +846,8 @@ _FAMILIAR_UNITS = re.compile(r"(?:\d+|한|두|세|네|다섯|여섯|일곱|여�
 # 조사가 붙은 "24그램이에요"도 잡는다. "1그램당"처럼 비율의 분모는 양이 아니라서 뺀다
 _WEIGHT = re.compile(r"\d+(?:\.\d+)?\s*(?:밀리그램|그램|킬로그램당|mg|g)(?!당|[a-zA-Z])")
 # 검사 수치(소변 알부민 30mg/g 등)는 먹는 양이 아니라 검사지에 찍히는 값이라 체감 단위로 바꿀 대상이 아니다
-_LAB_CONTEXT = re.compile(r"소변|혈액|혈중|검사|수치")
+# 약 용량(1kg당 10~15mg 등)도 체감 단위로 바꿀 대상이 아니다 — 약은 mg 그대로가 정확하고, 잔·숟가락으로 바꾸면 위험하다(2026-09-30 육아_1)
+_LAB_CONTEXT = re.compile(r"소변|혈액|혈중|검사|수치|kg당|킬로그램당|용량|해열제|아세트아미노펜|이부프로펜")
 
 
 def check_perceivable_units(topic: str, lang: str = "kor") -> list[dict]:
