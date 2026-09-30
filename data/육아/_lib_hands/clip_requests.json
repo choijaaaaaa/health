@@ -1,0 +1,149 @@
+{
+  "_why": "재사용 라이브러리(2026-09-30 사용자 '왠만큼 돌려쓸만한 클립들은 다 먼저 뽑아놓자')",
+  "requests": [
+    {
+      "name": "act_sterilize_bottles",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "젖병·쪽쪽이 위생이 걸리는 편(아구창, 장염·로타, 분유 수유 기본, 신생아 면역)에서 '젖병은 삶아서/소독기로 소독하세요' 해결책 대사 칸에 쓴다. 기존 act_wash_hands_soap은 손 씻기라 용기 소독 동작이 없다.",
+      "fits": [
+        "젖병 소독",
+        "열탕 소독",
+        "아구창",
+        "장염 예방",
+        "위생",
+        "분유 수유",
+        "쪽쪽이",
+        "소독기"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, the two hands lowering a tall clear feeding bottle with tongs into a wide plain pot of gently boiling water where two more upside-down clear bottles and a loose soft teat already sit submerged, fine rising bubbles and a thin curl of steam above the water surface, the pot, the tongs and the bottles all blank and smooth with no labels and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The rising steam and the boiling water glow a soft warm amber; the hands, the pot, the tongs and the bottles stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a pair of tongs, a plain pot of boiling water and a few clear feeding bottles are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame the tongs carry the bottle down and plunge it mouth-first into the rolling water, a burst of bubbles swallowing it, as the camera drops fast to the rim of the pot. 1.5-3s: the tongs tip the bottle so trapped air escapes in one big glugging bubble and the bottle sinks fully under, bumping against the others. 3-4.5s: the other hand drops a soft teat in beside them, the bubbles roll harder, a thick column of amber-lit steam lifts off the surface and the camera pushes up through it. 4.5-6s: the camera settles looking down into the pot, the bottles tumbling slowly in the rolling bubbles under the warm amber steam until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_humidifier_mist",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "건조한 방이 원인인 편(모세기관지염, 코막힘, 크룹, 아토피·건조 피부, 코피)에서 '가습기로 습도를 맞추세요' 해결책 칸에 쓴다. 보호자 손이 가습기를 켜고 방 공기가 촉촉해지는 변화까지 한 컷에 담는다.",
+      "fits": [
+        "가습기",
+        "습도",
+        "건조",
+        "코막힘",
+        "모세기관지염",
+        "크룹",
+        "아토피",
+        "방 공기"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand resting on top of a plain smooth rounded tabletop humidifier with a round button ring on its front, a soft column of fine cool mist beginning to rise from its nozzle into the dark air, the humidifier blank and smooth with no labels, no display and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The rising mist is a soft warm amber; the hand and the humidifier stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and one plain rounded humidifier are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame a fingertip presses the button ring and the ring lights up as a soft glowing circle, and the camera pushes in low toward the nozzle. 1.5-3s: a thick plume of fine mist bursts up out of the nozzle and billows upward, the camera tilting up fast to ride with it. 3-4.5s: the mist spreads out sideways into a wide soft haze that fills the upper half of the frame, tiny droplets catching the light and drifting slowly. 4.5-6s: the camera pulls back so the humidifier sits small at the bottom and the whole air above it is filled with a gentle glowing amber haze, held until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_pour_ors_cup",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "구토·설사·탈수가 걸리는 편(장염, 로타, 노로, 고열 탈수)에서 '경구수액을 조금씩 자주 먹이세요' 해결책 칸에 쓴다. 한 번에 많이가 아니라 '조금'이 핵심이라 작은 컵에 얕게 따르고 멈추는 동작을 보여준다.",
+      "fits": [
+        "경구수액",
+        "탈수",
+        "장염",
+        "구토",
+        "설사",
+        "수분 보충",
+        "조금씩 자주",
+        "전해질"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand tilting a small plain unlabelled pouch of clear liquid over a very small clear cup standing on a flat surface, the other hand steadying the cup at its base, a thin stream just starting to fall into the cup, the pouch and the cup blank and smooth with no labels, no printed scale and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The liquid in the stream and in the cup is a soft amber; the hands, the pouch and the cup stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a small blank pouch and a very small clear cup are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame a thin amber stream pours from the pouch into the small cup and the camera drops to table level and pushes in on the cup. 1.5-3s: the liquid rises only a shallow finger's depth in the cup and the pouch snaps upright, the stream cutting off clean. 3-4.5s: the last drop falls from the pouch's spout and ripples the shallow amber surface. 4.5-6s: the hand holding the cup lifts it slightly toward the lens and the camera stops hard on it, the small shallow amber sip glowing softly and staying still until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_write_care_log",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "경과 관찰이 해결책인 편(발열 간격, 해열제 투약 시각, 배변·소변 횟수, 수유량, 이유식 알레르기 반응)에서 '시간과 양을 적어두세요/병원 갈 때 보여주세요' 칸에 쓴다. 글자 없이 선만 그어지는 공책이라 어느 주제에도 돌려쓸 수 있다.",
+      "fits": [
+        "기록",
+        "육아 일지",
+        "투약 기록",
+        "발열 기록",
+        "배변 기록",
+        "수유 기록",
+        "병원 갈 때",
+        "경과 관찰"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a plain pen with its tip resting on the open pages of a blank notebook lying flat, the other hand holding the page down, the pages completely empty with no printed lines, only a few short abstract horizontal strokes already drawn, the pen and the notebook blank and smooth with no labels and no markings of any kind, strictly no handwriting, no letters, no numbers and no symbols on the paper, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The fresh ink strokes on the page are a soft amber; the hands, the pen and the notebook stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a plain pen and a blank open notebook are ever in frame — no face, no head, no body, and nothing else enters the frame. The only marks ever made on the paper are plain straight horizontal strokes, never letters, never numbers, never symbols. 0-1.5s: from the very first frame the pen draws one quick straight amber stroke across the page and the camera swoops down over the notebook from above. 1.5-3s: the pen lifts, drops a line lower and draws a second straight stroke, then a shorter third one beneath it, each stroke glowing amber as it is laid down. 3-4.5s: the pen taps down beside the strokes with a tiny dot and lifts away while the camera keeps pushing down toward the page. 4.5-6s: the hands pull back to the edges and the camera hovers over the page, the neat stack of plain amber strokes glowing softly on the blank paper until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_cut_food_small",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "이유식·유아식 편(질식 예방, 이유식 단계, 알레르기 식품 도입, 손가락 음식)에서 '작고 부드럽게 잘라 주세요' 칸에 쓴다. 기존 act_scoop_puree_spoon은 퓌레를 뜨는 컷이라 덩어리를 작게 써는 동작이 없다.",
+      "fits": [
+        "이유식",
+        "유아식",
+        "질식 예방",
+        "작게 자르기",
+        "손가락 음식",
+        "핑거푸드",
+        "알레르기 식품",
+        "식사"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand pressing a small plain knife down through a soft steamed piece of vegetable on a plain flat cutting board, the other hand's fingertips curled back holding the piece, a neat row of tiny soft cubes already cut beside it, the knife and the board blank and smooth with no labels and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The small cut pieces of food are a soft amber; the hands, the knife and the board stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a small plain knife, a flat cutting board and soft pieces of steamed food are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame the knife rocks down through the soft piece in one clean cut and the camera drops low to board level. 1.5-3s: the knife chops quickly across the strip three more times, the soft amber piece falling apart into small even cubes. 3-4.5s: the flat of the blade sweeps the tiny cubes sideways into a small neat pile. 4.5-6s: the hands pull back out of frame and the camera pushes in close on the pile of tiny soft amber cubes, holding still on them until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_test_milk_wrist",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "분유·모유 데우기가 걸리는 편(분유 수유, 유축 모유 보관·해동, 입안 화상, 구토)에서 '손목 안쪽에 떨어뜨려 미지근한지 확인하세요' 칸에 쓴다. 전자레인지 데우기 경고 뒤 대안 동작 칸으로도 쓴다.",
+      "fits": [
+        "분유 온도",
+        "모유 데우기",
+        "손목 확인",
+        "미지근",
+        "화상 예방",
+        "수유",
+        "유축 모유",
+        "전자레인지"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a clear feeding bottle upside down with its soft rounded teat pointing down, a single drop of milk falling from the teat onto the upturned inner wrist of the other forearm, the bottle blank and smooth with no labels, no printed scale and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The falling drop and the small spot it lands on the inner wrist are a soft warm amber; the hands, the forearm and the bottle stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and forearms and one clear feeding bottle are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame the bottle flips upside down over the upturned inner wrist and the camera swings in low and close to the wrist. 1.5-3s: the bottle gives one short downward shake and a single drop swells at the teat, stretches and falls. 3-4.5s: the drop lands on the inner wrist and spreads into a small warm amber spot, a soft amber warmth fanning out just under the glass skin around it. 4.5-6s: the bottle lifts out of frame and the wrist stays turned up to the camera, the amber spot fading to a gentle mild glow and holding until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_fold_swaddle_cloth",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "속싸개·재우기 편(영아 산통, 모로 반사, 수면 교육, 고관절 건강, 체온 과열)에서 '속싸개는 이렇게 준비하세요/다리는 넉넉하게' 칸에 쓴다. 아기를 싸는 접촉 컷(act_baby_swaddle_hold, 스틸)의 바로 앞 준비 동작이라 둘을 이어 쓴다.",
+      "fits": [
+        "속싸개",
+        "싸개",
+        "재우기",
+        "영아 산통",
+        "모로 반사",
+        "수면",
+        "고관절",
+        "과열"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, the two hands holding the top corners of a large square of thin soft plain muslin cloth, spreading it flat in the air as it unfurls, one corner already folded down into a triangle along the top edge, the cloth completely plain with no pattern, no labels and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The soft cloth is a warm amber; the hands and forearms stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and one large square of plain soft muslin cloth are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame the hands snap the cloth out wide so it billows open like a sail, and the camera pulls back fast to take in the whole square. 1.5-3s: the cloth floats down and settles flat into a diamond shape, the hands smoothing it outward from the centre. 3-4.5s: one hand lifts the top corner and folds it down into a neat straight band along the top, pressing the fold flat. 4.5-6s: the camera rises overhead and holds on the smooth amber diamond of cloth with its folded top edge, lying still and ready until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "act_turn_room_dial",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "실내 온도가 원인·해결책인 편(체온 과열, 영아 돌연사 예방, 땀띠, 발열 시 옷 벗기기, 수면 환경)에서 '방 온도를 조금 낮추세요' 칸에 쓴다. 숫자 없는 빛 링이 줄어드는 것으로 '낮춘다'를 보여준다.",
+      "fits": [
+        "방 온도",
+        "실내 온도",
+        "과열",
+        "땀띠",
+        "돌연사 예방",
+        "수면 환경",
+        "난방",
+        "시원하게"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand's fingertips gripping a plain round wall-mounted dial on a smooth blank panel, a thin ring of light around the dial lit most of the way around, the dial and the panel blank and smooth with no numbers, no scale, no ticks, no display and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The light ring around the dial is a soft warm amber; the hand, the dial and the panel stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, hypodermic needle, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only one or two translucent glass hands and one plain round wall dial with a thin ring of light around it are ever in frame — no face, no head, no body, and nothing else enters the frame. The ring is a plain continuous band of light with no numbers and no tick marks. 0-1.5s: from the very first frame the fingertips twist the dial and the camera pushes in hard on it. 1.5-3s: the dial turns steadily anticlockwise and the warm amber light ring shrinks back around the circle as it turns, segment by segment going dark. 3-4.5s: the ring stops at under half and its remaining light cools from warm amber toward a calm pale cyan. 4.5-6s: the hand lets go and slides out of frame, the camera holding close on the dial with its shorter calm ring glowing steadily until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout, and the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    }
+  ]
+}

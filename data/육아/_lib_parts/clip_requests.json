@@ -1,0 +1,119 @@
+{
+  "_why": "재사용 라이브러리(2026-09-30 사용자 '왠만큼 돌려쓸만한 클립들은 다 먼저 뽑아놓자')",
+  "requests": [
+    {
+      "name": "baby_cu_teeth_gum",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "이앓이·첫 양치·젖니 충치 편에서 '이가 잇몸을 뚫고 올라오느라 붓고 침이 는다' 칸에 쓴다. baby_cu_mouth_throat는 목 쪽 단면이라 잇몸 속에 줄 서 있는 이 싹이 안 보인다 — 여기선 잇몸 안에 묻힌 유치가 위로 밀고 올라오는 게 주인공이다. 부위 클립 후보: part_baby_gum(잇몸 부기·이앓이) · part_baby_front_teeth(갓 난 아래 앞니·첫 양치) · part_baby_tooth_bud(잇몸 속 이 싹).",
+      "fits": [
+        "이앓이",
+        "젖니",
+        "유치",
+        "잇몸 부기",
+        "첫 양치",
+        "아기 충치",
+        "침 흘림",
+        "이 나는 시기"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway close-up of the lower and upper jaw of a figure with early-developmental proportions — a small short rounded jaw — seen from the front with the lips slightly parted, framed from just under the nose down to the chin, the jaw filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the soft rounded gum ridges of the upper and lower jaw, two tiny front teeth just breaking through the lower gum edge, and inside the jawbone beneath the gums a neat row of small unerupted tooth buds waiting in their pockets, each bud sitting just under the gum surface, with the thin jawbone around them. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, eyes, nose detail, hair, full set of adult teeth, braces, dental tools, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway close-up of the jaws of a human baby about eight months old seen from the front with the lips slightly parted, framed from just under the nose down to the chin, the jaw filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the rounded gum ridges, two tiny lower front teeth just breaking through the gum, and a row of small unerupted tooth buds sitting inside the jawbone under the gums. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, full set of adult teeth, dental tools, photo, photorealistic skin, real child"
+    },
+    {
+      "name": "baby_cu_eye",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "눈곱·결막염·코눈물관 막힘 편에서 '눈물이 코로 빠지는 길이 막혀 고인다' 칸과 '눈 흰자 겉막에 염증' 칸에 쓴다. 성인 스틸엔 눈물길이 안 그려져 있어서, 아기에게 흔한 코눈물관 막힘(눈 안쪽 구석 마사지 이유)을 화면으로 설명할 수 없다. 부위 클립 후보: part_baby_eye(눈 전체·결막) · part_baby_tear_duct(눈 안쪽 구석→코로 내려가는 눈물관) · part_baby_eyelid(눈꺼풀 가장자리 눈곱).",
+      "fits": [
+        "눈곱",
+        "결막염",
+        "코눈물관 막힘",
+        "눈물길",
+        "눈물 고임",
+        "눈 충혈",
+        "눈꺼풀",
+        "눈 마사지"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the eye region of a figure with early-developmental proportions — a large rounded eye in a small soft face — seen from the front at a slight three-quarter angle, framed from the eyebrow down to the side of the nose, one eye and the side of the nose filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the round eyeball with the thin clear membrane covering its white, the upper and lower eyelid rims, the small tear gland tucked above the outer corner of the eye, the tiny drainage openings at the inner corner of the eyelids leading into a thin short duct that runs straight down beside the nose into the nasal cavity, and the thin bones of the eye socket around it. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, hair, eyelashes detail, iris color, pupil detail, realistic eye, makeup, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the eye region of a human baby seen from the front at a slight three-quarter angle, framed from the eyebrow down to the side of the nose, one eye and the side of the nose filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the eyeball with the thin clear membrane over its white, the eyelid rims, the tear gland above the outer corner, and the thin tear duct running from the inner corner of the eye down beside the nose into the nasal cavity, with the eye socket bones around it. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, realistic eye, iris color, makeup, photo, photorealistic skin, real child"
+    },
+    {
+      "name": "baby_cu_scalp",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "지루성 두피(요람딱지)·태열·머리 부딪힘 편에서 '피지가 굳어 비늘처럼 앉는다' 칸과 '머리뼈 위를 덮은 얇은 두피' 칸에 쓴다. baby_cu_skin_layers는 몸 피부 블록이라 모낭·피지샘이 두피만큼 빽빽하지 않고, 머리뼈가 바로 밑에 있다는 것도 안 보인다. 부위 클립 후보: part_baby_scalp_sebum(피지샘·요람딱지) · part_baby_hair_follicle(모낭) · part_baby_scalp_bump(두피 아래 혹·부딪힌 자리).",
+      "fits": [
+        "지루성 두피",
+        "요람딱지",
+        "두피 각질",
+        "태열",
+        "피지샘",
+        "모낭",
+        "머리 부딪힘",
+        "두피 혹"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway cross-section close-up of the top of the head of a figure with early-developmental proportions — a large smoothly rounded cranium — the curved scalp cut open to show its layers, the curved section standing upright and filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: on the surface a few flaky scale-like patches sitting on a thin outer skin layer, below it many densely packed small hair follicles each with a tiny grape-like oil gland attached to its side, a thin soft cushion layer beneath, and at the bottom the thin smooth curved plate of the skull bone lying close under the scalp. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, face, facial features, full hair, long hair, blood, wound, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway cross-section close-up of the scalp on top of the head of a human baby, the curved scalp cut open to show its layers, the curved section standing upright and filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: flaky scale-like patches on the thin outer skin, densely packed small hair follicles each with a tiny oil gland attached, a thin soft layer beneath, and the thin curved skull bone close underneath. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, face, full hair, blood, wound, photo, photorealistic skin, real child"
+    },
+    {
+      "name": "baby_cu_urinary",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "요로감염·탈수 편에서 '소변 길을 거슬러 세균이 방광→콩팥으로 올라간다' 칸과 '마실 게 모자라면 콩팥이 소변을 줄인다(기저귀 적시는 횟수)' 칸에 쓴다. baby_cu_torso는 앞쪽 위장·장이 가려서 등쪽 콩팥과 요관이 안 보인다 — 여기선 장을 걷어낸 비뇨기 길 하나만 보여 준다. 부위 클립 후보: part_baby_kidney(콩팥·탈수) · part_baby_ureter(요관·세균 역류) · part_baby_bladder(방광·요로감염).",
+      "fits": [
+        "요로감염",
+        "방광염",
+        "신우신염",
+        "콩팥",
+        "방광",
+        "탈수 소변량",
+        "기저귀 횟수",
+        "소변 냄새"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the lower back and belly of a figure with early-developmental proportions — a short wide rounded torso — seen from the front with the digestive organs left out so only the urinary tract is shown, framed from the lower ribs down to the hips, the head and legs outside the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: two bean-shaped kidneys high on either side of the spine, a thin tube running down from each kidney, the two tubes meeting a small rounded bladder low in the centre of the pelvis, a short outlet channel leaving the bottom of the bladder, the lower ribs above and the small rounded pelvic bones around the bladder, with the spine behind. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, head, face, genitals, clothing, diaper, intestines, stomach, liver, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the torso of a human baby seen from the front with the digestive organs left out so only the urinary tract is shown, framed from the lower ribs down to the hips, the head and legs outside the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: two bean-shaped kidneys either side of the spine, a thin tube running down from each to a small rounded bladder low in the pelvis, the lower ribs and the pelvic bones around them, with the spine behind. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, head, face, genitals, diaper, intestines, photo, photorealistic skin, real child"
+    },
+    {
+      "name": "baby_cu_hip_leg",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "고관절 이형성·키 성장·O자/X자 다리 편에서 '허벅지뼈 머리가 골반 소켓에 얕게 걸려 있다' 칸과 '뼈 끝 성장판에서 길이가 자란다' 칸에 쓴다. 성인 스틸은 성장판이 닫힌 어른 다리라 '아직 연골이라 자리 잡는 중'이라는 말이 화면에 안 선다. 부위 클립 후보: part_baby_hip_joint(고관절 소켓) · part_baby_growth_plate(무릎 위아래 성장판) · part_baby_leg_bone(다리 전체 모양·휜 다리).",
+      "fits": [
+        "고관절 이형성",
+        "고관절 탈구",
+        "성장판",
+        "키 성장",
+        "O자 다리",
+        "X자 다리",
+        "다리 모양",
+        "속싸개 다리"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the pelvis and both legs of a figure with early-developmental proportions — short rounded chubby legs bent slightly outward at the hips and knees in a relaxed frog-leg position — lying on its back seen from directly above, framed from the waist down to the feet, the legs filling the frame from top to bottom, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the small rounded pelvis with a shallow cup-shaped socket on each side, the ball-shaped head of each thigh bone sitting loosely in its socket, the thigh bones and shin bones still short and slightly curved, and at the ends of each long bone a thick pale band of soft cartilage growth plate separating the bone shaft from its rounded end, clearly visible above and below each knee. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, head, face, torso, genitals, clothing, diaper, socks, standing pose, fully fused adult bones, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the pelvis and both legs of a human baby lying on its back in a relaxed frog-leg position, seen from directly above, framed from the waist down to the feet, the legs filling the frame from top to bottom, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the small pelvis with a shallow socket on each side, the ball-shaped top of each thigh bone sitting in its socket, the short leg bones, and pale cartilage growth bands at the ends of each bone above and below the knees. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, head, face, genitals, diaper, standing pose, photo, photorealistic skin, real child"
+    },
+    {
+      "name": "baby_cu_brain",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "열성경련·흔들린 아이 증후군·머리 부딪힘 편에서 '열이 뇌를 순간 과흥분시킨다' 칸, '뇌가 두개골 안에서 흔들린다' 칸, '숨구멍(대천문)이 아직 안 닫혀 있다' 칸에 쓴다. baby_cu_head_side는 코·귀·이관 중심이라 뇌와 두개골 봉합선이 흐리고, 성인 스틸엔 숨구멍 자체가 없다. 부위 클립 후보: part_baby_brain(뇌 전체·열성경련) · part_baby_fontanelle(대천문·숨구멍) · part_baby_skull_gap(뇌와 두개골 사이 공간·흔들림).",
+      "fits": [
+        "열성경련",
+        "흔들린 아이 증후군",
+        "머리 부딪힘",
+        "숨구멍",
+        "대천문",
+        "두개골 봉합",
+        "뇌",
+        "경련"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the head of a figure with early-developmental proportions — a large rounded cranium much bigger than the small short face — seen in exact side profile and slightly from above, the head filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the large brain with its folded surface filling most of the cranium, the brainstem running down at the back, a thin clear fluid space between the brain and the skull, the thin separate skull plates with visible seams between them, and on the top of the head a soft diamond-shaped gap where the plates have not yet met, covered only by a thin membrane. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, hair, blood, bruise, injury, fully closed skull, photo, photorealistic skin, adult proportions",
+      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the head of a human baby seen in exact side profile and slightly from above, the head filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the large folded brain filling the cranium, a thin fluid space around it, the thin skull plates with seams between them, and a soft diamond-shaped gap on the top of the head where the plates have not yet met. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, hair, blood, injury, photo, photorealistic skin, real child"
+    }
+  ]
+}

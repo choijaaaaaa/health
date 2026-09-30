@@ -1,0 +1,160 @@
+{
+  "_why": "재사용 라이브러리(2026-09-30 사용자 '왠만큼 돌려쓸만한 클립들은 다 먼저 뽑아놓자')",
+  "requests": [
+    {
+      "name": "m_tooth_eruption",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "이앓이·침 흘림·밤에 보챔·잇몸 가려움 편에서 '이가 잇몸을 뚫고 올라오느라 잇몸이 붓고 아프다' 대사 칸에 쓴다. 기존 기전 115종에 이·잇몸 장면이 하나도 없다. 치발기·잇몸 마사지 해결책 앞에 둔다.",
+      "fits": [
+        "이앓이",
+        "이가 남",
+        "잇몸이 부음",
+        "침을 많이 흘림",
+        "치발기",
+        "보채고 깨물기",
+        "이 나는 시기 미열"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A vertical cut-away slab of soft gum tissue fills the lower two-thirds of the frame, its top surface one smooth rounded ridge facing straight up with open dark empty space above it. Buried inside the slab, clearly visible through the translucent cut face, one small smooth tooth crown with a gently domed biting edge sits just beneath the surface, pointing straight up, the thin layer of gum above it still whole and unbroken. Everything except the tooth crown is translucent pale cyan glass; only the tooth crown glows warm amber. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, row of teeth, jaw, skull, mouth, lips, tongue, braces, dental tools, drill, blood, decay, cavity",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the warm amber crown rises slowly through the gum, the tissue above it stretching thin and the ridge swelling into a tight rounded mound, slow push-in. Shot 2 (2-4s): cut to an extreme close-up of the stretched gum surface as it parts along a thin seam and the amber biting edge breaks through, the gum edges puffing up around it. Shot 3 (4-6s): cut to the wide cut-away view as the crown pushes up clear of the gum and the surrounding tissue settles, still slightly swollen, around its base. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the tooth crown glows warm amber, the gum stays pale cyan glass and never changes colour. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_middle_ear_fluid",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "중이염·귀를 잡아당기며 보챔·감기 뒤 귀 통증 편에서 '귀와 목을 잇는 관이 짧고 수평이라 물이 빠지지 못하고 고여 고막을 민다' 대사 칸에 쓴다. m_pressure_imbalance는 막이 부풀지만 액체가 없고 달팽이관까지 나와 기압 이야기로 읽히며, part_baby_middle_ear는 위치 점등뿐이다. 누워서 젖병 무는 습관 대사 앞에도 맞는다.",
+      "fits": [
+        "중이염",
+        "귀를 잡아당김",
+        "귀가 아파 보챔",
+        "감기 뒤 귀 통증",
+        "귀에 물이 참",
+        "누워서 젖병",
+        "고막이 부음"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Seen from the side: one short, nearly horizontal narrow translucent tube enters from the left edge of the frame and opens into a small rounded air-filled chamber on the right. The right-hand wall of the chamber is one thin, taut, round membrane seen edge-on, perfectly flat. Resting on the floor of the chamber is a shallow pool of warm amber fluid, its surface calm and level. Everything except the amber fluid is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, spiral, snail shell, cochlea, hair cells, outer ear, ear lobe, earring, headphones, sound waves, bubbles everywhere",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the warm amber fluid rises steadily in the chamber until it fills it almost to the top, slow push-in. Shot 2 (2-4s): cut to a close-up of the mouth of the short flat tube as the fluid presses against it and only trembles there without running away down the level tube. Shot 3 (4-6s): cut to a side view of the membrane as the trapped fluid pushes it outward into a taut rounded dome that thins and quivers under the pressure. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the trapped fluid glows warm amber, the tube, the chamber and the membrane stay pale cyan glass. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_skin_barrier_gaps",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "아토피·건조 피부·태열·보습제 편에서 '피부 벽돌 사이 틈으로 수분은 빠져나가고 자극물은 들어온다' 대사 칸에 쓴다. m_barrier_leak은 알갱이가 한쪽으로 떨어지기만 해 수분이 빠지는 쪽이 없고, m_dehydration은 표면이 마르는 것뿐이라 들어오는 자극물이 없다. '보습제가 이 틈을 메운다' 해결책 대사 바로 앞에 둔다.",
+      "fits": [
+        "아토피",
+        "피부 건조",
+        "태열",
+        "보습제",
+        "피부 장벽",
+        "가려움",
+        "목욕 후 보습",
+        "로션"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A thick horizontal slab of skin fills the lower two-thirds of the frame with open dark empty space above it. Its top layer is built exactly like a brick wall: rows of flat translucent plate-shaped cells laid in an offset brick pattern, joined by thin lines of pale cyan mortar, with a layer of plump living cells beneath. Here and there the mortar is missing, leaving small dark open gaps between the bricks. Small clear round water droplets sit inside the plump layer below. Hovering in the dark space just above the surface, not yet touching it, are a few small spiky warm amber particles. Everything except the spiky particles is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, hair, pores, sweat, blood, fire, bricks made of clay, building, wall of a house",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the clear water droplets rise out of the plump layer, slip up through the gaps between the bricks and fade off the surface as faint mist, the plates curling at their edges and the gaps widening, slow push-in. Shot 2 (2-4s): cut to an extreme close-up of one widened gap as the spiky warm amber particles drift down and slip through it into the plump cells below. Shot 3 (4-6s): cut to the wide cut-away view as amber particles lie scattered deep inside the layer and the cells around them swell while the dried plates lift apart. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the spiky irritant particles glow warm amber, the skin layers and water droplets stay pale cyan and clear. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_bilirubin_skin_yellow",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "신생아 황달·모유 황달·광선치료 편에서 '핏속 노란 색소가 피부 층으로 번져 피부와 눈이 노래진다' 대사 칸에 쓴다. _shared의 m_rbc_breakdown(적혈구가 깨져 알갱이가 나옴) 바로 뒤에 이어 붙이는 뒷단계이고, m_toxin_load는 세포 하나가 갈색으로 물드는 장면이라 피부 층 전체가 물드는 그림이 아니다.",
+      "fits": [
+        "황달",
+        "신생아 황달",
+        "피부가 노래짐",
+        "눈 흰자가 노람",
+        "빌리루빈",
+        "모유 황달",
+        "광선치료"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A vertical cut-away slab of skin fills the frame. Running horizontally across the bottom of the slab is one blood vessel sliced open lengthwise so its open channel is visible, carrying many small round warm amber grains of pigment drifting along inside it. Stacked above the vessel are the skin layers: a band of plump living cells, then thin flat surface plates on top, with open dark empty space above the surface. The skin layers are completely clear pale cyan. Everything except the amber grains inside the vessel is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, liver, sun, sunlight, lamp, yellow background, bruise, rash, blisters",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the warm amber grains seep out through the vessel wall and drift upward into the plump cell layer above, slow push-in. Shot 2 (2-4s): cut to a close-up inside the layers as the grains spread between the cells and each cell takes on a soft warm amber tint from the bottom up. Shot 3 (4-6s): cut to the wide cut-away view as the whole stack from the vessel to the surface plates is evenly suffused with a soft warm amber glow while the vessel keeps carrying more grains. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the pigment grains and the tint they spread glow warm amber, the tissue structures stay pale cyan glass underneath. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_airway_swelling_croup",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "크룹·컹컹 개 짖는 기침·쉰 목소리·숨 쉴 때 그렁거림 편에서 '목 안 관 벽이 부어 안쪽으로 좁아진다' 대사 칸에 쓴다. m_airway_collapse는 관이 바깥에서 눌려 납작해지고, m_mucus_overproduction은 점액이 메우는 장면이라 벽 자체가 붓는 크룹과 다르다. _shared의 m_narrow_tube_contrast 뒤에 붙이면 '원래 가는 관이라 조금만 부어도' 흐름이 된다.",
+      "fits": [
+        "크룹",
+        "컹컹 기침",
+        "개 짖는 소리 기침",
+        "목이 쉼",
+        "숨 쉴 때 그렁거림",
+        "후두염",
+        "밤에 심해지는 기침"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One short straight translucent tube stands vertically from the top edge of the frame to the bottom edge, sliced open lengthwise so its round open channel is visible along its whole length, wide and clear. Midway down, one ring-shaped band of the soft inner lining glows warm amber, still lying flat and thin against the wall. Everything except that band of lining is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, mucus, food, fork, lump, stone, clot, flattened tube, hourglass, branching, lungs, tree",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the warm amber band of lining swells inward all the way around, soft and puffy, the channel narrowing at that point, slow push-in. Shot 2 (2-4s): cut to a view looking straight down into the tube from above as the round opening shrinks to a small narrow slit while the puffy amber wall closes in from every side. Shot 3 (4-6s): cut to the side view as a faint stream of pale mist is forced through the tight neck, rushing and fluttering against the swollen lining. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the swollen band of lining glows warm amber, the rest of the tube and the mist stay pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_cilia_mucus_clearance",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "콧물·가래·코막힘·가습기·실내 습도 편에서 '코와 기관지 안 잔털이 물결치며 점액을 밀어내 먼지와 균을 치운다' 대사 칸에 쓴다. m_particle_deposition은 알갱이가 섬모에 박혀 쌓이는 반대 장면이고 m_mucus_overproduction은 막히는 쪽이라, 정상적으로 치우는 장면이 없다. '건조하면 이게 멈춘다'(가습) 대사 앞에 맞는다.",
+      "fits": [
+        "콧물",
+        "가래",
+        "코막힘",
+        "가습기",
+        "실내 습도",
+        "섬모",
+        "코 흡입기",
+        "기침으로 가래 뱉기"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A horizontal slab of lining fills the lower half of the frame with open dark empty space above it. Its top surface is covered by a dense even carpet of fine hair-like cilia standing upright. Resting across the tips of the cilia lies one thin continuous sheet of warm amber mucus, with a few tiny dark specks of dust trapped inside it. Everything except the mucus sheet is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, grass, fur, carpet, brush, bacteria rods, bubbles, lungs, tree, nose",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the cilia begin beating in rolling waves from left to right and the warm amber mucus sheet slides along on top of them toward the right, slow push-in. Shot 2 (2-4s): cut to an extreme close-up as individual cilia whip forward, sweep the sheet and its trapped dark specks along, then bend back low to recover. Shot 3 (4-6s): cut to the wide view as the amber sheet is carried off past the right edge of the frame and the cilia keep waving over a clean bare surface. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the mucus sheet glows warm amber, the cilia and lining stay pale cyan glass. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_sweat_duct_block",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "땀띠·여름 발진·목 접힘 발진·과하게 입힘 편에서 '땀구멍이 막혀 땀이 못 나오고 피부 아래 갇힌다' 대사 칸에 쓴다. m_sweat_overproduction은 땀이 많이 나서 흘러내리는(나오는) 장면이고, _shared의 m_blister_formation은 층 사이 물집이라 수족구 쪽이다. '시원하게 입히기' 해결책 앞에 둔다.",
+      "fits": [
+        "땀띠",
+        "여름 발진",
+        "목 접힘 발진",
+        "과하게 입힘",
+        "땀구멍 막힘",
+        "오돌토돌한 발진",
+        "등 발진"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A vertical cut-away slab of skin fills the frame with open dark empty space above its flat top surface. Deep in the lower layer sits one thin coiled gland, and from it a single narrow duct rises straight up through the layers to a tiny pore at the surface. The pore at the very top is sealed over by a thin plug of flat surface plates. Inside the duct just below the plug sits one small warm amber droplet. Everything except the amber droplet is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, hair, hair follicle, oil, blood, fire, pimple, pus, water pouring",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): more warm amber droplets rise up the duct from the coiled gland and crowd together beneath the sealed plug, slow push-in. Shot 2 (2-4s): cut to an extreme close-up as the plug holds, the duct bulges and the amber sweat seeps sideways into the tissue just under the surface, forming one small round pocket. Shot 3 (4-6s): cut to a wider cut-away view showing several tiny pinpoint amber-filled domes raised in a row just beneath the surface. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the trapped sweat glows warm amber, the gland, duct and skin stay pale cyan glass. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_growth_plate",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "키 성장·잘 자야 큰다(성장호르몬)·영양·성장통 편에서 '뼈 끝 성장판에서 세포가 쌓이며 뼈가 길어진다' 대사 칸에 쓴다. 기존 m_growth_arrest는 성장판이 얇아져 닫히는 반대 방향이라 자라는 장면이 없다. 수면·영양 해결책 대사 앞에 둔다.",
+      "fits": [
+        "키 성장",
+        "성장판",
+        "성장호르몬",
+        "잘 자야 큰다",
+        "성장 속도",
+        "뼈가 자람",
+        "성장통"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One single long bone stands vertically in the frame, its shaft running down to the bottom edge. Near its upper end, the rounded head of the bone is separated from the shaft by one thin horizontal band made of neat stacked columns of small round cells; that band glows warm amber. Everything except that band is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, knee joint, kneecap, second bone, skeleton, fracture, crack, muscle, ruler, measuring tape, height chart",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): the small cells in the amber band divide and stack into taller columns, and the band pushes the rounded head of the bone upward, slow push-in. Shot 2 (2-4s): cut to an extreme close-up of the band as the lowest cells in each column harden into pale cyan bone that joins the shaft below while fresh amber cells keep forming at the top. Shot 3 (4-6s): cut to the full view as the bone stands visibly longer than at the start, the amber band still intact near its upper end. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the growth band glows warm amber, the bone head and shaft stay pale cyan glass. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    },
+    {
+      "name": "m_fever_immune_boost",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "열 편(해열제 언제 먹이나·열이 나도 잘 놀면·감기 열)에서 '열은 나쁜 게 아니라 온도가 올라 면역세포가 빨라져 균을 잡는 중' 대사 칸에 쓴다. _shared의 m_fever_setpoint_rise는 기준 온도가 오르는 장면이고, m_inflammation은 면역세포가 떠 있기만, m_immune_decline은 약해지는 반대다. setpoint_rise 뒤에 붙이면 '왜 오르나 → 올라서 뭐가 좋나'로 이어진다.",
+      "fits": [
+        "열",
+        "발열",
+        "해열제 언제",
+        "열은 면역 반응",
+        "감기 열",
+        "열이 나도 잘 놀면",
+        "고열"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, the subject centered and filling most of the frame, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A flat field of plump pale cyan tissue cells lines the bottom of the frame. In the open dark space above it drift several large round immune cells with soft lobed surfaces, and scattered among them, not yet caught, are a few small spiky warm amber particles. Everything except the spiky particles is translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, full body, white layer, cream layer, crust, opaque cap, bread, red, orange gradient, fire, flames, thermometer, scale, gauge, dial, sweat, face, virus diagram, bacteria rods",
+      "flow": "Three quick shots cut together, about 2 seconds each. Shot 1 (0-2s): a soft shimmer of heat haze rolls across the whole scene without changing its colours, and the immune cells begin to move noticeably faster, slow push-in. Shot 2 (2-4s): cut to an extreme close-up as one immune cell darts forward, wraps a soft lobe around a spiky amber particle and swallows it whole. Shot 3 (4-6s): cut to the wide view as the fast-moving immune cells sweep through the space catching the amber particles one after another until only one or two are left. Keep the exact same translucent pale cyan glass tissue style and dark slate blue-grey void in all three shots; only the spiky particles glow warm amber, the immune cells and tissue stay pale cyan glass and the heat haze stays colourless. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum only, no music, no dialogue."
+    }
+  ]
+}

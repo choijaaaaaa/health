@@ -198,11 +198,15 @@ def build(track: str | None) -> None:
     # 안 그러면 "01~09 미드저니 먼저 / 03~11 스틸만"처럼 구간이 겹쳐 무엇부터 할지 알 수 없다.
     # 🚨 미드저니가 필요한 번호를 앞(01~)으로 몬다(2026-09-26 사용자 "몇 번을 말해 미드저니를 위쪽으로 몰아서
     # 쫙 뽑게 하라니까"). 사람은 미드저니를 한 번에 다 뽑고 → 세션이 확인·정리 → Flow를 한 번에 돈다.
+    # 🚨 다른 요청의 레퍼런스가 되는 스틸(육아 baby_canon_organs 등)을 맨 앞에, 아직 없는 레퍼런스를 쓰는 스틸을
+    # 그 뒤로(2026-09-30): 순서가 섞이자 1번부터 링크 없는 프롬프트가 나와 32칸이 레퍼런스 없이 뽑힐 뻔했다.
+    ref_names = {Path(r.get("ref") or "").stem for _t, r, _s in pend}
     def order(x):
         _topic, r, sub = x
         if sub == "still":
-            return (0, _topic)
-        return (2 if _existing_still(sub, r["name"], track) else 1, _topic)
+            ref_missing = bool(r.get("ref")) and not (ROOT / r["ref"]).exists()
+            return (0, 0 if r["name"] in ref_names else (2 if ref_missing else 1), _topic)
+        return (2 if _existing_still(sub, r["name"], track) else 1, 0, _topic)
 
     pend.sort(key=order)
     _harvest_loose_stills(pend, work, track)
