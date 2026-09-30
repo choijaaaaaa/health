@@ -64,10 +64,17 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
     # 🚨 아기가 나오는 스틸은 아기 캐논을 --oref로(2026-09-30 사용자 "애기 이미지 기준으로… db에 올리고 그걸 참조해야
     # 하지 않겠냐? 프롬프트 쳐서 넣고 있는데 잘 안 나온다"): --sref는 질감·색만 따라가 몸 비례가 어른으로 나왔다.
     # 아기 몸 비례는 모양 참조(Omni)라야 고정된다 — Omni는 V7 전용이라 --v 7도 같이.
-    if Path(ref).stem.startswith("baby_"):
-        tag = f"--oref {url} --v 7"
+    baby = Path(ref).stem.startswith("baby_")
+    if baby:
+        # 🚨 모양은 아기 캐논(--oref), 화풍은 성인 캐논(--sref) 둘 다 — --oref 하나만 넣었더니(2026-09-30 1차) 몸 비례는
+        # 잡혔는데 회색 스튜디오·유리 상자·어른 얼굴·살색 인형으로 화풍이 풀렸다("이전이랑 좀 다른 스타일인데 이게 맞나").
+        style = ensure("stills/canon_organs.jpg", refs)
+        tag = f"--oref {url} --sref {style} --v 7"
     body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
     no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
+    if baby:
+        no += (", glass box, display case, container, pedestal, grey backdrop, studio floor, floor reflection,"
+               " adult head, adult face, skin-colored body, opaque skin, doll")
     return f"{body} --ar 9:16 {tag}{no}"
 
 def _unopened_deliveries() -> list[Path]:
