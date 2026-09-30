@@ -2,26 +2,6 @@
   "_why": "재사용 라이브러리(2026-09-30 사용자 '왠만큼 돌려쓸만한 클립들은 다 먼저 뽑아놓자')",
   "requests": [
     {
-      "name": "baby_cu_teeth_gum",
-      "kind": "still",
-      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
-      "ref_mode": "Style Reference (⚠️ Omni 금지)",
-      "why": "이앓이·첫 양치·젖니 충치 편에서 '이가 잇몸을 뚫고 올라오느라 붓고 침이 는다' 칸에 쓴다. baby_cu_mouth_throat는 목 쪽 단면이라 잇몸 속에 줄 서 있는 이 싹이 안 보인다 — 여기선 잇몸 안에 묻힌 유치가 위로 밀고 올라오는 게 주인공이다. 부위 클립 후보: part_baby_gum(잇몸 부기·이앓이) · part_baby_front_teeth(갓 난 아래 앞니·첫 양치) · part_baby_tooth_bud(잇몸 속 이 싹).",
-      "fits": [
-        "이앓이",
-        "젖니",
-        "유치",
-        "잇몸 부기",
-        "첫 양치",
-        "아기 충치",
-        "침 흘림",
-        "이 나는 시기"
-      ],
-      "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway close-up of the lower and upper jaw of a figure with early-developmental proportions — a small short rounded jaw — seen from the front with the lips slightly parted, framed from just under the nose down to the chin, the jaw filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the soft rounded gum ridges of the upper and lower jaw, two tiny front teeth just breaking through the lower gum edge, and inside the jawbone beneath the gums a neat row of small unerupted tooth buds waiting in their pockets, each bud sitting just under the gum surface, with the thin jawbone around them. Show only a cutaway block of the lower jaw and gum seen from the front, cropped tightly: no face, no nose, no eyes, no lips, no head outline — just the curved gum ridge, the two small front teeth breaking through it and the tooth buds inside the jawbone. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, eyes, nose detail, hair, full set of adult teeth, braces, dental tools, photo, photorealistic skin, adult proportions",
-      "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a cutaway close-up of the jaws of a human baby about eight months old seen from the front with the lips slightly parted, framed from just under the nose down to the chin, the jaw filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the rounded gum ridges, two tiny lower front teeth just breaking through the gum, and a row of small unerupted tooth buds sitting inside the jawbone under the gums. Show only a cutaway block of the lower jaw and gum seen from the front, cropped tightly: no face, no nose, no eyes, no lips, no head outline — just the curved gum ridge, the two small front teeth breaking through it and the tooth buds inside the jawbone. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, full set of adult teeth, dental tools, photo, photorealistic skin, real child",
-      "_redo_why": "2026-09-30 1차 결과 부적합(괴상한 모양/섬뜩한 얼굴/어른 머리) — 구도를 좁혀 다시 요청"
-    },
-    {
       "name": "baby_cu_eye",
       "kind": "still",
       "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
@@ -117,5 +97,6 @@
       "midjourney": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the head of a figure with early-developmental proportions — a large rounded cranium much bigger than the small short face — seen in exact side profile and slightly from above, the head filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the large brain with its folded surface filling most of the cranium, the brainstem running down at the back, a thin clear fluid space between the brain and the skull, the thin separate skull plates with visible seams between them, and on the top of the head a soft diamond-shaped gap where the plates have not yet met, covered only by a thin membrane. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, hair, blood, bruise, injury, fully closed skull, photo, photorealistic skin, adult proportions",
       "midjourney_alt": "Medical holographic visualization of a translucent glass-like 3D anatomical model, a close-up of the head of a human baby seen in exact side profile and slightly from above, the head filling the frame, the surface rendered as an almost fully transparent thin glass shell, every internal structure rendered in the same soft pale cyan glow, none brighter or differently colored than the others, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Visible inside: the large folded brain filling the cranium, a thin fluid space around it, the thin skull plates with seams between them, and a soft diamond-shaped gap on the top of the head where the plates have not yet met. Smooth featureless face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, opaque skin, glowing highlight, amber, orange, red, facial features, hair, blood, injury, photo, photorealistic skin, real child"
     }
-  ]
+  ],
+  "_teeth_why": "baby_cu_teeth_gum 뺌(2026-09-30): 두 번 뽑아 괴물 얼굴·어른처럼 이가 다 난 턱만 나왔다. 이앓이는 _lib_mech m_tooth_eruption(잇몸을 뚫고 이가 올라옴)으로 보여준다."
 }
