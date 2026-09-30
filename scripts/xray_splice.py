@@ -211,6 +211,103 @@ def _panel_track(topic, td, inputs, fc, cur, n, ad_png, covered=None):  # ad_png
     return "pad", n + 1
 
 
+X_RED = (229, 57, 53)   # 빨간 X — 청록 인체 위에서 가장 멀리 떨어진 색이라 한눈에 "틀림"으로 읽힌다
+X_FADE = 0.12           # X가 뚝 튀어나오면 깜빡임처럼 보여서 아주 짧게만 번지게 한다
+
+
+def _x_mark_png(size: int, out: Path) -> None:
+    """빨간 X. 밝게 빛나는 인체 위에서도 윤곽이 서도록 어두운 테두리와 붉은 번짐을 깐다."""
+    s = size * 2                      # 두 배로 그려 줄여서 획 끝을 매끄럽게
+    pad, w = int(s * 0.14), int(s * 0.13)
+    lines = [(pad, pad, s - pad, s - pad), (s - pad, pad, pad, s - pad)]
+    glow = Image.new("RGBA", (s, s), (0, 0, 0, 0))
+    gd = ImageDraw.Draw(glow)
+    for ln in lines:
+        gd.line(ln, fill=X_RED + (170,), width=w + 40)
+    glow = glow.filter(ImageFilter.GaussianBlur(s * 0.035))
+    body = Image.new("RGBA", (s, s), (0, 0, 0, 0))
+    bd = ImageDraw.Draw(body)
+    for ln in lines:
+        bd.line(ln, fill=(25, 10, 10, 230), width=w + 18)
+    for ln in lines:
+        bd.line(ln, fill=X_RED + (255,), width=w)
+    for x0, y0, x1, y1 in lines:      # 둥근 끝 — line()은 끝이 뭉툭하게 잘려 X가 딱딱해 보인다
+        for cx, cy in ((x0, y0), (x1, y1)):
+            r = w // 2
+            bd.ellipse([cx - r, cy - r, cx + r, cy + r], fill=X_RED + (255,))
+    Image.alpha_composite(glow, body).resize((size, size), Image.LANCZOS).save(out)
+
+
+def _negation_track(topic, td, inputs, fc, cur, n, cues, opening_end, ad_png):
+    """xray.json `negations` — 부정하는 문장 동안 틀린 쪽 클립을 깔고, 부정하는 말에서 빨간 X를 얹는다.
+
+    WHY 여기서 따로 덮는지: 도입부 묶음은 fill_until까지 한 비율로 늘어나서 어느 클립이 그 문장에 걸릴지
+    정할 수 없다. 문장 시각에 맞춰 그 위에 한 번 더 덮는다. 도입부(전체 화면)면 가려진 자막·광고 표시를
+    다시 얹고, 본문이면 위쪽 영상 칸 안에만 넣는다(칠판 자막은 칸 밖이라 안 가려진다)."""
+    from lib.xray_timeline import negations
+    marks = negations(topic, [(s, e, t) for s, e, t in cues])
+    for k, m in enumerate(marks):
+        t0 = round((m["start"] + TITLE_CARD_SEC) * 30) / 30
+        tx = round((m["x_start"] + TITLE_CARD_SEC) * 30) / 30
+        t1 = round((m["end"] + TITLE_CARD_SEC) * 30) / 30
+        full = opening_end is not None and t0 < opening_end
+        px, py, pw, ph = (0, 0, W, H) if full else XRAY_PANEL
+        if m["clip"]:
+            clip = (ROOT / m["clip"]).resolve()
+            if not clip.exists():
+                raise SystemExit(f"negations 클립 없음: {m['clip']} — clip_requests.json에 적을 것")
+            d = t1 - t0
+            sp = d / _dur(clip)
+            slow = (f"setpts={sp:.4f}*(PTS-STARTPTS),minterpolate=fps=30:mi_mode=mci:mc_mode=aobmc"
+                    if sp > 1.15 else f"setpts={sp:.4f}*(PTS-STARTPTS)")
+            fit = f"scale={W}:{H}" if full else f"scale={pw}:-2,crop={pw}:{ph}:0:'min(ih-{ph},ih*0.35)'"
+            inputs += ["-i", str(clip)]
+            fc.append(f"[{n}:v]{fit},{slow},fps=30,setpts=N/30/TB,tpad=stop_mode=clone:stop=60,"
+                      f"trim=end_frame={round(d * 30) + 1},setpts=N/30/TB+{t0}/TB,format=rgba[ng{k}]")
+            n += 1
+            src = f"ng{k}"
+            if not full:
+                mask = td / f"ngmask{k}.png"
+                mm = Image.new("L", (pw, ph), 0)
+                ImageDraw.Draw(mm).rounded_rectangle([0, 0, pw - 1, ph - 1], radius=28, fill=255)
+                mm.save(mask)
+                inputs += ["-loop", "1", "-t", f"{d + 1:.3f}", "-i", str(mask)]
+                fc.append(f"[{n}:v]format=gray,setpts=PTS-STARTPTS+{t0}/TB[ngm{k}];[ng{k}][ngm{k}]alphamerge[nga{k}]")
+                n += 1
+                src = f"nga{k}"
+            fc.append(f"[{cur}][{src}]overlay={px}:{py}:eof_action=pass:"
+                      f"enable='between(t,{t0:.4f},{t1 + 1 / 30:.4f})'[ngo{k}]")
+            cur = f"ngo{k}"
+            if full:
+                for j, (cs, ce, text) in enumerate(chunk_caption_entries(cues)):
+                    s, e = max(cs + TITLE_CARD_SEC, t0), min(ce + TITLE_CARD_SEC, t1)
+                    if e - s < 0.2:
+                        continue
+                    png = td / f"ngcap_{k}_{j}.png"
+                    _caption_png(text, png)
+                    inputs += ["-i", str(png)]
+                    fc.append(f"[{cur}][{n}:v]overlay=x=(W-w)/2:y={CAPTION_CENTER_Y}-h/2:"
+                              f"enable='between(t,{s:.3f},{e:.3f})'[ngk{k}_{j}]")
+                    cur, n = f"ngk{k}_{j}", n + 1
+                if ad_png is not None:
+                    inputs += ["-i", str(ad_png)]
+                    fc.append(f"[{cur}][{n}:v]overlay=x={NAVER_SAFE_RIGHT}-w:y={NAVER_SAFE_TOP}:"
+                              f"enable='between(t,{t0},{t1})'[nga_{k}]")
+                    cur, n = f"nga_{k}", n + 1
+        # 도입부에선 자막(머리 높이) 아래 몸통 한가운데, 본문에선 영상 칸 한가운데
+        size = 560 if full else int(min(pw, ph) * 0.78)
+        cx, cy = (W // 2, int(H * 0.55)) if full else (px + pw // 2, py + ph // 2)
+        xp = td / f"xmark_{size}.png"
+        if not xp.exists():
+            _x_mark_png(size, xp)
+        inputs += ["-loop", "1", "-t", f"{t1 - tx + 1:.3f}", "-i", str(xp)]
+        fc.append(f"[{n}:v]format=rgba,fade=t=in:st=0:d={X_FADE}:alpha=1,setpts=PTS-STARTPTS+{tx}/TB[xm{k}]")
+        fc.append(f"[{cur}][xm{k}]overlay=x={cx - size // 2}:y={cy - size // 2}:eof_action=pass:"
+                  f"enable='between(t,{tx:.4f},{t1:.4f})'[xo{k}]")
+        cur, n = f"xo{k}", n + 1
+    return cur, n
+
+
 SUMMARY_XFADE = 0.3     # 영상 칸 레이아웃 → 칠판 전체로 넘어갈 때 칠판이 갑자기 커져 튀지 않게
 
 
@@ -390,6 +487,9 @@ def main() -> None:
         if a.panel:
             panel_windows = [(t, t + d) for (t, _c, d), f in zip(inserts, chain_flags) if f is False]
             cur, n = _panel_track(a.topic, td, inputs, fc, cur, n, ad if a.ad_tag else None, panel_windows)
+        # 칸 트랙 뒤에 얹어야 X가 기전 클립에 안 덮이고, 결론 칠판보다 앞이어야 결론 화면을 안 건드린다
+        cur, n = _negation_track(a.topic, td, inputs, fc, cur, n, cues, a.fill_until, ad if a.ad_tag else None)
+        if a.panel:
             cur, n = _summary_board(a.topic, inputs, fc, cur, n, a.base)
         fc.append(f"{''.join(amix)}amix=inputs={len(amix)}:duration=first:normalize=0[aout]")
         # --base nocta면 결과도 nocta/ 안에 둔다 — 안 그러면 유튜브판이 네이버판을 덮어쓴다(2026-09-21 실측)

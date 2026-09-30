@@ -62,6 +62,46 @@ def resolve(topic: str) -> list[dict] | None:
             for i, (st, t) in enumerate(zip(starts, tl))]
 
 
+NEGATION_HOLD = 0.4        # 부정하는 말이 끝난 뒤에도 X를 잠깐 더 남긴다 — 말과 동시에 사라지면 못 읽는다
+
+
+def _time_after(phrase: str, cues, t_min: float) -> tuple[float, float]:
+    """t_min 이후 자막에서 구절을 찾아 (구절 시작 시각, 그 자막 끝 시각). 같은 말이 앞에도 나올 수 있어서
+    ("아니에요"는 한 원고에 여러 번 나온다) 부정 문장 시작 뒤부터만 찾는다."""
+    for s, e, text in cues:
+        if e <= t_min:
+            continue
+        k = text.find(phrase)
+        if k >= 0:
+            before = len(re.sub(r"\s", "", text[:k]))
+            total = len(re.sub(r"\s", "", text)) or 1
+            return max(s + (e - s) * before / total, t_min), e
+    raise ValueError(f"xray.json negations 구절을 자막에서 못 찾음: {phrase!r}")
+
+
+def negations(topic: str, cues=None) -> list[dict]:
+    """xray.json `negations` → [{start, x_start, end, clip}] (나레이션 기준 초).
+
+    WHY(2026-09-30 사용자 "뭔가가 아니다 라고할 때는 … X 이런거 빨간색으로 띄워주는거 어때?"): 통념을
+    뒤집는 문장("교차복용은 기본 방법이 아니에요")은 말로만 지나가면 틀린 쪽 그림이 맞는 쪽처럼 남는다.
+    그 문장 동안 틀린 쪽을 하는 클립을 깔고(`clip`, `from`부터), 부정하는 말(`x_at`)이 나오는 순간 빨간 X를
+    얹어 "이건 아니다"를 화면으로 못박는다. `x_at`이 없으면 `from`에서 바로 X를 띄운다."""
+    path = tracks.data_dir(topic) / "xray.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8")).get("negations") or []
+    if not items:
+        return []
+    cues = cues if cues is not None else _cues(topic)
+    out = []
+    for it in items:
+        start, cue_end = _time_after(it["from"], cues, 0.0)
+        x_start, x_cue_end = _time_after(it["x_at"], cues, start) if it.get("x_at") else (start, cue_end)
+        out.append({"start": start, "x_start": x_start, "end": x_cue_end + NEGATION_HOLD,
+                    "clip": it.get("clip")})
+    return out
+
+
 def summary_start(topic: str) -> float | None:
     """해결책·요약 구간이 시작하는 시각(초). xray.json의 summary_from 구절 기준, 없으면 None.
 
