@@ -303,7 +303,7 @@ top_title     "명치가 쥐어짜듯 아프다면"        ← 증상. 검색어
 | `baby_cu_torso` | `part_baby_stomach` · `part_baby_intestine` · `part_baby_liver` · `part_baby_belly` |
 | `baby_cu_head_side` | `part_baby_middle_ear` · `part_baby_nose` |
 | `baby_cu_airway` | `part_baby_bronchiole` |
-| `baby_cu_mouth_throat` | `part_baby_mouth` |
+| `cu_mouth`(성인 스틸 — 입안 단면은 나이가 안 드러남, 아기 버전은 미드저니가 계속 괴물로 뽑아 뺌) | `part_baby_mouth` |
 | `baby_cu_skin_layers` | `part_baby_skin` |
 
 ### 행위 칸은 보호자다
