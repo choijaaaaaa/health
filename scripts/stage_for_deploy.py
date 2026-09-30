@@ -39,7 +39,6 @@ sys.path.insert(0, str(ROOT))
 from lib import tracks  # noqa: E402
 
 OUTPUT_DIR = ROOT / "output"
-DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 
 
 def _iter_topics() -> list[tuple[str, Path]]:
@@ -65,9 +64,9 @@ def _copy_if_newer(src: Path, dest: Path, dry_run: bool, seen: set[Path]) -> boo
     seen.add(dest)
     if dest.exists() and dest.stat().st_mtime >= src.stat().st_mtime:
         return False
-    rel_label = dest.relative_to(DEPLOY_DIR)
+    rel_label = dest.relative_to(tracks.DEPLOY_ROOT)
     if dry_run:
-        print(f"[dry-run] {src} -> health-shorts/{rel_label}")
+        print(f"[dry-run] {src} -> {rel_label}")
     else:
         dest.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(src, dest)
@@ -98,8 +97,8 @@ def _missing_clip_caption(topics: list[str]) -> list[str]:
     import json
     out = []
     for t in topics:
-        for cand in (ROOT / "data" / t / "platform_captions.json",
-                     ROOT / "data" / t / "ko" / "platform_captions.json"):
+        for cand in (tracks.data_dir(t) / "platform_captions.json",
+                     tracks.data_dir(t) / "ko" / "platform_captions.json"):
             if not cand.is_file():
                 continue
             try:
@@ -113,12 +112,13 @@ def _missing_clip_caption(topics: list[str]) -> list[str]:
 
 
 def stage(dry_run: bool) -> None:
-    DEPLOY_DIR.mkdir(parents=True, exist_ok=True)
+    for root in tracks.deploy_roots():
+        root.mkdir(parents=True, exist_ok=True)
     copied = skipped = 0
     seen: set[Path] = set()
 
     for topic, topic_dir in _iter_topics():
-        dest_dir = DEPLOY_DIR / topic
+        dest_dir = tracks.deploy_dir(topic)
         # 네이버 클립판(제품 보러 가기 O·광고 표시 X)과 유튜브판(화살표 X·광고 표시 O)을 **이름으로**
         # 가른다 — 같은 이름으로 두면 올릴 때 어느 쪽인지 열어봐야 안다(2026-09-24).
         pairs = [(_final_video(topic_dir), dest_dir / "네이버클립.mp4")]
@@ -145,7 +145,7 @@ def stage(dry_run: bool) -> None:
     # deploy/ko/ 최상위를 같이 써서 이름 형태(밑줄 vs 공백)로 구분해야
     # 했지만, 전용 서브폴더로 분리된 뒤로는 불필요해짐.
     stale = [] if dry_run else [
-        p for p in DEPLOY_DIR.rglob("*") if p.is_file() and p not in seen
+        p for root in tracks.deploy_roots() for p in root.rglob("*") if p.is_file() and p not in seen
     ]
     # 🚨 카드뉴스는 원본이 사라진 파일을 **지운다.** 파일명이 항목 이름이라 원고를 고치면
     # ("매운 음식" → "빈속 커피") 옛 카드가 새 카드와 나란히 남고, 업로드할 때 둘 다 집어
@@ -160,9 +160,9 @@ def stage(dry_run: bool) -> None:
             print("   -", p.name)
     rest = [p for p in stale if p not in removed]
     if rest:
-        print(f"\n⚠️  deploy/health-shorts/에 원본을 못 찾은 파일 {len(rest)}개(삭제 안 함, 직접 확인할 것):")
+        print(f"\n⚠️  deploy 사본 중 원본을 못 찾은 파일 {len(rest)}개(삭제 안 함, 직접 확인할 것):")
         for p in rest:
-            print("   -", p.relative_to(DEPLOY_DIR))
+            print("   -", p.relative_to(tracks.DEPLOY_ROOT))
 
     if no_cap := _missing_clip_caption([t for t, _ in _iter_topics()]):
         print(f"\n🚨 영상은 있는데 `네이버 클립` 캡션이 없는 topic {len(no_cap)}개 — "
@@ -171,7 +171,7 @@ def stage(dry_run: bool) -> None:
             print("   -", t)
 
     print(f"\n완료 — 새로 복사/갱신 {copied}건, 이미 최신 {skipped}건")
-    print(f"deploy 위치: {DEPLOY_DIR}")
+    print("deploy 위치: " + ", ".join(str(r) for r in tracks.deploy_roots()))
 
 
 if __name__ == "__main__":

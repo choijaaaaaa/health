@@ -18,10 +18,14 @@ TRACKS: dict[str, dict] = {
     # 🚨 육아 트랙 브랜드는 「육아만사전」(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 … 다 반영") —
     # 작업대 시트·엔딩 카드·해시태그·미션컨트롤 탭이 이 이름을 쓴다. 내부 식별자(폴더 `육아/`, topic `육아_N`)는 그대로.
     "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "육아만사전", "stills": "baby",
-           "brand": "육아만사전", "end_card": "육아만사전 · 더 많은 육아정보는 구독·좋아요·팔로우"},
+           "brand": "육아만사전", "end_card": "육아만사전 · 더 많은 육아정보는 구독·좋아요·팔로우",
+           # 업로드용 사본 자리 — 건강만사전(deploy/health-shorts/)과 섞이지 않게 따로 뗀다(2026-09-30 사용자
+           # "deploy도 헬스숏츠가아니라 따로 뗴라고 분명히 말했찌?"). 댕냥사전이 deploy/dangnyang-shorts/인 것과 같은 식.
+           "deploy": "parenting-shorts"},
 }
 DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
-           "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우"}
+           "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
+           "deploy": "health-shorts"}
 
 
 def _base(topic: str) -> str:
@@ -122,6 +126,17 @@ def topic_of_path(path: Path, base: Path) -> str | None:
 # (2026-09-25 사용자 "매번 폴더 막 들어가서 작업하기 존나 힘드니까 deploy 폴더 안에 … 프롬프트 넣을 md랑
 # 스틸 넣을 공간만"). 건강만사전·댕냥사전·세상만사전이 같은 자리에 `<브랜드>.md` + `<브랜드>_스틸/`로 나란히 선다.
 DEPLOY_WORK = ROOT.parent / "ai-video-network" / "deploy" / "작업"
+DEPLOY_ROOT = ROOT.parent / "ai-video-network" / "deploy"
+
+
+def deploy_dir(topic: str) -> Path:
+    """업로드용 사본 폴더 — 트랙마다 따로(`deploy/health-shorts/<topic>`, `deploy/parenting-shorts/<topic>`)."""
+    return DEPLOY_ROOT / spec_of(topic)["deploy"] / _base(topic)
+
+
+def deploy_roots() -> list[Path]:
+    """트랙별 업로드 사본 폴더 전부 — 원본이 사라진 옛 사본을 훑을 때 쓴다."""
+    return [DEPLOY_ROOT / t["deploy"] for t in [DEFAULT, *TRACKS.values()]]
 
 
 def work_paths(track: str | None) -> tuple[Path, Path, Path]:

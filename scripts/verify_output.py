@@ -118,7 +118,7 @@ def check(topic: str) -> list[str]:
         bad.append("유튜브판(nocta/)이 없습니다 — 화살표 없이 광고 표시만 있는 판을 같이 만들어야 합니다")
     elif yt.stat().st_mtime < vt - 600:
         bad.append("유튜브판이 네이버판보다 낡았습니다 — 같이 다시 조립해야 합니다")
-    dep_dir = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts" / topic
+    dep_dir = tracks.deploy_dir(topic)
     for src, name in ((vid, "네이버클립.mp4"), (yt, "유튜브.mp4")):
         dep = dep_dir / name
         if not src.is_file():

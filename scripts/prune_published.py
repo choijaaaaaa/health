@@ -35,7 +35,6 @@ sys.path.insert(0, str(ROOT))
 
 from lib import tracks  # noqa: E402
 
-DEPLOY = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
 VERNHAVEN_ENV = ROOT.parent / "verticals" / "vernhaven-blog" / ".env.local"
 
 
@@ -87,7 +86,7 @@ def main() -> None:
         if (base / "card_news").is_dir():
             media.append(base / "card_news")
         media += sorted(base.glob("*.mp4")) + sorted(base.glob("*.mp3")) + sorted(base.glob("dashboard.html"))
-    deploy_dirs = [DEPLOY / t for t in sorted(blogged) if (DEPLOY / t).is_dir()]
+    deploy_dirs = [tracks.deploy_dir(t) for t in sorted(blogged) if tracks.deploy_dir(t).is_dir()]
 
     for group, label in ((lang_dirs, "언어 카드 폴더"), (media, "한국어 카드·영상·오디오"), (deploy_dirs, "배포 폴더 사본")):
         size = sum(_kb(p) for p in group)

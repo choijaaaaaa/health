@@ -39,7 +39,7 @@
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
 - 🚨 **유튜브는 채널 두 개** — 성인 건강 「건강만사전」 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 육아 「육아만사전」 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙(2026-09-30 이름 분리). **매일 18시 예약 게시**, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 launchd(com.healthshorts.ytupload → ~/.claude/cron-scripts/health_yt.sh)가 빈 슬롯을 채운다 — 크론은 맥이 잠들면 건너뛰어 9/28에 옮김(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
-- **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`.
+- **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`(건강만사전) · `deploy/parenting-shorts/<topic>/`(육아만사전, 2026-09-30 분리)에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`. 경로는 `tracks.deploy_dir()`로만 푼다.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),
   `scripts/cleanup_deploy.py --commit`(두 플랫폼 다 체크된 topic 사본만 지운다).
 - **나간 건 지운다** — 카드는 R2가 서빙하므로 로컬은 사본이다. `scripts/prune_published.py --commit`.

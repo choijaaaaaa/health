@@ -29,6 +29,7 @@ import argparse
 import json
 import os
 import shutil
+import sys
 import urllib.error
 import urllib.request
 from pathlib import Path
@@ -36,7 +37,8 @@ from pathlib import Path
 from dotenv import load_dotenv
 
 ROOT = Path(__file__).resolve().parent.parent
-DEPLOY_DIR = ROOT.parent / "ai-video-network" / "deploy" / "health-shorts"
+sys.path.insert(0, str(ROOT))
+from lib import tracks  # noqa: E402
 load_dotenv(ROOT / ".env")
 
 # WHY 기본 User-Agent를 갈아끼우는지: lib/mission_control_sync.py와 동일 사유
@@ -100,20 +102,20 @@ def main() -> None:
     args = parser.parse_args()
 
     completed = _completed_topics()
-    if not completed or not DEPLOY_DIR.is_dir():
+    if not completed:
         print("mission-control 기준 완료된 topic이 없습니다.")
         return
 
     removed = 0
     for topic in sorted(completed):
-        target = DEPLOY_DIR / topic
+        target = tracks.deploy_dir(topic)
         if not target.is_dir():
             continue
         if args.commit:
             shutil.rmtree(target)
-            print(f"삭제됨: deploy/health-shorts/{topic}")
+            print(f"삭제됨: {target.relative_to(tracks.DEPLOY_ROOT)}")
         else:
-            print(f"[dry-run] 삭제 예정: deploy/health-shorts/{topic}")
+            print(f"[dry-run] 삭제 예정: {target.relative_to(tracks.DEPLOY_ROOT)}")
         removed += 1
 
     verb = "삭제" if args.commit else "삭제 예정(--commit으로 실행)"

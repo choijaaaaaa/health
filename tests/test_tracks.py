@@ -76,3 +76,11 @@ def test_work_and_stills_dirs_are_split_per_track():
     assert sheet.parent == tracks.work_paths(None)[0].parent
     assert tracks.stills_dir("육아").name == "baby"
     assert tracks.stills_dir(None).name == "stills"
+
+
+def test_parenting_deploy_is_separate_from_health():
+    # 2026-09-30 사용자 "deploy도 헬스숏츠가아니라 따로 뗴라고" — 육아 사본이 건강만사전 폴더에 섞이면 안 된다
+    from lib import tracks
+    assert tracks.deploy_dir("육아_1").parent.name == "parenting-shorts"
+    assert tracks.deploy_dir("소화_14").parent.name == "health-shorts"
+    assert tracks.deploy_dir("육아_1/en").name == "육아_1"
