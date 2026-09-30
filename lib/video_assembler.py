@@ -544,17 +544,30 @@ def _make_title_card_png(text: str, out_path: Path, font_size=88, char_path: str
     _fpath, _findex = _title_font_for_lang(lang)
     draw = ImageDraw.Draw(img)
     max_text_w = W - 160
-    # WHY 한 덩어리 단어는 화면 폭까지 키우는지(2026-09-21 사용자 "존나 크게 딱 박아 화면에"): 썸네일 문구를
-    # 병명 하나로 줄인 뒤에도 88px 그대로면 큰 화면 가운데 작은 글자만 남는다. 줄바꿈이 필요 없는 짧은 문구는
-    # 폭의 88%를 채울 때까지 키운다(최대 300px — 그 이상은 한글 자소가 가장자리에서 잘린다).
-    if len(text.split()) == 1 and len(text) <= 8:
-        size = font_size
-        while size < 300:
-            f2 = ImageFont.truetype(_fpath, size + 8, index=_findex)
-            if draw.textlength(text, font=f2) > W * 0.88:
+    # WHY 썸네일 문구는 늘 화면 폭까지 키우는지(2026-09-21 "존나 크게 딱 박아 화면에", 2026-09-30 "썸네일 글자
+    # 작게 박는 경우도 있네 크게크게 박어 … 건강만사전뿐만아니라 육아에도, 댕냥 전부"): 예전엔 띄어쓰기 없는 8자
+    # 이하만 키워서 "아기 고열"·"신장 수치"처럼 짧아도 띄어 쓴 병명은 88px로 남았다. 단어 단위로 줄을 나눠도
+    # 되니(최대 3줄) 모든 줄이 폭의 88% 안에 들고 전체 높이가 화면 절반을 넘지 않는 데까지 키운다(최대 300px —
+    # 그 이상은 한글 자소가 가장자리에서 잘린다).
+    # 띄어쓰기 없는 긴 병명("과민성대장증후군")은 한 줄에 넣으려다 폭에 막혀 작게 남는다 — 병명 꼬리말 앞에서
+    # 줄을 나눠 두 줄로 키운다. 아무 데서나 자르면 "발뒤꿈/치갈라짐"처럼 말이 깨져서 꼬리말일 때만 나눈다.
+    if lang == "kor" and len(text.split()) == 1 and len(text) >= 6:
+        for suf in ("증후군", "장애", "질환", "결핍", "저하", "부족", "과다"):
+            if text.endswith(suf) and len(text) - len(suf) >= 2:
+                text = f"{text[:-len(suf)]} {suf}"
                 break
-            size += 8
-        font_size = size
+    max_lines = max(1, min(len(text.split()), 3))
+    fit_w = int(W * 0.88)
+    size = font_size
+    while size < 300:
+        f2 = ImageFont.truetype(_fpath, size + 8, index=_findex)
+        ls = _wrap_text_for_lang(draw, text, f2, fit_w, lang)
+        if (len(ls) > max_lines or max(draw.textlength(x, font=f2) for x in ls) > fit_w
+                or (size + 8 + 26) * len(ls) > H * 0.5):
+            break
+        size += 8
+    if size > font_size:
+        font_size, max_text_w = size, fit_w
     font = ImageFont.truetype(_fpath, font_size, index=_findex)
     lines = _wrap_text_for_lang(draw, text, font, max_text_w, lang)
 
