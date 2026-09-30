@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import datetime as dt
 import json
+import re
 import shutil
 import sys
 import time
@@ -66,15 +67,21 @@ def _with_ref(prompt: str, ref: str, mode: str, refs: dict[str, str]) -> str:
     # 아기 몸 비례는 모양 참조(Omni)라야 고정된다 — Omni는 V7 전용이라 --v 7도 같이.
     baby = Path(ref).stem.startswith("baby_")
     if baby:
-        # 🚨 모양은 아기 캐논(--oref), 화풍은 성인 캐논(--sref) 둘 다 — --oref 하나만 넣었더니(2026-09-30 1차) 몸 비례는
-        # 잡혔는데 회색 스튜디오·유리 상자·어른 얼굴·살색 인형으로 화풍이 풀렸다("이전이랑 좀 다른 스타일인데 이게 맞나").
+        # 🚨 아기 장면은 성인 캐논 --sref(화풍)만 + 직접 표현 문구(2026-09-30 세 번 시험한 결론):
+        #  ① --sref만+돌려 말한 문구 → 어른 비례  ② --oref(아기 캐논)만 → 비례는 잡혔는데 회색 스튜디오·유리 상자·어른 얼굴
+        #  ③ --oref+--sref → 화풍은 돌아왔지만 캐논의 "정면 전신" 구도로 끌려가 트림 장면이 선 아기+전신 어른이 됐다.
+        # 모양 참조(Omni)는 캐논 구도까지 끌고 오니 장면용으론 못 쓴다. 비례는 직접 표현 문구가, 화풍은 --sref가 맡는다.
         style = ensure("stills/canon_organs.jpg", refs)
-        tag = f"--oref {url} --sref {style} --v 7"
+        tag = f"--sref {style}"
+        # "3D anatomical model(s)"이 박물관 진열 모형으로 읽혀 유리 상자가 계속 생겼다
+        prompt = re.sub(r"3D anatomical models?", "hologram figures" if "two" in prompt[:120] else "hologram figure", prompt)
     body = prompt.split(" --", 1)[0].rstrip().rstrip(",")
     no = " --no " + prompt.split(" --no ", 1)[1] if " --no " in prompt else " --no text, letters, numbers, labels, arrows, watermark, logo"
     if baby:
-        no += (", glass box, display case, container, pedestal, grey backdrop, studio floor, floor reflection,"
-               " adult head, adult face, skin-colored body, opaque skin, doll")
+        body = body.rstrip(".") + (". The frame is cropped so the adult's head and face are entirely outside it —"
+                 " only the adult's hands, arms and at most a shoulder are visible." if "two " in body[:120] else ".")
+        no += (", glass box, display case, museum model, container, pedestal, grey backdrop, studio floor, floor reflection,"
+               " adult head, adult face, adult full body, skin-colored body, opaque skin, doll")
     return f"{body} --ar 9:16 {tag}{no}"
 
 def _unopened_deliveries() -> list[Path]:
