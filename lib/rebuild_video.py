@@ -23,6 +23,7 @@ from lib.templates.proto_checklist import render as _render_checklist
 from lib.mission_control_log import report_issue
 
 ROOT = Path(__file__).resolve().parent.parent
+OUTRO_KOR = ROOT / "assets_library" / "outro" / "double_tap_kor.mp3"
 ILLUST_DIR = ROOT / "assets_library" / "illust"
 MOTION_DIR = ROOT / "assets_library" / "motion"
 REAL_DIR = ROOT / "assets_library" / "real"
@@ -674,6 +675,8 @@ def derive(topic: str) -> dict:
         title_banner_photo_path=banner_photo,
         end_card_text=end_card_text,
         end_card_char_path=resolve_char_image(cover_char_file),
+        # 엔딩 멘트("도움이 되셨다면 … 화면 더블클릭 부탁드립니다") — 채널 목소리로 한 번 뽑아 둔 파일, 한국어판만
+        end_card_audio=str(OUTRO_KOR) if lang == "kor" and OUTRO_KOR.exists() else None,
         lang=lang,
         item_label_overrides=item_label_overrides,
         topic_word=topic_word,

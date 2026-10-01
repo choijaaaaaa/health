@@ -3190,6 +3190,21 @@ XRAY_ITEM_LABEL_Y = 228
 TOP_TITLE_Y = 100          # 네이버 닫기·분석 버튼(y<100) 바로 아래, 칠판 윗테(y≈170) 위
 
 
+OUTRO_GAP = 0.5      # 나레이션이 끝나고 엔딩 멘트가 시작되기까지 — 바로 붙으면 본문 마지막 문장처럼 들린다
+OUTRO_TAIL = 0.6     # 멘트가 끝난 뒤 카드가 조금 더 머문다 — 말 끝과 동시에 영상이 끝나면 잘린 것처럼 들린다
+
+
+def _narration_with_outro(offset_ms: int, end_pad: float, outro_dur: float, outro_idx: int,
+                          narration_end: float, total: float, out_label: str) -> str:
+    """나레이션 오디오 필터 조각. 엔딩 멘트가 있으면 나레이션 끝 + OUTRO_GAP 시각에 얹어 하나로 섞는다."""
+    if not outro_dur:
+        return f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[{out_label}]"
+    at = int((narration_end + OUTRO_GAP) * 1000)
+    return (f"[1:a]adelay={offset_ms}|{offset_ms},apad=whole_dur={total:.3f}[nv0];"
+            f"[{outro_idx}:a]adelay={at}|{at},apad=whole_dur={total:.3f}[ov0];"
+            f"[nv0][ov0]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[{out_label}]")
+
+
 def _probe_duration(path) -> float:
     r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                         str(path)], capture_output=True, text=True, check=True)
@@ -3572,6 +3587,7 @@ def assemble(
     end_card_duration: float = 2.0,
     end_card_text: str | None = None,
     end_card_char_path: str | None = None,
+    end_card_audio: str | None = None,
     # WHY title_banner_photo_path(2026-08-02, "분홍색 바탕 없애도 되고 바탕으로는
     # 그 항목에 대한 real 이미지를 흐린 색으로"): 상단 배너의 단색 배경을 topic
     # 대표 실사진 블러로 바꾼다. 안 주면 기존 단색 배경 그대로 폴백.
@@ -3846,6 +3862,13 @@ def assemble(
 
         # 0-2) 맨 끝 엔딩 카드 — 제목 카드와 같은 스타일(단색+큰 글자)로 구독/좋아요/
         # 팔로우 CTA. end_card_duration=0이면 통째로 스킵(기존 인트로 스킵 패턴과 동일).
+        # WHY 엔딩 카드에 고정 멘트 음성을 얹는지(2026-10-01 사용자 "마지막에 그냥 끝내버리는데 말고 도움이 되셨다면
+        # 계속해서 영상을 만들 수 있도록 화면 더블클릭 부탁드립니다. 이런거 tts좀 추가 … 하나만 만들어놓고 매번
+        # 조립만"): 목소리가 채널마다 고정이라 한 번 뽑은 파일(assets_library/outro/)을 매번 붙인다. 카드는 그
+        # 멘트가 끝날 때까지 늘린다 — 2초 카드에 4초 멘트를 얹으면 말이 잘린다.
+        outro_dur = _probe_duration(end_card_audio) if end_card_audio and end_card_duration > 0 else 0.0
+        if outro_dur:
+            end_card_duration = max(end_card_duration, OUTRO_GAP + outro_dur + OUTRO_TAIL)
         end_card_out = None
         if end_card_duration > 0:
             end_card_png = tmp_path / "end_card.png"
@@ -4167,15 +4190,21 @@ def assemble(
         )
         if bgm_result is not None:
             bgm_frag, bgm_track = bgm_result
-            narr_frag = f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[narr]"
+            narr_frag = _narration_with_outro(offset_ms, end_pad, outro_dur, 3, intro_offset + total_duration,
+                                              video_total_duration, "narr")
             filter_complex = (
                 f"{narr_frag};{bgm_frag};"
                 f"[narr][bgm]amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]"
             )
             mux_inputs = ["-i", str(captioned), "-i", audio_path, "-i", str(bgm_track)]
+            if outro_dur:
+                mux_inputs += ["-i", str(end_card_audio)]
         else:
-            filter_complex = f"[1:a]adelay={offset_ms}|{offset_ms},apad=pad_dur={end_pad}[a]"
+            filter_complex = _narration_with_outro(offset_ms, end_pad, outro_dur, 2, intro_offset + total_duration,
+                                                   video_total_duration, "a")
             mux_inputs = ["-i", str(captioned), "-i", audio_path]
+            if outro_dur:
+                mux_inputs += ["-i", str(end_card_audio)]
 
         # WHY 여기서 CTA를 합치는지(2026-09-14): 플랫폼이 영상 하단에 붙이는 제휴
         # 광고 배너로 시선을 내리는 장치다(lib/ad_cta.py 참고). 오디오 mux와 같은
