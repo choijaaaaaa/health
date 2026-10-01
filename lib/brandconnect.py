@@ -41,6 +41,21 @@ PROFILE = Path.home() / ".config" / "health-shorts" / "brandconnect-chrome"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 PORT = 9333        # 127.0.0.1 전용. ~/.claude/system-map.md에 등록
 SPACE_ID = json.loads((ROOT / "data" / "affiliate_accounts.json").read_text())["naver_brandconnect_id"]
+# 🚨 육아만사전은 브랜드커넥트 계정이 다르다(2026-10-01 사용자 "육아만사전은 chlwjddms17이다 이거에서 브랜드커넥트
+# 링크걸어야해") — 한입정보(1biteinfo)와 같은 계정·같은 전용 Chrome(9335)이다. health 계정으로 발급하면 수수료가
+# 엉뚱한 계정으로 간다. 도메인마다 (프로필, 포트, 스페이스 ID)를 바꿔 끼운다.
+_ACCOUNTS = {
+    "health": (PROFILE, PORT, SPACE_ID),
+    "baby": (Path.home() / ".config" / "1biteinfo" / "brandconnect-chrome", 9335,
+             json.loads((ROOT.parent / "ai-video-network" / "1biteinfo" / "data" / "affiliate_accounts.json")
+                        .read_text())["naver_brandconnect_id"]),
+}
+
+
+def use_account(domain: str) -> None:
+    """이후 검색·발급을 그 도메인 계정으로 한다. pet은 발급을 안 하므로 health 계정으로 검색만 한다."""
+    global PROFILE, PORT, SPACE_ID
+    PROFILE, PORT, SPACE_ID = _ACCOUNTS.get(domain, _ACCOUNTS["health"])
 SEARCH_URL = "https://brandconnect.naver.com/{sid}/affiliate/products/search?query={q}&tab=product"
 API_MARK = "affiliate-products/search-by-query"
 PAUSE = (2.5, 5.0)   # 검색 사이 대기(초) — 사람이 직접 찾는 속도를 넘지 않게
@@ -339,7 +354,7 @@ def save_link(product: str, url: str) -> None:
 CATALOG = ROOT / "data" / "_audit" / "brandconnect_catalog.json"
 # 댕냥사전(신규)용 — 건강 쪽 링크 테이블(global_product_links)과 섞지 않도록 카탈로그 파일에만 둔다
 CATALOG_PET = ROOT / "data" / "_audit" / "brandconnect_catalog_pet.json"
-# 육아 트랙(2026-09-20 신설) — 브랜드커넥트 계정은 health와 같은 걸 쓰므로 링크 발급도 그대로 한다
+# 육아 트랙(2026-09-20 신설) — 계정은 육아만사전(chlwjddms17)이라 use_account("baby")로 발급한다
 CATALOG_BABY = ROOT / "data" / "_audit" / "brandconnect_catalog_baby.json"
 SEED = ROOT / "data" / "brandconnect_seed.json"
 
@@ -374,13 +389,53 @@ def all_products(domain: str = "health") -> list[str]:
     return out
 
 
+def reissue_baby() -> None:
+    """health 계정으로 잘못 발급해 둔 육아 링크를 육아만사전 계정으로 다시 발급해 바꿔 끼운다.
+
+    건강 품목과 이름이 같은 품목은 건너뛴다 — 링크 표가 품목 이름 하나에 링크 하나라 두 계정을 동시에 못 담는다
+    (육아 topic은 "아기 ○○"처럼 육아 전용 이름을 써야 한다)."""
+    use_account("baby")
+    if sys.platform == "darwin":
+        subprocess.Popen(["caffeinate", "-ims", "-w", str(os.getpid())])
+    cat = json.loads(CATALOG_BABY.read_text(encoding="utf-8"))
+    shared = set(all_products("health")) | set(seed_items("health"))
+    have = existing_naver_links()
+    todo = [n for n, v in cat.items() if v.get("chosen") and v.get("link") and n not in shared
+            and v.get("account") != "baby"]
+    print(f"[brandconnect] 육아 계정으로 재발급 {len(todo)}개 (건강과 이름이 같은 {len(shared & set(cat))}개는 제외)", flush=True)
+    with _session() as pg:
+        # 발급 API는 브랜드커넥트 페이지 안에서 불러야 쿠키가 붙는다 — 빈 탭에서 부르면 "Failed to fetch"로 전부 실패했다
+        pg.goto(f"https://brandconnect.naver.com/{SPACE_ID}/affiliate/products", wait_until="domcontentloaded")
+        for i, name in enumerate(todo, 1):
+            time.sleep(random.uniform(*PAUSE))
+            ent = cat[name]
+            try:
+                link = issue(pg, {"id": ent["chosen"]["id"]})
+                cur = have.get(name)
+                if cur and cur != ent["link"]:
+                    print(f"  {i}/{len(todo)} 건너뜀 {name}: 사용자가 바꾼 링크가 있음", flush=True)
+                    continue
+                if cur:
+                    replace_link(name, cur, link)
+                else:
+                    save_link(name, link)
+                ent.update(link=link, link_saved=True, account="baby")
+                print(f"  {i}/{len(todo)} 재발급 {name}", flush=True)
+            except Exception as e:
+                print(f"  {i}/{len(todo)} 오류 {name}: {str(e)[:120]}", flush=True)
+                if "has been closed" in str(e):
+                    break
+            CATALOG_BABY.write_text(json.dumps(cat, ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str = "health",
           recheck_missing: bool = True) -> None:
     """전 품목을 검색해 카탈로그를 만들고, 링크가 없는 품목은 발급한다. 중단 후 재실행하면 이어서.
     health: 기본 트랙 topic 품목 + seed(health), 링크를 global_product_links에도 저장.
-    baby: seed(baby) + 육아 트랙 topic 품목, health와 같은 계정이라 링크도 똑같이 저장한다.
+    baby: seed(baby) + 육아 트랙 topic 품목, 육아만사전 계정(chlwjddms17)으로 발급해 저장한다.
     pet: seed(pet)만, 링크는 카탈로그 파일에만."""
     catalog_path = {"pet": CATALOG_PET, "baby": CATALOG_BABY}.get(domain, CATALOG)
+    use_account(domain)
     # 댕냥사전은 브랜드커넥트 계정(스페이스 ID)이 다르다(2026-09-19 사용자) — 이 계정으로 발급한 링크는 수수료가
     # 엉뚱한 계정으로 간다. 상품이 있는지는 어느 계정으로 봐도 같으므로 확인만 하고 발급은 절대 안 한다.
     if domain == "pet":
@@ -425,7 +480,7 @@ def sweep(issue_missing: bool = True, only: list[str] | None = None, domain: str
                     # 재실행마다 같은 상품을 다시 발급했다. pet은 계정이 달라 발급 자체를 안 한다.
                     if domain in ("health", "baby"):
                         save_link(name, link)
-                    ent.update(link=link, link_saved=True)
+                    ent.update(link=link, link_saved=True, account=domain)
                 elif name in have:
                     ent["link"] = have[name]
                 cat[name] = ent
@@ -457,6 +512,7 @@ def check_topic(topic: str) -> dict:
             time.sleep(random.uniform(*PAUSE))
         # WHY domain을 넘기는지(2026-09-24): 안 넘기면 health 기준이라 육아 topic의 "아기 로션"류가
         # _KID_WORDS에 걸려 전부 거짓 "없음"으로 찍히고, content_review가 그 파일을 그대로 믿는다.
+        use_account(tracks.domain_of(topic))
         pick = choose(_q(name), search(_q(name), limit=40), tracks.domain_of(topic))
         out["products"][name] = {"found": bool(pick), "chosen": pick}
         print(f"  {'O' if pick else 'X'} {name}"
@@ -509,8 +565,12 @@ def write_unavailable() -> dict:
 
 if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else ""
+    if "--baby" in sys.argv:
+        use_account("baby")
     if cmd == "login":
         login()
+    elif cmd == "reissue-baby":
+        reissue_baby()
     elif cmd == "search" and len(sys.argv) > 2:
         for h in search(sys.argv[2]):
             print(f"{h['commission']:>4}%  리뷰{h['reviews']:>6}  {h['price']:>7}원  {h['name'][:50]}  {h['link'] or '(링크 미발급)'}")

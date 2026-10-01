@@ -194,7 +194,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   안 걸리면 "확인필요". 카탈로그 `data/_audit/brandconnect_catalog.json`(health)·`_baby.json`·`_pet.json`,
   금지 목록 `data/brandconnect_unavailable.json`.
 - 도메인은 `tracks.domain_of(topic)`이 정한다 — 육아(`baby`)는 `_KID_WORDS`(유아용품 제외)를 안 걸고, `content_review`도
-  도메인 카탈로그를 본다. 육아 계정은 health와 같아 링크 발급·저장까지 한다. **댕냥사전(pet)은 계정이 달라 발급 금지**.
+  도메인 카탈로그를 본다. 🚨 **육아만사전은 브랜드커넥트 계정이 다르다 — chlwjddms17(한입정보와 같은 계정, 전용 Chrome 9335, `login --baby`)**. `use_account("baby")`가 sweep·check에서 자동으로 바뀐다(2026-10-01, health 계정으로 잘못 받은 육아 링크는 `reissue-baby`로 전부 교체함). 링크 표가 품목 이름 하나에 링크 하나라 **육아 품목은 건강과 겹치지 않는 이름**("아기 ○○"·"유아 ○○")을 쓴다. **댕냥사전(pet)은 계정이 달라 발급 금지**.
 - 링크는 `global_product_links`(market=naver)에 저장된다. 사용자가 직접 넣은 링크는 덮어쓰지 않는다. 입력값 `-`는 링크
   없음과 같다. 검색 간격은 2.5~5초. 로그인 세션을 서버·저장소에 두지 말 것.
 
