@@ -84,3 +84,16 @@ def test_parenting_deploy_is_separate_from_health():
     assert tracks.deploy_dir("육아_1").parent.name == "parenting-shorts"
     assert tracks.deploy_dir("소화_14").parent.name == "health-shorts"
     assert tracks.deploy_dir("육아_1/en").name == "육아_1"
+
+
+def test_parenting_blog_url_is_its_own_account():
+    # 육아만사전 블로그는 chlwjddms17 — 건강만사전(chlwjddms16) 블로그로 올리면 안 된다
+    import json
+    from lib import tracks
+    for d in tracks.iter_topic_dirs(tracks.ROOT / "data"):
+        p = d / "platform_captions.json"
+        if not p.exists():
+            continue
+        for pl in json.loads(p.read_text(encoding="utf-8")).get("platforms", []):
+            if pl.get("name") == "네이버 블로그":
+                assert pl.get("url") == tracks.spec_of(d.name)["naver_blog"], (d.name, pl.get("url"))

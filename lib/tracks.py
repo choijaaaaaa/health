@@ -21,11 +21,14 @@ TRACKS: dict[str, dict] = {
            "brand": "육아만사전", "end_card": "육아만사전 · 더 많은 육아정보는 구독·좋아요·팔로우",
            # 업로드용 사본 자리 — 건강만사전(deploy/health-shorts/)과 섞이지 않게 따로 뗀다(2026-09-30 사용자
            # "deploy도 헬스숏츠가아니라 따로 뗴라고 분명히 말했찌?"). 댕냥사전이 deploy/dangnyang-shorts/인 것과 같은 식.
-           "deploy": "parenting-shorts"},
+           "deploy": "parenting-shorts",
+           # 네이버 블로그도 계정이 다르다(2026-10-01 사용자 "육아만사전은 chlwjddms16이 아니고 chlwjddms17이다 블로그")
+           # — 브랜드커넥트 계정과 같은 chlwjddms17. 새 topic 캡션의 블로그 url은 여기서 가져온다.
+           "naver_blog": "https://blog.naver.com/chlwjddms17"},
 }
 DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
            "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
-           "deploy": "health-shorts"}
+           "deploy": "health-shorts", "naver_blog": "https://blog.naver.com/chlwjddms16"}
 
 
 def _base(topic: str) -> str:
