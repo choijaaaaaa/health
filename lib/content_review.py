@@ -505,7 +505,10 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
 # 실제로는 한 번도 지켜진 적이 없다 — 발행본 67편 중 48%가 80초를 넘고, 사용자가 유일하게 품질을 인정한
 # 본보기 소화_14조차 82.3초다. 숫자를 지킬 수 없는 채로 두면 경고가 상시 켜져 있어 아무도 안 본다.
 # 실제로 만들어져 통과한 길이에 맞춰 85초로 둔다.
-V2_MIN_SECONDS, V2_MAX_SECONDS = 62, 85
+# WHY 하한이 0인지(2026-10-01 사용자 "시간 1분 이상 조건은 없애자 … 짧게 쳤을 때 괜찮은 것도 시간에 맞추려고 막
+# 이상한 거 갖다 붙이다 보니 이상해지는 게 많은 듯", 루트 CLAUDE.md "쇼츠 나레이션 최소 길이 폐지"): 길이를 채우려고
+# 문장·수치를 덧붙이면 원고가 망가진다. 상한만 지킨다.
+V2_MIN_SECONDS, V2_MAX_SECONDS = 0, 85
 # 이미 뽑은 음성(실측)의 상한. WHY(2026-09-29): 타입캐스트로 바꾸자 같은 원고가 94~107초로 나왔다 — 길이 때문에
 # 다시 뽑지 않는다는 원칙(CLAUDE.md 원고 규칙)이 있는데 실측으로 85초에 막으면 조립·동기화가 멈춘다.
 # 새 원고는 위 85초 목표로 쓰고(글자수 추정), 녹음이 끝난 건 여기까지 받아준다.
@@ -584,9 +587,8 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
     if not V2_MIN_SECONDS <= secs <= (V2_MEASURED_MAX_SECONDS if measured else V2_MAX_SECONDS):
         issues.append({"quote": f"{len(dense)}자", "severity": "high",
                        "issue": f"나레이션이 {'실측 ' if measured else '약 '}{secs:.0f}초입니다 — "
-                                f"목표 {V2_MIN_SECONDS}~{V2_MAX_SECONDS}초"
-                                f"({round(V2_MIN_SECONDS * SPEECH_CHARS_PER_SEC)}~"
-                                f"{round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외)."})
+                                f"상한 {V2_MAX_SECONDS}초"
+                                f"({round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외) — 짧은 건 괜찮다."})
     nums = _NUM_WITH_UNIT.findall(text)
     if len(nums) < V2_MIN_NUMBERS:
         issues.append({"quote": ", ".join(nums) or "(없음)", "severity": "high",
