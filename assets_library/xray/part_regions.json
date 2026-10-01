@@ -190,5 +190,21 @@
    0.85,
    0.4
   ]
+ },
+ "act_baby_lift_legs_clean.jpg": {
+  "act_baby_lift_legs_clean": [
+   0.38,
+   0.42,
+   0.45,
+   0.18
+  ]
+ },
+ "act_baby_fasten_diaper_loose.jpg": {
+  "act_baby_fasten_diaper_loose": [
+   0.1,
+   0.35,
+   0.45,
+   0.17
+  ]
  }
 }
