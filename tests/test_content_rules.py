@@ -241,7 +241,10 @@ def test_narration_no_jeonwoncheol_ending(topic):
     if not path.exists():
         pytest.skip(f"{topic}: narration.txt 없음")
     text = path.read_text(encoding="utf-8")
-    hits = _bad_endings(text)
+    # 훅 문단은 시청자가 병원에서 들은 말("갔더니 돌이 있대요")을 옮기는 자리라 전언체가 맞다 —
+    # 금지 이유는 연구 결과를 전해 들은 말처럼 들리게 하는 것(2026-10-02 사용자 "있대요로 해도 상관없는 거 아녀")
+    body = text.split("\n\n", 1)[1] if "\n\n" in text else ""
+    hits = _bad_endings(body)
     assert not hits, (
         f"{topic}/narration.txt: '~대요'(전언체)로 끝나는 문장 발견 — {hits}"
     )
