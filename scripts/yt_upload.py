@@ -11,6 +11,7 @@ lib/youtube_upload.py를 그대로 돌리면 개인 채널로 네이버판 영�
     .venv/bin/python3 scripts/yt_upload.py adult status
     .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 18시 슬롯에 예약
     .venv/bin/python3 scripts/yt_upload.py adult reschedule 대사_14 2026-09-28
+    .venv/bin/python3 scripts/yt_upload.py baby replace 육아_7          # 공개 전 예약 영상을 새 파일로 교체
 """
 from __future__ import annotations
 
@@ -198,6 +199,8 @@ def main() -> None:
         sub.add_parser(c)
     r = sub.add_parser("reschedule"); r.add_argument("topic"); r.add_argument("date", help="YYYY-MM-DD(KST)")
     s = sub.add_parser("schedule"); s.add_argument("--count", type=int, default=5); s.add_argument("--commit", action="store_true")
+    rp = sub.add_parser("replace", help="공개 전 예약 영상을 지금 영상 파일로 갈아 끼운다(같은 공개 시각)")
+    rp.add_argument("topic")
     a = ap.parse_args()
     ch = Channel(a.channel)
 
@@ -219,6 +222,24 @@ def main() -> None:
             "privacyStatus": "private", "publishAt": when, "selfDeclaredMadeForKids": False, "containsSyntheticMedia": True}}).execute()
         yu._sb_finalize_upload(ch.key + a.topic, row["video_id"], "public", when)
         print(f"✅ {a.topic} → {_kst(when)} 공개 예약"); return
+
+    if a.cmd == "replace":
+        # WHY(2026-10-01 사용자 "썸네일 RSV하면 그게 뭔지모르잖아"): 예약해 둔 뒤 썸네일·영상을 고치면 유튜브엔
+        # 옛 파일이 그대로 나간다. 영상 파일은 API로 바꿀 수 없어서 지우고 같은 시각으로 다시 올린다.
+        # 🚨 이미 공개된 영상은 조회수·댓글이 사라지므로 손대지 않는다 — 공개 시각이 아직 미래인 것만.
+        import requests
+        row = next((x for x in ch.rows() if x["topic"] == ch.key + a.topic), None)
+        if not row or not row.get("video_id") or not row.get("publish_at"):
+            raise SystemExit(f"❌ {a.topic}: 예약된 기록이 없음")
+        when = row["publish_at"]
+        if dt.datetime.fromisoformat(when.replace("Z", "+00:00")) <= dt.datetime.now(dt.timezone.utc):
+            raise SystemExit(f"❌ {a.topic}: 이미 공개된 영상이라 갈아 끼우지 않음({_kst(when)})")
+        yt, name = ch.service()
+        yt.videos().delete(id=row["video_id"]).execute()
+        requests.delete(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers=yu._SB_HEADERS,
+                        params={"topic": f"eq.{ch.key + a.topic}"}, timeout=30).raise_for_status()
+        vid = upload(ch, yt, name, a.topic, "public", when)
+        print(f"✅ {a.topic} 교체 → {_kst(when)} 예약: https://youtube.com/shorts/{vid} (옛 {row['video_id']} 삭제)"); return
 
     rows = ready_topics(ch)
     ok = sorted([t for t, why in rows if not why], key=_priority)
