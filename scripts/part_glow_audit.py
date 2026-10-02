@@ -35,7 +35,7 @@ ANATOMY = {
     "part_heart": ("심장", 0.29, 0.07),
     "part_liver": ("간", 0.33, 0.08),
     "part_stomach": ("위", 0.35, 0.07),
-    "part_kidney": ("신장", 0.37, 0.07),
+    "part_kidney": ("신장", 0.40, 0.07),   # canon_organs_back 실측(10-02) — 0.37이면 신장 위 띠가 켜진 클립이 통과했다
     "part_intestines": ("장", 0.44, 0.13),
     "part_bladder": ("방광", 0.55, 0.06),
     "part_uterus_ovary": ("자궁·난소", 0.56, 0.07),
