@@ -278,9 +278,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   **RSV 바이러스**·아기설사(+아기탈수증상)·**신생아 배앓이**·**신생아 변비**. 조사 원본 `data/_audit/baby_track_keywords.md`.
 - 아기는 **미드저니 정지 스틸 + `make_part_clip.py`**로만 움직인다. 행위 칸은 보호자 — 비접촉(사물·손만)은 Flow,
   아기에게 해주는 동작은 스틸+코드.
-- **현황**: 10편 원고·카드(90장)·TTS·대시보드·DB 등록·품목(32종, 링크 보유) 완료. **영상만 클립 대기** —
-  `deploy/작업/육아만사전.md` 35종을 받으면 `collect_clips.py --commit` → 부위 클립(region은 스틸 보고 실측) →
-  `xray_build.py` → `verify_output.py`.
+- **현황(2026-10-02)**: 시험 10편 대본을 사용자 검수로 전부 다시 써서(한 줄기 흐름·쉬운 말·근거 원문 대조) 필재 1.2로 TTS·조립·검사 완료. 유튜브 「육아만사전」 10/1~10/10 매일 18시 예약, 네이버는 미션컨트롤 육아 탭에서 올린다. 새 편도 같은 순서: 대본 검수 → TTS → 아기 스틸로 `make_part_clip`(region 실측) → 시간표·negations(빨간 X) → 카드·블로그 칸·클립/유튜브 캡션 맞추기 → 상품 사진(얼굴·광고 문구 잘라내기) → `xray_build` → `verify_output` 0건 + 프레임 → `yt_upload.py baby schedule`. 예약 뒤 고치면 `yt_upload.py baby replace <topic>`(공개 전만). 썸네일은 증상(전문용어 금지).
 
 ## blog_seo 서브트랙 (9개 언어)
 
