@@ -9,7 +9,7 @@ lib/youtube_upload.py를 그대로 돌리면 개인 채널로 네이버판 영�
     .venv/bin/python3 scripts/yt_upload.py adult whoami
     .venv/bin/python3 scripts/yt_upload.py adult plan                  # 올릴 수 있는 것과 예약안(업로드 안 함)
     .venv/bin/python3 scripts/yt_upload.py adult status
-    .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 18시 슬롯에 예약
+    .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 슬롯(8시·18시)에 예약
     .venv/bin/python3 scripts/yt_upload.py adult reschedule 대사_14 2026-09-28
     .venv/bin/python3 scripts/yt_upload.py baby replace 육아_7          # 공개 전 예약 영상을 새 파일로 교체
 """
@@ -43,8 +43,10 @@ KST = dt.timezone(dt.timedelta(hours=9))
 # 채널 → 어느 트랙 topic을 올리나. 육아 트랙이 아기 건강, 나머지(트랙 없음)가 성인 건강.
 CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정보", "건강쇼츠"]},
             "baby": {"track": "육아", "base_tags": ["육아만사전", "육아정보", "아기건강", "육아"]}}
-# 예약 게시 시각(KST). 환경변수로 바꾼다(하드코딩 금지 규칙).
-PUBLISH_HOUR = int(os.environ.get("HEALTH_YT_PUBLISH_HOUR", "18"))
+# 예약 게시 시각(KST), 하루 여러 편이면 쉼표로. 환경변수로 바꾼다(하드코딩 금지 규칙).
+# WHY(2026-10-03 사용자 "업로드 주기를 하루에 두 개로, 아침 저녁으로"): 8시·18시.
+PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "8,18").split(","))
+PUBLISH_HOUR = PUBLISH_HOURS[-1]   # reschedule에 날짜만 줄 때 쓰는 기본 시각(저녁)
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
 OLD_BRAND_TAG = "#세상건강사전"
 
@@ -138,16 +140,17 @@ def _priority(topic: str) -> tuple:
 
 
 def next_free_slots(ch: Channel, n: int) -> list[str]:
-    """이미 예약된 날짜를 건너뛰고 다음 빈 PUBLISH_HOUR 슬롯 n개(UTC ISO) — 하루 한 편."""
-    taken = {dt.datetime.fromisoformat(r["publish_at"].replace("Z", "+00:00")).astimezone(KST).date()
+    """이미 예약된 시각을 건너뛰고 다음 빈 슬롯 n개(UTC ISO) — 하루 PUBLISH_HOURS 시각마다 한 편."""
+    taken = {dt.datetime.fromisoformat(r["publish_at"].replace("Z", "+00:00")).astimezone(KST).replace(minute=0, second=0)
              for r in ch.rows() if r.get("publish_at")}
-    now = dt.datetime.now(KST)
-    day = now.date() if now < dt.datetime.combine(now.date(), dt.time(PUBLISH_HOUR), KST) - dt.timedelta(minutes=30) \
-        else now.date() + dt.timedelta(days=1)
-    out = []
+    # 유튜브 예약은 지금보다 충분히 뒤여야 받는다 — 30분 안쪽 슬롯은 건너뛴다
+    earliest = dt.datetime.now(KST) + dt.timedelta(minutes=30)
+    day, out = earliest.date(), []
     while len(out) < n:
-        if day not in taken:
-            out.append(dt.datetime.combine(day, dt.time(PUBLISH_HOUR), KST).astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+        for h in PUBLISH_HOURS:
+            slot = dt.datetime.combine(day, dt.time(h), KST)
+            if slot > earliest and slot not in taken and len(out) < n:
+                out.append(slot.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
         day += dt.timedelta(days=1)
     return out
 
@@ -247,7 +250,7 @@ def main() -> None:
         for t, why in rows:
             print(("✅ " if not why else "⛔ ") + t + ("" if not why else "  — " + " / ".join(why)))
         n = len(ok) if a.cmd == "plan" else min(a.count, len(ok))
-        print(f"\n{ch.code} 채널 {PUBLISH_HOUR}시 빈 슬롯 예약안:")
+        print(f"\n{ch.code} 채널 {'·'.join(map(str, PUBLISH_HOURS))}시 빈 슬롯 예약안:")
         for t, when in zip(ok[:n], next_free_slots(ch, n)):
             print(f"  {_kst(when)}  {t}")
         return
