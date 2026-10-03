@@ -1,0 +1,37 @@
+{
+  "requests": [
+    {
+      "name": "act_child_measure_height",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "성조숙증·아이 키 편 도입부와 빨간 X('일찍 크면 좋다'를 뒤집는 자리)에 쓴다. 학령기 아이가 벽에 등을 대고 서서 보호자 손이 머리 위를 재는 장면 — 라이브러리엔 아기·어른 장면만 있어서 '또래보다 키가 크는 아이'를 보여 줄 그림이 없다. 부위 클립: act_child_measure_height(다리 긴 뼈·무릎 성장판 점등).",
+      "fits": [
+        "아이 키",
+        "키 재기",
+        "성조숙증",
+        "성장",
+        "또래보다 큰 키",
+        "저신장"
+      ],
+      "midjourney": "A school-age child about eight years old standing straight with the back against a plain blank wall, wearing a simple loose t-shirt and shorts rendered as translucent glass, an adult's translucent glass hand resting flat on top of the child's head as if measuring height, full body from head to feet in frame, the long leg bones and knee growth areas faintly visible, Medical holographic visualization of translucent glass-like 3D anatomical figures, the skin rendered as an almost fully transparent thin glass shell with the skeleton and organs faintly visible inside in soft pale cyan, every internal structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, ruler markings or logos anywhere in the image.",
+      "midjourney_alt": "A translucent glass-like 3D anatomical figure of a school-age child about eight years old standing straight against a plain blank wall in a simple loose t-shirt and shorts, an adult's translucent glass hand resting flat on top of the child's head as if measuring height, full body head to feet, Medical holographic visualization of translucent glass-like 3D anatomical figures, the skin rendered as an almost fully transparent thin glass shell with the skeleton and organs faintly visible inside in soft pale cyan, every internal structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, ruler markings or logos anywhere in the image."
+    },
+    {
+      "name": "act_child_doctor_visit",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "성조숙증 편 '신호가 보이면 소아내분비과에서 뼈 나이를 재 보세요' 칸과 열성경련·성장 상담 등 학령기 아이 진료 장면에 돌려 쓴다. 의사(어른)와 마주 앉은 아이, 아이 쪽은 옷을 입은 반투명 모습, 진찰 기구 없음.",
+      "fits": [
+        "소아과 진료",
+        "소아내분비",
+        "성장 상담",
+        "아이 진찰",
+        "병원 가야 할 때"
+      ],
+      "midjourney": "A school-age child about eight years old sitting on a plain examination stool facing an adult doctor figure who sits opposite and gently holds the child's left hand and wrist up to look at it, the child wearing a simple loose t-shirt and shorts rendered as translucent glass, both figures seen from the side at waist height, the bones of the child's hand and wrist faintly visible, no medical instruments, no screens, Medical holographic visualization of translucent glass-like 3D anatomical figures, the skin rendered as an almost fully transparent thin glass shell with the skeleton and organs faintly visible inside in soft pale cyan, every internal structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, ruler markings or logos anywhere in the image.",
+      "midjourney_alt": "Two translucent glass-like 3D anatomical figures seen from the side: a school-age child about eight years old in a simple loose t-shirt and shorts sitting on a stool, and an adult doctor sitting opposite gently holding the child's left hand and wrist up to look at it, no instruments, no screens, Medical holographic visualization of translucent glass-like 3D anatomical figures, the skin rendered as an almost fully transparent thin glass shell with the skeleton and organs faintly visible inside in soft pale cyan, every internal structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, ruler markings or logos anywhere in the image."
+    }
+  ]
+}

@@ -61,6 +61,10 @@ def fetch(names: list[str]) -> None:
     CAND.mkdir(parents=True, exist_ok=True)
     meta_p = CAND / "_meta.json"
     meta = json.loads(meta_p.read_text(encoding="utf-8")) if meta_p.exists() else {}
+    # 육아 품목만 받을 땐 육아만사전 계정 Chrome(9335)으로 — 건강 계정 Chrome이 안 떠 있어도 받을 수 있게
+    baby = json.loads(CATALOGS[1].read_text(encoding="utf-8")) if CATALOGS[1].exists() else {}
+    if todo and all(n in baby for n in todo):
+        b.use_account("baby")
     with b._session() as page:
         for n in todo:
             want = cat[n]["chosen"]["id"]
