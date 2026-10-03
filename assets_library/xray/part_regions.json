@@ -262,5 +262,45 @@
    0.32,
    0.18
   ]
+ },
+ "act_child_put_on_glasses.jpg": {
+  "act_child_put_on_glasses": [
+   0.27,
+   0.31,
+   0.48,
+   0.1
+  ]
+ },
+ "act_child_eye_drops.jpg": {
+  "act_child_eye_drops": [
+   0.3,
+   0.38,
+   0.45,
+   0.1
+  ]
+ },
+ "act_child_eye_exam.jpg": {
+  "act_child_eye_exam": [
+   0.4,
+   0.31,
+   0.2,
+   0.09
+  ]
+ },
+ "act_child_read_book_stand.jpg": {
+  "act_child_read_book_stand": [
+   0.42,
+   0.24,
+   0.1,
+   0.06
+  ]
+ },
+ "act_child_tv_close.jpg": {
+  "act_child_tv_close": [
+   0.13,
+   0.26,
+   0.15,
+   0.07
+  ]
  }
 }
