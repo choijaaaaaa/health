@@ -1,0 +1,59 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙). 도입부는 허벅지에 주사를 맞는 act_baby_vaccine_thigh + 이마를 짚는 act_baby_forehead_touch. 빨간 X는 쓰지 않는다 — 접종 장면에 X를 얹으면 '맞히지 말라'로 읽힌다.",
+  "top_title": "독감 주사 한 번 맞혔다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_baby_vaccine_thigh.mp4",
+    "crop": [
+      0,
+      300,
+      720,
+      510
+    ],
+    "label": "허벅지"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_vaccine_thigh.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_stethoscope_exam.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "게다가 주사를 맞고",
+      "item": "아기 체온계",
+      "mech": "m_immune_sensitization",
+      "act": "act_baby_vaccine_thigh",
+      "label": "면역세포"
+    },
+    {
+      "from": "생후 6개월부터 14세까지는",
+      "item": "아기 체온계",
+      "mech": "m_antibody_neutralization",
+      "act": "act_baby_stethoscope_exam",
+      "label": "항체"
+    },
+    {
+      "from": "감기 기운이 있으면",
+      "item": "아기 체온계",
+      "mech": "m_fever_immune_boost",
+      "act": "act_baby_forehead_touch",
+      "label": "면역세포"
+    },
+    {
+      "from": "맞은 자리가 빨갛게",
+      "item": "아기 체온계",
+      "mech": "m_antibody_neutralization",
+      "act": null,
+      "label": "항체"
+    }
+  ],
+  "_timeline_why": "주사 뒤 2주에 걸쳐 항체가 생김(m_immune_sensitization·허벅지 주사) → 항체가 바이러스를 막음(m_antibody_neutralization·진찰) → 가벼운 감기와 접종(m_fever_immune_boost·이마 짚기).",
+  "summary_from": "맞은 자리가 빨갛게",
+  "_summary_why": "이 구절부터 결론(붓기 1~2일·3일 체온 관찰·진료 신호) — 칠판 전체.",
+  "board_items": [
+    "아기 체온계"
+  ],
+  "opening_until": 17.34
+}
