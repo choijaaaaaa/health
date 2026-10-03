@@ -26,30 +26,23 @@
       "label": "근시"
     },
     {
-      "from": "그러니 첫 안경은",
-      "item": "어린이 독서대",
-      "mech": "part_eye",
-      "act": "act_child_eye_exam",
-      "label": "안과"
-    },
-    {
       "from": "아이 눈은 스스로",
       "item": "어린이 독서대",
-      "mech": "part_eye",
+      "mech": "m_eye_focus_relax",
       "act": "act_child_eye_drops",
-      "label": "초점 힘"
+      "label": "초점 근육"
     },
     {
       "from": "그다음엔 3~6개월마다",
       "item": "어린이 독서대",
-      "mech": "m_eye_elongation",
+      "mech": "part_eye",
       "act": "act_child_eye_exam",
       "label": "도수"
     },
     {
       "from": "집에서는 바깥에서",
       "item": "어린이 독서대",
-      "mech": "m_eye_elongation",
+      "mech": "m_eye_focus_relax",
       "act": "act_child_read_book_stand",
       "label": "30cm"
     },
@@ -61,11 +54,11 @@
       "label": "시력"
     }
   ],
-  "_timeline_why": "키가 크며 안구가 앞뒤로 길어짐(m_eye_elongation·키 재는 아이) → 첫 안경은 안과(아이 검사기)·약으로 초점 힘 풀기(안약) → 3~6개월 도수 확인 → 집에선 독서대로 30cm → TV 바짝·찡그림 신호.",
+  "_timeline_why": "키가 크며 안구가 길어짐(m_eye_elongation·키 재는 아이) → 늦출 수 있다·첫 안경은 안과(아이 검사기) → 초점 근육을 약으로 풀기(m_eye_focus_relax·안약) → 3~6개월 도수 확인(part_eye) → 집에선 30cm(가까이 보면 초점 근육이 조인다) → TV 바짝·찡그림 신호.",
   "summary_from": "TV에 바짝",
   "_summary_why": "마지막 문단(검사 신호·검사 시기)부터 칠판 전체.",
   "board_items": [
     "어린이 독서대"
   ],
-  "opening_until": 9.9
+  "opening_until": 9.6
 }
