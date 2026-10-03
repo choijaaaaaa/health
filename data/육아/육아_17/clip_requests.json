@@ -1,11 +1,3 @@
 {
-  "requests": [
-    {
-      "name": "m_eye_focus_relax",
-      "seconds": 6,
-      "why": "근시 편 '아이 눈은 스스로 힘을 줘서 초점을 맞추는데, 눈에 약을 넣어 이 힘을 풀어야 진짜 도수가 나와요'·'책은 30cm 넘게(가까이 보면 초점 근육이 계속 조인다)' 칸의 기전. 라이브러리 눈 기전은 m_eye_elongation(안구가 길어짐) 하나뿐이라 4번 반복된다. 수정체를 둘러싼 고리 근육이 조여 수정체가 볼록해졌다가, 호박색 물방울이 닿자 근육이 풀리며 수정체가 납작해지는 게 핵심. 사람·아이 없이 안구 속만.",
-      "midjourney": "Medical holographic visualization, extreme close-up cross-section of one translucent glass-like 3D human eyeball seen from the side, the clear oval lens in the front held by a thin ring of fine muscle fibers around its edge, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, face, child, red, blood",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera pushing steadily in toward the lens of the eyeball. 0-2s: from the very first frame the thin ring of muscle fibers around the lens squeezes tight and glows amber, and the clear lens bulges thick and round. 2-4s: a single small amber droplet falls onto the front surface of the eye and spreads across it in a soft wave. 4-6s: the ring of muscle loosens and its amber glow fades to pale cyan, and the lens relaxes and flattens into a thin oval, staying flat until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft drip as the droplet lands, no music, no dialogue."
-    }
-  ]
+  "requests": []
 }

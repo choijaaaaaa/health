@@ -60,5 +60,15 @@
   "board_items": [
     "어린이 독서대"
   ],
-  "opening_until": 9.6
+  "opening_until": 9.43,
+  "inset": {
+    "clip": "assets_library/xray/output/act_child_put_on_glasses.mp4",
+    "crop": [
+      0,
+      200,
+      720,
+      510
+    ],
+    "label": "눈"
+  }
 }
