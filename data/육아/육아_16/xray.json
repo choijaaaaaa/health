@@ -1,0 +1,74 @@
+{
+  "_why": "반투명 인체 포맷(육아 트랙, 학령기). 도입부는 키를 재는 아이(다리 성장판 점등) + 성장판 기전. '일찍 크면 좋다'를 뒤집는 문장에서 키 재는 아이 위에 빨간 X.",
+  "top_title": "또래보다 키가 빨리 큰다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_child_measure_height.mp4",
+    "crop": [
+      0,
+      600,
+      720,
+      510
+    ],
+    "label": "성장판"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_child_measure_height.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_growth_plate.mp4"
+    }
+  ],
+  "negations": [
+    {
+      "from": "일찍 크면 나중에도",
+      "x_at": "반대예요",
+      "clip": "assets_library/xray/output/act_child_measure_height.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "달리기를 남보다",
+      "item": "어린이 키재기자",
+      "mech": "m_growth_plate",
+      "act": "act_child_measure_height",
+      "label": "성장판"
+    },
+    {
+      "from": "특히 여자아이에게",
+      "item": "어린이 키재기자",
+      "mech": "m_growth_arrest",
+      "act": "act_child_measure_height",
+      "label": "성장판"
+    },
+    {
+      "from": "그렇다면 어떤 게",
+      "item": "어린이 키재기자",
+      "mech": "m_hormone_surge",
+      "act": "act_child_doctor_visit",
+      "label": "성호르몬"
+    },
+    {
+      "from": "그러니 또래보다",
+      "item": "어린이 신장계",
+      "mech": "m_growth_plate",
+      "act": "part_wrist_bone_age",
+      "label": "손목뼈"
+    },
+    {
+      "from": "그러면 병원은",
+      "item": "어린이 신장계",
+      "mech": "m_growth_arrest",
+      "act": null,
+      "label": "성장판"
+    }
+  ],
+  "_timeline_why": "일찍 출발(성장판 세포가 쌓임 m_growth_plate) → 일찍 멈춤(성장판이 얇아짐 m_growth_arrest) → 신호·성호르몬(m_hormone_surge·진료받는 아이) → 왼손 엑스레이 뼈 나이(손목뼈 점등).",
+  "summary_from": "그러면 병원은",
+  "_summary_why": "이 구절부터 결론(예측 키·목표 키 공식·사춘기 늦추는 치료·병원 신호) — 칠판 전체.",
+  "board_items": [
+    "어린이 키재기자",
+    "어린이 신장계"
+  ],
+  "opening_until": 14.18
+}
