@@ -1,9 +1,9 @@
 {
-  "_why": "반투명 인체 포맷(육아 트랙, 학령기). 도입부는 안경 쓰는 아이 + 안구가 길어지는 기전. 빨간 X는 생략 — '안경 때문이 아니에요' 자리에서 안경 쓰는 아이 위 X는 '안경 쓰지 마'로 오독된다.",
+  "_why": "반투명 인체 포맷(육아 트랙, 학령기). 기전 칸(안구가 길어짐·초점 근육·눈 단면)만 엑스레이고, 아이가 나오는 행위 칸은 일반 사진풍(2026-10-04 사용자 '그냥 엑스레이사진을 안 하면 되지 … 이거 내부가 필요한 게 아니여' — 엑스레이 아이 얼굴이 비호감). 도입부는 안경 쓰는 아이(사진) + 안구가 길어지는 기전. 빨간 X는 생략 — 안경 쓰는 아이 위 X는 '안경 쓰지 마'로 오독된다.",
   "top_title": "안경 쓰면 더 나빠질까",
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_child_put_on_glasses.mp4"
+      "clip": "assets_library/xray/output/act_child_put_on_glasses_real.mp4"
     },
     {
       "clip": "assets_library/xray/output/m_eye_elongation.mp4"
@@ -15,35 +15,35 @@
       "from": "키가 크면 눈알도",
       "item": "어린이 독서대",
       "mech": "m_eye_elongation",
-      "act": "act_child_measure_height",
+      "act": "act_child_measure_height_real",
       "label": "눈 길이"
     },
     {
       "from": "이걸 막을 수는",
       "item": "어린이 독서대",
       "mech": "m_eye_elongation",
-      "act": "act_child_eye_exam",
+      "act": "act_child_eye_exam_real",
       "label": "근시"
     },
     {
       "from": "아이 눈은 스스로",
       "item": "어린이 독서대",
       "mech": "m_eye_focus_relax",
-      "act": "act_child_eye_drops",
+      "act": "act_child_eye_drops_real",
       "label": "초점 근육"
     },
     {
       "from": "그다음엔 3~6개월마다",
       "item": "어린이 독서대",
       "mech": "part_eye",
-      "act": "act_child_eye_exam",
+      "act": "act_child_eye_exam_real",
       "label": "도수"
     },
     {
       "from": "집에서는 바깥에서",
       "item": "어린이 독서대",
       "mech": "m_eye_focus_relax",
-      "act": "act_child_read_book_stand",
+      "act": "act_child_read_book_real",
       "label": "30cm"
     },
     {
@@ -62,12 +62,12 @@
   ],
   "opening_until": 9.43,
   "inset": {
-    "clip": "assets_library/xray/output/act_child_put_on_glasses.mp4",
+    "clip": "assets_library/xray/output/part_eye.mp4",
     "crop": [
       0,
-      200,
+      380,
       720,
-      510
+      520
     ],
     "label": "눈"
   }

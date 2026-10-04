@@ -61,7 +61,7 @@ def _lit(base: Image.Image, mask: Image.Image, amount: float) -> Image.Image:
 
 
 def build(still: Path, out: Path, region: tuple[float, float, float, float] | None,
-          zoom: float = ZOOM_END, glow_in: tuple[float, float] = GLOW_IN) -> None:
+          zoom: float = ZOOM_END, glow_in: tuple[float, float] = GLOW_IN, glow: bool = True) -> None:
     src = Image.open(still).convert("RGB")
     if src.size != (W, H):
         src = src.resize((W, H), Image.LANCZOS)
@@ -84,7 +84,7 @@ def build(still: Path, out: Path, region: tuple[float, float, float, float] | No
             ramp = 0.0 if t < glow_in[0] else min(1.0, (t - glow_in[0]) / (glow_in[1] - glow_in[0]))
             # 만개 후엔 꺼지지 않고 0.78~1.0 사이에서 숨만 쉰다(캐논: 마지막 프레임까지 켜진 채)
             pulse = 1.0 if ramp < 1 else 0.89 + 0.11 * math.cos(2 * math.pi * (t - glow_in[1]) / PULSE_PERIOD)
-            _lit(frame, fm, ramp * pulse).save(td / f"{i:04d}.png")
+            (_lit(frame, fm, ramp * pulse) if glow else frame).save(td / f"{i:04d}.png")
         subprocess.run(["ffmpeg", "-y", "-framerate", str(FPS), "-i", str(td / "%04d.png"),
                         "-c:v", "libx264", "-pix_fmt", "yuv420p", "-crf", "18", str(out)],
                        check=True, capture_output=True)
@@ -102,12 +102,15 @@ def main() -> None:
     # 도입부는 클립 앞쪽 2.6초만 잘라 쓰는데 기본 점등은 1.3초에 켜지기 시작해 2.7초에 만개한다 —
     # 그대로 쓰면 앞 절반이 깜깜하다(실측: part_kidney 2.6초까지 점등 0%).
     ap.add_argument("--glow-in", help="점등 시작,만개 시각 (기본 1.3,2.7)")
+    # 일반 사진풍 스틸(엑스레이가 아닌 아이 행위 장면)은 점등하면 눈·피부에 호박색 얼룩이 얹힐 뿐이라 카메라만 움직인다
+    # (2026-10-04 사용자 "그냥 엑스레이사진을 안 하면 되지 … 이거 내부가 필요한 게 아니여")
+    ap.add_argument("--no-glow", action="store_true", help="점등 없이 push-in만(일반 사진풍 스틸)")
     a = ap.parse_args()
     region = tuple(float(v) for v in a.region.split(",")) if a.region else None
     if region and len(region) != 4:
         raise SystemExit("--region은 x,y,w,h 네 값")
     glow = tuple(float(v) for v in a.glow_in.split(",")) if a.glow_in else GLOW_IN
-    build(Path(a.still), Path(a.out), region, zoom=1.0 if a.no_zoom else ZOOM_END, glow_in=glow)
+    build(Path(a.still), Path(a.out), region, zoom=1.0 if a.no_zoom else ZOOM_END, glow_in=glow, glow=not a.no_glow)
     print(f"완료: {a.out}")
 
 

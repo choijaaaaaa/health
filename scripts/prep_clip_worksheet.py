@@ -286,8 +286,15 @@ def build(track: str | None) -> None:
         L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
         # 아기 스틸은 직접 표현 문구(midjourney_alt)가 먼저 — 돌려 말한 기본 문구로는 어른 비례가 나왔다(2026-09-30 실측)
         baby = (Path(r.get('ref') or '').stem.startswith("baby_") or r["name"].startswith("baby_")) and r.get("midjourney_alt")
-        prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
-        how = (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
+        if r.get("style") == "real":
+            # 일반 사진풍 요청(속이 보일 필요 없는 아이 행위 장면)엔 반투명 캐논 --sref를 붙이면 다시 엑스레이로 끌려간다
+            # (2026-10-04 사용자 "그냥 엑스레이사진을 안 하면 되지") — 비율만 박는다
+            raw = r.get('midjourney', '')
+            body, no = raw.split(" --no ", 1) if " --no " in raw else (raw, "text, letters, numbers, labels, watermark, logo")
+            prompt = f"{body.split(' --', 1)[0].rstrip()} --ar 9:16 --no {no}"
+        else:
+            prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
+        how = "레퍼런스 없음 — 일반 사진풍(엑스레이 아님)" if r.get("style") == "real" else (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
                else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
         L.append(f"\n저장: `{r['_work']}` · {how}\n")
         L.append(f"\n```\n{prompt}\n```\n")
