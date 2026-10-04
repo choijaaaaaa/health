@@ -1,0 +1,20 @@
+{
+  "requests": [
+    {
+      "name": "act_gulp_water",
+      "seconds": 6,
+      "why": "당뇨 초기증상 훅('물을 자꾸 들이켜고 밤에도 화장실에')과 '몸이 말라 목이 타요' 칸의 행위. 물 한 컵을 벌컥벌컥 다 마시고도 또 마신다 — act_drink_caffeine은 마지막에 뇌가 켜져서 avoid에 '단순 수분 섭취로 쓰면 과하다'고 적혀 있다. 목·식도를 따라 물이 내려가는 게 보이고 끝엔 방광이 차오른다(마신 물이 소변으로 — 원고의 '소변이 늘고'와 이어진다).",
+      "fits": [
+        "갈증",
+        "물을 자꾸 마심",
+        "목이 탐",
+        "다음",
+        "탈수",
+        "당뇨 초기 신호",
+        "수분 섭취"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, The figure stands upright, body visible from the head to the knees, holding a plain tall drinking glass of the same translucent cyan glass filled with clear water, the glass tilted to the mouth with the head tipped back mid-gulp, the throat and the long tube of the esophagus visible down into the stomach, the kidneys and the bladder visible low in the body through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the figure tips the glass back and gulps the water down in big fast swallows, each swallow sending a bright amber pulse racing down the throat and the esophagus into the stomach, while the camera rushes in from the body toward the throat. 2-4s: the figure drains the glass, lowers it, and at once lifts it back to the mouth and gulps again, still thirsty, the amber pulses racing down again. 4-6s: the camera dives fast down the front of the body to the pelvis, where the bladder swells and fills with glowing amber, staying intensely lit until the very last frame while every other organ, bone and the glass skin stay soft pale cyan. The body stays translucent glass with all organs and bones visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with loud gulping swallows and the clink of the glass, no music, no dialogue."
+    }
+  ]
+}

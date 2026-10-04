@@ -1,0 +1,53 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 물을 벌컥벌컥 들이켜는 act_gulp_water(훅 — 물을 자꾸 들이켜고) + 혈관이 호박색 당 알갱이로 가득 차는 m_glucose_spike(통념 반박 — 이런 증상은 혈당이 300을 넘을 만큼 높아져야 나온다). 빨간 X는 생략 — 물 마시는 장면 위 X는 '물을 마시지 마라'로 읽힌다.",
+  "top_title": "물을 자꾸 들이켜면 당뇨 초기일까",
+  "inset": {
+    "clip": "assets_library/xray/output/part_kidney.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "콩팥"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_gulp_water.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_glucose_spike.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "콩팥은 소변을 만들 때",
+      "item": "체중계",
+      "mech": "part_kidney",
+      "act": "act_toilet_check",
+      "label": "콩팥"
+    },
+    {
+      "from": "그런데 당이 너무 많으면",
+      "item": "체중계",
+      "mech": "m_filtration_overload",
+      "act": "act_toilet_check",
+      "label": "콩팥"
+    },
+    {
+      "from": "이때 당이 물까지",
+      "item": "체중계",
+      "mech": "m_urine_overproduction",
+      "act": "act_gulp_water",
+      "label": "방광"
+    }
+  ],
+  "_timeline_why": "콩팥이 당을 다시 붙잡음(신장 점등 part_kidney·소변보며 신장이 켜지는 act_toilet_check) → 너무 많으면 다 못 붙잡고 흘려보냄(사구체 벽 틈으로 알갱이가 새는 m_filtration_overload, 컵이 넘치는 비유까지) → 당이 물을 끌고 나가 소변이 늘고 목이 탐(관에서 물과 당이 쏟아져 주머니가 차는 m_urine_overproduction·다시 물을 들이켬) → 그 전까지는 아무 느낌이 없다.",
+  "summary_from": "그래서 증상 말고",
+  "_summary_why": "'증상 말고 숫자로'부터 칠판 전체 — 공복혈당 100·126 기준, 의원 재검·당화혈색소 6.5%, 전단계면 매일 30분 걷기·5% 감량·해마다 재기, 살까지 빠지면 바로 병원.",
+  "board_items": [
+    "체중계"
+  ],
+  "opening_until": 13.1
+}
