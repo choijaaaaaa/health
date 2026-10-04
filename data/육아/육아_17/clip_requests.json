@@ -1,3 +1,36 @@
 {
-  "requests": []
+  "requests": [
+    {
+      "name": "act_child_put_on_glasses",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "근시 편 도입부('안경 쓰면 눈이 더 나빠질까') — 1차는 정면 얼굴 클로즈업에 두개골·이가 비치고 눈만 빛나 '너무 비호감'(2026-10-04 사용자) 판정. 3/4 측면 가슴 위 구도, 얼굴은 매끈한 유리 껍질에 미소, 해골·이는 안 보이게.",
+      "fits": [
+        "아이 안경",
+        "안경 쓰기",
+        "근시",
+        "시력 교정",
+        "첫 안경"
+      ],
+      "midjourney": "A cheerful school-age child about eight years old seen in three-quarter view from the chest up, putting on a pair of simple round eyeglasses with both hands and smiling, rendered as a translucent glass-like 3D figure whose face is a smooth softly glowing glass shell with gentle rounded cute features and a small happy smile — no skull, no teeth and no jaw bones visible in the face, only the eyeballs faintly visible, the neck bones, collarbones and ribs faintly visible in soft pale cyan below the face, every structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, soft warm rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, charts or logos anywhere in the image. --no skull face, visible teeth, jaw bones, hollow eye sockets, glowing eyes, creepy, horror, zombie, adult face, extra hands, text, letters, numbers, labels, logo",
+      "midjourney_alt": "A cute smiling eight-year-old kid seen from the side at a three-quarter angle, chest up, sliding on small round glasses with both hands, rendered as a translucent glass-like 3D figure whose face is a smooth softly glowing glass shell with gentle rounded cute features and a small happy smile — no skull, no teeth and no jaw bones visible in the face, only the eyeballs faintly visible, the neck bones, collarbones and ribs faintly visible in soft pale cyan below the face, every structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, soft warm rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, charts or logos anywhere in the image. --no skull face, visible teeth, jaw bones, hollow eye sockets, glowing eyes, creepy, horror, zombie, adult face, extra hands, text, letters, numbers, labels, logo"
+    },
+    {
+      "name": "act_child_eye_drops",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "근시 편 '눈에 약을 넣어 이 힘을 풀어야 진짜 도수가 나와요' — 1차는 어른 같은 해골 얼굴에 큰 빛나는 눈·손이 여럿이라 비호감 판정(2026-10-04). 옆모습으로 고개를 살짝 젖힌 아이, 어른 손 하나가 안약병을 눈 위에 든다.",
+      "fits": [
+        "아이 안약",
+        "눈에 약 넣기",
+        "산동 검사",
+        "조절마비 검사",
+        "결막염 안약"
+      ],
+      "midjourney": "A calm school-age child about eight years old seen in side profile from the chest up, head tilted gently back and looking up, while a single adult translucent glass hand holds a small eye-drop bottle just above the child's eye with one clear drop forming at the tip, rendered as a translucent glass-like 3D figure whose face is a smooth softly glowing glass shell with gentle rounded cute features and a small happy smile — no skull, no teeth and no jaw bones visible in the face, only the eyeballs faintly visible, the neck bones, collarbones and ribs faintly visible in soft pale cyan below the face, every structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, soft warm rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, charts or logos anywhere in the image. --no skull face, visible teeth, jaw bones, hollow eye sockets, glowing eyes, creepy, horror, zombie, adult face, extra hands, text, letters, numbers, labels, logo",
+      "midjourney_alt": "Side view of a relaxed eight-year-old kid tipping the head back, chest up, one grown-up glass hand holding a tiny eye-drop bottle above the eye, a single drop about to fall, rendered as a translucent glass-like 3D figure whose face is a smooth softly glowing glass shell with gentle rounded cute features and a small happy smile — no skull, no teeth and no jaw bones visible in the face, only the eyeballs faintly visible, the neck bones, collarbones and ribs faintly visible in soft pale cyan below the face, every structure the same soft pale cyan glow, in a dark empty slate blue-grey studio void, soft warm rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, charts or logos anywhere in the image. --no skull face, visible teeth, jaw bones, hollow eye sockets, glowing eyes, creepy, horror, zombie, adult face, extra hands, text, letters, numbers, labels, logo"
+    }
+  ]
 }
