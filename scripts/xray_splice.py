@@ -453,7 +453,10 @@ def main() -> None:
             # WHY 오디오 유무를 확인하는지(2026-09-21): Flow 클립엔 효과음이 들어 있지만, 부위 점등 클립은
             # scripts/make_part_clip.py가 스틸에서 만든 것이라 오디오 트랙이 아예 없다. 없는 [n:a]를 참조하면
             # ffmpeg가 "matches no streams"로 전체 조립을 실패시킨다(소화_14에서 실측).
-            if _has_audio(clip):
+            # 🚨 늘린 클립(speed≠1)의 효과음은 섞지 않는다(2026-10-04 사용자 "8~9초 사이… 이상한 소리가 함께 들어가는데"):
+            # 도입부를 채우려고 Flow 클립을 1.4배 넘게 늘리면 atempo가 험·물방울 소리를 뭉개 웅웅대는 잡음이 되고,
+            # 나레이션 바로 밑(-34dB, 나레이션보다 16dB 아래)에 깔렸다(육아_17 실측). 제 속도 클립만 효과음을 둔다.
+            if _has_audio(clip) and abs(speed - 1.0) < 1e-3:
                 tempo = _atempo_chain(1 / speed)
                 acut = f"atrim=start={rng[0]}:end={rng[1]},asetpts=PTS-STARTPTS," if rng else ""
                 fc.append(f"[{n}:a]{acut}{tempo}volume={CLIP_SFX_VOLUME},"

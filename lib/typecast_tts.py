@@ -6,7 +6,9 @@
 from __future__ import annotations
 
 import base64
+import logging
 import os
+import subprocess
 from pathlib import Path
 
 import requests
@@ -74,7 +76,7 @@ def _concat_mp3(parts: list[bytes], dst: Path) -> None:
 
 
 def synthesize(topic: str, text: str, *, approved: bool = False) -> dict:
-    """1. 숫자를 한글로 푼 읽기용 텍스트 → 2. 문단 묶음별 호출 → 3. 이어 붙이고 시각 보정 → 4. mp3·srt 쓰기.
+    """1. 숫자를 한글로 푼 읽기용 텍스트 → 2. 문단 묶음별 호출 → 3. 이어 붙이고 시각 보정 → 4. mp3·srt 쓰기 → 5. 쉼 정리.
 
     🚨 approved는 **사용자가 이번에 뽑으라고 말했을 때만** True로 넘긴다. WHY(2026-09-29 "이제부터 절대 tts 너가
     바로 그냥 갖다박아서 뽑지 못하게 해… 크레딧이 생각보다 많이들어서"): 세션이 원고를 고친 김에 25편을 한 번에
@@ -101,6 +103,17 @@ def synthesize(topic: str, text: str, *, approved: bool = False) -> dict:
     else:
         _concat_mp3(audios, audio_path)
     srt_path.write_text(_build_srt(spoken, words, display=text), encoding="utf-8")
+    # 5. 말 사이 웅얼거림 정리(lib/tts_gate.py WHY) — 원본은 narration_raw.mp3로 남긴다
+    import json
+    import shutil
+    from lib.tts_gate import gaps_from_words, gate
+    shutil.copy2(audio_path, out / "narration_raw.mp3")
+    (out / "narration_words.json").write_text(json.dumps(words, ensure_ascii=False), encoding="utf-8")
+    try:
+        gate(audio_path, gaps_from_words(words))
+    except subprocess.CalledProcessError as e:
+        # 디코딩이 안 되는 응답(테스트 목 등)이면 원본을 그대로 둔다 — 조용히 넘기지 않고 남긴다
+        logging.getLogger(__name__).warning("[typecast] 쉼 정리 실패 — 원본 음성 그대로: %s", e)
     return {"audio_path": str(audio_path), "srt_path": str(srt_path), "duration": offset,
             "word_count": len(words), "words": words}
 
