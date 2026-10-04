@@ -324,5 +324,50 @@
    0.14,
    0.08
   ]
+ },
+ "act_child_put_on_glasses_real.jpg": {
+  "act_child_put_on_glasses_real": [
+   0.4,
+   0.33,
+   0.2,
+   0.16
+  ],
+  "_note": "--no-glow(실사) — region은 푸시인 중심만"
+ },
+ "act_child_measure_height_real.jpg": {
+  "act_child_measure_height_real": [
+   0.35,
+   0.2,
+   0.3,
+   0.2
+  ],
+  "_note": "--no-glow(실사) — region은 푸시인 중심만"
+ },
+ "act_child_read_book_real.jpg": {
+  "act_child_read_book_real": [
+   0.35,
+   0.35,
+   0.3,
+   0.25
+  ],
+  "_note": "--no-glow(실사) — region은 푸시인 중심만"
+ },
+ "act_child_eye_drops_real.jpg": {
+  "act_child_eye_drops_real": [
+   0.45,
+   0.3,
+   0.3,
+   0.25
+  ],
+  "_note": "--no-glow(실사) — region은 푸시인 중심만"
+ },
+ "act_child_eye_exam_real.jpg": {
+  "act_child_eye_exam_real": [
+   0.4,
+   0.3,
+   0.25,
+   0.2
+  ],
+  "_note": "--no-glow(실사) — region은 푸시인 중심만"
  }
 }
