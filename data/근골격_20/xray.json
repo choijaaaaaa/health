@@ -1,0 +1,80 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 새벽에 누워 있다 일어나 저린 손을 탈탈 터는 act_shake_numb_hand_bed(훅) + 혈관이 잘록해지며 피가 덜 흐르는 m_blood_flow_drop(통념 — 혈액순환 탓). '피가 아니라'에서 그 혈류 장면 위 빨간 X(혈액순환 탓이 아니라는 뜻으로 그대로 읽힌다).",
+  "top_title": "새벽마다 손이 저려 깬다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_wrist_bone_age.mp4",
+    "crop": [
+      0,
+      560,
+      720,
+      520
+    ],
+    "label": "손목"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_shake_numb_hand_bed.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_blood_flow_drop.mp4"
+    }
+  ],
+  "negations": [
+    {
+      "from": "하지만 피가 아니라",
+      "x_at": "피가 아니라",
+      "clip": "assets_library/xray/output/m_blood_flow_drop.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "손목 안쪽엔 좁은",
+      "item": "반깁스 손목보호대",
+      "mech": "part_wrist_bone_age",
+      "act": "part_hand",
+      "label": "손목 터널"
+    },
+    {
+      "from": "꽉 끼는 소매가",
+      "item": "반깁스 손목보호대",
+      "mech": "m_nerve_compression",
+      "act": "act_rub_hands",
+      "label": "신경"
+    },
+    {
+      "from": "특히 잘 때는",
+      "item": "반깁스 손목보호대",
+      "mech": "m_nerve_compression",
+      "act": "act_shake_numb_hand_bed",
+      "label": "신경"
+    },
+    {
+      "from": "먼저 어느 손가락이",
+      "item": "반깁스 손목보호대",
+      "mech": "part_median_fingers",
+      "act": "part_hand",
+      "label": "엄지~약지"
+    },
+    {
+      "from": "엄지, 검지, 중지",
+      "item": "반깁스 손목보호대",
+      "mech": "part_median_fingers",
+      "act": "act_rub_hands",
+      "label": "엄지~약지"
+    },
+    {
+      "from": "눌리는 신경이 딱",
+      "item": "반깁스 손목보호대",
+      "mech": "part_wrist_bone_age",
+      "act": "part_hand",
+      "label": "손목 신경"
+    }
+  ],
+  "_timeline_why": "손목 안쪽 좁은 터널(손목뼈 점등 part_wrist_bone_age·손과 신경이 비치는 part_hand) → 터널이 좁아져 신경이 눌림(m_nerve_compression) → 잘 때 손목을 굽혀 밤에 더 눌림(새벽 손 털기) → 어느 손가락이 저린가(엄지~약지 절반만 켜지는 part_median_fingers — 새끼손가락은 안 켜진다).",
+  "summary_from": "이 병이 의심되면",
+  "_summary_why": "해결책 첫 문장(밤 손목 보조기)부터 칠판 전체 — 보조기 6주·근전도·수술 30분·엄지 아래 살이 꺼지면 바로.",
+  "board_items": [
+    "반깁스 손목보호대"
+  ],
+  "opening_until": 10.1
+}

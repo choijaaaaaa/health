@@ -1,0 +1,19 @@
+{
+  "requests": [
+    {
+      "name": "act_shake_numb_hand_bed",
+      "seconds": 6,
+      "why": "손목터널증후군 훅('새벽마다 손끝이 찌릿하게 저려서 손을 탈탈 털며 깨신 적')과 '특히 잘 때는 손목을 굽힌 채 … 밤에 더 눌리고 저려서 깨요' 칸의 행위. 누워 있다 일어나 앉아 한 손을 탈탈 턴다 — act_rub_hands(두 손 비비기)로는 '털며 깬다'가 안 보인다.",
+      "fits": [
+        "손 저림",
+        "새벽에 깸",
+        "손을 털다",
+        "손목터널증후군",
+        "손끝 저림",
+        "밤에 저림"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, The figure lies on its side on a plain low rectangular bed block, knees bent, one hand tucked under the chin with the wrist curled sharply forward, body visible from the head to the feet. The bones of the hands and wrists and the fine nerves of the forearm are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the figure jolts awake and sits up fast on the bed while the camera rushes in from the full body toward the curled hand. 1.5-4s: the figure shakes that hand hard and fast in the air, flicking it from the wrist again and again, while the thumb, index and middle fingers and the centre of the wrist glow amber and pulse with every shake. 4-6s: the camera pushes in tight on the shaking hand, the three fingers and the wrist burning intense amber until the very last frame while the little finger, every other bone and the glass skin stay soft pale cyan. Low synth hum with a soft rustle of the bed and quick flicks of the hand, no music, no dialogue. The body stays translucent glass with all organs and bones visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame."
+    }
+  ]
+}

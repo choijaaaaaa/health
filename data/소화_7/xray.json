@@ -1,0 +1,75 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 변기에 앉아 힘을 주며 항문 자리가 켜지는 act_strain_on_toilet(훅 — 볼일 보고 나면 피·묵직함) + 변기에 느긋하게 앉아 스마트폰을 넘기는 act_phone_on_toilet(통념 반박 — 힘을 안 줘도 오래 앉아 있기만 하면). 빨간 X는 생략 — 힘주는 장면 위 X는 '힘줘도 괜찮다'로 읽힐 수 있다.",
+  "top_title": "볼일 본 뒤 피가 묻어 나온다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_anus.mp4",
+    "crop": [
+      0,
+      560,
+      720,
+      520
+    ],
+    "label": "항문"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_strain_on_toilet.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_phone_on_toilet.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 대장내시경을",
+      "item": "차전자피",
+      "mech": "part_anus",
+      "act": "act_phone_on_toilet",
+      "label": "항문"
+    },
+    {
+      "from": "힘을 주는 정도는",
+      "item": "차전자피",
+      "mech": "part_anus",
+      "act": "act_strain_on_toilet",
+      "label": "항문"
+    },
+    {
+      "from": "항문 안쪽에는 피가",
+      "item": "차전자피",
+      "mech": "m_vessel_dilation",
+      "act": "act_phone_on_toilet",
+      "label": "혈관 쿠션"
+    },
+    {
+      "from": "의자에 앉으면 엉덩이",
+      "item": "차전자피",
+      "mech": "m_tissue_laxity",
+      "act": "act_phone_on_toilet",
+      "label": "혈관 쿠션"
+    },
+    {
+      "from": "물풍선을 구멍 위에",
+      "item": "차전자피",
+      "mech": "m_vessel_dilation",
+      "act": "act_strain_on_toilet",
+      "label": "혈관 쿠션"
+    },
+    {
+      "from": "오래 앉을수록 쿠션이",
+      "item": "좌욕기",
+      "mech": "m_tissue_tear",
+      "act": "act_strain_on_toilet",
+      "label": "출혈"
+    }
+  ],
+  "_timeline_why": "스마트폰 46%(폰 보는 변기 장면 + 항문 점등 part_anus) → 힘주기는 차이 없었다(힘주는 장면) → 피가 모인 쿠션 혈관(부푼 혈관 m_vessel_dilation) → 받침 없이 아래로 처짐(해먹처럼 축 처지는 m_tissue_laxity) → 물풍선처럼 불룩(m_vessel_dilation 두 번째) → 부풀고 변이 지나갈 때 긁혀 피(m_tissue_tear).",
+  "summary_from": "그러니 스마트폰은",
+  "_summary_why": "해결책 첫 문장(폰은 화장실 밖에)부터 칠판 전체 — 신호 올 때·변 무르게·차전자피·좌욕 10분·피가 나면 대장내시경.",
+  "board_items": [
+    "차전자피",
+    "좌욕기"
+  ],
+  "opening_until": 14.1
+}

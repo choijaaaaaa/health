@@ -1,0 +1,67 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 침대에서 첫발을 딛다 뒤꿈치가 켜지며 움찔하는 act_first_step_heel(훅) + 납작한 신발로 딱딱한 바닥을 걷는 act_walk_flat_shoes(통념 — 발 편하라고 신는 플랫슈즈·맨발). '오히려 통증을 키워요'에서 걷는 장면 위 빨간 X.",
+  "top_title": "아침 첫발 뒤꿈치가 찌릿하다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_heel.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "뒤꿈치"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_first_step_heel.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_walk_flat_shoes.mp4"
+    }
+  ],
+  "negations": [
+    {
+      "from": "그런데 이게 오히려",
+      "x_at": "통증을 키워요",
+      "clip": "assets_library/xray/output/act_walk_flat_shoes.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "족저근막은 뒤꿈치에서",
+      "item": "족저근막염 깔창",
+      "mech": "part_heel",
+      "act": "act_walk_flat_shoes",
+      "label": "뒤꿈치"
+    },
+    {
+      "from": "굽이 없고 바닥이",
+      "item": "족저근막염 깔창",
+      "mech": "m_tissue_tear",
+      "act": "act_walk_flat_shoes",
+      "label": "족저근막"
+    },
+    {
+      "from": "아침 첫발이 유독",
+      "item": "실리콘 뒤꿈치 패드",
+      "mech": "part_foot",
+      "act": "act_first_step_heel",
+      "label": "발끝 처짐"
+    },
+    {
+      "from": "밤새 줄어든 고무줄을",
+      "item": "실리콘 뒤꿈치 패드",
+      "mech": "m_tissue_tear",
+      "act": "act_first_step_heel",
+      "label": "족저근막"
+    }
+  ],
+  "_timeline_why": "뒤꿈치에서 발가락까지 이어진 띠(뒤꿈치 점등 part_heel) → 굽 없는 딱딱한 바닥에 당겨져 조금씩 찢어짐(m_tissue_tear) → 아침 첫발: 발끝이 아래로 처진 채 자서 띠가 오그라듦(part_foot은 발끝을 아래로 뻗은 발이라 '처진 발끝'이 그대로 보인다) → 줄어든 고무줄을 한 번에 당김(m_tissue_tear 두 번째).",
+  "summary_from": "그래서 일어나면 바로",
+  "_summary_why": "해결책 첫 문장(침대에서 먼저 풀기)부터 칠판 전체 — 스트레칭 10초×20번·신발·실내화·패드·2주 뒤 정형외과·바로 진료 신호.",
+  "board_items": [
+    "족저근막염 깔창",
+    "실리콘 뒤꿈치 패드"
+  ],
+  "opening_until": 10.0
+}
