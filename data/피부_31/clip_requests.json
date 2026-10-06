@@ -66,23 +66,6 @@
       "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2.5s: from the very first frame the hand presses the folded towel lightly against the wet shin, lifts it off, and presses it again a little lower — five soft quick pats moving down the shin from the knee to the ankle, never rubbing or sliding the towel along the skin; the camera glides in toward the shin. 2.5-4s: the towel lifts away; the big water beads are gone but the skin still looks damp and glossy, a faint amber glow just under the surface showing the water still held in the skin. 4-6s: the hand sets the towel aside out of the frame and comes straight back open-palmed toward the damp shin as if about to apply something, the camera pushing in on the damp shin, the faint amber glow under the surface lit until the very last frame while the bones and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft muffled pats of the towel, no music, no dialogue."
     },
     {
-      "name": "act_apply_body_cream",
-      "seconds": 6,
-      "why": "피부_31 🚨 제품 작동 칸(36.1~41.8초 '이때 로션보다 바디크림을 쓰면 좋아요. 크림 속 기름이 벗겨진 기름막 대신 뚜껑이 돼 주거든요') 왼쪽 행위 — 제품을 쓰는 장면. 의자 옆 무지 용기에서 진한 흰 크림을 떠 정강이에 세 점 찍고 손바닥으로 발목에서 무릎까지 길게 펴 바르면, 얇은 막이 호박색 뚜껑처럼 덮인다 — act_baby_apply_lotion은 아기·보호자, act_apply_face_cream은 avoid가 '침샘 점등, 피부엔 쓰지 말 것'. 용기는 글자·라벨 없는 무지(AI 글자 뭉개짐 방지), 손은 하나만. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍. (2026-10-06 미드저니가 옷 없는 다리+샤워 장면을 검열로 막아 무릎 길이 반바지를 입히고 맨발·젖은 광택 표현을 뺐다.)",
-      "fits": [
-        "바디크림 바르기",
-        "보습제 바르기",
-        "로션 바르기",
-        "목욕 후 보습",
-        "다리에 크림",
-        "건조 피부 관리",
-        "세라마이드 크림",
-        "보습 크림"
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure sits on the edge of a plain low bench seen from the side, framed tightly from just above the knee down to the foot, wearing plain loose knee-length shorts rendered as the same translucent cyan glass, the shorts hem just visible at the top edge of the frame, the shin facing the camera, a plain round open jar with a completely blank smooth surface, filled with thick rich opaque white cream, standing on the bench beside the knee, the fingertips of a single hand entering the frame from above and dipping into the cream. The shin bone and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, nudity, nude, naked, bare thighs, torso, buttocks, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, label on jar, lid with writing",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the hand scoops a dollop of thick white cream from the jar and dabs it in three dots down the front of the shin, while the camera moves in fast toward the shin. 1.5-4s: the open palm spreads the cream in three long slow strokes from the ankle up to the knee, the cream melting into one thin, even, glossy layer that coats the whole front of the shin. 4-6s: the hand lifts away and the camera pushes in tight on the coated shin; the thin cream layer glows warm amber like a lid sealed over the skin, tiny beads of moisture staying put just beneath it, glowing until the very last frame while the shin bone and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame; the jar stays plain and blank with no writing. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the soft slick sound of cream spreading, no music, no dialogue."
-    },
-    {
       "name": "m_skin_oil_lid",
       "seconds": 4,
       "why": "피부_31 설명 1칸(11.8~16.7초 '피부 겉에는 얇은 기름막이 있어서, 냄비 뚜껑처럼 물이 날아가지 않게 막아 줘요')과 3칸(24.7~28.0초 체온 정도 물·짧은 샤워 — 뚜껑이 그대로 남는다) 오른쪽 기전. 피부 단면 맨 위를 덮은 얇은 호박색 기름막 밑으로 물방울이 올라와 부딪히고 못 빠져나간다 — 라이브러리 m_skin_barrier_gaps는 갈라진 틈으로 균이 파고드는 장면, m_sebum_overproduction은 모공에서 기름이 넘치는 여드름 장면이라 '막이 뚜껑처럼 물을 가둔다'가 없다. 구간 4.9초·3.3초라 4초. m_oil_film_stripped·m_cream_lid_seal과 같은 피부 단면 구도로 맞대비. 엑스레이 화풍.",

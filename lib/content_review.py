@@ -1071,7 +1071,9 @@ def check_act_coverage(topic: str, lang: str = "kor") -> list[dict]:
     body = [r for r in rows if ts is None or r["start"] < ts - 0.05]
     if not body:
         return []
-    missing = [r for r in body if not r.get("act")]
+    # WHY `solo`(2026-10-07 사용자 "바르는 장면도 그냥 바르고 의미가 있는 장면이 없어 보인다, 동네 애새끼도 그리겠다"):
+    # 행위가 "크림을 바른다"뿐인 칸은 정보가 없어 일부러 비우고 기전만 둔다. 이유를 적은 칸만 빠뜨림에서 뺀다.
+    missing = [r for r in body if not r.get("act") and not r.get("solo")]
     if not missing:
         return []
     return [{"quote": ", ".join(f"{r['start']:.0f}초" for r in missing[:5]), "severity": "medium",

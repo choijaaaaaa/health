@@ -33,8 +33,9 @@
       "from": "레티놀은 비타민A의",
       "item": "레티놀 크림",
       "mech": "m_inflammation",
-      "act": "act_apply_cream_after_wash",
-      "label": "피부 겉층"
+      "act": null,
+      "label": "피부 겉층",
+      "solo": "바르기만 하는 행위는 정보가 없어 기전 단독(바른 뒤 피부 속 변화가 핵심)"
     },
     {
       "from": "그래서 처음 몇 주는",
@@ -47,8 +48,9 @@
       "from": "그러니 구두 길들이듯",
       "item": "레티놀 크림",
       "mech": "m_skin_tolerance_buildup",
-      "act": "act_night_cream_bedside",
-      "label": "피부 표면"
+      "act": null,
+      "label": "피부 표면",
+      "solo": "바르기만 하는 행위는 정보가 없어 기전 단독(바른 뒤 피부 속 변화가 핵심)"
     },
     {
       "from": "밤에 바르는 건",
@@ -61,8 +63,9 @@
       "from": "그래도 끊지 말아야",
       "item": "레티놀 크림",
       "mech": "m_retinol_collagen_boost",
-      "act": "act_pat_cream_eye_lines_night",
-      "label": "콜라겐 섬유"
+      "act": null,
+      "label": "콜라겐 섬유",
+      "solo": "바르기만 하는 행위는 정보가 없어 기전 단독(바른 뒤 피부 속 변화가 핵심)"
     },
     {
       "from": "실제로 일본 도호쿠대",
@@ -78,5 +81,6 @@
   "_summary_row_why": "summary_from과 같은 구절의 마지막 칸(act null) — 이게 있어야 앞 칸이 칠판 시작에서 끝난다(없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다).",
   "board_items": [
     "레티놀 크림"
-  ]
+  ],
+  "_panel_act_why": "2026-10-07 사용자 '바르는 장면도 그냥 바르고 의미가 있는 장면이 없어 보인다, 동네 애새끼도 그리겠다' — 바르기만 하는 왼쪽 행위 칸은 빼고 기전 단독(바른 뒤 피부 속 변화가 이 채널의 핵심). 행위 칸은 대본이 말하는 행동만."
 }

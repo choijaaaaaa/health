@@ -253,3 +253,17 @@ def test_blog_title_length_checks_both_flat_and_nested(tmp_path, monkeypatch):
     quotes = [i["quote"] for i in check_blog_title_length(topic)]
     assert any(q.startswith("네") for q in quotes), "flat(네이버) 캡션이 검사에서 빠졌다"
     assert all(not q.startswith("코") for q in quotes), "범위 안인 ko 제목이 잘못 잡혔다"
+
+
+def test_act_coverage_skips_rows_marked_solo(monkeypatch):
+    # 2026-10-07 바르기만 하는 칸은 일부러 기전 단독 — solo 표시가 있으면 빠뜨림으로 안 센다
+    import lib.xray_timeline as xt
+    rows = [{"start": 0, "end": 5, "act": "act_x", "mech": "m_a"},
+            {"start": 5, "end": 10, "act": None, "mech": "m_b", "solo": "의도"},
+            {"start": 10, "end": 15, "act": None, "mech": "m_c"}]
+    monkeypatch.setattr(xt, "resolve", lambda t: rows)
+    monkeypatch.setattr(xt, "summary_start", lambda t: 20.0)
+    monkeypatch.setattr(content_review, "_data_dir", lambda t: Path(__file__).parent)
+    monkeypatch.setattr(Path, "exists", lambda self: True)
+    issues = content_review.check_act_coverage("x")
+    assert issues and "3개 중 1개" in issues[0]["issue"]
