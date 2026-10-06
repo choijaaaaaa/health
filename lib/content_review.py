@@ -499,30 +499,15 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
 # 2026-09-20 사용자 "사람들에게 크게 도움이 되지 않는 느낌… 놀랄 만큼 도움될 내용이 많이 들어가면 좋겠다":
 # 기존 원고는 "커피·진통제·짠 음식이 위에 나쁘다"처럼 다 아는 말만 하고, 실행할 수 있는 숫자도 병원에 가야
 # 할 신호도 없었다. 아래 네 가지를 새 원고(card_news_spec에 "content_v2": true)에 강제한다.
-# 타입캐스트 5.48자/초 기준 약 340~466자.
-#
-# WHY 상한이 80이 아니라 85인지(2026-09-24): 원래 "62~80초"는 6.7자/초라는 틀린 상수로 환산한 값이라
-# 실제로는 한 번도 지켜진 적이 없다 — 발행본 67편 중 48%가 80초를 넘고, 사용자가 유일하게 품질을 인정한
-# 본보기 소화_14조차 82.3초다. 숫자를 지킬 수 없는 채로 두면 경고가 상시 켜져 있어 아무도 안 본다.
-# 실제로 만들어져 통과한 길이에 맞춰 85초로 둔다.
 # WHY 하한이 0인지(2026-10-01 사용자 "시간 1분 이상 조건은 없애자 … 짧게 쳤을 때 괜찮은 것도 시간에 맞추려고 막
 # 이상한 거 갖다 붙이다 보니 이상해지는 게 많은 듯", 루트 CLAUDE.md "쇼츠 나레이션 최소 길이 폐지"): 길이를 채우려고
 # 문장·수치를 덧붙이면 원고가 망가진다. 상한만 지킨다.
-V2_MIN_SECONDS, V2_MAX_SECONDS = 0, 85
-# WHY 건강만사전만 60초인지(2026-10-06 사용자 "최대한도 60초 정도로 바꾸자 비슷한 말 계속 똑같이 하는 거 같아"):
-# 85초 상한이 사실상 목표치가 돼 뷰티 1차 4편이 전부 600자로 꽉 차고 같은 말을 되풀이했다. 육아(baby)는
-# 이 지시 밖이라 85초 그대로 둔다.
-V2_MAX_SECONDS_BY_DOMAIN = {"health": 60}
-
-
-def _max_seconds(topic: str) -> int:
-    try:
-        return V2_MAX_SECONDS_BY_DOMAIN.get(tracks.domain_of(topic), V2_MAX_SECONDS)
-    except (KeyError, ValueError):
-        return V2_MAX_SECONDS
+# WHY 85 → 60인지(2026-10-06 사용자 "최대한도 60초 정도로 바꾸자 비슷한 말 계속 똑같이 하는 거 같아", 육아·댕냥
+# 세션에도 같이 전달): 85초 상한이 사실상 목표치가 돼 뷰티 1차 4편이 전부 600자로 꽉 차고 같은 말을 되풀이했다.
+V2_MIN_SECONDS, V2_MAX_SECONDS = 0, 60
 # 이미 뽑은 음성(실측)의 상한. WHY(2026-09-29): 타입캐스트로 바꾸자 같은 원고가 94~107초로 나왔다 — 길이 때문에
 # 다시 뽑지 않는다는 원칙(CLAUDE.md 원고 규칙)이 있는데 실측으로 85초에 막으면 조립·동기화가 멈춘다.
-# 새 원고는 위 85초 목표로 쓰고(글자수 추정), 녹음이 끝난 건 여기까지 받아준다.
+# 새 원고는 위 상한 안으로 쓰고(글자수 추정), 녹음이 끝난 건 여기까지 받아준다.
 V2_MEASURED_MAX_SECONDS = 110
 # 2026-09-24 3 → 1: "증상 하나를 깊게"로 대본 방향을 바꾼 뒤(사용자 "임상 이야기만 좀 하고 치워버려"),
 # 숫자 개수를 채우라는 검사가 오히려 '숫자만 던지기'를 부른다. 실행할 수 있는 수치는 하나라도 있어야 하지만
@@ -601,12 +586,11 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
     dense = re.sub(r"\s", "", text)
     secs, measured = _narration_seconds(topic, len(dense))
     issues = []
-    cap = _max_seconds(topic)
-    if not V2_MIN_SECONDS <= secs <= (V2_MEASURED_MAX_SECONDS if measured else cap):
+    if not V2_MIN_SECONDS <= secs <= (V2_MEASURED_MAX_SECONDS if measured else V2_MAX_SECONDS):
         issues.append({"quote": f"{len(dense)}자", "severity": "high",
                        "issue": f"나레이션이 {'실측 ' if measured else '약 '}{secs:.0f}초입니다 — "
-                                f"상한 {cap}초"
-                                f"({round(cap * SPEECH_CHARS_PER_SEC)}자, 공백 제외) — 짧은 건 괜찮다."})
+                                f"상한 {V2_MAX_SECONDS}초"
+                                f"({round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외) — 짧은 건 괜찮다."})
     nums = _NUM_WITH_UNIT.findall(text)
     if len(nums) < V2_MIN_NUMBERS:
         issues.append({"quote": ", ".join(nums) or "(없음)", "severity": "high",
