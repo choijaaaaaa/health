@@ -4705,5 +4705,48 @@
       "중단"
     ],
     "avoid": "Flow가 '성적 콘텐츠 가능성'으로 거부한 스틸 — 같은 스틸로 Flow 재시도하지 말 것."
+  },
+  "label_retinol_cream": {
+    "kind": "라벨",
+    "seen": "아이오페 레티놀 엑스퍼트 0.1% 기획세트 사진 — 상자의 'RETINOL EXPERT 0.1%'를 호박색 테두리로 짚고 당긴다(scripts/make_label_clip.py, 실제 상품 사진)",
+    "fits": [
+      "레티놀 크림 고르기",
+      "주름개선 기능성",
+      "레티놀 농도",
+      "0.1%"
+    ],
+    "avoid": "그 상품을 링크한 편에서만 — 다른 제품 칸에 쓰면 링크와 사진이 어긋난다."
+  },
+  "label_niacinamide_cream": {
+    "kind": "라벨",
+    "seen": "수플로우 나이아신아마이드 5% 크림 사진 — 튜브의 'Vita B3 Brightening Niacinamide Cream'을 호박색 테두리로 짚고 당긴다(scripts/make_label_clip.py, 실제 상품 사진)",
+    "fits": [
+      "나이아신아마이드 크림",
+      "미백 기능성",
+      "미백 크림 고르기"
+    ],
+    "avoid": "그 상품을 링크한 편에서만 — 다른 제품 칸에 쓰면 링크와 사진이 어긋난다."
+  },
+  "label_tinted_sunscreen": {
+    "kind": "라벨",
+    "seen": "듀이트리 어반쉐이드 커버앤핏 선크림 사진 — 'Blemish Cover Tone Fit Beige SPF50+ PA++++'를 호박색 테두리로 짚고 당긴다(scripts/make_label_clip.py, 실제 상품 사진)",
+    "fits": [
+      "틴티드 선크림",
+      "색 있는 선크림",
+      "SPF PA 확인",
+      "기미 선크림 고르기"
+    ],
+    "avoid": "그 상품을 링크한 편에서만 — 다른 제품 칸에 쓰면 링크와 사진이 어긋난다."
+  },
+  "label_ceramide_body_cream": {
+    "kind": "라벨",
+    "seen": "아비노 더멕사 아토 바디크림 사진 — 'Dermexa Ato Daily Emollient CREAM'을 호박색 테두리로 짚고 당긴다(scripts/make_label_clip.py, 실제 상품 사진)",
+    "fits": [
+      "바디크림 고르기",
+      "보습제",
+      "세라마이드 크림",
+      "크림 제형"
+    ],
+    "avoid": "그 상품을 링크한 편에서만 — 다른 제품 칸에 쓰면 링크와 사진이 어긋난다."
   }
 }
