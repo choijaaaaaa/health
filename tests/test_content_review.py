@@ -253,3 +253,9 @@ def test_blog_title_length_checks_both_flat_and_nested(tmp_path, monkeypatch):
     quotes = [i["quote"] for i in check_blog_title_length(topic)]
     assert any(q.startswith("네") for q in quotes), "flat(네이버) 캡션이 검사에서 빠졌다"
     assert all(not q.startswith("코") for q in quotes), "범위 안인 ko 제목이 잘못 잡혔다"
+
+
+def test_health_narration_cap_is_60_seconds_baby_stays_85():
+    # 2026-10-06 사용자 "최대한도 60초 정도로" — 건강만사전만, 육아는 지시 밖이라 85초 유지
+    assert content_review._max_seconds("피부_28") == 60
+    assert content_review._max_seconds("육아_17") == 85
