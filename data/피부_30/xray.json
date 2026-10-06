@@ -1,5 +1,5 @@
 {
-  "_why": "반투명 인체 포맷(content_v2). 도입부는 손거울을 들고 광대의 옅은 갈색 얼룩을 손끝으로 짚는 act_check_melasma_hand_mirror_real(훅 — 선크림을 매일 발라도 광대 기미가 짙어짐) + 햇빛 드는 창가에서 무지 선크림 튜브 두 개를 비교하는 act_compare_sunscreen_tubes_real(통념 — SPF 더 높은 걸 찾는다, 그 위로 햇빛이 그대로 얼굴에 닿음). '~가 아니라' 문장은 도입·설명 구간에 없어 빨간 X는 걸지 않는다(칠판 구간의 '하얗게 밝혀 주는 게 아니라'는 칸이 없어 X를 얹을 자리가 없다). 화풍: 40대 여성 얼굴 클로즈업 행위 5종은 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하므로 전부 실사(_real, --no-glow) 한 사람 한 화풍, 몸속 기전(피부 단면·빛·색소)은 엑스레이 기본.",
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 손거울을 들고 광대의 옅은 갈색 얼룩을 손끝으로 짚는 act_check_melasma_hand_mirror(훅 — 선크림을 매일 발라도 광대 기미가 짙어짐) + 햇빛 드는 창가에서 무지 선크림 튜브 두 개를 비교하는 act_compare_sunscreen_tubes(통념 — SPF 더 높은 걸 찾는다, 그 위로 햇빛이 그대로 얼굴에 닿음). '~가 아니라' 문장은 도입·설명 구간에 없어 빨간 X는 걸지 않는다(칠판 구간의 '하얗게 밝혀 주는 게 아니라'는 칸이 없어 X를 얹을 자리가 없다). 화풍: 행위·기전 전부 반투명 엑스레이 캐논(2026-10-06 사용자 결정 — 실사 인물 폐기). 기미는 유리 피부에 못 그리므로 광대 밑 호박색 점등으로 — 빛이 닿으면 켜지고, 흰 선크림 위로는 그대로 비치고, 베이지 선크림을 바르면 꺼지며 맑아진다. 얼굴은 이목구비 없는 유리 얼굴(두개골·이는 흐리게, 피부 표면 발광이 주인공).",
   "top_title": "광대 기미가 여름마다 짙어진다면",
   "inset": {
     "clip": "assets_library/xray/output/part_skin.mp4",
@@ -13,10 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_check_melasma_hand_mirror_real.mp4"
+      "clip": "assets_library/xray/output/act_check_melasma_hand_mirror.mp4"
     },
     {
-      "clip": "assets_library/xray/output/act_compare_sunscreen_tubes_real.mp4"
+      "clip": "assets_library/xray/output/act_compare_sunscreen_tubes.mp4"
     }
   ],
   "timeline": [
@@ -24,21 +24,21 @@
       "from": "바로 햇빛 속",
       "item": "틴티드 선크림",
       "mech": "m_blue_light_deep_pigment",
-      "act": "act_sunlight_on_cheek_outdoor_real",
+      "act": "act_sunlight_on_cheek_outdoor",
       "label": "색소 세포"
     },
     {
       "from": "보통 선크림은 투명해서",
       "item": "틴티드 선크림",
       "mech": "m_light_through_clear_film",
-      "act": "act_apply_white_sunscreen_real",
+      "act": "act_apply_white_sunscreen",
       "label": "피부 속"
     },
     {
       "from": "그래서 기미가 있다면",
       "item": "틴티드 선크림",
       "mech": "m_tinted_film_absorb_light",
-      "act": "act_apply_tinted_sunscreen_real",
+      "act": "act_apply_tinted_sunscreen",
       "label": "피부 겉면"
     },
     {
@@ -49,7 +49,7 @@
       "label": "기미"
     }
   ],
-  "_timeline_why": "기전의 층위로 세 칸(11.3~17.0 / 17.0~20.3 / 20.3~26.6초): ① 햇빛 속 눈에 보이는 빛 — 한낮 햇빛을 광대에 받는 실사 + 피부 단면에서 보라-흰 자외선보다 파란빛이 색소 세포를 더 크고 짙은 얼룩으로 키우는 기전(m_blue_light_deep_pigment, 자외선 vs 파란빛 대비). ② '보통 선크림은 투명해서'(쉼표 뒤 절로 쪼갬 — 앞 문장 2.8초는 3초 미만이라 단독 칸 불가) — 흰 선크림을 광대에 찍어 바르는 실사 + 투명한 막에 자외선은 튕겨 나가고 파란빛은 그대로 통과해 색소 세포가 짙어지는 기전(4초 — 구간 3.3초라 6초면 빨리 감김). ③ 🚨 제품 작동 칸 '그래서 기미가 있다면 색이 있는 선크림을 써 보세요. 산화철이라는 피부색 가루가 선글라스처럼 이 빛을 흡수하거든요' — 피부색 선크림을 광대에 펴 바르는 실사 + 피부색 막의 가루가 파란빛을 삼켜 아래 색소 세포가 잠잠해지는 기전. '써 보세요' 문장만은 2.9초라 단독 칸 불가, 작동 문장과 한 칸.",
+  "_timeline_why": "기전의 층위로 세 칸(11.3~17.0 / 17.0~20.3 / 20.3~26.6초): ① 햇빛 속 눈에 보이는 빛 — 한낮 햇빛을 광대에 받아 그 자리가 켜지는 행위 + 피부 단면에서 보라-흰 자외선보다 파란빛이 색소 세포를 더 크고 짙은 얼룩으로 키우는 기전(m_blue_light_deep_pigment, 자외선 vs 파란빛 대비). ② '보통 선크림은 투명해서'(쉼표 뒤 절로 쪼갬 — 앞 문장 2.8초는 3초 미만이라 단독 칸 불가) — 흰 선크림을 광대에 찍어 바르는 행위(막이 투명해 호박색이 그대로 비침) + 투명한 막에 자외선은 튕겨 나가고 파란빛은 그대로 통과해 색소 세포가 짙어지는 기전(4초 — 구간 3.3초라 6초면 빨리 감김). ③ 🚨 제품 작동 칸 '그래서 기미가 있다면 색이 있는 선크림을 써 보세요. 산화철이라는 피부색 가루가 선글라스처럼 이 빛을 흡수하거든요' — 피부색 선크림을 광대에 펴 바르면 호박색이 꺼지는 행위 + 피부색 막의 가루가 파란빛을 삼켜 아래 색소 세포가 잠잠해지는 기전. '써 보세요' 문장만은 2.9초라 단독 칸 불가, 작동 문장과 한 칸.",
   "summary_from": "실제로 기미 치료 중인",
   "_summary_why": "제품 작동 문장 다음 문장(8주 28% 근거)부터 칠판 전체 — 근거 → 톤업 이름보다 색·산화철·자외선 차단 기능성 표시 → 한쪽만·들쭉날쭉 커지는 얼룩은 피부과. 배지는 해결책 품목 틴티드 선크림.",
   "board_items": [
