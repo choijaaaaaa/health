@@ -9,7 +9,7 @@ lib/youtube_upload.py를 그대로 돌리면 개인 채널로 네이버판 영�
     .venv/bin/python3 scripts/yt_upload.py adult whoami
     .venv/bin/python3 scripts/yt_upload.py adult plan                  # 올릴 수 있는 것과 예약안(업로드 안 함)
     .venv/bin/python3 scripts/yt_upload.py adult status
-    .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 18시 슬롯에 예약
+    .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 슬롯(8시·18시)에 예약
     .venv/bin/python3 scripts/yt_upload.py adult reschedule 대사_14 2026-09-28
     .venv/bin/python3 scripts/yt_upload.py baby replace 육아_7          # 공개 전 예약 영상을 새 파일로 교체
 """
@@ -44,8 +44,8 @@ KST = dt.timezone(dt.timedelta(hours=9))
 CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정보", "건강쇼츠"]},
             "baby": {"track": "육아", "base_tags": ["육아만사전", "육아정보", "아기건강", "육아"]}}
 # 예약 게시 시각(KST), 하루 여러 편이면 쉼표로. 환경변수로 바꾼다(하드코딩 금지 규칙).
-# WHY(2026-10-03): 하루 두 편(8시·18시)을 잠깐 썼다가 같은 날 사용자 "하나씩만 … 필요하면 내가 뒤에꺼 개시" → 18시 하나.
-PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "18").split(","))
+# WHY(2026-10-06 사용자 "클립도 많이 올리려고 신호가 좀 오는 거 같아서 … 아침저녁으로 다시"): 8시·18시 두 편(10-03 잠깐 한 편으로 되돌렸던 것을 다시 두 편으로).
+PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "8,18").split(","))
 PUBLISH_HOUR = PUBLISH_HOURS[-1]   # reschedule에 날짜만 줄 때 쓰는 기본 시각(저녁)
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
 OLD_BRAND_TAG = "#세상건강사전"
