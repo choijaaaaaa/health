@@ -16,12 +16,3 @@ def test_worksheet_paths_are_pinned():
     assert c.INBOX == w.INBOX, "collect_clips와 prep_clip_worksheet이 같은 폴더를 봐야 한다"
     assert w.SHEET.parent == w.WORK.parent and w.SHEET.parent.name == "작업" and w.SHEET.parent.parent.name == "deploy"
 
-
-def test_sheet_numbers_stay_fixed_within_a_round(tmp_path):
-    # 2026-10-06 사용자 "기존 번호를 무시하고 정리하면 어케해 기존 번호 기준으로 이미지 넣어놨는데 플로우에다가"
-    sheet = tmp_path / "건강만사전.md"
-    first = w._stable_numbers(sheet, ["a", "b", "c"])
-    assert first == {"a": 1, "b": 2, "c": 3}
-    # b가 끝나 빠지고 새 요청 d가 들어와도 a·c는 그대로, d는 쓴 적 없는 번호
-    again = w._stable_numbers(sheet, ["a", "c", "d"])
-    assert again == {"a": 1, "c": 3, "d": 4}

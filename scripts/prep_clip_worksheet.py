@@ -204,37 +204,10 @@ def main() -> None:
         build(track)
 
 
-def _numbers_path(sheet: Path) -> Path:
-    return sheet.with_name(f"{sheet.stem}_번호.json")
-
-
-def _stable_numbers(sheet: Path, names: list[str]) -> dict[str, int]:
-    """한 바퀴(시트가 빌 때까지) 동안 이름마다 번호를 고정한다.
-
-    WHY(2026-10-06 사용자 "기존 번호를 무시하고 정리하면 어케해 기존 번호 기준으로 이미지 넣어놨는데 플로우에다가"):
-    시트를 다시 만들 때마다 남은 항목만으로 01부터 다시 매겨, 스틸 파일 이름까지 새 번호로 바뀌었다. 사람은 이미
-    옛 번호로 Flow에 스틸을 올려 두고 프롬프트를 번호로 찾는다. 끝난 항목의 번호는 비워 두고(다시 쓰지 않는다),
-    새 요청은 지금까지 쓴 가장 큰 번호 다음부터 붙인다. names는 정렬된 차례라 새 항목도 그 차례대로 번호를 받는다."""
-    path = _numbers_path(sheet)
-    saved = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
-    table, top = saved.get("names", {}), saved.get("max", 0)
-    out = {}
-    for n in names:
-        if n not in table:
-            top += 1
-            table[n] = top
-        out[n] = table[n]
-    path.write_text(json.dumps({"max": top, "names": {n: table[n] for n in names}}, ensure_ascii=False, indent=1),
-                    encoding="utf-8")
-    return out
-
-
 def build(track: str | None) -> None:
     sheet, work, inbox = tracks.work_paths(track)
     pend = _pending(track)
     if not pend:
-        # 한 바퀴가 끝났다 — 번호표를 비워 다음 바퀴는 01부터 시작한다
-        _numbers_path(sheet).unlink(missing_ok=True)
         # 비어도 파일은 둔다 — 사람이 deploy/작업/을 열었을 때 "이 브랜드는 할 게 없다"가 바로 보이게
         sheet.parent.mkdir(parents=True, exist_ok=True); work.mkdir(parents=True, exist_ok=True)
         sheet.write_text("# 지금 뽑을 클립 없음\n\n요청이 생기면 이 파일이 번호순 작업지시로 바뀐다.\n", encoding="utf-8")
@@ -259,10 +232,8 @@ def build(track: str | None) -> None:
     if work.exists():
         shutil.rmtree(work)
     work.mkdir(parents=True)
-    numbers = _stable_numbers(sheet, [r["name"] for _t, r, _s in pend])
-    for topic, r, sub in pend:
+    for i, (topic, r, sub) in enumerate(pend, 1):
         src = _existing_still(sub, r["name"], track)
-        i = numbers[r["name"]]
         r["_no"], r["_work"] = f"{i:02d}", f"{i:02d}_{r['name']}.jpg"
         if src:
             shutil.copy2(src, work / r["_work"])
