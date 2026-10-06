@@ -11,6 +11,7 @@ OAuth 클라이언트는 세상건강사전 때 쓴 것(YOUTUBE_WHD_CLIENT_*)을
 
     .venv/bin/python3 scripts/yt_connect.py adult    # 성인 건강 채널
     .venv/bin/python3 scripts/yt_connect.py baby     # 아기 건강 채널
+    .venv/bin/python3 scripts/yt_connect.py whd      # 댕냥사전 채널(값은 dangnyang-shorts/.env로 옮긴다)
 """
 from __future__ import annotations
 
@@ -29,7 +30,8 @@ load_dotenv(ROOT / ".env")
 from google_auth_oauthlib.flow import InstalledAppFlow  # noqa: E402
 from googleapiclient.discovery import build  # noqa: E402
 
-from lib.youtube_upload import SCOPES  # noqa: E402
+# 업로드·예약(youtube) + 댓글(youtube.force-ssl, 2026-10-06 쇼츠 제품 댓글) — force-ssl 없이는 commentThreads가 403
+SCOPES = ["https://www.googleapis.com/auth/youtube", "https://www.googleapis.com/auth/youtube.force-ssl"]
 
 
 def _set_env(values: dict[str, str]) -> None:

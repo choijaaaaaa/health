@@ -64,7 +64,7 @@ class Channel:
         """🚨 올리기 전에 매번 토큰이 가리키는 채널을 확인한다 — 다른 채널이면 여기서 멈춘다."""
         c = Credentials(token=None, refresh_token=os.environ[self.env + "REFRESH_TOKEN"],
                         client_id=os.environ[self.env + "CLIENT_ID"], client_secret=os.environ[self.env + "CLIENT_SECRET"],
-                        token_uri="https://oauth2.googleapis.com/token", scopes=yu.SCOPES)
+                        token_uri="https://oauth2.googleapis.com/token", scopes=None)  # 동의받은 범위 그대로(업로드+댓글) — 범위를 지정하면 덜 받은 토큰이 갱신에 실패한다
         c.refresh(Request())
         yt = build("youtube", "v3", credentials=c)
         items = yt.channels().list(part="id,snippet", mine=True).execute().get("items", [])
