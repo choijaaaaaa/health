@@ -76,7 +76,7 @@ class Channel:
     def rows(self) -> list[dict]:
         import requests
         r = requests.get(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers=yu._SB_HEADERS,
-                         params={"select": "topic,video_id,publish_at,status", "topic": f"like.{self.key}*"}, timeout=30)
+                         params={"select": "topic,video_id,publish_at,status,commented_at", "topic": f"like.{self.key}*"}, timeout=30)
         r.raise_for_status()
         return r.json()
 
