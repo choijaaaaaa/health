@@ -20,3 +20,12 @@ def test_months_stay_sino():
 def test_percent_and_month_ranges():
     assert to_speech("60~70%") == "육십 퍼센트에서 칠십 퍼센트"
     assert to_speech("6개월에서 9개월") == "육 개월에서 구 개월"
+
+
+def test_ingredient_codes_are_read_in_english():
+    # 2026-10-06 피부_29 "비타민B3"가 "비타민B삼"으로 녹음됐다 — 성분 이름의 숫자는 영어로 읽는 게 관례
+    assert to_speech("비타민B3의 한 종류") == "비타민비쓰리의 한 종류"
+    assert to_speech("오메가3") == "오메가쓰리"
+    assert to_speech("코엔자임Q10") == "코엔자임큐텐"
+    assert to_speech("SPF 50") == "SPF 오십"
+    assert to_speech("2~5%") == "이 퍼센트에서 오 퍼센트"

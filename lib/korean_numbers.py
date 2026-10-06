@@ -72,8 +72,26 @@ _PAT = re.compile(r"(?<![0-9.])(\d[\d,]*(?:\.\d+)?)\s*([만억조])?\s*"
                   r"(%|℃|kcal|mg|kg|g|mL|ml|L|l|[가-힣]{1,4})?")
 
 
+# WHY 영어로 읽는지(2026-10-06 피부_29): "비타민B3"가 "비타민B삼", "오메가3"가 "오메가삼"으로 나왔다. 성분 이름에 붙은
+# 숫자는 한국어로도 영어로 읽는 게 관례다("비타민 비쓰리·디쓰리", "오메가쓰리", "코엔자임 큐텐").
+_EN_NUM = {1: "원", 2: "투", 3: "쓰리", 4: "포", 5: "파이브", 6: "식스", 7: "세븐", 8: "에잇", 9: "나인",
+           10: "텐", 11: "일레븐", 12: "트웰브"}
+_LETTER_KO = {"A": "에이", "B": "비", "C": "씨", "D": "디", "E": "이", "K": "케이", "Q": "큐"}
+_CODE_PAT = re.compile(r"(?<![A-Za-z])([ABCDEKQ])(\d{1,2})(?![\d.,%])")
+_OMEGA_PAT = re.compile(r"오메가\s?([369])(?!\d)")
+
+
+def _english_codes(text: str) -> str:
+    def code(m: re.Match) -> str:
+        n = int(m.group(2))
+        return _LETTER_KO[m.group(1)] + _EN_NUM[n] if n in _EN_NUM else m.group(0)
+    text = _CODE_PAT.sub(code, text)
+    return _OMEGA_PAT.sub(lambda m: "오메가" + _EN_NUM[int(m.group(1))], text)
+
+
 def to_speech(text: str) -> str:
     """TTS에 보낼 텍스트 — 아라비아 숫자를 한글 읽기로 바꾼다."""
+    text = _english_codes(text)
     def sub(m: re.Match) -> str:
         num, big, unit = m.group(1).replace(",", ""), m.group(2), m.group(3) or ""
         # 단위 자리에 조사·어미가 걸린 경우(40세가 → unit="세가")는 단위만 떼어 읽고 나머지는 붙인다
