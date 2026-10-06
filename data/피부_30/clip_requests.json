@@ -1,0 +1,135 @@
+{
+  "requests": [
+    {
+      "name": "act_check_melasma_hand_mirror_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_30 도입부 훅('선크림을 매일 바르는데도, 광대 기미가 여름만 지나면 더 짙어지신 적') 전체 화면. 손거울을 들고 광대의 옅은 갈색 얼룩을 손끝으로 짚는다 — 라이브러리에 얼굴 피부를 살피는 행위가 없다(act_check_skin은 무릎, act_hold_cheek은 치통·두개골). 거울 반사는 AI가 뭉개서 거울 뒷면이 카메라를 향하게 했다. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 이 편 행위 5장은 같은 인물 묘사(40대 중반·어깨 기장 검은 머리·오트밀색 니트·광대 옅은 갈색 얼룩)로 한 화풍.",
+      "fits": [
+        "기미",
+        "광대 기미",
+        "거울로 얼굴 보기",
+        "잡티",
+        "얼굴 얼룩",
+        "색소침착",
+        "피부 고민",
+        "기미가 짙어짐"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint light-brown patches across both cheekbones, wearing a plain oatmeal-colored knit top, sitting at a bright bathroom vanity and holding a small plain round hand mirror up in her left hand with its blank back facing the camera, leaning in to study her face, the fingertips of her right hand lightly touching the light-brown patch high on her right cheekbone, a quietly worried expression, seen from the chest up in three-quarter view, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_compare_sunscreen_tubes_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_30 도입부 통념('그래서 SPF 더 높은 걸 찾는 분이 많아요. 하지만 SPF가 아무리 높아도 못 막는 빛이 있어요') 전체 화면. 햇빛 드는 창가에서 무지 선크림 튜브 두 개를 견주며 더 센 걸 고르는데, 그 사이에도 햇빛이 얼굴에 그대로 쏟아진다(못 막는 빛). 튜브 글자는 AI가 뭉개므로 완전 무지. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 이 편 행위 5장은 같은 인물 묘사(40대 중반·어깨 기장 검은 머리·오트밀색 니트·광대 옅은 갈색 얼룩)로 한 화풍.",
+      "fits": [
+        "선크림 고르기",
+        "SPF",
+        "자외선 차단제 비교",
+        "선크림 추천",
+        "화장품 고르기",
+        "더 센 제품 찾기",
+        "햇빛"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint light-brown patches across both cheekbones, wearing a plain oatmeal-colored knit top, standing beside a bright window on a summer morning holding two plain white squeeze tubes of sunscreen side by side, one in each hand, both tubes completely blank with no printing at all, looking from one tube to the other as if choosing the stronger one, bright sunlight streaming through the window across her face and cheekbones, seen from the chest up in three-quarter view, blurred home interior background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_sunlight_on_cheek_outdoor_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_30 설명 1칸('바로 햇빛 속 눈에 보이는 빛, 가시광선이에요. 그중 파란빛은 자외선보다 더 짙은 얼룩을 남기는데') 왼쪽 행위. 한낮 여름 햇빛을 광대에 정면으로 받으며 걷는다 — 라이브러리 햇빛 장면은 act_shield_eyes_from_light(눈 점등·눈부심)뿐이라 '피부에 닿는 햇빛'이 안 보인다. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 이 편 행위 5장은 같은 인물 묘사(40대 중반·어깨 기장 검은 머리·오트밀색 니트·광대 옅은 갈색 얼룩)로 한 화풍.",
+      "fits": [
+        "햇빛",
+        "한낮 외출",
+        "여름 햇볕",
+        "자외선",
+        "햇빛 노출",
+        "기미",
+        "광노화"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint light-brown patches across both cheekbones, wearing a plain oatmeal-colored knit top, walking on a sunny city sidewalk at midday in summer, bright direct sunlight falling across her face and both cheekbones, eyes slightly narrowed against the glare, a thin shoulder bag strap over one shoulder, seen from the chest up in three-quarter view, blurred street with green trees behind her and no signs, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_apply_white_sunscreen_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_30 설명 2칸('보통 선크림은 투명해서 이 빛이 거의 그대로 통과해요') 왼쪽 행위. 흰 선크림을 광대에 점점이 찍어 펴 바른다 — 3칸의 피부색 선크림과 크림 색이 갈리게(흰색 vs 베이지). act_apply_face_cream은 avoid가 '침샘 점등, 피부엔 쓰지 말 것'. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 이 편 행위 5장은 같은 인물 묘사(40대 중반·어깨 기장 검은 머리·오트밀색 니트·광대 옅은 갈색 얼룩)로 한 화풍.",
+      "fits": [
+        "선크림 바르기",
+        "자외선 차단제",
+        "얼굴에 크림 바르기",
+        "백탁",
+        "스킨케어",
+        "선크림 덧바르기",
+        "무기자차"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint light-brown patches across both cheekbones, wearing a plain oatmeal-colored knit top, sitting at a bright bathroom vanity and dotting thick plain white sunscreen onto her right cheekbone with two fingertips of her right hand, several small white dots of cream on her cheek and one white streak half spread, holding a plain white squeeze tube with a completely blank surface in her left hand, seen from the chest up in three-quarter view, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_apply_tinted_sunscreen_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_30 제품 작동 칸('그래서 기미가 있다면 색이 있는 선크림을 써 보세요. 산화철이라는 피부색 가루가 선글라스처럼 이 빛을 흡수하거든요') 왼쪽 행위 — 제품을 쓰는 장면. 피부와 같은 베이지색 선크림을 광대에 펴 바르면 그 자리 얼룩이 고르게 덮인다(칠판의 '바르면 피부색이 남아야'와 이어짐). 튜브는 글자 없는 무지. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 이 편 행위 5장은 같은 인물 묘사(40대 중반·어깨 기장 검은 머리·오트밀색 니트·광대 옅은 갈색 얼룩)로 한 화풍.",
+      "fits": [
+        "틴티드 선크림",
+        "색 있는 선크림",
+        "톤업 선크림",
+        "선크림 바르기",
+        "기미 커버",
+        "피부 톤 보정",
+        "얼굴에 크림 바르기"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint light-brown patches across both cheekbones, wearing a plain oatmeal-colored knit top, sitting at a bright bathroom vanity and spreading a warm beige skin-toned tinted sunscreen across her right cheekbone with the fingertips of her right hand, the beige cream the same shade as her skin, blending in and evening out the light-brown patch where it is spread, a little beige cream visible on her fingertips, holding a plain beige squeeze tube with a completely blank surface in her left hand, seen from the chest up in three-quarter view, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "m_blue_light_deep_pigment",
+      "seconds": 6,
+      "why": "피부_30 설명 1칸(11.3~17.0초 '햇빛 속 눈에 보이는 빛, 가시광선 … 파란빛은 자외선보다 더 짙은 얼룩을 남기는데') 오른쪽 기전 — 이 편 핵심. 라이브러리 m_uv_radiation_damage는 광선이 꽂힌 뒤 진피 콜라겐이 끊기는 주름 장면이라 '색소가 짙어짐'이 안 보이고, m_pigment_loss는 색소가 빠지는 반대 장면이다. 왼쪽 보라-흰 자외선 아래는 옅은 점, 오른쪽 짙은 파란빛 아래는 색소 세포가 크고 짙은 얼룩을 만드는 대비가 핵심(근거: 파란빛이 색소 세포를 직접 깨워 더 짙고 오래 가는 색소 — research.md 3번). 엑스레이 화풍.",
+      "fits": [
+        "기미",
+        "가시광선",
+        "파란빛",
+        "블루라이트",
+        "색소침착",
+        "멜라닌",
+        "기미가 짙어짐",
+        "햇빛 노출",
+        "잡티"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin smooth top surface, beneath it a layer of stacked flat cells with a row of small star-shaped pigment cells with branching arms along its bottom edge, each holding a few tiny dark granules, and below that a deeper layer of loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame two kinds of light rain down from the dark void onto the skin surface — over the left half, thin flickering violet-white rays; over the right half, thick steady deep-blue beams — while the camera rushes forward toward the skin. 2-4s: under the violet-white rays on the left, the pigment cells give off only a few small faint amber-brown granules that soon dim; under the deep-blue beams on the right, the beams sink deeper into the skin, and the pigment cells there swell and pump out dense dark amber-brown granules that pile up and spread sideways into a wide dark stain. 4-6s: the camera swings hard to the right side and pushes in on the wide dark amber-brown stain, which glows intensely and stays lit until the very last frame, much darker and larger than the faint spot on the left, while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft rising shimmer as the blue beams sink in, no music, no dialogue."
+    },
+    {
+      "name": "m_light_through_clear_film",
+      "seconds": 4,
+      "why": "피부_30 설명 2칸(17.0~20.3초 '보통 선크림은 투명해서 이 빛이 거의 그대로 통과해요') 오른쪽 기전. 피부 위 투명한 막에 자외선은 튕겨 나가는데 파란빛은 막이 없는 듯 그대로 통과해 색소 세포가 짙어진다 — 라이브러리에 '막이 빛을 거른다/못 거른다' 장면이 없다. 구간이 3.3초라 4초(6초면 0.55배로 빨리 감김). 1칸과 같은 피부 단면 구도로 이어지게. 엑스레이 화풍.",
+      "fits": [
+        "선크림 한계",
+        "선크림 발라도 기미",
+        "자외선 차단제",
+        "투명한 막 통과",
+        "가시광선",
+        "무기자차",
+        "SPF"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin smooth top surface, beneath it a layer of stacked flat cells with a row of small star-shaped pigment cells with branching arms along its bottom edge, each holding a few tiny dark granules, and below that a deeper layer of loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is coated with a thin, perfectly clear glossy film, like a sheet of clear gel. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame thin flickering violet-white rays strike the clear glossy film on top of the skin and bounce off its surface in small bright sparks, not one of them getting through, while the camera rushes in toward the film. 1.5-3s: thick deep-blue beams arrive and pass straight through the clear film without dimming at all, as if the film were not there, plunging down into the skin onto the row of pigment cells. 3-4s: the camera dives down after the beams to the pigment cells, which swell and fill with dark amber-brown granules glowing intensely until the very last frame, while the clear film above stays intact and unchanged and the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with tiny ticking sparks as the rays bounce off, no music, no dialogue."
+    },
+    {
+      "name": "m_tinted_film_absorb_light",
+      "seconds": 6,
+      "why": "피부_30 제품 작동 칸(20.3~26.6초 '산화철이라는 피부색 가루가 선글라스처럼 이 빛을 흡수하거든요') 오른쪽 기전 — 기전이 좋아지는 장면. 피부 위 베이지색 막의 작은 가루들이 파란빛을 삼켜(선글라스처럼) 아래로 한 줄기도 안 내려가고, 색소 세포가 잠잠해지며 얼룩이 옅어진다. 2칸(투명 막 통과)과 같은 피부 단면 구도로 맞대어 '투명 막 통과 vs 색 있는 막 흡수'가 한눈에 읽히게. 엑스레이 화풍.",
+      "fits": [
+        "틴티드 선크림",
+        "색 있는 선크림",
+        "산화철",
+        "빛 흡수",
+        "가시광선 차단",
+        "기미 관리",
+        "피부 보호막"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin smooth top surface, beneath it a layer of stacked flat cells with a row of small star-shaped pigment cells with branching arms along its bottom edge, each holding a few tiny dark granules, and below that a deeper layer of loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is coated with a thin layer of warm beige skin-toned film densely packed with countless tiny tan mineral grains, the only warm-coloured thing in the frame; just below it, the pigment cells hold a small cluster of dark granules. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame thick deep-blue beams rain down from the dark void onto the beige film on top of the skin while the camera rushes in toward it. 2-4s: as each beam touches the film, the tiny tan grains catch it and flare warm amber for an instant, swallowing the light the way dark sunglasses lenses swallow glare; every beam fades out inside the film and not a single one reaches the skin below. 4-6s: the camera pushes down through the glowing film to the pigment cells beneath, which stay calm and dim while their dark granules slowly fade paler, and the beige film above keeps glowing warm amber until the very last frame as it holds back every beam; the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft muffled hush each time a beam is swallowed, no music, no dialogue."
+    }
+  ]
+}

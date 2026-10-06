@@ -1,0 +1,133 @@
+{
+  "requests": [
+    {
+      "name": "act_hold_serum_check_spot_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 도입부 훅('나이아신아마이드, 잡티 옅어지라고 20%짜리까지 샀는데 2주째 그대로인 적') 전체 화면 + 설명 1칸('잡티는 피부 속 색소가 겉으로 올라와서 생겨요') 왼쪽. 무지 갈색 스포이트병을 얼굴 옆에 든 채 광대 잡티를 손끝으로 짚고 병을 내려다보며 실망한다 — '샀는데 그대로'가 한 장에 보인다. 라이브러리에 얼굴 피부를 살피는 행위가 없다(act_check_skin은 무릎, act_apply_face_cream은 침샘 점등). 피부_30 훅(손거울)과 겹치지 않게 거울 없이 병을 들었다. 병 글자는 AI가 뭉개므로 완전 무지. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하고, 겉에 보이는 갈색 잡티 자체가 유리 피부로는 안 그려진다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인(가운데 = 볼·손끝·병). 이 편 행위 6장은 같은 인물 묘사(40대 중반·귀 뒤로 넘긴 어깨 기장 검은 머리·오트밀색 니트·광대 작은 갈색 잡티)로 한 화풍.",
+      "fits": [
+        "잡티",
+        "잡티가 안 옅어짐",
+        "기미",
+        "세럼 효과 없음",
+        "화장품 샀는데 그대로",
+        "얼굴 색소침착",
+        "피부 고민",
+        "나이아신아마이드"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top, sitting at a bright bathroom vanity and holding a small plain amber-glass dropper bottle up beside her face in her left hand, the bottle completely blank with no printing at all, the fingertips of her right hand lightly touching the small light-brown spots high on her right cheekbone, looking down at the bottle with a quietly disappointed expression as if it has not worked, seen from the chest up in three-quarter view with her cheek, fingertips and the bottle in the center of the frame, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, mirror, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_compare_serum_bottles_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 도입부 통념('그래서 더 높은 농도를 찾는 분이 많아요. 하지만 이 성분은 농도보다, 얼마나 꾸준히 발랐느냐가 중요해요') 전체 화면이자 빨간 X가 얹히는 틀린 쪽 장면('농도보다'에서 X). 크기가 다른 무지 스포이트병 두 개를 눈높이에 나란히 들고 더 센 걸 고르듯 번갈아 본다 — 숫자를 화면에 못 쓰니 '더 큰 병 = 더 센 것'으로 읽히게 했다. 병 글자는 AI가 뭉개므로 완전 무지. 화풍: 40대 여성 얼굴 클로즈업 — 엑스레이면 두개골·이가 비쳐 역하다(XRAY_FORMAT 6절), 실사 스틸 + --no-glow 푸시인(가운데 = 얼굴과 두 병). 이 편 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "세럼 고르기",
+        "고농도 화장품",
+        "농도 비교",
+        "더 센 제품 찾기",
+        "앰플 고르기",
+        "화장품 쇼핑",
+        "나이아신아마이드 20%"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top, standing at a bright bathroom vanity holding two plain amber-glass dropper bottles up side by side at eye level, one in each hand, the bottle in her right hand noticeably larger than the one in her left, both bottles completely blank with no printing at all, looking from one bottle to the other with a slight frown as if choosing the stronger one, seen from the chest up facing the camera with her face and both bottles in the center of the frame, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_dab_cream_on_spot_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 설명 2칸('이 색소가 올라오는 걸 막아 줄 뿐, 이미 올라온 색소를 지우진 못해요', 3.9초) 왼쪽 — 잡티 위에 약지 끝으로 흰 크림을 콕콕 찍어 바른다(성분을 바르는 행위, 오른쪽 m_pigment_rise_blocked와 짝). 라이브러리에 얼굴에 무언가 바르는 피부 행위가 없다(act_apply_face_cream은 이름과 달리 턱 아래 침샘 점등이라 avoid에 '피부엔 쓰지 말 것'). 크림통은 완전 무지. 화풍: 얼굴 클로즈업 — 엑스레이면 두개골·이가 비쳐 역하다(XRAY_FORMAT 6절), 실사 스틸 + --no-glow 푸시인(가운데 = 볼과 손끝). 이 편 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "잡티에 크림 바르기",
+        "기미크림",
+        "스팟 케어",
+        "미백 크림 바르기",
+        "얼굴에 화장품 바르기",
+        "부분 도포"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top, gently patting a small dab of white cream onto the light-brown spots high on her right cheekbone with the tip of her ring finger, a small plain white cream jar with its lid off held low in her left hand, the jar completely blank with no printing at all, eyes looking slightly downward, close-up from the shoulders up in three-quarter view with her cheek and fingertip in the center of the frame, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_night_cream_bedside_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 설명 3칸('그래서 시간이 걸려요. 5% 크림을 하루 두 번 바른 연구에서도, 차이가 난 건 4주째부터였어요', 5.2초) 왼쪽 — 밤에 침대 가장자리에 앉아 두 손 끝으로 양 볼에 크림을 펴 바른다(하루 두 번의 저녁 쪽, 세수 직후 아침 장면 act_apply_cream_after_wash_real과 낮·밤으로 갈린다). 라이브러리에 밤 스킨케어 행위가 없다. 크림통은 완전 무지. 화풍: 얼굴 클로즈업 — 엑스레이면 두개골·이가 비쳐 역하다(XRAY_FORMAT 6절), 실사 스틸 + --no-glow 푸시인(가운데 = 얼굴). 이 편 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "밤 스킨케어",
+        "자기 전 크림",
+        "하루 두 번 바르기",
+        "나이트 루틴",
+        "꾸준히 바르기",
+        "레티놀 크림",
+        "저녁 기초화장"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top, sitting on the edge of her bed at night in a dim bedroom, smoothing white cream onto both cheeks with the fingertips of both hands, eyes calmly half closed, a small plain white cream jar with its lid off standing on the nightstand beside a glowing bedside lamp, the jar completely blank with no printing at all, seen from the chest up facing the camera with her face in the center of the frame, warm realistic photograph, warm low lamp light, shallow depth of field, calm quiet night mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, clock, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_put_away_cream_jar_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 설명 4칸('반대로 바르기를 멈추면 색소가 다시 올라와요', 3.1초) 왼쪽 — 뚜껑 닫은 무지 크림통을 화장대 서랍에 밀어 넣고 문 쪽으로 고개를 돌린다('그만 바른다'가 한 동작으로 보인다, 오른쪽은 다시 차오르는 m_bilirubin_skin_yellow). 라이브러리에 화장품을 그만 쓰는 행위가 없다. 크림통은 완전 무지. 화풍: 같은 인물이 나오는 장면이라 이 편 한 화풍(실사)에 맞춘다 — 얼굴은 옆모습이지만 엑스레이면 두개골이 비친다(XRAY_FORMAT 6절), 실사 스틸 + --no-glow 푸시인(가운데 = 손·통·서랍).",
+      "fits": [
+        "바르다 멈춤",
+        "화장품 끊기",
+        "꾸준히 안 바름",
+        "중단하면 다시 생김",
+        "루틴 포기",
+        "효과 없어서 그만둠"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top, standing at a bathroom vanity and pushing a small closed plain white cream jar into an open vanity drawer with her right hand, about to slide the drawer shut, already turning her face away toward the doorway as if giving up on it, the jar completely blank with no printing at all, seen from the side at waist height with her hand, the jar and the open drawer in the center of the frame and her face in profile above, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_apply_cream_after_wash_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_29 🚨 제품 작동 칸('그래서 매일 바르는 크림을 나이아신아마이드 미백 기능성 크림으로 바꿔 두면 편해요. 세수하고 늘 바르는 거라 빠뜨릴 일이 없거든요', 8.5초) 왼쪽 — 세수 직후 물기 남은 얼굴에 헤어밴드·어깨 수건, 무지 크림을 두 손 끝으로 양 볼에 위로 쓸어 펴 바른다(제품을 쓰는 행위, 오른쪽은 겉 얼룩이 옅어지는 m_pigment_spot_fade). '세수하고 늘 바르는' 매일 습관이 한 장에 보여야 한다. 크림통은 완전 무지. 화풍: 얼굴 클로즈업 — 엑스레이면 두개골·이가 비쳐 역하다(XRAY_FORMAT 6절), 실사 스틸 + --no-glow 푸시인(가운데 = 얼굴). 이 편 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "세안 후 크림",
+        "아침 스킨케어",
+        "매일 바르는 크림",
+        "기초화장품 바꾸기",
+        "스킨케어 루틴",
+        "미백 기능성 크림",
+        "보습크림"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair held back by a soft white hair band, natural bare skin with a few small light-brown spots high on both cheekbones, wearing a plain oatmeal-colored knit top with a plain white towel over her shoulders, her freshly washed face still slightly damp, spreading white cream evenly over both cheeks with the flat fingertips of both hands in gentle upward strokes, a small plain white cream jar with its lid off standing on the sink counter in front of her, the jar completely blank with no printing at all, seen from the chest up facing the camera with her face in the center of the frame, bright morning bathroom light, blurred white tiles behind her, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, printed packaging, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "m_pigment_rise_blocked",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "피부_29 설명 2칸('나이아신아마이드는 이 색소가 올라오는 걸 막아 줄 뿐, 이미 올라온 색소를 지우진 못해요', 3.9초 → 4초) 오른쪽 기전 — 이 편 핵심 원리(색소 세포가 만든 색소를 위 세포로 넘기는 걸 막는다, research.md 3번 Hakozaki·Greatens). 라이브러리에 '색소가 올라가다 막힘'이 없다 — m_bilirubin_skin_yellow는 올라가서 물드는 반대 장면, m_pigment_loss는 색소가 빠져 하얘지는 장면(백반증), m_uv_radiation_damage는 콜라겐이 끊기는 주름 장면. 핵심은 둘: ①색소 세포 팔 끝이 막혀 알갱이가 하나도 못 넘어간다 ②겉에 이미 있던 얼룩은 그대로 남는다('지우진 못해요'). 엑스레이 화풍, 사람 없음.",
+      "fits": [
+        "나이아신아마이드 원리",
+        "색소가 올라오는 걸 막음",
+        "멜라닌 전달 억제",
+        "미백 성분 작용",
+        "잡티 생성 억제",
+        "기미 예방",
+        "이미 생긴 잡티는 그대로"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the frame, cut open to show its layers: a thin top surface of flat stacked cells with one small patch in it already tinted amber-brown where pigment granules have settled, beneath it a thick layer of round glassy cells, and along the bottom edge of that layer a row of star-shaped pigment cells whose long branching arms reach up between the round cells, each pigment cell packed with tiny amber-brown granules. Below that, a deeper layer of loose wavy fibres. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the tiny amber-brown granules inside the star-shaped pigment cells stream up along the branching arms toward the round cells above, while the camera rushes in toward the tips of the arms. 1.5-3s: right at the tip of every arm a thin shimmering pale cyan seal snaps shut, and the rising granules bump against it and pile up inside the arms; not a single granule crosses into the round cells above, which stay clear pale cyan. 3-4s: the camera tilts up fast to the top surface, where the small amber-brown patch that was already there stays exactly as it is, glowing steadily until the very last frame, while the round cells beneath it stay clear. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft muted taps as the granules hit the seals, no music, no dialogue."
+    },
+    {
+      "name": "m_pigment_spot_fade",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_29 설명 3칸('그래서 시간이 걸려요 … 차이가 난 건 4주째부터였어요', 5.2초)과 🚨 제품 작동 칸('매일 바르는 크림을 … 바꿔 두면 편해요. 세수하고 늘 바르는 거라 빠뜨릴 일이 없거든요', 8.5초) 오른쪽 기전 — '막힌 채로 계속 바르면 겉 얼룩이 서서히 옅어진다'는 효과의 증명. 아래 색소 세포의 알갱이는 붙들린 채 안 올라오고, 겉의 얼룩 실린 납작한 세포가 한 겹씩 떨어져 나가며 아래에서 맑은 세포가 올라와 얼룩이 옅어지는 게 핵심. 라이브러리에 색소가 옅어지는 장면이 없다(m_pigment_loss는 한 구간만 하얗게 비는 백반증 장면이라 '얼룩이 맑아짐'과 반대로 읽힌다, m_skin_maceration은 물에 불어 벗겨지며 아래가 붉게 드러나는 짓무름). 시작 스틸은 m_pigment_rise_blocked와 같은 구도라 그 스틸을 그대로 써도 된다. 엑스레이 화풍, 사람 없음.",
+      "fits": [
+        "잡티가 옅어짐",
+        "미백 효과",
+        "색소침착 개선",
+        "기미가 옅어짐",
+        "꾸준히 바른 효과",
+        "피부 겉층이 바뀜",
+        "각질이 떨어짐"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the frame, cut open to show its layers: a thin top surface of flat stacked cells with one small patch in it already tinted amber-brown where pigment granules have settled, beneath it a thick layer of round glassy cells, and along the bottom edge of that layer a row of star-shaped pigment cells whose long branching arms reach up between the round cells, each pigment cell packed with tiny amber-brown granules. Below that, a deeper layer of loose wavy fibres. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera pushes fast toward the small amber-brown patch in the top surface layer, while down at the bottom the granules stay held inside the tips of the branching arms and none of them rise. 2-4s: the thin flat cells carrying the amber-brown patch lift off the very top of the surface one sheet at a time and drift away upward into the dark void, and fresh clear pale cyan cells rise from below to take their place. 4-6s: with each sheet that lifts away the patch grows fainter and smaller, until the top surface is almost evenly clear pale cyan with only the faintest amber trace left, and it stays that clear until the very last frame while the granules at the bottom stay held in place. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft papery rustle as each sheet lifts away, no music, no dialogue."
+    }
+  ]
+}

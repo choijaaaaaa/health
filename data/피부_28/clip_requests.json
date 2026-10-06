@@ -1,0 +1,92 @@
+{
+  "requests": [
+    {
+      "name": "act_flaky_cheek_hand_mirror_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_28 도입부 훅('레티놀 크림 바르고 며칠 만에 얼굴이 하얗게 일어나서, 바로 끊으신 적') 전체 화면. 손거울을 들고 볼에 하얗게 일어난 각질을 손끝으로 짚는다 — 라이브러리에 얼굴 각질을 살피는 행위가 없다(act_check_skin은 무릎, act_scratch_scalp은 두피 비듬, 피부_30 act_check_melasma_hand_mirror_real은 갈색 기미라 각질이 안 보인다). 거울 반사는 AI가 뭉개서 거울 뒷면이 카메라를 향하게 했다. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이로 그리면 두개골·이가 비쳐 뷰티 영상에서 역하고, 겉에 하얗게 일어난 각질 자체가 반투명 유리 피부로는 안 그려진다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 피부_29·30과 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "각질",
+        "얼굴 각질",
+        "하얗게 일어남",
+        "레티놀 각질",
+        "레티놀 부작용",
+        "피부 건조",
+        "거울로 얼굴 보기",
+        "화장품이 안 맞음"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with a few small patches of fine white dry flaking skin lifting on both cheeks and along the sides of the nose, wearing a plain oatmeal-colored knit top, sitting at a bright bathroom vanity in the morning and holding a small plain round hand mirror up in her left hand with its blank back facing the camera, leaning in to study her face, the fingertips of her right hand lightly touching a white flaky patch on her right cheek, a disappointed, worried expression, a small plain white cream jar with a completely blank surface standing on the counter in front of her, seen from the chest up in three-quarter view, blurred white bathroom background, warm realistic photograph, soft natural light, shallow depth of field, calm natural mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup, open wounds, blood, rash, acne"
+    },
+    {
+      "name": "act_pat_cream_eye_lines_night_real",
+      "kind": "still",
+      "style": "real",
+      "why": "피부_28 🚨 제품 작동 칸('그래도 끊지 말아야 하는 건, 주름 효과가 꾸준히 바른 뒤에야 나오기 때문 … 레티놀은 피부 속에서 더 강한 형태로 바뀌어 콜라겐을 더 만들게 하거든요', 9.0초) 왼쪽 행위 — 밤에 눈가 잔주름에 크림을 약지로 두드려 바른다(주름 자리에 제품을 쓰는 장면). 오른쪽 m_retinol_collagen_boost와 짝이 돼 '이걸 꾸준히 바르면 → 콜라겐이 차오른다'를 보인다. 피부_29 act_dab_cream_on_spot_real은 광대 잡티 자리라 주름과 안 맞고, act_night_cream_bedside_real은 이 편 '이틀에 한 번, 밤에만' 칸에 이미 쓴다. 화풍: 40대 여성 얼굴 클로즈업이라 엑스레이면 두개골·눈구멍이 비쳐 역하다(XRAY_FORMAT 6절) — 실사 스틸 + make_part_clip --no-glow 푸시인. 피부_29·30과 같은 인물 묘사로 한 화풍.",
+      "fits": [
+        "주름 크림",
+        "눈가 주름",
+        "잔주름",
+        "레티놀 바르기",
+        "밤 스킨케어",
+        "아이크림",
+        "주름개선",
+        "꾸준히 바르기"
+      ],
+      "midjourney": "A Korean woman in her mid-forties with shoulder-length black hair tucked behind her ears, natural bare skin with faint fine lines at the outer corners of her eyes, wearing a plain oatmeal-colored knit top, sitting at a vanity table at night under a warm table lamp, gently patting a thin layer of plain white cream onto the fine lines at the outer corner of her right eye with the tip of her ring finger, eyes softly lowered, calm and unhurried, a small plain white cream jar with a completely blank surface and its lid off on the table beside her, close-up from the shoulders up in three-quarter view, dark blurred background with a warm lamp glow, warm realistic photograph, warm low lamplight, shallow depth of field, calm quiet night mood, vertical 9:16 portrait --no text, letters, numbers, labels, writing, watermark, logo, brand name, signage, x-ray, skeleton, bones, translucent body, hologram, glowing eyes, creepy, extra fingers, extra hands, heavy makeup"
+    },
+    {
+      "name": "act_new_shoes_heel_rub",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_28 '그래서 처음 몇 주는 마르고 각질이 일어나요. 새 구두를 첫날부터 종일 신으면 뒤꿈치가 까지는 것과 같은 이치예요' 칸(6.3초)의 왼쪽 — 새 구두 뒷축이 걸을 때마다 뒤꿈치를 쓸어 그 자리가 켜지는 비유 장면. 라이브러리 신발 클립은 act_walk_flat_shoes(밑창이 빛남·족저근막)·act_first_step_heel(맨발 첫발·발 전체 점등)뿐이라 '뒷축에 쓸려 까짐'이 안 보인다. 화풍: 무릎 아래 발뿐인 별개 비유 인물이라 엑스레이 기본(다리는 역하지 않고, 쓸리는 자리를 호박색으로 켤 수 있다) — 얼굴이 나오지 않게 무릎 아래만.",
+      "fits": [
+        "새 신발",
+        "구두에 쓸림",
+        "뒤꿈치가 까짐",
+        "신발 길들이기",
+        "물집",
+        "마찰",
+        "처음엔 자극",
+        "적응 기간"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure is seen from the side from just below the knees down to the floor, walking across a flat hard floor in mid-stride, wearing a pair of stiff brand-new closed-back low-heeled pumps made of the same translucent cyan glass, the stiff back rim of the rear shoe pressing into the back of the heel just above the shoe. The foot bones, the ankle and the heel bone are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, socks, clothing, face, hair, brand marks, other people, duplicated limbs, extra feet",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the figure walks forward in the stiff new pumps while the camera tracks fast alongside at ankle height, close on the back of the rear foot; with every step the heel lifts and the stiff back rim of the shoe slides up and down against the back of the heel. 2-4s: on three steps in a row, the exact spot on the back of the heel where the rim rubs flashes amber, each flash brighter and a little wider than the last, and the steps get shorter and more careful, the weight landing softly. 4-6s: the figure stops with its weight on the other foot and slips the sore heel half out of the shoe, and the camera pushes in tight on the back of that heel, where a small raw patch of skin glows intense amber and stays lit until the very last frame, while every bone and the rest of the glass skin stay soft pale cyan. Low synth hum with hard heel clicks on the floor and a faint scuffing rub on each step, no music, no dialogue. The body stays translucent glass with all bones visible inside throughout; only the lower legs and feet are ever in frame; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame."
+    },
+    {
+      "name": "m_skin_tolerance_buildup",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_28 '그러니 구두 길들이듯 시작하면 돼요. 미국피부과학회는 처음엔 이틀에 한 번, 밤에만 바르다가 조금씩 늘리라고 권해요' 칸(6.1초)의 오른쪽 — 간격을 두고 한 방울씩 닿을 때마다 피부 겉면의 달아오름이 점점 약해지다가, 두 방울이 같이 닿아도 잠잠한 장면(피부가 익숙해져 횟수를 늘려도 괜찮아짐). 라이브러리 피부 기전은 갈라짐(m_dehydration)·염증(m_inflammation)·장벽 틈(m_skin_barrier_gaps)처럼 나빠지는 쪽뿐이라 '적응'이 없다 — 빼면 이 칸이 '자극'을 한 번 더 보여 줘 해결책과 반대로 읽힌다. 몸속 기전이라 엑스레이, 사람 없이 피부 표면만.",
+      "fits": [
+        "피부 적응",
+        "레티놀 적응기",
+        "자극이 줄어듦",
+        "조금씩 늘리기",
+        "이틀에 한 번",
+        "격일 사용",
+        "민감 피부 길들이기",
+        "새 화장품 테스트"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of the outer layer of translucent glass-like 3D human skin seen slightly from above, the smooth outer surface made of flat interlocking cells fitted together like paving stones filling the lower half of the frame, a thin deeper layer of cells visible just beneath, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, face, hair, red, blood, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding close on the skin surface and drifting slowly sideways along it. 0-2s: from the very first frame one small milky-white droplet lands on the surface and soaks in, and the patch of cells around it flushes warm amber and puffs up slightly, then the glow fades back to pale cyan. 2-4s: after a short pause a second droplet of the same size lands a little further along; the patch around it glows only a faint amber and barely rises before fading. 4-6s: after another pause two droplets land side by side and soak in, and the surface around them stays almost completely calm pale cyan, flat and smooth, until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft drip each time a droplet lands, no music, no dialogue."
+    },
+    {
+      "name": "m_retinol_collagen_boost",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "피부_28 🚨 제품 작동 칸('그래도 끊지 말아야 하는 건, 주름 효과가 꾸준히 바른 뒤에야 나오기 때문 … 레티놀은 피부 속에서 더 강한 형태로 바뀌어 콜라겐을 더 만들게 하거든요', 9.0초)의 오른쪽 — 겉에서 스며든 방울이 진피에 닿는 순간 더 밝은 호박색 알갱이로 바뀌어(더 강한 형태) 섬유 세포를 켜고, 새 콜라겐 섬유가 엮여 성기고 처지던 그물이 촘촘하고 팽팽해진다. 라이브러리 콜라겐 클립은 끊김(m_uv_radiation_damage)·처짐(m_tissue_laxity)·분해(m_peptide_breakdown)뿐이라 '만들어진다'가 없다 — 칠판에 제품 사진만 뜨면 효과 증명이 안 보인다(XRAY_FORMAT 제품 작동 칸). 칸이 9초라 8초로(약 1.1배). 몸속 기전이라 엑스레이, 사람 없이 피부 단면만. 겉의 방울은 우윳빛, 몸속에서 바뀐 뒤에만 호박색(호박색 크림을 겉에 얹으면 Veo가 다른 장기를 켠 전례 — 머리_14).",
+      "fits": [
+        "콜라겐 생성",
+        "콜라겐이 늘어남",
+        "주름 개선",
+        "레티놀 효과",
+        "비타민A",
+        "진피 재생",
+        "꾸준히 바르면",
+        "탄력 회복"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a block of translucent glass-like 3D human skin seen from the side, a thin top layer of flat stacked cells with a smooth outer surface, and below it a thick deeper layer crossed by a sparse, loose net of thin wavy fibers that sag slightly between a few scattered spindle-shaped cells, wide empty gaps between the fibers, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the skin, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, face, hair, red, blood, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera slowly sinking from the skin surface down into the deeper fiber layer. 0-2s: from the very first frame a few small milky-white droplets settle onto the smooth outer surface and seep straight down through the thin top layer of flat cells. 2-4s: the instant each droplet passes into the deeper layer it changes, shrinking into a smaller, much brighter glowing amber bead, and each amber bead drifts to the nearest spindle-shaped cell, which lights up warm amber. 4-6s: each lit cell spins out several new fine amber fibers that stretch out and weave tightly between the old loose cyan fibers, filling the empty gaps. 6-8s: the camera pulls back to show the whole block, the deep layer that was sparse and sagging now a dense, taut, evenly woven net glowing amber where the new fibers are, and the outer surface above it sitting smooth and lifted, holding until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft rising shimmer as the new fibers weave in, no music, no dialogue."
+    }
+  ]
+}

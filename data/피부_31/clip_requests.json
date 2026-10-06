@@ -1,0 +1,137 @@
+{
+  "requests": [
+    {
+      "name": "act_scratch_shin",
+      "seconds": 6,
+      "why": "피부_31 도입부 훅('찬바람 불자마자 정강이가 하얗게 일어나며 자꾸 긁게 되신 적') 전체 화면. 하얗게 각질이 일어난 정강이를 손톱으로 세 번 긁고 멈칫했다 두 번 더 긁는다 — act_scratch_skin은 팔뚝이고 3초 뒤 팔이 하나 더 생기는 결함(avoid)이라 못 쓰고, 정강이를 긁는 클립이 라이브러리에 없다. 손·팔은 하나만 나오게 못 박았다. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍.",
+      "fits": [
+        "정강이 가려움",
+        "다리 긁기",
+        "피부 건조",
+        "각질",
+        "하얗게 일어남",
+        "가을 피부가려움증",
+        "겨울 가려움",
+        "피부건조증"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure sits on the edge of a plain low bench seen from the side, framed tightly from just above the knee down to the bare foot, the lower leg bent with the foot flat on the floor and the shin facing the camera, a single hand and forearm entering the frame from above with the fingers curled and the fingernails resting on the front of the shin. The surface of the front of the shin is dusted with fine dry white scales and flakes like frost, clearly paler than the rest of the glass skin. The shin bone and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the hand rakes its fingernails hard down the front of the shin from just below the knee toward the ankle, three quick strokes in a row, a puff of fine white flakes lifting off the skin and drifting down like dust with each stroke, while the camera pushes in fast toward the shin. 2-3.5s: the hand stops and hovers over the shin for a beat, fingers twitching, then rakes down twice more, faster and harder. 3.5-6s: the camera pushes in tight on the front of the shin, where the streaks left by the nails glow amber along the scratched band, white flakes still drifting off, the amber glowing until the very last frame while the shin bone and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame; no second hand or arm appears at any moment. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the dry rasp of fingernails on dry skin, no music, no dialogue."
+    },
+    {
+      "name": "act_hot_shower_scrub",
+      "seconds": 6,
+      "why": "피부_31 도입부 통념('가려우면 뜨거운 물로 오래 씻고 때를 미는 분이 많아요. 하지만 그게 오히려 더 가렵게 해요') 전체 화면 + 빨간 X가 얹히는 틀린 행동 장면, 그리고 설명 2칸('뜨거운 물과 때밀이가 남은 기름마저 벗겨 내요') 왼쪽 행위. 김 나는 뜨거운 물을 맞으며 목욕 의자에 앉아 때밀이 수건으로 정강이를 박박 밀면, 피부 겉 호박색 윤기가 밀려 씻겨 나간다 — 라이브러리에 목욕·때밀이 장면이 없다(act_wash_hands_soap은 손 씻기). 수건은 글자 없는 무지. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍.",
+      "fits": [
+        "뜨거운 물 샤워",
+        "때밀이",
+        "때 밀기",
+        "각질 제거",
+        "목욕",
+        "피부 건조 원인",
+        "과한 세정",
+        "샤워 습관"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure sits on a plain low bath stool seen from the side, framed tightly from just above the knee down to the bare foot, the shin facing the camera, a single hand and forearm entering the frame from above wearing a plain rectangular exfoliating scrub mitt with a coarse woven texture pressed flat against the front of the shin, a thick stream of steaming hot water pouring onto the knee from above the frame, dense clouds of white steam billowing around the leg. The surface of the shin carries a thin faint glossy sheen. The shin bone and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, shower head, tiles, faucet",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame steaming hot water keeps pouring onto the leg and thick steam billows up while the hand in the coarse scrub mitt scrubs hard down and up the front of the shin in fast short strokes, about four strokes, the forearm pressing in with real weight; the camera rushes in toward the shin. 2-4s: with every stroke a thin glossy amber sheen on the surface of the shin is scraped off under the mitt and rinsed away down the leg by the hot water, fine pale shreds rolling off the skin. 4-6s: the mitt lifts away and the camera pushes in tight on the scrubbed band of the shin, now dull, rough and bare with no sheen left, glowing a faint raw amber where the mitt passed until the very last frame, steam still rising, while the shin bone and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame; no second hand appears at any moment. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the hiss of hot running water and the rough rasp of the mitt on skin, no music, no dialogue."
+    },
+    {
+      "name": "act_lukewarm_quick_shower",
+      "seconds": 4,
+      "why": "피부_31 설명 3칸(24.7~28.0초 '그래서 물은 체온 정도로, 샤워는 10분 안에 끝내세요') 왼쪽 행위. 김이 걷히며 미지근한 물줄기로 바뀌고, 정강이 피부의 호박색 윤기가 씻겨 나가지 않은 채 물을 짧게 끄고 끝낸다 — 도입부 뜨거운 물·때밀이와 맞대비. act_turn_room_dial은 방 온도 다이얼(물·샤워가 안 보임)이라 '샤워 물 온도'로 쓰면 때우기다. 구간 3.3초라 4초(6초면 0.55배로 빨리 감김). 샤워기 헤드는 글자 없는 무지. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍.",
+      "fits": [
+        "미지근한 물",
+        "짧은 샤워",
+        "샤워 온도",
+        "샤워 시간",
+        "목욕 습관",
+        "피부 보습 관리",
+        "뜨거운 물 피하기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure stands on a plain flat floor, framed tightly from just above the knee down to the bare feet, the shins facing the camera, a single hand and forearm entering the frame from above holding a plain handheld shower head with a completely blank smooth surface and aiming a spray of water at the shins, thick hot steam billowing around the legs. The surface of the shins carries a thin faint glossy sheen. The shin bones and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, tiles, faucet",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the steam around the legs thins and vanishes as the spray from the shower head turns into a gentle, clear, steam-free spray, while the camera moves in fast toward the shins. 1.5-3s: the gentle water runs down the front of the shins, beads of water rolling over a thin glossy amber sheen on the skin surface that stays smooth and intact and is not washed away. 3-4s: the spray stops and the hand lifts the shower head up and out of the frame; the shins are left glistening with water droplets, the thin amber sheen on the skin still intact and glowing until the very last frame while the bones and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the soft patter of gentle water, then quiet as it stops, no music, no dialogue."
+    },
+    {
+      "name": "act_pat_dry_towel",
+      "seconds": 6,
+      "why": "피부_31 설명 4칸(28.0~36.1초 '더 중요한 건 보습 타이밍이에요 … 목욕 후 3분이 지나면 피부가 마르기 시작 … 물기만 톡톡 두드리고 바로 바르세요') 왼쪽 행위. 젖은 정강이를 접은 수건으로 문지르지 않고 무릎에서 발목까지 다섯 번 톡톡 누르고, 수건을 내려놓자마자 손바닥을 정강이로 가져간다(다음 칸 크림 바르기로 이어짐) — 라이브러리에 수건으로 물기를 닦는 장면이 없다. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍.",
+      "fits": [
+        "물기 닦기",
+        "수건으로 두드리기",
+        "목욕 후",
+        "샤워 후 관리",
+        "보습 타이밍",
+        "문지르지 않기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure sits on the edge of a plain low bench seen from the side, framed tightly from just above the knee down to the bare foot, the shin facing the camera, wet and covered in small beads of water, a single hand and forearm entering the frame from above holding a soft folded plain towel of the same translucent cyan glass lightly against the front of the shin. The shin bone and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2.5s: from the very first frame the hand presses the folded towel lightly against the wet shin, lifts it off, and presses it again a little lower — five soft quick pats moving down the shin from the knee to the ankle, never rubbing or sliding the towel along the skin; the camera glides in toward the shin. 2.5-4s: the towel lifts away; the big water beads are gone but the skin still looks damp and glossy, a faint amber glow just under the surface showing the water still held in the skin. 4-6s: the hand sets the towel aside out of the frame and comes straight back open-palmed toward the damp shin as if about to apply something, the camera pushing in on the damp shin, the faint amber glow under the surface lit until the very last frame while the bones and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft muffled pats of the towel, no music, no dialogue."
+    },
+    {
+      "name": "act_apply_body_cream",
+      "seconds": 6,
+      "why": "피부_31 🚨 제품 작동 칸(36.1~41.8초 '이때 로션보다 바디크림을 쓰면 좋아요. 크림 속 기름이 벗겨진 기름막 대신 뚜껑이 돼 주거든요') 왼쪽 행위 — 제품을 쓰는 장면. 의자 옆 무지 용기에서 진한 흰 크림을 떠 정강이에 세 점 찍고 손바닥으로 발목에서 무릎까지 길게 펴 바르면, 얇은 막이 호박색 뚜껑처럼 덮인다 — act_baby_apply_lotion은 아기·보호자, act_apply_face_cream은 avoid가 '침샘 점등, 피부엔 쓰지 말 것'. 용기는 글자·라벨 없는 무지(AI 글자 뭉개짐 방지), 손은 하나만. 화풍: 무릎 아래 다리·손만 나오는 몸 장면이라 엑스레이 기본(얼굴이 프레임에 없어 두개골·이가 비칠 일이 없다) — 이 편 행위 5종은 같은 무릎 아래 클로즈업으로 한 다리·한 화풍.",
+      "fits": [
+        "바디크림 바르기",
+        "보습제 바르기",
+        "로션 바르기",
+        "목욕 후 보습",
+        "다리에 크림",
+        "건조 피부 관리",
+        "세라마이드 크림",
+        "보습 크림"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure sits on the edge of a plain low bench seen from the side, framed tightly from just above the knee down to the bare foot, the shin facing the camera, a plain round open jar with a completely blank smooth surface, filled with thick rich opaque white cream, standing on the bench beside the knee, the fingertips of a single hand entering the frame from above and dipping into the cream. The shin bone and the bones of the hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, socks, shoes, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, label on jar, lid with writing",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the hand scoops a dollop of thick white cream from the jar and dabs it in three dots down the front of the shin, while the camera moves in fast toward the shin. 1.5-4s: the open palm spreads the cream in three long slow strokes from the ankle up to the knee, the cream melting into one thin, even, glossy layer that coats the whole front of the shin. 4-6s: the hand lifts away and the camera pushes in tight on the coated shin; the thin cream layer glows warm amber like a lid sealed over the skin, tiny beads of moisture staying put just beneath it, glowing until the very last frame while the shin bone and the rest of the glass skin stay soft pale cyan. Only one hand and one forearm are ever in the frame; the jar stays plain and blank with no writing. The leg stays translucent glass with the bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the soft slick sound of cream spreading, no music, no dialogue."
+    },
+    {
+      "name": "m_skin_oil_lid",
+      "seconds": 4,
+      "why": "피부_31 설명 1칸(11.8~16.7초 '피부 겉에는 얇은 기름막이 있어서, 냄비 뚜껑처럼 물이 날아가지 않게 막아 줘요')과 3칸(24.7~28.0초 체온 정도 물·짧은 샤워 — 뚜껑이 그대로 남는다) 오른쪽 기전. 피부 단면 맨 위를 덮은 얇은 호박색 기름막 밑으로 물방울이 올라와 부딪히고 못 빠져나간다 — 라이브러리 m_skin_barrier_gaps는 갈라진 틈으로 균이 파고드는 장면, m_sebum_overproduction은 모공에서 기름이 넘치는 여드름 장면이라 '막이 뚜껑처럼 물을 가둔다'가 없다. 구간 4.9초·3.3초라 4초. m_oil_film_stripped·m_cream_lid_seal과 같은 피부 단면 구도로 맞대비. 엑스레이 화풍.",
+      "fits": [
+        "피부 기름막",
+        "피지막",
+        "피부 장벽",
+        "수분 증발 막기",
+        "보습 원리",
+        "피부 수분 유지",
+        "건조 피부"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a top layer of thin flat cells stacked like bricks, below it a layer of plump rounded cells, and deeper down loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is sealed by one thin, smooth, continuous glossy film of warm amber oil spread evenly over it like a lid, the only warm-coloured thing in the frame. Small clear water droplets sit inside the plump cells just beneath the surface. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs, viruses",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame small clear water droplets rise from the deeper cells toward the surface while the camera glides in toward the top of the skin; each droplet reaches the thin glossy amber film and bumps against its underside like steam caught under a pot lid, then drops back into the cells — not a single droplet gets through into the void above. 2-4s: the camera slides along just under the surface as the cells beneath the film stay plump, round and glossy with the water held inside, the amber film whole, unbroken and glowing until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft muffled taps as droplets bump the film, no music, no dialogue."
+    },
+    {
+      "name": "m_oil_film_stripped",
+      "seconds": 8,
+      "why": "피부_31 설명 2칸(16.7~24.7초 '나이가 들면 이 기름이 줄어드는데, 뜨거운 물과 때밀이가 남은 기름마저 벗겨 내요. 그러면 피부가 말라 갈라지면서 가려워져요') 오른쪽 기전 — 이 편 핵심. 얇아진 호박색 기름막이 뜨거운 물살과 거친 때밀이 결에 벗겨져 씻겨 나가고, 뚜껑이 없어진 표면에서 물기가 김처럼 빠져나간 뒤 각질이 말려 올라가며 갈라지고 틈 가장자리에 호박색 불티(가려움)가 튄다. 뒷문장이 2.5초라 단독 칸이 안 돼 한 칸 8초로 묶었고, 네 박자(얇아짐→벗겨짐→증발→갈라짐)를 늘리지 않고 담으려고 8초. 라이브러리 m_dehydration은 막이 벗겨지는 장면이 없고, m_friction_abrasion은 점등 없는 마찰 장면이다. m_skin_oil_lid와 같은 피부 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "기름막이 벗겨짐",
+        "피부 장벽 손상",
+        "뜨거운 물 샤워",
+        "때밀이 부작용",
+        "과한 세정",
+        "피부 건조",
+        "각질 갈라짐",
+        "피부 가려움",
+        "나이 들며 피지 감소"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a top layer of thin flat cells stacked like bricks, below it a layer of plump rounded cells, and deeper down loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is covered by a thin glossy film of warm amber oil that is already thin and patchy in places, the only warm-coloured thing in the frame. Small clear water droplets sit inside the plump cells just beneath the surface. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs, viruses",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the thin amber film on top thins out by itself, its patches shrinking and small gaps opening between them, while the camera glides in toward the surface. 2-4s: a rush of steaming hot water floods across the surface from the left while a coarse woven mesh like a scrubbing cloth sweeps across it, and the remaining amber film peels up in strips and is washed away off the right edge of the frame, leaving the surface bare and pale. 4-6s: with no film left, the clear water droplets inside the top cells rise straight out of the bare surface and escape into the void as thin wisps of vapour, one after another, the cells below shrinking and flattening. 6-8s: the bare surface dries out, the top cells curl up at their edges into white flakes and the surface splits open in thin cracks, and small amber sparks flicker along the edges of the cracks until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum, a hissing rush of hot water, then a dry crackle as the surface splits, no music, no dialogue."
+    },
+    {
+      "name": "m_cream_lid_seal",
+      "seconds": 6,
+      "why": "피부_31 🚨 제품 작동 칸(36.1~41.8초 '크림 속 기름이 벗겨진 기름막 대신 뚜껑이 돼 주거든요') 오른쪽 기전 — 기전이 좋아지는 장면. m_oil_film_stripped 끝처럼 갈라진 맨 피부 위에 흰 크림 덩이가 내려앉아 틈을 메우고 얇은 막으로 퍼지며 호박색 뚜껑이 되고, 올라온 물방울이 그 밑에 다시 갇혀 쪼그라든 세포가 통통하게 돌아온다 — 라이브러리에 '바른 크림이 막이 되어 수분을 가둔다' 장면이 없다(m_skin_barrier_gaps는 균 침투). 2칸(벗겨짐)과 같은 피부 단면 구도로 맞대어 '벗겨진 뚜껑 → 크림이 새 뚜껑'이 한눈에 읽히게. 엑스레이 화풍.",
+      "fits": [
+        "바디크림 원리",
+        "보습제 효과",
+        "크림이 막을 씌움",
+        "수분 잠금",
+        "피부 장벽 회복",
+        "세라마이드",
+        "건조 피부 회복",
+        "보습 크림"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a top layer of thin flat cells stacked like bricks, below it a layer of plump rounded cells, and deeper down loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is bare, dry and pale, its top cells curled up at the edges into white flakes and thin cracks split open across it, the cells beneath shrunken and flat. Hovering just above the surface near the top of the frame is a soft rounded dollop of thick, smooth, opaque white cream. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs, viruses",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the dollop of white cream settles onto the cracked surface and spreads out sideways across it like soft butter melting, filling the cracks and pressing the curled flakes flat, while the camera glides in. 2-4s: the cream thins into one smooth continuous glossy layer over the whole surface and begins to glow warm amber, like a lid being set back onto a pot. 4-6s: clear water droplets rising from the deeper cells bump against the underside of the amber layer and stay in, the shrunken cells beneath swelling back plump and round and the cracks closing, the amber layer glowing whole and unbroken until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft smooth spreading sound, no music, no dialogue."
+    }
+  ]
+}
