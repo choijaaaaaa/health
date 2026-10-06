@@ -170,7 +170,9 @@ def _rebuild_cards(topic: str) -> None:
     for old in out.glob("*.jpg"):
         old.unlink()          # 항목이 줄면 옛 카드가 남아 섞인다
     try:
-        generate(str(spec), str(ROOT / "assets_library"), str(out), topic_prefix=topic)
+        # char_dir는 illust/ 폴더여야 한다 — generate()가 그 부모의 real/에서 실사진을 찾는다. assets_library를 넘기면
+        # 프로젝트 루트의 real/을 뒤져, 공용 배정표(assets-shared)에 없는 새 topic은 카드가 전부 "실사진 없음"으로 실패했다(2026-10-07 피부_30).
+        generate(str(spec), str(ROOT / "assets_library" / "illust"), str(out), topic_prefix=topic)
         print(f"  카드뉴스 {len(list(out.glob('*.jpg')))}장 갱신")
     except Exception as e:
         print(f"  ⚠️ 카드뉴스 갱신 실패: {e}")
