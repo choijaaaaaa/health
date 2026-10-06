@@ -1,35 +1,3 @@
 {
-  "requests": [
-    {
-      "name": "act_first_step_heel",
-      "seconds": 6,
-      "why": "족저근막염 훅('아침에 침대에서 내려 첫발을 딛는 순간 뒤꿈치가 찌릿')과 '아침 첫발이 유독 아픈 건' 칸의 행위. 침대 가장자리에 앉았다가 맨발을 바닥에 딛는 순간 뒤꿈치가 켜지며 움찔한다. 라이브러리에 발을 딛는 행위 클립이 없다(act_slow_walk는 고관절·벽 짚기).",
-      "fits": [
-        "아침 첫발 통증",
-        "뒤꿈치 통증",
-        "족저근막염",
-        "발을 딛다",
-        "발바닥 통증",
-        "기상 직후 통증"
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, The figure sits on the edge of a plain low rectangular bed block, body visible from the head to the bare feet, one bare foot lowered and just about to touch the flat floor, the other foot still lifted, both hands resting on the bed edge. The bones of the feet and the heel bones are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the seated figure plants the bare right foot flat on the floor and pushes up to stand, while the camera drops fast from the chest straight down to the feet. 1.5-3s: the instant the heel takes the weight, the heel bone and the band along the sole flash intense amber, and the figure jerks the heel up off the floor onto the toes, one hand grabbing back at the bed edge. 3-4.5s: the camera whips around low to a side view of the foot as the figure carefully lowers the heel again and it flares amber a second time. 4.5-6s: the camera pushes in hard on the glowing heel, which stays intense amber until the very last frame while every other bone and the glass skin stay soft pale cyan. Low synth hum with a soft bare-foot thud on the floor, no music, no dialogue. The body stays translucent glass with all organs and bones visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame."
-    },
-    {
-      "name": "act_walk_flat_shoes",
-      "seconds": 6,
-      "why": "족저근막염 통념 반박('발 편하라고 집에선 맨발, 밖에선 납작한 플랫슈즈 … 오히려 통증을 키워요')의 행위이자 빨간 X가 얹히는 '틀린 행동' 장면, 그리고 기전 칸(굽 없고 바닥 딱딱하면 띠가 당겨짐). 얇고 굽 없는 납작한 신발로 딱딱한 바닥을 걸을 때마다 뒤꿈치~발바닥 띠가 켜진다.",
-      "fits": [
-        "플랫슈즈",
-        "맨발로 걷기",
-        "굽 없는 신발",
-        "딱딱한 바닥",
-        "걷기",
-        "족저근막염",
-        "발바닥 통증"
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, The figure walks across a flat hard floor seen from the side in mid-stride, full body from the head to the feet, wearing thin completely flat slip-on shoes with no heel made of the same translucent cyan glass, the rear heel just striking the floor. The foot bones and the band along the sole are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the figure strides forward across the hard floor while the camera tracks fast alongside at ankle height, close on the flat shoes. 2-4s: every time a heel strikes the floor, the heel bone and the band along the sole of that foot flash amber for a beat, each flash brighter than the last. 4-6s: the camera swings in tight on one flat shoe as it lands, the band along the sole stretching and glowing intense amber and staying lit until the very last frame, while every other bone and the glass skin stay soft pale cyan. Low synth hum with hard flat footsteps slapping the floor, no music, no dialogue. The body stays translucent glass with all organs and bones visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame."
-    }
-  ]
+  "requests": []
 }

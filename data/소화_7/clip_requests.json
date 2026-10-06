@@ -1,19 +1,3 @@
 {
-  "requests": [
-    {
-      "name": "act_phone_on_toilet",
-      "seconds": 6,
-      "why": "치질 통념 반박('힘을 안 줘도 변기에 오래 앉아 있기만 하면 생겨요. 변기에서 스마트폰을 보면 그 시간이 쉽게 길어지고요')과 46% 칸의 행위. 힘주지 않고 느긋하게 기대앉아 스마트폰을 넘기는데, 시간이 갈수록 항문 자리가 켜진다. act_strain_on_toilet(앞으로 숙여 힘주기)과 자세가 달라야 한다 — 힘주는 동작 금지.",
-      "fits": [
-        "변기에서 스마트폰",
-        "오래 앉아 있기",
-        "치질",
-        "화장실에서 휴대폰",
-        "배변 시간",
-        "항문 압력"
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, The figure sits relaxed and upright on a plain smooth toilet seen in three-quarter view, back leaning slightly against the cistern, full body from the head to the feet, both hands holding a plain smartphone whose screen is a soft blank glow, the head tilted down toward the screen. The pelvis and the bones of the hips are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the relaxed figure scrolls the phone with one thumb, not straining at all, while the camera arcs quickly around from the front to the side of the toilet. 2-4s: the camera dives down from the glowing phone to the pelvis as a small point at the bottom of the pelvis, right over the opening of the toilet seat, begins to glow amber and slowly swells brighter. 4-6s: the figure keeps scrolling, unmoving and relaxed, while the point at the bottom of the pelvis glows intense amber and stays lit until the very last frame, every other organ, bone and the glass skin staying soft pale cyan. Low synth hum with faint soft taps of a thumb on glass, no music, no dialogue. The body stays translucent glass with all organs and bones visible inside throughout; the face stays smooth and featureless, the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame."
-    }
-  ]
+  "requests": []
 }
