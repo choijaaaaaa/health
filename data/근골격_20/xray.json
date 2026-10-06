@@ -1,5 +1,5 @@
 {
-  "_why": "반투명 인체 포맷(content_v2). 도입부는 새벽에 누워 있다 일어나 저린 손을 탈탈 터는 act_shake_numb_hand_bed(훅) + 혈관이 잘록해지며 피가 덜 흐르는 m_blood_flow_drop(통념 — 혈액순환 탓). '피가 아니라'에서 그 혈류 장면 위 빨간 X(혈액순환 탓이 아니라는 뜻으로 그대로 읽힌다).",
+  "_why": "반투명 인체 포맷(content_v2). 도입부는 새벽에 누워 있다 일어나 저린 손을 탈탈 터는 act_shake_numb_hand_bed(훅) + 혈관이 잘록해지며 피가 덜 흐르는 m_blood_flow_drop(통념 — 혈액순환 탓). '피가 아니라'에서 그 혈류 장면 위 빨간 X(혈액순환 탓이 아니라는 뜻으로 그대로 읽힌다). 손 털기 Flow는 두 번 다 털기가 안 나와(쥐었다 폈다·갈고리 떨림) 도입부엔 깨서 손 드는 앞 2초만 쓰고, '잘 때 손목을 굽힌 채' 칸은 스틸로 만든 act_sleep_wrist_bent(2026-10-06).",
   "top_title": "새벽마다 손이 저려 깬다면",
   "inset": {
     "clip": "assets_library/xray/output/part_wrist_bone_age.mp4",
@@ -13,7 +13,11 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_shake_numb_hand_bed.mp4"
+      "clip": "assets_library/xray/output/act_shake_numb_hand_bed.mp4",
+      "range": [
+        0,
+        2.0
+      ]
     },
     {
       "clip": "assets_library/xray/output/m_blood_flow_drop.mp4"
@@ -45,7 +49,7 @@
       "from": "특히 잘 때는",
       "item": "반깁스 손목보호대",
       "mech": "m_nerve_compression",
-      "act": "act_shake_numb_hand_bed",
+      "act": "act_sleep_wrist_bent",
       "label": "신경"
     },
     {
