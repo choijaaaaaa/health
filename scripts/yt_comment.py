@@ -6,7 +6,8 @@ WHY(2026-10-06 사용자 "설명란의 링크를 아무도 안 봐서, 가장 �
 사용자가 감수하기로 했다. 문구는 `data/_audit/yt_comment_lines.json`({topic: {product, reason}}).
 댓글 고정은 API에 없다 — 스튜디오에서 손으로.
 
-중복 방지는 상태 파일 없이 한다: 단 댓글 중 이 채널이 쓴 것에 같은 링크가 있으면 건너뛴다.
+중복 방지: 단 뒤 DB `youtube_uploaded.commented_at`에 시각을 적고, 적힌 행은 유튜브를 다시 조회하지 않는다(쿼터 아끼기).
+표시가 없는 행만 이 채널이 같은 링크로 단 댓글이 있는지 한 번 확인한다(손으로 단 것·이전 실행분).
 공개 전(예약) 영상엔 댓글이 안 달리므로 공개된 것만 단다 — 매일 launchd(health_yt.sh)가 돌린다.
 
     .venv/bin/python3 scripts/yt_comment.py adult            # 무엇을 달지만
@@ -46,6 +47,15 @@ def _already(yt, video_id: str, channel_id: str, link: str) -> bool:
     return False
 
 
+def _mark(key: str) -> None:
+    """댓글 단 행에 시각을 적는다 — 다음 회차엔 유튜브 조회 없이 건너뛴다."""
+    import requests
+    yu = y.yu
+    requests.patch(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers={**yu._SB_HEADERS, "Prefer": "return=minimal"},
+                   params={"topic": f"eq.{key}"},
+                   json={"commented_at": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}, timeout=30).raise_for_status()
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("channel", choices=list(y.CHANNELS))
@@ -60,6 +70,8 @@ def main() -> None:
     done = skipped = 0
     for row in sorted(ch.rows(), key=lambda r: r.get("publish_at") or ""):
         topic, vid = row["topic"][len(ch.key):], row.get("video_id")
+        if row.get("commented_at"):
+            continue
         spec = lines.get(topic)
         if not vid or not spec or not links.get(spec["product"]):
             continue
@@ -76,9 +88,11 @@ def main() -> None:
             cid = os.environ[ch.env + "CHANNEL_ID"]
         try:
             if _already(yt, vid, cid, links[spec["product"]]):
+                _mark(row["topic"])
                 continue
             yt.commentThreads().insert(part="snippet", body={"snippet": {
                 "videoId": vid, "topLevelComment": {"snippet": {"textOriginal": text}}}}).execute()
+            _mark(row["topic"])
             done += 1
             print(f"  ✅ {topic}: {spec['product']}")
         except HttpError as e:
