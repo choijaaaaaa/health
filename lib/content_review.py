@@ -509,17 +509,6 @@ def check_naver_blog_quality(topic: str, lang: str = "kor") -> list[dict]:
 # 이상한 거 갖다 붙이다 보니 이상해지는 게 많은 듯", 루트 CLAUDE.md "쇼츠 나레이션 최소 길이 폐지"): 길이를 채우려고
 # 문장·수치를 덧붙이면 원고가 망가진다. 상한만 지킨다.
 V2_MIN_SECONDS, V2_MAX_SECONDS = 0, 85
-# WHY 건강만사전만 60초인지(2026-10-06 사용자 "최대한도 60초 정도로 바꾸자 비슷한 말 계속 똑같이 하는 거 같아"):
-# 85초 상한이 사실상 목표치가 돼 뷰티 1차 4편이 전부 600자로 꽉 차고 같은 말을 되풀이했다. 육아(baby)는
-# 이 지시 밖이라 85초 그대로 둔다.
-V2_MAX_SECONDS_BY_DOMAIN = {"health": 60}
-
-
-def _max_seconds(topic: str) -> int:
-    try:
-        return V2_MAX_SECONDS_BY_DOMAIN.get(tracks.domain_of(topic), V2_MAX_SECONDS)
-    except (KeyError, ValueError):
-        return V2_MAX_SECONDS
 # 이미 뽑은 음성(실측)의 상한. WHY(2026-09-29): 타입캐스트로 바꾸자 같은 원고가 94~107초로 나왔다 — 길이 때문에
 # 다시 뽑지 않는다는 원칙(CLAUDE.md 원고 규칙)이 있는데 실측으로 85초에 막으면 조립·동기화가 멈춘다.
 # 새 원고는 위 85초 목표로 쓰고(글자수 추정), 녹음이 끝난 건 여기까지 받아준다.
@@ -601,12 +590,11 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
     dense = re.sub(r"\s", "", text)
     secs, measured = _narration_seconds(topic, len(dense))
     issues = []
-    cap = _max_seconds(topic)
-    if not V2_MIN_SECONDS <= secs <= (V2_MEASURED_MAX_SECONDS if measured else cap):
+    if not V2_MIN_SECONDS <= secs <= (V2_MEASURED_MAX_SECONDS if measured else V2_MAX_SECONDS):
         issues.append({"quote": f"{len(dense)}자", "severity": "high",
                        "issue": f"나레이션이 {'실측 ' if measured else '약 '}{secs:.0f}초입니다 — "
-                                f"상한 {cap}초"
-                                f"({round(cap * SPEECH_CHARS_PER_SEC)}자, 공백 제외) — 짧은 건 괜찮다."})
+                                f"상한 {V2_MAX_SECONDS}초"
+                                f"({round(V2_MAX_SECONDS * SPEECH_CHARS_PER_SEC)}자, 공백 제외) — 짧은 건 괜찮다."})
     nums = _NUM_WITH_UNIT.findall(text)
     if len(nums) < V2_MIN_NUMBERS:
         issues.append({"quote": ", ".join(nums) or "(없음)", "severity": "high",
