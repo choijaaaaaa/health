@@ -62,6 +62,13 @@
       "mech": "m_tissue_tear",
       "act": "act_strain_on_toilet",
       "label": "출혈"
+    },
+    {
+      "from": "그러니 스마트폰은",
+      "item": "좌욕기",
+      "mech": "m_tissue_laxity",
+      "act": null,
+      "label": "혈관 쿠션"
     }
   ],
   "_timeline_why": "스마트폰 46%(폰 보는 변기 장면 + 항문 점등 part_anus) → 힘주기는 차이 없었다(힘주는 장면) → 피가 모인 쿠션 혈관(부푼 혈관 m_vessel_dilation) → 받침 없이 아래로 처짐(해먹처럼 축 처지는 m_tissue_laxity) → 물풍선처럼 불룩(m_vessel_dilation 두 번째) → 부풀고 변이 지나갈 때 긁혀 피(m_tissue_tear).",
@@ -71,5 +78,6 @@
     "차전자피",
     "좌욕기"
   ],
-  "opening_until": 14.1
+  "opening_until": 14.01,
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다(없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다, 2026-10-06)."
 }

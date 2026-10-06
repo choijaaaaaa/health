@@ -803,12 +803,19 @@ def check_board_flow(topic: str, lang: str = "kor") -> list[dict]:
     x, n = d / "xray.json", d / "narration.txt"
     if not x.exists() or not n.exists():
         return []
-    sf = json.loads(x.read_text(encoding="utf-8")).get("summary_from")
+    cfg = json.loads(x.read_text(encoding="utf-8"))
+    sf = cfg.get("summary_from")
     text = n.read_text(encoding="utf-8")
     i = text.find(sf) if sf else -1
     if i < 0:
         return []
     issues = []
+    # 결론 칸이 시간표에 없으면 앞 기전 칸이 영상 끝까지 늘어나 조립이 "장면 부족"으로 멈춘다(2026-10-06 성인 3편 실측) —
+    # 조립 전에 잡는다. 견본 순환_23·육아_17처럼 summary_from과 같은 구절의 마지막 행(act는 null)을 둔다.
+    tl = cfg.get("timeline") or []
+    if tl and not any(r.get("from") == sf for r in tl):
+        issues.append({"quote": sf, "severity": "high",
+                       "issue": "시간표에 결론 칸이 없습니다 — summary_from과 같은 구절로 마지막 행을 추가하세요(act는 null)."})
     before = text[:i].rstrip(" ")
     if before and not before.endswith(("\n", ".", "?", "!")):
         issues.append({"quote": before[-20:] + "|" + sf, "severity": "high",

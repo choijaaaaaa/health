@@ -34,3 +34,15 @@ def test_checklist_board_flagged(topic):
 def test_board_starting_mid_sentence_flagged(topic):
     t = topic("기전 설명이에요.\n\n그러니 속이 메스꺼우면 누우세요. 피가 뇌로 돌아와요.", "속이 메스꺼우면")
     assert any("한가운데" in x["issue"] for x in cr.check_board_flow(t))
+
+
+def test_missing_summary_row_flagged(tmp_path, monkeypatch):
+    # 결론 칸이 없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다(2026-10-06) — 조립 전에 잡는다
+    monkeypatch.setattr(cr, "_data_dir", lambda t: tmp_path)
+    (tmp_path / "narration.txt").write_text("기전 설명이에요.\n\n그러니 결과지를 들고 물어보세요. 이 균은 침을 타고 들어와요.", encoding="utf-8")
+    tl = [{"from": "기전 설명이에요", "item": "x", "mech": "m", "act": "a"}]
+    (tmp_path / "xray.json").write_text(json.dumps({"summary_from": "그러니 결과지를", "timeline": tl}), encoding="utf-8")
+    assert any("결론 칸" in x["issue"] for x in cr.check_board_flow("t"))
+    tl.append({"from": "그러니 결과지를", "item": "x", "mech": "m", "act": None})
+    (tmp_path / "xray.json").write_text(json.dumps({"summary_from": "그러니 결과지를", "timeline": tl}), encoding="utf-8")
+    assert not any("결론 칸" in x["issue"] for x in cr.check_board_flow("t"))

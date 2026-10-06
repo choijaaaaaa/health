@@ -41,6 +41,13 @@
       "mech": "m_urine_overproduction",
       "act": "act_gulp_water",
       "label": "방광"
+    },
+    {
+      "from": "그래서 증상 말고",
+      "item": "체중계",
+      "mech": "part_kidney",
+      "act": null,
+      "label": "콩팥"
     }
   ],
   "_timeline_why": "콩팥이 당을 다시 붙잡음(신장 점등 part_kidney·소변보며 신장이 켜지는 act_toilet_check) → 너무 많으면 다 못 붙잡고 흘려보냄(사구체 벽 틈으로 알갱이가 새는 m_filtration_overload, 컵이 넘치는 비유까지) → 당이 물을 끌고 나가 소변이 늘고 목이 탐(관에서 물과 당이 쏟아져 주머니가 차는 m_urine_overproduction·다시 물을 들이켬) → 그 전까지는 아무 느낌이 없다.",
@@ -49,5 +56,6 @@
   "board_items": [
     "체중계"
   ],
-  "opening_until": 13.1
+  "opening_until": 13.1,
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다(없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다, 2026-10-06)."
 }

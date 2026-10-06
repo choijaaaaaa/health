@@ -68,6 +68,13 @@
       "mech": "part_wrist_bone_age",
       "act": "part_hand",
       "label": "손목 신경"
+    },
+    {
+      "from": "이 병이 의심되면",
+      "item": "반깁스 손목보호대",
+      "mech": "m_blood_flow_drop",
+      "act": null,
+      "label": "손목"
     }
   ],
   "_timeline_why": "손목 안쪽 좁은 터널(손목뼈 점등 part_wrist_bone_age·손과 신경이 비치는 part_hand) → 터널이 좁아져 신경이 눌림(m_nerve_compression) → 잘 때 손목을 굽혀 밤에 더 눌림(새벽 손 털기) → 어느 손가락이 저린가(엄지~약지 절반만 켜지는 part_median_fingers — 새끼손가락은 안 켜진다).",
@@ -76,5 +83,6 @@
   "board_items": [
     "반깁스 손목보호대"
   ],
-  "opening_until": 10.1
+  "opening_until": 10.1,
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다(없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다, 2026-10-06)."
 }
