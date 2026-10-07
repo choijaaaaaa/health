@@ -78,7 +78,7 @@ def _time_after(phrase: str, cues, t_min: float) -> tuple[float, float]:
             before = len(re.sub(r"\s", "", text[:k]))
             total = len(re.sub(r"\s", "", text)) or 1
             return max(s + (e - s) * before / total, t_min), e
-    raise ValueError(f"xray.json negations 구절을 자막에서 못 찾음: {phrase!r}")
+    raise ValueError(f"xray.json 구절(negations·sources)을 자막에서 못 찾음: {phrase!r}")
 
 
 def negations(topic: str, cues=None) -> list[dict]:
@@ -101,6 +101,31 @@ def negations(topic: str, cues=None) -> list[dict]:
         x_start, x_cue_end = _time_after(it["x_at"], cues, start) if it.get("x_at") else (start, cue_end)
         out.append({"start": start, "x_start": x_start, "end": x_cue_end + NEGATION_HOLD,
                     "clip": it.get("clip")})
+    return out
+
+
+SOURCE_HOLD = 0.6          # 출처 줄은 문장이 끝난 뒤 잠깐 더 남긴다 — 작은 글씨라 읽을 틈이 필요하다
+
+
+def sources(topic: str, cues=None) -> list[dict]:
+    """xray.json `sources` → [{start, end, text}] (나레이션 기준 초).
+
+    WHY(2026-10-07 사용자 "이건 목숨이랑 관련 있는데 이런 것들은 출처를 기재하는 게 어때? 위험부담 있어 보이는데
+    이건 육아뿐만 아니라 다른 곳에도"): 영아돌연사·질식·용량처럼 틀리면 위험한 주장은 말로만 기관명을 대면
+    확인할 길이 없다. 그 문장이 나오는 동안 화면 아래쪽에 출처를 작게 띄운다. `from` 구절이 든 자막 문장부터,
+    `until`이 있으면 그 구절이 든 문장 끝까지."""
+    path = tracks.data_dir(topic) / "xray.json"
+    if not path.exists():
+        return []
+    items = json.loads(path.read_text(encoding="utf-8")).get("sources") or []
+    if not items:
+        return []
+    cues = cues if cues is not None else _cues(topic)
+    out = []
+    for it in items:
+        start, cue_end = _time_after(it["from"], cues, 0.0)
+        end = _time_after(it["until"], cues, start)[1] if it.get("until") else cue_end
+        out.append({"start": start, "end": end + SOURCE_HOLD, "text": it["text"]})
     return out
 
 

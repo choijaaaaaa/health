@@ -14,7 +14,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from PIL import Image, ImageDraw, ImageFilter
+from PIL import Image, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
@@ -236,6 +236,49 @@ def _x_mark_png(size: int, out: Path) -> None:
             r = w // 2
             bd.ellipse([cx - r, cy - r, cx + r, cy + r], fill=X_RED + (255,))
     Image.alpha_composite(glow, body).resize((size, size), Image.LANCZOS).save(out)
+
+
+SOURCE_FONT_SIZE = 34
+SOURCE_MAX_W = 820          # 네이버 오른쪽 버튼(x>900)·양옆 잘림(48px) 안쪽에 들어가는 폭
+SOURCE_Y_PANEL = XRAY_PANEL[1] + XRAY_PANEL[3] + 90   # 칸 바로 아래 칠판 윗부분 — 설명 구간엔 비어 있다
+SOURCE_Y_FULL = 1385        # 도입부(전체 화면)는 화면 아래쪽 — 네이버 하단 UI(y>1455) 위
+
+
+def _source_png(text: str, out: Path) -> Image.Image:
+    """출처 한 줄 — 칠판 자막과 같은 손글씨를 작게, 어두운 반투명 알약 위에. 폭을 넘으면 글씨를 줄인다."""
+    from lib.video_assembler import _chalk_font_for_lang
+    size = SOURCE_FONT_SIZE
+    while True:
+        font = ImageFont.truetype(_chalk_font_for_lang("kor"), size)
+        bb = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
+        tw, th = bb[2] - bb[0], bb[3] - bb[1]
+        if tw + 40 <= SOURCE_MAX_W or size <= 24:
+            break
+        size -= 2
+    img = Image.new("RGBA", (min(tw + 40, SOURCE_MAX_W), th + 22), (0, 0, 0, 0))
+    d = ImageDraw.Draw(img)
+    d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=img.height // 2, fill=(10, 14, 16, 190))
+    d.text((20 - bb[0], 11 - bb[1]), text, font=font, fill=(236, 236, 236, 255))
+    img.save(out)
+    return img
+
+
+def _source_track(topic, td, inputs, fc, cur, n, cues, opening_end):
+    """xray.json `sources` — 위험이 걸린 주장이 나오는 동안 출처를 작게 띄운다(lib.xray_timeline.sources WHY)."""
+    from lib.xray_timeline import sources
+    for k, sr in enumerate(sources(topic, [(s, e, t) for s, e, t in cues])):
+        t0 = round((sr["start"] + TITLE_CARD_SEC) * 30) / 30
+        t1 = round((sr["end"] + TITLE_CARD_SEC) * 30) / 30
+        full = opening_end is not None and t0 < opening_end
+        png = td / f"source_{k}.png"
+        img = _source_png(sr["text"], png)
+        cx = min(W // 2, 900 - img.width // 2)
+        cy = SOURCE_Y_FULL if full else SOURCE_Y_PANEL
+        inputs += ["-i", str(png)]
+        fc.append(f"[{cur}][{n}:v]overlay=x={cx - img.width // 2}:y={cy - img.height // 2}:"
+                  f"enable='between(t,{t0:.3f},{t1:.3f})'[src{k}]")
+        cur, n = f"src{k}", n + 1
+    return cur, n
 
 
 def _negation_track(topic, td, inputs, fc, cur, n, cues, opening_end, ad_png):
@@ -492,6 +535,7 @@ def main() -> None:
             cur, n = _panel_track(a.topic, td, inputs, fc, cur, n, ad if a.ad_tag else None, panel_windows)
         # 칸 트랙 뒤에 얹어야 X가 기전 클립에 안 덮이고, 결론 칠판보다 앞이어야 결론 화면을 안 건드린다
         cur, n = _negation_track(a.topic, td, inputs, fc, cur, n, cues, a.fill_until, ad if a.ad_tag else None)
+        cur, n = _source_track(a.topic, td, inputs, fc, cur, n, cues, a.fill_until)
         if a.panel:
             cur, n = _summary_board(a.topic, inputs, fc, cur, n, a.base)
         fc.append(f"{''.join(amix)}amix=inputs={len(amix)}:duration=first:normalize=0[aout]")

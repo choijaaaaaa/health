@@ -37,6 +37,7 @@ CHECKS = [
     (cr.check_xray_clips,             "참조한 클립이 실제로 있는가 / 미수령 요청이 남았는가"),
     (cr.check_content_depth,          "수치·통념 반박·병원 신호가 있는가, 길이가 맞는가"),
     (cr.check_search_keyword,         "제목이 검색어로 시작하는가"),
+    (cr.check_safety_sources,         "목숨·안전이 걸린 주장에 화면 출처 줄(sources)이 있는가"),
 ]
 
 

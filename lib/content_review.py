@@ -1580,3 +1580,30 @@ if __name__ == "__main__":
         print(f"\n{MANUAL_REVIEW_CHECKLIST}")
     else:
         print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all 또는 --hook-pattern <topic> 또는 --title-archetype <topic> <lang> 또는 --closing-archetype <topic> <lang>")
+
+# 목숨·안전이 걸린 주장 — 영상에 출처 줄(xray.json `sources`)을 띄워야 하는 원고를 가려낸다.
+# WHY(2026-10-07 사용자 "이건 목숨이랑 관련 있는데 이런 것들은 출처를 기재하는 게 어때? 위험부담 있어 보이는데 이건
+# 육아뿐만 아니라 다른 곳에도"): 영아돌연사·질식·중독·용량은 틀리면 사람이 다친다. 말로 기관명만 대고 넘어가지 않게 한다.
+_SAFETY_WORDS = ("영아돌연사", "돌연사", "질식", "숨지", "사망", "숨을 막", "중독", "과다 복용", "용량")
+
+
+def check_safety_sources(topic: str, lang: str = "kor") -> list[dict]:
+    """목숨·안전 단어가 든 원고인데 xray.json에 `sources`(화면 출처 줄)가 없으면 지적한다.
+    이미 조립된 영상이 있는 topic은 건너뛴다 — 이 규칙 전에 나간 편을 미션컨트롤 목록에서 떨어뜨리지 않게."""
+    if lang not in ("kor", "ko"):
+        return []
+    d = _data_dir(topic)
+    n, x = d / "narration.txt", d / "xray.json"
+    if not n.exists() or not x.exists():
+        return []
+    if (tracks.output_dir(topic) / "shorts_xray_test.mp4").exists():
+        return []
+    text = n.read_text(encoding="utf-8")
+    hits = [w for w in _SAFETY_WORDS if w in text]
+    if not hits:
+        return []
+    if json.loads(x.read_text(encoding="utf-8")).get("sources"):
+        return []
+    return [{"quote": ", ".join(hits), "severity": "high",
+             "issue": "목숨·안전이 걸린 주장이 있는데 화면 출처 줄이 없습니다 — xray.json에 sources "
+                      "[{from: 그 문장 구절, text: \"출처: 기관·논문\"}]를 적으세요(블로그·유튜브 설명란에도 출처 목록)."}]
