@@ -29,9 +29,9 @@ AMBER = (255, 176, 66)     # 이 포맷에서 "여기"를 뜻하는 색(부위 �
 ZOOM_END = 2.0             # 테두리 쪽으로 당기는 폭 — 라벨 글자가 칸 안에서 읽힐 만큼
 
 
-def _canvas(photo: Path) -> tuple[Image.Image, tuple[int, int, int, int]]:
+def _canvas(photo: Path, fill: float = 0.9) -> tuple[Image.Image, tuple[int, int, int, int]]:
     im = Image.open(photo).convert("RGB")
-    s = min(W * 0.9 / im.width, H * 0.9 / im.height)
+    s = min(W * fill / im.width, H * fill / im.height)
     im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
     cv = Image.new("RGB", (W, H), BG)
     mask = Image.new("L", im.size, 0)
@@ -52,10 +52,16 @@ def main() -> None:
     ap.add_argument("out")
     ap.add_argument("--box", action="append", required=True, help="상품 사진 안 비율 x,y,w,h")
     ap.add_argument("--seconds", type=float, default=5.0)
-    ap.add_argument("--zoom", type=float, default=ZOOM_END, help="끝에서 당기는 배율(메모지처럼 여러 줄이면 작게)")
+    ap.add_argument("--zoom", type=float, default=ZOOM_END, help="끝에서 당기는 배율")
+    # 메모지처럼 글자가 처음부터 읽히는 화면은 카메라도 테두리도 움직이지 않는다 — 사용자 "그대로 볼 텐데 왜 조금씩
+    # 움직이게 만들어 놨냐"(2026-10-07). 테두리가 차례로 켜지는 것만 남긴다.
+    ap.add_argument("--steady", action="store_true", help="당기기·깜빡임 없이 테두리만 차례로 켠다")
     a = ap.parse_args()
+    if a.steady:
+        a.zoom = 1.0
 
-    cv, (px, py, pw, ph) = _canvas(Path(a.photo))
+    # 고정 화면은 당겨서 키울 수 없으니 처음부터 칸을 거의 채운다(옛 판이 끝에 1.12배까지 당겨 보이던 크기)
+    cv, (px, py, pw, ph) = _canvas(Path(a.photo), 0.98 if a.steady else 0.9)
     boxes = []
     for b in a.box:
         x, y, w, h = (float(v) for v in b.split(","))
@@ -78,7 +84,7 @@ def main() -> None:
             if alpha <= 0:
                 continue
             focus = (x0, y0, x1, y1, start)
-            pulse = 0.75 + 0.25 * (0.5 + 0.5 * math.sin((t - start) * 4.5))
+            pulse = 1.0 if a.steady else 0.75 + 0.25 * (0.5 + 0.5 * math.sin((t - start) * 4.5))
             pad = 10
             r = [x0 - pad, y0 - pad, x1 + pad, y1 + pad]
             gd.rounded_rectangle(r, radius=14, outline=AMBER + (int(160 * alpha * pulse),), width=18)

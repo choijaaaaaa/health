@@ -81,7 +81,7 @@ def main() -> None:
     with tempfile.TemporaryDirectory() as td:
         png = Path(td) / "card.png"
         boxes = card(title, lines, png)
-        cmd = [sys.executable, str(ROOT / "scripts" / "make_label_clip.py"), str(png), out, "--zoom", "1.12",
+        cmd = [sys.executable, str(ROOT / "scripts" / "make_label_clip.py"), str(png), out, "--steady",
                "--seconds", str(max(5.0, 2.0 + 2.0 * len(lines)))]
         for b in boxes:
             cmd += ["--box", b]
