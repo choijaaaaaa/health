@@ -242,7 +242,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 
 ## 보이스 (TTS)
 
-- 한국어는 **타입캐스트 API, 필재(Piljae) 1.2배속 하나만**(`lib/typecast_tts.py` `VOICE_ID`·`AUDIO_TEMPO`, 2026-09-29).
+- 한국어는 **타입캐스트 API, 필재(Piljae) 1.1배속 하나만**(`lib/typecast_tts.py` `VOICE_ID`·`AUDIO_TEMPO`; 2026-10-07 1.2→1.1, 사용자 "좀 빠른 느낌이 있어서").
   `fish_tts`는 한국어를 거부한다(en/ja 등 다른 언어만). 키는 `.env`의 `TYPECAST_API_KEY`. 2026-10-07 잠깐 본인 녹음으로
   바꿨다가 같은 날 되돌렸다(사용자 "tts 걍 타입캐스트로 뽑자 … 건강 육아 댕냥 전부 tts"). 사용자가 직접 녹음한 편이 생기면
   `lib/own_voice.py <topic> <녹음 파일>`이 같은 세 파일(narration.mp3·srt·words)을 만든다.

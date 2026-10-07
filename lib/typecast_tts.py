@@ -24,9 +24,10 @@ load_dotenv(ROOT / ".env")
 API_URL = "https://api.typecast.ai/v1/text-to-speech/with-timestamps"
 MODEL = "ssfm-v30"
 # 🚨 한국어 보이스는 하나만 쓴다(2026-09-19 "tts 목소리도 딱 그거로만 쫙 가자" 원칙 유지).
-# 필재(Piljae) 1.2배속 — 2026-09-29 사용자 "필재 1.2배로 가야겠다" (1.1에서 올림)
+# 필재(Piljae) — 2026-09-29 "필재 1.2배로 가야겠다"(1.1에서 올림) → 2026-10-07 다시 1.1(아래)
 VOICE_ID = "tc_68257f68bc6e3c161ab5078d"
-AUDIO_TEMPO = 1.2
+# 2026-10-07 1.2 → 1.1(사용자 "속도만 1.2배에서 1.1배로 줄이자. 지금 좀 빠른 느낌이 있어서").
+AUDIO_TEMPO = 1.1
 # 한 번에 보내는 글자 상한 — 넘으면 문단 경계에서 나눠 부르고 이어 붙인다
 MAX_CHARS_PER_CALL = int(os.environ.get("TYPECAST_MAX_CHARS", "1500"))
 TIMEOUT_SEC = int(os.environ.get("TYPECAST_TIMEOUT_SEC", "180"))
