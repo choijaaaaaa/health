@@ -112,6 +112,19 @@
       ],
       "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin smooth top surface, beneath it a layer of stacked flat cells with a row of small star-shaped pigment cells with branching arms along its bottom edge, each holding a few tiny dark granules, and below that a deeper layer of loose wavy fibres. The empty dark void above the skin surface fills the upper third of the frame. The top surface of the skin is coated with a thin layer of warm beige skin-toned film densely packed with countless tiny tan mineral grains, the only warm-coloured thing in the frame; just below it, the pigment cells hold a small cluster of dark granules. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
       "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame thick deep-blue beams rain down from the dark void onto the beige film on top of the skin while the camera rushes in toward it. 2-4s: as each beam touches the film, the tiny tan grains catch it and flare warm amber for an instant, swallowing the light the way dark sunglasses lenses swallow glare; every beam fades out inside the film and not a single one reaches the skin below. 4-6s: the camera pushes down through the glowing film to the pigment cells beneath, which stay calm and dim while their dark granules slowly fade paler, and the beige film above keeps glowing warm amber until the very last frame as it holds back every beam; the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft muffled hush each time a beam is swallowed, no music, no dialogue."
+    },
+    {
+      "name": "m_melasma_summer_darkening",
+      "seconds": 6,
+      "fits": [
+        "기미가 짙어짐",
+        "여름 기미",
+        "선크림 발라도 기미",
+        "햇빛 기미",
+        "광대 기미"
+      ],
+      "why": "피부_30 도입부 훅('선크림을 매일 바르는데도 광대 기미가 여름만 지나면 더 짙어지신 적') — 인물 대신 투명 선크림 막 아래 기미가 짙어지는 현상. 시작 스틸은 m_light_through_clear_film과 같은 스틸.",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. A cut-away block of skin whose top surface is coated with a thin, perfectly clear glossy film fills the lower part of the frame, with a faint brown patch in the top layer just under the film. 0-2s: broad beams of bright white sunlight pour down onto the film while the camera moves slowly forward. 2-4s: the sunlight pulses brighter and dimmer several times like summer days passing; the beams pass straight through the clear film, and with each pulse the brown patch beneath grows a little darker and wider. 4-6s: the camera pushes in on the patch, now clearly darker and larger than at the start, the clear film above it still intact, the patch staying dark until the very last frame. No human figure, no body, no face anywhere in the frame. Every structure stays soft pale cyan glass in the dark slate blue-grey void. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft low synth hum, no music, no dialogue."
     }
   ]
 }

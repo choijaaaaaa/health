@@ -80,6 +80,19 @@
       ],
       "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the frame, cut open to show its layers: a thin top surface of flat stacked cells with one small patch in it already tinted amber-brown where pigment granules have settled, beneath it a thick layer of round glassy cells, and along the bottom edge of that layer a row of star-shaped pigment cells whose long branching arms reach up between the round cells, each pigment cell packed with tiny amber-brown granules. Below that, a deeper layer of loose wavy fibres. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, light beams, rays",
       "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera pushes fast toward the small amber-brown patch in the top surface layer, while down at the bottom the granules stay held inside the tips of the branching arms and none of them rise. 2-4s: the thin flat cells carrying the amber-brown patch lift off the very top of the surface one sheet at a time and drift away upward into the dark void, and fresh clear pale cyan cells rise from below to take their place. 4-6s: with each sheet that lifts away the patch grows fainter and smaller, until the top surface is almost evenly clear pale cyan with only the faintest amber trace left, and it stays that clear until the very last frame while the granules at the bottom stay held in place. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft papery rustle as each sheet lifts away, no music, no dialogue."
+    },
+    {
+      "name": "m_spot_unchanged_drops",
+      "seconds": 6,
+      "fits": [
+        "잡티 그대로",
+        "세럼 효과 없음",
+        "미백 화장품 효과",
+        "잡티가 안 빠짐",
+        "기미 그대로"
+      ],
+      "why": "피부_29 도입부 훅('잡티 옅어지라고 20%짜리까지 샀는데 2주째 그대로') — 인물 대신 피부 단면에서 잡티가 그대로인 현상. 시작 스틸은 m_pigment_rise_blocked와 같은 스틸.",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. A cut-away block of skin with a small amber-brown patch in its top layer and star-shaped pigment cells along the bottom of that layer fills the frame. 0-2s: a clear droplet of serum falls onto the brown patch and sinks into the surface while the camera moves slowly forward. 2-4s: the light over the block dims and brightens twice like days passing, and each time another clear droplet falls onto the same patch and sinks in. 4-6s: the camera pushes slowly in on the patch, which is exactly as dark and as large as at the start, unchanged until the very last frame. No human figure, no body, no face anywhere in the frame. Every structure stays soft pale cyan glass in the dark slate blue-grey void. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft low synth hum, no music, no dialogue."
     }
   ]
 }

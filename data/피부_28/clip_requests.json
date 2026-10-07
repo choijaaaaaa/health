@@ -69,6 +69,19 @@
       ],
       "midjourney": "Medical holographic visualization, extreme close-up cross-section of a block of translucent glass-like 3D human skin seen from the side, a thin top layer of flat stacked cells with a smooth outer surface, and below it a thick deeper layer crossed by a sparse, loose net of thin wavy fibers that sag slightly between a few scattered spindle-shaped cells, wide empty gaps between the fibers, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the skin, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, face, hair, red, blood, amber, orange",
       "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera slowly sinking from the skin surface down into the deeper fiber layer. 0-2s: from the very first frame a few small milky-white droplets settle onto the smooth outer surface and seep straight down through the thin top layer of flat cells. 2-4s: the instant each droplet passes into the deeper layer it changes, shrinking into a smaller, much brighter glowing amber bead, and each amber bead drifts to the nearest spindle-shaped cell, which lights up warm amber. 4-6s: each lit cell spins out several new fine amber fibers that stretch out and weave tightly between the old loose cyan fibers, filling the empty gaps. 6-8s: the camera pulls back to show the whole block, the deep layer that was sparse and sagging now a dense, taut, evenly woven net glowing amber where the new fibers are, and the outer surface above it sitting smooth and lifted, holding until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft rising shimmer as the new fibers weave in, no music, no dialogue."
+    },
+    {
+      "name": "m_retinol_peeling_surface",
+      "seconds": 6,
+      "fits": [
+        "레티놀 각질",
+        "피부가 하얗게 일어남",
+        "얼굴 각질",
+        "화장품 자극",
+        "피부 벗겨짐"
+      ],
+      "why": "피부_28 도입부 훅('레티놀 크림 바르고 며칠 만에 얼굴이 하얗게 일어나서') — 인물 대신 피부 표면에서 벌어지는 현상. 시작 스틸은 m_skin_tolerance_buildup과 같은 포장석 겉세포 스틸.",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. The skin surface of flat interlocking cells fitted together like paving stones fills the frame. 0-2s: a few small milky-white droplets of cream land on the surface and spread into thin glossy patches while the camera glides slowly forward. 2-4s: the cells under the patches dry out, their edges curl up and lift, and fine white flakes peel away from the surface one after another, a faint amber warmth glowing just under the flakiest spots. 4-6s: the camera pushes in on a patch of surface now rough and dusted with lifting white flakes drifting off, the faint amber warmth beneath them lit until the very last frame. No human figure, no body, no face anywhere in the frame. Every structure stays soft pale cyan glass in the dark slate blue-grey void. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft low synth hum, no music, no dialogue."
     }
   ]
 }

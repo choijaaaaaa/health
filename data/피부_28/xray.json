@@ -13,21 +13,14 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_flaky_cheek_hand_mirror.mp4"
+      "clip": "assets_library/xray/output/m_retinol_peeling_surface.mp4"
     },
     {
-      "clip": "assets_library/xray/output/act_put_away_cream_jar.mp4"
-    }
-  ],
-  "negations": [
-    {
-      "from": "피부에 안 맞는다고",
-      "x_at": "안 맞는다고",
-      "clip": "assets_library/xray/output/act_put_away_cream_jar.mp4"
+      "clip": "assets_library/xray/output/m_skin_tolerance_buildup.mp4"
     }
   ],
   "opening_until": 9.18,
-  "_opening_why": "도입부 끝 = 통념 반박 '피부에 안 맞는다고 생각하기 쉬운데, 사실은 너무 자주 발라서 그래요'가 끝나는 9.18초(자막 2번 끝, 셋째 문단 직전). 도입 클립 둘은 range 없이 통째로(점등 스틸 4초 + Flow 4초 → 9.38초, 약 1.2배).",
+  "_opening_why": "2026-10-07 사용자 '피부 쪽은 도입부에 인물이 굳이 나올 필요가 없을 거 같다, 그 피부 기준으로 어떤 현상이 나는지로 — 엑스레이 사진만 나오고 아무 의미도 없는 것들만 나오니까 의미가 없어 보여': 도입부는 피부에서 벌어지는 현상(훅) + 통념이 왜 틀렸는지의 기전.",
   "timeline": [
     {
       "from": "레티놀은 비타민A의",
@@ -78,10 +71,10 @@
     {
       "from": "고를 땐 '주름개선'",
       "item": "레티놀 크림",
-      "mech": "label_retinol_cream",
+      "mech": "note_retinol_label",
       "act": null,
       "label": "주름개선 · 0.1%",
-      "solo": "상품 라벨 짚기 — 고르는 기준이 적힌 자리"
+      "solo": "라벨에서 볼 것 메모 — 브랜드 없이 기준만(실제 상품 사진은 광고처럼 보여 마지막 칠판에만)"
     },
     {
       "from": "다만 횟수를 줄였는데도",

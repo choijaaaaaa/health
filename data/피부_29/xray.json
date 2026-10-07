@@ -13,17 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_hold_serum_check_spot.mp4"
+      "clip": "assets_library/xray/output/m_spot_unchanged_drops.mp4"
     },
     {
-      "clip": "assets_library/xray/output/act_compare_serum_bottles.mp4"
-    }
-  ],
-  "negations": [
-    {
-      "from": "하지만 이 성분은",
-      "x_at": "농도보다",
-      "clip": "assets_library/xray/output/act_compare_serum_bottles.mp4"
+      "clip": "assets_library/xray/output/m_pigment_spot_fade.mp4"
     }
   ],
   "timeline": [
@@ -75,10 +68,10 @@
     {
       "from": "고를 땐 '피부의 미백에",
       "item": "나이아신아마이드 크림",
-      "mech": "label_niacinamide_cream",
+      "mech": "note_niacinamide_label",
       "act": null,
       "label": "미백 기능성",
-      "solo": "상품 라벨 짚기 — 고르는 기준이 적힌 자리"
+      "solo": "라벨에서 볼 것 메모 — 브랜드 없이 기준만(실제 상품 사진은 광고처럼 보여 마지막 칠판에만)"
     },
     {
       "from": "다만 8주를 발라도",
@@ -95,7 +88,7 @@
     "나이아신아마이드 크림"
   ],
   "opening_until": 11.17,
-  "_opening_why": "도입부 끝 = 통념 반박 '하지만 이 성분은 농도보다, 얼마나 꾸준히 발랐느냐가 중요해요'가 끝나는 11.17초(자막 3번 끝, 셋째 문단 직전). 도입 클립 둘은 range 없이 통째로(4초+4초 → 11.37초, 약 1.4배).",
+  "_opening_why": "2026-10-07 사용자 '피부 쪽은 도입부에 인물이 굳이 나올 필요가 없을 거 같다, 그 피부 기준으로 어떤 현상이 나는지로 — 엑스레이 사진만 나오고 아무 의미도 없는 것들만 나오니까 의미가 없어 보여': 도입부는 피부에서 벌어지는 현상(훅) + 통념이 왜 틀렸는지의 기전.",
   "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다(없으면 마지막 기전 칸이 영상 끝까지 늘어나 조립이 멈춘다, 2026-10-06). 기전은 칠판이 덮어 안 보이지만 자외선 문장이라 m_uv_radiation_damage로 둔다(받아둔 클립 — 미수령 지적을 늘리지 않게).",
   "_panel_act_why": "2026-10-07 사용자 '바르는 장면도 그냥 바르고 의미가 있는 장면이 없어 보인다, 동네 애새끼도 그리겠다' — 바르기만 하는 왼쪽 행위 칸은 빼고 기전 단독(바른 뒤 피부 속 변화가 이 채널의 핵심). 행위 칸은 대본이 말하는 행동만."
 }

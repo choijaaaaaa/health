@@ -52,6 +52,7 @@ def main() -> None:
     ap.add_argument("out")
     ap.add_argument("--box", action="append", required=True, help="상품 사진 안 비율 x,y,w,h")
     ap.add_argument("--seconds", type=float, default=5.0)
+    ap.add_argument("--zoom", type=float, default=ZOOM_END, help="끝에서 당기는 배율(메모지처럼 여러 줄이면 작게)")
     a = ap.parse_args()
 
     cv, (px, py, pw, ph) = _canvas(Path(a.photo))
@@ -93,12 +94,12 @@ def main() -> None:
         # 지금 짚는 테두리 쪽으로 당긴다(첫 1초는 전체)
         if focus:
             x0, y0, x1, y1, start = focus
-            z = 1 + (ZOOM_END - 1) * _ease((t - 0.6) / (a.seconds - 1.2))
+            z = 1 + (a.zoom - 1) * _ease((t - 0.6) / (a.seconds - 1.2))
             cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
             k = _ease((t - 0.6) / 1.2)
             cx, cy = W / 2 + (cx - W / 2) * k, H / 2 + (cy - H / 2) * k
         else:
-            z, cx, cy = 1 + (ZOOM_END - 1) * _ease((t - 0.6) / (a.seconds - 1.2)), W / 2, H / 2
+            z, cx, cy = 1 + (a.zoom - 1) * _ease((t - 0.6) / (a.seconds - 1.2)), W / 2, H / 2
         cw, ch = W / z, H / z
         lx = min(max(cx - cw / 2, 0), W - cw)
         ly = min(max(cy - ch / 2, 0), H - ch)
