@@ -83,10 +83,6 @@ def synthesize(topic: str, text: str, *, approved: bool = False) -> dict:
     뽑았다가 보이스가 바로 바뀌어 전부 버렸다. 원고가 준비되면 사용자에게 요청하고 기다린다."""
     if not approved:
         raise PermissionError("[typecast] 사용자 승인 없이 TTS를 뽑지 않는다 — 원고를 보여주고 '뽑아줘'를 받은 뒤 --approved로 실행")
-    # 🚨 2026-10-07부터 건강·육아 나레이션은 사용자 본인 녹음(lib/own_voice.py). 사용자 "tts 안 쓰고 내 목소리 쓰는 게 좋을 것
-    # 같다, 돈 아깝기도 하고" — 습관처럼 TTS를 돌려 크레딧이 나가지 않게 막는다. 꼭 써야 하면 사용자가 말한 뒤 환경변수로 연다.
-    if os.environ.get("HEALTH_ALLOW_TTS") != "1":
-        raise PermissionError("[typecast] 건강·육아 나레이션은 사용자 녹음이다 — `.venv/bin/python3 -m lib.own_voice <topic> <녹음 파일>`")
     spoken = to_speech(text)
     if len(_split_sentences(spoken)) != len(_split_sentences(text)):
         raise ValueError("[typecast] 읽기용 텍스트와 원문의 문장 수가 다르다 — 자막이 어긋난다")

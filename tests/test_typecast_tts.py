@@ -14,15 +14,6 @@ def _fake_call(text: str):
     return b"ID3", words, t
 
 
-
-import pytest  # noqa: E402
-
-
-@pytest.fixture(autouse=True)
-def _allow_tts(monkeypatch):
-    # 2026-10-07부터 건강·육아는 사용자 녹음이라 TTS가 기본 차단이다 — 이 파일은 TTS 자체의 동작을 시험하므로 연다
-    monkeypatch.setenv("HEALTH_ALLOW_TTS", "1")
-
 def test_srt_shows_original_numbers(tmp_path: Path, monkeypatch):
     monkeypatch.setattr(typecast_tts, "_call", _fake_call)
     monkeypatch.setattr(tracks, "output_dir", lambda _t: tmp_path)

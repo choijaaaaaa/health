@@ -18,11 +18,3 @@ def test_align_keeps_script_words_and_times_despite_misrecognition():
     assert out[0]["start"] == 0.0 and out[-1]["end"] == 2.5
     assert out[0]["end"] <= out[1]["start"] <= out[2]["start"] <= out[3]["start"]
 
-
-def test_typecast_is_blocked_for_health_without_explicit_override(monkeypatch):
-    # 2026-10-07 사용자 녹음으로 전환 — 승인 플래그만으론 TTS가 돌지 않는다
-    import pytest
-    from lib import typecast_tts
-    monkeypatch.delenv("HEALTH_ALLOW_TTS", raising=False)
-    with pytest.raises(PermissionError):
-        typecast_tts.synthesize("피부_31", "테스트입니다.", approved=True)
