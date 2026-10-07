@@ -120,3 +120,19 @@
 - 대한소아치과학회 권고문 원본(학회 사이트)은 직접 못 받았다 — 학회 내용은 KDCA 문서 안의 인용으로만 확인.
 - 건치신문 "2010 코크란: 440~550ppm 효과 없음" — 2차 보도이자 구판 리뷰라 미사용.
 - 연령별 서로 다른 농도(예: "3세 전 500~1,000, 이후 1,000 이상") — 언론·블로그에만 있고 국내 기관 원문 없음.
+
+## 추가 검증(2026-10-08) — 연구 수치 보강
+
+쪽쪽이 편 사용자 "근거가 너무 빈약한데"(기관 권고만) 재발 방지. 초록은 EuropePMC REST(resultType=core), Cochrane 2019 본문은 PMC6398117 HTML — 인용은 전부 받은 원문 문자열 대조 통과(WebFetch 미사용). 원본 사본은 세션 스크래치패드 `ev21/`(임시).
+
+- **dos Santos APP, Nadanovsky P, de Oliveira BH. Community Dent Oral Epidemiol 2013;41(1):1-12. PMID 22882502** — 미취학 아동 젖니 불소 치약 체계적 문헌고찰·메타분석
+  - "Pooled prevented fractions (PF) and relative risks (RR) were estimated separately for studies testing low F toothpastes (<600 ppm) and those testing standard F toothpastes (1000–1500 ppm)."
+  - "When standard F toothpastes were compared to placebo or no intervention, significant caries reduction at surface (PF = 31%; 95% CI 18–43; 2644 participants in five studies), tooth (PF = 16%; …) and individual (RR = 0.86; 95% CI 0.81–0.93; 2806 participants in two studies) level were observed."
+  - "Standard F toothpastes are effective in reducing dental caries in the primary teeth of preschool children and thus their use should be recommended to this age group."
+  - → 대본 "실제로 연구 5개를 모아 보니, 불소 치약으로 젖니를 닦은 아이는 충치가 31% 덜 생겼어요." 31%는 치아 면 단위(아이 단위 아님) → "충치 생긴 아이가 31% 적다"로 쓰지 말 것. 대조군 대부분이 '무개입'이라 "무불소 치약 쓴 아이보다"도 쓰지 않음.
+  - 과장 아님 확인: 무불소 치약 위약 대조 Fan 2008(J Clin Dent, PMID 19278083) 2년 −42%·−37%. Cochrane 2019(Walsh, PMID 30829399) "1500 ppm fluoride toothpaste reduces caries increment when compared with non-fluoride toothpaste (MD -1.86 dfs …; 998 participants, one study, moderate-certainty evidence)".
+  - 1,000ppm대가 이 범주(1000–1500ppm)에 든다 — 포함 후보 시험 Schwarz 1998(1,000ppm)·You 2002(1,100ppm)·Rong 2003(1,100ppm).
+  - 화면 출처 줄: `출처: dos Santos 외, Community Dent Oral Epidemiol 2013(연구 5개 분석)`. 블로그·설명란 출처 목록엔 Walsh 2019 Cochrane도 함께.
+- "질병관리청도 2022년에" → "질병관리청도"(숫자 개수 유지, 사실은 그대로 — 위 KDCA-검진수정공지).
+- "이만큼은 삼켜도 괜찮아요" → "이만큼은 삼켜도 몸에 해롭지 않아요" — 7절 근거는 독성(KDCA 검진매뉴얼)이고, Wright 2014(JADA, PMID 24487610) "Ingesting pea-sized amounts or more can lead to mild fluorosis."와 부딪히지 않게 독성 쪽으로 좁혔다. 불소증은 바로 뒤 "많이 짜면 … 얼룩" 문장이 맡는다.
+- 저불소(<600ppm)는 근거가 엇갈림(dos Santos 2013 면 단위 PF 40%·CI 5–75 연구 2개 / Santos 2013 Caries Res PMID 23572031 RR 1.13 / Cochrane 2019 1055 vs 550ppm 비슷) — 대본에서 단정하지 않는 기존 방침 유지.
