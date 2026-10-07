@@ -146,6 +146,8 @@ _EXCLUDE_BY_ITEM = {
     "퀴노아": ("헤어", "앰플", "샴푸", "트리트먼트", "두유", "음료"), "에리스리톨": ("캔디", "사탕", "롤리팝", "자일리톨"),
     "락토프리 우유": ("쌀음료", "쌀우유", "라이스", "오트"), "곤약밥": ("주먹밥", "도시락"),
     "순면장갑": ("목장갑", "작업", "코팅"),
+    # 육아_18: 대본이 "목에 감길 수 있는 줄은 떼 두세요"라 줄·클립 상품이 본품 자리를 차지하면 안 된다(2026-10-07)
+    "신생아 쪽쪽이": ("스트랩", "클립", "홀더", "치발기"),
 }
 
 
@@ -174,7 +176,9 @@ def choose(query: str, raw: list[dict], domain: str = "health") -> dict | None:
             return False
         if rest and sum(_tok_in(t, n) for t in rest) * 2 < len(rest):
             return False
-        return not any(w in p["name"] and w not in query for w in off)
+        # "케이스 포함"은 본품에 케이스를 끼워 주는 것 — 부속품이 아니다(육아_18 국민쪽쪽이가 이것 때문에 빠졌다)
+        name = re.sub(r"케이스\s*포함", "", p["name"])
+        return not any(w in name and w not in query for w in off)
 
     rel = [p for p in raw if related(p) and (p["reviews"] or 0) >= MIN_REVIEWS and p.get("price")]
     if not rel:
