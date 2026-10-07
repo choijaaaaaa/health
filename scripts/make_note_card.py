@@ -46,21 +46,22 @@ def card(title: str, lines: list[str], out_png: Path) -> list[str]:
     im = Image.new("RGB", (CARD_W, CARD_H), BG)
     d = ImageDraw.Draw(im)
     pw = int(CARD_W * 0.86)
-    lf = _fit_font(d, lines, pw - 150, 64)
-    tf = ImageFont.truetype(str(FONT), min(62, lf.size + 6))
+    lf = _fit_font(d, lines, pw - 150, 84)
+    tf = ImageFont.truetype(str(FONT), min(72, lf.size + 4))
     lh = int(lf.size * 1.7)
-    ph = min(int(CARD_H * 0.92), 110 + lh * len(lines) + 40)
+    ph = min(int(CARD_H * 0.94), int(tf.size * 1.9) + lh * len(lines) + 30)
     px, py = (CARD_W - pw) // 2, (CARD_H - ph) // 2
     shadow = Image.new("L", (CARD_W, CARD_H), 0)
     ImageDraw.Draw(shadow).rounded_rectangle([px + 10, py + 14, px + pw + 10, py + ph + 14], radius=18, fill=150)
     im.paste((8, 12, 18), (0, 0), shadow.filter(ImageFilter.GaussianBlur(14)))
     d.rounded_rectangle([px, py, px + pw, py + ph], radius=18, fill=PAPER)
-    y = py + 100
+    top = py + int(tf.size * 1.75)
+    y = top
     while y < py + ph - 16:                     # 공책 줄
         d.line([(px + 30, y), (px + pw - 30, y)], fill=(222, 214, 196), width=2)
         y += lh
     d.text((px + 44, py + 22), title, font=tf, fill=INK)
-    boxes, y = [], py + 100 + (lh - lf.size) // 2 - 6
+    boxes, y = [], top + (lh - lf.size) // 2 - 6
     for line in lines:
         _check(d, px + 46, y + lf.size * 0.15, lf.size * 0.7)
         tx = px + 46 + lf.size * 0.95
