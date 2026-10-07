@@ -20,16 +20,18 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFilter
 
-W, H, FPS = 720, 1280, 30
+FPS = 30
+# 기본은 위쪽 칸(960×680) 크기 — 단독 칸은 클립을 높이 680에 맞춰 앉히므로 세로 클립은 가운데 좁게(382px) 나와
+# 상품이 작고 라벨이 안 읽혔다(2026-10-07 피부_28~31 실측). 칸 크기로 만들면 칸을 꽉 채운다.
+W, H = 960, 680
 BG = (22, 32, 44)          # 엑스레이 화면의 어두운 슬레이트 바탕과 같은 톤 — 칸이 바뀌어도 튀지 않게
 AMBER = (255, 176, 66)     # 이 포맷에서 "여기"를 뜻하는 색(부위 점등과 같은 값)
-FIT_W, FIT_H = 620, 900    # 상품 사진을 캔버스에 올릴 최대 크기
-ZOOM_END = 1.55            # 테두리 쪽으로 당기는 폭 — 라벨 글자가 칸 안에서 읽힐 만큼
+ZOOM_END = 2.0             # 테두리 쪽으로 당기는 폭 — 라벨 글자가 칸 안에서 읽힐 만큼
 
 
 def _canvas(photo: Path) -> tuple[Image.Image, tuple[int, int, int, int]]:
     im = Image.open(photo).convert("RGB")
-    s = min(FIT_W / im.width, FIT_H / im.height)
+    s = min(W * 0.9 / im.width, H * 0.9 / im.height)
     im = im.resize((int(im.width * s), int(im.height * s)), Image.LANCZOS)
     cv = Image.new("RGB", (W, H), BG)
     mask = Image.new("L", im.size, 0)
