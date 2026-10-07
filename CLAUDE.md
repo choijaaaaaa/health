@@ -246,6 +246,8 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   `fish_tts`는 한국어를 거부한다(en/ja 등 다른 언어만). 키는 `.env`의 `TYPECAST_API_KEY`. 2026-10-07 잠깐 본인 녹음으로
   바꿨다가 같은 날 되돌렸다(사용자 "tts 걍 타입캐스트로 뽑자 … 건강 육아 댕냥 전부 tts"). 사용자가 직접 녹음한 편이 생기면
   `lib/own_voice.py <topic> <녹음 파일>`이 같은 세 파일(narration.mp3·srt·words)을 만든다.
+- **배속만 바꿀 땐 다시 뽑지 않는다** — `scripts/retempo_narration.py <topic…> --from 1.2 --to 1.1`이 음성(raw 포함)을 음높이 그대로
+  늘이고 srt·단어 시각도 같은 비율로 바꾼다(원본은 `output/<topic>/_tempo_<옛 배속>/`). 그 뒤 다시 조립(2026-10-07 피부_28~31).
 - 🚨 **TTS는 사용자가 "뽑아줘"라고 한 topic만 뽑는다** — 원고를 끝내면 사용자에게 요청하고 기다린다. 크레딧이 비싸다
   (2026-09-29 세션이 25편을 한 번에 뽑았다가 보이스가 바로 바뀌어 전부 버렸다). 실행은
   `.venv/bin/python3 -m lib.typecast_tts <topic> --approved`, `--approved` 없이는 예외.
