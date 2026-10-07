@@ -238,27 +238,57 @@ def _x_mark_png(size: int, out: Path) -> None:
     Image.alpha_composite(glow, body).resize((size, size), Image.LANCZOS).save(out)
 
 
-SOURCE_FONT_SIZE = 34
+SOURCE_FONT_SIZE = 38
+SOURCE_MIN_FONT = 30
 SOURCE_MAX_W = 820          # 네이버 오른쪽 버튼(x>900)·양옆 잘림(48px) 안쪽에 들어가는 폭
-SOURCE_Y_PANEL = XRAY_PANEL[1] + XRAY_PANEL[3] + 90   # 칸 바로 아래 칠판 윗부분 — 설명 구간엔 비어 있다
-SOURCE_Y_FULL = 1385        # 도입부(전체 화면)는 화면 아래쪽 — 네이버 하단 UI(y>1455) 위
+SOURCE_Y_PANEL = XRAY_PANEL[1] + XRAY_PANEL[3] + 100  # 칸 바로 아래 칠판 윗부분 — 설명 구간엔 비어 있다
+SOURCE_Y_FULL = 1370        # 도입부(전체 화면)는 화면 아래쪽 — 네이버 하단 UI(y>1455) 위
+# 칠판 손글씨(Gaegu)에 없는 기호는 빈칸으로 찍힌다(2026-10-07 시안 실측: 「」·가 사라짐) — 있는 기호로 바꾼다
+_SOURCE_GLYPHS = {"「": "\"", "」": "\"", "『": "\"", "』": "\"", "·": ",", "‧": ",", "–": "-", "—": "-"}
 
 
 def _source_png(text: str, out: Path) -> Image.Image:
-    """출처 한 줄 — 칠판 자막과 같은 손글씨를 작게, 어두운 반투명 알약 위에. 폭을 넘으면 글씨를 줄인다."""
+    """출처 줄 — 칠판 자막과 같은 손글씨, 어두운 반투명 알약 위에. 한 줄에 안 들어가면 쉼표 자리에서 두 줄로."""
     from lib.video_assembler import _chalk_font_for_lang
-    size = SOURCE_FONT_SIZE
-    while True:
+    # 출처 여러 개를 "·"로 이어 적었으면 두 줄로 나눌 땐 그 자리에서 자른다(한 출처가 두 줄에 걸치지 않게)
+    parts = [x.strip() for x in text.split("·")] if text.count("·") == 1 else None
+    text = "".join(_SOURCE_GLYPHS.get(c, c) for c in text)
+    measure = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+
+    def fit(lines, size):
         font = ImageFont.truetype(_chalk_font_for_lang("kor"), size)
-        bb = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
-        tw, th = bb[2] - bb[0], bb[3] - bb[1]
-        if tw + 40 <= SOURCE_MAX_W or size <= 24:
+        boxes = [measure.textbbox((0, 0), ln, font=font) for ln in lines]
+        return font, boxes, max(b[2] - b[0] for b in boxes)
+
+    lines = [text]
+    for size in range(SOURCE_FONT_SIZE, SOURCE_MIN_FONT - 1, -2):
+        font, boxes, tw = fit(lines, size)
+        if tw + 44 <= SOURCE_MAX_W:
             break
-        size -= 2
-    img = Image.new("RGBA", (min(tw + 40, SOURCE_MAX_W), th + 22), (0, 0, 0, 0))
+    else:
+        # 두 줄로 — 가운데에 가장 가까운 쉼표(없으면 공백) 뒤에서 자른다
+        if parts:
+            lines = ["".join(_SOURCE_GLYPHS.get(c, c) for c in x) for x in parts]
+        else:
+            cuts = [k + 1 for k, c in enumerate(text) if c == ","] or [k for k, c in enumerate(text) if c == " "]
+            k = min(cuts, key=lambda c: abs(c - len(text) / 2)) if cuts else len(text) // 2
+            lines = [text[:k].strip(), text[k:].strip()]
+        size = SOURCE_FONT_SIZE
+        while True:
+            font, boxes, tw = fit(lines, size)
+            if tw + 44 <= SOURCE_MAX_W or size <= SOURCE_MIN_FONT - 6:
+                break
+            size -= 2
+    line_h = max(b[3] - b[1] for b in boxes)
+    gap = int(line_h * 0.35)
+    h = line_h * len(lines) + gap * (len(lines) - 1) + 24
+    img = Image.new("RGBA", (min(tw + 44, SOURCE_MAX_W), h), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
-    d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=img.height // 2, fill=(10, 14, 16, 190))
-    d.text((20 - bb[0], 11 - bb[1]), text, font=font, fill=(236, 236, 236, 255))
+    d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=min(img.height // 2, 28), fill=(10, 14, 16, 200))
+    y = 12
+    for ln, b in zip(lines, boxes):
+        d.text(((img.width - (b[2] - b[0])) // 2 - b[0], y - b[1]), ln, font=font, fill=(236, 236, 236, 255))
+        y += line_h + gap
     img.save(out)
     return img
 
