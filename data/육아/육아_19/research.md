@@ -154,3 +154,16 @@
 
 - 근거상 방향은 맞다 — KDCA가 이불 대신 수면조끼를 직접 권한다. 상품명 "스와들졸업"은 팔을 감싸지 않는 유형으로 읽힌다(AAP-SW 기준 뒤집기 뒤에도 계속 쓸 수 있는 쪽) — 실물 확인 전 추정.
 - 상품 페이지가 로그인 벽이라 **후드 유무 · 사이즈표가 몸무게·키 기준인지 · 목둘레/팔 구멍 조임 · 계절별 두께 옵션**을 확인 못 했다. 상품명 "오가닉 메쉬"는 얇은 소재를 시사 — 가을·겨울(지금 10월)용 두께가 있는지, 대본의 "두께는 계절에 맞추고"와 어긋나지 않는지 봐야 한다.
+
+## 추가 검증(2026-10-08) — 연구 수치 보강
+
+쪽쪽이 편에서 사용자 "근거가 너무 빈약한데"(기관 권고만 있었음) → 같은 약점을 미리 막으려고 메타분석 수치를 넣었다. 초록은 EuropePMC REST(`EXT_ID:<PMID> AND SRC:MED`, resultType=core)로 받아 문자열 대조.
+
+- **Blair PS, Mitchell EA, Heckstall-Smith EM, Fleming PJ. Head covering — a major modifiable risk factor for sudden infant death syndrome: a systematic review. Arch Dis Child 2008. PMID 18450800**
+  - "Controlled observations of head covering for the final sleep were found in 10 studies."
+  - "The pooled prevalence in SIDS victims was 24.6% (95% CI 22.3% to 27.1%) compared to 3.2% (95% CI 2.7% to 3.8%) among controls."
+  - "The pooled univariate odds ratio (OR) was 9.6 (95% CI 7.9 to 11.7) and the pooled adjusted OR from studies mainly conducted after the fall in SIDS rate was 16.9 (95% CI 12.6 to 22.7)."
+  - → 대본 "영아돌연사를 다룬 연구 10개를 모아 보니, 머리가 이불에 덮여 있던 아기는 이 위험이 10배 가까이 높았어요." 보수적으로 단변량 OR 9.6을 "10배 가까이"로 씀(보정 OR 16.9는 안 씀). 영아돌연사는 드물어 OR≈상대위험.
+  - 화면 출처 줄: `출처: Blair 외, Arch Dis Child 2008(연구 10개 분석)`. 권고 문장 출처 줄: `출처: 질병관리청 「영아돌연사증후군」`.
+- 쓰지 않은 것: L'Hoir 1998(Eur J Pediatr, PMID 9727856) 초록 결론 "Preventive factors were using a cotton sleeping-sack and a dummy." — 사례 73건 단일 연구이고 AAP·NICHD가 "어떤 제품도 SIDS를 막는다고 말하지 말 것"이라 해 제품 효과 수치로는 안 씀(위 143줄 원칙 유지). GeSID 2009(Pediatrics, PMID 19336376) 초록은 "duvets" 위험 증가만 있고 수치 없음.
+- 대본 5번 문장 "둘 다 … 영아돌연사 위험을 높여요"는 용어 풀이를 2번 문단(연구 문장)으로 옮기고 "너무 더운 것도 영아돌연사 위험을 높여요"로 바꿈 — 근거는 위 5번(KDCA "이불을 과하게 덮어 놓는 것은 영아돌연사증후군과 관련", AAP "Overheating can increase the risk of SIDS.").
