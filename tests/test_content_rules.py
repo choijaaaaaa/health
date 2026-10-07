@@ -888,6 +888,29 @@ def test_naver_debt_list_has_no_stale_entries():
     )
 
 
+# ══════════════════ 해결책 제품 하나 + 제목 끝 ", <제품>" (2026-10-08) ══════════════════
+# WHY: 사용자 "물건으로 검색해서 영상에 접근하는 사람도 있겠구나 … 브랜드커넥트도 아이템 딱 하나로만".
+# 규칙 이전 topic은 data/_audit/title_item_debt.json 스냅샷으로 묶고 새 topic만 실패시킨다(육아 트랙 포함).
+def test_title_item_no_new_violations():
+    from lib import content_review
+
+    bad = []
+    for d in tracks.iter_topic_dirs(DATA_DIR):
+        issues = content_review.check_title_item(d.name)
+        if issues:
+            bad.append(f"{d.name}: {issues[0]['issue'][:70]}")
+    assert not bad, "제품 하나·제목 끝 제품명 규칙 위반:\n" + "\n".join(bad)
+
+
+def test_title_item_debt_has_no_stale_entries():
+    from lib import content_review
+
+    debt = json.loads((DATA_DIR / "_audit" / "title_item_debt.json").read_text(encoding="utf-8"))["topics"]
+    live = {d.name for d in tracks.iter_topic_dirs(DATA_DIR)}
+    stale = [t for t in debt if t in live and not content_review.title_item_issues(t)]
+    assert not stale, f"아래 topic은 규칙을 지키게 됐습니다 — data/_audit/title_item_debt.json에서 지우세요: {stale}"
+
+
 # ══════════════════ review_topic이 부르는 검사가 실제로 존재하는지 ══════════════════
 # WHY(2026-09-24 실측): 오탐이 심한 검사 하나를 손으로 잘라내다가 바로 위에 있던
 # check_xray_pacing까지 같이 날렸는데, review_topic은 여전히 그걸 부르고 있었다.

@@ -1166,6 +1166,62 @@ def check_search_keyword(topic: str, lang: str = "kor") -> list[dict]:
     return issues
 
 
+TITLE_ITEM_DEBT_PATH = ROOT / "data" / "_audit" / "title_item_debt.json"
+# 제목으로 치는 자리 — 유튜브는 "제목:" 줄, 네이버 블로그·클립은 캡션 첫 줄이 검색 결과에 제목처럼 뜬다
+_TITLE_PLATFORMS = ("유튜브 쇼츠", "네이버 블로그", "네이버 클립")
+
+
+def _title_item_debt() -> set[str]:
+    if not TITLE_ITEM_DEBT_PATH.exists():
+        return set()
+    return set(json.loads(TITLE_ITEM_DEBT_PATH.read_text(encoding="utf-8")).get("topics", []))
+
+
+def check_title_item(topic: str, lang: str = "kor") -> list[dict]:
+    """해결책 제품은 하나뿐이고, 영상·블로그 제목은 ", <그 제품 이름>"으로 끝나는지.
+
+    WHY(2026-10-08 사용자 "물건으로 검색해서 영상에 접근하는 사람도 있겠구나. 제목 맨 끝에 쉼표 찍고 물건 명칭도
+    넣자. 앞으로 브랜드커넥트도 그 문제를 해결할 아이템 딱 하나로만"): 증상어로만 제목을 지으면 제품명으로 검색하는
+    사람에게 안 걸린다. 제품이 여럿이면 제목 끝에 붙일 이름도, 영상이 증명하는 해결책도 흐려진다.
+    규칙 이전에 나간 topic은 data/_audit/title_item_debt.json에 묶어 두고 새 topic만 막는다."""
+    if topic in _title_item_debt():
+        return []
+    return title_item_issues(topic, lang)
+
+
+def title_item_issues(topic: str, lang: str = "kor") -> list[dict]:
+    """check_title_item의 본체 — 채무 목록을 무시하고 본다(목록에서 지울 topic을 찾을 때 쓴다)."""
+    if lang not in ("kor", "ko"):
+        return []
+    cap_path = next((d / "platform_captions.json" for d in _caption_dirs(topic, lang)
+                     if (d / "platform_captions.json").exists()), None)
+    if cap_path is None:
+        return []
+    try:
+        data = json.loads(cap_path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return []
+    products = [p for p in (data.get("products") or []) if p and p != "-"]
+    if not products:
+        return []
+    if len(products) != 1:
+        return [{"quote": ", ".join(products), "severity": "high",
+                 "issue": "해결책 제품은 문제를 푸는 하나만 겁니다 — products를 하나로 줄이세요."}]
+    item = products[0]
+    issues = []
+    for pl in data.get("platforms", []):
+        if pl.get("name") not in _TITLE_PLATFORMS:
+            continue
+        lines = (pl.get("caption") or "").strip().splitlines()
+        if not lines:
+            continue
+        title = lines[0].removeprefix("제목:").strip()
+        if not title.endswith(f", {item}"):
+            issues.append({"quote": title, "severity": "high",
+                           "issue": f"{pl['name']} 제목이 ', {item}'로 끝나지 않습니다 — 제품 이름으로 검색하는 사람에게도 걸리게 맨 끝에 붙이세요."})
+    return issues
+
+
 def check_products_in_brandconnect(topic: str, lang: str = "kor") -> list[dict]:
     """해결책 품목(products)이 브랜드커넥트에 실제로 있는지 — 없는 품목은 링크를 달 수가 없다.
 
@@ -1239,6 +1295,7 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
     return (
         check_opening_hook(topic, lang)
         + check_products_in_brandconnect(topic, lang)
+        + check_title_item(topic, lang)
         + check_naver_blog_quality(topic, lang)
         + check_title_truncation(topic, lang)
         + check_title_closing(topic, lang)
