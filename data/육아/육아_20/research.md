@@ -131,3 +131,20 @@
 - 카탈로그 `data/_audit/brandconnect_catalog_baby.json`의 "유아 비타민D" chosen = "연세 키즈텐 어린이 유아 비타민D 아연 비타민C 츄어블 1000IU 90정" → 츄어블(AAP-D: 3세 이상)·1000IU라 **이 편엔 부적합**. 카탈로그는 이 작업에서 고치지 않았다(쓰기 범위 밖).
 - **단독 vs 복합 판단**: 대본 기준(「하루 먹일 방울 수에 400IU가 다 들었는지」)에 맞으면 둘 다 된다. 가장 단순하게 맞는 건 단독 1방울=400IU(락피도) — 방울 수를 헷갈릴 일이 적고, 복합 제품과 겹쳐 먹이지만 않으면 된다. 복합 드롭은 제품마다 200~400IU로 갈려서 10㎍(400IU)이 확인된 마미앤대디만 후보. 유산균 효과는 이 대본이 근거로 다루지 않으므로 유산균을 고르는 이유로 쓰지 않는다.
 - 품목명 제안: "아기 비타민D 드롭"(육아 품목은 "아기 ○○"로 — 건강 품목과 이름이 겹치지 않게).
+
+## 추가 검증(2026-10-08) — 연구 수치 보강
+
+쪽쪽이 편 사용자 "근거가 너무 빈약한데"(기관 권고만) 재발 방지. 초록 EuropePMC REST, Cochrane 본문은 Cochrane Library HTML — 인용 전부 받은 원문 문자열 대조 통과(WebFetch 미사용). 원본 사본은 세션 스크래치패드 `ev20/`(임시).
+
+- **Tan ML, Abrams SA, Osborn DA. Vitamin D supplementation for term breastfed infants to prevent vitamin D deficiency and improve bone health. Cochrane Database Syst Rev 2020, CD013046.pub2. PMID 33305822**
+  - "vitamin D at 400 IU/day may increase 25-OH vitamin D levels (MD 22.63 nmol/L …; participants = 334; studies = 6; low-certainty) and may reduce the incidence of vitamin D insufficiency (25-OH vitamin D < 50 nmol/L) (RR 0.57, 95% CI 0.41 to 0.80; participants = 274; studies = 4; low-certainty)."
+  - 요약표(6개월): "451 per 1000 257 per 1000 (185 to 361) RR 0.57 (0.41 to 0.8) 274 (4 studies)"
+  - 한계: "there was insufficient evidence to determine if vitamin D given to the infant reduces the risk of vitamin D deficiency (25-OH vitamin D < 30 nmol/L) … affects bone mineral content (BMC), or the incidence of biochemical or radiological rickets (all very-low certainty)."
+  - → 대본 "모유 먹는 아기를 다룬 연구 4개를 모아 보니, 비타민D를 먹인 아기는 비타민D가 모자랄 위험이 43% 낮았어요." (1−0.57). 🚨 카드·캡션·블로그에서 43%를 '뼈가 튼튼해졌다'·'구루병이 줄었다'로 바꿔 쓰지 말 것(뼈·구루병은 근거 부족). 문장 앞에 "실제로"를 붙이지 않은 것도 같은 이유(바로 앞 '뼈에 쌓여요'까지 증명한 것처럼 들림).
+  - 4개 중 1개는 출생 때 5만IU 1회 시험 — 하루 400IU 시험 3개만 봐도 RR 0.56(본문 하위분석).
+- 화면 출처 줄(시간표 만들 때 xray.json `sources`):
+  - `{"from": "모유 먹는 아기를 다룬", "until": "낮았어요", "text": "출처: Tan 외, Cochrane 2020(연구 4개 분석)"}`
+  - `{"from": "그래서 미국소아과학회는", "until": "먹이라고 해요", "text": "출처: 미국소아과학회 2008"}` — Wagner & Greer, Pediatrics 2008, PMID 18977996 "minimum daily intake of 400 IU of vitamin D beginning soon after birth"
+  - `{"from": "비타민D가 든 제품은", "until": "해로워요", "text": "출처: 대한소아청소년과학회 · 식약처 식품안전나라(프랑스 Anses) 2023"}`
+- 블로그·카드용(대본엔 안 씀): 모유로 받는 비타민D는 하루 권장량의 5분의 1도 안 됨(við Streym 2016 AJCN, PMID 26675779, 덴마크 엄마 107명, 중앙값 77IU/일) · 국내 한 대학병원 비타민D 안 먹은 생후 1~6개월 모유 수유아 57명 중 90.4%가 25(OH)D 20ng/mL 미만(Choi 2013 Korean J Pediatr, PMID 23741234) · 캐나다 2년 감시 구루병 104명 중 94% 모유, 권고대로 400IU 먹은 아기 없음(Ward 2007 CMAJ, PMID 17600035, 관찰 보고) · 고함량이 더 좋은 게 아님(Gallo 2013 JAMA, 1600IU 군 조기 중단).
+- 버린 것: 튀르키예 6%→0.1%(Hatun 2011) — 실제로는 동부 에르주룸 한 지역의 다른 표본 전후 비교(Ozkan 2009 원 연구)이고 '드롭이 구루병을 막는다'로 들림. AAP 2008 모유 IU/L 값 — 본문 403으로 대조 불가.
