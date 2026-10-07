@@ -168,30 +168,36 @@ def _tags(desc: str, base: list[str]) -> list[str]:
     return out
 
 
-def upload(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publish_at: str | None) -> str:
+def _insert(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publish_at: str | None) -> str:
+    """유튜브에 올리기만 한다(DB 기록은 부르는 쪽이 맡는다)."""
     title, desc = _caption(topic)
     desc = _products_block(topic) + desc.replace(OLD_BRAND_TAG, "#" + channel_title.replace(" ", ""))
     title = title if len(title) <= 100 else title[:100].rsplit(" ", 1)[0]
+    status = yu._build_status_body(privacy, publish_at)
+    status["containsSyntheticMedia"] = True     # AI로 만든 영상 표시
+    resp = yt.videos().insert(
+        part="snippet,status",
+        body={"snippet": {"title": title, "description": desc,
+                          "tags": _tags(desc, ch.base_tags),
+                          "categoryId": yu.HOWTO_AND_STYLE_CATEGORY,
+                          "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
+              "status": status},
+        media_body=MediaFileUpload(str(_video(topic)), chunksize=-1, resumable=True, mimetype="video/mp4"),
+    ).execute()
+    return resp["id"]
+
+
+def upload(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publish_at: str | None) -> str:
     key = ch.key + topic
     if not yu._sb_reserve_upload(key, "ko"):
         raise SystemExit(f"❌ {topic}: 이미 예약·업로드된 기록이 있어 건너뜀(중복 방지)")
     try:
-        status = yu._build_status_body(privacy, publish_at)
-        status["containsSyntheticMedia"] = True     # AI로 만든 영상 표시
-        resp = yt.videos().insert(
-            part="snippet,status",
-            body={"snippet": {"title": title, "description": desc,
-                              "tags": _tags(desc, ch.base_tags),
-                              "categoryId": yu.HOWTO_AND_STYLE_CATEGORY,
-                              "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
-                  "status": status},
-            media_body=MediaFileUpload(str(_video(topic)), chunksize=-1, resumable=True, mimetype="video/mp4"),
-        ).execute()
+        vid = _insert(ch, yt, channel_title, topic, privacy, publish_at)
     except BaseException:
         yu._sb_release_upload(key)
         raise
-    yu._sb_finalize_upload(key, resp["id"], privacy, publish_at)
-    return resp["id"]
+    yu._sb_finalize_upload(key, vid, privacy, publish_at)
+    return vid
 
 
 def main() -> None:
@@ -238,10 +244,15 @@ def main() -> None:
         if dt.datetime.fromisoformat(when.replace("Z", "+00:00")) <= dt.datetime.now(dt.timezone.utc):
             raise SystemExit(f"❌ {a.topic}: 이미 공개된 영상이라 갈아 끼우지 않음({_kst(when)})")
         yt, name = ch.service()
+        # 🚨 새 영상을 먼저 올리고, 성공한 뒤에만 옛 영상·기록을 지운다. WHY(2026-10-07 피부_28·29): 지우고 올리다가
+        # 업로드 한도(uploadLimitExceeded)에 걸려 예약 영상이 통째로 사라졌다 — 유튜브 영상 삭제는 되돌릴 수 없다.
+        vid = _insert(ch, yt, name, a.topic, "public", when)
         yt.videos().delete(id=row["video_id"]).execute()
         requests.delete(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers=yu._SB_HEADERS,
                         params={"topic": f"eq.{ch.key + a.topic}"}, timeout=30).raise_for_status()
-        vid = upload(ch, yt, name, a.topic, "public", when)
+        if not yu._sb_reserve_upload(ch.key + a.topic, "ko"):
+            raise SystemExit(f"⚠️ {a.topic}: 새 영상 {vid}는 올라갔는데 기록을 못 남겼다 — youtube_uploaded를 직접 확인할 것")
+        yu._sb_finalize_upload(ch.key + a.topic, vid, "public", when)
         print(f"✅ {a.topic} 교체 → {_kst(when)} 예약: https://youtube.com/shorts/{vid} (옛 {row['video_id']} 삭제)"); return
 
     rows = ready_topics(ch)
