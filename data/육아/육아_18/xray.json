@@ -1,0 +1,87 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 안아서 재우는 act_baby_swaddle_hold(훅) + 쪽쪽이 물고 등 대고 자는 아기(통념 반박). 빨간 X는 생략 — 안아 재우는 장면 위 X는 '안지 마라'로 오독된다. 아기 얼굴은 전신 거리·고정 화면(10-06 얼굴 줌 금지).",
+  "top_title": "잘 때 쪽쪽이, 버릇보다 중요한 것",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_airway.mp4",
+    "crop": [
+      0,
+      60,
+      720,
+      520
+    ],
+    "label": "숨길"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_swaddle_hold.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_sleep_pacifier.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "자던 아기가 갑자기",
+      "item": "신생아 쪽쪽이",
+      "mech": "part_baby_brain",
+      "act": "act_baby_sleep_pacifier",
+      "label": "숨 조절 뇌"
+    },
+    {
+      "from": "그래서 질병관리청과",
+      "item": "신생아 쪽쪽이",
+      "mech": "part_baby_airway",
+      "act": "act_baby_sleep_pacifier",
+      "label": "숨길"
+    },
+    {
+      "from": "그러니 낮잠이든",
+      "item": "신생아 쪽쪽이",
+      "mech": "act_baby_sleep_on_back",
+      "act": null,
+      "label": "재울 때마다",
+      "solo": "사용법 문장 — 눕혀 재우며 물리는 장면 단독(보호자 손이 아기를 눕힌다)"
+    },
+    {
+      "from": "고를 땐 젖꼭지와",
+      "item": "신생아 쪽쪽이",
+      "mech": "note_pacifier_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(상품 사진은 마지막 칠판에만)"
+    },
+    {
+      "from": "다만 깨어 있을 땐",
+      "item": "신생아 쪽쪽이",
+      "mech": "part_baby_middle_ear",
+      "act": null,
+      "label": "귀 안쪽",
+      "solo": "중이염 — 귀 안·이관 점등 단독"
+    },
+    {
+      "from": "열이 나거나 귀를",
+      "item": "신생아 쪽쪽이",
+      "mech": "part_baby_middle_ear",
+      "act": null,
+      "label": "귀 안쪽"
+    }
+  ],
+  "_timeline_why": "61% 근거(쪽쪽이 물고 자는 아기 + 숨을 조절하는 뇌 — 질병관리청: 숨뇌 이상이 영아돌연사와 관련) → 권고·숨길이 열린 채(숨길 점등, 제품 작동 칸) → 사용법(눕혀 재우기) → 고르는 기준(메모지) → 깨어 있을 땐 빼기·중이염(귀 안) → 병원 신호부터 칠판.",
+  "summary_from": "열이 나거나 귀를",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기) — 2026-10-07 해결책 칸 갱신 규칙.",
+  "board_items": [
+    "신생아 쪽쪽이"
+  ],
+  "sources": [
+    {
+      "from": "자던 아기가 갑자기",
+      "text": "출처: Hauck 외, Pediatrics 2005(연구 7개 분석)"
+    },
+    {
+      "from": "그래서 질병관리청과",
+      "text": "출처: 질병관리청 「영아돌연사증후군」 · 미국소아과학회 안전수면 권고 2022"
+    }
+  ],
+  "opening_until": 8.6
+}

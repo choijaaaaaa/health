@@ -1,0 +1,20 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_sleep_pacifier",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_18(쪽쪽이) 도입부 통념 반박('잠잘 때 물리는 쪽쪽이는 오히려 아기를 지켜 줘요')과 61%·권고·숨길 칸의 행위. 빈 아기침대에 등 대고 누워 쪽쪽이를 문 아기를 위에서 전신으로(얼굴 클로즈업 금지 — 10-06 얼굴 줌 금지 규칙), 숨길만 호박색. 이불·베개·줄·클립 없음(대본: 줄은 떼라).",
+      "fits": [
+        "잘 때 쪽쪽이",
+        "아기 안전수면",
+        "영아돌연사 예방",
+        "등 대고 재우기",
+        "빈 아기침대"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep flat on its back on a firm flat mattress in an otherwise completely empty crib, no blanket, no pillow, no toys, arms relaxed up beside the head, a simple round pacifier of the same translucent glass in its mouth, seen from directly above at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the open airway running from the mouth down the throat into the chest. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, blanket, pillow, toys, bumper, strap, clip, cord, second glowing area, close-up of the face",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep flat on its back on a firm flat mattress in an otherwise completely empty crib, no blanket, no pillow, no toys, arms relaxed up beside the head, a simple round pacifier of the same translucent glass in its mouth, seen from directly above at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the open airway running from the mouth down the throat into the chest. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, blanket, pillow, toys, bumper, strap, clip, cord, second glowing area, close-up of the face"
+    }
+  ]
+}
