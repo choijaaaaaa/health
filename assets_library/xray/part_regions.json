@@ -1,454 +1,560 @@
 {
- "_why": "부위 점등 클립을 Flow 대신 scripts/make_part_clip.py로 만들 때 쓰는 점등 영역(스틸 안 비율 x,y,w,h 타원). 2026-09-20 전신 스틸에서 눈으로 확인해 확정. 장기가 겹쳐 보여 좌표로는 못 가르는 부위(심장·폐·간·췌장·신장)는 여기 넣지 말고 전용 클로즈업 스틸을 쓴다 — 나레이션과 화면이 어긋나면 안 된다.",
- "cu_torso_organs.jpg": {
-  "part_stomach": [
-   0.35,
-   0.42,
-   0.3,
-   0.1
-  ],
-  "part_intestines": [
-   0.33,
-   0.52,
-   0.34,
-   0.16
-  ],
-  "part_bladder": [
-   0.44,
-   0.635,
-   0.12,
-   0.05
-  ],
-  "part_brain": [
-   0.43,
-   0.055,
-   0.14,
-   0.06
-  ],
-  "part_thyroid": [
-   0.455,
-   0.245,
-   0.09,
-   0.035
-  ],
-  "part_knee": [
-   0.33,
-   0.905,
-   0.34,
-   0.05
-  ]
- },
- "_전체점등": "클로즈업 스틸(cu_eye·cu_ear·cu_mouth·cu_hand·cu_foot·cu_skin_section 등)은 피사체 자체가 그 부위라 --region 없이 그대로 돌린다.",
- "cu_heart.jpg": {
-  "part_heart": [
-   0.3,
-   0.33,
-   0.2,
-   0.18
-  ]
- },
- "cu_lungs.jpg": {
-  "part_lungs": [
-   0.27,
-   0.26,
-   0.31,
-   0.24
-  ]
- },
- "cu_liver_pancreas.jpg": {
-  "part_liver": [
-   0.35,
-   0.39,
-   0.19,
-   0.13
-  ]
- },
- "cu_nose_sinus.jpg": {
-  "part_nose_sinus": [
-   0.38,
-   0.38,
-   0.25,
-   0.2
-  ]
- },
- "cu_head_front.jpg": {
-  "part_brain": [
-   0.38,
-   0.09,
-   0.24,
-   0.19
-  ]
- },
- "cu_shoulder.jpg": {
-  "part_shoulder": [
-   0.4,
-   0.23,
-   0.22,
-   0.2
-  ]
- },
- "act_baby_forehead_touch.jpg": {
-  "act_baby_forehead_touch": [
-   0.64,
-   0.31,
-   0.24,
-   0.16
-  ]
- },
- "act_baby_oral_syringe_feed.jpg": {
-  "act_baby_oral_syringe_feed": [
-   0.55,
-   0.25,
-   0.14,
-   0.1
-  ]
- },
- "act_baby_apply_lotion.jpg": {
-  "act_baby_apply_lotion": [
-   0.52,
-   0.42,
-   0.36,
-   0.2
-  ]
- },
- "act_baby_check_mouth.jpg": {
-  "act_baby_check_mouth": [
-   0.38,
-   0.43,
-   0.26,
-   0.14
-  ]
- },
- "act_baby_spoon_feed.jpg": {
-  "act_baby_spoon_feed": [
-   0.33,
-   0.33,
-   0.18,
-   0.1
-  ]
- },
- "act_baby_breastfeed_hold.jpg": {
-  "act_baby_breastfeed_hold": [
-   0.3,
-   0.33,
-   0.2,
-   0.13
-  ]
- },
- "act_baby_feed_upright.jpg": {
-  "act_baby_feed_upright": [
-   0.08,
-   0.26,
-   0.34,
-   0.16
-  ]
- },
- "act_baby_weigh_scale.jpg": {
-  "act_baby_weigh_scale": [
-   0.3,
-   0.6,
-   0.32,
-   0.12
-  ]
- },
- "act_baby_press_skin.jpg": {
-  "act_baby_press_skin": [
-   0.15,
-   0.45,
-   0.45,
-   0.2
-  ]
- },
- "act_baby_wipe_eye.jpg": {
-  "act_baby_wipe_eye": [
-   0.5,
-   0.38,
-   0.24,
-   0.1
-  ]
- },
- "act_baby_stethoscope_exam.jpg": {
-  "act_baby_stethoscope_exam": [
-   0.15,
-   0.33,
-   0.5,
-   0.25
-  ]
- },
- "act_baby_side_lying.jpg": {
-  "act_baby_side_lying": [
-   0.2,
-   0.08,
-   0.5,
-   0.35
-  ]
- },
- "baby_cu_brain.jpg": {
-  "part_baby_brain": [
-   0.05,
-   0.15,
-   0.85,
-   0.4
-  ]
- },
- "act_baby_lift_legs_clean.jpg": {
-  "act_baby_lift_legs_clean": [
-   0.38,
-   0.42,
-   0.45,
-   0.18
-  ]
- },
- "act_baby_fasten_diaper_loose.jpg": {
-  "act_baby_fasten_diaper_loose": [
-   0.1,
-   0.35,
-   0.45,
-   0.17
-  ]
- },
- "act_baby_nasal_aspirator.jpg": {
-  "act_baby_nasal_aspirator": [
-   0.42,
-   0.38,
-   0.2,
-   0.1
-  ]
- },
- "act_baby_belly_massage.jpg": {
-  "act_baby_belly_massage": [
-   0.36,
-   0.44,
-   0.45,
-   0.18
-  ]
- },
- "act_baby_swaddle_hold.jpg": {
-  "act_baby_swaddle_hold": [
-   0.35,
-   0.3,
-   0.5,
-   0.3
-  ]
- },
- "act_child_measure_height.jpg": {
-  "act_child_measure_height": [
-   0.3,
-   0.6,
-   0.42,
-   0.3
-  ]
- },
- "act_child_doctor_visit.jpg": {
-  "act_child_doctor_visit": [
-   0.34,
-   0.19,
-   0.22,
-   0.22
-  ]
- },
- "cu_hand.jpg": {
-  "part_wrist_bone_age": [
-   0.32,
-   0.5,
-   0.36,
-   0.17
-  ],
-  "part_median_fingers": [
-   0.11,
-   0.1,
-   0.52,
-   0.42
-  ]
- },
- "act_baby_vaccine_thigh.jpg": {
-  "act_baby_vaccine_thigh": [
-   0.25,
-   0.5,
-   0.32,
-   0.18
-  ]
- },
- "act_child_put_on_glasses.jpg": {
-  "act_child_put_on_glasses": [
-   0.27,
-   0.31,
-   0.48,
-   0.1
-  ]
- },
- "act_child_eye_drops.jpg": {
-  "act_child_eye_drops": [
-   0.3,
-   0.38,
-   0.45,
-   0.1
-  ]
- },
- "act_child_eye_exam.jpg": {
-  "act_child_eye_exam": [
-   0.4,
-   0.31,
-   0.2,
-   0.09
-  ]
- },
- "act_child_read_book_stand.jpg": {
-  "act_child_read_book_stand": [
-   0.42,
-   0.24,
-   0.1,
-   0.06
-  ]
- },
- "act_child_tv_close.jpg": {
-  "act_child_tv_close": [
-   0.13,
-   0.26,
-   0.15,
-   0.07
-  ]
- },
- "cu_foot.jpg": {
-  "part_heel": [
-   0.62,
-   0.42,
-   0.26,
-   0.16
-  ]
- },
- "cu_pelvis.jpg": {
-  "part_anus": [
-   0.43,
-   0.6,
-   0.14,
-   0.08
-  ]
- },
- "act_child_put_on_glasses_real.jpg": {
-  "act_child_put_on_glasses_real": [
-   0.4,
-   0.33,
-   0.2,
-   0.16
-  ],
-  "_note": "--no-glow(실사) — region은 푸시인 중심만"
- },
- "act_child_measure_height_real.jpg": {
-  "act_child_measure_height_real": [
-   0.35,
-   0.2,
-   0.3,
-   0.2
-  ],
-  "_note": "--no-glow(실사) — region은 푸시인 중심만"
- },
- "act_child_read_book_real.jpg": {
-  "act_child_read_book_real": [
-   0.35,
-   0.35,
-   0.3,
-   0.25
-  ],
-  "_note": "--no-glow(실사) — region은 푸시인 중심만"
- },
- "act_child_eye_drops_real.jpg": {
-  "act_child_eye_drops_real": [
-   0.45,
-   0.3,
-   0.3,
-   0.25
-  ],
-  "_note": "--no-glow(실사) — region은 푸시인 중심만"
- },
- "act_child_eye_exam_real.jpg": {
-  "act_child_eye_exam_real": [
-   0.4,
-   0.3,
-   0.25,
-   0.2
-  ],
-  "_note": "--no-glow(실사) — region은 푸시인 중심만"
- },
- "act_sleep_wrist_bent.jpg": {
-  "act_sleep_wrist_bent": [
-   0.12,
-   0.46,
-   0.3,
-   0.2
-  ]
- },
- "act_flaky_cheek_hand_mirror.jpg": {
-  "act_flaky_cheek_hand_mirror": [
-   0.3,
-   0.22,
-   0.11,
-   0.07
-  ]
- },
- "act_hold_serum_check_spot.jpg": {
-  "act_hold_serum_check_spot": [
-   0.65,
-   0.21,
-   0.08,
-   0.06
-  ]
- },
- "act_check_melasma_hand_mirror.jpg": {
-  "act_check_melasma_hand_mirror": [
-   0.59,
-   0.2,
-   0.09,
-   0.07
-  ]
- },
- "act_compare_sunscreen_tubes.jpg": {
-  "act_compare_sunscreen_tubes": [
-   0.59,
-   0.18,
-   0.08,
-   0.05
-  ]
- },
- "act_compare_serum_bottles.jpg": {
-  "act_compare_serum_bottles": [
-   0.46,
-   0.17,
-   0.1,
-   0.07
-  ]
- },
- "act_sunlight_on_cheek_outdoor.jpg": {
-  "act_sunlight_on_cheek_outdoor": [
-   0.32,
-   0.15,
-   0.1,
-   0.06
-  ]
- },
- "baby_cu_airway.jpg": {
-  "part_baby_airway": [
-   0.4,
-   0.05,
-   0.2,
-   0.45
-  ]
- },
- "baby_cu_head_side.jpg": {
-  "part_baby_middle_ear": [
-   0.45,
-   0.38,
-   0.4,
-   0.2
-  ]
- },
- "act_baby_sleep_on_back.jpg": {
-  "act_baby_sleep_on_back": [
-   0.5,
-   0.42,
-   0.25,
-   0.25
-  ],
-  "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
- }
+  "_why": "부위 점등 클립을 Flow 대신 scripts/make_part_clip.py로 만들 때 쓰는 점등 영역(스틸 안 비율 x,y,w,h 타원). 2026-09-20 전신 스틸에서 눈으로 확인해 확정. 장기가 겹쳐 보여 좌표로는 못 가르는 부위(심장·폐·간·췌장·신장)는 여기 넣지 말고 전용 클로즈업 스틸을 쓴다 — 나레이션과 화면이 어긋나면 안 된다.",
+  "cu_torso_organs.jpg": {
+    "part_stomach": [
+      0.35,
+      0.42,
+      0.3,
+      0.1
+    ],
+    "part_intestines": [
+      0.33,
+      0.52,
+      0.34,
+      0.16
+    ],
+    "part_bladder": [
+      0.44,
+      0.635,
+      0.12,
+      0.05
+    ],
+    "part_brain": [
+      0.43,
+      0.055,
+      0.14,
+      0.06
+    ],
+    "part_thyroid": [
+      0.455,
+      0.245,
+      0.09,
+      0.035
+    ],
+    "part_knee": [
+      0.33,
+      0.905,
+      0.34,
+      0.05
+    ]
+  },
+  "_전체점등": "클로즈업 스틸(cu_eye·cu_ear·cu_mouth·cu_hand·cu_foot·cu_skin_section 등)은 피사체 자체가 그 부위라 --region 없이 그대로 돌린다.",
+  "cu_heart.jpg": {
+    "part_heart": [
+      0.3,
+      0.33,
+      0.2,
+      0.18
+    ]
+  },
+  "cu_lungs.jpg": {
+    "part_lungs": [
+      0.27,
+      0.26,
+      0.31,
+      0.24
+    ]
+  },
+  "cu_liver_pancreas.jpg": {
+    "part_liver": [
+      0.35,
+      0.39,
+      0.19,
+      0.13
+    ]
+  },
+  "cu_nose_sinus.jpg": {
+    "part_nose_sinus": [
+      0.38,
+      0.38,
+      0.25,
+      0.2
+    ]
+  },
+  "cu_head_front.jpg": {
+    "part_brain": [
+      0.38,
+      0.09,
+      0.24,
+      0.19
+    ]
+  },
+  "cu_shoulder.jpg": {
+    "part_shoulder": [
+      0.4,
+      0.23,
+      0.22,
+      0.2
+    ]
+  },
+  "act_baby_forehead_touch.jpg": {
+    "act_baby_forehead_touch": [
+      0.64,
+      0.31,
+      0.24,
+      0.16
+    ]
+  },
+  "act_baby_oral_syringe_feed.jpg": {
+    "act_baby_oral_syringe_feed": [
+      0.55,
+      0.25,
+      0.14,
+      0.1
+    ]
+  },
+  "act_baby_apply_lotion.jpg": {
+    "act_baby_apply_lotion": [
+      0.52,
+      0.42,
+      0.36,
+      0.2
+    ]
+  },
+  "act_baby_check_mouth.jpg": {
+    "act_baby_check_mouth": [
+      0.38,
+      0.43,
+      0.26,
+      0.14
+    ]
+  },
+  "act_baby_spoon_feed.jpg": {
+    "act_baby_spoon_feed": [
+      0.33,
+      0.33,
+      0.18,
+      0.1
+    ]
+  },
+  "act_baby_breastfeed_hold.jpg": {
+    "act_baby_breastfeed_hold": [
+      0.3,
+      0.33,
+      0.2,
+      0.13
+    ]
+  },
+  "act_baby_feed_upright.jpg": {
+    "act_baby_feed_upright": [
+      0.08,
+      0.26,
+      0.34,
+      0.16
+    ]
+  },
+  "act_baby_weigh_scale.jpg": {
+    "act_baby_weigh_scale": [
+      0.3,
+      0.6,
+      0.32,
+      0.12
+    ]
+  },
+  "act_baby_press_skin.jpg": {
+    "act_baby_press_skin": [
+      0.15,
+      0.45,
+      0.45,
+      0.2
+    ]
+  },
+  "act_baby_wipe_eye.jpg": {
+    "act_baby_wipe_eye": [
+      0.5,
+      0.38,
+      0.24,
+      0.1
+    ]
+  },
+  "act_baby_stethoscope_exam.jpg": {
+    "act_baby_stethoscope_exam": [
+      0.15,
+      0.33,
+      0.5,
+      0.25
+    ]
+  },
+  "act_baby_side_lying.jpg": {
+    "act_baby_side_lying": [
+      0.2,
+      0.08,
+      0.5,
+      0.35
+    ]
+  },
+  "baby_cu_brain.jpg": {
+    "part_baby_brain": [
+      0.05,
+      0.15,
+      0.85,
+      0.4
+    ]
+  },
+  "act_baby_lift_legs_clean.jpg": {
+    "act_baby_lift_legs_clean": [
+      0.38,
+      0.42,
+      0.45,
+      0.18
+    ]
+  },
+  "act_baby_fasten_diaper_loose.jpg": {
+    "act_baby_fasten_diaper_loose": [
+      0.1,
+      0.35,
+      0.45,
+      0.17
+    ]
+  },
+  "act_baby_nasal_aspirator.jpg": {
+    "act_baby_nasal_aspirator": [
+      0.42,
+      0.38,
+      0.2,
+      0.1
+    ]
+  },
+  "act_baby_belly_massage.jpg": {
+    "act_baby_belly_massage": [
+      0.36,
+      0.44,
+      0.45,
+      0.18
+    ]
+  },
+  "act_baby_swaddle_hold.jpg": {
+    "act_baby_swaddle_hold": [
+      0.35,
+      0.3,
+      0.5,
+      0.3
+    ]
+  },
+  "act_child_measure_height.jpg": {
+    "act_child_measure_height": [
+      0.3,
+      0.6,
+      0.42,
+      0.3
+    ]
+  },
+  "act_child_doctor_visit.jpg": {
+    "act_child_doctor_visit": [
+      0.34,
+      0.19,
+      0.22,
+      0.22
+    ]
+  },
+  "cu_hand.jpg": {
+    "part_wrist_bone_age": [
+      0.32,
+      0.5,
+      0.36,
+      0.17
+    ],
+    "part_median_fingers": [
+      0.11,
+      0.1,
+      0.52,
+      0.42
+    ]
+  },
+  "act_baby_vaccine_thigh.jpg": {
+    "act_baby_vaccine_thigh": [
+      0.25,
+      0.5,
+      0.32,
+      0.18
+    ]
+  },
+  "act_child_put_on_glasses.jpg": {
+    "act_child_put_on_glasses": [
+      0.27,
+      0.31,
+      0.48,
+      0.1
+    ]
+  },
+  "act_child_eye_drops.jpg": {
+    "act_child_eye_drops": [
+      0.3,
+      0.38,
+      0.45,
+      0.1
+    ]
+  },
+  "act_child_eye_exam.jpg": {
+    "act_child_eye_exam": [
+      0.4,
+      0.31,
+      0.2,
+      0.09
+    ]
+  },
+  "act_child_read_book_stand.jpg": {
+    "act_child_read_book_stand": [
+      0.42,
+      0.24,
+      0.1,
+      0.06
+    ]
+  },
+  "act_child_tv_close.jpg": {
+    "act_child_tv_close": [
+      0.13,
+      0.26,
+      0.15,
+      0.07
+    ]
+  },
+  "cu_foot.jpg": {
+    "part_heel": [
+      0.62,
+      0.42,
+      0.26,
+      0.16
+    ]
+  },
+  "cu_pelvis.jpg": {
+    "part_anus": [
+      0.43,
+      0.6,
+      0.14,
+      0.08
+    ]
+  },
+  "act_child_put_on_glasses_real.jpg": {
+    "act_child_put_on_glasses_real": [
+      0.4,
+      0.33,
+      0.2,
+      0.16
+    ],
+    "_note": "--no-glow(실사) — region은 푸시인 중심만"
+  },
+  "act_child_measure_height_real.jpg": {
+    "act_child_measure_height_real": [
+      0.35,
+      0.2,
+      0.3,
+      0.2
+    ],
+    "_note": "--no-glow(실사) — region은 푸시인 중심만"
+  },
+  "act_child_read_book_real.jpg": {
+    "act_child_read_book_real": [
+      0.35,
+      0.35,
+      0.3,
+      0.25
+    ],
+    "_note": "--no-glow(실사) — region은 푸시인 중심만"
+  },
+  "act_child_eye_drops_real.jpg": {
+    "act_child_eye_drops_real": [
+      0.45,
+      0.3,
+      0.3,
+      0.25
+    ],
+    "_note": "--no-glow(실사) — region은 푸시인 중심만"
+  },
+  "act_child_eye_exam_real.jpg": {
+    "act_child_eye_exam_real": [
+      0.4,
+      0.3,
+      0.25,
+      0.2
+    ],
+    "_note": "--no-glow(실사) — region은 푸시인 중심만"
+  },
+  "act_sleep_wrist_bent.jpg": {
+    "act_sleep_wrist_bent": [
+      0.12,
+      0.46,
+      0.3,
+      0.2
+    ]
+  },
+  "act_flaky_cheek_hand_mirror.jpg": {
+    "act_flaky_cheek_hand_mirror": [
+      0.3,
+      0.22,
+      0.11,
+      0.07
+    ]
+  },
+  "act_hold_serum_check_spot.jpg": {
+    "act_hold_serum_check_spot": [
+      0.65,
+      0.21,
+      0.08,
+      0.06
+    ]
+  },
+  "act_check_melasma_hand_mirror.jpg": {
+    "act_check_melasma_hand_mirror": [
+      0.59,
+      0.2,
+      0.09,
+      0.07
+    ]
+  },
+  "act_compare_sunscreen_tubes.jpg": {
+    "act_compare_sunscreen_tubes": [
+      0.59,
+      0.18,
+      0.08,
+      0.05
+    ]
+  },
+  "act_compare_serum_bottles.jpg": {
+    "act_compare_serum_bottles": [
+      0.46,
+      0.17,
+      0.1,
+      0.07
+    ]
+  },
+  "act_sunlight_on_cheek_outdoor.jpg": {
+    "act_sunlight_on_cheek_outdoor": [
+      0.32,
+      0.15,
+      0.1,
+      0.06
+    ]
+  },
+  "baby_cu_airway.jpg": {
+    "part_baby_airway": [
+      0.4,
+      0.05,
+      0.2,
+      0.45
+    ]
+  },
+  "baby_cu_head_side.jpg": {
+    "part_baby_middle_ear": [
+      0.45,
+      0.38,
+      0.4,
+      0.2
+    ]
+  },
+  "act_baby_sleep_on_back.jpg": {
+    "act_baby_sleep_on_back": [
+      0.5,
+      0.42,
+      0.25,
+      0.25
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_sleep_pacifier.jpg": {
+    "act_baby_sleep_pacifier": [
+      0.43,
+      0.18,
+      0.14,
+      0.25
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_blanket_recover.jpg": {
+    "act_baby_blanket_recover": [
+      0.05,
+      0.0,
+      0.9,
+      0.15
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_blanket_over_face.jpg": {
+    "act_baby_blanket_over_face": [
+      0.42,
+      0.13,
+      0.16,
+      0.25
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_thick_quilt_hot.jpg": {
+    "act_baby_thick_quilt_hot": [
+      0.25,
+      0.28,
+      0.5,
+      0.28
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_sleep_vest.jpg": {
+    "act_baby_sleep_vest": [
+      0.43,
+      0.2,
+      0.14,
+      0.2
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_touch_chest.jpg": {
+    "act_baby_touch_chest": [
+      0.4,
+      0.33,
+      0.25,
+      0.13
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_stroller_shade.jpg": {
+    "act_baby_stroller_shade": [
+      0.25,
+      0.3,
+      0.4,
+      0.3
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "part_baby_leg_bones.jpg": {
+    "part_baby_leg_bones": [
+      0.25,
+      0.6,
+      0.5,
+      0.3
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_baby_vitd_drop.jpg": {
+    "act_baby_vitd_drop": [
+      0.45,
+      0.2,
+      0.25,
+      0.45
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "act_toddler_brush_teeth.jpg": {
+    "act_toddler_brush_teeth": [
+      0.38,
+      0.24,
+      0.25,
+      0.08
+    ],
+    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+  },
+  "m_enamel_acid_fluoride.jpg": {
+    "m_enamel_acid_fluoride": [
+      0.25,
+      0.18,
+      0.55,
+      0.18
+    ]
+  },
+  "act_toddler_toothpaste_rice.jpg": {
+    "act_toddler_toothpaste_rice": [
+      0.08,
+      0.27,
+      0.15,
+      0.1
+    ]
+  }
 }
