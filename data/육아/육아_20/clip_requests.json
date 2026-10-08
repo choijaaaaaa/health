@@ -1,0 +1,47 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_stroller_shade",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_20 '6개월 안 된 아기는 그늘에 두는 게 원칙' — 차양 내린 유모차 그늘 속 아기, 차양 밖은 햇빛.",
+      "fits": [
+        "그늘",
+        "아기 햇볕",
+        "유모차 차양"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a translucent glass baby stroller whose canopy is pulled fully forward, bright sunlight falling on the ground outside while the baby rests entirely in the cool shade under the canopy, seen from the side at full-body distance with the whole stroller in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the shaded skin of the baby's exposed arms under the canopy. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a translucent glass baby stroller whose canopy is pulled fully forward, bright sunlight falling on the ground outside while the baby rests entirely in the cool shade under the canopy, seen from the side at full-body distance with the whole stroller in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the shaded skin of the baby's exposed arms under the canopy. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face"
+    },
+    {
+      "name": "part_baby_leg_bones",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_20 '비타민D는 칼슘을 몸에 들이는 열쇠 / 뼈가 물러지는 구루병' + 병원 신호 '다리가 유난히 휘거나' 칸 — 아기 다리뼈 단면, 호박색 점등(make_part_clip 영역).",
+      "fits": [
+        "아기 다리뼈",
+        "구루병",
+        "칼슘 뼈",
+        "걸음마 다리"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about one year old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — standing supported at the edge of the frame on short chubby legs as an early toddler, seen from the front at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the two long leg bones of the thighs and shins. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, bowed legs exaggerated",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about one year old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — standing supported at the edge of the frame on short chubby legs as an early toddler, seen from the front at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the two long leg bones of the thighs and shins. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, bowed legs exaggerated"
+    },
+    {
+      "name": "act_baby_vitd_drop",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_20 해결책 '비타민D 드롭은 입에 한 방울씩 떨어뜨려 먹이는 물약' — 보호자 손의 스포이트 병에서 한 방울이 아기 입으로, 입~장 호박색. 상표·글자 없는 병.",
+      "fits": [
+        "비타민D 드롭",
+        "한 방울",
+        "아기 영양제 먹이기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying cradled on its back in the crook of an adult arm, while a pair of translucent glass adult hands of the same material hold a small plain unlabeled translucent glass dropper bottle above the baby's mouth with a single glowing droplet falling toward the lips, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the single droplet and the path from the mouth down into the stomach. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on bottle, syringe",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying cradled on its back in the crook of an adult arm, while a pair of translucent glass adult hands of the same material hold a small plain unlabeled translucent glass dropper bottle above the baby's mouth with a single glowing droplet falling toward the lips, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the single droplet and the path from the mouth down into the stomach. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on bottle, syringe"
+    }
+  ]
+}

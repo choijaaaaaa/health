@@ -1,0 +1,75 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_blanket_recover",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_19 훅 '아기가 걷어찰 때마다 밤새 다시 덮어 주고' — 보호자 손이 걷어찬 이불을 다시 덮는 장면, 전신 거리(얼굴 줌 금지).",
+      "fits": [
+        "이불 다시 덮기",
+        "밤중 육아",
+        "아기 이불"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib, legs having kicked a soft translucent glass blanket down to the feet, while a pair of translucent glass adult hands of the same material reach in from the top of the frame pulling the blanket back up over the small body, seen from a high three-quarter angle at full-body distance with the whole baby in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the kicked-off blanket edge held by the hands. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib, legs having kicked a soft translucent glass blanket down to the feet, while a pair of translucent glass adult hands of the same material reach in from the top of the frame pulling the blanket back up over the small body, seen from a high three-quarter angle at full-body distance with the whole baby in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the kicked-off blanket edge held by the hands. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper"
+    },
+    {
+      "name": "act_baby_blanket_over_face",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_19 '이불이 코와 입을 덮어 숨을 막을 수' + 10배 칸 행위 — 이불이 얼굴 아래쪽까지 올라온 아기, 숨길 호박색. 질식 묘사는 절제(몸부림·고통 표현 없이 잠든 자세).",
+      "fits": [
+        "이불 질식 위험",
+        "머리 덮임",
+        "영아돌연사 위험"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib after wriggling, a soft translucent glass blanket slid up so its edge lies over the nose and mouth, seen from directly above at full-body distance with the whole small body in frame, calm sleeping posture, no distress, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the airway from the covered mouth and nose down the throat. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper, distress, struggling",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib after wriggling, a soft translucent glass blanket slid up so its edge lies over the nose and mouth, seen from directly above at full-body distance with the whole small body in frame, calm sleeping posture, no distress, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the airway from the covered mouth and nose down the throat. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper, distress, struggling"
+    },
+    {
+      "name": "act_baby_thick_quilt_hot",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_19 '두꺼운 이불은 패딩을 입힌 셈이라 더워지기 쉬운데' — 두꺼운 솜이불 속 아기 몸 전체가 따뜻하게(호박색) 달아오름.",
+      "fits": [
+        "과열",
+        "두꺼운 이불",
+        "아기 더위"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib buried under a very thick puffy translucent glass quilt up to the chest, seen from a high three-quarter angle at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the whole torso and head radiating trapped heat as a warm amber haze under the quilt. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib buried under a very thick puffy translucent glass quilt up to the chest, seen from a high three-quarter angle at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the whole torso and head radiating trapped heat as a warm amber haze under the quilt. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pillow, toys, bumper"
+    },
+    {
+      "name": "act_baby_sleep_vest",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_19 해결책 '질병관리청은 이불보다 수면조끼를 권해요 / 입는 이불이라 걷어차도 벗겨지지 않고 얼굴을 덮을 천도 없어요' — 수면조끼(팔 구멍 있는 슬리핑백) 입고 등 대고 자는 아기, 얼굴 주변 빈 공간, 숨길 호박색.",
+      "fits": [
+        "수면조끼",
+        "슬리핑백",
+        "아기 안전수면",
+        "등 대고 재우기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep flat on its back on a firm flat mattress in an otherwise completely empty crib, wearing a sleeveless translucent glass wearable sleeping bag that closes snugly around the neck and armholes and covers the body down past the feet, arms free outside the bag, nothing near the face, seen from directly above at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the open airway running from the mouth down the throat into the chest. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blanket, pillow, toys, bumper, hood",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep flat on its back on a firm flat mattress in an otherwise completely empty crib, wearing a sleeveless translucent glass wearable sleeping bag that closes snugly around the neck and armholes and covers the body down past the feet, arms free outside the bag, nothing near the face, seen from directly above at full-body distance with the whole small body in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the open airway running from the mouth down the throat into the chest. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blanket, pillow, toys, bumper, hood"
+    },
+    {
+      "name": "act_baby_touch_chest",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_19 '더운지 볼 땐 원래 찬 손발 말고 가슴이나 목덜미를 만져 보세요' — 보호자 손가락이 수면조끼 입은 아기 가슴 위쪽·목덜미에 닿음, 닿은 자리 호박색.",
+      "fits": [
+        "체온 확인",
+        "목덜미 만져보기",
+        "아기 더운지"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib wearing a translucent glass wearable sleeping bag, while a pair of translucent glass adult hands of the same material gently rest two fingertips on the upper chest just below the neck, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the patch of upper chest under the fingertips. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blanket, pillow, toys, bumper",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about two months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying asleep on its back in a crib wearing a translucent glass wearable sleeping bag, while a pair of translucent glass adult hands of the same material gently rest two fingertips on the upper chest just below the neck, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the patch of upper chest under the fingertips. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blanket, pillow, toys, bumper"
+    }
+  ]
+}

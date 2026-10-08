@@ -1,0 +1,87 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 걷어찬 이불을 다시 덮는 손(훅) + 이불이 코·입까지 올라간 아기(통념 반박). 아기 얼굴은 전신 거리·고정(10-06 얼굴 줌 금지). 빨간 X 생략 — 이불 덮는 장면 위 X는 '재우지 마라'로 오독.",
+  "top_title": "아기 이불, 수면조끼로 바꾸는 이유",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_airway.mp4",
+    "crop": [
+      0,
+      60,
+      720,
+      520
+    ],
+    "label": "숨길"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_blanket_recover.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_blanket_over_face.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "자던 아기가 갑자기",
+      "item": "아기 수면조끼",
+      "mech": "part_baby_airway",
+      "act": "act_baby_blanket_over_face",
+      "label": "숨길"
+    },
+    {
+      "from": "게다가 두꺼운 이불은",
+      "item": "아기 수면조끼",
+      "mech": "act_baby_thick_quilt_hot",
+      "act": null,
+      "label": "이불 속 더위",
+      "solo": "과열 — 두꺼운 이불 속 몸 전체가 달아오르는 장면 단독"
+    },
+    {
+      "from": "그래서 질병관리청은",
+      "item": "아기 수면조끼",
+      "mech": "part_baby_airway",
+      "act": "act_baby_sleep_vest",
+      "label": "숨길"
+    },
+    {
+      "from": "다만 몸에 꼭",
+      "item": "아기 수면조끼",
+      "mech": "note_sleepvest_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(상품 사진은 마지막 칠판에만)"
+    },
+    {
+      "from": "방은 22도에서",
+      "item": "아기 수면조끼",
+      "mech": "act_baby_touch_chest",
+      "act": null,
+      "label": "가슴 만져 보기",
+      "solo": "체온 확인 — 손끝이 가슴 위쪽에 닿는 장면 단독(가슴 위 거리)"
+    },
+    {
+      "from": "숨을 안 쉬는 것 같거나",
+      "item": "아기 수면조끼",
+      "mech": "part_baby_airway",
+      "act": null,
+      "label": "숨길"
+    }
+  ],
+  "_timeline_why": "10배 근거(이불이 코·입을 덮은 아기 + 숨길) → 과열(두꺼운 이불) → 권고·제품 작동(수면조끼 입고 얼굴 주변이 빈 아기 + 숨길 열림) → 고르는 기준(메모) → 방 온도·가슴 만져 보기 → 119 신호부터 칠판.",
+  "summary_from": "숨을 안 쉬는 것 같거나",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기) — 2026-10-07 해결책 칸 갱신 규칙.",
+  "board_items": [
+    "아기 수면조끼"
+  ],
+  "sources": [
+    {
+      "from": "자던 아기가 갑자기",
+      "text": "출처: Blair 외, Arch Dis Child 2008(연구 10개 분석)"
+    },
+    {
+      "from": "그래서 질병관리청은",
+      "text": "출처: 질병관리청 「영아돌연사증후군」"
+    }
+  ],
+  "opening_until": 14.5
+}
