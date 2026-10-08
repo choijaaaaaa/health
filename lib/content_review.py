@@ -1178,7 +1178,7 @@ def _title_item_debt() -> set[str]:
 
 
 def check_title_item(topic: str, lang: str = "kor") -> list[dict]:
-    """해결책 제품은 하나뿐이고, 영상·블로그 제목은 ", <그 제품 이름>"으로 끝나는지.
+    """해결책 제품은 하나뿐이고, 영상·블로그 제목은 ", <그 제품 이름>"으로 끝나며 해시태그에 그 이름이 있는지.
 
     WHY(2026-10-08 사용자 "물건으로 검색해서 영상에 접근하는 사람도 있겠구나. 제목 맨 끝에 쉼표 찍고 물건 명칭도
     넣자. 앞으로 브랜드커넥트도 그 문제를 해결할 아이템 딱 하나로만"): 증상어로만 제목을 지으면 제품명으로 검색하는
@@ -1219,6 +1219,11 @@ def title_item_issues(topic: str, lang: str = "kor") -> list[dict]:
         if not title.endswith(f", {item}"):
             issues.append({"quote": title, "severity": "high",
                            "issue": f"{pl['name']} 제목이 ', {item}'로 끝나지 않습니다 — 제품 이름으로 검색하는 사람에게도 걸리게 맨 끝에 붙이세요."})
+        # 같은 날 사용자 "태그도 그 제품 명칭이 들어가면 그거로 검색해서 확인하는 사람이 제품으로 다이렉트로 유입될 수도"
+        tag = "#" + item.replace(" ", "")
+        if tag not in (pl.get("caption") or "").split():
+            issues.append({"quote": lines[-1], "severity": "high",
+                           "issue": f"{pl['name']} 해시태그에 {tag}가 없습니다 — 제품 이름 태그로 들어오는 사람을 놓칩니다."})
     return issues
 
 

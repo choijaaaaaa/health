@@ -104,11 +104,15 @@ def _caption(topic: str) -> tuple[str, str] | None:
         return None
 
 
+def _products(topic: str) -> list[str]:
+    p = _captions_file(topic)
+    return [x for x in (json.loads(p.read_text(encoding="utf-8")).get("products") or []) if x and x != "-"] if p else []
+
+
 def _products_block(topic: str) -> str:
     """설명란 맨 앞 제휴 링크 줄 — 유튜브판 영상의 '광고' 표시와 짝(설명란 제휴 링크는 직접 밝힌다)."""
     from lib.brandconnect import existing_naver_links
-    p = _captions_file(topic)
-    products = json.loads(p.read_text(encoding="utf-8")).get("products", []) if p else []
+    products = _products(topic)
     links = existing_naver_links()
     lines = [f"▶ {x}: {links[x]}" for x in products if links.get(x)]
     return ("📦 영상 속 제품 (네이버 쇼핑 제휴 링크 — 구매 시 수수료를 받을 수 있어요)\n" + "\n".join(lines) + "\n\n") if lines else ""
@@ -159,10 +163,13 @@ def _kst(iso: str) -> str:
     return f"{dt.datetime.fromisoformat(iso.replace('Z', '+00:00')).astimezone(KST):%m-%d %H:%M}"
 
 
-def _tags(desc: str, base: list[str]) -> list[str]:
-    """영상 태그 = 설명란 해시태그 + 채널 기본 태그(중복 없이, 유튜브 태그 한도 500자 안)."""
+def _tags(desc: str, base: list[str], items: list[str] = ()) -> list[str]:
+    """영상 태그 = 제품 이름 + 설명란 해시태그 + 채널 기본 태그(중복 없이, 유튜브 태그 한도 500자 안).
+
+    제품 이름은 띄어 쓴 그대로 맨 앞에 — 해시태그는 붙여 써야 해서 사람들이 실제로 치는 "세라마이드 바디크림"이
+    태그에 없었다(2026-10-08 사용자 "태그도 그 제품 명칭이 들어가면 … 제품으로 다이렉트로 유입될 수도")."""
     out: list[str] = []
-    for t in [w[1:] for w in desc.split() if w.startswith("#")] + base:
+    for t in list(items) + [w[1:] for w in desc.split() if w.startswith("#")] + base:
         if t and t not in out and len(",".join(out + [t])) <= 480:
             out.append(t)
     return out
@@ -178,7 +185,7 @@ def _insert(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publi
     resp = yt.videos().insert(
         part="snippet,status",
         body={"snippet": {"title": title, "description": desc,
-                          "tags": _tags(desc, ch.base_tags),
+                          "tags": _tags(desc, ch.base_tags, _products(topic)),
                           "categoryId": yu.HOWTO_AND_STYLE_CATEGORY,
                           "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
               "status": status},
