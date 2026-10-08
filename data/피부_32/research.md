@@ -100,3 +100,7 @@
 - 손바닥 위 클렌징폼 거품 / 거품으로 코 세안 — "foam cleanser lather hands", "washing face foam" (04·05 칸, 인물이면 asian)
 - 화장품 뒷면 성분표 확대 — "cosmetic ingredient label back of tube" (07 칸)
 - `assets_library/real/돋보기_real_01.jpg`는 디스크에 있으나 파일명 정규화 문제로 해석 안 됨(test_char_files_resolve_to_images 실패) — 써 보려다 우레아크림으로 바꿈.
+
+## 카드 사진 보강 필요 (2026-10-09)
+- 07 '여드름성 피부 완화' 표시 칸이 지금 크림 단지 사진(우레아크림)이다 — 브랜드 로고 없는 클렌징폼 튜브 뒷면·라벨 실사진이 필요(공용 풀 '세정제'는 브랜드가 보이는 것뿐).
+- 05 아침저녁 칸은 손에 든 튜브(핸드크림) 사진 — 코에 거품을 굴리는 세안 실사진이 있으면 교체.
