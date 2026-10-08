@@ -1,0 +1,154 @@
+{
+  "requests": [
+    {
+      "name": "m_blackhead_strip_refill",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_32 도입부 훅('블랙헤드, 코팩으로 시원하게 뽑았는데 얼마 안 가 코끝이 다시 까맣게 차오르신 적', 0.37~5.70초) 전체 화면 + 3칸('그래서 코팩으로 뜯거나 손으로 짜내도, 모공에 피지가 다시 차면서 또 까매져요') 왼쪽. 인물 대신 코 피부 표면에서 벌어지는 현상(2026-10-07 사용자 '피부 쪽은 도입부에 인물이 굳이 나올 필요가 없다') — 얇은 시트(코팩)가 뜯기며 까만 마개를 뽑아 가고, 빈 모공에 피지가 다시 차올라 끝이 다시 까매진다. 라이브러리에 블랙헤드·코팩 장면이 없다(m_sebum_overproduction은 단면 속 기름 넘침, 표면 까만 점이 없다). 사람·얼굴 없이 피부 표면만, 엑스레이 화풍. 시트는 무지(글자·로고 없음).",
+      "fits": [
+        "블랙헤드",
+        "코팩",
+        "코 블랙헤드",
+        "모공 까만 점",
+        "블랙헤드 재발",
+        "피지 다시 참",
+        "모공 막힘",
+        "블랙헤드 제거"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the outer surface of translucent glass-like 3D human skin seen from slightly above at a low angle, the smooth surface made of flat interlocking cells fitted together like paving stones, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The surface is scattered with about a dozen small round pore openings, each one plugged with a waxy plug whose exposed tip is dark brown-black like a tiny dot, the dark dots the only dark-coloured thing in the frame. A thin flexible plain translucent sheet lies flat over the surface, covering the dark dots. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, nose, amber, orange, brand marks, writing on the sheet",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the thin sheet is ripped up off the skin surface from one edge in one fast pull while the camera whips up after it, and the small waxy plugs come out stuck to its underside like tiny pegs, leaving the pore openings empty and wide. 2-4s: the camera dives back down and races low along the surface: from inside each empty pore a soft pale waxy filling wells back up, warm amber glowing inside the refilling pores, until each opening is full again. 4-6s: the camera orbits fast, low over the surface, as the top of every refilled plug, where it meets the air, darkens from pale to brown to black, until the surface is dotted with dark dots again exactly as before, holding until the very last frame while the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a sharp peeling rip at the start, no music, no dialogue."
+    },
+    {
+      "name": "m_scrub_blackhead_stays",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_32 도입부 통념('까만 점이라 때로 여기고 박박 문지르는 분이 많아요. 하지만 블랙헤드는 때가 아니에요', 6.28~11.16초) 전체 화면 + 빨간 X가 얹히는 틀린 행동 장면. 거친 천으로 표면을 박박 문지르면 겉세포만 쓸려 벌겋게(호박색) 달아오르고, 까만 점은 모공 속에 박힌 마개 끝이라 그대로 남는다 — '때가 아니다'를 그림으로. 라이브러리 m_friction_abrasion은 잔털 비늘 덩어리라 피부로 안 읽히고 까만 점이 없다. 사람·얼굴 없이 피부 표면만, 엑스레이 화풍.",
+      "fits": [
+        "블랙헤드 문지르기",
+        "때 밀기",
+        "박박 문지름",
+        "스크럽",
+        "과한 각질 제거",
+        "블랙헤드는 때가 아님",
+        "모공 속 마개"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the outer surface of translucent glass-like 3D human skin seen from slightly above at a low angle, the smooth surface made of flat interlocking cells fitted together like paving stones, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The surface is scattered with about a dozen small round pore openings, each one plugged with a waxy plug whose exposed tip is dark brown-black like a tiny dot, the dark dots the only dark-coloured thing in the frame. A small coarse plain woven cloth pad hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, nose, amber, orange, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the coarse woven pad presses down and scrubs hard back and forth across the surface in fast short strokes, the camera shaking in close with each stroke. 2-4s: under the strokes the top surface cells are scraped raw and flush warm amber, a few flakes tearing off, while the dark dots in the pore openings stay exactly where they are — the pad slides straight over them. 4-6s: the pad lifts away and the camera plunges straight down into one pore, revealing that the dark dot is only the top of a long waxy plug lodged deep inside the pore, untouched, while the scrubbed skin around the pore mouth glows raw amber until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a rough scratchy scrubbing rasp, no music, no dialogue."
+    },
+    {
+      "name": "m_pore_plug_forming",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "피부_32 1칸(11.50~15.62초 '모공 속에는 피부 기름인 피지와 묵은 각질이 뭉쳐 있어요', 4.1초) 오른쪽 기전 단독. 피지샘에서 나온 호박색 기름에 모공 벽에서 벗겨진 각질이 섞여 마개로 뭉쳐 모공을 채운다. 라이브러리 m_sebum_overproduction은 기름이 차서 넘칠 뿐 각질이 섞여 마개가 되는 장면이 없고, m_duct_blockage는 포도송이 주머니(유선)라 모공으로 안 읽힌다. 칸 4.1초라 4초. m_plug_tip_darkening·m_salicylic_into_pore·m_plug_loosen_open과 같은 모공 단면 구도로 이어지게. 엑스레이 화풍.",
+      "fits": [
+        "모공 막힘",
+        "피지와 각질",
+        "블랙헤드 원인",
+        "여드름 원인",
+        "피지 덩어리",
+        "면포",
+        "모공 속 마개"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open straight down through one single pore: a wide funnel-shaped pore mouth open at the smooth surface leads down into a narrow tube, a small lobed oil gland attached to the side of the tube halfway down, the walls of the tube lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame. The tube is still empty. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, amber, orange, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame warm amber oil seeps out of the lobed gland into the tube while the camera pushes fast down through the funnel-shaped pore mouth. 1.5-3s: thin flat cells peel off the tube walls as pale flakes and tumble into the amber oil, and oil and flakes clump together into one dense waxy plug that packs the tube. 3-4s: the camera pulls back fast to show the whole pore stuffed with the amber-and-flake plug right up to its open mouth at the surface, holding until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft thick squelch, no music, no dialogue."
+    },
+    {
+      "name": "m_plug_tip_darkening",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_32 2칸(15.62~21.54초 '모공 입구가 열려 있어 이 덩어리가 공기에 닿으면, 깎아 둔 사과가 갈색으로 변하듯 끝이 검게 변해요', 5.9초) 오른쪽 기전 — 열린 입구로 드러난 마개 끝만 공기에 닿아 갈색→검정으로 변하고, 모공 속 깊은 쪽은 그대로 연한 호박색. 블랙헤드가 때가 아니라 공기와 반응한 마개 끝이라는 이 편 핵심. 라이브러리에 산화로 검어지는 장면이 없다(m_lipid_oxidation은 지질 구체가 부서지는 장면). 왼쪽 act_apple_slice_browning(비유)과 같은 박자. m_pore_plug_forming과 같은 모공 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "블랙헤드",
+        "블랙헤드가 까만 이유",
+        "피지 산화",
+        "모공 까만 점",
+        "열린 면포",
+        "공기에 닿아 검어짐"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open straight down through one single pore: a wide funnel-shaped pore mouth open at the smooth surface leads down into a narrow tube, a small lobed oil gland attached to the side of the tube halfway down, the walls of the tube lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame. The tube is packed from the bottom right up to the open mouth with one dense waxy plug made of pale amber oil mixed with pale flakes, its top exposed to the void, still pale. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs, black",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame faint drifting specks of air in the void above settle onto the exposed top of the plug in the open pore mouth, while the camera sweeps fast around the pore. 2-4s: wherever the air touches, the top of the plug darkens, first to brown and then to deep black, like the cut face of an apple browning, while the part of the plug deeper inside the pore, away from the air, stays pale amber. 4-6s: the camera rises fast to look straight down on the surface, where the pore mouth now shows a single black dot, then swings back down to the side view showing the black cap sitting on top of the pale amber plug, holding until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a faint airy hiss, no music, no dialogue."
+    },
+    {
+      "name": "act_apple_slice_browning",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_32 2칸(15.62~21.54초 '… 깎아 둔 사과가 갈색으로 변하듯 끝이 검게 변해요') 왼쪽 — 비유 장면(피부_28 act_new_shoes_heel_rub 선례). 반 자른 사과 단면이 공기에 닿은 겉면부터 갈변하고 속살·껍질은 그대로. 라이브러리에 사과·갈변 장면이 없다. 사람·손 없이 사과만, 같은 엑스레이 유리 화풍.",
+      "fits": [
+        "깎은 사과 갈변",
+        "산화 비유",
+        "공기에 닿아 변색",
+        "블랙헤드 비유",
+        "갈색으로 변함"
+      ],
+      "midjourney": "Medical holographic visualization of a single apple cut cleanly in half, rendered as a translucent glass-like 3D object in the same soft pale cyan glow, the flat cut face turned three-quarters toward the camera showing the core and the seeds, resting on a plain flat surface, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, hands, knife, plate pattern, brown, amber, orange, red",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera swoops fast around the apple half until it faces the flat cut face, fresh, clean and pale cyan. 2-4s: in time-lapse, the cut face where it is open to the air turns warm tan and then deeper brown, the browning creeping in from the edges across the whole face, while the skin and the inside of the apple stay pale cyan glass. 4-6s: the camera pushes in tight on the browned cut face, now evenly dark brown, holding until the very last frame. Only the one apple half is in the frame; no hands, no knife, no other objects. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft ticking clock, no music, no dialogue."
+    },
+    {
+      "name": "m_salicylic_into_pore",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "피부_32 🚨 제품 작동 칸(30.31~39.00초 '그렇다면 겉에서 뽑을 게 아니라, 모공 안에서 풀어 주면 돼요. 살리실산이라는 성분은 기름에 녹는 성질이라 피지로 찬 모공 속까지 스며들어요', 8.7초) 오른쪽 + 7칸('매일 쓰는 클렌징폼을 살리실산 클렌징폼으로 바꿔 두면 편해요', 6.8초) — 이 채널의 차별점(제품이 닿은 뒤 속에서 벌어지는 일). 피부 위에 얹힌 흰 거품에서 맑은 방울이 빠져나와, 기름 마개 위에서 맺히지 않고 기름에 녹아들며 모공 바닥까지 스며든다(지나간 자리마다 마개가 밝아짐). 라이브러리에 '성분이 모공 속으로 스며든다' 장면이 없다(m_retinol_collagen_boost는 진피 콜라겐). 근거(research 5번)대로 '피지를 녹여 없앤다'는 그리지 않는다 — 스며들기까지만, 풀림은 m_plug_loosen_open. 같은 모공 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "살리실산",
+        "BHA",
+        "지용성 성분",
+        "모공 속까지 스며듦",
+        "살리실산 클렌징폼",
+        "여드름 세안제",
+        "블랙헤드 관리",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open straight down through one single pore: a wide funnel-shaped pore mouth open at the smooth surface leads down into a narrow tube, a small lobed oil gland attached to the side of the tube halfway down, the walls of the tube lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame. The tube is packed from the bottom right up to the open mouth with one dense waxy plug made of pale amber oil mixed with pale flakes, and the very top of the plug, where it sits in the open mouth facing the void, is a small dark brown-black cap. A soft rounded clump of white foam bubbles hovers just above the surface over the pore near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the clump of white foam settles onto the skin surface over the pore and spreads thinly, while the camera pushes fast toward the pore mouth. 2-4s: from the foam, tiny clear droplets slip down into the pore — they do not bead up on the oily plug but melt straight into it, and wherever they pass, the amber plug lights up brighter, the droplets threading down through the oil. 4-6s: the camera dives down the pore alongside them as the droplets spread through the whole length of the plug, all the way to the bottom of the pore, the plug glowing bright amber from top to bottom. 6-8s: the camera pulls back fast to the full cross-section: the whole pore glows with the droplets soaked through the plug, the black cap still sitting on top, holding until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft fizz of foam and a rising shimmer as the droplets sink in, no music, no dialogue."
+    },
+    {
+      "name": "m_plug_loosen_open",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "피부_32 제품 작동 칸 이어서(39.00~42.18초 '그리고 엉겨 붙은 각질을 풀어 막힌 입구를 열어 줘요', 3.2초) 오른쪽 기전 — 스며든 성분에 마개 속 각질 조각이 서로·모공 벽에서 떨어지며 느슨해지고, 까만 끝을 포함한 윗부분이 들려 나가 입구가 열린다. 라이브러리에 막힌 입구가 열리는 장면이 없다(m_follicle_rupture는 주머니가 터지는 배란 장면). 칸 3.2초라 4초. 시작은 m_salicylic_into_pore 끝 장면(빛나는 마개). 엑스레이 화풍.",
+      "fits": [
+        "모공 막힘이 풀림",
+        "각질 제거 원리",
+        "입구가 열림",
+        "살리실산 효과",
+        "블랙헤드 관리",
+        "면포가 빠짐"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open straight down through one single pore: a wide funnel-shaped pore mouth open at the smooth surface leads down into a narrow tube, a small lobed oil gland attached to the side of the tube halfway down, the walls of the tube lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame. The tube is packed from the bottom right up to the open mouth with one dense waxy plug made of bright glowing amber oil mixed with pale flakes, and the very top of the plug, where it sits in the open mouth facing the void, is a small dark brown-black cap. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the camera pushes in fast on the glowing plug: the pale flakes stuck together inside it begin to come apart from one another and from the pore walls, thin gaps opening between them as the plug loosens. 1.5-3s: the loosened top part of the plug, black cap and all, lifts up and out of the pore mouth in loose pieces that drift away into the void above. 3-4s: the camera rises to show the pore mouth now open and clear, its walls smooth pale cyan with only a thin amber film of oil lining it, holding until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft loosening crackle, no music, no dialogue."
+    },
+    {
+      "name": "act_roll_foam_on_nose",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_32 8칸(48.99~57.45초 '아침저녁 두 번, 거품을 손끝으로 코에 살살 굴리고 바로 헹구면 돼요. 미국피부과학회는 … 6~8주는 꾸준히', 8.5초) 왼쪽 — 대본이 말하는 구체 동작(손끝으로 살살 굴림, 문지르지 않음, 바로 헹굼). 라이브러리에 세안 장면이 없다(act_wash_hands_soap는 손 씻기). 🚨 얼굴이 나오는 클립이라 가슴 위 거리 고정 — 카메라는 다가가지 않고 같은 거리에서 빠르게 돌기만(반려본 act_apply_tinted_sunscreen_v1처럼 얼굴로 파고들면 두개골·이가 화면을 채운다), 얼굴 점등 없음. 한 손만. 피부_28~31과 같은 여성 체형 캐논. 세면대는 무지.",
+      "fits": [
+        "세안",
+        "거품 세안",
+        "코 세안",
+        "손끝으로 살살",
+        "클렌징폼 사용법",
+        "바로 헹굼",
+        "블랙헤드 세안법"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure with adult female body proportions, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The figure stands at a plain washbasin, seen from the chest up in three-quarter view at a comfortable distance with the whole head and shoulders in the frame, the head tipped slightly forward over the basin. The fingertips of her right hand rest lightly on the tip and sides of the nose with a small soft dab of white foam there; only that one hand is raised to the face, the other arm hangs at her side out of frame. The glass skin of the face is the clearest, brightest surface in the frame; the skull and teeth inside the head stay faint and soft, barely visible. Visible faintly lower down inside the glass shell: the collarbones, the rib cage and the spine. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, prominent skull, visible teeth, grinning jaw, empty eye sockets, brand marks, other people, duplicated limbs, extra hands, extra arms, mirror, faucet labels",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. The camera stays at the same chest-up distance for the whole shot and never pushes in toward the face; instead it arcs quickly around the figure from the three-quarter view to the side profile. 0-2s: from the very first frame the fingertips of the one raised hand roll the white foam in small light circles on the nose, barely touching, never pressing or scrubbing. 2-4s: the hand dips into the basin and cups a little clear water up to the nose, rinsing the foam off in two gentle splashes. 4-6s: the hand lowers out of the frame and the clean nose stays smooth and calm while the camera finishes its arc, holding until the very last frame. Only one hand and one forearm are ever raised to the face; no second hand appears at any moment. The glass skin stays soft pale cyan with no glow anywhere on the face; the skull and teeth stay faint; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft synth hum with a light foamy fizz and a small water splash, no music, no dialogue."
+    },
+    {
+      "name": "m_pores_clear_gradually",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "피부_32 8칸(48.99~57.45초 '아침저녁 두 번 … 바로 헹구면 돼요. 미국피부과학회는 이런 제품을 6~8주는 꾸준히 써 보라고 해요', 8.5초) 오른쪽 기전 — 거품이 지나가고 헹궈질 때마다 마개가 조금씩만 작아지고 까만 끝이 옅어져, 여러 번 뒤에야 입구가 열린다. ⚠️ 근거가 '6~8주'라 한 번에 깨끗해지는 그림은 과장 — 단계적으로만. 라이브러리에 '꾸준히 써야 조금씩 나아짐'을 보여 주는 모공 장면이 없다(m_pigment_spot_fade는 잡티). 같은 모공 단면 구도, 모공 넷을 나란히. 엑스레이 화풍.",
+      "fits": [
+        "꾸준히 사용",
+        "6~8주",
+        "블랙헤드가 줄어듦",
+        "모공 관리 기간",
+        "세안 습관",
+        "점점 나아짐"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show a row of four pores side by side, each a funnel-shaped mouth open at the smooth surface leading down into a narrow tube, each tube packed with a dense waxy plug of pale amber oil and pale flakes with a small dark brown-black cap on top where it meets the void, the empty dark void above the surface filling the upper third of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a thin layer of white foam washes across the surface and is rinsed away by a quick ripple of clear water, while the camera glides fast along the row of pores; in each pore the top of the plug shrinks only a little. 2-4s: the foam washes over and rinses away a second time, and again each plug gets a little smaller and looser, the black caps fading from black to grey. 4-6s: two more quick washes pass, each one taking away only a little more. 6-8s: the camera pulls back fast to show the whole row: the pore mouths are now open and clear, lined only by a thin amber film of oil, holding until the very last frame. The change is gradual, a small step with each wash, never sudden; the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft swish and a water ripple at each wash, no music, no dialogue."
+    }
+  ]
+}

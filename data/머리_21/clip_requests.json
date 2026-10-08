@@ -1,0 +1,118 @@
+{
+  "requests": [
+    {
+      "name": "m_scalp_flakes_shed",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_21 도입부 훅('비듬, 아침에 감고 나갔는데 오후면 검은 옷 어깨에 하얀 가루가 내려앉아 있나요?', 0.36~5.21초) 전체 화면 + 2칸('… 두피 각질이 한꺼번에 떨어져요. 그게 어깨 위 하얀 가루예요') 왼쪽. 인물 대신 두피 표면 현상 — 머리카락 사이 두피 겉층 각질이 가장자리부터 들려 하얀 조각으로 떨어지고, 카메라가 따라 내려가면 아래 검은 옷감(어깨) 위에 하얀 가루로 쌓인다. 라이브러리 act_scratch_scalp는 긁는 전신(대본에 없는 행동·점등 없음, avoid), part_scalp는 모근만 켜지는 단면. 사람·얼굴 없이 두피 표면과 옷감만. 옷감은 무지.",
+      "fits": [
+        "비듬",
+        "어깨 위 비듬",
+        "하얀 가루",
+        "두피 각질",
+        "비듬이 떨어짐",
+        "검은 옷에 비듬",
+        "두피 건조 오해"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the surface of translucent glass-like 3D human scalp skin seen from slightly above at a low angle, many fine glass hairs rising out of small follicle openings, the top layer of the scalp made of flat interlocking cells fitted together like paving stones, a few small pale white flakes of dead skin lifting at their edges between the hairs, every scalp structure rendered in the same soft pale cyan glow, far below at the bottom edge of the frame a dark plain woven fabric surface, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, amber, orange, pattern on fabric",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera glides fast low between the hairs over the scalp surface, and the pale flakes curl up at their edges and break loose one after another, a faint warm amber glow under the spots they lift from. 2-4s: the white flakes tumble down off the scalp between the hairs, and the camera drops fast with them toward the dark fabric below. 4-6s: the flakes land and pile up on the dark woven fabric as a scattered dusting of white powder, more flakes still drifting down onto it, the camera pushing in on the white dusting on the dark fabric, holding until the very last frame while the scalp above stays soft pale cyan. No human figure, no face, no head shape anywhere in the frame — only the scalp surface and the fabric. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with faint dry rustling as the flakes fall, no music, no dialogue."
+    },
+    {
+      "name": "m_malassezia_feed_oil",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_21 1칸(10.85~16.12초 '비듬은 두피에 원래 사는 곰팡이 때문에 생겨요. 이 곰팡이는 두피 기름을 먹고 자라거든요', 5.3초) 오른쪽 기전 단독. 털구멍 옆 피지샘에서 배어 나온 호박색 기름을 두피 위 둥근 곰팡이(효모) 세포가 빨아들이며 호박색으로 차오르고 새 싹을 틔운다. 라이브러리 m_fungal_growth는 실 가닥(균사)이 그물처럼 덮는 무좀형 그림이라 두피 효모와 모양이 다르고, '기름을 먹는다'가 없다. 칸 5.3초라 6초. m_scalp_flaking_burst·m_regular_shampoo_oil_only·m_zpt_yeast_shrink·m_foam_rinsed_too_soon과 같은 두피 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "말라세지아",
+        "두피 곰팡이",
+        "비듬 원인",
+        "두피 기름",
+        "지루성 두피",
+        "곰팡이가 기름을 먹음"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of a block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine glass hairs rising out of small follicle openings in the smooth top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  Scattered across the top surface sit a handful of tiny plump oval cells, smooth and glassy like small beads, a few of them with a smaller oval bud attached to one end. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, amber, orange, bacteria rods, hyphae, threads",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame warm amber oil seeps out of the lobed glands up along the hairs and spreads across the surface as glossy droplets, while the camera pushes fast down toward the surface. 2-4s: the tiny oval cells nearest the hairs soak up the amber droplets they touch, each one filling with warm amber from the inside and swelling plump. 4-6s: the camera sweeps fast across the surface as the fed amber cells sprout new oval buds that pinch off beside them, so there are clearly more cells than before, glowing amber until the very last frame while the scalp stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft wet absorbing sound and tiny pops as buds pinch off, no music, no dialogue."
+    },
+    {
+      "name": "m_scalp_flaking_burst",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "머리_21 2칸(16.12~23.26초 '기름이 쌓이면 곰팡이가 불어나고, 그 자극에 두피 각질이 한꺼번에 떨어져요. 그게 어깨 위 하얀 가루예요', 7.1초) 오른쪽 기전 — 기름막 위에서 곰팡이 세포가 빠르게 불어나고, 닿은 겉세포가 따끔하게 호박색으로 달아오르며, 겉층이 조각조각이 아니라 한꺼번에 덩어리째 들려 하얀 가루로 떨어져 나간다. 라이브러리 m_keratin_thickening(각질이 두꺼워짐)·m_layer_separation(점등 없는 두 층 분리)은 곰팡이·자극이 없다. 두 문장 7.1초라 8초. 같은 두피 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "비듬 생기는 원리",
+        "두피 각질이 떨어짐",
+        "곰팡이가 불어남",
+        "두피 자극",
+        "지루성 두피",
+        "하얀 각질"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of a block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine glass hairs rising out of small follicle openings in the smooth top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  A thin glossy film of warm amber oil spreads over the surface around the hair openings. Scattered across the top surface sit a handful of tiny plump oval cells, smooth and glassy like small beads, a few of them with a smaller oval bud attached to one end. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, bacteria rods, hyphae, threads",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the oval cells on the oily surface multiply fast, each one budding and splitting again and again until they crowd the surface between the hairs, while the camera pushes fast down toward them. 2-4s: wherever the crowded cells sit, the flat surface cells underneath flush warm amber and tiny prickling amber sparks flicker along the seams between them. 4-6s: the irritated top layer of flat cells lifts away from the scalp all at once in large pale white sheets, which crack into clumps of flakes. 6-8s: the camera swings back as the white clumps tumble off the scalp between the hairs and fall away out of the frame, the amber-flushed surface beneath glowing until the very last frame while the deeper scalp stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum, faint crackling sparks, and a dry flaking rustle, no music, no dialogue."
+    },
+    {
+      "name": "m_regular_shampoo_oil_only",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_21 3칸(23.26~30.47초 '그러니 머리는 매일 감는 게 맞아요. 그런데 보통 샴푸는 기름만 씻어 낼 뿐 곰팡이는 못 줄여요', 7.2초) 오른쪽 기전 단독 — 흰 거품이 두피를 덮었다 헹궈지며 호박색 기름막은 씻겨 나가지만 둥근 곰팡이 세포는 그대로 붙어 있고, 다시 배어 나온 기름에 금세 싹을 틔운다. 라이브러리 m_oil_film_stripped는 정강이 기름막(뜨거운 물·때밀이)이 벗겨져 갈라지는 건조 피부 장면이라 곰팡이가 없다. 같은 두피 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "보통 샴푸",
+        "샴푸 한계",
+        "기름만 씻김",
+        "비듬이 안 줄어듦",
+        "머리 매일 감기",
+        "곰팡이는 그대로"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of a block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine glass hairs rising out of small follicle openings in the smooth top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  A thin glossy film of warm amber oil spreads over the surface around the hair openings. Scattered across the top surface sit a handful of tiny plump oval cells, smooth and glassy like small beads, a few of them with a smaller oval bud attached to one end. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, bacteria rods, hyphae, threads",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a soft layer of plain white foam spreads across the scalp surface between the hairs while the camera glides fast low along it. 2-4s: a rush of clear water rinses the foam away, and the glossy amber oil film goes with it, the surface left clean and pale — but every tiny oval cell is still clinging to the surface exactly where it was. 4-6s: the camera pushes in on the cells as fresh amber oil seeps back up around the hairs and the oval cells start budding again, glowing faint amber until the very last frame while the scalp stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft foamy fizz and a rush of rinsing water, no music, no dialogue."
+    },
+    {
+      "name": "m_zpt_yeast_shrink",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_21 🚨 제품 작동 칸(30.47~37.17초 '일주일에 두세 번은 징크피리치온 샴푸로 바꿔 감아 두면 편해요. 곰팡이 수를 줄이는 아연 성분이거든요', 6.7초) + 6칸('거품을 두피에 올린 채 몇 분 두었다가 헹구라고 해요 …', 7.8초) 오른쪽 — 이 채널의 차별점(감은 뒤 두피 위에서 벌어지는 일). 두피 위에 머문 거품에서 작은 은빛 알갱이(아연 성분)가 곰팡이 세포에 하나씩 달라붙으면, 그 세포는 싹 틔우기를 멈추고 빛이 꺼지며 쪼그라들어 떨어져 나가 수가 줄어든다. ⚠️ 근거는 '곰팡이 수를 줄인다'(전부 박멸 아님) — 끝에도 몇 개는 남게. 라이브러리에 항진균 성분이 작용하는 장면이 없다. 같은 두피 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "징크피리치온",
+        "비듬 샴푸",
+        "항진균 샴푸",
+        "곰팡이 수가 줄어듦",
+        "아연 성분",
+        "거품 몇 분 두기",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of a block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine glass hairs rising out of small follicle openings in the smooth top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  Scattered across the top surface sit many tiny plump oval cells, smooth and glassy like small beads crowding the surface, a few of them with a smaller oval bud attached to one end. A thin layer of soft white foam rests on the surface, dotted with many tiny glinting silvery specks. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, amber, orange, bacteria rods, hyphae, threads",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the white foam rests still on the scalp and its tiny silvery specks drift down out of it onto the surface, while the camera pushes fast in among the crowded oval cells. 2-4s: wherever a silvery speck touches an oval cell it clings on, the cell flickers faint amber once, stops budding, and slowly shrivels and dulls. 4-6s: the shrivelled cells let go and roll off the surface, the camera pulling back fast to show the surface between the hairs now with only a few oval cells left where there were many, the remaining specks glinting until the very last frame while the scalp stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with faint glassy tinkles as the specks land, no music, no dialogue."
+    },
+    {
+      "name": "m_foam_rinsed_too_soon",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "머리_21 5칸(37.17~41.82초 '감는 법도 달라요. 거품을 바로 헹구면 성분이 두피에 머물 틈이 없어요', 4.6초) 오른쪽 기전 단독 — 은빛 알갱이가 섞인 거품이 내려앉자마자 물살이 알갱이째 쓸어 가 곰팡이 세포에 하나도 닿지 못하고, 곰팡이는 그대로. m_zpt_yeast_shrink(머물면 줄어듦)와 같은 구도의 맞대비. 칸 4.6초라 4초. 엑스레이 화풍.",
+      "fits": [
+        "바로 헹굼",
+        "샴푸 사용법",
+        "거품 헹구는 때",
+        "비듬 샴푸가 안 듣는 이유",
+        "성분이 머물 틈"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of a block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine glass hairs rising out of small follicle openings in the smooth top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  Scattered across the top surface sit many tiny plump oval cells, smooth and glassy like small beads crowding the surface, a few of them with a smaller oval bud attached to one end. A soft clump of white foam dotted with tiny glinting silvery specks hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, red, blood, amber, orange, bacteria rods, hyphae, threads",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the clump of white foam with its silvery specks drops onto the scalp surface while the camera rushes in. 1.5-3s: almost at once a fast rush of clear water sweeps across the surface and carries the foam and every silvery speck away off the edge of the frame before a single speck touches the oval cells. 3-4s: the camera holds close on the rinsed surface where all the oval cells are still there, plump and unchanged, faintly glowing until the very last frame while the scalp stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum and a sudden rush of water, no music, no dialogue."
+    },
+    {
+      "name": "act_foam_on_head_wash_body",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "머리_21 6칸(41.82~49.66초 '미국피부과학회는 거품을 두피에 올린 채 몇 분 두었다가 헹구라고 해요. 몸을 먼저 씻고 마지막에 헹구면 시간이 딱 맞아요', 7.8초) 왼쪽 행위 — 대본이 말하는 순서: 머리 위에 거품을 얹어 둔 채 팔·어깨를 먼저 씻고, 마지막에 고개를 숙여 머리 거품을 헹군다. 감기만 하는 장면이 아니라 '거품을 둔 채 몸 먼저'가 정보. 라이브러리 act_scalp_care는 점등 없이 정수리를 문지르기만 하는 장면. 화풍: 뒤에서 본 머리·등 구도라 얼굴이 프레임에 없다. 두피 점등은 거품 밑(성분이 머묾). 팔은 둘로 못 박음. 칸 7.8초라 8초.",
+      "fits": [
+        "비듬 샴푸 사용법",
+        "거품 두기",
+        "샴푸 몇 분",
+        "몸 먼저 씻기",
+        "마지막에 헹구기",
+        "머리 감는 법",
+        "샤워 순서"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure stands in an empty shower space seen from directly behind at shoulder height, framed from the top of the head down to the waist, so only the back of the head, the shoulders and the back are visible and no face is seen, a thick mound of plain white foam piled on top of the smooth hairless glass head, both arms lowered with the right hand resting on the left forearm. The skull, the spine, the shoulder blades and the ribs are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, nudity, nude, buttocks, clothing, face, facial features, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, shower head brand, tiles",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the foam sits still on top of the head while the right hand washes the left forearm and shoulder with brisk strokes, the camera circling fast around behind the figure at shoulder height, never coming around to the face. 2-4s: the hands switch, the left hand washing the right arm and shoulder, while under the untouched mound of foam the scalp glows a soft warm amber. 4-6s: the figure keeps washing the back of the neck and the shoulders as the amber glow under the foam stays steady. 6-8s: a stream of clear water pours down from above the frame onto the head, the figure tips the head forward and the foam rinses away down the back, the camera holding behind the figure, the scalp still faintly amber until the very last frame while the rest of the glass body stays soft pale cyan. Exactly two arms and two hands are ever in the frame; no third arm or extra hand appears at any moment. The face never turns toward the camera. The body stays translucent glass with all bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft lathering squelches and a rush of water at the end, no music, no dialogue."
+    }
+  ]
+}

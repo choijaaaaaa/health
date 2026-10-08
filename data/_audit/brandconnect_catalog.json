@@ -7145,24 +7145,24 @@
   "link": "https://naver.me/GzdZyw4O"
  },
  "시린이 치약": {
-  "checked_at": "2026-09-19 16:56",
+  "checked_at": "2026-10-08 21:33",
   "found": true,
   "status": "있음",
   "chosen": {
-   "id": 806193170040568,
-   "name": "파로돈탁스 치약 데일리 검케어 불소 시린이 잇몸 출혈 치은염 대용량 이치 약국용 150g",
+   "id": 806193170048765,
+   "name": "약국용 센소다인 오리지널 플러스 160g 대용량 고불소 잇몸 이치 입냄새 구취 제거 치약",
    "store": "컬러포",
-   "price": 6000,
+   "price": 5890,
    "commission": 5.0,
-   "reviews": 1161,
-   "rating": 4.8,
-   "url": "https://smartstore.naver.com/main/products/5421776777",
-   "link": null
+   "reviews": 496,
+   "rating": 4.81,
+   "url": "https://smartstore.naver.com/main/products/7778946761",
+   "link": "https://naver.me/xvC5eAwK"
   },
   "hits": 40,
   "domain": "health",
   "sample": null,
-  "link": "https://naver.me/5RAxyOek",
+  "link": "https://naver.me/xvC5eAwK",
   "link_saved": true
  },
  "미세모 칫솔": {
@@ -11704,5 +11704,59 @@
   "link_saved": true,
   "account": "health",
   "picked_by": "대본 기준 수동 확인(전성분·기능성 칸)"
+ },
+ "살리실산 클렌징폼": {
+  "chosen": {
+   "id": 808316479328517,
+   "name": "[여드름기능성] 주미소 포어 퓨리파잉 살리실산 클렌징폼 120ml, 1개",
+   "store": "주미소",
+   "price": 13500,
+   "commission": 5.0,
+   "reviews": 2922,
+   "rating": 4.82,
+   "url": "https://smartstore.naver.com/main/products/9595893997",
+   "link": "https://naver.me/Gmpgh8Ig"
+  },
+  "link": "https://naver.me/Gmpgh8Ig",
+  "link_saved": true,
+  "found": true,
+  "status": "있음",
+  "checked_at": "2026-10-08 21:33"
+ },
+ "데오드란트 스틱": {
+  "chosen": {
+   "id": 940094851848353,
+   "name": "니베아 데오드란트 스틱 드라이 앤 콤포트 50ml, 2개",
+   "store": "니베아  브랜드샵",
+   "price": 16400,
+   "commission": 5.0,
+   "reviews": 6556,
+   "rating": 4.8,
+   "url": "https://smartstore.naver.com/main/products/6775599796",
+   "link": "https://naver.me/574fuLua"
+  },
+  "link": "https://naver.me/574fuLua",
+  "link_saved": true,
+  "found": true,
+  "status": "있음",
+  "checked_at": "2026-10-08 21:33"
+ },
+ "징크피리치온 샴푸": {
+  "chosen": {
+   "id": 933921884299680,
+   "name": "제노트리 두피샴푸 지루성두피, 비듬케어전용 징크피리치온 함유, 300ml",
+   "store": "제노케어마켓",
+   "price": 33000,
+   "commission": 10.0,
+   "reviews": 293,
+   "rating": 4.62,
+   "url": "https://smartstore.naver.com/main/products/2194854810",
+   "link": "https://naver.me/xKyqk1PY"
+  },
+  "link": "https://naver.me/xKyqk1PY",
+  "link_saved": true,
+  "found": true,
+  "status": "있음",
+  "checked_at": "2026-10-08 21:33"
  }
 }

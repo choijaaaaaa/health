@@ -1,0 +1,119 @@
+{
+  "requests": [
+    {
+      "name": "m_odor_returns_afternoon",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 도입부 훅('겨드랑이 냄새, 아침에 씻고 데오드란트까지 발랐는데 오후면 다시 올라오신 적', 0.21~5.33초) 전체 화면. 인물 대신 피부 표면 현상: 씻어 맑고 향 막이 얇게 덮인 표면에 시간이 지나며 털구멍에서 뽀얀 땀방울이 맺히고, 막대균이 몰려들어 호박색 냄새 안개가 향 막을 뚫고 다시 피어오른다. 라이브러리 m_odor_compound_release는 처음부터 균이 떨어지는 장면이라 '깨끗했다가 다시'가 없고 2칸 기전에 쓴다. 사람·얼굴 없이 피부 표면만, 엑스레이 화풍.",
+      "fits": [
+        "겨드랑이 냄새",
+        "냄새가 다시 남",
+        "오후 체취",
+        "데오드란트 효과 떨어짐",
+        "땀 냄새",
+        "액취증",
+        "체취"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the outer surface of translucent glass-like 3D human skin seen from slightly above at a low angle, the smooth surface made of flat interlocking cells fitted together like paving stones, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A few fine hairs rise out of small openings in the surface, and between them a scattering of tiny pore openings. The surface looks freshly washed, clean and dry, with one thin smooth glossy clear film spread over it like a coat of varnish. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, amber, orange, bacteria, germs, armpit hair clumps",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the clean surface glistens under its thin clear film while the camera sweeps fast low across it, and the light in the void shifts from cool morning white to warm afternoon gold as time races by. 2-4s: small milky droplets bead up out of the openings beside the hairs, and tiny amber rod-shaped bacteria crawl across the surface toward them and swarm inside the droplets. 4-6s: from the swarming droplets thin wisps of amber haze rise straight up through the clear film as if it were not there, curling into the void, the camera rising fast with the haze, which keeps drifting up until the very last frame while the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a faint bubbling as the bacteria swarm, no music, no dialogue."
+    },
+    {
+      "name": "m_fragrance_layer_futile",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 도입부 통념('그래서 더 자주 씻고 향을 덧바르는 분이 많아요. 하지만 냄새는 땀 자체에서 나는 게 아니에요', 5.93~11.42초) 전체 화면 + 4칸 '향만 내는 데오드란트 말고'의 빨간 X가 얹히는 틀린 쪽 장면(negations). 향 안개가 뿌려져 표면에 얇은 막으로 덮일 때마다 그 밑 땀방울에서 세균이 만든 호박색 냄새 안개가 다시 뚫고 올라온다 — 향으로 덮는 건 원인(땀·세균)을 못 건드린다. 라이브러리에 향을 덧뿌리는 장면이 없다. 사람·얼굴·분무기 없이 피부 표면만(무지), 엑스레이 화풍.",
+      "fits": [
+        "향으로 덮기",
+        "데오드란트 덧바르기",
+        "향수",
+        "냄새 가리기",
+        "체취 숨기기",
+        "향만 나는 데오드란트"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the outer surface of translucent glass-like 3D human skin seen from slightly above at a low angle, the smooth surface made of flat interlocking cells fitted together like paving stones, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A few fine hairs rise out of small openings in the surface, and between them a scattering of tiny pore openings. A few small milky droplets sit on the surface beside the hairs, each with tiny amber rod-shaped bacteria clustered inside, and a faint cloud of fine white mist drifts down from the top of the frame toward the surface. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, spray bottle, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a cloud of fine white mist rains down onto the surface and settles into a thin clear glossy film over the droplets, while the camera pushes fast down toward it. 2-4s: within a moment, wisps of amber haze from the bacteria-filled droplets seep straight up through the fresh film and curl into the void; a second burst of white mist rains down and lays another film on top. 4-6s: the amber haze breaks through the new film again just as fast, the camera whipping up with the rising haze, the droplets and bacteria beneath still there and glowing amber until the very last frame while the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with two soft hissing sprays, no music, no dialogue."
+    },
+    {
+      "name": "m_apocrine_milky_sweat",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 1칸(11.95~17.99초 '겨드랑이에는 기름기 있는 땀을 내는 땀샘, 아포크린샘이 몰려 있어요. 이 땀은 처음 나올 땐 냄새가 없어요', 6.0초) 오른쪽 기전 단독. 깊은 곳 털뿌리 옆의 큰 코일 땀샘이 점등되며 뽀얀 기름기 땀을 털구멍으로 밀어 올리고, 표면에 나온 방울 위 공간은 맑게(냄새 없음) 남는다. 라이브러리 m_sweat_overproduction은 맑은 물 땀(관이 따로 표면에 열림)이라 '기름기·털구멍'이 안 보인다. 칸 6.0초라 6초. 엑스레이 화풍.",
+      "fits": [
+        "아포크린샘",
+        "겨드랑이 땀샘",
+        "기름기 있는 땀",
+        "액취증 원인",
+        "땀은 원래 냄새 없음",
+        "겨드랑이 땀"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin top layer of flat stacked cells, below it a deep layer where one hair root sits in a long narrow hair follicle rising to the surface, with a large coiled tube-shaped gland nestled deep beside the follicle and its short duct opening into the follicle just below the surface, and a separate much smaller coiled gland further off with its own thin duct. The hair rises out of the surface into the empty dark void, which fills the upper third of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, amber, orange, bacteria, germs, head hair",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the large coiled gland beside the hair follicle lights up warm amber while the camera pushes fast down toward it. 2-4s: thick milky, slightly oily droplets squeeze out of the coil, travel up its short duct into the hair follicle and climb along the hair shaft toward the surface, the camera racing up beside them. 4-6s: the milky droplets bead out at the surface around the base of the hair and sit there, while the void above them stays completely clear and still, with no haze at all, holding until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame; only the single hair on the skin block. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft thick bubbling, no music, no dialogue."
+    },
+    {
+      "name": "act_wash_armpit_soap",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 3칸(24.27~29.52초 '그래서 씻고 향으로 덮어도, 땀이 다시 나오면 세균이 또 냄새를 만들어요', 5.2초) 왼쪽 행위 — 한 팔을 들고 겨드랑이를 비누 거품으로 문질러 씻고 헹군 뒤, 곧 같은 자리 땀샘이 호박색으로 켜지며 땀방울이 다시 맺힌다. 라이브러리 act_wipe_sweat는 심장·혈관망이 켜지는 장면, act_sniff_self는 동작·점등이 없는 실패 클립(avoid), act_wash_hands_soap는 손. 화풍: 턱 아래부터 허리까지만 잡아 얼굴이 프레임에 아예 없다(두개골·얼굴 줌 걱정 없음). 팔은 둘(든 팔 하나·씻는 손 하나)로 못 박음.",
+      "fits": [
+        "겨드랑이 씻기",
+        "샤워",
+        "비누로 씻기",
+        "씻어도 냄새",
+        "땀이 다시 남",
+        "겨드랑이 땀",
+        "체취 관리"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure is framed tightly from just below the chin down to the waist, the head cropped out above the top edge of the frame so no face is visible, seen from the front at a slight angle, the left arm raised up and bent over the head so the left armpit is open toward the camera, the right hand reaching across the chest with its palm pressed into the left armpit holding a soft clump of plain white soap foam. The rib cage, the collarbones and the bones of the arms and hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, nudity, nude, nipples, clothing, face, head, hair, brand marks, other people, duplicated limbs, extra hands, extra arms",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the right hand rubs the white foam briskly up and down in the open left armpit in short strokes, while the camera swings fast around the torso toward the armpit, always keeping the head out of the frame above. 2-4s: a stream of clear water pours down from above the frame over the armpit and the foam rinses away down the side of the body; the hand drops away out of the frame, leaving the armpit clean and smooth. 4-6s: the camera pushes in fast on the clean armpit, and a cluster of small glands under its skin lights up warm amber as tiny droplets bead up on the surface again, the amber glow staying lit until the very last frame while the bones and the rest of the glass body stay soft pale cyan. Exactly two arms are ever in the frame — the raised left arm and the right arm; no third arm or extra hand appears at any moment. The head never enters the frame. The body stays translucent glass with all bones visible inside throughout; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft lathering squelches and a short splash of water, no music, no dialogue."
+    },
+    {
+      "name": "m_aluminum_sweat_plug",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 🚨 제품 작동 칸(37.68~43.19초 '알루미늄 성분이 땀구멍 아래를 마개처럼 막아서 땀이 덜 나오거든요', 5.5초) + 7칸('한번 생긴 마개는 24시간 넘게 남아서, 아침에 샤워해도 효과가 이어져요', 5.0초) 오른쪽 — 이 채널의 차별점(바른 뒤 땀구멍 속 반응). 표면에 흰 막이 펴 발리고, 막에서 녹은 작은 알갱이가 땀구멍 입구로 스며들어 입구 바로 아래에서 호박색 젤 마개로 굳는다. 아래에서 올라오던 땀방울이 마개 밑에서 멈추고 표면은 말라 있다. ⚠️ 대본이 '덜 나온다'라 완전 차단으로 그리지 않는다 — 가끔 작은 방울 하나만 비집고 나옴. 라이브러리 m_sweat_duct_block은 땀띠(막혀서 물집처럼 부풂)라 해결책 그림과 반대로 읽힌다. 마개는 24시간 넘게 남는다(IHS 근거)라 끝은 마개가 버틴 채로. 엑스레이 화풍.",
+      "fits": [
+        "데오드란트 원리",
+        "땀 억제제",
+        "알루미늄 성분",
+        "땀구멍 마개",
+        "땀이 덜 남",
+        "데오드란트 스틱",
+        "다한증 관리",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of translucent glass-like 3D human skin, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A block of skin fills the lower two thirds of the frame, cut open to show its layers: a thin top layer of flat stacked cells, and below it one long narrow coiled sweat duct rising straight up from a coiled gland deep in the skin to a small round opening in the smooth surface, the empty dark void above the surface filling the upper third of the frame. Small clear sweat droplets are rising up inside the duct toward the opening, and a thin smooth layer of plain white waxy film hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, amber, orange, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the white waxy film sweeps down onto the surface and spreads over the duct opening, and tiny bright particles dissolve out of it and trickle down into the opening, while the camera pushes fast toward the opening. 2-4s: just below the mouth of the duct the particles gather and set into a small soft glowing amber gel plug that fills the duct like a cork, the camera dropping down beside it. 4-6s: the clear sweat droplets rising up the duct reach the underside of the amber plug and stop there, pooling beneath it; only once does one tiny droplet squeeze past to the surface, while the surface above stays mostly dry, and the amber plug holds firmly in place glowing until the very last frame while the rest of the skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft gel-like settling sound, no music, no dialogue."
+    },
+    {
+      "name": "act_bedtime_stick_armpit",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 6칸(43.19~50.67초 '미국피부과학회는 자기 전, 완전히 마른 피부에 바르라고 권해요. 젖은 피부에 바르면 따갑고 자극이 생기기 쉽거든요', 7.5초) 왼쪽 행위 — 대본이 말하는 '때'와 '조건': 밤에 침대 옆에서 수건으로 겨드랑이 물기를 톡톡 눌러 말린 뒤, 마른 겨드랑이에 무지 스틱을 두 번 쓸어 올려 바른다. 바르기만이 아니라 '자기 전·말린 뒤'가 정보. 라이브러리에 데오드란트·밤 루틴 장면이 없다. 화풍: 턱 아래부터 허리까지만(얼굴 없음), 팔은 둘로 못 박음. 스틱·수건은 글자 없는 무지.",
+      "fits": [
+        "데오드란트 바르는 때",
+        "자기 전에 바르기",
+        "마른 피부에 바르기",
+        "데오드란트 사용법",
+        "땀 억제제 바르기",
+        "밤 루틴"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, The figure is framed tightly from just below the chin down to the waist, the head cropped out above the top edge of the frame so no face is visible, seen from the front at a slight angle, sitting on the edge of a plain bed in a dim night-time room with a soft lamp glow, the left arm raised up and bent over the head so the left armpit is open toward the camera, the right hand holding a small plain folded towel pressed lightly against the left armpit, and a plain blank stick-type container with no markings standing on the bedside table beside her. The rib cage, the collarbones and the bones of the arms and hand are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, nudity, nude, nipples, clothing, face, head, hair, brand marks, other people, duplicated limbs, extra hands, extra arms, writing on the container",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the right hand presses the folded towel lightly against the armpit three times, lifting and pressing, never rubbing, while the camera swings fast around the torso toward the armpit, always keeping the head out of the frame above. 2-4s: the hand sets the towel down, picks up the plain stick from the bedside table and swipes it upward across the now dry armpit twice in smooth strokes, leaving a thin white film. 4-6s: the hand lowers the stick out of the frame and the camera pushes in on the armpit, where a faint warm amber glow settles just under the surface of the film, holding until the very last frame while the bones and the rest of the glass body stay soft pale cyan. Exactly two arms are ever in the frame — the raised left arm and the right arm; no third arm or extra hand appears at any moment. The head never enters the frame. The body stays translucent glass with all bones visible inside throughout. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Quiet night-time synth hum with soft towel pats and a smooth gliding swipe, no music, no dialogue."
+    },
+    {
+      "name": "m_stick_wet_skin_sting",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "냄새_15 6칸(43.19~50.67초 '… 젖은 피부에 바르면 따갑고 자극이 생기기 쉽거든요', 7.5초) 오른쪽 기전 — 물방울이 맺힌 피부 위에 흰 막을 펴 바르면 막이 물에 풀려 묽은 방울이 되고, 세포 틈으로 스며든 자리마다 겉세포가 따끔하게 호박색으로 번쩍인다(자극). 라이브러리 m_mucosa_irritant_contact는 앞 1.4초가 신경 시냅스 다른 장면이라 칸 앞머리가 엉뚱해지고(구간 자르기 불가) 점막이다. m_skin_tolerance_buildup은 적응 장면. 같은 피부 표면 구도. 엑스레이 화풍.",
+      "fits": [
+        "젖은 피부에 바르면 따가움",
+        "피부 자극",
+        "데오드란트 따가움",
+        "바르는 법 주의",
+        "물기 있는 피부"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of the outer surface of translucent glass-like 3D human skin seen from slightly above at a low angle, the smooth surface made of flat interlocking cells fitted together like paving stones, every skin structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the surface, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The surface is wet, covered with many small clear water droplets and a thin sheen of water, and a thin smooth layer of plain white waxy film hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, amber, orange, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the white waxy film sweeps down onto the wet surface while the camera glides fast low along it; wherever the film meets the water droplets it melts and runs into thin milky streaks. 2-4s: the milky streaks seep down into the narrow seams between the surface cells, and each cell they touch flashes warm amber with small prickling sparks, one after another across the surface. 4-6s: the camera pushes in close on a patch of surface now dotted with flushed amber cells and tiny flickering sparks along the seams, glowing until the very last frame while the deeper skin stays soft pale cyan. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with small sharp crackles at each spark, no music, no dialogue."
+    }
+  ]
+}

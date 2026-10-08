@@ -1,0 +1,118 @@
+{
+  "requests": [
+    {
+      "name": "m_cold_zap_tooth",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_21 도입부 훅('이시림, 찬물이나 아이스커피 한 모금에 이가 찌릿하게 시려서 움찔하신 적', 0.42~4.94초) 전체 화면. 인물(얼굴·두개골) 대신 이 안의 현상 — 잇몸이 내려간 어금니 목에 얼음 띄운 찬물이 쏟아져 닿는 순간, 찬 기운이 스며들어 신경이 뿌리까지 호박색으로 번쩍 켜지고 화면이 움찔 흔들린다. 라이브러리 act_hold_cheek는 끝이 두개골 클로즈업(얼굴 규칙 위반), part_mouth_teeth는 두개골 전체 점등, m_enamel_acid_fluoride는 아기 치아 산 부식. 엑스레이 화풍, 사람·얼굴 없음. 찬 기운은 차가운 흰 푸른빛, 통증만 호박색.",
+      "fits": [
+        "이시림",
+        "찬물에 이가 시림",
+        "시린 이",
+        "아이스커피 이 시림",
+        "찌릿함",
+        "치아 과민",
+        "잇몸 내려감"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  On the right side the gum line has pulled down away from the neck of the tooth, leaving a short band of the root surface bare, where the thin outer shell is worn away and the tiny open ends of the fine tubes are exposed. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a splash of icy water with a few small ice cubes pours down from above the frame over the crown and runs down the side of the tooth, while the camera rushes in toward the bare band at the neck on the right side. 2-4s: where the icy water touches the bare band, a cold white-blue shimmer slips into the tiny tube openings, and in a split second a sharp amber flash shoots through the tubes and up the whole nerve in the pulp from root to crown, the camera jolting with a hard shake like a flinch. 4-6s: the camera pulls back fast to the whole tooth as the nerve keeps throbbing amber in two more sharp pulses, still glowing until the very last frame while the rest of the tooth stays soft pale cyan. No human figure, no face, no lips, no skull anywhere in the frame — only the tooth in its block of gum. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum, a cold splash and ice clinks, then a sharp electric zing with the flash, no music, no dialogue."
+    },
+    {
+      "name": "m_hard_brush_wears_enamel",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_21 도입부 통념('그러면 칫솔에 힘을 더 주는 분이 많아요. 하지만 세게 문지를수록 더 시려져요', 5.44~9.93초) 전체 화면 + 빨간 X가 얹히는 틀린 행동 장면 + 2칸 왼쪽(세게 닦으면 껍질이 더 닳아 관이 더 드러남). 뻣뻣한 칫솔모가 이 목·잇몸 경계를 옆으로 세게 박박 문지르면 그 자리 겉껍질이 홈처럼 파이고 잇몸 끝이 밀려 내려가며 가는 관 입구가 더 드러나 옅은 호박색으로 켜진다. 라이브러리에 칫솔질 장면이 없다(act_toddler_brush_teeth는 육아 아이 장면). 얼굴·입술 없이 치아 단면과 칫솔 머리만(칫솔은 무지), 엑스레이 화풍.",
+      "fits": [
+        "세게 양치",
+        "칫솔질 습관",
+        "치아 마모",
+        "쐐기 모양 결손",
+        "잇몸이 내려감",
+        "칫솔모가 뻣뻣함",
+        "양치 잘못"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  The gum line sits snugly around the neck of the tooth on the right side. A plain toothbrush head with stiff straight bristles, with no markings, is pressed sideways against the neck of the tooth at the gum line on the right. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the stiff bristles scrub hard sideways back and forth across the neck of the tooth at the gum line in fast short strokes, the camera shaking in close with every stroke. 2-4s: with each stroke the thin outer shell at the neck is scraped thinner until a small notch is worn into it, and the edge of the gum is pushed down, uncovering a band of bare root surface. 4-6s: the brush lifts away and the camera pushes in on the worn notch, where the tiny open ends of countless fine tubes are now exposed and glow a faint amber, holding until the very last frame while the rest of the tooth stays soft pale cyan. No human figure, no hand, no face, no lips anywhere in the frame — only the brush head and the tooth in its block of gum. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a harsh scratchy scrubbing rasp, no music, no dialogue."
+    },
+    {
+      "name": "m_dentin_tubules_to_nerve",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "입_21 1칸(10.53~15.06초 '이 속 상아질이라는 층에는 신경까지 이어진 아주 가는 관이 나 있어요', 4.5초) 오른쪽 기전 단독 — 카메라가 겉껍질 밑 상아질 속으로 파고들면 수많은 가는 관이 나란히 가운데 신경 쪽으로 이어져 있고, 관 끝마다 신경 가지가 닿아 있다. 라이브러리에 상아질 관 구조가 없다. 칸 4.5초라 4초. m_cold_through_tubules·m_potassium_calms_nerve·m_nerve_calm_builds_up과 같은 치아 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "상아질",
+        "상아세관",
+        "치아 신경",
+        "치아 구조",
+        "이가 시린 원리",
+        "치아 속 관"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the camera dives fast through the outer shell of the crown into the thick inner layer. 1.5-3s: the camera races along between the countless fine parallel tubes as they run inward like tiny straws toward the pulp, a soft cyan pulse travelling down a few of them. 3-4s: the camera bursts out into the pulp chamber where the end of every tube meets a fine branch of the nerve, the nerve branches glowing a soft warm amber until the very last frame while the tubes stay pale cyan. No human figure, no face, no skull anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft whoosh as the camera dives, no music, no dialogue."
+    },
+    {
+      "name": "m_cold_through_tubules",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "입_21 2칸(15.06~23.67초 '겉껍질이 닳거나 잇몸이 내려가 이 관이 드러나면, 찬 기운이 관을 타고 신경까지 곧장 가요. 세게 닦으면 껍질이 더 닳아 관이 더 드러나고요', 8.6초) 오른쪽 기전 — 드러난 관 입구로 찬 흰 푸른 기운이 흘러들어 관 속 물이 확 밀리며 신경 가지가 호박색으로 번쩍, 이어 겉이 더 닳아 입구가 늘어나면 더 많은 관으로 찬 기운이 들어와 번쩍임이 더 크고 넓어진다. 라이브러리에 '드러난 관 → 신경'이 없다. 두 문장 8.6초라 8초. 같은 치아 단면 구도(관 입구 클로즈업). 엑스레이 화풍.",
+      "fits": [
+        "이 시린 원리",
+        "상아질 노출",
+        "찬 것에 시림",
+        "치아 신경 자극",
+        "잇몸 퇴축",
+        "치아 마모 결과"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  On the right side the gum line has pulled down away from the neck of the tooth, leaving a short band of the root surface bare, where the thin outer shell is worn away and the tiny open ends of the fine tubes are exposed. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a cold white-blue mist rolls over the bare band at the neck of the tooth while the camera pushes fast in toward the tiny open tube ends. 2-4s: the cold slips into a few of the open tubes and races down them toward the pulp, the fluid inside the tubes jolting, and the nerve branches at their far ends flash bright amber. 4-6s: the outer shell around the bare band crumbles a little further away, uncovering many more open tube ends, and the camera swings along the widened band. 6-8s: a second wave of cold white-blue mist rolls in and pours down all the newly opened tubes at once, and the whole nerve flares amber far brighter and wider than before, glowing until the very last frame while the rest of the tooth stays soft pale cyan. No human figure, no face, no skull anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum, an icy hiss, and sharp electric zings at each flash, no music, no dialogue."
+    },
+    {
+      "name": "m_soft_brush_glide",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_21 3칸(23.67~29.11초 '그러니 칫솔은 부드러운 모로 바꿔 살살 닦고, 치약은 시린이 치약으로 바꿔 두면 편해요', 5.4초) 기전 단독 — 대본의 구체 행동(부드러운 모·살살)을 얼굴 대신 치아 단면 위에서: 흰 치약을 묻힌 가늘고 부드러운 칫솔모가 잇몸 경계를 작은 원을 그리며 살살 쓸고 지나가며 모가 부드럽게 휘고, 겉껍질·잇몸 끝은 그대로 멀쩡하다(도입부 m_hard_brush_wears_enamel과 맞대비 구도). 라이브러리에 칫솔질 장면이 없다. 칫솔은 무지. 엑스레이 화풍.",
+      "fits": [
+        "부드러운 칫솔",
+        "살살 양치",
+        "올바른 칫솔질",
+        "시린이 치약 사용",
+        "잇몸 보호",
+        "치아 마모 예방"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  On the right side the gum line has pulled down away from the neck of the tooth, leaving a short band of the root surface bare, where the thin outer shell is worn away and the tiny open ends of the fine tubes are exposed. A plain toothbrush head with very fine soft flexible bristles, with no markings, carrying a small dab of plain white toothpaste, hovers just beside the neck of the tooth on the right. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the soft bristles touch the neck of the tooth at the gum line and the camera arcs fast around the tooth to follow them. 2-4s: the bristles move in small gentle circles, bending softly against the surface, spreading a thin layer of white toothpaste over the bare band without pressing in. 4-6s: the brush glides away and the camera pushes in on the neck: the outer shell and the gum edge are exactly as before, nothing worn away, a thin white film of toothpaste resting over the tiny tube openings, holding until the very last frame while the tooth stays soft pale cyan. No human figure, no hand, no face, no lips anywhere in the frame — only the brush head and the tooth in its block of gum. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft gentle swishing, no music, no dialogue."
+    },
+    {
+      "name": "m_potassium_calms_nerve",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_21 🚨 제품 작동 칸(29.11~34.62초 '미국치과의사협회는 이 치약 성분이 신경으로 가는 신호를 가라앉혀 준다고 설명해요', 5.5초) 오른쪽 — 이 채널의 차별점(닦은 뒤 관 속·신경에서 벌어지는 일). 드러난 관 입구 위 흰 치약막에서 작은 맑은 알갱이가 빠져나와 관을 따라 신경까지 내려가 신경 가지 둘레에 모이면, 쉼 없이 깜빡이던 호박색 신경이 잦아들고, 찬 기운이 와도 희미하게만 켜진다. ⚠️ 질산칼륨은 관을 막는 게 아니라 신경 쪽 신호를 가라앉힌다(research 5번, ADA 표현) — 관 입구가 막히는 그림으로 그리지 말 것. 라이브러리에 시린이 치약 작용 장면이 없다. 같은 치아 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "시린이 치약",
+        "질산칼륨",
+        "치아 신경 진정",
+        "시린이 치약 원리",
+        "이시림 완화",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  On the right side the gum line has pulled down away from the neck of the tooth, leaving a short band of the root surface bare, where the thin outer shell is worn away and the tiny open ends of the fine tubes are exposed. A thin film of plain white toothpaste rests over the bare band, and the nerve in the pulp flickers with a restless warm amber glow. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame tiny clear glinting particles seep out of the white toothpaste film into the open tube ends at the neck, while the camera dives fast down along the tubes with them. 2-4s: the particles stream down the tubes all the way to the pulp and gather around the nerve branches, and the restless amber flicker of the nerve slows and dims to a calm, faint glow. 4-6s: a wave of cold white-blue mist rolls over the neck of the tooth and slips into the tubes, but this time the calmed nerve only glows a faint soft amber for a moment and settles again, the camera pulling back fast to the whole tooth, the nerve calm until the very last frame. The tube openings stay open the whole time; nothing seals them. No human figure, no face, no skull anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft calming hum as the nerve settles, an icy hiss, no music, no dialogue."
+    },
+    {
+      "name": "m_nerve_calm_builds_up",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_21 5칸(34.62~41.28초 '그런데 쓰자마자 듣지는 않아요. 효과가 조금씩 쌓이는 방식이라 하루 2번, 몇 주는 이어 가야 해요', 6.7초) 오른쪽 기전 단독 — 치약막이 덮였다 사라지기를 되풀이할 때마다 신경 둘레에 맑은 알갱이가 조금씩 더 쌓이고, 그 사이사이 찬 기운이 올 때 신경의 번쩍임이 크게 → 조금 덜 → 더 덜로 단계적으로만 잦아든다. ⚠️ '쓰자마자 듣지는 않아요'라 첫 번엔 여전히 크게 번쩍여야 하고, 한 번에 조용해지면 과장. m_skin_tolerance_buildup(피부 적응)과 같은 '되풀이마다 반응이 줄어듦' 구성이지만 피부라 못 쓴다. 칸 6.7초라 6초. 같은 치아 단면 구도. 엑스레이 화풍.",
+      "fits": [
+        "시린이 치약 효과 기간",
+        "꾸준히 사용",
+        "몇 주 써야",
+        "효과가 쌓임",
+        "하루 2번 양치",
+        "점점 덜 시림"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up cross-section of a single translucent glass-like 3D adult human molar tooth set upright in a block of gum and bone, cut in half lengthwise and seen from the side: a hard smooth outer shell over the crown, beneath it a thick layer crossed by countless very fine parallel tubes running from the outer surface inward to the central pulp chamber, the soft pulp in the middle holding a fine branching nerve that runs down through the roots, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void above the tooth, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image.  On the right side the gum line has pulled down away from the neck of the tooth, leaving a short band of the root surface bare, where the thin outer shell is worn away and the tiny open ends of the fine tubes are exposed. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, jaw, lips, mouth, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a thin white toothpaste film spreads over the bare band and fades away again, leaving only a few clear glinting particles settled around the nerve, while the camera glides fast around the tooth; then a cold white-blue mist rolls in and the nerve still flashes bright amber, almost as strongly as ever. 2-4s: a second toothpaste film comes and goes, a few more particles settle around the nerve, and the next wave of cold makes the nerve flash a noticeably weaker amber. 4-6s: a third and a fourth film come and go, the particles around the nerve building up each time, and the last wave of cold brings only a faint brief amber glow, the camera pushing in on the calm nerve, holding until the very last frame. The change is gradual, a small step with each round, never sudden; the tube openings stay open. No human figure, no face, no skull anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum, an icy hiss with each wave, the electric zing getting softer each time, no music, no dialogue."
+    }
+  ]
+}
