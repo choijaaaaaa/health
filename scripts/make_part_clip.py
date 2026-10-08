@@ -28,6 +28,7 @@ DUR = 4.0
 ZOOM_END = 1.16          # 파일럿 A의 push-in 폭에 맞춘 값(WS→MS 2단계)
 GLOW_IN = (1.3, 2.7)     # 캐논 타임스탬프: 1.3s에 켜지기 시작, 2.7s에 만개
 PULSE_PERIOD = 1.4
+PULL_START = 1.12        # --pull-out 시작 배율(끝은 1.0, 전신이 다 보이는 원래 구도)
 AMBER = (255, 176, 66)
 
 
@@ -61,19 +62,22 @@ def _lit(base: Image.Image, mask: Image.Image, amount: float) -> Image.Image:
 
 
 def build(still: Path, out: Path, region: tuple[float, float, float, float] | None,
-          zoom: float = ZOOM_END, glow_in: tuple[float, float] = GLOW_IN, glow: bool = True) -> None:
+          zoom: float = ZOOM_END, glow_in: tuple[float, float] = GLOW_IN, glow: bool = True,
+          dur: float = DUR, pull_out: bool = False) -> None:
     src = Image.open(still).convert("RGB")
     if src.size != (W, H):
         src = src.resize((W, H), Image.LANCZOS)
     mask = _region_mask(src, region) if region else _subject_mask(src)
     rcx, rcy = (region[0] + region[2] / 2, region[1] + region[3] / 2) if region else (0.5, 0.5)
-    frames = round(DUR * FPS)
+    frames = round(dur * FPS)
     with tempfile.TemporaryDirectory() as td:
         td = Path(td)
         for i in range(frames):
             t = i / FPS
             # 카메라: 후반으로 갈수록 느려지는 push-in(파일럿 A "the camera eases to a stop")
-            z = 1 + (zoom - 1) * (1 - (1 - min(t / DUR, 1)) ** 2)
+            ease = 1 - (1 - min(t / dur, 1)) ** 2
+            # pull-out은 반대로 PULL_START에서 1.0으로 물러난다 — 얼굴 쪽으로 파고들지 않으면서 화면이 멈추지 않게
+            z = PULL_START - (PULL_START - 1) * ease if pull_out else 1 + (zoom - 1) * ease
             cw, ch = W / z, H / z
             # 전신 스틸에서 배를 켜면 카메라도 배로 가야 한다 — region이 있으면 그 중심으로 밀고 들어간다
             cx = min(max(rcx * W, cw / 2), W - cw / 2)
@@ -105,12 +109,17 @@ def main() -> None:
     # 일반 사진풍 스틸(엑스레이가 아닌 아이 행위 장면)은 점등하면 눈·피부에 호박색 얼룩이 얹힐 뿐이라 카메라만 움직인다
     # (2026-10-04 사용자 "그냥 엑스레이사진을 안 하면 되지 … 이거 내부가 필요한 게 아니여")
     ap.add_argument("--no-glow", action="store_true", help="점등 없이 push-in만(일반 사진풍 스틸)")
+    # WHY(2026-10-08 verify_output "설명 구간 화면이 멈춰 있습니다" — 아기 얼굴 스틸은 --no-zoom이라 4초 내내
+    # 정지 화면이었다): 얼굴로 밀고 들어가는 줌은 금지(10-06)지만 물러나는 카메라는 섬뜩하지 않다.
+    ap.add_argument("--pull-out", action="store_true", help="조금 당긴 데서 원래 구도로 천천히 물러난다(얼굴 스틸용)")
+    ap.add_argument("--seconds", type=float, default=DUR, help="클립 길이(긴 칸을 늘려 정지 화면이 되지 않게)")
     a = ap.parse_args()
     region = tuple(float(v) for v in a.region.split(",")) if a.region else None
     if region and len(region) != 4:
         raise SystemExit("--region은 x,y,w,h 네 값")
     glow = tuple(float(v) for v in a.glow_in.split(",")) if a.glow_in else GLOW_IN
-    build(Path(a.still), Path(a.out), region, zoom=1.0 if a.no_zoom else ZOOM_END, glow_in=glow, glow=not a.no_glow)
+    build(Path(a.still), Path(a.out), region, zoom=1.0 if a.no_zoom else ZOOM_END, glow_in=glow, glow=not a.no_glow,
+          dur=a.seconds, pull_out=a.pull_out)
     print(f"완료: {a.out}")
 
 

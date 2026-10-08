@@ -449,7 +449,7 @@
       0.25,
       0.25
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 8(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_sleep_pacifier.jpg": {
     "act_baby_sleep_pacifier": [
@@ -458,7 +458,7 @@
       0.14,
       0.25
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_blanket_recover.jpg": {
     "act_baby_blanket_recover": [
@@ -467,7 +467,7 @@
       0.9,
       0.15
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_blanket_over_face.jpg": {
     "act_baby_blanket_over_face": [
@@ -476,7 +476,7 @@
       0.16,
       0.25
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_thick_quilt_hot.jpg": {
     "act_baby_thick_quilt_hot": [
@@ -485,7 +485,7 @@
       0.5,
       0.28
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_sleep_vest.jpg": {
     "act_baby_sleep_vest": [
@@ -494,7 +494,7 @@
       0.14,
       0.2
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_touch_chest.jpg": {
     "act_baby_touch_chest": [
@@ -503,7 +503,7 @@
       0.25,
       0.13
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 8(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_stroller_shade.jpg": {
     "act_baby_stroller_shade": [
@@ -512,7 +512,7 @@
       0.4,
       0.3
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "part_baby_leg_bones.jpg": {
     "part_baby_leg_bones": [
@@ -521,7 +521,7 @@
       0.5,
       0.3
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 8(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_baby_vitd_drop.jpg": {
     "act_baby_vitd_drop": [
@@ -530,7 +530,7 @@
       0.25,
       0.45
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 8(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "act_toddler_brush_teeth.jpg": {
     "act_toddler_brush_teeth": [
@@ -539,7 +539,7 @@
       0.25,
       0.08
     ],
-    "_note": "--no-zoom(아기 얼굴 — 줌 금지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
   },
   "m_enamel_acid_fluoride.jpg": {
     "m_enamel_acid_fluoride": [
