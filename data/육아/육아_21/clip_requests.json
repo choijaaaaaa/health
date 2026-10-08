@@ -1,0 +1,47 @@
+{
+  "requests": [
+    {
+      "name": "act_toddler_brush_teeth",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_21 훅 '뱉을 줄 몰라서 삼켜도 되는 무불소로' + 31% 칸 — 보호자가 두 살 아이 이를 닦아 주는 장면, 가슴 위 거리 고정(얼굴 줌 금지), 앞니만 호박색.",
+      "fits": [
+        "아기 양치",
+        "젖니 닦기",
+        "보호자 양치 도움"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about two years old with early-childhood body proportions — a large rounded head, short limbs and a soft rounded torso — sitting on an adult's lap facing the camera with its mouth slightly open, while a pair of translucent glass adult hands of the same material hold a tiny translucent glass toothbrush against the small front baby teeth, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the row of small front baby teeth. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, facial features, eyes, hair, opaque skin, real child, adult proportions, close-up of the face",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about two years old with early-childhood body proportions — a large rounded head, short limbs and a soft rounded torso — sitting on an adult's lap facing the camera with its mouth slightly open, while a pair of translucent glass adult hands of the same material hold a tiny translucent glass toothbrush against the small front baby teeth, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the row of small front baby teeth. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, facial features, eyes, hair, opaque skin, real child, adult proportions, close-up of the face"
+    },
+    {
+      "name": "m_enamel_acid_fluoride",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_21 기전 '산에 이가 녹는 병 / 불소가 치아 겉면에 달라붙어 산에 덜 녹게, 살짝 녹은 자리도 다시 단단하게' — 젖니 한 개 단면, 겉면 법랑질이 호박색. 얼굴 없음.",
+      "fits": [
+        "충치 기전",
+        "법랑질",
+        "불소 재광화",
+        "치아 겉면"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical cross-section of one small baby tooth standing upright in a slice of gum, the crown cut in half to show its layers, a faint cloud of tiny acid particles drifting against one side of the crown where the surface is slightly etched, seen from the side in a centred macro view with the whole tooth and gum slice in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the thin outer enamel shell of the crown. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, face, mouth, whole skull, cartoon",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical cross-section of one small baby tooth standing upright in a slice of gum, the crown cut in half to show its layers, a faint cloud of tiny acid particles drifting against one side of the crown where the surface is slightly etched, seen from the side in a centred macro view with the whole tooth and gum slice in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the thin outer enamel shell of the crown. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, face, mouth, whole skull, cartoon"
+    },
+    {
+      "name": "act_toddler_toothpaste_rice",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_21 '3살 전엔 쌀알만큼, 6살까지는 콩알만큼' — 보호자 손이 작은 칫솔모에 쌀알만큼 치약을 짜는 손 클로즈업. 아이 없음, 상표 없는 튜브.",
+      "fits": [
+        "치약 양",
+        "쌀알만큼",
+        "콩알만큼"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass adult hands of the same material holding a tiny translucent glass child's toothbrush and a small plain unlabeled translucent glass toothpaste tube, squeezing a smear of toothpaste no bigger than a grain of rice onto the bristles, seen from a close three-quarter angle with both hands, the brush head and the tube in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the rice-grain-sized smear of toothpaste on the bristles. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, label on tube, large blob of toothpaste, child, face",
+      "midjourney_alt": "Medical holographic visualization of a pair of translucent glass adult hands of the same material holding a tiny translucent glass child's toothbrush and a small plain unlabeled translucent glass toothpaste tube, squeezing a smear of toothpaste no bigger than a grain of rice onto the bristles, seen from a close three-quarter angle with both hands, the brush head and the tube in frame, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the rice-grain-sized smear of toothpaste on the bristles. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, photo, photorealistic skin, second glowing area, label on tube, large blob of toothpaste, child, face"
+    }
+  ]
+}

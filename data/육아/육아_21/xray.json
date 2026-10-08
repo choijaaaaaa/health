@@ -1,0 +1,86 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 보호자가 두 살 아이 이를 닦아 주는 장면(훅 '뱉을 줄 몰라서') + 산에 살짝 녹은 젖니 단면('무불소 치약으론 충치를 못 막아요'). 아이 얼굴은 가슴 위 거리 고정(얼굴 줌 금지).",
+  "top_title": "아기 치약, 무불소보다 불소",
+  "inset": {
+    "clip": "assets_library/xray/output/m_enamel_acid_fluoride.mp4",
+    "crop": [
+      0,
+      320,
+      720,
+      520
+    ],
+    "label": "치아 겉면"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_toddler_brush_teeth.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_enamel_acid_fluoride.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 연구",
+      "item": "아기 불소 치약",
+      "mech": "act_toddler_brush_teeth",
+      "act": null,
+      "label": "젖니",
+      "solo": "31% 근거 — 젖니를 닦아 주는 장면, 앞니 점등 단독"
+    },
+    {
+      "from": "충치는 세균이",
+      "item": "아기 불소 치약",
+      "mech": "m_enamel_acid_fluoride",
+      "act": null,
+      "label": "치아 겉면",
+      "solo": "충치·불소 기전 — 젖니 단면 법랑질 점등 단독(제품 작동 칸)"
+    },
+    {
+      "from": "그러니 치약을 바꿀 땐",
+      "item": "아기 불소 치약",
+      "mech": "note_toothpaste_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(상품 사진은 마지막 칠판에만)"
+    },
+    {
+      "from": "치약 양은",
+      "item": "아기 불소 치약",
+      "mech": "act_toddler_toothpaste_rice",
+      "act": null,
+      "label": "쌀알만큼",
+      "solo": "치약 양 — 칫솔에 쌀알만큼 짜는 손 단독"
+    },
+    {
+      "from": "윗입술을 들춰",
+      "item": "아기 불소 치약",
+      "mech": "act_baby_check_mouth",
+      "act": null,
+      "label": "앞니"
+    }
+  ],
+  "_timeline_why": "31%(젖니 닦기) → 충치·불소 기전(법랑질) → 고르는 기준(1,000ppm 메모) → 양(쌀알) → 흰 반점 신호부터 칠판.",
+  "summary_from": "윗입술을 들춰",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "board_items": [
+    "아기 불소 치약"
+  ],
+  "sources": [
+    {
+      "from": "실제로 연구",
+      "until": "덜 생겼어요",
+      "text": "출처: dos Santos 외, Community Dent Oral Epidemiol 2013(연구 5개 분석)"
+    },
+    {
+      "from": "질병관리청도 지침을",
+      "text": "출처: 질병관리청 영유아 구강검진 매뉴얼 2022"
+    },
+    {
+      "from": "이만큼은 삼켜도",
+      "text": "출처: 질병관리청 영유아 구강검진 매뉴얼(소아청소년치과학)"
+    }
+  ],
+  "opening_until": 6.9
+}
