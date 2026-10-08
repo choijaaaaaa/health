@@ -75,8 +75,13 @@ def check(topic: str) -> list[str]:
     #    2026-09-24 사용자 확정: 해결책은 칠판만 나오는 씬에서 하나하나 짚는다("씬 전환이
     #    되어야 이해가 잘되지"). 거기서 화면이 안 바뀌는 건 설계지 결함이 아니다.
     ts = summary_start(topic)
+    # 메모 카드(note_*) 칸도 일부러 고정 화면이다 — 2026-10-07 사용자 "라벨 같은 거 그렇게 띄워 줄 거면 움직일
+    # 필요 없어, 사람들 어차피 그대로 볼 텐데"(make_label_clip --steady). 그 칸 안의 정지는 세지 않는다.
+    notes = [(r["start"], r["end"]) for r in resolve(topic) or [] if str(r.get("mech") or "").startswith("note_")]
     for st, d in _freezes(vid):
         if ts is not None and st >= ts - 1.0:
+            continue
+        if any(a - 0.5 <= st and st + d <= b + 0.5 for a, b in notes):
             continue
         bad.append(f"{st:.0f}초부터 {d:.0f}초간 설명 구간 화면이 멈춰 있습니다")
 
