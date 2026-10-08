@@ -31,8 +31,8 @@ TRACKS: dict[str, dict] = {
 DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
            "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
            "deploy": "health-shorts", "naver_blog": "https://blog.naver.com/chlwjddms16",
-           # 건강만사전 틱톡 계정은 아직 정하지 않았다 — 정해지면 여기에(빈 값이면 캡션만 만들고 주소 칸은 비운다)
-           "tiktok": ""}
+           # 틱톡은 옛 세상만사전 한국어 계정을 건강만사전으로 바꿔 쓴다(2026-10-09 사용자 "건강만사전은 원래 한국꺼 쓰던 그 계정")
+           "tiktok": "https://www.tiktok.com/@nerdengineering"}
 
 
 def _base(topic: str) -> str:
