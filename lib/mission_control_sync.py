@@ -42,7 +42,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-from lib import tracks
+from lib import tiktok_caption, tracks
 
 
 load_dotenv()
@@ -193,6 +193,15 @@ def collect_rows() -> list[dict]:
                 "comment_dm_automation": bool(p.get("comment_dm_automation")),
                 "suppress_product_block": bool(p.get("suppress_product_block")),
                 "add_profile_note": bool(p.get("add_profile_note")),
+            })
+        # 틱톡(2026-10-09 사용자 "유튜브 틱톡 네이버클립 이렇게 세 개 운영") — 캡션은 lib/tiktok_caption이 만든다
+        tt = tiktok_caption.build(data)
+        if tt:
+            rows.append({
+                "project": "health-shorts", "topic": topic_dir.name, "platform_name": "틱톡",
+                "network": "tiktok", "type": "video", "url": tracks.tiktok_url(topic_dir.name), "caption": tt,
+                "no_caption_link": True, "link_in_comment": False, "comment_dm_automation": False,
+                "suppress_product_block": True, "add_profile_note": False,
             })
     return rows
 

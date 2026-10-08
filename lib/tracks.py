@@ -24,11 +24,15 @@ TRACKS: dict[str, dict] = {
            "deploy": "parenting-shorts",
            # 네이버 블로그도 계정이 다르다(2026-10-01 사용자 "육아만사전은 chlwjddms16이 아니고 chlwjddms17이다 블로그")
            # — 브랜드커넥트 계정과 같은 chlwjddms17. 새 topic 캡션의 블로그 url은 여기서 가져온다.
-           "naver_blog": "https://blog.naver.com/chlwjddms17"},
+           "naver_blog": "https://blog.naver.com/chlwjddms17",
+           # 틱톡은 옛 세상만사전 일본어 계정을 육아만사전으로 바꿔 쓴다(2026-10-09 사용자 "일본어 올리던 계정이 육아만사전")
+           "tiktok": "https://www.tiktok.com/@whypedia_ja1"},
 }
 DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
            "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
-           "deploy": "health-shorts", "naver_blog": "https://blog.naver.com/chlwjddms16"}
+           "deploy": "health-shorts", "naver_blog": "https://blog.naver.com/chlwjddms16",
+           # 건강만사전 틱톡 계정은 아직 정하지 않았다 — 정해지면 여기에(빈 값이면 캡션만 만들고 주소 칸은 비운다)
+           "tiktok": ""}
 
 
 def _base(topic: str) -> str:
@@ -154,6 +158,12 @@ def brand(topic: str) -> str:
     """이 topic이 나가는 채널 브랜드 이름(건강만사전 / 육아만사전)."""
     t = track_of(topic)
     return (TRACKS[t] if t else DEFAULT)["brand"]
+
+
+def tiktok_url(topic: str) -> str:
+    """이 topic이 올라갈 틱톡 계정 주소(정하지 않았으면 빈 문자열)."""
+    t = track_of(topic)
+    return (TRACKS[t] if t else DEFAULT).get("tiktok", "")
 
 
 def end_card_text(topic: str) -> str:
