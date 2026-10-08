@@ -13,10 +13,18 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_toddler_brush_teeth.mp4"
+      "clip": "assets_library/xray/output/act_toddler_brush_teeth.mp4",
+      "range": [
+        0,
+        3.5
+      ]
     },
     {
-      "clip": "assets_library/xray/output/m_enamel_acid_fluoride.mp4"
+      "clip": "assets_library/xray/output/m_enamel_acid_fluoride.mp4",
+      "range": [
+        0,
+        3.4
+      ]
     }
   ],
   "negations": [],
@@ -82,5 +90,5 @@
       "text": "출처: 질병관리청 영유아 구강검진 매뉴얼(소아청소년치과학)"
     }
   ],
-  "opening_until": 6.9
+  "opening_until": 6.76
 }

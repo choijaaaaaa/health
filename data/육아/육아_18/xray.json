@@ -16,7 +16,11 @@
       "clip": "assets_library/xray/output/act_baby_swaddle_hold.mp4"
     },
     {
-      "clip": "assets_library/xray/output/act_baby_sleep_pacifier.mp4"
+      "clip": "assets_library/xray/output/act_baby_sleep_pacifier.mp4",
+      "range": [
+        0,
+        4.6
+      ]
     }
   ],
   "negations": [],
@@ -83,5 +87,5 @@
       "text": "출처: 질병관리청 「영아돌연사증후군」 · 미국소아과학회 안전수면 권고 2022"
     }
   ],
-  "opening_until": 8.6
+  "opening_until": 8.46
 }

@@ -13,10 +13,18 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_baby_blanket_recover.mp4"
+      "clip": "assets_library/xray/output/act_baby_blanket_recover.mp4",
+      "range": [
+        0,
+        7
+      ]
     },
     {
-      "clip": "assets_library/xray/output/act_baby_blanket_over_face.mp4"
+      "clip": "assets_library/xray/output/act_baby_blanket_over_face.mp4",
+      "range": [
+        0,
+        7
+      ]
     }
   ],
   "negations": [],
@@ -83,5 +91,5 @@
       "text": "출처: 질병관리청 「영아돌연사증후군」"
     }
   ],
-  "opening_until": 14.5
+  "opening_until": 14.18
 }
