@@ -118,23 +118,6 @@
       "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the camera pushes in fast on the glowing plug: the pale flakes stuck together inside it begin to come apart from one another and from the pore walls, thin gaps opening between them as the plug loosens. 1.5-3s: the loosened top part of the plug, black cap and all, lifts up and out of the pore mouth in loose pieces that drift away into the void above. 3-4s: the camera rises to show the pore mouth now open and clear, its walls smooth pale cyan with only a thin amber film of oil lining it, holding until the very last frame. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft loosening crackle, no music, no dialogue."
     },
     {
-      "name": "act_roll_foam_on_nose",
-      "kind": "flow",
-      "seconds": 6,
-      "why": "피부_32 8칸(48.99~57.45초 '아침저녁 두 번, 거품을 손끝으로 코에 살살 굴리고 바로 헹구면 돼요. 미국피부과학회는 … 6~8주는 꾸준히', 8.5초) 왼쪽 — 대본이 말하는 구체 동작(손끝으로 살살 굴림, 문지르지 않음, 바로 헹굼). 라이브러리에 세안 장면이 없다(act_wash_hands_soap는 손 씻기). 🚨 얼굴이 나오는 클립이라 가슴 위 거리 고정 — 카메라는 다가가지 않고 같은 거리에서 빠르게 돌기만(반려본 act_apply_tinted_sunscreen_v1처럼 얼굴로 파고들면 두개골·이가 화면을 채운다), 얼굴 점등 없음. 한 손만. 피부_28~31과 같은 여성 체형 캐논. 세면대는 무지.",
-      "fits": [
-        "세안",
-        "거품 세안",
-        "코 세안",
-        "손끝으로 살살",
-        "클렌징폼 사용법",
-        "바로 헹굼",
-        "블랙헤드 세안법"
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure with adult female body proportions, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The figure stands at a plain washbasin, seen from the chest up in three-quarter view at a comfortable distance with the whole head and shoulders in the frame, the head tipped slightly forward over the basin. The fingertips of her right hand rest lightly on the tip and sides of the nose with a small soft dab of white foam there; only that one hand is raised to the face, the other arm hangs at her side out of frame. The glass skin of the face is the clearest, brightest surface in the frame; the skull and teeth inside the head stay faint and soft, barely visible. Visible faintly lower down inside the glass shell: the collarbones, the rib cage and the spine. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, prominent skull, visible teeth, grinning jaw, empty eye sockets, brand marks, other people, duplicated limbs, extra hands, extra arms, mirror, faucet labels",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts. The camera stays at the same chest-up distance for the whole shot and never pushes in toward the face; instead it arcs quickly around the figure from the three-quarter view to the side profile. 0-2s: from the very first frame the fingertips of the one raised hand roll the white foam in small light circles on the nose, barely touching, never pressing or scrubbing. 2-4s: the hand dips into the basin and cups a little clear water up to the nose, rinsing the foam off in two gentle splashes. 4-6s: the hand lowers out of the frame and the clean nose stays smooth and calm while the camera finishes its arc, holding until the very last frame. Only one hand and one forearm are ever raised to the face; no second hand appears at any moment. The glass skin stays soft pale cyan with no glow anywhere on the face; the skull and teeth stay faint; the dark slate blue-grey void stays empty. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft synth hum with a light foamy fizz and a small water splash, no music, no dialogue."
-    },
-    {
       "name": "m_pores_clear_gradually",
       "kind": "flow",
       "seconds": 8,

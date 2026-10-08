@@ -87,8 +87,9 @@
       "from": "아침저녁 두 번",
       "item": "살리실산 클렌징폼",
       "mech": "m_pores_clear_gradually",
-      "act": "act_roll_foam_on_nose",
-      "label": "모공"
+      "act": null,
+      "label": "모공",
+      "solo": "거품을 코에 굴리는 행위 칸은 Flow가 성적 콘텐츠로 막았다(2026-10-09, 상반신 인체) — 바르기만 하는 장면이라 정보도 적어 기전 단독(모공이 비워지는 변화가 핵심)"
     },
     {
       "from": "고를 땐 '여드름성 피부 완화'",
