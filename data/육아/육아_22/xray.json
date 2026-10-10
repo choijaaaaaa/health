@@ -1,0 +1,79 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 잇몸에 이앓이 젤을 바르는 손(훅) + 입안을 들여다보는 손(통념 반박). 얼굴은 가슴 위 거리 고정.",
+  "top_title": "이앓이, 젤보다 치발기",
+  "inset": {
+    "clip": "assets_library/xray/output/m_tooth_eruption.mp4",
+    "crop": [
+      0,
+      320,
+      720,
+      520
+    ],
+    "label": "잇몸"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_teething_gel.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_check_mouth.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 연구 16개를",
+      "item": "실리콘 치발기",
+      "mech": "m_tooth_eruption",
+      "act": "act_baby_check_mouth",
+      "label": "잇몸"
+    },
+    {
+      "from": "이가 잇몸을 뚫고",
+      "item": "실리콘 치발기",
+      "mech": "m_tooth_eruption",
+      "act": null,
+      "label": "이 나는 자리",
+      "solo": "이가 잇몸을 뚫는 기전 단독"
+    },
+    {
+      "from": "그러니 젤보다",
+      "item": "실리콘 치발기",
+      "mech": "act_baby_chew_teether",
+      "act": null,
+      "label": "꾹꾹 깨물기",
+      "solo": "제품 작동 칸 — 치발기를 깨무는 아기"
+    },
+    {
+      "from": "고를 땐 통으로 된",
+      "item": "실리콘 치발기",
+      "mech": "note_teether_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이"
+    },
+    {
+      "from": "다만 열이 38도를",
+      "item": "실리콘 치발기",
+      "mech": "act_baby_forehead_touch",
+      "act": null,
+      "label": "열"
+    }
+  ],
+  "summary_from": "다만 열이 38도를",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "board_items": [
+    "실리콘 치발기"
+  ],
+  "sources": [
+    {
+      "from": "게다가 잇몸을 마비시키는",
+      "text": "출처: 식품의약품안전처 의약품 안전성 서한 2018 · 미국 FDA 2018"
+    },
+    {
+      "from": "목에 거는 치발기는",
+      "text": "출처: 미국 FDA 「Safely Soothing Teething Pain」 2024 · 미국소아과학회"
+    }
+  ],
+  "opening_until": 16.44
+}

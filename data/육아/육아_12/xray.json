@@ -1,0 +1,83 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 뺨에 수딩젤을 바르는 손(훅) + 거칠고 마른 뺨·팔을 쓸어 보는 손(통념 반박 '만져서 거칠면 아토피'). 얼굴은 가슴 위 거리 고정.",
+  "top_title": "태열, 식히기보다 보습",
+  "inset": {
+    "clip": "assets_library/xray/output/m_skin_barrier_gaps.mp4",
+    "crop": [
+      0,
+      320,
+      720,
+      520
+    ],
+    "label": "피부 겉막"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_cheek_soothing_gel.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_rough_cheek_touch.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 아토피피부염을",
+      "item": "아기 보습크림",
+      "mech": "m_cream_lid_seal",
+      "act": "act_baby_apply_lotion",
+      "label": "피부 겉막"
+    },
+    {
+      "from": "아토피 피부는 겉을",
+      "item": "아기 보습크림",
+      "mech": "m_skin_barrier_gaps",
+      "act": null,
+      "label": "피부 틈",
+      "solo": "기름막이 모자라 수분이 새는 틈 — 단독"
+    },
+    {
+      "from": "보습제는 수분을",
+      "item": "아기 보습크림",
+      "mech": "m_cream_lid_seal",
+      "act": null,
+      "label": "보습막",
+      "solo": "제품 작동 칸 — 크림이 틈을 덮는 막"
+    },
+    {
+      "from": "그러니 수딩젤 자리에",
+      "item": "아기 보습크림",
+      "mech": "act_baby_apply_lotion",
+      "act": null,
+      "label": "목욕 뒤 3분",
+      "solo": "바르는 법 — 보호자 손이 바르는 장면 단독"
+    },
+    {
+      "from": "고를 땐 향이 없는",
+      "item": "아기 보습크림",
+      "mech": "note_cream_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이"
+    },
+    {
+      "from": "진물이나 딱지",
+      "item": "아기 보습크림",
+      "mech": "m_skin_barrier_gaps",
+      "act": null,
+      "label": "피부"
+    }
+  ],
+  "summary_from": "진물이나 딱지",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "board_items": [
+    "아기 보습크림"
+  ],
+  "sources": [
+    {
+      "from": "실제로 아토피피부염을",
+      "text": "출처: van Zuuren 외, Cochrane 2017(연구 6개 분석)"
+    }
+  ],
+  "opening_until": 22.26
+}

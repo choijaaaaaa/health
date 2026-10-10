@@ -1,0 +1,18 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_nursing_blocked_nose",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_23 훅·원리 '코가 막혀 젖을 빨다 자꾸 우는 / 아기는 젖을 빨면서 코로 숨을 쉬어요' — 보호자 품에서 젖병을 물다 고개를 떼는 아기, 콧속 통로가 호박색으로 막힌 듯.",
+      "fits": [
+        "아기 코막힘",
+        "수유 중 코로 숨쉬기",
+        "젖 거부"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about four months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — cradled in an adult's arms turning its face slightly away from a translucent glass baby bottle held by a pair of translucent glass adult hands of the same material, mouth just off the nipple, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the narrow nasal passages behind the small nose, clogged. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on bottle, crying face",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about four months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — cradled in an adult's arms turning its face slightly away from a translucent glass baby bottle held by a pair of translucent glass adult hands of the same material, mouth just off the nipple, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the narrow nasal passages behind the small nose, clogged. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on bottle, crying face"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_cheek_soothing_gel",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_12 훅 '뺨이 울긋불긋 거칠어져서 수딩젤로 식혀 주고' — 보호자 손끝이 아기 뺨에 투명 젤을 바르는 장면, 뺨 피부만 호박색, 가슴 위 거리 고정(얼굴 줌 금지).",
+      "fits": [
+        "태열",
+        "뺨 붉음",
+        "수딩젤",
+        "아기 피부"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about three months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying on its back, while a pair of translucent glass adult hands of the same material gently dab a clear cool gel onto one cheek with a fingertip, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the rough reddened skin of both cheeks. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pacifier, toys",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about three months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying on its back, while a pair of translucent glass adult hands of the same material gently dab a clear cool gel onto one cheek with a fingertip, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the rough reddened skin of both cheeks. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, pacifier, toys"
+    },
+    {
+      "name": "act_baby_rough_cheek_touch",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_12 '만져서 거칠고 바싹 마른 느낌이면 아토피 쪽' — 보호자 손등이 아기 뺨·팔의 거칠고 마른 피부를 쓸어 보는 장면, 마른 피부 결이 호박색.",
+      "fits": [
+        "건조 피부",
+        "아토피 확인",
+        "피부 만져보기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about three months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying on its back with one arm raised beside the head, while the back of a translucent glass adult hand lightly strokes the dry flaky skin of the baby's forearm and cheek, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the dry flaky patches of skin on the cheek and forearm. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, toys",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about three months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — lying on its back with one arm raised beside the head, while the back of a translucent glass adult hand lightly strokes the dry flaky skin of the baby's forearm and cheek, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the dry flaky patches of skin on the cheek and forearm. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, toys"
+    }
+  ]
+}

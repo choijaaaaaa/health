@@ -1,0 +1,91 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 코가 막혀 젖병에서 고개를 떼는 아기(훅) + 입으로 약을 넣는 장면(통념 반박 '감기약 위험'). 얼굴은 가슴 위 거리 고정.",
+  "top_title": "아기 코막힘, 약보다 콧물 빼기",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_airway.mp4",
+    "crop": [
+      0,
+      60,
+      720,
+      520
+    ],
+    "label": "숨길"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_nursing_blocked_nose.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_oral_syringe_feed.mp4"
+    }
+  ],
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 감기에 걸린",
+      "item": "아기 콧물흡입기",
+      "mech": "m_mucus_overproduction",
+      "act": "act_nasal_saline_bottle",
+      "label": "콧속"
+    },
+    {
+      "from": "코가 이렇게 중요한",
+      "item": "아기 콧물흡입기",
+      "mech": "act_baby_nursing_blocked_nose",
+      "act": null,
+      "label": "코로 숨",
+      "solo": "젖 빨며 코로 숨 쉬는 아기 단독"
+    },
+    {
+      "from": "그러니 아기가 감기에",
+      "item": "아기 콧물흡입기",
+      "mech": "act_nasal_saline_bottle",
+      "act": null,
+      "label": "식염수 몇 방울",
+      "solo": "식염수 넣기"
+    },
+    {
+      "from": "잠깐 기다렸다가",
+      "item": "아기 콧물흡입기",
+      "mech": "act_baby_nasal_aspirator",
+      "act": null,
+      "label": "콧물 빼기",
+      "solo": "제품 작동 칸 — 흡입기로 빼는 장면"
+    },
+    {
+      "from": "콧물흡입기를 고를 땐",
+      "item": "아기 콧물흡입기",
+      "mech": "note_aspirator_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이"
+    },
+    {
+      "from": "콧물을 빼 준 뒤에도",
+      "item": "아기 콧물흡입기",
+      "mech": "part_baby_airway",
+      "act": null,
+      "label": "숨길"
+    }
+  ],
+  "summary_from": "콧물을 빼 준 뒤에도",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "board_items": [
+    "아기 콧물흡입기"
+  ],
+  "sources": [
+    {
+      "from": "그런데 두 살이 안 된",
+      "text": "출처: 미국 FDA · 식약처 「어린이 감기약 올바로 먹이기」"
+    },
+    {
+      "from": "실제로 감기에 걸린",
+      "text": "출처: Köksal 외, Turk J Med Sci 2016(아기 109명 무작위 시험)"
+    },
+    {
+      "from": "콧물을 빼 준 뒤에도",
+      "text": "출처: 미국소아과학회 「Children and Colds」 · NHS"
+    }
+  ],
+  "opening_until": 17.06
+}

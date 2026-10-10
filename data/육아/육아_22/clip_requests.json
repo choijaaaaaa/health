@@ -1,0 +1,32 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_teething_gel",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_22 훅 '아기 잇몸에 이앓이 젤을 발라 주고' — 보호자 손가락이 아기 잇몸에 젤을 바르는 장면(약 튜브 상표·글자 없음), 잇몸만 호박색, 가슴 위 거리 고정.",
+      "fits": [
+        "이앓이 젤",
+        "잇몸 바르기",
+        "이앓이"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about six months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — held semi-upright in an adult arm with its mouth slightly open, while one fingertip of a pair of translucent glass adult hands of the same material rubs a small dab of clear gel along the lower front gum, a small plain unlabeled tube in the other hand, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the lower front gum where the first teeth are coming in. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on tube, teeth fully grown",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about six months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — held semi-upright in an adult arm with its mouth slightly open, while one fingertip of a pair of translucent glass adult hands of the same material rubs a small dab of clear gel along the lower front gum, a small plain unlabeled tube in the other hand, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the lower front gum where the first teeth are coming in. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, label on tube, teeth fully grown"
+    },
+    {
+      "name": "act_baby_chew_teether",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_22 해결책 '젤보다 치발기, 간지러울 때마다 스스로 꾹꾹 깨물' — 아기가 두 손으로 통 실리콘 치발기(링 모양, 줄·목걸이 없음)를 쥐고 깨무는 장면, 잇몸 호박색.",
+      "fits": [
+        "치발기",
+        "이앓이 해소",
+        "깨물기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about six months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — sitting supported, holding a simple solid one-piece translucent glass silicone teething ring in both hands and biting down on it with the front gums, no cord, no necklace, no clip, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the gums pressing on the teething ring. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, necklace, cord, strap, clip, bracelet, liquid inside",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about six months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — sitting supported, holding a simple solid one-piece translucent glass silicone teething ring in both hands and biting down on it with the front gums, no cord, no necklace, no clip, seen from the front at chest-up distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the gums pressing on the teething ring. Smooth featureless face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, necklace, cord, strap, clip, bracelet, liquid inside"
+    }
+  ]
+}
