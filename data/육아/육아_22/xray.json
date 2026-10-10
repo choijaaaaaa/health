@@ -1,5 +1,5 @@
 {
-  "_why": "반투명 인체 포맷(육아). 도입부는 잇몸에 이앓이 젤을 바르는 손(훅) + 입안을 들여다보는 손(통념 반박). 얼굴은 가슴 위 거리 고정.",
+  "_why": "반투명 인체 포맷(육아). 도입부는 입안을 들여다보는 손(훅 — 젤 바르는 스틸은 4장 모두 손이 배에 가 있어 폐기) + 이가 잇몸을 뚫는 기전(통념 반박). 얼굴은 가슴 위 거리 고정.",
   "top_title": "이앓이, 젤보다 치발기",
   "inset": {
     "clip": "assets_library/xray/output/m_tooth_eruption.mp4",
@@ -13,10 +13,10 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_baby_teething_gel.mp4"
+      "clip": "assets_library/xray/output/act_baby_check_mouth.mp4"
     },
     {
-      "clip": "assets_library/xray/output/act_baby_check_mouth.mp4"
+      "clip": "assets_library/xray/output/m_tooth_eruption.mp4"
     }
   ],
   "negations": [],
@@ -25,7 +25,7 @@
       "from": "실제로 연구 16개를",
       "item": "실리콘 치발기",
       "mech": "m_tooth_eruption",
-      "act": "act_baby_check_mouth",
+      "act": "act_baby_forehead_touch",
       "label": "잇몸"
     },
     {

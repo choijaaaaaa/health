@@ -556,5 +556,41 @@
       0.15,
       0.1
     ]
+  },
+  "act_baby_chew_teether.jpg": {
+    "act_baby_chew_teether": [
+      0.38,
+      0.17,
+      0.25,
+      0.12
+    ],
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지)"
+  },
+  "act_baby_nursing_blocked_nose.jpg": {
+    "act_baby_nursing_blocked_nose": [
+      0.12,
+      0.26,
+      0.16,
+      0.1
+    ],
+    "_note": "--pull-out --seconds 8(아기 얼굴 — 밀고 들어가는 줌 금지)"
+  },
+  "act_baby_rough_cheek_touch.jpg": {
+    "act_baby_rough_cheek_touch": [
+      0.5,
+      0.15,
+      0.3,
+      0.2
+    ],
+    "_note": "--pull-out --seconds 11(아기 얼굴 — 밀고 들어가는 줌 금지)"
+  },
+  "act_baby_cheek_soothing_gel.jpg": {
+    "act_baby_cheek_soothing_gel": [
+      0.35,
+      0.15,
+      0.2,
+      0.12
+    ],
+    "_note": "--pull-out --seconds 11(아기 얼굴 — 밀고 들어가는 줌 금지)"
   }
 }
