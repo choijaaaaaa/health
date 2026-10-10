@@ -924,3 +924,11 @@ def test_review_topic_runs_without_missing_checks():
                    if d.is_dir() and (d / "narration.txt").exists()), None)
     assert sample, "검사할 topic이 없다"
     content_review.review_topic(sample)      # NameError가 나면 실패
+
+
+def test_myth_and_doctor_patterns_cover_baby_phrasing():
+    """육아 대본의 반박("~때문에 생기는 게 아니에요")·진료과("소아청소년과로") 표현을 놓치지 않는다(2026-10-09 육아_12 오탐)."""
+    from lib import content_review as cr
+    assert any(p.search("태열은 열 때문에 생기는 게 아니에요") for p in cr._MYTH_PATTERNS)
+    assert any(p.search("바로 소아청소년과로 가세요") for p in cr._DOCTOR_PATTERNS)
+    assert any(p.search("소아치과에 가 보세요") for p in cr._DOCTOR_PATTERNS)
