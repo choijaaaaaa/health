@@ -531,6 +531,10 @@ _MYTH_PATTERNS = [
     # "정상이 나왔다고 끝난 게 아니에요", "~라는 말 … 그래서 지금은 권하지 않아요"(2026-10-02 순환_23 오탐)
     re.compile(r"다고\s*(끝난|다 된|괜찮은)\s*게\s*아니"),
     re.compile(r"지금은\s*권하지\s*않"),
+    # 훅이 "~인 줄 알고 … 하시나요?"로 끝나고 다음 문단에서 "그런데"로 뒤집는 형태 — 위 패턴은 '?'를 못 넘는다(2026-10-12 육아_26 오탐)
+    re.compile(r"줄\s*알고[\s\S]{0,90}(그런데|하지만)"),
+    re.compile(r"(하지만|그런데)\s*(억지로\s*)?[가-힣]{0,6}면\s*안\s*돼"),   # "하지만 억지로 떼면 안 돼요"(육아_25)
+    re.compile(r"많이들[^.?!]{0,20}지만"),   # "많이들 이때 돌리지만, 기준은 …가 아니에요"(육아_27)
 ]
 _DOCTOR_PATTERNS = [re.compile(r"(병원|진료|전문의|응급실).{0,20}(가|받|상담|방문)"),
                     # "신장내과로 가세요"·"안과로 가세요"·"119를 부르세요" — 진료과·응급 연락도 병원 신호다(오탐 수정)
@@ -595,7 +599,9 @@ def check_content_depth(topic: str, lang: str = "kor") -> list[dict]:
         issues.append({"quote": text[:40], "severity": "medium",
                        "issue": "통념을 뒤집는 대목이 없습니다 — 시청자가 이미 아는 말만 하면 놀랄 게 없습니다. "
                                 "'~가 좋다고 알려졌지만 오히려…' 같은 반전을 한 개는 넣으세요."})
-    if not any(p.search(text) for p in _DOCTOR_PATTERNS):
+    # 안전용품처럼 증상이 없는 topic(카시트 방향 등)은 병원 신호 대신 안전 기준으로 끝난다 — 스펙에 이유를 적은 경우만 면제(2026-10-12 육아_27)
+    no_doctor = json.loads(spec_path.read_text(encoding="utf-8")).get("no_doctor_signal_reason")
+    if not no_doctor and not any(p.search(text) for p in _DOCTOR_PATTERNS):
         issues.append({"quote": text[-40:], "severity": "high",
                        "issue": "병원에 가야 할 신호가 없습니다 — 구체적 증상으로 한 줄 넣으세요"
                                 "(예: 체중이 줄거나 검은 변을 보면 바로 진료)."})
