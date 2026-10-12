@@ -1,0 +1,61 @@
+{
+  "requests": [
+    {
+      "name": "m_nail_layers_split",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "손발_23 도입부 훅('손톱 갈라짐, 손톱 끝이 종이처럼 겹겹이 벌어져 니트나 스타킹에 자꾸 걸리시나요', 0.34~5.65초) 전체 화면 + 2칸(14.91~19.10초 '젖었다 마르기를 되풀이하면 이 층 사이가 벌어지면서 끝부터 갈라져요', 4.2초) 오른쪽 기전. 물이 층 사이로 스며 손톱판이 부풀었다 마르며 줄기를 되풀이하자 끝부터 얇은 층이 종이처럼 벌어지고, 지나가던 니트 실이 그 끝에 걸린다. 색인 전수 확인 — m_layer_separation은 지그재그 두 층이 미끄러지는 추상 장면(앞 1초 엉뚱한 주머니), m_keratin_thickening은 판이 쌓이는 장면, part_nail은 색만 바뀌는 정지 컷이라 '손톱 끝이 겹겹이 벌어짐'이 없다. 범용으로 — 손톱 갈라짐·손톱 약함·발톱 갈라짐·젤네일 후 손상 편에 쓴다. 손가락 끝 하나만, 엑스레이 화풍 고정.",
+      "fits": [
+        "손톱 갈라짐",
+        "손톱이 겹겹이 벌어짐",
+        "손톱 끝 갈라짐",
+        "손톱이 약함",
+        "니트에 걸림",
+        "물에 자주 닿음",
+        "젖었다 마름",
+        "발톱 갈라짐",
+        "손톱 층"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of a single translucent glass-like 3D human fingertip seen from the side, the nail plate running along the top of the fingertip and extending a little past its end, the nail plate made of many very thin flat layers stacked tightly together like sheets of paper, the soft fingertip pad below, the nail root tucked under a fold of skin at the base on the left, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The layers are still pressed tightly together and the free edge of the nail is smooth. A loose strand of plain woven knit yarn hangs in the void at the upper right. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, whole hand, other fingers, face, red, blood, nail polish, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a ripple of clear water washes over the nail, seeping in between the thin layers so the plate swells slightly, then it dries and shrinks back; this happens twice in quick succession while the camera sweeps fast along the nail toward its tip. 2-4s: at the free edge the layers come apart one from another, peeling up into thin paper-like flakes, the fine gaps between them glowing warm amber. 4-6s: the strand of knit yarn drifts across and snags on the split edge, tugging one flake up, the camera pushing in tight on the snag, holding until the very last frame while the rest of the fingertip stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. Only the single fingertip and its nail are in the frame — no whole hand, no other fingers, no person. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft water ripples and a faint fibrous snag, no music, no dialogue."
+    },
+    {
+      "name": "act_dishwash_rubber_gloves",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "손발_23 4칸(22.96~28.01초 '그러니 설거지할 땐 고무장갑을 끼고, 손을 씻은 직후엔 손톱에 보습제를 발라 주세요', 5.1초) 왼쪽 — 대본의 구체 행동(고무장갑 끼고 설거지). 장갑 낀 두 손이 거품물에서 접시를 문질러 씻고, 들어 올리면 장갑 속 손톱은 물이 닿지 않아 마른 채다. 손만 나와 얼굴 규칙·성적 콘텐츠 필터와 무관. 색인에 설거지·고무장갑 장면이 없다(act_wash_hands_soap는 맨손 손 씻기). 범용으로 — 주부습진·손 습진·손 건조·손톱 보호 편에 쓴다. 엑스레이 화풍 고정.",
+      "fits": [
+        "설거지",
+        "고무장갑",
+        "물에 덜 닿게",
+        "손 보호",
+        "주부습진 예방",
+        "손 습진",
+        "손 건조 예방",
+        "손톱 보호",
+        "집안일"
+      ],
+      "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up of exactly two translucent glass-like human hands and forearms only, the bones of the hands and fingers visible inside, both hands wearing plain smooth milky translucent rubber gloves with no markings, held over a plain round basin of soapy water with white foam, a plain round plate resting in the left hand, seen from slightly above. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, face, body, person, brand marks, other people, duplicated limbs, extra hands, extra arms, extra fingers, writing on the gloves, tiles, faucet brand",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the gloved hands dip the plate into the soapy water and scrub it in quick circles, water and foam splashing over the gloves, the camera swooping low across the basin. 2-4s: the hands lift the plate out, water streaming off the gloves, and the camera pushes in on the fingertips, where through the milky glove the glass nails inside stay dry, each nail outlined by a faint warm amber glow, holding until the very last frame. Exactly two hands are ever in the frame; no third hand appears at any moment, and each hand has five fingers. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with sloshing water and a squeaky clean plate, no music, no dialogue."
+    },
+    {
+      "name": "m_nail_grows_out",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "손발_23 8칸(44.98~54.17초 '효과는 새 손톱이 자라 나오면서 보여요. 영국 국민보건서비스는 손톱이 새로 다 자라는 데 6개월까지 걸린다고 해요. 그동안 꾸준히 이어 가세요', 9.2초) 기전 단독. 손톱 뿌리에서 매끈한 새 손톱이 밀려 나와, 갈라진 옛 끝을 향해 경계가 천천히 앞으로 이동하고 끝내 갈라진 끝이 떨어져 나간다. ⚠️ 근거가 '6개월까지'라 순식간에 바뀌는 그림은 과장 — 단계적으로 천천히. 색인에 손발톱이 자라 나오는 장면이 없다(m_growth_plate는 뼈 성장판). 범용으로 — 손톱 회복 기간·발톱 무좀 치료 기간(새 발톱이 자라야 함)·손톱 영양 편에 쓴다. m_nail_layers_split와 같은 손가락 끝 측면 구도. 엑스레이 화풍 고정.",
+      "fits": [
+        "손톱이 자라는 기간",
+        "새 손톱",
+        "손톱 회복",
+        "손톱 6개월",
+        "꾸준히 관리",
+        "손톱 뿌리",
+        "발톱 무좀 치료 기간",
+        "새 발톱이 자람",
+        "효과가 늦게 보임"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of a single translucent glass-like 3D human fingertip seen from the side, the nail plate running along the top of the fingertip and extending a little past its end, the nail plate made of many very thin flat layers stacked tightly together like sheets of paper, the soft fingertip pad below, the nail root tucked under a fold of skin at the base on the left, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The front part of the nail plate near the tip is frayed into thin split layers peeling apart, while the part near the root is smooth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, whole hand, other fingers, face, red, blood, nail polish, nail clippers, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the nail root under the fold of skin at the base glows soft warm amber and begins to push new nail plate forward, the camera gliding fast along the nail from root to tip. 2-6s: in slow time-lapse, smooth tightly packed new nail grows steadily forward from the root, the clear boundary between the new smooth part and the old frayed part creeping only gradually toward the tip, a thin glossy film resting on the surface; the camera tracks the boundary. 6-8s: the old frayed edge finally reaches past the fingertip and breaks away in small flakes that drift off, leaving one smooth whole nail, the camera pulling back to show the whole fingertip, holding until the very last frame while everything stays soft pale cyan except the faint amber glow at the root. The change is gradual and steady, never sudden. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. Only the single fingertip and its nail are in the frame — no whole hand, no other fingers, no person, no tools. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a slow soft ticking, no music, no dialogue."
+    }
+  ]
+}

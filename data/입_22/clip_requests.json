@@ -1,0 +1,43 @@
+{
+  "requests": [
+    {
+      "name": "m_molars_grind_wear",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "입_22 도입부 훅('이갈이, 자고 일어나면 턱이 뻐근하고 어금니가 시큰한데 밤새 이를 간 줄은 모르셨나요', 0.46~5.57초) 전체 화면 + 1칸(12.91~21.22초 '잠들면 … 훨씬 세게 갈고 꽉 물어요. 그래서 이 끝이 닳고 금이 가고 턱까지 아파요', 8.3초) 기전 단독. 위아래 어금니가 옆으로 세게 갈리다 꽉 물리고, 끝이 평평하게 닳고 실금이 가며 턱관절이 달아오른다. 색인 전수 확인 — 치아 클립은 칫솔이 깎는 m_hard_brush_wears_enamel, 찬물 자극 m_cold_zap_tooth뿐이고 위아래 이가 서로 갈리는 장면이 없다. part_mouth_teeth는 정지 두개골. 범용으로 — 이갈이·이 악물기·치아 마모·치아 균열·턱관절 통증 편에 쓴다. 사람·얼굴·입술 없이 치아 단면만, 엑스레이 화풍 고정.",
+      "fits": [
+        "이갈이",
+        "이 악물기",
+        "이를 꽉 묾",
+        "치아 마모",
+        "이가 닳음",
+        "치아 균열",
+        "이에 금이 감",
+        "어금니 시큰",
+        "턱관절 통증",
+        "턱이 뻐근함",
+        "자는 동안 이를 갊"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of a matching pair of translucent glass-like 3D adult human molar teeth, one upper tooth pointing down and one lower tooth pointing up, each set in its own block of gum and jawbone, their pointed cusps meeting edge to edge in the middle of the frame, each tooth cut in half lengthwise to show a hard smooth outer shell over the crown, a thick layer beneath it and a central pulp chamber holding a fine branching nerve; at the far left edge of the frame the rounded knob of the jaw joint sits in its shallow socket, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The cusps of both molars are still sharp and whole. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, lips, mouth, tongue, red, blood, decay, cavity, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the lower molar grinds hard side to side against the upper one in short forceful strokes, the camera shaking in close with every stroke, then the two clamp together with a jolt. 2-4s: with every pass the pointed cusps are ground flatter, fine pale dust shaving off the worn tips, and a thin hairline crack runs down from one worn tip into the hard outer shell, glowing faint warm amber along its edge. 4-6s: the camera whips back toward the jaw joint at the left edge, which glows warm amber with strain while the teeth keep clenching and grinding, holding until the very last frame while the rest of the teeth stay soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no face, no lips, no skull anywhere in the frame — only the two teeth in their blocks of gum and bone and the jaw joint. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a gritty grinding scrape and a dull clench thud, no music, no dialogue."
+    },
+    {
+      "name": "m_mouthguard_shields_teeth",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "입_22 🚨 제품 작동 칸(25.74~35.59초 '그러니 이부터 지켜야 해요. 자기 전에 이갈이 마우스피스를 끼워 두면 편해요. 위아래 이 사이를 막아 이끼리 닿지 않게 하거든요. 가는 버릇은 그대로여도 닳고 깨지는 건 막아요', 9.9초) 기전 단독. 얇은 반투명 덮개가 윗어금니에 맞춰 씌워지고, 아랫니는 여전히 세게 갈지만(버릇은 그대로) 덮개에만 닿아 이끼리는 닿지 않고 치아는 멀쩡하다 — 덮개 표면에만 긁힌 자국. ⚠️ 근거(research)대로 '이갈이가 멈춘다'는 그리지 않는다. 색인에 마우스피스·치아 보호 장면이 없다. m_molars_grind_wear와 같은 치아 단면 구도로 이어지게. 엑스레이 화풍 고정.",
+      "fits": [
+        "이갈이 마우스피스",
+        "나이트가드",
+        "마우스피스 원리",
+        "치아 보호",
+        "이끼리 닿지 않게",
+        "이 악물기 대처",
+        "치아 마모 예방",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of a matching pair of translucent glass-like 3D adult human molar teeth, one upper tooth pointing down and one lower tooth pointing up, each set in its own block of gum and jawbone, their pointed cusps meeting edge to edge in the middle of the frame, each tooth cut in half lengthwise to show a hard smooth outer shell over the crown, a thick layer beneath it and a central pulp chamber holding a fine branching nerve; at the far left edge of the frame the rounded knob of the jaw joint sits in its shallow socket, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The two teeth are parted by a small gap. A thin smooth plain horseshoe-shaped sleeve of milky translucent material with no markings hovers just beside the upper molar, ready to slip over its crown. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, skull, lips, mouth, tongue, red, blood, decay, cavity, amber, orange, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the thin milky sleeve slides up and snaps snugly over the crown of the upper molar, moulding itself to every cusp, while the camera swoops fast around the teeth. 2-5s: the lower molar starts grinding hard side to side and clenching, exactly as forcefully as before, but now it rubs only on the soft sleeve, which flexes and takes each stroke; the two teeth never touch each other and their hard outer shells stay smooth and whole. 5-8s: the camera pulls back fast to show both teeth intact and pale cyan while the grinding keeps going on the sleeve, faint scuffs glowing warm amber only on the sleeve's surface where it took the wear, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no face, no lips, no skull, no hand anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a muffled rubbery grinding squeak instead of a hard scrape, no music, no dialogue."
+    }
+  ]
+}

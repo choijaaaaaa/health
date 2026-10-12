@@ -1,0 +1,60 @@
+{
+  "requests": [
+    {
+      "name": "m_damp_scalp_stays_wet",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "머리_22 도입부 통념('드라이기가 두피에 나쁘다며 수건으로만 털고 눕는 분이 많아요. 하지만 냄새는 그 축축한 두피에서 시작돼요', 7.34~14.04초) 전체 화면 + 2칸(21.82~29.49초 '그런데 머리는 생각보다 늦게 말라요. 실제로 머리카락 다발을 그냥 두고 말려 보니 2시간이 넘게 걸렸어요', 7.7초) 기전 단독. 수건이 머리카락 끝을 눌러 털어도 모근과 두피 겉에는 물이 그대로 남고, 시간이 지나 끝은 말라도 뿌리 쪽은 축축하고 따뜻한 채 — 그 젖은 층에서 균이 불어나기 시작한다. 색인 전수 확인 — 젖은 머리카락·모근 장면이 없다(m_dehydration은 피부 물방울이 말라 갈라짐, m_scalp_flaking_burst는 비듬). 범용으로 — 젖은 머리로 잠·자연건조·두피 냄새·지루성 두피·비듬 편에 쓴다. 손·사람 없이 두피 단면만(수건만 등장), 엑스레이 화풍 고정.",
+      "fits": [
+        "젖은 머리",
+        "자연건조",
+        "머리가 늦게 마름",
+        "수건으로만 말림",
+        "두피 습기",
+        "젖은 채로 잠",
+        "두피 냄새 원인",
+        "두피 세균 번식",
+        "축축한 두피",
+        "모근이 젖어 있음"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a dense patch of fine glass hairs rising out of small follicle openings in the top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, the block filling the lower two thirds of the frame with the dark void above, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The hairs are soaking wet, clumped together in heavy strands with clear water beads clinging along them, and a thin film of clear water lies pooled on the scalp surface between the roots. A soft folded plain towel hovers just above the hair tips near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hands, red, blood, amber, orange, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the folded towel presses down on the hair tips twice and lifts away on its own, while the camera dives fast down between the strands; the tips loosen but the water beads at the roots do not move. 2-5s: in time-lapse the outer tips of the hairs dry and fluff apart, while down at the roots the water beads stay put and the thin film of water on the scalp surface stays wet and glistening, a faint warm haze lingering low over it, the camera racing low along the scalp surface between the roots. 5-8s: in the damp warm layer at the roots tiny oval cells and small rod-shaped specks begin to multiply and spread across the wet surface, glowing warm amber, holding until the very last frame while the scalp and hairs stay soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face anywhere in the frame; the towel moves on its own. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft towel pats and slow dripping, no music, no dialogue."
+    },
+    {
+      "name": "m_warm_air_dries_roots",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_22 🚨 제품 작동 칸(34.27~42.53초 '그래서 자기 전엔 헤어드라이기로 두피까지 말려 두면 편해요. 손가락으로 머리카락을 들어 바람을 뿌리에 넣으면 속까지 말라요', 8.3초) 오른쪽 기전. 따뜻한 바람(옅은 물결)이 갈라진 머리카락 사이로 모근까지 들어가 물방울이 사라지고 두피 겉 물기가 날아가 마른 표면이 드러나며, 표면의 균은 더 번지지 않고 옅어진다. ⚠️ 근거(research)는 '축축하고 따뜻할수록 잘 불어난다'까지라 '균이 죽는다'는 그리지 않는다 — 번지지 않고 옅어지는 데까지. 색인에 드라이기·바람으로 마르는 장면이 없다. m_damp_scalp_stays_wet와 같은 두피 단면 구도로 이어지게. 엑스레이 화풍 고정.",
+      "fits": [
+        "드라이기로 말리기",
+        "두피까지 말리기",
+        "모근 말리기",
+        "헤어드라이기 원리",
+        "젖은 두피 관리",
+        "두피 냄새 관리",
+        "속까지 마름",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a dense patch of fine glass hairs rising out of small follicle openings in the top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, the block filling the lower two thirds of the frame with the dark void above, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The hairs are wet and clumped near the roots with clear water beads clinging to them, a thin film of clear water lies on the scalp surface between the roots, and a few tiny oval cells and rod-shaped specks glow warm amber on the damp surface. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hands, hair dryer, red, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a steady stream of warm air, shown only as soft translucent ripples, sweeps in from the side, parting the hairs and lifting them at the roots, while the camera races along the stream down to the scalp. 2-4s: wherever the air reaches the roots the water beads shrink and vanish, and the wet film on the scalp surface evaporates in faint wisps, revealing a dry, smooth pale cyan surface. 4-6s: on the now dry surface the few amber specks stop spreading and fade to a dim glow, the hairs standing loose and dry, the camera pulling back fast to show the whole block dry, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no hair dryer, no face anywhere in the frame — only the scalp block and the moving air. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a steady soft whoosh of warm air, no music, no dialogue."
+    },
+    {
+      "name": "act_lift_hair_blow_dry_roots",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "머리_22 4칸(34.27~42.53초 '… 손가락으로 머리카락을 들어 바람을 뿌리에 넣으면 속까지 말라요') 왼쪽 + 6칸(51.83~55.23초 '머리에서 15cm쯤 떨어뜨리고 계속 움직이면 돼요') 왼쪽 — 대본이 말하는 구체 동작 둘(손가락으로 머리를 들어 뿌리에 바람 넣기, 한 뼘 떨어뜨려 계속 움직이기)을 한 클립에. 씻기·바르기가 아니라 성적 콘텐츠 필터 전례와 무관. 🚨 얼굴 클립 규칙: 가슴 위 거리 고정, 뒤쪽 3/4라 얼굴이 안 보이고, 점등은 얼굴이 아닌 정수리 두피. 색인에 드라이기 장면이 없다(act_scalp_care는 손가락으로 두피 문지르기, 점등 없음). 범용으로 — 드라이기 사용법·두피 말리기·젖은 머리 편에 쓴다.",
+      "fits": [
+        "드라이기 사용법",
+        "머리 말리기",
+        "손가락으로 머리 들기",
+        "뿌리부터 말리기",
+        "드라이기 거리",
+        "계속 움직이며 말리기",
+        "두피 말리기",
+        "정수리"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, the figure is framed from the top of the head down to the chest, seen from behind at a three-quarter angle so the face is turned away and not visible, sitting upright, wearing a plain translucent glass crew-neck top, with a head of fine glass hair; the left hand's fingers are lifting a section of hair at the crown, and the right hand holds a plain blank hair dryer with no markings about a hand-span away from the head, aimed at the lifted roots. The skull, the neck vertebrae, the collarbones and the bones of the arms and hands are visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, nudity, nude, face, facial features, brand marks, other people, duplicated limbs, extra hands, extra arms, writing on the dryer",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the fingers of the left hand lift a section of hair at the crown while the dryer, held about a hand-span away, blows into the roots, soft translucent ripples of air visible between the strands, the camera arcing quickly around behind the shoulder at a fixed chest-up distance. 2-4s: the dryer keeps moving in small sweeping passes from side to side, never stopping in one spot and never coming closer than a hand-span, as the fingers lift the next section; the scalp under the lifted hair glows a soft warm amber. 4-6s: the camera swings round to the other shoulder, still chest-up, the hair now loose and fluffy, the amber glow at the crown fading to pale as it dries, holding until the very last frame. Exactly two arms and two hands are ever in the frame; no third arm or extra hand appears at any moment. The camera never pushes in toward the face, and the face never turns toward the camera. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. The body stays translucent glass with all bones visible inside throughout. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Soft steady whir of a hair dryer over a low synth hum, no music, no dialogue."
+    }
+  ]
+}

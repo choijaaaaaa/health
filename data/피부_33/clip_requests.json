@@ -1,0 +1,42 @@
+{
+  "requests": [
+    {
+      "name": "m_oil_residue_clogs_pore",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_33 3칸(20.08~25.10초 '미국피부과학회는 이 기름이 피부에 남으면 모공을 막는다고 설명해요', 5.0초) 기전 단독. 겉에서 흘러내린 기름(린스·트리트먼트)이 피부에 막으로 남아 모공 입구를 덮어 막고, 갇힌 피지·각질이 쌓여 작게 솟는다. 색인 전수 확인 — m_pore_plug_forming은 피지샘에서 나온 기름(속에서 막힘), m_skin_oil_lid는 기름막만 있고 모공이 없다, m_sebum_overproduction은 속 기름이 넘침. '겉에 남은 기름이 모공을 막는다'는 장면이 없다. 범용으로 — 헤어오일·두꺼운 크림·선크림·바디로션이 모공을 막는 여드름 편에 그대로 쓴다. 엑스레이 화풍 고정.",
+      "fits": [
+        "모공 막힘",
+        "린스 잔여물",
+        "트리트먼트 기름",
+        "헤어오일 여드름",
+        "이마 여드름",
+        "등드름 원인",
+        "기름진 화장품",
+        "선크림 모공 막힘",
+        "피부에 남은 기름",
+        "뾰루지가 생김"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human back skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame, cut open at the front straight down through a row of three pores side by side: each a funnel-shaped pore mouth open at the smooth surface leading down into a narrow tube, a small lobed oil gland attached to the side of each tube halfway down, the walls of the tubes lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The tubes are empty and clean. A thin sheet of clear glossy oily liquid is just beginning to slide in over the surface from the top left edge. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the thin sheet of glossy oily liquid streams down across the skin surface, the camera racing low alongside its front edge, and it leaves a shiny warm amber film coating the whole surface. 2-4s: the camera dives toward the middle pore as the amber film settles over each pore mouth and seeps a little way into the opening, sealing it shut like a lid of wax. 4-6s: beneath the seal the pore's own pale oil and shed flakes pile up with nowhere to go, the tube swelling and the surface above it rising into a small round raised bump glowing warm amber, the camera pulling back fast to show the row of sealed pores and the bump, holding until the very last frame while the rest of the skin stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a slow viscous slide and a soft swelling creak, no music, no dialogue."
+    },
+    {
+      "name": "m_oil_film_rinsed_off",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "피부_33 5칸(30.21~33.88초 '그러니 머리를 먼저 헹구고, 몸은 맨 마지막에 씻어요', 3.7초) 기전 단독 — 몸을 마지막에 씻으면 등 피부에 남은 기름막이 거품·물에 씻겨 나가고 모공 입구가 열린 채 남는다. 샤워하는 상반신 행위 클립은 Flow 성적 콘텐츠 필터 전례가 있어 사람 없는 기전으로 요청. 색인 전수 확인 — m_oil_film_stripped는 뜨거운 물에 피지막이 벗겨져 갈라지고 불꽃(자극·손상), m_regular_shampoo_oil_only는 두피·곰팡이 장면(실사풍), m_pores_clear_gradually는 모공 속 마개가 줄어드는 장면이라 '겉에 덮인 기름막이 씻겨 나감'이 없다. 범용으로 — 이중세안·클렌징·샤워 마지막에 몸 씻기·잔여물 헹구기 편에 쓴다. m_oil_residue_clogs_pore와 같은 피부 블록 구도.",
+      "fits": [
+        "기름막 씻어 내기",
+        "샤워 순서",
+        "몸은 마지막에 씻기",
+        "잔여물 헹구기",
+        "클렌징",
+        "이중세안",
+        "모공 입구가 열림",
+        "깨끗하게 헹굼"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human back skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame, cut open at the front straight down through a row of three pores side by side: each a funnel-shaped pore mouth open at the smooth surface leading down into a narrow tube, a small lobed oil gland attached to the side of each tube halfway down, the walls of the tubes lined with thin flat stacked cells, the empty dark void above the surface filling the upper third of the frame, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A shiny warm amber oily film coats the whole surface and seals over each pore mouth. A soft rounded clump of white foam bubbles hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hair, red, blood, bacteria, germs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the clump of white foam drops onto the amber film and spreads across the surface, the camera swooping low over it. 1.5-3s: a quick sheet of clear water sweeps across from one side, carrying the foam away, and the amber film lifts off with it in thin glossy ribbons that wash out of the frame. 3-4s: the camera rises fast to look down on the clean surface: the pore mouths are open and clear, the skin smooth pale cyan, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft foamy fizz and a clean rush of water, no music, no dialogue."
+    }
+  ]
+}
