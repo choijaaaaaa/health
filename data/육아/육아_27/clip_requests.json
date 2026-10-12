@@ -1,0 +1,69 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_rear_facing_feet_on_seat",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_27 훅('돌 지나 아기 발이 등받이에 닿으면', 0.27~5.03초 전체 화면) + 2칸(16.60~24.64초 '발이 닿아도 괜찮아요. 아이 몸은 유연해서 다리를 접고도 편하게 앉고') 단독. 뒤보기 카시트에 앉아 무릎을 접고 발바닥이 차 뒷좌석 등받이에 닿은 돌 무렵 아기, 다리만 호박색. 색인 전수 확인(카시트·car seat·자동차·아기 다리·다리 접기·baby legs) — 카시트 장면 0건, part_baby_leg_bones는 선 자세라 '접은 다리'가 아니다. 아기 몸이라 Flow 금지 → 스틸 받으면 make_part_clip.py --region(다리) --pull-out --seconds 5(얼굴 줌 금지). 범용 — 카시트 방향·카시트 다리·차 안 아기 편에 쓴다.",
+      "fits": [
+        "뒤보기 카시트",
+        "카시트 앞보기",
+        "카시트 다리",
+        "발이 등받이에 닿음",
+        "다리 접고 앉기",
+        "차 안 아기",
+        "카시트 방향"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about twelve months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — sitting buckled into a translucent glass rear-facing car safety seat that is installed on the back bench seat of a translucent glass car interior, the seat shell facing the rear so the baby faces the backrest of the bench, the knees comfortably bent and both soles resting flat against the bench backrest, seen from the side at full-body distance with the whole seat and the bench backrest in frame, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the bent legs from the thighs down to the feet. Smooth featureless face turned in profile, relaxed calm posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, forward-facing seat, crash, broken glass, brand marks",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about twelve months old, small and chubby with a large head and short limbs, sitting buckled into a translucent glass rear-facing car safety seat on the back bench seat of a translucent glass car interior, facing the bench backrest, the knees bent and both soles resting flat against the backrest, seen from the side at full-body distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the bent legs from the thighs down to the feet. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, forward-facing seat, crash, brand marks"
+    },
+    {
+      "name": "m_carseat_shell_spreads_force",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_27 4칸(29.53~36.86초 '미국 도로교통안전국은 차가 부딪힐 때 뒤보기 카시트가 아기를 등받이째 감싸 받쳐서, 목에 가는 충격을 줄여 준다고 해요', 7.3초) 단독. 갑자기 멈추는 차 안에서 빈 뒤보기 카시트의 넓은 등받이 껍데기가 앞에서 오는 힘을 받아 뒤로 살짝 기대며, 호박색 힘이 한 점이 아니라 등받이·머리 날개 전체로 고르게 퍼졌다가 옅어진다. ⚠️ 근거(NHTSA 'cradles and moves with your child to reduce the stress')만큼만 — 수치·'다치지 않는다'는 그리지 않는다. 충돌·파편·찌그러짐 없이 도식으로. 색인 전수 확인(충격·충격 흡수·분산·받쳐 줌·impact force·whiplash·car seat) — m_bone_stress(뼈 실금)·m_haircell_damage(귀 충격파)뿐, 카시트 장면 0건. 아기 단어·몸 없이 사물만. 범용 — 카시트 방향·뒤보기 원리·카시트 고르기 편에 쓴다.",
+      "fits": [
+        "뒤보기 카시트 원리",
+        "카시트 충격 분산",
+        "등받이가 받쳐 줌",
+        "급정거",
+        "카시트 안전",
+        "목 충격 줄임"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass rear-facing car safety seat with a deep rounded shell, tall headrest wings and an open five-point harness lying flat, installed on the back bench seat of a translucent glass car interior, the seat shell's broad backrest facing toward the front of the car, seen from the side so the whole seat, the bench and a slice of the cabin ahead are in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hands, baby, doll, amber, orange, red, blood, broken glass, crash debris, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the whole translucent car cabin lurches to a sudden stop, and soft translucent ripple lines sweep from the front of the cabin toward the empty rear-facing seat, the camera swinging fast around to the side of the seat. 2-4s: the ripples meet the broad backrest of the seat shell, the shell rocks gently back into the bench and its headrest wings flex a little, and a soft warm amber wash spreads evenly across the whole inner surface of the backrest and the headrest wings at once, from the head end down to the bottom, never collecting in one point. 4-6s: the seat settles still, the amber wash fades evenly back to pale cyan across the whole shell, the camera pulling back to show the calm cabin until the very last frame. Nothing breaks, cracks, flies loose or dents at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face and nothing sitting in the seat anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one soft dull thump and a faint creak of the seat shell, no music, no dialogue."
+    },
+    {
+      "name": "act_swivel_carseat_turn",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_27 🚨 제품 작동 칸(41.30~47.49초 '그래서 회전형 카시트로 바꿔 두면 편해요. 시트를 문 쪽으로 돌려 아기를 앉히고 벨트를 채운 다음, 다시 뒤로 돌리면 돼요', 6.2초) 단독. 빈 회전형 카시트가 받침 위에서 열린 뒷문 쪽으로 돌고, 벨트가 채워진 뒤 다시 뒤보기로 돌아가 딸깍 잠긴다 — 회전 받침이 호박색. 근거는 편의 주장뿐(research 5) — 안전성 우위는 그리지 않는다. 아기를 앉히는 장면은 아기 몸이라 Flow 금지 → 빈 시트만(벨트는 스스로 채워짐). 색인 전수 확인(회전·rotate·swivel·의자·앉히기·벨트 채우기) — 카시트·회전 의자 장면 0건. 범용 — 회전형 카시트·카시트 태우기·카시트 고르기 편에 쓴다.",
+      "fits": [
+        "회전형 카시트",
+        "카시트 태우기",
+        "문 쪽으로 돌리기",
+        "카시트 벨트",
+        "뒤보기 카시트 편하게",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass swivel car safety seat with a deep rounded shell, tall headrest wings and an open five-point harness, mounted on a round rotating base on the back bench seat of a translucent glass car interior, the rear side door of the car swung wide open beside it, the seat currently facing the rear of the car, seen from a high three-quarter angle outside the open door so the seat, the base and the door opening are all in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hands, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the empty seat turns smoothly on its round base a quarter turn until it faces straight out through the open rear door, the round base glowing soft warm amber as it turns, the camera swooping in through the door opening. 2-4s: the seat holds facing the door, and the open harness straps lift and draw together on their own, the buckle closing with a soft click at the centre of the empty seat. 4-6s: the seat turns smoothly back a quarter turn to face the rear of the car again, locks into place with a firm click, and the amber glow on the base fades to pale cyan, the camera pulling back fast outside the door to show the seat locked rear-facing until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face and nothing sitting in the seat anywhere in the frame; the seat and the straps move on their own. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a smooth turning whirr, a soft buckle click and one firm lock click, no music, no dialogue."
+    },
+    {
+      "name": "m_airbag_hits_seat_back",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "육아_27 8칸(53.05~56.65초 '그리고 뒤보기 카시트는 에어백이 있는 앞좌석엔 달지 마세요', 3.6초 — 다음 문장 '에어백이 터지면 아기 머리 바로 뒤를 치거든요'부터 칠판) 단독. 앞 조수석에 단 빈 뒤보기 카시트 — 대시보드에서 에어백이 부풀어 나와 카시트 등받이 머리 쪽을 밀어 치고, 그 맞닿은 자리만 호박색. 근거(AAP 'it will hit the back of the car safety seat, right against your child's head')만큼만. 폭발·파편 없이 도식으로, 4초(크레딧 절약, 0.9배). 색인 전수 확인(에어백·airbag·부풀어 오름·팽창·충격) — m_pressure_buildup(주머니에서 액체가 쏟아짐)뿐, 에어백 장면 0건. 아기 몸 없이 사물만. 범용 — 카시트 위치·앞좌석 아이·에어백 편에 쓴다.",
+      "fits": [
+        "에어백",
+        "앞좌석 카시트 금지",
+        "조수석 카시트",
+        "카시트 위치",
+        "에어백 위험"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass rear-facing car safety seat with a deep rounded shell and tall headrest wings installed on the front passenger seat of a translucent glass car interior, the back of the seat shell's head end sitting close to the glass dashboard in front of it, a folded airbag panel visible inside the dashboard, seen from the side so the dashboard, the gap and the whole seat are in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hands, baby, doll, amber, orange, red, blood, fire, smoke, explosion, broken glass, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the dashboard panel in front of the empty rear-facing seat pops open and a smooth translucent airbag cushion balloons out toward the seat, the camera whipping in along the side of the dashboard. 1.5-3s: the swelling cushion presses hard against the back of the seat shell right at its head end, pushing the seat back on its base, and that exact contact patch on the back of the headrest glows soft warm amber. 3-4s: the cushion holds pressed against the seat and slowly softens, the amber patch on the head end still glowing until the very last frame. No fire, no smoke, no sparks, no flying debris and nothing breaks at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face and nothing sitting in the seat anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one sharp soft whump of the cushion, no music, no dialogue."
+    }
+  ]
+}

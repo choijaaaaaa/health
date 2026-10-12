@@ -1,0 +1,125 @@
+{
+  "_why": "반투명 인체 포맷(육아, 안전용품 — 병원 신호 없음). 도입부는 뒤보기 카시트에서 다리를 접고 발바닥이 차 등받이에 닿은 아기(훅, 옆에서 전신 거리) + 통념 반박('기준은 나이도 다리 길이도 아니에요') 동안 돌 무렵 아기 다리뼈 클립에 빨간 X — 틀린 기준(다리 길이) 쪽에만 X. 아기 몸은 미드저니 스틸+make_part_clip, 사물만 나오는 카시트·에어백 장면은 Flow(아기 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선.",
+  "top_title": "발이 닿아도 아직 뒤보기 카시트",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_neck.mp4",
+    "crop": [
+      0,
+      560,
+      720,
+      560
+    ],
+    "label": "아기 목뼈"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_rear_facing_feet_on_seat.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_leg_bones.mp4"
+    }
+  ],
+  "opening_until": 9.44,
+  "_opening_why": "훅(0.27~5.03) + 통념 반박(5.41~9.44 '많이들 이때 돌리지만, 앞보기로 바꾸는 기준은 나이도 다리 길이도 아니에요')까지 전체 화면. 새 스틸 클립(5초) + part_baby_leg_bones(8초, 프레임 확인: 정면으로 선 돌 무렵 아기의 허벅지·정강이뼈 호박색) 통째로.",
+  "negations": [
+    {
+      "from": "많이들 이때 돌리지만",
+      "x_at": "아니에요",
+      "clip": "assets_library/xray/output/part_baby_leg_bones.mp4"
+    }
+  ],
+  "_negation_why": "X는 틀린 기준(다리 길이) 그림에만 — 뒤보기 카시트 장면에 X를 얹으면 '뒤보기 하지 마라'로 오독된다.",
+  "timeline": [
+    {
+      "from": "미국소아과학회는 카시트에",
+      "item": "회전형 카시트",
+      "mech": "act_child_measure_height",
+      "act": "act_baby_weigh_scale",
+      "label": "키 · 몸무게 한계"
+    },
+    {
+      "from": "발이 닿아도 괜찮아요",
+      "item": "회전형 카시트",
+      "mech": "act_baby_rear_facing_feet_on_seat",
+      "act": null,
+      "label": "접은 다리",
+      "solo": "뒤보기 카시트에서 다리를 접고 발이 등받이에 닿은 채 편히 앉은 아기 단독(도입부 훅 클립 2회째)"
+    },
+    {
+      "from": "뒤보기가 중요한 건",
+      "item": "회전형 카시트",
+      "mech": "part_baby_neck",
+      "act": null,
+      "label": "목뼈 · 신경",
+      "solo": "아기 머리 옆모습에서 목뼈(그 안 척수 자리)가 호박색 — baby_cu_head_side 스틸, 얼굴 줌 없이 물러나는 카메라"
+    },
+    {
+      "from": "미국 도로교통안전국은",
+      "item": "회전형 카시트",
+      "mech": "m_carseat_shell_spreads_force",
+      "act": null,
+      "label": "등받이째 받침",
+      "solo": "빈 뒤보기 카시트 등받이 전체로 충격이 고르게 퍼지는 사물 단독(아기 없음, 충돌 장면 없음)"
+    },
+    {
+      "from": "다만 뒤보기는 태우기가",
+      "item": "회전형 카시트",
+      "mech": "m_posture_load",
+      "act": null,
+      "label": "허리",
+      "solo": "허리를 비틀어 아기를 넣는 부담 — 척추 마디가 한쪽으로 눌리고 섬유가 당겨지는 기전 단독"
+    },
+    {
+      "from": "그래서 회전형 카시트로",
+      "item": "회전형 카시트",
+      "mech": "act_swivel_carseat_turn",
+      "act": null,
+      "label": "문 쪽으로 회전",
+      "solo": "제품 작동 칸 — 빈 회전형 카시트가 열린 문 쪽으로 돌았다가 벨트가 채워지고 다시 뒤보기로 돌아가 잠기는 사물 단독"
+    },
+    {
+      "from": "고를 땐 KC",
+      "item": "회전형 카시트",
+      "mech": "note_carseat_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(상품 사진은 마지막 칠판에만)"
+    },
+    {
+      "from": "그리고 뒤보기 카시트는",
+      "item": "회전형 카시트",
+      "mech": "m_airbag_hits_seat_back",
+      "act": null,
+      "label": "앞좌석 에어백",
+      "solo": "앞좌석에 단 빈 뒤보기 카시트 등받이 머리 쪽을 에어백이 밀어 치는 사물 단독(아기 없음)"
+    },
+    {
+      "from": "에어백이 터지면",
+      "item": "회전형 카시트",
+      "mech": "part_baby_neck",
+      "act": null,
+      "label": "아기 목뼈"
+    }
+  ],
+  "_timeline_why": "① 10.02~16.60 AAP 권고(키·몸무게 한계까지 뒤보기) — 왼쪽 act_baby_weigh_scale(프레임 확인: 체중계 위 아기, 보호자 손) · 오른쪽 act_child_measure_height(프레임 확인: 벽에 선 아이 다리 호박색) = 몸무게·키, 각 4초 1.65배. ② 16.60~24.64 '발이 닿아도 괜찮아요 … 다리를 접고도 편하게' 훅 클립 2회째(5초 1.6배). ③ 24.64~29.53 목뼈·신경 part_baby_neck(새로 만든 부위 클립 5초, 0.98배). ④ 29.53~36.86 NHTSA '등받이째 감싸 받쳐 목 충격을 줄인다' 새 Flow(6초 1.22배). ⑤ 36.86~41.30 '고정형은 허리를 비틀어' m_posture_load(프레임 확인: 디스크가 한쪽으로 눌리고 섬유 다발 한 점이 호박색, 4초 1.11배). ⑥ 41.30~47.49 제품 작동 칸 새 Flow(6초 1.03배). ⑦ 47.49~53.05 고르는 기준 메모(note_carseat_pick, make_note_card로 만들 것). ⑧ 53.05~56.65 에어백 앞좌석 금지 새 Flow(4초 0.9배). 기전 클립 3회 이상 없음.",
+  "summary_from": "에어백이 터지면",
+  "_summary_why": "병원 신호가 없는 안전용품 topic(card_news_spec no_doctor_signal_reason) — 마지막 이유 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 '앞좌석엔 달지 마세요'는 에어백 장면 칸에 남겨 출처 줄이 칠판에 가리지 않게 했다.",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(part_baby_neck).",
+  "board_items": [
+    "회전형 카시트"
+  ],
+  "sources": [
+    {
+      "from": "미국소아과학회는 카시트에",
+      "text": "출처: 미국소아과학회 「Child Passenger Safety」 Pediatrics 2018 · 「Car Seats: Information for Families」"
+    },
+    {
+      "from": "미국 도로교통안전국은",
+      "text": "출처: 미국 도로교통안전국(NHTSA) 「Car Seats and Booster Seats」"
+    },
+    {
+      "from": "그리고 뒤보기 카시트는",
+      "text": "출처: 미국소아과학회 「Car Seats: Information for Families」"
+    }
+  ]
+}

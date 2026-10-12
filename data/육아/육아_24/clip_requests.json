@@ -1,0 +1,46 @@
+{
+  "requests": [
+    {
+      "name": "act_pour_milk_to_line",
+      "kind": "flow",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "육아_24 4칸(30.93~36.43초 '그러니 우유는 하루 500ml, 작은 생수 한 병만큼만 주고 고기 반찬을 늘려 주세요') 왼쪽. 우유를 컵의 선까지만 따르고 딱 멈춘 뒤, 옆에 둔 작은 생수병과 높이가 같다는 걸 보여 준다(체감 단위). 색인 전수 확인 — 따르는 클립은 act_pour_ors_cup(호박색 수액을 파우치에서 작은 컵에)뿐이고, 우유 클립은 act_push_away_milk(잔을 거절)·act_test_milk_wrist(젖병 온도)·act_mix_formula_bottle(분유 타기)이라 '양을 정해 따르기'가 없다. 범용으로 — 우유 양 제한·하루 우유량·음료 계량·주스 줄이기·수유량 편에 쓴다. 손과 사물만(아기 없음), 숫자·눈금 글자 없음, 엑스레이 화풍 고정.",
+      "fits": [
+        "우유 양 줄이기",
+        "하루 우유량",
+        "우유는 정해진 만큼만",
+        "음료 양 재기",
+        "컵에 따르기",
+        "주스 줄이기",
+        "수유량 조절",
+        "작은 생수 한 병만큼",
+        "칼슘 과다",
+        "철분 부족 예방"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand tilting a plain unlabelled carton of milk over a tall clear drinking cup standing on a flat surface, the cup carrying a single fine engraved ring partway up its side and no other markings, a thin stream of milk just starting to fall into the cup, a small plain unlabelled bottle of water standing right beside the cup, the carton, the cup and the bottle blank and smooth with no labels and no printed scale of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The milk in the stream and in the cup is a soft glowing milky white; the hands, the carton, the cup and the bottle stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed scale numbers, printed label, brand marking, digital display, readout, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, child, blood",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a blank milk carton, a tall clear cup with one engraved ring and a small blank water bottle are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame a steady stream of soft milky white milk pours from the carton into the cup while the camera drops fast to table level and pushes in on the cup. 1.5-3s: the milk climbs the cup and the instant its surface touches the engraved ring the carton snaps upright and the stream cuts off clean, the ring glowing soft warm amber for a moment. 3-4.5s: the carton is set down and slides out of frame, and the other hand pushes the small water bottle up against the cup so their heights line up, the milk level matching the bottle. 4.5-6s: the camera stops hard on the cup and the bottle side by side, the milk surface settling exactly on the ring and holding still until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. The hands stay translucent glass with the finger bones visible inside throughout. No text, no letters, no numbers, no labels, no arrows anywhere in the frame; the cup carries only the single plain ring, never any digits. Low ambient synth hum with a soft pouring gurgle that stops short, no music, no dialogue."
+    },
+    {
+      "name": "act_medicine_out_of_reach",
+      "kind": "flow",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "육아_24 9칸(54.11~57.17초 '손이 안 닿는 곳에 두고, 정해진 양만 먹이세요') 왼쪽. 물약 병 뚜껑을 딸깍 끝까지 잠그고 높은 벽 선반 위 문 달린 수납장에 넣어 문을 닫는다. 색인 전수 확인 — 약 보관·높은 곳·수납 장면이 0건(act_draw_medicine_syringe는 계량, act_child_eye_drops는 안약 넣기). 범용으로 — 철분제·해열제·영양제·세제·배터리 같은 어린이 삼킴 사고 예방(보관) 편에 쓴다. 손과 사물만(아기·아이 없음), 엑스레이 화풍 고정.",
+      "fits": [
+        "약 보관",
+        "손 안 닿는 곳에 두기",
+        "어린이 삼킴 사고 예방",
+        "어린이 중독 예방",
+        "철분제 보관",
+        "해열제 보관",
+        "영양제 보관",
+        "뚜껑 잠그기",
+        "높은 선반 수납장",
+        "세제·배터리 보관"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a small plain unlabelled dropper bottle of amber liquid while the other hand twists its plain cap shut, a small plain wall cabinet with an open door mounted high on a wall at the top of the frame, the bottle, the cap and the cabinet blank and smooth with no labels and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. The liquid inside the bottle is a soft amber; the hands, the bottle, the cap and the cabinet stay pale cyan. --ar 9:16 --no text, letters, numbers, numerals, printed label, brand marking, warning symbol, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, child, blood, needle",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a small blank dropper bottle of amber liquid and a small blank wall cabinet are ever in frame — no face, no head, no body, and nothing else enters the frame. 0-1.5s: from the very first frame the hand twists the cap down hard on the bottle with two firm turns and a short sharp click, the camera tight on the cap. 1.5-3.5s: the hand lifts the bottle straight up and the camera tilts up fast with it, rising past the wall to the small cabinet mounted high above. 3.5-5s: the hand sets the bottle on the cabinet shelf and swings the door shut with a soft thud. 5-6s: the hand pulls back out of frame and the camera holds still on the closed cabinet high on the wall, the faint amber glow of the bottle showing through the translucent door until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. The hands stay translucent glass with the finger bones visible inside throughout. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a cap click and a soft cabinet door thud, no music, no dialogue."
+    }
+  ]
+}

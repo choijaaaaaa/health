@@ -1,0 +1,60 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_pick_scalp_crust",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_25 도입부 훅·통념('정수리에 노랗게 눌어붙은 딱지를 손톱으로 떼어 주고 계신가요? / 하지만 억지로 떼면 안 돼요', 0.32~6.92초) + 빨간 X 클립. 등 대고 누운 아기 정수리를 뒤쪽 위에서 내려다본 흉상 거리, 보호자 손톱이 정수리 각질 딱지 가장자리를 뜯음, 정수리 딱지 자리만 호박색. 색인 확인 — act_scratch_scalp(어른이 자기 머리를 긁음)·act_scratch_shin뿐, 보호자가 아기 머리를 만지는 클립 0건. 범용으로 — 요람딱지·태열 딱지·두피 상처·아기 머리 만지기 편. make_part_clip --no-zoom --seconds 5, region은 스틸 받은 뒤 정수리에 맞춰 잼.",
+      "fits": [
+        "아기 머리 각질",
+        "요람딱지",
+        "손톱으로 딱지 뜯기",
+        "정수리 딱지",
+        "신생아 지루성 피부염",
+        "태열 딱지",
+        "아기 두피 만지기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about one month old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft surface, seen from a high angle above and behind the top of the head at chest-up distance so the crown of the head fills the upper half of the frame and the face is turned away, the camera not pushing into the face, a single translucent glass adult hand of the same material resting near the crown with its index fingertip nail hooked under the edge of a thick flaky crust patch on the crown, lifting it, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the thick flaky crust patch on the crown and the small area of scalp around it. Smooth featureless face turned away, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blood, wound, brand marks, writing on the brush, extra hands, extra arms",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a newborn human infant with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft surface, seen from a high angle above and behind the top of the head at chest-up distance so the crown of the head fills the upper half of the frame and the face is turned away, the camera not pushing into the face, a single translucent glass adult hand of the same material resting near the crown with its index fingertip nail hooked under the edge of a thick flaky crust patch on the crown, lifting it, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the thick flaky crust patch on the crown and the small area of scalp around it. Smooth featureless face turned away, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blood, wound, brand marks, writing on the brush, extra hands, extra arms"
+    },
+    {
+      "name": "act_baby_scalp_brush",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_25 🚨 제품 작동 칸 왼쪽(31.91~44.52초 '순한 아기 샴푸로 거품을 낸 채, 손톱 대신 아기 두피 브러시로 살살 문질러 … 부드러운 솔이 불은 딱지를 … 들어 올려 주거든요'). 거품 낸 아기 정수리에 보호자 손이 브랜드 없는 부드러운 아기 브러시를 얹음, 정수리 호박색. 접촉 동작이라 Flow 안 탐(XRAY_FORMAT 6절). 색인 확인 — 브러시 클립은 칫솔(act_toddler_brush_teeth·m_soft_brush_glide)뿐, 아기 머리 감기기·빗기 클립 0건. 범용으로 — 아기 머리 감기기·두피 브러시·아기 머리 빗기·목욕 편. make_part_clip --no-zoom --seconds 8.",
+      "fits": [
+        "아기 두피 브러시",
+        "아기 머리 감기기",
+        "아기 샴푸 거품",
+        "요람딱지 관리",
+        "아기 머리 빗기",
+        "신생아 목욕",
+        "정수리 문지르기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about one month old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft towel, seen from a high angle above and behind the top of the head at chest-up distance so the crown of the head fills the upper half of the frame and the face is turned away, the camera not pushing into the face, the crown covered in a thin layer of soft white foam, a single translucent glass adult hand of the same material holding a small plain blank baby scalp brush with a rounded head of short very soft fine bristles, gently resting the bristles on the foamy crown, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the foamy crown of the scalp under the bristles. Smooth featureless face turned away, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blood, wound, brand marks, writing on the brush, extra hands, extra arms",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a newborn human infant with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft towel, seen from a high angle above and behind the top of the head at chest-up distance so the crown of the head fills the upper half of the frame and the face is turned away, the camera not pushing into the face, the crown covered in a thin layer of soft white foam, a single translucent glass adult hand of the same material holding a small plain blank baby scalp brush with a rounded head of short very soft fine bristles, gently resting the bristles on the foamy crown, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the foamy crown of the scalp under the bristles. Smooth featureless face turned away, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, blood, wound, brand marks, writing on the brush, extra hands, extra arms"
+    },
+    {
+      "name": "m_crust_soften_brush_lift",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "육아_25 🚨 제품 작동 칸 오른쪽(31.91~44.52초 '떼지 말고 불려서 들뜨게 … 아기 두피 브러시로 살살 문질러 … 부드러운 솔이 불은 딱지를 상처 없이 조금씩 들어 올려 주거든요', 12.6초). 기름에 붙잡혀 두피 겉에 눌어붙은 노란 딱지가 거품에 불어 가장자리가 들뜨고, 부드러운 솔끝이 지나갈 때마다 조금씩 들려 떨어져 나가며 그 밑 피부는 갈라지지 않고 매끈하게 남는다. ⚠️ 근거(research)는 '불린 딱지를 손톱 없이 들어 올림'까지라 한 번에 다 벗겨지거나 병이 낫는 그림은 그리지 않는다 — 조금씩 들림까지. 색인 전수 확인 — m_scalp_flakes_shed(각질이 저절로 떨어져 검은 옷감에 쌓임, 브러시 없음)·m_plug_loosen_open(모공 마개)·m_soft_brush_glide(치아 잇몸선)뿐, 두피 딱지를 솔로 들어 올리는 장면이 없다. 손·사람·아기 없이 두피 블록과 브러시 머리만(아기 단어 없음 — Flow 미성년자 필터 무관). 범용으로 — 요람딱지·두피 각질·비듬 브러시·각질 불려 떼기 편.",
+      "fits": [
+        "두피 딱지 불리기",
+        "두피 브러시 원리",
+        "부드러운 솔로 각질 들어 올리기",
+        "요람딱지",
+        "신생아 지루성 피부염",
+        "두피 각질 제거",
+        "비듬 브러시",
+        "상처 없이 각질 떼기",
+        "샴푸 거품",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up block of translucent glass-like 3D human scalp skin cut open at the front to show its layers, seen slightly from above, a few fine short glass hairs rising out of small follicle openings in the top surface, each hair root sitting in a narrow follicle with a small lobed oil gland beside it, the block filling the lower two thirds of the frame with the dark void above, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Thick flat crusty scale plates glowing soft warm amber lie stuck flat on the scalp surface between the hairs, glued down by a thin glossy film of oil, their edges pressed tight against the skin. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, head, hands, baby, brush, red, blood, wound",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-3s: from the very first frame a soft layer of white foam settles over the scalp surface, and the amber crust plates under it slowly swell and soften, their edges curling up and loosening from the skin, while the camera dives fast down toward them. 3-6s: the rounded head of a small soft brush with short very fine flexible bristles sweeps in from the side on its own and passes gently over the surface in slow small circles; each time the soft bristle tips pass, a loosened crust plate lifts off in a few pieces and is carried away in the foam, the bristles bending softly and never scraping. 6-8s: the camera races low along the surface as the brush moves off, showing smooth intact pale cyan skin where the crusts were, with no cracks and no tears, only a few small amber pieces still loosely sitting at the far edge, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face anywhere in the frame; the brush head moves on its own. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft foam fizz and a gentle bristle swish, no music, no dialogue."
+    }
+  ]
+}

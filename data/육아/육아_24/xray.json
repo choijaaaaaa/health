@@ -1,0 +1,121 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 숟가락으로 몇 입 받아먹는 아기(훅 '밥은 몇 숟갈 뜨다 말고') → 보호자 무릎에서 젖병을 잡고 먹는 아기(훅 '우유만 찾나요'·통념 '밥 대신 먹여도'). 아기 얼굴이 보이는 두 클립은 기존 스틸+코드(가슴 위 거리 고정). 빨간 X는 걸지 않는다 — 통념 문장이 '~가 아니에요' 꼴이 아니고, 우유 마시는 아기 위 X는 '우유를 끊어라'로 읽힌다(대본은 500ml까지 주라). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 9칸 중 새로 받는 건 Flow 2개(우유를 선까지만 따르기·약병을 손 안 닿는 곳에 두기, 둘 다 사물만)와 메모 카드 1개(make_note_card, 크레딧 없음).",
+  "top_title": "밥 대신 우유만 찾는 아이라면",
+  "inset": {
+    "clip": "assets_library/xray/output/m_oxygen_transport_drop.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "핏속 적혈구"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_spoon_feed.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_feed_upright.mp4"
+    }
+  ],
+  "opening_until": 11.1,
+  "_opening_why": "훅(0.42~4.56) + 통념 반박(5.50~11.10 '우유는 영양이 많으니 밥 대신 먹여도 된다고 여기죠. 그런데 우유가 오히려 철을 모자라게 만들 수 있어요')까지 전체 화면. 세 번째 문단('실제로') 직전 자막 끝 = 11.10초. 통클립 4초+4초 = 8초를 11.3초에 — 1.41배(숟가락 0~5.7초 = 훅, 젖병 5.7~11.3초 = 통념).",
+  "negations": [],
+  "timeline": [
+    {
+      "from": "실제로 두 살에서",
+      "item": "아기 철분제",
+      "mech": "m_nutrient_depletion",
+      "act": "act_baby_feed_upright",
+      "label": "몸에 모아 둔 철"
+    },
+    {
+      "from": "우유엔 철이 거의",
+      "item": "아기 철분제",
+      "mech": "m_nutrient_absorption_block",
+      "act": "act_eat_spinach_with_milk",
+      "label": "장 속 철 흡수"
+    },
+    {
+      "from": "배를 채워",
+      "item": "아기 철분제",
+      "mech": "m_emptying_delay",
+      "act": null,
+      "label": "위",
+      "solo": "같은 문장 뒷절('배를 채워 철 많은 고기가 들어갈 자리까지 뺏어요') — 우유로 위가 가득 차는 기전 단독. 젖병 아기 클립은 도입부·1칸에 이미 써서 세 번째는 피함"
+    },
+    {
+      "from": "그러니 우유는 하루",
+      "item": "아기 철분제",
+      "mech": "act_cut_food_small",
+      "act": "act_pour_milk_to_line",
+      "label": "고기 반찬"
+    },
+    {
+      "from": "밥 양이 늘 때까지는",
+      "item": "아기 철분제",
+      "mech": "m_glucose_spike",
+      "act": "act_baby_vitd_drop",
+      "label": "장 → 핏속 철"
+    },
+    {
+      "from": "다만 우유랑 같이",
+      "item": "아기 철분제",
+      "mech": "m_nutrient_absorption_block",
+      "act": null,
+      "label": "철 흡수 막힘",
+      "solo": "우유와 같이 먹이면 흡수가 줄어듦 — 2칸과 같은 '칼슘(파란 쐐기)이 구멍을 차지해 철(금색 구슬)이 못 들어가는' 기전 단독 2회째"
+    },
+    {
+      "from": "돌 지난 아이용인지",
+      "item": "아기 철분제",
+      "mech": "note_iron_drops_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이 기준만(돌 지난 아이용 / 삼키기 쉬운 물약). '고를 땐'(0.4초)은 앞 칸에 남겨 메모가 기준을 말하는 순간 뜨게 하고, 앞 칸을 3초 이상으로 둔다"
+    },
+    {
+      "from": "영국 국민보건서비스는",
+      "item": "아기 철분제",
+      "mech": "m_toxin_load",
+      "act": null,
+      "label": "넘치는 철",
+      "solo": "기관 안내 문장(많이 삼키면 목숨이 위험) — 세포로 흘러든 것이 넘쳐 세포를 가득 채우는 기전 단독. 위·간 손상 같은 세부는 근거(research.md: NHS 'can be fatal')를 넘어서 그리지 않는다"
+    },
+    {
+      "from": "손이 안 닿는 곳에",
+      "item": "아기 철분제",
+      "mech": "act_draw_medicine_syringe",
+      "act": "act_medicine_out_of_reach",
+      "label": "정해진 양"
+    },
+    {
+      "from": "아이가 창백하고",
+      "item": "아기 철분제",
+      "mech": "m_oxygen_transport_drop",
+      "act": null,
+      "label": "핏속 적혈구"
+    }
+  ],
+  "_timeline_why": "저장철 감소 → 칼슘이 흡수를 막음 → 위를 채움 → 우유 줄이기·고기 → 제품 작동 → 같이 먹이면 안 됨 → 고르는 기준 → 삼킴 위험 → 보관·정량. ① 11.56~21.60 '1,311명을 살펴보니 … 몸에 모아 둔 철이 적었어요. 하루 500ml까지는 거의 차이가 없었고요'(10.0초) 왼쪽 act_baby_feed_upright(프레임 확인: 보호자 무릎에 기대 젖병을 잡고 먹는 아기, 4초 2.5배) · 오른쪽 m_nutrient_depletion(프레임 확인: 세포마다 가득하던 호박색 알갱이가 한 줌으로 줄고 텅 빔, 4초 2.5배). '하루 500ml' 문장 2.2초만 떼면 칸 최소 3초에 못 미쳐 한 칸. ② 21.60~26.62 '우유엔 철이 거의 없어요. 게다가 우유 속 칼슘이 다른 음식의 철 흡수까지 막고'(5.0초) 왼쪽 act_eat_spinach_with_milk(프레임 확인: 시금치를 먹고 우유를 마시면 위에서 섞임 — '다른 음식 + 우유', 6초 0.88배) · 오른쪽 m_nutrient_absorption_block(프레임 확인: 파란 쐐기가 구멍에 쏙 들어가고 금색 구슬은 표면에 남음, 4초 1.3배). ③ 26.62~30.93 '배를 채워 … 자리까지 뺏어요'(4.3초) m_emptying_delay(프레임 확인: 위 단면이 호박색 내용물로 차고 계속 부어짐, 4초 1.0배). ④ 30.93~36.43 '우유는 하루 500ml, 작은 생수 한 병만큼만 주고 고기 반찬을 늘려 주세요'(5.5초) 왼쪽 새 행위 act_pour_milk_to_line(우유를 선까지만 따르고 멈춤 + 옆 작은 생수병, 6초 0.92배 — 색인의 따르기 클립은 act_pour_ors_cup 호박색 수액뿐) · 오른쪽 act_cut_food_small(프레임 확인: 익힌 음식을 작게 깍둑썰기 — 아이 반찬, 6초). ⑤ 36.43~41.65 '아기 철분제로 모자란 철만 채워 주면 편해요'(5.2초) 제품 작동 칸 — 왼쪽 act_baby_vitd_drop(프레임 확인: 안긴 아기 입에 스포이트 한 방울 → 입~식도~위 호박색, 8초 0.65배) · 오른쪽 m_glucose_spike(프레임 확인: 장 융모 위 금색 구슬이 혈관으로 빨려 올라가 가득 흐름 — ②의 막혔던 금색 구슬이 흡수되는 그림, 4초 1.3배). ⑥ 41.65~44.88 '다만 우유랑 같이 먹이면 흡수가 확 줄어요'(3.2초) m_nutrient_absorption_block 2회째. ⑦ 44.88~49.01 메모 카드(4.2초). ⑧ 49.01~54.11 'NHS는 … 많이 삼키면 목숨이 위험'(5.1초) m_toxin_load(프레임 확인: 통로로 호박색 액이 흘러들어 세포 하나를 가득 채움, 4초 1.28배). ⑨ 54.11~57.17 '손이 안 닿는 곳에 두고, 정해진 양만 먹이세요'(3.1초) 왼쪽 새 행위 act_medicine_out_of_reach(약병 뚜껑을 닫아 높은 선반에 올림) · 오른쪽 act_draw_medicine_syringe(프레임 확인: 바늘 없는 투약기로 물약을 눈금까지 잼, 6초). 기전 클립은 m_nutrient_absorption_block만 2회.",
+  "summary_from": "아이가 창백하고",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 있는 클립(m_oxygen_transport_drop, 빈혈).",
+  "board_items": [
+    "아기 철분제"
+  ],
+  "sources": [
+    {
+      "from": "실제로 두 살에서",
+      "until": "하루 500ml까지는",
+      "text": "출처: Maguire 외, Pediatrics 2013 (2~5세 1,311명 관찰 연구)"
+    },
+    {
+      "from": "영국 국민보건서비스는",
+      "until": "정해진 양만",
+      "text": "출처: NHS 「Iron deficiency anaemia」 · 미국 FDA 철 함유 제품 경고(21 CFR 101.17)"
+    }
+  ],
+  "_panel_act_why": "행위 칸은 보호자 쪽 — 아기 몸이 보이는 건 기존 스틸+코드 클립(act_baby_feed_upright·act_baby_vitd_drop)만, 새로 받는 둘은 손과 사물만(Flow에 아기 단어 없음)."
+}

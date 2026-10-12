@@ -1,0 +1,78 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_wipe_tongue_gauze",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_26 도입부 훅('혀에 낀 하얀 게 우유 찌꺼기인 줄 알고 박박 닦아 내시나요', 0.40~4.80초) 전체 화면 + 빨간 X('닦지 말고', 13.4~15.5초). 색인 전수(닦기·wipe·거즈·혀·입안) — act_baby_wipe_eye는 눈가를 닦고, act_baby_check_mouth는 입술을 내려 보기만 하며, act_toddler_brush_teeth는 칫솔로 앞니. 거즈 감은 손가락이 혀를 닦는 장면이 없다. 범용으로 — 아구창·혀 백태·이 나기 전 잇몸 닦기·수유 후 입안 닦기 편에 쓴다. 접촉 동작이라 Flow 대신 스틸+make_part_clip(--no-zoom, 점등은 혀). 얼굴은 흉상 거리.",
+      "fits": [
+        "아구창",
+        "혀 닦기",
+        "입안 닦기",
+        "거즈로 닦기",
+        "혀 백태",
+        "잇몸 닦기",
+        "아기 구강 관리",
+        "우유 찌꺼기"
+      ],
+      "midjourney": "Medical holographic visualization of two translucent glass-like 3D anatomical models in one scene: a pair of adult-sized translucent glass hands and forearms entering from the edge of the frame, and a small figure with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — both rendered as almost fully transparent thin glass shells with every internal structure in the same soft pale cyan glow, except one single region on the small figure glowing soft warm amber, the adult shown only as hands and forearms entering from the edge of the frame with no adult head or face anywhere in the frame, the small figure lying on its back, seen from a high three-quarter angle at chest-up distance, the camera not pushing into the face, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. One adult hand gently steadies the small figure's chin; the index finger of the other adult hand is wrapped in a small plain square of damp gauze and rests on the small figure's tongue inside the slightly open mouth, mid-wipe. The single warm amber region is the tongue and the inner cheeks inside the mouth. Smooth simple face with no detailed features. No adult head, no adult face, no adult shoulders anywhere in the frame. --ar 9:16 --no text, letters, numbers, numerals, printed label, arrows, watermark, logo, UI, interface, opaque skin, red, blood, second glowing area, detailed facial features, eyes, eyelashes, hair, toys, photo, photorealistic skin, adult proportions, real child, adult head, adult face, clothing, cotton swab, toothbrush, close-up of the face, crying face",
+      "midjourney_alt": "Medical holographic visualization of two translucent glass-like 3D anatomical models in one scene: a caregiver's translucent glass hands and a human baby about three months old lying on its back, seen from a high three-quarter angle at chest-up distance, both rendered as almost fully transparent thin glass shells with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber, the adult shown only as hands and forearms with no head in frame, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. One hand steadies the chin; the other hand's index finger, wrapped in a small plain damp gauze square, wipes the baby's tongue inside the slightly open mouth. The tongue and inner cheeks glow warm amber. Smooth simple face with no detailed features. --ar 9:16 --no text, letters, numbers, numerals, printed label, arrows, watermark, logo, UI, interface, opaque skin, red, blood, second glowing area, detailed facial features, eyes, hair, photo, photorealistic skin, adult proportions, real child, adult head, adult face, toothbrush, close-up of the face, crying face"
+    },
+    {
+      "name": "m_yeast_cling_teat",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_26 2칸(22.71~30.51초 '이 균은 쪽쪽이와 젖병 꼭지에도 붙어 살아요. 실제로 아기 100명의 쪽쪽이를 살펴보니, 44%에서 칸디다가 나왔어요', 7.8초) 기전. 실리콘 꼭지 단면의 미세한 틈·안쪽 벽에 둥근 효모 알갱이가 내려앉아 싹을 틔우고 실 가닥을 뻗으며 덩어리로 붙는다. 색인 전수(곰팡이·칸디다·쪽쪽이·젖꼭지·biofilm·세균 번식·균이 붙어) — m_fungal_growth·m_bacteria_growth는 몸 세포 표면이라 '물건에 붙어 산다'가 안 보인다. 범용으로 — 젖병·쪽쪽이 위생, 아구창 재발, 젖꼭지 오염, 치발기·칫솔 세균 편에 쓴다. 사람·아기 없이 사물 단면만(필터 회피), 엑스레이 화풍 고정. m_steam_into_teat_kills_yeast와 같은 시작 스틸 구도.",
+      "fits": [
+        "쪽쪽이 곰팡이",
+        "젖병 꼭지 세균",
+        "칸디다",
+        "아구창 재발",
+        "물건 표면에 균이 붙음",
+        "젖꼭지 오염",
+        "치발기 위생",
+        "바이오필름"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up lengthwise cross-section of a single plain soft rounded feeding teat made of translucent glass-like material, cut in half to show its thick curved wall, the narrow hollow channel running up through the middle to a tiny hole at the tip, and fine tiny crevices and scratches along the inner wall, rendered in the same soft pale cyan glow with softly glowing edges, a few tiny round pale specks resting in the crevices of the inner wall, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marking, UI, interface, people, human figure, baby, face, mouth, hands, bottle label, red, photo, photorealistic",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera dives fast down the hollow channel of the cut-open teat toward the inner wall, where tiny round specks drift in and settle into the scratches and crevices, each one lighting warm amber as it lands. 2-4s: the amber specks swell and bud, small round daughter cells popping off their sides, and thin amber threads push out from them and anchor into the crevices of the wall. 4-6s: the camera pulls back across the inner wall as the amber clumps knit into a sticky web that coats the crevices and creeps up toward the tiny hole at the tip, holding until the very last frame while the teat wall itself stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no baby, no face, no mouth, no hands anywhere in the frame — only the cut-open teat and the growing specks. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with faint wet budding pops, no music, no dialogue."
+    },
+    {
+      "name": "act_load_bottle_sterilizer",
+      "kind": "flow",
+      "seconds": 8,
+      "ref": "assets_library/xray/stills/cu_hand.jpg",
+      "why": "육아_26 🚨 제품 작동 칸 왼쪽(36.43~49.53초 '그래서 씻은 젖병과 쪽쪽이를 젖병 소독기에 넣어 두면 편해요. 뜨거운 수증기가 꼭지 속까지 들어가거든요. … 스팀 소독기가 쪽쪽이 꼭지 속 칸디다까지 모두 없앴어요', 13.1초). 손이 씻은 젖병을 거꾸로 꽂고 쪽쪽이를 선반에 올리고 뚜껑을 닫으면 안에서 수증기가 차오른다. 색인 전수(젖병·소독·sterilize·스팀·steam·수증기) — act_sterilize_bottles는 냄비 열탕이라 제품(스팀 소독기)이 다르다. 범용으로 — 젖병 소독기·쪽쪽이 소독·장염/로타 예방·분유 수유 위생 편에 쓴다. 손과 사물만, 아기 없음.",
+      "fits": [
+        "젖병 소독기",
+        "스팀 소독",
+        "쪽쪽이 소독",
+        "젖병 소독",
+        "수유 위생",
+        "아구창 예방",
+        "장염 예방",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a tall clear feeding bottle upside down just above the open top of a plain rounded countertop steam sterilizer, a smooth blank dome-shaped appliance with a wide base, an inner rack of upright pegs and a small upper tray, two clear bottles already standing upside down on the pegs and a plain soft pacifier resting on the upper tray, the clear lid set beside it, the sterilizer, the bottles and the pacifier all blank and smooth with no labels, no buttons with markings, no display and no markings of any kind, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, numerals, printed label, brand marking, digital display, readout, buttons with symbols, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, pot, stove, boiling water",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands, a plain dome-shaped steam sterilizer, a few clear feeding bottles and a plain pacifier are ever in frame — no face, no head, no body, no baby, and nothing else enters the frame. 0-2s: from the very first frame the hand pushes the upside-down bottle down onto a peg of the rack with a firm click as the camera swoops low to the rim of the sterilizer. 2-4s: the other hand sets the soft pacifier onto the upper tray beside the bottles, then both hands lift the clear lid and press it down shut over everything. 4-6s: the hands pull out of frame and thick white steam surges up from the base inside the closed clear dome, billowing around the bottles and glowing warm amber as it climbs, the camera pushing in hard toward the lid. 6-8s: the camera presses close to the clear lid as the amber steam swirls into the open necks of the bottles and around the soft teats and the pacifier, filling the dome completely until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with a plastic click, a soft lid thud and a rising steam hiss, no music, no dialogue."
+    },
+    {
+      "name": "m_steam_into_teat_kills_yeast",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "육아_26 🚨 제품 작동 칸 오른쪽(36.43~49.53초 '뜨거운 수증기가 꼭지 속까지 들어가거든요. 영국 연구진의 시험에서도 스팀 소독기가 쪽쪽이 꼭지 속 칸디다까지 모두 없앴어요'). m_yeast_cling_teat와 같은 꼭지 단면에서 호박색 효모 덩어리가 붙어 있는 상태로 시작 → 뜨거운 수증기가 구멍·통로를 타고 꼭지 안쪽 끝까지 밀려들어 틈마다 스며듦 → 덩어리가 쪼그라들어 부서지고 흩어져 벽이 깨끗한 청록으로 남는다. 근거(Millar 2021: 스팀이 쪽쪽이 꼭지 속 칸디다까지 제거)대로 '꼭지 속까지 없어짐'만 그린다. 색인 전수(스팀·steam·수증기·열로 살균·세균이 죽·heat kills) — 열이 균을 없애는 장면이 없다(m_zpt_yeast_shrink는 두피+실사풍 드리프트). 범용으로 — 젖병 소독기·스팀 살균·쪽쪽이 소독·열탕 소독 원리 편에 쓴다. 사람 없이 사물 단면만.",
+      "fits": [
+        "스팀 소독 원리",
+        "수증기가 꼭지 속까지",
+        "열로 균이 죽음",
+        "젖병 소독기",
+        "쪽쪽이 소독",
+        "칸디다 제거",
+        "살균",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up lengthwise cross-section of a single plain soft rounded feeding teat made of translucent glass-like material, cut in half to show its thick curved wall, the narrow hollow channel running up through the middle to a tiny hole at the tip, and fine tiny crevices along the inner wall, rendered in the same soft pale cyan glow with softly glowing edges, small sticky clumps of round budding cells with thin threads glowing warm amber clinging inside the crevices of the inner wall, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marking, UI, interface, people, human figure, baby, face, mouth, hands, bottle label, red, photo, photorealistic",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame thick swirling white steam blasts in through the open base of the cut-open teat and rushes up the hollow channel, the camera racing up the channel just behind the steam front. 2-4s: the hot steam squeezes into every crevice of the inner wall and all the way to the tiny hole at the tip, wrapping around the warm amber clumps, which flicker and start to shrivel. 4-6s: the clumps crumple and shrink, their threads snapping, then break apart into faint flakes that dissolve into the steam. 6-8s: the camera pulls back along the inner wall as the steam thins, showing every crevice now clean and empty, the whole teat wall glowing an even soft pale cyan with no amber left, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no baby, no face, no mouth, no hands anywhere in the frame — only the cut-open teat, the steam and the clumps. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a rushing steam hiss and faint crackling as the clumps shrivel, no music, no dialogue."
+    }
+  ]
+}

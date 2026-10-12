@@ -1,0 +1,98 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부: 훅 '혀에 낀 하얀 게 … 박박 닦아 내시나요' = 보호자가 거즈 감은 손가락으로 아기 혀를 닦는 새 스틸(act_baby_wipe_tongue_gauze) → 통념 반박 '볼 안쪽까지 하얀 막' = 입을 벌려 볼 안쪽을 보는 act_baby_check_mouth → '문지르면 피가 날 수' = 점막이 찢어지는 m_tissue_tear. 빨간 X는 '닦지 말고'에서 닦는 장면 위에(틀린 행동 = 박박 닦기). 얼굴은 가슴 위 거리 고정. 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 새 Flow는 사물·단면만 셋(쪽쪽이 꼭지 곰팡이·소독기 넣기·스팀이 꼭지 속 균을 없앰), 아기 몸은 미드저니 스틸 하나.",
+  "top_title": "아기 혀에 하얀 막이 안 지워진다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_baby_check_mouth.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "입안"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_wipe_tongue_gauze.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_check_mouth.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_tissue_tear.mp4"
+    }
+  ],
+  "opening_until": 15.1,
+  "_opening_why": "훅(0.40~4.80) + 통념 반박(5.36~15.10 '우유 자국은 닦으면 지워져요 … 닦지 말고 소아과 진료를 받으세요')까지 전체 화면. 세 번째 문단('아구창은 입안에') 직전 자막 끝 = 15.10초. 통클립 4초×3 = 12초를 15.6초에 — 1.3배. 순서대로 닦기(훅) → 볼 안쪽 확인(하얀 막) → 점막 찢어짐(피가 날 수).",
+  "negations": [
+    {
+      "from": "닦지 말고",
+      "x_at": "닦지 말고",
+      "clip": "assets_library/xray/output/act_baby_wipe_tongue_gauze.mp4"
+    }
+  ],
+  "_negation_why": "'문지르면 피가 날 수 있으니, 닦지 말고' — 틀린 쪽은 박박 닦는 행동이라 훅과 같은 닦기 장면에 X. from을 '닦지 말고'로 둬 앞 구절('피가 날 수') 동안은 m_tissue_tear가 보인다.",
+  "timeline": [
+    {
+      "from": "아구창은 입안에",
+      "item": "젖병 소독기",
+      "mech": "m_fungal_growth",
+      "act": "act_baby_oral_syringe_feed",
+      "label": "입안 곰팡이균"
+    },
+    {
+      "from": "이 균은 쪽쪽이와",
+      "item": "젖병 소독기",
+      "mech": "m_yeast_cling_teat",
+      "act": "act_baby_sleep_pacifier",
+      "label": "쪽쪽이 꼭지"
+    },
+    {
+      "from": "미국소아과학회도",
+      "item": "젖병 소독기",
+      "mech": "m_fungal_growth",
+      "act": "act_baby_feed_upright",
+      "label": "입안에 다시 번짐"
+    },
+    {
+      "from": "그래서 씻은 젖병과",
+      "item": "젖병 소독기",
+      "mech": "m_steam_into_teat_kills_yeast",
+      "act": "act_load_bottle_sterilizer",
+      "label": "꼭지 속"
+    },
+    {
+      "from": "고를 땐 스팀",
+      "item": "젖병 소독기",
+      "mech": "note_sterilizer_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(스팀 방식 / 젖병·쪽쪽이 같이 / 물은 설명서만큼). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "아기가 젖을 덜",
+      "item": "젖병 소독기",
+      "mech": "act_baby_check_mouth",
+      "act": null,
+      "label": "입안"
+    }
+  ],
+  "_timeline_why": "① 15.70~22.71 '아구창은 … 칸디다가 불어나서 생겨요. 병원에선 곰팡이 약을 입안에 발라 줘요'(7.0초) 왼쪽 act_baby_oral_syringe_feed(프레임 확인: 보호자 품 아기 입에 시린지, 입이 호박색 — 약을 입안에 넣는 장면, 4초 1.75배), 오른쪽 m_fungal_growth(세포 위로 호박색 균사가 그물처럼 번짐, 4초). 둘째 문장은 1.9초라 단독 칸 불가. ② 22.71~30.51 '이 균은 쪽쪽이와 젖병 꼭지에도 … 44%에서 칸디다'(7.8초) 왼쪽 act_baby_sleep_pacifier(쪽쪽이 물고 자는 아기 전신, 7초 1.11배), 오른쪽 새 기전 m_yeast_cling_teat(실리콘 꼭지 틈에 곰팡이균이 붙어 자람, 6초 1.3배) — 색인 전수(곰팡이·칸디다·쪽쪽이·젖꼭지·biofilm·세균 번식): 균이 사물 표면에 붙는 장면이 없다(m_fungal_growth·m_bacteria_growth는 몸 세포 표면). ③ 30.51~36.43 미국소아과학회 '제대로 삶지 않은 젖병·쪽쪽이 탓'(5.9초) 왼쪽 act_baby_feed_upright(젖병 무는 아기, 4초 1.48배), 오른쪽 m_fungal_growth 2회째(꼭지에서 다시 입안으로). ④ 36.43~49.53 '젖병 소독기에 넣어 두면 … 수증기가 꼭지 속까지 … 스팀 소독기가 칸디다까지 모두 없앴어요'(13.1초) 🚨 제품 작동 칸 — 왼쪽 새 act_load_bottle_sterilizer(손만, 8초 1.64배), 오른쪽 새 m_steam_into_teat_kills_yeast(8초 1.64배). 4.9초짜리 연구 문장을 따로 두면 같은 기전이 연달아 재시작돼 한 칸으로 둔다. act_sterilize_bottles(냄비 열탕)는 제품이 달라 쓰지 않는다. ⑤ 49.53~57.78 고르는 기준 메모(새 카드). 기전 m_fungal_growth 2회, 나머지 1회.",
+  "summary_from": "아기가 젖을 덜",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 칠판이 덮어 안 그려지므로 있는 클립.",
+  "board_items": [
+    "젖병 소독기"
+  ],
+  "sources": [
+    {
+      "from": "실제로 아기 100명의",
+      "until": "미국소아과학회도",
+      "text": "출처: Manning 외, Arch Dis Child 1985 · 미국소아과학회 「Thrush and Other Candida Infections」"
+    },
+    {
+      "from": "영국 연구진의",
+      "text": "출처: Millar 외, Infect Dis Health 2021 · NHS 「Sterilising baby bottles」"
+    }
+  ]
+}
