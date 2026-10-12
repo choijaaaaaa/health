@@ -598,5 +598,41 @@
       0.12
     ],
     "_note": "--pull-out --seconds 11(아기 얼굴 — 밀고 들어가는 줌 금지)"
+  },
+  "act_baby_pick_scalp_crust.jpg": {
+    "act_baby_pick_scalp_crust": [
+      0.2,
+      0.2,
+      0.3,
+      0.15
+    ],
+    "_note": "--no-zoom --seconds 5(아기 정수리 딱지 — 얼굴 없음, 뒤에서)"
+  },
+  "act_baby_scalp_brush.jpg": {
+    "act_baby_scalp_brush": [
+      0.33,
+      0.21,
+      0.6,
+      0.17
+    ],
+    "_note": "--no-zoom --seconds 8(정수리 위 브러시)"
+  },
+  "act_baby_wipe_tongue_gauze.jpg": {
+    "act_baby_wipe_tongue_gauze": [
+      0.52,
+      0.25,
+      0.25,
+      0.14
+    ],
+    "_note": "--no-zoom --seconds 6(입·혀, 얼굴 줌 금지)"
+  },
+  "act_baby_rear_facing_feet_on_seat.jpg": {
+    "act_baby_rear_facing_feet_on_seat": [
+      0.5,
+      0.46,
+      0.48,
+      0.34
+    ],
+    "_note": "--pull-out --seconds 5(접은 다리·등받이에 닿은 발)"
   }
 }
