@@ -74,7 +74,7 @@
 **6. 고르는 기준** "고를 땐 KC 안전인증 표시가 있는지, 뒤보기로 태울 수 있는 몸무게 한계가 넉넉한지 보세요."
 - SK: 안전인증대상 어린이제품(4품목) 목록에 "자동차용 어린이 보호장치"가 있고, 표시 예시 "안전인증대상어린이제품 중 \"자동차용 어린이 보호장치\" 의 경우" — 국내 판매 카시트는 KC 안전인증 대상.
 - 한계 표기: AAP-CS "Instructions that come with your car safety seat will tell you the height and weight limits for the seat." · "(These limits are listed on the seat and in the instruction manual.)"
-- 넉넉한 한계: AAP-CS(겸용 카시트) "Many have higher limits in rear-facing weight" + "(up to 40-50 pounds) and height than those of rear-facing–only seats, a feature that makes convertible seats ideal for bigger babies and toddlers." — 대본엔 숫자(18~23kg) 안 넣음. 블로그엔 "겸용 카시트 중엔 뒤보기 한계가 18~23kg(40~50파운드)인 것도 있다"로 쓸 수 있음.
+- 넉넉한 한계: AAP-CS(겸용 카시트) "Many have higher limits in rear-facing weight" + "(up to 40-50 pounds) and height than those of rear-facing–only seats, a feature that makes convertible seats ideal for bigger babies and toddlers." — 10-12 검사(단위 수치 0개)로 대본에 '뒤보기 몸무게 한계가 18kg 넘게'를 넣음(40파운드 ≈ 18kg, AAP 'up to 40-50 pounds'). 블로그엔 "겸용 카시트 중엔 뒤보기 한계가 18~23kg(40~50파운드)인 것도 있다"로 쓸 수 있음.
 - ⚠️ R129(i-Size)·"15개월까지 뒤보기 의무"는 UNECE 원문을 못 받아(403) 넣지 않았다. 코디네이터가 상품 상세에서 뒤보기 한계(kg·cm)와 KC 인증번호를 확인할 것.
 
 **7. 마지막 안전 기준** "앞으로 돌리는 건 이 한계에 닿았을 때예요. 또 뒤보기 카시트는 에어백이 있는 앞좌석에 달면 안 돼요. 터지는 에어백이 아기 머리 쪽을 치거든요."
