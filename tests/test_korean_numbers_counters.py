@@ -70,3 +70,13 @@ def test_ranges_symbols_months_read_naturally():
     assert to_speech("1:1") == "일 대 일"
     assert to_speech("1/2") == "이분의 일"
     assert "—" not in to_speech("감소 — 이 세 가지")
+
+
+# 2026-10-14 "119"를 "백십구"로 읽었다 — 긴급·안내 번호와 전화번호는 한 자리씩
+def test_hotlines_and_phone_numbers_read_digit_by_digit():
+    from lib.korean_numbers import to_speech
+    assert to_speech("119에 전화하세요") == "일일구에 전화하세요"
+    assert to_speech("질병관리청 1339") == "질병관리청 일삼삼구"
+    assert to_speech("1577-1234로") == "일오칠칠, 일이삼사로"
+    assert to_speech("119명") == "백십구 명"          # 수량은 그대로
+    assert "일이공" not in to_speech("혈압이 120에")   # 흔한 수치는 번호로 보지 않는다

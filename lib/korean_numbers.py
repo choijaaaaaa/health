@@ -98,9 +98,26 @@ def _english_codes(text: str) -> str:
     return _OMEGA_PAT.sub(lambda m: "오메가" + _EN_NUM[int(m.group(1))], text)
 
 
+# 전화·긴급 번호는 한 자리씩 읽는다 — 2026-10-14 "119"를 "백십구"로 읽었다(사용자 "일일구가 아니고 백십구라고 읽더만 말이 되냐").
+# 뒤에 세는 단위가 붙으면(119명·112개) 그건 수량이라 원래대로 읽는다. 0은 "공"(전화번호 관례).
+_DIGIT_READ = {"0": "공", **{str(i): _SINO[i] for i in range(1, 10)}}
+# 수량·연도·혈압으로도 흔한 숫자(120·1600·1800 등)는 넣지 않는다 — "혈압 120"을 "일이공"으로 읽게 된다
+_HOTLINE = re.compile(r"(?<![\d.,])(112|119|114|911|1339|1388|1393|1577|1588|1544|1566|1644|1661|1670|1899)"
+                      r"(?![\d.,%])(?!\s*(?:개|명|번|살|세|분|초|년|월|일|주|배|회|층|가지|마리|권|장|대|곳|원|칼로리|걸음|"
+                      r"g|kg|mg|ml|mL|cm|m|km|kcal|IU|mmHg))")
+_PHONE = re.compile(r"(?<![\d])(\d{2,4})-(\d{3,4})(?:-(\d{4}))?(?![\d])")
+
+
+def _digits(s: str) -> str:
+    return "".join(_DIGIT_READ[c] for c in s)   # 띄우면 TTS가 한 자씩 끊어 읽는다 — "일일구"로 붙인다
+
+
 def to_speech(text: str) -> str:
     """TTS에 보낼 텍스트 — 아라비아 숫자를 한글 읽기로 바꾼다."""
     text = _english_codes(text)
+    # 전화번호(02-1234-5678, 1577-1234)·긴급 번호(119)는 한 자리씩 — 수량 읽기보다 먼저
+    text = _PHONE.sub(lambda m: ", ".join(_digits(g) for g in m.groups() if g), text)
+    text = _HOTLINE.sub(lambda m: _digits(m.group(1)), text)
     def sub(m: re.Match) -> str:
         num, big, unit = m.group(1).replace(",", ""), m.group(2), m.group(3) or ""
         # 단위 자리에 조사·어미가 걸린 경우(40세가 → unit="세가")는 단위만 떼어 읽고 나머지는 붙인다
