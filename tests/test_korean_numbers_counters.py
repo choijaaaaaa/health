@@ -55,7 +55,18 @@ def test_no_raw_units_left_in_any_narration():
         if not p.exists():
             continue
         sp = to_speech(p.read_text(encoding="utf-8"))
-        left = re.findall(r"\d|(?<![A-Za-z])[a-zμµ°][A-Za-z/]{0,5}(?![A-Za-z])", sp)
+        left = re.findall(r"\d|[~∼:/—]|(?<![A-Za-z])[a-zμµ°][A-Za-z/]{0,5}(?![A-Za-z])", sp)
         if left:
             bad.append(f"{d.name}: {sorted(set(left))[:5]}")
     assert not bad, "TTS 텍스트에 날것으로 남은 숫자·단위:\n" + "\n".join(bad)
+
+
+def test_ranges_symbols_months_read_naturally():
+    from lib.korean_numbers import to_speech
+    assert to_speech("4~5월엔") == "사 월에서 오 월엔"
+    assert to_speech("kg당") == "킬로그램당"
+    assert to_speech("6월") == "유월" and to_speech("10월") == "시월"
+    assert to_speech("7:30") == "일곱 시 삼십 분"
+    assert to_speech("1:1") == "일 대 일"
+    assert to_speech("1/2") == "이분의 일"
+    assert "—" not in to_speech("감소 — 이 세 가지")
