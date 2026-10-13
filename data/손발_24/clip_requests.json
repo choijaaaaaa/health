@@ -1,0 +1,43 @@
+{
+  "requests": [
+    {
+      "name": "act_file_heel_callus",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "손발_24 도입부 통념('두꺼워지면 칼이나 밀대로 박박 깎는 분이 많아요. 하지만 깎는 걸로는 끝나지 않아요', 5.20~9.28초) 전체 화면 + 빨간 X, 2칸(14.65~18.44초 '그래서 깎아 내도 누르는 힘이 그대로면 금세 다시 생겨요', 3.8초) 왼쪽 — 대본의 구체 행동(뒤꿈치 각질을 밀대로 박박 깎기). 한 손이 발목을 잡고 다른 손이 발 밀대로 뒤꿈치를 빠르게 문질러 하얀 각질 가루가 날리고, 깎인 자리가 얇아져 옅은 호박색으로 달아오른다. 손과 발만 나와 얼굴 규칙·성적 콘텐츠 필터와 무관. 색인 전수 확인 — act_hot_shower_scrub는 때밀이 장갑으로 정강이를 미는 장면, act_new_shoes_heel_rub는 하이힐에 뒤꿈치가 쓸리는 비유 장면, act_scratch_shin은 손톱으로 정강이 긁기라 '뒤꿈치 각질을 도구로 깎는' 장면이 없다. 범용으로 — 굳은살·티눈·발 각질·과한 각질 제거·발 관리 편에 쓴다. 칼날 대신 발 밀대(칼날은 위험 도구로 막힐 수 있어 뺐다). 엑스레이 화풍 고정.",
+      "fits": [
+        "발뒤꿈치 각질 깎기",
+        "각질 밀대",
+        "굳은살 깎기",
+        "발 각질 제거",
+        "티눈 깎기",
+        "과한 각질 제거",
+        "발 관리",
+        "박박 문지름",
+        "뒤꿈치 갈라짐"
+      ],
+      "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up side view of a single translucent glass-like human bare foot resting on its side on a plain low stool, the bones of the foot and heel visible inside, the sole facing the camera, the back of the heel covered by a thick rough whitish layer of hardened skin. Exactly two translucent glass-like human hands: the left hand holds the ankle steady from above, the right hand presses a plain flat oval foot file with a fine grater surface and a short plain handle against the heel. No face, no body above the knees in the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, knife, blade, razor, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the right hand scrubs the foot file hard back and forth across the heel in fast short strokes, fine white flakes of hardened skin spraying off into the void, the camera swooping low around the heel. 2-4s: the hand lifts the file away and the camera pushes in fast on the heel, where the scraped patch is now thin and raw, glowing warm amber, while the rest of the foot stays soft pale cyan, holding until the very last frame. Exactly two hands are ever in the frame; no third hand appears at any moment, each hand has five fingers, and there is only one foot. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No face, no person beyond the hands and the one foot. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a harsh dry rasping scrape, no music, no dialogue."
+    },
+    {
+      "name": "m_urea_softens_keratin",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "손발_24 5칸(28.19~35.19초 '우레아는 요소라는 보습 성분이에요. 각질에 물을 끌어당겨 불리고, 단단히 엉긴 각질을 서서히 풀어 줘요', 7.0초) 제품 작동 칸 기전 단독 — 채널 차별화 칸(겉에 바른 크림 → 속 각질층 반응 → 결과가 한 컷에). 두껍게 쌓여 금 간 각질 판 위에 크림이 내려앉으면, 크림과 아래층에서 작은 물방울이 판 사이로 끌려 들어가 판이 불고, 단단히 붙어 있던 판들이 호박색으로 물러지며 느슨해지고, 금이 오므라들고 맨 위 판이 한 장 부드럽게 떨어진다. ⚠️ 근거는 '서서히'라 한 번에 매끈해지는 그림은 과장 — 한 겹만 풀리게. 색인 전수 확인 — m_cream_lid_seal은 겉에 막만 덮고 아래 물방울이 머묾(각질이 풀리지 않음), m_plug_loosen_open은 모공 마개가 풀리는 장면, m_crust_soften_brush_lift는 털 난 두피 딱지를 솔로 쓸어 냄, m_keratin_thickening은 쌓이는 쪽이라 '두꺼운 각질이 물을 머금어 풀리는' 장면이 없다. 범용으로 — 우레아·요소 크림, 굳은살·티눈, 팔꿈치·무릎 각질, 닭살(모공각화증), 손 각질 편에 쓴다. m_keratin_thickening과 같은 겹겹 판 구도. 엑스레이 화풍 고정.",
+      "fits": [
+        "우레아 크림",
+        "요소 크림",
+        "각질 연화",
+        "각질이 부드러워짐",
+        "굳은살 크림",
+        "발뒤꿈치 각질 관리",
+        "팔꿈치 무릎 각질",
+        "닭살 모공각화증",
+        "보습 성분 원리",
+        "각질이 풀림"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a thick block of translucent glass-like 3D human heel skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame, its upper part made of dozens of thin hard flat plates stacked tightly like a pile of glass sheets, deep jagged cracks running down from the top surface into the stack, rounder living cells below the stack, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A soft rounded dollop of smooth white cream hovers just above the cracked surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, foot outline, hands, red, blood, amber, orange",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the dollop of white cream drops onto the cracked surface and spreads into the cracks, the camera diving down alongside it. 2-4s: tiny clear water droplets are drawn up from the living cells below and out of the cream into the gaps between the stacked plates, the plates swelling slightly as they soak it up, the camera racing along the side of the stack. 4-6s: the top layers of plates turn soft warm amber and loosen from one another, the cracks slowly closing, and one softened top plate gently peels away and drifts off, the camera pulling back to show the whole stack now a little thinner and supple, holding until the very last frame while the deeper layers stay soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft wet seeping and a faint crisp creak easing into silence, no music, no dialogue."
+    }
+  ]
+}

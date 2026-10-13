@@ -7269,24 +7269,25 @@
   "link": "https://naver.me/FOREa3Rr"
  },
  "선크림": {
-  "checked_at": "2026-09-19 16:57",
+  "checked_at": "2026-10-13 15:54",
   "found": true,
   "status": "있음",
   "chosen": {
-   "id": 850844547851268,
-   "name": "[1+1] 달바 비건 워터풀 핑크 톤업 선크림 50mlX2개",
+   "id": 850844547851267,
+   "name": "[1+1] 달바 비건 워터풀 에센스 선크림 50mlX2개",
    "store": "달바 공식스토어",
-   "price": 33900,
+   "price": 27900,
    "commission": 5.0,
-   "reviews": 229716,
+   "reviews": 144841,
    "rating": 4.81,
-   "url": "https://smartstore.naver.com/main/products/5750426971",
-   "link": "https://naver.me/5FDHBSi0"
+   "url": "https://smartstore.naver.com/main/products/2702908734",
+   "link": "https://naver.me/58qfjC6w"
   },
   "hits": 40,
   "domain": "health",
   "sample": null,
-  "link": "https://naver.me/GJZhOFzY"
+  "link": "https://naver.me/58qfjC6w",
+  "link_saved": true
  },
  "바세린": {
   "checked_at": "2026-09-19 16:57",
@@ -11794,5 +11795,41 @@
   "found": true,
   "status": "있음",
   "checked_at": "2026-10-12 17:17"
+ },
+ "우레아 풋크림": {
+  "chosen": {
+   "id": 812986922026592,
+   "name": "[바액] 우레아 10 풋 크림 [100ml] 우레아10% 시어버터 아기발크림 발뒤꿈치케어 끈적임없는 매끈한 각질케어",
+   "store": "바이옴 액티베이트",
+   "price": 5440,
+   "commission": 18.0,
+   "reviews": 1006,
+   "rating": 4.91,
+   "url": "https://smartstore.naver.com/main/products/11704585382",
+   "link": "https://naver.me/GM3aPSOw"
+  },
+  "link": "https://naver.me/GM3aPSOw",
+  "link_saved": true,
+  "found": true,
+  "status": "있음",
+  "checked_at": "2026-10-13 15:54"
+ },
+ "겨드랑이 착색크림": {
+  "chosen": {
+   "id": 943950444118272,
+   "name": "바렌 비타캡슐 나이아신아마이드 미백 바디로션 300g (팔꿈치 겨드랑이 착색크림 톤업 주름개선)",
+   "store": "바렌",
+   "price": 23900,
+   "commission": 12.0,
+   "reviews": 79,
+   "rating": 4.86,
+   "url": "https://smartstore.naver.com/main/products/13376073112",
+   "link": "https://naver.me/xIFM1mSE"
+  },
+  "link": "https://naver.me/xIFM1mSE",
+  "link_saved": true,
+  "found": true,
+  "status": "있음",
+  "checked_at": "2026-10-13 15:54"
  }
 }

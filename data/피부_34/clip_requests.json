@@ -1,0 +1,44 @@
+{
+  "requests": [
+    {
+      "name": "m_collagen_loss_crease",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_34 도입부 훅('목주름, 얼굴은 크림으로 공들이는데 목에만 가로줄이 점점 깊어지셨나요?', 0.40~5.08초) 전체 화면 + 3칸(20.76~28.10초 '폐경을 지나면 주름이 더 빨리 늘어요. 피부를 팽팽하게 받치는 콜라겐이 폐경 뒤 5년 사이에 30%쯤 빠지거든요', 7.3초) 기전 단독. 진피에 촘촘하던 콜라겐 그물이 가닥가닥 가늘어지고 끊겨 성글어지면, 받침을 잃은 겉면이 가로로 접혀 주름 골이 생기고 점점 깊어진다(골 가장자리만 호박색). ⚠️ 근거가 '5년 사이 30%쯤'이라 한 번에 무너지는 그림은 과장 — 그물이 성글어지는 정도로. 색인 전수 확인 — m_tissue_laxity는 섬유 다발이 U자로 처지는 추상 장면(피부 겉·주름 골이 없음), m_uv_radiation_damage는 원인이 햇빛 광선, m_retinol_collagen_boost는 반대로 촘촘해지는 장면, m_dehydration은 건조해 잔금이 가는 장면이라 '콜라겐이 줄며 주름 골이 깊어지는' 장면이 없다. 범용으로 — 목주름·이마주름·눈가 주름·팔자주름·폐경 후 피부 변화·탄력 저하 편에 쓴다. 엑스레이 화풍 고정.",
+      "fits": [
+        "주름이 깊어짐",
+        "목주름",
+        "이마주름",
+        "눈가 주름",
+        "팔자주름",
+        "콜라겐 감소",
+        "폐경 후 피부",
+        "탄력 저하",
+        "피부 노화",
+        "가로줄"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human skin seen from the front at a slight low angle, the block filling the lower two thirds of the frame: a smooth thin top surface layer, beneath it a deep layer packed with a dense tightly woven mesh of thick wavy collagen fibers holding the surface taut, a few spindle-shaped cells resting among the fibers, the empty dark void above the smooth surface filling the upper third of the frame, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. The surface is perfectly smooth and flat. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, neck, red, blood, amber, orange, light rays",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the dense collagen mesh begins to thin out, fiber after fiber growing fainter, fraying and snapping apart so open gaps spread through the deep layer, the camera gliding fast through the thinning mesh. 2-4s: losing its support, the smooth surface above sags and folds inward along one horizontal line, a shallow groove forming across the whole width of the block, the camera rising to skim along the surface. 4-6s: the groove slowly deepens into a clear crease while a second faint line begins beside it, the edges of the creases glowing warm amber, the camera pulling back to show the sparse mesh below and the creased surface above, holding until the very last frame while everything else stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no neck, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft fibrous snapping and a slow creasing fold, no music, no dialogue."
+    },
+    {
+      "name": "m_sunscreen_film_blocks_uv",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "피부_34 4칸(28.10~37.04초 '그러니 아침에 얼굴에 바르던 선크림을 목까지 이어 발라요. 손에 남은 걸 쓱 묻히지 말고, 따로 덜어서 턱 밑부터 쇄골까지 펴 바르면 돼요', 8.9초) 제품 작동 칸 + 6칸(42.36~53.08초 '호주에서 … 선크림을 매일 바르게 했더니, 생각날 때만 바른 사람들보다 피부 노화가 24% 덜 진행됐어요', 10.7초) 기전 단독 — 채널 차별화 칸(겉에 바른 막 → 속 콜라겐 반응이 한 컷에). 앞쪽: 쓱 묻힌 듯 얇고 띄엄띄엄한 선크림 자국 위로 호박색 광선이 쏟아져 빈틈으로 새어 들어가 아래 콜라겐 가닥에 불꽃이 튄다. 뒤쪽: 투명한 선크림이 고르게 펴져 표면 전체를 덮자 광선이 막에 부딪혀 흩어지고 꺼지며, 아래 콜라겐 그물은 끝까지 촘촘한 채 남는다. ⚠️ 근거는 '노화가 덜 진행'이라 이미 끊긴 콜라겐이 되살아나는 그림은 과장 — 지켜지는 데서 끝낸다. 목에 바르는 상반신 행위는 Flow 성적 콘텐츠 필터 전례가 있어 사람 없는 기전으로 요청. 색인 전수 확인 — m_light_through_clear_film은 흰빛은 튕기지만 파란빛이 막을 뚫고 세포가 켜지는 '못 막는 빛' 장면, m_tinted_film_absorb_light는 베이지 막(일반 선크림 칸 금지), m_melasma_summer_darkening은 빛이 막을 통과해 얼룩이 짙어짐, m_uv_radiation_damage는 막 없이 손상되는 장면이라 '선크림 막이 자외선을 막아 콜라겐이 지켜지는' 장면이 없다. 범용으로 — 선크림 효과·바르는 양·덧바르기·광노화 예방·목주름·기미 예방·손등 검버섯 예방 편에 쓴다. m_uv_radiation_damage와 같은 피부 블록·광선 구도. 엑스레이 화풍 고정.",
+      "fits": [
+        "선크림 효과",
+        "자외선 차단",
+        "선크림 바르는 양",
+        "선크림 고르게 바르기",
+        "선크림 매일 바르기",
+        "광노화 예방",
+        "콜라겐 보호",
+        "목주름 예방",
+        "기미 예방",
+        "선크림 덧바르기"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame: a thin top layer of flat cells, beneath it a deep layer packed with a dense tightly woven mesh of wavy collagen fibers, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. On the top surface lie only a few thin scattered smears of clear glossy lotion with wide bare gaps between them, and several thin straight beams of light slant down from the dark void above toward the surface. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, neck, hand, red, blood, beige, skin tone colour, opaque cream",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the beams turn warm amber and rain down onto the surface; where they hit the thin smears they glance off, but through the bare gaps they slip straight into the skin and strike the collagen fibers below, small amber sparks flaring on the fibers, the camera diving down beside one beam. 2-4s: a smooth sheet of clear glossy lotion sweeps across the surface and spreads into one even unbroken layer that covers the whole block, the camera swooping low across it as it spreads. 4-6s: the amber beams keep falling but now break apart into scattered glints on the clear layer and fade out before reaching the skin, and the camera pulls back fast to show the collagen mesh beneath still dense and intact in calm pale cyan, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no neck, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with crackling sparks giving way to a smooth glassy shimmer, no music, no dialogue."
+    }
+  ]
+}

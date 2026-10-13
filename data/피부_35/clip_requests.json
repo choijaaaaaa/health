@@ -1,0 +1,24 @@
+{
+  "requests": [
+    {
+      "name": "m_friction_pigment_darkening",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "피부_35 도입부 훅('겨드랑이 착색, 민소매를 입으려다 보니 겨드랑이가 때 낀 것처럼 거뭇한가요?', 0.40~4.85초) 전체 화면 + 1칸(12.86~16.68초 '피부는 자꾸 쓸리거나 긁히면 스스로를 지키려고 색소를 더 만들어요', 3.8초) 기전 단독. 부드러운 천 뭉치가 피부 블록 겉을 박박 문지를 때마다 바닥의 별 모양 색소세포가 호박색으로 켜져 갈색 알갱이를 위로 올려 보내고, 겉면의 갈색 얼룩이 문지를수록 점점 짙고 넓어진다. 겨드랑이를 수건으로 문지르는 상반신 행위는 Flow 성적 콘텐츠 필터 전례가 있어 사람 없는 기전으로 요청. 색인 전수 확인 — m_friction_abrasion은 잔털 덩어리가 판을 문질러 갈라지는 장면(색소 없음, 점등 없음), m_melasma_summer_darkening은 햇빛 줄기로 얼룩이 짙어짐(원인이 빛), m_blue_light_deep_pigment는 파란빛, m_pigment_rise_blocked는 올라가다 막히는 반대 장면이라 '문지르는 자극으로 색소가 짙어지는' 장면이 없다. 범용으로 — 겨드랑이·사타구니·팔꿈치·무릎·엉덩이 착색, 때밀이로 거뭇해짐, 긁어서 생긴 자국, 여드름 자국 편에 쓴다. m_pigment_rise_blocked·m_pigment_spot_fade와 같은 피부 블록(바닥 색소세포) 구도. 엑스레이 화풍 고정.",
+      "fits": [
+        "겨드랑이 착색",
+        "사타구니 착색",
+        "팔꿈치 무릎 거뭇함",
+        "엉덩이 착색",
+        "마찰 색소침착",
+        "문지를수록 짙어짐",
+        "때밀이로 거뭇해짐",
+        "긁어서 생긴 자국",
+        "피부가 거뭇해짐",
+        "색소가 늘어남"
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame: thin flat layered sheets on top, rounded cells beneath, and along the bottom of the upper layer a row of star-shaped pigment cells with long branching arms reaching up between the rounded cells, a faint light-brown haze in the top layers, the empty dark void above the surface filling the upper third of the frame, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A soft folded plain terry-cloth pad hovers just above the surface near the top of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, armpit, hand, hair, red, blood, amber, orange, dark brown patch",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the folded cloth pad presses down and scrubs hard back and forth across the surface, the camera skimming low beside it. 1.5-3s: with every stroke the star-shaped pigment cells at the bottom flash warm amber and push small dark brown granules up along their arms into the top layers, the camera diving down to follow the granules rising. 3-4s: the cloth lifts away and the camera pulls back fast to show a dark brown patch spread across the surface, deeper and wider than before, the pigment cells below still glowing warm amber, holding until the very last frame while the rest of the skin stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a rough fabric scrubbing rasp and soft pulsing throbs, no music, no dialogue."
+    }
+  ]
+}
