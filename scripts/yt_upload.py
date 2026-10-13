@@ -44,9 +44,9 @@ KST = dt.timezone(dt.timedelta(hours=9))
 CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정보", "건강쇼츠"]},
             "baby": {"track": "육아", "base_tags": ["육아만사전", "육아정보", "아기건강", "육아"]}}
 # 예약 게시 시각(KST), 하루 여러 편이면 쉼표로. 환경변수로 바꾼다(하드코딩 금지 규칙).
-# WHY(2026-10-09 사용자 "건강 육아 댕냥 전부 다시 하루에 한 번 오후에 올리는 거로 바꾸자"): 18시 한 편.
-# (10-06엔 8시·18시 두 편이었다 — 영상 제작 속도가 두 편을 못 따라갔다.)
-PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "18").split(","))
+# WHY(2026-10-14 사용자 "건강, 육아, 댕냥 전부 오전 10시 / 오후 5시 업로드로 바꾸자. 하루에 두 번"): 10시·17시 두 편.
+# (10-09엔 18시 한 편, 10-06엔 8시·18시였다.)
+PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "10,17").split(","))
 PUBLISH_HOUR = PUBLISH_HOURS[-1]   # reschedule에 날짜만 줄 때 쓰는 기본 시각(저녁)
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
 OLD_BRAND_TAG = "#세상건강사전"
@@ -215,6 +215,7 @@ def main() -> None:
     for c in ("whoami", "plan", "status"):
         sub.add_parser(c)
     r = sub.add_parser("reschedule"); r.add_argument("topic"); r.add_argument("date", help="YYYY-MM-DD(KST)")
+    r.add_argument("--hour", type=int, default=None, help="공개 시각(KST 시). 없으면 하루 마지막 슬롯")
     s = sub.add_parser("schedule"); s.add_argument("--count", type=int, default=5); s.add_argument("--commit", action="store_true")
     rp = sub.add_parser("replace", help="공개 전 예약 영상을 지금 영상 파일로 갈아 끼운다(같은 공개 시각)")
     rp.add_argument("topic")
@@ -232,7 +233,7 @@ def main() -> None:
         row = next((x for x in ch.rows() if x["topic"] == ch.key + a.topic), None)
         if not row or not row.get("video_id"):
             raise SystemExit(f"❌ {a.topic}: 올라간 기록이 없음")
-        when = dt.datetime.combine(dt.date.fromisoformat(a.date), dt.time(PUBLISH_HOUR), KST) \
+        when = dt.datetime.combine(dt.date.fromisoformat(a.date), dt.time(a.hour if a.hour is not None else PUBLISH_HOUR), KST) \
             .astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
         yt, _ = ch.service()
         yt.videos().update(part="status", body={"id": row["video_id"], "status": {
