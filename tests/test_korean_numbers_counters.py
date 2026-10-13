@@ -29,3 +29,33 @@ def test_ingredient_codes_are_read_in_english():
     assert to_speech("코엔자임Q10") == "코엔자임큐텐"
     assert to_speech("SPF 50") == "SPF 오십"
     assert to_speech("2~5%") == "이 퍼센트에서 오 퍼센트"
+
+
+# 2026-10-13 "15cm"를 "십오 씨엠"으로 읽었다 — 영문 단위는 한글 읽기로 바뀌어야 한다
+def test_latin_units_read_in_korean():
+    from lib.korean_numbers import to_speech
+    assert to_speech("15cm쯤") == "십오 센티미터쯤"
+    assert to_speech("2~3cm") == "이 센티미터에서 삼 센티미터"
+    assert to_speech("120mmHg") == "백이십 밀리미터 수은주"
+    assert to_speech("126mg/dL") == "백이십육 밀리그램 퍼 데시리터"
+    assert to_speech("400IU") == "사백 아이유"
+    assert to_speech("3m 거리") == "삼 미터 거리"
+
+
+def test_no_raw_units_left_in_any_narration():
+    """모든 원고를 TTS용으로 바꿨을 때 숫자나 소문자 영문 단위가 남으면 TTS가 알파벳·숫자로 읽는다."""
+    import re
+    from pathlib import Path
+    from lib import tracks
+    from lib.korean_numbers import to_speech
+    root = Path(__file__).resolve().parent.parent / "data"
+    bad = []
+    for d in tracks.iter_topic_dirs(root):
+        p = d / "narration.txt"
+        if not p.exists():
+            continue
+        sp = to_speech(p.read_text(encoding="utf-8"))
+        left = re.findall(r"\d|(?<![A-Za-z])[a-zμµ°][A-Za-z/]{0,5}(?![A-Za-z])", sp)
+        if left:
+            bad.append(f"{d.name}: {sorted(set(left))[:5]}")
+    assert not bad, "TTS 텍스트에 날것으로 남은 숫자·단위:\n" + "\n".join(bad)
