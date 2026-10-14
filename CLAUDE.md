@@ -27,7 +27,7 @@
 
 - **배포처는 네이버 블로그(카드뉴스)·네이버 클립(영상)·유튜브 쇼츠(영상)다**(2026-09-24 사용자 "이거 유튜브에도
   올릴건데") + **틱톡**(2026-10-09 사용자 "유튜브 틱톡 네이버클립 이렇게 세 개 운영"). 인스타·페북·쓰레드는 안 올린다.
-- **틱톡**: 영상은 `유튜브.mp4`(화살표 없음·[광고] 표시), 올릴 때 **AI 생성 콘텐츠 표시를 켠다**. 캡션은 파일에 쓰지 않고 `lib/tiktok_caption.py`가 유튜브 제목 + 클립 본문 + 제품 이름 + 클립 해시태그로 만들어 `mission_control_sync`가 '틱톡' 칸으로 올린다. 계정은 `tracks.tiktok_url()` — 건강만사전 = @healthdictionary1(옛 세상만사전 한국어 계정, 10-14 주소 변경), 육아만사전 = 옛 일본어 계정 @whypedia_ja1(댕냥사전 = 옛 영어 @whypedia_en). 세상만사전 유튜브는 그대로. 유튜브와 같이 하루 두 편(10시·17시), 처음엔 손으로 올린다.
+- **틱톡**: 영상은 `유튜브.mp4`(화살표 없음·[광고] 표시), 올릴 때 **AI 생성 콘텐츠 표시를 켠다**. 캡션은 파일에 쓰지 않고 `lib/tiktok_caption.py`가 유튜브 제목 + 클립 본문 + 제품 이름 + 클립 해시태그로 만들어 `mission_control_sync`가 '틱톡' 칸으로 올린다. 계정은 `tracks.tiktok_url()` — 건강만사전 = @healthdictionary1(옛 세상만사전 한국어 계정, 10-14 주소 변경), 육아만사전 = 옛 일본어 계정 @whypedia_ja1(댕냥사전 = 옛 영어 @whypedia_en). 세상만사전 유튜브는 그대로. 유튜브와 같이 하루 한 편(17시), 처음엔 손으로 올린다.
 - 🚨 **영상은 항상 두 벌** — `xray_build`가 한 번에 둘 다 만든다. 이름으로 가른다:
   | deploy 파일 | 제품 보러 가기 화살표 | 광고 표시 | 이유 |
   |---|---|---|---|
@@ -38,7 +38,7 @@
 - **채널명 「건강만사전」** — 엔딩 카드(`video_assembler.BRAND_NAME`)·카드 CTA·해시태그 `#건강만사전`(태그 줄 맨 앞)·
   대시보드 제목. **내부 식별자는 안 바꾼다**(폴더명 `health-shorts`, R2 프리픽스 `health-shorts/card_news/`,
   DB `source_project`) — 다른 프로젝트가 이 문자열로 경로를 맞춘다.
-- 🚨 **유튜브는 채널 두 개** — 성인 건강 「건강만사전」 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 육아 「육아만사전」 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙(2026-09-30 이름 분리). **매일 10시·17시 두 편 예약 게시**(`HEALTH_YT_PUBLISH_HOURS`, 2026-10-14 사용자 "건강, 육아, 댕냥 전부 오전 10시 / 오후 5시 업로드로 바꾸자. 하루에 두 번"). 예약을 옮길 땐 `yt_upload.py <ch> reschedule <topic> <날짜> --hour <시>`, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 launchd(com.healthshorts.ytupload → ~/.claude/cron-scripts/health_yt.sh)가 빈 슬롯을 채운다 — 크론은 맥이 잠들면 건너뛰어 9/28에 옮김(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
+- 🚨 **유튜브는 채널 두 개** — 성인 건강 「건강만사전」 `adult`(UCXd1cEGkEs1nBjiAaAPuCRw) = 트랙 없는 topic, 육아 「육아만사전」 `baby`(UCbinh5zt3D1pzYSWW8h4yow) = 육아 트랙(2026-09-30 이름 분리). **매일 17시 한 편 예약 게시**(`HEALTH_YT_PUBLISH_HOURS=17`, 2026-10-14 오후 사용자 "건강 육아 댕냥 오후만으로 바꾸자 다시 … 하루 두 개 올리고 오전에 올리니 조회수 안 나온다" — 같은 날 아침의 10시·17시 두 편을 되돌림. 오전 슬롯을 다시 만들지 말 것). 예약을 옮길 땐 `yt_upload.py <ch> reschedule <topic> <날짜> --hour <시>`, 올리기는 `scripts/yt_upload.py <adult|baby>`로만(채널 ID 확인·유튜브판 nocta 파일·설명란 제휴 링크·채널 기본 태그). 매일 10:30 launchd(com.healthshorts.ytupload → ~/.claude/cron-scripts/health_yt.sh)가 빈 슬롯을 채운다 — 크론은 맥이 잠들면 건너뛰어 9/28에 옮김(`… adult status`). 키는 `.env`의 `YOUTUBE_ADULT_*`/`YOUTUBE_BABY_*`, 채널 연결은 `scripts/yt_connect.py <code>`(토큰을 화면에 안 찍고 .env에 저장). 세상건강사전 @worldshealthdictionary는 댕냥사전 전용 — `scripts/whd_upload.py`는 막아뒀다. `lib/youtube_upload.py`를 그대로 돌리면 개인 채널로 네이버판이 올라간다.
 - 상품 링크는 **네이버 브랜드커넥트만** 쓴다(쿠팡 기능은 제거 상태 유지).
 - **업로드용 모음**: `../ai-video-network/deploy/health-shorts/<topic>/`(건강만사전) · `deploy/parenting-shorts/<topic>/`(육아만사전, 2026-09-30 분리)에 `네이버클립.mp4`·`유튜브.mp4` + `card_news/*.jpg`. 경로는 `tracks.deploy_dir()`로만 푼다.
   `scripts/stage_for_deploy.py`(`xray_build`가 끝에서 자동으로 돌린다, 손으로 돌릴 땐 `--dry-run` 가능),

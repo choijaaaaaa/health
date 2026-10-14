@@ -46,7 +46,7 @@ CHANNELS = {"adult": {"track": None, "base_tags": ["건강만사전", "건강정
 # 예약 게시 시각(KST), 하루 여러 편이면 쉼표로. 환경변수로 바꾼다(하드코딩 금지 규칙).
 # WHY(2026-10-14 사용자 "건강, 육아, 댕냥 전부 오전 10시 / 오후 5시 업로드로 바꾸자. 하루에 두 번"): 10시·17시 두 편.
 # (10-09엔 18시 한 편, 10-06엔 8시·18시였다.)
-PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "10,17").split(","))
+PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS", "17").split(","))
 PUBLISH_HOUR = PUBLISH_HOURS[-1]   # reschedule에 날짜만 줄 때 쓰는 기본 시각(저녁)
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
 OLD_BRAND_TAG = "#세상건강사전"
