@@ -1,0 +1,22 @@
+{
+  "requests": [
+    {
+      "name": "m_hip_socket_coverage",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_28 2~4칸('고관절은 허벅지뼈 끝의 둥근 머리가 골반의 오목한 홈에 끼워진 관절', '좁은 받침에선 뼈 머리가 홈에 덮인 정도가 10에서 12퍼센트 적었어요') 기전. 반투명 골반 한쪽과 허벅지뼈만(아기 몸·얼굴 없음 — Flow 미성년 필터 회피). 다리가 아래로 쭉 펴진 자세에선 둥근 뼈 머리가 홈 가장자리로 살짝 빠져 일부만 덮이고(가장자리 호박색), 다리가 무릎 높이로 굽혀 벌어지면 뼈 머리가 홈 깊숙이 들어가 고르게 덮인다. 근거 IHDI 초음파 연구(넓은 받침이 덮임 더 큼) — '탈구'·'뼈가 빠짐'처럼 과장하지 않는다. 색인 전수 확인(고관절·엉덩관절·골반·hip·허벅지·다리) — 고관절 소켓 장면 0건. 범용 — 아기띠·속싸개·고관절이형성증·엉덩관절 편에 쓴다.",
+      "fits": [
+        "고관절",
+        "고관절이형성증",
+        "엉덩관절",
+        "허벅지뼈 머리",
+        "골반 소켓",
+        "엠자 다리",
+        "아기띠 자세",
+        "속싸개 다리"
+      ],
+      "midjourney": "Medical holographic visualization of a single isolated translucent glass hip joint seen from the front: one side of a small rounded pelvis with its deep cup-shaped socket, and a thigh bone whose round ball-shaped head sits inside the socket, the thigh bone hanging straight down, every structure rendered in the same soft pale cyan glow with softly glowing edges, the ball and socket clearly visible in the middle of the frame, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, body, skin, face, hands, baby, amber, orange, red, blood, broken bone, fracture",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the translucent thigh bone hangs straight down and its round head rides shallow at the outer rim of the cup-shaped socket, the uncovered upper edge of the ball glowing soft warm amber, the camera orbiting fast to a three-quarter view. 2-4s: the thigh bone swings smoothly outward and upward until it points forward and slightly to the side, and the round head glides deep into the cup so the socket rim closes evenly around it. 4-6s: the amber fades evenly back to pale cyan as the ball sits snugly covered by the cup, the camera pushing in to frame the snug joint until the very last frame. Nothing breaks, cracks or pops out at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no skin, no hand and no face anywhere in the frame — only the isolated pelvis piece and thigh bone. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one soft smooth sliding sound, no music, no dialogue. Object lock: it is the same single pelvis cup and the same single thigh bone from the start frame for the entire clip; no second bone, no full skeleton and no new structure appears."
+    }
+  ]
+}

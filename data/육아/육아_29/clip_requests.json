@@ -1,0 +1,22 @@
+{
+  "requests": [
+    {
+      "name": "m_virus_rinse_off_skin",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_29 3~4칸('손소독제는 바이러스를 절반 정도밖에 못 줄였어요. 비누로 씻었을 땐 최대 94퍼센트', '소독제는 바르고 끝나지만, 비누 거품으로 문지르고 물로 헹구면 바이러스가 손에서 떨어져 나가요') 기전. 피부 표면 단면에 가시 달린 호박색 바이러스 알갱이 — 맑은 액체 막이 덮었다 마르면 알갱이 대부분이 그대로 남고, 이어 흰 거품이 알갱이를 감싸 들어 올려 물줄기에 쓸려 나가 표면이 깨끗해진다. 근거 Liu 2010(로그 감소) — 수치 그래픽 없이 '남는다 / 씻겨 나간다' 대비만. 색인 전수 확인(바이러스·손소독제·비누·거품·세균) — act_wash_hands_soap(손 행위)는 있으나 피부 표면 기전 0건. 범용 — 손씻기·노로·장염·수족구·감기 예방 편에 쓴다.",
+      "fits": [
+        "손씻기",
+        "손소독제",
+        "비누 거품",
+        "바이러스가 씻겨 나감",
+        "노로바이러스",
+        "장염 예방",
+        "감염 예방",
+        "수족구 예방"
+      ],
+      "midjourney": "Medical holographic visualization of a close cross-section of a skin surface: a gently wavy translucent glass layer of skin cells along the bottom third of the frame, with a dozen small spiky round virus particles glowing soft warm amber scattered on top of the surface and caught in the fine grooves of the skin, every other structure rendered in the same soft pale cyan glow with softly glowing edges, side view at macro distance, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, face, hands, fingers, blood, red, photo",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a thin clear liquid film spreads across the translucent skin surface and quickly dries away, and most of the small spiky amber particles are still sitting in the grooves afterwards, the camera sliding fast along the surface. 2-4s: thick soft white foam rolls in across the surface, wraps around the amber particles and lifts them up off the skin into the bubbles. 4-6s: a clear stream of water sweeps through from one side and carries the foam and all the amber particles away out of frame, leaving the pale cyan skin surface clean and empty until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no fingers and no face anywhere in the frame — only the macro skin surface. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft foamy fizz and a gentle rush of water, no music, no dialogue. Object lock: it is the same skin surface from the start frame for the entire clip; the particles never grow, multiply or change shape, and no new structure appears."
+    }
+  ]
+}
