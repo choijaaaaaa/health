@@ -50,3 +50,6 @@ assets_library/xray/작업/*.png
 assets_library/xray/작업/*.jpg
 assets_library/xray/작업/*.mp4
 assets_library/xray/*.png
+
+# scripts/link_health.py 점검 보고서·naver.me 캐시(매일 바뀌는 로컬 산출물)
+output/_link_health/
