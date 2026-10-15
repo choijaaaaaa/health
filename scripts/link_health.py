@@ -165,6 +165,21 @@ def liveness(chosen_id, raws: list[list[dict]]) -> tuple[str, dict | None]:
 _NOT_ITEM = ("만들기", "DIY", "diy", "키트", "부품", "교체용", "리필", "공병", "보관통", "케이스")
 
 
+_SPEC = re.compile(r"\d[\d,.]*\s*(?:ppm|iu|mcg|μg|mg|%)|spf\s*\d+|pa\+{1,4}", re.I)
+
+
+def spec_tokens(name: str) -> set[str]:
+    """함량·규격 표기(불소 1000ppm, 비타민D 400IU, SPF50 …) — 용량·개수(g·ml·개)는 뺀다."""
+    return {re.sub(r"[\s,]", "", m.group(0)).lower() for m in _SPEC.finditer(name)}
+
+
+def keeps_spec(old_name: str, new_name: str) -> bool:
+    """자동 교체는 원래 상품의 함량 표기를 그대로 가진 상품으로만 — 10-15 아기 불소 치약이 1000ppm에서
+    1450ppm(6세 이상용)으로 바뀌어 대본과 정반대가 된 사고. 규격이 다르면 사람이 고른다."""
+    need = spec_tokens(old_name)
+    return not need or need <= {re.sub(r"[\s,]", "", t) for t in spec_tokens(new_name)}
+
+
 def off_item(name: str, query: str) -> bool:
     return any(w in name and w not in query for w in _NOT_ITEM)
 
@@ -518,7 +533,8 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
                     continue
                 pinned = ent.get("pinned_criteria")
                 pool = [acct.bc._product(p) for p in raws[-1] if is_selling(p) and str(p["id"]) != str(ch["id"])
-                        and not off_item(p.get("productName") or "", acct.bc._q(it))]
+                        and not off_item(p.get("productName") or "", acct.bc._q(it))
+                        and keeps_spec(ch["name"], p.get("productName") or "")]
                 pick = None if pinned else acct.bc.choose(acct.bc._q(it), pool, cfg["domain"])
                 if not pick:
                     why = f"고르는 기준 '{pinned}'" if pinned else "같은 기준의 대체 상품 없음"

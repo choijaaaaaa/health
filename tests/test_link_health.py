@@ -176,3 +176,11 @@ def test_confirmed_dead_needs_two_sightings_apart():
     assert lh.confirmed_dead({"id": 7, "since": "2026-10-15T05:00:00Z"}, 7, now)
     # 그사이 카탈로그 상품이 바뀌었으면 처음부터 다시 센다
     assert not lh.confirmed_dead({"id": 8, "since": "2026-10-14T00:00:00Z"}, 7, now)
+
+
+def test_keeps_spec_blocks_different_strength():
+    old = "[N배송] 블랑키즐 치약 1000ppm 고불소 1단계 애플망고향, 60g"
+    assert not lh.keeps_spec(old, "제니튼 닥터제니 1450 고불소 치약 1450ppm")
+    assert lh.keeps_spec(old, "어린이 고불소 1,000ppm 유아 불소 치약 1개")
+    assert lh.keeps_spec("멜로우버디 백색소음기", "보아르 허니즈 백색소음기")
+    assert lh.spec_tokens("선크림 SPF50+ PA++++ 50ml") == {"spf50", "pa++++"}
