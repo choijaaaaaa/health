@@ -160,6 +160,15 @@ def liveness(chosen_id, raws: list[list[dict]]) -> tuple[str, dict | None]:
     return ("stopped", seen[0]) if seen else ("gone", None)
 
 
+# 교체 후보에서 뺄 말 — 검색어에 없는데 붙어 있으면 본품이 아니다("무드등" → "아크릴 무드등 만들기 DIY 키트", 10-15 실측).
+# 사람이 고르던 sweep과 달리 여기선 아무도 안 보고 바로 링크가 바뀌므로 lib/brandconnect.choose보다 한 겹 더 거른다.
+_NOT_ITEM = ("만들기", "DIY", "diy", "키트", "부품", "교체용", "리필", "공병", "보관통", "케이스")
+
+
+def off_item(name: str, query: str) -> bool:
+    return any(w in name and w not in query for w in _NOT_ITEM)
+
+
 def dead_reason(state: str, name: str) -> str:
     return {"stopped": f"판매·제휴 중지된 상품({name[:40]})",
             "gone": f"브랜드커넥트 검색에서 사라진 상품({name[:40]})"}[state]
@@ -486,7 +495,8 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
                     continue
                 reason = dead_reason(state, ch["name"])
                 pinned = ent.get("pinned_criteria")
-                pool = [acct.bc._product(p) for p in raws[-1] if is_selling(p) and str(p["id"]) != str(ch["id"])]
+                pool = [acct.bc._product(p) for p in raws[-1] if is_selling(p) and str(p["id"]) != str(ch["id"])
+                        and not off_item(p.get("productName") or "", acct.bc._q(it))]
                 pick = None if pinned else acct.bc.choose(acct.bc._q(it), pool, cfg["domain"])
                 if not pick:
                     why = f"고르는 기준 '{pinned}'" if pinned else "같은 기준의 대체 상품 없음"

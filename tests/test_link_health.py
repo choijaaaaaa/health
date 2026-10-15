@@ -160,3 +160,10 @@ def test_naver_me_cache_resolves_once(tmp_path, monkeypatch):
     assert len(calls) == 1
     c.save()
     assert lh.NaverMeCache(tmp_path / "c.json").get("https://naver.me/q") == "42"
+
+
+def test_off_item_drops_diy_kits_and_cases():
+    assert lh.off_item("솔라콤 아크릴 무드등 만들기 조명 DIY 키트", "무드등")
+    assert lh.off_item("원터치 화장솜 면봉케이스 인공눈물 보관통", "인공눈물")
+    assert not lh.off_item("필립스 LED 수면 무드등", "무드등")
+    assert not lh.off_item("젖병 리필 니플", "젖병 리필")
