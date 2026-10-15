@@ -2,7 +2,7 @@
   "_why": "반투명 인체 포맷(육아). 도입부는 좁은 받침 아기띠에서 다리가 일자로 늘어진 아기(훅, 새 스틸) → 고관절 정의(m_hip_socket_coverage, 10-15 받은 Flow) → 홈이 얕음·여섯 달 동안 빨리 자람(part_baby_hip, baby_cu_hip_leg 스틸에서 새로 만든 부위 클립). 두 번째 문단이 통념 반박이 아니라 정의 문단이라 도입부가 정의까지 덮는다(xray_build가 세 번째 문단 직전으로 잰다). 아기 몸은 미드저니 스틸+make_part_clip, 관절 단면은 Flow(아기 몸 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선.",
   "top_title": "아기띠에서 다리가 쭉 늘어진다면",
   "inset": {
-    "clip": "assets_library/xray/output/part_baby_hip.mp4",
+    "clip": "assets_library/xray/output/part_baby_hip_carrier.mp4",
     "crop": [
       0,
       380,
@@ -19,7 +19,7 @@
       "clip": "assets_library/xray/output/m_hip_socket_coverage.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_baby_hip.mp4"
+      "clip": "assets_library/xray/output/part_baby_hip_carrier.mp4"
     }
   ],
   "opening_until": 18.0,
@@ -44,9 +44,9 @@
     {
       "from": "그래서 엉덩이 받침이",
       "item": "아기띠",
-      "mech": "part_baby_hip",
+      "mech": "m_hip_socket_coverage",
       "act": "act_baby_carrier_m_position",
-      "label": "고관절"
+      "label": "뼈 머리 덮임"
     },
     {
       "from": "고를 땐 받침이",
@@ -59,7 +59,7 @@
     {
       "from": "고관절에서 딸깍",
       "item": "아기띠",
-      "mech": "part_baby_hip",
+      "mech": "part_baby_hip_carrier",
       "act": null,
       "label": "고관절"
     }
