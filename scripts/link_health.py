@@ -169,6 +169,17 @@ def off_item(name: str, query: str) -> bool:
     return any(w in name and w not in query for w in _NOT_ITEM)
 
 
+CONFIRM_AFTER = dt.timedelta(hours=float(os.environ.get("LINK_HEALTH_CONFIRM_HOURS") or 6))
+
+
+def confirmed_dead(first_seen: dict, chosen_id, now: dt.datetime | None = None) -> bool:
+    """같은 상품이 CONFIRM_AFTER 넘게 계속 안 보였을 때만 죽음으로 확정한다."""
+    if str(first_seen.get("id")) != str(chosen_id):
+        return False
+    since = dt.datetime.strptime(first_seen["since"], "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=dt.timezone.utc)
+    return (now or dt.datetime.now(dt.timezone.utc)) - since >= CONFIRM_AFTER
+
+
 def dead_reason(state: str, name: str) -> str:
     return {"stopped": f"판매·제휴 중지된 상품({name[:40]})",
             "gone": f"브랜드커넥트 검색에서 사라진 상품({name[:40]})"}[state]
@@ -465,6 +476,9 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
 
     # 4. 생존 확인 → 죽은 것은 교체(또는 수동 알림)
     swapped: dict[str, dict] = {}     # item → {old, new, reason, kind}
+    suspects_path = REPORT_DIR / "suspects.json"
+    suspects = json.loads(suspects_path.read_text(encoding="utf-8")) if suspects_path.exists() else {}
+    pending: list[str] = []
     mismatch, errors = [], []
     acct.ensure_window()
     if commit and sys.platform == "darwin":
@@ -492,8 +506,16 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
                     raws.append(acct.search(pg, acct.bc._q(it)))
                     state, hit = liveness(ch["id"], raws)
                 if state == "alive":
+                    suspects.pop(f"{profile}/{it}", None)
                     continue
                 reason = dead_reason(state, ch["name"])
+                # 한 번 안 보인 것만으로는 바꾸지 않는다 — 상품이 몇 시간 검색에서 빠졌다 돌아오는 일이 있다
+                # (10-15 반려동물 펫캠: 08시 0건 → 09시 다시 판매 중). 앞선 점검에서도 죽어 있었을 때만 확정.
+                first = suspects.setdefault(f"{profile}/{it}", {"id": ch["id"], "since": _now()})
+                if not confirmed_dead(first, ch["id"]):
+                    pending.append(it)
+                    log(f"  {i}/{len(items)} ⏳ {it}: {reason} — 다음 점검에서 다시 보고 확정")
+                    continue
                 pinned = ent.get("pinned_criteria")
                 pool = [acct.bc._product(p) for p in raws[-1] if is_selling(p) and str(p["id"]) != str(ch["id"])
                         and not off_item(p.get("productName") or "", acct.bc._q(it))]
@@ -521,6 +543,7 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
                     elif profile == "pet":
                         ent["issued_by"] = str(acct.bc.SPACE_ID)
                     acct.save_item(it, ent)
+                    suspects.pop(f"{profile}/{it}", None)
                     have[it] = new
             except Exception as e:  # 품목 하나 실패로 전체를 멈추지 않는다 — 창이 닫힌 경우만 중단
                 errors.append(f"{it}: {str(e)[:120]}")
@@ -530,7 +553,8 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
             if i % 50 == 0:
                 log(f"  … {i}/{len(items)}")
     cache.save()
-    rep.update(items_checked=len(items), dead=sorted(it for it, v in swapped.items() if v["kind"] == "dead"),
+    suspects_path.write_text(json.dumps(suspects, ensure_ascii=False, indent=1), encoding="utf-8")
+    rep.update(pending=pending, items_checked=len(items), dead=sorted(it for it, v in swapped.items() if v["kind"] == "dead"),
                manual=sorted(it for it, v in swapped.items() if v["kind"] == "manual"), mismatch=mismatch, errors=errors)
 
     # 5. 알림 — 죽은 품목: 그 품목을 쓰는 topic의 올린 블로그·클립 / 살아 있지만 글 링크가 옛 링크: 블로그만
@@ -649,7 +673,7 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
     (REPORT_DIR / f"{profile}.json").write_text(json.dumps(rep, ensure_ascii=False, indent=1), encoding="utf-8")
     log(f"[{profile}] 요약 — 글 {rep['posts']}(매칭 {rep['posts_mapped']}) · 링크 {rep['post_links']} · 품목 "
         f"{rep['items_checked']} · 죽음 {len(rep['dead'])} · 수동 {len(rep['manual'])} · 옛 링크 글 "
-        f"{len(rep['stale_posts'])} · 유튜브 {len(yt_changes)}편 · 판정 보류 {len(mismatch)} · 오류 {len(errors)}")
+        f"{len(rep['stale_posts'])} · 확정 대기 {len(pending)} · 유튜브 {len(yt_changes)}편 · 판정 보류 {len(mismatch)} · 오류 {len(errors)}")
     return rep
 
 

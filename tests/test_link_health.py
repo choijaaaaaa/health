@@ -167,3 +167,12 @@ def test_off_item_drops_diy_kits_and_cases():
     assert lh.off_item("원터치 화장솜 면봉케이스 인공눈물 보관통", "인공눈물")
     assert not lh.off_item("필립스 LED 수면 무드등", "무드등")
     assert not lh.off_item("젖병 리필 니플", "젖병 리필")
+
+
+def test_confirmed_dead_needs_two_sightings_apart():
+    import datetime as dt
+    now = dt.datetime(2026, 10, 15, 12, tzinfo=dt.timezone.utc)
+    assert not lh.confirmed_dead({"id": 7, "since": "2026-10-15T11:00:00Z"}, 7, now)
+    assert lh.confirmed_dead({"id": 7, "since": "2026-10-15T05:00:00Z"}, 7, now)
+    # 그사이 카탈로그 상품이 바뀌었으면 처음부터 다시 센다
+    assert not lh.confirmed_dead({"id": 8, "since": "2026-10-14T00:00:00Z"}, 7, now)
