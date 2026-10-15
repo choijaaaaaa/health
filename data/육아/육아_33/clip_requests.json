@@ -1,0 +1,37 @@
+{
+  "requests": [
+    {
+      "name": "m_skin_ph_alkaline_shift",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_33 3칸(19.42~23.36초 '건강한 피부는 약한 산성인데, 보통 비누는 알칼리성이에요') 단독 + 4칸(23.36~30.35초 '실제로 비누로 손을 씻어 보니, 피부가 알칼리 쪽으로 기운 상태가 한 시간 반이나 이어졌어요. 그 사이 아토피는 도지기 쉬워요') 오른쪽 기전. 얇은 아기 피부 단면 위 반짝이는 얇은 산성막에 비누 거품이 내려앉아 씻겨 나가면, 겉막이 사라지고 표면이 탁한 호박색으로 바뀌어 거품이 다 헹궈진 뒤에도 한참 그대로 남고 벽돌 세포 사이가 살짝 벌어진다. 근거(Panther·Jacob 2015: 비누 손 씻기 뒤 알칼리 쪽으로 기운 상태가 90분)만큼만 — 피부가 터지거나 염증이 번지는 그림은 과장이라 넣지 않는다. 화면 속 pH 숫자·색표 금지. 색인 확인(약산성·알칼리·비누·pH·보호막·피부 장벽) — m_ph_disruption(이름과 달리 산·알칼리 표시 없음, avoid)·m_oil_film_stripped(기름막 씻김, 뒤에 불꽃)·m_skin_barrier_gaps(도입부)뿐, 산성막이 바뀌어 머무는 장면 0건. 피부 단면만(아기 몸 없음). 범용 — 아토피·비누 세안·약산성 클렌저·손 씻기 뒤 건조 편에 쓴다.",
+      "fits": [
+        "비누는 알칼리",
+        "약산성 피부",
+        "피부 산성막",
+        "보호막이 흔들림",
+        "아토피 목욕",
+        "비누 세정 자극",
+        "피부 pH"
+      ],
+      "midjourney": "Medical holographic visualization of a thin translucent glass cross-section block of delicate skin, the top surface made of flat tightly fitted brick-like cells sealed by a very thin glossy acid film, a few soft lipid layers between the bricks, the lower layers fading into fine cyan fibers, seen from a low three-quarter angle so the surface and the cut side are both in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, pH scale, color chart, watermark, logo, UI, people, human figure, face, hands, baby, amber, orange, red, blood, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a dense heap of white soap foam drops onto the skin surface and spreads, the thin glossy film on top of the bricks dissolving under it, the camera sweeping low across the surface. 2-4s: a stream of clear water rinses the foam away, and the surface it leaves behind is no longer glossy but a dull hazy warm amber, the tight seams between the surface bricks opening into slightly wider gaps. 4-6s: the rinsed surface stays dull amber with the slightly widened gaps, holding unchanged while the camera pulls back to show the whole block until the very last frame. Nothing bursts, bleeds or breaks apart. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no pH scale and no color chart anywhere in the frame. Low ambient synth hum with a soft foam fizz and a gentle rinse of water, no music, no dialogue."
+    },
+    {
+      "name": "m_mild_acid_wash_barrier_intact",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_33 🚨 제품 작동 칸(39.32~46.01초 '이때 비누 대신 약산성 아기 바디워시로 바꿔 두면 편해요. 피부와 비슷한 약산성이라 보호막을 덜 흔들거든요', 6.7초) 단독. 같은 아기 피부 단면 위에 묽고 순한 거품이 조금 얹혀 겉의 호박색 먼지 알갱이만 감싸 쓸어 가고, 헹군 뒤에도 반짝이는 얇은 산성막과 촘촘한 벽돌 배열이 그대로 남는다 — m_skin_ph_alkaline_shift와 같은 시작 프레임으로 대비. 근거('덜 흔든다')만큼만 — 피부가 좋아지거나 아토피가 낫는 그림은 넣지 않는다(화장품 효능 과장 금지). 색인 확인(약산성·세정제·바디워시·보호막 유지·순한 세정) — m_virus_rinse_off_skin(바이러스가 씻김, 불투명 민트로 화풍 깨짐 avoid)뿐, 산성막이 유지되는 장면 0건. 피부 단면만. 범용 — 약산성 바디워시·약산성 클렌저·아토피 세정 편에 쓴다.",
+      "fits": [
+        "약산성 바디워시",
+        "약산성 클렌저",
+        "보호막 유지",
+        "순한 세정",
+        "아토피 목욕",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a thin translucent glass cross-section block of delicate skin, the top surface made of flat tightly fitted brick-like cells sealed by a very thin glossy acid film, a few soft lipid layers between the bricks, the lower layers fading into fine cyan fibers, seen from a low three-quarter angle so the surface and the cut side are both in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, pH scale, color chart, watermark, logo, UI, people, human figure, face, hands, baby, amber, orange, red, blood, brand marks (m_skin_ph_alkaline_shift와 같은 시작 프레임 한 장을 두 클립에 같이 쓴다)",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a few small soft warm amber dirt specks sit on top of the glossy skin surface, and a thin light layer of fine white foam settles gently over them, the camera gliding low across the surface. 2-4s: the light foam wraps the amber specks and a soft stream of clear water rinses the foam and the specks away together, while the thin glossy film on the bricks stays shining and unbroken underneath. 4-6s: the rinsed surface is clean pale cyan with the glossy film intact and every brick still tightly fitted with no gaps, the camera pulling back to show the whole calm block until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no pH scale and no color chart anywhere in the frame. Low ambient synth hum with a soft gentle foam whisper and a light rinse of water, no music, no dialogue."
+    }
+  ]
+}

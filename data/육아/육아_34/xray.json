@@ -1,0 +1,107 @@
+{
+  "_why": "반투명 인체 포맷(육아, 육아용품 — 병원 신호 없음). 도입부는 매트에 눕힌 아기(훅 '작은 소리에도 깰까 봐 머리맡에 두고') + 백색소음기 정의 동안 머리맡 백색소음기가 크게 울리는 사물 장면. 정의 문장이라 '~가 아니에요' 반박이 없어 negations는 비움(기계 장면에 X를 얹으면 '쓰지 마라'로 오독). 아기 몸은 스틸+make_part_clip(part_baby_inner_ear 새로 만듦), 기계·소리·귓속 단면은 Flow(아기 없음).",
+  "top_title": "백색소음기를 머리맡에서 크게 튼다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_inner_ear.mp4",
+    "crop": [
+      0,
+      360,
+      720,
+      560
+    ],
+    "label": "아기 귓속"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_sleep_on_back.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_white_noise_machine_loud.mp4"
+    }
+  ],
+  "opening_until": 12.56,
+  "_opening_why": "xray_build._opening_end 기준(세 번째 문단 '그런데 이 소리가' 직전 자막 끝 12.562) — 훅(0.40~4.98) + 정의(5.62~12.56)까지 전체 화면. act_baby_sleep_on_back(8초, 프레임 확인: 매트에 눕히는 보호자 손, 아기 가슴 호박색, 고정 화면) + 새 Flow act_white_noise_machine_loud(6초) 통째로, 약 0.9배.",
+  "negations": [],
+  "timeline": [
+    {
+      "from": "그런데 이 소리가 아기 귀에",
+      "item": "아기 백색소음기",
+      "mech": "part_baby_inner_ear",
+      "act": null,
+      "label": "아기 귓속",
+      "solo": "아기 머리 옆모습에서 달팽이관 자리만 호박색(새로 만든 부위 클립, 얼굴 줌 없이 물러나는 카메라) 단독"
+    },
+    {
+      "from": "캐나다 연구팀이 아기용",
+      "item": "아기 백색소음기",
+      "mech": "act_white_noise_machine_loud",
+      "act": null,
+      "label": "가장 크게",
+      "solo": "볼륨 다이얼을 끝까지 올린 백색소음기에서 소리 물결이 크게 퍼지는 사물 단독(도입부 클립 2회째) — '14대를 가장 크게 틀고'"
+    },
+    {
+      "from": "아기 머리맡쯤인 30센티미터",
+      "item": "아기 백색소음기",
+      "mech": "m_sound_waves_into_ear_canal",
+      "act": null,
+      "label": "고막 · 달팽이관",
+      "solo": "가까운 소리 물결이 귓구멍을 지나 고막을 흔들고 달팽이관까지 밀려드는 귓속 단면 단독(아기 몸 없음)"
+    },
+    {
+      "from": "세 대는 85데시벨까지",
+      "item": "아기 백색소음기",
+      "mech": "m_haircell_damage",
+      "act": "act_cover_ear",
+      "label": "소리 감지 세포"
+    },
+    {
+      "from": "아기는 시끄러워도 스스로",
+      "item": "아기 백색소음기",
+      "mech": "m_haircell_damage",
+      "act": "act_baby_sleep_on_back",
+      "label": "되돌아오지 않는 세포"
+    },
+    {
+      "from": "그래서 미국소아과학회는 기계를",
+      "item": "아기 백색소음기",
+      "mech": "act_sound_machine_far_low_timer",
+      "act": null,
+      "label": "멀리 · 작게",
+      "solo": "손이 백색소음기를 아기 침대 옆에서 방 반대편으로 옮기고 볼륨을 낮추는 사물 단독(손만) — 제품 작동 칸에서 한 번 더 쓴다"
+    },
+    {
+      "from": "이럴 땐 볼륨을 잘게",
+      "item": "아기 백색소음기",
+      "mech": "act_sound_machine_far_low_timer",
+      "act": null,
+      "label": "작게 · 꺼짐 예약",
+      "solo": "🚨 제품 작동 칸 — 다이얼을 한 칸씩 잘게 내리면 소리 물결이 작아지고, 꺼짐 예약 고리가 다 돌면 기계가 스스로 꺼지는 사물 단독(2회째)"
+    },
+    {
+      "from": "침대에서 멀리 두고",
+      "item": "아기 백색소음기",
+      "mech": "part_baby_inner_ear",
+      "act": null,
+      "label": "아기 백색소음기"
+    }
+  ],
+  "_timeline_why": "① 12.97~17.21 '아기 귀에 괜찮은 크기인지' part_baby_inner_ear(6초 0.71배). ② 17.21~24.08 '14대를 가장 크게 틀고 … 재 봤어요' act_white_noise_machine_loud 2회째(6초 1.15배). ③ 24.08~32.72 30cm에서 모두 50데시벨·신생아실 한도 — 새 Flow m_sound_waves_into_ear_canal(6초 1.44배). ④ 32.72~42.31 85데시벨·어른도 8시간이면 귀를 다침 — act_cover_ear(4초 2.4배, 프레임 확인: 어른이 귀를 덮고 달팽이관 호박색 — '어른도'와 맞음) + m_haircell_damage(4초 2.4배, 소리 감지 세포가 충격파에 꺾임; 강조가 흰빛이라는 avoid는 인지, 다른 칸이 사물 장면이라 색 튐이 적음). ⑤ 42.31~47.34 '아기는 스스로 피하지 못하고, 다친 귀는 되돌아오지 않아요' act_baby_sleep_on_back(누워만 있는 아기) + m_haircell_damage 2회째. ⑥ 47.34~53.38 AAP 멀리·짧게 — 새 Flow act_sound_machine_far_low_timer(8초 0.76배). ⑦ 53.38~58.65 제품 작동 칸 같은 Flow 2회째(0.66배). 기전 클립 3회 이상 없음.",
+  "summary_from": "침대에서 멀리 두고",
+  "_summary_why": "병원 신호가 없는 육아용품 topic(card_news_spec no_doctor_signal_reason). 마지막 '고를 땐 … 보세요'만 칠판에 두면 이유 없는 명령문 하나라 check_board_flow에 걸린다 — 제품 이유 문장('침대에서 멀리 두고 작게 틀어도 되고, 잠든 뒤엔 알아서 꺼지거든요')부터 칠판 전체(제품 사진·제품 보러 가기). 고르는 기준(아주 작게·타이머)은 칠판 자막으로 읽힌다.",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립.",
+  "board_items": [
+    "아기 백색소음기"
+  ],
+  "sources": [
+    {
+      "from": "캐나다 연구팀이 아기용",
+      "until": "밤새 트는 기계라",
+      "text": "출처: Hugh SC 외, Pediatrics 2014 「Infant sleep machines and hazardous sound pressure levels」"
+    },
+    {
+      "from": "아기는 시끄러워도 스스로",
+      "until": "짧게만 틀라고 해요",
+      "text": "출처: 미국소아과학회 「How Noise Affects Children」 · Pediatrics 2023 「Preventing Excessive Noise Exposure…」"
+    }
+  ]
+}

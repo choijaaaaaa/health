@@ -1,0 +1,102 @@
+{
+  "requests": [
+    {
+      "name": "act_toddler_reach_pot",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_37 도입부 훅('요리하는 동안 걸음마 아이가 다리에 매달려 냄비 쪽으로 손을 뻗나요?', 0.37~4.28초 전체 화면) + 1칸 왼쪽(20.54~29.93초 '아기 피부는 어른보다 최대 15배나 얇아요 … 안 된다고 가르쳐도 이 나이엔 잘 기억하지 못하고요', 1.88배). 가스레인지 앞에 선 어른(허리 아래 다리만 보임)의 바지를 한 손으로 붙잡고 발끝으로 서서, 다른 손을 레인지 위 김 나는 냄비 손잡이 쪽으로 뻗는 걸음마 아이 — 뻗은 손·팔만 호박색. 옆에서 전신 거리, 얼굴 줌 금지. 색인 전수 확인(화상·냄비·주방·요리·손뻗기·걸음마·act_child_*) — 냄비 클립은 act_sterilize_bottles(손만, 젖병 열탕)뿐, 주방에서 손 뻗는 아이 0건. 아기 몸이라 Flow 금지 → make_part_clip.py --no-zoom --seconds 5 --region(뻗은 팔·손). 범용 — 아이 화상·주방 안전·냄비·뜨거운 국 편에 쓴다.",
+      "fits": [
+        "아이 화상",
+        "냄비에 손 뻗음",
+        "주방 안전",
+        "걸음마 아이 주방",
+        "뜨거운 국",
+        "요리 중 아이"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about eighteen months old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — standing on tiptoe on a translucent glass kitchen floor beside a translucent glass stove, one small hand gripping the trouser leg of a translucent glass adult standing at the stove who is visible only from the waist down, the other small arm stretched up toward the handle of a translucent glass pot of soup with soft steam rising from it on the stovetop, seen from the side at full-body distance with the stove, the pot and the toddler all in frame, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the outstretched arm and reaching hand of the toddler. Smooth featureless face in profile looking up at the pot, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, adult face, adult upper body, fire, flames, spilled liquid, burns",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a small human toddler about eighteen months old, chubby with a large head and short limbs, standing on tiptoe beside a translucent glass stove, one hand holding the trouser leg of an adult seen only from the waist down, the other arm stretched up toward the handle of a steaming pot on the stovetop, seen from the side at full-body distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the outstretched arm and reaching hand of the toddler. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, adult face, fire, flames, spilled liquid"
+    },
+    {
+      "name": "act_toddler_climb_chair",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_37 도입부 가운데(약 5.6~11.2초 '이 나이 아이는 손 닿는 건 뭐든 잡아 보려고 해요. 의자를 밟고 올라가 생각보다 높은 곳까지 손이 닿기도 하고요', 전체 화면). 주방 의자 위에 무릎 대고 올라선 걸음마 아이가 조리대 높이의 컵·주전자 쪽으로 손을 뻗는다 — 뻗은 손·팔 한 곳만 호박색. 색인 전수 확인(의자·올라가·손뻗기·걸음마) — act_baby_spoon_feed(아기 의자에 앉아 먹음)·part_baby_leg_bones(서 있는 다리뼈)뿐, 의자를 밟고 오르는 아이 0건. 아기 몸이라 Flow 금지 → make_part_clip.py --no-zoom --seconds 5 --region(뻗은 팔·손). 범용 — 아이 추락·주방 안전·손 닿는 곳·화상 편에 쓴다.",
+      "fits": [
+        "의자 밟고 올라감",
+        "손이 높은 곳까지 닿음",
+        "주방 안전",
+        "걸음마 아이",
+        "아이 추락",
+        "아이 화상"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about eighteen months old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — kneeling up on the seat of a translucent glass kitchen chair pushed against a translucent glass kitchen counter, one small hand gripping the chair back, the other small arm stretched far across the counter top toward a translucent glass kettle and a mug standing near the back of the counter, seen from the side at full-body distance with the chair, the counter and the kettle all in frame, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the outstretched arm and reaching hand of the toddler. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, fire, flames, spilled liquid, burns, falling",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a small human toddler about eighteen months old, chubby with a large head and short limbs, kneeling on a translucent glass kitchen chair against a counter, one arm stretched across the counter toward a glass kettle and a mug, seen from the side at full-body distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the outstretched arm and reaching hand of the toddler. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, fire, flames, falling"
+    },
+    {
+      "name": "m_kitchen_hot_sources",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_37 도입부 마지막(약 11.2~20.1초 '실제로 영국 어린이사고예방재단은 아이 화상의 절반쯤이 주방에서 난다고 해요. 국 냄비, 밥솥 김, 정수기 온수까지 전부 주방에 있죠', 전체 화면, 1.26배 — 도입 셋째 통클립). 사람 없는 반투명 주방 — 레인지 위 국 냄비, 김을 뿜는 전기밥솥, 온수 꼭지에서 뜨거운 물이 떨어지는 정수기를 카메라가 차례로 빠르게 훑고, 각각의 뜨거운 자리(냄비 안 국물·밥솥 김·온수 줄기)가 차례로 호박색. 색인 전수 확인(주방·요리·김·증기·냄비·뜨거운·화상) — m_oil_film_stripped(피부 기름막이 뜨거운 물에 씻김)·act_sterilize_bottles(냄비 열탕)뿐, 주방의 뜨거운 것들을 보여 주는 장면 0건. 사람·아기 없이 사물만. 범용 — 아이 화상·주방 안전·뜨거운 물 편에 쓴다.",
+      "fits": [
+        "주방 화상",
+        "국 냄비",
+        "밥솥 김",
+        "정수기 온수",
+        "뜨거운 물",
+        "아이 화상",
+        "주방 안전"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass home kitchen seen from a low wide angle at a small child's eye height, a translucent glass stove with a pot of soup on it, a translucent glass electric rice cooker on the counter with its steam vent on top, and a translucent glass countertop water purifier with a hot-water tap, all three standing within the frame along the counter, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, baby, doll, amber, orange, red, blood, brand marks, fire, flames, smoke",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera sweeps fast along the counter at a small child's eye height to the pot on the stove, the soup inside rolling gently and glowing soft warm amber with thin wisps of steam. 2-4s: the camera whips on to the rice cooker as a strong jet of steam puffs up from its vent, the steam plume glowing soft warm amber. 4-6s: the camera swings on to the water purifier as a thin stream of hot water runs from its tap into an empty cup, the stream glowing soft warm amber, then pulls back fast to show all three glowing along the counter until the very last frame. No fire, no flames, no smoke and nothing spills at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft simmer, one steam hiss and a thin pouring trickle, no music, no dialogue."
+    },
+    {
+      "name": "m_scald_thin_vs_thick_skin",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_37 1칸 오른쪽(20.54~29.93초 '게다가 아기 피부는 어른보다 최대 15배나 얇아요. 어른한텐 따끔하고 마는 국물도 아이에겐 큰 화상이 돼요', 1.57배). 나란히 놓인 피부 단면 두 블록 — 왼쪽은 겉층이 두툼한 블록, 오른쪽은 겉층이 아주 얇은 블록. 같은 뜨거운 국물 방울이 둘 위에 동시에 떨어지자 두꺼운 쪽은 맨 위만 잠깐 호박색이 비쳤다 사라지고, 얇은 쪽은 호박색이 아래층 깊숙이까지 번져 남는다. ⚠️ 근거(CAPT 'up to 15 times thinner … the injury is more severe')만큼 — 물집·피·탄 살은 그리지 않는다, 두께 차도 '확연히 얇음'까지(정확한 15배 비율을 그림으로 주장하지 않음). 색인 전수 확인(화상·피부층·얇은·물집·뜨거운) — m_uv_radiation_damage(자외선 광선)·m_blister_formation(층 사이 물집)·m_narrow_tube_contrast(유리관 두 개)뿐, 얇은 피부와 두꺼운 피부를 같은 열로 비교하는 장면 0건. 아기 단어·몸 없이 피부 블록만. 범용 — 아이 화상·아기 피부 얇음·뜨거운 물 편에 쓴다.",
+      "fits": [
+        "아기 피부 얇음",
+        "화상 깊이",
+        "뜨거운 국물 화상",
+        "아이 화상",
+        "어른 피부와 비교",
+        "피부 두께"
+      ],
+      "midjourney": "Medical holographic visualization of two translucent glass-like blocks of skin cut open at the front to show their layers, standing side by side on the same level with a small gap between them, seen at a slight angle from above: the left block has a thick top layer and a thick layer beneath it, the right block has a very thin top layer and a thin layer beneath it with the deeper tissue close to the surface, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, hands, baby, amber, orange, red, blood, blister, wound, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame one identical drop of hot steaming liquid falls onto the top of each block at the same moment, the camera diving fast toward the pair. 2-4s: on the thick left block a soft warm amber glow appears only in the very top layer and stays shallow, while on the thin right block the amber glow sinks quickly down through the thin top layer and spreads deep into the layer beneath. 4-6s: the amber on the thick left block fades away back to pale cyan, while the deep amber patch in the thin right block stays glowing, the camera pulling back to show both blocks side by side until the very last frame. No blisters, no blood, no charring at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with two soft drip sounds and a faint sizzle, no music, no dialogue."
+    },
+    {
+      "name": "act_kitchen_safety_gate_close",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_37 🚨 제품 작동 칸 단독(29.93~40.34초 '그래서 요리할 땐 주방 입구에 안전문을 두면 편해요. 아이는 문 밖에서 놀고, 불 앞까진 못 오거든요. 이 재단도 요리하는 동안엔 안전문으로 아이를 주방 밖에 두라고 해요', 10.4초, 1.73배). 주방 입구 문틀 사이에 세운 막대형 안전문 — 문짝이 스스로 닫히며 걸쇠가 딸깍 잠기고 문짝 테두리가 호박색. 문 너머 안쪽엔 김 나는 냄비가 올라간 레인지, 문 앞 바깥 바닥엔 장난감 블록. ⚠️ 근거(CAPT 'A safety gate can help you keep young children out of the kitchen while you're cooking')만큼 — 화상이 몇 % 줄어드는 그림·문을 미는 아이는 그리지 않는다. 아이를 넣으면 아기 몸이라 Flow 금지 → 사물만(문 밖 장난감으로 '아이 노는 자리'를 보여 줌). 색인 전수 확인(문·안전·안전문·펜스·주방) — 안전 클립은 수면·카시트뿐, 안전문 0건. 범용 — 안전문·주방 안전·아이 화상·아기 펜스 편에 쓴다.",
+      "fits": [
+        "안전문",
+        "주방 안전문",
+        "아기 펜스",
+        "주방 입구 막기",
+        "아이 화상 예방",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass kitchen doorway seen from the hallway side at a low three-quarter angle, a translucent glass baby safety gate with vertical bars fitted between the two sides of the door frame, its gate door standing half open, beyond it inside the kitchen a translucent glass stove with a steaming pot, and on the hallway floor in front of the gate a few translucent glass toy blocks, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, baby, doll, amber, orange, red, blood, brand marks, child, fire, flames, smoke",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the half-open gate door swings shut on its own across the doorway, the camera swooping low toward it from the hallway past the toy blocks. 2-4s: the latch at the top of the gate clicks into place and the whole gate frame and its bars glow soft warm amber, standing firm between the hallway and the kitchen. 4-6s: the camera rises and pulls back to show the closed glowing gate in the doorway, the toy blocks on the hallway side and the steaming pot on the stove far behind it on the kitchen side, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no child, no hand, no face anywhere in the frame; the gate moves on its own. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft swing and one firm latch click, no music, no dialogue. Object lock: it stays the same bar-style baby safety gate for the entire clip and never morphs into a door or a fence."
+    },
+    {
+      "name": "m_cool_running_water_burn",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "육아_37 4칸 단독(48.74~52.58초 '데었다면 흐르는 시원한 물에 20분 식히고, 얼음은 대지 마세요', 3.8초, 0.96배 — 다음 '얼굴이나 손 …'부터 칠판). 피부 단면 블록 겉에 호박색으로 달아오른 데인 자리 위로 시원한 물줄기가 계속 흘러내리자 호박색 열기가 겉에서부터 천천히 옅어진다. ⚠️ 근거(NHS 'Hold the burn or scald under cool running water for 20 minutes' · AAP 'Do not use ice')만큼 — 다 낫는 그림이 아니라 열기가 식는 데까지, 얼음은 등장시키지 않는다. 색인 전수 확인(식히기·찬물·흐르는·얼음·화상) — m_cold_zap_tooth(이에 얼음물)·m_virus_rinse_off_skin(거품으로 바이러스 씻김)뿐, 데인 피부를 흐르는 물로 식히는 장면 0건. 아기 단어·몸 없이 피부 블록과 물줄기만. 4초(크레딧 절약). 범용 — 화상 응급처치·데었을 때·흐르는 물 식히기 편에 쓴다.",
+      "fits": [
+        "화상 응급처치",
+        "흐르는 물에 식히기",
+        "데었을 때",
+        "화상 식히기",
+        "아이 화상"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of a translucent glass-like block of skin cut open at the front to show its layers, seen at a slight angle from above, one round patch on its top surface and the layers just beneath it glowing soft warm amber as if heated, every other structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, hands, baby, red, blood, blister, ice, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame a steady stream of cool clear running water pours from above onto the glowing amber patch and flows off the sides of the block, the camera gliding in fast. 1.5-3s: under the constant flowing water the amber glow slowly fades from the surface downward, the patch turning paler and cooler. 3-4s: the water keeps running and only a faint trace of amber remains deep below while the surface is pale cyan again, the camera circling slightly until the very last frame. No ice at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no face, no tap shape anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with steady running water, no music, no dialogue."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부 = 젖 먹는 아기(act_baby_breastfeed_hold, 훅 '젖을 먹고도 금방 또 찾으면') → 분유를 타는 손(act_mix_formula_bottle, '분유를 타 주시나요') → 유방 유관(part_breast_ducts, NHS '젖병을 섞으면 모유 양이 줄어든다'). '모자란 게 아니에요'에서 분유 타는 장면 위 빨간 X. 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 새 요청 0건, 방광 부위 클립(part_baby_bladder)과 고르는 기준 메모만 코드로 새로 만들었다.",
+  "top_title": "아기가 젖 먹고 금방 또 찾는다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_baby_weigh_scale.mp4",
+    "crop": [
+      0,
+      440,
+      720,
+      520
+    ],
+    "label": "아기 몸무게"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_breastfeed_hold.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_mix_formula_bottle.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_breast_ducts.mp4"
+    }
+  ],
+  "opening_until": 15.58,
+  "_opening_why": "훅(0.30~6.50) + 통념 반박(7.33~15.58 '신생아는 원래 하루 8번에서 12번 먹어요. 자주 찾는다고 모자란 게 아니에요. 오히려 NHS는 젖병 수유를 섞으면 모유 양이 줄어든다고 해요')까지 전체 화면 — 세 번째 문단('모유는 몇') 직전 자막 끝 = 15.58초. 4초 + 6초(프레임 확인: 반투명 손이 분유통에서 스푼으로 떠 젖병에 타 흔듦) + 4초(유방 유관 단면이 호박색으로 물듦) = 14초를 약 15.8초에 — 1.13배.",
+  "negations": [
+    {
+      "from": "자주 찾는다고",
+      "x_at": "아니에요",
+      "clip": "assets_library/xray/output/act_mix_formula_bottle.mp4"
+    }
+  ],
+  "_negation_why": "틀린 쪽은 '모자란 것 같아 분유를 탄다'라 분유 타는 장면에 X. 젖 먹는 장면에 걸면 '모유 먹이지 마라'로 읽힌다.",
+  "timeline": [
+    {
+      "from": "모유는 몇 밀리리터",
+      "item": "아기 체중계",
+      "mech": "act_baby_check_diaper",
+      "act": "act_baby_breastfeed_hold",
+      "label": "몸무게 · 기저귀"
+    },
+    {
+      "from": "예를 들어 3.2킬로그램으로",
+      "item": "아기 체중계",
+      "mech": "act_baby_weigh_scale",
+      "act": null,
+      "label": "아기 몸무게",
+      "solo": "몸무게 기준 문장(처음 며칠 10%까지 빠짐 → 하루 20~30g씩 늚) — 체중계에 누운 아기 단독, 수치 그래픽 없음"
+    },
+    {
+      "from": "기저귀는 생후 5일쯤부터",
+      "item": "아기 체중계",
+      "mech": "part_baby_bladder",
+      "act": "act_baby_fasten_diaper_loose",
+      "label": "방광 · 소변"
+    },
+    {
+      "from": "얼마나 무거운지 모르겠다면",
+      "item": "아기 체중계",
+      "mech": "act_baby_check_diaper",
+      "act": null,
+      "label": "기저귀 무게",
+      "solo": "새 기저귀에 물을 부어 들어 보라는 문장 — 두 손이 기저귀를 펼쳐 들어 보이는 장면 단독(물을 붓는 동작은 없음 — '들어 보세요'까지만 보임)"
+    },
+    {
+      "from": "하루 20그램은 안아",
+      "item": "아기 체중계",
+      "mech": "act_write_care_log",
+      "act": "act_baby_weigh_scale",
+      "label": "같은 시각 기록"
+    },
+    {
+      "from": "고를 땐 10그램",
+      "item": "아기 체중계",
+      "mech": "note_scale_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(10그램 단위 / 영점 기능). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "생후 2주가 지나도",
+      "item": "아기 체중계",
+      "mech": "act_baby_weigh_scale",
+      "act": null,
+      "label": "아기 몸무게"
+    }
+  ],
+  "_timeline_why": "① 15.99~23.49 '모유는 몇 밀리리터 먹었는지 잴 수가 없어요. 그래서 AAP는 몸무게와 기저귀를 보라고 해요'(7.5초) 왼쪽 = 젖 먹는 아기(잴 수 없는 모유, 도입부 2회째, 4초 1.88배), 오른쪽 = 기저귀를 펼쳐 드는 손 act_baby_check_diaper(4초 1.88배). ② 23.49~35.09 3.2kg·320g·하루 20~30g·일주일 140~200g(11.6초) act_baby_weigh_scale 단독(프레임 확인: 체중계에 누운 아기를 보호자 손이 받침, 4초 2.9배). ③ 35.09~39.65 '생후 5일쯤부터 하루 6개 넘게 묵직하게 젖어야'(4.6초) 왼쪽 act_baby_fasten_diaper_loose(기저귀 채우기, 4초 1.14배), 오른쪽 새로 만든 part_baby_bladder(방광 점등 = 소변, 4초 1.14배). ④ 39.65~44.98 물 숟가락 테스트(5.3초) act_baby_check_diaper 2회째 단독(4초 1.33배). ⑤ 44.98~54.60 🚨 제품 작동 칸 '하루 20그램은 안아 봐선 모르는 차이 → 아기 체중계 → 같은 시각에 재고 적어 두면 진료 때 보여 줄 수 있어요'(9.6초) 왼쪽 act_baby_weigh_scale(4초 2.4배), 오른쪽 act_write_care_log(펜으로 공책에 호박색 줄을 차례로 긋는 손 = 적어 두기, 6초 1.6배). ⑥ 54.60~59.90 고르는 기준 메모(note_scale_pick 6초 0.88배). 기전 act_baby_check_diaper 2회·act_baby_weigh_scale 1회(+칠판에 덮이는 결론 행).",
+  "summary_from": "생후 2주가 지나도",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(act_baby_weigh_scale).",
+  "board_items": [
+    "아기 체중계"
+  ],
+  "sources": [
+    {
+      "from": "오히려 영국 국민보건서비스는",
+      "text": "출처: 영국 NHS 「Breastfeeding: is my baby getting enough milk?」"
+    },
+    {
+      "from": "그래서 미국소아과학회는 몸무게와",
+      "text": "출처: 미국소아과학회 「How to Tell if Your Breastfed Baby is Getting Enough Milk」(2025)"
+    }
+  ]
+}

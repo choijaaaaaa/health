@@ -1,0 +1,53 @@
+{
+  "requests": [
+    {
+      "name": "m_humidifier_tank_germs_mist",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_32 1칸(15.49~22.05초 '더 큰 문제는 물통이에요. 고인 물에 자란 세균과 곰팡이를 가습기가 김에 실어 방에 뿌리거든요', 6.6초) 단독. 가습기 물통 안 고인 물 바닥·벽에 호박색 세균 막대·곰팡이 실이 불어나고, 그 알갱이들이 위로 빨려 올라가 흰 김에 섞여 방으로 흩뿌려진다. 근거(AAP 'can release these germs and deposits into the air')만큼만. 색인 확인(가습기·물통·세균·곰팡이·김·수증기·분무·미스트) — act_humidifier_mist(손+김, 물통 속 없음)·m_bacteria_growth(세포 표면)·m_fungal_growth(세포 표면)뿐, 물통·김에 실리는 장면 0건. 사물만(아기 없음). 범용 — 가습기 청소·가습기 세균·실내 공기 편에 쓴다.",
+      "fits": [
+        "가습기 물통 세균",
+        "가습기 곰팡이",
+        "고인 물",
+        "가습기 청소",
+        "김에 실린 세균",
+        "가습기 관리"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass tabletop humidifier with a large clear water tank on top of a round base, the tank half full of still water, a thin plume of white mist rising from the nozzle on top, seen from the side at a slightly high angle so the whole tank interior, the water and the mist plume are in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, display digits, people, human figure, body, face, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the camera pushes fast through the glass wall into the still water inside the tank, where tiny soft warm amber rod-shaped bacteria and fine amber mold threads cling to the tank floor and walls and quickly multiply into a fuzzy amber film. 2-4s: amber specks lift off the film, are drawn upward through the water toward the nozzle, and get swept into the rising white mist. 4-6s: the camera rises with the mist above the humidifier as the plume spreads wide into the dark room, the white mist now visibly carrying many small amber specks drifting outward until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand and no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no display digits anywhere in the frame. Low ambient synth hum with a soft bubbling and a gentle hiss of mist, no music, no dialogue. Object lock: it is the same translucent humidifier from the start frame for the entire clip; it never morphs and no new object appears."
+    },
+    {
+      "name": "act_ultrasonic_tank_detach",
+      "kind": "flow",
+      "seconds": 6,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "육아_32 2칸(22.05~25.35초 '물은 매일 갈고, 살균제는 절대 넣지 마세요', 3.3초) + 🚨 제품 작동 칸(38.33~43.24초 '이럴 땐 찬 김이 나오고 물통이 통째로 분리되는 아기 가습기로 바꿔 두면 편해요', 4.9초) 두 번. 찬 김을 내던 초음파 가습기에서 반투명 손이 물통을 통째로 들어 올려 고인 물을 비우고, 맑은 물로 헹군 뒤 새 물을 채워 다시 끼운다 — 물통 안이 깨끗하게 비는 게 보인다(호박색 = 비워지는 고인 물). 근거는 편의(매일 비우고 닦기 쉬움)와 AAP 'Change the water every day'뿐 — 살균·무균 효과는 그리지 않는다. 살균제 병·약품은 화면에 넣지 않는다. 색인 확인(물통·세척·청소·분리·물 갈기·tank) — act_humidifier_mist(버튼만), 물통을 빼는 장면 0건. 손만(아기 없음). 범용 — 가습기 청소·가습기 고르기·가습기 물 갈기 편에 쓴다.",
+      "fits": [
+        "가습기 물통 분리",
+        "가습기 물 갈기",
+        "가습기 청소",
+        "통세척 가습기",
+        "찬 김 가습기",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass ultrasonic humidifier on a low bedroom dresser, a wide clear removable water tank seated on a flat round base, a soft plume of cool white mist rising from the top nozzle, a pair of translucent glass adult hands entering from the edge of the frame and resting on the sides of the tank, seen from a three-quarter angle at tabletop height so the whole humidifier and the hands are in frame, no adult head or face anywhere in the frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, display digits, head, face, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the cool white mist stops, the translucent hands grip the water tank and lift the whole tank cleanly off the round base in one piece, the old water inside glowing a dull warm amber, the camera following the tank up fast. 2-4s: the hands tip the tank over a basin and the amber water pours out completely, then a stream of clear water rinses the empty tank and swirls out, the tank interior turning clean pale cyan. 4-6s: the hands fill the tank with fresh clear water, set it back down onto the base with a soft click, and cool white mist rises again from the nozzle, the camera pulling back to show the whole humidifier until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. Only the two translucent hands and forearms appear, no head, no face, no body and no other person anywhere in the frame. No bottles, no chemicals, no additives anywhere. No text, no letters, no numbers, no labels, no arrows, no display digits anywhere in the frame. Low ambient synth hum with a soft pour of water, a gentle rinse splash and one soft click, no music, no dialogue. Object lock: it is the same translucent ultrasonic humidifier from the start frame for the entire clip; it never morphs and no new device appears."
+    },
+    {
+      "name": "m_warm_mist_hot_steam",
+      "kind": "flow",
+      "seconds": 4,
+      "why": "육아_32 4칸(29.51~33.33초 '물을 끓이는 가열식은 뜨거운 김과 물에 아기가 데일 수 있어요', 3.8초) 단독. 가열식 가습기 안 히터 위 물이 끓어 거품이 일고, 그 물과 노즐로 뿜어 나오는 김이 뜨거운 호박색으로 달아오른다 — 위험한 '뜨거움'만 보여 주고 화상 입는 장면·사람은 없다. 근거(AAP 'there's no risk of burns'의 반대, EPA)만큼만. 4초(크레딧 절약, 0.96배). 색인 확인(화상·데임·뜨거운·끓는 물·수증기·가열식·steam) — act_hot_shower_scrub(샤워)·m_oil_film_stripped(피지막)·m_uv_radiation_damage(자외선)뿐, 끓는 가습기 0건. 사물만(아기 없음). 범용 — 가열식 가습기·화상 주의·뜨거운 물 편에 쓴다.",
+      "fits": [
+        "가열식 가습기",
+        "뜨거운 김",
+        "끓는 물",
+        "화상 위험",
+        "데임",
+        "가습기 종류"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass warm-mist steam humidifier on a low bedroom dresser, a glass water chamber inside with a coiled heating element at the bottom, a short nozzle on top, seen from the side at tabletop height so the water chamber, the heater coil and the nozzle are all in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, display digits, people, human figure, body, face, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-1.5s: from the very first frame the coiled heater at the bottom of the water chamber glows soft warm amber and the water around it starts to roll and boil with rising bubbles, the camera swooping in close to the chamber. 1.5-3s: the whole body of boiling water turns a hot warm amber and a dense jet of amber-tinted steam bursts up out of the nozzle. 3-4s: the hot amber steam keeps billowing out of the nozzle above the humidifier, the camera tilting up fast with it until the very last frame. No fire, no flames, no smoke and nothing breaks. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand and no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no display digits anywhere in the frame. Low ambient synth hum with rolling boiling bubbles and a sharp hiss of steam, no music, no dialogue."
+    }
+  ]
+}

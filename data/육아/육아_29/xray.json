@@ -1,0 +1,87 @@
+{
+  "_why": "반투명 인체 포맷(육아, 성인 손 위주 — 아기 몸은 기저귀 칸 스틸 클립뿐). 도입부 = 펌프 통에서 손소독제를 받아 손에 쓱 바르는데 손바닥의 호박색 바이러스 알갱이가 그대로 남는 새 Flow(훅 '손소독제만 쓱 바르고') → 거품 비누로 씻고 헹구는 act_wash_hands_soap(통념 반박 'CDC: 손소독제로는 비누 손씻기를 대신할 수 없다'). '잘 없어지지 않아요'에서 소독제 장면 위 빨간 X. 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 새 Flow는 사람 손·사물만 둘.",
+  "top_title": "아이 토 치우고 손소독제만 쓴다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_wash_hands_soap.mp4",
+    "crop": [
+      0,
+      300,
+      720,
+      700
+    ],
+    "label": "손"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_hand_sanitizer_rub.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_wash_hands_soap.mp4"
+    }
+  ],
+  "opening_until": 12.9,
+  "_opening_why": "훅(0.20~4.44) + 통념 반박(5.02~12.90 '노로바이러스는 손소독제로 잘 없어지지 않아요. 미국 질병통제예방센터도 손소독제로는 비누 손씻기를 대신할 수 없다고 해요')까지 전체 화면 — 세 번째 문단('실제로 손에') 직전 자막 끝 = 12.90초. 새 Flow 6초 + act_wash_hands_soap 6초(프레임 확인: 반투명 두 손이 흰 거품 덩어리를 비비고 물줄기에 헹굼) = 12초를 약 13.1초에 — 1.09배.",
+  "negations": [
+    {
+      "from": "노로바이러스는 손소독제로",
+      "x_at": "않아요",
+      "clip": "assets_library/xray/output/act_hand_sanitizer_rub.mp4"
+    }
+  ],
+  "_negation_why": "틀린 쪽은 '손소독제만 바르기'라 소독제 장면에만 X. 비누 손씻기 장면엔 걸지 않는다(맞는 쪽).",
+  "timeline": [
+    {
+      "from": "실제로 손에 노로바이러스를",
+      "item": "유아 손세정제",
+      "mech": "act_wash_hands_soap",
+      "act": "act_hand_sanitizer_rub",
+      "label": "비누 손씻기"
+    },
+    {
+      "from": "차이는 씻어 내느냐예요",
+      "item": "유아 손세정제",
+      "mech": "m_virus_rinse_off_skin",
+      "act": null,
+      "label": "손 피부 표면",
+      "solo": "'씻어 내느냐' 원리 — 피부 표면의 바이러스 알갱이를 흰 거품이 감싸고 물줄기가 쓸어 가는 기전 단독(10-15 받은 Flow, 색인 ⚠️ 0.5초 뒤 불투명 민트 화풍 — 이 원리를 보여 주는 다른 클립이 없어 씀)"
+    },
+    {
+      "from": "노로바이러스는 아주 조금만",
+      "item": "유아 손세정제",
+      "mech": "m_virus_replication",
+      "act": "act_baby_lift_legs_clean",
+      "label": "장 세포"
+    },
+    {
+      "from": "아이 손은 거품형",
+      "item": "유아 손세정제",
+      "mech": "act_wash_hands_soap",
+      "act": "act_foam_pump_dispense",
+      "label": "손가락 사이"
+    },
+    {
+      "from": "아이가 계속 토해서",
+      "item": "유아 손세정제",
+      "mech": "m_virus_replication",
+      "act": null,
+      "label": "장 세포"
+    }
+  ],
+  "_timeline_why": "① 13.60~23.02 Liu 2010 '손소독제는 절반 정도 / 비누는 최대 94%'(9.4초) 왼쪽 = 소독제 바르기(새 Flow 2회째, 6초 1.57배), 오른쪽 = 비누 거품 손씻기 act_wash_hands_soap(6초 1.57배) — 두 방법을 나란히, 수치 그래픽 없음. ② 23.02~30.88 '차이는 씻어 내느냐 … 거품으로 문지르고 물로 헹구면 바이러스가 손에서 떨어져 나가요'(7.9초) m_virus_rinse_off_skin 단독(프레임 확인: 가시 달린 호박색 알갱이 → 흰 거품이 감쌈 → 물줄기에 쓸려 표면이 깨끗, 6초 1.31배). ③ 30.88~37.34 '아주 조금만 입에 들어가도 옮아요. 그래서 토를 치우거나 기저귀를 간 뒤엔 비누로 20초 넘게'(6.5초) 왼쪽 act_baby_lift_legs_clean(누운 아기 다리를 들고 엉덩이를 닦음 = 기저귀 갈기, 4초 1.61배), 오른쪽 m_virus_replication(프레임 확인: 가시 달린 호박색 입자 몇 개가 세포 블록에 내려앉아 안에서 불어남 = 조금만 들어가도 번짐, 4초 1.61배). ④ 38.06~47.84 🚨 제품 작동 칸 '거품형 유아 손세정제로 바꿔 두면 … 펌프를 누르면 바로 거품이 나와서 손가락 사이까지 문지르기 쉽거든요'(9.8초) 왼쪽 = 펌프를 누르면 거품이 봉긋 나오는 새 Flow(사물·손만, 6초 1.63배), 오른쪽 = 거품을 손가락 사이까지 비비는 act_wash_hands_soap 2회째. 아이 손을 Flow에 넣지 않으려 거품이 나오는 장면만 요청. 기전 act_wash_hands_soap 2회·나머지 1회(+칠판에 덮이는 결론 행).",
+  "summary_from": "아이가 계속 토해서",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(m_virus_replication).",
+  "board_items": [
+    "유아 손세정제"
+  ],
+  "sources": [
+    {
+      "from": "미국 질병통제예방센터도",
+      "text": "출처: 미국 질병통제예방센터(CDC) 「How to Prevent Norovirus」 · 「Hand Sanitizer Guidelines」"
+    },
+    {
+      "from": "실제로 손에 노로바이러스를",
+      "text": "출처: Liu 외, Appl Environ Microbiol 2010"
+    }
+  ]
+}

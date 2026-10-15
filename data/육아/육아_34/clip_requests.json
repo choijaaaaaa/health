@@ -1,0 +1,54 @@
+{
+  "requests": [
+    {
+      "name": "act_white_noise_machine_loud",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_34 도입부(5.62~12.56초 '백색소음기는 쏴 하는 일정한 소리로 문소리나 말소리 같은 바깥 소리를 덮어서 … 도와주는 기계예요', 전체 화면 두 번째 클립) + 2칸(17.21~24.08초 '캐나다 연구팀이 아기용 백색소음기 14대를 가장 크게 틀고, 아기 귀에 실제로 들어가는 크기를 재 봤어요', 6.9초) 단독. 빈 아기 침대 난간 위 백색소음기의 볼륨 다이얼이 끝까지 돌아가고(다이얼 테두리 호박색), 스피커에서 동심원 소리 물결이 점점 크고 촘촘하게 퍼져 침대 매트리스를 덮는다. 아기 몸이 보이면 Flow 금지라 빈 침대만. 색인 확인(백색소음·소음·소리·볼륨·스피커·소리 물결) — m_haircell_damage(귓속)·act_cover_ear(어른)뿐, 소리 나는 기계 장면 0건. 범용 — 백색소음기·아기 수면 소리·소음 편에 쓴다.",
+      "fits": [
+        "백색소음기",
+        "크게 틀기",
+        "소리 물결",
+        "아기 침대 옆 기계",
+        "수면 소리",
+        "볼륨 최대"
+      ],
+      "midjourney": "Medical holographic visualization of a single small translucent glass round white noise sound machine with a speaker grille on top and one large round volume dial on its side, sitting on the edge of a translucent glass crib rail right beside an empty crib mattress, seen from a low three-quarter angle so the machine, the dial and the empty mattress are in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, display digits, watermark, logo, UI, interface, people, human figure, body, face, hands, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the large volume dial on the side of the machine turns on its own all the way to the end, its rim glowing soft warm amber, the camera swooping in toward the speaker grille. 2-4s: soft translucent concentric sound-wave rings pulse out of the grille, growing bigger, brighter and closer together with each pulse. 4-6s: the strong rings sweep out over the whole empty crib mattress and fill the frame, the camera pulling back fast to show the machine on the crib rail flooding the crib with waves until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face and nothing lying on the mattress anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no display digits and no decibel meter anywhere in the frame. Steady soft shushing white noise that swells louder, no music, no dialogue. Object lock: it is the same small round sound machine from the start frame for the entire clip; it never morphs and no new device appears."
+    },
+    {
+      "name": "m_sound_waves_into_ear_canal",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_34 3칸(24.08~32.72초 '아기 머리맡쯤인 30센티미터 거리에선 14대 모두 50데시벨을 넘었어요. 병원 신생아실이 아기를 위해 정해 둔 소음 한도를 넘은 거예요', 8.6초) 단독. 귀 단면(귓구멍 → 고막 → 달팽이관)에 바로 가까이서 오는 굵은 소리 물결이 들어와 고막이 크게 떨리고 달팽이관 나선이 호박색으로 차오른다. 근거(Hugh 2014: 30cm에서 전부 50dBA 초과)만큼만 — 귀가 망가지는 그림은 다음 칸(m_haircell_damage) 몫이라 여기선 '많이 들어간다'까지. 숫자·계기판 금지. 아기 단어·얼굴 없이 귀 단면만. 색인 확인(귀·고막·달팽이관·소리·소음·청력) — part_ear_inner(귓바퀴째 통째로 켜짐, avoid)·m_pressure_imbalance(이관 압력)·m_haircell_damage(세포 손상)뿐, 소리가 귓속으로 들어오는 장면 0건. 범용 — 소음·이어폰·백색소음기·난청 편에 쓴다.",
+      "fits": [
+        "소리가 귀로 들어감",
+        "고막 떨림",
+        "달팽이관",
+        "가까운 소음",
+        "큰 소리",
+        "청력",
+        "백색소음기 거리"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass cross-section of a small ear seen from the side with no face: the curved outer ear opening leading into a short ear canal, a thin round eardrum membrane at its end, the tiny middle ear bones, and the coiled snail-shaped cochlea beyond, the whole cross-section floating isolated in the frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, display digits, watermark, logo, UI, interface, people, human figure, head, face, eyes, skull, baby, amber, orange, red, blood, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame thick translucent sound-wave rings roll in from the left edge, very close and strong, and pour into the ear canal, the camera racing along the canal with them. 2-4s: the waves slam against the thin eardrum, which shudders hard back and forth, and the tiny middle ear bones rattle. 4-6s: the vibration surges into the coiled cochlea, which fills with a soft warm amber glow from its base to its tip, the waves still arriving steadily, the camera pulling back to show the whole ear cross-section until the very last frame. Nothing tears, bleeds or breaks. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no face, no head outline and no hand anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no display digits and no decibel meter anywhere in the frame. Steady shushing white noise heard muffled through the ear with a deep throbbing pulse, no music, no dialogue."
+    },
+    {
+      "name": "act_sound_machine_far_low_timer",
+      "kind": "flow",
+      "seconds": 8,
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "why": "육아_34 6칸(47.34~53.38초 '그래서 미국소아과학회는 기계를 아기 머리에서 최대한 멀리 두고, 짧게만 틀라고 해요', 6.0초) + 🚨 제품 작동 칸(53.38~58.65초 '이럴 땐 볼륨을 잘게 줄일 수 있고 꺼짐 예약이 되는 아기 백색소음기로 바꿔 두면 편해요', 5.3초) 두 번. 반투명 손이 침대 난간 위 백색소음기를 들어 방 반대편 낮은 선반으로 옮겨 두고, 다이얼을 한 칸씩 잘게 내리면(딸깍마다) 소리 물결이 작고 성기게 줄어들며, 기계 둘레의 꺼짐 예약 고리(호박색)가 다 돌아 닫히면 소리 물결이 사라지고 기계 불빛이 꺼진다. 근거(AAP 'as far away from the baby's head as possible and use it for a short time only')만큼만 — 몇 데시벨로 준다는 수치는 그리지 않는다. 화면 속 숫자·시계 숫자 금지. 손만(아기 없음, 빈 침대). 색인 확인(볼륨·타이머·꺼짐·멀리 두기·백색소음기) — 0건. 범용 — 백색소음기·수면 소리·아기 방 소음 편에 쓴다.",
+      "fits": [
+        "백색소음기 멀리 두기",
+        "볼륨 줄이기",
+        "꺼짐 예약",
+        "타이머",
+        "아기 백색소음기",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a single small translucent glass round white noise sound machine with a speaker grille on top and one large round volume dial on its side, sitting on the edge of a translucent glass crib rail right beside an empty crib mattress, a soft ring of light around the base of the machine, a low translucent glass shelf visible across the room in the background, a pair of translucent glass adult hands entering from the edge of the frame reaching toward the machine, no adult head or face anywhere in the frame, seen from a wide three-quarter angle so the crib, the machine and the far shelf are all in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, display digits, watermark, logo, UI, interface, head, face, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2.5s: from the very first frame the translucent hands lift the humming machine off the crib rail and carry it across the room, setting it down on the low shelf on the far side, the camera tracking fast with the move so the empty crib shrinks into the background. 2.5-5s: one finger turns the volume dial down in small separate steps with a soft click at each step, and the sound-wave rings from the grille get smaller and fainter with every click. 5-8s: a soft warm amber ring of light around the base of the machine sweeps slowly all the way around like a closing countdown, and when it closes the last faint waves fade out and the machine's glow dims dark, the camera pulling back to show the quiet room with the distant crib until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. Only the two translucent hands and forearms appear, no head, no face, no body and nothing lying in the crib anywhere in the frame. No text, no letters, no numbers, no labels, no arrows, no display digits and no decibel meter anywhere in the frame. Soft shushing white noise that steps down quieter with small dial clicks and fades to silence, no music, no dialogue. Object lock: it is the same small round sound machine from the start frame for the entire clip; it never morphs and no new device appears."
+    }
+  ]
+}

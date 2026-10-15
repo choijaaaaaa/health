@@ -1,0 +1,80 @@
+{
+  "_why": "반투명 인체 포맷(육아). 도입부는 좁은 받침 아기띠에서 다리가 일자로 늘어진 아기(훅, 새 스틸) → 고관절 정의(m_hip_socket_coverage, 10-15 받은 Flow) → 홈이 얕음·여섯 달 동안 빨리 자람(part_baby_hip, baby_cu_hip_leg 스틸에서 새로 만든 부위 클립). 두 번째 문단이 통념 반박이 아니라 정의 문단이라 도입부가 정의까지 덮는다(xray_build가 세 번째 문단 직전으로 잰다). 아기 몸은 미드저니 스틸+make_part_clip, 관절 단면은 Flow(아기 몸 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선.",
+  "top_title": "아기띠에서 다리가 쭉 늘어진다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_hip.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      320
+    ],
+    "label": "아기 고관절"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_carrier_legs_dangle.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_hip_socket_coverage.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_hip.mp4"
+    }
+  ],
+  "opening_until": 18.0,
+  "_opening_why": "훅(0.30~3.36) + 정의 문단(3.98~18.00 '고관절은 … 끼워진 관절 / 홈이 얕아 헐겁게 끼는 걸 고관절이형성증 / 여섯 달 동안 가장 빠르게 자라요')까지 전체 화면 — 세 번째 문단('아기띠가 이 병을') 직전 자막 끝 = 18.00초. 새 스틸 클립 5초 + m_hip_socket_coverage 6초(프레임 확인: 골반 한쪽 홈에 둥근 뼈 머리가 호박색으로 켜졌다가 덮이며 옅어짐 — '둥근 머리가 오목한 홈에 끼워진 관절' 정의에 맞음) + part_baby_hip 5초(골반·양쪽 고관절 호박색) = 16초를 약 18.2초에 — 1.14배.",
+  "_negation_why": "'아기띠가 이 병을 만든다는 근거는 없어요'는 빨간 X를 걸지 않는다 — 틀린 쪽(아기띠가 병을 만든다)을 그린 장면이 없고, 아기띠 장면에 X를 얹으면 '아기띠를 쓰지 마라'로 오독된다(제품이 아기띠).",
+  "timeline": [
+    {
+      "from": "아기띠가 이 병을",
+      "item": "아기띠",
+      "mech": "act_baby_carrier_m_position",
+      "act": "act_baby_carrier_legs_dangle",
+      "label": "넓은 받침 · 엠자 다리"
+    },
+    {
+      "from": "실제로 아기띠에 탄",
+      "item": "아기띠",
+      "mech": "m_hip_socket_coverage",
+      "act": null,
+      "label": "뼈 머리 덮임",
+      "solo": "초음파 연구 문장(좁은 받침에선 뼈 머리가 홈에 덮인 정도가 10~12% 적음, 넓은 받침은 보조기와 차이 없음) — 홈에 뼈 머리가 덮이는 정도를 보여 주는 관절 기전 단독(도입부 정의 칸의 2회째)"
+    },
+    {
+      "from": "그래서 엉덩이 받침이",
+      "item": "아기띠",
+      "mech": "part_baby_hip",
+      "act": "act_baby_carrier_m_position",
+      "label": "고관절"
+    },
+    {
+      "from": "고를 땐 받침이",
+      "item": "아기띠",
+      "mech": "note_carrier_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(받침이 양쪽 무릎 안쪽까지 / 무릎이 엉덩이보다 조금 높게). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "고관절에서 딸깍",
+      "item": "아기띠",
+      "mech": "part_baby_hip",
+      "act": null,
+      "label": "고관절"
+    }
+  ],
+  "_timeline_why": "① 18.84~27.55 '근거는 없어요. 다만 받침이 좁으면 다리가 일자로 늘어지고, 넓으면 무릎까지 받쳐져 엠자로 벌어져요'(8.7초, 첫 문장 2.1초는 단독 칸 불가라 묶음) 왼쪽 = 좁은 받침·늘어진 다리(훅 스틸 2회째, 5초 1.74배), 오른쪽 = 넓은 받침·엠자 다리 새 스틸(5초 1.74배) — 두 자세를 나란히. ② 27.55~38.57 초음파 13명·10~12%·보조기와 차이 없음(11.0초) m_hip_socket_coverage 단독(6초 1.84배) — 색인 ⚠️대로 '자세에 따라 덮임이 달라지는' 움직임은 없지만 '뼈 머리가 홈에 덮인 정도'라는 말 자체는 그대로 보인다. 수치 그래픽 없음. ③ 38.57~42.53 🚨 제품 작동 칸 '엉덩이 받침이 넓은 아기띠로 바꿔 두면'(4.0초) 왼쪽 = 넓은 받침 아기띠의 엠자 다리(새 스틸 2회째), 오른쪽 = part_baby_hip(고관절이 받쳐진 자리, 5초 0.8배). 근거(IHDI·Siddicky 2023)는 '자세'까지라 고관절이 좋아지는 그림은 그리지 않는다. ④ 42.53~47.83 고르는 기준 메모(note_carrier_pick 6초, 0.88배). 기전 m_hip_socket_coverage 1회(도입부 제외)·part_baby_hip 1회(+칠판에 덮이는 결론 행).",
+  "summary_from": "고관절에서 딸깍",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(part_baby_hip).",
+  "board_items": [
+    "아기띠"
+  ],
+  "sources": [
+    {
+      "from": "실제로 아기띠에 탄",
+      "text": "출처: Siddicky 외, J Orthop Res 2023 · 국제고관절이형성증연구소(IHDI) 「Baby Carriers」"
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_mittens_face",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_36 도입부 훅('아기가 얼굴을 긁을까 봐 하루 종일 손싸개를 씌워 두고 계신가요?', 0.36~4.38초 전체 화면) + 빨간 X 클립('얼굴에 상처를 내는 건 손이 아니라 손톱이에요' — X는 틀린 쪽 '손'에) + 2칸 왼쪽(21.95~30.15초 '손싸개를 늘 끼워 두면 그 손이 계속 천에 싸여 있죠. 그래서 손싸개는 잠깐만'). 등 대고 누운 신생아가 천 손싸개를 낀 두 손을 뺨 옆으로 올림, 손싸개 낀 두 손만 호박색. 색인 전수 확인(손싸개·장갑·손·주먹·act_baby_*) — 장갑 클립은 어른 고무장갑·때밀이 장갑뿐, 손싸개 낀 아기 0건. 아기 몸이라 Flow 금지 → make_part_clip.py --no-zoom --seconds 5 --region(두 손). 범용 — 손싸개·신생아 얼굴 긁힘·태열·아기 손 편에 쓴다.",
+      "fits": [
+        "손싸개",
+        "신생아 손싸개",
+        "아기 얼굴 긁힘",
+        "손 감싸기",
+        "태열 긁음",
+        "아기 손"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human newborn about one month old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft surface, seen from above and slightly to the side at chest-up to full-body distance, both small hands raised beside the cheeks and each hand fully covered by a soft plain translucent glass cloth mitten with a loose cuff at the wrist, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the two mitten-covered hands. Smooth featureless face turned slightly away, calm posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, scratches on face, bare fingers",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a newborn human infant, small with a large rounded head and short limbs, lying on its back, seen from above at chest-up distance, both hands raised beside the cheeks inside soft plain cloth mittens, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the two mitten-covered hands. Smooth featureless face turned slightly away, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, bare fingers"
+    },
+    {
+      "name": "m_nail_tip_scratch_skin",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_36 도입부 통념 반박 뒤쪽(7.56~14.32초 '영국 국민보건서비스도 손톱이 길게 태어나는 아기가 있으니, 긁지 않게 잘라 주라고 해요', 전체 화면 — '손이 아니라 손톱' X 다음). 길고 얇은 손톱 끝이 피부 단면 겉을 쓸고 지나가며 겉층이 가늘게 갈라진 호박색 줄이 남는다 — 상처를 내는 건 손가락 살이 아니라 손톱 끝. ⚠️ 근거(NHS 'in case they scratch themselves')만큼 — 피·깊은 상처는 그리지 않는다. 색인 전수 확인(긁기·할퀴기·손톱·상처·긁힘) — act_scratch_shin(어른이 자기 정강이를 긁음, 전신 다리)·m_tissue_tear(세포층이 V자로 찢어짐, 손톱 없음)·part_nail(손톱 점등만)뿐, 손톱 끝이 피부를 긁는 단면 0건. 아기 단어·몸 없이 손가락 끝과 피부 블록만. 범용 — 아기 얼굴 긁힘·손톱 관리·아토피 긁기·태열 편에 쓴다.",
+      "fits": [
+        "손톱으로 긁음",
+        "얼굴 긁힘",
+        "손톱 상처",
+        "긁어서 덧남",
+        "아토피 긁기",
+        "손톱 관리"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up of the smooth top surface of a translucent glass-like block of soft skin cut open at the front to show thin layers, seen at a low angle, the tip of a single small translucent glass fingertip entering from the upper left with a long thin curved fingernail whose sharp free edge just touches the skin surface, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, face, baby, child, doll, amber, orange, red, blood, wound, brand marks, whole hand, extra fingers",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the fingertip sweeps quickly across the skin surface and the long thin nail edge drags along it, the camera tracking fast beside the nail. 2-4s: behind the nail a fine thin line opens in the top layer of the skin and glows soft warm amber along its length, the soft pad of the fingertip itself leaving no mark where it touches. 4-6s: the fingertip lifts away out of frame, and the camera dives low over the surface to show the thin amber scratch line through the top layer only, holding until the very last frame. No blood and no deep cut at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No face, no whole hand, no person anywhere in the frame; only the single fingertip and nail. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one faint soft scratch sound, no music, no dialogue."
+    },
+    {
+      "name": "act_baby_suck_fist",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_36 1칸 단독(14.86~21.95초 '그리고 아기에게 손은 쓸 데가 많아요. 첫 달부터 손을 입으로 가져가고, 배가 고프면 주먹을 빨아서 알려요', 7.1초, 1.42배). 등 대고 누운 신생아가 맨손 주먹을 입으로 가져가 빤다 — 주먹과 입 자리만 호박색. ⚠️ 근거(AAP 1개월 'getting their hand to their mouth' · NHS 'suck their fist or fingers')만큼, 손싸개가 해롭다는 그림은 넣지 않는다(research 🚨). 색인 전수 확인(주먹·손빨기·배고픔·신호·손·act_baby_*) — 아기가 손을 입으로 가져가는 클립 0건(act_baby_chew_teether는 치발기를 문 앉은 아기). 아기 몸이라 Flow 금지 → make_part_clip.py --no-zoom --seconds 5 --region(주먹·입). 범용 — 배고픔 신호·수유 신호·손 빨기·신생아 발달 편에 쓴다.",
+      "fits": [
+        "주먹 빨기",
+        "배고픔 신호",
+        "수유 신호",
+        "손을 입으로",
+        "신생아 발달",
+        "손 빨기"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human newborn about one month old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft surface, seen from above and slightly to the side at chest-up distance, one small bare hand curled into a fist and brought up to its mouth, the knuckles against the lips as it sucks on the fist, the other arm relaxed, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the small fist and the mouth around it. Smooth featureless face in profile, calm posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, mittens, pacifier, bottle",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a newborn human infant, small with a large rounded head and short limbs, lying on its back, seen from above at chest-up distance, one bare fist brought up to its mouth and sucked, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the small fist and the mouth around it. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, mittens, pacifier, bottle"
+    },
+    {
+      "name": "act_baby_nail_scissors_trim",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_36 🚨 제품 작동 칸 왼쪽(30.15~38.39초 '이럴 땐 어른 손톱깎이 대신 아기 손톱가위로 바꿔 두면 편해요. 국민보건서비스도 끝이 둥근 아기용 가위가 어른 것보다 안전하다고 해요', 8.2초). 보호자 한 손이 누운 아기 손가락 하나를 잡고, 다른 손의 끝이 둥근 작은 가위가 그 손톱 끝 흰 부분만 자른다 — 손톱 끝만 호박색. 접촉 동작이라 Flow 안 탐(XRAY_FORMAT 6절). 기존 스틸 stills/baby/act_baby_nail_trim.jpg는 프레임 확인 결과 어른 손 셋이 겹치고 가위·아기 손이 안 보여 못 쓴다 — 새로 받는다. 색인 전수 확인(가위·손톱·손톱깎이·손가락) — 아기 손톱 자르기 클립 0건. make_part_clip.py --no-zoom --seconds 8 --region(손톱 끝). 범용 — 아기 손톱 깎기·손톱가위·신생아 손 관리 편에 쓴다.",
+      "fits": [
+        "아기 손톱 자르기",
+        "아기 손톱가위",
+        "신생아 손톱",
+        "손톱 깎기",
+        "끝이 둥근 가위",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human newborn about one month old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back on a plain soft towel, seen from a high angle at close distance so only one small open hand and forearm of the baby fill the lower half of the frame and the face is out of frame, one translucent glass adult hand of the same material gently holding a single tiny finger of the baby, the other adult hand holding a small pair of plain blank baby nail scissors with short blades and rounded blunt tips, the blades closing on just the white tip of that tiny fingernail, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the tiny fingernail tip between the rounded blades. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, face, head, pointed blades, nail clipper, more than two adult hands",
+      "midjourney_alt": "Medical holographic visualization of a tiny translucent glass-like 3D anatomical hand and forearm of a newborn human infant, seen from a high angle at close distance with no face in frame, one translucent glass adult hand gently holding a single tiny finger, the other adult hand holding small plain baby nail scissors with rounded blunt tips closing on the white tip of that tiny fingernail, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the tiny fingernail tip between the rounded blades. in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, face, head, pointed blades, more than two adult hands"
+    },
+    {
+      "name": "m_round_tip_scissors_trim",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_36 🚨 제품 작동 칸 오른쪽(30.15~38.39초 '아기 손톱가위로 바꿔 두면 … 끝이 둥근 아기용 가위가 어른 것보다 안전', 8.2초, 1.37배). 작은 손가락 끝 확대 — 끝이 둥근 작은 가위 날이 손톱 끝 흰 부분 곡선을 따라 자르고, 둥근 날 끝이 손가락 살에 닿아도 미끄러질 뿐 파고들지 않는다. 잘린 손톱 끝은 둥글고 짧게 남는다. ⚠️ 근거(NHS 'small, round-ended safety scissors … safer to use than adult nail clippers')만큼 — 어른 깎이와의 사고 장면·수치는 그리지 않는다. 색인 전수 확인(가위·손톱·m_nail_grows_out·part_nail) — 손톱이 자라 나오는 장면·손톱 점등뿐, 가위로 자르는 장면 0건. 아기 단어·몸 없이 손가락 끝과 가위만. 범용 — 아기 손톱가위·손톱 깎기·손톱 관리 편에 쓴다.",
+      "fits": [
+        "아기 손톱가위",
+        "끝이 둥근 가위",
+        "손톱 자르기",
+        "손톱 짧게",
+        "손톱 관리",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization, extreme close-up of a single small soft translucent glass fingertip lying sideways with a thin curved fingernail whose white free edge extends past the tip, the open blades of a small pair of plain scissors with short blades and rounded blunt tips positioned at the nail edge, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, face, baby, child, doll, amber, orange, red, blood, wound, brand marks, whole hand, pointed blades",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the small rounded-tip blades close gently on the white free edge of the nail, following its curve, and a thin crescent of nail drops away, the camera sliding fast along the fingertip. 2-4s: the blades open and move along the curve once more, the rounded blunt tip of the lower blade bumping softly against the soft pad of the fingertip and simply sliding off it without pressing in, the trimmed nail edge glowing soft warm amber. 4-6s: the scissors draw back out of frame and the camera circles the fingertip to show the nail now short with a smooth rounded edge and the soft skin around it untouched, holding until the very last frame. No blood, no cut skin at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No face, no whole hand, no person anywhere in the frame; only the fingertip and the small scissors. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with two soft tiny snip sounds, no music, no dialogue. Object lock: the scissor blades keep rounded blunt tips for the entire clip and never become pointed."
+    }
+  ]
+}

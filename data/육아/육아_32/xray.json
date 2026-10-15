@@ -1,0 +1,107 @@
+{
+  "_why": "반투명 인체 포맷(육아, 생활용품 — 병원 신호 없음). 도입부는 가습기 김을 펑펑 트는 손(훅) + 통념 반박('가습은 많이 할수록 좋은 게 아니에요') 동안 그 김 기둥에 빨간 X, 이어 '습도가 너무 높으면 곰팡이' 동안 곰팡이 균사가 번지는 기전. 아기 몸은 미드저니 스틸+make_part_clip(part_baby_lungs 새로 만듦), 가습기·물통·김은 Flow(아기 없음).",
+  "top_title": "머리맡 가습기를 밤새 펑펑 튼다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_lungs.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "아기 폐"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_humidifier_mist.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_fungal_growth.mp4"
+    }
+  ],
+  "opening_until": 14.89,
+  "_opening_why": "xray_build._opening_end 기준(세 번째 문단 '더 큰 문제는 물통이에요' 직전 자막 끝 14.894) — 훅(0.40~4.72) + 통념 반박·곰팡이·습도 40~60%(5.60~14.89)까지 전체 화면. act_humidifier_mist(4초, 프레임 확인: 손이 버튼을 누르자 흰 김 기둥) + m_fungal_growth(4초, 프레임 확인: 호박색 균사가 그물처럼 번짐 — '곰팡이가 잘 자라요') 통째로, 각 약 1.8배.",
+  "negations": [
+    {
+      "from": "가습은 많이 할수록",
+      "x_at": "아니에요",
+      "clip": "assets_library/xray/output/act_humidifier_mist.mp4"
+    }
+  ],
+  "_negation_why": "X는 틀린 통념(김을 펑펑 많이) 쪽 — 김이 기둥처럼 쏟아지는 장면에만. 가습 자체를 하지 말라는 뜻으로 읽히지 않게 제품 칸(찬 김)엔 X 없음.",
+  "timeline": [
+    {
+      "from": "더 큰 문제는 물통이에요",
+      "item": "아기 가습기",
+      "mech": "m_humidifier_tank_germs_mist",
+      "act": null,
+      "label": "물통 속 세균",
+      "solo": "고인 물통 안에서 세균·곰팡이가 불어나고 그게 김에 실려 방으로 퍼지는 사물 기전 단독(아기 없음) — 김 뿜는 손 클립은 도입부에 이미 써서 반복 피함"
+    },
+    {
+      "from": "물은 매일 갈고",
+      "item": "아기 가습기",
+      "mech": "act_ultrasonic_tank_detach",
+      "act": null,
+      "label": "물통 비우기",
+      "solo": "물통을 통째로 빼 고인 물을 버리고 헹궈 새 물을 담는 사물 단독(손만) — 제품 작동 칸에서 한 번 더 쓴다"
+    },
+    {
+      "from": "우리나라에선 가습기 살균제",
+      "item": "아기 가습기",
+      "mech": "part_baby_lungs",
+      "act": null,
+      "label": "아기 폐",
+      "solo": "살균제를 들이마셔 다친 자리 — 아기 양쪽 폐 점등 단독(새로 만든 부위 클립, 얼굴 줌 없음)"
+    },
+    {
+      "from": "물을 끓이는 가열식은",
+      "item": "아기 가습기",
+      "mech": "m_warm_mist_hot_steam",
+      "act": null,
+      "label": "뜨거운 김 · 물",
+      "solo": "물을 끓이는 가열식 가습기 — 끓는 물과 뿜어 나오는 뜨거운 김이 호박색으로 달아오르는 사물 단독(아기 없음, 화상 장면 없음)"
+    },
+    {
+      "from": "미국소아과학회가 어린아이에겐",
+      "item": "아기 가습기",
+      "mech": "act_humidifier_mist",
+      "act": null,
+      "label": "찬 김",
+      "solo": "버튼을 누르면 흰 찬 김이 피어오르는 가습기(도입부 클립 2회째) — '찬 김 가습기가 더 안전' 단독"
+    },
+    {
+      "from": "이럴 땐 찬 김이 나오고",
+      "item": "아기 가습기",
+      "mech": "act_ultrasonic_tank_detach",
+      "act": null,
+      "label": "통째로 분리되는 물통",
+      "solo": "🚨 제품 작동 칸 — 찬 김 초음파 가습기의 물통이 받침에서 통째로 빠져 비우고 헹궈지는 사물 단독(2회째)"
+    },
+    {
+      "from": "매일 비우고 닦기가",
+      "item": "아기 가습기",
+      "mech": "act_humidifier_mist",
+      "act": null,
+      "label": "아기 가습기"
+    }
+  ],
+  "_timeline_why": "① 15.49~22.05 물통 세균이 김에 실림 — 새 Flow m_humidifier_tank_germs_mist(6초 1.1배). ② 22.05~25.35 '물은 매일 갈고, 살균제는 절대 넣지 마세요' — 새 Flow act_ultrasonic_tank_detach(6초 0.55배). ③ 25.35~29.51 가습기 살균제 폐 손상 — part_baby_lungs(5초 0.83배, 프레임 확인: 양쪽 폐 호박색). ④ 29.51~33.33 가열식 화상 — 새 Flow m_warm_mist_hot_steam(4초 0.96배). ⑤ 33.33~38.33 AAP 찬 김 — act_humidifier_mist(4초 1.25배). ⑥ 38.33~43.24 제품 작동 칸 act_ultrasonic_tank_detach 2회째(0.82배). 기전 클립 3회 이상 없음.",
+  "summary_from": "매일 비우고 닦기가",
+  "_summary_why": "병원 신호가 없는 생활용품 topic(card_news_spec no_doctor_signal_reason). 마지막 '고를 땐 … 보세요'가 이유 없는 명령문 하나라 그것만 칠판에 두면 check_board_flow에 걸린다 — 제품 이유 문장('매일 비우고 닦기가 쉽거든요')부터 칠판 전체(제품 사진·제품 보러 가기). 고르는 기준(습도 표시·60% 맞춤)은 칠판 자막으로 읽힌다.",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립.",
+  "board_items": [
+    "아기 가습기"
+  ],
+  "sources": [
+    {
+      "from": "우리나라에선 가습기 살균제",
+      "text": "출처: Kim J 외, Environ Health Perspect 2025 · Park SK 외, J Prev Med Public Health 2026"
+    },
+    {
+      "from": "물을 끓이는 가열식은",
+      "until": "미국소아과학회가 어린아이에겐",
+      "text": "출처: 미국소아과학회 「Cough & Cold Survival Kit」 · 미국 환경보호청 「Use and Care of Home Humidifiers」"
+    }
+  ]
+}

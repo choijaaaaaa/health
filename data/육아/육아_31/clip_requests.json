@@ -1,0 +1,52 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_bath_alone",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_31 훅('아기욕조, 물 받아 아기를 앉혀 두고 수건 가지러 잠깐 자리 비우신 적 있나요?', 0.26~5.00초 전체 화면) + ①칸(17.96~29.10초 AAP '많은 경우 어른이 잠깐 눈을 뗀 사이') 단독. 얕게 물 받은 어른 욕조에 혼자 앉은 아기, 주위에 어른이 없고 욕조 옆 빈 수건걸이 — 아기 몸통만 호박색. 얼굴은 물 위, 물은 배꼽 아래로 얕게(익사 장면 금지 — '혼자 남겨진 순간'까지만). 색인 전수 확인(목욕·욕조·물·익사·혼자) — act_baby_bath_tub는 어른 손이 받치고 있어 '자리 비움'의 반대 장면. 아기 몸이라 Flow 금지 → 스틸 받으면 make_part_clip.py --region(몸통) --pull-out --seconds 5(얼굴 줌 금지). 범용 — 목욕 안전·익사·자리 비움 편에 쓴다.",
+      "fits": [
+        "목욕 중 자리 비움",
+        "혼자 목욕하는 아기",
+        "아기 익사",
+        "욕조 안전",
+        "목욕 안전",
+        "아기 혼자 두기"
+      ],
+      "midjourney": "Medical holographic visualization of a single small translucent glass-like 3D anatomical model of a human baby about eight months old with early-developmental body proportions — the head about one quarter of the total body length, short rounded limbs and a soft rounded torso — sitting alone upright in a translucent glass bathtub filled with only a shallow layer of calm translucent water below the belly button, nobody else in the room, an empty translucent towel rail on the wall beside the tub, seen from the side at full-body distance so the whole tub and the empty space around it are in frame, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the baby's torso and spine. Smooth featureless face turned in profile well above the water, calm posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, face under water, adult figure, hands, brand marks, deep water, splashing",
+      "midjourney_alt": "Medical holographic visualization of a single small chubby translucent glass infant figure with a large head and short limbs sitting alone upright in a translucent glass bathtub with only a shallow layer of calm water below the belly, nobody else present, an empty towel rail beside the tub, seen from the side at full-body distance, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the torso and spine. Smooth featureless face in profile well above the water, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, face under water, adult figure, hands, brand marks"
+    },
+    {
+      "name": "m_bath_seat_tips_over",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_31 ②칸(29.10~38.00초 '어른 욕조에 목욕 의자를 두고 앉히는 집도 많죠. 그런데 목욕 의자는 의자째 넘어지거나, 아기가 미끄러져 빠져나올 수 있어요', 8.9초) 단독. 얕은 물을 받은 어른 욕조 바닥에 흡착판으로 붙인 빈 아기 목욕 의자 — 물결에 흡착판 하나가 바닥에서 떨어지며(호박색) 의자가 옆으로 기울어 물에 눕는다. ⚠️ 근거(AAP 'bath seats can tip over')만큼만 — 아기는 그리지 않고 '빠지는' 장면도 없다(Sibert·Thompson은 '더 위험하다'까지 말하지 않음). 색인 전수 확인(목욕·욕조·의자·넘어짐·미끄러짐·흡착) — 목욕 의자 장면 0건. 아기 단어·몸 없이 사물만. 범용 — 목욕 의자·목욕 안전·아기 욕조 편에 쓴다.",
+      "fits": [
+        "목욕 의자",
+        "아기 목욕 의자 위험",
+        "의자째 넘어짐",
+        "욕조 안전",
+        "목욕 안전"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass infant bath seat — a small ring-shaped seat with a low back and a front post between the legs, standing on four short suction-cup feet — fixed to the floor of a translucent glass adult bathtub filled with a shallow layer of calm translucent water, seen from a low three-quarter angle at the side of the tub so the seat, its suction cups and the water line are all in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, body, face, hands, baby, doll, amber, orange, red, brand marks",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame small ripples run across the shallow water in the tub and rock the empty bath seat, the camera swinging fast low along the side of the tub. 2-4s: one suction-cup foot peels up off the tub floor and glows soft warm amber at the moment it lets go, and the whole seat tilts sharply to one side. 4-6s: the seat keeps tipping and lies over on its side in the shallow water, the ripples settling around it, the amber on the loose suction cup fading to pale cyan, the camera pulling back to show the toppled seat until the very last frame. Nothing breaks or shatters at any moment. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face, no doll and nothing sitting in the seat or the tub anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft water slosh, a small suction pop and a dull splash, no music, no dialogue. Object lock: it is the same single empty ring-shaped bath seat from the start frame for the entire clip; it never changes into another chair and no new object appears."
+    },
+    {
+      "name": "m_infant_tub_slanted_back",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_31 🚨 제품 작동 칸 오른쪽(38.00~46.52초 '그래서 아기 전용 욕조로 바꿔 두면 수월해요. 비스듬한 등받이가 아기를 받쳐 줘서, 한 손은 늘 아기 몸에 얹은 채로 씻길 수 있거든요', 8.5초). 왼쪽은 act_baby_bath_tub(어른 한 손이 물에 앉은 아기 등을 받침, 받아 둔 스틸로 이번에 만든 클립). 빈 아기 욕조 — 물이 얕게(5cm쯤) 차오르고, 비스듬한 등받이 면과 오돌토돌한 미끄럼 방지 바닥이 차례로 호박색으로 켜진다. ⚠️ 근거(AAP·CPSC 'sloped, textured surface that keeps your baby from sliding')만큼만 — 익사를 막는다는 그림은 없다. 색인 전수 확인(욕조·목욕·등받이·미끄럼) — 아기 욕조 사물 장면 0건. 아기 단어·몸 없이 사물만. 범용 — 아기 욕조·신생아 목욕·목욕 용품 편에 쓴다.",
+      "fits": [
+        "아기 욕조",
+        "비스듬한 등받이",
+        "미끄럼 방지 바닥",
+        "신생아 목욕",
+        "목욕물 5cm",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of an empty translucent glass infant bathtub — a small oval hard tub with one end rising into a smoothly sloped reclining backrest and a finely ridged textured floor — standing on a flat surface, seen from a high three-quarter angle so the sloped backrest, the textured floor and the inside of the tub are all in frame, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, people, human figure, body, face, hands, baby, doll, amber, orange, red, brand marks, toys",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame clear translucent water pours gently into the empty infant tub and rises to a shallow level only a little way up the sides, the camera swooping fast down over the rim. 2-4s: the smoothly sloped reclining backrest glows soft warm amber along its whole surface, from the rim down to where it meets the water, as the camera glides along its slope. 4-6s: the amber slides down onto the finely ridged textured floor under the shallow water so the ridges glow, then fades evenly back to pale cyan, the camera pulling back to show the whole calm tub until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no person, no hand, no face, no doll and nothing sitting in the seat or the tub anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a gentle pouring trickle and a soft settling of water, no music, no dialogue. Object lock: it is the same single infant tub from the start frame for the entire clip; its sloped backrest and ridged floor stay the same shape and no new object appears."
+    }
+  ]
+}

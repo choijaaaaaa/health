@@ -1,0 +1,129 @@
+{
+  "_why": "반투명 인체 포맷(육아, 아토피 목욕). 도입부는 욕조 속 아기(훅 '목욕을 미루거나, 비누로 뽀득하게') + 통념 반박('둘 다 피부를 더 힘들게 해요')·원리('겉 보호막이 약해서 수분은 빠지고 자극은 들어온다') 동안 피부 틈으로 알갱이가 파고드는 기전. '~가 아니에요' 문형이 없고 틀린 쪽 그림(비누로 뽀득하게 씻기는 아기)이 없어 negations는 비움 — 욕조 장면에 X를 얹으면 '목욕하지 마라'로 오독된다. 아기 몸은 스틸+make_part_clip(act_baby_bath_tub·part_baby_skin 새로 만듦), 피부 단면 기전만 Flow.",
+  "top_title": "아토피 아기, 비누로 뽀득하게 씻긴다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_skin.mp4",
+    "crop": [
+      0,
+      300,
+      720,
+      620
+    ],
+    "label": "아기 피부"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_bath_tub.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_skin_barrier_gaps.mp4"
+    }
+  ],
+  "opening_until": 11.44,
+  "_opening_why": "xray_build._opening_end 기준(세 번째 문단 '목욕을 미루면' 직전 자막 끝 11.444) — 훅(0.31~4.55) + 통념 반박·원리(4.99~11.44)까지 전체 화면. act_baby_bath_tub(6초, 프레임 확인: 보호자 팔에 기댄 욕조 속 아기, 물에 잠긴 몸통만 호박색·얼굴 안 켜짐) + m_skin_barrier_gaps(6초, 프레임 확인: 피부 벽돌 틈이 벌어지고 호박색 알갱이가 파고듦) 통째로, 각 약 0.95배.",
+  "negations": [],
+  "timeline": [
+    {
+      "from": "목욕을 미루면 땀과 침이",
+      "item": "아기 바디워시",
+      "mech": "m_stick_wet_skin_sting",
+      "act": "act_baby_rough_cheek_touch",
+      "label": "땀·침이 남은 피부"
+    },
+    {
+      "from": "그렇다고 비누로 뽀득하게",
+      "item": "아기 바디워시",
+      "mech": "m_oil_film_stripped",
+      "act": null,
+      "label": "피부 기름막",
+      "solo": "비누로 뽀득하게 씻기면 보호막이 상함 — 얇은 기름막이 씻겨 나가고 맨 표면이 갈라지는 기전 단독(비누로 아기를 씻기는 장면은 아기 몸이라 Flow 불가, 스틸도 없음)"
+    },
+    {
+      "from": "건강한 피부는 약한 산성인데",
+      "item": "아기 바디워시",
+      "mech": "m_skin_ph_alkaline_shift",
+      "act": null,
+      "label": "피부 겉 산성막",
+      "solo": "약산성 피부 겉막에 알칼리 비누 거품이 닿아 겉막 빛이 바뀌고 벽돌 사이가 느슨해지는 기전 단독"
+    },
+    {
+      "from": "실제로 비누로 손을 씻어 보니",
+      "item": "아기 바디워시",
+      "mech": "m_skin_ph_alkaline_shift",
+      "act": "act_wash_hands_soap",
+      "label": "알칼리로 기운 피부"
+    },
+    {
+      "from": "그래서 목욕은 미지근한",
+      "item": "아기 바디워시",
+      "mech": "act_baby_bath_tub",
+      "act": null,
+      "label": "미지근한 물 5~10분",
+      "solo": "욕조 속 아기 단독(도입부 클립 2회째) — '미지근한 물로 5분에서 10분만'"
+    },
+    {
+      "from": "세정제는 온몸에 쓰지 말고",
+      "item": "아기 바디워시",
+      "mech": "act_baby_lift_legs_clean",
+      "act": null,
+      "label": "기저귀 자리",
+      "solo": "두 다리를 들어 엉덩이를 닦는 보호자 손 — '기저귀 자리처럼 더러워지는 곳에만' 단독"
+    },
+    {
+      "from": "이때 비누 대신 약산성",
+      "item": "아기 바디워시",
+      "mech": "m_mild_acid_wash_barrier_intact",
+      "act": null,
+      "label": "보호막 그대로",
+      "solo": "🚨 제품 작동 칸 — 약산성 거품이 피부 겉을 씻고 지나가도 겉 산성막·벽돌 배열이 그대로 남는 기전 단독(3칸 알칼리 장면과 대비)"
+    },
+    {
+      "from": "고를 땐 약산성이라고",
+      "item": "아기 바디워시",
+      "mech": "note_bodywash_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(약산성 표기·향료 없음) — 브랜드 없이(상품 사진은 마지막 칠판에만)"
+    },
+    {
+      "from": "씻긴 뒤엔 문지르지 말고",
+      "item": "아기 바디워시",
+      "mech": "act_pat_dry_towel",
+      "act": null,
+      "label": "톡톡 눌러 닦기",
+      "solo": "접은 수건으로 톡톡 눌러 물기를 닦는 손 단독(문지르지 않음) — 아기에게 하는 동작이지만 스틸이 없어 같은 동작의 기존 클립"
+    },
+    {
+      "from": "그리고 3분 안에 보습제를",
+      "item": "아기 바디워시",
+      "mech": "m_cream_lid_seal",
+      "act": "act_baby_apply_lotion",
+      "label": "물기를 가두는 크림"
+    },
+    {
+      "from": "노란 딱지나 진물",
+      "item": "아기 바디워시",
+      "mech": "m_cream_lid_seal",
+      "act": null,
+      "label": "아기 피부"
+    }
+  ],
+  "_timeline_why": "① 12.17~16.07 땀·침이 남아 자극 — act_baby_rough_cheek_touch(11초 0.35배, 뺨 피부 옅은 호박색) · m_stick_wet_skin_sting(6초, 프레임 확인: 젖은 겉면에 막이 녹아 번지며 세포가 따끔하게 호박색). ② 16.07~19.42 비누로 뽀득 → m_oil_film_stripped(6초, 기름막이 씻겨 나가고 표면이 갈라짐). ③ 19.42~23.36 약산성 vs 알칼리 — 새 Flow m_skin_ph_alkaline_shift(6초). ④ 23.36~30.35 '비누로 손을 씻어 보니 한 시간 반' — 연구가 실제로 손 씻기였으므로 act_wash_hands_soap(6초 1.17배) + 같은 Flow 2회째. ⑤ 30.35~34.13 미지근한 물 5~10분 act_baby_bath_tub. ⑥ 34.13~39.32 기저귀 자리만 act_baby_lift_legs_clean(4초 1.3배). ⑦ 39.32~46.01 제품 작동 칸 새 Flow m_mild_acid_wash_barrier_intact(6초 1.1배). ⑧ 46.01~49.37 메모 note_bodywash_pick(만듦). ⑨ 49.37~53.66 act_pat_dry_towel. ⑩ 53.66~60.07 보습 3분·꾸덕한 크림 act_baby_apply_lotion + m_cream_lid_seal(6초 1.07배). 기전 클립 3회 이상 없음.",
+  "summary_from": "노란 딱지나 진물",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립.",
+  "board_items": [
+    "아기 바디워시"
+  ],
+  "sources": [
+    {
+      "from": "실제로 비누로 손을 씻어 보니",
+      "text": "출처: Panther·Jacob, J Clin Med 2015"
+    },
+    {
+      "from": "그래서 목욕은 미지근한",
+      "until": "나머지는 물로 충분해요",
+      "text": "출처: 미국피부과학회 「How to treat eczema in babies」"
+    }
+  ]
+}

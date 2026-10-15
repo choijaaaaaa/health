@@ -1,0 +1,117 @@
+{
+  "_why": "반투명 인체 포맷(육아, 습관 topic — 병원 신호 대신 치과 검진으로 끝남). 도입부 = 젖병을 문 채 잠든 아기(훅 '젖병을 물고 잠들고') → 보호자 무릎에서 젖병을 잡고 먹는 아기(훅 '낮에도 젖병만 찾나요'·AAP '돌에서 18개월 사이에 떼라'). 빨간 X는 걸지 않는다 — '~가 아니에요' 꼴 통념 문장이 없고, 젖병 장면 위 X는 '당장 끊어라'로 읽혀 대본('한 번에 하지 않아도 돼요')과 어긋난다. 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 새로 받는 건 아기 스틸 2장(Flow 안 탐)과 사물만 나오는 Flow 2개(위 앞니에 우유가 고임·식판의 젖병을 빨대컵으로 바꿈), 메모 카드는 make_note_card로 만들어 둠.",
+  "top_title": "돌 지나도 젖병 물고 잔다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_mouth_teeth.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "입안 · 치아"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_bottle_asleep_crib.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_baby_feed_upright.mp4"
+    }
+  ],
+  "opening_until": 10.11,
+  "_opening_why": "훅(0.36~5.57) + AAP 권고·'이유는 두 가지예요'(5.92~10.11)까지 전체 화면. 세 번째 문단('첫째는 이예요') 직전 자막 끝 = 10.11초. 통클립 5초(스틸 make_part_clip --seconds 5) + 4초 = 9초를 약 10.3초에 — 1.15배(잠든 아기 0~5.7초 = 훅, 젖병 먹는 아기 5.7~10.3초 = '낮에도 젖병'·떼는 시기).",
+  "negations": [],
+  "timeline": [
+    {
+      "from": "첫째는 이예요",
+      "item": "아기 빨대컵",
+      "mech": "m_milk_pool_front_teeth",
+      "act": "act_baby_bottle_asleep_crib",
+      "label": "위 앞니"
+    },
+    {
+      "from": "우유에도 당분이 있어서",
+      "item": "아기 빨대컵",
+      "mech": "m_enamel_acid_fluoride",
+      "act": null,
+      "label": "치아 겉면",
+      "solo": "'당분이 오래 닿으면 이가 썩기 쉬워요' — 산 안개가 번지고 치아 겉면(법랑질)이 호박색으로 물드는 기전 단독. 어금니 단면이지만 '썩는 원리'만 보여 주고 '위 앞니'는 다음 칸(m_milk_pool_front_teeth)이 맡는다"
+    },
+    {
+      "from": "주로 위 앞니부터",
+      "item": "아기 빨대컵",
+      "mech": "m_milk_pool_front_teeth",
+      "act": null,
+      "label": "젖병 충치",
+      "solo": "'주로 위 앞니부터 상하는데, 젖병 충치' — 위 앞니 잇몸선에 우유가 고였다가 그 자리가 호박색으로 물드는 기전 단독(1칸과 같은 클립 2회째, 끝의 앞니 얼룩이 이 문장)"
+    },
+    {
+      "from": "둘째는 밥이에요",
+      "item": "아기 빨대컵",
+      "mech": "m_emptying_delay",
+      "act": "act_baby_feed_upright",
+      "label": "위"
+    },
+    {
+      "from": "실제로 미국 아이",
+      "item": "아기 빨대컵",
+      "mech": "m_fat_accumulation",
+      "act": "act_baby_weigh_scale",
+      "label": "체지방"
+    },
+    {
+      "from": "떼는 건 한 번에",
+      "item": "아기 빨대컵",
+      "mech": "act_bottle_to_cup_at_meal",
+      "act": "act_baby_spoon_feed",
+      "label": "밥때 컵"
+    },
+    {
+      "from": "이때 아기 빨대컵으로",
+      "item": "아기 빨대컵",
+      "mech": "act_baby_straw_cup_drink",
+      "act": null,
+      "label": "빨대컵 연습",
+      "solo": "🚨 제품 작동 칸 — 빨대컵으로 마시는 아기 단독. 근거가 '컵 연습 도구'까지라(research 🚨) 충치가 줄어드는 기전은 붙이지 않는다"
+    },
+    {
+      "from": "고를 땐 손잡이가",
+      "item": "아기 빨대컵",
+      "mech": "note_strawcup_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(빨대컵 고를 때 / 손잡이가 양쪽에 / 들고 다닐 땐 물만 / 우유는 밥 먹을 때만). '들고 다니는 컵엔 물만' 문장까지 한 칸(8.7초, 8초 카드 1.09배). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "두 돌쯤엔",
+      "item": "아기 빨대컵",
+      "mech": "part_mouth_teeth",
+      "act": null,
+      "label": "입안 · 치아"
+    }
+  ],
+  "_timeline_why": "충치(물고 잠 → 당분 → 위 앞니) → 밥(배부름 → 비만 연구) → 떼는 법 → 제품 → 고르는 기준. ① 10.39~14.65 '첫째는 이예요. 젖병을 문 채 잠들면 이가 밤새 우유에 잠겨'(4.3초) 왼쪽 새 스틸 act_baby_bottle_asleep_crib(5초 0.85배) · 오른쪽 새 Flow m_milk_pool_front_teeth(6초 0.7배). '첫째는 이예요' 0.7초는 단독 칸 불가라 뒤 문장과 묶음. ② 14.65~18.36 '우유에도 당분 … 썩기 쉬워요'(3.7초) m_enamel_acid_fluoride(프레임 확인: 어금니 단면 옆 산 안개, 2초부터 치아 겉면 호박색, 4초 0.93배). ③ 18.36~22.08 '주로 위 앞니부터 … 젖병 충치'(3.7초) m_milk_pool_front_teeth 2회째(0.62배). ④ 22.08~27.20 '둘째는 밥이에요. 낮에도 젖병을 달고 살면 배가 불러서 정작 밥은 덜 먹어요'(5.1초) 왼쪽 act_baby_feed_upright(프레임 확인: 보호자 무릎에 기대 젖병을 잡고 먹는 아기, 4초 1.28배 — 도입부에 이어 2회째) · 오른쪽 m_emptying_delay(프레임 확인: 위 단면이 호박색 내용물로 차고 계속 부어짐 — 배가 부름, 4초 1.28배). ⑤ 27.20~36.54 Gooze 2011 6,750명·23% 대 16%(9.3초) 왼쪽 act_baby_weigh_scale(프레임 확인: 체중계 위 아기를 보호자 손이 받치고 배 호박색, 4초 2.3배) · 오른쪽 m_fat_accumulation(프레임 확인: 몸통 장기에 지방 방울 → 지방세포 층이 두꺼워짐, 4초 2.3배). ⑥ 36.54~43.50 '떼는 건 한 번에 … 밥 먹을 때 컵을 같이 주고, 잠자리 젖병부터 하나씩 줄여'(7.0초) 왼쪽 act_baby_spoon_feed(프레임 확인: 아기 의자에서 숟가락으로 받아먹음 = 밥 먹을 때, 4초 1.74배) · 오른쪽 새 Flow act_bottle_to_cup_at_meal(식판의 젖병을 치우고 양손잡이 빨대컵을 둠, 6초 1.16배). '떼는 건 한 번에' 1.4초는 단독 불가라 묶음. ⑦ 43.50~50.48 🚨 제품 작동 칸(7.0초) 새 스틸 act_baby_straw_cup_drink 단독(5초 1.4배). ⑧ 50.48~59.17 고르는 기준 메모 note_strawcup_pick(8초 1.09배, make_note_card로 만듦). 기전 m_milk_pool_front_teeth만 2회.",
+  "summary_from": "두 돌쯤엔",
+  "_summary_why": "병원 신호가 없는 습관 topic(card_news_spec no_doctor_signal_reason) — 마지막 '두 돌쯤엔 뚜껑 없는 컵 + 첫 이가 나면 치과 검진' 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(part_mouth_teeth).",
+  "board_items": [
+    "아기 빨대컵"
+  ],
+  "sources": [
+    {
+      "from": "미국소아과학회는 젖병을",
+      "text": "출처: 미국소아과학회 「From Bottle to Cup」(2023)"
+    },
+    {
+      "from": "첫째는 이예요",
+      "until": "젖병 충치라고",
+      "text": "출처: 미국치과의사협회 「Tooth Decay with Baby Bottles」 · 미국소아과학회 「From Bottle to Cup」"
+    },
+    {
+      "from": "실제로 미국 아이",
+      "text": "출처: Gooze 외, J Pediatr 2011 (미국 아이 6,750명 추적 관찰 연구)"
+    }
+  ],
+  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(기존 act_baby_feed_upright·act_baby_spoon_feed·act_baby_weigh_scale, 새 스틸 2장)만, 새 Flow 둘은 치아 단면·손과 사물만(Flow에 아기 단어 없음)."
+}

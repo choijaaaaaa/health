@@ -1,0 +1,88 @@
+{
+  "_why": "반투명 인체 포맷(육아, 목욕 안전 — 병원 신호 없음). 도입부 = 물 받은 욕조에 혼자 앉은 아기, 비어 있는 어른 자리(훅 '수건 가지러 잠깐 자리 비우신 적', 새 스틸) → 목뼈(part_baby_neck, '목과 몸을 가누는 힘이 약해서') → 숨길(part_baby_airway, '코와 입이 물에 잠기면 숨을 못 쉬거든요'). 빨간 X는 걸지 않는다('~가 아니에요' 문장 없음). 아기 몸은 미드저니 스틸+make_part_clip, 목욕 의자·아기 욕조 장면은 Flow(아기 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 받아 둔 act_baby_bath_tub 스틸로 '한 손은 아기 몸에' 클립을 코드로 만들었다.",
+  "top_title": "목욕 중 잠깐 자리 비운다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_baby_airway.mp4",
+    "crop": [
+      0,
+      200,
+      720,
+      620
+    ],
+    "label": "아기 숨길"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_bath_alone.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_neck.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_baby_airway.mp4"
+    }
+  ],
+  "opening_until": 17.22,
+  "_opening_why": "훅(0.26~5.00) + 둘째 문단(6.48~17.22 '손가락 한두 마디 깊이의 물에서도 빠질 수 있어요. 목과 몸을 가누는 힘이 약해서, 코와 입이 물에 잠기면 숨을 못 쉬거든요. 소리도 없이, 몇 초 만에')까지 전체 화면 — 세 번째 문단('미국소아과학회에 따르면') 직전 자막 끝 = 17.22초. 새 스틸 클립 5초 + part_baby_neck 5초(프레임 확인: 아기 머리 옆모습에서 목뼈만 호박색, 물러나는 카메라) + part_baby_airway 4초(아기 몸통 정면에서 입~가슴 숨길만 호박색) = 14초를 약 17.4초에 — 1.24배.",
+  "timeline": [
+    {
+      "from": "미국소아과학회에 따르면",
+      "item": "아기 욕조",
+      "mech": "act_baby_bath_alone",
+      "act": null,
+      "label": "어른이 자리 비운 사이",
+      "solo": "AAP 통계 문장(집 안 익사는 대부분 욕조, 절반 넘게 돌 전, 많은 경우 어른이 잠깐 눈을 뗀 사이) — 혼자 남은 아기(훅 스틸 2회째) 단독, 수치 그래픽 없음"
+    },
+    {
+      "from": "어른 욕조에 목욕 의자를",
+      "item": "아기 욕조",
+      "mech": "m_bath_seat_tips_over",
+      "act": null,
+      "label": "목욕 의자",
+      "solo": "빈 목욕 의자가 어른 욕조 물속에서 흡착판이 떨어지며 옆으로 기우는 사물 단독(아기 없음)"
+    },
+    {
+      "from": "그래서 아기 전용 욕조로",
+      "item": "아기 욕조",
+      "mech": "m_infant_tub_slanted_back",
+      "act": "act_baby_bath_tub",
+      "label": "비스듬한 등받이"
+    },
+    {
+      "from": "고를 땐 등받이가",
+      "item": "아기 욕조",
+      "mech": "note_babytub_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(등받이 기울기 / 미끄럽지 않은 바닥 / 물 5cm·팔꿈치로 온도). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "초인종이 울려도",
+      "item": "아기 욕조",
+      "mech": "part_baby_neck",
+      "act": null,
+      "label": "아기 목"
+    }
+  ],
+  "_timeline_why": "① 17.96~29.10 AAP '집 안 익사는 대부분 욕조 / 절반 넘게 돌 전 / 어른이 잠깐 눈을 뗀 사이'(11.1초) 훅 스틸 2회째 단독(5초 2.2배). ② 29.10~38.00 '어른 욕조에 목욕 의자 … 의자째 넘어지거나 미끄러져 빠져나올 수'(8.9초) 새 Flow 단독(6초 1.48배) — 근거(Sibert 2005·Thompson 2003)는 '더 위험하다'까지 말하지 않으므로 넘어질 수 있다는 장면만, 아기가 빠지는 장면은 그리지 않는다. ③ 38.00~46.52 🚨 제품 작동 칸 '아기 전용 욕조로 바꿔 두면 … 비스듬한 등받이가 받쳐 줘서 한 손은 늘 아기 몸에 얹은 채로'(8.5초) 왼쪽 = 물에 앉은 아기 등을 어른 한 손이 받치는 act_baby_bath_tub(받아 둔 스틸로 이번에 만든 클립, 6초 1.42배), 오른쪽 = 빈 아기 욕조 등받이·미끄럼 방지 바닥이 켜지는 새 Flow(6초 1.42배). 근거는 '받쳐 줘서 한 손을 둘 수 있다'까지라 익사를 막는다는 그림은 없다. ④ 46.52~55.40 고르는 기준 메모(note_babytub_pick 8초, 1.11배 — '물은 5cm, 팔꿈치' 문장까지 한 칸). 기전 중복 없음.",
+  "summary_from": "초인종이 울려도",
+  "_summary_why": "병원 신호가 없는 안전 topic(card_news_spec no_doctor_signal_reason) — 마지막 행동 문장부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(part_baby_neck).",
+  "board_items": [
+    "아기 욕조"
+  ],
+  "sources": [
+    {
+      "from": "아기는 손가락 한두 마디",
+      "text": "출처: 미국소아과학회 「Infant Drowning Prevention & Water Safety」"
+    },
+    {
+      "from": "미국소아과학회에 따르면",
+      "text": "출처: 미국소아과학회 「Infant Drowning Prevention & Water Safety」"
+    },
+    {
+      "from": "그런데 목욕 의자는",
+      "text": "출처: 미국소아과학회 「Infant Drowning Prevention & Water Safety」 · 「Bathing Your Baby」"
+    }
+  ]
+}

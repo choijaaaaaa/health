@@ -1,0 +1,89 @@
+{
+  "_why": "반투명 인체 포맷(육아, 생활용품 — 병원 신호 없음). 도입부 = 손싸개를 낀 두 손을 뺨 옆에 올린 신생아(훅) → 긴 손톱 끝이 피부 겉을 긁어 호박색 줄을 남기는 단면(NHS '손톱이 길게 태어나는 아기, 잘라 주라'). '손이 아니라 손톱이에요'에서 손싸개 낀 손 위에 빨간 X(틀린 쪽 = 손). 얼굴은 가슴 위 거리 고정, 점등은 손·손톱. 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 기존 클립은 part_nail·act_baby_sleep_vest, 새로 받는 건 아기 스틸 3장(Flow 안 탐)과 손가락 끝·도구만 나오는 Flow 2개(손톱 긁힘·둥근 가위).",
+  "top_title": "아기가 얼굴을 긁는다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_nail.mp4",
+    "crop": [
+      0,
+      150,
+      720,
+      560
+    ],
+    "label": "손톱"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_baby_mittens_face.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_nail_tip_scratch_skin.mp4"
+    }
+  ],
+  "opening_until": 14.32,
+  "_opening_why": "훅(0.36~4.38) + 통념 반박(5.00~14.32 '얼굴에 상처를 내는 건 손이 아니라 손톱이에요. 영국 국민보건서비스도 … 잘라 주라고 해요')까지 전체 화면. 세 번째 문단('그리고 아기에게 손은') 직전 자막 끝 = 14.32초. 통클립 5초(스틸 --seconds 5) + 6초 = 11초를 약 14.5초에 — 1.32배.",
+  "negations": [
+    {
+      "from": "얼굴에 상처를 내는 건",
+      "x_at": "아니라",
+      "clip": "assets_library/xray/output/act_baby_mittens_face.mp4"
+    }
+  ],
+  "_negation_why": "'손이 아니라 손톱' — 틀린 쪽은 '손'이라 손싸개로 감싼 손 장면에 X. 문장이 끝나면(7.56초~) 도입 둘째 클립(손톱 끝이 긁는 단면)이 NHS 문장과 맞물린다. 손톱 쪽(맞는 쪽)엔 X를 걸지 않는다.",
+  "timeline": [
+    {
+      "from": "그리고 아기에게 손은",
+      "item": "아기 손톱가위",
+      "mech": "act_baby_suck_fist",
+      "act": null,
+      "label": "손 → 입",
+      "solo": "'첫 달부터 손을 입으로 가져가고, 배가 고프면 주먹을 빨아서 알려요' — 맨손 주먹을 입으로 가져가 빠는 신생아 단독(손과 입 점등). 손싸개가 해롭다는 기전은 근거가 없어 붙이지 않는다(research 🚨)"
+    },
+    {
+      "from": "손싸개를 늘 끼워",
+      "item": "아기 손톱가위",
+      "mech": "part_nail",
+      "act": "act_baby_mittens_face",
+      "label": "손톱"
+    },
+    {
+      "from": "이럴 땐 어른 손톱깎이",
+      "item": "아기 손톱가위",
+      "mech": "m_round_tip_scissors_trim",
+      "act": "act_baby_nail_scissors_trim",
+      "label": "둥근 날 끝"
+    },
+    {
+      "from": "자를 땐 아기가",
+      "item": "아기 손톱가위",
+      "mech": "act_baby_sleep_vest",
+      "act": null,
+      "label": "잠든 틈",
+      "solo": "'자를 땐 아기가 잠들었을 때가 좋아요. 손을 덜 움직이거든요'(3.4초) — 수면조끼 입고 빈 아기침대에 등 대고 잠든 아기 단독(7초 0.48배, 점등은 숨길이지만 '잠든 아기'만 읽힘)"
+    },
+    {
+      "from": "가위가 겁나면",
+      "item": "아기 손톱가위",
+      "mech": "part_nail",
+      "act": null,
+      "label": "손톱"
+    }
+  ],
+  "_timeline_why": "손의 쓰임 → 손싸개 대신 손톱 정리 → 제품 작동(둥근 가위) → 자르는 때. ① 14.86~21.95 '아기에게 손은 쓸 데가 많아요 … 주먹을 빨아서 알려요'(7.1초) 새 스틸 act_baby_suck_fist 단독(5초 1.42배). '그리고 아기에게 손은 쓸 데가 많아요' 1.8초는 단독 칸 불가라 묶음. ② 21.95~30.15 '손싸개를 늘 끼워 두면 … 그래서 손싸개는 잠깐만 쓰고, 손톱을 짧게 정리하는 게 먼저'(8.2초) 왼쪽 act_baby_mittens_face 2회째(도입부 다음, 5초 1.64배) · 오른쪽 part_nail(프레임 확인: 손가락 끝 손톱 하나 확대 투시가 파랑→흰색→금색으로 물듦, 4초 2.05배). 앞 문장 2.9초는 칸 최소 3초에 못 미쳐 뒤 문장과 묶음. ③ 30.15~38.39 🚨 제품 작동 칸(8.2초) 왼쪽 새 스틸 act_baby_nail_scissors_trim(--seconds 8, 1.03배) · 오른쪽 새 Flow m_round_tip_scissors_trim(6초 1.37배). ④ 38.39~41.79 '자를 땐 아기가 잠들었을 때가 좋아요. 손을 덜 움직이거든요'(3.4초) act_baby_sleep_vest 단독(프레임 확인: 수면조끼 입고 빈 아기침대에 등 대고 잠든 아기, 위에서 전신 고정, 7초 0.48배). 기존 스틸 stills/baby/act_baby_nail_trim.jpg는 어른 손 셋이 겹쳐 버림. 기전 part_nail은 ②와 칠판에 덮이는 결론 행.",
+  "summary_from": "가위가 겁나면",
+  "_summary_why": "병원 신호가 없는 생활용품 topic(card_news_spec no_doctor_signal_reason) — '가위가 겁나면 고운 손톱줄로 … 돼요'(대안) + '고를 땐 날 끝이 둥근지 …'(기준)부터 칠판 전체(제품 사진·제품 보러 가기). 기준 문장 하나만 칠판에 두면 '~하세요'만 남아 check_board_flow에 걸리고(체크리스트처럼 들림), 손톱줄 대안 문장이 앞에 서야 '대안 → 고르는 기준'으로 이어진다. 손톱줄 칸(Flow 요청)을 따로 두지 않아 크레딧도 아낀다.",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(part_nail).",
+  "board_items": [
+    "아기 손톱가위"
+  ],
+  "sources": [
+    {
+      "from": "영국 국민보건서비스도 손톱이",
+      "text": "출처: 영국 NHS 「Washing and bathing your baby」(2024)"
+    },
+    {
+      "from": "국민보건서비스도 끝이 둥근",
+      "text": "출처: 영국 NHS 「Washing and bathing your baby」(2024)"
+    }
+  ],
+  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(새 스틸 3장, 기존 act_baby_sleep_vest)만, 새 Flow 셋은 손가락 끝과 도구만(Flow에 아기 단어 없음)."
+}

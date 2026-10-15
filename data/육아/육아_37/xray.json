@@ -1,0 +1,100 @@
+{
+  "_why": "반투명 인체 포맷(육아, 안전용품). 도입부 = 어른 다리를 붙잡고 김 나는 냄비 쪽으로 손을 뻗는 걸음마 아이(훅) → 의자를 밟고 조리대 위로 손을 뻗는 아이('의자를 밟고 올라가') → 사람 없는 주방의 국 냄비·밥솥 김·정수기 온수가 차례로 호박색(CAPT '화상 절반이 주방'). 빨간 X는 걸지 않는다 — '~가 아니에요' 꼴 통념 문장이 없고, '얼음은 대지 마세요'는 얼음을 그리지 않는 쪽이 안전하다. 아이 몸은 미드저니 스틸+make_part_clip(얼굴 줌 금지), 사물·피부 단면은 Flow(아이 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 기존 클립으로 맞는 칸이 없어(주방·화상·안전문 장면 0건) 새로 받는 건 스틸 2장 + Flow 4개, 메모 카드는 make_note_card로 만들어 둠.",
+  "top_title": "냄비에 손 뻗는 아이라면",
+  "inset": {
+    "clip": "assets_library/xray/output/m_blister_formation.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "피부"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_toddler_reach_pot.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_toddler_climb_chair.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_kitchen_hot_sources.mp4"
+    }
+  ],
+  "opening_until": 19.89,
+  "_opening_why": "훅(0.37~4.28) + 두 번째 문단(5.36~19.89 '이 나이 아이는 … 의자를 밟고 … 화상의 절반쯤이 주방 … 국 냄비, 밥솥 김, 정수기 온수까지 전부 주방에 있죠')까지 전체 화면. 세 번째 문단('게다가 아기 피부는') 직전 자막 끝 = 19.89초. 통클립 5초 + 5초 + 6초 = 16초를 약 20.1초에 — 1.26배(손 뻗는 아이 0~6.3초 = 훅·'뭐든 잡아 보려고', 의자 오르는 아이 6.3~12.6초 = '의자를 밟고 올라가', 주방 12.6~20.1초 = CAPT·국 냄비·밥솥 김·정수기 온수).",
+  "negations": [],
+  "timeline": [
+    {
+      "from": "게다가 아기 피부는",
+      "item": "안전문",
+      "mech": "m_scald_thin_vs_thick_skin",
+      "act": "act_toddler_reach_pot",
+      "label": "얇은 피부"
+    },
+    {
+      "from": "그래서 요리할 땐",
+      "item": "안전문",
+      "mech": "act_kitchen_safety_gate_close",
+      "act": null,
+      "label": "주방 입구",
+      "solo": "🚨 제품 작동 칸 — 주방 입구 안전문이 닫혀 잠기고, 문 밖엔 장난감·문 안엔 김 나는 냄비(아이는 아기 몸이라 Flow에 안 넣음). 근거가 'CAPT: 요리하는 동안 주방 밖에 두라'까지라 화상이 줄어드는 기전은 그리지 않는다"
+    },
+    {
+      "from": "고를 땐 주방 입구",
+      "item": "안전문",
+      "mech": "note_safety_gate_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(안전문 고를 때 / 주방 입구 폭에 맞나 / 발 디딜 틈 없나 / 계단 위엔 압력식 말고). '벽을 미는 압력식은 계단 위엔 쓰지 마세요'까지 한 칸(8.4초, 8초 카드 1.05배). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "데었다면 흐르는",
+      "item": "안전문",
+      "mech": "m_cool_running_water_burn",
+      "act": null,
+      "label": "흐르는 물 20분",
+      "solo": "응급처치 문장(흐르는 시원한 물 20분, 얼음 금지) — 데인 피부 블록에 물줄기가 흐르며 호박색 열기가 식는 기전 단독. 출처 줄이 칠판에 가리지 않게 병원 신호 앞 칸으로 남김"
+    },
+    {
+      "from": "얼굴이나 손",
+      "item": "안전문",
+      "mech": "m_blister_formation",
+      "act": null,
+      "label": "피부"
+    }
+  ],
+  "_timeline_why": "얇은 피부(왜 크게 다치나) → 제품 작동(안전문) → 고르는 기준 → 응급처치. ① 20.54~29.93 '아기 피부는 어른보다 최대 15배나 얇아요 … 큰 화상이 돼요. 안 된다고 가르쳐도 … 기억하지 못하고요'(9.4초) 왼쪽 act_toddler_reach_pot 2회째(도입 훅 다음, 5초 1.88배 — '가르쳐도 기억 못 함' = 또 손을 뻗는 아이) · 오른쪽 새 Flow m_scald_thin_vs_thick_skin(6초 1.57배). '안 된다고 가르쳐도' 2.4초는 단독 칸 불가라 묶음. ② 29.93~40.34 🚨 제품 작동 칸(10.4초) 새 Flow act_kitchen_safety_gate_close 단독(6초 1.73배). ③ 40.34~48.74 고르는 기준 메모 note_safety_gate_pick(make_note_card로 만듦, 8초 1.05배). ④ 48.74~52.58 '데었다면 흐르는 시원한 물에 20분 식히고, 얼음은 대지 마세요'(3.8초) 새 Flow m_cool_running_water_burn 단독(4초 0.96배). 색인 전수 확인(화상·뜨거운·김·냄비·주방·요리·의자·피부층·얇은·식히기·찬물·흐르는·얼음·문·안전) — 맞는 기존 장면이 없어 결론 행(m_blister_formation, 칠판이 덮음) 외엔 재사용 0. 기전 클립 중복 없음.",
+  "summary_from": "얼굴이나 손",
+  "_summary_why": "병원 신호 문장('얼굴이나 손, 기저귀 쪽을 데었으면 바로 병원에 가세요')부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책·응급처치 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(m_blister_formation).",
+  "board_items": [
+    "안전문"
+  ],
+  "sources": [
+    {
+      "from": "실제로 영국 어린이사고예방재단은",
+      "until": "전부 주방에 있죠",
+      "text": "출처: 영국 어린이사고예방재단(CAPT) 「Burns and scalds」"
+    },
+    {
+      "from": "게다가 아기 피부는",
+      "until": "큰 화상이 돼요",
+      "text": "출처: 영국 어린이사고예방재단(CAPT) 「Burns and scalds」"
+    },
+    {
+      "from": "이 재단도 요리하는",
+      "text": "출처: 영국 어린이사고예방재단(CAPT) 「Burns and scalds」"
+    },
+    {
+      "from": "벽을 미는 압력식은",
+      "text": "출처: 미국 네이션와이드 아동병원 「Baby Gates」"
+    },
+    {
+      "from": "데었다면 흐르는",
+      "text": "출처: 영국 NHS 「Burns and scalds」 · 미국소아과학회 「Burn Treatment & Prevention Tips for Families」(2023)"
+    }
+  ],
+  "_panel_act_why": "행위 칸은 아이·사물 — 아이 몸이 보이는 건 새 스틸 2장(make_part_clip, 얼굴 줌 금지)만, 새 Flow 넷은 주방 사물·안전문·피부 단면만(Flow에 아이 단어 없음)."
+}

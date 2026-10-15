@@ -1,0 +1,70 @@
+{
+  "requests": [
+    {
+      "name": "act_baby_bottle_asleep_crib",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_35 도입부 훅('돌이 지났는데 아이가 아직 젖병을 물고 잠들고', 0.36~5.57초 전체 화면) + 1칸 왼쪽(10.39~14.65초 '첫째는 이예요. 젖병을 문 채 잠들면 이가 밤새 우유에 잠겨 있어요'). 아기침대에 등 대고 누워 젖병 꼭지를 문 채 잠든 돌 무렵 아기, 위 앞니 자리만 호박색. 색인 전수 확인(젖병·젖병 물고 잠·수면·잠들기·아기침대·act_baby_*) — 젖병 클립은 act_baby_feed_upright(깨어 앉아 먹음)·act_baby_nursing_blocked_nose(품에서 먹음, 코 점등)뿐이고 잠든 아기는 쪽쪽이·수면조끼(act_baby_sleep_pacifier·act_baby_sleep_vest)라 '젖병 문 채 잠듦'이 아니다. 아기 몸이라 Flow 금지 → 스틸 받으면 make_part_clip.py --no-zoom --seconds 5 --region(위 앞니·입). 범용 — 젖병 충치·밤중 수유·젖병 떼기 편에 쓴다.",
+      "fits": [
+        "젖병 물고 잠",
+        "젖병 충치",
+        "밤중 수유",
+        "젖병 떼기",
+        "잠자리 젖병",
+        "아기 수면"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about twelve months old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — lying on its back asleep in a translucent glass crib, seen from above and slightly to the side at full-body distance with the whole crib in frame, a translucent glass baby bottle resting on the mattress with its teat in the sleeping baby's mouth, the arms relaxed at its sides, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the small upper front teeth inside the mouth around the bottle teat. Smooth featureless face in profile, calm sleeping posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about twelve months old, small and chubby with a large head and short limbs, lying on its back asleep in a translucent glass crib, seen from above at full-body distance, a translucent glass baby bottle resting on the mattress with its teat in the toddler's mouth, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the small upper front teeth inside the mouth around the bottle teat. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms"
+    },
+    {
+      "name": "m_milk_pool_front_teeth",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_35 1칸 오른쪽(10.39~14.65초 '젖병을 문 채 잠들면 이가 밤새 우유에 잠겨 있어요', 0.7배) + 3칸 단독(18.36~22.08초 '주로 위 앞니부터 상하는데, 이걸 젖병 충치라고 해요', 0.62배). 위 앞니 네 개 줄을 비스듬히 본 단면 — 젖병 꼭지 끝에서 흰 우유가 흘러나와 위 앞니 뒷면·잇몸선에 고여 머물고, 끝에 그 앞니 잇몸선 겉면만 호박색 얼룩으로 물든다. ⚠️ 근거(ADA 'most often occurs in the upper front teeth' · AAP 'teeth are constantly bathed in milk')만큼 — 구멍 뚫린 충치·치아 붕괴까지는 그리지 않는다. 색인 전수 확인(충치·치아·앞니·법랑질·젖니·우유) — m_enamel_acid_fluoride는 어금니 단면(산 안개 → 겉면 호박색, 2칸에 씀)·act_toddler_brush_teeth는 칫솔질 장면이라 '앞니에 우유가 고임'이 없다. 아기 단어·몸 없이 치아·꼭지만. 범용 — 젖병 충치·밤중 수유·아기 이 관리 편에 쓴다.",
+      "fits": [
+        "젖병 충치",
+        "위 앞니 충치",
+        "우유가 이에 고임",
+        "밤중 수유 충치",
+        "젖니 충치",
+        "아기 충치"
+      ],
+      "midjourney": "Medical holographic visualization, close-up of a short row of four small translucent glass upper front teeth set in a soft translucent glass gum ridge, seen at a low three-quarter angle from behind and below so the back surfaces of the teeth and the gum line face the camera, the rounded tip of a translucent glass bottle teat resting just behind the teeth, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, baby, doll, amber, orange, red, blood, brand marks, lips, tongue, decay, holes, cavities",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame a slow trickle of milky white liquid seeps out of the teat tip and spreads over the back surfaces of the upper front teeth, the camera gliding fast in along the gum line. 2-4s: the white liquid settles and pools in a thin layer around the necks of the teeth along the gum line and stays there, not draining away. 4-6s: a faint soft warm amber stain slowly appears on the tooth surface right along the gum line where the liquid has been sitting, only on those front teeth, the camera pulling back to show the whole row with the pooled liquid until the very last frame. Nothing breaks, cracks or crumbles. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no face, no lips, no tongue anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a faint soft liquid trickle, no music, no dialogue."
+    },
+    {
+      "name": "act_bottle_to_cup_at_meal",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "육아_35 6칸 오른쪽(36.54~43.50초 '떼는 건 한 번에 하지 않아도 돼요. 6개월 무렵부터 밥 먹을 때 컵을 같이 주고, 잠자리 젖병부터 하나씩 줄여 가요', 1.16배). 아기 의자 식판 위 이유식 그릇 옆에 서 있던 젖병을 손이 집어 치우고, 그 자리에 양손잡이 빨대컵을 내려놓는다 — 컵 손잡이가 호박색. 왼쪽은 act_baby_spoon_feed(밥 먹는 아기). 색인 전수 확인(컵·빨대·빨대컵·젖병 떼기·식판) — 컵 클립은 어른 물컵(act_shaky_hands·act_gulp_water)·수액 컵(act_pour_ors_cup)뿐, 젖병을 컵으로 바꾸는 장면 0건. 아기 없이 손·사물만(Flow 미성년자 필터 무관). 범용 — 젖병 떼기·빨대컵·컵 연습 편에 쓴다.",
+      "fits": [
+        "젖병 떼기",
+        "컵 연습",
+        "빨대컵",
+        "밥때 컵 주기",
+        "젖병을 컵으로",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a translucent glass high-chair tray seen from a high three-quarter angle, on it a small glass bowl of soft food with a small spoon and, beside the bowl, a translucent glass baby bottle standing upright, a single translucent glass adult hand of the same material reaching in from the side toward the bottle, every structure rendered in the same soft pale cyan glow with softly glowing edges, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, face, baby, child, doll, amber, orange, red, brand marks, extra hands",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the glass hand closes around the baby bottle beside the bowl and lifts it straight up and away out of the frame, the camera swinging fast around the tray. 2-4s: the same hand comes back holding a small cup with two side handles and a short soft straw on its lid, and sets it down on the tray exactly where the bottle stood, next to the bowl and spoon; the two handles glow soft warm amber as it touches down. 4-6s: the hand withdraws out of frame, and the camera pulls back to show the tray with the bowl, the spoon and the two-handled straw cup standing alone, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. Only one hand at any moment; no face, no baby and no person anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft clink of the cup on the tray, no music, no dialogue. Object lock: the cup has exactly two side handles and one short straw for the entire clip and never morphs."
+    },
+    {
+      "name": "act_baby_straw_cup_drink",
+      "kind": "still",
+      "ref": "assets_library/xray/stills/baby/baby_canon_organs.jpg",
+      "ref_mode": "Style Reference (⚠️ Omni 금지)",
+      "why": "육아_35 🚨 제품 작동 칸 단독(43.50~50.48초 '이때 아기 빨대컵으로 바꿔 두면 편해요. 미국소아과학회도 빨대 달린 컵으로 연습해도 된다고 해요', 7.0초, 1.4배). 아기 의자에 앉은 돌 무렵 아기가 양손으로 손잡이 둘 달린 빨대컵을 잡고 빨대로 마신다 — 입·빨대 자리 호박색. ⚠️ 근거(research 🚨)는 '젖병을 떼는 동안 컵 연습 도구'까지라 충치가 줄어드는 기전은 그리지 않는다 — 그래서 오른쪽 기전 없이 단독. 색인 전수 확인(빨대·빨대컵·컵·마시기·act_baby_*) — 아기가 컵으로 마시는 클립 0건. 아기 몸이라 Flow 금지 → make_part_clip.py --no-zoom --seconds 5 --region(입·빨대). 범용 — 빨대컵·컵 연습·젖병 떼기·아기 수분 편에 쓴다.",
+      "fits": [
+        "빨대컵",
+        "아기 컵 연습",
+        "아기 빨대컵",
+        "젖병 떼기",
+        "아기 물 마시기",
+        "제품 작용"
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human baby about twelve months old with early-developmental body proportions — the head about one quarter of the total body length, a large smoothly rounded cranium, short rounded limbs and a soft rounded torso — sitting upright in a translucent glass high chair, seen from the side at chest-up to full-body distance, both small hands holding a translucent glass drinking cup with two side handles and a short straw, the straw between its lips as it drinks, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the mouth around the straw tip. Smooth featureless face in profile, relaxed posture, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, baby bottle, teat",
+      "midjourney_alt": "Medical holographic visualization of a single translucent glass-like 3D anatomical model of a human toddler about twelve months old, small and chubby with a large head and short limbs, sitting upright in a translucent glass high chair, seen from the side at chest-up distance, both hands holding a glass cup with two side handles and a short straw, the straw between its lips, the camera not pushing into the face, rendered as an almost fully transparent thin glass shell with every internal structure in the same soft pale cyan glow, except one single region glowing soft warm amber: the mouth around the straw tip. Smooth featureless face in profile, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --no text, letters, numbers, watermark, logo, facial features, eyes, hair, opaque skin, photo, photorealistic skin, real child, adult proportions, second glowing area, close-up of the face, crying face, blood, wound, brand marks, extra hands, extra arms, baby bottle, teat"
+    }
+  ]
+}

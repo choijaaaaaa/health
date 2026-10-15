@@ -432,6 +432,12 @@
       0.05,
       0.2,
       0.45
+    ],
+    "part_baby_lungs": [
+      0.06,
+      0.28,
+      0.88,
+      0.52
     ]
   },
   "baby_cu_head_side.jpg": {
@@ -446,6 +452,12 @@
       0.55,
       0.26,
       0.45
+    ],
+    "part_baby_inner_ear": [
+      0.64,
+      0.4,
+      0.22,
+      0.17
     ]
   },
   "act_baby_sleep_on_back.jpg": {
@@ -634,5 +646,32 @@
       0.34
     ],
     "_note": "--pull-out --seconds 5(접은 다리·등받이에 닿은 발)"
+  },
+  "baby_cu_hip_leg.jpg": {
+    "part_baby_hip": [
+      0.24,
+      0.36,
+      0.52,
+      0.12
+    ],
+    "_note": "--seconds 5(양쪽 고관절·골반, 육아_28)"
+  },
+  "baby_cu_urinary.jpg": {
+    "part_baby_bladder": [
+      0.45,
+      0.66,
+      0.15,
+      0.09
+    ],
+    "_note": "방광만(육아_30 기저귀 칸)"
+  },
+  "act_baby_bath_tub.jpg": {
+    "act_baby_bath_tub": [
+      0.32,
+      0.64,
+      0.42,
+      0.3
+    ],
+    "_note": "--pull-out --seconds 6(아기 얼굴 — 몸통·물에 잠긴 피부만 점등)"
   }
 }
