@@ -593,6 +593,10 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
                     # 글에 실제로 박힌 링크를 옛 링크로 — 사용자가 글에서 찾아 바꿀 문자열이다
                     old = next((l for lab, l in post["links"] if lab == it), None) or \
                         (post["links"][0][1] if len(topics[t]["products"]) == 1 and post["links"] else old)
+                # 글·클립에 이미 새 링크가 들어 있으면 고칠 게 없다 — 카탈로그 chosen이 DB 링크보다 옛 상품을 가리키던
+                # 품목(10-15 두부·휴대용 선풍기 등 20건)은 다시 골라도 같은 상품·같은 naver.me가 나와 헛알림이 됐다
+                if old and v["new"] and old == v["new"]:
+                    continue
                 alerts.append({"project": project, "topic": t, "platform": plat, "item": it, "kind": v["kind"],
                                "old_link": old, "new_link": v["new"], "reason": v["reason"],
                                "post_url": post["url"] if plat == BLOG and post else None})
