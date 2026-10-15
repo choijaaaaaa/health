@@ -214,7 +214,7 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 - 🚨 **죽은 제휴 링크는 매일 자동 점검한다**(2026-10-15 사용자 "블로그 확인해서 링크 문제생긴것들 갱신하고, 유튜브는 너가 알아서, 네이버블로그·클립은 미션콘트롤에서 체크풀고 끌올"):
   `scripts/link_health.py`(기본 계획만, `--commit` 실행, `--profile health,baby,pet`) — 블로그 3곳을 로그인 없이 훑고, 로그인된 브랜드커넥트에서 카탈로그 상품이 판매 중인지 본다.
   죽었으면 같은 품목으로 다시 골라 발급·DB 교체·카탈로그 갱신, 유튜브 설명란은 직접 고치고, 블로그·클립은 D1 `product_link_alerts`에 알림 → 미션컨트롤 업로드 탭이 맨 위·주황으로 끌올하고 체크를 푼다(다시 체크하면 닫힘).
-  대본 기준이 박힌 품목은 카탈로그에 `"pinned_criteria"`를 적는다 — 자동 교체 대신 "수동 교체 필요"(아기 가습기=찬 김, 아기 바디워시=약산성). launchd `com.healthshorts.linkhealth`(06:00, `~/.claude/cron-scripts/link_health.sh`), 보고서 `output/_link_health/<채널>.json`.
+  6시간 넘게 두 번 연속 안 보여야 죽음으로 확정하고, 교체 후보는 함량 표기(ppm·IU·mg·SPF)가 같은 것만. 대본 기준이 박힌 품목은 카탈로그에 `"pinned_criteria"`를 적는다 — 자동 교체 대신 "수동 교체 필요"(아기 가습기=찬 김, 아기 바디워시=약산성, 아기 불소 치약=1,000ppm). launchd `com.healthshorts.linkhealth`(06:00, `~/.claude/cron-scripts/link_health.sh`), 보고서 `output/_link_health/<채널>.json`.
 
 ## 카드뉴스 (`card_news_spec.json`)
 

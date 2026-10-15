@@ -1906,6 +1906,23 @@
     "found": true,
     "status": "있음",
     "chosen": {
+      "id": 805538535162490,
+      "name": "보아르 허니즈 백색소음기 신생아 수유 무드등 21가지 사운드 아기 강아지 수면교육 층간소음",
+      "store": "보아르샵",
+      "price": 29900,
+      "commission": 5.0,
+      "reviews": 706,
+      "rating": 4.86,
+      "url": "https://smartstore.naver.com/main/products/8834471791",
+      "link": null
+    },
+    "hits": 16,
+    "domain": "baby",
+    "sample": null,
+    "link": "https://naver.me/G3ve47wE",
+    "link_saved": true,
+    "account": "baby",
+    "rejected": {
       "id": 885107907691392,
       "name": "멜로우버디 오리진 백색소음기 독서실 신생아 아기 신생아 층간소음",
       "store": "스마토이",
@@ -1916,12 +1933,8 @@
       "url": "https://smartstore.naver.com/main/products/4690682757",
       "link": null
     },
-    "hits": 16,
-    "domain": "baby",
-    "sample": null,
-    "link": "https://naver.me/xqbaTQvI",
-    "link_saved": true,
-    "account": "baby"
+    "replaced_at": "2026-10-15 09:23",
+    "replaced_note": "link_health 자동 교체 — 브랜드커넥트 검색에서 사라진 상품(멜로우버디 오리진 백색소음기 독서실 신생아 아기 신생아 층간소음)"
   },
   "유아 손세정제": {
     "checked_at": "2026-10-01 12:47",
@@ -2075,6 +2088,21 @@
     "found": true,
     "status": "있음",
     "chosen": {
+      "id": 807299825351189,
+      "name": "어린이 고불소 1000ppm 유아 불소 주니어 초등학생 치약 1개",
+      "store": "타이거아울렛",
+      "price": 7000,
+      "commission": 8.0,
+      "reviews": 22,
+      "rating": 4.91,
+      "url": "https://smartstore.naver.com/main/products/9417155260",
+      "link": "https://naver.me/x2YS8TOz"
+    },
+    "domain": "baby",
+    "link": "https://naver.me/x2YS8TOz",
+    "link_saved": true,
+    "account": "baby",
+    "rejected": {
       "id": 820796266490693,
       "name": "[N배송] 블랑키즐 치약 1000ppm 고불소 1단계 애플망고향, 60g, 4개",
       "store": "위틀스토어",
@@ -2085,10 +2113,9 @@
       "url": "https://smartstore.naver.com/main/products/8643858425",
       "link": "https://naver.me/5GcoHHDM"
     },
-    "domain": "baby",
-    "link": "https://naver.me/5GcoHHDM",
-    "link_saved": true,
-    "account": "baby"
+    "replaced_at": "2026-10-15 09:25",
+    "replaced_note": "link_health 자동 교체가 1450ppm을 골라 대본(1,000ppm) 기준으로 다시 고름",
+    "pinned_criteria": "불소 1,000ppm 표기(6세 미만)"
   },
   "아기 보습크림": {
     "checked_at": "2026-10-10 14:28",
