@@ -714,7 +714,7 @@
       0.13,
       0.1
     ],
-    "_note": "--no-zoom --seconds 5 --glow-in 0.3,1.3(젖병 꼭지 문 입·앞니)"
+    "_note": "--pull-out --seconds 5 --glow-in 0.3,1.3(젖병 꼭지 문 입·앞니). 10-16 --no-zoom 판은 도입부에서 6초 정지로 verify_output에 걸려 물러나는 카메라로 다시 만듦(옛 판 _폐기/)"
   },
   "act_baby_straw_cup_drink.jpg": {
     "act_baby_straw_cup_drink": [
@@ -741,7 +741,7 @@
       0.24,
       0.13
     ],
-    "_note": "--no-zoom --seconds 5(주먹·입)"
+    "_note": "--pull-out --seconds 5(주먹·입). 10-16 --no-zoom 판은 육아_36 칸에서 4초 정지로 verify_output에 걸려 물러나는 카메라로 다시 만듦(옛 판 _폐기/)"
   },
   "act_baby_nail_scissors_trim.jpg": {
     "act_baby_nail_scissors_trim": [
@@ -759,7 +759,7 @@
       0.4,
       0.09
     ],
-    "_note": "--no-zoom --seconds 5 --glow-in 0.3,1.3(뻗은 팔·손)"
+    "_note": "--pull-out --seconds 5 --glow-in 0.3,1.3(뻗은 팔·손). 10-16 --no-zoom 판은 육아_37 도입부에서 정지로 verify_output에 걸려 물러나는 카메라로 다시 만듦(옛 판 _폐기/)"
   },
   "act_toddler_climb_chair.jpg": {
     "act_toddler_climb_chair": [
@@ -768,6 +768,6 @@
       0.42,
       0.11
     ],
-    "_note": "--no-zoom --seconds 5 --glow-in 0.3,1.3(뻗은 팔·손)"
+    "_note": "--pull-out --seconds 5 --glow-in 0.3,1.3(뻗은 팔·손). 10-16 --no-zoom 판은 육아_37 도입부에서 정지로 verify_output에 걸려 물러나는 카메라로 다시 만듦(옛 판 _폐기/)"
   }
 }
