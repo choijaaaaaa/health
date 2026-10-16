@@ -784,5 +784,13 @@
       0.16
     ],
     "_note": "act_baby_bath_alone_916.jpg에서 아기 상반신만 9:16으로 잘라 키운 판(baby_cu_head_side가 어른 머리처럼 보여서, 10-16). --pull-out --seconds 4 --glow-in 0.3,1.3(목·코·입). 가슴 호박색은 원본 스틸에 박혀 있음"
+  },
+  "act_baby_pat_dry_towel.jpg": {
+    "act_baby_pat_dry_towel": [
+      0.28,
+      0.48,
+      0.6,
+      0.22
+    ]
   }
 }
