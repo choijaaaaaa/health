@@ -17,6 +17,9 @@
     },
     {
       "clip": "assets_library/xray/output/part_baby_leg_bones.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_child_measure_height.mp4"
     }
   ],
   "opening_until": 17.28,
@@ -30,13 +33,6 @@
   ],
   "_negation_why": "X는 틀린 기준(다리 길이) 그림에만 — 뒤보기 카시트 장면에 X를 얹으면 '뒤보기 하지 마라'로 오독된다.",
   "timeline": [
-    {
-      "from": "미국소아과학회는 카시트에",
-      "item": "회전형 카시트",
-      "mech": "act_child_measure_height",
-      "act": "act_baby_weigh_scale",
-      "label": "키 · 몸무게 한계"
-    },
     {
       "from": "발이 닿아도 괜찮아요",
       "item": "회전형 카시트",
@@ -121,5 +117,6 @@
       "from": "그리고 뒤보기 카시트는",
       "text": "출처: 미국소아과학회 「Car Seats: Information for Families」"
     }
-  ]
+  ],
+  "_opening_fix_1016": "도입부가 세 번째 문단 직전(17.28)까지라 '미국소아과학회는 카시트에' 칸(11.9초 시작)이 도입부 위에 겹쳤다 — 그 칸을 빼고 키 재기 클립을 도입부 세 번째 영상으로."
 }

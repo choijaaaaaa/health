@@ -116,6 +116,17 @@ def uploadable_topics() -> set[str]:
     return out
 
 
+def _script_approved(topic: str) -> bool:
+    d = tracks.data_dir(topic)
+    for p in (d / "card_news_spec.json", d / "ko" / "card_news_spec.json"):
+        if p.exists():
+            try:
+                return bool(json.loads(p.read_text(encoding="utf-8")).get("script_approved"))
+            except json.JSONDecodeError:
+                return False
+    return False
+
+
 def _preflight_issues(topic: str) -> int:
     """`scripts/preflight_xray.py`와 같은 검사를 돌려 고칠 지적 수를 센다.
 
@@ -128,6 +139,13 @@ def _preflight_issues(topic: str) -> int:
               cr.check_mech_variety, cr.check_act_coverage, cr.check_plain_language, cr.check_connective_flow, cr.check_perceivable_units, cr.check_board_flow,
               cr.check_card_narration_alignment, cr.check_xray_clips, cr.check_content_depth,
               cr.check_search_keyword)
+    # 사용자가 확정한 대본(card_news_spec.json "script_approved")은 대본 문장만 보는 휴리스틱으로 막지 않는다 —
+    # 2026-10-16 육아_27~37 11편이 이음새 개수·통념 반박 문형 같은 대본 검사에 걸려 완성됐는데도 업로드 목록에서 빠졌다
+    # (확정 대본을 재감사로 보류하지 말 것). 클립·시간표·칸 구조 검사는 그대로 본다.
+    if _script_approved(topic):
+        narration_only = {cr.check_plain_language, cr.check_connective_flow, cr.check_perceivable_units,
+                          cr.check_content_depth, cr.check_board_flow}
+        checks = tuple(fn for fn in checks if fn not in narration_only)
     found = []
     for fn in checks:
         try:
