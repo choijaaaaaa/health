@@ -16,7 +16,14 @@
       "clip": "assets_library/xray/output/act_baby_mittens_face.mp4"
     },
     {
-      "clip": "assets_library/xray/output/m_nail_tip_scratch_skin.mp4"
+      "clip": "assets_library/xray/output/part_nail.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_nail_tip_scratch_skin.mp4",
+      "range": [
+        4.5,
+        6.0
+      ]
     }
   ],
   "opening_until": 14.32,
@@ -25,7 +32,21 @@
     {
       "from": "얼굴에 상처를 내는 건",
       "x_at": "아니라",
-      "clip": "assets_library/xray/output/act_baby_mittens_face.mp4"
+      "clip": "assets_library/xray/output/act_baby_mittens_face.mp4",
+      "x_pos": [
+        0.16,
+        0.32
+      ],
+      "x_scale": 0.6
+    },
+    {
+      "from": "얼굴에 상처를 내는 건",
+      "x_at": "아니라",
+      "x_pos": [
+        0.77,
+        0.3
+      ],
+      "x_scale": 0.6
     }
   ],
   "_negation_why": "'손이 아니라 손톱' — 틀린 쪽은 '손'이라 손싸개로 감싼 손 장면에 X. 문장이 끝나면(7.56초~) 도입 둘째 클립(손톱 끝이 긁는 단면)이 NHS 문장과 맞물린다. 손톱 쪽(맞는 쪽)엔 X를 걸지 않는다.",
@@ -86,5 +107,6 @@
       "text": "출처: 영국 NHS 「Washing and bathing your baby」(2024)"
     }
   ],
-  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(새 스틸 3장, 기존 act_baby_sleep_vest)만, 새 Flow 셋은 손가락 끝과 도구만(Flow에 아기 단어 없음)."
+  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(새 스틸 3장, 기존 act_baby_sleep_vest)만, 새 Flow 셋은 손가락 끝과 도구만(Flow에 아기 단어 없음).",
+  "_opening_fix_1016": "10-16: m_nail_tip_scratch_skin 앞 4.5초의 반실사 어른 손가락을 뺌 — 도입 = 손싸개(5초) + part_nail(4초, 손톱 투시가 호박색으로) + 긁힌 호박색 줄만 남은 피부판(m_nail_tip_scratch_skin 4.5~6초). 10.5초를 14.3초에 1.36배. X는 x_pos로 두 손싸개 위에 하나씩(가운데=배에 걸리던 것 수정), 두 번째 항목은 clip 없이 X만."
 }

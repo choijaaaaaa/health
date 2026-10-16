@@ -40,10 +40,14 @@
     {
       "from": "차이는 씻어 내느냐예요",
       "item": "유아 손세정제",
-      "mech": "m_virus_rinse_off_skin",
+      "mech": "act_wash_hands_soap_v1",
       "act": null,
       "label": "손 피부 표면",
-      "solo": "'씻어 내느냐' 원리 — 피부 표면의 바이러스 알갱이를 흰 거품이 감싸고 물줄기가 쓸어 가는 기전 단독(10-15 받은 Flow, 색인 ⚠️ 0.5초 뒤 불투명 민트 화풍 — 이 원리를 보여 주는 다른 클립이 없어 씀)"
+      "solo": "'씻어 내느냐' — 반투명 두 손이 호박색 알갱이 묻은 거품을 감싸 쥐고 물줄기에 헹궈 내는 장면 단독(act_wash_hands_soap_v1 2.8~6초만: 앞쪽은 손 모양이 뭉개짐). m_virus_rinse_off_skin은 0.5초 뒤 불투명 민트 화풍이라 뺌(10-16)",
+      "mech_range": [
+        2.8,
+        6.0
+      ]
     },
     {
       "from": "노로바이러스는 아주 조금만",
@@ -55,9 +59,26 @@
     {
       "from": "아이 손은 거품형",
       "item": "유아 손세정제",
+      "mech": "act_foam_pump_dispense",
+      "mech_range": [
+        4.0,
+        6.0
+      ],
+      "act": null,
+      "label": "거품형 손세정제",
+      "solo": "제품 — 거품 펌프에서 나온 흰 거품이 받침에 쌓이는 장면 단독(4~6초만: 1~4초는 펌프 머리가 불투명 베이지로 바뀜)"
+    },
+    {
+      "from": "펌프를 누르면",
+      "item": "유아 손세정제",
       "mech": "act_wash_hands_soap",
-      "act": "act_foam_pump_dispense",
-      "label": "손가락 사이"
+      "mech_range": [
+        0,
+        5.0
+      ],
+      "act": null,
+      "label": "손가락 사이",
+      "solo": "'손가락 사이까지 문지르기 쉽거든요' — 반투명 두 손이 거품을 감싸 비비는 장면 단독(0~5초: 마지막 1초는 손이 불투명)"
     },
     {
       "from": "아이가 계속 토해서",
@@ -83,5 +104,6 @@
       "from": "실제로 손에 노로바이러스를",
       "text": "출처: Liu 외, Appl Environ Microbiol 2010"
     }
-  ]
+  ],
+  "_timeline_fix_1016": "10-16 화풍 드리프트 정리: ② m_virus_rinse_off_skin(불투명 민트) → act_wash_hands_soap_v1 2.8~6초(거품·헹굼). ④ 9.8초 한 칸을 문장대로 둘로 — '아이 손은 거품형'(3.6초) act_foam_pump_dispense 4~6초(1.8배) / '펌프를 누르면'(6.1초) act_wash_hands_soap 0~5초(1.2배). mech_range = 클립 [시작, 끝]초만 잘라 씀(xray_build._cut)."
 }

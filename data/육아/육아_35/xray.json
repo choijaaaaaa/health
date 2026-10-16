@@ -28,7 +28,11 @@
       "item": "아기 빨대컵",
       "mech": "m_milk_pool_front_teeth",
       "act": "act_baby_bottle_asleep_crib",
-      "label": "위 앞니"
+      "label": "위 앞니",
+      "mech_range": [
+        0,
+        1.75
+      ]
     },
     {
       "from": "우유에도 당분이 있어서",
@@ -41,10 +45,10 @@
     {
       "from": "주로 위 앞니부터",
       "item": "아기 빨대컵",
-      "mech": "m_milk_pool_front_teeth",
+      "mech": "act_baby_bottle_asleep_crib",
       "act": null,
       "label": "젖병 충치",
-      "solo": "'주로 위 앞니부터 상하는데, 젖병 충치' — 위 앞니 잇몸선에 우유가 고였다가 그 자리가 호박색으로 물드는 기전 단독(1칸과 같은 클립 2회째, 끝의 앞니 얼룩이 이 문장)"
+      "solo": "'주로 위 앞니부터 상하는데, 젖병 충치' — 젖병 꼭지를 문 채 잠든 아기, 입·앞니 자리만 호박색 단독(m_milk_pool_front_teeth의 앞니 얼룩은 2초 뒤 불투명 흰 실사풍 구간이라 뺌, 10-16)"
     },
     {
       "from": "둘째는 밥이에요",
@@ -113,5 +117,6 @@
       "text": "출처: Gooze 외, J Pediatr 2011 (미국 아이 6,750명 추적 관찰 연구)"
     }
   ],
-  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(기존 act_baby_feed_upright·act_baby_spoon_feed·act_baby_weigh_scale, 새 스틸 2장)만, 새 Flow 둘은 치아 단면·손과 사물만(Flow에 아기 단어 없음)."
+  "_panel_act_why": "행위 칸은 보호자·아기 — 아기 몸이 보이는 건 스틸+코드 클립(기존 act_baby_feed_upright·act_baby_spoon_feed·act_baby_weigh_scale, 새 스틸 2장)만, 새 Flow 둘은 치아 단면·손과 사물만(Flow에 아기 단어 없음).",
+  "_timeline_fix_1016": "10-16: ① m_milk_pool_front_teeth 0~1.75초만(엑스레이 치열에 우유가 흘러내림, 4.3초에 2.4배). ③ 같은 클립 대신 act_baby_bottle_asleep_crib 단독."
 }

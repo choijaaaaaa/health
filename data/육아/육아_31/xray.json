@@ -2,12 +2,12 @@
   "_why": "반투명 인체 포맷(육아, 목욕 안전 — 병원 신호 없음). 도입부 = 물 받은 욕조에 혼자 앉은 아기, 비어 있는 어른 자리(훅 '수건 가지러 잠깐 자리 비우신 적', 새 스틸) → 목뼈(part_baby_neck, '목과 몸을 가누는 힘이 약해서') → 숨길(part_baby_airway, '코와 입이 물에 잠기면 숨을 못 쉬거든요'). 빨간 X는 걸지 않는다('~가 아니에요' 문장 없음). 아기 몸은 미드저니 스틸+make_part_clip, 목욕 의자·아기 욕조 장면은 Flow(아기 없음). 2026-10-12 크레딧 절약 지시로 색인 재사용 우선 — 받아 둔 act_baby_bath_tub 스틸로 '한 손은 아기 몸에' 클립을 코드로 만들었다.",
   "top_title": "목욕 중 잠깐 자리 비운다면",
   "inset": {
-    "clip": "assets_library/xray/output/part_baby_airway.mp4",
+    "clip": "assets_library/xray/output/part_baby_bath_neck.mp4",
     "crop": [
       0,
-      200,
+      420,
       720,
-      620
+      520
     ],
     "label": "아기 숨길"
   },
@@ -16,10 +16,7 @@
       "clip": "assets_library/xray/output/act_baby_bath_alone.mp4"
     },
     {
-      "clip": "assets_library/xray/output/part_baby_neck.mp4"
-    },
-    {
-      "clip": "assets_library/xray/output/part_baby_airway.mp4"
+      "clip": "assets_library/xray/output/part_baby_bath_neck.mp4"
     }
   ],
   "opening_until": 17.22,
@@ -84,5 +81,6 @@
       "from": "그런데 목욕 의자는",
       "text": "출처: 미국소아과학회 「Infant Drowning Prevention & Water Safety」 · 「Bathing Your Baby」"
     }
-  ]
+  ],
+  "_opening_fix_1016": "10-16: 9~17초 part_baby_neck·part_baby_airway(baby_cu_head_side·baby_cu_airway 스틸이 어른 몸처럼 보임) → 욕조 아기 상반신을 잘라 키운 스틸에서 목·코·입만 점등한 part_baby_bath_neck(4초) 하나로. 5초+4초를 17.2초에 1.9배."
 }

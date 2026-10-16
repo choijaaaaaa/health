@@ -476,7 +476,13 @@
       0.14,
       0.25
     ],
-    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)"
+    "_note": "--pull-out --seconds 7(아기 얼굴 — 밀고 들어가는 줌 금지, 물러나는 카메라로 정지 방지)",
+    "part_baby_lungs_front": [
+      0.27,
+      0.27,
+      0.46,
+      0.24
+    ]
   },
   "act_baby_blanket_recover.jpg": {
     "act_baby_blanket_recover": [
@@ -769,5 +775,14 @@
       0.11
     ],
     "_note": "--pull-out --seconds 5 --glow-in 0.3,1.3(뻗은 팔·손). 10-16 --no-zoom 판은 육아_37 도입부에서 정지로 verify_output에 걸려 물러나는 카메라로 다시 만듦(옛 판 _폐기/)"
+  },
+  "act_baby_bath_neck_916.jpg": {
+    "part_baby_bath_neck": [
+      0.3,
+      0.44,
+      0.33,
+      0.16
+    ],
+    "_note": "act_baby_bath_alone_916.jpg에서 아기 상반신만 9:16으로 잘라 키운 판(baby_cu_head_side가 어른 머리처럼 보여서, 10-16). --pull-out --seconds 4 --glow-in 0.3,1.3(목·코·입). 가슴 호박색은 원본 스틸에 박혀 있음"
   }
 }

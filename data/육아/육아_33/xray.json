@@ -41,17 +41,21 @@
     {
       "from": "건강한 피부는 약한 산성인데",
       "item": "아기 바디워시",
-      "mech": "m_skin_ph_alkaline_shift",
+      "mech": "m_ph_disruption",
       "act": null,
       "label": "피부 겉 산성막",
-      "solo": "약산성 피부 겉막에 알칼리 비누 거품이 닿아 겉막 빛이 바뀌고 벽돌 사이가 느슨해지는 기전 단독"
+      "solo": "'보통 비누는 알칼리성' — 피부 겉에 서 있던 보호 구조물이 쓰러져 표면이 민둥해지는 기전 단독(m_skin_ph_alkaline_shift는 1초 뒤 불투명 민트 벽돌 화풍이라 뺌, 10-16)"
     },
     {
       "from": "실제로 비누로 손을 씻어 보니",
       "item": "아기 바디워시",
-      "mech": "m_skin_ph_alkaline_shift",
+      "mech": "m_barrier_leak",
       "act": "act_wash_hands_soap",
-      "label": "알칼리로 기운 피부"
+      "label": "알칼리로 기운 피부",
+      "act_range": [
+        0,
+        5.0
+      ]
     },
     {
       "from": "그래서 목욕은 미지근한",
@@ -75,7 +79,11 @@
       "mech": "m_mild_acid_wash_barrier_intact",
       "act": null,
       "label": "보호막 그대로",
-      "solo": "🚨 제품 작동 칸 — 약산성 거품이 피부 겉을 씻고 지나가도 겉 산성막·벽돌 배열이 그대로 남는 기전 단독(3칸 알칼리 장면과 대비)"
+      "solo": "🚨 제품 작동 칸 — 약산성 거품이 피부 겉을 씻고 지나가도 겉 산성막·벽돌 배열이 그대로 남는 기전 단독(3칸 알칼리 장면과 대비)",
+      "mech_range": [
+        0,
+        4.0
+      ]
     },
     {
       "from": "고를 땐 약산성이라고",
@@ -125,5 +133,6 @@
       "until": "나머지는 물로 충분해요",
       "text": "출처: 미국피부과학회 「How to treat eczema in babies」"
     }
-  ]
+  ],
+  "_timeline_fix_1016": "10-16 화풍 드리프트 정리: ③ m_skin_ph_alkaline_shift → m_ph_disruption. ④ 오른쪽 → m_barrier_leak(세포 틈이 벌어져 알갱이가 파고듦 — '아토피 도지기 쉬워요'), 왼쪽 act_wash_hands_soap 0~5초(끝 1초 불투명). ⑦ m_mild_acid_wash_barrier_intact 0~4초(끝 2초 민트 벽돌, 6.7초에 1.7배). ⑨ 수건 칸은 아기 스틸이 없어 어른 유리 다리 클립 유지 — 스틸 요청 act_baby_pat_dry_towel(clip_requests.json)."
 }

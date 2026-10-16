@@ -2,12 +2,12 @@
   "_why": "반투명 인체 포맷(육아, 생활용품 — 병원 신호 없음). 도입부는 가습기 김을 펑펑 트는 손(훅) + 통념 반박('가습은 많이 할수록 좋은 게 아니에요') 동안 그 김 기둥에 빨간 X, 이어 '습도가 너무 높으면 곰팡이' 동안 곰팡이 균사가 번지는 기전. 아기 몸은 미드저니 스틸+make_part_clip(part_baby_lungs 새로 만듦), 가습기·물통·김은 Flow(아기 없음).",
   "top_title": "머리맡 가습기를 밤새 펑펑 튼다면",
   "inset": {
-    "clip": "assets_library/xray/output/part_baby_lungs.mp4",
+    "clip": "assets_library/xray/output/part_baby_lungs_front.mp4",
     "crop": [
       0,
-      380,
+      260,
       720,
-      520
+      480
     ],
     "label": "아기 폐"
   },
@@ -17,6 +17,13 @@
     },
     {
       "clip": "assets_library/xray/output/m_fungal_growth.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_humidifier_mist.mp4",
+      "range": [
+        0,
+        2.6
+      ]
     }
   ],
   "opening_until": 14.89,
@@ -49,7 +56,7 @@
     {
       "from": "우리나라에선 가습기 살균제",
       "item": "아기 가습기",
-      "mech": "part_baby_lungs",
+      "mech": "part_baby_lungs_front",
       "act": null,
       "label": "아기 폐",
       "solo": "살균제를 들이마셔 다친 자리 — 아기 양쪽 폐 점등 단독(새로 만든 부위 클립, 얼굴 줌 없음)"
@@ -103,5 +110,7 @@
       "until": "미국소아과학회가 어린아이에겐",
       "text": "출처: 미국소아과학회 「Cough & Cold Survival Kit」 · 미국 환경보호청 「Use and Care of Home Humidifiers」"
     }
-  ]
+  ],
+  "_opening_fix_1016": "10-16: '겨울 아기 방 습도는 40에서 60퍼센트면 돼요'(11.7~14.9초)에 곰팡이가 걸려 있었음 → 도입 셋째 클립 act_humidifier_mist 0~2.6초(버튼 누르고 김이 막 오르기 시작, X 없음). 4+4+2.6초를 14.9초에 1.4배 — 곰팡이는 약 7.8~11.4초(곰팡이 문장 7.8~11.0).",
+  "_lungs_fix_1016": "10-16: part_baby_lungs(baby_cu_airway 스틸이 어른 몸통처럼 보임) → part_baby_lungs_front(쪽쪽이 문 아기 정면 스틸 act_baby_sleep_pacifier, 폐만 점등, 물러나는 카메라 5초)."
 }
