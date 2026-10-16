@@ -60,7 +60,9 @@ def resolve(topic: str) -> list[dict] | None:
              # 이름을 적어둬도 조립기엔 안 가고 전부 inset 라벨 하나로 떨어진다(2026-09-24 실측).
              "label": t.get("label"),
              # `solo` — 일부러 행위 칸을 비우고 기전만 둔 칸(이유 문자열). 검사기가 "빠뜨림"과 구분한다.
-             "solo": t.get("solo")}
+             "solo": t.get("solo"),
+             # `act_range`/`mech_range` — [시작, 끝] 초. 클립 일부만 쓸 때(Flow가 뒤쪽에서 화풍이 바뀌는 클립). 없으면 통클립.
+             "act_range": t.get("act_range"), "mech_range": t.get("mech_range")}
             for i, (st, t) in enumerate(zip(starts, tl))]
 
 
@@ -82,7 +84,7 @@ def _time_after(phrase: str, cues, t_min: float) -> tuple[float, float]:
 
 
 def negations(topic: str, cues=None) -> list[dict]:
-    """xray.json `negations` → [{start, x_start, end, clip}] (나레이션 기준 초).
+    """xray.json `negations` → [{start, x_start, end, clip, x_pos, x_scale}] (나레이션 기준 초).
 
     WHY(2026-09-30 사용자 "뭔가가 아니다 라고할 때는 … X 이런거 빨간색으로 띄워주는거 어때?"): 통념을
     뒤집는 문장("교차복용은 기본 방법이 아니에요")은 말로만 지나가면 틀린 쪽 그림이 맞는 쪽처럼 남는다.
@@ -99,8 +101,10 @@ def negations(topic: str, cues=None) -> list[dict]:
     for it in items:
         start, cue_end = _time_after(it["from"], cues, 0.0)
         x_start, x_cue_end = _time_after(it["x_at"], cues, start) if it.get("x_at") else (start, cue_end)
+        # `x_pos` [가로, 세로] 비율(칸 또는 전체 화면 기준) · `x_scale` 크기 배수 — 틀린 쪽이 화면 가운데가
+        # 아닐 때(육아_36: 가운데는 배, 틀린 쪽인 손싸개 손은 위쪽). 없으면 예전처럼 가운데·기본 크기.
         out.append({"start": start, "x_start": x_start, "end": x_cue_end + NEGATION_HOLD,
-                    "clip": it.get("clip")})
+                    "clip": it.get("clip"), "x_pos": it.get("x_pos"), "x_scale": it.get("x_scale")})
     return out
 
 

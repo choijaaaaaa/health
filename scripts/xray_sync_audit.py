@@ -40,7 +40,8 @@ for t in sys.argv[1:]:
         for kind in ("act","mech"):
             c=r.get(kind)
             if not c: continue
-            d=dur(str(ROOT/f"assets_library/xray/output/{c}.mp4")); st=seg/d if d else 0
+            rng=r.get(f"{kind}_range")  # 잘라 쓰는 칸은 잘린 길이로 배율을 잰다
+            d=(rng[1]-rng[0]) if rng else dur(str(ROOT/f"assets_library/xray/output/{c}.mp4")); st=seg/d if d else 0
             seen=idx.get(c,{}).get("seen","(색인 없음)")
             flag="⚠" if st>=3 else " "
-            print(f"  {flag}[{s:5.1f}-{e:5.1f} {seg:4.1f}s x{st:3.1f}] {kind}:{c}\n      문장: {text[:110]}\n      화면: {seen[:110]}")
+            print(f"  {flag}[{s:5.1f}-{e:5.1f} {seg:4.1f}s x{st:3.1f}] {kind}:{c}{'@'+str(rng) if rng else ''}\n      문장: {text[:110]}\n      화면: {seen[:110]}")

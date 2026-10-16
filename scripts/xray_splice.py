@@ -215,6 +215,18 @@ X_RED = (229, 57, 53)   # 빨간 X — 청록 인체 위에서 가장 멀리 떨
 X_FADE = 0.12           # X가 뚝 튀어나오면 깜빡임처럼 보여서 아주 짧게만 번지게 한다
 
 
+def _x_center(area, x_pos, size: int, full: bool) -> tuple[int, int]:
+    """X 중심 좌표. x_pos = [가로, 세로] 비율(area 기준). X가 area 밖으로 삐져나가지 않게 가장자리에서 멈춘다 —
+    칸 밖으로 나가면 칠판 자막을 덮는다."""
+    px, py, pw, ph = area
+    if not x_pos:
+        return (W // 2, int(H * 0.55)) if full else (px + pw // 2, py + ph // 2)
+    half = size // 2
+    cx = px + min(max(int(pw * float(x_pos[0])), half), pw - half)
+    cy = py + min(max(int(ph * float(x_pos[1])), half), ph - half)
+    return cx, cy
+
+
 def _x_mark_png(size: int, out: Path) -> None:
     """빨간 X. 밝게 빛나는 인체 위에서도 윤곽이 서도록 어두운 테두리와 붉은 번짐을 깐다."""
     s = size * 2                      # 두 배로 그려 줄여서 획 끝을 매끄럽게
@@ -369,9 +381,9 @@ def _negation_track(topic, td, inputs, fc, cur, n, cues, opening_end, ad_png):
                     fc.append(f"[{cur}][{n}:v]overlay=x={NAVER_SAFE_RIGHT}-w:y={NAVER_SAFE_TOP}:"
                               f"enable='between(t,{t0},{t1})'[nga_{k}]")
                     cur, n = f"nga_{k}", n + 1
-        # 도입부에선 자막(머리 높이) 아래 몸통 한가운데, 본문에선 영상 칸 한가운데
-        size = 560 if full else int(min(pw, ph) * 0.78)
-        cx, cy = (W // 2, int(H * 0.55)) if full else (px + pw // 2, py + ph // 2)
+        # 도입부에선 자막(머리 높이) 아래 몸통 한가운데, 본문에선 영상 칸 한가운데 — x_pos가 있으면 그 자리
+        size = int((560 if full else int(min(pw, ph) * 0.78)) * (m.get("x_scale") or 1.0))
+        cx, cy = _x_center((px, py, pw, ph), m.get("x_pos"), size, full)
         xp = td / f"xmark_{size}.png"
         if not xp.exists():
             _x_mark_png(size, xp)

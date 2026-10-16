@@ -115,6 +115,24 @@ def _fit_whole(idx: int, clip: Path, seconds: float, width: int) -> str:
             f"pad={width}:{PANEL_H}:(ow-iw)/2:0:color={VOID}")
 
 
+def _cut(clip: Path, rng, tmp: Path) -> Path:
+    """timeline 행의 `act_range`/`mech_range` [시작, 끝]초만 잘라낸 클립. 없으면 원본 그대로.
+
+    WHY(2026-10-16 사용자 "고칠건고쳐야지"): Flow 클립 일부는 중간부터 반투명 화풍이 불투명 실사풍으로
+    바뀐다(clip_index `avoid`). 통클립을 늘려 쓰면 그 뒤쪽까지 화면에 나온다 — 앞쪽만 잘라 늘려 쓴다.
+    자른 뒤 배율은 잘린 길이 기준이라 MAX_STRETCH 검사도 그대로 걸린다."""
+    if not rng:
+        return clip
+    a, b = float(rng[0]), float(rng[1])
+    if not 0 <= a < b:
+        raise SystemExit(f"범위가 잘못됨: {clip.stem} {rng} — [시작, 끝]초, 시작 < 끝")
+    out = tmp / f"cut_{clip.stem}_{a:g}-{b:g}.mp4"
+    if not out.exists():
+        subprocess.run(["ffmpeg", "-y", "-v", "error", "-ss", f"{a}", "-to", f"{b}", "-i", str(clip), "-an",
+                        "-c:v", "libx264", "-crf", "16", "-pix_fmt", "yuv420p", str(out)], check=True)
+    return out
+
+
 def _fill_to(clip: Path, seconds: float, out: Path) -> None:
     """칸 하나를 기전 클립으로만 채운다(행위 클립이 없는 항목)."""
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-stream_loop", "-1", "-i", str(clip),
@@ -305,8 +323,11 @@ def main() -> None:
         if not a.dry_run:
             # 4배로도 못 채우면 나머지는 반복으로 때워진다 — 같은 4초가 계속 돌아가는 화면이 된다.
             # 그 구간엔 보여줄 장면이 모자란 것이므로 클립을 하나 더 받아야 한다.
-            for kind, name in (("기전", mech), ("행위", act)):
+            src = _cut(src, row.get("mech_range"), tmp)
+            for kind, name, rng in (("기전", mech, row.get("mech_range")), ("행위", act, row.get("act_range"))):
                 p = ROOT / LIB / f"{name}.mp4" if name else None
+                if p and p.exists():
+                    p = _cut(p, rng, tmp)
                 over = _overstretched(p, dur) if p and p.exists() else 0.0
                 if over:
                     msg = (f"{row['start']:.1f}초 구간({dur:.0f}초)을 {kind} 클립 {name}"
@@ -321,6 +342,8 @@ def main() -> None:
                     raise SystemExit(f"행위 클립 없음: {act} — clip_requests.json에 적을 것")
                 print(f"  ⚠️ 미리보기: {row['start']:.1f}초 구간은 행위 클립 {act}가 없어 기전 단독")
                 asrc = None
+            if asrc:
+                asrc = _cut(asrc, row.get("act_range"), tmp)
             if asrc:
                 _split_fill(asrc, src, dur, dst)
             else:

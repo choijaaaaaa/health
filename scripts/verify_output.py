@@ -90,11 +90,13 @@ def check(topic: str) -> list[str]:
         if ts is not None and r["start"] >= ts - 0.05:
             continue
         seg = r["end"] - r["start"]
-        for kind, name in (("기전", r.get("mech")), ("행위", r.get("act"))):
+        for kind, name, rng in (("기전", r.get("mech"), r.get("mech_range")), ("행위", r.get("act"), r.get("act_range"))):
             src = ROOT / "assets_library" / "xray" / "output" / f"{name}.mp4" if name else None
             if not src or not src.is_file():
                 continue
-            k = seg / float(_probe(src, "format=duration") or 1)
+            # 잘라 쓰는 칸(mech_range/act_range)은 잘린 길이로 잰다 — 통클립 길이로 재면 늘림이 작게 나온다
+            d = (rng[1] - rng[0]) if rng else float(_probe(src, "format=duration") or 1)
+            k = seg / d
             if k >= 3.5:
                 bad.append(f"{r['start']:.0f}초 구간을 {kind} 클립 {name}으로 {k:.1f}배 늘렸습니다 "
                            f"— 거의 정지 화면입니다")

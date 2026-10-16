@@ -43,3 +43,16 @@ def test_no_negations_key_is_empty(tmp_path, monkeypatch):
     (tmp_path / "xray.json").write_text("{}", encoding="utf-8")
     monkeypatch.setattr(xray_timeline.tracks, "data_dir", lambda topic: tmp_path)
     assert xray_timeline.negations("t", CUES) == []
+
+
+def test_x_pos_and_scale_pass_through(tmp_path, monkeypatch):
+    _write(tmp_path, monkeypatch, [{"from": "답이", "x_pos": [0.2, 0.4], "x_scale": 0.6}])
+    (m,) = xray_timeline.negations("t", CUES)
+    assert m["x_pos"] == [0.2, 0.4] and m["x_scale"] == 0.6
+
+
+def test_x_pos_absent_is_none(tmp_path, monkeypatch):
+    # 옛 xray.json은 x_pos가 없다 — 그대로 가운데에 그려져야 한다
+    _write(tmp_path, monkeypatch, [{"from": "답이"}])
+    (m,) = xray_timeline.negations("t", CUES)
+    assert m["x_pos"] is None and m["x_scale"] is None
