@@ -331,6 +331,25 @@ def db_get(table: str, params: dict) -> list[dict]:
     return r.json()
 
 
+def caption_topics(project: str) -> set[str]:
+    """미션컨트롤에 캡션 카드가 있는 topic(mission_control.hs_platform_captions).
+    WHY(2026-10-17 사용자 "신규 포맷 기준으로 캡션 없던 애들 … 어차피 관리 안 할 거라서 검사에서도 막고 미션컨트롤에서도 빼"):
+    개편 전 옛 포맷으로 올린 글은 카드가 없어 고칠 화면도 없다 — 블로그·클립 알림을 아예 만들지 않는다."""
+    import requests
+    u, h = _db()
+    h = dict(h, **{"Accept-Profile": "mission_control"})
+    out, off = set(), 0
+    while True:
+        r = requests.get(f"{u}/rest/v1/hs_platform_captions", headers=h, timeout=30,
+                         params={"select": "topic", "project": f"eq.{project}", "limit": "1000", "offset": str(off)})
+        r.raise_for_status()
+        rows = r.json()
+        out.update(x["topic"].split("/")[0] for x in rows)
+        if len(rows) < 1000:
+            return out
+        off += 1000
+
+
 def crawl_blog(url: str) -> list[dict]:
     """공개 글 목록 전부(로그인 불필요) — RSS는 50개뿐이라 PostTitleListAsync를 끝까지 넘긴다."""
     import requests
@@ -658,6 +677,14 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
     # 7. 알림 쓰기(중복 제외) + 블로그 글이 이미 새 링크로 고쳐진 알림은 자동으로 푼다
     open_rows = db_get("product_link_alerts", {"select": "id,project,topic,platform,old_link,new_link,resolved_at",
                                                "project": f"eq.{project}", "resolved_at": "is.null", "limit": "5000"})
+    # 캡션 카드 없는 옛 포맷 topic은 사람이 관리하지 않는다 — 블로그·클립 알림을 만들지 않고, 남아 있던 것도 푼다
+    with_cards = caption_topics(project)
+    legacy = {a["topic"] for a in alerts if a["platform"] != YT and a["topic"] not in with_cards}
+    alerts = [a for a in alerts if a["platform"] == YT or a["topic"] in with_cards]
+    legacy_open = [r["id"] for r in open_rows if r["platform"] != YT and r["topic"] not in with_cards]
+    open_rows = [r for r in open_rows if r["id"] not in set(legacy_open)]
+    if legacy or legacy_open:
+        log(f"옛 포맷(캡션 카드 없음) 제외: 새 알림 topic {len(legacy)}개, 열려 있던 알림 {len(legacy_open)}건 닫음")
     fresh = dedupe_alerts(alerts, open_rows)
     for r in fresh:
         r.setdefault("resolved_at", None)
@@ -671,7 +698,7 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
         if r["platform"] == BLOG and got is not None and r.get("old_link") not in got \
                 and (not r.get("new_link") or r["new_link"] in got):
             fixed.append(r["id"])
-    rep.update(alerts_new=len(fresh), alerts_autoresolved=len(fixed),
+    rep.update(alerts_new=len(fresh), alerts_autoresolved=len(fixed), alerts_legacy_closed=len(legacy_open),
                alerts_open_before=len(open_rows))
     log(f"알림: 새로 {len(fresh)}건(블로그·클립 {sum(1 for r in fresh if r['platform'] != YT)}, 유튜브 기록 "
         f"{sum(1 for r in fresh if r['platform'] == YT)}), 이미 고쳐져 푸는 것 {len(fixed)}건")
@@ -685,7 +712,7 @@ def run(profile: str, commit: bool, posted_only: bool, limit: int | None) -> dic
             rr = requests.post(f"{u}/rest/v1/product_link_alerts", headers=dict(h, Prefer="return=minimal"),
                                json=fresh, timeout=30)
             rr.raise_for_status()
-        for i in fixed:
+        for i in fixed + legacy_open:
             requests.patch(f"{u}/rest/v1/product_link_alerts?id=eq.{i}", headers=dict(h, Prefer="return=minimal"),
                            json={"resolved_at": _now()}, timeout=30).raise_for_status()
     rep["alerts"] = fresh
