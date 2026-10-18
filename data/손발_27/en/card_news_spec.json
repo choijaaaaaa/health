@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Red, itchy toes after the cold?",
+    "That's chilblains, not frostbite",
+    "3 warming mistakes to drop"
+  ],
+  "eyebrow": "Chilblains, explained",
+  "cover_char_file": "찬바람_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Not on the radiator",
+      "char_file": "라디에이터_illust.jpg",
+      "body": [
+        "Dry the skin,",
+        "then warm it",
+        "slowly instead."
+      ]
+    },
+    {
+      "name": "Swap the wet socks",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Waterproof shoes,",
+        "thick socks, and",
+        "gloves outside."
+      ]
+    },
+    {
+      "name": "Skip the extras",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Smoking, caffeine",
+        "and decongestants",
+        "can cut blood flow."
+      ]
+    },
+    {
+      "name": "Give it 2 to 3 weeks",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Most chilblains",
+        "clear up on",
+        "their own."
+      ]
+    },
+    {
+      "name": "When to see a GP",
+      "char_file": "처방전_illust.jpg",
+      "body": [
+        "Pus, a high fever,",
+        "diabetes, or",
+        "they keep coming."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Chilblains are an inflammation of chilled blood vessels, not frozen skin."
+      ]
+    ],
+    "tip": [
+      "Tonight, peel off damp socks and let your feet warm up slowly."
+    ],
+    "cta": "Not better after 2 to 3 weeks, or pus coming out? See a GP."
+  },
+  "char_display_names": {
+    "라디에이터_illust.jpg": "Radiator",
+    "운동화_illust.jpg": "Footwear",
+    "담배_illust.jpg": "Smoking",
+    "달력_illust.jpg": "Time",
+    "처방전_illust.jpg": "GP"
+  },
+  "cover_scrim_color": "#5E3348"
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Yeux qui piquent devant l'écran ?",
+    "Le clignement compte plus que le bleu",
+    "Règle 20-20-20 et pauses utiles"
+  ],
+  "eyebrow": "Fatigue visuelle et écrans",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Verres anti-bleu",
+      "char_file": "독서안경_illust.jpg",
+      "body": [
+        "Efficacité très",
+        "variable selon",
+        "l'Anses."
+      ]
+    },
+    {
+      "name": "On cligne moins",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Moins de clignements,",
+        "plus de sécheresse",
+        "oculaire."
+      ]
+    },
+    {
+      "name": "Regarder au loin",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "20 secondes",
+        "toutes les 20 min,",
+        "à 6 mètres."
+      ]
+    },
+    {
+      "name": "Pause active",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Idéalement toutes",
+        "les 30 minutes,",
+        "selon l'INRS."
+      ]
+    },
+    {
+      "name": "Examen des yeux",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Par la médecine",
+        "du travail, sans",
+        "frais en plus."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La fatigue visuelle vient surtout de nos habitudes devant l'écran, pas de sa lumière."
+      ]
+    ],
+    "tip": [
+      "Cligner, regarder loin toutes les 20 minutes, bouger toutes les 30 minutes."
+    ],
+    "cta": "Œil douloureux, très rouge ou vue qui baisse ? Consultez un ophtalmologiste."
+  },
+  "char_display_names": {
+    "독서안경_illust.jpg": "Lunettes",
+    "인공눈물_illust.jpg": "Larmes",
+    "창문_illust.jpg": "Au loin",
+    "시계_illust.jpg": "Pause",
+    "달력_illust.jpg": "Examen"
+  },
+  "cover_scrim_color": "#35607A"
+}

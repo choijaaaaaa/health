@@ -1,0 +1,78 @@
+{
+  "title": [
+    "Outer hip pain when you lie on your side?",
+    "It's rarely just 'bursitis'",
+    "What actually settles it"
+  ],
+  "eyebrow": "Night-time hip pain, explained",
+  "cover_char_file": "이불_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Not mainly the bursa",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Experts now point",
+        "to the gluteal tendons",
+        "on the bony bump"
+      ]
+    },
+    {
+      "name": "Women over 50",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "In one US study,",
+        "about 1 in 4 women",
+        "aged 50-79 had it"
+      ]
+    },
+    {
+      "name": "The injection fades",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "At 1 year, 57%",
+        "after one injection",
+        "vs 78% with exercise"
+      ]
+    },
+    {
+      "name": "Low chairs add load",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "The NHS advises",
+        "against low chairs",
+        "for sore hips"
+      ]
+    },
+    {
+      "name": "Physio without a GP",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Many areas let you",
+        "self-refer to",
+        "NHS MSK services"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Side-lying hip pain is usually tired, squeezed tendons, not a swollen sac."
+      ]
+    ],
+    "tip": [
+      "Sleep on the other side with support,",
+      "skip low chairs, and build load back slowly."
+    ],
+    "cta": "Fever, a hot swollen hip, or pain after a fall needs urgent help."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Pillow",
+    "계단_illust.jpg": "Stairs",
+    "주사기_illust.jpg": "Injection",
+    "의자_illust.jpg": "Chair",
+    "운동화_illust.jpg": "Exercise"
+  },
+  "cover_scrim_color": "#3F6B5E"
+}

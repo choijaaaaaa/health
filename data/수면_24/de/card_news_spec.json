@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Nachts um 3 hellwach?",
+    "Liegenbleiben macht es schlimmer",
+    "Was bei Durchschlafproblemen hilft"
+  ],
+  "eyebrow": "Durchschlafen, aber richtig",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Der 3-Uhr-Gedanke",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Wer fest damit",
+        "rechnet, wacht oft",
+        "genau dann auf."
+      ]
+    },
+    {
+      "name": "Keine Schlummertaste",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Beim Weckerklingeln",
+        "aufstehen,",
+        "nicht nachdösen."
+      ]
+    },
+    {
+      "name": "Bett nur zum Schlafen",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Nicht lesen,",
+        "essen oder",
+        "fernsehen im Bett."
+      ]
+    },
+    {
+      "name": "Bettzeit begrenzen",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "8 Stunden im Bett,",
+        "6 geschlafen? Dann",
+        "nicht viel mehr als 6."
+      ]
+    },
+    {
+      "name": "App auf Rezept",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "DiGA bei",
+        "Schlafstörungen zahlt",
+        "die Krankenkasse."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Nachts aufzuwachen ist normal.",
+        "Langes Wachliegen",
+        "lässt sich ändern."
+      ]
+    ],
+    "tip": [
+      "Fester Wecker, Bett nur zum Schlafen,",
+      "Bettzeit an die echte Schlafzeit anpassen."
+    ],
+    "cta": "Mindestens 3 Nächte pro Woche seit über einem Monat? Ärztlich abklären."
+  },
+  "char_display_names": {
+    "시계_illust.jpg": "Gedanken",
+    "자명종_illust.jpg": "Wecker",
+    "베개_illust.jpg": "Bett",
+    "달력_illust.jpg": "Bettzeit",
+    "스마트폰_illust.jpg": "DiGA"
+  },
+  "cover_scrim_color": "#2E3A5C"
+}

@@ -1,0 +1,80 @@
+{
+  "title": [
+    "In der Praxis hoch,",
+    "zu Hause normal?",
+    "So messen Sie richtig"
+  ],
+  "eyebrow": "Weißkitteleffekt und maskierte Hypertonie",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Wischen für mehr →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Die Praxis kann den Wert hochtreiben",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Aufregung",
+        "beim Arzt",
+        "hebt den Druck"
+      ]
+    },
+    {
+      "name": "Zu Hause gilt eine niedrigere Grenze",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "135/85 statt",
+        "140/90",
+        "wie in der Praxis"
+      ]
+    },
+    {
+      "name": "10 cm unter Herzhöhe verfälscht",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Etwa 8 mmHg",
+        "systolisch",
+        "zu hoch"
+      ]
+    },
+    {
+      "name": "Fünf Minuten Ruhe vorher",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Angelehnt sitzen,",
+        "beide Füße",
+        "am Boden"
+      ]
+    },
+    {
+      "name": "Sieben Tage, morgens und abends",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Je zwei Messungen,",
+        "mindestens",
+        "1 Minute Abstand"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ein einzelner Praxiswert",
+        "entscheidet nicht"
+      ],
+      [
+        "Eine Messwoche",
+        "zu Hause zeigt mehr"
+      ]
+    ],
+    "tip": [
+      "Manschette auf Herzhöhe,",
+      "zweimal messen, beide Werte notieren"
+    ],
+    "cta": "Bringen Sie Ihr Blutdrucktagebuch zum nächsten Arzttermin mit."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Messgerät",
+    "의자_illust.jpg": "Stuhl"
+  },
+  "cover_scrim_color": "#4A3F6B"
+}

@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Sveglio alle 3 di notte?",
+    "Il sonnifero non è la prima risposta",
+    "Come riaddormentarsi davvero"
+  ],
+  "eyebrow": "Risvegli notturni",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Lista dei pensieri",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Scrivi le",
+        "preoccupazioni",
+        "prima di dormire."
+      ]
+    },
+    {
+      "name": "Farmaci da banco",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Gli antistaminici",
+        "alleviano ma",
+        "non curano."
+      ]
+    },
+    {
+      "name": "Diario del sonno",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Un paio di",
+        "settimane di note",
+        "aiutano il medico."
+      ]
+    },
+    {
+      "name": "Buio e silenzio",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "Tende oscuranti,",
+        "mascherina e",
+        "tappi per le orecchie."
+      ]
+    },
+    {
+      "name": "Prima la TCC",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Le linee guida",
+        "europee la mettono",
+        "al primo posto."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Svegliarsi di notte è comune.",
+        "Prima della pillola viene la TCC."
+      ]
+    ],
+    "tip": [
+      "Stasera: lista dei pensieri sul comodino,",
+      "da domani orari fissi."
+    ],
+    "cta": "Insonnia da settimane o mesi? Parlane con il medico di base."
+  },
+  "char_display_names": {
+    "책_illust.jpg": "Pensieri",
+    "알약_illust.jpg": "Farmaci",
+    "달력_illust.jpg": "Diario",
+    "창문_illust.jpg": "Ambiente",
+    "베개_illust.jpg": "TCC"
+  },
+  "cover_scrim_color": "#2E3A5C"
+}

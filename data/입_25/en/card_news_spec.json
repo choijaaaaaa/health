@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Neck lump after a cold?",
+    "Watch the first week",
+    "5 signs to see a GP"
+  ],
+  "eyebrow": "Swollen glands, NHS advice",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Usually fighting a cold",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Glands swell near",
+        "an infection and",
+        "go down in 1 to 2 weeks"
+      ]
+    },
+    {
+      "name": "Not down after a week",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Getting bigger, or",
+        "not gone down",
+        "within 1 week: see a GP"
+      ]
+    },
+    {
+      "name": "Hard and won't move",
+      "char_file": "턱_illust.jpg",
+      "body": [
+        "A gland that feels",
+        "hard or stays fixed",
+        "when pressed"
+      ]
+    },
+    {
+      "name": "Night sweats or high fever",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Sweats at night or",
+        "feeling hot, cold",
+        "or shivery"
+      ]
+    },
+    {
+      "name": "Near the collarbone",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Swelling just above",
+        "or below it, or with",
+        "no sign of illness"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Glands swollen by an infection usually go down within 1 to 2 weeks, by themselves."
+      ]
+    ],
+    "tip": [
+      "Hard, fixed, growing or near the collarbone? Book a GP appointment, do not wait it out."
+    ],
+    "cta": "Struggling to swallow or breathe? Ask for an urgent GP appointment or call 111."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Infection",
+    "달력_illust.jpg": "One week",
+    "턱_illust.jpg": "Hard lump",
+    "식은땀_illust.jpg": "Night sweats",
+    "혈액검사_illust.jpg": "GP check"
+  },
+  "cover_scrim_color": "#4A5E7A"
+}

@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Moedervlek die verandert?",
+    "Laat hem nakijken",
+    "7 kenmerken"
+  ],
+  "eyebrow": "Moedervlek niet vertrouwd?",
+  "cover_char_file": "피부반점_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Niet rond, vage rand",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Niet aan alle kanten",
+        "hetzelfde of",
+        "met vage randen."
+      ]
+    },
+    {
+      "name": "Meerdere kleuren",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Tinten bruin, of",
+        "blauw, rood,",
+        "zwart of wit."
+      ]
+    },
+    {
+      "name": "Groeit of verandert",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "6 millimeter of groter,",
+        "of verandert van",
+        "vorm of kleur."
+      ]
+    },
+    {
+      "name": "Factor 30 of hoger",
+      "char_file": "자외선차단제_illust.jpg",
+      "body": [
+        "Niet verbranden:",
+        "zonnebrandcrème",
+        "en lange mouwen."
+      ]
+    },
+    {
+      "name": "11 tot 15 uur schaduw",
+      "char_file": "모자_illust.jpg",
+      "body": [
+        "Blijf in de schaduw",
+        "of binnen als",
+        "de zon het felst is."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Klopt 1 of meer kenmerk?",
+        "Bel je huisarts."
+      ]
+    ],
+    "tip": [
+      "Het belangrijkste: let op verandering,",
+      "niet op het aantal moedervlekken."
+    ],
+    "cta": "Wondje of korstje op een moedervlek? Bel de huisarts."
+  },
+  "char_display_names": {
+    "피부반점_illust.jpg": "Moedervlek",
+    "손등_illust.jpg": "Huid",
+    "달력_illust.jpg": "Kalender",
+    "자외선차단제_illust.jpg": "Zonnebrand",
+    "모자_illust.jpg": "Hoed"
+  },
+  "cover_scrim_color": "#4A3F5C"
+}

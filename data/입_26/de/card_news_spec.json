@@ -1,0 +1,78 @@
+{
+  "title": [
+    "Halsschmerzen:",
+    "Meist steckt ein Virus",
+    "dahinter, kein Bakterium",
+    "Wann Antibiotika helfen"
+  ],
+  "eyebrow": "Halsschmerzen und Antibiotika",
+  "cover_char_file": "감기약_illust.jpg",
+  "swipe_label": "Weiter wischen  →",
+  "closing_label": "Kurz gefasst",
+  "items": [
+    {
+      "name": "Meist Erkältungsviren",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Halsschmerzen gehen",
+        "meist auf Viren zurück –",
+        "Antibiotika wirken da nicht"
+      ]
+    },
+    {
+      "name": "Strep bei Erwachsenen selten",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Kinder von 5 bis 15:",
+        "bis zu 30 Prozent,",
+        "Erwachsene: etwa 10 Prozent"
+      ]
+    },
+    {
+      "name": "Dieses Trio passt zu Bakterien",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Geschwollene, belegte",
+        "Mandeln und Fieber –",
+        "aber kein Husten"
+      ]
+    },
+    {
+      "name": "Abstrich bringt Klarheit",
+      "char_file": "편도결석_illust.jpg",
+      "body": [
+        "Schnelltest in Minuten,",
+        "Kasse zahlt ihn",
+        "für Kinder bis 16"
+      ]
+    },
+    {
+      "name": "Einseitig, sehr stark",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Starke einseitige Hals-",
+        "oder Ohrenschmerzen:",
+        "an Abszess denken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Die meisten Halsentzündungen heilen von selbst; Antibiotika verkürzen auch eine bakterielle nur etwas."
+      ]
+    ],
+    "tip": [
+      "Belegte Mandeln, Fieber, kein Husten? Dann den Abstrich ansprechen statt gleich ein Rezept."
+    ],
+    "cta": "Atemnot oder Schlucken unmöglich: sofort Notruf 112."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Viren",
+    "달력_illust.jpg": "10 Prozent",
+    "체온계_illust.jpg": "Trio",
+    "편도결석_illust.jpg": "Abstrich",
+    "전화기_illust.jpg": "Abszess"
+  },
+  "cover_scrim_color": "#3D5A4F"
+}

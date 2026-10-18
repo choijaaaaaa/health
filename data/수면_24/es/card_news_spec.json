@@ -1,0 +1,80 @@
+{
+  "title": [
+    "¿Te despiertas a las 3?",
+    "5 hábitos que alargan la noche",
+    "Qué dice la guía del SNS"
+  ],
+  "eyebrow": "Despertares nocturnos",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Picar al despertar",
+      "char_file": "바나나_illust.jpg",
+      "body": [
+        "Comer de madrugada",
+        "acostumbra a",
+        "despertar con hambre."
+      ]
+    },
+    {
+      "name": "Líquidos por la noche",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Beber mucho",
+        "al final del día",
+        "te lleva al baño."
+      ]
+    },
+    {
+      "name": "30 minutos y fuera",
+      "char_file": "소파_illust.jpg",
+      "body": [
+        "Sin dormir en",
+        "30 minutos, levántate",
+        "y ve a otra sala."
+      ]
+    },
+    {
+      "name": "Preocuparse en la cama",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Reserva 30 minutos",
+        "de día para",
+        "darle vueltas."
+      ]
+    },
+    {
+      "name": "Alcohol para dormir",
+      "char_file": "와인_illust.jpg",
+      "body": [
+        "Ayuda a dormirse,",
+        "pero provoca",
+        "despertares nocturnos."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Lo que alarga la noche",
+        "es quedarse en la cama",
+        "dando vueltas."
+      ]
+    ],
+    "tip": [
+      "Si en 30 minutos no duermes,",
+      "levántate y vuelve con sueño."
+    ],
+    "cta": "Si el insomnio no mejora, consulta en tu centro de salud."
+  },
+  "char_display_names": {
+    "바나나_illust.jpg": "Comer",
+    "물컵_illust.jpg": "Líquidos",
+    "소파_illust.jpg": "Levantarse",
+    "서류더미_illust.jpg": "Preocupaciones",
+    "와인_illust.jpg": "Alcohol"
+  },
+  "cover_scrim_color": "#2E3A5C"
+}

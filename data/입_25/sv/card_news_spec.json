@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Knöl på halsen:",
+    "storleken säger mer än ömheten",
+    "när du ska söka vård"
+  ],
+  "eyebrow": "Svullna lymfkörtlar",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Ofta en förkylning",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Förkylning eller",
+        "halsfluss sätter",
+        "igång immunförsvaret"
+      ]
+    },
+    {
+      "name": "Större än 1,5 cm",
+      "char_file": "턱_illust.jpg",
+      "body": [
+        "Utan kraftig",
+        "halsinfektion:",
+        "kontakta vårdcentral"
+      ]
+    },
+    {
+      "name": "Hård eller orörlig",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Läkaren känner form,",
+        "storlek och om",
+        "körteln går att flytta"
+      ]
+    },
+    {
+      "name": "Blek, trött, feber",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Svullet på flera",
+        "ställen samtidigt:",
+        "sök vård"
+      ]
+    },
+    {
+      "name": "Upp till tre veckor",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Utan tydlig orsak",
+        "kan du få avvakta",
+        "och se om den går ner"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Svullna, ömma körtlar vid en förkylning är vanligt och går oftast över av sig själva."
+      ]
+    ],
+    "tip": [
+      "Större än 1,5 cm utan halsinfektion, hård eller orörlig? Kontakta en vårdcentral."
+    ],
+    "cta": "Osäker? Ring 1177 för sjukvårdsrådgivning."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Infektion",
+    "턱_illust.jpg": "1,5 cm",
+    "혈액검사_illust.jpg": "Undersökning",
+    "식은땀_illust.jpg": "Feber",
+    "달력_illust.jpg": "Tre veckor"
+  },
+  "cover_scrim_color": "#4A5E7A"
+}

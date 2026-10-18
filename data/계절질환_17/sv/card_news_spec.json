@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Feber hos vuxna:",
+    "hur du mår säger mer än termometern",
+    "När ska du söka vård?"
+  ],
+  "eyebrow": "Feber hos vuxna",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "38,0 grader räknas",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Vila 30 minuter,",
+        "mät i örat",
+        "eller i rumpan"
+      ]
+    },
+    {
+      "name": "Drick extra mycket",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Svett tar vätska,",
+        "aptiten spelar",
+        "mindre roll"
+      ]
+    },
+    {
+      "name": "Samma ämne, olika namn",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Läs förpackningen",
+        "så du inte",
+        "tar för mycket"
+      ]
+    },
+    {
+      "name": "Mer än fyra dygn",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Kontakta",
+        "vårdcentralen",
+        "så snart det går"
+      ]
+    },
+    {
+      "name": "Mycket sjuk? Genast",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Vårdcentral eller",
+        "jour, annars",
+        "akutmottagning"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "De flesta med feber behöver inte söka vård, men fyra dygn är en tydlig gräns."
+      ]
+    ],
+    "tip": [
+      "Kolla det verksamma ämnet i varje läkemedel så att du inte dubblar paracetamol."
+    ],
+    "cta": "Osäker? Ring 1177 för sjukvårdsrådgivning dygnet runt."
+  },
+  "char_display_names": {
+    "체온계_illust.jpg": "Termometer",
+    "물컵_illust.jpg": "Vätska",
+    "감기약_illust.jpg": "Värktablett",
+    "달력_illust.jpg": "4 dygn",
+    "전화기_illust.jpg": "1177"
+  },
+  "cover_scrim_color": "#7A3E2E"
+}

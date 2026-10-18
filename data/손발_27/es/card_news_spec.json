@@ -1,0 +1,80 @@
+{
+  "title": [
+    "¿Dedos de los pies rojos y con picor?",
+    "Son sabañones, no congelación",
+    "4 hábitos contra los sabañones"
+  ],
+  "eyebrow": "Sabañones (perniosis)",
+  "cover_char_file": "찬바람_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Calzado impermeable",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Con lluvia o nieve,",
+        "y calcetines de",
+        "algodón o lana."
+      ]
+    },
+    {
+      "name": "Pies secos",
+      "char_file": "마른수건_illust.jpg",
+      "body": [
+        "La humedad",
+        "favorece los",
+        "sabañones."
+      ]
+    },
+    {
+      "name": "Ejercicio regular",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Moverse a menudo",
+        "ayuda a prevenir",
+        "su aparición."
+      ]
+    },
+    {
+      "name": "Calor poco a poco",
+      "char_file": "라디에이터_illust.jpg",
+      "body": [
+        "Subir la temperatura",
+        "de golpe dilata",
+        "los vasos bruscamente."
+      ]
+    },
+    {
+      "name": "Cremas con receta",
+      "char_file": "연고_illust.jpg",
+      "body": [
+        "Algunas llevan",
+        "vasodilatadores,",
+        "con receta médica."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Los sabañones son una inflamación",
+        "de los vasos enfriados,",
+        "no piel congelada."
+      ]
+    ],
+    "tip": [
+      "Esta noche: calcetines secos",
+      "y calor gradual."
+    ],
+    "cta": "¿Ampollas, úlceras o vuelven cada invierno? Consulta al dermatólogo."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Calzado",
+    "마른수건_illust.jpg": "Secado",
+    "아령_illust.jpg": "Ejercicio",
+    "라디에이터_illust.jpg": "Calor",
+    "연고_illust.jpg": "Cremas"
+  },
+  "cover_scrim_color": "#5E3348"
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Adult fever:",
+    "when should you see a doctor?",
+    "38C, paracetamol and red flags"
+  ],
+  "eyebrow": "Fever in adults, NHS advice",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "38C or above",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Under the tongue",
+        "or in the armpit,",
+        "skip forehead strips"
+      ]
+    },
+    {
+      "name": "Drink until pee is pale",
+      "char_file": "물컵_illust.jpg",
+      "body": [
+        "Water is best,",
+        "aim for light yellow",
+        "and clear"
+      ]
+    },
+    {
+      "name": "Paracetamol, 4 hours apart",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "500mg tablets:",
+        "1 or 2 per dose,",
+        "max 8 in 24 hours"
+      ]
+    },
+    {
+      "name": "Watch hidden paracetamol",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Cold and flu remedies",
+        "often contain it",
+        "too"
+      ]
+    },
+    {
+      "name": "When to call 111",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Not improving",
+        "or getting worse",
+        "after home care"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Treat how you feel, not the number: rest, fluids and one paracetamol product at a time."
+      ]
+    ],
+    "tip": [
+      "Do not take paracetamol for more than 3 days unless a doctor tells you to."
+    ],
+    "cta": "Fever getting worse despite home care? Call NHS 111 or use 111 online."
+  },
+  "char_display_names": {
+    "체온계_illust.jpg": "Thermometer",
+    "물컵_illust.jpg": "Water",
+    "감기약_illust.jpg": "Paracetamol",
+    "알약_illust.jpg": "Cold remedy",
+    "달력_illust.jpg": "3 days"
+  },
+  "cover_scrim_color": "#7A3E2E"
+}

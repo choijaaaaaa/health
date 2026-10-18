@@ -1,0 +1,80 @@
+{
+  "title": [
+    "¿Tensión alta en la consulta",
+    "y normal en casa?",
+    "Cómo tomarla bien en casa"
+  ],
+  "eyebrow": "Bata blanca o hipertensión enmascarada",
+  "cover_char_file": "혈압계_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "La consulta puede subir la tensión",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Es la HTA",
+        "de bata",
+        "blanca"
+      ]
+    },
+    {
+      "name": "Normal en consulta, alta en casa",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Es la HTA",
+        "enmascarada,",
+        "la que más se escapa"
+      ]
+    },
+    {
+      "name": "En casa el límite es más bajo",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Por debajo",
+        "de 135/85,",
+        "salvo otra indicación"
+      ]
+    },
+    {
+      "name": "Cinco minutos de reposo",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Espalda apoyada,",
+        "pies en el suelo,",
+        "sin cruzar piernas"
+      ]
+    },
+    {
+      "name": "Siete días antes de desayunar y cenar",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Se descarta",
+        "el primer",
+        "día"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Una sola cifra",
+        "en la consulta no basta"
+      ],
+      [
+        "Una semana de tomas",
+        "en casa dice más"
+      ]
+    ],
+    "tip": [
+      "Manguito sobre la piel,",
+      "brazo a la altura del corazón"
+    ],
+    "cta": "Lleva tu hoja de registro a la próxima consulta."
+  },
+  "char_display_names": {
+    "혈압계_illust.jpg": "Tensiómetro",
+    "의자_illust.jpg": "Silla"
+  },
+  "cover_scrim_color": "#4A3F6B"
+}

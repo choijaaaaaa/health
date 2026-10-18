@@ -1,0 +1,85 @@
+{
+  "title": [
+    "Schwarzer Stuhl",
+    "unter Eisen:",
+    "Wann es mehr",
+    "sein kann",
+    "Blutung erkennen"
+  ],
+  "eyebrow": "Konsistenz und Kreislauf zählen mehr als die Farbe",
+  "cover_char_file": "변기_illust.jpg",
+  "swipe_label": "Wischen für mehr »",
+  "closing_label": "Fazit",
+  "items": [
+    {
+      "name": "Eisen färbt den Stuhl dunkel",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Laut IQWiG",
+        "unbedenklich,",
+        "wenn sonst alles passt"
+      ]
+    },
+    {
+      "name": "Blut macht ihn teerartig",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Schwarz, glänzend,",
+        "klebrig und",
+        "übelriechend"
+      ]
+    },
+    {
+      "name": "Schmerzmittel als Risiko",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Regelmäßige Einnahme",
+        "kann Geschwüre",
+        "auslösen"
+      ]
+    },
+    {
+      "name": "Schwindel und Blässe ernst nehmen",
+      "char_file": "빈혈_illust.jpg",
+      "body": [
+        "Zeichen einer",
+        "Blutarmut",
+        "durch Blutung"
+      ]
+    },
+    {
+      "name": "Bluterbrechen heißt 112",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Auch bei plötzlichen,",
+        "sehr starken",
+        "Bauchschmerzen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Dunkler, geformter Stuhl",
+        "unter Eisen ist häufig"
+      ],
+      [
+        "Teerstuhl mit Schwindel",
+        "ist es nicht"
+      ]
+    ],
+    "tip": [
+      "Auf Konsistenz, Geruch",
+      "und Kreislauf achten"
+    ],
+    "cta": "Schwarzer Stuhl ohne klare Ursache: rasch ärztlich abklären. Bluterbrechen: 112."
+  },
+  "char_display_names": {
+    "알약_illust.jpg": "Eisentabletten",
+    "변기_illust.jpg": "Toilette",
+    "아스피린_illust.jpg": "Schmerzmittel",
+    "빈혈_illust.jpg": "Blutarmut",
+    "전화기_illust.jpg": "Notruf"
+  },
+  "cover_scrim_color": "#2F4B4F"
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Sämre minne?",
+    "Det behöver inte vara demens",
+    "När du ska kontakta vården"
+  ],
+  "eyebrow": "Minne och ålder",
+  "cover_char_file": "알람시계_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Stress och dålig sömn",
+      "char_file": "알람시계_illust.jpg",
+      "body": [
+        "Kan tillfälligt ge",
+        "sämre minne som går",
+        "över med vila"
+      ]
+    },
+    {
+      "name": "Glömmer det som nyss hänt",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ett vanligt symtom",
+        "i början av en",
+        "demenssjukdom"
+      ]
+    },
+    {
+      "name": "Hittar inte orden",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Upprepar sig, glömmer",
+        "namn och tappar",
+        "bort saker"
+      ]
+    },
+    {
+      "name": "Vårdcentralen först",
+      "char_file": "혈압계_illust.jpg",
+      "body": [
+        "Om besvären inte",
+        "blir bättre efter vila",
+        "och återhämtning"
+      ]
+    },
+    {
+      "name": "Rita en urtavla",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Minnestester, blodprover",
+        "och ibland en",
+        "röntgen av hjärnan"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Sämre minne kan bero på sömn, stress eller ålder. Blir det inte bättre efter vila, kontakta en vårdcentral."
+      ]
+    ],
+    "tip": [
+      "Ta gärna med en närstående till utredningen. Det är ofta de som märker förändringen först."
+    ],
+    "cta": "Osäker på vart du ska vända dig? Ring 1177 för sjukvårdsrådgivning."
+  },
+  "char_display_names": {
+    "알람시계_illust.jpg": "Sömn och stress",
+    "달력_illust.jpg": "Nyss hänt",
+    "전화기_illust.jpg": "Ord och namn",
+    "혈압계_illust.jpg": "Vårdcentral",
+    "시계_illust.jpg": "Utredning"
+  },
+  "cover_scrim_color": "#45566B"
+}

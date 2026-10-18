@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Headaches every day,",
+    "painkillers every day?",
+    "When the pills are the problem"
+  ],
+  "eyebrow": "Medication overuse headache",
+  "cover_char_file": "냉찜질_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Rebound headaches",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Taking painkillers",
+        "too often can itself",
+        "cause more headaches."
+      ]
+    },
+    {
+      "name": "Count days, not pills",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Simple painkillers:",
+        "under 15 days a month.",
+        "Triptans: under 10."
+      ]
+    },
+    {
+      "name": "Codeine and caffeine",
+      "char_file": "커피_illust.jpg",
+      "body": [
+        "Combination tablets",
+        "with codeine or caffeine",
+        "raise the risk."
+      ]
+    },
+    {
+      "name": "A planned break",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Headaches often worsen",
+        "first, then ease",
+        "over the following weeks."
+      ]
+    },
+    {
+      "name": "Ice, heat, routine",
+      "char_file": "냉찜질_illust.jpg",
+      "body": [
+        "Cold or warm packs,",
+        "regular meals and sleep",
+        "help during the break."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Track the days you take painkillers, not just the pain."
+      ]
+    ],
+    "tip": [
+      "Headaches several times a week? Book a GP appointment."
+    ],
+    "cta": "Sudden, extreme headache, weakness or trouble speaking? Call 999."
+  },
+  "char_display_names": {
+    "이부프로펜_illust.jpg": "Painkillers",
+    "달력_illust.jpg": "Calendar",
+    "커피_illust.jpg": "Caffeine",
+    "시계_illust.jpg": "Time",
+    "냉찜질_illust.jpg": "Cold pack"
+  },
+  "cover_scrim_color": "#4A5A7A"
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Occhi che bruciano al PC?",
+    "Conta più il battito di ciglia",
+    "3 abitudini per il videoterminale"
+  ],
+  "eyebrow": "Affaticamento visivo da schermo",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Occhiali luce blu",
+      "char_file": "독서안경_illust.jpg",
+      "body": [
+        "17 studi: nessun",
+        "chiaro beneficio",
+        "sulla fatica."
+      ]
+    },
+    {
+      "name": "Meno battiti",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Da circa 15",
+        "a 5-7 al minuto",
+        "davanti allo schermo."
+      ]
+    },
+    {
+      "name": "Regola 20-20-20",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "Ogni 20 minuti,",
+        "20 secondi",
+        "a 6 metri."
+      ]
+    },
+    {
+      "name": "15 minuti ogni 120",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Pausa prevista",
+        "dal D.Lgs. 81",
+        "del 2008."
+      ]
+    },
+    {
+      "name": "Visita periodica",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Ogni 2 anni dopo",
+        "i 50, altrimenti",
+        "ogni 5 anni."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Gli occhi si stancano per i pochi battiti e la messa a fuoco fissa, non per la luce blu."
+      ]
+    ],
+    "tip": [
+      "Oggi: timer a 20 minuti e 20 secondi di sguardo lontano."
+    ],
+    "cta": "Dolore, occhio molto rosso o vista che cambia? Rivolgiti all'oculista."
+  },
+  "char_display_names": {
+    "독서안경_illust.jpg": "Occhiali",
+    "인공눈물_illust.jpg": "Lacrime",
+    "창문_illust.jpg": "Lontano",
+    "시계_illust.jpg": "Pausa",
+    "달력_illust.jpg": "Visita"
+  },
+  "cover_scrim_color": "#35607A"
+}

@@ -1,0 +1,78 @@
+{
+  "title": [
+    "Angine : le blanc sur",
+    "les amygdales ne prouve",
+    "pas une bactérie",
+    "Le TROD tranche"
+  ],
+  "eyebrow": "Angine et antibiotiques",
+  "cover_char_file": "처방전_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "À retenir",
+  "items": [
+    {
+      "name": "75 à 90 % virales",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Chez l'adulte,",
+        "la grande majorité",
+        "des angines sont virales"
+      ]
+    },
+    {
+      "name": "Signes qui orientent",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Fièvre au-dessus de 38 °C,",
+        "ganglions douloureux,",
+        "pas de toux"
+      ]
+    },
+    {
+      "name": "Le TROD en pharmacie",
+      "char_file": "편도결석_illust.jpg",
+      "body": [
+        "Écouvillon sur",
+        "les amygdales, résultat",
+        "en quelques minutes"
+      ]
+    },
+    {
+      "name": "Positif : antibiotique",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Dès 10 ans, le pharmacien",
+        "peut délivrer",
+        "sans ordonnance"
+      ]
+    },
+    {
+      "name": "AINS à éviter",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Ils augmentent le risque",
+        "de complications",
+        "comme le phlegmon"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La plupart des angines sont virales : seul un TROD positif justifie l'antibiotique."
+      ]
+    ],
+    "tip": [
+      "Contre la douleur, le paracétamol plutôt que les anti-inflammatoires."
+    ],
+    "cta": "Difficulté à respirer ou à avaler sa salive : appelez le 15."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Virus",
+    "체온계_illust.jpg": "4 signes",
+    "편도결석_illust.jpg": "TROD",
+    "알약_illust.jpg": "Antibiotique",
+    "이부프로펜_illust.jpg": "AINS"
+  },
+  "cover_scrim_color": "#4B3E5E"
+}

@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Pijn aan de zijkant van je heup",
+    "als je op je zij ligt?",
+    "Trochantair pijnsyndroom"
+  ],
+  "eyebrow": "Heuppijn aan de zijkant 's nachts",
+  "cover_char_file": "이불_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Vooral vrouwen 45-65",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Thuisarts noemt",
+        "deze leeftijd",
+        "als typisch"
+      ]
+    },
+    {
+      "name": "Meestal de pees",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Niet alleen de",
+        "slijmbeurs, vaak",
+        "een bilspierpees"
+      ]
+    },
+    {
+      "name": "Prik helpt even",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "Na 3 maanden 55 %",
+        "hersteld, na",
+        "12 maanden gelijk"
+      ]
+    },
+    {
+      "name": "Oefenen houdt stand",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Na 1 jaar 78 %",
+        "beter met oefeningen,",
+        "57 % na een prik"
+      ]
+    },
+    {
+      "name": "Niet op de pijnlijke kant",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Slaap op je",
+        "andere zij, kussen",
+        "tussen de knieën"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Pijn aan de zijkant van je heup is meestal een overbelaste pees."
+      ]
+    ],
+    "tip": [
+      "Lig niet op de pijnlijke kant,",
+      "blijf bewegen,",
+      "bouw de belasting rustig op."
+    ],
+    "cta": "Koorts of een warme huid na een prik? Bel direct je huisarts."
+  },
+  "char_display_names": {
+    "계단_illust.jpg": "Leeftijd",
+    "베개_illust.jpg": "Pees",
+    "주사기_illust.jpg": "Prik",
+    "운동화_illust.jpg": "Oefenen",
+    "의자_illust.jpg": "Houding"
+  },
+  "cover_scrim_color": "#2F5D8A"
+}

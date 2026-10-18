@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Your cold is gone,",
+    "but the cough won't quit",
+    "When a lingering cough needs a GP"
+  ],
+  "eyebrow": "Post-cold cough, explained",
+  "cover_char_file": "심호흡_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Airways stay twitchy",
+      "char_file": "심호흡_illust.jpg",
+      "body": [
+        "The virus is gone,",
+        "but irritated airways",
+        "still trigger coughing."
+      ]
+    },
+    {
+      "name": "Mucus drips down",
+      "char_file": "코스프레이_illust.jpg",
+      "body": [
+        "Mucus from the back",
+        "of the nose keeps",
+        "tickling the throat."
+      ]
+    },
+    {
+      "name": "Hot lemon and honey",
+      "char_file": "꿀_illust.jpg",
+      "body": [
+        "1 to 2 teaspoons",
+        "in hot water,",
+        "not for babies under 1."
+      ]
+    },
+    {
+      "name": "Syrups won't stop it",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Pharmacy remedies",
+        "may ease it a little,",
+        "but won't end it."
+      ]
+    },
+    {
+      "name": "3 weeks: see a GP",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Past 3 weeks, or with",
+        "weight loss, book",
+        "a GP appointment."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Most post-cold coughs fade within 3 to 4 weeks on their own."
+      ]
+    ],
+    "tip": [
+      "Honey and fluids ease it; antibiotics and codeine won't stop it."
+    ],
+    "cta": "Coughing up blood or struggling to breathe? Get urgent help via NHS 111."
+  },
+  "char_display_names": {
+    "심호흡_illust.jpg": "Airways",
+    "코스프레이_illust.jpg": "Nose",
+    "꿀_illust.jpg": "Honey",
+    "감기약_illust.jpg": "Syrup",
+    "달력_illust.jpg": "Calendar"
+  },
+  "cover_scrim_color": "#3D6B5E"
+}

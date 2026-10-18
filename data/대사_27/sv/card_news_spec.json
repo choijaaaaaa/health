@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Knöl i sköldkörteln?",
+    "Oftast inte cancer",
+    "Så går utredningen till"
+  ],
+  "eyebrow": "En knöl på halsen",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Oftast inte cancer",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "En knöl på halsen",
+        "är vanligt, ofta",
+        "knölstruma eller cysta"
+      ]
+    },
+    {
+      "name": "Blodprov först",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Visar om",
+        "hormonproduktionen",
+        "har påverkats"
+      ]
+    },
+    {
+      "name": "Ultraljud är vanligast",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Visar en eller",
+        "flera knölar och",
+        "om något trycker"
+      ]
+    },
+    {
+      "name": "Nålbiopsi känns lite",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "Ungefär som",
+        "att lämna",
+        "blodprov"
+      ]
+    },
+    {
+      "name": "Salt med jod",
+      "char_file": "소금_illust.jpg",
+      "body": [
+        "Jodbrist är en",
+        "orsak till att",
+        "struma uppstår"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "En knöl i sköldkörteln",
+        "är oftast inte cancer"
+      ]
+    ],
+    "tip": [
+      "Hes utan att vara förkyld?",
+      "Kontakta en vårdcentral"
+    ],
+    "cta": "Ring 1177 för sjukvårdsrådgivning om du är osäker på var du ska söka vård."
+  },
+  "char_display_names": {
+    "돋보기_illust.jpg": "Vanligt fynd",
+    "혈액검사_illust.jpg": "Blodprov",
+    "서류더미_illust.jpg": "Ultraljud",
+    "주사기_illust.jpg": "Nålbiopsi",
+    "소금_illust.jpg": "Jod"
+  },
+  "cover_scrim_color": "#5B6E3A"
+}

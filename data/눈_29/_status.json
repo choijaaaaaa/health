@@ -1,0 +1,21 @@
+{
+  "topic": "눈_29",
+  "langs_done": ["ko", "en", "ja", "de", "fr", "it", "es", "nl", "sv"],
+  "cards_rendered": {"ko": 7, "en": 7, "ja": 7, "de": 7, "fr": 7, "it": 7, "es": 7, "nl": 7, "sv": 7},
+  "r2_uploaded": {"ko": 7, "en": 7, "ja": 7, "de": 7, "fr": 7, "it": 7, "es": 7, "nl": 7, "sv": 7},
+  "tests": {
+    "test_blog_seo_quality": "pass (all)",
+    "test_content_rules": "pass (all, 0 failures)",
+    "content_review": "0 issues for all 9 langs",
+    "ko_overlap_audit": "no naver caption for this topic (blog-only), 0 comparisons"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Shared evidence (europepmc abstracts): Talens-Estarelles 2023 CLAE 46:101744 (29 symptomatic users, 2-week 20-20-20 reminders, symptoms down, not maintained 1 week after stopping, tear-film signs unchanged, uncontrolled before-after); Singh 2023 Cochrane (17 RCTs, blue-light lenses may not reduce eye strain, <1 week follow-up, low certainty); AAO Computers/Eye Strain page (blink 15 -> 5-7/min, ~25 in / arm's length, no permanent damage).",
+    "Country sources (curl-verified): ko 고용노동부고시 제2020-17호 VDT 작업관리지침 (40cm, 시선 10~15도 아래, 조도 300~500/500~700lx, 습도 40~70%, 18~24도, 휴식 분 수치 없음); en HSE DSE eye tests + breaks (5-10 min/hour), NHS Dry eyes; ja 厚労省 情報機器作業ガイドライン 基発0712第3号 (1時間/10~15分/小休止1~2分, 40cm, 300lx, 年1回健診); de ArbStättV Anhang 6 + ArbMedVV Anhang Teil 4; fr INRS travail sur écran (pauses actives ~30 min, 50-70 cm) + Anses LED + Code du travail R4542-4, -17..-19; it D.Lgs 81/2008 art 173/175/176 (15 min ogni 120, visite biennali >=50 / quinquennali); es RD 488/1997 art 3-4; nl Arbobesluit 5.8-5.11; sv Arbetsmiljöverket synundersökning (>1 h/dag, 2-5 år, employer pays).",
+    "Not used (unconfirmed): Japanese eye-society blue-light statement (pages 404), INSST pause durations, KDCA portal page.",
+    "Card items 5 per lang; closing.headline list-of-blocks, tip list. Card structure archetype said 6-7 items but kept 5 per render lesson.",
+    "R2 upload via worktree-relative verticals/.env.r2 worked; no assets-shared assign run (photos resolve via local real/ fallback).",
+    "Body images: PENDING:창문_real_01/02, 시계_real_01/02, 독서안경_real_01/02, 인공눈물_real_01 (exist in main assets_library/real)."
+  ]
+}

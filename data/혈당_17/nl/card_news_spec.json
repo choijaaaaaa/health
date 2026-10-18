@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Prediabetes:",
+    "geen vonnis, wel een kans",
+    "Wat je huisarts meet en adviseert"
+  ],
+  "eyebrow": "Nuchtere bloedsuiker iets te hoog",
+  "cover_char_file": "자전거_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Nuchter 6,1 tot 7,0",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "mmol/L heet bij de NHG",
+        "een gestoorde",
+        "nuchtere glucose"
+      ]
+    },
+    {
+      "name": "Geen HbA1c bij de huisarts",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "De NHG-Standaard",
+        "stelt de diagnose",
+        "met glucosemetingen"
+      ]
+    },
+    {
+      "name": "Van 90 naar 85 kilo",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Een beetje afvallen",
+        "is volgens Thuisarts",
+        "al goed voor je"
+      ]
+    },
+    {
+      "name": "Elke dag stevig bewegen",
+      "char_file": "자전거_illust.jpg",
+      "body": [
+        "Te zwaar? Een uur.",
+        "Gezond gewicht?",
+        "Een half uur."
+      ]
+    },
+    {
+      "name": "Minder wit meel",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Witbrood, koekjes",
+        "en zoutjes minder,",
+        "volkoren vaker"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Bewegen helpt de bloedsuiker",
+        "ook zonder af te vallen.",
+        "Afvallen helpt nog extra."
+      ]
+    ],
+    "tip": [
+      "Gestoorde nuchtere glucose?",
+      "Na 3 maanden opnieuw, daarna jaarlijks."
+    ],
+    "cta": "Veel dorst, vaak plassen of moe? Maak een afspraak bij je huisarts."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Nuchter",
+    "혈액검사_illust.jpg": "Labtest",
+    "체중계_illust.jpg": "5 kilo minder",
+    "자전거_illust.jpg": "Bewegen",
+    "흰빵_illust.jpg": "Wit meel"
+  },
+  "cover_scrim_color": "#2F5D62"
+}

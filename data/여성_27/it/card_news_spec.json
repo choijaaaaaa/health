@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Perdite di sangue",
+    "tra un ciclo e l'altro",
+    "5 cose da sapere"
+  ],
+  "eyebrow": "Sanguinamento fuori dal ciclo: quando preoccuparsi",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Annota ogni perdita",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Giorno, durata",
+        "e quantità: il medico",
+        "capisce prima"
+      ]
+    },
+    {
+      "name": "Meno di 21 giorni",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Cicli così brevi",
+        "per un paio di mesi?",
+        "Parlane al medico"
+      ]
+    },
+    {
+      "name": "Clamidia silenziosa",
+      "char_file": "면봉_illust.jpg",
+      "body": [
+        "Spesso non dà fastidi",
+        "ma può far sanguinare",
+        "fuori dal ciclo"
+      ]
+    },
+    {
+      "name": "Fibromi e polipi",
+      "char_file": "처방전_illust.jpg",
+      "body": [
+        "Escrescenze non",
+        "tumorali dell'utero",
+        "tra le cause possibili"
+      ]
+    },
+    {
+      "name": "Pap test e HPV test",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "25-29 anni: pap test",
+        "30-64 anni: HPV test",
+        "su invito della Regione"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Un sanguinamento insolito tra un ciclo e l'altro va mostrato al ginecologo, non solo annotato."
+      ]
+    ],
+    "tip": [
+      "Da stasera segna sul telefono il primo giorno di ogni flusso e ogni perdita fuori ciclo."
+    ],
+    "cta": "Perdite abbondanti o oltre 7 giorni? Rivolgiti al medico senza aspettare."
+  },
+  "char_display_names": {
+    "스마트폰_illust.jpg": "Diario",
+    "시계_illust.jpg": "Ciclo breve",
+    "면봉_illust.jpg": "Clamidia",
+    "처방전_illust.jpg": "Visita",
+    "백신_illust.jpg": "Screening"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

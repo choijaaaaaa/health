@@ -1,0 +1,77 @@
+{
+  "title": [
+    "PSA-test laten doen?",
+    "Dat kies je zelf",
+    "Testen op prostaatkanker"
+  ],
+  "eyebrow": "Testen op prostaatkanker",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Geen uitnodiging",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Bevolkingsonderzoek",
+        "is er voor baarmoederhals,",
+        "borst en darm."
+      ]
+    },
+    {
+      "name": "Onder 3: kans klein",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Vanaf 3 kan het ook",
+        "een grotere prostaat",
+        "of ontsteking zijn."
+      ]
+    },
+    {
+      "name": "Even lang leven",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Wie zich laat testen,",
+        "leeft gemiddeld",
+        "even lang."
+      ]
+    },
+    {
+      "name": "Niet te vaak testen",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "PSA tussen 1 en 3:",
+        "wacht minstens",
+        "2 jaar."
+      ]
+    },
+    {
+      "name": "BRCA2: wel testen",
+      "char_file": "가족력_illust.jpg",
+      "body": [
+        "Huisartsen adviseren",
+        "testen tussen",
+        "45 en 70 jaar."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "De PSA-test is een keuze met voor- en nadelen, geen standaardcontrole."
+      ]
+    ],
+    "tip": [
+      "Doe eerst de keuzehulp op Thuisarts en neem je antwoorden mee."
+    ],
+    "cta": "Bloed in je plas of moeite met plassen? Bel je huisarts."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Uitnodiging",
+    "혈액검사_illust.jpg": "PSA-waarde",
+    "서류더미_illust.jpg": "Levensduur",
+    "돋보기_illust.jpg": "Herhalen",
+    "가족력_illust.jpg": "Erfelijkheid"
+  },
+  "cover_char_file": "방광_illust.jpg",
+  "cover_scrim_color": "#3E5A6E"
+}

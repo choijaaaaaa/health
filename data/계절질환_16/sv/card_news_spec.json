@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Förkylningen är över,",
+    "men hostan sitter kvar",
+    "Så lindrar du hostan själv"
+  ],
+  "eyebrow": "Hosta efter förkylning",
+  "cover_char_file": "심호흡_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Känsliga slemhinnor",
+      "char_file": "심호흡_illust.jpg",
+      "body": [
+        "Slemhinnorna är",
+        "fortfarande känsliga",
+        "efter förkylningen."
+      ]
+    },
+    {
+      "name": "Höj huvudändan",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Hostan blir ofta",
+        "värre liggande,",
+        "lägg extra kuddar."
+      ]
+    },
+    {
+      "name": "Drick ordentligt",
+      "char_file": "침대옆물잔_illust.jpg",
+      "body": [
+        "Vätska gör slemmet",
+        "mindre segt, vatten",
+        "vid nattlig rethosta."
+      ]
+    },
+    {
+      "name": "Hostmedicin?",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Inte vetenskapligt",
+        "bevisat att den",
+        "har tydlig effekt."
+      ]
+    },
+    {
+      "name": "Mer än 4 veckor",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Hostar du fortfarande",
+        "utan förbättring,",
+        "kontakta vårdcentral."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Hostan efter en förkylning sitter sällan kvar längre än fyra veckor."
+      ]
+    ],
+    "tip": [
+      "Drick ordentligt, höj huvudändan och undvik rök i stället för hostmedicin."
+    ],
+    "cta": "Hosta med blod eller tungt att andas? Kontakta vården direkt."
+  },
+  "char_display_names": {
+    "심호흡_illust.jpg": "Luftvägar",
+    "베개_illust.jpg": "Kuddar",
+    "침대옆물잔_illust.jpg": "Vatten",
+    "감기약_illust.jpg": "Hostmedicin",
+    "달력_illust.jpg": "Kalender"
+  },
+  "cover_scrim_color": "#3D6B5E"
+}

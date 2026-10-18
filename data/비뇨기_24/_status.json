@@ -1,0 +1,65 @@
+{
+  "topic": "비뇨기_24",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "tests": {
+    "test_blog_seo_quality": "pass (9/9 combos: length + title)",
+    "test_content_rules": "0 failures for 비뇨기_24 (remaining failures belong to other in-progress topics: 고령_20, 입_25, 혈당_17)",
+    "content_review": "0 issues for all 9 langs",
+    "ko_overlap_audit": "no naver caption for this topic (blog-only), 0 comparisons"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Card text finalized via preview renders in scratchpad (no upload) before the single output/ render; R2 verified by listing: health-shorts/card_news/비뇨기_24/ (ko) and /<lang>/ 7 each.",
+    "Shared evidence: USPSTF Prostate Cancer Screening final recommendation (May 2018, update in progress): 55-69 individual decision (C), >=70 against (D); ~1.3 deaths and ~3 metastatic cases prevented per 1,000 over ~13 y; ERSPC ~1 in 6 false positive; PLCO >2/3 of biopsied no cancer; overdiagnosis 20-50%; ~1% biopsies hospitalized; prostatectomy 1 in 5 incontinence, 2 in 3 ED; NNS 781; ERSPC significant only NL and SE sites; Sweden 0.72% absolute / 42% relative.",
+    "Country sources (curl-verified): ko 국가암정보센터 전립선암 조기검진/진단방법 (국가암검진 항목 없음, 50+ 기대수명10년+ 매년 PSA+직장수지 권고, 75+ 무증상 비권고, 유전성 45세); ja がん情報サービス 予防・検診/検査 (指針の検診なし, 基準値 50-64 3.0/65-69 3.5/70+ 4.0) + 日本泌尿器科学会 PSAが高いと言われた; en NHS PSA test (48h prep, UTI 4-6 wk, BRCA2 only routine); de Krebsinformationsdienst DKFZ (16.07.2025, S3 8.0 2025: DRU abgeraten, PSA ab 45, <1.5 5J, 1.5-2.99 2J, >=3 repeat 3 Mon, BRCA2/MSH2/MSH6 ab 40, IGeL 15-25 EUR, 3/1000, 4/1000, 1 von 4 Biopsien) + IGeL-Monitor 2017 (tendenziell negativ, 1:30); fr INCa grand public + professionnels (pas de programme national, 70%, 90%/10%, biopsie <5%/<1%, 20% faux négatifs, surdiagnostic 30-50%, 3/4 des 50-69 ans, >1 sur 2 complication); it ISS EpiCentro (3 LEA screening) + EU Council Rec 2022/C 473/01 + AIRC (PSA altered by IPB/infection); es Orden SSI/2065/2014 (cartera: mama, colorrectal, cérvix) + PREEVID Murcia (quotes Estrategia en Cáncer SNS 2010, Cochrane/Ilic 2011, Murcia HTDA) + EU Rec; nl RIVM (3 kanker-bevolkingsonderzoeken) + Thuisarts NHG (<3, 1-3 >=2j, <60 & <1 5j, 75+, BRCA2 45-70); sv 1177 OPT (50-74, <1 6 år, 1-2.9 2 år, >=3 utredning, 68 & <1 stop, 2+ släktingar 40+) + 1177 Blodprov PSA (gränsvärde 3/5/7) + Socialstyrelsen + RCC (OPT start 2020).",
+    "Secondary/press sources (disclosed in body): it Lombardy PSA programme from Nov 2024, men 50-70 (Italpress, official Regione Lombardia page not reachable); es Estrategia en Cáncer 2010 quotation taken via PREEVID (Servicio Murciano de Salud), original PDF not fetched (404).",
+    "Not used (unreachable/unconfirmed): Gezondheidsraad prostate advice page (JS-only), HAS page (403), ameli (blocked), Ministero della Salute (403), PREEVID 2025 revision (bot wall), Lombardia official page.",
+    "Photos: assets-shared assignments inserted for 비뇨기_24 only (45 rows: cover 방광 xray + 자전거/가족력/돋보기/서류더미/달력, rotated per lang); catalog.db backed up to scratchpad before insert. 혈액검사 slots deliberately left unassigned: all 3 pool photos show COVID-19 labels, so render falls back to local real/혈액검사_real_01.jpg (centrifuge tubes). A later full assign.py build would fill those slots with a COVID-labelled photo — reject those pool ids or pin before re-render.",
+    "Body images: PENDING:혈액검사_real_01.jpg (all langs), PENDING:자전거_real_01.jpg (en).",
+    "Card items 5 per lang; closing.headline list-of-blocks, tip list; ja cover/headline rewrapped after preview. Cover hooks for de/fr/it/nl rewritten so first two lines form a complete sentence."
+  ],
+  "verification_20261019": {
+    "date": "2026-10-19",
+    "tests": "test_blog_seo_quality + test_content_rules scoped: 1200 passed, 108 skipped; content_review 0 issues for each edited topic/lang",
+    "edited_langs": [
+      "it",
+      "es"
+    ],
+    "summary": "it: Lombardy PSA programme sentence (Italpress only; regione.lombardia.it / lombardianotizie unreachable, archive offline) removed with its source entry; card has no Lombardy claim. es: 2010 Estrategia quote via PREEVID replaced by the primary current Ministerio de Sanidad 'Estrategia en Cáncer del SNS' (actualización aprobada por el CISNS 24/02/2021): beneficio-riesgo del cribado de próstata no establecido, sin evidencia de mejores resultados, riesgos significativos; source list updated (PREEVID kept only for Cochrane 2011). Cards unchanged.",
+    "urls": [
+      "https://www.sanidad.gob.es/areas/calidadAsistencial/estrategias/cancer/docs/2026/ESTRATEGIA_EN_CANCER_DEL_SNS.pdf"
+    ]
+  }
+}

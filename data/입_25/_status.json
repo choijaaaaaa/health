@@ -1,0 +1,57 @@
+{
+  "topic": "입_25",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": "health-shorts/card_news/입_25/ (7)",
+    "en": "health-shorts/card_news/입_25/en/ (7)",
+    "ja": "health-shorts/card_news/입_25/ja/ (7)",
+    "de": "health-shorts/card_news/입_25/de/ (7)",
+    "fr": "health-shorts/card_news/입_25/fr/ (7)",
+    "it": "health-shorts/card_news/입_25/it/ (7)",
+    "es": "health-shorts/card_news/입_25/es/ (7)",
+    "nl": "health-shorts/card_news/입_25/nl/ (7)",
+    "sv": "health-shorts/card_news/입_25/sv/ (7)"
+  },
+  "tests": {
+    "test_content_rules + test_blog_seo_quality (218 node IDs for 입_25 only)": "200 passed, 18 skipped (naver+tistory pair check n/a), 0 failed",
+    "content_review": "0 issues for all 9 langs",
+    "ko_overlap_audit": "no naver caption (blog-only), 0 comparisons",
+    "r2_check": "img.vernhaven.com/health-shorts/card_news/입_25/en/ 200 image/jpeg"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Sources (curl-verified originals): ko 질병관리청 국가건강정보포털 '림프절 종대' (cntnts_sn=5865, 업데이트 2026-08-13: 정상 0.5cm 전후, 1.0cm 미만 대부분 양성, 사타구니 외 1.0cm 이상 1개월 이상→조직검사 고려, 반응성 50~60%·대부분 2주 이내 소실, 40세 이상 호전 없으면 정밀검사, 3~4주 경과관찰); en NHS 'Swollen glands' (reviewed 29 Sep 2023: 1-2 weeks, not down within 1 week, hard/fixed, night sweats, collarbone, urgent GP/111 for swallowing/breathing) + NICE NG12 (last updated 15 Apr 2026: 1.10.8 Hodgkin adults, 1.10.9 children 48h, laryngeal 45+ neck lump); ja 日本耳鼻咽喉科頭頸部外科学会「頸部の腫れ・腫瘍」(2022-12-14: 急性リンパ節炎 1～2週間) + がん情報サービス「ホジキンリンパ腫」(2023-12-06: 痛みのない腫れ・鎖骨上窩・B症状); de gesund.bund.de 'Hodgkin-Lymphom' (Stand 01.12.2022: >4 Wochen abklären, ~2.500/Jahr) + 'Pfeiffersches Drüsenfieber' (Stand 22.01.2025: 2-4 Wochen, Sportpause 4-6 Wochen); fr INCa 'Développement d'un lymphome hodgkinien' (28/09/2023) + ameli mononucléose x2 (06/12/2023, 22/01/2025; via web.archive.org because ameli.fr 403); it ISSalute 'Linfoadenopatia' (05/02/2026: 2-4 settimane, biopsia 3-4 settimane); es MedlinePlus español 'Ganglios linfáticos inflamados' (US NLM, rev. 14/01/2026: niño >1 cm) — no Spain-government page found, noted; nl Thuisarts (NHG) 'Een lymfeklier in mijn hals is dikker dan normaal' (23-10-2023: >2 weken, >5 dagen koorts, begin met paracetamol); sv 1177 'Svullna lymfkörtlar' (2023-12-13: >1,5 cm utan halsinfektion, intro says >2 cm — both quoted as on page, avvakta upp till tre veckor).",
+    "Country thresholds kept separate, not merged: NHS 1 week; NL 2 weeks; IT 2-4 weeks; DE 4 weeks; KR 1cm+1 month; SE 1.5 cm; ES 'varias semanas'; FR ameli 2 weeks (mono context) + INCa 'persistante'.",
+    "Card items 5 per lang; closing.headline list-of-blocks, tip list. All 9 card sets rendered first to a scratchpad preview dir (outside output/, no R2) and visually checked; fixed ko/en/it/es wraps and wording before the single final render+upload. ja wraps checked, no bad breaks.",
+    "Photo slots: inserted only 입_25 rows into assets-shared catalog.db assignments (54 cover/item + 54 bg:) using least-used selection per item; no assign.build run; catalog.db backup in session scratchpad.",
+    "Body images (PENDING:): ko 갑상선_real_02, en 턱_real_01, ja 면역세포_real_01, de 달력_real_02, fr 면역세포_real_02, it 경추_real_01, es 식은땀_real_01, nl 알약_real_05, sv 갑상선_real_01 (all exist in assets_library/real, alts written from viewing the photos).",
+    "Not committed, ingest not run (per instructions)."
+  ],
+  "verification_20261019": {
+    "date": "2026-10-19",
+    "tests": "no text change",
+    "edited_langs": [],
+    "summary": "es MedlinePlus 'Ganglios linfáticos inflamados' re-fetched: 'par de días', 'varias semanas', 5 contact criteria and child >1 cm all verbatim. Left as is."
+  }
+}

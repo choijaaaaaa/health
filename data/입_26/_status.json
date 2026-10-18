@@ -1,0 +1,64 @@
+{
+  "topic": "입_26",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": "health-shorts/card_news/입_26/ (7)",
+    "en": "health-shorts/card_news/입_26/en/ (7)",
+    "ja": "health-shorts/card_news/입_26/ja/ (7)",
+    "de": "health-shorts/card_news/입_26/de/ (7)",
+    "fr": "health-shorts/card_news/입_26/fr/ (7)",
+    "it": "health-shorts/card_news/입_26/it/ (7)",
+    "es": "health-shorts/card_news/입_26/es/ (7)",
+    "nl": "health-shorts/card_news/입_26/nl/ (7)",
+    "sv": "health-shorts/card_news/입_26/sv/ (7)"
+  },
+  "tests": {
+    "test_blog_seo_quality + test_content_rules (입_26 nodes)": "200 passed, 18 skipped, 0 failed",
+    "content_review": "0 issues for all 9 langs (3 unsourced-number flags fixed in en/fr/es before render)",
+    "ko_overlap_audit": "no naver caption (blog-only), nothing to compare",
+    "note": "unscoped run still fails only on other sessions' topics (여성_27, 귀_23), untouched"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Sources (curl-verified): ko 질병관리청 국가건강정보포털 '인두편도염'(cntnts_sn=5726, 업데이트 2026-05-18: 세균 의심 5가지, 신속항원 30분·특이도 95%↑, 배양 최소 3일, 12~24h 해열, 9일 이내 류머티즘열 예방, 습도 40~50%) + '편도염'(5707, 편도주위농양 증상) + '항생제'(6848); en NICE NG84 recommendations + 'Terms used' (FeverPAIN/Centor bands 13-18/34-40/62-65%, Centor 3-17/32-56%, ~16 h, back-up Rx 3-5 days) + NHS 'Sore throat' (reviewed 2024-04-08: pharmacist antibiotics age 5+, 999/111 lists, salt gargle); ja 厚生労働省 抗微生物薬適正使用の手引き 第四版 医科・外来編 (令和8年1月16日: 成人GAS約10%, 日本研究 扁桃炎約30%/小児17%, 保菌20%以上, McIsaac表, Centor2点以下は迅速検査不要[ACP/CDC・ESCMID], 小児4点でも68%, 検出時のみ抗菌薬, Red Flag); de gesund.bund.de 'Mandelentzündung' (Stand 03.02.2023, DEGAM S3) + 'Streptokokken-Pharyngitis' (Stand 13.06.2025: Kinder bis 30 %, Erwachsene ~10 %, Schnelltest Kasse bis 16), 112/116117 from portal footer; fr ameli.fr 'Définition, symptômes et diagnostic de l'angine' (04/09/2026, via web.archive.org 20261006 snapshot — ameli direct blocked) + 'Traitement de l'angine' (23/04/2025): 75-90 % virales adulte, TROD pharmacie >10 ans sans ordonnance, AINS à éviter; it ISSalute 'Faringite' (agg. 15/02/2022) + 'Tonsillite' (22/03/2022); es Cots JM et al., Aten Primaria 2015 consensus (EuropePMC PMC6983836: ~80 % prescripción, EBHGA 5-15 % adultos, tabla Centor, ≥2 → Strep A, 16 h, sensibilidad juicio 49-74 %, 28x exudado); nl Thuisarts 'Ik heb keelpijn' (gewijzigd 25-08-2026: halve dag eerder, 10 dagen, koorts >3 dagen, spoedlijst); sv 1177 'Halsfluss' (2024-05-27) + 'Ont i halsen' (2024-01-18, snabbtest svar 5-10 min).",
+    "Country differences kept: fr says avoid NSAIDs (phlegmon) while es says ibuprofen/diclofenac slightly better than paracetamol; UK NICE does not recommend routine rapid strep tests, fr/es/ja/de center on the swab test; nl stresses antibiotics only ~half a day faster vs NICE ~16 h.",
+    "No antibiotic dosing/duration anywhere. fr '15' (SAMU) emergency number is not on the cited ameli pages (standard French emergency number, previously verified via Service-Public.fr in 근골격_33). de gesund.bund.de pages disagree on '24 Stunden nicht ansteckend' — omitted.",
+    "Card items 5 per lang; closing.headline list-of-lines (ko/ja explicitly line-broken), tip list. All 9 sheets previewed in a scratchpad render before the first R2 upload; ja/ko wraps fixed, then rendered once into output/ (single upload).",
+    "Photo slots: inserted only 입_26 rows into assets-shared catalog.db assignments (54 cover/item + 54 bg:), least-used selection; then manually swapped 4 bad picks (ko item01 carnival-mask photo pexels:8831399 → 7012350, es item01 & fr cover blank-paper 처방전 → 8376289/5998470, de item03 혈액검사 → 편도결석 swab 7579821). catalog.db backup in session scratchpad. Note: pexels:8831399 (carnival masks) is in the 마스크 pool — worth rejecting globally (not touched).",
+    "Body images (PENDING:): ko 가습기_real_02, en 알약_real_08, ja 편도결석_real_02, de 이부프로펜_real_01, fr 편도결석_real_01, it 가습기_real_01, es 이부프로펜_real_02, nl 사탕_real_03, sv 물컵_real_06 (all exist in assets_library/real, previously unused).",
+    "Not committed, ingest not run (per instructions)."
+  ],
+  "verification_20261019": {
+    "date": "2026-10-19",
+    "tests": "test_blog_seo_quality + test_content_rules scoped: 1200 passed, 108 skipped; content_review 0 issues for each edited topic/lang",
+    "edited_langs": [
+      "fr"
+    ],
+    "summary": "fr 'appelez le 15' (difficulty breathing/swallowing saliva) now cited to Service-Public.fr numéros d'urgence (vérifié le 25 août 2026: urgence médicale = 15 Samu); Santé.fr/Antibio'Malin angine page (13/03/2025) lists gêne respiratoire as reason to seek care. Card unchanged.",
+    "urls": [
+      "https://www.service-public.fr/particuliers/vosdroits/F33954",
+      "https://www.sante.fr/angine"
+    ]
+  }
+}

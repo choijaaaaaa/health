@@ -1,0 +1,18 @@
+{
+  "topic": "순환_26",
+  "langs_done": ["ko", "en", "ja", "de", "fr", "it", "es", "nl", "sv"],
+  "cards_rendered": {"ko": 7, "en": 7, "ja": 7, "de": 7, "fr": 7, "it": 7, "es": 7, "nl": 7, "sv": 7},
+  "tests": {
+    "test_blog_seo_quality.py": "pass (exit 0, all 9 combos OK)",
+    "test_content_rules.py": "순환_26 clean; 9 remaining failures are 소화_34 meta_description length (not this topic)",
+    "content_review 순환_26 <lang>": "0 issues in all 9 langs",
+    "ko_overlap_audit": "no naver caption for this topic (0 compared)"
+  },
+  "notes": [
+    "Blog-only topic: no products, no video/TTS. Images: 혈압계_real_01/02 inline, card char_files 혈압계_illust.jpg + 의자_illust.jpg (existing real photos, no new photos added).",
+    "Sources per lang: ko KSH Home BP Forum position statement (Ihm et al., Clin Hypertens 2022) + Ohasama; en CDC + Million Hearts 7 tips + 2017 ACC/AHA; ja JSH2019/JSH2025 + Ohasama; de Hochdruckliga 5 Schritte/Hintergrundinfo + ESH 2021; fr HAS 2016 + CNAM/SFHTA règle des 3; it ISS SNLG Linea guida IA (draft) + ESH 2021 IT; es SEMG 2024 + Banegas NEJM 2018; nl Thuisarts (NHG) + Hartstichting + ESH 2021; sv 1177 + 1177 för vårdpersonal hypertoni.",
+    "R2 upload FAILED during card render: card_news._sync_to_r2 looks for ../verticals/.env.r2 relative to the worktree (path does not exist). Local cards are fine; re-sync to R2 from the main checkout (or before ingest) so heroes show.",
+    "Item names must not contain '/' (card filename uses item name) — 135/85 kept in card body lines only.",
+    "naver_searchad run overwrote data/_audit/naver_search_volume.json; restored with git checkout (unchanged). ko search_keyword 백의고혈압 = 2,200."
+  ]
+}

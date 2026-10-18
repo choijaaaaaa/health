@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Hexenschuss:",
+    "Warum Liegen nicht hilft",
+    "Bewegung, Wärme, Warnzeichen"
+  ],
+  "eyebrow": "Akuter Kreuzschmerz",
+  "cover_char_file": "온찜질_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Fazit",
+  "items": [
+    {
+      "name": "Bettruhe bremst",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Langes Liegen",
+        "und Schonhaltung",
+        "verzögern die Besserung"
+      ]
+    },
+    {
+      "name": "Aktiv bleiben",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Spazieren, Schwimmen",
+        "oder lockere Übungen,",
+        "so gut es geht"
+      ]
+    },
+    {
+      "name": "Wärme tut vielen gut",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "Wärmflasche oder",
+        "Wärmekissen",
+        "lindern bei vielen"
+      ]
+    },
+    {
+      "name": "Ibuprofen nur kurz",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Entzündungshemmer",
+        "höchstens",
+        "zwei Wochen"
+      ]
+    },
+    {
+      "name": "Blase, Darm, Lähmung",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Sofort ärztlich",
+        "abklären lassen,",
+        "im Notfall 112"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Beim Hexenschuss so normal wie möglich weitermachen: Bewegung statt Bettruhe."
+      ]
+    ],
+    "tip": [
+      "Probleme mit Blase oder Darm oder Lähmungen in den Beinen sofort ärztlich abklären."
+    ],
+    "cta": "Nach vier Wochen keine Besserung? Dann hausärztlich untersuchen lassen."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Bettruhe",
+    "운동화_illust.jpg": "Bewegung",
+    "온찜질_illust.jpg": "Wärme",
+    "이부프로펜_illust.jpg": "Ibuprofen",
+    "변기_illust.jpg": "Warnzeichen"
+  },
+  "cover_scrim_color": "#3F5A4C"
+}

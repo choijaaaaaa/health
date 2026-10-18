@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Sudden low back pain:",
+    "rest less, move more",
+    "NHS self-care and 999 signs"
+  ],
+  "eyebrow": "Bad back, NHS advice",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "Long bed rest backfires",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "NHS advice:",
+        "do not stay in bed",
+        "for long periods"
+      ]
+    },
+    {
+      "name": "Keep your normal day going",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Short walks and",
+        "daily jobs help",
+        "you recover"
+      ]
+    },
+    {
+      "name": "Ibuprofen over paracetamol",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Paracetamol alone",
+        "is not advised",
+        "for back pain"
+      ]
+    },
+    {
+      "name": "Ice or heat, wrapped",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "Ice for swelling,",
+        "heat for spasm,",
+        "always in a towel"
+      ]
+    },
+    {
+      "name": "Call 999 for these",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Numb genitals or anus,",
+        "bladder or bowel change,",
+        "both legs weak"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Most sudden back pain eases within a few weeks if you keep moving and avoid long spells in bed."
+      ]
+    ],
+    "tip": [
+      "Numbness around your genitals or anus, or new bladder or bowel trouble, means 999 or A&E, not waiting."
+    ],
+    "cta": "Not improving after a few weeks, or getting worse fast? See a GP or use NHS 111."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Bed rest",
+    "운동화_illust.jpg": "Walking",
+    "이부프로펜_illust.jpg": "Ibuprofen",
+    "온찜질_illust.jpg": "Ice or heat",
+    "변기_illust.jpg": "Red flags"
+  },
+  "cover_scrim_color": "#3F5A4C"
+}

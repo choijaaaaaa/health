@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Trous de mémoire",
+    "simple âge ou Alzheimer ?",
+    "Les repères de l'Assurance Maladie"
+  ],
+  "eyebrow": "Mémoire après 60 ans",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En bref",
+  "items": [
+    {
+      "name": "Des oublis qui reviennent",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Trous de mémoire",
+        "récents qui récidivent",
+        "pendant plusieurs mois"
+      ]
+    },
+    {
+      "name": "Factures payées ou pas ?",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Besoin de listes,",
+        "d'un calendrier, doute",
+        "sur les factures"
+      ]
+    },
+    {
+      "name": "Gestes du quotidien",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Recette connue ratée,",
+        "téléphone ou chèque",
+        "devenus difficiles"
+      ]
+    },
+    {
+      "name": "Perdu dans un lieu connu",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Ne plus se repérer",
+        "dans la semaine ou",
+        "dans un endroit familier"
+      ]
+    },
+    {
+      "name": "Médecin traitant d'abord",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Tests de mémoire,",
+        "puis consultation",
+        "mémoire si besoin"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Un oubli isolé n'alerte pas. Des troubles qui durent, s'associent et gênent le quotidien, si."
+      ]
+    ],
+    "tip": [
+      "Parlez-en à votre médecin traitant, si possible avec un proche qui a remarqué les changements."
+    ],
+    "cta": "Entre 60 et 65 ans ou 70 et 75 ans, profitez de Mon bilan prévention pour en parler."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Oublis répétés",
+    "서류더미_illust.jpg": "Organisation",
+    "스마트폰_illust.jpg": "Gestes",
+    "운동화_illust.jpg": "Orientation",
+    "혈액검사_illust.jpg": "Bilan"
+  },
+  "cover_scrim_color": "#5A4A5F"
+}
