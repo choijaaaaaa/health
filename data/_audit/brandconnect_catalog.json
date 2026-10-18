@@ -6124,10 +6124,26 @@
     "link": "https://naver.me/x3cGvUJ1"
   },
   "무드등": {
-    "checked_at": "2026-09-19 17:29",
+    "checked_at": "2026-10-19 04:33",
     "found": true,
     "status": "있음",
     "chosen": {
+      "id": 805514377920964,
+      "name": "오아 이지탭 감성 무드등 침실 침대 신생아 수유등 수면등 취침등 터치 조명 램프",
+      "store": "오아스토어",
+      "price": 32900,
+      "commission": 8.0,
+      "reviews": 6907,
+      "rating": 4.76,
+      "url": "https://smartstore.naver.com/main/products/3112823583",
+      "link": "https://naver.me/IGs53Sds"
+    },
+    "hits": 40,
+    "domain": "health",
+    "sample": null,
+    "link": "https://naver.me/IGs53Sds",
+    "link_saved": true,
+    "rejected": {
       "id": 805923018503616,
       "name": "무드등 붙이는 무선 조명 아이방 수면등 간접조명 LED 조명등 건전지 침대 전등 미니",
       "store": "이코노미쿠스",
@@ -6138,24 +6154,9 @@
       "url": "https://smartstore.naver.com/main/products/4807540114",
       "link": "https://naver.me/5l2jyrvT"
     },
-    "hits": 40,
-    "domain": "health",
-    "sample": null,
-    "link": "https://naver.me/5l2jyrvT",
-    "link_saved": true,
-    "rejected": {
-      "id": 865736603555008,
-      "name": "불멍 무드등 벽난로 불타는 LED 무선 수유등 집들이 크리스마스(A형)",
-      "store": "빛내는 사람들",
-      "price": 14900,
-      "commission": 23.0,
-      "reviews": 7531,
-      "rating": 4.84,
-      "url": "https://smartstore.naver.com/main/products/5197679949",
-      "link": null
-    },
-    "replaced_at": "2026-10-15 09:47",
-    "replaced_note": "link_health 자동 교체 — 브랜드커넥트 검색에서 사라진 상품(불멍 무드등 벽난로 불타는 LED 무선 수유등 집들이 크리스마스(A형))"
+    "replaced_at": "2026-10-19 04:33",
+    "replaced_note": "수면_21 대본 기준(주황빛 전구색·밝기 최저)으로 수동 교체 — 이코노미쿠스 붙이는 조명은 RGB 색 순환 기본·전구색 표기 없음",
+    "pinned_criteria": "전구색(형광색상 전구색) + 밝기 단계 조절 — 수면_21 대본 \"주황빛 전구색, 밝기를 가장 낮게\". RGB 전용·밝기 고정 상품으로 자동 교체 금지"
   },
   "비강확장 테이프": {
     "checked_at": "2026-09-19 16:51",
@@ -12005,5 +12006,25 @@
     "found": true,
     "status": "있음",
     "checked_at": "2026-10-13 15:54"
+  },
+  "다리베개": {
+    "chosen": {
+      "id": 907154741551072,
+      "name": "꾸민가 다리베개 발베개 종아리 무릎 허리 다리 등 침대 쿠션 올리고자기",
+      "store": "꾸민가",
+      "price": 39800,
+      "commission": 5.0,
+      "reviews": 529,
+      "rating": 4.74,
+      "url": "https://smartstore.naver.com/main/products/5060672934",
+      "link": "https://naver.me/551fpMIy"
+    },
+    "link": "https://naver.me/551fpMIy",
+    "link_saved": true,
+    "found": true,
+    "status": "있음",
+    "account": "health",
+    "checked_at": "2026-10-19 04:35",
+    "pinned_criteria": "둥근 산(아치) 모양 — 무릎을 걸치면 엉덩이·무릎이 굽혀지는 것(근골격_30 대본). 경사형(다리가 펴진 채 올라감)으로 자동 교체 금지. 자동 선택은 리뷰 순이라 잠스쿨(곡선 경사형)이 잡힘 — 상품 ID 907154741551072로 지정"
   }
 }

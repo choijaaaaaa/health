@@ -1,0 +1,77 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 멜라토닌을 '수면제가 아니라 밤 신호 → 몸이 스스로 만든다 → 불빛이 막는다 → 천장 등 끄고 주황빛 무드등' 한 줄기로 판다. 도입부 = 훅(알약을 털어 넣는 act_take_supplement) + 통념 반박('양을 늘린다고 더 잘 자는 게 아니에요'에서 같은 알약 클립 위 빨간 X) + '7분쯤 빨리 잠들었을 뿐'(웅크려 뒤척이는 act_toss_turn). 설명 구간은 신호 감소 기전 → 거실 불(새 요청) → 제품 작동 칸(천장 등 끄고 무드등 켜기 + 주황빛 아래 분비 재개, 새 요청 둘) → 고르는 기준 메모 카드. 대본 v2에서 빠진 젤리·복용 시각 문단은 화면에도 없다.",
+  "top_title": "먹어도 잠이 안 온다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_brain.mp4",
+    "crop": [
+      100,
+      110,
+      520,
+      340
+    ],
+    "label": "뇌"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_toss_turn.mp4"
+    }
+  ],
+  "opening_until": 20.634,
+  "_opening_why": "훅(0.42~3.98 '멜라토닌, 해외 직구로 사서 먹었는데도 잠이 안 와서 한 알 더 드신 적 있나요?') + 통념 반박(6.02~20.63 '양을 늘린다고 … 신호거든요. 실제로 연구를 모아 보면 … 7분쯤 빨리 잠들었을 뿐이에요')까지 전체 화면. 세 번째 문단('게다가') 직전 자막 끝 = 20.634초. 알약 넣기(6초) → 웅크려 뒤척임(6초) 통클립.",
+  "negations": [
+    {
+      "from": "양을 늘린다고",
+      "x_at": "게 아니에요",
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "게다가 우리 몸은",
+      "item": "무드등",
+      "mech": "m_hormone_drop",
+      "act": null,
+      "label": "멜라토닌 신호",
+      "solo": "행동이 없는 설명 두 문장(몸이 밤에 신호를 만든다 → 불빛이 그걸 막는다) — 신호 알갱이가 수용체로 내려오다 끊기는 기전 단독"
+    },
+    {
+      "from": "자기 전 거실 불을",
+      "item": "무드등",
+      "mech": "m_melatonin_suppression",
+      "act": "act_ceiling_light_evening",
+      "label": "멜라토닌 분비"
+    },
+    {
+      "from": "그러니 한 알 더",
+      "item": "무드등",
+      "mech": "m_melatonin_resume_warm_light",
+      "act": "act_switch_to_mood_lamp",
+      "label": "주황빛 아래 분비"
+    },
+    {
+      "from": "주황빛 전구색으로",
+      "item": "무드등",
+      "mech": "note_mood_lamp_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(주황빛 전구색 / 밝기를 가장 낮게) — 대본 글자 그대로 만든 메모 카드"
+    },
+    {
+      "from": "우리나라에선 멜라토닌이",
+      "item": "무드등",
+      "mech": "part_brain",
+      "act": null,
+      "label": "뇌"
+    }
+  ],
+  "_timeline_why": "① 21.29~27.33 '게다가 우리 몸은 밤이 되면 이 신호를 스스로 만들어요. 문제는 그걸 막는 불빛이에요'(6.0초) m_hormone_drop(프레임 확인: 청백색 알갱이가 수용체 구멍으로 쏟아지다 끊겨 빈 원반만 남음, 4초 1.5배). 두 문장을 한 칸으로 — 둘째 문장 2초만 따로 두면 칸 최소 길이에 못 미친다. ② 27.33~36.49 거실 불 99% 문장(9.2초) 왼쪽 = 새 요청 act_ceiling_light_evening(6초 1.5배), 오른쪽 = m_melatonin_suppression(프레임 확인: 둥근 분비샘이 구슬을 뿌리다 끊김, 4초 2.3배 — 늦게·짧게 나옴). ③ 36.49~47.29 '그러니 한 알 더 먹기 전에 … 무드등 하나만 켜 보세요'(10.8초) 제품 작동 칸 — 새 요청 act_switch_to_mood_lamp + m_melatonin_resume_warm_light(둘 다 8초 1.35배). 앞 문장 4초만 따로 두면 맞는 그림이 없어 한 칸. ④ 47.29~51.76 고르는 기준 메모 카드(6초 0.75배 — 고정 화면이라 테두리만 조금 빨리 켜짐). 기전 클립 전부 1회.",
+  "summary_from": "우리나라에선 멜라토닌이",
+  "_summary_why": "마지막 문단(전문의약품 + 3달 넘으면 수면클리닉)부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 앞 칸이 칠판 시작에서 끝나게. mech는 칠판이 덮어 안 그려지므로 있는 클립(part_brain).",
+  "board_items": [
+    "무드등"
+  ]
+}

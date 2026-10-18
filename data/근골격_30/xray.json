@@ -1,0 +1,111 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 허리디스크를 '대부분 저절로 줄어든다 → 그러니 계속 누워 있지 말고 처음 2~3일만 → 그 2~3일은 무릎 밑을 받쳐 굽힌 자세로' 한 줄기로 판다. 도입부는 허리에서 다리로 저림이 내려가는 새 행위 act_back_pain_leg_radiate + 디스크가 밀려 나오는 m_posture_load + 허리 점등 part_spine_lumbar. 통념(줄어들 때까지 계속 눕기)은 negations로 누워만 있는 칸에 '안 돼요'에서 빨간 X. 색인 재사용 우선 — 기존 클립 4개(m_posture_load·part_spine_lumbar·m_nerve_compression·part_legs_veins) + 메모 카드, 새 Flow 5개.",
+  "top_title": "다리까지 찌릿하게 저리다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_spine_lumbar.mp4",
+    "crop": [
+      0,
+      300,
+      720,
+      560
+    ],
+    "label": "허리"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_back_pain_leg_radiate.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_posture_load.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_spine_lumbar.mp4"
+    }
+  ],
+  "opening_until": 13.776,
+  "_opening_why": "훅(0.26~5.50 '허리디스크, 다리까지 찌릿하게 저린데 … 수술부터 걱정되시죠?') + 통념 반박(6.27~13.78 '그런데 대부분은 수술 없이 좋아져요. 질병관리청 자료를 보면 10명 중 9명이 …')까지 전체 화면. 세 번째 문단('튀어나온 디스크가') 직전 자막 끝 = 13.776초. 통클립 6+4+4=14초를 13.8초에 — 약 1.0배. 허리→다리로 내려가는 저림(훅) → 디스크가 밀려 나옴('튀어나왔다는 말', '대부분 수술 없이') → 허리 점등('10명 중 9명').",
+  "negations": [
+    {
+      "from": "그렇다고 줄어들 때까지",
+      "x_at": "안 돼요"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "튀어나온 디스크가 저절로",
+      "item": "다리베개",
+      "mech": "m_disc_fragment_resorb",
+      "mech_range": [
+        0,
+        4.5
+      ],
+      "act": null,
+      "label": "디스크 조각",
+      "solo": "몸속 기전 문장(면역세포가 튀어나온 조각을 조금씩 먹어 치움) — 행위가 없는 문장이라 기전 단독, 새 클립 앞 절반"
+    },
+    {
+      "from": "여러 연구를 모아",
+      "item": "다리베개",
+      "mech": "m_disc_fragment_resorb",
+      "mech_range": [
+        4.5,
+        8
+      ],
+      "act": null,
+      "label": "신경 뿌리",
+      "solo": "연구 수치 문장(떨어져 나간 조각 96%가 줄었음) — 같은 새 클립 뒤 절반(조각이 사라지고 눌린 신경이 펴짐)"
+    },
+    {
+      "from": "그렇다고 줄어들 때까지",
+      "item": "다리베개",
+      "mech": "part_spine_lumbar",
+      "act": "act_bed_rest_flat",
+      "label": "허리"
+    },
+    {
+      "from": "그보다 오래 누워",
+      "item": "다리베개",
+      "mech": "m_nerve_compression",
+      "act": null,
+      "label": "눌린 신경",
+      "solo": "기관 경고 문장(오래 누워 있으면 통증이 이어지거나 심해짐) — 신경이 계속 짓눌린 기전 단독"
+    },
+    {
+      "from": "실제로 환자 183명을",
+      "item": "다리베개",
+      "mech": "act_walk_daily",
+      "act": "act_bed_rest_flat",
+      "label": "2주 비교"
+    },
+    {
+      "from": "대신 그 2~3일",
+      "item": "다리베개",
+      "mech": "part_hip_knee_bent",
+      "act": "act_lie_knee_pillow",
+      "label": "엉덩이·무릎"
+    },
+    {
+      "from": "이때 무릎을 걸치면",
+      "item": "다리베개",
+      "mech": "note_leg_pillow_shape",
+      "act": null,
+      "label": "둥근 산 모양",
+      "solo": "고르는 기준 메모(무릎을 걸치면 접히는 둥근 산 모양 / 발목만 높이는 경사형 말고) — 대본 글자 그대로 새로 만든 메모 카드, 다음 문장(경사형)까지 한 칸"
+    },
+    {
+      "from": "다만 대소변",
+      "item": "다리베개",
+      "mech": "part_legs_veins",
+      "act": null,
+      "label": "다리"
+    }
+  ],
+  "_timeline_why": "① 14.02~20.42 '튀어나온 디스크가 저절로 줄어들거든요. 몸이 … 면역세포가 조금씩 먹어 치워요'(6.4초) 새 기전 m_disc_fragment_resorb 0~4.5초(1.42배). ② 20.42~25.62 '여러 연구를 모아 보니 … 96%가 줄었어요'(5.2초) 같은 클립 4.5~8초(1.49배) — 조각이 사라지고 신경 뿌리가 펴짐. 색인에 디스크 조각이 흡수되는 장면이 없다(m_fever_immune_boost는 바이러스, m_posture_load는 튀어나오는 쪽). ③ 25.62~32.69 '그렇다고 줄어들 때까지 계속 누워 있으면 안 돼요. 질병관리청은 처음 2~3일만 누워 쉬라고 해요'(7.1초) 왼쪽 = 새 행위 act_bed_rest_flat(누워만 있음, '안 돼요'에서 빨간 X, 6초 1.18배), 오른쪽 = part_spine_lumbar(허리 점등, 프레임 확인: 등 뒤 투시에서 허리 쪽이 호박색, 4초 1.77배). ④ 32.69~36.90 '그보다 오래 누워 있으면 오히려 통증이 이어지거나 심해질 수 있거든요'(4.2초) m_nerve_compression(프레임 확인: 신경 다발이 두 블록 사이에 잘록하게 눌림, 4초 1.05배). ⑤ 36.90~45.60 '183명을 누워만 지낸 쪽과 평소처럼 움직인 쪽으로 나눠 봤더니, 누워 지낸 쪽이 더 빨리 낫지 않았어요'(8.7초) 두 무리 비교 — 왼쪽 act_bed_rest_flat(누워만 지낸 쪽, 6초 1.45배), 오른쪽 새 행위 act_walk_daily(평소처럼 움직인 쪽, 6초 1.45배). ⑥ 45.60~53.94 '그 2~3일 동안은 제대로 쉬어야 해요. 누울 땐 무릎 밑을 받쳐 엉덩이와 무릎을 살짝 굽혀 두라고'(8.3초) 해결책 자세 칸 — 왼쪽 새 행위 act_lie_knee_pillow(둥근 산 모양 쿠션에 무릎을 걸쳐 굽힘, 6초 1.39배), 오른쪽 part_hip_knee_bent(같은 스틸로 make_part_clip, 엉덩이·무릎 점등, 6초). ⑦ 53.94~61.92 둥근 산 모양·경사형 고르는 기준 메모(6초 1.33배). 기전 클립 각 1~2회.",
+  "summary_from": "다만 대소변",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 있는 클립(part_legs_veins).",
+  "board_items": [
+    "다리베개"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 계속 누워만 있기(새로 요청)·평소처럼 걷기(새로 요청)·무릎 밑을 받쳐 눕기(새로 요청). 도입 훅은 허리에서 다리로 저림이 내려가는 장면(새로 요청)."
+}

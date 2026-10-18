@@ -1,0 +1,177 @@
+{
+ "requests": [
+  {
+   "name": "act_back_pain_leg_radiate",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_30 도입부 훅('허리디스크, 다리까지 찌릿하게 저린데 디스크가 튀어나왔다는 말까지 들으면 수술부터 걱정되시죠?', 0.26~5.50초) 전체 화면 첫 컷. 서 있던 사람이 허리 아래를 한 손으로 짚고 멈칫하면, 허리 아래 척추 마디 한 곳이 호박색으로 켜지고 그 자리에서 가는 호박색 선이 엉덩이 → 허벅지 뒤 → 종아리를 따라 발까지 번개처럼 내려간다(좌골신경을 따라 내려가는 저림). 질병관리청 원문 '좌골신경은 … 엉덩이와 허벅지 뒤쪽을 따라 내려가면서 다리의 감각과 운동을 담당'. 얼굴 없음, 전신 옆모습, 카메라는 가슴 위로 밀고 들어가지 않는다. 범용으로 — 허리디스크·좌골신경통·다리 저림·협착증 편에 쓴다.",
+   "fits": [
+    "허리디스크",
+    "좌골신경통",
+    "다리까지 저림",
+    "허리에서 다리로 찌릿",
+    "다리 저림",
+    "허리 통증",
+    "척추관협착증",
+    "엉덩이 통증",
+    "신경이 눌림"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_clutch_low_back",
+     "why_not": "허리를 짚지만 켜지는 게 신장 두 개 — avoid '허리디스크·근육통 주제에는 맞지 않는다'"
+    },
+    {
+     "id": "part_spine_lumbar",
+     "why_not": "서 있는 등 뒤 투시에 허리 쪽만 켜지는 정적 점등 — 다리로 내려가는 저림이 없다(도입부 셋째 컷으로는 씀)"
+    },
+    {
+     "id": "part_legs_veins",
+     "why_not": "정면 두 다리 전체가 금색으로 물들 뿐 허리에서 시작해 한쪽 다리를 타고 내려가는 경로가 없다"
+    },
+    {
+     "id": "act_limp",
+     "why_not": "걷다가 무릎이 켜짐 — 무릎 관절 통증으로 읽힌다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Full-body side view of the figure standing upright in profile, one hand pressed flat on the lower back just above the hip, the spine with its stacked vertebrae and discs clearly visible inside the glass body, the large nerve running from the lower spine down the back of the thigh and calf faintly visible as a thin pale line, both feet on the ground. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra legs",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding the full-body side view and swinging slowly around toward the back of the figure; it never pushes into the face. 0-2s: from the very first frame the figure takes one step, then freezes mid-step and presses the hand harder into the lower back, the shoulders hunching. 2-4s: one disc between two lower vertebrae flares bright amber, and from that point a thin amber line shoots down along the nerve through the buttock and the back of the thigh. 4-6s: the amber line races on down the calf to the heel and the toes of the same leg, flickering like a fizzing wire, and the whole path from the lower back to the foot stays lit until the very last frame while the other leg stays soft pale cyan. Exactly two arms and two legs; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a sharp electric crackle running downward, no music, no dialogue."
+  },
+  {
+   "name": "m_disc_fragment_resorb",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "근골격_30 설명 1·2칸 기전 단독(mech_range로 반씩). ①0~4.5초 → '튀어나온 디스크가 저절로 줄어들거든요. 몸이 튀어나온 조각을 이물질로 보고, 면역세포가 조금씩 먹어 치워요'(14.02~20.42초): 척추 마디 사이 디스크 뒤로 삐져나온 호박색 젤리 조각이 옆 신경 뿌리를 누르고 있고, 둥근 면역세포(대식세포) 여럿이 몰려와 조각을 감싸 조금씩 삼킨다. ②4.5~8초 → '조각이 아예 떨어져 나간 디스크는 96%가 줄었어요'(20.42~25.62초): 떨어져 나온 조각이 눈에 띄게 작아져 사라지고, 눌려 있던 신경 뿌리가 둥글게 펴진다. 근거 Cunha 2018(염증 반응·대식세포가 탈출 디스크 흡수의 주 요인), Chiu 2015(격리형 96%). ⚠️ 근거가 '조금씩'이라 한 번에 펑 사라지는 그림은 과장 — 서서히 작아지게. 범용으로 — 허리·목 디스크, 디스크 자연 흡수, 수술 없이 낫는 디스크 편.",
+   "fits": [
+    "디스크가 저절로 줄어듦",
+    "디스크 흡수",
+    "튀어나온 디스크",
+    "허리디스크 자연치유",
+    "목디스크",
+    "면역세포가 먹어 치움",
+    "대식세포",
+    "탈출 디스크",
+    "신경 눌림이 풀림"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_posture_load",
+     "why_not": "디스크가 눌려 기울고 섬유가 당겨짐 — 튀어나오는 쪽(원인)이라 줄어드는 장면이 아니다(도입부에 씀)"
+    },
+    {
+     "id": "m_fever_immune_boost",
+     "why_not": "면역세포가 가시 돋친 바이러스 입자를 삼킴 — 디스크 조각이 아니라 감염으로 읽힌다"
+    },
+    {
+     "id": "m_immune_decline",
+     "why_not": "면역세포가 이물질을 감싸다 세균이 퍼지는 '면역 저하' 장면 — 반대 의미"
+    },
+    {
+     "id": "m_nerve_compression",
+     "why_not": "신경이 두 블록 사이에 눌리기만 함 — 조각이 치워지는 회복이 없다(설명 4칸에 씀)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of two translucent glass-like 3D lower spine vertebrae stacked one above the other with a thick rounded cushion disc between them, a soft jelly-like fragment bulging out from the back edge of the disc and pressing against a single thick nerve root that runs down beside it, the nerve root pinched slightly flat where the fragment touches it, several small round soft immune cells floating nearby in the space, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body outline, face, hands, red, blood, bacteria, virus, spikes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the jelly fragment bulging from the back of the disc glows amber where it presses on the nerve root, and the round immune cells drift toward it, the camera gliding in close. 2-4.5s: the immune cells cling to the amber fragment, wrap around its edges and draw small pieces of it inside themselves, the fragment slowly growing smaller bite by bite. 4.5-6.5s: the camera pulls back as the fragment keeps shrinking steadily until only a small amber speck is left, the immune cells drifting away. 6.5-8s: the speck fades away, and the nerve root that was pinched flat slowly rounds out again and glows a calm pale cyan, the disc edge now smooth and tucked back between the vertebrae, holding until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No human figure, no hand, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft wet nibbling sounds easing into quiet, no music, no dialogue."
+  },
+  {
+   "name": "act_bed_rest_flat",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_30 설명 3칸('그렇다고 줄어들 때까지 계속 누워 있으면 안 돼요. 질병관리청은 많이 아픈 처음 2~3일만 누워 쉬라고 해요', 25.62~32.69초) 왼쪽 — negations로 '안 돼요'에서 이 칸에 빨간 X(틀린 쪽 = 계속 누워만 있기) + 5칸('환자 183명을 2주 동안 누워만 지낸 쪽과 평소처럼 움직인 쪽으로 나눠 봤더니…', 36.90~45.60초) 왼쪽(누워만 지낸 쪽). 침대에 똑바로 누워 꼼짝 않고, 창밖 빛만 낮→밤으로 바뀌며 시간이 흐르고, 허리 아래 척추가 계속 은은한 호박색으로 남아 있다(누워 있어도 통증이 그대로). 범용으로 — 침상 안정, 오래 누워 지냄, 활동 부족, 근감소 편.",
+   "fits": [
+    "오래 누워 지냄",
+    "침대에 누워만 있음",
+    "침상 안정",
+    "누워서 쉼",
+    "활동 부족",
+    "허리 아플 때 누워 있기",
+    "입원·와병",
+    "움직이지 않음"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_sleep_paralysis",
+     "why_not": "바닥에 누운 전신에서 입~기도가 켜짐 — 숨길 장면으로 읽히고 avoid도 '뇌·신경 마비 아님'"
+    },
+    {
+     "id": "act_colonoscopy_lying",
+     "why_not": "진찰대에 누워 대장을 따라 빛이 이동 — 검사 장면"
+    },
+    {
+     "id": "act_snore",
+     "why_not": "누워 입 벌리고 기도 점등 — 코골이"
+    },
+    {
+     "id": "act_phone_in_bed",
+     "why_not": "누운 채 화면을 들고 눈·뇌가 켜짐 — 스마트폰 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. High three-quarter view from above the foot of a plain bed, the figure lying flat on its back on the bed with a plain pillow under the head, legs stretched out straight, arms resting at the sides, a thin plain blanket folded at the feet, the spine and the stacked lower discs faintly visible through the glass torso, a plain window frame in the dark wall behind the bed. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra legs, text on window",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same wide framing of the whole bed from the first frame to the last — it never pushes in or zooms. 0-6s: from the very first frame the figure lies flat and completely still on its back, legs straight, while the light through the window behind the bed cycles from bright pale day to dusk to dark night and back to grey morning, soft shadows sliding across the bed to show days passing. Throughout, the lower spine inside the torso keeps a dull steady amber glow that never fades, staying lit until the very last frame, while the rest of the body stays soft pale cyan. The figure never gets up. Exactly two arms and two legs; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a slow ticking clock, no music, no dialogue."
+  },
+  {
+   "name": "act_walk_daily",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_30 설명 5칸('환자 183명을 2주 동안 누워만 지낸 쪽과 평소처럼 움직인 쪽으로 나눠 봤더니, 누워 지낸 쪽이 더 빨리 낫지 않았어요', 36.90~45.60초) 오른쪽 — '평소처럼 움직인 쪽'. 왼쪽 act_bed_rest_flat(누워만 지낸 쪽)과 나란히 두 무리를 비교한다. 옆모습으로 평범한 속도로 편하게 걸어가고, 허리 아래 척추는 아주 옅은 호박색이었다가 걸을수록 차분한 청록으로 가라앉는다(악화 없이 일상 활동). Vroomen 1999: 누워 지낸 쪽이 더 낫지 않았음(차이 없음) — 걷는 쪽이 극적으로 좋아지는 그림은 과장이라 '차분해짐'까지만. 범용으로 — 걷기, 일상 활동 유지, 허리 통증 회복, 산책 편.",
+   "fits": [
+    "평소처럼 움직임",
+    "걷기",
+    "산책",
+    "일상 활동",
+    "가볍게 걷기",
+    "허리 통증 회복",
+    "활동 유지",
+    "누워만 있지 않기"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_slow_walk",
+     "why_not": "벽을 짚고 느리게 걸으며 고관절이 켜짐 — avoid '가벼운 산책·운동 권장 장면으로 쓰면 어긋난다'"
+    },
+    {
+     "id": "act_limp",
+     "why_not": "한쪽 다리를 끌며 무릎이 켜짐 — 절뚝거림·무릎 통증으로 읽힌다"
+    },
+    {
+     "id": "act_walk_flat_shoes",
+     "why_not": "빛나는 게 신발 밑창 — avoid '발 속 기전 아님', 신발 얘기로 읽힌다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Full-body side view of the figure walking at an easy everyday pace in profile, mid-stride with one foot forward and arms swinging loosely, upright relaxed posture, the spine with its stacked vertebrae and lower discs visible inside the glass body, the lower spine glowing very faint warm amber. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra legs",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera tracking alongside the figure at the same full-body side framing; it never pushes into the face. 0-6s: from the very first frame the figure walks steadily forward at a relaxed everyday pace, arms swinging loosely, upright and unhurried, never limping. The faint amber in the lower spine slowly settles and fades into calm pale cyan as the figure keeps walking, the whole body soft pale cyan by the very last frame. Exactly two arms and two legs; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft regular footsteps, no music, no dialogue."
+  },
+  {
+   "name": "act_lie_knee_pillow",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_30 설명 6칸('대신 그 2~3일 동안은 제대로 쉬어야 해요. 누울 땐 무릎 밑을 받쳐 엉덩이와 무릎을 살짝 굽혀 두라고 질병관리청은 권해요', 45.60~53.94초) 왼쪽 — 해결책(다리베개) 자세 칸. 똑바로 누운 사람이 무릎 밑에 둥근 산(아치) 모양 폼 쿠션을 넣고 무릎을 걸치면, 엉덩이와 무릎이 자연스럽게 살짝 굽혀지고 허리 아래가 침대에 편히 닿는다. 질병관리청 원문 '침상 안정 시 자세는 무릎 밑에 베개를 넣어 엉덩이관절과 무릎관절의 굴곡 상태를 유지'. ⚠️ 대본은 자세까지만 말한다 — 디스크가 줄어들거나 통증이 사라지는 그림은 넣지 않는다(쿠션은 쉬는 자세를 잡아 주는 도구). 쿠션은 무지 회색 폼, 글자·로고 없음. 🚨 같은 시작 스틸로 세션이 part_hip_knee_bent(엉덩이·무릎 관절 점등, make_part_clip --region 실측 --seconds 6)를 만들어 오른쪽 칸에 쓴다 — 스틸을 꼭 함께 넣을 것. 범용으로 — 허리디스크·요통 쉬는 자세, 다리베개, 무릎 베개 편.",
+   "fits": [
+    "다리베개",
+    "무릎 밑 베개",
+    "허리 아플 때 눕는 자세",
+    "허리디스크 자세",
+    "무릎 굽히고 눕기",
+    "침상 안정 자세",
+    "요통 수면 자세"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_toss_turn",
+     "why_not": "옆으로 웅크린 태아 자세에 뇌가 켜짐 — 불면 장면"
+    },
+    {
+     "id": "act_sleep_paralysis",
+     "why_not": "다리를 쭉 편 채 누워 기도가 켜짐 — 무릎 밑 받침이 없다"
+    },
+    {
+     "id": "act_baby_carrier_m_position",
+     "why_not": "아기띠 엠자 다리 — 아기 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Side view at bed height of the figure lying on its back on a plain bed, head on a low plain pillow, a plain grey rounded arch-shaped foam bolster under the knees so both knees drape over its rounded top and the hips and knees are gently bent, the feet resting on the mattress beyond it, the lower back resting flat on the bed, the spine, hip joints and knee joints visible inside the glass body. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra legs, text on cushion, wedge cushion",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same side framing at bed height from the first frame to the last — it never pushes in or zooms. 0-2s: from the very first frame the figure, lying on its back with straight legs, lifts both knees and slides them over the plain rounded arch-shaped grey bolster. 2-4s: the knees settle onto the rounded top and the legs relax, the hips and knees easing into a gentle bend, and the lower back sinks softly flat onto the mattress. 4-6s: the figure rests still, the hip joints and knee joints glowing a soft warm amber, holding until the very last frame while the rest of the body stays soft pale cyan. Exactly two arms and two legs; the bolster has no text or logo; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft cushion rustle settling into quiet, no music, no dialogue."
+  }
+ ]
+}
