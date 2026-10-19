@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Vuoti di memoria",
+    "quando non è solo l'età",
+    "Segnali e Centri per le demenze"
+  ],
+  "eyebrow": "Memoria e invecchiamento",
+  "cover_char_file": "노화_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Conversazioni appena fatte",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Dimenticare nomi, fatti",
+        "e discorsi avuti",
+        "poco prima"
+      ]
+    },
+    {
+      "name": "Persi in luoghi familiari",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Confusione e",
+        "disorientamento che",
+        "peggiorano nel tempo"
+      ]
+    },
+    {
+      "name": "Carattere che cambia",
+      "char_file": "노화_illust.jpg",
+      "body": [
+        "Più sospettosi,",
+        "a volte aggressivi,",
+        "meno cura di sé"
+      ]
+    },
+    {
+      "name": "Cause curabili da escludere",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Tiroide, idrocefalo",
+        "o alcol possono dare",
+        "forme reversibili"
+      ]
+    },
+    {
+      "name": "Medico di base, poi CDCD",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Centri per i Disturbi",
+        "Cognitivi e Demenze:",
+        "mappa online dell'ISS"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La memoria peggiora?",
+        "Primo passo:",
+        "il medico di base."
+      ]
+    ],
+    "tip": [
+      "Una diagnosi precoce dà più tempo per scegliere le cure e pianificare il futuro."
+    ],
+    "cta": "Cerchi un CDCD vicino a te? Usa la mappa dell'Osservatorio Demenze dell'ISS."
+  },
+  "char_display_names": {
+    "전화기_illust.jpg": "Memoria recente",
+    "운동화_illust.jpg": "Orientamento",
+    "노화_illust.jpg": "Personalità",
+    "혈액검사_illust.jpg": "Altre cause",
+    "서류더미_illust.jpg": "CDCD"
+  },
+  "cover_scrim_color": "#5C5040"
+}

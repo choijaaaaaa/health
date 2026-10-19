@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Om 3 uur klaarwakker?",
+    "Lang blijven liggen houdt het in stand",
+    "Doorslapen volgens de huisarts"
+  ],
+  "eyebrow": "'s Nachts wakker liggen",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "3 à 4 keer wakker",
+      "char_file": "이불_illust.jpg",
+      "body": [
+        "Kort wakker worden",
+        "is normaal, ook",
+        "3 of 4 keer per nacht."
+      ]
+    },
+    {
+      "name": "Niet op de wekker kijken",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Zet de wekker,",
+        "maar kijk er",
+        "'s nachts niet op."
+      ]
+    },
+    {
+      "name": "Na 30 minuten eruit",
+      "char_file": "카모마일_illust.jpg",
+      "body": [
+        "Andere kamer,",
+        "iets rustigs of",
+        "thee zonder cafeïne."
+      ]
+    },
+    {
+      "name": "Korter in bed",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Gemiddelde slaap",
+        "plus een half uur,",
+        "nooit onder 5 uur."
+      ]
+    },
+    {
+      "name": "Geen smartwatch",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Meet je slaap",
+        "niet betrouwbaar en",
+        "maakt onrustig."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wakker worden is normaal.",
+        "Blijven liggen",
+        "maakt het erger."
+      ]
+    ],
+    "tip": [
+      "Na 30 minuten wakker: uit bed,",
+      "terug als je ontspannen bent."
+    ],
+    "cta": "Blijf je slecht slapen ondanks de adviezen? Kies met je huisarts een behandeling."
+  },
+  "char_display_names": {
+    "이불_illust.jpg": "Normaal",
+    "자명종_illust.jpg": "Wekker",
+    "카모마일_illust.jpg": "Opstaan",
+    "시계_illust.jpg": "Bedtijd",
+    "스마트폰_illust.jpg": "Meten"
+  },
+  "cover_scrim_color": "#2E3A5C"
+}

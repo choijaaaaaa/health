@@ -1,0 +1,68 @@
+{
+  "topic": "손발_27",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "tests": {
+    "test_blog_seo_quality": "pass (all)",
+    "test_content_rules": "pass (all, 0 failures)",
+    "content_review": "0 issues for all 9 langs",
+    "ko_overlap_audit": "no naver caption for this topic (blog-only), 0 comparisons",
+    "claim_audit": "0"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Angle vs 계절질환_13/순환_6: inflammatory red/purple swelling + itch hours after cold/damp, triggered by rewarming; Raynaud distinction (white, <few hours) from Thuisarts.",
+    "Shared evidence (europepmc abstracts): Cappel & Wetter 2014 Mayo Clin Proc (104 pts 2000-2011, 79% women, mean age 38.3, toes 82%, fingers 30%, 4% connective tissue disease, 3% hematologic malignancy, conservative care complete response 23/28 = 82%, retrospective); Shahi 2015 Dermatology (5/5 vasospasm on ice-water immersion); Souwer 2016 Ann Fam Med (RCT crossover, 32 pts, nifedipine 60 mg/day 6 wk, n.s. vs placebo, lower SBP, more edema); Rustin 1989 BJD (nifedipine 20-60 mg shortened clearance; n not stated in abstract, not used).",
+    "Country sources (curl-verified): ko KDCA 보도참고자료 2025-12-31 (동창=국소성 한랭질환, 감시 12.1~2.28, 512개 기관, 음주 21.3%) + MSD 한국어판 + NHS for warming rule; en NHS Chilblains (reviewed 2026-04-22: 2-3 weeks, radiator/hot water, caffeine/decongestants, GP signs incl. diabetes); ja 常陸大宮市広報 2014年12月号 (済生会病院皮膚科: 4~5度/寒暖差10度, 入浴でかゆみ, ビタミンE・ヘパリン類似物質・ステロイド) + 柏市公開資料 (柏ファミリー皮膚科: 通常1~2週間); de apotheken.de Lexikon (über 0°C, drei Wochen, Metzger) + MSD de + NHS; fr Le Quotidien du Médecin FMC (~2% des femmes, 5x) + MSD fr + NHS; it MSD it + NHS + studies; es Quirónsalud HUGC Dermatología (2023) + MSD es; nl Thuisarts/NHG (dec 2025: geen medicijnen, huisarts-signalen, bedrijfsarts); sv 1177 Köldskador (2024-02-02: två veckor, 1177, rök/snus) + MSD Consumer (2026).",
+    "Gaps: no accessible official national page on chilblains for de (gesund.bund.de 404), fr (ameli/sante.gouv captcha), it (salute.gov.it blocked; ISSalute has no geloni page), es (no Ministerio/AEDV page found), sv (1177 has köldskador but no perniones page — sv text frames 1177 advice as köldskador advice). Emergency numbers: only 1177 (sv, from 1177 page) used; none elsewhere.",
+    "MSD English consumer page (Aug 2026) no longer lists limaprost/nicotine; localized 2024 editions (ko/de/fr/it/es) still do and are cited with year.",
+    "Card items 5 per lang; closing.headline list-of-blocks, tip list. ja cover title split into 3 short lines after first render wrapped 'かゆくな/る？'.",
+    "Photo slots assigned for 손발_27 only (99 rows incl. bg:) via direct insert into assets-shared catalog.db assignments (no global assign.py build). First render used empty prefix; those 63 unprefixed R2 objects were deleted, R2 now holds only 손발_27_* keys under health-shorts/card_news/손발_27[/<lang>]/.",
+    "Body images: PENDING:라디에이터_real_01 (ko/de/it), 운동화_real_01 (en/es/nl), 욕조_real_01 (ja), 담배_real_01 (fr/sv) — exist in main assets_library/real, alts written from viewing the photos.",
+    "Meta descriptions trimmed to the 120-160 char gate (test_blog_seo_meta_description_length)."
+  ],
+  "verification_20261019": {
+    "date": "2026-10-19",
+    "tests": "test_blog_seo_quality + test_content_rules scoped: 1200 passed, 108 skipped; content_review 0 issues for each edited topic/lang",
+    "edited_langs": [
+      "fr",
+      "de"
+    ],
+    "summary": "fr: '~2 % des femmes, cinq fois plus' (Le Quotidien du Médecin only) removed from body and from card item 1 (now Mayo series 79 % women of 104 — Cappel 2014); card re-rendered + R2. de: apotheken.de claims corroborated in-text by MSD Manual DE ('Gewebeverletzungen ohne Erfrierungen', Nov 2024: seltene Reaktion, Nifedipin/Limaprost/Kortikosteroide, Nikotin) and NHS Chilblains (2 to 3 weeks). it/es/sv: claims are MSD (localized editions), NHS, 1177 Köldskador and peer-reviewed studies, all attributed in text; no national chilblain page exists (checked) so left as is.",
+    "urls": [
+      "https://www.msdmanuals.com/de/heim/verletzungen-und-vergiftungen/kälteschäden/gewebeverletzungen-ohne-erfrierungen",
+      "https://www.nhs.uk/conditions/chilblains/"
+    ]
+  }
+}

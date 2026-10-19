@@ -1,0 +1,85 @@
+{
+  "title": [
+    "Feci nere",
+    "con il ferro:",
+    "quando il colpevole",
+    "è un'emorragia",
+    "Come riconoscerla"
+  ],
+  "eyebrow": "Consistenza e odore contano più del colore",
+  "cover_char_file": "변기_illust.jpg",
+  "swipe_label": "Scorri per continuare »",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il ferro scurisce le feci",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Effetto indesiderato",
+        "noto, insieme",
+        "a stipsi e nausea"
+      ]
+    },
+    {
+      "name": "Il sangue le rende catramose",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Nere, appiccicose,",
+        "particolarmente",
+        "maleodoranti"
+      ]
+    },
+    {
+      "name": "FANS e aspirina pesano",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Uso prolungato",
+        "o ad alte dosi",
+        "e ulcera"
+      ]
+    },
+    {
+      "name": "Il test del sangue occulto",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Dite sempre",
+        "che prendete",
+        "il ferro"
+      ]
+    },
+    {
+      "name": "Vomito con sangue: 112",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Anche il dolore",
+        "improvviso e acuto",
+        "è un allarme"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Feci scure con il ferro",
+        "sono normali"
+      ],
+      [
+        "Feci nere come catrame",
+        "non lo sono"
+      ]
+    ],
+    "tip": [
+      "Guardate consistenza e odore,",
+      "e gli antidolorifici che prendete"
+    ],
+    "cta": "Feci catramose o vomito con sangue: medico subito, 112 se state male."
+  },
+  "char_display_names": {
+    "알약_illust.jpg": "Ferro",
+    "변기_illust.jpg": "WC",
+    "아스피린_illust.jpg": "Antidolorifici",
+    "혈액검사_illust.jpg": "Esami",
+    "전화기_illust.jpg": "112"
+  },
+  "cover_scrim_color": "#46523A"
+}

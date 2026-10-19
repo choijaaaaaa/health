@@ -1,0 +1,84 @@
+{
+  "title": [
+    "Dolor abajo",
+    "a la derecha:",
+    "3 señales clave",
+    "Apendicitis"
+  ],
+  "eyebrow": "Fíjate en cómo se mueve el dolor",
+  "cover_char_file": "배꼽_illust.jpg",
+  "swipe_label": "Desliza para ver más →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Empieza cerca del ombligo",
+      "char_file": "배꼽_illust.jpg",
+      "body": [
+        "Y baja",
+        "hacia la",
+        "derecha"
+      ]
+    },
+    {
+      "name": "Empeora al toser o caminar",
+      "char_file": "장_illust.jpg",
+      "body": [
+        "Cada sacudida",
+        "mueve el",
+        "peritoneo"
+      ]
+    },
+    {
+      "name": "Sin apetito, náuseas o fiebre",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Juntas",
+        "pesan más que",
+        "por separado"
+      ]
+    },
+    {
+      "name": "El analgésico no oculta el diagnóstico",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Revisión",
+        "Cochrane",
+        "de 2011"
+      ]
+    },
+    {
+      "name": "Dolor intenso y distinto: 112",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Es una",
+        "emergencia",
+        "médica"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Si nace en el ombligo,",
+        "baja a la derecha"
+      ],
+      [
+        "y va a más,",
+        "pide valoración hoy"
+      ]
+    ],
+    "tip": [
+      "Camina y tose una vez: si da un latigazo abajo a la derecha, consulta",
+      "Dolor intenso, abdomen hinchado o fiebre alta: 112"
+    ],
+    "cta": "¿Quieres más consejos prácticos de salud? ¡Síguenos!"
+  },
+  "char_display_names": {
+    "배꼽_illust.jpg": "Ombligo",
+    "장_illust.jpg": "Apéndice",
+    "식은땀_illust.jpg": "Fiebre",
+    "이부프로펜_illust.jpg": "Analgésico",
+    "전화기_illust.jpg": "112"
+  },
+  "cover_scrim_color": "#5C4A2F"
+}

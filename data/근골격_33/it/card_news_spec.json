@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Colpo della strega:",
+    "perché il letto non aiuta",
+    "movimento e segnali di allarme"
+  ],
+  "eyebrow": "Mal di schiena improvviso",
+  "cover_char_file": "베개_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Muoversi ogni giorno",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Chi resta attivo",
+        "guarisce più spesso",
+        "in breve tempo"
+      ]
+    },
+    {
+      "name": "Cuscino tra le gambe",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Su un fianco",
+        "con le ginocchia piegate,",
+        "supini sotto le ginocchia"
+      ]
+    },
+    {
+      "name": "Caldo o freddo, mai a pelle",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "Borsa dell'acqua calda",
+        "o ghiaccio, sempre",
+        "avvolti in un panno"
+      ]
+    },
+    {
+      "name": "Meglio in sei settimane",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Nella maggior parte",
+        "dei casi i sintomi",
+        "migliorano"
+      ]
+    },
+    {
+      "name": "Subito al pronto soccorso",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Disturbi di vescica",
+        "o intestino, inguine",
+        "insensibile, gamba debole"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Con il colpo della strega conviene muoversi un po' ogni giorno, aumentando gradualmente."
+      ]
+    ],
+    "tip": [
+      "Difficoltà a urinare, perdita di sensibilità all'inguine o gamba debole: pronto soccorso."
+    ],
+    "cta": "Dolore oltre sei settimane o che peggiora? Parlane con il medico di famiglia."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Movimento",
+    "베개_illust.jpg": "Cuscino",
+    "온찜질_illust.jpg": "Caldo e freddo",
+    "달력_illust.jpg": "Sei settimane",
+    "변기_illust.jpg": "Allarme"
+  },
+  "cover_scrim_color": "#3F5A4C"
+}

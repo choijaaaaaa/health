@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Prediabete:",
+    "non una condanna, ma un segnale",
+    "Le mosse che contano"
+  ],
+  "eyebrow": "Glicemia a digiuno sopra 100",
+  "cover_char_file": "혈액검사_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Glicemia tra 100 e 125",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "mg/dl a digiuno;",
+        "per l'OMS",
+        "si parte da 110"
+      ]
+    },
+    {
+      "name": "Glicata tra 6 e 6,4%",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Per l'ISS indica",
+        "un alto rischio",
+        "di diabete"
+      ]
+    },
+    {
+      "name": "Girovita: 94 e 80 cm",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Uomini da 94 cm,",
+        "donne da 80 cm:",
+        "rischio maggiore"
+      ]
+    },
+    {
+      "name": "Circa il 5% del peso",
+      "char_file": "흰빵_illust.jpg",
+      "body": [
+        "Con l'esercizio può",
+        "ridurre il rischio",
+        "di oltre il 50%"
+      ]
+    },
+    {
+      "name": "150 minuti a settimana",
+      "char_file": "자전거_illust.jpg",
+      "body": [
+        "Bicicletta o",
+        "camminata veloce,",
+        "a ritmo moderato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il prediabete si può fermare:",
+        "circa il 5% di peso in meno",
+        "e 150 minuti di movimento."
+      ]
+    ],
+    "tip": [
+      "Glicemia tra 110 e 125 mg/dl?",
+      "Chiedi al medico la curva da carico."
+    ],
+    "cta": "Sete continua e bisogno di urinare spesso? Senti presto il medico di famiglia."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Glicemia",
+    "혈액검사_illust.jpg": "Glicata",
+    "체중계_illust.jpg": "Girovita",
+    "흰빵_illust.jpg": "Meno 5%",
+    "자전거_illust.jpg": "Movimento"
+  },
+  "cover_scrim_color": "#2F5D62"
+}

@@ -1,0 +1,85 @@
+{
+  "title": [
+    "¿Heces negras",
+    "por el hierro",
+    "o por un",
+    "sangrado?",
+    "Cómo distinguirlas"
+  ],
+  "eyebrow": "El color engaña, la textura no",
+  "cover_char_file": "알약_illust.jpg",
+  "swipe_label": "Desliza para ver más »",
+  "closing_label": "En resumen",
+  "items": [
+    {
+      "name": "Heces oscuras con hierro",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Efecto frecuente:",
+        "hasta 1 de cada",
+        "10 pacientes"
+      ]
+    },
+    {
+      "name": "Alquitranadas y pegajosas",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Así se ve",
+        "la sangre",
+        "digerida"
+      ]
+    },
+    {
+      "name": "Ibuprofeno a diario",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Úlcera que puede",
+        "sangrar sin",
+        "avisar"
+      ]
+    },
+    {
+      "name": "Avise antes de un análisis",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "El hierro da",
+        "falsos positivos",
+        "de sangre en heces"
+      ]
+    },
+    {
+      "name": "Vómito con sangre: 112",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "También si hay",
+        "mareo o",
+        "desmayo"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Heces oscuras con hierro",
+        "son esperables"
+      ],
+      [
+        "Negras como alquitrán",
+        "no lo son"
+      ]
+    ],
+    "tip": [
+      "Mire textura y olor,",
+      "y qué analgésicos toma"
+    ],
+    "cta": "Heces negras con mareo o vómitos con sangre: llame al 112."
+  },
+  "char_display_names": {
+    "알약_illust.jpg": "Hierro",
+    "변기_illust.jpg": "Inodoro",
+    "아스피린_illust.jpg": "Analgésicos",
+    "혈액검사_illust.jpg": "Análisis",
+    "전화기_illust.jpg": "112"
+  },
+  "cover_scrim_color": "#3E4E5E"
+}

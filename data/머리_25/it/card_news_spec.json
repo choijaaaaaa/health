@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Più antidolorifici,",
+    "più mal di testa?",
+    "La cefalea da uso eccessivo di farmaci"
+  ],
+  "eyebrow": "Quando il farmaco alimenta il dolore",
+  "cover_char_file": "냉찜질_illust.jpg",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il corpo si abitua",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Appena smetti",
+        "l'antidolorifico,",
+        "il dolore torna."
+      ]
+    },
+    {
+      "name": "Massimo 10 giorni",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Antidolorifici e triptani",
+        "non più di 10 giorni",
+        "al mese, secondo l'ISS."
+      ]
+    },
+    {
+      "name": "Diario del dolore",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Data, durata, dolore",
+        "e farmaci presi:",
+        "tutto per il medico."
+      ]
+    },
+    {
+      "name": "Sospendere col medico",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Si risolve solo",
+        "sospendendo i farmaci,",
+        "con un percorso guidato."
+      ]
+    },
+    {
+      "name": "Muoversi e rilassarsi",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Attività fisica",
+        "e rilassamento",
+        "riducono la tensione."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Conta i giorni in cui prendi un antidolorifico, non le compresse."
+      ]
+    ],
+    "tip": [
+      "Stasera apri un diario e segna il farmaco di oggi."
+    ],
+    "cta": "Mal di testa improvviso e violento o paralisi? Subito al pronto soccorso."
+  },
+  "char_display_names": {
+    "이부프로펜_illust.jpg": "Antidolorifici",
+    "달력_illust.jpg": "Giorni al mese",
+    "책_illust.jpg": "Diario",
+    "알약_illust.jpg": "Sospensione",
+    "운동화_illust.jpg": "Movimento"
+  },
+  "cover_scrim_color": "#4A5A7A"
+}

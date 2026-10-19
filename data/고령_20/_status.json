@@ -1,0 +1,51 @@
+{
+  "topic": "고령_20",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": "health-shorts/card_news/고령_20/ (7)",
+    "en": "health-shorts/card_news/고령_20/en/ (7)",
+    "ja": "health-shorts/card_news/고령_20/ja/ (7)",
+    "de": "health-shorts/card_news/고령_20/de/ (7)",
+    "fr": "health-shorts/card_news/고령_20/fr/ (7)",
+    "it": "health-shorts/card_news/고령_20/it/ (7)",
+    "es": "health-shorts/card_news/고령_20/es/ (7)",
+    "nl": "health-shorts/card_news/고령_20/nl/ (7)",
+    "sv": "health-shorts/card_news/고령_20/sv/ (7)"
+  },
+  "tests": {
+    "test_blog_seo_quality + test_content_rules (scoped to 고령_20 via collection plugin on callspec params)": "200 passed, 18 skipped, 0 failed",
+    "content_review": "0 issues for all 9 langs (de: added source signal to 60% sentence)",
+    "ko_overlap_audit": "no naver caption (blog-only), 0 comparisons"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Angle vs 머리_4: 머리_4 = foods/lifestyle for misplacing things; 고령_20 = normal ageing vs early dementia criteria + each country's screening pathway.",
+    "Sources (fetched originals): ko 중앙치매센터 치매사전 '이거 치매 아닌가요?'(건망증과 치매·정상노인/치매노인 표·의심증상 10가지) + '치매, 어떻게 진단하나요?'(MMSE 30문항 20분, 선별검사는 주로 치매안심센터) + 국민건강보험공단 매거진 149호(만60세 이상 무료 선별검사, 진단·감별검사 지원 중위소득 120% 이하) + 치매상담콜센터 1899-9988; en NHS 'Memory loss' (2023-10-09), 'Symptoms of dementia' (2023-07-10), 'How to get a dementia diagnosis' (2023-07-17, 1 in 4 wait 2 years per Alzheimer's Society); ja 政府広報オンライン「知っておきたい認知症の基本」(2025-01-16: 12%/16% 2022年度, MCI年10-15%移行, 加齢vs認知症の表, 家族の会めやす, 相談先3つ, 0120-294-456); de gesund.bund.de 'Alzheimer-Demenz' (IQWiG, Stand 01.07.2022: 65-69 >1/100, 80-84 ~10/100, Diagnose nach >6 Monaten, Hausarzt→Gedächtnis-Ambulanz) + Deutsche Alzheimer Gesellschaft (Warnsignale, MCI ~Hälfte in 5 Jahren, ~60% Alzheimer, Alzheimer-Telefon 030 259 37 95 14); fr ameli 'Maladie d'Alzheimer : symptômes et diagnostic' (mise à jour 02/10/2025, via web.archive.org 20251207 since ameli 403) — médecin traitant→consultation mémoire, MMSE, tests refaits après quelques mois, ALD 100 %, Mon bilan prévention 60-65/70-75, Icope <10 min; it ISSalute 'Malattia di Alzheimer' (agg. 03/11/2020: 15-20 anni preclinico, 1/20 >65, 1/100 65-74, 1/14 75-85, 1/5 >85, 10% familiare, MMG→CDCD, mappa Osservatorio Demenze) + 'Demenze' (forme reversibili); es Ministerio de Sanidad 'Plan Integral de Alzheimer y otras Demencias 2019-2023' (EACE n=1.694: 28,4 meses síntomas→diagnóstico, 10,9 hasta primaria, 8,1 hasta derivación, 18% fase muy leve; Girona 40% moderada/avanzada; objetivo diagnóstico ≤6 meses) + CEAFA FAQ (vecino ejemplo, síntomas iniciales); nl Thuisarts 'Ik vergeet snel dingen' (19-05-2022) + 'Ik ben bang dat ik dementie krijg' (06-08-2026: huisarts onderzoekt zelf, bloed/scan meestal niet nodig, ziekenhuis <65/twijfel, helft van subgroep na gem. 5 jaar dementie); sv 1177 'Besvär med minnet' (2026-05-18), 'Demenssjukdomar' (2026-04-27), 'Demensutredning' (2026-05-05: oftast på vårdcentral, urtavla-test).",
+    "Country differences kept: NL huisarts diagnoses in-house (scan/blood usually not needed); SE utredning mostly at vårdcentral; UK/DE/IT/FR/ES GP/primary care then memory clinic/Gedächtnisambulanz/CDCD/consultation mémoire/consulta especializada; KR free screening at 치매안심센터 for 60+; JP 地域包括支援センター/かかりつけ医/もの忘れ外来. Awareness nuance kept per source (ja table note and DAlzG: early dementia often aware).",
+    "Card items 5 per lang; closing.headline list-of-blocks and tip list. Cards proof-rendered in scratchpad (no upload) and checked as sheets before first output render; ja closing wrap fixed pre-upload. en/it closing headline re-split after first upload and re-rendered once (same R2 keys overwritten; CDN may briefly serve the first version, which was readable).",
+    "Photo slots: inserted only 고령_20 rows into assets-shared catalog.db assignments (54 cover/item + 54 bg:) with least-used selection; no assign.build run, no other topics touched. Backup of catalog.db before insert in session scratchpad.",
+    "Body images (PENDING:): ko 전화기_real_01, en 달력_real_01, ja 시계_real_02, de 독서안경_real_02, fr 달력_real_02, it 전화기_real_02, es 노화_real_02, nl 독서안경_real_01, sv 시계_real_01 (all exist in assets_library/real).",
+    "Not committed, ingest not run (per instructions)."
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Ganglion dans le cou :",
+    "pas la douleur, la durée",
+    "quand consulter"
+  ],
+  "eyebrow": "Ganglions gonflés au cou",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En bref",
+  "items": [
+    {
+      "name": "Angine et gros ganglions",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Mononucléose : angine",
+        "avec ganglions gonflés",
+        "et douloureux au cou"
+      ]
+    },
+    {
+      "name": "Paracétamol, pas d'AINS",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Pas d'ibuprofène",
+        "en automédication",
+        "selon l'Assurance Maladie"
+      ]
+    },
+    {
+      "name": "Indolore mais persistant",
+      "char_file": "턱_illust.jpg",
+      "body": [
+        "Lymphome hodgkinien :",
+        "ganglion qui grossit",
+        "souvent sans douleur"
+      ]
+    },
+    {
+      "name": "Fièvre, sueurs, poids",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Fièvre persistante,",
+        "sueurs la nuit, perte",
+        "de poids inexpliquée"
+      ]
+    },
+    {
+      "name": "Deux semaines sans mieux",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Pas d'amélioration",
+        "ou aggravation :",
+        "consultez rapidement"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Un ganglion douloureux pendant une angine est fréquent ; un ganglion indolore qui persiste doit être montré au médecin."
+      ]
+    ],
+    "tip": [
+      "Respiration difficile ou impossible d'avaler : consultez en urgence."
+    ],
+    "cta": "Ganglion qui persiste ou grossit ? Parlez-en à votre médecin traitant."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Angine",
+    "알약_illust.jpg": "Paracétamol",
+    "턱_illust.jpg": "Indolore",
+    "식은땀_illust.jpg": "Sueurs",
+    "달력_illust.jpg": "Durée"
+  },
+  "cover_scrim_color": "#4A5E7A"
+}

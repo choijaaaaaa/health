@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Mal à la hanche dès",
+    "que vous dormez sur le côté ?",
+    "Tendinopathie glutéale"
+  ],
+  "eyebrow": "Douleur latérale de hanche la nuit",
+  "cover_char_file": "이불_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En bref",
+  "items": [
+    {
+      "name": "Pas une simple bursite",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "L'ancienne",
+        "« périarthrite »",
+        "touche surtout le tendon"
+      ]
+    },
+    {
+      "name": "Une femme sur quatre",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Entre 50 et 79 ans,",
+        "23,5 % des femmes",
+        "dans une étude américaine"
+      ]
+    },
+    {
+      "name": "L'infiltration s'essouffle",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "À 1 an, 57 % de succès",
+        "après infiltration,",
+        "78 % avec exercices"
+      ]
+    },
+    {
+      "name": "La chirurgie en dernier",
+      "char_file": "아령_illust.jpg",
+      "body": [
+        "Série lyonnaise :",
+        "80 % avaient encore",
+        "une douleur après"
+      ]
+    },
+    {
+      "name": "Ne pas croiser les jambes",
+      "char_file": "의자_illust.jpg",
+      "body": [
+        "Moins de pression",
+        "sur le tendon",
+        "assis comme couché"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La douleur latérale de hanche vient surtout d'un tendon comprimé et fatigué."
+      ]
+    ],
+    "tip": [
+      "Dormez de l'autre côté,",
+      "un coussin entre les genoux,",
+      "et des exercices progressifs."
+    ],
+    "cta": "Fièvre, hanche chaude ou chute : consultez sans attendre."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Oreiller",
+    "계단_illust.jpg": "Fréquence",
+    "주사기_illust.jpg": "Infiltration",
+    "아령_illust.jpg": "Chirurgie",
+    "의자_illust.jpg": "Posture"
+  },
+  "cover_scrim_color": "#7A4F3A"
+}

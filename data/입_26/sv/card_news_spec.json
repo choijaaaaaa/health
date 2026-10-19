@@ -1,0 +1,78 @@
+{
+  "title": [
+    "Ont i halsen:",
+    "oftast är det en",
+    "förkylning, inte halsfluss",
+    "När antibiotika behövs"
+  ],
+  "eyebrow": "Halsfluss och antibiotika",
+  "cover_char_file": "편도결석_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Snuva och hosta: virus",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Halsont med snuva,",
+        "hosta och heshet är",
+        "oftast en förkylning"
+      ]
+    },
+    {
+      "name": "Feber utan snuva",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Ont i halsen och feber",
+        "i flera dagar, men",
+        "ingen snuva eller hosta"
+      ]
+    },
+    {
+      "name": "Snabbtest på minuter",
+      "char_file": "처방전_illust.jpg",
+      "body": [
+        "Prov från halsmandlarna,",
+        "svar inom",
+        "fem till tio minuter"
+      ]
+    },
+    {
+      "name": "Antibiotika vid streptokocker",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Om infektionen beror",
+        "på bakterier och",
+        "besvären är stora"
+      ]
+    },
+    {
+      "name": "Svårt att gapa",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Mycket ont på ena sidan:",
+        "kontakta vården genast,",
+        "akuten om stängt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Det mesta halsontet går över av sig självt; antibiotika är till för halsfluss orsakad av streptokocker."
+      ]
+    ],
+    "tip": [
+      "Feber i flera dagar utan snuva och hosta? Kontakta vårdcentralen."
+    ],
+    "cta": "Kan inte svälja saliven och svårt att andas? Kontakta vården genast."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Förkylning",
+    "체온계_illust.jpg": "Feber",
+    "처방전_illust.jpg": "Snabbtest",
+    "알약_illust.jpg": "Antibiotika",
+    "전화기_illust.jpg": "Akut"
+  },
+  "cover_scrim_color": "#3E4F66"
+}

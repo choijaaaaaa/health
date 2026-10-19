@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Elke dag een pijnstiller",
+    "en toch elke dag hoofdpijn?",
+    "Hoofdpijn door pijnstillers"
+  ],
+  "eyebrow": "Als de pil de pijn vasthoudt",
+  "cover_char_file": "냉찜질_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Wakker met hoofdpijn",
+      "char_file": "자명종_illust.jpg",
+      "body": [
+        "Al 's ochtends pijn",
+        "en pijnstillers",
+        "helpen minder goed."
+      ]
+    },
+    {
+      "name": "15 of 10 dagen",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Paracetamol of NSAID's: 15.",
+        "Triptanen, opioïden",
+        "of combinaties: 10."
+      ]
+    },
+    {
+      "name": "Hoofdpijn-dagboek",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Noteer pijndagen",
+        "en pillendagen",
+        "voor de huisarts."
+      ]
+    },
+    {
+      "name": "In 1 keer stoppen",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Eerst erger,",
+        "na 2 tot 3 weken",
+        "meestal minder."
+      ]
+    },
+    {
+      "name": "Zeg het je omgeving",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Partner en werk",
+        "begrijpen het beter",
+        "als ze het weten."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Het aantal dagen met een pijnstiller telt, niet het aantal pillen."
+      ]
+    ],
+    "tip": [
+      "Bel de huisarts als je steeds hoofdpijn hebt en vaak pijnstillers slikt."
+    ],
+    "cta": "Plotselinge hevige hoofdpijn of verlamming? Bel direct 112."
+  },
+  "char_display_names": {
+    "자명종_illust.jpg": "Ochtend",
+    "달력_illust.jpg": "Dagen",
+    "책_illust.jpg": "Dagboek",
+    "시계_illust.jpg": "Stoppen",
+    "전화기_illust.jpg": "Steun"
+  },
+  "cover_scrim_color": "#4A5A7A"
+}

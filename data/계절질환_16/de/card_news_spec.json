@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Erkältung vorbei,",
+    "aber der Husten bleibt",
+    "Husten nach 3 und 8 Wochen"
+  ],
+  "eyebrow": "Husten nach der Erkältung",
+  "cover_char_file": "심호흡_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Gereizte Schleimhaut",
+      "char_file": "심호흡_illust.jpg",
+      "body": [
+        "Kälte, trockene Luft",
+        "oder Sprechen reichen",
+        "als Auslöser."
+      ]
+    },
+    {
+      "name": "Rauchen verlängert",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Bei Rauchenden",
+        "dauert eine Erkältung",
+        "oft länger."
+      ]
+    },
+    {
+      "name": "Atemwege feucht halten",
+      "char_file": "가습기_illust.jpg",
+      "body": [
+        "Trockene Luft meiden,",
+        "viel trinken,",
+        "eventuell inhalieren."
+      ]
+    },
+    {
+      "name": "Codein nur kurz",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Nur vorübergehend,",
+        "bei Husten mit",
+        "Schleim ungeeignet."
+      ]
+    },
+    {
+      "name": "Ab 8 Wochen abklären",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Chronischer Husten",
+        "braucht weitere",
+        "Untersuchungen."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Husten nach einer Erkältung kann mehrere Wochen anhalten und vergeht meist von allein."
+      ]
+    ],
+    "tip": [
+      "Atemwege feucht halten, Rauch meiden, Codein nur kurz und nie bei Schleim."
+    ],
+    "cta": "Blutiger Auswurf, Luftnot oder Brustschmerzen? Sofort ärztlich abklären."
+  },
+  "char_display_names": {
+    "심호흡_illust.jpg": "Atemwege",
+    "담배_illust.jpg": "Rauch",
+    "가습기_illust.jpg": "Luftbefeuchter",
+    "감기약_illust.jpg": "Hustensaft",
+    "달력_illust.jpg": "Kalender"
+  },
+  "cover_scrim_color": "#3D6B5E"
+}

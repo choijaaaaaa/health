@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Födelsemärke som växer?",
+    "Låt det undersökas",
+    "Tecken på melanom"
+  ],
+  "eyebrow": "Melanom: tecken att känna till",
+  "cover_char_file": "피부반점_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Ny fläck som växer",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Det vanligaste",
+        "symtomet är en",
+        "helt ny fläck."
+      ]
+    },
+    {
+      "name": "Ojämn form och färg",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Ojämn kant, brunt,",
+        "svart, rött, rosa,",
+        "blått eller vitt."
+      ]
+    },
+    {
+      "name": "Ändrar sig över tid",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Växer, ändrar form",
+        "eller färg, kliar",
+        "eller blöder."
+      ]
+    },
+    {
+      "name": "Även under fötterna",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Melanom kan uppstå",
+        "var som helst",
+        "på huden."
+      ]
+    },
+    {
+      "name": "Undvik att bränna dig",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "De flesta som får",
+        "melanom har bränt",
+        "sig många gånger."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Blöder det eller växer det snabbt?",
+        "Kontakta en vårdcentral så fort som möjligt."
+      ]
+    ],
+    "tip": [
+      "Viktigast: håll koll på förändring,",
+      "inte på hur många märken du har."
+    ],
+    "cta": "Ring 1177 om du vill ha hjälp att bedöma symtom."
+  },
+  "char_display_names": {
+    "피부반점_illust.jpg": "Födelsemärke",
+    "손등_illust.jpg": "Hud",
+    "달력_illust.jpg": "Kalender",
+    "발톱_illust.jpg": "Fötter",
+    "햇빛_illust.jpg": "Sol"
+  },
+  "cover_scrim_color": "#4A3F5C"
+}

@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Nodule thyroïdien :",
+    "la prise de sang d'abord",
+    "Le parcours du bilan"
+  ],
+  "eyebrow": "Nodule découvert par hasard",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En bref",
+  "items": [
+    {
+      "name": "La TSH d'abord",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Un dosage sanguin",
+        "dit si la thyroïde",
+        "fonctionne normalement"
+      ]
+    },
+    {
+      "name": "Écho et score EU-TIRADS",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "Taille, contenu,",
+        "contours : le score",
+        "repère les nodules à risque"
+      ]
+    },
+    {
+      "name": "TSH basse : nodule chaud",
+      "char_file": "맥박_illust.jpg",
+      "body": [
+        "Un nodule chaud",
+        "n'est pas cancéreux,",
+        "scintigraphie possible"
+      ]
+    },
+    {
+      "name": "Cytoponction si suspect",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "Environ 20 minutes,",
+        "aiguille très fine,",
+        "reprise immédiate"
+      ]
+    },
+    {
+      "name": "Bénin : surveillance",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Palpation, écho",
+        "ou TSH, puis",
+        "examens espacés"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Le résultat de la TSH",
+        "oriente toute la suite du bilan"
+      ]
+    ],
+    "tip": [
+      "Apportez TSH, ordonnances",
+      "et anciennes échographies"
+    ],
+    "cta": "Enrouement ou gêne pour avaler ou respirer : consultez votre médecin traitant."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Dosage TSH",
+    "돋보기_illust.jpg": "Échographie",
+    "맥박_illust.jpg": "Nodule chaud",
+    "주사기_illust.jpg": "Cytoponction",
+    "달력_illust.jpg": "Suivi"
+  },
+  "cover_scrim_color": "#5B6E3A"
+}

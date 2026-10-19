@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Vaknar du klockan tre?",
+    "Klockan bredvid sängen kan vara boven",
+    "Så somnar du om enligt 1177"
+  ],
+  "eyebrow": "Uppvaknanden på natten",
+  "cover_char_file": "시계_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Korta uppvaknanden",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Under 3–5 minuter",
+        "minns man dem",
+        "oftast inte."
+      ]
+    },
+    {
+      "name": "Flytta klockan",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Att titta på klockan",
+        "får dig att",
+        "räkna timmar."
+      ]
+    },
+    {
+      "name": "Upp efter en kvart",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Inte somnat?",
+        "Gör något stillsamt",
+        "och prova igen."
+      ]
+    },
+    {
+      "name": "Svalt sovrum",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "Man sover ofta",
+        "bäst runt",
+        "14–18 grader."
+      ]
+    },
+    {
+      "name": "KBT först",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Förstahandsval vid",
+        "långvariga besvär,",
+        "även på nätet."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Att vakna på natten är vanligt.",
+        "Att räkna timmar",
+        "gör det svårare."
+      ]
+    ],
+    "tip": [
+      "Flytta klockan och mobilen i kväll,",
+      "gå upp efter en kvart utan sömn."
+    ],
+    "cta": "Hjälper inte egna förändringar? Kontakta en vårdcentral eller ring 1177."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Normalt",
+    "시계_illust.jpg": "Klockan",
+    "책_illust.jpg": "Gå upp",
+    "창문_illust.jpg": "Svalt",
+    "스마트폰_illust.jpg": "KBT"
+  },
+  "cover_scrim_color": "#2E3A5C"
+}

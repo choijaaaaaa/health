@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Un comprimé presque",
+    "chaque jour, et toujours mal ?",
+    "La céphalée par abus médicamenteux"
+  ],
+  "eyebrow": "Quand l'antidouleur entretient la douleur",
+  "cover_char_file": "냉찜질_illust.jpg",
+  "swipe_label": "Glissez pour la suite  →",
+  "closing_label": "En bref",
+  "items": [
+    {
+      "name": "Trop souvent",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Antalgiques ou triptans",
+        "pris très souvent :",
+        "la céphalée s'installe."
+      ]
+    },
+    {
+      "name": "Repère : 8 jours",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Pas plus de 8 jours",
+        "de traitement de crise",
+        "par mois, selon l'Inserm."
+      ]
+    },
+    {
+      "name": "Pas d'opiacés",
+      "char_file": "아스피린_illust.jpg",
+      "body": [
+        "Ils mènent en quelques",
+        "mois à une céphalée",
+        "chronique par abus."
+      ]
+    },
+    {
+      "name": "Calendrier des crises",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Noter les crises",
+        "et les comprimés aide",
+        "le médecin à ajuster."
+      ]
+    },
+    {
+      "name": "Traitement de fond",
+      "char_file": "뇌_illust.jpg",
+      "body": [
+        "Au-delà de 8 jours",
+        "depuis plus de 3 mois,",
+        "il faut l'envisager."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ce sont les jours de prise qui comptent, pas la dose."
+      ]
+    ],
+    "tip": [
+      "Notez chaque comprimé dans un calendrier des crises."
+    ],
+    "cta": "Mal de tête brutal et intense ou paralysie : appelez le 15."
+  },
+  "char_display_names": {
+    "알약_illust.jpg": "Antalgiques",
+    "달력_illust.jpg": "Jours de prise",
+    "아스피린_illust.jpg": "Opiacés",
+    "책_illust.jpg": "Calendrier",
+    "뇌_illust.jpg": "Traitement de fond"
+  },
+  "cover_scrim_color": "#4A5A7A"
+}

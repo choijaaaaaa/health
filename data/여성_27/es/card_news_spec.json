@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Sangrado entre reglas",
+    "no siempre es hormonal",
+    "Cuándo pedir cita"
+  ],
+  "eyebrow": "Manchado fuera de la regla: qué revisar",
+  "cover_char_file": "생리대_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Es un síntoma, pide cita",
+      "char_file": "처방전_illust.jpg",
+      "body": [
+        "El cribado es para",
+        "mujeres sin síntomas",
+        "esto va a consulta"
+      ]
+    },
+    {
+      "name": "Tras las relaciones",
+      "char_file": "휴지_illust.jpg",
+      "body": [
+        "Sangrar después",
+        "es otro síntoma",
+        "que hay que consultar"
+      ]
+    },
+    {
+      "name": "Con sangrado, sin prueba",
+      "char_file": "면봉_illust.jpg",
+      "body": [
+        "La toma de cribado",
+        "no se hace si hay",
+        "regla o sangrado"
+      ]
+    },
+    {
+      "name": "De 25 a 29 años",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Citología cada 3 años",
+        "si no hay protección",
+        "por vacuna frente a VPH"
+      ]
+    },
+    {
+      "name": "De 30 a 65 años",
+      "char_file": "백신_illust.jpg",
+      "body": [
+        "Prueba de VPH",
+        "cada 5 años, con o",
+        "sin vacuna"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El sangrado entre reglas suele tener causa benigna, pero siempre merece una consulta."
+      ]
+    ],
+    "tip": [
+      "Apunta fechas, cantidad y si apareció tras una relación antes de ir a consulta."
+    ],
+    "cta": "Si el sangrado se repite o aumenta, consulta con tu médico o ginecóloga sin esperar."
+  },
+  "char_display_names": {
+    "처방전_illust.jpg": "Consulta",
+    "휴지_illust.jpg": "Tras relaciones",
+    "면봉_illust.jpg": "Toma",
+    "시계_illust.jpg": "Citología",
+    "백신_illust.jpg": "Prueba VPH"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

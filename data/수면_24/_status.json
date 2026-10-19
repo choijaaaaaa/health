@@ -1,0 +1,53 @@
+{
+  "topic": "수면_24",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "tests": {
+    "test_blog_seo_quality": "pass (수면_24 9 langs)",
+    "test_content_rules": "pass for all 수면_24 params (full-file run: only failures are other in-progress topics 비뇨기_24 meta length, 대사_27 photos/coverage)",
+    "content_review": "0 issues for all 9 langs",
+    "card_render_staleness": "0",
+    "ko_overlap_audit": "no naver caption for this topic (blog-only), nothing to compare"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Angle: waking at 3 a.m. = normal brief arousal + habits that stretch it (nightcap, staying in bed); CBT-I first-line. No melatonin angle (수면_21 overlap avoided; melatonin only mentioned as not-recommended where the national source says so: nl Thuisarts).",
+    "Shared evidence (europepmc abstracts): Trauer 2015 Ann Intern Med (20 RCTs, 1162 adults, chronic insomnia without comorbidity, face-to-face CBT-I; WASO -26.0 min, SOL -19.0 min, TST +7.6 min CI crosses 0); Ebrahim 2013 ACER (healthy volunteers, alcohol: consolidated first half, more disruption second half); Riemann 2023 J Sleep Res European Insomnia Guideline (CBT-I first-line in-person or digital, hypnotics <=4 weeks, antihistamines/phytotherapy not recommended).",
+    "Country sources (curl-verified text): ko 국가정신건강정보포털 수면장애 (감수 2020.05.08; 90~120분 주기 약 5회, 65세+ 평균 90분 앞당겨짐, 20분 규칙, 낮잠 15분, 카페인 4~6시간, 술 탈수·이뇨, 주3회·3개월→CBT-I); en NHS Insomnia (reviewed 19 Mar 2024) + NICE HTG624/MTG70 Sleepio (£45, 6 weeks); ja e-ヘルスネット 不眠症 (三島和夫, 2023-01-23; 30〜40%, 60歳以上半数以上, 寝酒→早朝覚醒, カフェイン利尿, 午後3時前30分以内, 20℃前後・40〜70%, 週3日・3カ月); de IQWiG gesundheitsinformation.de (3 Nächte/Woche >1 Monat, 6 von 100, Drittel, 3-Uhr-Prophezeiung, Reizkontrolle, 8h/6h Schlafrestriktion, KVT 4–6 Wochen, DiGA); fr Santé.fr Insomnie (publié 12/08/2026; 1 sur 3, café après 16 h, 18–20 °C, TCC 6 séances, non remboursée, dépression fin de nuit) + Inserm Sommeil (3–6 cycles de 60–120 min); it ISSalute Insonnia (7–9 ore, diario un paio di settimane, farmaci Z 2–4 settimane, antistaminici da banco, Varghese 2020 3.120 persone 30%/14%); es GuíaSalud/Agencia Laín Entralgo guía para pacientes (30 minutos, siesta ≤30 min, no comer al despertar, 2 h tras cena, 30 min para preocupaciones); nl Thuisarts/NHG (3 of 4 keer wakker normaal, 30 min uit bed, wekker niet kijken, slaaprestrictie gem.+½ uur, nooit <5 uur, 8 van 10 na 3 weken, 1–2 koppen koffie, geen smartwatch/melatonine); sv 1177 Sömnsvårigheter (2023-06-01; <3–5 min glöms, upp efter en kvart, flytta klockan, 14–18 grader, tupplur före 15 max 15 min, KBT förstahand).",
+    "Not used (unconfirmed): KDCA 국가건강정보포털 불면증 (cntnts_sn=641) — body loads via blocked POST, only search snippet seen; ameli.fr (403); DiGA product names (somnio) not cited because BfArM directory not fetched.",
+    "Card items 5 per lang; closing.headline as list-of-blocks with explicit line splits, tip as list (ja/en/de/nl/sv wraps checked on preview before the first upload).",
+    "Photo slots: assets-shared assignments inserted for 수면_24 only (54 badge/cover + 45 bg). Manual fixes: ko item00 이불 → pexels:16497537 (default pick was baby feet); it item03 switched 이어플러그 → 창문 (earplug pool has headphones/unrelated).",
+    "Body images: PENDING:책_real_01 (ko, it), 자명종_real_01 (en), 자명종_real_02 (de), 소파_real_01 (ja, fr, es), 카모마일_real_01 (nl), 시계_real_02 (sv) — all exist in main assets_library/real."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "title": [
+    "Knobbel in je schildklier?",
+    "Meestal niet wat je denkt",
+    "Echo en punctie uitgelegd"
+  ],
+  "eyebrow": "Knobbel gevonden bij een onderzoek",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Meestal niet ernstig",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "In 95% van",
+        "de gevallen",
+        "niets ernstigs"
+      ]
+    },
+    {
+      "name": "Vaak een cyste",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Of een goedaardig",
+        "gezwel; kanker",
+        "is zeldzaam"
+      ]
+    },
+    {
+      "name": "Echo doet geen pijn",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Meestal 5 tot",
+        "20 minuten,",
+        "niet schadelijk"
+      ]
+    },
+    {
+      "name": "Punctie met echo",
+      "char_file": "주사기_illust.jpg",
+      "body": [
+        "Ongeveer 30 minuten,",
+        "prik doet meestal",
+        "geen pijn"
+      ]
+    },
+    {
+      "name": "Bloedverdunners? Vraag het",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Overleg vooraf",
+        "of je ze mag",
+        "blijven gebruiken"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Een knobbel in de schildklier",
+        "is meestal goedaardig"
+      ]
+    ],
+    "tip": [
+      "Snelle groei of moeite met slikken?",
+      "Bel dan je huisarts"
+    ],
+    "cta": "Voel je een bolletje of zwelling in je hals? Neem contact op met je huisarts."
+  },
+  "char_display_names": {
+    "돋보기_illust.jpg": "Geruststelling",
+    "서류더미_illust.jpg": "Oorzaken",
+    "시계_illust.jpg": "Echo",
+    "주사기_illust.jpg": "Punctie",
+    "혈액검사_illust.jpg": "Bloedverdunners"
+  },
+  "cover_scrim_color": "#5B6E3A"
+}

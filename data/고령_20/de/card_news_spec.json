@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Vergesslich im Alter?",
+    "Nicht jede Lücke ist Demenz",
+    "Warnsignale und Anlaufstellen"
+  ],
+  "eyebrow": "Gedächtnis im Alter",
+  "cover_char_file": "책_illust.jpg",
+  "swipe_label": "Weiter wischen  →",
+  "closing_label": "Fazit",
+  "items": [
+    {
+      "name": "Wissen bleibt abrufbar",
+      "char_file": "책_illust.jpg",
+      "body": [
+        "Im normalen Alter",
+        "bleibt man orientiert,",
+        "eigenständig, urteilsfähig"
+      ]
+    },
+    {
+      "name": "Gerade Erlebtes fehlt",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Bei Alzheimer leidet",
+        "meist zuerst das",
+        "Kurzzeitgedächtnis"
+      ]
+    },
+    {
+      "name": "Worte und Wege",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "Wortfindungsstörungen",
+        "und Orientierungsprobleme",
+        "sind Warnsignale"
+      ]
+    },
+    {
+      "name": "Andere Ursachen prüfen",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Diagnose erst, wenn",
+        "Symptome ein halbes Jahr",
+        "bestehen"
+      ]
+    },
+    {
+      "name": "Hausarzt, dann Ambulanz",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Früh: Gedächtnis-",
+        "ambulanz; Rat am",
+        "Alzheimer-Telefon"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Langsamer lernen ist normal. Wenn gerade Erlebtes verschwindet und der Alltag leidet, abklären lassen."
+      ]
+    ],
+    "tip": [
+      "Gehen Sie zuerst in die hausärztliche Praxis und nehmen Sie eine vertraute Person mit."
+    ],
+    "cta": "Fragen vorab? Alzheimer-Telefon der Deutschen Alzheimer Gesellschaft: 030 259 37 95 14."
+  },
+  "char_display_names": {
+    "책_illust.jpg": "Wissen",
+    "달력_illust.jpg": "Kurzzeitgedächtnis",
+    "운동화_illust.jpg": "Orientierung",
+    "혈액검사_illust.jpg": "Abklärung",
+    "전화기_illust.jpg": "Anlaufstellen"
+  },
+  "cover_scrim_color": "#4B5A50"
+}

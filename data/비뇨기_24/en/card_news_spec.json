@@ -1,0 +1,77 @@
+{
+  "title": [
+    "A high PSA isn't",
+    "a cancer diagnosis",
+    "5 facts before the test"
+  ],
+  "eyebrow": "The PSA test, explained",
+  "swipe_label": "Swipe for more  →",
+  "closing_label": "Summary",
+  "items": [
+    {
+      "name": "High PSA, not cancer",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "An enlarged prostate",
+        "or inflammation",
+        "can push it up too."
+      ]
+    },
+    {
+      "name": "Skip the bike ride",
+      "char_file": "자전거_illust.jpg",
+      "body": [
+        "No cycling, sex or",
+        "hard exercise for",
+        "48 hours before."
+      ]
+    },
+    {
+      "name": "The benefit is small",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "About 1.3 fewer",
+        "deaths per 1,000 men",
+        "over 13 years."
+      ]
+    },
+    {
+      "name": "Some cancers never harm",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "20-50% of cancers",
+        "found by screening",
+        "may be overdiagnosed."
+      ]
+    },
+    {
+      "name": "55 to 69: your call",
+      "char_file": "가족력_illust.jpg",
+      "body": [
+        "USPSTF: decide with",
+        "your clinician;",
+        "not routine at 70+."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "PSA is a clue, not a verdict, and screening is a choice to weigh."
+      ]
+    ],
+    "tip": [
+      "Ask about your own risk first, then decide whether to test at all."
+    ],
+    "cta": "Blood in your pee or trouble peeing? See a doctor now."
+  },
+  "char_display_names": {
+    "혈액검사_illust.jpg": "Blood test",
+    "자전거_illust.jpg": "Before the test",
+    "서류더미_illust.jpg": "Trials",
+    "돋보기_illust.jpg": "Overdiagnosis",
+    "가족력_illust.jpg": "Your risk"
+  },
+  "cover_char_file": "방광_illust.jpg",
+  "cover_scrim_color": "#3E5A6E"
+}

@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Oorpijn in het vliegtuig:",
+    "het dalen is het probleem",
+    "Zo klaar je je oren"
+  ],
+  "eyebrow": "Barotitis bij vliegen",
+  "cover_char_file": "비행기_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Dalen geeft vaker klachten",
+      "char_file": "비행기_illust.jpg",
+      "body": [
+        "Lucht stroomt moeilijker",
+        "terug in het middenoor",
+        "dan eruit"
+      ]
+    },
+    {
+      "name": "Elke minuut slikken",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Tijdens de landing",
+        "slikken of geeuwen,",
+        "en niet slapen"
+      ]
+    },
+    {
+      "name": "Valsalva of neusballon",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Neusballon lukt",
+        "meestal vanaf",
+        "3 jaar"
+      ]
+    },
+    {
+      "name": "Neusspray: half uur vooraf",
+      "char_file": "코스프레이_illust.jpg",
+      "body": [
+        "Ontzwellende spray",
+        "voor opstijgen of landen,",
+        "maximaal 5 dagen"
+      ]
+    },
+    {
+      "name": "Na een week nog last?",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Huisarts kan verwijzen",
+        "naar een",
+        "KNO-arts"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "De meeste oorklachten ontstaan bij het dalen; slikken, geeuwen en wakker blijven tijdens de landing helpen het meest."
+      ]
+    ],
+    "tip": [
+      "Heb je een verkoudheid, sinusitis of oorontsteking? Vermijd vliegen dan zo veel mogelijk."
+    ],
+    "cta": "Na een week nog klachten, koorts of vocht uit het oor? Ga naar de huisarts."
+  },
+  "char_display_names": {
+    "비행기_illust.jpg": "Dalen",
+    "시계_illust.jpg": "Landing",
+    "귀_illust.jpg": "Valsalva",
+    "코스프레이_illust.jpg": "Neusspray",
+    "달력_illust.jpg": "Na een week"
+  },
+  "cover_scrim_color": "#2F4A5C"
+}

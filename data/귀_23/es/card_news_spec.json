@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Dolor de oído en el avión:",
+    "la culpa es de la trompa de Eustaquio",
+    "Qué hacer al aterrizar"
+  ],
+  "eyebrow": "Barotrauma del oído al volar",
+  "cover_char_file": "비행기_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Tragar o bostezar",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Chicle o golosina",
+        "abren la trompa",
+        "de Eustaquio"
+      ]
+    },
+    {
+      "name": "No dormir al aterrizar",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Repite las maniobras",
+        "mientras el avión",
+        "se prepara para bajar"
+      ]
+    },
+    {
+      "name": "Bebés: pecho o biberón",
+      "char_file": "젖병_illust.jpg",
+      "body": [
+        "Alimentarlos o",
+        "dar sorbos de leche",
+        "puede ayudar"
+      ]
+    },
+    {
+      "name": "Resfriado o alergia",
+      "char_file": "코스프레이_illust.jpg",
+      "body": [
+        "Mejor evitar volar;",
+        "consulta antes",
+        "los descongestionantes"
+      ]
+    },
+    {
+      "name": "Fiebre o secreción",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "O sin alivio",
+        "tras unas horas:",
+        "al médico"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "El barotrauma del oído suele ser leve y pasar solo si la trompa de Eustaquio se abre a tiempo."
+      ]
+    ],
+    "tip": [
+      "Si el malestar sigue tras unas horas, o hay fiebre, secreción o dolor intenso, consulta."
+    ],
+    "cta": "Con resfriado o alergia activa, pregunta a tu médico o farmacéutico antes de volar."
+  },
+  "char_display_names": {
+    "사탕_illust.jpg": "Tragar",
+    "시계_illust.jpg": "Aterrizaje",
+    "젖병_illust.jpg": "Bebés",
+    "코스프레이_illust.jpg": "Congestión",
+    "체온계_illust.jpg": "Señales de alarma"
+  },
+  "cover_scrim_color": "#2F4A5C"
+}

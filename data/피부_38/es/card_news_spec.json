@@ -1,0 +1,79 @@
+{
+  "title": [
+    "No es el tamaño del lunar,",
+    "es cómo cambia",
+    "La regla ABCDE"
+  ],
+  "eyebrow": "Melanoma: regla ABCDE",
+  "cover_char_file": "피부반점_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Mitades distintas",
+      "char_file": "피부반점_illust.jpg",
+      "body": [
+        "Una mitad del lunar",
+        "no es igual",
+        "que la otra."
+      ]
+    },
+    {
+      "name": "Rojizo, blanco, azul",
+      "char_file": "손등_illust.jpg",
+      "body": [
+        "Los colores más",
+        "peligrosos sobre",
+        "una lesión negra."
+      ]
+    },
+    {
+      "name": "Cambios de tamaño",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Más de 6 mm",
+        "o que crece",
+        "y cambia de forma."
+      ]
+    },
+    {
+      "name": "Palmas, plantas, uñas",
+      "char_file": "발톱_illust.jpg",
+      "body": [
+        "Un tipo de melanoma",
+        "aparece aquí,",
+        "lejos del sol."
+      ]
+    },
+    {
+      "name": "Menos sol por estética",
+      "char_file": "햇빛_illust.jpg",
+      "body": [
+        "El aumento de casos",
+        "se liga a la",
+        "exposición solar."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ante cualquier cambio en un lunar,",
+        "consulta con el dermatólogo."
+      ]
+    ],
+    "tip": [
+      "Revisa también la espalda y las piernas,",
+      "donde más aparece."
+    ],
+    "cta": "¿Un lunar ha cambiado? Pide cita con dermatología."
+  },
+  "char_display_names": {
+    "피부반점_illust.jpg": "Lunar",
+    "손등_illust.jpg": "Piel",
+    "달력_illust.jpg": "Calendario",
+    "발톱_illust.jpg": "Pies",
+    "햇빛_illust.jpg": "Sol"
+  },
+  "cover_scrim_color": "#4A3F5C"
+}

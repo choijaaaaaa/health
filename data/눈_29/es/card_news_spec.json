@@ -1,0 +1,77 @@
+{
+  "title": [
+    "¿Ojos secos tras la pantalla?",
+    "Parpadeas menos, no es la luz azul",
+    "Qué hace de verdad la regla 20-20-20"
+  ],
+  "eyebrow": "Fatiga visual por pantallas",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Gafas de luz azul",
+      "char_file": "독서안경_illust.jpg",
+      "body": [
+        "17 ensayos sin",
+        "beneficio claro",
+        "en la fatiga."
+      ]
+    },
+    {
+      "name": "Parpadeas menos",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "De unas 15 veces",
+        "a 5-7 por minuto",
+        "ante la pantalla."
+      ]
+    },
+    {
+      "name": "Mirar a 6 metros",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "Cada 20 minutos,",
+        "durante 20",
+        "segundos."
+      ]
+    },
+    {
+      "name": "Solo mientras dura",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Los síntomas bajan,",
+        "pero vuelven",
+        "al dejarlo."
+      ]
+    },
+    {
+      "name": "Revisión de la vista",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "La empresa debe",
+        "ofrecer vigilancia",
+        "de la salud."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La fatiga visual viene de parpadear menos y enfocar siempre de cerca, no de la luz azul."
+      ]
+    ],
+    "tip": [
+      "Parpadea a propósito, mira lejos cada 20 minutos y pide tu revisión."
+    ],
+    "cta": "¿Dolor, ojo muy rojo o cambios en la visión? Acude al oftalmólogo."
+  },
+  "char_display_names": {
+    "독서안경_illust.jpg": "Gafas",
+    "인공눈물_illust.jpg": "Lágrimas",
+    "창문_illust.jpg": "A lo lejos",
+    "시계_illust.jpg": "Aviso",
+    "달력_illust.jpg": "Revisión"
+  },
+  "cover_scrim_color": "#35607A"
+}

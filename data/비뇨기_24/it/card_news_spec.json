@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Il PSA non è",
+    "uno screening per tutti",
+    "La verità sul PSA"
+  ],
+  "eyebrow": "Test del PSA e prostata",
+  "swipe_label": "Scorri per continuare  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Fuori dai LEA",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Gli screening gratuiti",
+        "sono tre: cervice,",
+        "mammella, colon-retto."
+      ]
+    },
+    {
+      "name": "Alto non vuol dire tumore",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Anche ipertrofia",
+        "benigna e infezioni",
+        "alzano il valore."
+      ]
+    },
+    {
+      "name": "Un beneficio piccolo",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Circa 1,3 morti",
+        "in meno ogni 1.000",
+        "uomini in 13 anni."
+      ]
+    },
+    {
+      "name": "Tumori innocui scoperti",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "Dal 20 al 50%",
+        "dei casi trovati",
+        "è sovradiagnosi."
+      ]
+    },
+    {
+      "name": "L'Europa sperimenta",
+      "char_file": "가족력_illust.jpg",
+      "body": [
+        "PSA più risonanza,",
+        "per gradi e con",
+        "progetti pilota."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Il PSA è un indizio, non una sentenza: decidi dopo averne parlato."
+      ]
+    ],
+    "tip": [
+      "Chiedi al medico cosa significa per il tuo rischio, prima del prelievo."
+    ],
+    "cta": "Sangue nelle urine o difficoltà a urinare? Vai dal medico."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Screening",
+    "혈액검사_illust.jpg": "PSA",
+    "서류더미_illust.jpg": "Studi",
+    "돋보기_illust.jpg": "Sovradiagnosi",
+    "가족력_illust.jpg": "Europa"
+  },
+  "cover_char_file": "방광_illust.jpg",
+  "cover_scrim_color": "#3E5A6E"
+}

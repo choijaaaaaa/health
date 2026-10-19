@@ -1,0 +1,84 @@
+{
+  "title": [
+    "Indigestion",
+    "ou appendicite ?",
+    "Suivez la douleur",
+    "Appendicite"
+  ],
+  "eyebrow": "Une douleur qui se déplace n'est pas une simple indigestion",
+  "cover_char_file": "소화불량_illust.jpg",
+  "swipe_label": "Faites glisser pour la suite →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "Elle commence autour du nombril",
+      "char_file": "소화불량_illust.jpg",
+      "body": [
+        "Ou en haut",
+        "du ventre,",
+        "avec nausées"
+      ]
+    },
+    {
+      "name": "Puis elle descend en bas à droite",
+      "char_file": "배꼽_illust.jpg",
+      "body": [
+        "Après",
+        "quelques",
+        "heures"
+      ]
+    },
+    {
+      "name": "Moins de 50 % ont ce schéma typique",
+      "char_file": "장_illust.jpg",
+      "body": [
+        "Selon les",
+        "Manuels MSD",
+        "grand public"
+      ]
+    },
+    {
+      "name": "Une accalmie n'est pas toujours bon signe",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Elle peut suivre",
+        "une rupture",
+        "de l'appendice"
+      ]
+    },
+    {
+      "name": "Douleur intense ou ventre dur : le 15",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Ou le 112",
+        "partout",
+        "en Europe"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Ce n'est pas l'endroit",
+        "qui compte"
+      ],
+      [
+        "c'est le trajet",
+        "et l'aggravation de la douleur"
+      ]
+    ],
+    "tip": [
+      "Une douleur qui s'aggrave depuis quelques heures : avis médical le jour même",
+      "Douleur intense, ventre dur, fièvre qui monte : appelez le 15"
+    ],
+    "cta": "Envie d'autres conseils santé ? Abonnez-vous !"
+  },
+  "char_display_names": {
+    "소화불량_illust.jpg": "Indigestion",
+    "배꼽_illust.jpg": "Nombril",
+    "장_illust.jpg": "Appendice",
+    "식은땀_illust.jpg": "Fièvre",
+    "전화기_illust.jpg": "SAMU"
+  },
+  "cover_scrim_color": "#5C3A3A"
+}

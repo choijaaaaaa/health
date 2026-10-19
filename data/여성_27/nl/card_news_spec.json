@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Bloed verliezen",
+    "tussen je menstruaties?",
+    "Wat de huisarts wil weten"
+  ],
+  "eyebrow": "Tussentijds bloedverlies: oorzaken en advies",
+  "cover_char_file": "달력_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Vaak geen oorzaak",
+      "char_file": "스마트폰_illust.jpg",
+      "body": [
+        "Bij meer dan de helft",
+        "van de vrouwen wordt",
+        "niets gevonden"
+      ]
+    },
+    {
+      "name": "Pil, spiraal of prednison",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Vooral de eerste",
+        "maanden kan er",
+        "bloed tussendoor komen"
+      ]
+    },
+    {
+      "name": "Soa-test of uitstrijkje",
+      "char_file": "면봉_illust.jpg",
+      "body": [
+        "Chlamydia of een",
+        "poliep kan bloeden",
+        "de huisarts kijkt"
+      ]
+    },
+    {
+      "name": "Buikpijn of koorts erbij",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Dan niet afwachten",
+        "maar een afspraak",
+        "bij de huisarts"
+      ]
+    },
+    {
+      "name": "Bevolkingsonderzoek",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Op je 30e, 35e, 40e,",
+        "50e en 60e",
+        "via het RIVM"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Schrijf elke dag op of je bloed verliest: met die kalender kan de huisarts het snelst zoeken."
+      ]
+    ],
+    "tip": [
+      "Net met een nieuwe pil begonnen? Maak eerst de strip op voordat je wisselt."
+    ],
+    "cta": "Steeds meer bloedverlies, of bloed na het vrijen? Maak een afspraak bij je huisarts."
+  },
+  "char_display_names": {
+    "스마트폰_illust.jpg": "Opschrijven",
+    "알약_illust.jpg": "Medicijnen",
+    "면봉_illust.jpg": "Onderzoek",
+    "체온계_illust.jpg": "Koorts",
+    "시계_illust.jpg": "RIVM"
+  },
+  "cover_scrim_color": "#6B3A4A"
+}

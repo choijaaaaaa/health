@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Jeukende, dikke tenen in de winter?",
+    "Kou en natte voeten zitten erachter",
+    "Wat helpt bij wintertenen"
+  ],
+  "eyebrow": "Winterhanden en wintertenen",
+  "cover_char_file": "찬바람_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Waterdichte schoenen",
+      "char_file": "운동화_illust.jpg",
+      "body": [
+        "En sokken van",
+        "katoen of wol,",
+        "niet te strak."
+      ]
+    },
+    {
+      "name": "Nat? Meteen droog",
+      "char_file": "마른수건_illust.jpg",
+      "body": [
+        "Natte kleren",
+        "direct wisselen",
+        "voor droge."
+      ]
+    },
+    {
+      "name": "Stop met roken",
+      "char_file": "담배_illust.jpg",
+      "body": [
+        "Roken kan je",
+        "bloedvaten nauwer",
+        "laten worden."
+      ]
+    },
+    {
+      "name": "Geen pil die helpt",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Nifedipine deed",
+        "het in een proef",
+        "niet beter dan placebo."
+      ]
+    },
+    {
+      "name": "Ook in het voorjaar?",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Blijven klachten",
+        "als het warmer wordt:",
+        "bel de huisarts."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Wintertenen komen door kou",
+        "en vocht, en gaan meestal",
+        "binnen enkele weken over."
+      ]
+    ],
+    "tip": [
+      "Warm, droog en niet krabben:",
+      "daar draait het om."
+    ],
+    "cta": "Kapotte huid, een wondje of klachten zonder kou? Bel je huisarts."
+  },
+  "char_display_names": {
+    "운동화_illust.jpg": "Schoenen",
+    "마른수건_illust.jpg": "Droog",
+    "담배_illust.jpg": "Roken",
+    "알약_illust.jpg": "Medicijnen",
+    "달력_illust.jpg": "Voorjaar"
+  },
+  "cover_scrim_color": "#5E3348"
+}

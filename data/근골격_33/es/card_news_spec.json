@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Lumbalgia aguda:",
+    "la cama no es la cura",
+    "Alivio y señales de urgencia"
+  ],
+  "eyebrow": "Dolor lumbar repentino",
+  "cover_char_file": "운동화_illust.jpg",
+  "swipe_label": "Desliza para ver más  →",
+  "closing_label": "Resumen",
+  "items": [
+    {
+      "name": "Evitar el reposo en cama",
+      "char_file": "베개_illust.jpg",
+      "body": [
+        "Seguir con la vida",
+        "habitual, incluido",
+        "el trabajo si se puede"
+      ]
+    },
+    {
+      "name": "Calor local, efecto pequeño",
+      "char_file": "온찜질_illust.jpg",
+      "body": [
+        "Alivia algo y poco",
+        "tiempo; el frío",
+        "no ha demostrado igual"
+      ]
+    },
+    {
+      "name": "AINE antes que paracetamol",
+      "char_file": "이부프로펜_illust.jpg",
+      "body": [
+        "Solo si no basta",
+        "con mantenerse activo;",
+        "el paracetamol no aporta"
+      ]
+    },
+    {
+      "name": "Mejoría en 4-6 semanas",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "La mayoría mejora",
+        "y vuelve al trabajo",
+        "en ese plazo"
+      ]
+    },
+    {
+      "name": "Señales de urgencia",
+      "char_file": "변기_illust.jpg",
+      "body": [
+        "Retención o incontinencia,",
+        "zona genital dormida,",
+        "piernas débiles"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "En la lumbalgia aguda, mantenerse activo es el tratamiento de primera línea."
+      ]
+    ],
+    "tip": [
+      "Retención de orina, incontinencia o anestesia en la zona genital: acude a urgencias."
+    ],
+    "cta": "Si no mejoras en 4-6 semanas, vuelve a consultar en tu centro de salud."
+  },
+  "char_display_names": {
+    "베개_illust.jpg": "Reposo",
+    "온찜질_illust.jpg": "Calor",
+    "이부프로펜_illust.jpg": "AINE",
+    "달력_illust.jpg": "4-6 semanas",
+    "변기_illust.jpg": "Urgencia"
+  },
+  "cover_scrim_color": "#3F5A4C"
+}

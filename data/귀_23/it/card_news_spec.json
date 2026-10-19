@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Orecchie tappate in aereo:",
+    "colpa della tuba di Eustachio",
+    "Cosa fare in atterraggio"
+  ],
+  "eyebrow": "Mal d'orecchio in volo",
+  "cover_char_file": "비행기_illust.jpg",
+  "swipe_label": "Scorri per vedere  →",
+  "closing_label": "In sintesi",
+  "items": [
+    {
+      "name": "Il dolore arriva in atterraggio",
+      "char_file": "비행기_illust.jpg",
+      "body": [
+        "La tuba non compensa",
+        "in fretta: il timpano",
+        "si ritrae"
+      ]
+    },
+    {
+      "name": "Masticare la gomma",
+      "char_file": "껌_illust.jpg",
+      "body": [
+        "Apre la tuba",
+        "e fa passare aria",
+        "nell'orecchio medio"
+      ]
+    },
+    {
+      "name": "Lattanti: cibo o succhiotto",
+      "char_file": "젖병_illust.jpg",
+      "body": [
+        "Lo consiglia",
+        "la Società Italiana",
+        "di Pediatria"
+      ]
+    },
+    {
+      "name": "Decongestionanti con cautela",
+      "char_file": "코스프레이_illust.jpg",
+      "body": [
+        "Non sotto i 12 anni,",
+        "non oltre",
+        "una settimana"
+      ]
+    },
+    {
+      "name": "Sinusite o otite in corso",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Con infezioni acute",
+        "il volo è",
+        "sconsigliato"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Deglutire e masticare durante l'atterraggio aiuta la tuba di Eustachio a compensare la pressione."
+      ]
+    ],
+    "tip": [
+      "Con sinusite o infezione all'orecchio in corso, chiedere al medico prima di partire."
+    ],
+    "cta": "Dolore che non passa in pochi giorni, febbre alta o liquido dall'orecchio: rivolgersi al medico."
+  },
+  "char_display_names": {
+    "비행기_illust.jpg": "Atterraggio",
+    "껌_illust.jpg": "Gomma",
+    "젖병_illust.jpg": "Lattanti",
+    "코스프레이_illust.jpg": "Decongestionanti",
+    "감기약_illust.jpg": "Infezioni"
+  },
+  "cover_scrim_color": "#2F4A5C"
+}

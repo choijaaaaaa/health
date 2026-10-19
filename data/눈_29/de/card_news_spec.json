@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Brennende Augen nach dem Büro?",
+    "Seltenes Blinzeln, nicht Blaulicht",
+    "3 Gewohnheiten für Bildschirmaugen"
+  ],
+  "eyebrow": "Müde Augen am Bildschirm",
+  "cover_char_file": "스마트폰_illust.jpg",
+  "swipe_label": "Wischen für mehr  →",
+  "closing_label": "Zusammenfassung",
+  "items": [
+    {
+      "name": "Blaulichtbrille",
+      "char_file": "독서안경_illust.jpg",
+      "body": [
+        "17 Studien zeigen",
+        "keinen klaren Effekt",
+        "auf müde Augen."
+      ]
+    },
+    {
+      "name": "Weniger Blinzeln",
+      "char_file": "인공눈물_illust.jpg",
+      "body": [
+        "Statt 15-mal",
+        "nur 5 bis 7-mal",
+        "pro Minute."
+      ]
+    },
+    {
+      "name": "20-20-20-Regel",
+      "char_file": "창문_illust.jpg",
+      "body": [
+        "Alle 20 Minuten",
+        "20 Sekunden lang",
+        "in die Ferne schauen."
+      ]
+    },
+    {
+      "name": "Pausen sind Pflicht",
+      "char_file": "시계_illust.jpg",
+      "body": [
+        "Bildschirmarbeit",
+        "muss regelmäßig",
+        "unterbrochen werden."
+      ]
+    },
+    {
+      "name": "Augen-Check im Job",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Angebotsvorsorge",
+        "und bei Bedarf",
+        "eine Bildschirmbrille."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Müde Bildschirmaugen kommen vom seltenen Blinzeln und starren Nahblick, nicht vom Licht."
+      ]
+    ],
+    "tip": [
+      "Timer auf 20 Minuten, dann 20 Sekunden in die Ferne schauen."
+    ],
+    "cta": "Schmerzen, starke Rötung oder verändertes Sehen? Augenärztlich abklären."
+  },
+  "char_display_names": {
+    "독서안경_illust.jpg": "Brille",
+    "인공눈물_illust.jpg": "Tränen",
+    "창문_illust.jpg": "Ferne",
+    "시계_illust.jpg": "Pause",
+    "달력_illust.jpg": "Vorsorge"
+  },
+  "cover_scrim_color": "#35607A"
+}

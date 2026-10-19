@@ -1,0 +1,52 @@
+{
+  "topic": "근골격_33",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": "health-shorts/card_news/근골격_33/ (7)",
+    "en": "health-shorts/card_news/근골격_33/en/ (7)",
+    "ja": "health-shorts/card_news/근골격_33/ja/ (7)",
+    "de": "health-shorts/card_news/근골격_33/de/ (7)",
+    "fr": "health-shorts/card_news/근골격_33/fr/ (7)",
+    "it": "health-shorts/card_news/근골격_33/it/ (7)",
+    "es": "health-shorts/card_news/근골격_33/es/ (7)",
+    "nl": "health-shorts/card_news/근골격_33/nl/ (7)",
+    "sv": "health-shorts/card_news/근골격_33/sv/ (7)"
+  },
+  "tests": {
+    "test_blog_seo_quality + test_content_rules (scoped to 근골격_33 via collection filter)": "200 passed, 18 skipped, 0 failed",
+    "content_review": "0 issues for all 9 langs (es title label fixed, re-rendered)",
+    "ko_overlap_audit": "no naver caption (blog-only), 0 comparisons",
+    "note": "unscoped run shows 8 failures in 근골격_34 meta_description length — another session's topic, untouched"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Sources per lang (curl-verified originals): ko 질병관리청 국가건강정보포털 '추간판탈출증' (updated 2026-09-16: 급성기 침상안정 2~3일 이내, 4~6주 보존치료, 1989 연구 89~92% 비수술 호전, 배뇨·배변 장애→마미증후군); en NHS 'Back pain' (reviewed 2026-03-05: stay active, ibuprofen, paracetamol alone not recommended, 999 list); ja 日本整形外科学会 'ぎっくり腰''腰痛' + 腰痛診療ガイドライン2019 (Minds PDF: CQ1 活動性維持, 合意率88.9%, エビデンスC, 坐骨神経痛は差なし, 急性=4週間未満); de gesund.bund.de 'Rücken- und Kreuzschmerzen' (Stand 22.09.2025: >85 % unspezifisch, Ibuprofen max. 2 Wochen, bis zur Hälfte Rückfall in 1 Jahr) + 'Bandscheibenvorfall' (08.12.2023: MRT/OP-Indikationen), 112/116117 from portal footer; fr HAS fiche mémo lombalgie commune (mars 2019, via web.archive.org because has-sante.fr/ameli.fr return 403/captcha: 90 % < 4-6 semaines, pas d'imagerie sans drapeau rouge, réévaluer 2-4 semaines, drapeaux rouges) + Service-Public.fr (15 Samu); it ISSalute 'Mal di schiena' (2021-08-04), 'Sciatica' (pronto soccorso list), 'Ernia del disco'; es Osakidetza/Gobierno Vasco boletín INFAC vol.32 n.º8 2024 'Lumbalgia' (<1% causa grave, 4-6 semanas, ~69% recurrencia 12 meses, calor superficial, AINE 1ª opción, paracetamol sin beneficio Cochrane 2016/2023, tabla cola de caballo); nl Thuisarts.nl (NHG) 'Ik heb pijn in mijn onderrug' (half uur per dag, 15 minuten zitten, begin met paracetamol, 4 weken, spoedlijst); sv 1177 'Ont i ryggen' (2023-03-03: vila försvagar, värktabletter 1-2 veckor, vårdcentral efter 2-3 veckor särskilt >55 år, sök vård direkt-lista).",
+    "Country differences kept, not merged: ko allows 2~3일 침상안정 (KDCA disc page); UK/ES say paracetamol alone not recommended/no benefit, NL/IT/FR still list paracetamol first-line; SV says no clear evidence for heat/cold, DE/UK/ES describe heat as helpful (ES: small, short effect).",
+    "Card items 5 per lang; closing.headline list-of-blocks and tip list. ja cards visually checked (no bad wraps); ko/de/sv/it/nl sheets also checked.",
+    "Photo slots: inserted only 근골격_33 rows into assets-shared catalog.db assignments (54 item/cover + 54 bg:) using least-used selection; no assign.build run, no other topics touched. Backup of catalog.db before insert in session scratchpad.",
+    "R2 upload ran automatically from card_news.py from this worktree; prefixes verified in render log (ko at topic root, others /<lang>/). es re-rendered once after title label fix (same keys overwritten).",
+    "Body images (PENDING:): ko 허리통증_real_01, en 운동화_real_02, ja 의자_real_01, de 운동화_real_05, fr 운동화_real_03, it 베개_real_04, es 온찜질_real_02, nl 의자_real_02, sv 베개_real_06 (all exist in assets_library/real).",
+    "Not committed, ingest not run (per instructions)."
+  ]
+}

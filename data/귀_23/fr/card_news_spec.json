@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Pourquoi les oreilles",
+    "font mal à l'atterrissage ?",
+    "Otite barotraumatique"
+  ],
+  "eyebrow": "Mal d'oreille en avion",
+  "cover_char_file": "비행기_illust.jpg",
+  "swipe_label": "Glissez pour voir la suite  →",
+  "closing_label": "En résumé",
+  "items": [
+    {
+      "name": "La descente, moment clé",
+      "char_file": "비행기_illust.jpg",
+      "body": [
+        "La pression remonte,",
+        "l'air doit rentrer",
+        "par les trompes"
+      ]
+    },
+    {
+      "name": "Bâiller et déglutir",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Chewing-gum ou bonbon,",
+        "surtout pendant",
+        "la descente"
+      ]
+    },
+    {
+      "name": "Valsalva, en douceur",
+      "char_file": "귀_illust.jpg",
+      "body": [
+        "Nez pincé, bouche fermée,",
+        "expirer doucement",
+        "jusqu'au déclic"
+      ]
+    },
+    {
+      "name": "Bébé : biberon ou tétine",
+      "char_file": "젖병_illust.jpg",
+      "body": [
+        "Au décollage",
+        "et à",
+        "l'atterrissage"
+      ]
+    },
+    {
+      "name": "Sinusite aiguë : reporter",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Rhume, sinusite, otite :",
+        "parlez-en au médecin",
+        "avant le vol"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "La règle qui compte le plus : faire travailler la trompe d'Eustache en déglutissant pendant toute la descente."
+      ]
+    ],
+    "tip": [
+      "Enrhumé avant un vol obligatoire ? Un médecin peut prescrire un décongestionnant adapté."
+    ],
+    "cta": "Douleur qui persiste après le vol, écoulement ou baisse d'audition : consultez un médecin."
+  },
+  "char_display_names": {
+    "비행기_illust.jpg": "Descente",
+    "사탕_illust.jpg": "Déglutir",
+    "귀_illust.jpg": "Valsalva",
+    "젖병_illust.jpg": "Bébé",
+    "감기약_illust.jpg": "Rhume"
+  },
+  "cover_scrim_color": "#2F4A5C"
+}

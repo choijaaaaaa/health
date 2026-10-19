@@ -1,0 +1,80 @@
+{
+  "title": [
+    "Prediabetes är",
+    "inte ett slutgiltigt besked",
+    "Det du kan påverka själv"
+  ],
+  "eyebrow": "Förhöjt fasteblodsocker",
+  "cover_char_file": "계단_illust.jpg",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Fasteglukos 6,1 till 6,9",
+      "char_file": "혈당계_illust.jpg",
+      "body": [
+        "mmol/l räknas som",
+        "prediabetes, liksom",
+        "HbA1c 42 till 47"
+      ]
+    },
+    {
+      "name": "Två prov av samma typ",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Diagnosen kräver",
+        "två värden, precis",
+        "som vid diabetes"
+      ]
+    },
+    {
+      "name": "5 till 7 procent lättare",
+      "char_file": "체중계_illust.jpg",
+      "body": [
+        "Vid övervikt",
+        "minskar en sådan",
+        "viktnedgång risken"
+      ]
+    },
+    {
+      "name": "Res dig var 30:e minut",
+      "char_file": "계단_illust.jpg",
+      "body": [
+        "Ta trappan,",
+        "gå på lunchen,",
+        "cykla till jobbet"
+      ]
+    },
+    {
+      "name": "Mindre läsk och juice",
+      "char_file": "탄산음료_illust.jpg",
+      "body": [
+        "Juice, saft och läsk",
+        "höjer blodsockret",
+        "snabbt"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Mat, rörelse och lite",
+        "viktnedgång kan fördröja",
+        "eller förhindra typ 2-diabetes."
+      ]
+    ],
+    "tip": [
+      "Fråga vårdcentralen om",
+      "fysisk aktivitet på recept, FaR."
+    ],
+    "cta": "Mycket törstig och kissar ofta? Kontakta vårdcentralen."
+  },
+  "char_display_names": {
+    "혈당계_illust.jpg": "Fasteglukos",
+    "혈액검사_illust.jpg": "Två prov",
+    "체중계_illust.jpg": "5 till 7 %",
+    "계단_illust.jpg": "Rörelse",
+    "탄산음료_illust.jpg": "Söta drycker"
+  },
+  "cover_scrim_color": "#2F5D62"
+}

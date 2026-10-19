@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Bobbel in je hals:",
+    "meestal onschuldig",
+    "wanneer naar de huisarts"
+  ],
+  "eyebrow": "Dikkere lymfeklier",
+  "cover_char_file": "체온계_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samenvatting",
+  "items": [
+    {
+      "name": "Meestal een ontsteking",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Verkoudheid of",
+        "keelontsteking: klier",
+        "wordt weer kleiner"
+      ]
+    },
+    {
+      "name": "Langer dan 2 weken",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Blijft de klier",
+        "dikker dan normaal?",
+        "Bel de huisarts"
+      ]
+    },
+    {
+      "name": "Hard of steeds dikker",
+      "char_file": "턱_illust.jpg",
+      "body": [
+        "Een klier die hard",
+        "voelt of groeit,",
+        "laat je nakijken"
+      ]
+    },
+    {
+      "name": "Afvallen, nachtzweten",
+      "char_file": "식은땀_illust.jpg",
+      "body": [
+        "Of langer dan",
+        "5 dagen koorts",
+        "en steeds zieker"
+      ]
+    },
+    {
+      "name": "Begin met paracetamol",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Bij pijn of koorts:",
+        "werkt meestal goed,",
+        "minste bijwerkingen"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Een dikkere klier bij een verkoudheid wordt na een paar weken weer kleiner."
+      ]
+    ],
+    "tip": [
+      "Langer dan 2 weken dik, hard of op meer plekken? Maak een afspraak bij je huisarts."
+    ],
+    "cta": "Twijfel je? Bel je huisarts op een werkdag voor een afspraak."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Ontsteking",
+    "달력_illust.jpg": "2 weken",
+    "턱_illust.jpg": "Hard",
+    "식은땀_illust.jpg": "Nachtzweten",
+    "알약_illust.jpg": "Paracetamol"
+  },
+  "cover_scrim_color": "#4A5E7A"
+}

@@ -1,0 +1,52 @@
+{
+  "topic": "여성_27",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": "health-shorts/card_news/여성_27/ (7)",
+    "en": "health-shorts/card_news/여성_27/en/ (7)",
+    "ja": "health-shorts/card_news/여성_27/ja/ (7)",
+    "de": "health-shorts/card_news/여성_27/de/ (7)",
+    "fr": "health-shorts/card_news/여성_27/fr/ (7)",
+    "it": "health-shorts/card_news/여성_27/it/ (7)",
+    "es": "health-shorts/card_news/여성_27/es/ (7)",
+    "nl": "health-shorts/card_news/여성_27/nl/ (7)",
+    "sv": "health-shorts/card_news/여성_27/sv/ (7)"
+  },
+  "tests": {
+    "test_blog_seo_quality + test_content_rules (218 node ids collected for 여성_27, passed by explicit node id)": "218 passed, 0 failed",
+    "content_review": "0 issues for all 9 langs (es title last line capitalised; fr '≠' glyph removed; de/fr/sv cover hook rewritten after preview)",
+    "ko_overlap_audit": "no naver caption (blog-only), 0 comparisons",
+    "r2_listing": "63 objects: root 7 (ko) + 7 each under en/ja/de/fr/it/es/nl/sv"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Angle vs 여성_12: 여성_12 is one-sided lower abdominal pain (ovulation pain/cyst/appendicitis); 여성_27 is the bleeding itself — causes, what to record, red flags, and keeping symptoms separate from each country's cervical screening programme.",
+    "Sources (curl-verified originals): ko 서울아산병원 질환백과 '비정상적 자궁, 질 출혈' (24~38일 주기·4~8일, 피임제·인삼·한약·갑상선·스트레스, 기능성 자궁출혈) + 국가암정보센터 자궁경부암 증상(성관계 후·운동 후 출혈) + 국가암검진(20세 이상 2년); en NHS 'Vaginal bleeding between periods or after sex' (13 Aug 2024; ectopic red flag → 111), 'Combined pill: side effects' (15 Feb 2024; 3 months), 'Chlamydia' (24 Oct 2024), 'Cervical screening' (25–64 every 5 years); ja ヘルスケアラボ「不正出血」(国立成育医療研究センター監修, 2024-05-08; PALM-COEIN) + がん情報サービス「子宮頸がん 予防・検診」(2026-04-23; 不正出血は検診でなく保険診療, 細胞診20歳〜2年, HPV単独法30〜60歳5年・2024年4月〜一部自治体); de Krebsinformationsdienst Früherkennung (nicht bis zur Vorsorge warten; 20–34 jährlich Pap, ab 35 alle 3 Jahre Ko-Test) + gesund.bund.de Chlamydien (25.05.2025; ~80 % Frauen symptomlos, <25 jährlicher Test, Partner 60 Tage), Gebärmutterhalskrebs (28.04.2021), Gebärmutterkörperkrebs (08.10.2024); fr ameli.fr via web.archive.org (ameli 403): fibrome (26/02/2025; 20–50 % asymptomatiques, métrorragies), DIU (contrôle 3 mois; saignements+fièvre/douleurs → consulter), dépistage organisé (21/04/2026; 25–65, sans symptômes, 25–29 deux cytologies à 1 an puis 3 ans, 30–65 HPV-HR 3 ans après puis 5 ans), comprendre col (11/05/2026; 80 %/10 %, facteurs); it ISSalute Ciclo mestruale (<21 giorni, >7 giorni), Tumore dell'utero (cause alternative), Clamidia, Pap test (09/04/2026; 25–29 ogni 3 anni, 30–64 HPV, negativo → 5 anni, >95% HPV, 10–20 anni); es Ministerio de Sanidad cribado cérvix FAQ (30/05/2025; síntomas, 25–29 citología 3 años, 30–65 VPH 5 años, no prueba con sangrado/24 h) + Hospital Clínic (mioma 25–50 %/80 %, endometrio 90 %, 19/03/2026); nl Thuisarts (NHG) 'Ik verlies wel eens bloed als ik niet ongesteld ben' (>helft geen oorzaak, pil 3–6 maanden, >35 roken, bellen-lijst) + RIVM bevolkingsonderzoek (3 jun 2026; uitnodiging 30/35/40/50/60, 10–15 jaar); sv 1177 'Mellanblödningar och blodblandade flytningar' (2023-10-23; 3 månader samma preventivmedel, magont+feber → jour) + 1177 HPV/cellprov (2025-07-21; 23–50 vart femte, 50–70 vart sjunde, vänta inte vid symtom).",
+    "Plan note said 'nl 30세부터 5년': RIVM actually invites at 30, 35, 40, 50, 60 (10-year gap after 40 if HPV-negative) — written per RIVM. Sweden written as 23–50 every 5 years / 50–70 every 7 years per 1177 (not 3-yearly).",
+    "Card items 5 per lang; closing.headline list-of-blocks and tip list. All 9 langs rendered to a scratch preview dir first (no R2), checked visually (ja wraps OK, de/fr/sv cover hooks fixed, nl item 5 title shortened), then rendered once to output/ which uploaded to R2.",
+    "Photo slots: inserted only 여성_27 rows into assets-shared catalog.db assignments (54 cover/item + 54 bg:) with least-used selection; manual picks: 감초 → pexels:36863349 (herb sacks), es item04 백신 → pexels:5994835, nl item04 시계 → pexels:6968188 (centred subject). No assign.build run, no other topics touched. catalog.db backup taken before insert in session scratchpad.",
+    "Body images (PENDING:): ko 생리대_real_01, en 달력_real_01, ja 생리대_real_01, de 달력_real_02, fr 생리대_real_01, it 스마트폰_real_01, es 휴지_real_01, nl 스마트폰_real_02, sv 달력_real_02 (all exist in assets_library/real).",
+    "Not committed, ingest not run (per instructions)."
+  ]
+}

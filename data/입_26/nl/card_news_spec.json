@@ -1,0 +1,78 @@
+{
+  "title": [
+    "Keelpijn:",
+    "meestal zit er een",
+    "verkoudheidsvirus achter",
+    "Wanneer antibiotica wel"
+  ],
+  "eyebrow": "Keelpijn en antibiotica",
+  "cover_char_file": "물컵_illust.jpg",
+  "swipe_label": "Swipe voor meer  →",
+  "closing_label": "Samengevat",
+  "items": [
+    {
+      "name": "Meestal een virus",
+      "char_file": "감기약_illust.jpg",
+      "body": [
+        "Keelpijn komt",
+        "meestal door een",
+        "verkoudheidsvirus"
+      ]
+    },
+    {
+      "name": "Een halve dag eerder",
+      "char_file": "알약_illust.jpg",
+      "body": [
+        "Ook bij een bacterie",
+        "scheelt een kuur",
+        "maar een halve dag"
+      ]
+    },
+    {
+      "name": "Koud water, een snoepje",
+      "char_file": "사탕_illust.jpg",
+      "body": [
+        "Speciale keeltabletten",
+        "helpen niet zeker",
+        "beter dan snoep"
+      ]
+    },
+    {
+      "name": "Koorts langer dan 3 dagen",
+      "char_file": "체온계_illust.jpg",
+      "body": [
+        "Of keelpijn langer",
+        "dan 10 dagen: bel",
+        "op werkdagen de huisarts"
+      ]
+    },
+    {
+      "name": "Kwijlen? Direct bellen",
+      "char_file": "전화기_illust.jpg",
+      "body": [
+        "Benauwd, kwijlen of",
+        "mond gaat niet open:",
+        "huisarts of spoedpost"
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "Keelpijn gaat meestal binnen 10 dagen vanzelf over; antibiotica helpen daar meestal niet bij."
+      ]
+    ],
+    "tip": [
+      "Drink regelmatig koud water en neem bij veel pijn paracetamol op vaste tijden."
+    ],
+    "cta": "Benauwd, kwijlen of niet meer kunnen slikken? Bel direct je huisarts of de spoedpost."
+  },
+  "char_display_names": {
+    "감기약_illust.jpg": "Virus",
+    "알약_illust.jpg": "Halve dag",
+    "사탕_illust.jpg": "Snoepje",
+    "체온계_illust.jpg": "3 dagen koorts",
+    "전화기_illust.jpg": "Spoed"
+  },
+  "cover_scrim_color": "#3A5A66"
+}

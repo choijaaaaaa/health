@@ -1,0 +1,59 @@
+{
+  "topic": "근골격_34",
+  "langs_done": [
+    "ko",
+    "en",
+    "ja",
+    "de",
+    "fr",
+    "it",
+    "es",
+    "nl",
+    "sv"
+  ],
+  "cards_rendered": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "r2_uploaded": {
+    "ko": 7,
+    "en": 7,
+    "ja": 7,
+    "de": 7,
+    "fr": 7,
+    "it": 7,
+    "es": 7,
+    "nl": 7,
+    "sv": 7
+  },
+  "tests": {
+    "test_blog_seo_quality": "pass (근골격_34 all langs)",
+    "test_content_rules": "pass for 근골격_34 (remaining failures belong to other sessions' in-progress topics 비뇨기_24/손발_27/대사_27)",
+    "test_card_news": "pass",
+    "content_review": "0 issues for all 9 langs",
+    "ko_overlap_audit": "no naver caption (blog-only), 0 comparisons"
+  },
+  "unverified_numbers": [],
+  "notes": [
+    "Shared evidence (europepmc abstracts, curl): Mellor 2018 Br J Sports Med LEAP RCT (204, 167 women, mean 54.8y; EDX 14 sessions/8wk; success 8wk 51/66 77%, CSI 38/65 58%, WS 20/68 29%; 52wk 78/57/52%); Segal 2007 Arch Phys Med Rehabil MOST (3,026 aged 50-79; women uni 15.0%/bi 8.5%, men 6.6%/1.9%; LBP OR 2.79, ipsilateral knee OA OR 3.47; BMI n.s.); Grimaldi & Fearon 2015 JOSPT (gluteal tendinopathy primary source, formerly trochanteric bursitis, postmenopausal women; no numbers).",
+    "Country-specific: ko Park 2016 Pain Physician (137 US-guided bursa injections, success 80.3% 1mo -> 56.2% 6mo, knee OA/facet-SI pain worse; retrospective) + 서울아산병원 질환백과 점액낭염(재발 잦음); en NHS Hip pain in adults + Bursitis (self-referral MSK, low chairs, ice 20min/2-3h, cushions, 2 weeks); ja 日本整形外科学会 変形性股関節症 (鼠径部 pain, 80% from 発育性股関節形成不全 in women, 水中歩行 週2,3回); de gesund.bund.de Schleimbeutelentzündung (>100 bursae, 2-3 Wochen) + Rompe 2009 Am J Sports Med Mainz (229, sequential allocation; CSI 75%/HT 7%/RSWT 13% at 1mo; 51/41/68% at 4mo; 48/80/74% at 15mo); fr Abid 2022 OTSR Lyon (20 endoscopic surgery, >=2y, 80% still VAS>=3) + SFR congress title 'De la périarthrite de hanche aux tendinopathies glutéales'; it ISSalute Tendinite (medio gluteo, infiltrazioni frequenti = rischio, ghiaccio 15min 4-5x/die 3gg, onde d'urto) + Ramon 2020 JBJS (103, Barcelona/Napoli/Catania, VAS 6.3->2.0 vs 4.7 sham at 2mo); es Atilano 2024 J Ultrasound Cruces (88: GMed 97.7%, GMin 61.4%, calcium 97.7%, bursa swelling 40.9%) + SER Inforeuma intervencionismo; nl Thuisarts NHG trochantair pijnsyndroom (vrouwen 45-65, prik 6-12 weken, koorts >=38) + Brinks 2011 Ann Fam Med (120, 81 GPs; 3mo 55% vs 34%, 12mo 61% vs 60%); sv 1177 Bursit + Fysioterapi (egen vårdbegäran, 2 veckor).",
+    "Not used (blocked/unconfirmed): ameli.fr (captcha), NICE CKS (403), HAS/legifrance (403), JOA has no GTPS page, KDCA portal. Park 2016 country = Korea inferred from europepmc AFF:Korea match (affiliation field not shown) — text says '국내 한 대학병원'.",
+    "Advice without numbers (pillow between knees, avoid crossing legs/hip-hanging stance) is general clinical guidance; NHS states cushions around joint, Thuisarts states not lying on painful side.",
+    "Card items 5 per lang; closing.headline list-of-blocks, tip list-of-lines (re-split it/es/nl/sv/fr to avoid orphan wraps); ja wraps checked visually.",
+    "Photo slots assigned for 근골격_34 only (54 item + 54 bg rows, least-used variant per item) directly via assign.SCHEMA, not assign.py build. Files rendered with topic prefix 근골격_34_; an initial unprefixed render's 63 R2 objects were deleted.",
+    "Body images: PENDING:베개_real_03/05/07/09/11/12/14/16/17 (alts written after viewing each photo)."
+  ],
+  "verification_20261019": {
+    "date": "2026-10-19",
+    "tests": "no text change",
+    "edited_langs": [],
+    "summary": "Park 2016 Pain Physician (PMID 27228521) affiliation confirmed via PubMed: Sanggye Paik Hospital, Inje University, Seoul, Republic of Korea — ko '국내 한 대학병원' correct."
+  }
+}

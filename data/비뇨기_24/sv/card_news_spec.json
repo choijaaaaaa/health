@@ -1,0 +1,77 @@
+{
+  "title": [
+    "Fått brev om PSA-prov?",
+    "Det är inte screening",
+    "– så funkar OPT"
+  ],
+  "eyebrow": "Organiserad prostatacancertestning",
+  "swipe_label": "Svep för mer  →",
+  "closing_label": "Sammanfattning",
+  "items": [
+    {
+      "name": "Gratis från 50 år",
+      "char_file": "달력_illust.jpg",
+      "body": [
+        "Erbjudandet gäller",
+        "i din region, i de",
+        "flesta till 74 år."
+      ]
+    },
+    {
+      "name": "Värdet styr nästa steg",
+      "char_file": "혈액검사_illust.jpg",
+      "body": [
+        "Under 1: nytt om 6 år.",
+        "1–2,9: om 2 år.",
+        "3 eller mer: utredning."
+      ]
+    },
+    {
+      "name": "Högt är oftast inte cancer",
+      "char_file": "돋보기_illust.jpg",
+      "body": [
+        "Godartad förstoring",
+        "är den vanligaste",
+        "orsaken."
+      ]
+    },
+    {
+      "name": "Ingen screening",
+      "char_file": "서류더미_illust.jpg",
+      "body": [
+        "Socialstyrelsen avråder",
+        "från screening",
+        "med enbart PSA-prov."
+      ]
+    },
+    {
+      "name": "Släkt med cancer?",
+      "char_file": "가족력_illust.jpg",
+      "body": [
+        "Två nära släktingar:",
+        "kontakta vårdcentral",
+        "redan från 40 år."
+      ]
+    }
+  ],
+  "closing": {
+    "headline": [
+      [
+        "OPT är ett erbjudande, inte en uppmaning – du väljer själv."
+      ]
+    ],
+    "tip": [
+      "Läs fördelar och nackdelar på 1177 innan du tackar ja eller nej."
+    ],
+    "cta": "Blod i urinen eller svårt att kissa? Vänta inte på brevet."
+  },
+  "char_display_names": {
+    "달력_illust.jpg": "Erbjudande",
+    "혈액검사_illust.jpg": "PSA-värde",
+    "돋보기_illust.jpg": "Orsaker",
+    "서류더미_illust.jpg": "Riktlinje",
+    "가족력_illust.jpg": "Ärftlighet"
+  },
+  "cover_char_file": "방광_illust.jpg",
+  "cover_scrim_color": "#3E5A6E"
+}
