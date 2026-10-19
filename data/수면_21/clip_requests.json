@@ -1,115 +1,115 @@
 {
-  "requests": [
+ "requests": [
+  {
+   "name": "act_ceiling_light_evening",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "수면_21 2칸(27.33~36.49초 '자기 전 거실 불을 평소처럼 켜 두기만 해도, 참가자 99%에서 멜라토닌이 늦게 나오기 시작했고, 나오는 시간도 1시간 반쯤 짧아졌어요', 9.2초)의 행위 클립. 저녁에 소파에 앉아 쉬는 사람 머리 위로 하얗고 밝은 천장 등이 쏟아지고, 눈이 호박색으로 켜졌다가 뇌 한가운데 작은 분비샘(송과선)의 호박색 불빛이 점점 사그라든다 — '불을 켜 둔 것만으로 멜라토닌이 늦게·짧게 나온다'. 근거 Gooley 2011 'exposure to room light before bedtime suppressed melatonin'. 얼굴은 흉상 이상 거리 고정, 점등은 눈과 뇌 중심. 범용 — 밤에 켜 둔 실내조명·형광등·불 켜고 자기·수면 리듬 편. | 2026-10-19 MJ 1차: 정면 얼굴에 두 눈이 하얗게 빛나 섬뜩 → 정확한 옆모습·눈 빛나지 않게.",
+   "fits": [
+    "자기 전 실내조명",
+    "거실 불",
+    "천장 등",
+    "형광등",
+    "밤에 불을 켜 둠",
+    "불 켜고 잠",
+    "멜라토닌이 늦게 나옴",
+    "수면 리듬이 깨짐",
+    "잠이 안 옴",
+    "빛 공해"
+   ],
+   "reuse_checked": [
     {
-      "name": "act_ceiling_light_evening",
-      "kind": "flow",
-      "seconds": 6,
-      "why": "수면_21 2칸(27.33~36.49초 '자기 전 거실 불을 평소처럼 켜 두기만 해도, 참가자 99%에서 멜라토닌이 늦게 나오기 시작했고, 나오는 시간도 1시간 반쯤 짧아졌어요', 9.2초)의 행위 클립. 저녁에 소파에 앉아 쉬는 사람 머리 위로 하얗고 밝은 천장 등이 쏟아지고, 눈이 호박색으로 켜졌다가 뇌 한가운데 작은 분비샘(송과선)의 호박색 불빛이 점점 사그라든다 — '불을 켜 둔 것만으로 멜라토닌이 늦게·짧게 나온다'. 근거 Gooley 2011 'exposure to room light before bedtime suppressed melatonin'. 얼굴은 흉상 이상 거리 고정, 점등은 눈과 뇌 중심. 범용 — 밤에 켜 둔 실내조명·형광등·불 켜고 자기·수면 리듬 편.",
-      "fits": [
-        "자기 전 실내조명",
-        "거실 불",
-        "천장 등",
-        "형광등",
-        "밤에 불을 켜 둠",
-        "불 켜고 잠",
-        "멜라토닌이 늦게 나옴",
-        "수면 리듬이 깨짐",
-        "잠이 안 옴",
-        "빛 공해"
-      ],
-      "reuse_checked": [
-        {
-          "id": "act_phone_in_bed",
-          "why_not": "누워서 스마트폰 화면을 얼굴 위에 띄움 — 대본은 '거실 불(천장 조명)'이라 화면으로 바꾸면 말과 그림이 다르다"
-        },
-        {
-          "id": "act_shield_eyes_from_light",
-          "why_not": "선 채 손으로 눈부신 빛을 가리고 찡그림 — 눈부심·두통으로 읽히고 '평소처럼 켜 둔 불'이 아니다"
-        },
-        {
-          "id": "act_toss_turn",
-          "why_not": "웅크려 뒤척임 — 불빛이 안 보여 원인(조명)을 못 보여 준다(도입부 '7분' 문장에 씀)"
-        },
-        {
-          "id": "act_sunlight_on_cheek_outdoor",
-          "why_not": "바깥 햇빛에 광대 점등 — 피부 편 클립, 밤 실내조명과 무관"
-        }
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. The figure sits relaxed on a plain low sofa block, arms resting on the thighs, at night. Directly above the head hangs one plain flat round ceiling light panel glowing bright cold white, its light falling down over the head and shoulders. The two eyes and a tiny pea-sized gland deep in the centre of the brain are faintly visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, furniture other than described",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady at a chest-up-or-wider distance on the seated figure. 0-2s: from the very first frame the round ceiling light above blazes bright cold white and its light pours down over the head; the two eyes glow amber. 2-4s: the tiny gland deep in the centre of the brain flickers with a weak warm amber glow, struggling under the bright light. 4-6s: the gland's glow fades and goes out while the ceiling light stays bright cold white and the eyes stay amber until the very last frame. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless and the camera never pushes into the face, keeping the chest-up-or-wider distance, the dark slate blue-grey void stays empty apart from the described props. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a faint electrical buzz of a light fixture, no music, no dialogue."
+     "id": "act_phone_in_bed",
+     "why_not": "누워서 스마트폰 화면을 얼굴 위에 띄움 — 대본은 '거실 불(천장 조명)'이라 화면으로 바꾸면 말과 그림이 다르다"
     },
     {
-      "name": "act_switch_to_mood_lamp",
-      "kind": "flow",
-      "seconds": 8,
-      "why": "수면_21 3칸 제품 작동 칸 왼쪽(36.49~47.29초 '그러니 한 알 더 먹기 전에, 몸이 만드는 멜라토닌부터 지켜 주세요. 특히 파란빛이 세게 막으니, 잠들기 2~3시간 전엔 천장 등을 끄고 무드등 하나만 켜 보세요', 10.8초). 침대 가장자리에 앉은 사람이 벽 스위치로 차가운 하얀 천장 등을 끄고, 침대 옆 작은 원통형 무드등 윗면을 톡 눌러 낮고 따뜻한 주황빛을 켠 뒤 등을 기댄다. 그 사이 뇌 한가운데 작은 분비샘이 은은한 호박색으로 다시 켜진다(대본 '덜 막는다'까지 — 갑자기 환하게 터지지 않게). 브랜드·글자 없는 원통 등. 범용 — 수면등·무드등·취침 전 조명 낮추기·수면 위생 편.",
-      "fits": [
-        "천장 등 끄기",
-        "무드등 켜기",
-        "수면등",
-        "취침 전 조명 낮추기",
-        "전구색 조명",
-        "잠들기 전 준비",
-        "멜라토닌 지키기",
-        "수면 위생",
-        "불 끄고 자기"
-      ],
-      "reuse_checked": [
-        {
-          "id": "act_ceiling_light_evening",
-          "why_not": "같은 편 새 요청 — 불을 켜 둔 원인 장면이라 끄고 무드등으로 바꾸는 해결 동작이 없다"
-        },
-        {
-          "id": "act_child_read_book_real",
-          "why_not": "실사 아이·스탠드 불빛 — 실사 인물 금지(10-06), 조명을 바꾸는 동작도 없다"
-        },
-        {
-          "id": "act_sound_machine_far_low_timer",
-          "why_not": "손이 백색소음기를 먼 탁자로 옮김 — 소리 기기라 조명과 무관"
-        },
-        {
-          "id": "act_bedtime_stick_armpit",
-          "why_not": "침대에 앉아 겨드랑이에 스틱을 바름 — 침대 장면만 같고 행동이 다르다"
-        }
-      ],
-      "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. The figure sits on the edge of a plain low bed block at night. Above the head hangs one plain flat round ceiling light panel glowing cold white. On a small plain side table beside the bed stands one small plain cylindrical table lamp with a frosted shade and a smooth metal base, switched off, no logo. A plain light switch plate sits on an invisible wall beside the figure's shoulder. A tiny pea-sized gland deep in the centre of the brain is faintly visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, furniture other than described",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady at a chest-up-or-wider distance and easing slightly sideways. 0-2s: from the very first frame the hand presses the switch plate and the cold white ceiling light above goes dark. 2-4s: the hand moves to the small cylindrical lamp on the side table and taps its top once; the lamp lights up with a low, dim, warm orange glow, never bright. 4-6s: the figure leans back against the bed, the room lit only by the dim warm orange lamp. 6-8s: the tiny gland deep in the centre of the brain slowly comes back on with a soft, gentle amber glow, steady and calm, holding until the very last frame; nothing flashes or bursts. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless and the camera never pushes into the face, keeping the chest-up-or-wider distance, the dark slate blue-grey void stays empty apart from the described props. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one soft switch click and one quiet tap, no music, no dialogue."
+     "id": "act_shield_eyes_from_light",
+     "why_not": "선 채 손으로 눈부신 빛을 가리고 찡그림 — 눈부심·두통으로 읽히고 '평소처럼 켜 둔 불'이 아니다"
     },
     {
-      "name": "m_melatonin_resume_warm_light",
-      "kind": "flow",
-      "seconds": 8,
-      "why": "수면_21 3칸 제품 작동 칸 오른쪽 기전(36.49~47.29초 '몸이 만드는 멜라토닌부터 지켜 주세요. 특히 파란빛이 세게 막으니 … 천장 등을 끄고 무드등 하나만 켜 보세요'). m_melatonin_suppression과 같은 구도(둥근 분비샘이 아래 수용체 밭으로 청백색 구슬을 뿌림)에서 반대 방향 — 차가운 파란 빛줄기가 쏟아지는 동안엔 구슬이 끊기고, 파란빛이 걷히고 낮은 주황빛만 남자 분비샘이 다시 구슬을 내려보낸다. 근거 Brainard 2001(446~477nm가 가장 강하게 억제)·Harvard Health(붉은 쪽 어두운 빛이 덜 억제). 효과 과장 금지 — '덜 막는다'까지, 구슬 양은 평소 수준으로 잔잔하게(폭발·넘침 없음). 범용 — 파란빛·수면등·밤 조명·멜라토닌 회복 편.",
-      "fits": [
-        "파란빛이 멜라토닌을 막음",
-        "주황빛 조명",
-        "무드등",
-        "전구색",
-        "멜라토닌 분비 회복",
-        "밤 조명 낮추기",
-        "블루라이트",
-        "수면 신호"
-      ],
-      "reuse_checked": [
-        {
-          "id": "m_melatonin_suppression",
-          "why_not": "구슬이 끊기고 끝까지 안 내려옴 — 원인 칸(2칸)에 씀, 무드등으로 바꾼 뒤 다시 나오는 해결 장면이 없다(역재생도 빛 변화가 없어 원리가 안 보인다)"
-        },
-        {
-          "id": "m_hormone_drop",
-          "why_not": "구슬이 쏟아지다 끊김 — 같은 감소 방향(1칸에 씀), 빛 색이 바뀌는 원인이 화면에 없다"
-        },
-        {
-          "id": "m_light_through_clear_film",
-          "why_not": "피부 블록을 뚫는 파란 빛 — 피부·선크림 편, 분비샘이 없다"
-        },
-        {
-          "id": "m_circadian_misalign",
-          "why_not": "그물망이 어두워지며 꺼짐 — 감소 방향이고 avoid '신경인지 혈관인지 특정하지 말 것'"
-        }
-      ],
-      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One round smooth glass-like gland hangs in the upper part of the frame above a field of small cup-shaped receptors spread across the bottom, the open space between them empty. Thin cold blue light beams slant down from the top edge of the frame across the gland. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, amber, orange, lamp, bulb, sun",
-      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera drifting slowly down from the gland toward the receptor field. 0-2.5s: from the very first frame cold blue light beams pour down across the gland; only one or two pale beads drip out and then nothing falls, the receptor cups below stay empty. 2.5-4.5s: the blue beams fade away and are replaced by a dim, soft, warm orange glow washing gently over the scene from the top. 4.5-8s: in the warm orange light the gland begins to release pale glowing beads again in a calm, steady, modest stream that drifts down and settles into the receptor cups one by one, the cups glowing soft amber as they fill, holding until the very last frame; no burst, no overflow. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, illustrated or photorealistic. No human figure, no lamp, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft droplet ticks as the beads land, no music, no dialogue."
+     "id": "act_toss_turn",
+     "why_not": "웅크려 뒤척임 — 불빛이 안 보여 원인(조명)을 못 보여 준다(도입부 '7분' 문장에 씀)"
+    },
+    {
+     "id": "act_sunlight_on_cheek_outdoor",
+     "why_not": "바깥 햇빛에 광대 점등 — 피부 편 클립, 밤 실내조명과 무관"
     }
-  ]
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees, seen in exact side profile facing left, the face turned away from the camera. The figure sits relaxed on a plain low sofa block, arms resting on the thighs, at night. Directly above the head hangs one plain flat round ceiling light panel glowing bright cold white, its light falling down over the head and shoulders. A tiny pea-sized gland deep in the centre of the brain is faintly visible through the glass shell; the eye stays calm and dark, never glowing. --ar 9:16 --no front view, facing the camera, glowing eyes, white eyes, text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, furniture other than described",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady at a chest-up-or-wider distance on the seated figure. 0-2s: from the very first frame the round ceiling light above blazes bright cold white and its light pours down over the head; the two eyes glow amber. 2-4s: the tiny gland deep in the centre of the brain flickers with a weak warm amber glow, struggling under the bright light. 4-6s: the gland's glow fades and goes out while the ceiling light stays bright cold white and the eyes stay amber until the very last frame. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless and the camera never pushes into the face, keeping the chest-up-or-wider distance, the dark slate blue-grey void stays empty apart from the described props. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a faint electrical buzz of a light fixture, no music, no dialogue."
+  },
+  {
+   "name": "act_switch_to_mood_lamp",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "수면_21 3칸 제품 작동 칸 왼쪽(36.49~47.29초 '그러니 한 알 더 먹기 전에, 몸이 만드는 멜라토닌부터 지켜 주세요. 특히 파란빛이 세게 막으니, 잠들기 2~3시간 전엔 천장 등을 끄고 무드등 하나만 켜 보세요', 10.8초). 침대 가장자리에 앉은 사람이 벽 스위치로 차가운 하얀 천장 등을 끄고, 침대 옆 작은 원통형 무드등 윗면을 톡 눌러 낮고 따뜻한 주황빛을 켠 뒤 등을 기댄다. 그 사이 뇌 한가운데 작은 분비샘이 은은한 호박색으로 다시 켜진다(대본 '덜 막는다'까지 — 갑자기 환하게 터지지 않게). 브랜드·글자 없는 원통 등. 범용 — 수면등·무드등·취침 전 조명 낮추기·수면 위생 편.",
+   "fits": [
+    "천장 등 끄기",
+    "무드등 켜기",
+    "수면등",
+    "취침 전 조명 낮추기",
+    "전구색 조명",
+    "잠들기 전 준비",
+    "멜라토닌 지키기",
+    "수면 위생",
+    "불 끄고 자기"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_ceiling_light_evening",
+     "why_not": "같은 편 새 요청 — 불을 켜 둔 원인 장면이라 끄고 무드등으로 바꾸는 해결 동작이 없다"
+    },
+    {
+     "id": "act_child_read_book_real",
+     "why_not": "실사 아이·스탠드 불빛 — 실사 인물 금지(10-06), 조명을 바꾸는 동작도 없다"
+    },
+    {
+     "id": "act_sound_machine_far_low_timer",
+     "why_not": "손이 백색소음기를 먼 탁자로 옮김 — 소리 기기라 조명과 무관"
+    },
+    {
+     "id": "act_bedtime_stick_armpit",
+     "why_not": "침대에 앉아 겨드랑이에 스틱을 바름 — 침대 장면만 같고 행동이 다르다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees. The figure sits on the edge of a plain low bed block at night. Above the head hangs one plain flat round ceiling light panel glowing cold white. On a small plain side table beside the bed stands one small plain cylindrical table lamp with a frosted shade and a smooth metal base, switched off, no logo. A plain light switch plate sits on an invisible wall beside the figure's shoulder. A tiny pea-sized gland deep in the centre of the brain is faintly visible through the glass shell. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, furniture other than described",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady at a chest-up-or-wider distance and easing slightly sideways. 0-2s: from the very first frame the hand presses the switch plate and the cold white ceiling light above goes dark. 2-4s: the hand moves to the small cylindrical lamp on the side table and taps its top once; the lamp lights up with a low, dim, warm orange glow, never bright. 4-6s: the figure leans back against the bed, the room lit only by the dim warm orange lamp. 6-8s: the tiny gland deep in the centre of the brain slowly comes back on with a soft, gentle amber glow, steady and calm, holding until the very last frame; nothing flashes or bursts. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless and the camera never pushes into the face, keeping the chest-up-or-wider distance, the dark slate blue-grey void stays empty apart from the described props. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one soft switch click and one quiet tap, no music, no dialogue."
+  },
+  {
+   "name": "m_melatonin_resume_warm_light",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "수면_21 3칸 제품 작동 칸 오른쪽 기전(36.49~47.29초 '몸이 만드는 멜라토닌부터 지켜 주세요. 특히 파란빛이 세게 막으니 … 천장 등을 끄고 무드등 하나만 켜 보세요'). m_melatonin_suppression과 같은 구도(둥근 분비샘이 아래 수용체 밭으로 청백색 구슬을 뿌림)에서 반대 방향 — 차가운 파란 빛줄기가 쏟아지는 동안엔 구슬이 끊기고, 파란빛이 걷히고 낮은 주황빛만 남자 분비샘이 다시 구슬을 내려보낸다. 근거 Brainard 2001(446~477nm가 가장 강하게 억제)·Harvard Health(붉은 쪽 어두운 빛이 덜 억제). 효과 과장 금지 — '덜 막는다'까지, 구슬 양은 평소 수준으로 잔잔하게(폭발·넘침 없음). 범용 — 파란빛·수면등·밤 조명·멜라토닌 회복 편.",
+   "fits": [
+    "파란빛이 멜라토닌을 막음",
+    "주황빛 조명",
+    "무드등",
+    "전구색",
+    "멜라토닌 분비 회복",
+    "밤 조명 낮추기",
+    "블루라이트",
+    "수면 신호"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_melatonin_suppression",
+     "why_not": "구슬이 끊기고 끝까지 안 내려옴 — 원인 칸(2칸)에 씀, 무드등으로 바꾼 뒤 다시 나오는 해결 장면이 없다(역재생도 빛 변화가 없어 원리가 안 보인다)"
+    },
+    {
+     "id": "m_hormone_drop",
+     "why_not": "구슬이 쏟아지다 끊김 — 같은 감소 방향(1칸에 씀), 빛 색이 바뀌는 원인이 화면에 없다"
+    },
+    {
+     "id": "m_light_through_clear_film",
+     "why_not": "피부 블록을 뚫는 파란 빛 — 피부·선크림 편, 분비샘이 없다"
+    },
+    {
+     "id": "m_circadian_misalign",
+     "why_not": "그물망이 어두워지며 꺼짐 — 감소 방향이고 avoid '신경인지 혈관인지 특정하지 말 것'"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One round smooth glass-like gland hangs in the upper part of the frame above a field of small cup-shaped receptors spread across the bottom, the open space between them empty. Thin cold blue light beams slant down from the top edge of the frame across the gland. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, amber, orange, lamp, bulb, sun",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera drifting slowly down from the gland toward the receptor field. 0-2.5s: from the very first frame cold blue light beams pour down across the gland; only one or two pale beads drip out and then nothing falls, the receptor cups below stay empty. 2.5-4.5s: the blue beams fade away and are replaced by a dim, soft, warm orange glow washing gently over the scene from the top. 4.5-8s: in the warm orange light the gland begins to release pale glowing beads again in a calm, steady, modest stream that drifts down and settles into the receptor cups one by one, the cups glowing soft amber as they fill, holding until the very last frame; no burst, no overflow. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, illustrated or photorealistic. No human figure, no lamp, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft droplet ticks as the beads land, no music, no dialogue."
+  }
+ ]
 }
