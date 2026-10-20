@@ -1,0 +1,124 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 다래끼를 '짜면 퍼진다 → 속눈썹 뿌리·기름샘 세균 감염 → 그래서 데운다(10~15분, 하루 3~5번) → 물수건은 식는다 → 온도 유지되는 온열안대 → 고르는 기준 → 재발이면 나은 뒤에도 데우기' 한 줄기로 판다. 도입부 훅은 조직이 부어오르는 m_inflammation, 통념(손으로 짜기)은 negations로 짜는 행위 클립에 '짜면 안 돼요'에서 빨간 X, '세균이 눈꺼풀 전체로 퍼질 수 있거든요'는 균이 표면을 뒤덮는 m_bacteria_growth. 색인 재사용 우선 — 기존 m_inflammation·m_bacteria_growth·part_eyelid + 메모 카드, 새 Flow 5개.",
+  "top_title": "눈꺼풀이 욱신거린다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_eyelid.mp4",
+    "crop": [
+      0,
+      400,
+      720,
+      500
+    ],
+    "label": "눈꺼풀"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/m_inflammation.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_bacteria_growth.mp4"
+    }
+  ],
+  "opening_until": 11.397,
+  "_opening_why": "훅(0.30~4.36 '다래끼, 눈꺼풀에 빨간 멍울이 올라와 …') + 통념 반박(5.18~11.40 '이럴 때 손으로 짜서 … 짜면 안 돼요. 세균이 눈꺼풀 전체로 퍼질 수 있거든요')까지 전체 화면. 세 번째 문단('다래끼는 속눈썹 뿌리나') 직전 자막 끝 = 11.397초. 통클립 4+4=8초를 11.1초에 — 약 1.4배. 훅 = 조직이 부어오르며 면역세포가 모임(m_inflammation, 프레임 확인: 세포층이 둥글게 부풀고 호박색 세포가 차오름) → negations가 5.18~8.76초를 짜는 행위로 덮음 → '세균이 퍼질' 구간은 막대균이 표면 전체를 뒤덮는 m_bacteria_growth(프레임 확인).",
+  "negations": [
+    {
+      "from": "이럴 때 손으로 짜서",
+      "x_at": "짜면 안 돼요",
+      "clip": "assets_library/xray/output/act_squeeze_stye.mp4"
+    }
+  ],
+  "sources": [
+    {
+      "from": "짜면 안 돼요",
+      "until": "퍼질 수 있거든요",
+      "text": "출처: 미국안과학회 「What Are Chalazia and Styes?」 · 영국 국민보건서비스 「Stye」"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "다래끼는 속눈썹 뿌리나",
+      "item": "온열안대",
+      "mech": "m_stye_root_infection",
+      "act": null,
+      "label": "속눈썹 뿌리",
+      "solo": "몸속 기전 문장(속눈썹 뿌리·기름샘에 세균이 들어가 곪음) — 행위가 없는 문장이라 기전 단독"
+    },
+    {
+      "from": "그래서 미국안과학회는",
+      "item": "온열안대",
+      "mech": "part_eyelid",
+      "act": "act_warm_towel_on_eyes",
+      "act_range": [
+        0,
+        4
+      ],
+      "label": "눈꺼풀"
+    },
+    {
+      "from": "데우면 붓기가",
+      "item": "온열안대",
+      "mech": "m_stye_warm_drain",
+      "act": null,
+      "label": "다래끼",
+      "solo": "데우면 붓기가 빠지고 고름이 저절로 빠짐 — 기전 단독"
+    },
+    {
+      "from": "그런데 대부분 뜨거운",
+      "item": "온열안대",
+      "mech": "act_warm_towel_on_eyes",
+      "mech_range": [
+        4,
+        8
+      ],
+      "act": null,
+      "label": "물수건",
+      "solo": "물수건이 금방 식어 다시 적셔야 함 — 같은 새 클립 뒤 절반(수건 온기가 식고 다시 적시러 걷어 냄)"
+    },
+    {
+      "from": "그래서 온도가 유지되는",
+      "item": "온열안대",
+      "mech": "m_stye_warm_drain",
+      "act": "act_wear_heated_eye_mask",
+      "label": "다래끼"
+    },
+    {
+      "from": "고를 땐 온도를",
+      "item": "온열안대",
+      "mech": "note_heated_eye_mask_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(온도를 낮게 조절 / 15분 안팎 자동 꺼짐 / 가장 낮은 단부터) — 다음 문장(가장 낮은 단부터)까지 한 칸"
+    },
+    {
+      "from": "다래끼가 자꾸 난다면",
+      "item": "온열안대",
+      "mech": "m_inflammation",
+      "act": null,
+      "label": "눈꺼풀 가장자리",
+      "solo": "눈꺼풀 가장자리에 염증이 깔림 — 조직이 부어오르며 면역세포가 모이는 기전 단독"
+    },
+    {
+      "from": "영국 국민보건서비스는 이럴 땐",
+      "item": "온열안대",
+      "mech": "part_eyelid",
+      "act": "act_wear_heated_eye_mask",
+      "label": "눈꺼풀"
+    },
+    {
+      "from": "눈꺼풀 전체가 붓고",
+      "item": "온열안대",
+      "mech": "m_bacteria_growth",
+      "act": null,
+      "label": "눈꺼풀"
+    }
+  ],
+  "_timeline_why": "① 12.18~16.76 '다래끼는 속눈썹 뿌리나 눈꺼풀 기름샘에 세균이 들어가 곪은 거예요'(4.6초) 새 기전 m_stye_root_infection(6초). 색인에 속눈썹 뿌리·기름샘이 곪는 장면이 없다(m_bacteria_growth는 평평한 세포 표면, 도입부에 씀). ② 16.76~24.66 '미국안과학회는 짜지 말고 따뜻하게 데우라고 … 10분에서 15분, 하루 3번에서 5번'(7.9초) 왼쪽 새 행위 act_warm_towel_on_eyes 앞 절반(접은 수건을 감은 눈에 올리고 수건이 따뜻한 호박색, 4초 약 2배), 오른쪽 part_eyelid(프레임 확인: 닫힌 눈꺼풀 확대가 파랑→금색으로 물듦 = 데워짐, 4초 약 2배). ③ 24.66~27.87 '데우면 붓기가 빠지고 고름이 저절로 빠지며 나아요'(3.2초) 새 기전 m_stye_warm_drain. ④ 27.87~36.83 '대부분 뜨거운 물수건을 올리죠. 물수건은 금방 식어서 … 번거롭죠'(9.0초) act_warm_towel_on_eyes 뒤 절반(수건 온기가 식어 청록이 되고 손이 걷어 다시 적심, 4초 2.2배). ⑤ 36.83~41.29 '온도가 유지되는 온열안대로 바꾸면 하루 몇 번씩 데우기가 쉬워져요'(4.5초) 제품 작동 칸 — 왼쪽 새 행위 act_wear_heated_eye_mask(무지 회색 안대를 쓰자 안대가 고르게 따뜻한 호박색으로 유지), 오른쪽 m_stye_warm_drain(2회째). ⑥ 41.29~49.25 고르는 기준 메모(8초 1.0배). ⑦ 49.25~53.27 '눈꺼풀 가장자리에 염증이 깔려 있을 수 있어요'(4.0초) m_inflammation(4초, 도입부와 2회째). ⑧ 53.27~58.83 '영국 국민보건서비스는 … 다 나은 뒤에도 하루 2번, 5분에서 10분씩 계속 데우라고'(5.6초) 왼쪽 act_wear_heated_eye_mask(2회째), 오른쪽 part_eyelid(2회째).",
+  "summary_from": "눈꺼풀 전체가 붓고",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 있는 클립(m_bacteria_growth).",
+  "board_items": [
+    "온열안대"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 손으로 짜기(negations, 새로 요청)·뜨거운 물수건 올리기(새로 요청)·온열안대 쓰기(새로 요청). 얼굴이 나오는 행위 클립은 전부 가슴 위 거리 고정, 눈 자리는 점등하지 않는다(눈이 빛나 보이면 섬뜩 — 10-06·10-07 반려 사례)."
+}

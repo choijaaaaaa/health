@@ -1,0 +1,165 @@
+{
+ "requests": [
+  {
+   "name": "act_squeeze_stye",
+   "kind": "flow",
+   "seconds": 4,
+   "why": "눈_30 도입부 negations('이럴 때 손으로 짜서 고름을 빼는 분이 많은데요. 짜면 안 돼요', 5.18~8.76초) — 이 장면 위에 '짜면 안 돼요'에서 빨간 X. 가슴 위 흉상 3/4 옆모습 사람이 엄지와 검지 손끝으로 위 눈꺼풀 가장자리를 집어 꾹 누른다. 🚨 눈 자리는 점등하지 않는다(눈이 빛나 보이면 섬뜩 — 10-06·10-07 반려 사례) — 누르는 두 손끝만 호박색. 카메라는 가슴 위 거리 고정, 얼굴로 밀고 들어가지 않는다. AAO 'Do not squeeze or try to pop a stye'. 범용으로 — 다래끼·여드름·뾰루지를 손으로 짬, 눈 만지기 편.",
+   "fits": [
+    "다래끼를 짬",
+    "손으로 짜기",
+    "눈꺼풀을 누름",
+    "고름을 짜냄",
+    "뾰루지를 짬",
+    "여드름 짜기",
+    "눈을 만짐",
+    "손으로 눈을 건드림"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_press_swollen_eyelid",
+     "why_not": "얼굴 정면 클로즈업에 두 검지로 눈 밑을 누르고 아래 눈꺼풀 초승달이 호박색으로 켜져 두 눈이 빛나 보임 — 짜는 동작이 아니라 부기 확인이고 섬뜩한 쪽(10-06 기준)"
+    },
+    {
+     "id": "act_rub_eyes",
+     "why_not": "두 손으로 눈을 비비며 안구가 켜지고 카메라가 얼굴로 밀고 들어감 — 비비기이고 얼굴 줌 금지 규칙에 걸림"
+    },
+    {
+     "id": "m_follicle_rupture",
+     "why_not": "주머니가 터지는 추상 기전 — 사람이 손으로 짜는 행위가 안 보인다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up bust of the figure in three-quarter side view, the camera at chest distance, the right hand raised to the face with the thumb and index fingertip gently pinching the edge of the closed upper eyelid, the elbow bent, the skull faintly visible through the glass head. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra fingers, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter framing from the first frame to the last — it never pushes in or zooms toward the face. 0-2s: from the very first frame the thumb and index fingertip close on the edge of the upper eyelid and squeeze hard, the fingertips pressing together, the shoulders tensing. 2-4s: the two pressing fingertips glow amber while they keep squeezing, holding until the very last frame; the eye area and the rest of the head stay soft pale cyan and never glow. Exactly two arms and five fingers on each hand; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a small tense squeeze sound, no music, no dialogue."
+  },
+  {
+   "name": "m_stye_root_infection",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "눈_30 설명 1칸 기전 단독('다래끼는 속눈썹 뿌리나 눈꺼풀 기름샘에 세균이 들어가 곪은 거예요', 12.18~16.76초). 눈꺼풀 가장자리 단면 — 속눈썹 뿌리 주머니로 호박색 막대균이 들어가 번지고, 뿌리 둘레가 둥글게 부풀어 한가운데 노란 고름 주머니가 차오른다. AAO 'usually caused by an infected eyelash root' / 'an infection in an oil-producing gland', NHS 'filled with yellow pus'. 🚨 m_stye_warm_drain과 같은 시작 스틸 — 스틸을 한 장 뽑아 두 클립에 같이 쓴다. 얼굴·눈알 없음. 범용으로 — 다래끼, 모낭염, 속눈썹 뿌리 감염 편.",
+   "fits": [
+    "다래끼",
+    "속눈썹 뿌리 감염",
+    "눈꺼풀 기름샘",
+    "곪음",
+    "고름이 참",
+    "모낭염",
+    "세균 감염",
+    "눈꺼풀이 부음"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_bacteria_growth",
+     "why_not": "평평한 세포 표면에 막대균이 번질 뿐 속눈썹 뿌리·고름 주머니가 없다(도입부 '퍼질' 구간에 씀)"
+    },
+    {
+     "id": "m_inflammation",
+     "why_not": "조직이 부풀고 면역세포가 모이지만 세균이 들어가는 자리(속눈썹 뿌리)가 안 보인다(훅·재발 칸에 씀)"
+    },
+    {
+     "id": "part_eyelid",
+     "why_not": "닫힌 눈꺼풀 전체가 씨앗 모양으로 확대돼 물들 뿐 — 확대율이 커서 눈꺼풀로 안 읽히고 감염 과정이 없다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A thick curved rim of an eyelid edge fills the frame from left to right, seen in side cross-section: a row of long curved eyelashes grows out of the rim, each lash rooted in a small pocket in the skin, and just behind the lash roots a row of slim tube-shaped oil glands runs up into the eyelid tissue. One lash root in the centre of the rim sits in a slightly swollen rounded pocket. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, eyeball, iris, red, blood, amber, orange",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera gliding slowly toward the swollen lash root in the centre. 0-2s: from the very first frame a few small amber rod-shaped bacteria drift along the rim and slip down into the pocket around the central eyelash root and into the opening of the oil gland beside it. 2-4s: the bacteria multiply inside the pocket and the tissue around the lash root swells into a round dome, glowing amber. 4-6s: a pale yellow-amber pool of pus fills the centre of the dome and a small yellow head appears at its top beside the lash, the whole dome glowing and throbbing gently until the very last frame while the other lashes and glands stay soft pale cyan. No human figure, no face, no eyeball anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft slow throbbing pulse, no music, no dialogue."
+  },
+  {
+   "name": "m_stye_warm_drain",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "눈_30 설명 3칸 기전 단독('데우면 붓기가 빠지고 고름이 저절로 빠지며 나아요', 24.66~27.87초) + 5칸 제품 작동 칸 오른쪽('온도가 유지되는 온열안대로 바꾸면 하루 몇 번씩 데우기가 쉬워져요', 36.83~41.29초). 같은 눈꺼풀 가장자리 단면 — 고름이 찬 호박색 혹 위로 부드러운 따뜻한 빛이 고르게 내려앉아 머물고, 혹 꼭대기가 열려 고름이 저절로 조금씩 빠져나가며 부기가 가라앉고 속눈썹 뿌리가 다시 차분한 청록으로 돌아온다. NHS 'To reduce swelling and help the stye heal' / 'until the stye has burst and healed', AAO 'apply warmth'. ⚠️ 근거는 '권고대로 데우면 대개 일주일 안에 가라앉음' — 순식간에 펑 사라지는 그림은 과장, 서서히. 🚨 m_stye_root_infection과 같은 시작 스틸(혹이 이미 부푼 상태로 시작하도록 Flow 첫 프레임만 그 스틸 + 아래 프롬프트). 범용으로 — 온찜질 효과, 다래끼가 낫는 과정, 고름이 빠짐 편.",
+   "fits": [
+    "온찜질 효과",
+    "따뜻하게 데우기",
+    "다래끼가 가라앉음",
+    "고름이 저절로 빠짐",
+    "붓기가 빠짐",
+    "온열안대",
+    "눈꺼풀 찜질",
+    "염증이 가라앉음"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_follicle_rupture",
+     "why_not": "물주머니가 터지며 구체가 튀어나가는 추상 장면(배란·낭종용) — 따뜻함이 닿는 것과 눈꺼풀이 안 보이고 부기가 가라앉는 회복이 없다"
+    },
+    {
+     "id": "m_warm_air_dries_roots",
+     "why_not": "따뜻한 바람이 두피 털 뿌리를 말림 — 두피 장면이고 중반에 불투명풍으로 바뀜"
+    },
+    {
+     "id": "m_cool_running_water_burn",
+     "why_not": "화상 자리를 흐르는 물로 식힘 — 차갑게 하는 반대 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A thick curved rim of an eyelid edge fills the frame from left to right, seen in side cross-section: a row of long curved eyelashes grows out of the rim, each lash rooted in a small pocket in the skin, and just behind the lash roots a row of slim tube-shaped oil glands runs up into the eyelid tissue. One lash root in the centre of the rim sits in a slightly swollen rounded pocket. The swollen pocket around the central lash root is a round raised dome with a small pale yellow head at its top. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, eyeball, iris, red, blood",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the raised dome beside the central eyelash root. 0-2s: from the very first frame the dome glows amber, and a soft even warm golden haze settles down over the whole eyelid rim from above and stays there, steady. 2-4s: the small yellow head at the top of the dome softens and opens, and the yellow-amber pus slowly seeps out and drifts away from the rim in a few small droplets. 4-6s: the dome gradually shrinks and flattens back into the rim, its amber fading little by little, until the lash root sits calm and soft pale cyan again in the very last frame, the warm haze still resting gently over the rim. No human figure, no face, no eyeball anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft warm swell easing into quiet, no music, no dialogue."
+  },
+  {
+   "name": "act_warm_towel_on_eyes",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "눈_30 설명 2칸 왼쪽(act_range 0~4, '그래서 미국안과학회는 짜지 말고 따뜻하게 데우라고 해요. 한 번에 10분에서 15분, 하루 3번에서 5번이에요', 16.76~24.66초) + 4칸 단독(mech_range 4~8, '대부분 뜨거운 물수건을 올리죠. 물수건은 금방 식어서 자주 다시 적셔야 해요 … 번거롭죠', 27.87~36.83초). 의자에 기대 앉은 사람(가슴 위 거리)이 김이 오르는 접은 수건을 감은 두 눈 위에 올리면 수건이 따뜻한 호박색으로 빛난다(0~4초) → 수건의 호박색이 서서히 식어 청록이 되고 김이 사라지자, 손이 수건을 걷어 옆 그릇의 뜨거운 물에 다시 담근다(4~8초). AAO 'Soak a clean washcloth in hot water … Keep the cloth warm by soaking it in hot water often'. 🚨 빛나는 건 수건뿐 — 눈 자리·얼굴은 점등 없음(수건이 눈을 덮는다). 카메라는 가슴 위 거리 고정. 범용으로 — 온찜질, 눈 찜질, 수건 찜질, 다래끼·안구건조 편.",
+   "fits": [
+    "따뜻한 물수건",
+    "눈 찜질",
+    "온찜질",
+    "수건을 눈에 올림",
+    "물수건이 식음",
+    "다시 적심",
+    "다래끼 찜질",
+    "안구건조 찜질",
+    "마이봄샘 찜질"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_pat_dry_towel",
+     "why_not": "정강이를 수건으로 톡톡 두드림 — 다리 장면, 눈 찜질이 아니다"
+    },
+    {
+     "id": "act_cover_face",
+     "why_not": "두 손으로 얼굴을 감싸 쥐고 부비동·안구가 켜짐 — 수건이 없고 눈이 빛나 보인다"
+    },
+    {
+     "id": "act_rub_eyes",
+     "why_not": "눈을 비비며 얼굴로 밀고 들어감 — 찜질이 아니고 얼굴 줌 금지"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up view of the figure leaning back in a plain armchair in three-quarter side view, the camera at chest distance, a plain folded towel with faint wisps of steam resting over both closed eyes, one hand lightly holding the towel in place, a small plain bowl of steaming water on a side table beside the chair. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra fingers, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter framing from the first frame to the last — it never pushes in or zooms toward the face. 0-4s: from the very first frame the folded towel resting over the closed eyes glows a warm amber with soft steam rising from it, the figure relaxing back into the chair. 4-6s: the steam thins and stops, and the amber in the towel slowly fades and cools to soft pale cyan. 6-8s: the hand lifts the cooled towel off the eyes and dips it back into the steaming bowl on the side table, holding there until the very last frame. Only the towel glows; the eye area and the face stay soft pale cyan and never glow. Exactly two arms and five fingers on each hand; the towel and bowl have no text or logo; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft hiss of steam fading out, then a quiet splash of water, no music, no dialogue."
+  },
+  {
+   "name": "act_wear_heated_eye_mask",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "눈_30 설명 5칸 제품 작동 칸 왼쪽('그래서 온도가 유지되는 온열안대로 바꾸면 하루 몇 번씩 데우기가 쉬워져요', 36.83~41.29초) + 8칸 왼쪽('영국 국민보건서비스는 이럴 땐 다 나은 뒤에도 하루 2번, 5분에서 10분씩 계속 데우라고 해요', 53.27~58.83초). 가슴 위 거리 사람이 무지 회색 패드형 안대(끈 달린 아이마스크, 글자·로고 없음)를 두 눈에 쓰고, 안대가 고르게 은은한 호박색으로 따뜻해져 끝까지 같은 밝기로 유지된다(물수건처럼 식지 않음). 🚨 빛나는 건 안대뿐 — 눈 자리·얼굴 점등 없음. 근거는 '데우기를 쉽게 하는 도구'까지 — 눈이 낫는 그림은 넣지 않는다(오른쪽 기전 칸이 맡음). 범용으로 — 온열안대, 눈 찜질, 수면 안대 편.",
+   "fits": [
+    "온열안대",
+    "눈 찜질 안대",
+    "안대를 씀",
+    "따뜻하게 유지",
+    "충전식 안대",
+    "다래끼 찜질",
+    "안구건조 찜질",
+    "수면 안대"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_warm_towel_on_eyes",
+     "why_not": "같은 편 새 요청 — 물수건이 식는 장면이라 '온도가 유지되는' 제품과 반대로 읽힌다"
+    },
+    {
+     "id": "act_cover_face",
+     "why_not": "손으로 얼굴을 감쌈 — 안대가 없고 눈 주변이 빛난다"
+    },
+    {
+     "id": "act_phone_in_bed",
+     "why_not": "누워서 화면을 봄 — 눈·뇌가 켜지는 스마트폰 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up view of the figure sitting upright in three-quarter side view, the camera at chest distance, both hands raised to the head settling a plain soft grey padded eye mask with an elastic strap over both closed eyes, the mask fully covering the eyes, plain and without any text or logo. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, brand marks, other people, duplicated limbs, extra arms, extra fingers, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter framing from the first frame to the last — it never pushes in or zooms toward the face. 0-2s: from the very first frame the hands finish settling the grey padded mask over the eyes and lower to the lap. 2-6s: the mask warms to a soft even amber glow and keeps exactly the same steady brightness until the very last frame, the figure sitting calmly and breathing slowly. Only the mask glows; the face and the rest of the head stay soft pale cyan. The grey mask stays over the eyes in the same place the whole time and never disappears or changes shape; it has no text or logo. Exactly two arms and five fingers on each hand; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft warm hum settling into calm quiet, no music, no dialogue."
+  }
+ ]
+}

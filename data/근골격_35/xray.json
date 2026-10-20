@@ -1,0 +1,99 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 무릎통증을 '아끼기만 하면 받쳐 주는 허벅지 앞 근육이 약해진다 → 충격이 연골로 → 실제로 관절염 무릎은 허벅지 앞 힘 20% 약함 → 학회는 운동이 기본, 영양제는 권하지 않음 → 의자에 앉아 밴드로 무릎 펴기' 한 줄기로 판다. 도입부는 계단을 내려가며 무릎이 켜지는 새 행위 act_stairs_down_knee_pain + 근육 다발이 가늘어지는 m_muscle_wasting. 통념(관절영양제)은 negations로 알약 먹는 칸에 '권하지 않아요'에서 빨간 X. 색인 재사용 우선 — 기존 클립 7개(m_muscle_wasting·act_rub_leg·m_cartilage_wear·act_slow_walk·act_dumbbell_workout·act_take_supplement·part_knee) + 메모 카드 note_band_pick(세션이 만듦), 새 Flow 4개.",
+  "top_title": "계단 내려갈 때 무릎이 시큰하다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_knee.mp4",
+    "crop": [
+      0,
+      350,
+      720,
+      560
+    ],
+    "label": "무릎"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_stairs_down_knee_pain.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/m_muscle_wasting.mp4"
+    }
+  ],
+  "opening_until": 9.284,
+  "_opening_why": "훅(0.27~4.78 '무릎통증, 계단을 내려갈 때마다 시큰해서 … 챙기고 계신가요?') + 통념 반박(5.29~9.28 '그런데 무릎을 아끼기만 하면, 오히려 무릎을 받쳐 주는 근육이 약해져요')까지 전체 화면. 세 번째 문단('걸을 때 무릎에') 직전 자막 끝 = 9.284초. 통클립 6+4=10초를 9.3초에 — 약 1.08배. 계단을 내려가다 무릎이 켜짐(훅) → 근육 다발이 가늘어짐('근육이 약해져요').",
+  "negations": [
+    {
+      "from": "반면 미국류마티스학회는",
+      "x_at": "권하지 않아요",
+      "clip": "assets_library/xray/output/act_take_supplement.mp4"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "걸을 때 무릎에 실리는",
+      "item": "탄력밴드",
+      "mech": "act_walk_quad_absorb",
+      "act": null,
+      "label": "허벅지 앞 근육",
+      "solo": "기전 문장(충격은 허벅지 앞 근육이 먼저 받는다) — 걸을 때마다 허벅지 앞 근육이 켜지는 새 클립 단독, 3.6초"
+    },
+    {
+      "from": "덜 움직이면 이 근육이",
+      "item": "탄력밴드",
+      "mech": "m_cartilage_wear",
+      "act": "act_rub_leg",
+      "label": "무릎 연골"
+    },
+    {
+      "from": "실제로 65세 이상",
+      "item": "탄력밴드",
+      "mech": "m_muscle_wasting",
+      "act": "act_slow_walk",
+      "label": "근육 다발"
+    },
+    {
+      "from": "그래서 국제골관절염학회는",
+      "item": "탄력밴드",
+      "mech": "m_quad_contract",
+      "act": "act_dumbbell_workout",
+      "label": "무릎 펴는 근육"
+    },
+    {
+      "from": "반면 미국류마티스학회는",
+      "item": "탄력밴드",
+      "mech": "part_knee",
+      "act": "act_take_supplement",
+      "label": "무릎 관절"
+    },
+    {
+      "from": "집에서는 의자에 앉아",
+      "item": "탄력밴드",
+      "mech": "m_quad_contract",
+      "act": "act_seated_knee_band",
+      "label": "허벅지 앞쪽"
+    },
+    {
+      "from": "밴드는 강도가 단계별로",
+      "item": "탄력밴드",
+      "mech": "note_band_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(강도가 단계별로 나뉜 것 / 가장 약한 단계부터 / 의자에 묶으려면 길이 2m) — 대본 글자 그대로 새로 만든 메모 카드, 다음 문장(2m)까지 한 칸"
+    },
+    {
+      "from": "다만 무릎이 붓고",
+      "item": "탄력밴드",
+      "mech": "part_knee",
+      "act": null,
+      "label": "무릎"
+    }
+  ],
+  "_timeline_why": "① 10.10~14.37 '걸을 때 무릎에 실리는 충격은 허벅지 앞 근육이 먼저 받아 줘요'(4.3초) 새 클립 act_walk_quad_absorb 단독(6초, 0.7배 — 남는 건 잘림). 색인에 걷는 동안 허벅지 앞 근육이 켜지는 장면 없음(act_walk_daily는 척추, act_slow_walk는 고관절·뼈). ② 14.37~18.13 '덜 움직이면 이 근육이 약해지고, 충격이 연골로 더 많이 가요'(3.8초) 왼쪽 act_rub_leg(선 채 두 무릎 짚고 무릎 점등, 프레임 확인) + 오른쪽 m_cartilage_wear(연골 표면이 갈라짐, 프레임 확인, 4초 1.0배). ③ 18.13~26.36 '65세 이상 462명 … 허벅지 앞 힘이 20%쯤 약했어요'(8.2초) 왼쪽 act_slow_walk(벽 짚고 느리게 걷는 노년, 허벅지·고관절 점등, 6초 1.37배) + 오른쪽 m_muscle_wasting(근육 다발이 가늘어짐, 4초 — 2배). ④ 26.36~31.17 '국제골관절염학회는 … 기본 치료로 운동을 꼽아요'(4.8초) 왼쪽 act_dumbbell_workout(아령 스쿼트, 허벅지 앞 근육 점등 — 프레임 확인, 색인 미기술이었음) + 오른쪽 새 m_quad_contract. ⑤ 31.17~40.34 '미국류마티스학회는 글루코사민과 콘드로이친을 … 가짜 약과 별 차이가 없었거든요'(9.2초) 왼쪽 act_take_supplement(알약 털어 넣기, '권하지 않아요'에서 빨간 X, 6초 1.53배) + 오른쪽 part_knee(무릎 관절 정면, 4초 2.3배 — 정적 컷이라 늘려도 티 안 남). ⑥ 40.34~52.50 '의자에 앉아 무릎 펴기 … 탄력밴드를 의자 뒷다리에 묶어 발목 앞에 걸고 … 힘이 실려요. 일주일에 2번 이상 하세요'(12.2초) 제품 작동 칸 — 왼쪽 새 act_seated_knee_band(8초 1.52배, 밴드는 의자 뒷다리→의자 밑→발목 앞), 오른쪽 새 m_quad_contract(8초 1.52배). '허벅지 앞 근육에 힘이'(1.5초)·'일주일에 2번'(1.1초)은 3초 미만이라 단독 칸을 안 만든다. ⑦ 52.50~58.74 고르는 기준 메모(8초 0.78배). 기전 클립 각 1~2회.",
+  "summary_from": "다만 무릎이 붓고",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 있는 클립(part_knee).",
+  "board_items": [
+    "탄력밴드"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 계단 내려가기(새로 요청)·무릎 짚기(act_rub_leg)·느리게 걷기(act_slow_walk)·운동(act_dumbbell_workout)·영양제 먹기(act_take_supplement)·의자에서 밴드 걸고 무릎 펴기(새로 요청). 🚨 밴드 방향은 의자 뒷다리 아래 → 의자 밑 → 발목 앞(무릎을 펴면 뒤로 당겨짐)."
+}

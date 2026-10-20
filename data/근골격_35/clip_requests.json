@@ -1,0 +1,146 @@
+{
+ "requests": [
+  {
+   "name": "act_stairs_down_knee_pain",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_35 도입부 훅('무릎통증, 계단을 내려갈 때마다 시큰해서 덜 걷고 관절영양제부터 챙기고 계신가요?', 0.27~4.78초) 전체 화면 첫 컷. 옆모습으로 계단을 한 칸씩 내려오는 사람이 발을 내딛는 순간 아래로 디딘 다리의 무릎 관절이 호박색으로 확 켜지고, 멈칫하며 난간을 잡고 다음 칸에서 속도를 늦춘다(시큰해서 덜 걷게 됨). 얼굴 없음, 전신 옆모습, 카메라는 가슴 위로 밀고 들어가지 않는다. 범용 — 무릎통증·무릎 관절염·계단 내려갈 때 시큰함·연골 편.",
+   "fits": [
+    "무릎통증",
+    "계단 내려갈 때 무릎이 시큰함",
+    "무릎 관절염",
+    "퇴행성 관절염",
+    "계단에서 무릎 통증",
+    "무릎 연골",
+    "걷기가 불편함"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_gasp_for_breath",
+     "why_not": "계단을 오르다 난간을 잡지만 켜지는 게 폐 — 숨참으로 읽힌다"
+    },
+    {
+     "id": "act_rub_leg",
+     "why_not": "선 채로 두 무릎을 짚고 무릎 점등 — 계단·내려가는 동작이 없어 훅의 '계단을 내려갈 때마다'가 안 보인다(설명 2칸 행위로 씀)"
+    },
+    {
+     "id": "act_check_skin",
+     "why_not": "act_rub_leg와 같은 짚고 서 있는 컷 — 계단 없음"
+    },
+    {
+     "id": "act_limp",
+     "why_not": "평지에서 한쪽 다리를 끌며 걸음 — 계단 내려가기가 아니라 절뚝거림"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Full-body side view of the figure standing on a plain straight staircase in profile, facing down the stairs, one foot on the step below and one hand resting lightly on a simple plain handrail, the knee joints with their kneecaps and the thigh and shin bones clearly visible inside the glass legs, the staircase and handrail rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same side framing showing the whole body and the staircase from the first frame to the last — it never pushes in toward the face or zooms. 0-2s: from the very first frame the figure steps down one stair, and the moment the front foot lands the knee of that leg flashes a strong warm amber. 2-4s: the figure stops short with that knee still glowing amber, grips the handrail tighter and bends forward slightly at the hips, hesitating. 4-6s: the figure lowers the other foot down to the next step slowly and carefully, the knee pulsing amber once more as it takes the weight, staying lit until the very last frame while the rest of the body stays soft pale cyan. Exactly two arms and two legs; the face stays smooth and featureless; the staircase stays in the same place. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with two soft footsteps on a stair and a faint creak, no music, no dialogue."
+  },
+  {
+   "name": "act_walk_quad_absorb",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "근골격_35 설명 1칸('걸을 때 무릎에 실리는 충격은 허벅지 앞 근육이 먼저 받아 줘요', 10.10~13.67초) 기전 단독. 옆모습으로 평지를 걷는 사람이 발뒤꿈치를 디딜 때마다 그 다리의 허벅지 앞 근육(무릎 위 넓적다리 앞면 전체)이 호박색으로 짧게 켜져 몸무게를 받아 내고, 그 아래 무릎 관절은 차분한 하늘색 그대로 남는다 — 근육이 먼저 충격을 받아 준다는 한 줄. 근거 PEOPLES 2025 'the knee extensors act as the knee's primary dynamic stabilizer and shock absorber during locomotion'. 범용 — 무릎통증·허벅지 근력·걷기·근감소 편.",
+   "fits": [
+    "허벅지 앞 근육",
+    "대퇴사두근",
+    "걸을 때 충격 흡수",
+    "무릎을 받쳐 주는 근육",
+    "걷기",
+    "하체 근력",
+    "근감소",
+    "무릎 관절염 운동"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_walk_daily",
+     "why_not": "평지 걷기지만 켜지는 게 허리 아래 척추 — 허벅지 근육이 아니다"
+    },
+    {
+     "id": "act_slow_walk",
+     "why_not": "벽을 짚고 느리게 걸으며 고관절·넓적다리뼈(뼈)가 켜짐 — '근육이 충격을 받는다'가 아니라 '걷기 힘듦'으로 읽힌다(설명 3칸 행위로 씀)"
+    },
+    {
+     "id": "act_dumbbell_workout",
+     "why_not": "제자리 스쿼트·아령 운동에서 허벅지가 켜짐 — 걷는 장면이 아니라 '운동'으로 읽힌다(설명 4칸 행위로 씀)"
+    },
+    {
+     "id": "act_limp",
+     "why_not": "절뚝거리며 무릎(관절)이 켜짐 — 근육이 아니라 무릎 통증"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Full-body side view of the figure walking in profile mid-stride on a flat empty floor, the long thigh muscles on the front of each upper leg clearly visible as smooth glass bundles above the kneecaps, the knee joints and leg bones visible inside. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera tracking alongside at the same side framing showing the whole body from the first frame to the last — it never pushes in or zooms. 0-2s: from the very first frame the figure walks at an easy pace, and as the front heel strikes the floor the big muscle on the front of that thigh flashes warm amber for a moment, taking the weight, while the knee joint below it stays calm pale cyan. 2-4s: the next step lands and the front thigh muscle of the other leg flashes amber the same way, the knee joint again staying pale cyan. 4-6s: two more steps, each front thigh muscle glowing amber as its heel lands, the last glow holding until the very last frame. Only the front thigh muscles ever glow; the knee joints, bones and the rest of the body stay soft pale cyan. Exactly two arms and two legs; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft steady footsteps, a faint low thud on each heel strike, no music, no dialogue."
+  },
+  {
+   "name": "act_seated_knee_band",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "근골격_35 해결책(제품 작동) 칸('집에서는 의자에 앉아 무릎 펴기부터 해 보세요. 탄력밴드를 의자 뒷다리에 묶어 발목 앞에 걸고, 무릎을 쭉 폈다가 천천히 내리면 돼요. 허벅지 앞 근육에 힘이 실려요. 일주일에 2번 이상 하세요', 40.34~52.50초) 왼쪽. 🚨 밴드 방향이 핵심: 의자에 앉은 사람을 정확한 옆모습으로, 납작하고 넓은 띠 모양 밴드 한쪽 끝이 의자 **뒷다리** 아래쪽에 묶여 있고, 밴드가 의자 앉는 판 밑을 지나 앞으로 나와 반대쪽 고리가 한쪽 **발목 앞쪽**(정강이 아래 앞면)에 걸린다. 무릎을 펴서 발이 앞·위로 올라갈수록 밴드가 뒤쪽으로 팽팽하게 당겨지고(저항), 다 편 뒤 천천히 내린다. 펴는 동안 그 다리 허벅지 앞 근육이 호박색으로 켜진다. 밴드는 손잡이 없는 납작한 띠(고리형·튜빙형 아님), 무지·글자 없음. ⚠️ 대본은 '힘이 실린다'까지만 — 연골이 재생되거나 통증이 사라지는 그림 금지. 범용 — 무릎통증·무릎 관절염·허벅지 근력운동·탄력밴드·홈트 편.",
+   "fits": [
+    "탄력밴드",
+    "의자에 앉아 무릎 펴기",
+    "허벅지 근력운동",
+    "무릎 관절염 운동",
+    "레그 익스텐션",
+    "집에서 하는 하체 운동",
+    "무릎 재활 운동",
+    "밴드 운동"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_dumbbell_workout",
+     "why_not": "선 채로 아령 스쿼트 — 의자·밴드·무릎 펴기 동작이 없다(설명 4칸 '운동'에 씀)"
+    },
+    {
+     "id": "act_doze_off_sitting",
+     "why_not": "블록에 걸터앉아 조는 장면, 뇌 점등 — 운동이 아니다"
+    },
+    {
+     "id": "act_heel_raise_calf_pump",
+     "why_not": "서서 발뒤꿈치 들기, 발목·정강이 점등 — 무릎 펴기·허벅지가 아니다"
+    },
+    {
+     "id": "act_lie_knee_pillow",
+     "why_not": "누워서 무릎 밑 베개 — 쉬는 자세"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Exact side profile view of the figure sitting upright on a plain simple four-legged chair, back against the backrest, both feet flat on the floor with knees bent at a right angle. One flat wide plain elastic exercise band, with no handles, is tied around the lower part of the chair's BACK leg near the floor, runs forward along the floor under the chair seat, and its other end is looped around the FRONT of the ankle of the leg nearest the camera, just above the foot. The chair and the band are rendered in the same translucent pale cyan glass. The thigh muscles on the front of the upper leg and the knee joint are clearly visible inside the glass leg. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs, handles, tube band, loop band around thighs, dumbbells",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the exact same side profile framing showing the whole seated body, the whole chair and the whole band from the first frame to the last — it never moves, pushes in or zooms. The flat band stays tied to the chair's back leg near the floor and stays looped around the front of the ankle the whole time; it runs from the back of the chair, under the seat, forward to the ankle, and never detaches. 0-3s: from the very first frame the seated figure slowly straightens the knee of the leg wearing the band, the foot rising forward and up until the leg is fully straight and level with the seat, the band stretching taut and pulling backward toward the chair's back leg, and the big muscle on the front of that thigh glowing brighter and brighter amber as the knee straightens. 3-4s: the leg holds straight for a moment, the front thigh muscle fully amber, the band taut. 4-7s: the leg lowers slowly and smoothly back down, the band easing back toward its slack length, the amber in the thigh softening. 7-8s: the knee begins to straighten again, the front thigh muscle glowing amber, holding until the very last frame. The other leg stays still with its foot flat on the floor. Exactly two arms and two legs; the hands rest on the thighs or the seat edge; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the soft creak of an elastic band stretching and relaxing, no music, no dialogue."
+  },
+  {
+   "name": "m_quad_contract",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "근골격_35 기전 칸 2곳 — ①설명 4칸('그래서 국제골관절염학회는 무릎 관절염의 기본 치료로 운동을 꼽아요', 26.36~30.57초) 오른쪽, ②해결책 제품 작동 칸('…무릎을 쭉 폈다가 천천히 내리면 돼요. 허벅지 앞 근육에 힘이 실려요', 40.34~52.50초) 오른쪽. 무릎 옆 단면 확대: 넓적다리뼈 앞을 덮은 굵은 허벅지 앞 근육 섬유 다발이 수축하며 호박색으로 켜지고, 그 아래 힘줄이 무릎뼈(슬개골)를 위로 당겨 정강이가 앞으로 펴진다. 무릎 관절 사이 연골은 매끈한 하늘색 그대로 — 근육이 일하며 무릎을 받쳐 준다는 장면. ⚠️ 연골이 새로 생기거나 두꺼워지는 그림 금지(근거 없음). 근거 PEOPLES 2025(무릎 펴는 근육 = 무릎의 주된 안정·충격 흡수 장치). 범용 — 허벅지 근력·무릎 운동·근감소 회복 편.",
+   "fits": [
+    "허벅지 앞 근육이 일함",
+    "대퇴사두근 수축",
+    "무릎 펴기",
+    "근력운동 효과",
+    "무릎을 받쳐 주는 근육",
+    "하체 근력",
+    "근육에 힘이 실림"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_muscle_wasting",
+     "why_not": "근육 다발이 가늘어지는 반대 의미(설명 3칸·도입부에 씀)"
+    },
+    {
+     "id": "m_muscle_tension",
+     "why_not": "섬유가 꼬여 매듭처럼 뭉침 — 결림·경련으로 읽힌다"
+    },
+    {
+     "id": "part_knee",
+     "why_not": "정면 무릎 투시가 색만 바뀜 — 근육 수축·무릎 펴짐이 없다"
+    },
+    {
+     "id": "m_cartilage_wear",
+     "why_not": "연골이 갈라지는 손상 장면 — 반대 의미(설명 2칸에 씀)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, close-up side cross-section of a translucent glass-like 3D human knee and lower thigh, the thigh bone ending in the rounded knee joint above the shin bone with a smooth cushion of cartilage between them, the kneecap sitting in front of the joint, a thick bundle of long muscle fibres running down the front of the thigh bone and narrowing into a strong tendon that wraps over the kneecap and attaches to the top of the shin bone, the knee gently bent, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, full human figure, face, hands, amber, orange, red, blood, skin surface, cracks, damage",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the side cross-section of the knee with a slow gentle drift. 0-2.5s: from the very first frame the long muscle fibres on the front of the thigh tighten and shorten, glowing brighter and brighter warm amber, the tendon over the kneecap pulling taut. 2.5-4.5s: the pull lifts the kneecap slightly upward and the shin swings forward until the knee is straight, the amber muscle bundle thick and bright; the cartilage cushion between the bones stays smooth, even and calm pale cyan, with no cracks. 4.5-6.5s: the muscle slowly lengthens again under control, the amber easing, and the knee bends back down smoothly. 6.5-8s: the muscle fibres tighten once more and glow amber as the knee begins to straighten, holding until the very last frame. Only the front thigh muscle and its tendon ever glow; the bones and cartilage stay soft pale cyan. No full human figure, no hand, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft deep stretching creak as the muscle tightens, no music, no dialogue."
+  }
+ ]
+}

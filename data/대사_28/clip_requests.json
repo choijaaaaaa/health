@@ -1,0 +1,91 @@
+{
+ "requests": [
+  {
+   "name": "act_oatmeal_breakfast",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "대사_28(고지혈증) 도입부 통념 반박('빼는 게 다가 아니라, 더하는 것도 중요해요 … 귀리에 든 식이섬유, 베타글루칸이에요')과 4칸 제품 작동 칸 왼쪽('3g을 채우려면 오트밀로 하루 75g, 한 번에 40g씩 두 끼예요. 아침 흰빵이나 시리얼을 오트밀로 바꿔 보세요')의 행위 클립. 아침 식탁에 앉은 사람이 흰 식빵 접시를 옆으로 밀어 두고, 그 자리의 오트밀 죽 한 그릇을 숟가락으로 떠먹는다 — 식도→위→소장으로 호박색 줄기가 내려가 소장이 은은하게 켜진다(장에서 일한다는 다음 칸과 이어지게). '빼기'가 아니라 '바꿔 더하기'라 식빵은 치우는 게 아니라 옆으로 밀어 두기만. 오트밀은 무지 그릇에 담긴 연한 베이지 귀리 죽(포장·브랜드·글자 없음). 얼굴은 흉상 이상 거리 고정, 뇌·눈 점등 금지. 범용 — 아침 식사 바꾸기·통곡물·귀리·오트밀·식이섬유 편.",
+   "fits": [
+    "오트밀",
+    "귀리",
+    "아침 식사 바꾸기",
+    "흰빵 대신 통곡물",
+    "시리얼 대신 오트밀",
+    "식이섬유",
+    "베타글루칸",
+    "콜레스테롤 낮추는 음식",
+    "죽 한 그릇",
+    "아침 한 그릇"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_eat_spinach_with_milk",
+     "why_not": "젓가락으로 시금치 나물 + 우유 한 모금 — 오트밀 그릇·숟가락이 아니고, 마지막엔 배만 화면을 채워 먹는 장면이 잘린다(avoid)"
+    },
+    {
+     "id": "act_large_meal_after_fasting",
+     "why_not": "식탁 가득 그릇을 쉬지 않고 퍼 먹고 위가 부풀어 오름 — '폭식·과식'으로 읽혀 아침 한 그릇 바꾸기와 반대"
+    },
+    {
+     "id": "act_nausea_push_plate_away",
+     "why_not": "입을 막고 그릇을 밀어냄 — 메스꺼움(속이 안 좋다)으로 읽히고 오트밀을 먹는 동작이 없다"
+    },
+    {
+     "id": "act_take_supplement",
+     "why_not": "알약을 털어 넣음 — 음식이 아니라 약·영양제로 읽힌다(이 편 6칸 '약' 문장에 씀)"
+    },
+    {
+     "id": "act_bottle_to_cup_at_meal",
+     "why_not": "손이 젖병을 치우고 빨대컵을 놓음 — 육아 식탁 소품, 사람·식사가 없다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, seated body visible from the top of the head to the knees, seen in three-quarter view from the side. The figure sits at a plain small table in the morning. On the table in front of the figure stands one plain round bowl of warm pale beige oat porridge with a spoon resting in it, and beside it one small plain plate holding two slices of plain white bread. One hand rests near the spoon. The stomach and coiled small intestine inside the torso are faintly visible through the glass shell as calm pale cyan shapes. --ar 9:16 --no front view close-up, glowing eyes, text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, packaging, boxes, cereal box, brand marks, other people, duplicated limbs, furniture other than described",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady at a chest-up-or-wider distance on the seated figure. 0-1.5s: from the very first frame one hand slides the small plate of white bread aside to the edge of the table, leaving it there untouched. 1.5-3.5s: the other hand lifts the spoon from the bowl of pale beige oat porridge and the figure eats one spoonful, a warm amber trail running down the oesophagus into the stomach. 3.5-6s: the figure takes a second spoonful while the amber trail moves on from the stomach into the coiled small intestine, which glows a soft steady amber until the very last frame; the head, brain and eyes stay soft pale cyan throughout. The plate of bread stays at the table edge, the bowl stays on the table. The body stays translucent glass with all structures visible inside throughout; the face stays smooth and featureless and the camera never pushes into the face, keeping the chest-up-or-wider distance, the dark slate blue-grey void stays empty apart from the described props. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft plate slide and a quiet spoon clink, no music, no dialogue."
+  },
+  {
+   "name": "m_liver_draws_cholesterol",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "대사_28(고지혈증) 2칸·3칸 기전 클립 — '쓸개즙은 콜레스테롤로 만들어서, 간이 쓸개즙을 다시 만들려고 피 속 콜레스테롤을 끌어다 써요' / '나쁜 콜레스테롤이 평균 10mg/dL쯤 내려갔어요'. 혈관 속을 떠다니는 호박색 둥근 콜레스테롤 알갱이들이 옆에 붙은 간 조직 쪽으로 혈관 벽을 지나 빨려 들어가고, 간 세포 안에서 연한 금빛 쓸개즙 방울로 바뀌어 아래 관으로 흘러 나간다 → 혈관 속 알갱이가 눈에 띄게 줄어 관이 맑아진다(전부 사라지지 않게 — 근거는 평균 10mg/dL쯤, 과장 금지). 근거 Lia 1995·1997(Am J Clin Nutr: 귀리 베타글루칸 → 쓸개즙산 배출 증가 → 간 콜레스테롤 합성 변화와 강하게 연관), Whitehead 2014(LDL 0.25mmol/L 감소). 범용 — 콜레스테롤 수치가 내려가는 원리·간·쓸개즙·고지혈증 편.",
+   "fits": [
+    "간이 콜레스테롤을 끌어다 씀",
+    "쓸개즙을 다시 만듦",
+    "담즙산 재합성",
+    "피 속 콜레스테롤이 줄어듦",
+    "나쁜 콜레스테롤 감소",
+    "LDL이 내려감",
+    "고지혈증",
+    "혈관이 맑아짐",
+    "콜레스테롤 수치가 내려가는 원리"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_plaque_buildup",
+     "why_not": "캐러멜색 덩어리가 혈관을 메우고 금이 감 — 콜레스테롤이 쌓이는 반대 방향이고, 간으로 빠져나가는 장면이 없다"
+    },
+    {
+     "id": "m_drug_absorption",
+     "why_not": "호박색 알약이 녹아 쏟아졌다가 관이 맑아짐 — 약이 흡수되는 그림이라 간·쓸개즙이 안 나온다(이 편 6칸 '약' 문장에 씀)"
+    },
+    {
+     "id": "m_fat_accumulation",
+     "why_not": "장기 곳곳에 지방 방울이 쌓여 층이 두꺼워짐 — 늘어나는 방향, 혈관·간 이동이 없다"
+    },
+    {
+     "id": "m_pressure_buildup",
+     "why_not": "주머니 주둥이에서 액체가 콸콸 쏟아짐(담즙 분비) — 피 속 콜레스테롤을 끌어오는 쪽이 안 보이고 avoid '추상 형태라 안 읽힌다'"
+    },
+    {
+     "id": "m_toxin_load",
+     "why_not": "호박색 액체가 세포 핵부터 갈색으로 물들임 — 간 부담·독소로 읽혀 '좋아지는' 장면과 반대"
+    },
+    {
+     "id": "part_liver",
+     "why_not": "담낭·담관만 호박색 점등 — 부위 표시라 혈관에서 콜레스테롤이 빠져나가는 움직임이 없다(2칸 왼쪽에 씀)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. One wide translucent blood vessel runs down the left side of the frame from top to bottom, packed with many small smooth round amber beads drifting inside it among a few pale disc-shaped cells. Pressed against the right side of the vessel wall sits a block of translucent liver tissue made of many small hexagonal cells, and from the bottom of the tissue block a thin translucent duct leads down out of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood colour, opaque, plaque, clot, crack, pill",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera drifting slowly from the vessel toward the liver tissue. 0-2.5s: from the very first frame the round amber beads in the vessel begin to slide sideways, one after another, through small openings in the vessel wall into the neighbouring liver cells, which glow softly as each bead enters. 2.5-5.5s: inside the liver cells the amber beads turn into small pale golden droplets that gather and trickle down into the thin duct at the bottom, flowing out of the frame. 5.5-8s: the vessel on the left is now noticeably clearer, with only a few amber beads still drifting calmly among the pale disc-shaped cells, holding steady until the very last frame; the liver tissue keeps a soft warm glow. Nothing bursts, cracks or explodes. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, illustrated or photorealistic. No human figure, no body, no face anywhere in the frame. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with soft liquid ticks as the beads pass through the wall, no music, no dialogue."
+  }
+ ]
+}
