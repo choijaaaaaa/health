@@ -89,7 +89,16 @@ def main() -> None:
     rows = volumes(kws)
     rows.sort(key=lambda r: -r["total"])
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"updated_at": time.strftime("%Y-%m-%d %H:%M"), "rows": rows},
+    # 누적 저장 — 조회할 때마다 덮어써서 이전 측정값이 지워졌다(2026-10-20, 댕냥 쪽은 10-14에 같은 수정)
+    try:
+        prev = json.loads(OUT.read_text(encoding="utf-8")).get("rows", [])
+        prev = prev if isinstance(prev, list) else list(prev.values())
+    except FileNotFoundError:
+        prev = []
+    merged = {r["keyword"]: r for r in prev}
+    merged.update({r["keyword"]: r for r in rows})
+    OUT.write_text(json.dumps({"updated_at": time.strftime("%Y-%m-%d %H:%M"),
+                               "rows": sorted(merged.values(), key=lambda r: -r["total"])},
                               ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{'키워드':28s} {'월 검색량':>9s}  {'모바일 비중':>8s}  경쟁")
     for r in rows[:a.top]:
