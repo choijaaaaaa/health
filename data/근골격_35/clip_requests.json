@@ -106,41 +106,6 @@
    ],
    "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Exact side profile view of the figure sitting upright on a plain simple four-legged chair, back against the backrest, both feet flat on the floor with knees bent at a right angle. One flat wide plain elastic exercise band, with no handles, is tied around the lower part of the chair's BACK leg near the floor, runs forward along the floor under the chair seat, and its other end is looped around the FRONT of the ankle of the leg nearest the camera, just above the foot. The chair and the band are rendered in the same translucent pale cyan glass. The thigh muscles on the front of the upper leg and the knee joint are clearly visible inside the glass leg. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs, handles, tube band, loop band around thighs, dumbbells",
    "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the exact same side profile framing showing the whole seated body, the whole chair and the whole band from the first frame to the last — it never moves, pushes in or zooms. The flat band stays tied to the chair's back leg near the floor and stays looped around the front of the ankle the whole time; it runs from the back of the chair, under the seat, forward to the ankle, and never detaches. 0-3s: from the very first frame the seated figure slowly straightens the knee of the leg wearing the band, the foot rising forward and up until the leg is fully straight and level with the seat, the band stretching taut and pulling backward toward the chair's back leg, and the big muscle on the front of that thigh glowing brighter and brighter amber as the knee straightens. 3-4s: the leg holds straight for a moment, the front thigh muscle fully amber, the band taut. 4-7s: the leg lowers slowly and smoothly back down, the band easing back toward its slack length, the amber in the thigh softening. 7-8s: the knee begins to straighten again, the front thigh muscle glowing amber, holding until the very last frame. The other leg stays still with its foot flat on the floor. Exactly two arms and two legs; the hands rest on the thighs or the seat edge; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with the soft creak of an elastic band stretching and relaxing, no music, no dialogue."
-  },
-  {
-   "name": "m_quad_contract",
-   "kind": "flow",
-   "seconds": 8,
-   "why": "근골격_35 기전 칸 2곳 — ①설명 4칸('그래서 국제골관절염학회는 무릎 관절염의 기본 치료로 운동을 꼽아요', 26.36~30.57초) 오른쪽, ②해결책 제품 작동 칸('…무릎을 쭉 폈다가 천천히 내리면 돼요. 허벅지 앞 근육에 힘이 실려요', 40.34~52.50초) 오른쪽. 무릎 옆 단면 확대: 넓적다리뼈 앞을 덮은 굵은 허벅지 앞 근육 섬유 다발이 수축하며 호박색으로 켜지고, 그 아래 힘줄이 무릎뼈(슬개골)를 위로 당겨 정강이가 앞으로 펴진다. 무릎 관절 사이 연골은 매끈한 하늘색 그대로 — 근육이 일하며 무릎을 받쳐 준다는 장면. ⚠️ 연골이 새로 생기거나 두꺼워지는 그림 금지(근거 없음). 근거 PEOPLES 2025(무릎 펴는 근육 = 무릎의 주된 안정·충격 흡수 장치). 범용 — 허벅지 근력·무릎 운동·근감소 회복 편.",
-   "fits": [
-    "허벅지 앞 근육이 일함",
-    "대퇴사두근 수축",
-    "무릎 펴기",
-    "근력운동 효과",
-    "무릎을 받쳐 주는 근육",
-    "하체 근력",
-    "근육에 힘이 실림"
-   ],
-   "reuse_checked": [
-    {
-     "id": "m_muscle_wasting",
-     "why_not": "근육 다발이 가늘어지는 반대 의미(설명 3칸·도입부에 씀)"
-    },
-    {
-     "id": "m_muscle_tension",
-     "why_not": "섬유가 꼬여 매듭처럼 뭉침 — 결림·경련으로 읽힌다"
-    },
-    {
-     "id": "part_knee",
-     "why_not": "정면 무릎 투시가 색만 바뀜 — 근육 수축·무릎 펴짐이 없다"
-    },
-    {
-     "id": "m_cartilage_wear",
-     "why_not": "연골이 갈라지는 손상 장면 — 반대 의미(설명 2칸에 씀)"
-    }
-   ],
-   "midjourney": "Medical holographic visualization, close-up side cross-section of a translucent glass-like 3D human knee and lower thigh, the thigh bone ending in the rounded knee joint above the shin bone with a smooth cushion of cartilage between them, the kneecap sitting in front of the joint, a thick bundle of long muscle fibres running down the front of the thigh bone and narrowing into a strong tendon that wraps over the kneecap and attaches to the top of the shin bone, the knee gently bent, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, full human figure, face, hands, amber, orange, red, blood, skin surface, cracks, damage",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the side cross-section of the knee with a slow gentle drift. 0-2.5s: from the very first frame the long muscle fibres on the front of the thigh tighten and shorten, glowing brighter and brighter warm amber, the tendon over the kneecap pulling taut. 2.5-4.5s: the pull lifts the kneecap slightly upward and the shin swings forward until the knee is straight, the amber muscle bundle thick and bright; the cartilage cushion between the bones stays smooth, even and calm pale cyan, with no cracks. 4.5-6.5s: the muscle slowly lengthens again under control, the amber easing, and the knee bends back down smoothly. 6.5-8s: the muscle fibres tighten once more and glow amber as the knee begins to straighten, holding until the very last frame. Only the front thigh muscle and its tendon ever glow; the bones and cartilage stay soft pale cyan. No full human figure, no hand, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft deep stretching creak as the muscle tightens, no music, no dialogue."
   }
  ]
 }
