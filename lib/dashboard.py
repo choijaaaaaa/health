@@ -1240,7 +1240,10 @@ def _update_topics_index(out_path: str):
         # 가진 기존 topic도 카드뉴스 탭에서 찾을 수 있어야 한다 — 한 topic이
         # 두 탭에 동시에 나타날 수 있다(배타적 아님).
         tracks: list[str] = []
-        caption_path = data_root / rel / "platform_captions.json"
+        # 글로벌 topic은 캡션이 <topic>/ko/ 밑에 있다 — 바탕 폴더에 없으면 ko를 본다(10-22 대사_22·어지럼증_16 배지 누락)
+        caption_path = next((p for p in (data_root / rel / "platform_captions.json",
+                                         data_root / rel / "ko" / "platform_captions.json") if p.exists()),
+                            data_root / rel / "platform_captions.json")
         if caption_path.exists():
             try:
                 caption_spec = json.loads(caption_path.read_text())
@@ -1262,7 +1265,9 @@ def _update_topics_index(out_path: str):
                 # **영상이 없는 topic에도 숏츠 배지가 붙어** mission-control에서
                 # "영상 있는 게 뭔지 모르겠다"는 문제가 된다(실측: 네이버 클립
                 # 캡션 152건 중 실제 mp4는 108편뿐). 캡션이 아니라 파일을 본다.
-                if (output_root / rel / "shorts.mp4").exists():
+                # 반투명 인체 포맷 완성본은 shorts_xray_test.mp4, 언어별 topic(소화_1/ko)은 바탕 폴더에 있다
+                if any((output_root / d / f).exists() for d in (rel, rel.split("/")[0])
+                       for f in ("shorts.mp4", "shorts_xray_test.mp4")):
                     tracks.append("shorts")
             except (json.JSONDecodeError, OSError):
                 pass
