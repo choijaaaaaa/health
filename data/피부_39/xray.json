@@ -1,0 +1,106 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 모공각화증을 '팔 뒤쪽 때수건으로 박박 밂 → 밀수록 붉고 도드라짐(AAD) → 때가 아니라 털구멍 각질 마개 → 때수건은 겉만 벗겨 마개는 그대로 → 밀지 말고 말랑하게 풀기(미지근한 물·톡톡·5분 안·하루 2~3번) → 우레아 보습제로 바꿈(마개에 물을 붙잡아 부드럽게) → 고르는 기준(우레아 10% 이상)' 한 줄기로 판다. 색인 재사용: act_hot_shower_scrub·m_scrub_blackhead_stays·m_plug_loosen_open·act_pat_dry_towel·m_cream_lid_seal·m_urea_softens_keratin + 메모 카드 note_urea_10pct_label(세션이 코드로 만듦). 새 Flow 4개(clip_requests.json).",
+  "top_title": "팔 뒤쪽이 닭살처럼 오돌토돌하다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_skin.mp4",
+    "crop": [
+      20,
+      150,
+      680,
+      480
+    ],
+    "label": "팔 뒤쪽 피부"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_scrub_arm_bumps_redden.mp4"
+    }
+  ],
+  "opening_until": 13.552,
+  "_opening_why": "훅(0.27~6.33 '모공각화증, 팔 뒤쪽이 … 때수건으로 박박 밀고 계신가요?') + 통념 반박(6.80~13.55 '그런데 세게 밀수록 오히려 더 붉고 도드라져요. 미국피부과학회도 문지르면 … 더 나빠진다고 해요')까지 전체 화면. 세 번째 문단('오돌토돌한 건 때가 아니에요') 직전 자막 끝 = 13.552초. 새 행위 클립 10초 통째 → 약 1.36배: 0~4초 위팔 뒤쪽을 때밀이 장갑으로 밀고 돌기 점이 옅게 켜짐(훅) → 4~10초 세게 밀수록 문지른 띠가 달아오르고 돌기가 더 진하게 솟음(반박).",
+  "negations": [
+    {
+      "from": "오돌토돌한 건 때가",
+      "x_at": "때가 아니에요",
+      "clip": "assets_library/xray/output/act_hot_shower_scrub.mp4"
+    }
+  ],
+  "_negations_why": "'때가 아니에요'(14.03~15.24) — 때밀이 장갑으로 박박 미는 장면(때라고 믿고 미는 틀린 쪽) 위에 빨간 X. 도입부 클립을 다시 깔면 장면이 되감기니 본문 B칸에서도 쓰는 act_hot_shower_scrub을 깐다. 피부_35 선례.",
+  "timeline": [
+    {
+      "from": "오돌토돌한 건 때가",
+      "item": "우레아 바디로션",
+      "mech": "m_keratin_plug_follicle",
+      "act": null,
+      "label": "털구멍 각질 마개",
+      "solo": "때가 아니라 털이 나오는 구멍을 각질이 마개처럼 막음 — 몸속 기전 문장 둘이라 기전 단독(앞 1.2초는 negations가 덮음)"
+    },
+    {
+      "from": "때수건은 겉 피부만",
+      "item": "우레아 바디로션",
+      "mech": "m_scrub_blackhead_stays",
+      "act": "act_hot_shower_scrub",
+      "label": "겉 피부"
+    },
+    {
+      "from": "그래서 밀어내는 대신",
+      "item": "우레아 바디로션",
+      "mech": "m_plug_loosen_open",
+      "act": null,
+      "label": "각질 마개",
+      "solo": "밀어내는 대신 마개를 말랑하게 풀어 줘야 — 행동이 아니라 방향 문장이라 마개가 풀리는 기전 단독(프레임 확인: 털구멍 속 마개가 각질 조각으로 풀려 나옴)"
+    },
+    {
+      "from": "샤워는 뜨겁지 않은",
+      "item": "우레아 바디로션",
+      "mech": "m_cream_lid_seal",
+      "act": "act_pat_dry_towel",
+      "label": "피부 수분"
+    },
+    {
+      "from": "미국피부과학회는 하루",
+      "item": "우레아 바디로션",
+      "mech": "m_cream_lid_seal",
+      "act": "act_apply_lotion_arm",
+      "label": "보습막"
+    },
+    {
+      "from": "이때 쓰던 바디로션을",
+      "item": "우레아 바디로션",
+      "mech": "m_urea_softens_keratin",
+      "act": "act_apply_lotion_arm",
+      "label": "각질층"
+    },
+    {
+      "from": "우레아는 원래",
+      "item": "우레아 바디로션",
+      "mech": "m_urea_plug_softens",
+      "act": null,
+      "label": "각질 마개",
+      "solo": "제품 작동 칸 — 로션이 돌기를 덮음 → 물방울이 마개에 스며듦 → 마개가 말랑해짐(겉·속 한 컷), 사라지지 않음"
+    },
+    {
+      "from": "고를 땐 성분표에",
+      "item": "우레아 바디로션",
+      "mech": "note_urea_10pct_label",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "라벨에서 볼 것 메모(성분표에 우레아(요소) / 함량 10% 이상) — 대본 글자 그대로 새로 만든 메모 카드(note_urea_label은 '10%에서 25% 사이'라 못 씀)"
+    },
+    {
+      "from": "효과를 보려면",
+      "item": "우레아 바디로션",
+      "mech": "m_cream_lid_seal",
+      "act": null,
+      "label": "피부"
+    }
+  ],
+  "_timeline_why": "① 14.03~18.85 기전 단독(새 m_keratin_plug_follicle). ② 19.50~23.78 '때수건은 겉 피부만 벗겨 내서, 마개는 그대로 두고 피부만 마르고 붉게' 왼쪽 때밀이 장갑이 정강이를 밀어 문지른 띠가 호박색, 오른쪽 수세미가 겉을 문질러도 털구멍 속 마개는 그대로(6초 약 1.4배). ③ 24.23~27.28 마개가 풀리는 기전 단독. ④ 27.80~33.59 왼쪽 정강이를 수건으로 톡톡(끝에 머금은 물 호박색), 오른쪽 크림이 덮어 수분을 가둠. ⑤ 34.19~37.15 왼쪽 위팔 뒤쪽에 로션을 살살 펴 바름(새), 오른쪽 크림 막(2회째). ⑥ 37.64~41.16 왼쪽 같은 바르기(2회째), 오른쪽 크림이 물을 끌어당겨 각질 판이 풀림. ⑦ 41.70~46.82 제품 작동 칸(새 m_urea_plug_softens). ⑧ 47.24~50.39 메모 카드. 칸 전부 8초 미만.",
+  "summary_from": "효과를 보려면",
+  "_summary_why": "마지막 문단('효과를 보려면 4주에서 6주는 꾸준히 발라야 해요. 그래도 그대로거나 … 피부과에서 다른 방법을 상의하세요') = 기대 기간 + 병원 신호. '효과를 보려면' 문장이 2.9초라 칸 최소 길이(3초)에 못 미쳐 그 문단 첫머리부터 칠판 전체(제품 사진·제품 보러 가기).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — mech는 칠판이 덮어 안 그려지므로 있는 클립(m_cream_lid_seal).",
+  "board_items": [
+    "우레아 바디로션"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 때밀이로 미는 것(재사용, 정강이지만 '때수건은 겉 피부만'은 부위를 말하지 않음), 수건으로 톡톡(재사용), 위팔 뒤쪽에 로션 바르기(새로 요청). 얼굴이 나오는 행위 클립은 가슴 위 거리 고정, 점등은 위팔 뒤쪽만."
+}

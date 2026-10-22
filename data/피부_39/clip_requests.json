@@ -1,0 +1,146 @@
+{
+ "requests": [
+  {
+   "name": "act_scrub_arm_bumps_redden",
+   "kind": "flow",
+   "seconds": 10,
+   "why": "피부_39 도입부 전체 화면 통째(훅 '모공각화증, 팔 뒤쪽이 닭살처럼 오돌토돌해서 목욕탕 갈 때마다 때수건으로 박박 밀고 계신가요?' 0.27~6.33초 + 통념 반박 '그런데 세게 밀수록 오히려 더 붉고 도드라져요. 미국피부과학회도 문지르면 피부가 자극받아 더 나빠진다고 해요' 6.80~13.55초, 약 1.36배). 가슴 위 흉상, 3/4 뒤옆에서 본 여성형 유리 인체가 왼팔을 앞으로 들고, 오른손에 낀 거친 회색 때밀이 장갑으로 왼팔 위팔 뒤쪽을 위아래로 박박 민다 → 위팔 뒤쪽에 촘촘한 작은 돌기 점들이 옅은 호박색으로 보이다가(0~4초 훅) → 세게 밀수록 문지른 띠 전체가 거칠게 달아오르고 돌기 점들이 더 진한 호박색으로 도드라져 솟는다(4~10초 반박). AADS 'Avoid scrubbing your skin, which tends to irritate the skin and worsen keratosis pilaris', NHS 'do not use harsh scrubs on your skin – this can make it worse'. 🚨 카메라 가슴 위 고정(얼굴로 밀고 들어가지 않음), 점등은 위팔 뒤쪽만 — 얼굴·눈 점등 없음. 범용으로 — 팔 각질, 닭살 피부, 때밀이, 박박 문지름, 팔뚝 오돌토돌, 등·허벅지 각질 편.",
+   "fits": [
+    "모공각화증",
+    "닭살 피부",
+    "팔 뒤쪽 오돌토돌",
+    "팔뚝 각질",
+    "때수건",
+    "때밀이",
+    "박박 문지름",
+    "밀수록 붉어짐",
+    "피부 자극",
+    "과한 각질 제거"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_hot_shower_scrub",
+     "why_not": "김 속 때밀이 장갑이 정강이를 문지름 — 팔 뒤쪽이 아니고 돌기 점이 없어 훅의 '팔 뒤쪽 오돌토돌'이 안 보임(본문 B칸 왼쪽·negations엔 재사용)"
+    },
+    {
+     "id": "act_scratch_shin",
+     "why_not": "정강이를 손톱으로 긁음 — 때수건·팔이 아님"
+    },
+    {
+     "id": "act_file_heel_callus",
+     "why_not": "뒤꿈치를 밀대로 밂 — 부위·도구가 다름"
+    },
+    {
+     "id": "act_hold_elbow",
+     "why_not": "팔꿈치 관절이 켜지는 통증 동작 — 피부 문지름·돌기 없음"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like human figure with adult female body proportions, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. Chest-up view of the figure seen in three-quarter view from behind and to the side, the camera at chest distance. Her left arm is raised forward and bent at the elbow so the back of the upper arm faces the camera, and her right hand wears a plain coarse grey knitted scrubbing mitt pressed flat against the back of the left upper arm. The glass skin on the back of the upper arm shows a faint fine pattern of tiny raised dots. Visible faintly inside the glass shell: the shoulder joint, the upper arm bone, the collarbones and the rib cage. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, prominent skull, visible teeth, empty eye sockets, brand marks, other people, duplicated limbs, extra hands, extra arms, extra fingers, logo on mitt, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter-from-behind framing from the first frame to the last — it never pushes in or zooms toward the face. 0-4s: from the very first frame the grey mitt scrubs hard up and down along the back of the left upper arm, and the many tiny raised dots on the back of the upper arm glow a faint amber. 4-10s: the scrubbing gets harder and faster; the whole scrubbed band of skin flushes a rough warm amber and the tiny dots swell up, standing out more sharply and glowing deeper amber with every stroke, still lit and raised in the very last frame. Only the back of the upper arm glows amber; the face, eyes and the rest of the body stay soft pale cyan. Exactly two arms and five fingers on each hand; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with rough rhythmic scrubbing strokes, no music, no dialogue."
+  },
+  {
+   "name": "m_keratin_plug_follicle",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "피부_39 A칸 기전 단독('오돌토돌한 건 때가 아니에요. 털이 나오는 작은 구멍을 각질이 마개처럼 막은 거예요', 14.03~18.85초, 4.8초 약 0.8배 — 앞 1.2초는 negations 클립이 덮는다). 피부 단면 블록에 털이 나오는 모낭 하나: 겉에서 얇은 각질 조각이 하나둘 떨어져 모낭 입구에 쌓이며 단단한 원뿔 마개로 뭉치고, 그 아래 털이 빠져나오지 못해 둥글게 말리고, 마개 위 겉 피부가 작은 돌기로 볼록 솟는다. 마개만 호박색. NHS 'hair follicles become blocked with a build-up of keratin'. 🚨 m_urea_plug_softens와 같은 블록·같은 모낭 구도(시작 그림 공유). 범용으로 — 모공각화증, 닭살 피부, 각질 마개, 털구멍 막힘, 매몰모 편.",
+   "fits": [
+    "모공각화증 원인",
+    "각질 마개",
+    "털구멍이 막힘",
+    "모낭 각질",
+    "닭살 피부 원리",
+    "오돌토돌한 돌기",
+    "케라틴이 쌓임",
+    "때가 아님"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_pore_plug_forming",
+     "why_not": "피지가 차서 생기는 여드름·블랙헤드 마개이고 중간에 민트 실사풍으로 바뀜 — 털·각질 마개·돌기가 아님"
+    },
+    {
+     "id": "m_sebum_overproduction",
+     "why_not": "피지선 기름이 차오름 — 각질 마개가 아님"
+    },
+    {
+     "id": "m_keratin_thickening",
+     "why_not": "판이 수십 겹 쌓이는 굳은살 — 털구멍·마개 구조가 없음"
+    },
+    {
+     "id": "m_scrub_blackhead_stays",
+     "why_not": "수세미가 겉을 문지르는 장면 + 끝은 검은 블랙헤드 — 마개가 생기는 과정이 아님(B칸엔 재사용)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame: thin flat layered sheets on top, rounded cells beneath, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. In the middle of the block a single narrow hair follicle runs down from the surface like a slim tube, a fine hair inside it, the opening of the follicle at the smooth skin surface clearly visible, the empty dark void above the surface filling the upper third of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hand, red, blood, amber, orange",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera slowly circling a little around the block at the same distance. 0-2s: from the very first frame thin flat flakes peel off the top layer one by one and drift into the opening of the hair follicle, gathering there. 2-4s: the flakes pack tightly together into a hard cone-shaped plug that seals the follicle opening and glows amber, and the fine hair underneath can no longer get out and curls up into a small coil below the plug. 4-6s: the skin surface right above the plug bulges up into a small rounded bump, the amber plug still sitting firmly in the opening in the very last frame. Only the plug glows amber; everything else stays soft pale cyan. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with soft dry crackling as the flakes pack together, no music, no dialogue."
+  },
+  {
+   "name": "act_apply_lotion_arm",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "피부_39 E칸 왼쪽('미국피부과학회는 하루 2~3번 바르라고 권해요', 34.19~37.15초) + F칸 왼쪽('이때 쓰던 바디로션을 요소, 즉 우레아가 든 보습제로 바꿔 보세요', 37.64~41.16초). 🚨 act_scrub_arm_bumps_redden과 같은 시작 스틸 — 같은 여성형 유리 인체가 이번엔 장갑 없이 오른손 손바닥에 하얀 로션을 얹어 왼팔 위팔 뒤쪽에 살살 펴 바른다(문지르지 않고 부드럽게 쓸어 펴는 손길). 위팔 뒤쪽 돌기 점들이 처음엔 옅은 호박색이다가 로션이 덮인 뒤 조금씩 차분해져 끝엔 아주 옅게만 남는다. ⚠️ 근거는 '부드럽게'까지 — 돌기가 사라지는 그림 금지, 옅어지기만. 🚨 카메라 가슴 위 고정, 점등은 위팔 뒤쪽만. 로션 통·라벨 없음(손바닥에 이미 얹힌 상태). 범용으로 — 바디로션 바르기, 보습제, 팔 보습, 각질 관리, 샤워 후 보습 편.",
+   "fits": [
+    "바디로션 바르기",
+    "보습제 바르기",
+    "우레아 바디로션",
+    "팔 보습",
+    "샤워 후 보습",
+    "하루 2~3번 바르기",
+    "각질 관리",
+    "닭살 피부 관리"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_apply_white_sunscreen",
+     "why_not": "광대에 선크림을 바름 — 얼굴이고 팔·바디로션이 아님"
+    },
+    {
+     "id": "act_baby_apply_lotion",
+     "why_not": "보호자가 아기 다리에 연고 — 성인 본인이 팔에 바르는 장면이 아님"
+    },
+    {
+     "id": "act_pat_dry_towel",
+     "why_not": "정강이를 수건으로 두드림 — 바르는 동작이 아님(D칸 왼쪽엔 재사용)"
+    },
+    {
+     "id": "m_cream_lid_seal",
+     "why_not": "사람 없는 피부 블록 기전 — 행위 칸이 아님(D·E칸 오른쪽엔 재사용)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like human figure with adult female body proportions, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. Chest-up view of the figure seen in three-quarter view from behind and to the side, the camera at chest distance. Her left arm is raised forward and bent at the elbow so the back of the upper arm faces the camera, and the open palm of her bare right hand, holding a small dollop of plain white lotion, rests lightly against the back of the left upper arm. The glass skin on the back of the upper arm shows a faint fine pattern of tiny raised dots. Visible faintly inside the glass shell: the shoulder joint, the upper arm bone, the collarbones and the rib cage. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, prominent skull, visible teeth, empty eye sockets, brand marks, other people, duplicated limbs, extra hands, extra arms, extra fingers, bottle, tube, pump, mitt, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter-from-behind framing from the first frame to the last — it never pushes in or zooms toward the face. 0-2s: from the very first frame the bare right palm slowly smooths the white lotion over the back of the left upper arm with gentle gliding strokes, never rubbing hard, while the tiny raised dots there glow a faint amber. 2-6s: a thin even sheen of white lotion now covers the back of the upper arm and the hand keeps stroking softly; under the lotion the faint amber dots slowly calm down little by little, still faintly visible but softer and dimmer in the very last frame. The dots never vanish completely. Only the back of the upper arm glows; the face, eyes and the rest of the body stay soft pale cyan. Exactly two arms and five fingers on each hand; the face stays smooth and featureless; no bottle or tube appears. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with soft slow skin strokes, calm and quiet, no music, no dialogue."
+  },
+  {
+   "name": "m_urea_plug_softens",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "피부_39 G칸 제품 작동 칸 기전 단독('우레아는 원래 피부 속에 있는 보습 성분이라, 딱딱한 각질 마개에 물을 붙잡아 부드럽게 만들어요', 41.70~46.82초, 5.1초 약 0.85배). 🚨 m_keratin_plug_follicle과 같은 블록·같은 모낭(그 클립의 마지막 프레임을 시작으로 이어 찍기 — 돌기 위에 호박색 단단한 마개가 박힌 상태). 겉: 흰 로션 막이 돌기 위로 얇게 퍼져 덮임 → 스며듦: 막에서 작은 물방울들이 모낭 입구 쪽으로 내려가 단단한 원뿔 마개에 달라붙어 스며든다 → 결과: 각진 마개가 물을 머금어 통통하고 말랑해지며 모서리가 둥글어지고 호박색이 옅은 청록으로 잦아들고, 돌기도 조금 낮아진다. ⚠️ 근거(McCormick 'component of the natural moisturizing factors' / Dampa '≤10% … humectant, enhancing water binding … corneocyte flexibility')는 물을 붙잡아 부드럽게까지 — 마개가 녹아 없어지거나 털구멍이 뻥 뚫리는 그림 금지, 마개는 끝까지 그 자리에 남는다. 범용으로 — 우레아 보습제 원리, 각질 마개가 부드러워짐, 모공각화증 관리, 닭살 피부 보습 편.",
+   "fits": [
+    "우레아 원리",
+    "요소 보습제",
+    "각질 마개가 부드러워짐",
+    "물을 붙잡는 보습 성분",
+    "모공각화증 관리",
+    "닭살 피부 보습",
+    "우레아 바디로션 효과",
+    "보습제가 스며듦"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_urea_softens_keratin",
+     "why_not": "갈라진 각질층 판이 풀려 들뜨는 굳은살 장면 — 털구멍 마개가 없어 대본의 '각질 마개'가 안 보임(F칸 오른쪽엔 재사용)"
+    },
+    {
+     "id": "m_plug_loosen_open",
+     "why_not": "블랙헤드 마개가 조각나 튀어나가고 구멍이 뻥 뚫림 — 10% 우레아의 '부드럽게'를 넘는 과장(각질 용해)이라 제품 작동 칸엔 못 씀(C칸 '풀어 줘야'엔 재사용)"
+    },
+    {
+     "id": "m_cream_lid_seal",
+     "why_not": "크림이 표면을 덮어 수분을 가둠 — 마개 속으로 물이 스며드는 장면이 아님(D칸 오른쪽엔 재사용)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up cross-section of a block of translucent glass-like 3D human skin seen from slightly above at a low angle, the block filling the lower two thirds of the frame: thin flat layered sheets on top, rounded cells beneath, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. In the middle of the block a single narrow hair follicle runs down from the surface like a slim tube with a fine hair coiled inside it, its opening sealed by a hard cone-shaped plug of packed flat flakes, and the skin surface right above it bulging into a small rounded bump, the empty dark void above the surface filling the upper third of the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, hand, red, blood, amber, orange",
+   "flow": "The clip opens as the previous shot ends: the same skin block with the hard amber cone-shaped plug sealing the follicle under a small rounded bump. One continuous shot in a single unbroken scene with no scene cuts, the camera drifting slowly down from just above the surface to the side of the follicle. 0-1.5s: from the very first frame a thin layer of plain white lotion flows across the surface and spreads smoothly over the bump. 1.5-3.5s: tiny clear water droplets bead out from the white layer, slide down into the follicle opening and cling to the hard plug, soaking into it one after another. 3.5-6s: the plug slowly swells with water, turning plump and soft, its sharp edges rounding off, its amber glow fading to a soft calm pale cyan, and the bump above it settles a little lower; the softened plug still sits in place in the very last frame — it never dissolves, breaks apart or disappears. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with soft wet droplet sounds, calm, no music, no dialogue."
+  }
+ ]
+}
