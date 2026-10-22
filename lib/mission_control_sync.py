@@ -282,7 +282,8 @@ def collect_topics_index() -> list[dict]:
     if not path.exists():
         return []
     ok = uploadable_topics()
-    return [r for r in json.loads(path.read_text(encoding="utf-8")) if r.get("topic") in ok]
+    # 언어별로 나뉜 topic은 "소화_1/ko"처럼 들어 있다 — 바탕 이름으로 대조해야 목록에서 안 빠진다(10-22 소화_1 누락)
+    return [r for r in json.loads(path.read_text(encoding="utf-8")) if (r.get("topic") or "").split("/")[0] in ok]
 
 
 def push_topics_index(rows: list[dict]) -> int:
@@ -408,7 +409,7 @@ def prune_stale(keep: set[str]) -> None:
                                    ("topics", False, False)):
         q = "select=topic&limit=1000" + ("&project=eq.health-shorts" if scoped else "")
         have = {r["topic"] for r in call("GET", f"{table}?{q}", profile)}
-        drop = sorted(have - keep)
+        drop = sorted(t for t in have if t.split("/")[0] not in keep)
         if not drop:
             continue
         for i in range(0, len(drop), 50):
