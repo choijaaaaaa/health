@@ -1,0 +1,110 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 축농증을 '휴지로 세게 계속 풀면 콧물이 부비동 안쪽으로 밀려 들어간다 → 부비동이 붓고 콧물이 고이는 병 → 코 풀 때 압력 재채기의 14배·최대 1ml 유입 → 짜내지 말고 코세척기로 씻어 내기 → 매일 150ml 3개월 불편 감소 → 수돗물 금지(FDA)·끓여 식힌 물+전용 소금 분말 → 고르는 기준' 한 줄기로 판다. 도입부는 얼굴을 감싸 부비동이 켜지는 act_cover_face + 휴지로 세게 코를 풀며 부비동이 켜지는 새 act_blow_nose_tissue. 수돗물 문장은 negations로 수돗물 받는 칸에 '쓰면 안 돼요'에서 빨간 X, 화면 출처 줄(FDA·CDC). 색인 재사용 — act_cover_face·m_duct_blockage·m_cilia_mucus_clearance·m_bacteria_growth·m_mucosa_irritant_contact(1.5초부터)·part_nose_sinus + 메모 카드 note_rinse_pick(세션이 만듦), 새 Flow 6개.",
+  "top_title": "누런 콧물에 코가 꽉 막혔다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_nose_sinus.mp4",
+    "crop": [
+      0,
+      430,
+      720,
+      520
+    ],
+    "label": "부비동"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_cover_face.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_blow_nose_tissue.mp4"
+    }
+  ],
+  "opening_until": 10.731,
+  "_opening_why": "훅(0.34~4.51 '축농증, 누런 콧물이 … 무거우신가요?') + 통념 반박(4.81~10.73 '이럴 때 휴지로 코를 세게 계속 푸는 분이 많은데요. 세게 풀수록 콧물은 오히려 안쪽으로 밀려 들어가요')까지 전체 화면. 세 번째 문단('축농증은 코 옆') 직전 자막 끝 = 10.731초. 통클립 4+6=10초를 10.7초에 — 약 1.07배. 얼굴을 감싸고 괴로워함(훅) → 휴지로 세게 풀자 부비동이 켜짐(반박).",
+  "negations": [
+    {
+      "from": "다만 수돗물은 그대로",
+      "x_at": "쓰면 안 돼요",
+      "clip": "assets_library/xray/output/act_fill_bottle_tap.mp4"
+    }
+  ],
+  "sources": [
+    {
+      "from": "다만 수돗물은 그대로",
+      "until": "일으킬 수 있다고 해요",
+      "text": "출처: 미국 식품의약국(FDA) 「Is Rinsing Your Sinuses With Neti Pots Safe?」 2025 · 미국 질병통제예방센터(CDC) 「How to Safely Rinse Sinuses」 2025"
+    }
+  ],
+  "timeline": [
+    {
+      "from": "축농증은 코 옆 뼈 속",
+      "item": "코세척기",
+      "mech": "m_duct_blockage",
+      "act": "act_cover_face",
+      "label": "부비동"
+    },
+    {
+      "from": "실제로 코 풀 때 압력을",
+      "item": "코세척기",
+      "mech": "m_mucus_pushed_into_sinus",
+      "act": "act_blow_nose_tissue",
+      "label": "부비동 입구"
+    },
+    {
+      "from": "그래서 고인 콧물은",
+      "item": "코세척기",
+      "mech": "m_saline_flush_nasal",
+      "act": "act_nasal_rinse_bottle",
+      "label": "콧속"
+    },
+    {
+      "from": "만성 축농증 환자가",
+      "item": "코세척기",
+      "mech": "m_cilia_mucus_clearance",
+      "act": null,
+      "label": "코 점막 섬모",
+      "solo": "근거 문장(매일 150ml로 씻었더니 3개월 뒤 불편이 줄었다) — 섬모가 점액 막을 밀어내는 기전 단독, 효과가 보이는 장면"
+    },
+    {
+      "from": "다만 수돗물은 그대로",
+      "item": "코세척기",
+      "mech": "m_bacteria_growth",
+      "act": "act_fill_bottle_tap",
+      "label": "콧속 점막"
+    },
+    {
+      "from": "끓였다가 미지근하게",
+      "item": "코세척기",
+      "mech": "m_mucosa_irritant_contact",
+      "mech_range": [
+        1.5,
+        4.0
+      ],
+      "act": "act_boil_water_salt",
+      "label": "코 점막"
+    },
+    {
+      "from": "그러니 누런 콧물은",
+      "item": "코세척기",
+      "mech": "note_rinse_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(150ml 넘게 / 분리해서 씻고 말림 / 식약처 의료기기 신고 / 쓰고 나면 씻어서 말리기) — 대본 글자 그대로 세션이 만든 메모 카드, 다음 문장까지 한 칸"
+    },
+    {
+      "from": "3주가 지나도 그대로거나",
+      "item": "코세척기",
+      "mech": "part_nose_sinus",
+      "act": null,
+      "label": "부비동"
+    }
+  ],
+  "_timeline_why": "① 10.99~16.02 '부비동이 붓고 그 안에 콧물이 고이는 병' — 왼쪽 act_cover_face(두 손으로 얼굴을 감싸 코·눈 주변이 켜짐, 프레임 확인) + 오른쪽 m_duct_blockage(관 목이 좁아지며 끝 주머니가 부풀어 오름 = 출구 막힌 부비동, 프레임 확인). ② 16.02~24.57 '코 풀 때 압력 재채기의 14배 … 최대 1ml 부비동 안으로' — 새 act_blow_nose_tissue + 새 m_mucus_pushed_into_sinus(색인에 콧물이 부비동 입구로 밀려 들어가는 장면 없음). ③ 24.57~31.94 제품 작동 칸 '고인 콧물은 짜내지 말고 씻어 내야 … 한쪽 콧구멍에 흘려 넣어 반대쪽으로' — 새 act_nasal_rinse_bottle(세면대 위 고개 기울여 위쪽 콧구멍에 넣은 소금물이 아래쪽으로 빠짐) + 새 m_saline_flush_nasal(겉 콧구멍에서 들어온 맑은 물줄기가 콧속 벽의 누런 점액을 쓸어 내고 부비동 입구가 다시 열림). ④ 31.94~40.65 매일 150ml 3개월 — m_cilia_mucus_clearance 단독(섬모가 점액 막을 밀어냄, 6초). ⑤ 40.65~48.51 수돗물 — 새 act_fill_bottle_tap(빨간 X) + m_bacteria_growth(점막 위 막대균이 번짐, 4초). ⑥ 48.51~54.70 끓여 식힌 물+분말·맹물 따가움 — 새 act_boil_water_salt + m_mucosa_irritant_contact 1.5~4.0초(앞 1.4초는 신경 시냅스 다른 컷이라 자름). ⑦ 54.70~67.06 고르는 기준·씻어 말리기 메모 note_rinse_pick(10초). 기전 클립 각 1회.",
+  "summary_from": "3주가 지나도 그대로거나",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 있는 클립(part_nose_sinus).",
+  "board_items": [
+    "코세척기"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 얼굴 감싸기(act_cover_face)·휴지로 세게 코 풀기·코세척기로 씻기·수돗물 받기(X)·물 끓여 분말 녹이기. 🚨 얼굴 나오는 행위 클립은 가슴 위 거리에 카메라 고정, 얼굴로 밀고 들어가지 않는다."
+}

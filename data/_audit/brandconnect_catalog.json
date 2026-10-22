@@ -7708,6 +7708,22 @@
     "found": true,
     "status": "있음",
     "chosen": {
+      "id": 928995156346304,
+      "name": "JMC 코세척기 코세정기 비염 축농증 1등급 의료기기 어린이 성인 300ml 1개",
+      "store": "JM무역",
+      "price": 9700,
+      "commission": 8.0,
+      "reviews": 889,
+      "rating": 4.74,
+      "url": "https://smartstore.naver.com/main/products/4995080223",
+      "link": "https://naver.me/539ADjeH"
+    },
+    "hits": 38,
+    "domain": "health",
+    "sample": null,
+    "link": "https://naver.me/539ADjeH",
+    "link_saved": true,
+    "rejected": {
       "id": 828145747941358,
       "name": "노즈큐어 코세척기 코세정기 세정용키트 NOSECURE 1개",
       "store": "제이팜플러스",
@@ -7716,24 +7732,12 @@
       "reviews": 85,
       "rating": 4.92,
       "url": "https://smartstore.naver.com/main/products/4522922184",
-      "link": null
+      "link": "https://naver.me/5UVCbtMI"
     },
-    "hits": 38,
-    "domain": "health",
-    "sample": null,
-    "link": "https://naver.me/5UVCbtMI",
-    "link_saved": true,
-    "rejected": {
-      "id": 928995156346304,
-      "name": "JMC 코세척기 코세정기 비염 축농증 1등급 의료기기 어린이 성인 300ml 1개",
-      "store": "JM무역",
-      "price": 9300,
-      "commission": 8.0,
-      "reviews": 876,
-      "rating": 4.74,
-      "url": "https://smartstore.naver.com/main/products/4995080223",
-      "link": "https://naver.me/539ADjeH"
-    }
+    "account": "health",
+    "replaced_at": "2026-10-23 07:07",
+    "replaced_note": "코_24 대본 기준(150ml 넘게 담김·분리 세척·건조, 식약처 의료기기 신고)으로 수동 교체 — 상세 확인한 JMC 300ml(1등급 수입신고 수신 18-2405호). DB global_product_links 5UVCbtMI→539ADjeH",
+    "pinned_criteria": "용량 150ml 넘게(300ml) + 분리 세척·건조 가능 + 식약처 의료기기(1등급) 신고 수동식 코세정기 — 코_24 대본 \"150ml 넘게 담기는지, 분리해서 씻고 말릴 수 있는지, 식약처 의료기기 신고 제품인지\". 자동 선택은 노즈큐어가 잡힘 — 상품 ID 928995156346304(JMC 코세척기 300ml, 스마트스토어 4995080223)로 지정"
   },
   "요거트": {
     "checked_at": "2026-09-19 16:58",
@@ -12057,5 +12061,28 @@
     "account": "health",
     "checked_at": "2026-10-19 04:35",
     "pinned_criteria": "둥근 산(아치) 모양 — 무릎을 걸치면 엉덩이·무릎이 굽혀지는 것(근골격_30 대본). 경사형(다리가 펴진 채 올라감)으로 자동 교체 금지. 자동 선택은 리뷰 순이라 잠스쿨(곡선 경사형)이 잡힘 — 상품 ID 907154741551072로 지정"
+  },
+  "SLS 무첨가 치약": {
+    "checked_at": "2026-10-23 07:15",
+    "found": true,
+    "status": "있음",
+    "chosen": {
+      "id": 805565746700993,
+      "name": "베르단테 고불소 잇몸치약 1450불소 구취 천연 임산부 100g, 6개",
+      "store": "베르단테",
+      "price": 39900,
+      "commission": 5.0,
+      "reviews": 2592,
+      "rating": 4.82,
+      "url": "https://smartstore.naver.com/main/products/10543188573",
+      "link": "https://naver.me/xgXrPs2a"
+    },
+    "hits": null,
+    "domain": "health",
+    "sample": null,
+    "link": "https://naver.me/xgXrPs2a",
+    "link_saved": true,
+    "account": "health",
+    "pinned_criteria": "라우릴황산나트륨(SLS) 무첨가 + 불소 함유(1,450ppm) 치약 — 입_27 구내염 대본 \"성분표에 이 이름이 없는지 보고, 충치를 막는 불소는 들어 있는지\". 무불소 SLS-free 치약(제로치약·덴티헬시·그란츠·쉼표365 등)으로 자동 교체 금지. 브랜드커넥트 'SLS 무첨가 치약' 검색엔 이 상품이 안 잡힘 — 상품 ID 805565746700993(베르단테, 스마트스토어 10543188573, 상세 전성분·불소 1,450ppm 확인)으로 지정. 링크는 '잇몸치약' 키와 같은 상품의 같은 발급 링크"
   }
 }

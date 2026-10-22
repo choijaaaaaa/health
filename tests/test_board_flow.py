@@ -46,3 +46,15 @@ def test_missing_summary_row_flagged(tmp_path, monkeypatch):
     tl.append({"from": "그러니 결과지를", "item": "x", "mech": "m", "act": None})
     (tmp_path / "xray.json").write_text(json.dumps({"summary_from": "그러니 결과지를", "timeline": tl}), encoding="utf-8")
     assert not any("결론 칸" in x["issue"] for x in cr.check_board_flow("t"))
+
+
+def test_reasoned_accepts_concessive_condition():
+    # "~어도"(생겨도 진료받으세요)도 조건 — 이유 없는 지시로 잡으면 안 된다(10-23 코_24)
+    from lib.content_review import _REASONED
+    assert _REASONED.search("코를 씻은 뒤 열이나 코피, 두통이 생겨도 진료받으세요.")
+    assert not _REASONED.search("물을 많이 드세요.")
+
+
+def test_connectives_count_ireol_ttae():
+    from lib.content_review import _CONNECTIVES
+    assert len(_CONNECTIVES.findall("구내염이에요? 이럴 때 평소 치약으로 닦아요.")) == 1

@@ -1,0 +1,174 @@
+{
+ "requests": [
+  {
+   "name": "act_brush_teeth_foam_sting",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "입_27 도입부 전체 화면 통째(훅 '구내염, 볼 안쪽이 하얗게 패여서 칫솔만 닿아도 따끔하신가요?' 0.32~3.53초 + 통념 반박 '이럴 때 평소 쓰던 치약으로 그냥 닦는 분이 많은데요. 그 치약의 거품이 헌 곳을 더디게 낫게 할 수 있어요' 4.13~10.39초, negations 빨간 X가 '더디게 낫게'(7.36초 ≈ 클립 5.5초)에 이 장면 위로 뜬다) + 3칸 왼쪽('연세대 … 이 성분이 든 치약과 뺀 치약을 8주씩 번갈아', 2~6초 구간 = 거품 가득한 쪽). 가슴 위 흉상 3/4 옆모습 사람이 칫솔로 어금니 쪽을 닦다가 칫솔이 볼 쪽에 닿는 순간 볼 안쪽 작은 한 점이 호박색으로 따끔하게 켜지며 어깨가 움찔 → 그래도 하얀 거품이 입안 가득 부풀어 그 점을 덮은 채 계속 닦고 → 거품에 덮인 점은 끝까지 켜진 채 깜빡인다(더디게 낫는 쪽). 🚨 점등은 볼 안쪽 작은 한 점뿐 — 눈·얼굴 전체 점등 없음, 카메라는 가슴 위 거리 고정(얼굴로 밀고 들어가지 않음, 10-06 반려 사례). NHS 'do not use toothpaste containing sodium lauryl sulphate' / 'damaging your gums with a toothbrush or irritating toothpaste'. 범용으로 — 양치, 거품 많은 치약, 칫솔에 입안이 따가움, 구내염·잇몸 통증 편.",
+   "fits": [
+    "양치",
+    "이를 닦음",
+    "칫솔질",
+    "거품 많은 치약",
+    "평소 치약",
+    "칫솔이 닿아 따끔",
+    "구내염",
+    "입안이 헐음",
+    "볼 안쪽 상처",
+    "입안이 따가움"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_hold_cheek",
+     "why_not": "전신에서 뺨을 감싸 쥐다 두개골 클로즈업으로 밀고 들어가 턱 전체가 켜짐 — 양치·거품이 없고 얼굴 줌 금지(10-06)에 걸림"
+    },
+    {
+     "id": "act_toddler_brush_teeth",
+     "why_not": "보호자가 두 살 아이 앞니를 닦아 줌 — 성인 본인 양치가 아니고 거품·따끔함이 없음"
+    },
+    {
+     "id": "m_soft_brush_glide",
+     "why_not": "치아 단면 잇몸선을 칫솔이 쓰는 기전 장면(사람 없음), 중반부터 불투명 실사풍 — 볼 안쪽이 따끔한 사람이 안 보임"
+    },
+    {
+     "id": "m_hard_brush_wears_enamel",
+     "why_not": "뻣뻣한 칫솔이 치아 겉을 깎는 마모 기전 — 거품·볼 안쪽 상처가 아님"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up bust of the figure in three-quarter side view, the camera at chest distance, the right hand raised holding a plain toothbrush with its head inside the mouth against the back teeth on the near side, the elbow bent, the skull, jaw and rows of teeth faintly visible through the glass head, the soft lining of the inner cheek faintly visible beside the teeth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, toothpaste tube, brand marks, other people, duplicated limbs, extra arms, extra fingers, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter framing from the first frame to the last — it never pushes in or zooms toward the face. 0-2s: from the very first frame the hand brushes the back teeth with small strokes, and as the brush head sweeps against the inner cheek one small spot on the inner cheek lining flares amber and the shoulders flinch sharply once. 2-5s: the figure keeps brushing anyway and thick white foam swells up and fills the mouth, spreading over the inner cheek and covering the amber spot. 5-8s: the brushing slows but goes on; under the white foam the small amber spot keeps glowing and pulses gently, still lit in the very last frame. Only that one small spot on the inner cheek glows amber; the eyes, face, teeth and the rest of the head stay soft pale cyan. Exactly two arms and five fingers on each hand; the face stays smooth and featureless; the foam stays inside the mouth. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with quick toothbrush scrubbing and a short sharp intake of breath at the flinch, no music, no dialogue."
+  },
+  {
+   "name": "act_brush_teeth_low_foam",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "입_27 3칸 오른쪽('… 이 성분이 든 치약과 뺀 치약을 8주씩 번갈아', 25.14~32.39초 — 왼쪽 거품 가득 act_brush_teeth_foam_sting과 나란히 = 뺀 치약 쪽) + 5칸 제품 작동 칸 왼쪽('그러니 입안이 헐었다면 치약부터 라우릴황산나트륨을 뺀 것으로 바꿔 보세요', 38.80~42.51초). 🚨 act_brush_teeth_foam_sting과 같은 시작 스틸 — 같은 사람이 같은 자세로 칫솔질하는데 거품이 거의 안 나고(입가에 얇은 거품 몇 방울만) 볼 안쪽 작은 점은 처음에 옅은 호박색이다가 살살 닦는 동안 점점 잦아들어 끝엔 차분한 청록. 어깨가 편안하고 움찔하지 않는다. ⚠️ 근거는 '더 빨리 낫고 덜 아팠다'까지 — 점이 순식간에 사라지는 그림은 과장, 서서히 옅어지기만. 🚨 카메라 가슴 위 고정, 점등은 볼 안쪽 한 점뿐. 범용으로 — 순한 치약, 거품 적은 치약, 살살 양치, 저자극 양치 편.",
+   "fits": [
+    "거품 적은 치약",
+    "SLS 무첨가 치약",
+    "순한 치약",
+    "치약을 바꿈",
+    "살살 양치",
+    "저자극 양치",
+    "구내염 양치",
+    "편하게 이를 닦음"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_brush_teeth_foam_sting",
+     "why_not": "같은 편 새 요청 — 거품이 가득하고 움찔하는 '평소 치약' 쪽이라 뺀 치약과 반대로 읽힌다"
+    },
+    {
+     "id": "m_soft_brush_glide",
+     "why_not": "치아 단면 기전(사람 없음), 중반 실사풍 — 사람이 거품 적게 편히 닦는 장면이 아님"
+    },
+    {
+     "id": "act_toddler_brush_teeth",
+     "why_not": "보호자가 아이 앞니를 닦아 줌 — 성인 본인 양치가 아님"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up bust of the figure in three-quarter side view, the camera at chest distance, the right hand raised holding a plain toothbrush with its head inside the mouth against the back teeth on the near side, the elbow bent, the skull, jaw and rows of teeth faintly visible through the glass head, the soft lining of the inner cheek faintly visible beside the teeth. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, toothpaste tube, brand marks, other people, duplicated limbs, extra arms, extra fingers, glowing eyes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up three-quarter framing from the first frame to the last — it never pushes in or zooms toward the face. 0-2s: from the very first frame the hand brushes the back teeth with slow gentle strokes, only a thin trace of white foam at the corner of the mouth and almost no foam inside, while one small spot on the inner cheek lining glows a faint amber. 2-6s: the figure keeps brushing calmly with relaxed shoulders, never flinching, and the faint amber spot slowly softens and fades little by little until it is calm soft pale cyan in the very last frame. The foam never swells up or fills the mouth. Only that one small spot glows; the eyes, face, teeth and the rest of the head stay soft pale cyan. Exactly two arms and five fingers on each hand; the face stays smooth and featureless. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. The audio is a low synth hum with soft slow toothbrush strokes, calm and quiet, no music, no dialogue."
+  },
+  {
+   "name": "m_foam_strips_mouth_film",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "입_27 1칸 기전 단독('거품을 내는 성분, 라우릴황산나트륨 때문이에요. 치약에 가장 흔히 넣는, 때를 씻어 내는 성분인데요', 11.23~17.73초 — 다음 칸 m_mucus_coating_thin '보호막까지 벗겨 냄 → 헌 곳이 드러남'으로 이어진다). 볼 안쪽 점막 단면: 표면을 얇고 매끈한 반짝이는 막이 덮고 그 위에 호박색 때 알갱이가 흩어져 있다 → 하얀 거품 방울이 몰려와 때 알갱이를 감싸 쓸어 가고 → 거품이 쓸고 간 자리에서 얇은 막까지 같이 들려 벗겨져 흩어지고, 막 아래 작고 얕게 패인 하얀 홈(헌 곳)이 드러나 가장자리가 호박색으로 켜진다. Healy 1999 'the most commonly used detergent in dentifrices', Herlofson 1994 'denaturing effect of SLS on the oral mucin layer, with exposure of the underlying epithelium' — 가설이라 대본도 '봐요'. 범용으로 — 계면활성제, 세정제 거품, 점막 보호막 손상, 거품이 때를 씻어 냄 편.",
+   "fits": [
+    "라우릴황산나트륨",
+    "계면활성제",
+    "치약 거품",
+    "거품이 때를 씻어 냄",
+    "점막 보호막이 벗겨짐",
+    "구내염 원인",
+    "세정제 자극",
+    "입안 점막"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_mucus_coating_thin",
+     "why_not": "같은 편 다음 칸(보호막이 얇아져 세포가 드러남)에 씀 — 거품·세정 성분이 안 보이고 위벽 세포에 산이 떨어지는 장면"
+    },
+    {
+     "id": "m_skin_ph_alkaline_shift",
+     "why_not": "털 뿌리가 있는 피부 단면에 비누 거품 + 물줄기, 1초 뒤 불투명 민트 벽돌 화풍 — 입안 점막이 아니고 화풍이 깨짐"
+    },
+    {
+     "id": "m_mild_acid_wash_barrier_intact",
+     "why_not": "피부 단면 거품 세정 후 층이 그대로(반대 결론), 끝 2초 불투명 화풍"
+    },
+    {
+     "id": "m_virus_rinse_off_skin",
+     "why_not": "피부 위 바이러스를 거품·물줄기가 쓸어 감, 0.5초 뒤 불투명 민트 — 보호막이 벗겨지는 장면이 아님"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A soft wavy lining of the inner cheek fills the lower two thirds of the frame in side cross-section, rows of rounded cells stacked in layers, the top surface sealed by one thin smooth glossy transparent film that follows every curve. Small loose amber specks of grime are scattered on top of the film. In the centre, under the film, the surface dips into one small shallow pale crater. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, teeth, tongue, red, blood, bacteria, toothbrush",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the centre of the lining. 0-2s: from the very first frame a crowd of small white foam bubbles rolls in from the left across the glossy film, wrapping around the amber grime specks and sweeping them away to the right. 2-4s: where the bubbles pass, the thin glossy film itself lifts off the surface in torn flakes and is carried away with the foam, leaving the cells bare. 4-6s: the bubbles drift out of the frame and the small shallow pale crater in the centre now lies fully exposed with no film over it, its rim glowing amber and staying lit until the very last frame. No human figure, no face, no teeth anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft fizzing of bubbles and a faint peeling sound, no music, no dialogue."
+  },
+  {
+   "name": "m_mouth_ulcer_heal",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "입_27 4칸 기전 단독('뺀 치약을 쓴 동안 구내염이 덜 생기지는 않았지만, 생긴 곳은 더 빨리 낫고 덜 아팠어요', 33.24~38.03초) + 7칸 기전 단독('구내염이 자주 나는 분이라면 평소 치약으로 아예 바꿔 두는 게 좋아요', 51.09~54.48초). 🚨 m_lowfoam_film_stays와 같은 시작 스틸 — 볼 안쪽 점막 단면 가운데 얕게 패인 하얀 홈(헌 곳), 둘레가 호박색으로 욱신거림 → 홈 가장자리에서 새 세포가 한 줄씩 차올라 홈이 점점 얕아지고 → 호박색이 잦아들며 끝엔 거의 평평하고 차분한 청록(살짝 옅은 흔적만). Shim 2012 'Only duration of ulcers and mean pain score was significantly decreased during the period using SLS-free'. ⚠️ 근거는 '더 빨리·덜 아프게'까지 — 순식간에 사라지는 그림은 과장, 서서히. 범용으로 — 구내염이 아묾, 입안 상처 회복, 점막 재생, 통증이 잦아듦 편.",
+   "fits": [
+    "구내염이 나음",
+    "헌 곳이 아묾",
+    "입안 상처 회복",
+    "점막 재생",
+    "통증이 잦아듦",
+    "상처가 차오름",
+    "빨리 낫는다",
+    "궤양이 아묾"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_immune_decline",
+     "why_not": "면역세포가 줄고 세균이 밀려오는 장면 — 상처가 '안' 아무는 반대 의미"
+    },
+    {
+     "id": "m_cream_lid_seal",
+     "why_not": "갈라진 피부 블록 위를 크림이 덮어 막을 만듦 — 입안 점막이 아니고 바르는 제품 장면"
+    },
+    {
+     "id": "m_tissue_tear",
+     "why_not": "세포층이 V자로 갈라지는 손상 장면 — 아무는 쪽이 아니라 찢어지는 쪽"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A soft wavy lining of the inner cheek fills the lower two thirds of the frame in side cross-section, rows of rounded cells stacked in layers. In the centre the surface dips into one small shallow round crater with a pale whitish base, a few cells missing at its floor, the rim of the crater raised slightly. A thin smooth glossy transparent film covers the lining on both sides of the crater and its torn edge stops at the crater rim. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, teeth, tongue, red, blood, bacteria, toothbrush",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the crater. 0-2s: from the very first frame the rim and the pale floor of the small crater glow amber and throb gently. 2-4s: new rounded cells bud up from the edges of the crater one row at a time, the crater slowly growing shallower and narrower, the amber glow softening. 4-6s: the crater fills in until the surface is almost level, only a faint shallow trace left, and the amber fades little by little to calm soft pale cyan by the very last frame. The change is gradual, never a sudden flash. No human figure, no face, no teeth anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum easing into a soft calm tone, no music, no dialogue."
+  },
+  {
+   "name": "m_lowfoam_film_stays",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "입_27 5칸 제품 작동 칸 오른쪽('그러니 입안이 헐었다면 치약부터 라우릴황산나트륨을 뺀 것으로 바꿔 보세요', 38.80~42.51초, 왼쪽 act_brush_teeth_low_foam). 🚨 m_mouth_ulcer_heal과 같은 시작 스틸 — 같은 헌 곳 단면 위로 작고 부드러운 거품 몇 방울만 천천히 굴러 지나가는데, 얇은 반짝이는 보호막은 들리지 않고 그대로 남아 헌 곳 가장자리까지 덮어 오고 → 막 아래에서 호박색이 조금씩 잦아든다. m_foam_strips_mouth_film(거품이 막을 벗겨 냄)의 짝 — 같은 세포·같은 막이 이번엔 남아 있는 게 핵심. ⚠️ 근거(Shim 2012)는 '더 빨리 낫고 덜 아팠다'까지 — 헌 곳이 완전히 사라지는 그림은 넣지 않고 막이 남고 호박색이 옅어지는 데서 멈춘다. 범용으로 — SLS 무첨가 치약 원리, 순한 세정, 점막 보호막 유지, 제품 작용 편.",
+   "fits": [
+    "SLS 무첨가 치약",
+    "거품 적은 치약 원리",
+    "보호막이 남음",
+    "점막 보호",
+    "순한 세정",
+    "제품 작용",
+    "구내염 치약",
+    "자극이 줄어듦"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_mild_acid_wash_barrier_intact",
+     "why_not": "털 뿌리가 있는 피부 단면에 거품·물줄기, 끝 2초 불투명 민트 화풍 — 입안 점막·헌 곳이 안 보임"
+    },
+    {
+     "id": "m_mucus_barrier",
+     "why_not": "점액이 덮기 전 가운데 구간에 막이 뚫리고 호박색 줄기가 터져 나오는 장면이 끼어 있어 '손상'으로 읽힘(프레임 확인)"
+    },
+    {
+     "id": "m_mucus_coating_thin",
+     "why_not": "코팅이 얇아져 세포가 드러남 — 막이 남는 쪽과 반대(같은 편 2칸에 씀)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up side cross-section of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A soft wavy lining of the inner cheek fills the lower two thirds of the frame in side cross-section, rows of rounded cells stacked in layers. In the centre the surface dips into one small shallow round crater with a pale whitish base, a few cells missing at its floor, the rim of the crater raised slightly. A thin smooth glossy transparent film covers the lining on both sides of the crater and its torn edge stops at the crater rim. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, face, teeth, tongue, red, blood, bacteria, toothbrush",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the crater. 0-2s: from the very first frame the crater rim glows amber, and only a few small soft white foam bubbles drift slowly in from the left and roll gently over the glossy film. 2-4s: the bubbles pass over and away to the right; the thin glossy film is not lifted or torn anywhere, it stays smooth and whole, and its edge slowly creeps in over the crater rim like a thin clear veil. 4-6s: under the veil the amber glow at the crater softens and dims little by little, still faintly warm in the very last frame, the film resting intact over the whole lining. No human figure, no face, no teeth anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a few soft bubble pops and a calm settling tone, no music, no dialogue."
+  }
+ ]
+}
