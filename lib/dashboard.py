@@ -1266,7 +1266,7 @@ def _update_topics_index(out_path: str):
                 # "영상 있는 게 뭔지 모르겠다"는 문제가 된다(실측: 네이버 클립
                 # 캡션 152건 중 실제 mp4는 108편뿐). 캡션이 아니라 파일을 본다.
                 # 반투명 인체 포맷 완성본은 shorts_xray_test.mp4, 언어별 topic(소화_1/ko)은 바탕 폴더에 있다
-                if any((output_root / d / f).exists() for d in (rel, rel.split("/")[0])
+                if any((output_root / d / f).exists() for d in (rel, Path(rel.parts[0]))
                        for f in ("shorts.mp4", "shorts_xray_test.mp4")):
                     tracks.append("shorts")
             except (json.JSONDecodeError, OSError):
