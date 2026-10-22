@@ -62,11 +62,13 @@
   },
   {
     "topic": "계절질환_4",
-    "title": "계절질환_4",
+    "title": "열경련, 근육 피로가 아니라 전해질 부족 때문일 수 있어요 - 예방 습관 3가지",
     "url": "output/%EA%B3%84%EC%A0%88%EC%A7%88%ED%99%98_4/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "계절질환_5",
@@ -428,11 +430,13 @@
   },
   {
     "topic": "귀_7",
-    "title": "귀_7",
+    "title": "이관개방증, 혹시 내 목소리가 유독 크게 울려 들리시나요? - 체중감소와 관리 습관",
     "url": "output/%EA%B7%80_7/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "귀_8",
@@ -496,11 +500,13 @@
   },
   {
     "topic": "근골격_13",
-    "title": "근골격_13",
+    "title": "반월상연골파열, 무릎 걸리는 느낌 혹시 방치 중이신가요? - 무릎 지키는 관리법",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_13/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "근골격_14",
@@ -525,12 +531,13 @@
   },
   {
     "topic": "근골격_16",
-    "title": "족저근막염, 아침 첫걸음 발뒤꿈치 찌릿하다면 - 예방하는 신발 습관 3가지",
+    "title": "족저근막염, 발 편하라고 신은 플랫슈즈가 아침 첫발 통증을 키워요",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_16/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_16/%EA%B7%BC%EA%B3%A8%EA%B2%A9_16_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
+    "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -575,12 +582,13 @@
   },
   {
     "topic": "근골격_20",
-    "title": "손목터널증후군, 살면서 10명 중 1명은 겪는다는 - 밤에 더 저린 손 편해지는 습관",
+    "title": "손목터널증후군, 손 저림을 혈액순환 탓으로 넘기면 치료가 늦어져요",
     "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_20/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_20/%EA%B7%BC%EA%B3%A8%EA%B2%A9_20_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
+    "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -629,6 +637,28 @@
     "ad_tag": false,
     "tracks": [
       "card_news"
+    ]
+  },
+  {
+    "topic": "근골격_30",
+    "title": "허리디스크, 다리까지 저려 수술부터 걱정된다면, 다리베개",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_30/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_30/%EA%B7%BC%EA%B3%A8%EA%B2%A9_30_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "근골격_35",
+    "title": "무릎통증, 계단에서 시큰해 덜 걷고 있다면, 탄력밴드",
+    "url": "output/%EA%B7%BC%EA%B3%A8%EA%B2%A9_35/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EA%B7%BC%EA%B3%A8%EA%B2%A9_35/%EA%B7%BC%EA%B3%A8%EA%B2%A9_35_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -749,6 +779,17 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%83%84%EC%83%88_14/%EB%83%84%EC%83%88_14_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": []
+  },
+  {
+    "topic": "냄새_15",
+    "title": "겨드랑이 냄새, 씻어도 오후면 다시 나는 이유, 데오드란트 스틱",
+    "url": "output/%EB%83%84%EC%83%88_15/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%83%84%EC%83%88_15/%EB%83%84%EC%83%88_15_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
   },
   {
     "topic": "냄새_2/ko",
@@ -1023,6 +1064,17 @@
     ]
   },
   {
+    "topic": "눈_30",
+    "title": "다래끼, 눈꺼풀이 욱신거려 짜고 싶다면, 온열안대",
+    "url": "output/%EB%88%88_30/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%88%88_30/%EB%88%88_30_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "눈_4",
     "title": "다래끼, 자꾸 나거나 낫는 데 오래 걸린다면 - 재발 줄이는 습관 3가지",
     "url": "output/%EB%88%88_4/dashboard.html",
@@ -1229,11 +1281,47 @@
   },
   {
     "topic": "대사_22",
-    "title": "대사_22",
+    "title": "갑상선기능저하증, 약을 평생 먹어야 하는지부터 검사 준비까지",
     "url": "output/%EB%8C%80%EC%82%AC_22/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%8C%80%EC%82%AC_22/%EB%8C%80%EC%82%AC_22_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
-    "tracks": []
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_23",
+    "title": "마운자로 요요, 끊으면 다시 찌는 이유 - 식욕 근육 혈당",
+    "url": "output/%EB%8C%80%EC%82%AC_23/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%8C%80%EC%82%AC_23/%EB%8C%80%EC%82%AC_23_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_24",
+    "title": "당뇨 초기증상, 목마름과 잦은 소변을 기다리면 이미 늦어요",
+    "url": "output/%EB%8C%80%EC%82%AC_24/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%8C%80%EC%82%AC_24/%EB%8C%80%EC%82%AC_24_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "대사_28",
+    "title": "고지혈증, 기름진 음식만 줄이고 있다면 - 수치를 끌어내리는 아침 한 그릇",
+    "url": "output/%EB%8C%80%EC%82%AC_28/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%8C%80%EC%82%AC_28/%EB%8C%80%EC%82%AC_28_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
   },
   {
     "topic": "대사_3",
@@ -1288,19 +1376,23 @@
   },
   {
     "topic": "대사_8",
-    "title": "대사_8",
+    "title": "다이어트 정체기, 10명 중 8명이 겪는다는데 혹시 나도? - 정체기 뚫는 습관",
     "url": "output/%EB%8C%80%EC%82%AC_8/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "대사_9",
-    "title": "대사_9",
+    "title": "당뇨병성 말초신경병증, 10년 앓으면 2명 중 1명이 겪는다는데 - 신경 손상 늦추는 습관",
     "url": "output/%EB%8C%80%EC%82%AC_9/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "머리_1/ko",
@@ -1314,11 +1406,13 @@
   },
   {
     "topic": "머리_10",
-    "title": "머리_10",
+    "title": "두피 모낭염, 뾰루지 나고 만지면 아프다면 - 재발 줄이는 관리 습관 3가지",
     "url": "output/%EB%A8%B8%EB%A6%AC_10/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "머리_11",
@@ -1377,7 +1471,7 @@
     "title": "탈모, 다이어트 주사 맞고 나서 머리숱이 줄어들고 있다면 - GLP-1 탈모 회복법",
     "url": "output/%EB%A8%B8%EB%A6%AC_16/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%A8%B8%EB%A6%AC_16/%EB%A8%B8%EB%A6%AC_16_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": true,
+    "ad_tag": false,
     "tracks": [
       "card_news",
       "shorts"
@@ -1391,6 +1485,28 @@
     "ad_tag": false,
     "tracks": [
       "card_news"
+    ]
+  },
+  {
+    "topic": "머리_21",
+    "title": "비듬, 덜 감으면 더 느는 이유와 거품 두는 시간, 징크피리치온 샴푸",
+    "url": "output/%EB%A8%B8%EB%A6%AC_21/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%A8%B8%EB%A6%AC_21/%EB%A8%B8%EB%A6%AC_21_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "머리_22",
+    "title": "정수리 냄새, 젖은 채 자면 생기는 이유와 두피 말리는 법, 헤어드라이기",
+    "url": "output/%EB%A8%B8%EB%A6%AC_22/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%A8%B8%EB%A6%AC_22/%EB%A8%B8%EB%A6%AC_22_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1681,6 +1797,17 @@
     ]
   },
   {
+    "topic": "비뇨기_21",
+    "title": "요로결석, 옆구리가 끊어질 듯 아파 우유부터 끊었다면 - 재발을 가르는 세 가지 습관",
+    "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_21/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EB%B9%84%EB%87%A8%EA%B8%B0_21/%EB%B9%84%EB%87%A8%EA%B8%B0_21_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "비뇨기_3",
     "title": "자다가 소변 때문에 자주 깨는 사람, 40대 이상에서 꽤 많이 겪는다는데 - 전립선 편하게 하는 음식 피하는 법",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_3/dashboard.html",
@@ -1743,11 +1870,13 @@
   },
   {
     "topic": "비뇨기_9",
-    "title": "비뇨기_9",
+    "title": "야간뇨, 자다가 소변 때문에 깬다면 지금 확인하세요 - 전립선 말고도 있는 원인 3가지",
     "url": "output/%EB%B9%84%EB%87%A8%EA%B8%B0_9/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "소화_1/ko",
@@ -1756,7 +1885,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_1/%EA%B0%80%EC%8A%B4%EC%93%B0%EB%A6%BC_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": false,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1814,19 +1944,23 @@
   },
   {
     "topic": "소화_15",
-    "title": "소화_15",
+    "title": "게실염, 혹시 왼쪽 아랫배가 콕콕 쑤시지 않나요 - 게실염 위험 낮추는 습관 3가지",
     "url": "output/%EC%86%8C%ED%99%94_15/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "소화_16",
-    "title": "소화_16",
+    "title": "위하수, 마른 체형이라 그러려니 했던 더부룩함 - 위 처짐 줄이는 습관 3가지",
     "url": "output/%EC%86%8C%ED%99%94_16/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "소화_17",
@@ -1879,7 +2013,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_20/%EC%86%8C%ED%99%94_20_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1889,7 +2024,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_21/%EC%86%8C%ED%99%94_21_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1917,7 +2053,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_24/%EC%86%8C%ED%99%94_24_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -1983,6 +2120,17 @@
     ]
   },
   {
+    "topic": "소화_31",
+    "title": "마운자로 변비, 몇 주째 안 풀릴 때 - 섬유 물 활동과 장폐색 신호",
+    "url": "output/%EC%86%8C%ED%99%94_31/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_31/%EC%86%8C%ED%99%94_31_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "소화_4",
     "title": "점심만 먹으면 쏟아지는 졸음 주목! - 식곤증 부르는 음식 피하는 법",
     "url": "output/%EC%86%8C%ED%99%94_4/dashboard.html",
@@ -2014,7 +2162,7 @@
   },
   {
     "topic": "소화_7",
-    "title": "화장실에서 볼일 볼 때마다 항문이 따갑고 화장지에 피가 묻어나온다면 - 치질 키우는 음식 피하는 법",
+    "title": "치질, 힘을 세게 준 적도 없는데 왜 생겼을까요 - 변기에 앉는 시간 줄이는 법",
     "url": "output/%EC%86%8C%ED%99%94_7/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_7/%EC%86%8C%ED%99%94_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
@@ -2040,7 +2188,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%8C%ED%99%94_9/%EC%86%8C%ED%99%94_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2187,6 +2336,28 @@
     ]
   },
   {
+    "topic": "손발_23",
+    "title": "손톱 갈라짐, 물에 자주 닿을수록 더 갈라지는 이유와 보습법, 큐티클 오일",
+    "url": "output/%EC%86%90%EB%B0%9C_23/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%90%EB%B0%9C_23/%EC%86%90%EB%B0%9C_23_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "손발_24",
+    "title": "발뒤꿈치 각질, 깎아도 다시 생기는 이유와 부드럽게 푸는 법, 우레아 풋크림",
+    "url": "output/%EC%86%90%EB%B0%9C_24/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%90%EB%B0%9C_24/%EC%86%90%EB%B0%9C_24_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "손발_3",
     "title": "손목터널증후군, 손목 저림 심해지기 전에 확인하세요 - 손목 지키는 습관",
     "url": "output/%EC%86%90%EB%B0%9C_3/dashboard.html",
@@ -2249,11 +2420,13 @@
   },
   {
     "topic": "손발_9",
-    "title": "손발_9",
+    "title": "내성발톱, 발톱이 살을 파고들어 빨갛게 붓기 시작했다면 지금 확인하세요 - 발톱 깎는 법",
     "url": "output/%EC%86%90%EB%B0%9C_9/dashboard.html",
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%86%90%EB%B0%9C_9/%EC%86%90%EB%B0%9C_9_00_%ED%91%9C%EC%A7%80.jpg",
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "수면_1/ko",
@@ -2359,6 +2532,17 @@
     "ad_tag": true,
     "tracks": [
       "card_news"
+    ]
+  },
+  {
+    "topic": "수면_21",
+    "title": "멜라토닌, 먹어도 잠이 안 올 때 - 몸이 만드는 멜라토닌 지키기",
+    "url": "output/%EC%88%98%EB%A9%B4_21/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%88%98%EB%A9%B4_21/%EC%88%98%EB%A9%B4_21_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -2567,6 +2751,17 @@
     ]
   },
   {
+    "topic": "순환_23",
+    "title": "공황장애, 응급실 검사가 다 정상인데 또 심장이 뛴다면 - 숨 길게 내쉬는 법",
+    "url": "output/%EC%88%9C%ED%99%98_23/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%88%9C%ED%99%98_23/%EC%88%9C%ED%99%98_23_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "순환_3",
     "title": "하지정맥류, 반신욕과 짠 국물이 키웁니다 - 다리 부기 줄이는 관리 3가지",
     "url": "output/%EC%88%9C%ED%99%98_3/dashboard.html",
@@ -2630,11 +2825,13 @@
   },
   {
     "topic": "순환_9",
-    "title": "순환_9",
+    "title": "심계항진, 갑자기 심장이 쿵쾅대거나 건너뛴다면 이제 그만 - 두근거림 줄이는 습관 3가지",
     "url": "output/%EC%88%9C%ED%99%98_9/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "어지럼증_1/ko",
@@ -2706,6 +2903,17 @@
     ]
   },
   {
+    "topic": "어지럼증_16",
+    "title": "이석증 증상, 고개 돌릴 때만 핑 도는 어지럼 - 정복술과 응급 신호",
+    "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_16/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_16/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_16_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": false,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "어지럼증_2",
     "title": "차만 타면 머리가 핑 돌고 식은땀까지 난다면 - 멀미를 악화시키는 음식·식습관 3가지",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_2/dashboard.html",
@@ -2768,11 +2976,13 @@
   },
   {
     "topic": "어지럼증_8",
-    "title": "어지럼증_8",
+    "title": "경추성 어지럼증, 이석증 검사는 정상인데 귀가 아니라 목 때문이에요 - 목 어지럼증 완화법",
     "url": "output/%EC%96%B4%EC%A7%80%EB%9F%BC%EC%A6%9D_8/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "어지럼증_9",
@@ -2993,11 +3203,13 @@
   },
   {
     "topic": "여성_9",
-    "title": "여성_9",
+    "title": "조기폐경, 단순 생리불순이 아니라 - 난소 기능 저하 확인법",
     "url": "output/%EC%97%AC%EC%84%B1_9/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "육아_1",
@@ -3006,7 +3218,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_1/%EC%9C%A1%EC%95%84_1_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3016,7 +3229,74 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_10/%EC%9C%A1%EC%95%84_10_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_12",
+    "title": "신생아 태열, 식히기보다 보습이 먼저인 이유와 바르는 법, 아기 보습크림",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_12/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_12/%EC%9C%A1%EC%95%84_12_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_15",
+    "title": "아기 독감 예방접종, 처음 맞는 아이는 두 번 - 두 번 맞는 아이 확인법",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_15/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_15/%EC%9C%A1%EC%95%84_15_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_16",
+    "title": "성조숙증, 또래보다 빠른 키가 신호일 때 - 뼈 나이로 확인하는 법",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_16/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_16/%EC%9C%A1%EC%95%84_16_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_17",
+    "title": "아이 근시, 안경 쓰면 더 나빠질까 걱정될 때 - 근시 진행 늦추는 법",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_17/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_17/%EC%9C%A1%EC%95%84_17_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_18",
+    "title": "쪽쪽이, 버릇 걱정보다 먼저 알아 둘 잠잘 때 쓰는 법과 끊는 시기, 신생아 쪽쪽이",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_18/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_18/%EC%9C%A1%EC%95%84_18_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_19",
+    "title": "수면조끼, 이불 대신 입힐 때 알아 둘 고르는 법과 방 온도, 아기 수면조끼",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_19/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_19/%EC%9C%A1%EC%95%84_19_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3026,7 +3306,118 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_2/%EC%9C%A1%EC%95%84_2_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_20",
+    "title": "아기 비타민D, 모유 먹는 아기가 생후 며칠부터 챙길 하루 양, 아기 비타민D 드롭",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_20/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_20/%EC%9C%A1%EC%95%84_20_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_21",
+    "title": "아기 치약, 무불소로는 충치를 못 막는 이유와 짜는 양, 아기 불소 치약",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_21/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_21/%EC%9C%A1%EC%95%84_21_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_22",
+    "title": "이앓이, 젤 대신 깨물게 하는 이유와 치발기 고르는 기준, 실리콘 치발기",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_22/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_22/%EC%9C%A1%EC%95%84_22_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_23",
+    "title": "아기 코막힘, 두 살 전 감기약 대신 콧물 빼는 순서, 아기 콧물흡입기",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_23/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_23/%EC%9C%A1%EC%95%84_23_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_24",
+    "title": "아기 철분, 돌 지나 우유만 찾는 아이 철이 모자란 이유, 아기 철분제",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_24/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_24/%EC%9C%A1%EC%95%84_24_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_25",
+    "title": "신생아 머리 각질, 손톱으로 떼면 안 되는 이유와 불리는 법, 아기 두피 브러시",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_25/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_25/%EC%9C%A1%EC%95%84_25_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_26",
+    "title": "아기 아구창, 혀 하얀 것 우유 자국과 구별하는 법, 젖병 소독기",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_26/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_26/%EC%9C%A1%EC%95%84_26_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_27",
+    "title": "카시트 앞보기 언제, 발 닿아도 뒤보기인 이유, 회전형 카시트",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_27/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_27/%EC%9C%A1%EC%95%84_27_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_28",
+    "title": "아기띠, 다리가 쭉 늘어지면 고관절은 괜찮을까, 아기띠",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_28/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_28/%EC%9C%A1%EC%95%84_28_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_29",
+    "title": "노로바이러스, 손소독제로는 잘 안 지워지는 이유, 유아 손세정제",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_29/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_29/%EC%9C%A1%EC%95%84_29_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3036,7 +3427,96 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_3/%EC%9C%A1%EC%95%84_3_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_30",
+    "title": "신생아 수유량, 모유가 모자랄까 불안할 때 보는 법, 아기 체중계",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_30/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_30/%EC%9C%A1%EC%95%84_30_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_31",
+    "title": "아기욕조, 물 몇 센티에서도 소리 없이 빠져요, 아기 욕조",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_31/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_31/%EC%9C%A1%EC%95%84_31_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_32",
+    "title": "아기가습기 밤새 펑펑 틀면 곰팡이와 세균까지, 아기 가습기",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_32/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_32/%EC%9C%A1%EC%95%84_32_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_33",
+    "title": "아토피 아기 목욕, 비누로 뽀득하게 씻기면 보호막이 상해요, 아기 바디워시",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_33/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_33/%EC%9C%A1%EC%95%84_33_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_34",
+    "title": "백색소음기 머리맡에 크게 틀면 아기 귀엔 너무 커요, 아기 백색소음기",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_34/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_34/%EC%9C%A1%EC%95%84_34_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_35",
+    "title": "빨대컵 언제부터, 돌 지나 젖병 물고 자면 생기는 일, 아기 빨대컵",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_35/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_35/%EC%9C%A1%EC%95%84_35_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_36",
+    "title": "손싸개 계속 씌워도 될까, 얼굴 긁는 진짜 원인은 손톱, 아기 손톱가위",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_36/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_36/%EC%9C%A1%EC%95%84_36_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "육아_37",
+    "title": "안전문 어디에 둘까, 걸음마 아이 화상 절반은 주방에서, 안전문",
+    "url": "output/%EC%9C%A1%EC%95%84/%EC%9C%A1%EC%95%84_37/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_37/%EC%9C%A1%EC%95%84_37_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3046,7 +3526,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_4/%EC%9C%A1%EC%95%84_4_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3056,7 +3537,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_5/%EC%9C%A1%EC%95%84_5_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3066,7 +3548,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_6/%EC%9C%A1%EC%95%84_6_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3076,7 +3559,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_7/%EC%9C%A1%EC%95%84_7_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3086,7 +3570,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_8/%EC%9C%A1%EC%95%84_8_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3096,7 +3581,8 @@
     "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9C%A1%EC%95%84_9/%EC%9C%A1%EC%95%84_9_00_%ED%91%9C%EC%A7%80.jpg",
     "ad_tag": true,
     "tracks": [
-      "card_news"
+      "card_news",
+      "shorts"
     ]
   },
   {
@@ -3131,11 +3617,13 @@
   },
   {
     "topic": "입_12",
-    "title": "입_12",
+    "title": "사랑니, 혹시 어금니 안쪽이 욱신거리며 붓지 않나요? - 발치 여부 판단 기준",
     "url": "output/%EC%9E%85_12/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "입_13",
@@ -3228,6 +3716,28 @@
     ]
   },
   {
+    "topic": "입_21",
+    "title": "이시림, 세게 닦을수록 더 시린 이유, 시린이 치약",
+    "url": "output/%EC%9E%85_21/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9E%85_21/%EC%9E%85_21_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "입_22",
+    "title": "이갈이, 다짐으로 못 멈추는 이유와 이 지키는 법, 이갈이 마우스피스",
+    "url": "output/%EC%9E%85_22/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%EC%9E%85_22/%EC%9E%85_22_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "입_3",
     "title": "양치할 때 잇몸에서 피가 자주 난다면 주목! - 잇몸출혈 부르는 음식 피하는 법",
     "url": "output/%EC%9E%85_3/dashboard.html",
@@ -3310,11 +3820,13 @@
   },
   {
     "topic": "코_10",
-    "title": "코_10",
+    "title": "비용종, 코막힘과 후각저하가 계속된다면 지금 확인하세요 - 물혹 줄이는 습관 3가지",
     "url": "output/%EC%BD%94_10/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "코_11",
@@ -3627,11 +4139,13 @@
   },
   {
     "topic": "피부_12",
-    "title": "피부_12",
+    "title": "얼굴이 자꾸 붉어지고 화끈거린다면 - 여드름 아닌 주사 구별법과 관리 습관",
     "url": "output/%ED%94%BC%EB%B6%80_12/dashboard.html",
     "thumbnail": null,
-    "ad_tag": false,
-    "tracks": []
+    "ad_tag": true,
+    "tracks": [
+      "card_news"
+    ]
   },
   {
     "topic": "피부_13",
@@ -3744,6 +4258,28 @@
     ]
   },
   {
+    "topic": "피부_28",
+    "title": "레티놀 각질, 부작용으로 알고 끊기 전에 볼 바르는 법, 레티놀 크림",
+    "url": "output/%ED%94%BC%EB%B6%80_28/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_28/%ED%94%BC%EB%B6%80_28_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_29",
+    "title": "나이아신아마이드, 잡티가 그대로라면 농도보다 바른 기간부터, 나이아신아마이드 크림",
+    "url": "output/%ED%94%BC%EB%B6%80_29/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_29/%ED%94%BC%EB%B6%80_29_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
     "topic": "피부_3",
     "title": "식사만 하면 얼굴이며 등까지 땀이 비 오듯 쏟아지신다면 - 땀을 유독 많이 나게 하는 음식·음료",
     "url": "output/%ED%94%BC%EB%B6%80_3/dashboard.html",
@@ -3751,6 +4287,72 @@
     "ad_tag": false,
     "tracks": [
       "card_news"
+    ]
+  },
+  {
+    "topic": "피부_30",
+    "title": "선크림을 매일 발라도 기미가 짙어진다면 색부터 보세요, 틴티드 선크림",
+    "url": "output/%ED%94%BC%EB%B6%80_30/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_30/%ED%94%BC%EB%B6%80_30_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_31",
+    "title": "피부가려움증, 뜨거운 물과 때밀이가 가려움을 키우는 이유, 세라마이드 바디크림",
+    "url": "output/%ED%94%BC%EB%B6%80_31/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_31/%ED%94%BC%EB%B6%80_31_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_32",
+    "title": "블랙헤드, 코팩으로 뽑아도 다시 차는 이유와 세안법, 살리실산 클렌징폼",
+    "url": "output/%ED%94%BC%EB%B6%80_32/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_32/%ED%94%BC%EB%B6%80_32_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_33",
+    "title": "등드름, 샤워해도 계속 올라오는 이유와 샤워 순서, 살리실산 바디워시",
+    "url": "output/%ED%94%BC%EB%B6%80_33/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_33/%ED%94%BC%EB%B6%80_33_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_34",
+    "title": "목주름, 얼굴보다 목이 먼저 깊어지는 이유와 바르는 법, 선크림",
+    "url": "output/%ED%94%BC%EB%B6%80_34/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_34/%ED%94%BC%EB%B6%80_34_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
+    ]
+  },
+  {
+    "topic": "피부_35",
+    "title": "겨드랑이 착색, 닦을수록 짙어지는 이유와 벨벳 피부 신호, 겨드랑이 착색크림",
+    "url": "output/%ED%94%BC%EB%B6%80_35/dashboard.html",
+    "thumbnail": "https://img.vernhaven.com/health-shorts/card_news/%ED%94%BC%EB%B6%80_35/%ED%94%BC%EB%B6%80_35_00_%ED%91%9C%EC%A7%80.jpg",
+    "ad_tag": true,
+    "tracks": [
+      "card_news",
+      "shorts"
     ]
   },
   {
