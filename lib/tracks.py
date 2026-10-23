@@ -132,8 +132,11 @@ def topic_of_path(path: Path, base: Path) -> str | None:
 # 🚨 사람이 작업하는 자리는 저장소 안이 아니라 `ai-video-network/deploy/작업/` 한 단계에 모은다
 # (2026-09-25 사용자 "매번 폴더 막 들어가서 작업하기 존나 힘드니까 deploy 폴더 안에 … 프롬프트 넣을 md랑
 # 스틸 넣을 공간만"). 건강만사전·댕냥사전·세상만사전이 같은 자리에 `<브랜드>.md` + `<브랜드>_스틸/`로 나란히 선다.
-DEPLOY_WORK = ROOT.parent / "ai-video-network" / "deploy" / "작업"
-DEPLOY_ROOT = ROOT.parent / "ai-video-network" / "deploy"
+# worktree(~/Desktop/project/.worktrees/health-shorts/<설명>)에서 ROOT.parent를 쓰면 .worktrees 안에 가짜 deploy가 생겨
+# 시트·업로드 파일이 엉뚱한 데로 갔다(2026-10-23 두 번) — .worktrees 밖에서 ai-video-network가 있는 조상을 찾는다
+_PROJECT = next((p for p in ROOT.parents if ".worktrees" not in p.parts and (p / "ai-video-network").is_dir()), ROOT.parent)
+DEPLOY_WORK = _PROJECT / "ai-video-network" / "deploy" / "작업"
+DEPLOY_ROOT = _PROJECT / "ai-video-network" / "deploy"
 
 
 def deploy_dir(topic: str) -> Path:

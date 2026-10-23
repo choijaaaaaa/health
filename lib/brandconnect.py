@@ -47,7 +47,8 @@ SPACE_ID = json.loads((ROOT / "data" / "affiliate_accounts.json").read_text())["
 _ACCOUNTS = {
     "health": (PROFILE, PORT, SPACE_ID),
     "baby": (Path.home() / ".config" / "1biteinfo" / "brandconnect-chrome", 9335,
-             json.loads((ROOT.parent / "ai-video-network" / "1biteinfo" / "data" / "affiliate_accounts.json")
+             json.loads((next((p for p in ROOT.parents if ".worktrees" not in p.parts and (p / "ai-video-network").is_dir()), ROOT.parent)
+                         / "ai-video-network" / "1biteinfo" / "data" / "affiliate_accounts.json")
                         .read_text())["naver_brandconnect_id"]),
 }
 

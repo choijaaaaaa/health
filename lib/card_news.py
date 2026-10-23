@@ -820,7 +820,10 @@ def _sync_to_r2(out_dir: Path) -> None:
     try:
         import boto3
         from botocore.config import Config
-        env_path = Path(__file__).resolve().parent.parent.parent / "verticals" / ".env.r2"
+        # worktree에서도 메인 프로젝트의 verticals/를 찾는다(.worktrees 안을 보면 키가 없어 업로드가 실패했다, 10-23)
+        here = Path(__file__).resolve()
+        proj = next((p for p in here.parents if ".worktrees" not in p.parts and (p / "verticals").is_dir()), here.parent.parent.parent)
+        env_path = proj / "verticals" / ".env.r2"
         conf = dict(l.strip().split("=", 1) for l in env_path.read_text().splitlines()
                     if "=" in l and not l.strip().startswith("#"))
         d = Path(out_dir).resolve()

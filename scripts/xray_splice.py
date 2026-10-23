@@ -307,21 +307,37 @@ def _source_png(text: str, out: Path) -> Image.Image:
     return img
 
 
-def _source_track(topic, td, inputs, fc, cur, n, cues, opening_end):
-    """xray.json `sources` — 위험이 걸린 주장이 나오는 동안 출처를 작게 띄운다(lib.xray_timeline.sources WHY)."""
+def _summary_start(topic) -> float | None:
+    cfg = json.loads((tracks.data_dir(topic) / "xray.json").read_text(encoding="utf-8"))
+    if not cfg.get("summary_from"):
+        return None
+    from lib.xray_timeline import _cues, _time_of
+    return round((_time_of(cfg["summary_from"], _cues(topic)) + TITLE_CARD_SEC) * 30) / 30 - SUMMARY_XFADE
+
+
+def _source_track(topic, td, inputs, fc, cur, n, cues, opening_end, phase="body"):
+    """xray.json `sources` — 위험이 걸린 주장이 나오는 동안 출처를 작게 띄운다(lib.xray_timeline.sources WHY).
+
+    phase="body"는 결론 칠판 전, "summary"는 결론 칠판을 덮은 뒤에 부른다 — 결론 구간 출처를 칠판보다 먼저 얹으면
+    칠판이 통째로 덮어 화면에 안 나왔다(2026-10-23 입_27·육아_25 실측)."""
     from lib.xray_timeline import sources
+    sum_t = _summary_start(topic)
     for k, sr in enumerate(sources(topic, [(s, e, t) for s, e, t in cues])):
         t0 = round((sr["start"] + TITLE_CARD_SEC) * 30) / 30
         t1 = round((sr["end"] + TITLE_CARD_SEC) * 30) / 30
-        full = opening_end is not None and t0 < opening_end
+        in_summary = sum_t is not None and t0 >= sum_t
+        if in_summary != (phase == "summary"):
+            continue
+        full = in_summary or (opening_end is not None and t0 < opening_end)
         png = td / f"source_{k}.png"
         img = _source_png(sr["text"], png)
         cx = min(W // 2, 900 - img.width // 2)
         cy = SOURCE_Y_FULL if full else SOURCE_Y_PANEL
         inputs += ["-i", str(png)]
+        tag = f"src{phase[0]}{k}"
         fc.append(f"[{cur}][{n}:v]overlay=x={cx - img.width // 2}:y={cy - img.height // 2}:"
-                  f"enable='between(t,{t0:.3f},{t1:.3f})'[src{k}]")
-        cur, n = f"src{k}", n + 1
+                  f"enable='between(t,{t0:.3f},{t1:.3f})'[{tag}]")
+        cur, n = tag, n + 1
     return cur, n
 
 
@@ -582,6 +598,7 @@ def main() -> None:
         cur, n = _source_track(a.topic, td, inputs, fc, cur, n, cues, a.fill_until)
         if a.panel:
             cur, n = _summary_board(a.topic, inputs, fc, cur, n, a.base)
+            cur, n = _source_track(a.topic, td, inputs, fc, cur, n, cues, a.fill_until, phase="summary")
         fc.append(f"{''.join(amix)}amix=inputs={len(amix)}:duration=first:normalize=0[aout]")
         # --base nocta면 결과도 nocta/ 안에 둔다 — 안 그러면 유튜브판이 네이버판을 덮어쓴다(2026-09-21 실측)
         out = tracks.output_dir(a.topic) / a.base / a.out
