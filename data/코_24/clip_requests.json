@@ -1,217 +1,217 @@
 {
- "requests": [
-  {
-   "name": "act_blow_nose_tissue",
-   "kind": "flow",
-   "seconds": 6,
-   "why": "코_24 도입부 통념 반박('이럴 때 휴지로 코를 세게 계속 푸는 분이 많은데요. 세게 풀수록 콧물은 오히려 안쪽으로 밀려 들어가요') 전체 화면 둘째 컷 + 설명 2칸('실제로 코 풀 때 압력을 재 보니 재채기의 14배 …') 왼쪽 행위. 가슴 위 흉상, 두 손으로 휴지를 코에 대고 세게 두세 번 연달아 푼다 — 풀 때마다 뺨 뒤 양쪽 부비동(광대 안쪽 빈 공간)이 호박색으로 확 켜지며 점점 짙어진다(콧물이 안쪽으로 밀림). 카메라는 가슴 위 거리 고정, 얼굴로 밀고 들어가지 않는다. 범용 — 축농증·비염·감기 코막힘·코 풀기 편.",
-   "fits": [
-    "코 풀기",
-    "휴지로 코를 세게 풂",
-    "축농증",
-    "부비동염",
-    "누런 콧물",
-    "코막힘",
-    "감기 콧물",
-    "비염"
-   ],
-   "reuse_checked": [
+  "requests": [
     {
-     "id": "act_rub_nose",
-     "why_not": "코를 문지르다 후반에 다른 인체로 바뀌는 품질 불량, 점등 없음 — 색인 avoid가 새로 요청하라고 함"
+      "name": "act_blow_nose_tissue",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "코_24 도입부 통념 반박('이럴 때 휴지로 코를 세게 계속 푸는 분이 많은데요. 세게 풀수록 콧물은 오히려 안쪽으로 밀려 들어가요') 전체 화면 둘째 컷 + 설명 2칸('실제로 코 풀 때 압력을 재 보니 재채기의 14배 …') 왼쪽 행위. 가슴 위 흉상, 두 손으로 휴지를 코에 대고 세게 두세 번 연달아 푼다 — 풀 때마다 뺨 뒤 양쪽 부비동(광대 안쪽 빈 공간)이 호박색으로 확 켜지며 점점 짙어진다(콧물이 안쪽으로 밀림). 카메라는 가슴 위 거리 고정, 얼굴로 밀고 들어가지 않는다. 범용 — 축농증·비염·감기 코막힘·코 풀기 편.",
+      "fits": [
+        "코 풀기",
+        "휴지로 코를 세게 풂",
+        "축농증",
+        "부비동염",
+        "누런 콧물",
+        "코막힘",
+        "감기 콧물",
+        "비염"
+      ],
+      "reuse_checked": [
+        {
+          "id": "act_rub_nose",
+          "why_not": "코를 문지르다 후반에 다른 인체로 바뀌는 품질 불량, 점등 없음 — 색인 avoid가 새로 요청하라고 함"
+        },
+        {
+          "id": "act_cover_face",
+          "why_not": "두 손으로 얼굴을 감쌀 뿐 휴지·코 푸는 동작이 없다(훅과 설명 1칸에 씀)"
+        },
+        {
+          "id": "act_cough_leak",
+          "why_not": "기침하며 골반이 켜짐 — 코가 아니라 요실금"
+        },
+        {
+          "id": "act_nasal_saline_bottle",
+          "why_not": "손이 작은 식염수 병을 짜는 장면, 사람·코 풀기 없음"
+        }
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up three-quarter front view of the figure, both hands raised to the face holding a single plain white folded tissue pressed over the nose, elbows lifted, the skull with the nasal cavity and the two air-filled cheekbone sinus cavities beside the nose faintly visible through the glass head, the tissue rendered as soft plain white paper. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up framing from the first frame to the last — it never pushes in toward the face or zooms. 0-2s: from the very first frame the figure blows hard into the tissue, shoulders jerking forward, and the two cheekbone sinus cavities beside the nose flash warm amber. 2-4s: the figure blows hard a second time, harder, and the amber inside both sinus cavities grows thicker and brighter as if filling up from the nose side. 4-6s: the figure lowers the tissue slightly, still pinching the nose, while both sinus cavities stay glowing amber until the very last frame and the rest of the body stays soft pale cyan. Exactly two arms and two hands; the face stays smooth and featureless; the faces stay clear. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with two sharp nose-blowing sounds, no music, no dialogue."
     },
     {
-     "id": "act_cover_face",
-     "why_not": "두 손으로 얼굴을 감쌀 뿐 휴지·코 푸는 동작이 없다(훅과 설명 1칸에 씀)"
+      "name": "m_mucus_pushed_into_sinus",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "코_24 설명 2칸('끈적한 콧물이 한 번에 최대 1ml까지 부비동 안으로 밀려 들어갈 수 있었어요') 오른쪽 기전. 콧속 통로 옆벽에 좁은 구멍(부비동 입구)으로 이어진 둥근 빈 주머니(부비동)가 있고, 통로 앞쪽에서 압력 파동이 밀려오자 통로의 누런 점액 덩어리가 앞으로 빠져나가지 못하고 좁은 구멍을 비집고 주머니 안으로 밀려 들어가 주머니 바닥에 고인다. 근거 Gwaltney 2000 'A single nose blow can propel up to 1 mL of viscous fluid in the middle meatus into the maxillary sinus'. ⚠️ 감염·세균이 생기는 그림 금지(연구는 유입까지만). 범용 — 축농증·코 풀기·부비동 편.",
+      "fits": [
+        "콧물이 부비동으로 밀려 들어감",
+        "코 풀 때 압력",
+        "부비동 입구",
+        "축농증",
+        "부비동염",
+        "콧물이 고임",
+        "역류"
+      ],
+      "reuse_checked": [
+        {
+          "id": "m_reflux_backflow",
+          "why_not": "위 내용물이 식도로 거슬러 오름 — 위·식도 구조라 코로 안 읽힌다"
+        },
+        {
+          "id": "m_duct_blockage",
+          "why_not": "관 목이 좁아져 주머니가 부풂(=막혀서 고임) — 밖에서 밀어 넣는 힘이 안 보인다(설명 1칸에 씀)"
+        },
+        {
+          "id": "m_pressure_imbalance",
+          "why_not": "귀 속 고막이 당겨짐 — 귀 구조"
+        },
+        {
+          "id": "m_mucus_overproduction",
+          "why_not": "세포가 점액을 뿜어 통로를 메움 — 점액이 '생기는' 장면이지 '밀려 들어가는' 장면이 아니다"
+        }
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A cutaway cross-section of one wide translucent nasal passage running from the bottom-left to the top-right of the frame, its inner wall lined with soft folds, and on its upper side one narrow round opening leading into a large hollow round chamber (a sinus cavity) above it, the chamber clean and empty. Inside the passage below the opening sits a thick blob of sticky translucent yellow-amber mucus. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, bacteria",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the passage and the chamber above it, drifting very slightly closer. 0-2s: from the very first frame a soft ripple of pressure sweeps along the passage from the left, squeezing it, and the amber mucus blob is pressed hard against the narrow opening instead of moving out. 2-4s: the mucus squeezes through the narrow opening and streams up into the hollow chamber in a thick glowing amber ribbon. 4-6s: the amber mucus pools in the bottom of the chamber and stays there glowing until the very last frame, while the passage and chamber walls stay soft pale cyan. No human figure, no body, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one muffled whoosh of pressure and a soft wet squelch, no music, no dialogue."
     },
     {
-     "id": "act_cough_leak",
-     "why_not": "기침하며 골반이 켜짐 — 코가 아니라 요실금"
+      "name": "act_nasal_rinse_bottle",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "코_24 해결책(제품 작동) 칸('그래서 고인 콧물은 짜내지 말고 씻어 내야 해요. 코세척기는 소금물을 한쪽 콧구멍에 흘려 넣어 반대쪽으로 빼 줘요') 왼쪽. 세면대 위로 상체를 숙이고 고개를 옆으로 기울인 사람(가슴 위 흉상, 3/4 측면)이 노즐 달린 말랑한 병(300ml 정도, 무지·글자 없음)의 노즐을 위쪽 콧구멍에 대고 병을 눌러 짠다 — 맑은 물이 콧속을 지나 아래쪽 콧구멍으로 흘러나와 세면대로 떨어지고, 처음 호박색이던 부비동이 물이 지나는 동안 차분한 하늘색으로 가라앉는다. 입은 살짝 벌려 숨. FDA 'Leaning over a sink, tilt your head sideways … Breathing through your open mouth, insert the spout … into your upper nostril so that the liquid drains through the lower nostril'. ⚠️ 축농증이 치료되는 그림 금지 — 고인 것이 씻겨 나가는 데까지. 카메라 고정, 얼굴로 밀고 들어가지 않음. 범용 — 축농증·비염·코세척기 편.",
+      "fits": [
+        "코세척기",
+        "코세정기",
+        "코 세척",
+        "식염수 코세척",
+        "소금물로 코 씻기",
+        "축농증 관리",
+        "비염 관리",
+        "코막힘"
+      ],
+      "reuse_checked": [
+        {
+          "id": "act_nasal_saline_bottle",
+          "why_not": "손이 작은 식염수 병을 쥐고 방울을 짜낼 뿐 — 사람·코·물이 반대쪽으로 빠지는 흐름이 없다(근골 크기 손 클로즈업)"
+        },
+        {
+          "id": "act_baby_nasal_aspirator",
+          "why_not": "아기 콧물흡입기 — 육아 장면, 씻어 내기가 아니다"
+        },
+        {
+          "id": "act_wash_hands_soap_v1",
+          "why_not": "손 씻기"
+        },
+        {
+          "id": "act_cover_face",
+          "why_not": "얼굴 감싸기, 도구 없음"
+        }
+      ],
+      "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up three-quarter side view of the figure leaning forward over a plain white bathroom sink, head tilted sideways so one nostril is higher than the other, mouth slightly open, one hand holding a plain soft squeeze bottle with a short angled nozzle whose tip touches the upper nostril, the bottle filled with clear water and completely plain with no markings, the nasal cavity and the two cheekbone sinus cavities visible through the glass head, the sink rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up framing from the first frame to the last — it never pushes in toward the face or zooms. 0-2s: from the very first frame the two cheekbone sinus cavities glow warm amber while the hand gently squeezes the plain bottle and clear water flows from the nozzle into the upper nostril. 2-5s: the water travels through the glowing nasal cavity behind the nose and pours out of the lower nostril in a thin clear stream into the sink, small amber-yellow streaks carried out with it. 5-8s: the stream keeps running clear, and the amber in both sinus cavities fades step by step back to calm soft pale cyan, staying calm until the very last frame. Exactly two arms and two hands; the face stays smooth and featureless; the faces stay clear; the bottle stays plain with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft trickle of water into a sink, no music, no dialogue."
     },
     {
-     "id": "act_nasal_saline_bottle",
-     "why_not": "손이 작은 식염수 병을 짜는 장면, 사람·코 풀기 없음"
+      "name": "m_saline_flush_nasal",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "코_24 제품 작동 칸 오른쪽 기전(겉과 속이 한 컷 — 차별화 칸). 콧속 통로 단면: 벽에 누런 점액이 두껍게 덮여 있고 옆 부비동 입구가 점액으로 막혀 있다 → 통로 한쪽 끝에서 맑은 물줄기(소금물)가 흘러 들어와 벽을 따라 지나가며 누런 점액 덩어리를 떼어 반대쪽 끝으로 쓸어 내고 → 막혀 있던 부비동 입구가 다시 열려 그 안의 고인 점액도 조금씩 흘러나온다, 벽은 섬모가 드러난 깨끗한 하늘색. ⚠️ 대본은 '씻어 낸다'까지 — 염증이 순식간에 사라지거나 세균이 터지는 그림 금지. 범용 — 코세척·축농증·비염 편.",
+      "fits": [
+        "코세척 원리",
+        "소금물이 콧물을 씻어 냄",
+        "부비동 입구가 열림",
+        "코세척기",
+        "축농증",
+        "콧물 배출",
+        "코막힘이 풀림",
+        "제품 작용"
+      ],
+      "reuse_checked": [
+        {
+          "id": "m_cilia_mucus_clearance",
+          "why_not": "섬모가 점액 막을 밀어냄 — 물이 들어와 씻어 내는 장면이 아니다(설명 4칸 근거 문장에 씀)"
+        },
+        {
+          "id": "m_oil_film_rinsed_off",
+          "why_not": "피부 모공 위 기름막이 물에 씻김 — 피부 구조라 코로 안 읽힌다"
+        },
+        {
+          "id": "m_virus_rinse_off_skin",
+          "why_not": "피부 위 바이러스를 거품·물이 쓸어 감, 화풍도 불투명 민트로 바뀜"
+        },
+        {
+          "id": "m_foam_rinsed_too_soon",
+          "why_not": "두피 샴푸 거품 — 다른 부위"
+        }
+      ],
+      "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A cutaway cross-section of one wide translucent nasal passage running from the left edge to the right edge of the frame, its inner wall lined with tiny hair-like cilia, the wall thickly coated with sticky translucent yellow-amber mucus, and on its upper side one narrow round opening into a hollow round chamber above it, the opening plugged with the same amber mucus and a little amber mucus pooled in the chamber. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, bacteria",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera gliding slowly along the passage from left to right. 0-2s: from the very first frame a clear gentle stream of water flows in from the left end of the passage, rippling along the amber-coated walls. 2-5s: the stream lifts the sticky amber mucus off the walls in soft clumps and carries them along and out of the right edge of the frame, uncovering clean pale cyan cilia that start to sway. 5-8s: the plug in the narrow opening loosens and slides out into the stream, and the pooled amber in the chamber above trickles down through the open opening and is carried away, leaving the passage, the opening and the chamber clear calm pale cyan until the very last frame. No human figure, no body, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft continuous flowing-water sound, no music, no dialogue."
+    },
+    {
+      "name": "act_fill_bottle_tap",
+      "kind": "flow",
+      "seconds": 6,
+      "why": "코_24 설명 5칸('다만 수돗물은 그대로 쓰면 안 돼요. 미국 식품의약국은 수돗물 속 미생물이 코 안에서 살아남아 심한 감염을 일으킬 수 있다고 해요') 왼쪽 + negations(이 장면 위 '쓰면 안 돼요'에서 빨간 X). 두 손이 노즐을 뺀 무지 세척병을 세면대 수도꼭지 아래에 대고 흐르는 수돗물을 받는다 — 물속에 아주 작은 호박색 점 몇 개가 떠다니는 게 보인다(미생물 암시, 과장 금지). 손만, 얼굴·전신 없음. 범용 — 코세척·수돗물·위생 편.",
+      "fits": [
+        "수돗물",
+        "수돗물로 코세척",
+        "물 받기",
+        "세척병",
+        "코세척 주의",
+        "위생",
+        "수도꼭지"
+      ],
+      "reuse_checked": [
+        {
+          "id": "act_ultrasonic_tank_detach",
+          "why_not": "가습기 물통을 들어 옛물을 쏟음 — 수도꼭지에서 받는 게 아니고 가습기로 읽힌다"
+        },
+        {
+          "id": "act_gulp_water",
+          "why_not": "컵의 물을 마심, 방광 점등"
+        },
+        {
+          "id": "act_lukewarm_quick_shower",
+          "why_not": "다리에 샤워기 — 씻기"
+        },
+        {
+          "id": "act_nasal_saline_bottle",
+          "why_not": "작은 식염수 병 방울 — 물을 받는 장면 아님"
+        }
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like adult human hands and forearms only, every structure rendered in the same soft pale cyan glow, bones visible inside, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Two hands hold an open plain soft squeeze bottle with no cap and no markings directly under the spout of a plain bathroom faucet over a white sink, a thin stream of clear tap water running from the faucet into the bottle mouth, the faucet and sink rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marks, UI, interface, amber, orange, red, face, head, full body, other people, duplicated hands, extra fingers",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the hands, the bottle and the faucet. 0-2s: from the very first frame clear tap water runs from the faucet into the plain bottle and the water level rises. 2-4s: inside the rising water a few tiny warm amber specks appear and drift slowly, faintly glowing. 4-6s: the bottle is nearly full and the hands tilt it slightly toward the camera, the few tiny amber specks still floating inside until the very last frame, while the hands and bottle stay soft pale cyan. Exactly two hands; no face, no head, no full body in the frame; the bottle stays plain with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with running tap water filling a bottle, no music, no dialogue."
+    },
+    {
+      "name": "act_boil_water_salt",
+      "kind": "flow",
+      "seconds": 8,
+      "why": "코_24 설명 6칸('끓였다가 미지근하게 식힌 물에 전용 소금 분말을 녹여 쓰세요. 맹물은 코를 따갑게 해요') 왼쪽. 작은 냄비에서 물이 끓어 김이 오르고(앞 2초) → 김이 잦아든 물을 무지 세척병에 붓고 → 작은 무지 종이 봉지를 뜯어 흰 가루를 병에 털어 넣고 뚜껑을 닫아 가볍게 흔들어 녹인다. 손만, 얼굴·전신 없음, 봉지·병에 글자 없음. FDA 'Boiled and cooled tap water … cooled until it is lukewarm'. ⚠️ 끓이는 시간 숫자·타이머 그림 금지. 범용 — 코세척·식염수 만들기 편.",
+      "fits": [
+        "끓인 물",
+        "물 끓이기",
+        "식힌 물",
+        "소금 분말 녹이기",
+        "코세척 소금",
+        "식염수 만들기",
+        "코세척기 사용법"
+      ],
+      "reuse_checked": [
+        {
+          "id": "act_sterilize_bottles",
+          "why_not": "끓는 냄비에 젖병을 넣어 소독 — 육아 젖병 장면, 가루를 녹이지 않는다"
+        },
+        {
+          "id": "m_kitchen_hot_sources",
+          "why_not": "주방 화상 위험을 훑는 장면"
+        },
+        {
+          "id": "m_warm_mist_hot_steam",
+          "why_not": "가열식 가습기 내부"
+        },
+        {
+          "id": "m_crystal_precipitation",
+          "why_not": "플라스크에 금빛 가루가 떨어져 결정이 생김 — 결석이 생기는 반대 의미"
+        }
+      ],
+      "midjourney": "Medical holographic visualization of a pair of translucent glass-like adult human hands and forearms only, every structure rendered in the same soft pale cyan glow, bones visible inside, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. On a plain kitchen counter sits a small plain pot of water with gentle steam rising, and beside it a plain soft squeeze bottle with no markings and one small plain unlabelled paper sachet; one hand rests on the pot handle and the other hand rests near the bottle, all objects rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marks, UI, interface, amber, orange, red, face, head, full body, other people, duplicated hands, extra fingers",
+      "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked still on the counter exactly as in the start frame. The small glass pot of hot water gives off a few thin wisps of steam the whole time. One glass hand lifts the pot and slowly pours the water into the plain bottle, then sets the pot back down. The other glass hand then tips a pinch of coarse cooking salt crystals from the small plain paper sachet into the bottle, and the bottle is tilted gently side to side once until the water is clear, then held still until the very last frame. Exactly two hands and forearms, both keeping the visible glass bones inside exactly like the start frame; no face, no head, no full body; the sachet and bottle stay plain with no markings. Style lock: every structure, including the hands, the pot, the bottle and the counter, stays rendered as the same translucent pale cyan glass with softly glowing edges and visible bones in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, flat, mint green, beige, illustrated or photorealistic, and the background never changes. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft pour and a gentle slosh, no music, no dialogue."
     }
-   ],
-   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up three-quarter front view of the figure, both hands raised to the face holding a single plain white folded tissue pressed over the nose, elbows lifted, the skull with the nasal cavity and the two air-filled cheekbone sinus cavities beside the nose faintly visible through the glass head, the tissue rendered as soft plain white paper. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up framing from the first frame to the last — it never pushes in toward the face or zooms. 0-2s: from the very first frame the figure blows hard into the tissue, shoulders jerking forward, and the two cheekbone sinus cavities beside the nose flash warm amber. 2-4s: the figure blows hard a second time, harder, and the amber inside both sinus cavities grows thicker and brighter as if filling up from the nose side. 4-6s: the figure lowers the tissue slightly, still pinching the nose, while both sinus cavities stay glowing amber until the very last frame and the rest of the body stays soft pale cyan. Exactly two arms and two hands; the face stays smooth and featureless; the faces stay clear. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with two sharp nose-blowing sounds, no music, no dialogue."
-  },
-  {
-   "name": "m_mucus_pushed_into_sinus",
-   "kind": "flow",
-   "seconds": 6,
-   "why": "코_24 설명 2칸('끈적한 콧물이 한 번에 최대 1ml까지 부비동 안으로 밀려 들어갈 수 있었어요') 오른쪽 기전. 콧속 통로 옆벽에 좁은 구멍(부비동 입구)으로 이어진 둥근 빈 주머니(부비동)가 있고, 통로 앞쪽에서 압력 파동이 밀려오자 통로의 누런 점액 덩어리가 앞으로 빠져나가지 못하고 좁은 구멍을 비집고 주머니 안으로 밀려 들어가 주머니 바닥에 고인다. 근거 Gwaltney 2000 'A single nose blow can propel up to 1 mL of viscous fluid in the middle meatus into the maxillary sinus'. ⚠️ 감염·세균이 생기는 그림 금지(연구는 유입까지만). 범용 — 축농증·코 풀기·부비동 편.",
-   "fits": [
-    "콧물이 부비동으로 밀려 들어감",
-    "코 풀 때 압력",
-    "부비동 입구",
-    "축농증",
-    "부비동염",
-    "콧물이 고임",
-    "역류"
-   ],
-   "reuse_checked": [
-    {
-     "id": "m_reflux_backflow",
-     "why_not": "위 내용물이 식도로 거슬러 오름 — 위·식도 구조라 코로 안 읽힌다"
-    },
-    {
-     "id": "m_duct_blockage",
-     "why_not": "관 목이 좁아져 주머니가 부풂(=막혀서 고임) — 밖에서 밀어 넣는 힘이 안 보인다(설명 1칸에 씀)"
-    },
-    {
-     "id": "m_pressure_imbalance",
-     "why_not": "귀 속 고막이 당겨짐 — 귀 구조"
-    },
-    {
-     "id": "m_mucus_overproduction",
-     "why_not": "세포가 점액을 뿜어 통로를 메움 — 점액이 '생기는' 장면이지 '밀려 들어가는' 장면이 아니다"
-    }
-   ],
-   "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A cutaway cross-section of one wide translucent nasal passage running from the bottom-left to the top-right of the frame, its inner wall lined with soft folds, and on its upper side one narrow round opening leading into a large hollow round chamber (a sinus cavity) above it, the chamber clean and empty. Inside the passage below the opening sits a thick blob of sticky translucent yellow-amber mucus. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, bacteria",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the passage and the chamber above it, drifting very slightly closer. 0-2s: from the very first frame a soft ripple of pressure sweeps along the passage from the left, squeezing it, and the amber mucus blob is pressed hard against the narrow opening instead of moving out. 2-4s: the mucus squeezes through the narrow opening and streams up into the hollow chamber in a thick glowing amber ribbon. 4-6s: the amber mucus pools in the bottom of the chamber and stays there glowing until the very last frame, while the passage and chamber walls stay soft pale cyan. No human figure, no body, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with one muffled whoosh of pressure and a soft wet squelch, no music, no dialogue."
-  },
-  {
-   "name": "act_nasal_rinse_bottle",
-   "kind": "flow",
-   "seconds": 8,
-   "why": "코_24 해결책(제품 작동) 칸('그래서 고인 콧물은 짜내지 말고 씻어 내야 해요. 코세척기는 소금물을 한쪽 콧구멍에 흘려 넣어 반대쪽으로 빼 줘요') 왼쪽. 세면대 위로 상체를 숙이고 고개를 옆으로 기울인 사람(가슴 위 흉상, 3/4 측면)이 노즐 달린 말랑한 병(300ml 정도, 무지·글자 없음)의 노즐을 위쪽 콧구멍에 대고 병을 눌러 짠다 — 맑은 물이 콧속을 지나 아래쪽 콧구멍으로 흘러나와 세면대로 떨어지고, 처음 호박색이던 부비동이 물이 지나는 동안 차분한 하늘색으로 가라앉는다. 입은 살짝 벌려 숨. FDA 'Leaning over a sink, tilt your head sideways … Breathing through your open mouth, insert the spout … into your upper nostril so that the liquid drains through the lower nostril'. ⚠️ 축농증이 치료되는 그림 금지 — 고인 것이 씻겨 나가는 데까지. 카메라 고정, 얼굴로 밀고 들어가지 않음. 범용 — 축농증·비염·코세척기 편.",
-   "fits": [
-    "코세척기",
-    "코세정기",
-    "코 세척",
-    "식염수 코세척",
-    "소금물로 코 씻기",
-    "축농증 관리",
-    "비염 관리",
-    "코막힘"
-   ],
-   "reuse_checked": [
-    {
-     "id": "act_nasal_saline_bottle",
-     "why_not": "손이 작은 식염수 병을 쥐고 방울을 짜낼 뿐 — 사람·코·물이 반대쪽으로 빠지는 흐름이 없다(근골 크기 손 클로즈업)"
-    },
-    {
-     "id": "act_baby_nasal_aspirator",
-     "why_not": "아기 콧물흡입기 — 육아 장면, 씻어 내기가 아니다"
-    },
-    {
-     "id": "act_wash_hands_soap_v1",
-     "why_not": "손 씻기"
-    },
-    {
-     "id": "act_cover_face",
-     "why_not": "얼굴 감싸기, 도구 없음"
-    }
-   ],
-   "midjourney": "Medical holographic visualization of a single translucent glass-like adult human figure, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, smooth featureless face, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Chest-up three-quarter side view of the figure leaning forward over a plain white bathroom sink, head tilted sideways so one nostril is higher than the other, mouth slightly open, one hand holding a plain soft squeeze bottle with a short angled nozzle whose tip touches the upper nostril, the bottle filled with clear water and completely plain with no markings, the nasal cavity and the two cheekbone sinus cavities visible through the glass head, the sink rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood colour, opaque skin, clothing, hair, facial features, other people, duplicated limbs",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same chest-up framing from the first frame to the last — it never pushes in toward the face or zooms. 0-2s: from the very first frame the two cheekbone sinus cavities glow warm amber while the hand gently squeezes the plain bottle and clear water flows from the nozzle into the upper nostril. 2-5s: the water travels through the glowing nasal cavity behind the nose and pours out of the lower nostril in a thin clear stream into the sink, small amber-yellow streaks carried out with it. 5-8s: the stream keeps running clear, and the amber in both sinus cavities fades step by step back to calm soft pale cyan, staying calm until the very last frame. Exactly two arms and two hands; the face stays smooth and featureless; the faces stay clear; the bottle stays plain with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a soft trickle of water into a sink, no music, no dialogue."
-  },
-  {
-   "name": "m_saline_flush_nasal",
-   "kind": "flow",
-   "seconds": 8,
-   "why": "코_24 제품 작동 칸 오른쪽 기전(겉과 속이 한 컷 — 차별화 칸). 콧속 통로 단면: 벽에 누런 점액이 두껍게 덮여 있고 옆 부비동 입구가 점액으로 막혀 있다 → 통로 한쪽 끝에서 맑은 물줄기(소금물)가 흘러 들어와 벽을 따라 지나가며 누런 점액 덩어리를 떼어 반대쪽 끝으로 쓸어 내고 → 막혀 있던 부비동 입구가 다시 열려 그 안의 고인 점액도 조금씩 흘러나온다, 벽은 섬모가 드러난 깨끗한 하늘색. ⚠️ 대본은 '씻어 낸다'까지 — 염증이 순식간에 사라지거나 세균이 터지는 그림 금지. 범용 — 코세척·축농증·비염 편.",
-   "fits": [
-    "코세척 원리",
-    "소금물이 콧물을 씻어 냄",
-    "부비동 입구가 열림",
-    "코세척기",
-    "축농증",
-    "콧물 배출",
-    "코막힘이 풀림",
-    "제품 작용"
-   ],
-   "reuse_checked": [
-    {
-     "id": "m_cilia_mucus_clearance",
-     "why_not": "섬모가 점액 막을 밀어냄 — 물이 들어와 씻어 내는 장면이 아니다(설명 4칸 근거 문장에 씀)"
-    },
-    {
-     "id": "m_oil_film_rinsed_off",
-     "why_not": "피부 모공 위 기름막이 물에 씻김 — 피부 구조라 코로 안 읽힌다"
-    },
-    {
-     "id": "m_virus_rinse_off_skin",
-     "why_not": "피부 위 바이러스를 거품·물이 쓸어 감, 화풍도 불투명 민트로 바뀜"
-    },
-    {
-     "id": "m_foam_rinsed_too_soon",
-     "why_not": "두피 샴푸 거품 — 다른 부위"
-    }
-   ],
-   "midjourney": "Medical holographic visualization, extreme microscopic close-up of translucent glass-like 3D human tissue, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. A cutaway cross-section of one wide translucent nasal passage running from the left edge to the right edge of the frame, its inner wall lined with tiny hair-like cilia, the wall thickly coated with sticky translucent yellow-amber mucus, and on its upper side one narrow round opening into a hollow round chamber above it, the opening plugged with the same amber mucus and a little amber mucus pooled in the chamber. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, people, human figure, body, face, red, blood, bacteria",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera gliding slowly along the passage from left to right. 0-2s: from the very first frame a clear gentle stream of water flows in from the left end of the passage, rippling along the amber-coated walls. 2-5s: the stream lifts the sticky amber mucus off the walls in soft clumps and carries them along and out of the right edge of the frame, uncovering clean pale cyan cilia that start to sway. 5-8s: the plug in the narrow opening loosens and slides out into the stream, and the pooled amber in the chamber above trickles down through the open opening and is carried away, leaving the passage, the opening and the chamber clear calm pale cyan until the very last frame. No human figure, no body, no face anywhere in the frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low ambient synth hum with a soft continuous flowing-water sound, no music, no dialogue."
-  },
-  {
-   "name": "act_fill_bottle_tap",
-   "kind": "flow",
-   "seconds": 6,
-   "why": "코_24 설명 5칸('다만 수돗물은 그대로 쓰면 안 돼요. 미국 식품의약국은 수돗물 속 미생물이 코 안에서 살아남아 심한 감염을 일으킬 수 있다고 해요') 왼쪽 + negations(이 장면 위 '쓰면 안 돼요'에서 빨간 X). 두 손이 노즐을 뺀 무지 세척병을 세면대 수도꼭지 아래에 대고 흐르는 수돗물을 받는다 — 물속에 아주 작은 호박색 점 몇 개가 떠다니는 게 보인다(미생물 암시, 과장 금지). 손만, 얼굴·전신 없음. 범용 — 코세척·수돗물·위생 편.",
-   "fits": [
-    "수돗물",
-    "수돗물로 코세척",
-    "물 받기",
-    "세척병",
-    "코세척 주의",
-    "위생",
-    "수도꼭지"
-   ],
-   "reuse_checked": [
-    {
-     "id": "act_ultrasonic_tank_detach",
-     "why_not": "가습기 물통을 들어 옛물을 쏟음 — 수도꼭지에서 받는 게 아니고 가습기로 읽힌다"
-    },
-    {
-     "id": "act_gulp_water",
-     "why_not": "컵의 물을 마심, 방광 점등"
-    },
-    {
-     "id": "act_lukewarm_quick_shower",
-     "why_not": "다리에 샤워기 — 씻기"
-    },
-    {
-     "id": "act_nasal_saline_bottle",
-     "why_not": "작은 식염수 병 방울 — 물을 받는 장면 아님"
-    }
-   ],
-   "midjourney": "Medical holographic visualization of a pair of translucent glass-like adult human hands and forearms only, every structure rendered in the same soft pale cyan glow, bones visible inside, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Two hands hold an open plain soft squeeze bottle with no cap and no markings directly under the spout of a plain bathroom faucet over a white sink, a thin stream of clear tap water running from the faucet into the bottle mouth, the faucet and sink rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marks, UI, interface, amber, orange, red, face, head, full body, other people, duplicated hands, extra fingers",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the hands, the bottle and the faucet. 0-2s: from the very first frame clear tap water runs from the faucet into the plain bottle and the water level rises. 2-4s: inside the rising water a few tiny warm amber specks appear and drift slowly, faintly glowing. 4-6s: the bottle is nearly full and the hands tilt it slightly toward the camera, the few tiny amber specks still floating inside until the very last frame, while the hands and bottle stay soft pale cyan. Exactly two hands; no face, no head, no full body in the frame; the bottle stays plain with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with running tap water filling a bottle, no music, no dialogue."
-  },
-  {
-   "name": "act_boil_water_salt",
-   "kind": "flow",
-   "seconds": 8,
-   "why": "코_24 설명 6칸('끓였다가 미지근하게 식힌 물에 전용 소금 분말을 녹여 쓰세요. 맹물은 코를 따갑게 해요') 왼쪽. 작은 냄비에서 물이 끓어 김이 오르고(앞 2초) → 김이 잦아든 물을 무지 세척병에 붓고 → 작은 무지 종이 봉지를 뜯어 흰 가루를 병에 털어 넣고 뚜껑을 닫아 가볍게 흔들어 녹인다. 손만, 얼굴·전신 없음, 봉지·병에 글자 없음. FDA 'Boiled and cooled tap water … cooled until it is lukewarm'. ⚠️ 끓이는 시간 숫자·타이머 그림 금지. 범용 — 코세척·식염수 만들기 편.",
-   "fits": [
-    "끓인 물",
-    "물 끓이기",
-    "식힌 물",
-    "소금 분말 녹이기",
-    "코세척 소금",
-    "식염수 만들기",
-    "코세척기 사용법"
-   ],
-   "reuse_checked": [
-    {
-     "id": "act_sterilize_bottles",
-     "why_not": "끓는 냄비에 젖병을 넣어 소독 — 육아 젖병 장면, 가루를 녹이지 않는다"
-    },
-    {
-     "id": "m_kitchen_hot_sources",
-     "why_not": "주방 화상 위험을 훑는 장면"
-    },
-    {
-     "id": "m_warm_mist_hot_steam",
-     "why_not": "가열식 가습기 내부"
-    },
-    {
-     "id": "m_crystal_precipitation",
-     "why_not": "플라스크에 금빛 가루가 떨어져 결정이 생김 — 결석이 생기는 반대 의미"
-    }
-   ],
-   "midjourney": "Medical holographic visualization of a pair of translucent glass-like adult human hands and forearms only, every structure rendered in the same soft pale cyan glow, bones visible inside, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. On a plain kitchen counter sits a small plain pot of water with gentle steam rising, and beside it a plain soft squeeze bottle with no markings and one small plain unlabelled paper sachet; one hand rests on the pot handle and the other hand rests near the bottle, all objects rendered in the same translucent pale cyan glass. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marks, UI, interface, amber, orange, red, face, head, full body, other people, duplicated hands, extra fingers",
-   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera holding steady on the counter. 0-2s: from the very first frame the water in the small pot bubbles and soft white steam rises, then the bubbling settles and the steam thins out. 2-4s: one hand lifts the pot and pours the calm water into the plain bottle. 4-6s: the other hand tips a pinch of coarse cooking salt crystals from the small plain paper sachet into the bottle. 6-8s: the hand fits the nozzle cap onto the bottle and tilts it slowly side to side until the salt has dissolved and the water is clear, holding it still until the very last frame. Exactly two hands; no face, no head, no full body in the frame; the sachet and bottle stay plain with no markings, no clock, no timer. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft bubbling, a pour, a soft sprinkle and a gentle slosh, no music, no dialogue."
-  }
- ]
+  ]
 }
