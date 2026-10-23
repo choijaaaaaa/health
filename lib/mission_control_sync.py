@@ -394,6 +394,11 @@ def prune_stale(keep: set[str]) -> None:
     key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
     if not url or not key:
         return
+    # 🚨 worktree엔 다른 편 영상·음성(gitignore)이 없어 전부 '못 올림'으로 보인다 — 거기서 지우면 목록이 통째로 날아간다
+    #   (10-23 입_27 조립 끝 동기화가 worktree에서 84개를 지움). 지우기는 메인 체크아웃에서만.
+    if (ROOT / ".git").is_file():
+        print("⚠️ worktree에서 돌아서 '못 올리는 topic 제거'는 건너뜀 — 메인 체크아웃에서 다시 돌릴 것")
+        return
 
     def call(method: str, path: str, profile: bool) -> list:
         req = urllib.request.Request(f"{url}/rest/v1/{path}", method=method, headers={
@@ -412,6 +417,10 @@ def prune_stale(keep: set[str]) -> None:
         drop = sorted(t for t in have if t.split("/")[0] not in keep)
         if not drop:
             continue
+        if len(drop) > 10:  # 한 번에 10개 넘게 빠지는 건 거의 늘 판정 쪽 고장(파일 없는 checkout 등) — 사람이 확인할 때까지 안 지운다
+            print(f"⚠️ {table}: {len(drop)}개를 지우려 함 — 너무 많아서 멈춤({', '.join(drop[:6])}…). 원인 확인 뒤 PRUNE_FORCE=1로 다시")
+            if os.environ.get("PRUNE_FORCE") != "1":
+                continue
         for i in range(0, len(drop), 50):
             names = ",".join('"' + urllib.parse.quote(t) + '"' for t in drop[i:i + 50])
             d = f"{table}?topic=in.({names})" + ("&project=eq.health-shorts" if scoped else "")
