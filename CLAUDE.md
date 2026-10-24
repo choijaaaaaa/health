@@ -76,7 +76,7 @@
   `tests/test_tracks.py`가 이 규약을 막는다.
 - 한국어 캡션 파일은 topic마다 **한 곳에만** 있다 — 옛 topic은 `data/<topic>/platform_captions.json`,
   언어 폴더가 생긴 topic은 `data/<topic>/ko/`. flat만 보고 "없다"고 판단하지 말 것(`test_korean_caption_lives_in_one_place`).
-- 2026-10-24 SEO 블로그 폐기로 blog_seo 8개 외국어 서브트랙 제거(한국어 ko/는 유지).
+- 2026-10-24 SEO 블로그 폐기로 blog_seo 전부 제거(8개 외국어 서브트랙 + 한국어 blog_seo 항목·블로그용 ko 카드, 블로그 전용 topic 54개는 `data/_retired/`). 지금 `data/<topic>/ko/`는 네이버 캡션·카드 정본이 거기 있는 topic뿐이다.
 
 ---
 

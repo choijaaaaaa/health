@@ -22,10 +22,8 @@
   "global_kept": false
  },
  "근골격_29": {
-  "verdict": "merge",
-  "into": "입_5",
-  "reason": "이갈이증상(30)이고, 입_5 이갈이(2,560)의 훅이 '자고 일어났는데 턱이 뻐근하고 어금니가 시큰'으로 이 카드와 사실상 같으며 비교 대상인 턱관절장애도 입_15(1,200)로 이미 있어, 구별 포인트를 입_5 안에 넣는 게 맞다(턱관절 4,040·턱통증 4,100은 입_15 자리).",
-  "global_kept": true
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
  },
  "냄새_13": {
   "verdict": "merge",
@@ -52,8 +50,7 @@
  },
  "미세먼지_12": {
   "verdict": "drop",
-  "reason": "검색어 0. 피부_13(모낭염 42,950) 등 피부 카테고리와 겹치고 '미세먼지 피부'는 검색어가 아니다.",
-  "global_kept": true
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
  },
  "미세먼지_3": {
   "verdict": "drop",
@@ -123,9 +120,211 @@
   "global_kept": false
  },
  "피부_26": {
-  "verdict": "merge",
-  "into": "피부_12",
-  "reason": "'주사비'(640)는 자동완성이 전부 '독감주사 비용·코 주사비' 같은 주사 비용 검색어라 주사(rosacea) 유입이 0에 가깝고, 내용인 '여드름과 주사 구별법'은 피부_12(주사피부염, 16,810)가 이미 '여드름 아닌 주사 구별법과 관리 습관'으로 다룬다.",
-  "global_kept": true
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "계절질환_13": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "계절질환_16": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "계절질환_17": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "고령_17": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "고령_20": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "귀_19": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "귀_20": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "귀_23": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_25": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_26": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_27": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_28": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_33": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "근골격_34": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "눈_26": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "눈_29": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "대사_27": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "머리_17": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "머리_18": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "머리_19": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "머리_20": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "머리_25": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "비뇨기_20": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "비뇨기_24": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "소화_30": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "소화_34": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "소화_35": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "손발_22": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "손발_27": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "수면_19": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "수면_20": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "수면_24": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "순환_21": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "순환_22": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "순환_26": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "여성_22": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "여성_23": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "여성_24": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "여성_27": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "입_25": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "입_26": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피로_10": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피로_8": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피로_9": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피부_23": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피부_24": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피부_25": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피부_27": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "피부_38": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "혈당_14": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
+ },
+ "혈당_17": {
+  "verdict": "drop",
+  "reason": "2026-10-24 SEO 블로그 폐기 — 블로그 전용 topic(네이버 캡션·영상 없음). blog_seo 캡션은 삭제, 한국어 카드 원고(ko/card_news_spec.json)만 격리"
  }
 }
