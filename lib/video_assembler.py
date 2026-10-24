@@ -11,6 +11,7 @@
 # 피할 수 있다(2026-07-29 cat-fight 작업에서 확인).
 from __future__ import annotations
 
+import functools
 import math
 import random
 import re
@@ -3261,15 +3262,49 @@ def _build_xray_inset(spec: dict, out_path: Path) -> None:
                         str(out_path)], check=True, capture_output=True, timeout=120)
 
 
+_GLYPH_FALLBACK = ("/System/Library/Fonts/AppleSDGothicNeo.ttc", 6)  # 화살표 등 손글씨체에 없는 글자용
+
+
+@functools.lru_cache(maxsize=8)
+def _font_cmap(path: str) -> frozenset:
+    from fontTools.ttLib import TTFont
+    f = TTFont(path, fontNumber=0) if path.endswith(".ttc") else TTFont(path)
+    return frozenset(f.getBestCmap())
+
+
 def _make_pill_label_png(text: str, out_path: Path, lang: str = "kor", font_size: int = 60) -> None:
-    """영상 칸 위에 얹는 짧은 라벨(부위 이름). 장면이 밝았다 어두웠다 하므로 어두운 반투명 알약 바탕을 깐다."""
-    font = ImageFont.truetype(_chalk_font_for_lang(lang), font_size)
-    bb = ImageDraw.Draw(Image.new("RGBA", (1, 1))).textbbox((0, 0), text, font=font)
-    tw, th = bb[2] - bb[0], bb[3] - bb[1]
+    """영상 칸 위에 얹는 짧은 라벨(부위 이름). 장면이 밝았다 어두웠다 하므로 어두운 반투명 알약 바탕을 깐다.
+
+    손글씨체(Gaegu)에 없는 글자(→ 등)는 시스템 고딕으로 그 글자만 그린다 — 안 그러면 빈칸으로 뜬다
+    (2026-10-24 육아_38 '행주 → 젖병'이 '행주   젖병'으로 나옴, 육아_24·36도 같은 상태로 나갔다)."""
+    main_path = _chalk_font_for_lang(lang)
+    font = ImageFont.truetype(main_path, font_size)
+    try:
+        have = _font_cmap(main_path)
+    except Exception:
+        have = None
+    fb = None
+    runs = []  # (글자들, 폰트)
+    for ch in text:
+        missing = have is not None and ord(ch) not in have and not ch.isspace()
+        if missing and fb is None:
+            fb = ImageFont.truetype(_GLYPH_FALLBACK[0], font_size, index=_GLYPH_FALLBACK[1])
+        f = fb if missing else font
+        if runs and runs[-1][1] is f:
+            runs[-1][0].append(ch)
+        else:
+            runs.append(([ch], f))
+    probe = ImageDraw.Draw(Image.new("RGBA", (1, 1)))
+    widths = [probe.textlength("".join(r), font=f) for r, f in runs]
+    bb = probe.textbbox((0, 0), text, font=font)
+    tw, th = int(sum(widths)) + 2, bb[3] - bb[1]
     img = Image.new("RGBA", (tw + 44, th + 26), (0, 0, 0, 0))
     d = ImageDraw.Draw(img)
     d.rounded_rectangle([0, 0, img.width - 1, img.height - 1], radius=img.height // 2, fill=(10, 14, 16, 170))
-    d.text((22 - bb[0], 13 - bb[1]), text, font=font, fill=(255, 214, 92, 255))
+    x = 22.0
+    for (r, f), w in zip(runs, widths):
+        d.text((x, 13 - bb[1]), "".join(r), font=f, fill=(255, 214, 92, 255))
+        x += w
     img.save(out_path)
 
 
