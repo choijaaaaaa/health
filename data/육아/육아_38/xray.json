@@ -1,0 +1,143 @@
+{
+  "_why": "반투명 인체 포맷(육아). 젖병을 씻은 뒤 '말리는 단계'에서 세균이 다시 붙는다는 반전 → CDC 행주·건조대 → 연구 17개(씻기만으론 부족, 열 소독) → 하루 한 번·2개월 미만 → 5분 삶기 대신 소독기(🚨 제품 작동 칸: 스팀 소독 + 건조) → 고르는 기준 → 넣는 법 → 3개월 미만 38도. 아기는 Flow 금지라 아기가 보이는 칸은 기존 스틸+코드 클립(act_baby_nursing_blocked_nose)만, 새 Flow는 손·젖병·행주·건조대·소독기·단면만(프롬프트에 baby·infant·child 단어 없음). 육아_26(같은 상품) 클립을 먼저 재사용 — act_load_bottle_sterilizer·m_steam_into_teat_kills_yeast·m_yeast_cling_teat. 2026-10-12 크레딧 절약 지시대로 새 요청은 이 편에 없는 장면만(행주로 닦기·건조대·행주 세균이 젖병으로·솔로 씻기·소독기 안 스팀+건조).",
+  "top_title": "씻은 젖병 행주로 닦는다면",
+  "inset": {
+    "clip": "assets_library/xray/output/act_load_bottle_sterilizer.mp4",
+    "crop": [
+      0,
+      380,
+      720,
+      520
+    ],
+    "label": "젖병"
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_wipe_bottle_dish_towel.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/act_bottles_drying_rack.mp4"
+    }
+  ],
+  "opening_until": 11.1,
+  "_opening_why": "훅(0.37~6.40 '젖병을 세제로 씻은 뒤 행주로 닦거나 건조대에 엎어 두시나요?') + 통념 반박(7.00~11.10 '그런데 깨끗이 씻은 젖병도 말리는 동안 오히려 세균이 다시 붙을 수 있어요')까지 전체 화면. 세 번째 문단('미국 질병통제예방센터는') 직전 자막 끝 = 11.10초. 새 Flow 통클립 6초×2 = 12초를 약 11.3초에 — 0.94배. 행주로 닦기(0.2~5.9초, '행주로 닦거나' 4.2~5.0) → 건조대(5.9~11.3초, '건조대에 엎어' 5.3~6.0, 클립 후반 고인 물기에 호박색 세균 점이 생기는 장면이 '오히려 세균이 다시 붙을' 9.5~11.1에 걸림).",
+  "negations": [
+    {
+      "from": "미국 질병통제예방센터는",
+      "x_at": "닦지 말라고",
+      "clip": "assets_library/xray/output/act_wipe_bottle_dish_towel.mp4"
+    }
+  ],
+  "_negation_why": "'젖병을 행주로 닦지 말라고 해요' — 틀린 행동(행주로 문질러 닦기) 위에 X. 그 문장(11.79~14.88) 동안만 위 칸 전체에 행주 클립, '닦지 말라고'(14.10)에서 X. 다음 문장부터 두 칸(행주 → 세균 옮겨 감).",
+  "timeline": [
+    {
+      "from": "미국 질병통제예방센터는",
+      "item": "젖병 소독기",
+      "mech": "m_towel_germs_to_bottle",
+      "act": "act_wipe_bottle_dish_towel",
+      "label": "행주 → 젖병"
+    },
+    {
+      "from": "건조대도 물기가",
+      "item": "젖병 소독기",
+      "mech": "m_yeast_cling_teat",
+      "act": "act_bottles_drying_rack",
+      "label": "젖꼭지 틈",
+      "act_range": [
+        2.0,
+        6.0
+      ],
+      "mech_range": [
+        1.5,
+        6.0
+      ]
+    },
+    {
+      "from": "게다가 씻는 것만으로는",
+      "item": "젖병 소독기",
+      "mech": "m_steam_into_teat_kills_yeast",
+      "act": "act_brush_wash_bottle",
+      "label": "젖꼭지 속"
+    },
+    {
+      "from": "그래서 질병통제예방센터는",
+      "item": "젖병 소독기",
+      "mech": "m_immune_decline",
+      "act": "act_baby_nursing_blocked_nose",
+      "label": "아기 면역"
+    },
+    {
+      "from": "다만 매일 냄비에",
+      "item": "젖병 소독기",
+      "mech": "act_sterilize_bottles",
+      "act": null,
+      "label": "냄비 5분",
+      "solo": "'매일 냄비에 5분씩 삶고 또 말리기는 쉽지 않죠' — 손이 집게로 젖병을 끓는 냄비에 넣는 열탕 소독 단독(제품이 아닌 지금의 방법). 3.9초에 6초 클립 1.5배속."
+    },
+    {
+      "from": "이럴 땐 행주와",
+      "item": "젖병 소독기",
+      "mech": "m_sterilizer_steam_dry",
+      "act": "act_load_bottle_sterilizer",
+      "label": "소독기 안"
+    },
+    {
+      "from": "고를 땐 상품 정보에",
+      "item": "젖병 소독기",
+      "mech": "note_bottle_sterilizer_steam_dry",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모 — 브랜드 없이(젖병 소독기 고를 때 / 스팀 살균 / 건조 기능). 실제 상품 사진은 마지막 칠판에만"
+    },
+    {
+      "from": "넣기 전엔 꼭",
+      "item": "젖병 소독기",
+      "mech": "act_load_bottle_sterilizer",
+      "act": "act_brush_wash_bottle",
+      "label": "부품 따로",
+      "act_range": [
+        0.0,
+        4.0
+      ],
+      "mech_range": [
+        0.0,
+        4.0
+      ]
+    },
+    {
+      "from": "생후 3개월이",
+      "item": "젖병 소독기",
+      "mech": "act_baby_forehead_touch",
+      "act": null,
+      "label": "열"
+    }
+  ],
+  "_timeline_why": "① 11.79~18.58 CDC 행주(6.8초) 왼쪽 새 Flow act_wipe_bottle_dish_towel(6초 1.13배, 첫 문장 동안은 negation이 위 칸 전체를 덮음) · 오른쪽 새 Flow m_towel_germs_to_bottle(행주 올 사이 호박색 세균이 젖병 벽으로 옮겨 붙음, 6초 1.13배). ② 18.58~21.93 '건조대도 물기가 고여 세균과 곰팡이가'(3.35초) 왼쪽 새 Flow act_bottles_drying_rack 2~6초 구간(물이 흘러 받침에 고이고 호박색 점이 생김, 0.84배) · 오른쪽 m_yeast_cling_teat 1.5~6초(육아_26 재사용 — 프레임 확인: 젖꼭지 단면 틈에 점이 내려앉아 불어나고 호박색 실 그물로 번짐 = 세균·곰팡이가 자람, 0.74배). ③ 21.93~32.33 '씻는 것만으로는 … 연구 17개 … 세제와 솔로 씻은 뒤 끓이거나 스팀으로 … 거의 다 없어졌어요'(10.4초) 왼쪽 새 Flow act_brush_wash_bottle(솔로 씻기, 6초 1.73배) · 오른쪽 m_steam_into_teat_kills_yeast(육아_26 재사용 — 프레임 확인: 꼭지 속 호박색 덩어리가 스팀에 쪼그라들어 사라지고 깨끗한 청록 벽으로 끝남, 8초 1.3배). 2.9초짜리 첫 문장은 단독 칸 불가라 묶음 — 클립 앞부분(덩어리가 남아 있음)이 '다 없어지지 않아요', 끝(깨끗함)이 '거의 다 없어졌어요'. ④ 32.33~42.63 하루 한 번·2개월 미만·조산·면역(10.3초) 왼쪽 act_baby_nursing_blocked_nose(프레임 확인: 보호자 품에 안겨 젖병을 무는 작은 아기, 입·코 자리 점등, 8초 1.29배 — 기존 스틸+코드 클립) · 오른쪽 m_immune_decline(프레임 확인: 면역세포가 이물질을 감싸다 마지막에 조직 표면에 세균이 퍼짐, 4초 2.58배). ⑤ 42.63~46.55 냄비 5분(3.9초) act_sterilize_bottles 단독. ⑥ 46.55~54.48 🚨 제품 작동 칸(7.9초) 왼쪽 act_load_bottle_sterilizer(육아_26 재사용 — 프레임 확인: 손이 젖병·꼭지를 선반에 꽂고 뚜껑을 닫자 스팀이 참, 8초 0.99배) · 오른쪽 새 Flow m_sterilizer_steam_dry(소독기 안 스팀이 젖병 벽의 호박색 세균을 없앤 뒤 더운 바람에 물방울이 말라 사라짐 — '스팀으로 소독하고, 물기까지 말려 줘요', 6초 1.32배). ⑦ 54.48~59.21 고르는 기준 메모(4.7초, make_note_card로 만듦). ⑧ 59.21~64.29 '세제로 먼저 씻고, 젖꼭지와 뚜껑까지 하나하나 떼어서'(5.1초) 왼쪽 act_brush_wash_bottle 0~4초(솔질·헹굼만, 끝의 남은 점은 뺌) 2회째 · 오른쪽 act_load_bottle_sterilizer 0~4초(젖병과 꼭지를 따로 꽂는 부분만, 1.27배) 2회째. 기전·행위 모두 2회 이하.",
+  "summary_from": "생후 3개월이",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장(제품 작동·고르는 기준·넣는 법)은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 칠판이 덮어 안 그려지므로 있는 클립(act_baby_forehead_touch).",
+  "board_items": [
+    "젖병 소독기"
+  ],
+  "sources": [
+    {
+      "from": "미국 질병통제예방센터는",
+      "until": "곰팡이가 자랄",
+      "text": "출처: 미국 질병통제예방센터 「How to Clean, Sanitize, and Store Infant Feeding Items」(2024)"
+    },
+    {
+      "from": "실제로 연구 17개를",
+      "text": "출처: Haque 외, Maternal & Child Nutrition 2026 (연구 17편 고찰)"
+    },
+    {
+      "from": "그래서 질병통제예방센터는",
+      "until": "더 중요하고요",
+      "text": "출처: 미국 질병통제예방센터 「How to Clean, Sanitize, and Store Infant Feeding Items」(2024)"
+    },
+    {
+      "from": "생후 3개월이",
+      "text": "출처: 영국 NHS 「High temperature (fever) in children」(2024)"
+    }
+  ],
+  "_panel_act_why": "행위 칸은 보호자 손·사물 — 아기 몸이 보이는 칸은 기존 스틸+코드 클립(act_baby_nursing_blocked_nose)만. 새 Flow 다섯은 손·젖병·행주·건조대·소독기·확대 단면만이다."
+}

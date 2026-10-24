@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-10-24 15:55",
+  "_how": "육아 카탈로그(brandconnect_catalog_baby.json) 키 '젖병 소독기'의 기존 링크를 그대로 쓴다 — naver.me/5eDcBT9L 리다이렉트가 channelProductNo=5350826662(필립스아벤트 SCF293/00)를 가리키는 것 확인, D1 global_product_links(naver)에도 같은 링크. 리뷰·가격은 2026-10-24 search --baby(9335) 결과. 육아_26과 같은 상품·링크.",
+  "products": {
+    "젖병 소독기": {
+      "found": true,
+      "chosen": {
+        "id": 843434501579328,
+        "name": "[슈퍼적립]필립스아벤트 스팀건조 일체형 젖병소독기 SCF293/00",
+        "store": "필립스 아벤트",
+        "price": 149000,
+        "commission": 5.0,
+        "reviews": 5903,
+        "rating": 4.83,
+        "url": "https://smartstore.naver.com/main/products/5350826662",
+        "link": "https://naver.me/5eDcBT9L"
+      }
+    }
+  }
+}

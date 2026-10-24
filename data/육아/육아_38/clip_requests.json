@@ -1,0 +1,182 @@
+{
+ "requests": [
+  {
+   "name": "act_wipe_bottle_dish_towel",
+   "kind": "flow",
+   "seconds": 6,
+   "ref": "assets_library/xray/stills/cu_hand.jpg",
+   "why": "육아_38 도입부 훅('젖병을 세제로 씻은 뒤 행주로 닦거나', 0.37~5.0초 — 전체 화면 첫 클립 0.2~5.9초) + 1칸 왼쪽(11.79~18.58초 'CDC는 젖병을 행주로 닦지 말라고 해요. 행주에 있던 세균이 젖병으로 옮겨 갈 수 있어서예요') + 빨간 X('닦지 말라고', 14.10초 — 이 클립을 위 칸 전체에 깔고 X). 손이 씻은 젖병을 접은 행주로 문질러 닦고, 행주가 떨어진 자리에 호박색 세균 점이 남는다. 범용 — 젖병·식기 행주 위생, 젖병 말리기, 행주 세균 편에 쓴다. 손과 사물만, 아기 없음.",
+   "fits": [
+    "행주로 닦기",
+    "젖병 말리기",
+    "행주 세균",
+    "젖병 물기 닦기",
+    "식기 위생",
+    "수유 위생",
+    "젖병 소독"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_pat_dry_towel",
+     "why_not": "앉은 사람이 정강이 피부를 수건으로 톡톡 — 젖병이 아니라 몸을 닦는 장면(보습 타이밍용)"
+    },
+    {
+     "id": "act_baby_pat_dry_towel",
+     "why_not": "누운 아기 배에 수건 — 아기 몸 닦기(목욕 후)라 젖병·행주와 무관"
+    },
+    {
+     "id": "act_dishwash_rubber_gloves",
+     "why_not": "고무장갑 낀 손이 대야에서 접시를 씻음 — 닦아 말리는 동작·젖병·행주가 없다"
+    },
+    {
+     "id": "act_sterilize_bottles",
+     "why_not": "집게로 젖병을 끓는 냄비에 넣음 — 열탕 소독이지 행주로 닦기가 아니다(이 편 5칸에 씀)"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a clear washed feeding bottle beaded with water droplets, the other hand wrapped in a folded plain woven cotton kitchen dish towel pressed against the side of the bottle mid-rub, the towel rendered as the same translucent pale cyan glass with fine woven fibres visible, no teat on the bottle, the bottle and the towel blank and smooth with no labels or markings, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, numerals, printed label, brand marking, digital display, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, sink, faucet, soap bottle",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and the objects described are ever in frame — no face, no head, no body, no small figure, and nothing else enters the frame. 0-2s: from the very first frame the towel-wrapped hand rubs firmly up and down the wet bottle, water droplets smearing across its wall, as the camera swoops in close beside the bottle. 2-4s: the hand twists the folded towel around the bottle neck and pats it twice; tiny faint warm amber specks glint inside the damp towel fibres. 4-6s: the towel lifts away out of frame and a scattering of tiny warm amber specks stays stuck to the bottle wall exactly where the towel touched, glowing softly, the camera pushing in on them until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with a soft cloth rubbing sound, no music, no dialogue."
+  },
+  {
+   "name": "act_bottles_drying_rack",
+   "kind": "flow",
+   "seconds": 6,
+   "ref": "assets_library/xray/stills/cu_hand.jpg",
+   "why": "육아_38 도입부(훅 '건조대에 엎어 두시나요?' 5.3~6.4초 + 통념 반박 '그런데 깨끗이 씻은 젖병도 말리는 동안 오히려 세균이 다시 붙을 수 있어요' 7.0~11.1초 — 전체 화면 둘째 클립 5.9~11.3초) + 2칸 왼쪽(18.58~21.93초 '건조대도 물기가 고여 세균과 곰팡이가 자랄 수 있다고 하고요', 2~6초 구간). 손이 씻은 젖병을 건조대 꽂이에 거꾸로 꽂음 → 물이 흘러 받침·꽂이 둘레에 고임 → 고인 물기와 젖은 병목에 호박색 세균 점·곰팡이 실이 생긴다. 범용 — 젖병 건조대, 식기 건조대 위생, 젖병 말리기, 물기 고임 편에 쓴다. 손과 사물만, 아기 없음.",
+   "fits": [
+    "젖병 건조대",
+    "건조대에 엎어 두기",
+    "물기 고임",
+    "건조대 곰팡이",
+    "식기 건조대 위생",
+    "젖병 말리기",
+    "수유 위생"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_load_bottle_sterilizer",
+     "why_not": "같은 꽂이 모양이지만 소독기에 넣고 뚜껑을 닫아 스팀이 참 — 건조대에 그냥 두는 장면이 아니고 제품 칸(6칸)에 쓴다"
+    },
+    {
+     "id": "m_humidifier_tank_germs_mist",
+     "why_not": "가습기 물통 속 고인 물에 균·곰팡이 — 통 가운데 관과 뿜어 나오는 김이 가습기로 읽힌다, 건조대·젖병이 없다"
+    },
+    {
+     "id": "act_sterilize_bottles",
+     "why_not": "끓는 냄비 열탕 — 말리는 단계가 아니다"
+    },
+    {
+     "id": "m_damp_scalp_stays_wet",
+     "why_not": "젖은 두피·털 뿌리에 세균 — 두피라 젖병과 무관"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand pushing a clear washed feeding bottle upside down onto a tall peg of a plain countertop dish drying rack with a shallow drip tray, two more clear bottles and two soft teats already resting upside down on the pegs, water droplets running down their insides, the rack, tray, bottles and teats all blank and smooth with no labels or markings, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, numerals, printed label, brand marking, digital display, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, sink, faucet, plates",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and the objects described are ever in frame — no face, no head, no body, no small figure, and nothing else enters the frame. 0-2s: from the very first frame the hand pushes the upside-down wet bottle down onto a peg of the drying rack and lets go, sliding out of frame, as the camera swoops low along the rack. 2-4s: water runs down the insides of the upside-down bottles and drips from their necks and from the soft teats, pooling into a shallow puddle in the drip tray and in the little cups around the pegs. 4-6s: in the standing water around the pegs and on the damp bottle necks, tiny warm amber specks appear and multiply and fine amber threads begin to creep outward, glowing, the camera pressing in toward the pooled water until the very last frame. The hand stays translucent glass with the finger bones visible inside. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with a plastic click and slow dripping water, no music, no dialogue."
+  },
+  {
+   "name": "m_towel_germs_to_bottle",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "육아_38 1칸 오른쪽(11.79~18.58초 'CDC는 젖병을 행주로 닦지 말라고 해요. 행주에 있던 세균이 젖병으로 옮겨 갈 수 있어서예요', 6.8초 1.13배). 젖은 행주 올 사이에 숨은 호박색 막대균이 행주가 젖병 벽을 문지를 때 물과 함께 짜여 나와 매끈한 젖병 벽에 옮겨 붙는다. 근거(CDC 'may transfer germs to the items')대로 '옮겨 붙음'까지만 — 아기가 아프다는 그림은 없다. 범용 — 행주·수건 세균, 식기·젖병 재오염, 행주 위생, 손수건 편에 쓴다. 사람 없이 확대 단면만.",
+   "fits": [
+    "행주 세균",
+    "세균이 옮겨 감",
+    "젖병 재오염",
+    "행주 위생",
+    "수건 세균",
+    "식기 재오염",
+    "닦으면 세균이 묻음"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_yeast_cling_teat",
+     "why_not": "젖꼭지 단면 틈에 점이 내려앉아 자람 — 행주가 없어 '행주에서 옮겨 감'이 안 보인다(이 편 2칸 '곰팡이가 자랄'에 씀)"
+    },
+    {
+     "id": "m_bacteria_growth",
+     "why_not": "청록 세포 표면에서 균이 번짐 — 몸 세포라 젖병·행주로 안 읽힌다"
+    },
+    {
+     "id": "m_damp_scalp_stays_wet",
+     "why_not": "수건이 털을 훑고 지나간 뒤 두피에 균 — 두피 단면이라 젖병 벽이 아니다"
+    },
+    {
+     "id": "m_odor_compound_release",
+     "why_not": "피부 물방울 속 막대균이 냄새로 퍼짐 — 체취 기전"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, extreme microscopic close-up of the contact line between a damp woven cotton towel and the smooth curved wall of a clear plastic feeding bottle, the towel shown as a mat of thick twisted fibres holding tiny water beads, the bottle wall a smooth clean glassy surface, both rendered as translucent pale cyan glass with softly glowing edges, small rod-shaped germs glowing warm amber nestled between the wet towel fibres, the bottle wall itself still clean with no amber on it, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marking, UI, interface, people, human figure, baby, face, mouth, hands, bottle label, red, photo, photorealistic",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame the damp fibre mat sweeps across the smooth bottle wall, pressing into it and squeezing out beads of water, the camera tracking fast along the contact line. 2-4s: warm amber rod-shaped germs squeeze out of the wet fibres with the water and smear onto the smooth wall, sticking where they land. 4-6s: the fibre mat peels away and slides out of frame, leaving rows of glowing amber rods clinging to the wet bottle wall, the camera pushing in on them until the very last frame. No human figure, no face, no hands anywhere in the frame — only the towel fibres, the bottle wall, the water and the germs. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with a soft wet cloth swish, no music, no dialogue."
+  },
+  {
+   "name": "act_brush_wash_bottle",
+   "kind": "flow",
+   "seconds": 6,
+   "ref": "assets_library/xray/stills/cu_hand.jpg",
+   "why": "육아_38 3칸 왼쪽(21.93~32.33초 '게다가 씻는 것만으로는 세균이 다 없어지지 않아요. 실제로 연구 17개를 모아 보니, 세제와 솔로 씻은 뒤 끓이거나 스팀으로 소독했을 때 세균이 거의 다 없어졌어요', 10.4초 1.73배) + 8칸 왼쪽(59.21~64.29초 '넣기 전엔 꼭 세제로 먼저 씻고, 젖꼭지와 뚜껑까지 하나하나 떼어서 넣으세요', 0~4초 구간). 손이 거품물 대야에서 긴 젖병 솔로 젖병 안을 문질러 씻고 헹군다 → 헹군 병 바닥 모서리에 희미한 호박색 점 몇 개가 남는다(씻기만으론 다 안 없어짐). 범용 — 젖병 세척, 젖병솔, 젖병 세정제, 분유 수유 위생 편에 쓴다. 손과 사물만, 아기 없음.",
+   "fits": [
+    "젖병 씻기",
+    "젖병솔",
+    "세제로 씻기",
+    "젖병 세정제",
+    "씻기만으론 부족",
+    "수유 위생",
+    "젖병 세척"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_dishwash_rubber_gloves",
+     "why_not": "고무장갑으로 대야의 접시를 씻음 — 젖병·솔이 없고 끝이 장갑 속 손톱 점등(주부습진용)"
+    },
+    {
+     "id": "act_wash_hands_soap",
+     "why_not": "비누로 손을 씻음 — 젖병 세척이 아니다"
+    },
+    {
+     "id": "act_mix_formula_bottle",
+     "why_not": "분유를 떠 젖병에 타 흔듦 — 세척이 아니라 분유 타기"
+    },
+    {
+     "id": "act_toddler_toothpaste_rice",
+     "why_not": "작은 칫솔에 치약 — 솔은 있지만 칫솔·양치"
+    }
+   ],
+   "midjourney": "Medical holographic visualization of a pair of translucent glass-like 3D anatomical hands and forearms, the skin rendered as an almost fully transparent thin glass shell with the finger bones and tendons visible inside in soft pale cyan, no face, no head and no body anywhere in the frame, one hand holding a clear feeding bottle half submerged in a plain round wash basin of foamy soapy water, the other hand pushing a long plain bottle brush with soft bristles down into the bottle, foam bubbles clinging to the bottle and the brush, a soft teat and a screw ring lying separately in the basin, the basin, bottle, brush and teat all blank and smooth with no labels or markings, in a dark empty slate blue-grey studio void, cinematic soft rim lighting, vertical 9:16 portrait frame, the hands and the objects filling the centre of the frame with clear margins on all sides, absolutely no text, letters, numbers, labels, arrows, logos or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, numerals, printed label, brand marking, digital display, arrows, watermark, logo, UI, interface, opaque skin, photorealistic skin, face, head, body, figure, person, baby, sink, faucet, sponge, plates",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. Only two translucent glass hands and the objects described are ever in frame — no face, no head, no body, no small figure, and nothing else enters the frame. 0-2s: from the very first frame the hand plunges the long brush deep into the bottle and spins it hard, foam swirling and churning inside, as the camera swoops in low over the basin. 2-4s: the hand pulls the dripping brush out and tips the bottle under a clear stream of rinse water that washes the foam away. 4-6s: the camera pushes in close on the rinsed, clear bottle: a few faint warm amber specks still cling in the bottom corner and the threads of the neck, glowing softly, holding until the very last frame. The hands stay translucent glass with the finger bones visible inside throughout. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with brisk scrubbing, sloshing water and a rinse splash, no music, no dialogue."
+  },
+  {
+   "name": "m_sterilizer_steam_dry",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "육아_38 🚨 제품 작동 칸 오른쪽(46.55~54.48초 '이럴 땐 행주와 건조대 대신 젖병 소독기를 쓰면 편해요. 씻은 젖병을 넣으면 스팀으로 소독하고, 물기까지 말려 줘요', 7.9초 1.32배). 닫힌 소독기 안 — 뜨거운 스팀이 차올라 젖병 벽의 호박색 세균 점이 쪼그라들어 사라짐 → 스팀이 걷히고 더운 바람이 올라가며 벽에 맺힌 물방울이 하나씩 말라 없어져 마른 깨끗한 젖병만 남는다. 근거(CDC 스팀 소독·건조 단계, 상품 '살균·건조 기능')대로 '세균이 줄고 물기가 마름'까지만 — 99.9%·무균 보관 같은 판매자 주장은 그리지 않는다. 색인 전수(스팀·건조·말리기·소독기·dry) — m_steam_into_teat_kills_yeast는 꼭지 속 스팀까지(건조 없음), m_warm_air_dries_roots는 두피 드라이. 범용 — 젖병 소독기 건조 기능, 스팀 살균 원리, 젖병 말리기, 식기세척기 건조 편에 쓴다. 사람 없이 사물만.",
+   "fits": [
+    "젖병 소독기",
+    "스팀 살균",
+    "건조 기능",
+    "물기까지 말림",
+    "젖병 말리기",
+    "소독기 원리",
+    "제품 작용"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_steam_into_teat_kills_yeast",
+     "why_not": "꼭지 단면 속 균을 스팀이 없앰 — '물기까지 말려 줘요'(건조)가 없고 이 편 3칸에 이미 씀"
+    },
+    {
+     "id": "act_load_bottle_sterilizer",
+     "why_not": "손이 젖병을 넣고 뚜껑을 닫자 스팀이 참 — 같은 칸 왼쪽(행위)에 쓰고, 균이 없어지고 마르는 기전이 안 보인다"
+    },
+    {
+     "id": "m_warm_air_dries_roots",
+     "why_not": "더운 바람에 두피 털 뿌리가 마름 — 두피라 젖병과 무관"
+    },
+    {
+     "id": "m_warm_mist_hot_steam",
+     "why_not": "가열식 가습기 코일이 물을 끓여 뜨거운 김 — 가습기 화상 기전"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, close-up inside the closed clear dome of a plain countertop steam sterilizer, three clear feeding bottles standing upside down on pegs and two soft teats on a small upper tray, all rendered as translucent pale cyan glass with softly glowing edges, the bottle walls beaded with water droplets and dotted with a few tiny warm amber specks, thin wisps of white steam rising from the base, the dome, bottles and teats blank and smooth with no labels, no buttons and no markings, dark empty slate blue-grey void, cinematic soft rim lighting, shallow depth of field, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, brand marking, UI, interface, people, human figure, baby, face, mouth, hands, bottle label, red, photo, photorealistic, digital display, pot, stove",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts. 0-2s: from the very first frame thick white steam surges up from the base and billows around the upside-down bottles, wrapping the warm amber specks on their walls, which flicker and shrivel, the camera gliding up the side of the nearest bottle. 2-4s: the amber specks crumble and vanish into the steam, leaving only clear water droplets beaded all over the clean bottle walls. 4-6s: the steam thins away and a gentle shimmer of warm air rises through the dome; the water droplets shrink and disappear one after another until the bottle walls are completely dry and evenly clear pale cyan with no amber left, the camera holding close on the dry bottle until the very last frame. No human figure, no face, no hands anywhere in the frame — only the inside of the sterilizer, the bottles, the teats, the steam and the droplets. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No text, no letters, no numbers, no labels, no arrows, no display anywhere in the frame; nothing in the frame carries printed markings of any kind. Low ambient synth hum with a rising steam hiss that fades into a soft warm fan whir, no music, no dialogue."
+  }
+ ]
+}
