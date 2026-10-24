@@ -13,7 +13,11 @@
   },
   "opening": [
     {
-      "clip": "assets_library/xray/output/act_wipe_bottle_dish_towel.mp4"
+      "clip": "assets_library/xray/output/act_wipe_bottle_dish_towel.mp4",
+      "range": [
+        0.2,
+        4.0
+      ]
     },
     {
       "clip": "assets_library/xray/output/act_bottles_drying_rack.mp4"
@@ -35,7 +39,11 @@
       "item": "젖병 소독기",
       "mech": "m_towel_germs_to_bottle",
       "act": "act_wipe_bottle_dish_towel",
-      "label": "행주 → 젖병"
+      "label": "행주 → 젖병",
+      "act_range": [
+        0.2,
+        4.0
+      ]
     },
     {
       "from": "건조대도 물기가",
@@ -63,7 +71,7 @@
       "from": "그래서 질병통제예방센터는",
       "item": "젖병 소독기",
       "mech": "m_immune_decline",
-      "act": "act_baby_nursing_blocked_nose",
+      "act": "act_baby_feed_upright",
       "label": "아기 면역"
     },
     {
@@ -139,5 +147,6 @@
       "text": "출처: 영국 NHS 「High temperature (fever) in children」(2024)"
     }
   ],
-  "_panel_act_why": "행위 칸은 보호자 손·사물 — 아기 몸이 보이는 칸은 기존 스틸+코드 클립(act_baby_nursing_blocked_nose)만. 새 Flow 다섯은 손·젖병·행주·건조대·소독기·확대 단면만이다."
+  "_panel_act_why": "행위 칸은 보호자 손·사물 — 아기 몸이 보이는 칸은 기존 스틸+코드 클립(act_baby_nursing_blocked_nose)만. 새 Flow 다섯은 손·젖병·행주·건조대·소독기·확대 단면만이다.",
+  "_wipe_range_why": "act_wipe_bottle_dish_towel은 Flow가 젖병을 목 좁은 유리병(맥주병 모양)으로 바꿨다 — 사용자 '적당히 쓸만하면 쓰자'(10-24)로 쓰되 행주가 병을 덮는 0.2~4.0초만(4.25초 뒤 병 전체가 드러남, 0~0.12초는 시작 그림 컷 튐). 도입부는 3.8+6=9.8초를 약 11.1초에 1.13배, 1칸 왼쪽은 3.8초를 6.8초에 1.79배(첫 문장은 negation이 덮어 실제 보이는 건 뒤쪽 2~4초 — 행주 아래 세균 점이 생기는 장면)."
 }
