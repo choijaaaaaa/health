@@ -116,9 +116,11 @@ def stage(dry_run: bool) -> None:
         root.mkdir(parents=True, exist_ok=True)
     copied = skipped = 0
     seen: set[Path] = set()
+    staged_dirs: set[Path] = set()
 
     for topic, topic_dir in _iter_topics():
         dest_dir = tracks.deploy_dir(topic)
+        staged_dirs.add(dest_dir)
         # 네이버 클립판(제품 보러 가기 O·광고 표시 X)과 유튜브판(화살표 X·광고 표시 O)을 **이름으로**
         # 가른다 — 같은 이름으로 두면 올릴 때 어느 쪽인지 열어봐야 안다(2026-09-24).
         pairs = [(_final_video(topic_dir), dest_dir / "네이버클립.mp4")]
@@ -151,7 +153,16 @@ def stage(dry_run: bool) -> None:
     # ("매운 음식" → "빈속 커피") 옛 카드가 새 카드와 나란히 남고, 업로드할 때 둘 다 집어
     # 올리게 된다(2026-09-24 실측: 소화_14 deploy에 "매운 음식" 카드 2장이 남아 있었다).
     # 영상·그 밖의 파일은 예전처럼 알리기만 한다 — 이름이 안 바뀌므로 남아 있으면 다른 사정이다.
-    removed = [p for p in stale if p.parent.name == "card_news" or p.name == "shorts.mp4"]
+    # 🚨 지우는 건 이번에 실제로 다시 채운 topic 폴더 안에서만, 그리고 메인 체크아웃에서만 —
+    #   worktree엔 다른 편 영상(gitignore)이 없어 _iter_topics에서 빠지고, 그 편 카드가 전부 '원본 없음'으로 보여
+    #   98편 카드가 한 번에 지워졌다(2026-10-23 13:32 코_24·피부_39 worktree 조립).
+    if (ROOT / ".git").is_file():
+        if stale:
+            print(f"⚠️ worktree라 deploy 정리(옛 카드 삭제)는 건너뜀 — 대상 {len(stale)}개, 메인 체크아웃에서 다시 돌릴 것")
+        stale = []
+    removed = [p for p in stale
+               if (p.parent.name == "card_news" or p.name == "shorts.mp4")
+               and any(d in p.parents for d in staged_dirs)]
     for p in removed:
         p.unlink()
     if removed:
