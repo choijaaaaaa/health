@@ -28,8 +28,16 @@ def test_sources_cover_the_sentence(tmp_path, monkeypatch):
 
 def test_sources_until_extends(tmp_path, monkeypatch):
     t = _topic(tmp_path, monkeypatch, {"sources": [{"from": "자던 아기가", "until": "질병관리청도", "text": "x"}]})
-    (s,) = xt.sources(t, CUES)
+    cues = CUES + [(12.5, 15.0, "병원에 가세요.")]
+    (s,) = xt.sources(t, cues)
     assert abs(s["end"] - (12.0 + xt.SOURCE_HOLD)) < 1e-6
+
+
+def test_source_on_last_sentence_stops_at_narration_end(tmp_path, monkeypatch):
+    # 마지막 문장 출처가 0.6초 더 남아 엔딩 카드 위에 걸리던 것(2026-10-24 육아_38)
+    t = _topic(tmp_path, monkeypatch, {"sources": [{"from": "자던 아기가", "until": "질병관리청도", "text": "x"}]})
+    (s,) = xt.sources(t, CUES)
+    assert abs(s["end"] - 12.0) < 1e-6
 
 
 def test_source_png_fits_width(tmp_path):

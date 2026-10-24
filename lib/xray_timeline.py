@@ -129,7 +129,9 @@ def sources(topic: str, cues=None) -> list[dict]:
     for it in items:
         start, cue_end = _time_after(it["from"], cues, 0.0)
         end = _time_after(it["until"], cues, start)[1] if it.get("until") else cue_end
-        out.append({"start": start, "end": end + SOURCE_HOLD, "text": it["text"]})
+        # 마지막 문장이면 남김 시간이 엔딩 카드로 넘어가 카드 위에 출처가 걸린다(2026-10-24 육아_38) — 나레이션 끝에서 자른다
+        last = max((c[1] for c in cues), default=end)
+        out.append({"start": start, "end": min(end + SOURCE_HOLD, max(last, end)), "text": it["text"]})
     return out
 
 
