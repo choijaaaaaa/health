@@ -52,7 +52,6 @@
 - **DB는 Cloudflare D1**이다(2026-09-13 Supabase 폐기). 환경변수 이름은 옛 그대로 `SUPABASE_URL`·
   `SUPABASE_SERVICE_ROLE_KEY`지만 PostgREST 문법을 D1 SQL로 번역하는 Worker
   (`d1-postgrest.choijaaaaaa.workers.dev`)를 가리킨다. 소스 `~/Desktop/project/infra/d1-postgrest/`.
-  `BLOG_NETWORK_SUPABASE_*`도 같은 Worker다.
 - **이미지는 Cloudflare R2**(`https://img.vernhaven.com/health-shorts/card_news/`). `lib/card_news.py`가 렌더 직후
   `_sync_to_r2()`로 자동 업로드한다 — stderr에 경고가 뜨면 그 topic은 배포본에서 이미지가 안 뜬다.
   키: `health-shorts/card_news/<topic>/<파일>`(ko·루트 공용), 다른 언어는 `<topic>/<lang>/`. URL 정본은
@@ -77,6 +76,7 @@
   `tests/test_tracks.py`가 이 규약을 막는다.
 - 한국어 캡션 파일은 topic마다 **한 곳에만** 있다 — 옛 topic은 `data/<topic>/platform_captions.json`,
   언어 폴더가 생긴 topic은 `data/<topic>/ko/`. flat만 보고 "없다"고 판단하지 말 것(`test_korean_caption_lives_in_one_place`).
+- 2026-10-24 SEO 블로그 폐기로 blog_seo 8개 외국어 서브트랙 제거(한국어 ko/는 유지).
 
 ---
 
@@ -104,7 +104,6 @@
 11. **커밋·푸시**. 카드뉴스·캡션·영상은 먼저 끝나는 대로 바로 커밋한다.
 
 **완료 기준**: 네이버 블로그 트랙(카드+캡션) + 영상 트랙(TTS+영상, 위 "완료" 절까지) — 한국어 하나.
-blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
 
 ### DB `topics` — 목록에 뜨는 자리
 
@@ -230,8 +229,8 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   `queries/items_ko_en.py`(인물 품목은 `PEOPLE`에 넣어 `asian`이 붙게), 소싱 `sourcer.py --queries <json>`
   (`--target`은 카탈로그 총량 기준이라 이미 넘었으면 바로 끝난다 — 올려서 돌린다), 배정 `assign.py build --project health-shorts`.
   배정은 한 번 정해지면 고정. `test_char_files_resolve_to_images`가 누락을 잡는다.
-- 원고를 고치면 **카드·캡션·제목을 같이** 고친다(`-m lib.card_article_diff <topic>`은 숫자만 본다 — 기전이 뒤집힌 건
-  직접 읽어 대조). 이미지 배정을 바꾸면 alt도 사진을 직접 보고 다시 쓴다.
+- 원고를 고치면 **카드·캡션·제목을 같이** 고친다(기전이 뒤집힌 건 직접 읽어 대조). 이미지 배정을 바꾸면 alt도
+  사진을 직접 보고 다시 쓴다.
 
 ## 캡션 (`platform_captions.json`)
 
@@ -304,28 +303,6 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   아기에게 해주는 동작은 스틸+코드.
 - **현황(2026-10-02)**: 시험 10편 대본을 사용자 검수로 전부 다시 써서(한 줄기 흐름·쉬운 말·근거 원문 대조) 필재 1.2로 TTS·조립·검사 완료. 유튜브 「육아만사전」 10/1~10/10 매일 18시 예약, 네이버는 미션컨트롤 육아 탭에서 올린다. 새 편도 같은 순서: 대본 검수 → TTS → 아기 스틸로 `make_part_clip`(region 실측) → 시간표·negations(빨간 X) → 카드·블로그 칸·클립/유튜브 캡션 맞추기 → 상품 사진(얼굴·광고 문구 잘라내기) → `xray_build` → `verify_output` 0건 + 프레임 → `yt_upload.py baby schedule`. 예약 뒤 고치면 `yt_upload.py baby replace <topic>`(공개 전만). 썸네일은 증상(전문용어 금지).
 
-## blog_seo 서브트랙 (9개 언어)
-
-영상 트랙과 별개로 vernhaven 계열 SEO 블로그에 **카드뉴스 + `blog_seo` 본문**을 공급한다. 대상 언어는
-**ko/en/ja/de/fr/it/es/nl/sv 9개**(한국어 포함). 영상의 en/ja는 폐기됐지만 이 트랙은 계속한다.
-
-- 산출물: `data/<topic>/<lang>/card_news_spec.json` + `platform_captions.json`(`blog_seo` 항목, 필드는 seo-blog
-  `CLAUDE.md` "Track B 데이터 계약"). 카드 렌더 `output/<topic>/<lang>/card_news/`, 반영은 vernhaven
-  `ingest_health_shorts.py --commit`(몇 topic씩 쪼개 돌린다 — 통짜로 돌리면 절전에 소켓이 죽는다).
-- **완료 기준 = 9개 언어 전부.** 언어별 카드 렌더를 빼먹지 말 것(hero가 영영 빈다).
-- **번역 금지 — 언어마다 독립 리서치**(그 언어권 공식기관 원문). 기존 언어 캡션을 "주장 후보 목록"으로 삼아
-  타겟 검색해도 되지만 본문 문장은 새로 쓴다. 국가별 기준값이 다르다(하나를 옮기면 나머지가 틀린다).
-- **ko는 네이버 캡션과 다른 글**이어야 한다 — 겹침 `-m lib.ko_overlap_audit`, 20%를 넘으면 다시 쓴다.
-- 본문: 도입 → H2 원인/기전 → H2 현지 해결책 → 선택 FAQ/요약, 시맨틱 HTML, `<img>` 최소 1장(플레이스홀더는
-  인입 스크립트가 치환), 문단마다 핵심 어구 하나를 `<strong>`. 수치엔 **출처와 조건**(비교 대상·하위집단·기간),
-  관찰연구는 "연관됐다", 무작위 시험만 "낮췄다". PubMed는 WebFetch가 막힌다 — europepmc·저널·기관 페이지로.
-- 쓰기 전에 아키타입을 뽑는다: `--title-archetype <topic> <lang>`, `--closing-archetype <topic> <lang>`,
-  `select_section_header_archetype(topic, lang, "summary"|"actual_fix")`. 아키타입은 문구가 아니라 스타일이다.
-- 품질 게이트 `pytest tests/test_blog_seo_quality.py` — 라틴 500단어/일본어 1000자, 제목 65자(ja·ko 35자,
-  인입 스크립트 상수와 동기화). 채무 `data/_audit/blog_seo_quality_debt.json`(고치면 지운다). 제목을 줄여도
-  **`slug`는 바꾸지 말 것**. 증량은 물타기 금지.
-- 글로벌 topic에는 `products`·`suppress_product_block`을 넣지 않는다.
-
 ## 같은 틀로 수렴하지 않게
 
 구조 쏠림은 몇 편 읽어서는 안 보이고 전수로 세야 보인다. `-m lib.repetition_audit`(계기판, 게이트 아님).
@@ -356,9 +333,8 @@ blog_seo 서브트랙이 붙은 topic은 9개 언어 전부(아래 절).
   `platforms[]`에 `type: "video"`가 있는지로 자동 파생된다.
 - 상품 링크는 대시보드 입력창이 `/api/product-links.js`·`/api/global-product-links.js`로 DB에 직접 쓴다.
   `output/all_products.json`은 대시보드 생성마다 갱신된다.
-- `lib/card_news_hub.py --commit`은 vernhaven admin **네이버 카드뉴스 탭**(`naver_card_news`)에 babbleroot·furrowly·sparelow
-  콘텐츠를 채운다. 탭은 **쓰고 있지만**(2026-09-24 확인) **새 항목은 08-16 이후 안 채워졌다** — 채우려면 각 content
-  저장소에서 네이버 파일을 만든 뒤 다시 돌린다. `posted`는 payload에서 뺀다(사람이 체크한 게시 상태를 안 지우게).
+- `lib/card_news_hub.py`는 로컬 `output/card_news_hub.json`만 만든다(vernhaven `naver_card_news` push는 2026-10-24
+  SEO 블로그 폐기로 제거).
 
 ## 테스트
 

@@ -14,13 +14,8 @@
 #   python3 -m lib.content_review --all            — data/ 밑 모든 topic 배치 검사(한국어 전용)
 #   python3 -m lib.content_review --hook-pattern <topic>  — 제목 쓰기 전에 먼저,
 #     10종 훅 패턴 중 이번 topic이 뭔지 확인(결정론적 시드, API 호출 없음)
-#   python3 -m lib.content_review --title-archetype <topic> <lang>    — blog_seo
-#     제목 쓰기 전에 먼저(topic+lang 시드, 아래 "blog_seo 전용 다양화 장치" 참고)
-#   python3 -m lib.content_review --closing-archetype <topic> <lang>  — blog_seo
 #   python3 -m lib.content_review --card-structure <topic>            — 카드 짜임
 #   python3 -m lib.content_review --connectives <topic>               — 네이버 접속어
-#     클로징 문단 쓰기 전에 먼저. select_section_header_archetype()은 CLI 없이
-#     함수를 직접 import해서 쓸 것(section 인자를 받으므로 CLI 매핑 생략)
 from __future__ import annotations
 
 import hashlib
@@ -63,20 +58,7 @@ MANUAL_REVIEW_CHECKLIST = """작성/수정한 세션이 TTS·발행 전 직접 �
 6. (비한국어 topic만) 해결책 재료·식품이 이 언어권/지역에서 실제로 흔히
    구할 수 있는 것인가(그 지역에 없거나 생소한 재료를 대안으로 제시하지
    않았는가)
-7. (blog_seo만) 번역투/직역투 표현은 없는가, 그 언어권 광고/표시규제상
-   위험한 확정적 효능 주장은 없는가(data/global_research_rules.md "표현
-   주의" 절 참고), 제목이 핵심 검색 키워드로 시작하는가, 출처 없이 소수점
-   단위까지 정밀한 수치를 인용하지 않았는가
-7-1. (blog_seo만) ⚠️ 인용한 수치에 **그 수치가 성립하는 조건**이 함께
-   적혀 있는가 — 비교 대상·하위집단·기간. 2026-08-28 실측 사례: AREDS2
-   시험 결과를 "루테인·제아잔틴이 AMD 진행 위험을 약 26% 낮췄다"로 썼는데,
-   실제 18%는 *베타카로틴 포함 제형 대비*이고 25%는 *식이 섭취가 낮았던
-   하위집단*에서만 나온 수치였다 — 조건을 떼어내면 일반적인 효과처럼
-   읽히고, 독자는 그걸 보고 보충제를 산다. 조건을 못 쓰겠으면 그 수치를
-   빼는 쪽이 맞다.
-7-2. (blog_seo만) 관찰연구 결과를 인과로 단정하지 않았는가 — 코호트·
-   단면연구는 "~와 연관됐다", 무작위 개입시험만 "~를 낮췄다"로 쓴다.
-8. (다국어 topic만) 언어 간 제목/훅이 사실상 번역인지, 그 언어권 독자에게
+7. (다국어 topic만) 언어 간 제목/훅이 사실상 번역인지, 그 언어권 독자에게
    맞춘 진짜 다른 각도로 다시 쓰여졌는지(번역 금지 원칙, CLAUDE.md "글로벌
    확장" 절)"""
 
@@ -262,79 +244,6 @@ def check_blog_title_length(topic: str, lang: str = "kor") -> list[dict]:
     return issues
 
 
-
-
-def _blog_seo_entry(topic: str, lang: str = "kor") -> dict | None:
-    """platform_captions.json의 blog_seo 항목. 없으면 None(= 블로그 트랙이
-    아닌 topic이라 검사 대상이 아님)."""
-    caption_path = _topic_dir(topic, lang) / "platform_captions.json"
-    if not caption_path.exists():
-        return None
-    try:
-        spec = json.loads(caption_path.read_text(encoding="utf-8"))
-    except json.JSONDecodeError:
-        return None
-    for entry in spec.get("platforms", []):
-        if entry.get("platform") == "blog_seo":
-            return entry
-    return None
-
-# WHY 수치에 출처가 붙었는지 기계로 보는지(2026-08-28): 건강 콘텐츠는 YMYL이라
-# 구글 품질 평가에서 가장 엄격한 잣대가 적용되는데, 미발행분 246건을 훑어보니
-# 본문에 퍼센트·용량 수치가 613곳 나오는 반면 기관·연구를 함께 밝힌 글은
-# 일부였다. 사람이 매번 세는 대신 "수치는 있는데 근처에 출처가 없는" 자리를
-# 뽑아준다 — 그 수치가 틀렸다는 뜻이 아니라 확인이 필요한 자리라는 뜻이다.
-# 조건(비교군·하위집단) 누락은 기계로 못 잡으니 위 체크리스트 7-1로 넘긴다.
-_CLAIM_NUM = re.compile(
-    r"\d[\d.,]*\s?(?:%|percent|Prozent|por ciento|per cento|procent|パーセント|퍼센트"
-    r"|mg\b|g\b|ng/mL|mmHg|kcal)"
-)
-# 출처로 인정하는 신호 — 기관명, 저널명, "~에 따르면" 계열, 연구 언급
-_CLAIM_SRC = re.compile(
-    # 기관·저널 고유명
-    r"(Harvard|BMJ|Lancet|JAMA|NEJM|Cochrane|NIH|NIDDK|NIEHS|NHLBI|NCI|CDC|WHO|IARC|FDA|EFSA|NHS"
-    r"|Mayo|AREDS|NHANES|AHA|American Heart|NTP|Linus Pauling|DGE|RKI|RIVM|Voedingscentrum"
-    r"|Livsmedelsverket|Folkhälsomyndigheten|ANSES|Santé publique|HAS|ISS|CREA|AESAN|LARN"
-    r"|Ministerio|Ministère|Ministero|厚生労働省|질병관리청|식약처"
-    # 기관 일반명 — Institute/University/학회 등
-    r"|Institut\w*|Istituto|Universit\w*|College|School of|Società|Society|Association"
-    r"|Academy|Foundation|학회|연구소|学会|研究所"
-    # 인용 도입 표현
-    r"|according to|laut |selon |secondo |según |volgens |enligt |によると|に基づ|에 따르면"
-    # 연구·근거 언급
-    r"|stud(y|ies)|trial|research|analysis|meta-analys|review|figures"
-    r"|Studie|Forschung|Analyse|étude|recherche|studio|ricerca|estudio|investigación"
-    r"|onderzoek|studien|forskning|研究|データ|연구|데이터|분석"
-    # 지침·권고
-    r"|guideline|recommend|raccomanda|recomienda|aanbevel|rekommend|Leitlinie|Empfehlung"
-    r"|recommandation|linea guida|directriz|richtlijn|riktlinje|지침|권고|ガイドライン)",
-    re.I,
-)
-
-
-def check_unsourced_claims(topic: str, lang: str = "kor") -> list[dict]:
-    """blog_seo 본문에서 출처 신호 없이 등장하는 수치를 뽑는다.
-    같은 문장 또는 바로 앞 문장에 출처 신호가 있으면 통과로 본다."""
-    entry = _blog_seo_entry(topic, lang)
-    if not entry:
-        return []
-    body = re.sub(r"<[^>]+>", " ", entry.get("body_html") or "")
-    body = re.sub(r"\s+", " ", body).strip()
-    sentences = [s.strip() for s in re.split(r"(?<=[.!?\u3002])\s+", body) if s.strip()]
-    issues: list[dict] = []
-    for i, s in enumerate(sentences):
-        if not _CLAIM_NUM.search(s):
-            continue
-        window = s if i == 0 else sentences[i - 1] + " " + s
-        if _CLAIM_SRC.search(window):
-            continue
-        issues.append({
-            "quote": s[:160],
-            "issue": "수치가 있는데 이 문장·앞 문장에 출처 신호가 없음 — 근거를 밝히거나 수치를 빼세요",
-        })
-    return issues
-
-
 def check_opening_hook(topic: str, lang: str = "kor") -> list[dict]:
     """나레이션 첫 문장이 조건절 자격심사("~라면 주목하세요"류)인지, 그리고
     0~5초 안에 정보가 도착할 길이인지 검사한다(2026-09-17 신설).
@@ -395,8 +304,7 @@ def check_opening_hook(topic: str, lang: str = "kor") -> list[dict]:
 # 사람들한테 도움이 되지 않는 느낌이야". 전수 실측으로 원인 두 가지를 특정했다.
 #  ① 385편 중 199편(52%)이 수치를 쓰면서 그 수치의 출처 기관을 본문에 안 밝힌다 —
 #     "30% 낮아진다는 연구 결과가 있어요"는 독자 입장에서 검증 불가능한 카더라다.
-#     CLAUDE.md "수치를 쓸 땐 어느 기관인지 문장 안에 적는다"는 규칙이 blog_seo에만
-#     기계 검사(check_unsourced_claims)로 걸려 있었고 네이버 원고는 무방비였다.
+#     CLAUDE.md "수치를 쓸 땐 어느 기관인지 문장 안에 적는다"는 규칙에 기계 검사가 없었다.
 #  ② 152편 중 62편이 나레이션 문장을 40% 이상 그대로 재사용한다(최고 87%). 네이버
 #     원고는 1000자 이상인데 60~75초짜리 나레이션은 350~410자뿐이라, 재사용하면
 #     나머지를 같은 말 반복으로 채우게 된다 — 그게 "애매하다"의 실체다.
@@ -1315,7 +1223,6 @@ def review_topic(topic: str, lang: str = "kor") -> list[dict]:
         + check_title_truncation(topic, lang)
         + check_title_closing(topic, lang)
         + check_blog_title_length(topic, lang)
-        + check_unsourced_claims(topic, lang)
         # ⚠️ 아래 셋은 각자 마커(content_v2 / xray.json / search_keyword)가 있는 topic만 검사한다.
         # 2026-09-23까지 앞의 둘은 정의만 돼 있고 여기 연결이 빠져 있어서, CLAUDE.md에 "자동으로 잡는다"고
         # 적혀 있는데도 review_topic을 돌리면 한 건도 안 걸렸다.
@@ -1439,52 +1346,8 @@ def select_hook_pattern(topic: str) -> tuple[str, str]:
     return HOOK_PATTERNS[seed_val % len(HOOK_PATTERNS)]
 
 
-# ══════════════════════ blog_seo 전용 다양화 장치(2026-08-19) ══════════════════════
-# WHY 이 3개가 별도로 필요한지: 2026-08-19 blog_seo(en/ja/de/fr/it/es/nl/sv)
-# 품질 감사 결과, 16개 topic 중 94%가 H2 "실제 해결책" 섹션 헤더로 동일 문구
-# ("What Actually Helps"류)를, 75%가 클로징 문단 오프너로 동일 문구("None of
-# this means...")를 재사용하고 있었다. CLAUDE.md "블로그 SEO 서브트랙" 절엔
-# "select_hook_pattern과 동일한 원리로 title 아키타입을 (topic, lang, 'blog')
-# 시드로 고정 선택한다"고 적혀 있었지만, 실제로는 이 함수 자체가 구현된 적이
-# 없었다(문서만 있고 코드가 없던 상태 — 문서-실태 괴리의 원인).
-#
-# WHY 이 절이 `select_blog_title_archetype`(topic·lang을 "|"로 구분한 시드,
-# --blog-title-archetype CLI)를 대체하는지: 같은 날 다른 세션이 거의 동일한
-# 기능(제목 아키타입만, closing/section-header는 없음)을 독립적으로 먼저
-# 커밋해 병합됐다(동시 세션이 lib/*.py를 동시 편집할 수 있다는 기존 위험이
-# 실제로 발생) — 사실상 같은 문제의 같은 해법이 이름만 다르게 중복 생성된
-# 상태라, "이미 있는 것을 중복 생성하지 않는다" 원칙에 따라 하나로 합친다.
-# 사용처가 이 파일 안에서 방금 추가된 CLI 분기뿐이고(다른 코드·문서·데이터에
-# 참조 없음, grep으로 확인) 실제 topic 콘텐츠는 이미 텍스트로 확정 발행된
-# 상태라 함수 이름을 바꿔도 과거 산출물엔 영향 없다.
-#
-# WHY seed에 lang까지 합치는지(자매 프로젝트 furrowly-content/sparelow-content의
-# select_title_archetype(topic)과 다른 점): 그쪽 함수는 topic 문자열만으로
-# 시드를 걸어서 같은 topic의 8개 언어 전부가 항상 같은 아키타입을 뽑는
-# 버그가 있다 — 이번 감사에서 "제목이 topic별로 8개 언어 전체가 같은 수사
-# 패턴으로 수렴"한 원인으로 추정된다. topic+lang을 합친 문자열로 시드를
-# 걸면 같은 topic이라도 언어마다 다른 아키타입이 나온다(select_hook_pattern과
-# 동일한 시드 공식, 축만 하나 늘림).
-
-
-# WHY 한국어 예시를 따로 붙이는지(2026-08-30): 예시가 영어뿐이라 ko 작성 때 참고가
-# 안 됐고, 실측 결과 ko 네이버 블로그 제목 342건이 한 틀로 수렴했다 —
-# "A - B" 대시 구조 93%, 조건절(~라면/~다면) 74%, "숫자+가지" 50%.
-# 아키타입이 5종으로 갈라져 있어도 문장 뼈대가 같으면 다양성이 없다.
-TITLE_ARCHETYPES = [
-    ("질문형", '"Why Does ~ Happen?" 류 질문형 — 예: "Why Does Your Blood Sugar Spike Right After Lunch?" '
-               '/ ko 예: "식혜는 왜 콜라보다 혈당을 빨리 올릴까요"'),
-    ("숫자·리스트형", '"N Things/Signs/Habits ~" 류 숫자 명시형 — 예: "3 Habits That Are Quietly Wrecking Your Sleep" '
-                 '/ ko 예: "잠들기 전 30분, 수면을 망치는 세 가지"'),
-    ("원인지목형", '"~ Is Secretly Behind ~" / "~ Might Be Causing ~" 류 원인 직접 지목형 — 예: "Your Afternoon Coffee Might Be Behind That 3 P.M. Crash" '
-               '/ ko 예: "오후 3시의 졸음, 점심 커피가 범인일 수 있어요"'),
-    ("통념반박형", '"~ Isn\'t What You Think" / "The Truth About ~" 류 통념 반박형 — 예: "Dry Eyes Aren\'t Just About Screen Time" '
-               '/ ko 예: "안구건조증은 화면 탓만이 아닙니다"'),
-    ("비교형", '"~ vs ~" 또는 "It\'s Not ~ — It\'s ~" 류 대조형 — 예: "It\'s Not Your Age — It\'s This One Habit" '
-             '/ ko 예: "나이 탓이 아니라 이 습관 하나입니다"'),
-]
-
-# ko 제목이 수렴하는 형태들. 새 제목이 이 중 둘 이상에 걸리면 다시 쓸 것.
+# ko 네이버 블로그 제목이 수렴하는 형태들(2026-08-30 실측 342건). 새 제목이 이 중 둘 이상에
+# 걸리면 다시 쓸 것 — lib/claim_audit.check_title_variety가 쓴다.
 KO_TITLE_OVERUSED = [
     (r" - ", '"A - B" 대시 구조(전체의 93%)'),
     (r"(라면|다면|신가요)\s*[-?]?\s*$|(라면|다면|신가요)\s+-", "조건절 마무리(~라면/~다면/~신가요, 74%)"),
@@ -1493,44 +1356,11 @@ KO_TITLE_OVERUSED = [
 ]
 
 
-def select_title_archetype(topic: str, lang: str) -> tuple[str, str]:
-    """select_hook_pattern과 동일한 시드 공식이되, topic+lang을 합친 문자열로
-    시드를 걸어 같은 topic이라도 언어마다 다른 아키타입이 나오게 한다(위 WHY
-    참고). (이름, 설명) 튜플 반환 — 완성 문구가 아니라 "이번 topic·언어는 이
-    수사 패턴으로 쓰라"는 지시이므로, 실제 제목 문장은 이 패턴에 맞춰 그
-    언어로 직접 새로 쓸 것(번역·직역 금지 원칙과 별개로, 예시 문구를 그대로
-    베끼지 말 것)."""
-    seed_str = f"{topic}_{lang}"
-    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
-    return TITLE_ARCHETYPES[seed_val % len(TITLE_ARCHETYPES)]
-
-
-CLOSING_ARCHETYPES = [
-    ("핵심 팁 재요약형", "앞서 나온 팁 중 가장 중요한 것 하나를 한 문장으로 다시 짚고 끝낸다 — \"~것 다 끊을 필요 없다\"류 안심 문구 반복 금지."),
-    ("다음 행동 제안형", "지금 당장 할 수 있는 작은 행동 하나를 구체적으로 제안하며 끝낸다(예: \"오늘 저녁부터 이것 하나만 바꿔보세요\")."),
-    ("체크리스트 회고형", "글 앞부분에서 짚은 원인/증상 항목들을 짧게 체크리스트처럼 훑어보며 끝낸다."),
-    ("질문 던지기형", "독자가 스스로 점검해볼 질문 하나를 던지며 끝낸다(예: \"오늘 하루, 몇 개나 해당됐나요?\")."),
-    ("전문가 상담 안내 강조형", "증상이 지속·악화되면 병원 방문을 권하는 문구를 자연스럽게 마무리에 녹인다(YMYL 규칙과 겹쳐도 무방, 오히려 강화)."),
-]
-
-
-def select_closing_archetype(topic: str, lang: str) -> tuple[str, str]:
-    """클로징 문단의 문구 자체가 아니라 "어떤 방식으로 마무리할지" 구조적
-    전략을 topic+lang 시드로 결정론적으로 고른다 — 작성자가 그 전략을 그
-    언어로 자기 문장으로 풀어 쓰라는 것이지, 위 설명 문구를 그대로 옮기라는
-    뜻이 아니다. 지금 75%가 수렴한 "None of this means you need to cut out
-    X, Y, Z entirely"류 안심형 오프너는 옵션 중 하나로만 남기고 강제하지
-    않기 위함."""
-    seed_str = f"{topic}_{lang}"
-    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
-    return CLOSING_ARCHETYPES[seed_val % len(CLOSING_ARCHETYPES)]
-
-
 # WHY 카드 구조까지 시드로 흔드는지(2026-08-31 실측): 카드 스펙 385개 중 320개(83%)가
 # 아이템 7개 고정이고, 307개(80%)가 단 두 가지 원인/해결 배열이었다("원인·대안 3쌍"
 # 아니면 "원인만 7개"). 제목은 중복 0건이라 눈에 안 띄는데 글을 여러 편 이어 보면
 # 같은 틀이 반복되는 게 드러난다 — 사용자가 "저품질 되는 느낌"이라고 먼저 알아챘다.
-# 훅·제목 아키타입과 같은 원리로 topic 시드를 걸어 구조 자체를 흔든다.
+# 훅 패턴과 같은 원리로 topic 시드를 걸어 구조 자체를 흔든다.
 CARD_STRUCTURES = [
     ("원인·대안 3쌍", "원인 3개를 각각 바로 뒤에 대안과 붙여 3쌍으로(원인1→대안1→원인2→대안2→원인3→대안3). 아이템 7개."),
     ("원인 몰기 후 대안 몰기", "원인 3개를 먼저 연달아 보여주고 대안 3개를 뒤에 몰아서. 순서가 바뀌면 읽는 리듬이 달라진다. 아이템 7개."),
@@ -1571,43 +1401,6 @@ def select_caption_connectives(topic: str) -> tuple[str, str]:
     return CAPTION_CONNECTIVES[_even_seed("conn:" + topic) % len(CAPTION_CONNECTIVES)]
 
 
-SECTION_HEADER_ARCHETYPES = {
-    # "actual_fix" = H2 "실제 해결책" 섹션(94%가 "What Actually Helps"로 고정돼 있던 그 섹션)
-    "actual_fix": [
-        ("행동 동사형", "동사로 바로 시작하는 소제목 — 예: \"Cut Back on Late-Night Screens\", \"Swap Soda for Sparkling Water\""),
-        ("질문형", "\"그럼 뭘 하면 될까?\"류 질문형 소제목 — 예: \"So What Actually Works?\""),
-        ("결과 제시형", "이렇게 하면 어떻게 좋아지는지 결과를 먼저 제시하는 소제목 — 예: \"What Happens When You Fix This\""),
-        # ⚠️ 숫자형은 아래 목록 개수와 반드시 일치해야 한다(2026-08-31 실측): 아키타입만
-        # 보고 "3 Wege…"를 붙였는데 그 아래 항목이 5개여서 헤더가 본문과 어긋난 사례가 있다.
-        ("숫자형", "\"N가지 방법\" 같은 숫자 명시형 소제목 — 예: \"3 Changes That Actually Move the Needle\". ⚠️ N은 그 섹션 아래 실제 항목 수와 일치시킬 것"),
-        ("대조형", "\"문제 vs 실제 해결책\" 대조 구조 소제목 — 예: \"Skip the Myths — Here's What Helps\""),
-    ],
-    # "summary" = 글 맨 끝 요약 H2. 2026-08-31 실측에서 ko는 23편 중 21편이 "정리하면"
-    # 하나로 고정돼 있었고(다른 언어도 37~52%), 중간 H2는 topic마다 잘 갈리는데 마지막
-    # 두 개만 판박이라 글을 이어 읽으면 같은 틀이 그대로 드러났다.
-    "summary": [
-        ("한 줄 결론형", "결론 자체를 소제목으로 — 예: \"결국 문제는 온도차였어요\""),
-        ("행동 지시형", "오늘 무엇부터 할지를 소제목에 — 예: \"오늘 하나만 바꾼다면\""),
-        ("안심형", "다 끊지 않아도 된다는 톤 — 예: \"전부 끊을 필요는 없어요\""),
-        ("되짚기형", "앞에서 짚은 것을 다시 세는 형태 — 예: \"세 가지를 다시 짚으면\""),
-        ("질문 회수형", "도입부 질문에 답하는 형태 — 예: \"그래서 왜 아침마다 그럴까요\""),
-    ],
-}
-
-
-def select_section_header_archetype(topic: str, lang: str, section: str) -> tuple[str, str]:
-    """H2 섹션 헤더의 완성 문구가 아니라 문패턴 스타일을 topic+lang+section
-    시드로 결정론적으로 고른다. section 인자는 최소 "actual_fix"(H2 "실제
-    해결책" 섹션) 지원 — 필요하면 SECTION_HEADER_ARCHETYPES에 다른 섹션
-    키를 추가할 것. CLI 없이 blog_seo 작성 세션이 직접 import해서 쓰는
-    용도라 사용 시 SECTION_HEADER_ARCHETYPES에 없는 section을 넘기면
-    KeyError로 바로 드러난다(조용히 기본값 폴백하지 않음)."""
-    seed_str = f"{topic}_{lang}_{section}"
-    seed_val = sum(ord(c) * (i * 7 + 3) for i, c in enumerate(seed_str))
-    options = SECTION_HEADER_ARCHETYPES[section]
-    return options[seed_val % len(options)]
-
-
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "--hook-pattern":
         if len(sys.argv) > 2:
@@ -1615,18 +1408,6 @@ if __name__ == "__main__":
             print(f"{name} — {desc}")
         else:
             print("사용법: python3 -m lib.content_review --hook-pattern <topic>")
-    elif len(sys.argv) > 1 and sys.argv[1] == "--title-archetype":
-        if len(sys.argv) > 3:
-            name, desc = select_title_archetype(sys.argv[2], sys.argv[3])
-            print(f"{name} — {desc}")
-        else:
-            print("사용법: python3 -m lib.content_review --title-archetype <topic> <lang>")
-    elif len(sys.argv) > 1 and sys.argv[1] == "--closing-archetype":
-        if len(sys.argv) > 3:
-            name, desc = select_closing_archetype(sys.argv[2], sys.argv[3])
-            print(f"{name} — {desc}")
-        else:
-            print("사용법: python3 -m lib.content_review --closing-archetype <topic> <lang>")
     elif len(sys.argv) > 1 and sys.argv[1] == "--card-structure":
         if len(sys.argv) > 2:
             name, desc = select_card_structure(sys.argv[2])
@@ -1651,7 +1432,7 @@ if __name__ == "__main__":
             print("문제 없음(기계적 검사만) — 아래 체크리스트는 직접 확인하세요:")
         print(f"\n{MANUAL_REVIEW_CHECKLIST}")
     else:
-        print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all 또는 --hook-pattern <topic> 또는 --title-archetype <topic> <lang> 또는 --closing-archetype <topic> <lang>")
+        print("사용법: python3 -m lib.content_review <topic> [lang] 또는 --all 또는 --hook-pattern <topic> 또는 --card-structure <topic> 또는 --connectives <topic>")
 
 # 목숨·안전이 걸린 주장 — 영상에 출처 줄(xray.json `sources`)을 띄워야 하는 원고를 가려낸다.
 # WHY(2026-10-07 사용자 "이건 목숨이랑 관련 있는데 이런 것들은 출처를 기재하는 게 어때? 위험부담 있어 보이는데 이건

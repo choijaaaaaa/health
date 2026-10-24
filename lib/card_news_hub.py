@@ -9,17 +9,10 @@
 # "카드뉴스 허브" 탭이 그것만 읽는다.
 #
 # 사용법: python3 -m lib.card_news_hub
+#
+# ⚠️ 2026-10-24 SEO 블로그 폐기로 vernhaven admin `naver_card_news` 테이블 push(--commit)는
+# 걷어냈다 — 지금은 로컬 output/card_news_hub.json만 만든다.
 from __future__ import annotations
-
-# WHY 기본 User-Agent를 갈아끼우는지(2026-09-13 D1 이전): DB API가 Cloudflare
-# Worker로 옮겨갔는데, Cloudflare 엣지가 파이썬 기본 UA("Python-urllib/x.y")를
-# 403으로 막는다(curl·requests는 통과). Worker 코드가 실행되기 전 단계라 서버에서는
-# 못 막고, 이 한 줄이 없으면 이 스크립트의 모든 DB 호출이 403으로 죽는다.
-import urllib.request as _urlreq
-_opener = _urlreq.build_opener()
-_opener.addheaders = [("User-Agent", "Mozilla/5.0 (compatible; project-tools/1.0)")]
-_urlreq.install_opener(_opener)
-
 
 import json
 import os
@@ -282,76 +275,7 @@ def write_hub_json(out_path: Path | None = None) -> Path:
     return out_path
 
 
-# WHY 별도 Supabase 프로젝트인지(2026-08-16, "카드뉴스 허브를 vernhaven 등
-# 블로그 admin 페이지 하나에 탭으로 진짜 통합하고 싶다" 요청): 이 데이터는
-# health-shorts 자신의 Supabase가 아니라 vernhaven-blog 등 6개 형제 블로그가
-# 공유하는 별도 프로젝트(BLOG_NETWORK_SUPABASE_*, .env)에 올려야 그쪽 Next.js
-# admin이 배포 환경에서 바로 읽을 수 있다 — health-shorts 로컬 파일은 배포된
-# Next.js 앱이 접근 못 함(위 collect_items()의 로컬 경로 스캔과 동일한 이유).
-# VERTICAL_REPOS의 키(babbleroot/furrowly/sparelow)가 그대로 그쪽 blog_posts
-# 테이블의 site_slug 값과 일치하므로 별도 매핑 없이 그대로 쓴다. 로컬
-# 이미지(url이 http로 시작 안 하는 경우, 위 _naver_images() 참고)는 배포된
-# 사이트에서 못 열리므로 이 3개 버티컬은 처음부터 전부 공개 URL(Pexels 등)만
-# 쓰는 게 전제 — health/jp_review의 로컬 렌더링 이미지는 애초에 이 스크립트
-# 대상이 아니라(위 "health/jp_review는 여기서 뺐다" 주석) 문제되지 않는다.
-def push_to_supabase() -> tuple[int, int]:
-    """collect_items() 결과를 naver_card_news 테이블에 upsert한다.
-    반환값: (성공 건수, 실패 건수). posted 컬럼은 payload에서 뺀다 —
-    admin에서 사람이 토글한 업로드 완료 상태를 재실행할 때마다 덮어쓰지
-    않기 위함(default false라 신규 행은 안전하게 false로 시작)."""
-    import urllib.request
-    import urllib.error
-
-    supabase_url = os.environ.get("BLOG_NETWORK_SUPABASE_URL")
-    service_key = os.environ.get("BLOG_NETWORK_SUPABASE_SERVICE_ROLE_KEY")
-    if not supabase_url or not service_key:
-        raise RuntimeError(
-            "BLOG_NETWORK_SUPABASE_URL / BLOG_NETWORK_SUPABASE_SERVICE_ROLE_KEY가 "
-            ".env에 설정되어 있지 않습니다."
-        )
-
-    hub = collect_items()
-    rows = []
-    for group in hub["groups"]:
-        for vertical in group["verticals"]:
-            site_slug = vertical["key"]
-            for item in vertical["items"]:
-                rows.append({
-                    "site_slug": site_slug,
-                    "topic": item["topic"],
-                    "title": item["title"],
-                    "caption": item["caption"],
-                    "naver_url": item["naver_url"],
-                    "images": item["images"],
-                })
-
-    if not rows:
-        return (0, 0)
-
-    body = json.dumps(rows, ensure_ascii=False).encode("utf-8")
-    req = urllib.request.Request(
-        f"{supabase_url}/rest/v1/naver_card_news?on_conflict=site_slug,topic",
-        data=body,
-        method="POST",
-        headers={
-            "apikey": service_key,
-            "Authorization": f"Bearer {service_key}",
-            "Content-Type": "application/json",
-            "Prefer": "resolution=merge-duplicates,return=minimal",
-        },
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            resp.read()
-        return (len(rows), 0)
-    except urllib.error.HTTPError as e:
-        print(f"  실패({e.code}): {e.read().decode('utf-8', errors='replace')[:500]}")
-        return (0, len(rows))
-
-
 if __name__ == "__main__":
-    import sys
-
     path = write_hub_json()
     hub = json.loads(path.read_text(encoding="utf-8"))
     print(f"{path}에 저장했습니다.\n")
@@ -359,10 +283,3 @@ if __name__ == "__main__":
         print(f"[{group['group_name']}]")
         for v in group["verticals"]:
             print(f"  {v['label']}({v['key']}): {len(v['items'])}건")
-
-    if "--commit" in sys.argv:
-        from dotenv import load_dotenv
-        load_dotenv()
-        print("\nSupabase(naver_card_news)로 push 중...")
-        ok, fail = push_to_supabase()
-        print(f"완료: {ok}건 성공, {fail}건 실패")

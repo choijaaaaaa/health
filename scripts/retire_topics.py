@@ -38,39 +38,13 @@ def _ledger() -> dict:
     return json.loads(LEDGER.read_text(encoding="utf-8")) if LEDGER.exists() else {}
 
 
-def _has_global(topic: str) -> list[str]:
-    """이 topic에 비-ko 언어 콘텐츠가 있는지. 있으면 폴더째 옮기면 안 된다.
-
-    WHY(2026-09-23 실측): 심사는 **한국어 검색량** 한 축으로 내린 판정인데, 같은 폴더에 SEO 블로그
-    (vernhaven)용 9개 언어 `blog_seo` 원고가 들어 있는 topic이 있다(미세먼지_12·피부_26). 폴더를
-    옮기면 그쪽 재인입이 조용히 누락된다 — 영상 트랙에서만 빼고 폴더는 제자리에 둔다.
-    """
-    # 🚨 `DATA / topic`을 그대로 쓰면 육아 트랙에서 `data/육아`를 열어 **topic 폴더를
-    # 언어로 읽는다.** 트랙 폴더를 건너뛴 진짜 topic 폴더는 tracks가 준다.
-    d = tracks.data_dir(topic)
-    return sorted(x.name for x in d.iterdir()
-                  if x.is_dir() and x.name != "ko" and (x / "platform_captions.json").exists())
-
-
-def _mark_video_retired(topic: str, v: dict, commit: bool) -> None:
-    data = tracks.data_dir(topic)
-    for p in (data / "ko" / "card_news_spec.json", data / "card_news_spec.json"):
-        if not p.exists():
-            continue
-        if commit:
-            s = json.loads(p.read_text(encoding="utf-8"))
-            s["video_retired"] = {k: v.get(k) for k in ("verdict", "into", "reason") if v.get(k)}
-            p.write_text(json.dumps(s, ensure_ascii=False, indent=2), encoding="utf-8")
-        return
-
-
 def retire(verdicts: dict, commit: bool) -> None:
     drops = {t: v for t, v in verdicts.items() if v.get("verdict") in ("drop", "merge")}
     if not drops:
         print("폐기·통합 대상이 없습니다.")
         return
     ledger = _ledger()
-    moved = marked = 0
+    moved = 0
     for topic, v in sorted(drops.items()):
         src = tracks.data_dir(topic)
         if not src.is_dir():
@@ -78,24 +52,16 @@ def retire(verdicts: dict, commit: bool) -> None:
             continue
         tag = "통합" if v["verdict"] == "merge" else "폐기"
         into = f" → {v.get('into')}" if v.get("into") else ""
-        langs = _has_global(topic)
-        if langs:
-            print(f"  {tag}(영상만) {topic}{into}  ⚠️ 글로벌 {','.join(langs)} 있어 폴더 유지")
-            _mark_video_retired(topic, v, commit)
-            marked += 1
-        else:
-            print(f"  {tag} {topic}{into}  {v.get('reason', '')[:52]}")
-            if commit:
-                RETIRED.mkdir(parents=True, exist_ok=True)
-                shutil.move(str(src), str(RETIRED / topic))
-            moved += 1
+        print(f"  {tag} {topic}{into}  {v.get('reason', '')[:52]}")
         if commit:
+            RETIRED.mkdir(parents=True, exist_ok=True)
+            shutil.move(str(src), str(RETIRED / topic))
             ledger[topic] = {k: v.get(k) for k in ("verdict", "into", "reason") if v.get(k)}
-            ledger[topic]["global_kept"] = bool(langs)
+        moved += 1
     if commit:
         RETIRED.mkdir(parents=True, exist_ok=True)
         LEDGER.write_text(json.dumps(ledger, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"\n{'완료' if commit else '예정'} — 폴더 격리 {moved}개 · 영상만 제외 {marked}개"
+    print(f"\n{'완료' if commit else '예정'} — 폴더 격리 {moved}개"
           + ("" if commit else "  (실제 반영은 --commit)"))
 
 

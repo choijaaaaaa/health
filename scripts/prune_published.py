@@ -6,11 +6,11 @@ WHY(2026-09-21 사용자 "카드뉴스를 블로그에 이미 올린 토픽들�
 파일은 그때부터 사본일 뿐인데 topic이 쌓이면서 output/이 2.4GB까지 늘었다.
 
 지우는 것(전부 복구 가능한 사본):
-1. `output/<topic>/<lang>/` — vernhaven `blog_posts`에 그 (topic, lang) 행이 있는 것만(= R2 업로드 완료)
-2. 네이버 블로그에 카드뉴스가 나간 topic의 `output/<topic>/card_news`·`*.mp4`·`*.mp3`·`dashboard.html`
-3. 같은 topic의 `ai-video-network/deploy/health-shorts/<topic>/` 사본
-4. 미션컨트롤 `topics` 행(대시보드에서 감춤) — ⚠️ `posting_log`는 절대 건드리지 않는다.
+1. 네이버 블로그에 카드뉴스가 나간 topic의 `output/<topic>/card_news`·`*.mp4`·`*.mp3`·`dashboard.html`
+2. 같은 topic의 `ai-video-network/deploy/health-shorts/<topic>/` 사본
+3. 미션컨트롤 `topics` 행(대시보드에서 감춤) — ⚠️ `posting_log`는 절대 건드리지 않는다.
    지우면 "안 올린 topic"으로 되살아나 다시 만들게 된다.
+(옛 1번 — vernhaven `blog_posts` 기준 `output/<topic>/<lang>/` 정리 — 는 2026-10-24 SEO 블로그 폐기로 뺐다.)
 
 남기는 것: `data/<topic>/` 스펙 JSON(전부 합쳐 18MB, 재업로드·번역에 필요).
 
@@ -34,8 +34,6 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from lib import tracks  # noqa: E402
-
-VERNHAVEN_ENV = ROOT.parent / "verticals" / "vernhaven-blog" / ".env.local"
 
 
 def _kb(p: Path) -> int:
@@ -64,20 +62,11 @@ def main() -> None:
 
     load_dotenv(ROOT / ".env")
     hs_url, hs_key = os.environ["SUPABASE_URL"], os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-    load_dotenv(VERNHAVEN_ENV, override=True)
-    seo_url = os.environ["SUPABASE_URL"]
-    seo_key = os.environ.get("SUPABASE_SERVICE_ROLE_KEY") or os.environ["SUPABASE_ANON_KEY"]
-
-    ingested = {(x["source_topic"], x["lang"]) for x in
-                _rows(seo_url, seo_key, "blog_posts?select=source_project,source_topic,lang")
-                if (x.get("source_project") or "").startswith("health")}
     blogged = {x["topic"] for x in _rows(hs_url, hs_key, "posting_log?select=topic,platform")
                if "블로그" in (x.get("platform") or "")}
 
     freed = 0
-    # Supabase가 주는 topic은 평평한 이름이라 트랙 폴더를 tracks가 붙여줘야 찾는다
-    lang_dirs = [tracks.output_dir(t) / lang for t, lang in sorted(ingested)
-                 if (tracks.output_dir(t) / lang).is_dir()]
+    # DB가 주는 topic은 평평한 이름이라 트랙 폴더를 tracks가 붙여줘야 찾는다
     media: list[Path] = []
     for t in sorted(blogged):
         base = tracks.output_dir(t)
@@ -88,7 +77,7 @@ def main() -> None:
         media += sorted(base.glob("*.mp4")) + sorted(base.glob("*.mp3")) + sorted(base.glob("dashboard.html"))
     deploy_dirs = [tracks.deploy_dir(t) for t in sorted(blogged) if tracks.deploy_dir(t).is_dir()]
 
-    for group, label in ((lang_dirs, "언어 카드 폴더"), (media, "한국어 카드·영상·오디오"), (deploy_dirs, "배포 폴더 사본")):
+    for group, label in ((media, "한국어 카드·영상·오디오"), (deploy_dirs, "배포 폴더 사본")):
         size = sum(_kb(p) for p in group)
         freed += size
         print(f"{label}: {len(group)}개, {size / 1024:.0f} MB")

@@ -4,15 +4,8 @@
 # mission쪽에 녹여내자"): mission-control은 Vercel에 배포돼 어디서든 접근 가능한
 # 반면 health-shorts 자신의 대시보드(index.html/output/<topic>/dashboard.html)는
 # Basic Auth 뒤에 있고 로컬 파일시스템 기반이라 mission-control이 직접 못 읽는다
-# — lib/card_news_hub.py가 형제 버티컬(육아·반려동물·경제)의 네이버 캡션을
-# naver_card_news 테이블로 미리 합쳐두는 것과 똑같은 원리로, 이 스크립트는
-# health-shorts 자신의 수동 포스팅 대상 캡션을 mission-control 쪽 Supabase
-# 스키마로 미리 합쳐둔다. card_news_hub.py가 health/jp_review를 일부러 뺐던 이유
-# ("이미 자기 대시보드가 있어서")가 이제 사용자 요청으로 뒤집힌 셈 — 그렇다고
-# card_news_hub.py에 얹지 않고 별도 스크립트로 둔 이유는 대상 스키마
-# (naver_card_news는 형제 블로그 Supabase, 이건 health-shorts 자신의 Supabase
-# mission_control 스키마)와 데이터 모양(캡션 1개 vs topic당 플랫폼 여러 개)이
-# 달라서 억지로 합치면 두 함수 다 분기투성이가 된다.
+# — 그래서 이 스크립트가 health-shorts 자신의 수동 포스팅 대상 캡션을
+# mission-control 쪽 DB 스키마로 미리 합쳐둔다.
 #
 # ⚠️ 2026-08-21, "AI영상(1bite-history)·jp-review-shorts도 mission-control로
 # 통합" 요청으로 hs_platform_captions에 project 컬럼 추가(UNIQUE도

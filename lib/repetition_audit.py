@@ -2,9 +2,9 @@
 #
 # WHY(2026-08-31): 사용자가 "제목이나 내용이 비슷비슷해서 저품질 되는 느낌"이라고
 # 지적해 실측했더니 실제로 그랬다 — 카드 385개 중 320개(83%)가 아이템 7개 고정,
-# 307개(80%)가 단 두 가지 원인/해결 배열, 네이버 본문의 78%가 "먼저 ~예요"로 시작,
-# ko blog_seo의 91%가 H2 "정리하면"이었다. 제목 자체는 중복 0건이라 눈에 안 띄는데
-# 구조가 판박이인 형태여서, 사람이 글을 몇 편 읽어봐도 잘 안 드러난다.
+# 307개(80%)가 단 두 가지 원인/해결 배열, 네이버 본문의 78%가 "먼저 ~예요"로 시작했다.
+# 제목 자체는 중복 0건이라 눈에 안 띄는데 구조가 판박이인 형태여서, 사람이 글을 몇 편
+# 읽어봐도 잘 안 드러난다.
 #
 # 통과/실패 게이트가 아니라 "지금 어디가 쏠려 있는지" 보는 계기판이다. 쏠림이
 # 얼마부터 위험한지에 대한 객관적 기준이 없어서 임계값을 두지 않았다 — 대신 작업
@@ -21,8 +21,6 @@ from lib import tracks
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
-
-BLOG_LANGS = ("de", "en", "es", "fr", "it", "ja", "ko", "nl", "sv")
 
 
 def _naver_caption(topic: str) -> str | None:
@@ -120,28 +118,6 @@ def caption_phrase_report() -> dict:
     return {"total": total, "hit": hit}
 
 
-def blog_h2_report() -> dict:
-    """언어별 blog_seo H2 헤더 쏠림."""
-    per_lang: dict[str, collections.Counter] = collections.defaultdict(collections.Counter)
-    articles = collections.Counter()
-    for topic in topics():
-        for lang in BLOG_LANGS:
-            path = tracks.data_dir(topic) / lang / "platform_captions.json"
-            if not path.exists():
-                continue
-            try:
-                spec = json.loads(path.read_text(encoding="utf-8"))
-            except (OSError, json.JSONDecodeError):
-                continue
-            for entry in spec.get("platforms", []):
-                if entry.get("platform") != "blog_seo":
-                    continue
-                articles[lang] += 1
-                for raw in re.findall(r"<h2>(.*?)</h2>", entry.get("body_html", ""), re.S):
-                    per_lang[lang][re.sub(r"<[^>]+>", "", raw).strip()] += 1
-    return {"articles": articles, "per_lang": per_lang}
-
-
 def main() -> None:
     card = card_structure_report()
     print(f"■ 카드 구조 — 스펙 {card['total']}개")
@@ -155,16 +131,6 @@ def main() -> None:
     print(f"\n■ 네이버 본문 접속어 — 캡션 {cap['total']}개")
     for label, c in cap["hit"].most_common():
         print(f"   {c * 100 // cap['total']:3}%  {label}")
-
-    blog = blog_h2_report()
-    print("\n■ blog_seo H2 쏠림 (언어별 최다 헤더가 그 언어 글의 몇 %에 등장하는지)")
-    for lang in BLOG_LANGS:
-        total = blog["articles"][lang]
-        if not total:
-            continue
-        top = blog["per_lang"][lang].most_common(2)
-        detail = " / ".join(f"{k[:26]} {v * 100 // total}%" for k, v in top)
-        print(f"   {lang:3} 글 {total:3}편  {detail}")
 
     print("\n임계값을 두지 않은 이유는 파일 상단 WHY 참고 — 작업 전후 비교용 계기판이다.")
 

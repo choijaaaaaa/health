@@ -20,7 +20,7 @@ health-shorts도 넣어줘 — 업로드 편해지게" 요청).
 - 카드뉴스: `deploy/health-shorts/<topic>/card_news/<파일명>` ←
   `output/<topic>/card_news/*.jpg` (2026-09-18 실측: shorts.mp4가 있는 topic은
   전부 네이버용 카드뉴스가 `output/<topic>/card_news/`에 flat으로 있다 —
-  `ko/card_news`가 아님, 그 하위 언어 폴더(en/ja/...)는 blog_seo용이라 대상 아님)
+  `ko/card_news`가 아님)
 
 사용법(health-shorts/ 루트에서):
     python3 scripts/stage_for_deploy.py            # 전체 스캔 후 복사/갱신

@@ -100,20 +100,6 @@ def _content_platforms(spec: dict) -> list[dict]:
     return [p for p in spec.get("platforms", []) if "name" in p]
 
 
-def _blog_seo_platforms(spec: dict) -> list[dict]:
-    """spec["platforms"] 중 blog_seo 항목만 낸다(_content_platforms()의 반대).
-
-    WHY(2026-08-13, blog_seo 결정론적 회귀 테스트 추가): 논리/과장 같은
-    판단형 검사는 세션이 직접 읽고 판단해야 하는 영역이라(2026-08-15부로
-    content_review.py는 외부 LLM API를 전혀 안 씀, 파일 상단 WHY 참고)
-    자동으로 안 걸린다 — 필수 필드 누락·본문에 이미지가 아예 없음 같은
-    기계적 실수만 narration/card_news처럼 매 pytest 실행마다 자동으로
-    잡는다. blog_seo는 오늘 처음 생긴 스키마라(narration 쪽 규칙들과 달리)
-    소급 적용 부담이 없다 — 지금 테스트를 추가해도 깨질 기존 topic이
-    없다(피부_1이 유일)."""
-    return [p for p in spec.get("platforms", []) if p.get("platform") == "blog_seo"]
-
-
 def _iter_strings(obj):
     """JSON 구조를 재귀적으로 순회하며 모든 leaf 문자열을 낸다.
     card_news_spec.json은 title/items[].body/closing.tip 외에 items[].name,
@@ -394,115 +380,6 @@ def test_products_no_unsearchable_prefix(topic):
 
 
 # ---------------------------------------------------------------------------
-# 규칙 11: blog_seo 결정론적 검사 (2026-08-13) — _blog_seo_platforms() 참고.
-# 논리/과장 같은 판단형 검사(2026-08-15부로 세션이 직접 판단, content_review.py
-# WHY 참고)와 달리 매 pytest 실행마다 자동으로 도는 기계적 검사만 여기 둔다.
-# ---------------------------------------------------------------------------
-
-BLOG_SEO_REQUIRED_FIELDS = ("title", "meta_description", "slug", "hero_image_url", "body_html")
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_required_fields_present(topic):
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    missing = []
-    for p in _blog_seo_platforms(spec):
-        for field in BLOG_SEO_REQUIRED_FIELDS:
-            if not p.get(field):
-                missing.append(field)
-    assert not missing, f"{topic}: blog_seo 필수 필드 누락 — {missing}"
-
-
-# WHY 120~160(2026-08-13): seo-blog scripts/ingest_health_shorts.py의
-# META_DESCRIPTION_RANGE와 반드시 같은 값이어야 한다 — 저장소가 달라 상수를
-# 공유할 수 없으므로 값이 어긋나면 두 검사 기준이 조용히 갈린다. 한쪽만
-# 바꾸면 안 되고, 바꿀 땐 두 파일 모두 갱신할 것.
-BLOG_SEO_META_DESCRIPTION_RANGE = (120, 160)
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_meta_description_length(topic):
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    problems = []
-    for p in _blog_seo_platforms(spec):
-        meta = p.get("meta_description", "")
-        length = len(meta)
-        if not (BLOG_SEO_META_DESCRIPTION_RANGE[0] <= length <= BLOG_SEO_META_DESCRIPTION_RANGE[1]):
-            problems.append(f"meta_description {length}자")
-    assert not problems, f"{topic}: {problems} — {BLOG_SEO_META_DESCRIPTION_RANGE[0]}~{BLOG_SEO_META_DESCRIPTION_RANGE[1]}자 필요"
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_body_has_inline_image(topic):
-    """블로그 서브트랙 설계 문서(CLAUDE.md "블로그 SEO 서브트랙" 절)의 "본문
-    안에 <img> 최소 1장 직접 삽입" 요구사항을 실제로 강제하는 검사 —
-    hero_image_url은 seo-blog 페이지에서 본문에 시각적으로 렌더링되지 않으므로
-    (OG/JSON-LD 전용) 본문 자체에 이미지가 없으면 독자에게 사진이 하나도
-    안 보인다."""
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    missing = [p["platform"] for p in _blog_seo_platforms(spec) if "<img" not in p.get("body_html", "")]
-    assert not missing, f"{topic}: 본문(body_html)에 <img> 태그가 하나도 없음 — {missing}"
-
-
-# WHY 스택 기반 태그 매칭인지: body_html은 seo-blog에서
-# dangerouslySetInnerHTML로 그대로 렌더링된다(마크다운 변환 없음) — 태그가
-# 안 맞으면 페이지 레이아웃이 깨질 수 있는데 사용자가 8개 언어 페이지를
-# 매번 직접 눈으로 확인할 수 없다. self-closing 취급 태그(img/br)만 예외.
-_HTML_TAG_RE = re.compile(r"<(/?)([a-zA-Z0-9]+)[^>]*>")
-_HTML_VOID_TAGS = {"img", "br"}
-
-
-def _html_tag_balance_issues(html: str) -> list[str]:
-    stack: list[str] = []
-    issues: list[str] = []
-    for closing, tag in _HTML_TAG_RE.findall(html):
-        tag = tag.lower()
-        if tag in _HTML_VOID_TAGS:
-            continue
-        if closing:
-            if not stack or stack[-1] != tag:
-                issues.append(f"닫는 태그 순서/짝 불일치: </{tag}>")
-                continue
-            stack.pop()
-        else:
-            stack.append(tag)
-    if stack:
-        issues.append(f"닫히지 않은 태그: {stack}")
-    return issues
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_body_html_tags_balanced(topic):
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    problems = {}
-    for p in _blog_seo_platforms(spec):
-        issues = _html_tag_balance_issues(p.get("body_html", ""))
-        if issues:
-            problems[p["platform"]] = issues
-    assert not problems, f"{topic}: {problems}"
-
-
-_SLUG_RE = re.compile(r"^[a-z0-9-]+$")
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_slug_format(topic):
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    bad = [p["slug"] for p in _blog_seo_platforms(spec) if not _SLUG_RE.match(p.get("slug", ""))]
-    assert not bad, f"{topic}: slug이 URL 안전 형식(소문자 영숫자+하이픈)이 아님 — {bad}"
-
-
-@pytest.mark.parametrize("topic", TOPICS)
-def test_blog_seo_title_not_identical_to_meta_description(topic):
-    spec = _load_json(_data(topic) / "platform_captions.json", topic, "platform_captions.json")
-    bad = [
-        p["title"] for p in _blog_seo_platforms(spec)
-        if p.get("title") and p.get("title") == p.get("meta_description")
-    ]
-    assert not bad, f"{topic}: title과 meta_description이 완전히 동일함 — {bad}"
-
-
-# ---------------------------------------------------------------------------
 # 규칙 7: card_news_spec.json의 items[].char_file이 실제 이미지로 해석되는가
 # ---------------------------------------------------------------------------
 
@@ -719,83 +596,6 @@ def test_no_known_false_claims(topic):
 
 
 # ---------------------------------------------------------------------------
-# 규칙 12: blog_seo 언어 커버리지 (2026-08-30)
-#
-# CLAUDE.md "블로그 SEO 서브트랙" 절은 "완료 기준 = 8개 언어 blog_seo 전부"로
-# 정해뒀지만 이걸 확인하는 자동 검사가 없었다. 실측해보니 규칙은 지켜지고
-# 있었으나(48개 topic 전부 8개 언어), 확인은 매번 사람이 손으로 세는 방식이라
-# 한 언어가 빠진 채 "완료"로 넘어가도 아무도 모르는 상태였다 — 실제로 vernhaven
-# ko 큐가 다른 언어보다 한 달 먼저 마르는 걸 사람이 아니라 이 종류의 전수
-# 집계로 처음 발견했다.
-#
-# ko는 이 검사 대상이 아니다 — 블로그 서브트랙 언어 범위에서 의도적으로 빠져
-# 있고(같은 절), ko가 있는 topic은 영상 트랙에서 따로 만들어진 것이다.
-# ---------------------------------------------------------------------------
-
-BLOG_SEO_REQUIRED_LANGS = ("de", "en", "es", "fr", "it", "ja", "nl", "sv")
-
-
-def _topics_with_blog_seo() -> dict[str, set[str]]:
-    found: dict[str, set[str]] = {}
-    for combo in TOPICS:
-        if "/" not in combo:
-            continue
-        base, lang = combo.split("/", 1)
-        path = DATA_DIR / base / lang / "platform_captions.json"
-        try:
-            spec = json.loads(path.read_text(encoding="utf-8"))
-        except (OSError, json.JSONDecodeError):
-            continue
-        if _blog_seo_platforms(spec):
-            found.setdefault(base, set()).add(lang)
-    return found
-
-
-BLOG_SEO_TOPICS = sorted(_topics_with_blog_seo())
-
-
-# WHY 언어 2개 이하는 건너뛰는지(2026-08-31): 다른 세션이 지금 만들고 있는 topic이
-# 매번 빨간 줄로 잡힌다(실측: 대사_14가 en·ja만 있는 상태에서 이 검사에 걸림).
-# 작업 중인 topic까지 실패로 띄우면 "원래 빨간 테스트"가 되어 아무도 안 보게 되는데,
-# 그게 test_char_files_exist가 428건 실패한 채 방치됐던 경로다. 3개 이상 썼다는 건
-# 배치 작업을 돌렸다는 뜻이므로 그때부터는 빠진 언어를 진짜 누락으로 본다.
-BLOG_SEO_IN_PROGRESS_MAX = 2
-
-# WHY 3개 이상 쓴 topic에도 중단 지점을 적어둘 자리가 필요한지(2026-08-31): 언어 3개를
-# 넘긴 뒤 세션이 끊기는 일이 실제로 있다(절전으로 서브에이전트가 반복 종료). 그때
-# 빨간 줄을 그대로 두면 "원래 빨간 테스트"가 되어 새로 생긴 진짜 누락이 그 뒤에 숨는다
-# — 어디까지 했는지 파일로 남기고, 그 topic만 예외로 통과시킨다.
-# ⚠️ 다 채운 topic이 목록에 남아 있으면 실패시킨다. 안 그러면 목록이 안 줄어든다.
-BLOG_SEO_WIP_PATH = DATA_DIR / "_audit" / "blog_seo_wip.json"
-
-
-def _blog_seo_wip() -> dict[str, list[str]]:
-    if not BLOG_SEO_WIP_PATH.exists():
-        return {}
-    return json.loads(BLOG_SEO_WIP_PATH.read_text(encoding="utf-8")).get("entries", {})
-
-
-@pytest.mark.parametrize("base_topic", BLOG_SEO_TOPICS)
-def test_blog_seo_language_coverage(base_topic):
-    """blog_seo를 하나라도 쓴 topic은 8개 언어를 전부 갖춰야 한다."""
-    have = _topics_with_blog_seo()[base_topic]
-    if len(have) <= BLOG_SEO_IN_PROGRESS_MAX:
-        pytest.skip(f"{base_topic}: {sorted(have)}뿐 — 아직 작업 중인 topic으로 보고 스킵")
-    missing = [lang for lang in BLOG_SEO_REQUIRED_LANGS if lang not in have]
-    if base_topic in _blog_seo_wip():
-        assert missing, (
-            f"{base_topic}: 8개 언어를 다 채웠는데 {BLOG_SEO_WIP_PATH.name}에 아직 남아 있다 "
-            f"— 해당 항목을 지울 것(작업 중 목록은 줄어들기만 해야 한다)"
-        )
-        pytest.skip(f"{base_topic}: 작업 중으로 등록됨 — 남은 언어 {missing}")
-    assert not missing, (
-        f"{base_topic}: blog_seo가 {sorted(have)}에만 있고 {missing}이 빠짐 — "
-        "CLAUDE.md '완료 기준 = 8개 언어 blog_seo 전부'. 정말 이어서 할 거면 "
-        f"{BLOG_SEO_WIP_PATH.name}에 등록할 것"
-    )
-
-
-# ---------------------------------------------------------------------------
 # 규칙 13: 한국어 캡션은 topic당 한 곳에만 (2026-08-31)
 #
 # 한국어 캡션 파일의 위치는 topic마다 다르다 — 언어 폴더가 없는 옛 topic은
@@ -839,8 +639,7 @@ def test_korean_caption_lives_in_one_place(base_topic):
 # WHY 채무 목록 방식인지: 실측 시점에 385편 중 227편이 이미 위반 상태였다. 전부
 # 실패시키면 테스트가 상시 빨간불이라 아무도 안 보게 되고(= 게이트가 없는 것과 같다),
 # 227편을 지금 다 고치는 건 게시 완료분 재작성이라 별개 결정이다. 그래서 그 시점
-# 스냅샷만 예외로 두고 **새 위반은 즉시 실패**시킨다 — blog_seo 쪽에서 이미 쓰고
-# 있는 패턴(data/_audit/blog_seo_quality_debt.json)과 같은 구조다.
+# 스냅샷만 예외로 두고 **새 위반은 즉시 실패**시킨다.
 _NAVER_DEBT_PATH = DATA_DIR / "_audit" / "naver_blog_quality_debt.json"
 
 
