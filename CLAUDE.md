@@ -52,7 +52,7 @@
 - **DB는 Cloudflare D1**이다(2026-09-13 Supabase 폐기). 환경변수 이름은 옛 그대로 `SUPABASE_URL`·
   `SUPABASE_SERVICE_ROLE_KEY`지만 PostgREST 문법을 D1 SQL로 번역하는 Worker
   (`d1-postgrest.choijaaaaaa.workers.dev`)를 가리킨다. 소스 `~/Desktop/project/infra/d1-postgrest/`.
-- **이미지는 Cloudflare R2**(`https://img.vernhaven.com/health-shorts/card_news/`). `lib/card_news.py`가 렌더 직후
+- **이미지는 Cloudflare R2**(`https://img.choijaaaaaa.workers.dev/health-shorts/card_news/` — Worker `infra/r2-img`, 2026-10-24 img.vernhaven.com에서 이전, 주소는 `R2_PUBLIC_BASE`). `lib/card_news.py`가 렌더 직후
   `_sync_to_r2()`로 자동 업로드한다 — stderr에 경고가 뜨면 그 topic은 배포본에서 이미지가 안 뜬다.
   키: `health-shorts/card_news/<topic>/<파일>`(ko·루트 공용), 다른 언어는 `<topic>/<lang>/`. URL 정본은
   `lib/dashboard.py._card_news_r2_base()` — 키를 바꾸려면 이 함수와 `_sync_to_r2()`를 **같이** 고친다.

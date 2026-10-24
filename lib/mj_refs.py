@@ -8,7 +8,7 @@
 #
 # 표: mission_control.mj_references (D1 `health_shorts__mission_control_mj_references`, infra/d1-postgrest/migrate/02).
 # key = "<project>/<name>" — health-shorts도 같은 표에 project="health-shorts"로 쓰면 된다.
-# R2 키: mj-refs/<project>/<name>.jpg → https://img.vernhaven.com/mj-refs/...
+# R2 키: mj-refs/<project>/<name>.jpg → <R2_PUBLIC_BASE>/mj-refs/...
 #
 #   .venv/bin/python3 -m lib.mj_refs add stills/canon_organs.jpg          # assets_library/xray/ 기준 경로
 #   .venv/bin/python3 -m lib.mj_refs list

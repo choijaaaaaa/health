@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sys
 from pathlib import Path
 from urllib.parse import quote, quote_plus
@@ -954,7 +955,8 @@ SECTION_TEMPLATE = """
 # 1.14GB가 git·Vercel 배포에 그대로 실려 있었는데, R2는 egress가 무료라 CDN에서
 # 받는 편이 싸고 배포도 가벼워진다. 키 규칙은 업로드 스크립트와 같아야 한다 —
 # ko(및 언어 폴더가 없는 구형 topic)는 <topic>/, 그 외 언어는 <topic>/<lang>/.
-_R2_CARD_NEWS_BASE = "https://img.vernhaven.com/health-shorts/card_news"
+# 2026-10-24 SEO 블로그 폐기로 img.vernhaven.com(도메인) → workers.dev(infra/r2-img). 바꿀 땐 R2_PUBLIC_BASE 환경변수
+_R2_CARD_NEWS_BASE = os.environ.get("R2_PUBLIC_BASE", "https://img.choijaaaaaa.workers.dev").rstrip("/") + "/health-shorts/card_news"
 
 
 def _card_news_r2_base(card_news_dir: str | Path) -> str:

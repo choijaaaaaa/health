@@ -17,7 +17,7 @@ bin/
 # 2026-08-08엔 이 파일들을 예외로 배포에 포함시켰었다("카드뉴스탭에 아예없는건뭐냐?"
 # — 대시보드 카드뉴스 탭에 표지 1장만 보이고 나머지가 빈 화면이었음). 그때는 609장
 # 79.6MB라 부담이 없었는데 지금은 7,222장 1.14GB로 14배가 됐다. 이제 dashboard.py가
-# 이미지 src를 https://img.vernhaven.com/health-shorts/card_news/... 절대 URL로 쓰므로
+# 이미지 src를 https://img.choijaaaaaa.workers.dev/health-shorts/card_news/... 절대 URL로 쓰므로
 # (egress 무료) 배포본에 파일이 없어도 탭이 정상 동작한다 — 2026-08-08 문제는 재발하지
 # 않는다. 🚨 새 카드뉴스를 렌더하면 R2에도 올려야 배포본에서 보인다(CLAUDE.md 참고).
 assets_library/illust/

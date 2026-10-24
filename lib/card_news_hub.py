@@ -56,7 +56,7 @@ GROUP_ORDER = ["육아+반려동물", "경제"]
 
 
 # 카드뉴스 이미지 공개 베이스(2026-09-13 R2 이전). verticals/.env.r2의 R2_PUBLIC_BASE와 같은 값.
-_R2_PUBLIC_BASE = "https://img.vernhaven.com"
+_R2_PUBLIC_BASE = os.environ.get("R2_PUBLIC_BASE", "https://img.choijaaaaaa.workers.dev").rstrip("/")  # 2026-10-24 workers.dev로 이전
 
 def _find_sibling_project(name: str) -> Path:
     """seo-blog/scripts/ingest_health_shorts.py의 동명 함수와 동일한 로직
