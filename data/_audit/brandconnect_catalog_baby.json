@@ -720,6 +720,23 @@
     "found": true,
     "status": "있음",
     "chosen": {
+      "id": 820728154573856,
+      "name": "베베노 무선 전동식 의료용 아기 콧물흡입기",
+      "store": "베베노",
+      "price": 229000,
+      "commission": 18.0,
+      "reviews": 3042,
+      "rating": 4.9,
+      "url": "https://smartstore.naver.com/main/products/8811506153",
+      "link": "https://naver.me/GNJ69rhj"
+    },
+    "hits": 24,
+    "domain": "baby",
+    "sample": null,
+    "link": "https://naver.me/GNJ69rhj",
+    "link_saved": true,
+    "account": "baby",
+    "rejected": {
       "id": 898422301945152,
       "name": "예꼬맘 노스클린 아기 콧물흡입기 휴대용 NS1 전동",
       "store": "예꼬맘",
@@ -730,12 +747,8 @@
       "url": "https://smartstore.naver.com/main/products/123628512",
       "link": null
     },
-    "hits": 24,
-    "domain": "baby",
-    "sample": null,
-    "link": "https://naver.me/G4do9WWH",
-    "link_saved": true,
-    "account": "baby"
+    "replaced_at": "2026-10-22 06:35",
+    "replaced_note": "link_health 자동 교체 — 브랜드커넥트 검색에서 사라진 상품(예꼬맘 노스클린 아기 콧물흡입기 휴대용 NS1 전동)"
   },
   "면봉": {
     "checked_at": "2026-09-24 16:07",
