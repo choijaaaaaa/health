@@ -1,0 +1,20 @@
+{
+  "checked_at": "2026-10-25 20:26",
+  "_how": "육아 카탈로그(brandconnect_catalog_baby.json)에 새 키 '아기 걸음마 신발' — 지정 상품(smartstore 11235342709, 브랜드커넥트 ID 807283093691031)을 육아 계정(9335, use_account('baby'))으로 ID 지정 발급. 자동 선택(choose)도 같은 상품. naver.me/GLh17LNX 리다이렉트가 channelProductNo=11235342709를 가리키는 것 확인, D1 global_product_links(naver)에 저장.",
+  "products": {
+    "아기 걸음마 신발": {
+      "found": true,
+      "chosen": {
+        "id": 807283093691031,
+        "name": "아띠빠스 아기 걸음마신발 보행기 돌 신발 스탠다드 썸머 프리미엄 프린세스",
+        "store": "아띠빠스 공식스토어",
+        "price": 27900,
+        "commission": 5.0,
+        "reviews": 4658,
+        "rating": 4.89,
+        "url": "https://smartstore.naver.com/main/products/11235342709",
+        "link": "https://naver.me/GLh17LNX"
+      }
+    }
+  }
+}
