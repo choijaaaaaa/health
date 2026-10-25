@@ -1,0 +1,121 @@
+{
+  "_why": "반투명 인체 포맷(content_v2). 내성발톱을 '모서리를 둥글게 도려내면 뾰족한 조각이 남는다 → 발톱이 자라며·꽉 끼는 신발에 밀려 살을 파고든다 → NHS는 너무 짧지 않게·모서리는 남기고 가로로 일자로 → 집 손톱깎이는 휜 날이라 저절로 둥글게 잘린다 → 날이 곧은 발톱깎이로' 한 줄기로 판다. 발은 반투명 인체 발(얼굴 없음), 점등은 엄지발톱 옆 살. 도입부는 앞코 좁은 유리 신발 속 엄지발톱 옆이 욱신(act_shoe_toe_pain) + 엄지발톱 옆 점등(part_big_toe), 통념(둥글게 바짝 잘라내기)은 negations로 휜 날 손톱깎이로 모서리를 도려내는 클립에 '다시 파고들어요'에서 빨간 X. 색인에 발톱·발가락 장면이 없어(part_foot 발 전체·part_heel 뒤꿈치·part_nail 손가락뿐) 재사용 0 — 메모 카드 note_toenail_clipper_pick(세션이 만듦) + 새 Flow 7개 + 스틸 1장.",
+  "top_title": "엄지발톱 옆이 붓고 욱신거린다면",
+  "inset": {
+    "clip": "assets_library/xray/output/part_big_toe.mp4",
+    "crop": [
+      0,
+      280,
+      720,
+      720
+    ],
+    "label": "엄지발톱 옆",
+    "_crop_why": "스틸(part_big_toe) 받기 전 자리값 — 받으면 엄지발톱 옆 점등 자리에 맞춰 다시 잰다."
+  },
+  "opening": [
+    {
+      "clip": "assets_library/xray/output/act_shoe_toe_pain.mp4"
+    },
+    {
+      "clip": "assets_library/xray/output/part_big_toe.mp4"
+    }
+  ],
+  "opening_until": 11.523,
+  "_opening_why": "훅(0.39~4.58 '내성발톱, 엄지발톱 옆이 빨갛게 붓고 신발만 닿아도 욱신거리나요?') + 통념 반박(5.26~11.52 '이럴 때 파고든 모서리를 둥글게 바짝 잘라내는 분이 많은데요. 그러면 당장은 시원해도 다시 파고들어요')까지 전체 화면. 세 번째 문단('둥글게 깎으면') 직전 자막 끝 = 11.523초. 통클립 6+4=10초를 11.5초에 — 약 1.15배. 5.26초부터는 negations 클립(act_clip_toenail_curved)이 덮는다.",
+  "negations": [
+    {
+      "from": "이럴 때 파고든 모서리를",
+      "x_at": "다시 파고들어요",
+      "clip": "assets_library/xray/output/act_clip_toenail_curved.mp4"
+    },
+    {
+      "from": "이미 파고들어 아프다면",
+      "x_at": "자르지 말고",
+      "x_pos": [
+        0.25,
+        0.5
+      ]
+    }
+  ],
+  "_negations_why": "① 도입부 통념 — 휜 날로 모서리를 둥글게 도려내는 장면 위 '다시 파고들어요'에서 X. ② 7칸 '이미 파고들어 아프다면 자르지 말고' — 클립 없이 X만, 칸 왼쪽(깎는 손 act_clip_toenail_curved) 위에(x_pos 0.25). 오른쪽 엄지발톱 옆 점등(맞는 쪽 아님, 아픈 자리)엔 X가 안 걸리게.",
+  "timeline": [
+    {
+      "from": "둥글게 깎으면 모서리 끝에",
+      "item": "일자 발톱깎이",
+      "mech": "m_curved_clip_spike",
+      "act": "act_clip_toenail_curved",
+      "label": "발톱 모서리"
+    },
+    {
+      "from": "미국 가정의학회 학술지에",
+      "item": "일자 발톱깎이",
+      "mech": "m_barb_grows_into_skin",
+      "act": "act_shoe_toe_pain",
+      "label": "발톱 옆 살"
+    },
+    {
+      "from": "그래서 영국 국민보건서비스는",
+      "item": "일자 발톱깎이",
+      "mech": "m_straight_clip_clean",
+      "act": null,
+      "label": "발톱 끝",
+      "solo": "권고 문장(너무 짧지 않게·모서리는 남기고·가로로 일자로) — 일자로 자른 끝이 모서리를 살 위에 남긴 채 자라는 기전 단독, 10.3초(8초 1.29배). 깎는 행위는 5칸 제품 작동 칸에서 보여 준다"
+    },
+    {
+      "from": "그런데 집에 있는 손톱깎이는",
+      "item": "일자 발톱깎이",
+      "mech": "m_curved_clip_spike",
+      "act": "act_clip_toenail_curved",
+      "label": "휜 날"
+    },
+    {
+      "from": "날이 곧은 일자 발톱깎이로",
+      "item": "일자 발톱깎이",
+      "mech": "m_straight_clip_clean",
+      "mech_range": [
+        0,
+        4
+      ],
+      "act": "act_clip_toenail_straight",
+      "label": "곧은 날"
+    },
+    {
+      "from": "고를 땐 날이 일자인지",
+      "item": "일자 발톱깎이",
+      "mech": "note_toenail_clipper_pick",
+      "act": null,
+      "label": "고르는 기준",
+      "solo": "고르는 기준 메모(날이 일자인지 / 엄지발톱을 한 번에 자를 만큼 넓은지) — 대본 글자 그대로 새로 만든 메모 카드, 다음 문장(여러 번 나눠 깎으면 각이 생겨요)까지 한 칸"
+    },
+    {
+      "from": "이미 파고들어 아프다면",
+      "item": "일자 발톱깎이",
+      "mech": "part_big_toe",
+      "act": "act_clip_toenail_curved",
+      "label": "엄지발톱 옆"
+    },
+    {
+      "from": "따뜻한 비눗물에",
+      "item": "일자 발톱깎이",
+      "mech": "act_soak_foot_basin",
+      "act": null,
+      "label": "발",
+      "solo": "담그는 행동 자체가 정보(따뜻한 비눗물·10~20분·살을 불림) — 담근 발 엄지발톱 옆 살이 물에 불어 부드러워지는 새 클립 단독, 5.6초"
+    },
+    {
+      "from": "고름이 나오거나",
+      "item": "일자 발톱깎이",
+      "mech": "part_big_toe",
+      "act": null,
+      "label": "엄지발톱 옆"
+    }
+  ],
+  "_timeline_why": "① 11.99~16.12 '둥글게 깎으면 모서리 끝에 뾰족한 발톱 조각이 남기 쉬워요'(4.1초) 왼쪽 act_clip_toenail_curved + 오른쪽 m_curved_clip_spike(6초, 0.69배). ② 16.12~25.28 'AFP: 조각이 살에 박힌 채 자라며 파고듦 + 꽉 끼는 신발이 더 밀어 넣음'(9.2초) — '꽉 끼는 신발은' 문장이 2.6초라 단독 칸(3초 미만)이 안 돼 합침: 왼쪽 act_shoe_toe_pain(6초 1.53배) + 오른쪽 m_barb_grows_into_skin(8초 1.15배, 3~6초에 옆에서 벽이 조여 옴 = 신발). ③ 25.28~35.54 NHS 권고 + '모서리를 남겨 둬야'(10.3초) 기전 단독. ④ 35.54~41.14 '집 손톱깎이는 날이 휘어 저절로 둥글게'(5.6초) — ①과 같은 짝(행위 3번째·기전 2번째). ⑤ 41.14~44.54 제품 작동 칸 — 왼쪽 act_clip_toenail_straight(4초) + 오른쪽 m_straight_clip_clean 앞 4초(한 번에 가로로 잘림). ⑥ 44.54~52.36 고르는 기준 메모(6초 1.3배, 정지 화면이 설계). ⑦ 52.36~55.71 '이미 파고들어 아프다면 자르지 말고 자라게 두세요'(3.35초) 왼쪽 깎는 손 + X, 오른쪽 part_big_toe. ⑧ 55.71~61.34 담그기 단독(6초 0.94배). 기전 클립 각 1~2회.",
+  "summary_from": "고름이 나오거나",
+  "_summary_why": "병원 신호 문장부터 칠판 전체(제품 사진·제품 보러 가기). 그 앞 해결책 문장은 칸으로(2026-10-07 사용자).",
+  "_summary_row_why": "summary_from과 같은 구절의 마지막 칸 — 이게 있어야 앞 칸이 칠판 시작에서 끝난다. mech는 칠판이 덮어 안 그려지므로 이 편 부위 클립(part_big_toe).",
+  "board_items": [
+    "일자 발톱깎이"
+  ],
+  "_panel_act_why": "행위 칸은 대본이 말하는 구체 행동만 — 휜 날 손톱깎이로 모서리 도려내기(통념·원인·'자르지 말고' X)·꽉 끼는 신발로 걷기·곧은 날 발톱깎이로 한 번에 가로로 자르기(제품)·대야에 발 담그기. 손과 발만, 얼굴 없음."
+}

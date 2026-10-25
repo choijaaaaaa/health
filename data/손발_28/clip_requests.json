@@ -1,0 +1,282 @@
+{
+ "requests": [
+  {
+   "name": "part_big_toe",
+   "kind": "still",
+   "why": "손발_28 부위 인셋(칠판 오른쪽 위 원형) + 도입부 둘째 컷 + 7칸(52.36~55.71초 '이미 파고들어 아프다면 자르지 말고 자라게 두세요' 오른쪽, 왼쪽 깎는 손에 빨간 X). 위에서 앞쪽으로 내려다본 반투명 맨발, 엄지발가락이 맨 앞 — 발톱판·앞 끝·발톱 양옆으로 말려 올라온 살(발톱 옆 살)이 또렷해야 한다. 빛 없는 정지 스틸로 받아 make_part_clip(--region, 4초 푸시인+점등). 점등할 자리: 엄지발톱 바깥쪽 옆 살(발톱 모서리가 파고드는 곳) — 발 전체가 아니다. 색인 전수 확인: part_foot은 발 전체가 통째로 켜짐, part_heel은 뒤꿈치, part_nail은 손가락 손톱, cu_foot 스틸은 옆모습이라 발톱이 안 보여 region으로 엄지발톱 옆을 짚을 수 없다. 범용 — 내성발톱·발톱무좀·발톱 깎기·당뇨발·엄지발가락 통증 편.",
+   "fits": [
+    "엄지발톱",
+    "엄지발가락",
+    "발톱 옆 살",
+    "내성발톱",
+    "발톱이 파고듦",
+    "발톱 무좀",
+    "발톱 깎기",
+    "당뇨발",
+    "엄지발가락 통증"
+   ],
+   "reuse_checked": [
+    {
+     "id": "part_foot",
+     "why_not": "옆에서 본 발·발목 전체가 통째로 호박색 — 엄지발톱 옆 한 점이 아니다"
+    },
+    {
+     "id": "part_heel",
+     "why_not": "뒤꿈치뼈만 점등"
+    },
+    {
+     "id": "part_nail",
+     "why_not": "손가락 끝 손톱 — 발이 아니다"
+    },
+    {
+     "id": "cu_foot(스틸)",
+     "why_not": "옆모습이라 발가락이 뭉쳐 보이고 발톱판·옆 살이 안 보여 region으로 엄지발톱 옆을 못 짚는다"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up view from above and slightly in front of a single translucent glass-like adult bare foot resting flat on nothing in the void, the five toes pointing toward the camera, the big toe large in the foreground: its smooth flat nail plate, the straight free edge, and the soft skin folds rolling up along both sides of the nail are clearly visible through the glass, the toe bones faint inside. Only the front half of the foot is in the frame, no ankle, no hands, no face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes, nail polish, shoe, sock"
+  },
+  {
+   "name": "act_shoe_toe_pain",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "손발_28 도입부 훅('내성발톱, 엄지발톱 옆이 빨갛게 붓고 신발만 닿아도 욱신거리나요?', 0.39~4.58초) 전체 화면 첫 컷 + 2칸(16.12~25.28초 '미국 가정의학회 학술지에 따르면, 이 조각이 살에 박힌 채 발톱이 자라면서 점점 깊이 파고들어요. 꽉 끼는 신발은 이 조각을 더 밀어 넣고요', 9.2초) 왼쪽. 앞코가 좁은 유리 신발 속 발이 디딜 때마다 발가락이 몰리고 엄지발톱 옆 살만 호박색으로 욱신 — '신발만 닿아도 욱신'과 '꽉 끼는 신발이 밀어 넣는다'를 한 장면에. 근거 AFP 'pressure from constricting footwear … drive the nail barb penetration', NHS 'do not wear tight, pointy shoes'. 무릎 아래만, 얼굴 없음. 범용 — 내성발톱·무지외반증·꽉 끼는 신발·발가락 통증 편.",
+   "fits": [
+    "꽉 끼는 신발",
+    "앞코 좁은 신발",
+    "신발에 발가락이 눌림",
+    "엄지발톱 옆 통증",
+    "내성발톱",
+    "발가락이 욱신거림",
+    "구두",
+    "무지외반증"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_new_shoes_heel_rub",
+     "why_not": "하이힐에 뒤꿈치가 쓸리는 비유 장면 — avoid '발 질환 설명엔 쓰지 말 것', 엄지발가락 아님"
+    },
+    {
+     "id": "act_walk_flat_shoes",
+     "why_not": "납작 신발 밑창 테두리가 빛남 — 발 속·발가락 점등 없음"
+    },
+    {
+     "id": "part_foot",
+     "why_not": "신발 없이 발 전체가 켜짐"
+    },
+    {
+     "id": "act_first_step_heel",
+     "why_not": "맨발로 침대에서 일어서며 발 전체·뒤꿈치 점등"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up low three-quarter side view of a single translucent glass-like adult lower leg and bare foot standing inside a plain narrow pointed-toe closed shoe that is also rendered as translucent pale cyan glass, so the toes are visible inside the shoe, squeezed together at its narrow front; the big toe is pressed against the inner wall of the shoe and its toenail with the soft skin fold beside it is clearly visible through the glass. Only the leg from the knee down is in the frame, the other foot just behind it. No hands, no face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes, opaque shoe, leather, laces, high heel",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same low three-quarter side framing of the foot inside the glass shoe from the first frame to the last — it never moves up the leg. 0-2s: from the very first frame the foot takes a step forward, and as the weight comes onto it the narrow front of the shoe squeezes the toes together and the skin fold at the side of the big toenail flashes warm amber. 2-4s: the foot lifts slightly off the ground and hesitates, the amber spot beside the big toenail throbbing with each pulse, a little swollen. 4-6s: the foot sets down again carefully, the shoe presses the big toe once more and the amber spot at the side of the big toenail flares brighter, staying lit until the very last frame while everything else stays soft pale cyan. Only the skin fold at the edge of the big toenail ever glows. One foot in focus with five toes, no hands. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with two soft muffled footsteps and a faint throbbing pulse, no music, no dialogue."
+  },
+  {
+   "name": "act_clip_toenail_curved",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "손발_28 통념 반박('이럴 때 파고든 모서리를 둥글게 바짝 잘라내는 분이 많은데요. 그러면 당장은 시원해도 다시 파고들어요', 5.26~11.92초) 전체 화면 negations 클립 + '다시 파고들어요'에서 빨간 X, 1칸(11.99~16.12초 '둥글게 깎으면 모서리 끝에 뾰족한 발톱 조각이 남기 쉬워요') 왼쪽, 4칸(35.54~41.14초 '집에 있는 손톱깎이는 날이 안쪽으로 휘어 있어서, 그대로 깎으면 저절로 둥글게 잘려요') 왼쪽, 7칸('이미 파고들어 아프다면 자르지 말고' X) 왼쪽. 의자에 올린 맨발, 한 손이 발을 잡고 다른 손이 작은 손톱깎이(안쪽으로 휜 짧은 날)로 엄지발톱 바깥 모서리를 파고들 듯 둥글게 두 번 끊어 낸다 → 도려낸 옆 살이 호박색. 손과 발만, 얼굴 없음. 피·상처 없음. 근거 AFP 'improper nail trimming' · 'corners should not be rounded off'. 범용 — 내성발톱·발톱 깎기·손톱깎이 편.",
+   "fits": [
+    "손톱깎이로 발톱 깎기",
+    "발톱 모서리를 둥글게 자름",
+    "파고든 발톱을 잘라냄",
+    "내성발톱 자가치료",
+    "발톱 깎는 법",
+    "잘못된 발톱 깎기",
+    "발톱을 너무 짧게"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_baby_nail_scissors_trim",
+     "why_not": "아기 손톱을 끝이 둥근 가위로 — 발·손톱깎이 아님, 육아 전용"
+    },
+    {
+     "id": "m_round_tip_scissors_trim",
+     "why_not": "실사풍 손가락 손톱을 가위로 — avoid '엑스레이 화풍 아님'"
+    },
+    {
+     "id": "act_file_heel_callus",
+     "why_not": "뒤꿈치 각질을 밀대로 미는 장면 — 발톱·깎이 없음"
+    },
+    {
+     "id": "act_scratch_shin",
+     "why_not": "정강이를 손톱으로 긁음"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up three-quarter front view of a single translucent glass-like adult bare foot resting on a plain low stool, the toes toward the camera, the bones of the toes faintly visible inside; the big toenail, its free edge and the soft skin folds rolling up along both sides of the nail are the clearest surfaces in the frame. Exactly two translucent glass-like hands: the left hand holds the front of the foot steady from the side, the right hand holds a small plain metal fingernail clipper with short jaws that curve inward like a crescent, its jaws closed over the outer corner of the big toenail and angled down into the side of the toe. No face, no body above the knees in the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes, scissors, knife, razor",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked close on the front of the foot and the hands from the first frame to the last. 0-2s: from the very first frame the right hand squeezes the small curved clipper and snips the outer corner of the big toenail, the curved jaws digging down into the side of the toe. 2-4s: the hand shifts the clipper along the edge and snips again, following the curve so the corner is cut away deep and rounded, a tiny crescent of nail dropping away into the void. 4-6s: the hand lifts the clipper away; the skin fold at the side of the big toenail, where the corner was dug out, glows warm amber and stays lit until the very last frame while the rest of the foot stays soft pale cyan. Exactly two hands are ever in the frame, each with five fingers, and there is only one foot; the clipper stays a small plain metal clipper with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with two sharp small metallic clicks, no music, no dialogue."
+  },
+  {
+   "name": "m_curved_clip_spike",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "손발_28 1칸(11.99~16.12초 '둥글게 깎으면 모서리 끝에 뾰족한 발톱 조각이 남기 쉬워요', 4.1초) 오른쪽 + 4칸(35.54~41.14초 '집에 있는 손톱깎이는 날이 안쪽으로 휘어 있어서, 그대로 깎으면 저절로 둥글게 잘려요', 5.6초) 오른쪽. 위에서 내려다본 엄지발톱 끝 클로즈업 — 안쪽으로 휜 짧은 날이 닫히며 컷이 날 모양대로 둥글게 파이고, 옆 살 밑 모서리에 가시 같은 뾰족한 조각이 남아 호박색. 근거 AFP 'Because of poor visualization or instrumentation, a barb is created'. ⚠️ 조각이 '남기 쉽다'까지 — 피·고름 그리지 말 것. 범용 — 내성발톱·손톱깎이·발톱 깎는 법.",
+   "fits": [
+    "둥글게 깎은 발톱",
+    "발톱 모서리 조각",
+    "뾰족한 발톱 조각",
+    "손톱깎이 휜 날",
+    "내성발톱 원인",
+    "발톱 깎는 법",
+    "곡선 날"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_round_tip_scissors_trim",
+     "why_not": "실사풍 손가락 손톱을 가위로 둥글게 — 엑스레이 화풍 아님, 조각이 남는 장면 없음"
+    },
+    {
+     "id": "part_nail",
+     "why_not": "손가락 손톱 색만 바뀜"
+    },
+    {
+     "id": "m_nail_layers_split",
+     "why_not": "손톱 층이 벌어져 갈라짐 — 자른 모양이 아니다"
+    },
+    {
+     "id": "m_nail_tip_scratch_skin",
+     "why_not": "손톱이 피부를 긁는 실사풍 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Extreme close-up seen from directly above the tip of a single translucent glass-like big toe: the smooth flat nail plate, its free edge, and the soft skin folds rolling up along both sides of the nail fill the frame. The two short jaws of a small plain metal nail clipper hover just above the free edge, their cutting edges curving inward like a crescent. No hands visible, no face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera looking straight down at the tip of the big toe. 0-2s: from the very first frame the curved jaws close on the free edge of the nail and the cut follows their inward curve, so the middle of the edge stays long while the cut dips down at the outer side of the nail, under the skin fold. 2-4s: the cut piece lifts away into the void, revealing a rounded edge; at the outer corner, half hidden under the skin fold, a tiny sharp spike of nail is left behind, and the spike and the fold around it glow warm amber. 4-6s: the camera pushes slowly toward that corner, the amber spike sitting under the fold, the fold puffing up slightly, holding until the very last frame. Only the spike and the fold beside it ever glow. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with one sharp metallic click, no music, no dialogue."
+  },
+  {
+   "name": "m_barb_grows_into_skin",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "손발_28 2칸(16.12~25.28초 '미국 가정의학회 학술지에 따르면, 이 조각이 살에 박힌 채 발톱이 자라면서 점점 깊이 파고들어요. 꽉 끼는 신발은 이 조각을 더 밀어 넣고요', 9.2초) 오른쪽 — 왼쪽은 act_shoe_toe_pain. 발톱 옆 살 단면 클로즈업: 모서리의 뾰족한 조각이 살 밑에 박힌 채 발톱판이 앞으로 자라며 조각을 더 깊이 끌고 들어가고(0~3초), 옆에서 매끈한 벽이 조여 오며 더 밀어 넣고(3~6초, 신발), 박힌 둘레 살이 부어 호박색으로 맥동(6~8초). 근거 AFP 'anchors itself in the soft periungual tissues and penetrates deeply as the nail plate grows distally' · 'pressure from constricting footwear … drive the nail barb penetration'. 피·고름 없음. 범용 — 내성발톱·발톱 주위염 편.",
+   "fits": [
+    "발톱이 살을 파고듦",
+    "내성발톱",
+    "발톱 조각이 박힘",
+    "발톱 옆 살이 부음",
+    "발톱이 자라면서 파고듦",
+    "신발이 발톱을 누름",
+    "발톱 주위 염증"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_tissue_invasion",
+     "why_not": "주황 가지가 조직 속으로 뿌리처럼 뻗음 — 암 전이·감염 확산으로 읽히고 발톱이 없다"
+    },
+    {
+     "id": "m_inflammation",
+     "why_not": "조직 위 면역세포 — 발톱·조각이 없다"
+    },
+    {
+     "id": "m_nail_grows_out",
+     "why_not": "손가락 손톱이 뿌리에서 밀려 나옴, 후반 불투명 손가락 — 살을 파고드는 장면이 아니다"
+    },
+    {
+     "id": "m_waste_buildup",
+     "why_not": "바늘 결정이 관 사이에 쌓임 — 발톱 아님"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Extreme close-up at a low angle of the outer side edge of a single translucent glass-like big toenail where it meets the soft skin fold beside it, the skin fold cut away like a cross-section so its soft layered tissue is visible; the flat nail plate runs in from the left, and at its corner a tiny sharp spike of nail is lodged just under the surface of the skin fold. No hands, no face, no shoe. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked on the side edge of the nail and the skin fold. 0-3s: from the very first frame the whole nail plate slides slowly forward as it grows, carrying the sharp spike at its corner forward and down, driving it deeper into the soft skin fold, which starts to glow warm amber around the tip. 3-6s: a smooth translucent wall presses in from the outer side, squeezing the skin fold against the nail, and the spike sinks further in, the amber glow spreading and the fold swelling up around it. 6-8s: the swollen fold stays warm amber around the buried spike, pulsing slowly, holding until the very last frame. Only the skin fold around the spike ever glows; no blood, no pus. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with a slow deep throbbing pulse, no music, no dialogue."
+  },
+  {
+   "name": "m_straight_clip_clean",
+   "kind": "flow",
+   "seconds": 8,
+   "why": "손발_28 3칸(25.28~35.54초 '그래서 영국 국민보건서비스는 발톱을 너무 짧지 않게, 모서리는 건드리지 말고 가로로 일자로 깎으라고 해요. 모서리를 남겨 둬야 뾰족한 조각이 안 생겨요', 10.3초) 기전 단독 + 5칸 제품 작동 칸(41.14~44.54초 '날이 곧은 일자 발톱깎이로 바꾸면 일자로 깎기가 쉬워져요', 3.4초, mech_range 0~4초) 오른쪽 — m_curved_clip_spike와 같은 구도의 짝. 넓고 곧은 날이 발톱 폭 전체를 한 번에 가로로 자르고(0~2초), 양 모서리가 옆 살 위에 그대로 얹힌 반듯한 끝이 남고(2~4초), 발톱이 자라며 모서리가 살 위로 미끄러져 나간다(4~8초, 아무것도 파고들지 않음). 근거 NHS 'cut straight across the nail, not the edges' · 'do not cut your toenails too short'. ⚠️ 대본은 '일자로 깎기가 쉬워진다'까지 — 붓기가 낫거나 이미 파고든 발톱이 펴지는 그림 금지. 범용 — 발톱 깎는 법·일자 발톱깎이·내성발톱 예방.",
+   "fits": [
+    "발톱을 일자로 깎기",
+    "일자 발톱깎이",
+    "곧은 날",
+    "발톱 모서리 남기기",
+    "내성발톱 예방",
+    "발톱 깎는 법",
+    "발톱 길이"
+   ],
+   "reuse_checked": [
+    {
+     "id": "m_nail_grows_out",
+     "why_not": "손가락 손톱, 후반 불투명 실사풍 — 일자 컷이 없다"
+    },
+    {
+     "id": "part_nail",
+     "why_not": "손가락 손톱 색 변화"
+    },
+    {
+     "id": "m_round_tip_scissors_trim",
+     "why_not": "실사풍·둥글게 다듬는 장면 — 정반대"
+    },
+    {
+     "id": "m_curved_clip_spike",
+     "why_not": "같은 topic 새 요청 — 휜 날로 둥글게 잘려 조각이 남는 '틀린 쪽' 장면"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Extreme close-up seen from directly above the tip of a single translucent glass-like big toe: the smooth flat nail plate, its free edge, and the soft skin folds rolling up along both sides of the nail fill the frame. The wide jaws of a plain metal toenail clipper hover across the whole width of the nail just beyond the tip of the toe, their cutting edges perfectly straight and slightly wider than the nail. No hands visible, no face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera looking straight down at the tip of the big toe. 0-2s: from the very first frame the wide straight jaws close across the whole nail in one single bite, cutting it straight across, level with the tip of the toe, not short. 2-4s: the cut strip lifts away into the void, leaving a clean straight edge; both corners stay square and rest on top of the skin folds, nothing dips into the folds, and a thin soft amber line glints along the new straight edge then fades, the folds staying calm pale cyan. 4-8s: the nail plate slowly grows forward, its square corners gliding forward over the top of the skin folds without catching or digging in, the folds staying flat and calm pale cyan until the very last frame. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with one clean metallic click, no music, no dialogue."
+  },
+  {
+   "name": "act_clip_toenail_straight",
+   "kind": "flow",
+   "seconds": 4,
+   "why": "손발_28 5칸 제품 작동 칸(41.14~44.54초 '날이 곧은 일자 발톱깎이로 바꾸면 일자로 깎기가 쉬워져요', 3.4초) 왼쪽 — act_clip_toenail_curved와 같은 발·의자·손 구도의 짝(같은 시작 그림을 쓰면 좋다). 큰 발톱깎이(넓고 곧은 날)를 엄지발톱 끝에 수평으로 대고 한 번에 가로로 끊어 내면, 양 모서리가 남은 반듯한 끝이 드러나고 옆 살은 차분한 하늘색. 손과 발만, 얼굴 없음. 상품 사진·글자 없음(브랜드 없는 무지 금속). 범용 — 일자 발톱깎이·발톱 깎는 법·내성발톱 예방.",
+   "fits": [
+    "일자 발톱깎이",
+    "발톱을 일자로 깎기",
+    "발톱깎이 사용",
+    "발톱 깎는 법",
+    "내성발톱 예방",
+    "곧은 날 깎이",
+    "엄지발톱 한 번에"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_clip_toenail_curved",
+     "why_not": "같은 topic 새 요청 — 작은 휜 날로 모서리를 둥글게 도려내는 '틀린 쪽' 행동"
+    },
+    {
+     "id": "act_baby_nail_scissors_trim",
+     "why_not": "아기 손톱 가위 — 발·발톱깎이 아님"
+    },
+    {
+     "id": "act_file_heel_callus",
+     "why_not": "뒤꿈치 밀대"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Close-up three-quarter front view of a single translucent glass-like adult bare foot resting on a plain low stool, the toes toward the camera, the bones of the toes faintly visible inside; the big toenail, its free edge and the soft skin folds rolling up along both sides of the nail are the clearest surfaces in the frame. Exactly two translucent glass-like hands: the left hand holds the front of the foot steady from the side, the right hand holds a larger plain metal toenail clipper with wide perfectly straight jaws, held level across the whole width of the big toenail at the tip of the toe, not angled into the sides. No face, no body above the knees in the frame. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes, scissors, knife, razor",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked close on the front of the foot and the hands from the first frame to the last. 0-2s: from the very first frame the right hand squeezes the wide straight clipper and in one single bite cuts straight across the whole width of the big toenail, the cut strip dropping away into the void. 2-4s: the hand lifts the clipper away, showing the nail with a clean straight edge and both corners left square on top of the skin folds; a thin soft amber line glints along the new edge then settles, and the skin folds stay calm pale cyan until the very last frame. Exactly two hands are ever in the frame, each with five fingers, and there is only one foot; the clipper stays plain metal with no markings. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with one clean metallic click, no music, no dialogue."
+  },
+  {
+   "name": "act_soak_foot_basin",
+   "kind": "flow",
+   "seconds": 6,
+   "why": "손발_28 8칸(55.71~61.34초 '따뜻한 비눗물에 10분에서 20분 발을 담가 살을 불리고, 앞이 넉넉한 신발을 신으세요', 5.6초) 단독. 무릎 아래 맨발이 거품 몇 개 뜬 얕은 대야의 따뜻한 물에 잠기고 김이 오르며, 처음 호박색이던 엄지발톱 옆 살이 물에 불어 부드러워지며 빛이 조금 누그러진다(사라지지 않음). 근거 AFP 'soak the affected toe and foot for 10 to 20 minutes in warm, soapy water', NHS 'help soften the skin around your toe'. ⚠️ 낫는 그림 금지 — 살이 불어 부드러워지는 데까지. 얼굴 없음. 범용 — 족욕·발 담그기·내성발톱 자가 관리·발 각질 불리기.",
+   "fits": [
+    "발 담그기",
+    "족욕",
+    "따뜻한 물에 발",
+    "비눗물",
+    "살을 불림",
+    "내성발톱 자가 관리",
+    "발 관리",
+    "각질 불리기"
+   ],
+   "reuse_checked": [
+    {
+     "id": "act_dishwash_rubber_gloves",
+     "why_not": "장갑 낀 손이 대야에서 설거지 — 발이 아니다"
+    },
+    {
+     "id": "act_hot_shower_scrub",
+     "why_not": "김 속에서 때밀이 장갑으로 정강이를 문지름 — 담그기 아님"
+    },
+    {
+     "id": "act_file_heel_callus",
+     "why_not": "뒤꿈치를 밀대로 깎음"
+    },
+    {
+     "id": "part_foot",
+     "why_not": "물·대야 없이 발 전체 점등"
+    }
+   ],
+   "midjourney": "Medical holographic visualization, every structure rendered in the same soft pale cyan glow, dark empty slate blue-grey void, cinematic soft rim lighting, vertical 9:16 portrait frame, absolutely no text, letters, numbers, labels, arrows, logos, or watermarks anywhere in the image. Side view of a single translucent glass-like adult lower leg and bare foot lowered into a plain round shallow basin of warm water with a few soft soap bubbles floating on the surface and faint steam rising; the basin and the water are rendered in the same translucent pale cyan glass, the toes and the big toenail visible under the water through the glass. Only the leg from the knee down is in the frame, no hands, no face. --ar 9:16 --no text, letters, numbers, labels, arrows, watermark, logo, UI, interface, amber, orange, red, blood, wound, opaque skin, face, person, brand marks, duplicated limbs, extra hands, extra arms, extra fingers, extra feet, extra toes, bathtub, bucket with handle",
+   "flow": "One continuous shot in a single unbroken scene with no scene cuts, the camera locked at the same side framing of the basin and the lower leg from the first frame to the last. 0-2s: from the very first frame the foot sinks slowly into the warm water up to the ankle, ripples spreading and faint steam curling up, the skin fold beside the big toenail glowing warm amber. 2-4s: the foot rests still in the water and the swollen skin fold beside the big toenail gently softens and loosens as the warmth soaks in, its amber glow easing to a softer, dimmer warm hue but never disappearing. 4-6s: the ripples settle, a few soap bubbles drift on the surface, the foot rests calmly, holding until the very last frame. Only the skin fold beside the big toenail ever glows. One foot, five toes, no hands. Style lock: every structure stays rendered as the same translucent pale cyan glass with softly glowing edges in the dark slate blue-grey void from the first frame to the very last; the scene never turns opaque, matte, mint green, beige, illustrated or photorealistic. No blood at any moment. No face, no person beyond what is described. No text, no letters, no numbers, no labels, no arrows anywhere in the frame. Low synth hum with soft water sloshing and a faint bubble pop, no music, no dialogue."
+  }
+ ]
+}
