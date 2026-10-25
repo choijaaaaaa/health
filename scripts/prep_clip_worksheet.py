@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-"""아직 못 받은 클립을 **스틸까지 한 폴더에 번호순으로 모아** 작업 시트로 낸다.
+"""아직 못 받은 클립을 통합 작업대(`deploy/작업/만사전.md` + `만사전_스틸/`)의 건강·육아 섹션으로 낸다.
 
 WHY(2026-09-24): 시트에 번호를 붙여놓고 스틸은 `stills/act/`·`stills/mech/`에 원래 이름으로
 흩어져 있어 매칭이 안 됐다 — "번호별로 뭔지 그게 중요한건데". 시트 번호와 스틸 파일 앞 번호를
-같게 맞추고, act/mech를 가르지 않고 `작업/스틸/` 한 곳에 모은다.
+같게 맞추고, act/mech를 가르지 않고 스틸 폴더 한 곳에 모은다.
 
-결과 영상만 번호 없이 원래 이름으로 저장한다(`RENDER/<이름>.mp4`) — 조립기가 그 이름으로 찾는다.
+WHY 섹션인지(2026-10-25 사용자 "건강·육아·댕냥 … 굳이 떨어질 필요가 없을 듯"): 시트는 댕냥사전과 하나로 합쳤다. 이 생성기는
+프롬프트·순서만 정해 트랙별 섹션(health·baby)으로 내보내고, 번호 매기기·시트·스틸 사본·manifest는
+`ai-video-network/tools/manjeon_sheet.py`가 한다 — 두 저장소 생성기가 서로의 항목을 지우지 않게(`lib/workbench.py`).
+
+결과 영상만 번호 없이 원래 이름으로 저장한다(`<이름>.mp4`) — 조립기가 그 이름으로 찾는다.
 
     .venv/bin/python3 scripts/prep_clip_worksheet.py
 """
@@ -22,19 +26,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from lib import tracks  # noqa: E402
+from lib import tracks, workbench  # noqa: E402
 LIB = ROOT / "assets_library" / "xray" / "output"
 STILLS = ROOT / "assets_library" / "xray" / "stills"
 # 🚨 기본(건강) 트랙의 작업 자리. 이름을 바꾸지 말 것(2026-09-24 사용자 "이름도 매번바뀌고") —
 # 시트를 `지금_뽑을것.md`에서 이 이름으로 한 번 바꿨더니 편집기에 열어둔 파일이 사라져서
 # "내가 뭘 뽑아야 하는지"를 다시 물어야 했다. tests/test_xray_worksheet_path.py가 막는다.
-# 트랙별 자리는 lib/tracks.py의 work_paths()가 준다(deploy/작업/ 안에 건강만사전.md·육아만사전.md).
+# 자리는 lib/tracks.py의 work_paths()가 준다 — 건강·육아·댕냥 공용 `deploy/작업/만사전.md`·`만사전_스틸/`.
 SHEET, WORK, INBOX = tracks.work_paths(None)
 CANON = "assets_library/xray/stills/canon_organs.jpg"
 
 
 DOWNLOADS = Path.home() / "Downloads"
-CONSUMED = SHEET.parent / ".받은것_건강만사전.json"
+# 푼 미드저니 zip 기록 — 통합 작업대의 숨은 상태 폴더에 둔다(작업대엔 시트·스틸 폴더만 보이게)
+CONSUMED = SHEET.parent / ".만사전" / "받은것_health.json"
 
 
 
@@ -107,6 +112,7 @@ def mark_consumed(paths) -> None:
     except (OSError, json.JSONDecodeError):
         done = set()
     done |= {Path(p).name for p in paths}
+    CONSUMED.parent.mkdir(parents=True, exist_ok=True)
     CONSUMED.write_text(json.dumps(sorted(done), ensure_ascii=False, indent=2), encoding="utf-8")
 
 
@@ -167,56 +173,88 @@ def _existing_still(sub: str, name: str, track: str | None) -> Path | None:
     base = tracks.stills_dir(track) if sub == "still" else STILLS / sub
     for p in sorted(base.glob(f"*{name}.jpg")) if base.exists() else []:
         return p
+    # 작업대 스틸 폴더는 세 채널 공용이다 — `*<이름>.jpg`로 넓게 찾으면 다른 클립(…_<이름>)까지 걸린다. 정확한 꼴만 본다.
     work = tracks.work_paths(track)[1]
     for p in sorted(work.glob(f"*{name}.jpg")) if work.exists() else []:
-        return p
+        if p.stem == name or re.fullmatch(rf"\d{{2,3}}_{re.escape(name)}", p.stem):
+            return p
     return None
 
 
 def _harvest_loose_stills(pend: list[list], work: Path, track: str | None) -> None:
-    """스틸 폴더에만 있고 stills/에는 없는 스틸을 먼저 원본 자리로 옮긴다.
+    """스틸 폴더에 사람이 넣은 스틸 중 stills/에 없는 것을 원본 자리로 건져낸다.
 
-    🚨 아래에서 이 폴더를 통째로 지우고 다시 채운다 — 사람이 방금 넣은 스틸이
-    stills/act|mech/에 사본이 없으면 그대로 사라진다. 이 저장소는 세션 여럿이
-    같이 쓰고(육아 트랙 등) 시트 갱신은 아무 세션이나 돌리므로, 내가 안 지워도
-    남이 지운다. 지우기 전에 원본 자리로 건져낸다(2026-09-24).
+    WHY(2026-09-24): 사람이 넣은 스틸이 라이브러리에 사본이 없으면 시트를 다시 만들 때 "아직 미드저니부터"로
+    또 내보낸다. 폴더는 세 채널 공용이라 병합기 manifest로 **이 저장소 몫만** 고른다(`workbench.claim`) —
+    댕냥 스틸은 그쪽 받기 스크립트가 가져간다. 복사만 하고 원본은 병합기가 새 번호 사본으로 정리한다.
     """
     if not work.exists():
         return
     want = {r["name"]: sub for _t, r, sub in pend}
-    for f in sorted(work.glob("*.jpg")):
-        name = f.stem.split("_", 1)[1] if f.stem[:2].isdigit() and "_" in f.stem else f.stem
-        sub = want.get(name)
-        if not sub:
+    got = workbench.claim()
+    for f in got["mine"] + got["unclaimed"]:
+        src = Path(f["path"])
+        sub = want.get(f["clip"])
+        if f["kind"] != "still" or src.suffix != ".jpg" or not sub:
             continue
         # 스틸 자체가 산출물인 요청(아기 캐논 등)은 act/mech로 가르지 않고 트랙 스틸 폴더에 둔다
-        dst = (tracks.stills_dir(track) if sub == "still" else STILLS / sub) / f"{name}.jpg"
+        dst = (tracks.stills_dir(track) if sub == "still" else STILLS / sub) / f"{f['clip']}.jpg"
         if dst.exists():
             continue
         dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(f, dst)
-        print(f"  건져냄: {f.name} → {dst.relative_to(ROOT)}")
+        try:
+            shutil.copy2(src, dst)
+        except FileNotFoundError:
+            # 그 사이 다른 세션 병합기가 새 번호로 이름을 바꿨다 — 다음 판에 다시 건진다
+            print(f"  ⚠ {src.name}: 옮겨지는 중이라 이번엔 못 건졌다 — 시트를 한 번 더 만들면 건진다")
+            continue
+        print(f"  건져냄: {src.name} → {dst.relative_to(ROOT)}")
 
 
 def main() -> None:
-    # 트랙마다 시트를 따로 낸다 — 한 폴더에 섞이면 번호가 엉켜 "몇 번을 뽑으라는 거냐"가 된다
+    # 트랙마다 섹션을 따로 낸다 — 병합기가 세 채널 섹션을 한 시트로 합치며 01부터 이어 매긴다
     for track in [None, *tracks.TRACKS]:
         build(track)
 
 
+def _why(r: dict) -> str:
+    return f"<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>"
+
+
+def _mj_item(r: dict, sub: str, refs: dict[str, str], has: bool) -> dict:
+    """1부 미드저니 한 칸 — 프롬프트·레퍼런스 설명·접어 둔 대안 문구."""
+    mode = r.get("ref_mode") or "Style Reference"
+    # 아기 스틸은 직접 표현 문구(midjourney_alt)가 먼저 — 돌려 말한 기본 문구로는 어른 비례가 나왔다(2026-09-30 실측)
+    baby = (Path(r.get('ref') or '').stem.startswith("baby_") or r["name"].startswith("baby_")) and r.get("midjourney_alt")
+    if r.get("style") == "real":
+        # 일반 사진풍 요청(속이 보일 필요 없는 아이 행위 장면)엔 반투명 캐논 --sref를 붙이면 다시 엑스레이로 끌려간다
+        # (2026-10-04 사용자 "그냥 엑스레이사진을 안 하면 되지") — 비율만 박는다
+        raw = r.get('midjourney', '')
+        body, no = raw.split(" --no ", 1) if " --no " in raw else (raw, "text, letters, numbers, labels, watermark, logo")
+        prompt = f"{body.split(' --', 1)[0].rstrip()} --ar 9:16 --no {no}"
+    else:
+        prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
+    how = "레퍼런스 없음 — 일반 사진풍(엑스레이 아님)" if r.get("style") == "real" else (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
+           else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
+    extra = []
+    if r.get("midjourney_alt") and not baby:
+        extra.append("<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
+                     f"```\n{r['midjourney_alt']}\n```\n\n</details>")
+    extra.append(_why(r))
+    return {"prompt": prompt, "note": how, "extra": "\n\n".join(extra), "col": "✅ 있음" if has else "뽑기"}
+
+
 def build(track: str | None) -> None:
-    sheet, work, inbox = tracks.work_paths(track)
+    section = tracks.section_of(track)
     pend = _pending(track)
     if not pend:
-        # 비어도 파일은 둔다 — 사람이 deploy/작업/을 열었을 때 "이 브랜드는 할 게 없다"가 바로 보이게
-        sheet.parent.mkdir(parents=True, exist_ok=True); work.mkdir(parents=True, exist_ok=True)
-        sheet.write_text("# 지금 뽑을 클립 없음\n\n요청이 생기면 이 파일이 번호순 작업지시로 바뀐다.\n", encoding="utf-8")
-        print(f"{sheet.relative_to(ROOT.parent)} — 0종")
+        # 비어도 섹션은 낸다 — 다 받은 트랙의 옛 항목이 통합 시트에 남지 않게
+        workbench.publish(section, [])
+        print(f"{section} 섹션 — 0종")
         return
-    # 번호는 시트에 실리는 차례(0부 스틸 → 1부 Flow만 → 2부 미드저니부터)와 같아야 한다.
-    # 안 그러면 "01~09 미드저니 먼저 / 03~11 스틸만"처럼 구간이 겹쳐 무엇부터 할지 알 수 없다.
-    # 🚨 미드저니가 필요한 번호를 앞(01~)으로 몬다(2026-09-26 사용자 "몇 번을 말해 미드저니를 위쪽으로 몰아서
-    # 쫙 뽑게 하라니까"). 사람은 미드저니를 한 번에 다 뽑고 → 세션이 확인·정리 → Flow를 한 번에 돈다.
+    work = tracks.work_paths(track)[1]
+    # 🚨 미드저니가 필요한 것을 앞으로 몬다(2026-09-26 사용자 "몇 번을 말해 미드저니를 위쪽으로 몰아서 쫙 뽑게 하라니까").
+    # 사람은 미드저니를 한 번에 다 뽑고 → 세션이 확인·정리 → Flow를 한 번에 돈다. 병합기도 같은 원칙으로 세 채널을 세운다.
     # 🚨 다른 요청의 레퍼런스가 되는 스틸(육아 baby_canon_organs 등)을 맨 앞에, 아직 없는 레퍼런스를 쓰는 스틸을
     # 그 뒤로(2026-09-30): 순서가 섞이자 1번부터 링크 없는 프롬프트가 나와 32칸이 레퍼런스 없이 뽑힐 뻔했다.
     ref_names = {Path(r.get("ref") or "").stem for _t, r, _s in pend}
@@ -229,94 +267,26 @@ def build(track: str | None) -> None:
 
     pend.sort(key=order)
     _harvest_loose_stills(pend, work, track)
-    if work.exists():
-        shutil.rmtree(work)
-    work.mkdir(parents=True)
-    for i, (topic, r, sub) in enumerate(pend, 1):
-        src = _existing_still(sub, r["name"], track)
-        r["_no"], r["_work"] = f"{i:02d}", f"{i:02d}_{r['name']}.jpg"
-        if src:
-            shutil.copy2(src, work / r["_work"])
-        else:
-            # 🚨 스틸이 없는 항목은 폴더를 **빈자리로 두지 않는다**(2026-09-24): "스틸 다
-            # 모아놨다"는 말만 믿고 열었다가 파일이 없어 헛걸음했다. 왜 없는지, 뭘 하면
-            # 되는지를 그 자리에 적어둔다.
-            (work / f"{i:02d}_{r['name']}_스틸없음.txt").write_text(
-                f"{r['name']} — 스틸이 아직 없습니다.\n\n"
-                f"{sheet.name}의 {i:02d}번에 미드저니 프롬프트가 있습니다.\n"
-                f"그걸로 이미지를 뽑아 이 폴더에 `{i:02d}_{r['name']}.jpg` 로 넣어주세요.\n"
-                f"(이 쪽지는 지워도 됩니다)\n", encoding="utf-8")
-
-    # 스틸만 받는 요청을 1·2부에 섞으면 "이것도 Flow를 돌려야 하나"가 된다 — 따로 세운다
-    stills = [x for x in pend if x[2] == "still"]
-    ready = [x for x in pend if x[2] != "still" and (work / x[1]["_work"]).exists()]
-    todo = [x for x in pend if x[2] != "still" and x not in ready]
-    # 맨 위가 "지금 뭘 하면 되는지"를 번호로 답해야 한다. 미드저니는 전부 1부에 몰고, Flow는 전부 2부에 몬다 —
-    # 한 항목 안에 미드저니·Flow를 같이 두면 미드저니를 뽑으려고 Flow 프롬프트 사이를 헤집어야 했다.
-    mj = sorted(stills, key=lambda x: int(x[1]["_no"])) + sorted(todo, key=lambda x: int(x[1]["_no"]))  # 미드저니가 필요한 것
-    flow = todo + ready                    # Flow를 돌릴 것(미드저니 확인이 끝난 뒤)
-    flow.sort(key=lambda x: x[1]["_no"])
-    span = lambda xs: ("없음" if not xs
-                       else "·".join(r["_no"] for _t, r, _s in xs) if len(xs) <= 4
-                       else f"{xs[0][1]['_no']}~{xs[-1][1]['_no']}")
-    folder = work.relative_to(ROOT.parent)
-    # 끝난 단계는 안 남긴다(2026-09-27 "미드저니도 다뽑았으면 없어져도되잖아") — 미드저니가 0장이면 Flow만 적는다
-    steps = ([f"\n1. **미드저니 {span(mj)} — 1부를 위에서부터 쫙 뽑는다.** 결과는 `{folder}/`에 넣거나 zip째 다운로드 폴더에 둔다.\n",
-              "2. **세션에 말한다** — 세션이 확인·분류해서 번호 이름으로 정리하고 이 시트를 다시 만든다.\n",
-              f"3. **Flow {span(flow)} — 2부를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n"]
-             if mj else
-             [f"\n1. **Flow {span(flow)} — 아래를 쫙 돌린다.** 같은 번호 스틸을 start 프레임으로만 넣는다(end 비움).\n"])
-    L = [f"# 지금 뽑을 것 {len(pend)}종" + (f" — {track} 트랙" if track else "") + "\n",
-         "\n## 내가 할 일 (이 순서대로)\n", *steps,
-         f"   결과 mp4는 `{folder}/`에 클립 이름 그대로 넣거나 다운로드 폴더에 둔다.\n",
-         "\n| # | 이름 | topic | 미드저니 | Flow |\n|---|---|---|---|---|\n"]
-    for topic, r, sub_ in sorted(pend, key=lambda x: int(x[1]["_no"])):
-        has = (work / r["_work"]).exists()
-        L.append(f"| {r['_no']} | `{r['name']}` | {topic} | {'✅ 있음' if has else '뽑기'} | "
-                 f"{'— (스틸만)' if sub_ == 'still' else '돌리기'} |\n")
-
-    if mj:
-        L.append(f"\n---\n\n# 1부 · 미드저니 — {len(mj)}장 쫙 먼저\n")
-        L.append("\n레퍼런스는 전부 **Style Reference**(`--sref`, 프롬프트 안 링크) — Omni는 모양까지 따라 해 장면이 뒤틀린다. "
-                 "저장 이름은 번호마다 적혀 있다.\n")
-    refs = _mj_refs() if mj else {}
-    for topic, r, sub in mj:
-        mode = r.get("ref_mode") or "Style Reference"
-        tag = " · 🖼 스틸만(Flow 없음)" if sub == "still" else ""
-        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic}{tag}\n")
-        # 아기 스틸은 직접 표현 문구(midjourney_alt)가 먼저 — 돌려 말한 기본 문구로는 어른 비례가 나왔다(2026-09-30 실측)
-        baby = (Path(r.get('ref') or '').stem.startswith("baby_") or r["name"].startswith("baby_")) and r.get("midjourney_alt")
-        if r.get("style") == "real":
-            # 일반 사진풍 요청(속이 보일 필요 없는 아이 행위 장면)엔 반투명 캐논 --sref를 붙이면 다시 엑스레이로 끌려간다
-            # (2026-10-04 사용자 "그냥 엑스레이사진을 안 하면 되지") — 비율만 박는다
-            raw = r.get('midjourney', '')
-            body, no = raw.split(" --no ", 1) if " --no " in raw else (raw, "text, letters, numbers, labels, watermark, logo")
-            prompt = f"{body.split(' --', 1)[0].rstrip()} --ar 9:16 --no {no}"
-        else:
-            prompt = _with_ref(r["midjourney_alt"] if baby else r.get('midjourney', ''), r.get('ref') or CANON, mode, refs)
-        how = "레퍼런스 없음 — 일반 사진풍(엑스레이 아님)" if r.get("style") == "real" else (f"레퍼런스는 프롬프트 안에 링크로 들어 있다({'Omni — 아기 몸 비례 고정' if '--oref' in prompt else 'Style'})" if "ref https://" in prompt
-               else f"레퍼런스 `{Path(r.get('ref') or CANON).name}`는 아직 없다 — 먼저 뽑는 번호 결과가 들어오면 시트를 다시 만들어 링크를 박는다")
-        L.append(f"\n저장: `{r['_work']}` · {how}\n")
-        L.append(f"\n```\n{prompt}\n```\n")
-        if r.get("midjourney_alt") and not baby:
-            L.append("\n<details><summary>막히거나 비례가 어른처럼 나오면 이 문구로</summary>\n\n"
-                     f"```\n{r['midjourney_alt']}\n```\n\n</details>\n")
-        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
-
-    L.append(f"\n---\n\n# 2부 · Flow — {len(flow)}개 (미드저니 확인 끝난 뒤)\n")
-    L.append("\n🚨 **start 프레임만** 준다 — end를 주면 Veo가 사이를 맞추려고 피사체를 변형시킨다.\n")
-    for topic, r, _sub in flow:
-        wait = "" if (work / r["_work"]).exists() else " · ⏳ 1부 스틸 먼저"
-        L.append(f"\n## {r['_no']}. `{r['name']}` — {topic} ({r.get('seconds', 6)}초){wait}\n")
-        L.append(f"\n스틸: `{r['_work']}`\n\n```\n{r.get('flow', '')}\n```\n")
-        L.append(f"\n<details><summary>왜 필요한가</summary>\n\n{r.get('why', '')}\n\n</details>\n")
-
-    sheet.parent.mkdir(parents=True, exist_ok=True)
-    sheet.write_text("".join(L), encoding="utf-8")
-    print(f"{sheet.relative_to(ROOT.parent)} — {len(pend)}종 (스틸 있음 {len(ready)} / "
-          f"미드저니부터 {len(todo)} / 스틸만 {len(stills)})")
-    print(f"  스틸 폴더: {work.relative_to(ROOT.parent)}")
-    if todo and (pending_zip := _unopened_deliveries()):
+    srcs = {r["name"]: _existing_still(sub, r["name"], track) for _t, r, sub in pend}
+    # 스틸만 받는 요청은 언제나 1부(미드저니), 영상 요청은 스틸이 없을 때만 1부를 거친다
+    need_mj = [x for x in pend if x[2] == "still" or not srcs[x[1]["name"]]]
+    refs = _mj_refs() if need_mj else {}
+    items = []
+    for topic, r, sub in pend:
+        src = srcs[r["name"]]
+        items.append({
+            "clip": r["name"], "topic": topic, "start": str(src) if src else None,
+            "mj": _mj_item(r, sub, refs, bool(src)) if (sub == "still" or not src) else None,
+            # 스틸만 받는 요청을 Flow에 섞으면 "이것도 Flow를 돌려야 하나"가 된다 — flow를 비워 2부에서 뺀다
+            "flow": None if sub == "still" else {"prompt": r.get("flow", ""), "sec": r.get("seconds", 6), "extra": _why(r)},
+            "meta": {"kind": sub},
+        })
+    workbench.publish(section, items)
+    n_still = sum(1 for x in pend if x[2] == "still")
+    n_todo = sum(1 for x in pend if x[2] != "still" and not srcs[x[1]["name"]])
+    print(f"{section} 섹션 — {len(pend)}종 (스틸 있음 {len(pend) - n_still - n_todo} / "
+          f"미드저니부터 {n_todo} / 스틸만 {n_still})")
+    if n_todo and (pending_zip := _unopened_deliveries()):
         print(f"\n🚨 아직 안 푼 미드저니 zip {len(pending_zip)}개가 다운로드 폴더에 있다 —"
               " 이것부터 확인해라. 같은 걸 또 뽑으라고 내보내게 된다:")
         for z in pending_zip:

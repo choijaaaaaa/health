@@ -68,12 +68,13 @@ def test_track_of_path_reads_the_folder_not_the_name():
     assert tracks.track_of_path(tracks.ROOT / "data" / "소화_14" / "clip_requests.json") is None
 
 
-def test_work_and_stills_dirs_are_split_per_track():
+def test_work_paths_are_shared_but_sections_split():
     sheet, stills, inbox = tracks.work_paths("육아")
-    # 트랙마다 시트·스틸 폴더가 따로여야 번호가 안 섞인다(deploy/작업/ 안에 나란히)
-    assert sheet.name == "육아만사전.md" and stills.name == "육아만사전_스틸" and inbox == stills
-    assert tracks.work_paths(None)[0].name == "건강만사전.md"
-    assert sheet.parent == tracks.work_paths(None)[0].parent
+    # 2026-10-25 통합: 건강·육아(·댕냥)는 시트·스틸 폴더가 하나다. 섞이지 않게 하는 건 트랙별 섹션 + 병합기 번호다
+    assert sheet.name == "만사전.md" and stills.name == "만사전_스틸" and inbox == stills
+    assert tracks.work_paths(None) == (sheet, stills, inbox)
+    assert {tracks.section_of(None), tracks.section_of("육아")} == {"health", "baby"}
+    assert tracks.MANJEON.name == "manjeon_sheet.py" and tracks.MANJEON.parent.name == "tools"
     assert tracks.stills_dir("육아").name == "baby"
     assert tracks.stills_dir(None).name == "stills"
 

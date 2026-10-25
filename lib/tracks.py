@@ -13,11 +13,11 @@ ROOT = Path(__file__).resolve().parent.parent
 
 # dir: data/·output/ 밑에서 이 트랙이 쓰는 폴더 이름. None이면 기존처럼 평평하게 둔다.
 # domain: 브랜드커넥트 상품 판정 기준(유아용품을 빼느냐 마느냐가 갈린다).
-# work: 미드저니·Flow 작업 자리. 트랙마다 따로 둬야 시트 번호가 섞이지 않는다.
+# section: 통합 작업대(deploy/작업/만사전.md)에 이 트랙 항목을 내보내는 섹션 이름(ai-video-network/tools/manjeon_sheet.py).
 TRACKS: dict[str, dict] = {
     # 🚨 육아 트랙 브랜드는 「육아만사전」(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 … 다 반영") —
     # 작업대 시트·엔딩 카드·해시태그·미션컨트롤 탭이 이 이름을 쓴다. 내부 식별자(폴더 `육아/`, topic `육아_N`)는 그대로.
-    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "work": "육아만사전", "stills": "baby",
+    "육아": {"prefix": "육아_", "dir": "육아", "domain": "baby", "section": "baby", "stills": "baby",
            "brand": "육아만사전", "end_card": "육아만사전 · 더 많은 육아정보는 구독·좋아요·팔로우",
            # 업로드용 사본 자리 — 건강만사전(deploy/health-shorts/)과 섞이지 않게 따로 뗀다(2026-09-30 사용자
            # "deploy도 헬스숏츠가아니라 따로 뗴라고 분명히 말했찌?"). 댕냥사전이 deploy/dangnyang-shorts/인 것과 같은 식.
@@ -28,7 +28,7 @@ TRACKS: dict[str, dict] = {
            # 틱톡은 옛 세상만사전 일본어 계정을 육아만사전으로 바꿔 쓴다(2026-10-09 사용자 "일본어 올리던 계정이 육아만사전")
            "tiktok": "https://www.tiktok.com/@parentingdictionary"},
 }
-DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
+DEFAULT = {"prefix": "", "dir": None, "domain": "health", "section": "health", "stills": None,
            "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
            "deploy": "health-shorts", "naver_blog": "https://blog.naver.com/chlwjddms16",
            # 틱톡 계정 주소(2026-10-14 사용자 "사이트 주소 바뀌었다" — 옛 세상만사전 한국어 계정 @nerdengineering을 이름 바꿈)
@@ -131,7 +131,7 @@ def topic_of_path(path: Path, base: Path) -> str | None:
 
 # 🚨 사람이 작업하는 자리는 저장소 안이 아니라 `ai-video-network/deploy/작업/` 한 단계에 모은다
 # (2026-09-25 사용자 "매번 폴더 막 들어가서 작업하기 존나 힘드니까 deploy 폴더 안에 … 프롬프트 넣을 md랑
-# 스틸 넣을 공간만"). 건강만사전·댕냥사전·세상만사전이 같은 자리에 `<브랜드>.md` + `<브랜드>_스틸/`로 나란히 선다.
+# 스틸 넣을 공간만"). 브랜드마다 `<브랜드>.md` + `<브랜드>_스틸/`로 나란히 서고, 건강·육아·댕냥은 `만사전.md` 하나로 합쳤다(아래).
 # worktree(~/Desktop/project/.worktrees/health-shorts/<설명>)에서 ROOT.parent를 쓰면 .worktrees 안에 가짜 deploy가 생겨
 # 시트·업로드 파일이 엉뚱한 데로 갔다(2026-10-23 두 번) — .worktrees 밖에서 ai-video-network가 있는 조상을 찾는다
 _PROJECT = next((p for p in ROOT.parents if ".worktrees" not in p.parts and (p / "ai-video-network").is_dir()), ROOT.parent)
@@ -149,12 +149,23 @@ def deploy_roots() -> list[Path]:
     return [DEPLOY_ROOT / t["deploy"] for t in [DEFAULT, *TRACKS.values()]]
 
 
+# 🚨 건강·육아·댕냥은 작업대 하나(`만사전.md` + `만사전_스틸/`)를 같이 쓴다(2026-10-25 사용자 "어차피 동일한 컨셉으로
+# 동일하게 가니까 … 굳이 떨어질 필요가 없을 듯"). 시트·스틸 폴더는 병합기 `ai-video-network/tools/manjeon_sheet.py`만 쓰고,
+# 이 저장소 생성기는 트랙별 섹션(health·baby)만 내보낸다 — 댕냥 생성기(dangnyang-shorts)와 서로 덮어쓰지 않게.
+MANJEON = _PROJECT / "ai-video-network" / "tools" / "manjeon_sheet.py"
+MANJEON_REPO = "health-shorts"
+
+
 def work_paths(track: str | None) -> tuple[Path, Path, Path]:
-    """(작업지시 시트, 스틸 폴더, 완성클립 받는 곳). 스틸과 Flow 결과 mp4는 같은 폴더에서 받는다 —
-    사람이 열 폴더를 하나로 줄이려고. 이름은 tests/test_xray_worksheet_path.py가 막는다."""
-    name = TRACKS[track]["work"] if track else DEFAULT["work"]
-    stills = DEPLOY_WORK / f"{name}_스틸"
-    return DEPLOY_WORK / f"{name}.md", stills, stills
+    """(작업지시 시트, 스틸 폴더, 완성클립 받는 곳) — 트랙과 상관없이 같은 통합 작업대. 스틸과 Flow 결과 mp4는
+    같은 폴더에서 받는다(사람이 열 폴더를 하나로). 이름은 tests/test_xray_worksheet_path.py가 막는다."""
+    stills = DEPLOY_WORK / "만사전_스틸"
+    return DEPLOY_WORK / "만사전.md", stills, stills
+
+
+def section_of(track: str | None) -> str:
+    """통합 작업대에서 이 트랙 항목이 들어가는 섹션 이름(health / baby)."""
+    return (TRACKS[track] if track else DEFAULT)["section"]
 
 
 def brand(topic: str) -> str:

@@ -70,7 +70,7 @@
 ## 트랙과 폴더
 
 - 기본(건강) topic은 `data/<topic>/`·`output/<topic>/`에 평평하게 둔다.
-- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·`deploy/작업/육아만사전*`·
+- **육아 트랙**만 한 단계 접는다: `data/육아/<topic>/`·`output/육아/<topic>/`·작업대 섹션 `baby`·
   `stills/baby/`. 🚨 **topic 이름은 `육아_1`로 평평하다 — 접히는 건 경로뿐**이다. 이 저장소에서 topic 안의
   `/`는 **언어**를 뜻해서(`가슴쓰림_1/en`), `육아/육아_1`로 부르면 언어 코드로 읽혀 조용히 깨진다.
   경로는 반드시 `lib/tracks.py`(`data_dir`·`output_dir`·`iter_topic_dirs`·`glob_topic_files`)로 푼다.
@@ -275,8 +275,7 @@
 - **광고 배너 CTA**(`lib/ad_cta.py` 정본) — 세로 위치는 칠판 상단 기준(`CTA_CY_FROM_BOARD_TOP`), 등장은
   `CTA_START_SEC=5.0`(썸네일 후보 프레임을 가리지 않게. `enable`로 건다 — fade는 안 먹는다). `.pre_cta.mp4`는 쓰지 말 것.
 - 🚨 **없는 클립은 요청한다, 비슷한 걸로 때우지 않는다** — `data/<topic>/clip_requests.json`에 적고 그 topic은 조립을
-  멈춘다. 렌더 시트는 `scripts/prep_clip_worksheet.py`가 트랙별로 만든다(`../ai-video-network/deploy/작업/건강만사전.md`·`육아만사전.md`
-  — 이름 고정, `tests/test_xray_worksheet_path.py`). 받은 클립은 `건강만사전_스틸/`에 넣고 `scripts/collect_clips.py --commit`.
+  멈춘다. 렌더 시트는 🚨 **건강·육아·댕냥 공용 `../ai-video-network/deploy/작업/만사전.md` 하나**(2026-10-25 사용자 "어차피 동일한 컨셉으로 동일하게 가니까 … 굳이 떨어질 필요가 없을 듯"). `scripts/prep_clip_worksheet.py`는 트랙별 **섹션(health·baby)만** 내고(`lib/workbench.py`), 병합기 `ai-video-network/tools/manjeon_sheet.py`가 댕냥 섹션과 합쳐 번호(01부터 빈칸 없이, 재생성마다 다시 매김)·시트·스틸 사본·manifest(`deploy/작업/.만사전/manifest.json`)를 만든다 — 이름 고정, `tests/test_xray_worksheet_path.py`·`tests/test_manjeon_workbench.py`. 받은 클립은 `만사전_스틸/`에 넣고 `scripts/collect_clips.py --commit` — manifest로 **이 저장소 몫만** 들인다(댕냥 파일은 건드리지 않는다).
   미드저니 레퍼런스(canon_organs 등)는 **로컬 경로를 적지 말고** `lib/mj_refs.py`로 R2+D1(`mj_references`, project=health-shorts)에 올려 시트 프롬프트에 `--sref <url>`로 박는다(Omni `--oref`는 모양까지 따라 해 장면이 뒤틀려 쓰지 않는다) — 시트 생성기가 자동으로 한다(2026-09-29 사용자 "내가 일일히 넣지않고 너가 db에 넣은 상태로 프롬프트에 링크").
   스틸만 받는 요청은 `"kind": "still"`. 아무 topic도 안 쓰는 요청은 지운다(사람 렌더 시간 낭비).
 - 클립은 **색인으로 찾는다**(`-m lib.clip_index --for <증상어>`, `--show <이름>`) — 이름이 실제와 다른 클립이 많다.
@@ -290,7 +289,7 @@
 
 ## 육아 트랙 — 브랜드 「육아만사전」 (2026-09-24 착수, 시험 배치 10편)
 
-- 🚨 **육아 topic은 「육아만사전」으로 나간다**(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 미션콘트롤부터 전반적인거 다 반영"): 엔딩 카드·카드 CTA·해시태그 `#육아만사전`·작업대 `deploy/작업/육아만사전.md`·유튜브 기본 태그·미션컨트롤 업로드 탭 "육아 — 육아만사전". 이름은 `lib/tracks.py`의 `brand`/`end_card`가 정본. 내부 식별자(`data/육아/`, topic `육아_N`, R2 `health-shorts/card_news/`)는 그대로.
+- 🚨 **육아 topic은 「육아만사전」으로 나간다**(2026-09-30 사용자 "건강만사전의 육아쪽은 육아만사전으로 명명하고 미션콘트롤부터 전반적인거 다 반영"): 엔딩 카드·카드 CTA·해시태그 `#육아만사전`·작업대 배지 「육아」(`deploy/작업/만사전.md`)·유튜브 기본 태그·미션컨트롤 업로드 탭 "육아 — 육아만사전". 이름은 `lib/tracks.py`의 `brand`/`end_card`가 정본. 내부 식별자(`data/육아/`, topic `육아_N`, R2 `health-shorts/card_news/`)는 그대로.
 
 시청자가 20~30대 부모로 갈리므로 10편 올려보고 조회수로 확장을 판단한다. 포맷 차이는 `XRAY_FORMAT.md` 6절.
 

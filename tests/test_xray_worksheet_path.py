@@ -9,9 +9,10 @@ from scripts import collect_clips as c
 
 
 def test_worksheet_paths_are_pinned():
-    # 2026-09-25 사용자 지시로 deploy/작업/ 한 단계로 옮겼다 — 여기서 또 바꾸지 말 것
-    assert w.SHEET.name == "건강만사전.md"
-    assert w.WORK.name == "건강만사전_스틸"
+    # 2026-09-25 사용자 지시로 deploy/작업/ 한 단계로 옮겼고, 2026-10-25 건강·육아·댕냥을 만사전.md 하나로 합쳤다
+    # (사용자 "어차피 동일한 컨셉으로 동일하게 가니까 … 굳이 떨어질 필요가 없을 듯") — 여기서 또 바꾸지 말 것
+    assert w.SHEET.name == "만사전.md"
+    assert w.WORK.name == "만사전_스틸"
     assert w.INBOX == w.WORK, "스틸과 Flow 결과를 한 폴더에서 받는다"
     assert c.INBOX == w.INBOX, "collect_clips와 prep_clip_worksheet이 같은 폴더를 봐야 한다"
     assert w.SHEET.parent == w.WORK.parent and w.SHEET.parent.name == "작업" and w.SHEET.parent.parent.name == "deploy"
