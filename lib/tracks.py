@@ -26,7 +26,7 @@ TRACKS: dict[str, dict] = {
            # — 브랜드커넥트 계정과 같은 chlwjddms17. 새 topic 캡션의 블로그 url은 여기서 가져온다.
            "naver_blog": "https://blog.naver.com/chlwjddms17",
            # 틱톡은 옛 세상만사전 일본어 계정을 육아만사전으로 바꿔 쓴다(2026-10-09 사용자 "일본어 올리던 계정이 육아만사전")
-           "tiktok": "https://www.tiktok.com/@whypedia_ja1"},
+           "tiktok": "https://www.tiktok.com/@parentingdictionary"},
 }
 DEFAULT = {"prefix": "", "dir": None, "domain": "health", "work": "건강만사전", "stills": None,
            "brand": "건강만사전", "end_card": "건강만사전 · 더 많은 건강정보는 구독·좋아요·팔로우",
