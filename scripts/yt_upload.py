@@ -12,6 +12,8 @@ lib/youtube_upload.py를 그대로 돌리면 개인 채널로 네이버판 영�
     .venv/bin/python3 scripts/yt_upload.py adult schedule --count 5 --commit   # 다음 빈 슬롯(8시·18시)에 예약
     .venv/bin/python3 scripts/yt_upload.py adult reschedule 대사_14 2026-09-28
     .venv/bin/python3 scripts/yt_upload.py baby replace 육아_7          # 공개 전 예약 영상을 새 파일로 교체
+    .venv/bin/python3 scripts/yt_upload.py adult longform output/_longform/adult_stomach_20261025 --at "2026-10-26 20:00"
+                                                                       # 몰아보기 롱폼(compile_longform.py 결과) — --commit 없으면 미리보기만
 """
 from __future__ import annotations
 
@@ -50,6 +52,11 @@ PUBLISH_HOURS = sorted(int(h) for h in os.environ.get("HEALTH_YT_PUBLISH_HOURS",
 PUBLISH_HOUR = PUBLISH_HOURS[-1]   # reschedule에 날짜만 줄 때 쓰는 기본 시각(저녁)
 # 캡션은 한때 세상건강사전 채널용으로 썼다 — 올릴 때 이 채널 이름으로 바꿔 넣는다
 OLD_BRAND_TAG = "#세상건강사전"
+# 설명란 제휴 링크 고지 — 쇼츠·몰아보기 롱폼이 같은 문구를 쓴다
+PRODUCT_LINK_NOTICE = "네이버 쇼핑 제휴 링크 — 구매 시 수수료를 받을 수 있어요"
+# 몰아보기 롱폼은 youtube_uploaded에 `<채널>/longform/<폴더명>`으로 남긴다. WHY 쇼츠 행에서 빼는지: 17시 슬롯 계산
+# (next_free_slots)이 이 행의 공개 시각을 "그날 17시 쇼츠가 찼다"로 읽으면 그날 쇼츠 한 편이 밀린다.
+LONGFORM = "longform/"
 
 
 class Channel:
@@ -74,12 +81,13 @@ class Channel:
             raise SystemExit(f"❌ 토큰 채널이 {items[0]['id'] if items else '(없음)'} — {self.code}({want})가 아니라서 중단")
         return yt, items[0]["snippet"]["title"]
 
-    def rows(self) -> list[dict]:
+    def rows(self, include_longform: bool = False) -> list[dict]:
+        """이 채널 업로드 기록. 기본은 쇼츠 행만 — 슬롯 계산·올릴 후보·안내 댓글이 롱폼 행을 topic으로 읽지 않게."""
         import requests
         r = requests.get(f"{yu.SUPABASE_URL}/rest/v1/youtube_uploaded", headers=yu._SB_HEADERS,
                          params={"select": "topic,video_id,publish_at,status,commented_at", "topic": f"like.{self.key}*"}, timeout=30)
         r.raise_for_status()
-        return r.json()
+        return [x for x in r.json() if include_longform or not x["topic"].startswith(self.key + LONGFORM)]
 
 
 def _video(topic: str) -> Path:
@@ -110,13 +118,18 @@ def _products(topic: str) -> list[str]:
     return [x for x in (json.loads(p.read_text(encoding="utf-8")).get("products") or []) if x and x != "-"] if p else []
 
 
+def product_lines(topic: str, links: dict[str, str] | None = None) -> list[str]:
+    """`▶ 품목: 링크` 줄들 — 링크가 발급된 품목만. link_health가 설명란에서 이 꼴을 찾아 죽은 링크를 고친다."""
+    if links is None:
+        from lib.brandconnect import existing_naver_links
+        links = existing_naver_links()
+    return [f"▶ {x}: {links[x]}" for x in _products(topic) if links.get(x)]
+
+
 def _products_block(topic: str) -> str:
     """설명란 맨 앞 제휴 링크 줄 — 유튜브판 영상의 '광고' 표시와 짝(설명란 제휴 링크는 직접 밝힌다)."""
-    from lib.brandconnect import existing_naver_links
-    products = _products(topic)
-    links = existing_naver_links()
-    lines = [f"▶ {x}: {links[x]}" for x in products if links.get(x)]
-    return ("📦 영상 속 제품 (네이버 쇼핑 제휴 링크 — 구매 시 수수료를 받을 수 있어요)\n" + "\n".join(lines) + "\n\n") if lines else ""
+    lines = product_lines(topic)
+    return (f"📦 영상 속 제품 ({PRODUCT_LINK_NOTICE})\n" + "\n".join(lines) + "\n\n") if lines else ""
 
 
 def ready_topics(ch: Channel) -> list[tuple[str, list[str]]]:
@@ -208,6 +221,61 @@ def upload(ch: Channel, yt, channel_title: str, topic: str, privacy: str, publis
     return vid
 
 
+def read_longform_upload(folder: Path) -> tuple[str, str, list[str]]:
+    """compile_longform.py가 쓴 upload.md → (제목, 설명란, 태그). 사람이 upload.md를 고쳤으면 고친 대로 올라간다.
+
+    형식: `제목: …` / 빈 줄 / `설명란:` 다음 줄부터 본문 / 빈 줄 / 마지막 `태그: a, b, c`."""
+    text = (folder / "upload.md").read_text(encoding="utf-8").strip()
+    head, sep, tag_line = text.rpartition("\n\n태그: ")
+    title_part, sep2, desc = head.partition("\n\n설명란:\n")
+    if not sep or not sep2 or not title_part.startswith("제목: "):
+        raise SystemExit(f"❌ {folder / 'upload.md'}: '제목:' / '설명란:' / '태그:' 형식이 아님")
+    title, desc = title_part[len("제목: "):].strip(), desc.strip()
+    # 유튜브가 거부하는 것 — 제목 100자·설명 5000바이트 초과, 꺾쇠(<>)
+    if len(title) > 100 or len(desc.encode("utf-8")) > 5000 or any(c in title + desc for c in "<>"):
+        raise SystemExit(f"❌ 제목 {len(title)}자 / 설명 {len(desc.encode('utf-8'))}바이트 — 유튜브 한도(100자·5000바이트·꺾쇠 금지) 초과")
+    return title, desc, [t.strip() for t in tag_line.split(",") if t.strip()]
+
+
+def upload_longform(ch: Channel, folder: Path, publish_at: str) -> str:
+    """몰아보기 롱폼을 비공개로 올리고 publish_at(UTC ISO)에 공개되게 예약한 뒤 썸네일을 붙인다.
+
+    기록 키는 `<채널>/longform/<폴더명>` — 쇼츠 슬롯·후보 계산은 rows()가 이 키를 빼고 본다."""
+    man = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
+    if man.get("channel") != ch.code:
+        raise SystemExit(f"❌ {folder.name}는 {man.get('channel')} 채널용 — {ch.code}로 올리지 않음")
+    video, thumb = folder / "longform.mp4", folder / "thumbnail.jpg"
+    if not video.exists():
+        raise SystemExit(f"❌ 영상 없음: {video}")
+    title, desc, tags = read_longform_upload(folder)
+    key = ch.key + LONGFORM + folder.name
+    yt, _ = ch.service()
+    if not yu._sb_reserve_upload(key, "ko"):
+        raise SystemExit(f"❌ {key}: 이미 예약·업로드된 기록이 있어 건너뜀(중복 방지)")
+    try:
+        status = yu._build_status_body("private", publish_at)
+        status["containsSyntheticMedia"] = True     # 쇼츠와 같은 AI 생성 표시
+        vid = yt.videos().insert(
+            part="snippet,status",
+            body={"snippet": {"title": title, "description": desc, "tags": tags,
+                              "categoryId": yu.HOWTO_AND_STYLE_CATEGORY,
+                              "defaultLanguage": "ko", "defaultAudioLanguage": "ko"},
+                  "status": status},
+            media_body=MediaFileUpload(str(video), chunksize=-1, resumable=True, mimetype="video/mp4"),
+        ).execute()["id"]
+    except BaseException:
+        yu._sb_release_upload(key)
+        raise
+    yu._sb_finalize_upload(key, vid, "public", publish_at)
+    if thumb.exists():
+        # 커스텀 썸네일은 채널 전화번호 인증이 없으면 403 — 영상 업로드·예약은 이미 끝났으니 알리고 넘어간다
+        try:
+            yt.thumbnails().set(videoId=vid, media_body=MediaFileUpload(str(thumb), mimetype="image/jpeg")).execute()
+        except HttpError as e:
+            print(f"⚠️ 썸네일 설정 실패(영상·예약은 완료) — 스튜디오에서 {thumb}를 직접 올릴 것: {str(e)[:160]}")
+    return vid
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("channel", choices=list(CHANNELS))
@@ -219,18 +287,37 @@ def main() -> None:
     s = sub.add_parser("schedule"); s.add_argument("--count", type=int, default=5); s.add_argument("--commit", action="store_true")
     rp = sub.add_parser("replace", help="공개 전 예약 영상을 지금 영상 파일로 갈아 끼운다(같은 공개 시각)")
     rp.add_argument("topic")
+    lf = sub.add_parser("longform", help="몰아보기 롱폼(compile_longform.py 결과 폴더)을 비공개로 올려 예약 — --commit 없으면 미리보기")
+    lf.add_argument("dir", help="output/_longform/<채널>_<테마>_<날짜>")
+    lf.add_argument("--at", required=True, help="공개 시각 KST 'YYYY-MM-DD HH:MM'")
+    lf.add_argument("--commit", action="store_true")
     a = ap.parse_args()
     ch = Channel(a.channel)
 
     if a.cmd == "whoami":
         _, name = ch.service(); print(f"✅ {ch.code} 토큰 채널: {name} ({os.environ[ch.env + 'CHANNEL_ID']})"); return
     if a.cmd == "status":
-        for row in sorted(ch.rows(), key=lambda x: x.get("publish_at") or ""):
+        for row in sorted(ch.rows(include_longform=True), key=lambda x: x.get("publish_at") or ""):
+            kind = "watch?v=" if row["topic"].startswith(ch.key + LONGFORM) else "shorts/"
             print(f"  {_kst(row['publish_at']) if row.get('publish_at') else '예약 없음':12s} {row['topic'][len(ch.key):]:10s} "
-                  f"{row['status']:9s} https://youtube.com/shorts/{row.get('video_id')}")
+                  f"{row['status']:9s} https://youtube.com/{kind}{row.get('video_id')}")
         return
+    if a.cmd == "longform":
+        folder = Path(a.dir) if Path(a.dir).is_dir() else ROOT / a.dir
+        when_kst = dt.datetime.strptime(a.at, "%Y-%m-%d %H:%M").replace(tzinfo=KST)
+        if when_kst < dt.datetime.now(KST) + dt.timedelta(minutes=30):
+            raise SystemExit(f"❌ 공개 시각 {a.at}는 지금부터 30분 안쪽이거나 지났다 — 유튜브 예약이 거부한다")
+        when = when_kst.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        title, desc, tags = read_longform_upload(folder)
+        print(f"제목({len(title)}자): {title}\n설명 {len(desc.encode('utf-8'))}바이트 · 태그 {len(tags)}개 · 공개 {a.at} KST\n"
+              f"기록 키: {ch.key + LONGFORM + folder.name}")
+        if not a.commit:
+            print("미리보기만 — 올리려면 --commit"); return
+        vid = upload_longform(ch, folder, when)
+        print(f"✅ 롱폼 → {a.at} KST 공개 예약: https://youtube.com/watch?v={vid}"); return
     if a.cmd == "reschedule":
-        row = next((x for x in ch.rows() if x["topic"] == ch.key + a.topic), None)
+        # 롱폼도 `reschedule longform/<폴더명> <날짜> --hour <시>`로 옮길 수 있게 롱폼 행까지 본다
+        row = next((x for x in ch.rows(include_longform=True) if x["topic"] == ch.key + a.topic), None)
         if not row or not row.get("video_id"):
             raise SystemExit(f"❌ {a.topic}: 올라간 기록이 없음")
         when = dt.datetime.combine(dt.date.fromisoformat(a.date), dt.time(a.hour if a.hour is not None else PUBLISH_HOUR), KST) \
